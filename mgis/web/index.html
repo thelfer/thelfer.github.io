@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>The MFrontGenericInterfaceSupport project</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+                <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">The MFrontGenericInterfaceSupport project</h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">20/11/2018</h3>
+          </div>
+            <p>This project aims at proving tools (functions, classes, bindings, etc…) to handle behaviours written using <code>MFront</code> generic interface. For information about <code>MFront</code>, see <a href="http://tfel.sourceforge.net" class="uri">http://tfel.sourceforge.net</a>.</p>
+<p>Those tools are meant to be used by (<code>FEM</code>, <code>FFT</code>, etc.) solver developers. This tools are <em>not</em> linked to the <code>TFEL</code> libraries. Permissive licences have been chosen to allow integration in open-source and proprietary codes.</p>
+<h1 id="the-mfrontgenericinterface-c-library">The <code>MFrontGenericInterface</code> <code>C++</code> library</h1>
+<p>The project is build around the <code>MFrontGenericInterface</code> library. This library provides two main functions:</p>
+<ul>
+<li>the <code>mgis::behaviour::load</code> functions loads <code>MFront</code> behaviours from external shared libraries and retrieve all relevant meta data function. Those relevant information are stored in the <code>mgis::behaviour::Behaviour</code> class.</li>
+<li>the <code>mgis::behaviour::integrate</code> integrates the behaviour over one time step. The data associated with an integration point are handled by the <code>mgis::behaviour::BehaviourData</code> class which contains the state of the integration point at the beginning and at the end of the time step.</li>
+</ul>
+<p>The library also supports handling a group of integration points though the <code>mgis::behaviour::MaterialStateManager</code> class.</p>
+<h1 id="bindings">Bindings</h1>
+<h2 id="existing">Existing</h2>
+<p>The following bindings are available:</p>
+<ul>
+<li><code>c</code> binding (mostly complete)</li>
+<li><code>python</code> binding (under current work in the <code>master</code> branch)</li>
+</ul>
+<h2 id="future-bindings-contributors-are-welcomed">Future bindings (contributors are welcomed)</h2>
+<p>The following bindings are under consideration:</p>
+<ul>
+<li><code>fortran90</code> binding</li>
+<li><code>octave</code> binding</li>
+<li><code>julia</code> binding</li>
+</ul>
+<h1 id="versions-branches">Versions, branches</h1>
+<ul>
+<li>the <code>master</code> branch follows the evolution of the <code>master</code> branch of the <code>TFEL</code> project</li>
+<li>the <code>rliv-1.0</code> follows the evolution of the 3.2.x series of the <code>TFEL</code> project. Note that this branch is <strong>not</strong> compatible with <code>TFEL-3.2.0</code>.</li>
+</ul>
+<h1 id="acknowledgement">Acknowledgement</h1>
+<p>This project uses code extracted from the following projects:</p>
+<ul>
+<li><a href="https://github.com/bitwizeshift/string_view-standalone" class="uri">https://github.com/bitwizeshift/string_view-standalone</a> by Matthew Rodusek</li>
+<li><a href="https://github.com/mpark/variant" class="uri">https://github.com/mpark/variant</a>: by Michael Park</li>
+<li><a href="https://github.com/progschj/ThreadPool" class="uri">https://github.com/progschj/ThreadPool</a> by Jakob Progsch and Václav Zeman</li>
+<li><a href="https://github.com/martinmoene/span-lite" class="uri">https://github.com/martinmoene/span-lite</a> by Martin Moene</li>
+</ul>
+      </body>
+</html>

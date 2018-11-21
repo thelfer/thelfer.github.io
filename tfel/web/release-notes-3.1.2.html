@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Release notes of the 3.1.2 version of TFEL, MFront and MTest</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2018-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Release notes of the 3.1.2 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">2018</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#tickets-fixed">Tickets fixed</a><ul>
+      <li><a href="#ticket-131-plane-stress-support-in-abaqusexplicit-is-broken">Ticket #131: Plane stress support in <code>Abaqus/Explicit</code> is broken</a></li>
+      <li><a href="#ticket-130-the-size-of-arrays-of-parameters-cant-be-declared-using-integer-constants">Ticket #130: The size of arrays of parameters can’t be declared using integer constants</a></li>
+      <li><a href="#ticket-129-arrays-of-parameters-are-not-supported-in-simple-precision">Ticket #129: Arrays of parameters are not supported in simple precision</a></li>
+      <li><a href="#ticket-128-generation-of-mtest-files-throws-an-exception-which-cant-be-caught-by-cast3m-in-case-of-forced-convergence">Ticket #128: Generation of <code>MTest</code> files throws an exception which can’t be caught by <code>Cast3M</code> in case of forced convergence</a></li>
+      <li><a href="#ticket-127-substepping-in-the-cast3m-and-cyrano-interface-may-lead-to-a-invalid-convergence-du-to-integer-overflow">Ticket #127: Substepping in the <code>Cast3M</code> and <code>Cyrano</code> interface may lead to a invalid convergence du to integer overflow</a></li>
+      <li><a href="#ticket-126-jacobian-error-in-ddif2base.ixx">Ticket #126: Jacobian error in <code>DDIF2Base.ixx</code></a></li>
+      <li><a href="#ticket-125-compiling-on-gcc-8.0.1-fedora-28-fails">Ticket #125: Compiling on gcc 8.0.1 (Fedora 28) fails</a></li>
+      <li><a href="#ticket-124-standardelasticity-brick-the-elastic-prediction-is-wrongly-computed-in-plane-stress-if-the-stiffness-tensor-is-computed-computestiffnesstensor-or-given-requirestiffnesstensor">Ticket #124: StandardElasticity brick: the elastic prediction is wrongly computed in plane stress if the stiffness tensor is computed (<code>@ComputeStiffnessTensor</code>) or given (<code>@RequireStiffnessTensor</code>)</a></li>
+      <li><a href="#ticket-123-implementation-mistakes-in-various-behaviours-based-on-implicit-dsl-and-using-a-numerical-jacobian-use-of-perturbated-values-to-update-auxiliary-state-variables">Ticket #123: Implementation mistakes in various behaviours based on Implicit DSL and using a numerical jacobian (use of perturbated values to update auxiliary state variables)</a></li>
+      <li><a href="#ticket-122-missing-file-in-the-distributed-tar-ball-mfront-queryincludecmakelists">Ticket #122: Missing file in the distributed tar ball (<code>mfront-query/include/CMakeLists</code>)</a></li>
+      <li><a href="#ticket-121-modifying-the-reference-values-read-in-a-file-does-not-work-in-mtest">Ticket #121: Modifying the reference values read in a file does not work in MTest</a></li>
+      <li><a href="#ticket-120-direct-call-to-cast3m-umat-behaviours-in-mtest-is-broken">Ticket #120: Direct call to Cast3M’ umat behaviours in <code>MTest</code> is broken</a></li>
+      <li><a href="#ticket-119-material-laws-are-not-declared-in-the-additionalconvergencechecks-code-block">Ticket #119: Material laws are not declared in the <code>@AdditionalConvergenceChecks</code> code block</a></li>
+      <li><a href="#ticket-118-the-behaviourdescriptionarematerialpropertiesdependantonstatevariables-method-always-returns-true">Ticket #118: The <code>BehaviourDescription::areMaterialPropertiesDependantOnStateVariables</code> method always returns <code>true</code></a></li>
+      <li><a href="#ticket-117-generated-source-fails-to-compile-if-one-ask-mtest-file-generation-with-array-of-internal-state-variables">Ticket #117: Generated source fails to compile if one ask MTest file generation with array of internal state variables</a></li>
+      <li><a href="#ticket-115-the-stress-free-expansion-handler-shall-be-a-nullptr-for-true-finite-strain-behaviours">Ticket #115: The stress free expansion handler shall be a <code>nullptr</code> for true finite strain behaviours</a></li>
+      </ul></li>
+      </ul>
+    </div>
+        <p>This is mainly a bug fix version of the <code>3.1</code> series. All tickets solved are described below.</p>
+<h1 id="tickets-fixed">Tickets fixed</h1>
+<h2 id="ticket-131-plane-stress-support-in-abaqusexplicit-is-broken">Ticket #131: Plane stress support in <code>Abaqus/Explicit</code> is broken</h2>
+<p>The documentation of the <code>vumat</code> interface has been badly understood in plane stress. In some cases (namely using the <code>Native</code> finite strain strategy), the conventions about tensors has not been transcribed appropriately (there have been a confusion with the <code>Abaqus/Standard</code> conventions).</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The <code>Native</code> finite strain strategy in <code>Abaqus/Explicit</code> (based on a corotational formulation) is not supported in <code>MTest</code>, so there is no unit-tests associated.</p>
+</blockquote>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/131/" class="uri">https://sourceforge.net/p/tfel/tickets/131/</a></p>
+<h2 id="ticket-130-the-size-of-arrays-of-parameters-cant-be-declared-using-integer-constants">Ticket #130: The size of arrays of parameters can’t be declared using integer constants</h2>
+<p>The following statement would not work in previous versions:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>IntegerConstant Nss = <span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="er">@</span>Parameter tau0[Nss] = {<span class="fl">100e6</span>, <span class="fl">100e6</span>};</a></code></pre></div>
+<p>To solve this issue, a new method <code>readArrayOfVariablesSize</code> has been introduced in the <code>DSLBase</code> class. This method is now shared by all methods which reads the size of an array of variables.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/130/" class="uri">https://sourceforge.net/p/tfel/tickets/130/</a></p>
+<h2 id="ticket-129-arrays-of-parameters-are-not-supported-in-simple-precision">Ticket #129: Arrays of parameters are not supported in simple precision</h2>
+<p>The trouble boils down to the fact that, du to intended limitations of the <code>tvector</code> class, downcasting from double precision to single precision is not allowed by the assignment operator.</p>
+<p>The call to the assignment operator has been replaced by a call to <code>tfel::fsalgo::copy</code> which allows downcasting.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/129/" class="uri">https://sourceforge.net/p/tfel/tickets/129/</a></p>
+<h2 id="ticket-128-generation-of-mtest-files-throws-an-exception-which-cant-be-caught-by-cast3m-in-case-of-forced-convergence">Ticket #128: Generation of <code>MTest</code> files throws an exception which can’t be caught by <code>Cast3M</code> in case of forced convergence</h2>
+<p>With the <code>Cast3M</code> interface, the generation of <code>MTest</code> files during a forced convergence sequence throws an exception which can’t be caught by <code>Cast3M</code>, leading to a severe crash.</p>
+<p>The trouble comes from the fact that during the forced convergence sequence, the time step is null, which is not handled by the <code>MTestFileGenerator</code> class.</p>
+<p>The trouble has been circumvented by introducing a minimal time step of <code>1.e-50</code> (the unit depends on the specific case treated).</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/128/" class="uri">https://sourceforge.net/p/tfel/tickets/128/</a></p>
+<h2 id="ticket-127-substepping-in-the-cast3m-and-cyrano-interface-may-lead-to-a-invalid-convergence-du-to-integer-overflow">Ticket #127: Substepping in the <code>Cast3M</code> and <code>Cyrano</code> interface may lead to a invalid convergence du to integer overflow</h2>
+<p>Using substeping with a high number of substeps may lead to a to integer overflow in the counter associated with the remaining steps that have to be performed.</p>
+<p>This counter was declared as an <code>unsigned short</code>. For more than 14 substeps, this counter would overflow and was automatically set egal to 0, leading to an erroneous convergence. This counter has been changed to <code>unsigned int</code> to avoid the problem.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/127/" class="uri">https://sourceforge.net/p/tfel/tickets/127/</a></p>
+<h2 id="ticket-126-jacobian-error-in-ddif2base.ixx">Ticket #126: Jacobian error in <code>DDIF2Base.ixx</code></h2>
+<p>There was a mistake in the jacobian computed in <code>treatFracture</code> method of the <code>DDIF2Base</code> class du to the complex branching made.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/126/" class="uri">https://sourceforge.net/p/tfel/tickets/126/</a></p>
+<h2 id="ticket-125-compiling-on-gcc-8.0.1-fedora-28-fails">Ticket #125: Compiling on gcc 8.0.1 (Fedora 28) fails</h2>
+<p>Compiling <code>TFEL\ with</code>gcc<code>8.0.1 (</code>Fedora 28<code>) fails in</code>CastemGenericPlaneStressHandler.hxx`.</p>
+<p>Reported errors <em>a priori</em> look like regressions in the compiler rather than actual bugs in the code. However, as the incriminated code is quite ambiguous, it was worth fixing it.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/125/" class="uri">https://sourceforge.net/p/tfel/tickets/125/</a></p>
+<h2 id="ticket-124-standardelasticity-brick-the-elastic-prediction-is-wrongly-computed-in-plane-stress-if-the-stiffness-tensor-is-computed-computestiffnesstensor-or-given-requirestiffnesstensor">Ticket #124: StandardElasticity brick: the elastic prediction is wrongly computed in plane stress if the stiffness tensor is computed (<code>@ComputeStiffnessTensor</code>) or given (<code>@RequireStiffnessTensor</code>)</h2>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/124/" class="uri">https://sourceforge.net/p/tfel/tickets/124/</a></p>
+<h2 id="ticket-123-implementation-mistakes-in-various-behaviours-based-on-implicit-dsl-and-using-a-numerical-jacobian-use-of-perturbated-values-to-update-auxiliary-state-variables">Ticket #123: Implementation mistakes in various behaviours based on Implicit DSL and using a numerical jacobian (use of perturbated values to update auxiliary state variables)</h2>
+<p>Various behaviours in the MFront’ tests base used local variables to compute the increment of auxiliary state variables (in order to safe some computational times and reduce the implementation size). This trick is quite often used with analytical jacobian but can cause various problems with numerical jacobian if the consistent tangent operator is requested (in this case, the system is perturbated once after convergence to get the upper part of the inverse of the jacobian, as needed by the <code>getPartialJacobianInvert</code> method).</p>
+<p>The issue can be circumvented using the <code>perturbatedSystemEvaluation</code> flag introduced in <code>TFEL</code> <code>3.1.1</code> (see <a href="http://tfel.sourceforge.net/release-notes-3.1.1.html" class="uri">http://tfel.sourceforge.net/release-notes-3.1.1.html</a> and <a href="https://sourceforge.net/p/tfel/tickets/111/" class="uri">https://sourceforge.net/p/tfel/tickets/111/</a> for details ).</p>
+<p>The concerned implementations were the following:</p>
+<ul>
+<li><code>mfront/tests/behaviours/MonoCrystal.mfront</code></li>
+<li><code>mfront/tests/behaviours/MonoCrystalNewtonRaphson.mfront</code></li>
+<li><code>mfront/tests/behaviours/MonoCrystal_DD_CC_Irradiation_NumericalJacobian.mfront</code></li>
+<li><code>mfront/tests/behaviours/MonoCrystal_DD_CFC_Irradiation.mfront</code></li>
+<li><code>mfront/tests/behaviours/MonoCrystal_DD_CFC_NumericalJacobian.mfront</code></li>
+</ul>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/123/" class="uri">https://sourceforge.net/p/tfel/tickets/123/</a></p>
+<h2 id="ticket-122-missing-file-in-the-distributed-tar-ball-mfront-queryincludecmakelists">Ticket #122: Missing file in the distributed tar ball (<code>mfront-query/include/CMakeLists</code>)</h2>
+<p>The file <code>mfront-query/include/CMakeLists.txt</code> was not included in the distributed tar ball. This led to a warning when compiling with <code>cmake</code>, but it did not hinder the compilation.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/122/" class="uri">https://sourceforge.net/p/tfel/tickets/122/</a></p>
+<h2 id="ticket-121-modifying-the-reference-values-read-in-a-file-does-not-work-in-mtest">Ticket #121: Modifying the reference values read in a file does not work in MTest</h2>
+<p>In <code>MTest</code>, the following lines was not parsed appropriately:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Test&lt;file&gt; <span class="er">@</span>reference_file<span class="er">@</span> {</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="ch">&#39;SXX&#39;</span> : <span class="ch">&#39;$8*1.e6&#39;</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">} <span class="dv">1</span>.e3;</a></code></pre></div>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/122/" class="uri">https://sourceforge.net/p/tfel/tickets/122/</a></p>
+<h2 id="ticket-120-direct-call-to-cast3m-umat-behaviours-in-mtest-is-broken">Ticket #120: Direct call to Cast3M’ umat behaviours in <code>MTest</code> is broken</h2>
+<p>Since <code>TFEL</code> <code>3.1</code>, <code>MTest</code> is able to call raw Cast3M’ umat behaviours (not written using <code>MFront</code>). However, the handling of external state variables was broken.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/120/" class="uri">https://sourceforge.net/p/tfel/tickets/120/</a></p>
+<h2 id="ticket-119-material-laws-are-not-declared-in-the-additionalconvergencechecks-code-block">Ticket #119: Material laws are not declared in the <code>@AdditionalConvergenceChecks</code> code block</h2>
+<p>In the generation of the <code>additionalConvergenceChecks</code> method, the material laws were not declared.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/119/" class="uri">https://sourceforge.net/p/tfel/tickets/119/</a></p>
+<h2 id="ticket-118-the-behaviourdescriptionarematerialpropertiesdependantonstatevariables-method-always-returns-true">Ticket #118: The <code>BehaviourDescription::areMaterialPropertiesDependantOnStateVariables</code> method always returns <code>true</code></h2>
+<p>The <code>BehaviourDescription::areMaterialPropertiesDependantOnStateVariables</code> method always returned <code>true</code>. This bugs led to unnecessary computations but did not affect the results.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/118/" class="uri">https://sourceforge.net/p/tfel/tickets/118/</a></p>
+<h2 id="ticket-117-generated-source-fails-to-compile-if-one-ask-mtest-file-generation-with-array-of-internal-state-variables">Ticket #117: Generated source fails to compile if one ask MTest file generation with array of internal state variables</h2>
+<p>A <code>using namespace std;</code> statement has been removed in 3.1.0 in the generated code, which led to a compile time error (<code>ostringstream</code> undeclared) when:</p>
+<ul>
+<li>generating a <code>MTest</code> file on failure</li>
+<li>there is an array of internal state variables (this case was not tested)</li>
+</ul>
+<p>A new test case has been introduced for testing all the cases.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/117/" class="uri">https://sourceforge.net/p/tfel/tickets/117/</a></p>
+<h2 id="ticket-115-the-stress-free-expansion-handler-shall-be-a-nullptr-for-true-finite-strain-behaviours">Ticket #115: The stress free expansion handler shall be a <code>nullptr</code> for true finite strain behaviours</h2>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/115/" class="uri">https://sourceforge.net/p/tfel/tickets/115/</a></p>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

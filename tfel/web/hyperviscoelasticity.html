@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>How to implement an hyperviscoelastic behaviour in MFront</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">How to implement an hyperviscoelastic behaviour in MFront</h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">15/12/2016</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#computation-of-the-cauchy-stress">Computation of the Cauchy stress</a><ul>
+      <li><a href="#evolution-of-the-overstresses">Evolution of the overstresses</a></li>
+      <li><a href="#computation-of-second-piola-kirchhoff-stress">Computation of second Piola-Kirchhoff stress</a></li>
+      <li><a href="#computation-of-the-cauchy-stress-1">Computation of the Cauchy stress</a></li>
+      </ul></li>
+      <li><a href="#computation-of-the-consistent-tangent-operator">Computation of the consistent tangent operator</a></li>
+      </ul>
+    </div>
+        
+
+
+<p>This article shows how to implement hyperviscoelastic behaviours in <code>MFront</code>.</p>
+<p>The hyperelastic behaviour is left unspecified. We only assume that one can compute <span class="math inline">\(\underline{S}^{\infty}\)</span> and its derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{S}^{\infty}}{\displaystyle \partial \underline{C}}}\)</span>.</p>
+<p>The reader can refer to the following pages describing the implementation of various hyperelastic behaviours:</p>
+<ul>
+<li><a href="signorini.html">Signorini</a></li>
+<li><a href="ogden.html">Ogden</a></li>
+</ul>
+<p>The formalism used by most hyperelastic behaviours is described in <a href="hyperelasticity.html">this page</a>.</p>
+<p>An example of implementation based on the Signorini hyperelastic behaviour is available here: <a href="./gallery/hyperviscoelasticity/SignoriniHyperViscoelasticity.mfront">SignoriniHyperViscoelasticity.mfront</a></p>
+<blockquote>
+<p><strong>Compatibility with previous versions of <code>TFEL</code></strong></p>
+<p>This implementation presented here is based on the version <span class="math inline">\(3.0\)</span> of <code>TFEL</code>. However, only a few adaptations are required for used with previous versions:</p>
+<ul>
+<li>the first line of the file must be replace by: <code>@Parser DefaultFiniteStrainParser;</code></li>
+<li>the <code>power</code> function is not available. It can be replaced by explicit multiplications.</li>
+<li>the <code>computeDeterminantSecondDerivative</code> is not available. It can be replaced by the following code: <code>Stensor4::dsquare(C)-(C^id)-I1*Stensor4::Id()+(id^dI2_dC)</code></li>
+<li>the use of the <code>auto</code> keyword is only permitted by the <code>C++11</code> standard, which is default for <code>TFEL-3.0</code>. The user is left with two choices:
+<ul>
+<li>replace <code>auto</code> with explicit types: <code>real</code> for scalars, <code>Stensor</code> for symmetric tensors, <code>Stensor4</code> for linear forms on symmetric tensors (“fourth order tensors”). However, in this case, the implementation can be less efficient as it leads to an explicit evaluation of intermediate results.</li>
+<li>specify the appropriate flag to the <code>C++</code> compiler. Assuming that the current shell is <code>bash</code> and that the compiler is <code>g++</code>, this can be done by invoking mfront as follows:</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="va">CXXFLAGS=</span><span class="st">&quot;</span><span class="kw">`</span><span class="ex">tfel-config</span> --oflags<span class="kw">`</span><span class="st"> -std=c++11&quot;</span> <span class="ex">mfront</span> --obuild --interface=aster SignoriniHyperViscoelasticity-tfel-2.0.3.mfront<span class="kw">`</span></a></code></pre></div>
+<p>An implementation where those changes were made is available <a href="./gallery/hyperviscoelasticity/SignoriniHyperViscoelasticity-tfel-2.0.3.mfront">here</a></p>
+</blockquote>
+<h1 id="computation-of-the-cauchy-stress">Computation of the Cauchy stress</h1>
+<p>The hyperelastic behaviour is supposed to decouple the volumetric stress <span class="math inline">\(\underline{S}^{v\,\infty}\)</span> and the isochoric stress <span class="math inline">\(S^{i\,\infty}\)</span>: <span class="math display">\[
+\underline{S}^{\infty}=\underline{S}^{v\,\infty}+\underline{S}^{i\,\infty}
+\]</span></p>
+<p>The second Piola-Kirchhoff stress is given by:</p>
+<p><span class="math display">\[
+\underline{S}= \underline{S}^{\infty}+\sum_{i=1}^{N}\underline{H}_{i}
+\]</span></p>
+<p>where <span class="math inline">\(\underline{H}_{i}\)</span> are the overstresses.</p>
+<h2 id="evolution-of-the-overstresses">Evolution of the overstresses</h2>
+<p>The algorithm used to update <span class="math inline">\(\underline{H}_{i}\)</span> is the following:</p>
+<p><span class="math display">\[
+{\left.\underline{H}_{i}\right|_{t+\Delta\,t}}=\exp{\left(-{{\displaystyle \frac{\displaystyle dt}{\displaystyle \tau_{i}}}}\right)}{\left.\underline{H}_{i}\right|_{t}}+g_{i}\,\tau_{i}{\left(1-\exp{\left(-{{\displaystyle \frac{\displaystyle dt}{\displaystyle \tau_{i}}}}\right)}\right)}{{\displaystyle \frac{\displaystyle {\left({\left.S^{i\,\infty}\right|_{t+\Delta\,t}}-{\left.S^{i\,\infty}\right|_{t}}\right)}}{\displaystyle dt}}}
+\]</span></p>
+<h2 id="computation-of-second-piola-kirchhoff-stress">Computation of second Piola-Kirchhoff stress</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// updating the viscoelastic stresses and computing the Second</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">// Piola-Kirchhoff stress</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">StressStensor S = Sv+Se;</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="cf">if</span>(dt&gt;<span class="dv">0</span>){</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nv;++i){</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="at">const</span> <span class="kw">auto</span> dtr = dt/tau[i];</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">    e[i] = exp(-dtr);</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">    H[i] = e[i]*H[i]+g[i]*(<span class="dv">1</span>-e[i])/dtr*(Se-Se_1);</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">    S += H[i];</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">  }</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">}</a></code></pre></div>
+<h2 id="computation-of-the-cauchy-stress-1">Computation of the Cauchy stress</h2>
+<p>The function <code>convertSecondPiolaKirchhoffStressToCauchyStress</code> converts the second Piola Kirchhoff stress to the Cauchy stress using the deformation gradient. It is used as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1">sig = convertSecondPiolaKirchhoffStressToCauchyStress(S,F1);</a></code></pre></div>
+<h1 id="computation-of-the-consistent-tangent-operator">Computation of the consistent tangent operator</h1>
+<p>Assuming that <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{S}^{v\,\infty}}{\displaystyle \partial \underline{C}}}\)</span> and <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{S}^{i\,\infty}}{\displaystyle \partial \underline{C}}}\)</span> are known, the expression of the consistent tangent operator is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial \underline{S}^{v\,\infty}}{\displaystyle \partial \underline{C}}} &amp;= {\displaystyle \frac{\displaystyle \partial \underline{S}^{v\,\infty}}{\displaystyle \partial \underline{C}}}+{\displaystyle \frac{\displaystyle \partial \underline{S}^{i\,\infty}}{\displaystyle \partial \underline{C}}}+ \sum_{i=1}^{N}{\displaystyle \frac{\displaystyle \partial {\left.\underline{H}_{i}\right|_{t+\Delta\,t}}}{\displaystyle \partial \underline{C}}}\\
+&amp;= {\displaystyle \frac{\displaystyle \partial \underline{S}^{v\,\infty}}{\displaystyle \partial \underline{C}}}+
+   {\displaystyle \frac{\displaystyle \partial \underline{S}^{i\,\infty}}{\displaystyle \partial \underline{C}}}\,\underbrace{{\left(1+\sum_{i=1}^{N}g_{i}\,\tau_{i}\,{{\displaystyle \frac{\displaystyle {\left(1-\exp{\left(-{{\displaystyle \frac{\displaystyle dt}{\displaystyle \tau_{i}}}}\right)}\right)}}{\displaystyle dt}}}\right)}}_{c}
+\end{aligned}
+\]</span></p>
+<p>This expression can be implemented in a straightforward manner:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">auto</span> c = real(<span class="dv">1</span>);</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="cf">if</span>(dt&gt;<span class="dv">0</span>){</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nv;++i){</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="at">const</span> <span class="kw">auto</span> dtr = dt/tau[i];</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">    c += g[i]*(<span class="dv">1</span>-e[i])/dtr;</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">  }</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">dS_dC = dSv_dC+c*dSi_dC;</a></code></pre></div>
+<!-- Local IspellDict: english -->
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>The MFront interface to the ANSYS Mechanical APDL finite element solver</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2017-09-02" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href=" css/slideshow.css" />
+        <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">The <code>MFront</code> interface to the <code>ANSYS Mechanical APDL</code> finite element solver</h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">09/02/2017</h3>
+          </div>
+            
+<!-- \newcommand{\paren}[1]{\left(#1\right)} -->
+<!-- <div id="slideshow"> -->
+<!--   <ul class="slides"> -->
+<!--   <li> -->
+<!--     <video style="display:block; margin: 0 auto;" width="640" height="320" controls> -->
+<!--       <source src="media/ansys-explicit.mp4" type="video/mp4"> -->
+<!--    Your browser does not support the video tag. -->
+<!--     </video> -->
+<!--   </li> -->
+<!--   <li><img src="img/ANSYSFLD.png" width="620" height="320" alt="Simulation of a Punching test" /></li> -->
+<!--   <li><img src="img/ansys-isotropichardening1.png" width="620" height="320" alt="Notched beam under a cyclic loading with an isotropic hardening plastic beahviour" /></li> -->
+<!--   </ul> -->
+<!--   <span class="arrow previous"></span> -->
+<!--   <span class="arrow next"></span> -->
+<!-- </div> -->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
+<!-- <script src="js/slideshow.js"></script> -->
+<h1 id="introduction">Introduction</h1>
+<p><code>MFront</code> version 3.1 provides an interface for the <code>ANSYS</code> <code>Mechanical  APDL</code> (<code>MAPDL</code>) finite element solver. This interface is fairly features complete:</p>
+<ul>
+<li>Isotropic and orthotropic materials are supported.</li>
+<li>Small and finite strain behaviours are supported.</li>
+</ul>
+<p>It shall be pointed out that the <code>ANSYS</code> solvers has a long history. In particular, the design choices made for the <code>USERMAT</code> interface were meant to allow the users to easily write finite-strain behaviours in rate-form.</p>
+<p><code>MFront</code> strives to provides behaviours that can be used “just-like” other <code>USERMAT</code> subroutines, but</p>
+<h2 id="limitations">Limitations</h2>
+<p>The <code>USERMAT</code> subroutines has a number of shortcomings compared with other interfaces:</p>
+<ul>
+<li>External state variables are <em>not</em> supported.</li>
+<li>Internal state variables can <em>not</em> be initialized to values different from zero.</li>
+<li>There is no standard way of defining the orthotropic axes for orthotropic behaviours.</li>
+<li>There is no way of controlling the increase/decrease of the time step.</li>
+</ul>
+<p>The choice made to defined the orthotropic axes for orthotropic behaviours is detailed below.</p>
+<h2 id="pitfalls">Pitfalls</h2>
+<p>There are also cases of misuses of the generated libraries that can <em>not</em> be prevented by <code>MFront</code>. The most important ones are the following:</p>
+<ul>
+<li>The modelling hypothesis is not passed to the mechanical behaviours. As a consequence, there is not way of distinguishing between the plane strain hypothesis and the axisymmetrical hypothesis, which is mandatory for consistent orthotropic axes management. Therefore, the user has to explicitly call the implementation of the behaviour corresponding to the modelling hypothesis he wants to use, but there is not way to ensure the consistency of this choice and the choice of the modelling hypothesis make for the mechanical computation.</li>
+<li>Whether the computation takes into account finite strain transformation (non linear geometric effects according to the <code>ANSYS</code> wording) is not known to the behaviour, so some misuses of <code>MFront</code> behaviours can’t be prevented. For example, small strain behaviours can be used in finite strain transformation using the build-in Jauman corotational framework, which is only valid for isotropic behaviours. Using this framework with orthotropic behaviours can’t be prevented.</li>
+<li>The user must respect the order of definition of the material properties, some of them being implicitly defined by <code>MFront</code>. For example, we made the choice to pass the orthotropic axes as material properties. Those are automatically inserted at the beginning of the material properties list, after thermo-elastic properties, if the latter are requested. As a consequence, the number of material properties depends on the modelling hypothesis. The user is thus strongly advised to look at the input file example generated by <code>MFront</code> to have a consistent definition of the material properties.</li>
+</ul>
+<h2 id="current-status">Current status</h2>
+<p>The <code>ansys</code> interface is still in its early stage of development.</p>
+<h1 id="how-the-use-mfront-behaviours-in-ansys">How the use <code>MFront</code> behaviours in <code>ANSYS</code></h1>
+<p>When compiling mechanical behaviours with the <code>ansys</code> interface, <code>MFront</code> generates:</p>
+<ul>
+<li>Shared libraries containing one implementation of the considered behaviours per supported modelling hypotheses.</li>
+<li>Examples of input files in the <code>ansys</code> directory.</li>
+<li>A copy of a generic <code>usermat.cpp</code> file for the <code>ANSYS</code> solver.</li>
+</ul>
+<p>Those various files and their usage are now described.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>The <code>MFront</code> libraries are only generated <em>once</em>, only the generic files needs to be recompiled at each run. This is very handy since compiling the <code>MFront</code> libraries can be time-consuming. Those libraries can be shared between computations and/or between users when placed in a shared folders.</li>
+<li>The fact that <code>MFront</code> generates one implementation per modelling hypothesis allows the distinction between the plane strain hypothesis and the axisymmetrical hypothesis. This is mandatory to consistently handle orthotropy.</li>
+<li>The name of the library can be changed by renaming it after the compilation or by using the <code>@Library</code> keyword.</li>
+</ul>
+<h3 id="note-on-libraries-locations">Note on libraries locations</h3>
+<p>As explained above, <code>MFront</code> libraries will be loaded at the runtime time. This means that the libraries must be found by the dynamic loader of the operating system.</p>
+<h4 id="under-linux">Under Linux</h4>
+<p>Under Linux, the search path for dynamic libraries are specified using the <code>LD_LIBRARY_PATH</code> variable environment. This variable defines a colon-separated set of directories where libraries should be searched for first, before the standard set of directories.</p>
+<p>Depending on the configuration of the system, the current directory can be considered by default.</p>
+<h4 id="under-windows">Under Windows</h4>
+<p>Under Windows, the dynamic libraries are searched:</p>
+<ul>
+<li>in the current directory</li>
+<li>in the directories listed in the <code>PATH</code> environment. This variable defines a semicolon-separated set of directories.</li>
+</ul>
+<h2 id="generated-input-files">Generated input files</h2>
+<p>Here is an extract of the generated input file for a <code>MFront</code> behaviour named <code>Plasticitiy</code> for the plane strain modelling hypothesis for the <code>ANSYS</code> solver:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode pure"><code class="sourceCode pure"><a class="sourceLine" id="cb1-1" data-line-number="1">/com, Example for the &#39;PlaneStrain&#39; modelling hypothesis</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">/com, List <span class="kw">of</span> material properties</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">/com, -YoungModulus</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">/com, -PoissonRatio</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">/com, -H</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">/com, -s0</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">tb,user,&lt;mat_id&gt;,&lt;numer <span class="kw">of</span> temperatures&gt;,<span class="dv">4</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">/com, you shall now declare your material properties</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">/com, <span class="kw">using</span> the tbtemp an tbdata instructions.</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">/com, See the Ansys <span class="st">&quot;USER Material Subroutine&quot;</span> guide for details.</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">/com, Declaration <span class="kw">of</span> state variables</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">tb,state,&lt;mat_id&gt;,,<span class="dv">5</span></a></code></pre></div>
+<h2 id="the-generic-usermat.cpp-file">The generic <code>usermat.cpp</code> file</h2>
+<p>When generating the sources of an <code>MFront</code> file with the <code>ansys</code> interface, a subdirectory called <code>ansys</code> is created. This subdirectory contains the following files:</p>
+<ul>
+<li>Examples of <code>MFront</code>’ generated behaviours usage</li>
+<li><code>usermat.cpp</code>: the generic <code>usermat.cpp</code> used to generate the <code>usermatLib</code> library, described below.</li>
+<li><code>test-usermat.cxx</code>: the source of an executable which can be used to test an <code>mfront-usermat.dat</code> file. Its usage is described below.</li>
+<li><code>CMakeLists.txt</code>: a <code>cmake</code> project file that can be used to generate the <code>usermatLib</code> library and the <code>test-usermat</code> executable.</li>
+</ul>
+<p>The generic <code>usermat.cpp</code> file provided by <code>MFront</code> has the following role:</p>
+<ul>
+<li>Reading a file called <code>mfront-usermat.dat</code> that has to be present in the current directory. This file relates an <code>ANSYS</code> material identifier to a <code>MFront</code> behaviour.</li>
+<li>Loading the shared library and the behaviours implementation generated by <code>MFront</code>.</li>
+<li>Calling the <code>MFront</code> behaviour.</li>
+</ul>
+<p>Warnings and errors are written in a file called <code>mfront-usermat.log</code>.</p>
+<h3 id="compilation-of-the-usermatlib-library-and-the-test-executable-executable">Compilation of the <code>usermatLib</code> library and the <code>test-executable</code> executable</h3>
+<p>This paragraph describe how to use the <code>cmake</code> to compile the <code>usermatLib</code> library and the <code>test-executable</code> executable.</p>
+<h4 id="using-visual-studio-2017">Using <code>Visual Studio 2017</code></h4>
+<p>In the <code>ansys</code> subdirectory generated by <code>MFront</code>, type:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="fu">cmake</span> . -G <span class="st">&quot;Visual Studio 15 2017 Win64&quot;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">$ <span class="fu">cmake</span> --build . --config Release</a></code></pre></div>
+<p>The <code>usermatLib.dll</code> must be copied in a directory pointed by the <code>ANS_USER_PATH</code> variable.</p>
+<h4 id="under-unix">Under <code>Unix</code></h4>
+<p>In the <code>ansys</code> subdirectory generated by <code>MFront</code>, type:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1">$ <span class="fu">cmake</span> . -DCMAKE_BUILD_TYPE=Release</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">$ <span class="fu">cmake</span> --build .</a></code></pre></div>
+<p>The <code>usermatLib.dll</code> must be copied in a directory pointed by the <code>ANS_USER_PATH</code> variable.</p>
+<h4 id="detailed-procedure">Detailed procedure</h4>
+<p>This example shows how to compile a file called <code>ImplicitNorton.mfront</code> and the <code>usermatLib</code> library under <code>LiNuX</code>.</p>
+<ol type="1">
+<li>Compile the <code>MFront</code> behaviour and generate the <code>ansys</code> subdirectory</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=ansys ImplicitNorton.mfront </a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="ex">Treating</span> target : all</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="ex">The</span> following library has been built :</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="ex">-</span> libAnsysBehaviour.so :  ImplicitNorton_axis ImplicitNorton_pstress ImplicitNorton_pstrain ImplicitNorton_3D</a></code></pre></div>
+<ol start="2" type="1">
+<li>Change the current directory</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1">$ <span class="bu">cd</span> ansys/</a></code></pre></div>
+<ol start="3" type="1">
+<li>configure the <code>cmake</code> project</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1">$ <span class="fu">cmake</span> . -DCMAKE_BUILD_TYPE=Release</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="ex">--</span> The C compiler identification is GNU 6.3.0</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="ex">--</span> The CXX compiler identification is GNU 6.3.0</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="ex">--</span> Check for working C compiler: /usr/bin/cc</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="ex">--</span> Check for working C compiler: /usr/bin/cc -- works</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="ex">--</span> Detecting C compiler ABI info</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="ex">--</span> Detecting C compiler ABI info - done</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="ex">--</span> Detecting C compile features</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="ex">--</span> Detecting C compile features - done</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="ex">--</span> Check for working CXX compiler: /usr/bin/c++</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="ex">--</span> Check for working CXX compiler: /usr/bin/c++ -- works</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="ex">--</span> Detecting CXX compiler ABI info</a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="ex">--</span> Detecting CXX compiler ABI info - done</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="ex">--</span> Detecting CXX compile features</a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="ex">--</span> Detecting CXX compile features - done</a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="ex">CMake</span> Warning (dev) <span class="kw">in</span> <span class="ex">CMakeLists.txt</span>:</a>
+<a class="sourceLine" id="cb6-17" data-line-number="17">  <span class="ex">No</span> cmake_minimum_required command is present.  A line of code such as</a>
+<a class="sourceLine" id="cb6-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb6-19" data-line-number="19">    <span class="ex">cmake_minimum_required</span>(VERSION 3.7)</a>
+<a class="sourceLine" id="cb6-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb6-21" data-line-number="21">  <span class="ex">should</span> be added at the top of the file.  The version specified may be lower</a>
+<a class="sourceLine" id="cb6-22" data-line-number="22">  <span class="kw">if</span> <span class="ex">you</span> wish to support older CMake versions for this project.  For more</a>
+<a class="sourceLine" id="cb6-23" data-line-number="23">  <span class="ex">information</span> run <span class="st">&quot;cmake --help-policy CMP0000&quot;</span>.</a>
+<a class="sourceLine" id="cb6-24" data-line-number="24"><span class="ex">This</span> warning is for project developers.  Use -Wno-dev to suppress it.</a>
+<a class="sourceLine" id="cb6-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb6-26" data-line-number="26"><span class="ex">--</span> Configuring done</a>
+<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="ex">--</span> Generating done</a>
+<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="ex">--</span> Build files have been written to: /tmp/ansys</a></code></pre></div>
+<ol start="4" type="1">
+<li>Compile the <code>usermatLib</code> library and the <code>test-usermat</code> executable</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1">$ <span class="fu">cmake</span> --build .</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="ex">Scanning</span> dependencies of target test-usermat</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="bu">[</span> 25%] Building CXX object CMakeFiles/test-usermat.dir/test-usermat.o</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">[ 50%] Linking CXX executable test-usermat</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">[ 50%] Built target test-usermat</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">Scanning dependencies of target usermatLib</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">[ 75%] Building CXX object CMakeFiles/usermatLib.dir/usermat.o</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">[100%] Linking CXX shared library libusermatLib.so</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">[100%] Built target usermatLib</a></code></pre></div>
+<p>At the end of those four steps, the <code>ansys</code> subdirectory contains:</p>
+<ul>
+<li>The <code>libusermat.so</code> library.</li>
+<li>The <code>test-usermat</code> executable.</li>
+</ul>
+<h3 id="relating-material-identifier-and-mfront-behaviours">Relating material identifier and <code>MFront</code> behaviours</h3>
+<p>The <code>mfront-usermat.dat</code> file gives a list of commands aimed to associate an <code>ANSYS</code> material identifier to a <code>MFront</code> behaviour. The syntax used closely follows <code>ANSY</code> <code>APDL</code> syntax.</p>
+<p>Only two commands are actually supported:</p>
+<ul>
+<li><code>/com,</code> which is used to introduce a comment line.</li>
+<li><code>tb,mfront</code> which is used to associate an <code>ANSYS</code> material identifier to a <code>MFront</code> behaviour.</li>
+</ul>
+<p>Here is an example of such a file:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode pure"><code class="sourceCode pure"><a class="sourceLine" id="cb8-1" data-line-number="1">/com, Associate the material id <span class="dv">2</span> to the Chaboche_3D behaviour</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">/com, implemented in the Zircaloy4Behaviours shared library.</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">tb,mfront,<span class="dv">2</span>,Zircaloy4Behaviours,Chaboche_3D</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">/com, Associate the material id <span class="dv">3</span> to the Creep_3D behaviour</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">/com, implemented in the Zircaloy4Behaviours shared library.</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">tb,mfront,<span class="dv">3</span>,UO2Behaviours,Creep_3D</a></code></pre></div>
+<p>New commands will eventually be introduced as needed to circumvent the various shortcomings of the <code>USERMAT</code> interface, notably:</p>
+<ul>
+<li>Adding the ability to give initial values to state variables</li>
+<li>Adding the ability to override the default values of parameters.</li>
+<li>etc.</li>
+</ul>
+<blockquote>
+<p><strong>Library name</strong></p>
+<p>For portability reasons, the library name can be stripped from the standard prefix (<code>lib</code> under <code>UNIX</code>) and from the file extension (<code>.dll</code> under <code>Windows</code>, <code>.dylib</code> under <code>Mac Os</code>, <code>.so</code> under <code>LiNuX</code>). The <code>usermat</code> function delivered with <code>MFront</code> will try every combinaison until a suitable on is found.</p>
+</blockquote>
+<h3 id="testing-an-mfront-usermat.dat-using-test-usermat">Testing an <code>mfront-usermat.dat</code> using <code>test-usermat</code></h3>
+<p>The declarations in the <code>mfront-usermat.dat</code> file can lead to the following errors:</p>
+<ul>
+<li>The material libraries can not be found.</li>
+<li>The <code>TFEL</code> libraries can not be found.</li>
+<li>The functions implementing the behaviours can not be found.</li>
+</ul>
+<p>Although every warning and errors are redirected in the <code>mfront-usermat.log</code> file, those errors can be painful to analyse in <code>Ansys</code> because the generic <code>usermat</code> function closes <code>Ansys</code> on error.</p>
+<p>Thus, a simple executable called <code>test-usermat</code> is also provided. This executable reads the <code>mfront-usermat.dat</code> in the current directory. If its exists normally, then everything is <code>ok</code>.</p>
+<h1 id="main-features-of-the-ansys-interface">Main features of the <code>ANSYS</code> interface</h1>
+<p>The <code>ANSYS</code> solver provides the <code>USERMAT</code> interface. In this case, the behaviour shall compute:</p>
+<ul>
+<li>The evolution of the state variables.</li>
+<li>The value the Cauchy stress at the end of the time step.</li>
+<li>The consistent tangent operator. The definition of the consistent tangent operator is given below.</li>
+</ul>
+<p>For finite strain analyses, small strain behaviours can be written in rate form. The behaviour in integrated in the Jauman framework, <strong>which is only suitable for isotropic behaviours</strong>.</p>
+<h2 id="supported-behaviours">Supported behaviours</h2>
+<p>Isotropic and orthotropic behaviours are both supported.</p>
+<p>Small and finite strain behaviours are supported.</p>
+<h2 id="modelling-hypotheses">Modelling hypotheses</h2>
+<p>The following modelling hypotheses are supported:</p>
+<ul>
+<li>tridimensional (<code>3D</code>)</li>
+<li>plane strain (<code>pstrain</code>)</li>
+<li>plane stress (including shell elements) (<code>pstress</code>)</li>
+<li>axisymmetrical (<code>axis</code>)</li>
+</ul>
+<p>The generalised plane strain hypothesis is currently <em>not</em> supported.</p>
+<h2 id="orthotropic-behaviours">Orthotropic behaviours</h2>
+<p>By nature, orthotropic behaviours are expressed in a preferential frame defined by the material orthotropic axes. There is no standard way of defining the orthotropic axes in <code>ANSYS</code>.</p>
+<p>We choose to add the definition of those axes to the list of material properties. <span class="math inline">\(2\)</span> additional material properties are required in <span class="math inline">\(2D\)</span>, and <span class="math inline">\(6\)</span> additional material properties in <span class="math inline">\(3D\)</span>:</p>
+<ul>
+<li>In <span class="math inline">\(2D\)</span>, the two additional material properties are the two components of the vector defining the first axis of the material frame. This vector is thus supposed to be contained in the <span class="math inline">\(2D\)</span> plane. The second axis is also assumed to be contained in this plane and perpendicular to the first one. With those assumptions, this vector can be deduced from the first one and does not have to be defined. The third direction is required to follow the out-of-plane direction.</li>
+<li>In <span class="math inline">\(3D\)</span>, the six additional material properties defines two vectors defining respectively the first and second axes of the material frame. The components of the first vectors are given before the components of the second vector. Those vectors are supposed to be orthogonal. The third vector, associated to the third axis, is implicitly given by the cross-product of the two first axes and does not have to be defined.</li>
+</ul>
+<p>The user shall use the input file example generated by <code>MFront</code> to see their relative positions of the material properties associated to the definition of the orthotropic axes.</p>
+<p>Those definitions are only meaningful if the direction of orthotropy are constants.</p>
+<h2 id="finite-strain-strategies">Finite strain strategies</h2>
+<p>Engineers are used to write behaviours based on an additive split of strains, as usual in small strain behaviours. Different strategies exist to:</p>
+<ul>
+<li>write finite strain behaviours that preserve this property.</li>
+<li>guarantee some desirable properties such as energetic consistency and objectivity.</li>
+</ul>
+<p>Through the <code>@ANSYSFiniteStrainStrategy</code>, the user can select on of various finite strain strategies supported by <code>MFront</code>, which are described in this paragraph.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The usage of the <code>@ANSYSFiniteStrainStrategy</code> keyword is mostly deprecated since <code>MFront 3.1</code>: see the <code>@StrainMeasure</code> keyword.</p>
+</blockquote>
+<h3 id="the-native-finite-strain-strategy">The <code>Native</code> finite strain strategy</h3>
+<p>Among them is the <code>Native</code> finite strain strategy which relies on build-in <code>ANSYS</code> facilities to integrate the behaviours written in rate form. The <code>Native</code> finite strain strategy will use the Jauman rate.</p>
+<p>This strategy has some theoretical drawbacks (hypoelasticity, restriction to isotropic behaviours, etc…) and is not portable from one code to another.</p>
+<h3 id="recommended-finite-strain-strategies">Recommended finite strain strategies</h3>
+<p>Two other finite strain strategies are available in <code>MFront</code> for the <code>ansys</code> interface (see the <code>@ANSYSFiniteStrainStrategy</code> keyword):</p>
+<ul>
+<li><code>FiniteRotationSmallStrain</code>: this finite strain strategy is fully described in <span class="citation" data-cites="doghri_mechanics_2000">Doghri (2000)</span>,<span class="citation" data-cites="edf_loi_2013">EDF (2013)</span></li>
+<li><code>MieheApelLambrechtLogarithmicStrain</code>: this finite strain strategy is fully described in <span class="citation" data-cites="miehe_anisotropic_2002">Miehe, Apel, and Lambrecht (2002)</span> and
+<ol class="example" type="1">
+<li>This finite strain strategy is yet to be implemented.</li>
+</ol></li>
+</ul>
+<p>Those two strategies use lagrangian tensors, which automatically ensures the objectivity of the behaviour.</p>
+<p>Each of these two strategies define an energetic conjugate pair of strain or stress tensors:</p>
+<ul>
+<li>For the <code>FiniteRotationSmallStrain</code> case, the strain tensor is the Green-Lagrange strain and the conjugated stress is the second Piola-Kirchhoff stress.</li>
+<li>For the <code>MieheApelLambrechtLogarithmicStrain</code>, the strain tensor is the langrangian Hencky strain tensor, i.e. the logarithm of the stretch tensor.</li>
+</ul>
+<p>The first strategy is suited for reusing behaviours that were identified under the small strain assumptions in a finite rotation context. The usage of this behaviour is still limited to the small strain assumptions.</p>
+<p>The second strategy is particularly suited for metals, as incompressible flows are characterized by a deviatoric logarithmic strain tensor, which is the exact transposition of the property used in small strain behaviours to handle plastic incompressibility. This means that all valid consistutive equations for small strain behaviours can be automatically reused in finite strain analysis. This does <em>not</em> mean that a behaviour identified under the small strain assumptions can be directly used in a finite strain analysis: the identification would not be consistent.</p>
+<p>Those two finite strain strategies are fairly portable and are available (natively or via <code>MFront</code>) in <code>Cast3M</code>, <code>Code_Aster</code>, <code>Europlexus</code>, <code>Abaqus/Standard</code> and <code>Abaqus/Explicit</code> and <code>Zebulon</code>, etc…</p>
+<h2 id="consistent-tangent-operator-for-finite-strain-behaviours">Consistent tangent operator for finite strain behaviours</h2>
+<p>The “ANSYS User Subroutines Reference Guide” gives indicates that the tangent moduli required by <code>ANSYS</code> <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{MJ}\)</span> is closely related to <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\tau\,J}\)</span>, the moduli associated to the Jauman rate of the Kirchhoff stress :</p>
+<p><span class="math display">\[
+J\,\underline{\underline{\mathbf{C}}}^{MJ}=\underline{\underline{\mathbf{C}}}^{\tau\,J}
+\]</span></p>
+<p>where <span class="math inline">\(J\)</span> is the derterminant of the deformation gradient <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span>.</p>
+<p>By definition, <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\tau\,J}\)</span> satisfies: <span class="math display">\[
+\overset{\circ}{\underline{\tau}}^{J}=\underline{\underline{\mathbf{C}}}^{\tau\,J}\,\colon\underline{D}
+\]</span> where <span class="math inline">\(\underline{D}\)</span> is the rate of deformation.</p>
+<h1 id="appendix">Appendix</h1>
+<figure>
+<img src="img/FiniteStrainTangentOperatorConvertion.svg" title="Supported relations between tangent operators in `MFront`" alt="“Relation between tangent operators”" /><figcaption>“Relation between tangent operators”</figcaption>
+</figure>
+<p>Most information reported here are extracted from the book of Belytschko (<span class="citation" data-cites="belytschko_nonlinear_2000">Belytschko (2000)</span>).</p>
+<h2 id="relations-between-tangent-operator">Relations between tangent operator</h2>
+<h4 id="relation-with-the-moduli-associated-to-the-truesdell-rate-of-the-cauchy-stress-underlineunderlinemathbfcsigmat">Relation with the moduli associated to the Truesdell rate of the Cauchy Stress <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\sigma\,T}\)</span></h4>
+<p>The moduli associated to the Truesdell rate of the Cauchy Stress <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\sigma\,T}\)</span> is related to <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\tau\,J}\)</span> by the following relationship:</p>
+<p><span class="math display">\[
+\underline{\underline{\mathbf{C}}}^{\tau\,J}=J\,\left(\underline{\underline{\mathbf{C}}}^{\sigma\,T}+\underline{\underline{\mathbf{C}}}^{\prime}\right)\quad\text{with}\quad\underline{\underline{\mathbf{C}}}^{\prime}\colon\underline{D}=\underline{\sigma}\,.\,\underline{D}+\underline{D}\,.\,\underline{\sigma}
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+\underline{\underline{\mathbf{C}}}^{MJ}=\underline{\underline{\mathbf{C}}}^{\sigma\,T}+\underline{\underline{\mathbf{C}}}^{\prime}
+\]</span></p>
+<h4 id="relation-with-the-spatial-moduli-underlineunderlinemathbfcs">Relation with the spatial moduli <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{s}\)</span></h4>
+<p>The spatial moduli <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{s}\)</span> is associated to the Lie derivative of the Kirchhoff stress <span class="math inline">\(\mathcal{L}\underline{\tau}\)</span> , which is also called the convected rate or the Oldroyd rate:</p>
+<p><span class="math display">\[
+\mathcal{L}\underline{\tau}=\underline{\underline{\mathbf{C}}}^{s}\,\colon\,\underline{D}
+\]</span></p>
+<p>The spatial moduli is related to the moduli associated to Truesdell rate of the Cauchy stress <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\sigma\,T}\)</span>:</p>
+<p><span class="math display">\[
+\underline{\underline{\mathbf{C}}}^{\sigma\,T}=J^{-1}\,\underline{\underline{\mathbf{C}}}^{s}
+\]</span></p>
+<p>Thus, we have: <span class="math display">\[
+\underline{\underline{\mathbf{C}}}^{MJ}= J^{-1}\underline{\underline{\mathbf{C}}}^{s}+\underline{\underline{\mathbf{C}}}^{\prime} = J^{-1}\left(\underline{\underline{\mathbf{C}}}^{s}+\underline{\underline{\mathbf{C}}}^{\prime\prime}\right)\quad\text{with}\quad\underline{\underline{\mathbf{C}}}^{\prime\prime}\colon\underline{D}=\underline{\tau}\,.\,\underline{D}+\underline{D}\,.\,\underline{\tau}
+\]</span></p>
+<!-- The relationship between \(CsJ\) and -->
+<!-- \(\Cs\) can be expressed in component form as -->
+<!-- \[ -->
+<!-- CsJ_{ijlk}=\Cs+I_{ik}\tau_{jl}+I_{jl}\tau_{ik} -->
+<!-- \] -->
+<!-- where \tns{I} is the rank 2 identity tensor. -->
+<h4 id="relation-with-underlineunderlinemathbfcmathrmse">Relation with <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{SE}}\)</span></h4>
+<p>The <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{SE}}\)</span> relates the rate of the second Piola-Kirchhoff stress <span class="math inline">\(\underline{S}\)</span> and the Green-Lagrange strain rate <span class="math inline">\(\underline{\varepsilon}^{\mathrm{GL}}\)</span>:</p>
+<p><span class="math display">\[
+\underline{\dot{S}}=\underline{\underline{\mathbf{C}}}^{\mathrm{SE}}\,\colon\,\underline{\dot{\varepsilon}}^{\mathrm{GL}}
+\]</span></p>
+<p>As the Lie derivative of the Kirchhoff stress <span class="math inline">\(\mathcal{L}\underline{\tau}\)</span> is the push-forward of the second Piola-Kirchhoff stress rate <span class="math inline">\(\underline{\dot{S}}\)</span> and the rate of deformation <span class="math inline">\(\underline{D}\)</span> is push-forward of the Green-Lagrange strain rate <span class="math inline">\(\underline{\dot{\varepsilon}}^{\mathrm{GL}}\)</span>, <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{s}\)</span> is the push-forward of <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{SE}}\)</span>:</p>
+<p><span class="math display">\[
+C^{c}_{ijkl}=F_{im}F_{jn}F_{kp}F_{lq}C^{\mathrm{SE}}_{mnpq}
+\]</span></p>
+<h4 id="link-with-displaystylefracdisplaystyle-partial-underlinesigmadisplaystyle-partial-undersettildemathbff">Link with <span class="math inline">\(\displaystyle\frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}\)</span></h4>
+<p>For all variation of the deformation gradient <span class="math inline">\(\delta\,{\underset{\tilde{}}{\mathbf{F}}}\)</span>, the Jauman rate of the Kirchhoff stress satisfies: <span class="math display">\[
+\underline{\underline{\mathbf{C}}}^{\tau\,J}\,\colon\delta\underline{D}=\delta\underline{\tau}-\delta{\underset{\tilde{}}{\mathbf{W}}}.\underline{\tau}+\underline{\tau}.\delta{\underset{\tilde{}}{\mathbf{W}}}
+\]</span></p>
+<p>with:</p>
+<ul>
+<li><span class="math inline">\(\delta{\underset{\tilde{}}{\mathbf{L}}}= \delta{\underset{\tilde{}}{\mathbf{F}}}\,.\,{\underset{\tilde{}}{\mathbf{F}}}^{-1}\)</span></li>
+<li><span class="math inline">\(\delta{\underset{\tilde{}}{\mathbf{W}}}= \displaystyle\frac{\displaystyle 1}{\displaystyle 2}\left(\delta{\underset{\tilde{}}{\mathbf{L}}}-{\delta{\underset{\tilde{}}{\mathbf{L}}}^{\mathrm{T}}}\right)\)</span></li>
+<li><span class="math inline">\(\delta{\underset{\tilde{}}{\mathbf{D}}}= \displaystyle\frac{\displaystyle 1}{\displaystyle 2}\left(\delta{\underset{\tilde{}}{\mathbf{L}}}+{\delta{\underset{\tilde{}}{\mathbf{L}}}^{\mathrm{T}}}\right)\)</span></li>
+</ul>
+<p>Thus, the derivative of the Kirchhoff stress with respect to the deformation gradient yields: <span class="math display">\[
+\displaystyle\frac{\displaystyle \partial \underline{\tau}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}=\underline{\underline{\mathbf{C}}}^{\tau\,J}\,.\,\displaystyle\frac{\displaystyle \partial \underline{D}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}+\left(\partial^{\star}_{r}\left(\tau\right)-\partial^{\star}_{l}\left(\tau\right)\right)\,.\,\displaystyle\frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{W}}}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}
+\]</span></p>
+<p>with <span class="math inline">\(\delta\,\underline{D}=\displaystyle\frac{\displaystyle \partial \underline{D}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}\,\colon\,\delta\,{\underset{\tilde{}}{\mathbf{F}}}\)</span> and <span class="math inline">\(\delta\,{\underset{\tilde{}}{\mathbf{W}}}=\displaystyle\frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{W}}}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}\,\colon\,\delta\,{\underset{\tilde{}}{\mathbf{F}}}\)</span></p>
+<p><span class="math display">\[
+\displaystyle\frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}=\displaystyle\frac{\displaystyle 1}{\displaystyle J}\left(\displaystyle\frac{\displaystyle \partial \underline{\tau}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}-\underline{\sigma}\,\otimes\,\displaystyle\frac{\displaystyle \partial J}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}\right)
+\]</span></p>
+<h3 id="numerical-approximation-of-underlineunderlinemathbfcmj">Numerical approximation of <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{MJ}\)</span></h3>
+<p>Following <span class="citation" data-cites="sun_numerical_2008">Sun, Chaikof, and Levenston (2008)</span>, an numerical approximation of <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{MJ}\)</span> is given by: <span class="math display">\[
+\underline{\underline{\mathbf{C}}}^{MJ}_{ijkl}\approx\displaystyle\frac{\displaystyle 1}{\displaystyle J\,\varepsilon}\left(\underline{\tau}_{ij}\left({\underset{\tilde{}}{\mathbf{F}}}+{\underset{\tilde{}}{\mathbf{\delta F}}}^{kl}\right)-\underline{\tau}_{ij}\left({\underset{\tilde{}}{\mathbf{F}}}\right)\right) \]</span></p>
+<p>where the perturbation <span class="math inline">\({\underset{\tilde{}}{\mathbf{\delta F}}}^{kl}\)</span> is given by:</p>
+<p><span class="math display">\[
+{\underset{\tilde{}}{\mathbf{\delta F}}}^{kl}=\displaystyle\frac{\displaystyle \varepsilon}{\displaystyle 2}\left(\vec{e}_{k}\otimes\vec{e}_{l}+\vec{e}_{l}\otimes\vec{e}_{k}\right)\,.\,{\underset{\tilde{}}{\mathbf{F}}}
+\]</span></p>
+<p>Such perturbation leads to the following rate of deformation: <span class="math display">\[
+\delta\,\underline{D}=\left({\underset{\tilde{}}{\mathbf{\delta F}}}^{kl}\right)\,{\underset{\tilde{}}{\mathbf{F}}}^{-1}=\displaystyle\frac{\displaystyle \varepsilon}{\displaystyle 2}\left(\vec{e}_{k}\otimes\vec{e}_{l}+\vec{e}_{l}\otimes\vec{e}_{k}\right)
+\]</span></p>
+<p>The spin rate <span class="math inline">\(\delta\,\underline{W}\)</span> associated with <span class="math inline">\({\underset{\tilde{}}{\mathbf{\delta F}}}^{kl}\)</span> is null.</p>
+<h4 id="relation-with-other-moduli">Relation with other moduli</h4>
+<p>The previous relation can be used to relate to other moduli. See the section describing the isotropic case for details.</p>
+<h1 id="biblography">Biblography</h1>
+<!-- Local IspellDict: english -->
+<div id="refs" class="references">
+<div id="ref-belytschko_nonlinear_2000">
+<p>Belytschko, Ted. 2000. <em>Nonlinear Finite Elements for Continua and Structures</em>. Chichester ; New York: Wiley-Blackwell.</p>
+</div>
+<div id="ref-doghri_mechanics_2000">
+<p>Doghri, Issam. 2000. <em>Mechanics of Deformable Solids: Linear, Nonlinear, Analytical, and Computational Aspects</em>. Berlin; New York: Springer.</p>
+</div>
+<div id="ref-edf_loi_2013">
+<p>EDF. 2013. “Loi de Comportement Hyperélastique : Matériau Presque Incompressible.” Référence du Code Aster R5.03.19. EDF-R&amp;D/MITI/MMN. <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a>.</p>
+</div>
+<div id="ref-miehe_anisotropic_2002">
+<p>Miehe, C., N. Apel, and M. Lambrecht. 2002. “Anisotropic Additive Plasticity in the Logarithmic Strain Space: Modular Kinematic Formulation and Implementation Based on Incremental Minimization Principles for Standard Materials.” <em>Computer Methods in Applied Mechanics and Engineering</em> 191 (47–48): 5383–5425. <a href="https://doi.org/10.1016/S0045-7825(02)00438-3" class="uri">https://doi.org/10.1016/S0045-7825(02)00438-3</a>.</p>
+</div>
+<div id="ref-sun_numerical_2008">
+<p>Sun, Wei, Elliot L Chaikof, and Marc E Levenston. 2008. “Numerical Approximation of Tangent Moduli for Finite Element Implementations of Nonlinear Hyperelastic Material Models.” <em>Journal of Biomechanical Engineering</em> 130 (6): 061003–3. <a href="https://doi.org/10.1115/1.2979872" class="uri">https://doi.org/10.1115/1.2979872</a>.</p>
+</div>
+</div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

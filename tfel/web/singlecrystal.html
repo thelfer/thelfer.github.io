@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Description of the slip systems, orientation tensors and of the interaction matrices of single crystal and their usage</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2017-11-09" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Description of the slip systems, orientation tensors and of the interaction matrices of single crystal and their usage</h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">11/09/2017</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#description-of-the-slip-systems-orientation-tensors-and-of-the-interaction-matrices">Description of the slip systems, orientation tensors and of the interaction matrices</a><ul>
+      <li><a href="#crystal-structure">Crystal structure</a></li>
+      <li><a href="#definition-of-the-slip-systems">Definition of the slip systems</a></li>
+      <li><a href="#definition-of-the-interaction-matrix">Definition of the interaction matrix</a></li>
+      <li><a href="#definition-of-the-interaction-matrix-used-to-evaluate-the-effect-of-all-the-dislocation-on-the-mean-free-path-of-dislocations-of-a-specific-system">Definition of the interaction matrix used to evaluate the effect of all the dislocation on the mean free path of dislocations of a specific system</a></li>
+      </ul></li>
+      <li><a href="#usage-in-pratice">Usage in pratice</a><ul>
+      <li><a href="#number-of-slip-systems">Number of slip systems</a></li>
+      <li><a href="#data-structure-generated">Data structure generated</a></li>
+      <li><a href="#knowing-if-two-systems-are-coplanar">Knowing if two systems are coplanar</a></li>
+      <li><a href="#handling-of-multiple-slip-systems-families">Handling of multiple slip systems families</a></li>
+      </ul></li>
+      <li><a href="#references">References</a></li>
+      </ul>
+    </div>
+        <p>This page’ purpose is twofold:</p>
+<ul>
+<li>it shows how to define:
+<ul>
+<li>the crystal structure.</li>
+<li>the slip systems. Once the slip systems are defined, the normals to the slips planes, the slip directions (normalized Burger’s vector), the orientations tensors and their symmetric parts are automatically defined.</li>
+<li>the interaction matrix (used to describe hardening).</li>
+<li>the interaction matrix used to evaluate the effect of all the dislocation on the mean free path of dislocations of a specific system.</li>
+</ul></li>
+<li>how to use to information in pratice.</li>
+</ul>
+<h1 id="description-of-the-slip-systems-orientation-tensors-and-of-the-interaction-matrices">Description of the slip systems, orientation tensors and of the interaction matrices</h1>
+<h2 id="crystal-structure">Crystal structure</h2>
+<p>The crystal structure must be defined through the <code>@CrystalStructure</code> keyword. This keyword is followed by one of the following value:</p>
+<ul>
+<li><code>Cubic</code>: cubic structure.</li>
+<li><code>BCC</code>: body centered cubic structure.</li>
+<li><code>FCC</code>: face centered cubic structure.</li>
+<li><code>HCP</code>: hexagonal closed-packed structures.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>CrystalStructure FCC;</a></code></pre></div>
+<h2 id="definition-of-the-slip-systems">Definition of the slip systems</h2>
+<p>A single slip systems family can be defined by one of the following keywords: <code>@SlidingSystem</code>, <code>@GlidingSystem</code> or <code>@SlipSystem</code>. Those keywords are followed by the definition of one family of slip systems.</p>
+<p>Several slip systems families can be defined by one of the following keywords: <code>@SlidingSystems</code>, <code>@GlidingSystems</code> or <code>@SlipSystems</code>. Those keywords are followed by an array giving the definition of the families of slip systems.</p>
+<p>A slip system is defined by its Burgers’vector and its plane. In the case of a cubic system, the syntax is as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1">&lt;<span class="dv">1</span>,<span class="dv">-1</span>,<span class="dv">0</span>&gt;{<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>}</a></code></pre></div>
+<blockquote>
+<p><strong>Hexagonal systems</strong> For an hexagonal system, a fourth indices notation is used.</p>
+</blockquote>
+<p>Thus, an example of the usage of the <code>@SlidingSystem</code> keyword is:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>SlidingSystem &lt;<span class="dv">1</span>,<span class="dv">-1</span>,<span class="dv">0</span>&gt;{<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>};</a></code></pre></div>
+<p>For a given slip systems family, a set of slip systems are generated by symmetry using code extracted from the <code>NUMODIS</code> code (see <span class="citation" data-cites="numodis_site_2017">CEA (2017)</span>). The previous example defines <span class="math inline">\(12\)</span> slip systems.</p>
+<h3 id="getting-information-about-the-generated-slip-systems">Getting information about the generated slip systems</h3>
+<p>The list of the generated slip systems can be retrieved using <code>mfront-query</code>.</p>
+<p>Consider the following example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>DSL       ImplicitFiniteStrain;</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="er">@</span>Behaviour SlipSystemGenerationTest;</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="er">@</span>Brick     FiniteStrainSingleCrystal;</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="er">@</span>CrystalStructure FCC;</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="er">@</span>SlidingSystem &lt;<span class="dv">1</span>,<span class="dv">-1</span>,<span class="dv">0</span>&gt;{<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>};</a></code></pre></div>
+<p>If the previous code is saved a file called <code>SlipSystemGenerationTest.mfront</code>, one may use <code>mfront-query</code> as follows:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1">$ <span class="ex">mfront-query</span> --slip-systems SlipSystemGenerationTest.mfront</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="ex">-</span> <span class="op">&lt;</span>1,-1,<span class="op">0&gt;</span><span class="dt">{1,1,1}</span>: [0,1,-1](1,1,1) [<span class="ex">1</span>,0,-1](1,1,1) [<span class="ex">1</span>,-1,0](1,1,1) [<span class="ex">0</span>,1,1](1,1,-1) [<span class="ex">1</span>,0,1](1,1,-1) [<span class="ex">1</span>,-1,0](1,1,-1) [<span class="ex">0</span>,1,-1](1,-1,-1) [<span class="ex">1</span>,0,1](1,-1,-1) [<span class="ex">1</span>,1,0](1,-1,-1) [<span class="ex">0</span>,1,1](1,-1,1) [<span class="ex">1</span>,0,-1](1,-1,1) [<span class="ex">1</span>,1,0](1,-1,1)</a></code></pre></div>
+<p>The output shows that <span class="math inline">\(12\)</span> slip systems were generated. All those systems are equivalent by symmetry.</p>
+<p>Concerning slip systems, the following queries are available:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1">$ <span class="ex">mfront-query</span> --help-behaviour-queries-list <span class="kw">|</span><span class="fu">grep</span> slip</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="ex">--slip-systems</span>          : list all the slip systems, sorted by family</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="ex">--slip-systems-by-index</span> : list all the slip systems</a></code></pre></div>
+<p>The <code>--slip-systems-by-index</code> query gives the index associated to a given slip system, which is helpfull for postprocessing purposes. For this example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1">$ <span class="ex">mfront-query</span> --slip-systems-by-index SlipSystemGenerationTest.mfront</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="ex">-</span> 0: [0,1,-1](1,1,1)</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="ex">-</span> 1: [1,0,-1](1,1,1)</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="ex">-</span> 2: [1,-1,0](1,1,1)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="ex">-</span> 3: [0,1,1](1,1,-1)</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="ex">-</span> 4: [1,0,1](1,1,-1)</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="ex">-</span> 5: [1,-1,0](1,1,-1)</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="ex">-</span> 6: [0,1,-1](1,-1,-1)</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="ex">-</span> 7: [1,0,1](1,-1,-1)</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="ex">-</span> 8: [1,1,0](1,-1,-1)</a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="ex">-</span> 9: [0,1,1](1,-1,1)</a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="ex">-</span> 10: [1,0,-1](1,-1,1)</a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="ex">-</span> 11: [1,1,0](1,-1,1)</a></code></pre></div>
+<h3 id="getting-information-about-the-orientation-tensors">Getting information about the orientation tensors</h3>
+<p>Concerning the orientation tensors, the following queries are available:</p>
+<ul>
+<li><code>--orientation-tensors</code>: list all the orientation tensors, sorted by family“.</li>
+<li><code>--orientation-tensors-by-index</code>: list all the orientation tensors.</li>
+<li><code>--orientation-tensors-by-slip-system</code>: list all the orientation tensors.</li>
+</ul>
+<h3 id="getting-information-about-the-schmid-factors">Getting information about the Schmid factors</h3>
+<p>Concerning the Schmid factors, the following queries are available:</p>
+<ul>
+<li><code>--schmid-factors</code>: list all the Schmid factors, sorted by family“.</li>
+<li><code>--schmid-factors-by-index</code>: list all the Schmid factors.</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1">$ <span class="ex">mfront-query</span> --schmid-factors-by-index=<span class="st">&#39;&lt;1,1,1&gt;&#39;</span> SlipSystemGenerationTest.mfront</a></code></pre></div>
+<p><strong>Note</strong> In this example, the direction must be surrounded by simple quote to avoid interpretation by the shell.</p>
+<h2 id="definition-of-the-interaction-matrix">Definition of the interaction matrix</h2>
+<h3 id="structure-of-the-interaction-matrix">Structure of the interaction matrix</h3>
+<p>Since many interactions between slip systems are equivalent, the interaction matrix only contains a few independent coefficients.</p>
+<p>Using <code>mfront-query</code>, one may have access to the whole matrix using the <code>--interaction-matrix</code> query:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1">$ <span class="ex">mfront-query</span> --interaction-matrix SlipSystemGenerationTest.mfront </a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">|</span> <span class="ex">0</span> 1 2 2 3 4 5 6 5 6 4 3 <span class="kw">|</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw">|</span> <span class="ex">1</span> 0 2 2 6 5 4 3 4 3 5 6 <span class="kw">|</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="kw">|</span> <span class="ex">2</span> 2 0 1 5 6 3 4 6 5 3 4 <span class="kw">|</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="kw">|</span> <span class="ex">2</span> 2 1 0 4 3 6 5 3 4 6 5 <span class="kw">|</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="kw">|</span> <span class="ex">3</span> 4 5 6 0 1 2 2 6 5 4 3 <span class="kw">|</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="kw">|</span> <span class="ex">6</span> 5 4 3 1 0 2 2 3 4 5 6 <span class="kw">|</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="kw">|</span> <span class="ex">5</span> 6 3 4 2 2 0 1 5 6 3 4 <span class="kw">|</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="kw">|</span> <span class="ex">4</span> 3 6 5 2 2 1 0 4 3 6 5 <span class="kw">|</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="kw">|</span> <span class="ex">5</span> 6 4 3 4 3 5 6 0 1 2 2 <span class="kw">|</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="kw">|</span> <span class="ex">4</span> 3 5 6 5 6 4 3 1 0 2 2 <span class="kw">|</span></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="kw">|</span> <span class="ex">6</span> 5 3 4 6 5 3 4 2 2 0 1 <span class="kw">|</span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="kw">|</span> <span class="ex">3</span> 4 6 5 3 4 6 5 2 2 1 0 <span class="kw">|</span></a></code></pre></div>
+<p>Here only <span class="math inline">\(7\)</span> coefficients are needed. The number corresponding to a pair of slip systems defines the rank of the interaction.</p>
+<p>The <code>mfront-query</code> also provides the <code>--interaction-matrix-structure</code> query which displays the number of independent coefficients and sorts the pair of slip systems by rank:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1">$ <span class="ex">mfront-query</span> --interaction-matrix-structure SlipSystemGenerationTest.mfront </a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="ex">-</span> number of independent coefficients: 7</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="ex">-</span> rank 0: ([0,1,-1](1,1,1):[<span class="ex">0</span>,1,-1](1,1,1)) <span class="kw">(</span>[<span class="ex">1</span>,0,-1](1,1,1<span class="kw">)</span>:[<span class="ex">1</span>,0,-1](1,1,1)) <span class="kw">(</span>[<span class="ex">1</span>,-1,0](1,1,1<span class="kw">)</span>:[<span class="ex">1</span>,-1,0](1,1,1)) <span class="kw">(</span>[<span class="ex">0</span>,1,1](1,1,-1<span class="kw">)</span>:[<span class="ex">0</span>,1,1](1,1,-1)) <span class="kw">(</span>[<span class="ex">1</span>,0,1](1,1,-1<span class="kw">)</span>:[<span class="ex">1</span>,0,1](1,1,-1)) <span class="kw">(</span>[<span class="ex">1</span>,-1,0](1,1,-1<span class="kw">)</span>:[<span class="ex">1</span>,-1,0](1,1,-1)) <span class="kw">(</span>[<span class="ex">0</span>,1,-1](1,-1,-1<span class="kw">)</span>:[<span class="ex">0</span>,1,-1](1,-1,-1)) <span class="kw">(</span>[<span class="ex">1</span>,0,1](1,-1,-1<span class="kw">)</span>:[<span class="ex">1</span>,0,1](1,-1,-1)) <span class="kw">(</span>[<span class="ex">1</span>,1,0](1,-1,-1<span class="kw">)</span>:[<span class="ex">1</span>,1,0](1,-1,-1)) <span class="kw">(</span>[<span class="ex">0</span>,1,1](1,-1,1<span class="kw">)</span>:[<span class="ex">0</span>,1,1](1,-1,1)) <span class="kw">(</span>[<span class="ex">1</span>,0,-1](1,-1,1<span class="kw">)</span>:[<span class="ex">1</span>,0,-1](1,-1,1)) <span class="kw">(</span>[<span class="ex">1</span>,1,0](1,-1,1<span class="kw">)</span>:[<span class="ex">1</span>,1,0](1,-1,1))</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="ex">-</span> rank 1: ([0,1,-1](1,1,1):[<span class="ex">1</span>,0,-1](1,1,1)) <span class="kw">(</span>[<span class="ex">0</span>,1,-1](1,1,1<span class="kw">)</span>:[<span class="ex">1</span>,-1,0](1,1,1)) <span class="kw">(</span>[<span class="ex">1</span>,0,-1](1,1,1<span class="kw">)</span>:[<span class="ex">0</span>,1,-1](1,1,1)) <span class="kw">(</span>[<span class="ex">1</span>,0,-1](1,1,1<span class="kw">)</span>:[<span class="ex">1</span>,-1,0](1,1,1)) <span class="kw">(</span>[<span class="ex">1</span>,-1,0](1,1,1<span class="kw">)</span>:[<span class="ex">0</span>,1,-1](1,1,1)) <span class="kw">(</span>[<span class="ex">1</span>,-1,0](1,1,1<span class="kw">)</span>:[<span class="ex">1</span>,0,-1](1,1,1)) <span class="kw">(</span>[<span class="ex">0</span>,1,1](1,1,-1<span class="kw">)</span>:[<span class="ex">1</span>,0,1](1,1,-1)) <span class="kw">(</span>[<span class="ex">0</span>,1,1](1,1,-1<span class="kw">)</span>:[<span class="ex">1</span>,-1,0](1,1,-1)) <span class="kw">(</span>[<span class="ex">1</span>,0,1](1,1,-1<span class="kw">)</span>:[<span class="ex">0</span>,1,1](1,1,-1)) <span class="kw">(</span>[<span class="ex">1</span>,0,1](1,1,-1<span class="kw">)</span>:[<span class="ex">1</span>,-1,0](1,1,-1)) <span class="kw">(</span>[<span class="ex">1</span>,-1,0](1,1,-1<span class="kw">)</span>:[<span class="ex">0</span>,1,1](1,1,-1)) <span class="kw">(</span>[<span class="ex">1</span>,-1,0](1,1,-1<span class="kw">)</span>:[<span class="ex">1</span>,0,1](1,1,-1)) <span class="kw">(</span>[<span class="ex">0</span>,1,-1](1,-1,-1<span class="kw">)</span>:[<span class="ex">1</span>,0,1](1,-1,-1)) <span class="kw">(</span>[<span class="ex">0</span>,1,-1](1,-1,-1<span class="kw">)</span>:[<span class="ex">1</span>,1,0](1,-1,-1)) <span class="kw">(</span>[<span class="ex">1</span>,0,1](1,-1,-1<span class="kw">)</span>:[<span class="ex">0</span>,1,-1](1,-1,-1)) <span class="kw">(</span>[<span class="ex">1</span>,0,1](1,-1,-1<span class="kw">)</span>:[<span class="ex">1</span>,1,0](1,-1,-1)) <span class="kw">(</span>[<span class="ex">1</span>,1,0](1,-1,-1<span class="kw">)</span>:[<span class="ex">0</span>,1,-1](1,-1,-1)) <span class="kw">(</span>[<span class="ex">1</span>,1,0](1,-1,-1<span class="kw">)</span>:[<span class="ex">1</span>,0,1](1,-1,-1)) <span class="kw">(</span>[<span class="ex">0</span>,1,1](1,-1,1<span class="kw">)</span>:[<span class="ex">1</span>,0,-1](1,-1,1)) <span class="kw">(</span>[<span class="ex">0</span>,1,1](1,-1,1<span class="kw">)</span>:[<span class="ex">1</span>,1,0](1,-1,1)) <span class="kw">(</span>[<span class="ex">1</span>,0,-1](1,-1,1<span class="kw">)</span>:[<span class="ex">0</span>,1,1](1,-1,1)) <span class="kw">(</span>[<span class="ex">1</span>,0,-1](1,-1,1<span class="kw">)</span>:[<span class="ex">1</span>,1,0](1,-1,1)) <span class="kw">(</span>[<span class="ex">1</span>,1,0](1,-1,1<span class="kw">)</span>:[<span class="ex">0</span>,1,1](1,-1,1)) <span class="kw">(</span>[<span class="ex">1</span>,1,0](1,-1,1<span class="kw">)</span>:[<span class="ex">1</span>,0,-1](1,-1,1))</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="ex">.....</span></a></code></pre></div>
+<p>In this example, the rank <span class="math inline">\(0\)</span> contains all the interactions of a slip system with itself.</p>
+<h4 id="fcc-case"><code>FCC</code> case</h4>
+<p>In the case of <code>FCC</code>, the interaction matrix has <span class="math inline">\(7\)</span> independent coefficients and the matrix is non symmetric (see <span class="citation" data-cites="madec_dislocation_2017">Madec and Kubin (2017)</span>).</p>
+<h3 id="definition-of-the-interaction-matrix-1">Definition of the interaction matrix</h3>
+<p>The interaction matrix is defined through the <code>@InteractionMatrix</code> keyword. This keyword is followed by an array of values, ordered by growing rank.</p>
+<h2 id="definition-of-the-interaction-matrix-used-to-evaluate-the-effect-of-all-the-dislocation-on-the-mean-free-path-of-dislocations-of-a-specific-system">Definition of the interaction matrix used to evaluate the effect of all the dislocation on the mean free path of dislocations of a specific system</h2>
+<p>A special keyword has been introduced for the user to have access to a second interaction matrix. By convention this matrix is meant to be used to evaluate the effect of all the dislocation on the mean free path of dislocations of a specific system.</p>
+<p>This interaction has the same structure than the interaction matrix used to describe hardening effects. Please refer to the previous paragraph for details.</p>
+<p>This second matrix can be defined using the <code>@DislocationsMeanFreePathInteractionMatrix</code> keywords.</p>
+<h1 id="usage-in-pratice">Usage in pratice</h1>
+<h2 id="number-of-slip-systems">Number of slip systems</h2>
+<p>Once the sliding system families has been defined, a static integer variable called <code>Nss</code> is available which contains the total number of slip systems defined. In the previous example, <code>Nss</code> value is <span class="math inline">\(12\)</span>.</p>
+<p>This value can be used to define additional state variables:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">//! equivalent plastic strain on each slip system</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="er">@</span>AuxiliaryStateVariable real p[Nss];</a></code></pre></div>
+<p>Also, note that for the <span class="math inline">\(i^{\text{th}}\)</span> slip systems family, a static integer variable beginning by <code>Nss</code> and followed by the value of <span class="math inline">\(i\)</span> is defined. In the previous example, a unique slip systems family is defined and a variable <code>Nss0</code> is made available. Of course, in this case <code>Nss0</code> is equal to <code>Nss</code>. Those variables may be useful to define variables specific to a slip system family.</p>
+<h2 id="data-structure-generated">Data structure generated</h2>
+<p>For performances reasons, it would be too costly to build the information about slip systems and interaction matrices every time the behaviour is integrated.</p>
+<p>For this reason, an auxiliary data structure is generated. The name of the data structure is the name of the behaviour, followed by <code>SlipSystems</code>. For example, if the behaviour name is <code>FCCSingleCrystal</code>, the name of this auxiliary data structure is <code>FCCSingleCrystalSlipSystems</code>.</p>
+<p>This data structure is build once for the whole duration of the execution following a technique called <code>singleton</code>.</p>
+<p>When using the <code>FiniteStrainSingleCrystal</code> brick, this uniq instance is available in <code>@Integrator</code> block through a (reference) variable called <code>ss</code>.</p>
+<p>If this brick is not used or if this variable is needed in other blocks of the code, one may declare the <code>ss</code> variable as follows:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span>&amp; ss = FCCSingleCrystalSlipSystems&lt;real&gt;::getSlipSystems();</a></code></pre></div>
+<p>Of course, the name <code>ss</code> (for slips systems) can be changed by the user to match his/her own conventions.</p>
+<h3 id="access-to-normals-to-the-slip-planes-slip-directions-and-orientation-tensors">Access to normals to the slip planes, slip directions and orientation tensors</h3>
+<p>The previous data structure has the following public members:</p>
+<ul>
+<li><code>np</code>: an array containing all the normals to the slip planes</li>
+<li><code>ns</code>: an array containing all the slip directions (unit vector based on the Burger’s vector)</li>
+<li><code>mu</code>: an array containing all the orientation tensors</li>
+<li><code>mus</code>: an array containing all the symmetric part of the orientation tensors</li>
+</ul>
+<p>For every slip system family, specific arrays are also provided. For example, <code>np0</code> contains all the normals to the slip planes of the first family.</p>
+<h3 id="access-to-the-interaction-matrix-defined-through-interactionmatrix">Access to the interaction matrix defined through <code>@InteractionMatrix</code></h3>
+<p>The interaction matrix is accessible through the <code>him</code> (hardening interaction matrix) member.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">//! access to the interaction matrix</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span>&amp; m = ss.him;</a></code></pre></div>
+<p>For backward compatibility and ease the transition from previous implementations, this matrix is also accessible through the <code>mh</code> member.</p>
+<h3 id="access-to-the-interaction-matrix-defined-though-dislocationsmeanfreepathinteractionmatrix">Access to the interaction matrix defined though <code>@DislocationsMeanFreePathInteractionMatrix</code></h3>
+<p>If defined, the interaction matrix meant to evaluate the effect of all the dislocation on the mean free path of dislocations of a specific system can be accessed through the <code>dim</code> (dislocation interaction matrix) member.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co">//! access to the interaction matrix</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span>&amp; m = ss.dim;</a></code></pre></div>
+<h2 id="knowing-if-two-systems-are-coplanar">Knowing if two systems are coplanar</h2>
+<p>To know if two systems are coplanar, the data structure described in the previous paragraph provides the <code>areCoplanar</code> method. For example:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nss;++i){</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">  ....</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> j=<span class="dv">0</span>;j!=Nss;++j){</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">    <span class="cf">if</span> (ss.areCoplanar(i,j)){</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">      hcopla[i]+=sqrt(ss.him(i,j)*ppomega[j]);</a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">      hforest[i]+=sqrt(ss.him(i,j))*ppomega[j];</a>
+<a class="sourceLine" id="cb15-8" data-line-number="8">    }</a>
+<a class="sourceLine" id="cb15-9" data-line-number="9">    ...</a></code></pre></div>
+<h2 id="handling-of-multiple-slip-systems-families">Handling of multiple slip systems families</h2>
+<p>The <code>FiniteStrainSingleCrystal</code> brick creates a huge vector of internal state variable describing the plastic slips along the slips systems. It is sometimes useful to be able to distinguish each slip systems’ family: for example to prescribe different constitutive equations for each family.</p>
+<p>The slips systems are sorted by family. So the <code>Nss0</code> first plastic slips correspond to the first family. One can thus use the <code>Nss.+</code> variables to compute the offset of each family. For example, the plastic slip of the second system of the third family can be accessed as follows (remember that <code>C++</code> indices starts at <code>0</code>, so the index of the second system is <code>1</code>):</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> g2_3 = <span class="kw">this</span>-&gt;g[Nss0+Nss1<span class="dv">+1</span>];</a></code></pre></div>
+<p>To define constitutive equations for the third family, one may use a loop, as follows:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="cf">for</span>(<span class="at">const</span> <span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nss2;++i){</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">  fg[Nss0+Nss1+i]=...</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">}</a></code></pre></div>
+<p>However, this approach is error-prone, the data structure describing the slip systems provides methods to compute the offset of each family. There is one general method called <code>offset</code> and one methods per family called <code>offset</code> plus the number of the family (e.g. <code>offset1</code> for the second family).</p>
+<p>Hence, the previous loop can be written with the <code>offset</code> method as follows:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="cf">for</span>(<span class="at">const</span> <span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nss2;++i){</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">  fg[ss.offset(<span class="dv">2</span>,i)]=...</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">}</a></code></pre></div>
+<p>This loop can also be written using the <code>offset2</code> method:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="cf">for</span>(<span class="at">const</span> <span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nss2;++i){</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">  fg[ss.offset2(i)]=...</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">}</a></code></pre></div>
+<p>This latter way can be more efficient than using the global <code>offset</code> method depending on the compiler (and the compiler options used).</p>
+<h1 id="references">References</h1>
+<!-- Local IspellDict: english -->
+<div id="refs" class="references">
+<div id="ref-numodis_site_2017">
+<p>CEA. 2017. “NUMODIS project: Numerical Modelling of Dislocations.” <a href="http://www.numodis.fr/" class="uri">http://www.numodis.fr/</a>.</p>
+</div>
+<div id="ref-madec_dislocation_2017">
+<p>Madec, Ronan, and Ladislas P. Kubin. 2017. “Dislocation Strengthening in FCC Metals and in BCC Metals at High Temperatures.” <em>Acta Materialia</em> 126 (March): 166–73. <a href="https://doi.org/10.1016/j.actamat.2016.12.040" class="uri">https://doi.org/10.1016/j.actamat.2016.12.040</a>.</p>
+</div>
+</div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

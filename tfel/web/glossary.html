@@ -1,0 +1,923 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>TFEL Glossary description</title>
+        <meta name="author" content="Helfer Thomas" />
+        <meta name="author" content="Bernaud Stéphane" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+                <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">TFEL Glossary description</h1>
+                  <h2 class="author">Helfer Thomas</h2>
+            <h2 class="author">Bernaud Stéphane</h2>
+                </div>
+            
+<h1 id="lentrée-axialgrowth">L’entrée AxialGrowth</h1>
+<p>Cette entrée décrit axial growth under irradiation.</p>
+<ul>
+<li>noms : AxialGrowth</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-axialstrain">L’entrée AxialStrain</h1>
+<p>Cette entrée décrit la déformation axiale (cette grandeur n’a de sens que pour les calculs en contraintes planes).</p>
+<ul>
+<li>noms : AxialStrain</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-axialstress">L’entrée AxialStress</h1>
+<p>Cette entrée décrit la contrainte axiale.</p>
+<ul>
+<li>noms : AxialStress</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<p>Cette grandeur est utilisée dans les calculs 1Daxisymétrique en contraintes planes généralisées</p>
+<h1 id="lentrée-b10burnup">L’entrée B10BurnUp</h1>
+<p>Cette entrée décrit le taux d’usure en <span class="math inline">\(\mbox{}^{10}B\)</span>.</p>
+<ul>
+<li>noms : B10BurnUp</li>
+<li>unité: <span class="math inline">\(m^{-3}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="description">Description</h2>
+<p>Ce nombre décrit le nombre d’atomes de <span class="math inline">\(\mbox{}^{10}B\)</span> consommé par unité de volume au cours de l’irradiation.</p>
+<h1 id="lentrée-bulkmodulus">L’entrée BulkModulus</h1>
+<p>Cette entrée décrit The bulk modulus of an isotropic material.</p>
+<ul>
+<li>noms : BulkModulus</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-burnup_atpercent">L’entrée BurnUp_AtPercent</h1>
+<p>Cette entrée décrit le taux de combustion en atome pour cent.</p>
+<ul>
+<li>noms : BurnUp (at.%)</li>
+<li>unité: <span class="math inline">\(at./100\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-burnup_mwjpertm">L’entrée BurnUp_MWJperTm</h1>
+<p>Cette entrée décrit le taux de combustion en MegaWattJour par tonne (métal).</p>
+<ul>
+<li>noms : BurnUp (MWJ/tm)</li>
+<li>unité: <span class="math inline">\(MWJ/tm\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-cohesiveforce">L’entrée CohesiveForce</h1>
+<p>Cette entrée décrit cohesive force for cohesize zone models.</p>
+<ul>
+<li>noms : CohesiveForce</li>
+<li>unité: <span class="math inline">\(Newton\)</span></li>
+<li>type: vecteur</li>
+</ul>
+<h1 id="lentrée-convectiveheattransfercoefficient">L’entrée ConvectiveHeatTransferCoefficient</h1>
+<p>Cette entrée décrit le coefficient d’échange par convection.</p>
+<ul>
+<li>noms : ConvectiveHeatTransferCoefficient</li>
+<li>unité: <span class="math inline">\(W.m^{-2}.K^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-crosssectionarea">L’entrée CrossSectionArea</h1>
+<p>Cette entrée décrit ??.</p>
+<ul>
+<li>noms : CrossSectionArea</li>
+<li>unité: <span class="math inline">\(??\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-cylindricalstress">L’entrée CylindricalStress</h1>
+<p>Cette entrée décrit les contraintes exprimées dans le repère cylindrique.</p>
+<ul>
+<li>noms : CylindricalStress</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: tenseur symétrique</li>
+</ul>
+<h1 id="lentrée-damage">L’entrée Damage</h1>
+<p>Cette entrée décrit l’endommagement d’un matériau.</p>
+<ul>
+<li>noms : Damage</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-deformationgradient">L’entrée DeformationGradient</h1>
+<p>Cette entrée décrit gradient of the transformation.</p>
+<ul>
+<li>noms : DeformationGradient</li>
+<li>unité: sans unité</li>
+<li>type: tenseur symétrique</li>
+</ul>
+<h1 id="lentrée-displacement">L’entrée Displacement</h1>
+<p>Cette entrée décrit le déplacement.</p>
+<ul>
+<li>noms : Displacement</li>
+<li>unité: <span class="math inline">\(m\)</span></li>
+<li>type: vecteur</li>
+</ul>
+<h1 id="lentrée-elasticstrain">L’entrée ElasticStrain</h1>
+<p>Cette entrée décrit The elastic strain.</p>
+<ul>
+<li>noms : ElasticStrain</li>
+<li>unité: sans unité</li>
+<li>type: tenseur symétrique</li>
+</ul>
+<h1 id="lentrée-emissivity">L’entrée Emissivity</h1>
+<p>Cette entrée décrit Emissivity of the surface of a material is its effectiveness in emitting energy as thermal radiation.</p>
+<ul>
+<li>noms : Emissivity</li>
+<li>unité: <span class="math inline">\(kg.m.T^{−3}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-equivalentplasticstrain">L’entrée EquivalentPlasticStrain</h1>
+<p>Cette entrée décrit The equivalent plastic strain.</p>
+<ul>
+<li>noms : EquivalentPlasticStrain</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-equivalentstrain">L’entrée EquivalentStrain</h1>
+<p>Cette entrée décrit la somme des déformations plastiques ou viscoplastiques équivalentes.</p>
+<ul>
+<li>noms : EquivalentStrain</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="notes-1">Notes</h2>
+<p>Cette quantité n’a pas de sens physique directe.</p>
+<h1 id="lentrée-equivalentviscoplasticstrain">L’entrée EquivalentViscoplasticStrain</h1>
+<p>Cette entrée décrit The equivalent viscoplastic strain.</p>
+<ul>
+<li>noms : EquivalentViscoplasticStrain</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-fastneutronfluence_01mev">L’entrée FastNeutronFluence_01MeV</h1>
+<p>Cette entrée décrit la fluence rapide.</p>
+<ul>
+<li>noms : FastNeutronFluence (&gt;0.1 MeV)</li>
+<li>unité: <span class="math inline">\(n.m^{-2}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-fastneutronfluence_1mev">L’entrée FastNeutronFluence_1MeV</h1>
+<p>Cette entrée décrit la fluence rapide.</p>
+<ul>
+<li>noms : FastNeutronFluence (&gt;1 MeV)</li>
+<li>unité: <span class="math inline">\(n.m^{-2}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-fastneutronflux_01mev">L’entrée FastNeutronFlux_01MeV</h1>
+<p>Cette entrée décrit le flux de neutron rapide.</p>
+<ul>
+<li>noms : FastNeutronFlux (&gt;0.1 MeV)</li>
+<li>unité: <span class="math inline">\(n.m^{-2}.s^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-fastneutronflux_1mev">L’entrée FastNeutronFlux_1MeV</h1>
+<p>Cette entrée décrit le flux de neutron rapide.</p>
+<ul>
+<li>noms : FastNeutronFlux (&gt;1 MeV)</li>
+<li>unité: <span class="math inline">\(n.m^{-2}.s^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-firstaxissecondmomentarea">L’entrée FirstAxisSecondMomentArea</h1>
+<p>Cette entrée décrit ??.</p>
+<ul>
+<li>noms : FirstAxisSecondMomentArea</li>
+<li>unité: <span class="math inline">\(??\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-firstlamecoefficient">L’entrée FirstLameCoefficient</h1>
+<p>Cette entrée décrit First Lamé coefficient of an isotropic material.</p>
+<ul>
+<li>noms : FirstLameCoefficient</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-fissiondensity">L’entrée FissionDensity</h1>
+<p>Cette entrée décrit la densité de fission.</p>
+<ul>
+<li>noms : FissionDensity</li>
+<li>unité: <span class="math inline">\(m^{-3}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-gaseousswelling">L’entrée GaseousSwelling</h1>
+<p>Cette entrée décrit un gonflement imposé dû à des produits de fission gazeux.</p>
+<ul>
+<li>noms : GaseousSwelling</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="notes-2">Notes</h2>
+<p>L’utilisation de ce nom pour imposer un gonflement n’est pas obligatoire</p>
+<h1 id="lentrée-grainsize">L’entrée GrainSize</h1>
+<p>Cette entrée décrit la taille de grain.</p>
+<ul>
+<li>noms : GrainSize</li>
+<li>unité: <span class="math inline">\(m\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-heatflux">L’entrée HeatFlux</h1>
+<p>Cette entrée décrit le flux de chaleur..</p>
+<ul>
+<li>noms : HeatFlux</li>
+<li>unité: <span class="math inline">\(J.m^{-2}.s^{-1}\)</span></li>
+<li>type: vecteur</li>
+</ul>
+<h1 id="lentrée-heattransfercoefficient">L’entrée HeatTransferCoefficient</h1>
+<p>Cette entrée décrit The heat transfer coefficient is the proportionality constant between the heat flux and the temperature difference.</p>
+<ul>
+<li>noms : HeatTransferCoefficient</li>
+<li>unité: <span class="math inline">\(W.m^{-2}.K^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-hillstress">L’entrée HillStress</h1>
+<p>Cette entrée décrit la contrainte équivalente au sens de Hill.</p>
+<ul>
+<li>noms : HillStress</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: tenseur symétrique</li>
+</ul>
+<h1 id="lentrée-hydrostaticpressure">L’entrée HydrostaticPressure</h1>
+<p>Cette entrée décrit la pression hydrostatique (égale au tiers de la trace du tenseur des contraintes).</p>
+<ul>
+<li>noms : HydrostaticPressure</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: tenseur symétrique</li>
+</ul>
+<h1 id="lentrée-irradiationdamage">L’entrée IrradiationDamage</h1>
+<p>Cette entrée décrit le dommage due à l’irradiation, mesuré par le nombre de déplacement moyen de chaque atome (dpa).</p>
+<ul>
+<li>noms : IrradiationDamage</li>
+<li>unité: <span class="math inline">\(dpa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-irradiationinducedswelling">L’entrée IrradiationInducedSwelling</h1>
+<p>Cette entrée décrit un gonflement imposé dû à des dégâts d’irradiation.</p>
+<ul>
+<li>noms : IrradiationInducedSwelling</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="notes-3">Notes</h2>
+<p>L’utilisation de ce nom pour imposer un gonflement n’est pas obligatoire</p>
+<h1 id="lentrée-irradiationswelling">L’entrée IrradiationSwelling</h1>
+<p>Cette entrée décrit un gonflement imposé dû à des dégâts d’irradiation.</p>
+<ul>
+<li>noms : IrradiationSwelling</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="notes-4">Notes</h2>
+<p>L’utilisation de ce nom pour imposer un gonflement n’est pas obligatoire</p>
+<h1 id="lentrée-irradiationtemperature">L’entrée IrradiationTemperature</h1>
+<p>Cette entrée décrit la température moyenne (dans le temps) au cours de l’irradiation.</p>
+<ul>
+<li>noms : IrradiationTemperature</li>
+<li>unité: <span class="math inline">\(K\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="description-1">Description</h2>
+<p>Cette température est définie ainsi : <span class="math display">\[
+{\displaystyle \left\langle T\right\rangle}{\displaystyle \left(t,\vec{r}\right)}  = {\displaystyle \frac{\displaystyle 1}{\displaystyle t-t_{0}}}\int_{t_{0}}^{t}T{\displaystyle \left(u,\vec{r}\right)}\,\mathrm{d}\, u
+\]</span> où</p>
+<ul>
+<li><span class="math inline">\(T{\displaystyle \left(t,\vec{r}\right)}\)</span> est la valeur à un instant <span class="math inline">\(t\)</span> de la température au point <span class="math inline">\(\vec{r}\)</span> ;</li>
+<li><span class="math inline">\(t_{0}\)</span> est la date du début de calcul ;</li>
+<li><span class="math inline">\(t\)</span> est la date courante.</li>
+</ul>
+<p>En pratique, l’intégrale temporelle est évaluée de manière incrémentale ainsi : <span class="math display">\[
+{\displaystyle \left\langle T\right\rangle}{\displaystyle \left(t+dt,\vec{r}\right)} \approx {\displaystyle \frac{\displaystyle 1}{\displaystyle t+dt-t_{0}}}\left[{\displaystyle \left(t-t_{0}\right)}\,{\displaystyle \left\langle T\right\rangle}{\displaystyle \left(t,\vec{r}\right)}+{\displaystyle \frac{\displaystyle dt}{\displaystyle 2}}\left[T{\displaystyle \left(t,\vec{r}\right)}+T{\displaystyle \left(t+dt,\vec{r}\right)}\right]\right]
+\]</span></p>
+<h2 id="notes-5">Notes</h2>
+<p>Ce mode de calcul peut conduire à de légères erreurs numériques</p>
+<h1 id="lentrée-kelvintemperature">L’entrée KelvinTemperature</h1>
+<p>Cette entrée décrit The temperature.</p>
+<ul>
+<li>noms : KelvinTemperature</li>
+<li>unité: <span class="math inline">\(K\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="notes-6">Notes</h2>
+<p>Cette entrée a été rajoutée par compatibilité avec les choix d’implantation des lois de comportements mécaniques utilisés par le code Germinal</p>
+<h1 id="lentrée-massdensity">L’entrée MassDensity</h1>
+<p>Cette entrée décrit The mass density.</p>
+<ul>
+<li>noms : MassDensity</li>
+<li>unité: <span class="math inline">\(kg.m^{-3}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-meanburnup_atpercent">L’entrée MeanBurnUp_AtPercent</h1>
+<p>Cette entrée décrit le taux de combustion en atome pour cent moyen (au sens spatial) pour un matériau donné.</p>
+<ul>
+<li>noms : MeanBurnUp (at.%)</li>
+<li>unité: <span class="math inline">\(at./100\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-meanburnup_mwjpertm">L’entrée MeanBurnUp_MWJperTm</h1>
+<p>Cette entrée décrit le taux de combustion en MegaWattJour par tonne (métal) moyen (au sens spatial) pour un matériau donné.</p>
+<ul>
+<li>noms : MeanBurnUp (MWJ/tm)</li>
+<li>unité: <span class="math inline">\(MWJ/tm\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-meanirradiationtemperature">L’entrée MeanIrradiationTemperature</h1>
+<p>Cette entrée décrit la température moyenne dans le temps et dans un domaine <span class="math inline">\(\Omega\)</span> donné.</p>
+<ul>
+<li>noms : MeanIrradiationTemperature</li>
+<li>unité: <span class="math inline">\(K\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="description-2">Description</h2>
+<p>Cette température est définie ainsi :<span class="math display">\[{\displaystyle \left\langle T\right\rangle}{\displaystyle \left(t\right)} ={\displaystyle \frac{\displaystyle 1}{\displaystyle t-t_{0}}}{\displaystyle \frac{\displaystyle 1}{\displaystyle \int_{\Omega}\mathrm{d}\,V}}\int_{t_{0}}^{t}{\displaystyle \left(\int_{\Omega}T{\displaystyle \left(u,\vec{r}\right)}\,\mathrm{d}\,V\right)}\]</span>où <span class="math inline">\(T{\displaystyle \left(t,\vec{r}\right)}\)</span> est la valeur à un instant <span class="math inline">\(t\)</span> de la température au point <span class="math inline">\(\vec{r}\)</span>.</p>
+<h2 id="notes-7">Notes</h2>
+<p>En pratique, l’intégrale spatiale est calculée à l’aide de la discrétisation par éléments finis et l’intégrale temporelle est calculée de manière incrémentale.</p>
+<h1 id="lentrée-meantemperature">L’entrée MeanTemperature</h1>
+<p>Cette entrée décrit la température moyenne dans un domaine <span class="math inline">\(\Omega\)</span> donné. .</p>
+<ul>
+<li>noms : MeanTemperature</li>
+<li>unité: <span class="math inline">\(K\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="description-3">Description</h2>
+<p>Cette température est définie ainsi :<span class="math display">\[{\displaystyle \left\langle T\right\rangle}{\displaystyle \left(t\right)}  = {\displaystyle \frac{\displaystyle 1}{\displaystyle \int_{\Omega}\mathrm{d}\,V}}\int_{\Omega}T{\displaystyle \left(t,\vec{r}\right)}\,\mathrm{d}\, V\]</span>où <span class="math inline">\(T{\displaystyle \left(t,\vec{r}\right)}\)</span> est la valeur à un instant <span class="math inline">\(t\)</span> de latempérature au point <span class="math inline">\(\vec{r}\)</span>.</p>
+<h2 id="notes-8">Notes</h2>
+<p>En pratique, l’intégrale spatiale est calculée à l’aide de la discrétisation par éléments finis.</p>
+<h1 id="lentrée-neutronfluence">L’entrée NeutronFluence</h1>
+<p>Cette entrée décrit la fluence.</p>
+<ul>
+<li>noms : NeutronFluence</li>
+<li>unité: <span class="math inline">\(n.m^{-2}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-neutronflux">L’entrée NeutronFlux</h1>
+<p>Cette entrée décrit le flux de neutron.</p>
+<ul>
+<li>noms : NeutronFlux</li>
+<li>unité: <span class="math inline">\(n.m^{-2}.s^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-normalstiffness">L’entrée NormalStiffness</h1>
+<p>Cette entrée décrit la raideur normale pour un modèle de zone cohésive.</p>
+<ul>
+<li>noms : NormalStiffness</li>
+<li>unité: <span class="math inline">\(Pa.m^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-numberofmoles">L’entrée NumberOfMoles</h1>
+<p>Cette entrée décrit le nombre de moles d’une substance.</p>
+<ul>
+<li>noms : NumberOfMoles</li>
+<li>unité: <span class="math inline">\(mol\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-openingdisplacement">L’entrée OpeningDisplacement</h1>
+<p>Cette entrée décrit opening displacement in cohesive zone models.</p>
+<ul>
+<li>noms : OpeningDisplacement</li>
+<li>unité: <span class="math inline">\(m\)</span></li>
+<li>type: vecteur</li>
+</ul>
+<h1 id="lentrée-orthotropicaxisx1">L’entrée OrthotropicAxisX1</h1>
+<p>Cette entrée décrit la première coordonnée du premier axe d’orthotropie.</p>
+<ul>
+<li>noms : OrthotropicAxisX1</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="description-4">Description</h2>
+<p>Cette quantité est automatiquementcalculée par Licos à partir de la définition du matériau</p>
+<h1 id="lentrée-orthotropicaxisx2">L’entrée OrthotropicAxisX2</h1>
+<p>Cette entrée décrit la première coordonnée du second axe d’orthotropie.</p>
+<ul>
+<li>noms : OrthotropicAxisX2</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="description-5">Description</h2>
+<p>Cette quantité est automatiquementcalculée par Licos à partir de la définition du matériau</p>
+<h1 id="lentrée-orthotropicaxisy1">L’entrée OrthotropicAxisY1</h1>
+<p>Cette entrée décrit la deuxième coordonnée du premier axe d’orthotropie.</p>
+<ul>
+<li>noms : OrthotropicAxisY1</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="description-6">Description</h2>
+<p>Cette quantité est automatiquementcalculée par Licos à partir de la définition du matériau</p>
+<h1 id="lentrée-orthotropicaxisy2">L’entrée OrthotropicAxisY2</h1>
+<p>Cette entrée décrit la deuxième coordonnée du second axe d’orthotropie.</p>
+<ul>
+<li>noms : OrthotropicAxisY2</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="description-7">Description</h2>
+<p>Cette quantité est automatiquement calculée par Licos à partir de la définition du matériau</p>
+<h1 id="lentrée-orthotropicaxisz1">L’entrée OrthotropicAxisZ1</h1>
+<p>Cette entrée décrit la troisième coordonnée du premier axe d’orthotropie.</p>
+<ul>
+<li>noms : OrthotropicAxisZ1</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="description-8">Description</h2>
+<p>Cette quantité est automatiquementcalculée par Licos à partir de la définition du matériau</p>
+<h1 id="lentrée-orthotropicaxisz2">L’entrée OrthotropicAxisZ2</h1>
+<p>Cette entrée décrit la troisième coordonnée du second axe d’orthotropie.</p>
+<ul>
+<li>noms : OrthotropicAxisZ2</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="description-9">Description</h2>
+<p>Cette quantité est automatiquementcalculée par Licos à partir de la définition du matériau</p>
+<h1 id="lentrée-plasticstrain">L’entrée PlasticStrain</h1>
+<p>Cette entrée décrit The plastic strain.</p>
+<ul>
+<li>noms : PlasticStrain</li>
+<li>unité: sans unité</li>
+<li>type: tenseur symétrique</li>
+</ul>
+<h1 id="lentrée-platewidth">L’entrée PlateWidth</h1>
+<p>Cette entrée décrit ??.</p>
+<ul>
+<li>noms : PlateWidth</li>
+<li>unité: <span class="math inline">\(??\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-poissonratio">L’entrée PoissonRatio</h1>
+<p>Cette entrée décrit The Poisson ratio of an isotropic material.</p>
+<ul>
+<li>noms : PoissonRatio</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-poissonratio12">L’entrée PoissonRatio12</h1>
+<p>Cette entrée décrit le coefficient de Poisson d’un matériau orthotrope relatif aux première et deuxième directions d’orthotropie.</p>
+<ul>
+<li>noms : PoissonRatio12</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-poissonratio13">L’entrée PoissonRatio13</h1>
+<p>Cette entrée décrit le coefficient de Poisson d’un matériau orthotrope relatif aux première et troisième directions d’orthotropie.</p>
+<ul>
+<li>noms : PoissonRatio13</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-poissonratio23">L’entrée PoissonRatio23</h1>
+<p>Cette entrée décrit le coefficient de Poisson d’un matériau orthotrope relatif aux deuxième et troisième directions d’orthotropie.</p>
+<ul>
+<li>noms : PoissonRatio23</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-porosity">L’entrée Porosity</h1>
+<p>Cette entrée décrit la porosité du matériau.</p>
+<ul>
+<li>noms : Porosity</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-powerdensity">L’entrée PowerDensity</h1>
+<p>Cette entrée décrit la densité de puissance.</p>
+<ul>
+<li>noms : PowerDensity</li>
+<li>unité: <span class="math inline">\(W.m^{-3}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-pressure">L’entrée Pressure</h1>
+<p>Cette entrée décrit la pression d’un gaz.</p>
+<ul>
+<li>noms : Pressure</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-principalstress1">L’entrée PrincipalStress1</h1>
+<p>Cette entrée décrit la première contrainte principale.</p>
+<ul>
+<li>noms : PrincipalStress1</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="notes-9">Notes</h2>
+<p>Son sens est précisé dans la notice de l’opérateur <a href="http://www-cast3m.cea.fr/index.php?page=notices&amp;notice=PRIN">‘PRIN’</a> de <a href="http://www-cast3m.cea.fr">Cast3M</a></p>
+<h1 id="lentrée-principalstress2">L’entrée PrincipalStress2</h1>
+<p>Cette entrée décrit la deuxième contrainte principale.</p>
+<ul>
+<li>noms : PrincipalStress2</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="notes-10">Notes</h2>
+<p>Son sens est précisé dans la notice de l’opérateur <a href="http://www-cast3m.cea.fr/index.php?page=notices&amp;notice=PRIN">‘PRIN’</a> de <a href="http://www-cast3m.cea.fr">Cast3M</a></p>
+<h1 id="lentrée-principalstress3">L’entrée PrincipalStress3</h1>
+<p>Cette entrée décrit la troisième contrainte principale.</p>
+<ul>
+<li>noms : PrincipalStress3</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="notes-11">Notes</h2>
+<p>Son sens est précisé dans la notice de l’opérateur <a href="http://www-cast3m.cea.fr/index.php?page=notices&amp;notice=PRIN">‘PRIN’</a> de <a href="http://www-cast3m.cea.fr">Cast3M</a></p>
+<h1 id="lentrée-secondaxissecondmomentarea">L’entrée SecondAxisSecondMomentArea</h1>
+<p>Cette entrée décrit ??.</p>
+<ul>
+<li>noms : SecondAxisSecondMomentArea</li>
+<li>unité: <span class="math inline">\(??\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-shearmodulus">L’entrée ShearModulus</h1>
+<p>Cette entrée décrit The shear modulus of an isotropic material.</p>
+<ul>
+<li>noms : ShearModulus</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-shearmodulus12">L’entrée ShearModulus12</h1>
+<p>Cette entrée décrit le module de cisaillement d’un matériau orthotrope relatif aux première et deuxième directions d’orthotropie.</p>
+<ul>
+<li>noms : ShearModulus12</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-shearmodulus13">L’entrée ShearModulus13</h1>
+<p>Cette entrée décrit le module de cisaillement d’un matériau orthotrope relatif aux première et troisième directions d’orthotropie.</p>
+<ul>
+<li>noms : ShearModulus13</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-shearmodulus23">L’entrée ShearModulus23</h1>
+<p>Cette entrée décrit le module de cisaillement d’un matériau orthotrope relatif aux deuxième et troisième directions d’orthotropie.</p>
+<ul>
+<li>noms : ShearModulus23</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-solidswelling">L’entrée SolidSwelling</h1>
+<p>Cette entrée décrit un gonflement imposé dû à des produits de fission solides.</p>
+<ul>
+<li>noms : SolidSwelling</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="notes-12">Notes</h2>
+<p>L’utilisation de ce nom pour imposer un gonflement n’est pas obligatoire</p>
+<h1 id="lentrée-specificheat">L’entrée SpecificHeat</h1>
+<p>Cette entrée décrit la chaleur spécifique.</p>
+<ul>
+<li>noms : SpecificHeat</li>
+<li>unité: <span class="math inline">\(J.kg^{-1}.K^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-sphericalstress">L’entrée SphericalStress</h1>
+<p>Cette entrée décrit les contraintes exprimées dans le repère sphérique.</p>
+<ul>
+<li>noms : SphericalStress</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: tenseur symétrique</li>
+</ul>
+<h1 id="lentrée-strain">L’entrée Strain</h1>
+<p>Cette entrée décrit la déformation.</p>
+<ul>
+<li>noms : Strain</li>
+<li>unité: sans unité</li>
+<li>type: tenseur symétrique</li>
+</ul>
+<h1 id="lentrée-stress">L’entrée Stress</h1>
+<p>Cette entrée décrit les contraintes.</p>
+<ul>
+<li>noms : Stress</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: tenseur symétrique</li>
+</ul>
+<h1 id="lentrée-swelling">L’entrée Swelling</h1>
+<p>Cette entrée décrit un gonflement imposé.</p>
+<ul>
+<li>noms : Swelling</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h2 id="notes-13">Notes</h2>
+<p>l’utilisation de ce nom pour imposer un gonflement n’est pasobligatoire.</p>
+<h1 id="lentrée-tangentialstiffness">L’entrée TangentialStiffness</h1>
+<p>Cette entrée décrit la raideur tangentielle pour un modèle de zone cohésive.</p>
+<ul>
+<li>noms : TangentialStiffness</li>
+<li>unité: <span class="math inline">\(Pa.m^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-temperature">L’entrée Temperature</h1>
+<p>Cette entrée décrit The temperature.</p>
+<ul>
+<li>noms : Temperature</li>
+<li>unité: <span class="math inline">\(K\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-temperaturegradient">L’entrée TemperatureGradient</h1>
+<p>Cette entrée décrit le gradient de température.</p>
+<ul>
+<li>noms : TemperatureGradient</li>
+<li>unité: <span class="math inline">\(T.m^{-1}\)</span></li>
+<li>type: vecteur</li>
+</ul>
+<h1 id="lentrée-thermalconductivity">L’entrée ThermalConductivity</h1>
+<p>Cette entrée décrit la conductivité thermique d’un matériau isotrope.</p>
+<ul>
+<li>noms : ThermalConductivity</li>
+<li>unité: <span class="math inline">\(W.m^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-thermalconductivity1">L’entrée ThermalConductivity1</h1>
+<p>Cette entrée décrit la conductivité thermique d’un matériau orthotrope suivant la première direction d’orthotropie.</p>
+<ul>
+<li>noms : ThermalConductivity1</li>
+<li>unité: <span class="math inline">\(W.m^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-thermalconductivity2">L’entrée ThermalConductivity2</h1>
+<p>Cette entrée décrit la conductivité thermique d’un matériau orthotrope suivant la deuxième direction d’orthotropie.</p>
+<ul>
+<li>noms : ThermalConductivity2</li>
+<li>unité: <span class="math inline">\(W.m^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-thermalconductivity3">L’entrée ThermalConductivity3</h1>
+<p>Cette entrée décrit la conductivité thermique d’un matériau orthotrope suivant la troisième direction d’orthotropie.</p>
+<ul>
+<li>noms : ThermalConductivity3</li>
+<li>unité: <span class="math inline">\(W.m^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-thermalexpansion">L’entrée ThermalExpansion</h1>
+<p>Cette entrée décrit le coefficient de dilatation linéique d’un matériau isotrope.</p>
+<ul>
+<li>noms : ThermalExpansion</li>
+<li>unité: <span class="math inline">\(K^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-thermalexpansion1">L’entrée ThermalExpansion1</h1>
+<p>Cette entrée décrit le coefficient de dilatation linéique d’un matériau orthotrope suivant la première direction d’orthotropie.</p>
+<ul>
+<li>noms : ThermalExpansion1</li>
+<li>unité: <span class="math inline">\(K^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-thermalexpansion2">L’entrée ThermalExpansion2</h1>
+<p>Cette entrée décrit le coefficient de dilatation linéique d’un matériau orthotrope suivant la deuxième direction d’orthotropie.</p>
+<ul>
+<li>noms : ThermalExpansion2</li>
+<li>unité: <span class="math inline">\(K^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-thermalexpansion3">L’entrée ThermalExpansion3</h1>
+<p>Cette entrée décrit le coefficient de dilatation linéique d’un matériau orthotrope suivant la troisième direction d’orthotropie.</p>
+<ul>
+<li>noms : ThermalExpansion3</li>
+<li>unité: <span class="math inline">\(K^{-1}\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-torsionconstant">L’entrée TorsionConstant</h1>
+<p>Cette entrée décrit ??.</p>
+<ul>
+<li>noms : TorsionConstant</li>
+<li>unité: <span class="math inline">\(??\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-trescastress">L’entrée TrescaStress</h1>
+<p>Cette entrée décrit la contrainte équivalente au sens de Tresca.</p>
+<ul>
+<li>noms : TrescaStress</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-ultimatetensilestrength">L’entrée UltimateTensileStrength</h1>
+<p>Cette entrée décrit la valeur maximale de la contrainte qu’un materiau peut supporter.</p>
+<ul>
+<li>noms : UltimateTensileStress, UltimateTensileStrength</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-viscoplasticstrain">L’entrée ViscoplasticStrain</h1>
+<p>Cette entrée décrit The viscoplatic strain.</p>
+<ul>
+<li>noms : ViscoplasticStrain</li>
+<li>unité: sans unité</li>
+<li>type: tenseur symétrique</li>
+</ul>
+<h1 id="lentrée-volumetricstrain">L’entrée VolumetricStrain</h1>
+<p>Cette entrée décrit la dilatation volumique.</p>
+<ul>
+<li>noms : VolumetricStrain</li>
+<li>unité: sans unité</li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-vonmisesstress">L’entrée VonMisesStress</h1>
+<p>Cette entrée décrit la contrainte équivalente au sens de Von Mises.</p>
+<ul>
+<li>noms : VonMisesStress</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-yieldstrength">L’entrée YieldStrength</h1>
+<p>Cette entrée décrit la limite d’élasticité.</p>
+<ul>
+<li>noms : YieldStress, YieldStrength</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-youngmodulus">L’entrée YoungModulus</h1>
+<p>Cette entrée décrit The Young modulus of an isotropic material.</p>
+<ul>
+<li>noms : YoungModulus</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-youngmodulus1">L’entrée YoungModulus1</h1>
+<p>Cette entrée décrit le module d’Young d’un matériau orthotrope suivant la première direction d’orthotropie.</p>
+<ul>
+<li>noms : YoungModulus1</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-youngmodulus2">L’entrée YoungModulus2</h1>
+<p>Cette entrée décrit le module d’Young d’un matériau orthotrope suivant la deuxième direction d’orthotropie.</p>
+<ul>
+<li>noms : YoungModulus2</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire</li>
+</ul>
+<h1 id="lentrée-youngmodulus3">L’entrée YoungModulus3</h1>
+<p>Cette entrée décrit le module d’Young d’un matériau orthotrope suivant la troisième direction d’orthotropie.</p>
+<ul>
+<li>noms : YoungModulus3</li>
+<li>unité: <span class="math inline">\(Pa\)</span></li>
+<li>type: scalaire <!-- Local IspellDict: english --></li>
+</ul>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

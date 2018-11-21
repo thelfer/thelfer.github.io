@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>How to implement an isotropic plastic behaviour with isotropic linear hardening in MFront</title>
+        <meta name="author" content="Thomas Helfer, Lorenzo Riparbelli, Ioannis Christovasilis" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">How to implement an isotropic plastic behaviour with isotropic linear hardening in MFront</h1>
+                  <h2 class="author">Thomas Helfer, Lorenzo Riparbelli, Ioannis Christovasilis</h2>
+                  <h3 class="date">24/04/2018</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#description-of-the-behaviour">Description of the behaviour</a><ul>
+      <li><a href="#elastic-behaviour">Elastic behaviour</a></li>
+      <li><a href="#plastic-flow">Plastic flow</a></li>
+      </ul></li>
+      <li><a href="#integration-algorithm">Integration algorithm</a></li>
+      </ul>
+    </div>
+        
+
+<p>This article shows how to implement an orthotropic plastic behaviour with isotropic linear hardening in <code>MFront</code>.</p>
+<h1 id="description-of-the-behaviour">Description of the behaviour</h1>
+<p>The behaviour is described by a standard decomposition of the strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in an elastic and a plastic component, respectively denoted <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and <span class="math inline">\(\underline{\varepsilon}^{\mathrm{p}}\)</span>:</p>
+<p><span class="math display">\[
+\underline{\varepsilon}^{\mathrm{to}}=\underline{\varepsilon}^{\mathrm{el}}+\underline{\varepsilon}^{\mathrm{p}}
+\]</span></p>
+<h2 id="elastic-behaviour">Elastic behaviour</h2>
+<p>The stress <span class="math inline">\(\underline{\sigma}\)</span> is related to the the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> by a the standard Hooke behaviour:</p>
+<p><span class="math display">\[
+\underline{\sigma}= \lambda\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\,\underline{I}+2\,\mu\,\underline{\varepsilon}^{\mathrm{el}}
+\]</span></p>
+<h2 id="plastic-flow">Plastic flow</h2>
+<p>The plastic part of the behaviour is described by the following yield surface: <span class="math display">\[
+f{\left(\sigma_{\mathrm{eq}},p\right)} = \sigma_{\mathrm{eq}}-\sigma_{0}-R\,p
+\]</span></p>
+<p>where <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> is the Hill stress defined below, <span class="math inline">\(p\)</span> is the equivalent plastic strain, <span class="math inline">\(\sigma_{0}\)</span> is the yield stress and <span class="math inline">\(R\)</span> is the hardening slope.</p>
+<p>The von Mises stress is defined by: <span class="math display">\[
+\sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,\underline{s}\,\colon\,\underline{s}}=\sqrt{3\,J_{2}}
+\]</span> where:</p>
+<ul>
+<li><span class="math inline">\(\underline{s}\)</span> is the deviatoric stress defined as follows: <span class="math display">\[
+\underline{s}=\underline{\sigma}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
+\]</span></li>
+<li><span class="math inline">\(J_{2}\)</span> is the second invariant of <span class="math inline">\(\underline{s}\)</span>.</li>
+</ul>
+<p>The previous expression can be rewritten by introducing a fourth order tensor called <span class="math inline">\(\underline{\underline{\mathbf{M}}}\)</span>: <span class="math display">\[
+\sigma_{\mathrm{eq}}=\sqrt{\sigma\,\colon\,\underline{\underline{\mathbf{M}}}\,\colon\,\underline{\sigma}}
+\]</span></p>
+<p>The tensor <span class="math inline">\(\underline{\underline{\mathbf{M}}}\)</span> is given by: <span class="math display">\[
+\underline{\underline{\mathbf{M}}}={{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,{\left(\underline{\underline{\mathbf{I}}}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,\underline{I}\,\otimes\,\underline{I}\right)}
+\]</span></p>
+<p>The plastic flow is assumed to be associated, so the flow direction <span class="math inline">\(\underline{n}\)</span> is given by <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f}{\displaystyle \partial \underline{\sigma}}}\)</span>:</p>
+<p><span class="math display">\[
+\underline{n} = {\displaystyle \frac{\displaystyle \partial f}{\displaystyle \partial \underline{\sigma}}} = {{\displaystyle \frac{\displaystyle 3}{\displaystyle 2\,\sigma_{\mathrm{eq}}}}}\,\underline{s}
+\]</span></p>
+<h1 id="integration-algorithm">Integration algorithm</h1>
+<p>The previous constitutive equations will be integrated using a standard implicit scheme.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL DefaultDSL;</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="er">@</span>Behaviour IsotropicLinearHardeningPlasticity;</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="er">@</span>Author Thomas Helfer;</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="er">@</span>Date   <span class="dv">14</span>/<span class="dv">10</span>/<span class="dv">2016</span>;</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="er">@</span>Description{</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  An implicit implementation of a simple</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">  isotropic plasticity behaviour with</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">  isotropic linear hardening.</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">  The yield surface is defined by:</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">  <span class="st">&quot;\[&quot;</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">  <span class="st">&quot;  f(\sigmaeq,p) = \sigmaeq-s_{0}-H\,p&quot;</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">  <span class="st">&quot;\]&quot;</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">}</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="er">@</span>StateVariable StrainStensor eel;</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">eel.setGlossaryName(<span class="st">&quot;ElasticStrain&quot;</span>);</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="er">@</span>StateVariable strain p;</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="er">@</span>Parameter young =  <span class="dv">70</span>.e9;</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">young.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="er">@</span>Parameter nu    =   <span class="fl">0.34</span>;</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">nu.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</a>
+<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="er">@</span>Parameter H     =  <span class="dv">10</span>.e9;</a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">H.setEntryName(<span class="st">&quot;HardeningSlope&quot;</span>);</a>
+<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="er">@</span>Parameter s0    =  <span class="dv">300</span>.e6;</a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">s0.setGlossaryName(<span class="st">&quot;YieldStress&quot;</span>);</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb1-30" data-line-number="30"><span class="co">/*!</span></a>
+<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="co"> * computation of the prediction operator: we only provide the elastic</span></a>
+<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="co"> * operator.</span></a>
+<a class="sourceLine" id="cb1-33" data-line-number="33"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-34" data-line-number="34"><span class="co"> * We could also provide a tangent operator, but this would mean</span></a>
+<a class="sourceLine" id="cb1-35" data-line-number="35"><span class="co"> * saving an auxiliary state variable stating if a plastic loading</span></a>
+<a class="sourceLine" id="cb1-36" data-line-number="36"><span class="co"> * occured at the previous time step.</span></a>
+<a class="sourceLine" id="cb1-37" data-line-number="37"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-38" data-line-number="38"><span class="er">@</span>PredictionOperator{</a>
+<a class="sourceLine" id="cb1-39" data-line-number="39">  <span class="at">const</span> <span class="kw">auto</span> lambda = computeLambda(young,nu);</a>
+<a class="sourceLine" id="cb1-40" data-line-number="40">  <span class="at">const</span> <span class="kw">auto</span> mu     = computeMu(young,nu);</a>
+<a class="sourceLine" id="cb1-41" data-line-number="41">  Dt = lambda*Stensor4::IxI()<span class="dv">+2</span>*mu*Stensor4::Id();</a>
+<a class="sourceLine" id="cb1-42" data-line-number="42">}</a>
+<a class="sourceLine" id="cb1-43" data-line-number="43"></a>
+<a class="sourceLine" id="cb1-44" data-line-number="44"><span class="co">/*!</span></a>
+<a class="sourceLine" id="cb1-45" data-line-number="45"><span class="co"> * behaviour integration using a fully implicit Euler-backwark scheme.</span></a>
+<a class="sourceLine" id="cb1-46" data-line-number="46"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-47" data-line-number="47"><span class="er">@</span>ProvidesSymmetricTangentOperator;</a>
+<a class="sourceLine" id="cb1-48" data-line-number="48"><span class="er">@</span>Integrator{</a>
+<a class="sourceLine" id="cb1-49" data-line-number="49">  <span class="at">const</span> <span class="kw">auto</span> lambda = computeLambda(young,nu);</a>
+<a class="sourceLine" id="cb1-50" data-line-number="50">  <span class="at">const</span> <span class="kw">auto</span> mu     = computeMu(young,nu);</a>
+<a class="sourceLine" id="cb1-51" data-line-number="51">  eel += deto;</a>
+<a class="sourceLine" id="cb1-52" data-line-number="52">  <span class="at">const</span> <span class="kw">auto</span> se     = <span class="dv">2</span>*mu*deviator(eel);</a>
+<a class="sourceLine" id="cb1-53" data-line-number="53">  <span class="at">const</span> <span class="kw">auto</span> seq_e  = sigmaeq(se);</a>
+<a class="sourceLine" id="cb1-54" data-line-number="54">  <span class="at">const</span> <span class="kw">auto</span> b      = seq_e-s0-H*p&gt;stress{<span class="dv">0</span>};</a>
+<a class="sourceLine" id="cb1-55" data-line-number="55">  <span class="cf">if</span>(b){</a>
+<a class="sourceLine" id="cb1-56" data-line-number="56">    <span class="at">const</span> <span class="kw">auto</span> iseq_e = <span class="dv">1</span>/seq_e;</a>
+<a class="sourceLine" id="cb1-57" data-line-number="57">    <span class="at">const</span> <span class="kw">auto</span> n      = eval(<span class="dv">3</span>*se/(<span class="dv">2</span>*seq_e));</a>
+<a class="sourceLine" id="cb1-58" data-line-number="58">    <span class="at">const</span> <span class="kw">auto</span> cste   = <span class="dv">1</span>/(H<span class="dv">+3</span>*mu);</a>
+<a class="sourceLine" id="cb1-59" data-line-number="59">    dp   = (seq_e-s0-H*p)*cste;</a>
+<a class="sourceLine" id="cb1-60" data-line-number="60">    eel -= dp*n;</a>
+<a class="sourceLine" id="cb1-61" data-line-number="61">    <span class="cf">if</span>(<span class="va">computeTangentOperator_</span>){</a>
+<a class="sourceLine" id="cb1-62" data-line-number="62">      <span class="cf">if</span>(smt==CONSISTENTTANGENTOPERATOR){</a>
+<a class="sourceLine" id="cb1-63" data-line-number="63">    Dt = (lambda*Stensor4::IxI()<span class="dv">+2</span>*mu*Stensor4::Id()</a>
+<a class="sourceLine" id="cb1-64" data-line-number="64">          <span class="dv">-4</span>*mu*mu*(dp*iseq_e*(Stensor4::M()-(n^n))+cste*(n^n)));</a>
+<a class="sourceLine" id="cb1-65" data-line-number="65">      } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb1-66" data-line-number="66">    Dt = lambda*Stensor4::IxI()<span class="dv">+2</span>*mu*Stensor4::Id();</a>
+<a class="sourceLine" id="cb1-67" data-line-number="67">      }</a>
+<a class="sourceLine" id="cb1-68" data-line-number="68">    }</a>
+<a class="sourceLine" id="cb1-69" data-line-number="69">  } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb1-70" data-line-number="70">    <span class="cf">if</span>(<span class="va">computeTangentOperator_</span>){</a>
+<a class="sourceLine" id="cb1-71" data-line-number="71">      Dt = lambda*Stensor4::IxI()<span class="dv">+2</span>*mu*Stensor4::Id();</a>
+<a class="sourceLine" id="cb1-72" data-line-number="72">    }</a>
+<a class="sourceLine" id="cb1-73" data-line-number="73">  }</a>
+<a class="sourceLine" id="cb1-74" data-line-number="74">  sig = lambda*trace(eel)*Stensor::Id()<span class="dv">+2</span>*mu*eel;</a>
+<a class="sourceLine" id="cb1-75" data-line-number="75">}</a></code></pre></div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

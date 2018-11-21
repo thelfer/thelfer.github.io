@@ -1,0 +1,831 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>ImplicitFiniteStrain keywords</title>
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title"><code>ImplicitFiniteStrain</code> keywords</h1>
+                      </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#the-algorithm-keyword">The <code>@Algorithm</code> keyword</a></li>
+      <li><a href="#the-author-keyword">The <code>@Author</code> keyword</a></li>
+      <li><a href="#the-auxiliarystatevar-keyword">The <code>@AuxiliaryStateVar</code> keyword</a></li>
+      <li><a href="#the-auxiliarystatevariable-keyword">The <code>@AuxiliaryStateVariable</code> keyword</a></li>
+      <li><a href="#the-behaviour-keyword">The <code>@Behaviour</code> keyword</a></li>
+      <li><a href="#the-bounds-keyword">The <code>@Bounds</code> keyword</a></li>
+      <li><a href="#the-brick-keyword">The <code>@Brick</code> keyword</a></li>
+      <li><a href="#the-coef-keyword">The <code>@Coef</code> keyword</a></li>
+      <li><a href="#the-comparetonumericaljacobian-keyword">The <code>@CompareToNumericalJacobian</code> keyword</a></li>
+      <li><a href="#the-computefinalstress-keyword">The <code>@ComputeFinalStress</code> keyword</a></li>
+      <li><a href="#the-computestress-keyword">The <code>@ComputeStress</code> keyword</a></li>
+      <li><a href="#the-computethermalexpansion-keyword">The <code>@ComputeThermalExpansion</code> keyword</a></li>
+      <li><a href="#the-computedvar-keyword">The <code>@ComputedVar</code> keyword</a></li>
+      <li><a href="#the-dsl-keyword">The <code>@DSL</code> keyword</a></li>
+      <li><a href="#the-date-keyword">The <code>@Date</code> keyword</a></li>
+      <li><a href="#the-description-keyword">The <code>@Description</code> keyword</a></li>
+      <li><a href="#the-epsilon-keyword">The <code>@Epsilon</code> keyword</a></li>
+      <li><a href="#the-externalstatevar-keyword">The <code>@ExternalStateVar</code> keyword</a></li>
+      <li><a href="#the-externalstatevariable-keyword">The <code>@ExternalStateVariable</code> keyword</a></li>
+      <li><a href="#the-import-keyword">The <code>@Import</code> keyword</a></li>
+      <li><a href="#the-includes-keyword">The <code>@Includes</code> keyword</a></li>
+      <li><a href="#the-initjacobian-keyword">The <code>@InitJacobian</code> keyword</a></li>
+      <li><a href="#the-initjacobianinvert-keyword">The <code>@InitJacobianInvert</code> keyword</a></li>
+      <li><a href="#the-initlocalvariables-keyword">The <code>@InitLocalVariables</code> keyword</a></li>
+      <li><a href="#the-initlocalvars-keyword">The <code>@InitLocalVars</code> keyword</a></li>
+      <li><a href="#the-initializejacobian-keyword">The <code>@InitializeJacobian</code> keyword</a></li>
+      <li><a href="#the-initializejacobianinvert-keyword">The <code>@InitializeJacobianInvert</code> keyword</a></li>
+      <li><a href="#the-initializelocalvariables-keyword">The <code>@InitializeLocalVariables</code> keyword</a></li>
+      <li><a href="#the-integerconstant-keyword">The <code>@IntegerConstant</code> keyword</a></li>
+      <li><a href="#the-integrationvariable-keyword">The <code>@IntegrationVariable</code> keyword</a></li>
+      <li><a href="#the-integrator-keyword">The <code>@Integrator</code> keyword</a></li>
+      <li><a href="#the-interface-keyword">The <code>@Interface</code> keyword</a></li>
+      <li><a href="#the-istangentoperatorsymmetric-keyword">The <code>@IsTangentOperatorSymmetric</code> keyword</a></li>
+      <li><a href="#the-isotropicbehaviour-keyword">The <code>@IsotropicBehaviour</code> keyword</a></li>
+      <li><a href="#the-isotropicelasticbehaviour-keyword">The <code>@IsotropicElasticBehaviour</code> keyword</a></li>
+      <li><a href="#the-itermax-keyword">The <code>@IterMax</code> keyword</a></li>
+      <li><a href="#the-jacobiancomparisoncriterion-keyword">The <code>@JacobianComparisonCriterion</code> keyword</a></li>
+      <li><a href="#the-jacobiancomparisoncriterium-keyword">The <code>@JacobianComparisonCriterium</code> keyword</a></li>
+      <li><a href="#the-library-keyword">The <code>@Library</code> keyword</a></li>
+      <li><a href="#the-link-keyword">The <code>@Link</code> keyword</a></li>
+      <li><a href="#the-localvar-keyword">The <code>@LocalVar</code> keyword</a></li>
+      <li><a href="#the-localvariable-keyword">The <code>@LocalVariable</code> keyword</a></li>
+      <li><a href="#the-mfront-keyword">The <code>@MFront</code> keyword</a></li>
+      <li><a href="#the-material-keyword">The <code>@Material</code> keyword</a></li>
+      <li><a href="#the-materiallaw-keyword">The <code>@MaterialLaw</code> keyword</a></li>
+      <li><a href="#the-materialproperty-keyword">The <code>@MaterialProperty</code> keyword</a></li>
+      <li><a href="#the-maximumincrementvalueperiteration-keyword">The <code>@MaximumIncrementValuePerIteration</code> keyword</a></li>
+      <li><a href="#the-maximumnumberofiterations-keyword">The <code>@MaximumNumberOfIterations</code> keyword</a></li>
+      <li><a href="#the-members-keyword">The <code>@Members</code> keyword</a></li>
+      <li><a href="#the-modellinghypotheses-keyword">The <code>@ModellingHypotheses</code> keyword</a></li>
+      <li><a href="#the-modellinghypothesis-keyword">The <code>@ModellingHypothesis</code> keyword</a></li>
+      <li><a href="#the-orthotropicbehaviour-keyword">The <code>@OrthotropicBehaviour</code> keyword</a></li>
+      <li><a href="#the-parameter-keyword">The <code>@Parameter</code> keyword</a></li>
+      <li><a href="#the-parser-keyword">The <code>@Parser</code> keyword</a></li>
+      <li><a href="#the-perturbationvaluefornumericaljacobiancomputation-keyword">The <code>@PerturbationValueForNumericalJacobianComputation</code> keyword</a></li>
+      <li><a href="#the-physicalbounds-keyword">The <code>@PhysicalBounds</code> keyword</a></li>
+      <li><a href="#the-predictionoperator-keyword">The <code>@PredictionOperator</code> keyword</a></li>
+      <li><a href="#the-predictor-keyword">The <code>@Predictor</code> keyword</a></li>
+      <li><a href="#the-private-keyword">The <code>@Private</code> keyword</a></li>
+      <li><a href="#the-profiling-keyword">The <code>@Profiling</code> keyword</a></li>
+      <li><a href="#the-requirestiffnessoperator-keyword">The <code>@RequireStiffnessOperator</code> keyword</a></li>
+      <li><a href="#the-requirestiffnesstensor-keyword">The <code>@RequireStiffnessTensor</code> keyword</a></li>
+      <li><a href="#the-requirethermalexpansioncoefficienttensor-keyword">The <code>@RequireThermalExpansionCoefficientTensor</code> keyword</a></li>
+      <li><a href="#the-sources-keyword">The <code>@Sources</code> keyword</a></li>
+      <li><a href="#the-statevar-keyword">The <code>@StateVar</code> keyword</a></li>
+      <li><a href="#the-statevariable-keyword">The <code>@StateVariable</code> keyword</a></li>
+      <li><a href="#the-staticvar-keyword">The <code>@StaticVar</code> keyword</a></li>
+      <li><a href="#the-staticvariable-keyword">The <code>@StaticVariable</code> keyword</a></li>
+      <li><a href="#the-tangentoperator-keyword">The <code>@TangentOperator</code> keyword</a></li>
+      <li><a href="#the-theta-keyword">The <code>@Theta</code> keyword</a></li>
+      <li><a href="#the-updateauxiliarystatevariables-keyword">The <code>@UpdateAuxiliaryStateVariables</code> keyword</a></li>
+      <li><a href="#the-updateauxiliarystatevars-keyword">The <code>@UpdateAuxiliaryStateVars</code> keyword</a></li>
+      <li><a href="#the-usableinpurelyimplicitresolution-keyword">The <code>@UsableInPurelyImplicitResolution</code> keyword</a></li>
+      <li><a href="#the-useqt-keyword">The <code>@UseQt</code> keyword</a></li>
+      </ul>
+    </div>
+        <h1 id="the-algorithm-keyword">The <code>@Algorithm</code> keyword</h1>
+<p>The <code>@Algorithm</code> keyword is used to select a numerical algorithm.</p>
+<p>The set of available algorithms depends on the domain specific language. As the time of writting this notice, the following algorithms are available:</p>
+<ul>
+<li><code>euler</code>, <code>rk2</code>, <code>rk4</code>, <code>rk42</code> , <code>rk54</code> and <code>rkCastem</code> for the <code>Runge-Kutta</code> dsl.</li>
+<li><code>NewtonRaphson</code>, <code>NewtonRaphson_NumericalJacobian,</code> <code>PowellDogLeg_NewtonRaphson</code>, <code>PowellDogLeg_NewtonRaphson_NumericalJacobian</code>, <code>Broyden</code>, <code>PowellDogLeg_Broyden</code>, <code>Broyden2</code>, <code>LevenbergMarquardt</code>, <code>LevenbergMarquardt_NumericalJacobian</code> for implicit dsls.</li>
+</ul>
+<h2 id="example-runge-kutta-dsl">Example (Runge-Kutta dsl)</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>Algorithm rk54;</a></code></pre></div>
+<h2 id="example-implicit-dsl">Example (Implicit dsl)</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Algorithm NewtonRaphson;</a></code></pre></div>
+<h1 id="the-author-keyword">The <code>@Author</code> keyword</h1>
+<p>The <code>@Author</code> keyword is used give the name of the person who wrote the <code>mfront</code> file.</p>
+<p>All the following words are appended to the author’s name up to a final semi-colon.</p>
+<p>Note: The name of the person who formulated the material property, behaviour or model shall be given in the description section (see the <code>@Description</code> keyword).</p>
+<h2 id="example">Example</h2>
+<div class="sourceCode" id="Author"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="Author-1" data-line-number="1"><span class="er">@</span>Author Éric Brunon;</a></code></pre></div>
+<h1 id="the-auxiliarystatevar-keyword">The <code>@AuxiliaryStateVar</code> keyword</h1>
+<p>The <code>@AuxiliaryStateVar</code> keyword is a deprecated synonymous of <code>@AuxiliaryStateVariable</code>.</p>
+<h1 id="the-auxiliarystatevariable-keyword">The <code>@AuxiliaryStateVariable</code> keyword</h1>
+<p>The <code>AuxiliaryStateVariable</code> keyword introduces one or several new auxiliary state variables. It is followed by a type name and the name(s) of the variable(s) declared, separated by commas.</p>
+<h2 id="example-1">Example</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// scalar auxiliary state variable</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="er">@</span>AuxiliaryStateVariables strain p;</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">// symmetric tensors auxiliary state variable</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="er">@</span>AuxiliaryStateVariables StrainStensor evp,evp2;</a></code></pre></div>
+<h1 id="the-behaviour-keyword">The <code>@Behaviour</code> keyword</h1>
+<p>The <code>@Behaviour</code> defines the name of the behaviour. The name must be a valid <code>C++</code> class name.</p>
+<p>The following characters are legal as the first character of an identifier, or any subsequent character:</p>
+<p><code>_</code> <code>a</code> <code>b</code> <code>c</code> <code>d</code> <code>e</code> <code>f</code> <code>g</code> <code>h</code> <code>i</code> <code>j</code> <code>k</code> <code>l</code> <code>m</code> <code>n</code> <code>o</code> <code>p</code> <code>q</code> <code>r</code> <code>s</code> <code>t</code> <code>u</code> <code>v</code> <code>w</code> <code>x</code> <code>y</code> <code>z</code> <code>A</code> <code>B</code> <code>C</code> <code>D</code> <code>E</code> <code>F</code> <code>G</code> <code>H</code> <code>I</code> <code>J</code> <code>K</code> <code>L</code> <code>M</code> <code>N</code> <code>O</code> <code>P</code> <code>Q</code> <code>R</code> <code>S</code> <code>T</code> <code>U</code> <code>V</code> <code>W</code> <code>X</code> <code>Y</code> <code>Z</code></p>
+<p>The following characters are legal as any character in an identifier except the first:</p>
+<p><code>0</code> <code>1</code> <code>2</code> <code>3</code> <code>4</code> <code>5</code> <code>6</code> <code>7</code> <code>8</code> <code>9</code></p>
+<h2 id="example-2">Example</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>Behaviour Norton;</a></code></pre></div>
+<h1 id="the-bounds-keyword">The <code>@Bounds</code> keyword</h1>
+<p>The <code>@Bounds</code> keyword let the user define the domain of validity of the law.</p>
+<p>The <code>@Bounds</code> keyword is followed by a variable name, the keyword in and an interval. The interval may contain the infinity, represented by the ’*’ character.</p>
+<h2 id="effect">Effect</h2>
+<p>What happens if a variable if found to be out of its bounds depends on the interface used. Most interfaces let the user choose one of three following policies:</p>
+<ul>
+<li><code>None</code>, which means that nothing is done.</li>
+<li><code>Warning</code>, which means that a message is displayed, but computations are not stopped.</li>
+<li><code>Strict</code>, which means that computations are stopped with an error message.</li>
+</ul>
+<h2 id="example-3">Example</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>Bounds T in [<span class="fl">293.15</span>:<span class="fl">873.15</span>];</a></code></pre></div>
+<h1 id="the-brick-keyword">The <code>@Brick</code> keyword</h1>
+<p>The <code>@Brick</code> keyword introduces a behaviour brick.</p>
+<h2 id="example-4">Example</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="er">@</span>Brick <span class="st">&quot;StandardElasticity&quot;</span>;</a></code></pre></div>
+<h1 id="the-coef-keyword">The <code>@Coef</code> keyword</h1>
+<p>The <code>@Coef</code> keyword is a deprecated synonymous of <code>@MaterialProperty</code>.</p>
+<h1 id="the-comparetonumericaljacobian-keyword">The <code>@CompareToNumericalJacobian</code> keyword</h1>
+<p>The <code>@CompareToNumericalJacobian</code> keyword enables or disables the comparison of the user defined jacobian to a numerically computed jacobian. This keyword is followed by a boolean value (<code>true</code> or <code>false</code>).</p>
+<p>Jacobians are compared by blocks. Blocks for which the comparison failed are reported on the standard output.</p>
+<p>The comparison criterion value can be changed used the <code>@JacobianComparisonCriterion</code> keyword.</p>
+<h2 id="example-5">Example</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>CompareToNumericalJacobian <span class="kw">true</span>;</a></code></pre></div>
+<h1 id="the-computefinalstress-keyword">The <code>@ComputeFinalStress</code> keyword</h1>
+<p>The <code>@ComputeFinalStress</code> keyword introduces a code block meant to compute the stress symmetric tensor after the integration.</p>
+<p>The code block is called after the update of the state variables. The auxiliary state variable and the external state variables are not updated yet.</p>
+<h2 id="example-6">Example</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>ComputeFinalStress{</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="at">const</span> SlidingSystems&amp; ss = SlidingSystems::getSlidingSystems();</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">  <span class="co">// approximation de l&#39;inverse de \(\Delta\,F_p\)</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">  inv_dFp = Tensor::Id();</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=<span class="dv">12</span>;++i){</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">    inv_dFp -= dg[i]*ss.mu[i];</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">  }</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">  real J_inv_dFp = det(inv_dFp);</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">  inv_dFp /= CubicRoots::cbrt(J_inv_dFp);</a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">  <span class="co">// Fe en fin de pas de temps</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">  Fe  = Fe_tr*inv_dFp;</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">  <span class="co">// Piola-Kirchhoff II</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">  S = D*eel;</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">  <span class="co">// Cauchy</span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">  sig = convertSecondPiolaKirchhoffStressToCauchyStress(S,Fe);</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">}</a></code></pre></div>
+<h1 id="the-computestress-keyword">The <code>@ComputeStress</code> keyword</h1>
+<p>The <code>@ComputeStress</code> keyword introduces a code block meant to compute the stress symmetric tensor.</p>
+<p>This keyword interprets the code block to generate two methods:</p>
+<ul>
+<li>The first one is used before the integration step, using updated values for the state variables and external state variables.</li>
+<li>The second one is a candidate for the computation of the stress at the end of the integration. This candidate is used if the user does not provide an appropriate way of computing the stress at the end of the time step using the <code>@ComputeFinalStress</code> keyword.</li>
+</ul>
+<h2 id="note">Note</h2>
+<p>If the user provide a way of computing the stress at the end of the time step through the <code>@ComputeFinalStress</code> keyword, we consider that the use of <code>@ComputeStress</code> is meaningless and advice the user to rather compute explicitly the stress as part of the integration step.</p>
+<h2 id="example-7">Example</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>ComputeStress{</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  sig = (<span class="dv">1</span>-d)*(lambda*trace(eel)*Stensor::Id()<span class="dv">+2</span>*mu*eel);</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">}</a></code></pre></div>
+<h1 id="the-computethermalexpansion-keyword">The <code>@ComputeThermalExpansion</code> keyword</h1>
+<p>The keyword <code>@ComputeThermalExpansion</code> is not documented yet</p>
+<h1 id="the-computedvar-keyword">The <code>@ComputedVar</code> keyword</h1>
+<p>The keyword <code>@ComputedVar</code> is not documented yet</p>
+<h1 id="the-dsl-keyword">The <code>@DSL</code> keyword</h1>
+<p>The <code>@DSL</code> keyword specify the domain specific language (dsl) used.</p>
+<p>The list of available dsl’s is returned by the <code>--list-dsl</code> option of <code>mfront</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1">$ <span class="ex">mfront</span> --list-dsl</a></code></pre></div>
+<p>As the time of writting this notice, the following dsl’s are available:</p>
+<ul>
+<li><code>DefaultDSL</code>: this parser is the most generic one as it does not make any restriction on the behaviour or the integration method that may be used.</li>
+<li><code>DefaultCZMDSL</code>: this parser is the most generic one as it does not make any restriction on the behaviour or the integration method that may be used.</li>
+<li><code>DefaultFiniteStrainDSL</code>: this parser is the most generic one as it does not make any restriction on the behaviour or the integration method that may be used.</li>
+<li><code>Implicit</code>: this parser provides a generic integrator based on an implicit scheme. The elastic strain is not automatically defined as a state variable</li>
+<li><code>ImplicitII</code>: this parser provides a generic integrator based on a theta method. Unlike <code>Implicit</code>, the elastic strain is not automatically defined as a state variable.</li>
+<li><code>ImplicitFiniteStrain</code>: this parser provides a generic integrator based on a theta method..</li>
+<li><code>IsotropicMisesCreep</code>: this parser is used for standard creep behaviours of the form <span class="math inline">\(\dot{p}=f(s)\)</span> where <span class="math inline">\(p\)</span> is the equivalent creep strain and <span class="math inline">\(s\)</span> the equivalent mises stress.</li>
+<li><code>IsotropicPlasticMisesFlow</code>: this parser is used for standard plastics behaviours with yield surface of the form <span class="math inline">\(f(s,p)=0\)</span> where <span class="math inline">\(p\)</span> is the equivalent creep strain and <span class="math inline">\(s\)</span> the equivalent mises stress.</li>
+<li><code>IsotropicStrainHardeningMisesCreep</code>: this parser is used for standard strain hardening creep behaviours of the form <span class="math inline">\(\dot{p}=f(s,p)\)</span> where <span class="math inline">\(p\)</span> is the equivalent creep strain and <span class="math inline">\(s\)</span> the equivalent mises stress.</li>
+<li><code>MaterialLaw</code>: this parser is used to define material properties.</li>
+<li><code>Model</code>: this parser is used to define simple material models.</li>
+<li><code>MultipleIsotropicMisesFlows</code>: this parser is used to define behaviours combining several isotropic flows. Supported flow type are ‘Creep’ (<span class="math inline">\(\dot{p}=f(s)\)</span>) ‘StrainHardeningCreep’ (<span class="math inline">\(\dot{p}=f(s,p)\)</span>) and ‘Plasticity’ (<span class="math inline">\(f(p,s)=0\)</span>) where <span class="math inline">\(p\)</span> is the equivalent plastic strain and <span class="math inline">\(s\)</span> the equivalent mises stress.</li>
+<li><code>RungeKutta</code>: this parser provides a generic integrator based on one of the many Runge-Kutta algorithm.</li>
+</ul>
+<h2 id="example-8">Example</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a></code></pre></div>
+<h1 id="the-date-keyword">The <code>@Date</code> keyword</h1>
+<p>The <code>@Date</code> keyword allows the user to precise when the mfront file was written.</p>
+<p>All the following words are appended to the date up to a final semi-colon.</p>
+<h2 id="example-9">Example</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="er">@</span>Date <span class="dv">2008-11-17</span>;</a></code></pre></div>
+<h1 id="the-description-keyword">The <code>@Description</code> keyword</h1>
+<p>The <code>@Description</code> describes the material property, behaviour or model which is implemented in a mfront file.</p>
+<p>This keyword is followed by a block containing all the relevant piece of information including:</p>
+<ul>
+<li>the references of the article or technical report from which the material property, behaviour or model is extracted</li>
+<li>the name of the authors</li>
+<li>the modifications made</li>
+</ul>
+<h2 id="example-10">Example</h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="er">@</span>Description</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">{</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">  Corrélation établie sur la nuance V<span class="er">-4Cr-4Ti</span>.</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">  Propriétés extraites du document :</a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7">  Propriétés et comportement mécanique d alliages</a>
+<a class="sourceLine" id="cb13-8" data-line-number="8">   de Vanadium avant, après et sous irradiation</a>
+<a class="sourceLine" id="cb13-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb13-10" data-line-number="10">  Marion Le Flem, Jean-Luc Bechade, Annick Bougault,</a>
+<a class="sourceLine" id="cb13-11" data-line-number="11">  Aurore Michaux, Lionel Gosmain, Jean-Louis Seran</a>
+<a class="sourceLine" id="cb13-12" data-line-number="12">  DMN/SRMA/LA2M/NT/<span class="dv">2008-2967</span>/A</a>
+<a class="sourceLine" id="cb13-13" data-line-number="13">}</a></code></pre></div>
+<h1 id="the-epsilon-keyword">The <code>@Epsilon</code> keyword</h1>
+<p>The <code>@Epsilon</code> keyword let the user define the convergence criterion value. It is followed by a positive floating-point number.</p>
+<h2 id="the-epsilon-parameter">The epsilon parameter</h2>
+<p>The <code>@Epsilon</code> keyword defines the default value for the <code>epsilon</code> parameter. This parameter can be changed at runtime.</p>
+<h2 id="example-11">Example</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-12</span>;</a></code></pre></div>
+<h1 id="the-externalstatevar-keyword">The <code>@ExternalStateVar</code> keyword</h1>
+<p>The <code>@ExternalStateVar</code> keyword is a deprecated synonymous of <code>@ExternalStateVariable</code>.</p>
+<h1 id="the-externalstatevariable-keyword">The <code>@ExternalStateVariable</code> keyword</h1>
+<p>The <code>ExternalStateVariable</code> keyword introduces one or several new external state variables. It is followed by a type name and the name(s) of the variable(s) declared, separated by commas.</p>
+<p>The external state variables names must be valid <code>C++</code> identifiers.</p>
+<p>The following characters are legal as the first character of an identifier, or any subsequent character:</p>
+<p><code>_</code> <code>a</code> <code>b</code> <code>c</code> <code>d</code> <code>e</code> <code>f</code> <code>g</code> <code>h</code> <code>i</code> <code>j</code> <code>k</code> <code>l</code> <code>m</code> <code>n</code> <code>o</code> <code>p</code> <code>q</code> <code>r</code> <code>s</code> <code>t</code> <code>u</code> <code>v</code> <code>w</code> <code>x</code> <code>y</code> <code>z</code> <code>A</code> <code>B</code> <code>C</code> <code>D</code> <code>E</code> <code>F</code> <code>G</code> <code>H</code> <code>I</code> <code>J</code> <code>K</code> <code>L</code> <code>M</code> <code>N</code> <code>O</code> <code>P</code> <code>Q</code> <code>R</code> <code>S</code> <code>T</code> <code>U</code> <code>V</code> <code>W</code> <code>X</code> <code>Y</code> <code>Z</code></p>
+<p>The following characters are legal as any character in an identifier except the first:</p>
+<p><code>0</code> <code>1</code> <code>2</code> <code>3</code> <code>4</code> <code>5</code> <code>6</code> <code>7</code> <code>8</code> <code>9</code></p>
+<h2 id="arrays">Arrays</h2>
+<p>One may declare an array of external state variables by specifying the array size after the external state variable name.</p>
+<h2 id="external-names">External names</h2>
+<p>It is recommended to associate to a external state variable a glossary or an entry name through the methods <code>setGlossaryName</code> or <code>setEntryName</code> respectively.</p>
+<h2 id="example-12">Example</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co">// scalar external state variable</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="er">@</span>ExternalStateVariable strain s;</a></code></pre></div>
+<h1 id="the-import-keyword">The <code>@Import</code> keyword</h1>
+<p>The <code>@Import</code> keyword allows the inclusion of one or several (external) mfront files. This keyword is followed by a string or an array of strings. Each string stands for a mfront file name that is meant to be imported.</p>
+<p>This instruction interrupts the treatment of the current file and starts the sequential treatment of each file to be imported.</p>
+<h2 id="search-paths">Search paths</h2>
+<p>Files to be imported are searched, in that order:</p>
+<ul>
+<li>starting from the current directory.</li>
+<li>starting from directories specified with one of the <code>--search-path</code> or the <code>--include</code> (<code>-I</code>) <code>mfront</code>’ command line options.</li>
+<li>staring from directories specified through the <code>MFRONT_INCLUDE_PATH</code> environment variable.</li>
+</ul>
+<h2 id="example-13">Example</h2>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="er">@</span>Import <span class="st">&quot;SlidingSystemsCC.mfront&quot;</span>;</a></code></pre></div>
+<h1 id="the-includes-keyword">The <code>@Includes</code> keyword</h1>
+<p>The <code>@Includes</code> introduces a block were the user may define some preprocessor directives, typically #include directives (hence the name).</p>
+<h2 id="example-14">Example</h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="er">@</span>Includes{</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="pp">#include</span><span class="im">&lt;fstream&gt;</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">}</a></code></pre></div>
+<h1 id="the-initjacobian-keyword">The <code>@InitJacobian</code> keyword</h1>
+<p>The <code>@InitJacobian</code> keyword is a deprecated synonymous of <code>@InitializeJacobian</code>.</p>
+<h1 id="the-initjacobianinvert-keyword">The <code>@InitJacobianInvert</code> keyword</h1>
+<p>The <code>@InitJacobianInvert</code> keyword is a deprecated synonymous of <code>@InitializeJacobianInvert</code>.</p>
+<h1 id="the-initlocalvariables-keyword">The <code>@InitLocalVariables</code> keyword</h1>
+<p>The <code>@InitLocalVariables</code> keyword is a deprecated synonymous of <code>@InitializeLocalVariables</code>.</p>
+<h1 id="the-initlocalvars-keyword">The <code>@InitLocalVars</code> keyword</h1>
+<p>The <code>@InitLocalVars</code> keyword is a deprecated synonymous of <code>@InitializeLocalVariables</code>.</p>
+<h1 id="the-initializejacobian-keyword">The <code>@InitializeJacobian</code> keyword</h1>
+<p>The <code>@InitializeJacobian</code> keyword let the user introduce an initial estimate for the jacobian matrix used by quasi-newton methods, such as the first Broyden method.</p>
+<h2 id="example-15">Example</h2>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="er">@</span>InitializeJacobian{</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="co">// setting the jacobian to identity (which is the default)</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">  fill(<span class="kw">this</span>-&gt;jacobian.begin(),<span class="kw">this</span>-&gt;jacobian.end(),real(<span class="dv">0</span>));</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=<span class="kw">this</span>-&gt;jacobian.size();++i){</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">    <span class="kw">this</span>-&gt;jacobian(i,i)=real(<span class="dv">1</span>);</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">  }</a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">}</a></code></pre></div>
+<h1 id="the-initializejacobianinvert-keyword">The <code>@InitializeJacobianInvert</code> keyword</h1>
+<p>The <code>@InitializeJacobianInvert</code> keyword let the user introduce an initial estimate for the jacobian matrix used by quasi-newton methods, such as the second Broyden method.</p>
+<h2 id="example-16">Example</h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="er">@</span>InitializeJacobianInvert{</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">  <span class="co">// setting the inverse of the jacobian (still called jacobian by the</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">  <span class="co">// way) to identity (which is the default)</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">  fill(<span class="kw">this</span>-&gt;jacobian.begin(),<span class="kw">this</span>-&gt;jacobian.end(),real(<span class="dv">0</span>));</a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=<span class="kw">this</span>-&gt;jacobian.size();++i){</a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">    <span class="kw">this</span>-&gt;jacobian(i,i)=real(<span class="dv">1</span>);</a>
+<a class="sourceLine" id="cb19-7" data-line-number="7">  }</a>
+<a class="sourceLine" id="cb19-8" data-line-number="8">}</a></code></pre></div>
+<h1 id="the-initializelocalvariables-keyword">The <code>@InitializeLocalVariables</code> keyword</h1>
+<p>The <code>@InitializeLocalVariables</code> introduces a code block meant to initialize the local variables (see the <code>@LocalVariable</code> keyword).</p>
+<h2 id="example-17">Example</h2>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co">//! volumic fraction of each phase</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="er">@</span>LocalVariable real  fv[Np];</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="co">//! interaction matrix</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="er">@</span>LocalVariable tfel::math::tmatrix&lt;Nss,Nss,real&gt; mh;</a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="er">@</span>InitLocalVariables&lt;Append&gt;{</a>
+<a class="sourceLine" id="cb20-7" data-line-number="7">  <span class="co">// volumic fraction of each phase</span></a>
+<a class="sourceLine" id="cb20-8" data-line-number="8">  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Np;++i){</a>
+<a class="sourceLine" id="cb20-9" data-line-number="9">    fv[i]=<span class="fl">1.0</span>/<span class="kw">static_cast</span>&lt;real&gt;(Np) ; </a>
+<a class="sourceLine" id="cb20-10" data-line-number="10">  }</a>
+<a class="sourceLine" id="cb20-11" data-line-number="11">  <span class="co">// interaction matrix</span></a>
+<a class="sourceLine" id="cb20-12" data-line-number="12">  <span class="at">const</span> real h1 = <span class="fl">1.</span>;</a>
+<a class="sourceLine" id="cb20-13" data-line-number="13">  <span class="at">const</span> real h2 = <span class="fl">1.</span>;</a>
+<a class="sourceLine" id="cb20-14" data-line-number="14">  <span class="at">const</span> real h3 = <span class="fl">1.</span>;</a>
+<a class="sourceLine" id="cb20-15" data-line-number="15">  <span class="at">const</span> real h4 = <span class="fl">1.</span>;</a>
+<a class="sourceLine" id="cb20-16" data-line-number="16">  <span class="at">const</span> real h5 = <span class="fl">1.</span>;</a>
+<a class="sourceLine" id="cb20-17" data-line-number="17">  <span class="at">const</span> real h6 = <span class="fl">1.</span>;</a>
+<a class="sourceLine" id="cb20-18" data-line-number="18">  mh = InteractionMatrix::getInteractionMatrix(h1,h2,h3,</a>
+<a class="sourceLine" id="cb20-19" data-line-number="19">                           h4,h5,h6);</a>
+<a class="sourceLine" id="cb20-20" data-line-number="20">}</a></code></pre></div>
+<h1 id="the-integerconstant-keyword">The <code>@IntegerConstant</code> keyword</h1>
+<p>The keyword <code>@IntegerConstant</code> is not documented yet</p>
+<h1 id="the-integrationvariable-keyword">The <code>@IntegrationVariable</code> keyword</h1>
+<p>The <code>IntegrationVariable</code> keyword introduces one or several new integration variables. It is followed by a type name and the name(s) of the variable(s) declared, separated by commas.</p>
+<p>The integration variables names must be valid <code>C++</code> identifiers.</p>
+<p>The following characters are legal as the first character of an identifier, or any subsequent character:</p>
+<p><code>_</code> <code>a</code> <code>b</code> <code>c</code> <code>d</code> <code>e</code> <code>f</code> <code>g</code> <code>h</code> <code>i</code> <code>j</code> <code>k</code> <code>l</code> <code>m</code> <code>n</code> <code>o</code> <code>p</code> <code>q</code> <code>r</code> <code>s</code> <code>t</code> <code>u</code> <code>v</code> <code>w</code> <code>x</code> <code>y</code> <code>z</code> <code>A</code> <code>B</code> <code>C</code> <code>D</code> <code>E</code> <code>F</code> <code>G</code> <code>H</code> <code>I</code> <code>J</code> <code>K</code> <code>L</code> <code>M</code> <code>N</code> <code>O</code> <code>P</code> <code>Q</code> <code>R</code> <code>S</code> <code>T</code> <code>U</code> <code>V</code> <code>W</code> <code>X</code> <code>Y</code> <code>Z</code></p>
+<p>The following characters are legal as any character in an identifier except the first:</p>
+<p><code>0</code> <code>1</code> <code>2</code> <code>3</code> <code>4</code> <code>5</code> <code>6</code> <code>7</code> <code>8</code> <code>9</code></p>
+<h2 id="arrays-1">Arrays</h2>
+<p>One may declare an array of integration variables by specifying the array size after the integration variable name.</p>
+<h2 id="example-18">Example</h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co">// scalar integration variable</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="er">@</span>IntegrationVariables strain p;</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="co">// symmetric tensors integration variable</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="er">@</span>IntegrationVariables StrainStensor evp,evp2;</a></code></pre></div>
+<h1 id="the-integrator-keyword">The <code>@Integrator</code> keyword</h1>
+<p>The keyword <code>@Integrator</code> is not documented yet</p>
+<h1 id="the-interface-keyword">The <code>@Interface</code> keyword</h1>
+<p>The <code>@Interface</code> keyword let the user specify interfaces to be used. The keyword is followed by a list of interface name, separated by commas.</p>
+<p>Using this keyword is considered a bad pratice. The user shall use the <code>--interface</code> command line argument to specify which interface shall be used.</p>
+<h2 id="example-19">Example</h2>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="er">@</span>Interface castem;</a></code></pre></div>
+<h1 id="the-istangentoperatorsymmetric-keyword">The <code>@IsTangentOperatorSymmetric</code> keyword</h1>
+<p>The keyword <code>@IsTangentOperatorSymmetric</code> is not documented yet</p>
+<h1 id="the-isotropicbehaviour-keyword">The <code>@IsotropicBehaviour</code> keyword</h1>
+<p>The <code>@IsotropicBehaviour</code> declares the behaviour to be isotropic. As this symmetry is the default one, this keyword is seldom used.</p>
+<h2 id="example-20">Example</h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="er">@</span>IsotropicBehaviour;</a></code></pre></div>
+<h1 id="the-isotropicelasticbehaviour-keyword">The <code>@IsotropicElasticBehaviour</code> keyword</h1>
+<p>The <code>@IsotropicElasticBehaviour</code> is used to declare that the elastic behaviour is isotropic even though the material as been declared orthotropic. This declaration affects the <code>@RequireStiffnessTensor</code> behaviour.</p>
+<h2 id="example-21">Example</h2>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="er">@</span>IsotropicElasticBehaviour;</a></code></pre></div>
+<h1 id="the-itermax-keyword">The <code>@IterMax</code> keyword</h1>
+<p>The <code>@IterMax</code> keyword is a deprecated synonymous of <code>@MaximumNumberOfIterations</code>.</p>
+<h1 id="the-jacobiancomparisoncriterion-keyword">The <code>@JacobianComparisonCriterion</code> keyword</h1>
+<p>The <code>@JacobianComparisonCriterion</code> keyword defines the criterion value used for the comparison of the user-defined jacobian to a numerically computed one. This keyword must be followed by a positive floating-point number.</p>
+<h2 id="the-jacobiancomparisoncriterion-parameter">The jacobianComparisonCriterion parameter</h2>
+<p>The <code>@JacobianComparisonCriterion</code> keyword defines the default value for the <code>jacobianComparisonCriterion</code> parameter. This parameter can be changed at runtime.</p>
+<h2 id="example-22">Example</h2>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="er">@</span>JacobianComparisonCriterion <span class="dv">1</span>.e<span class="dv">-6</span>;</a></code></pre></div>
+<h1 id="the-jacobiancomparisoncriterium-keyword">The <code>@JacobianComparisonCriterium</code> keyword</h1>
+<p>The <code>@JacobianComparisonCriterium</code> keyword is a deprecated synonymous of <code>@JacobianComparisonCriterion</code>.</p>
+<h1 id="the-library-keyword">The <code>@Library</code> keyword</h1>
+<p>The <code>@Library</code> keyword let the user specify part of the generated libary name. This keyword is followed by the name of library.</p>
+<p>This name must be a valid C++ identifier. The following characters are legal as the first character of an identifier, or any subsequent character:</p>
+<p><code>_</code> <code>a</code> <code>b</code> <code>c</code> <code>d</code> <code>e</code> <code>f</code> <code>g</code> <code>h</code> <code>i</code> <code>j</code> <code>k</code> <code>l</code> <code>m</code> <code>n</code> <code>o</code> <code>p</code> <code>q</code> <code>r</code> <code>s</code> <code>t</code> <code>u</code> <code>v</code> <code>w</code> <code>x</code> <code>y</code> <code>z</code> <code>A</code> <code>B</code> <code>C</code> <code>D</code> <code>E</code> <code>F</code> <code>G</code> <code>H</code> <code>I</code> <code>J</code> <code>K</code> <code>L</code> <code>M</code> <code>N</code> <code>O</code> <code>P</code> <code>Q</code> <code>R</code> <code>S</code> <code>T</code> <code>U</code> <code>V</code> <code>W</code> <code>X</code> <code>Y</code> <code>Z</code></p>
+<p>The following characters are legal as any character in an identifier except the first:</p>
+<p><code>0</code> <code>1</code> <code>2</code> <code>3</code> <code>4</code> <code>5</code> <code>6</code> <code>7</code> <code>8</code> <code>9</code></p>
+<h2 id="example-23">Example</h2>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="er">@</span>Library AlcyoneLibrary;</a></code></pre></div>
+<h1 id="the-link-keyword">The <code>@Link</code> keyword</h1>
+<p>The <code>@Link</code> keyword let the user specify additional linker flags used to build their shared library/executables. This keyword must be followed by a string or an array of strings.</p>
+<p>Usage of the <code>@Link</code> keyword is deprecated a linker flags are not portable. The user may prefer using the <code>LDFLAGS</code> environment variable.</p>
+<h2 id="example-24">Example</h2>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="co">// explicit link with libm.so</span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="co">// (not necessary in pratice)</span></a>
+<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="er">@</span>Link <span class="st">&quot;-lm&quot;</span>;</a></code></pre></div>
+<h1 id="the-localvar-keyword">The <code>@LocalVar</code> keyword</h1>
+<p>The <code>@LocalVar</code> keyword is a deprecated synonymous of <code>@LocalVariable</code>.</p>
+<h1 id="the-localvariable-keyword">The <code>@LocalVariable</code> keyword</h1>
+<p>The keyword <code>@LocalVariable</code> is not documented yet</p>
+<h1 id="the-mfront-keyword">The <code>@MFront</code> keyword</h1>
+<p>The keyword <code>@MFront</code> is not documented yet</p>
+<h1 id="the-material-keyword">The <code>@Material</code> keyword</h1>
+<p>The <code>@Material</code> keyword let the user specify which material is treated by the current file. This keyword is followed by the name of the material.</p>
+<p>This name must be a valid <code>C++</code> identifier. The following characters are legal as the first character of an identifier, or any subsequent character:</p>
+<p><code>_</code> <code>a</code> <code>b</code> <code>c</code> <code>d</code> <code>e</code> <code>f</code> <code>g</code> <code>h</code> <code>i</code> <code>j</code> <code>k</code> <code>l</code> <code>m</code> <code>n</code> <code>o</code> <code>p</code> <code>q</code> <code>r</code> <code>s</code> <code>t</code> <code>u</code> <code>v</code> <code>w</code> <code>x</code> <code>y</code> <code>z</code> <code>A</code> <code>B</code> <code>C</code> <code>D</code> <code>E</code> <code>F</code> <code>G</code> <code>H</code> <code>I</code> <code>J</code> <code>K</code> <code>L</code> <code>M</code> <code>N</code> <code>O</code> <code>P</code> <code>Q</code> <code>R</code> <code>S</code> <code>T</code> <code>U</code> <code>V</code> <code>W</code> <code>X</code> <code>Y</code> <code>Z</code></p>
+<p>The following characters are legal as any character in an identifier except the first:</p>
+<p><code>0</code> <code>1</code> <code>2</code> <code>3</code> <code>4</code> <code>5</code> <code>6</code> <code>7</code> <code>8</code> <code>9</code></p>
+<h2 id="example-25">Example</h2>
+<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="er">@</span>Material UO2;</a></code></pre></div>
+<h1 id="the-materiallaw-keyword">The <code>@MaterialLaw</code> keyword</h1>
+<p>The <code>@MaterialLaw</code> keyword imports the definition of a material law defined in a mfront file and compiles, as part of the current library, an function using the <code>mfront</code> interface. This function is available in every standard code blocks.</p>
+<p>The <code>@MaterialLaw</code> keyword is followed by a string or an array of string identifying <code>mfront</code> files.</p>
+<h2 id="search-paths-1">Search paths</h2>
+<p>Files to be imported are searched, in that order:</p>
+<ul>
+<li>starting from the current directory.</li>
+<li>starting from directories specified with one of the <code>--search-path</code> or the <code>--include</code> (<code>-I</code>) <code>mfront</code>’ command line options.</li>
+<li>staring from directories specified through the <code>MFRONT_INCLUDE_PATH</code> environment variable.</li>
+</ul>
+<h2 id="note-1">Note</h2>
+<p>The <code>mfront</code> interface has been created to avoid names conflict.</p>
+<p>For internal reasons, <code>mfront</code> reports the creation of an auxiliary library which is of no use.</p>
+<h2 id="example-26">Example</h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="er">@</span>MaterialLaw <span class="st">&quot;UO2_YoungModulus.mfront&quot;</span>;</a></code></pre></div>
+<h1 id="the-materialproperty-keyword">The <code>@MaterialProperty</code> keyword</h1>
+<p>The <code>@MaterialProperty</code> keyword let the user define one or several material properties. This keyword is followed by the type of the material property and a list of material properties names separated by commas.</p>
+<p>The material properties names must be valid <code>C++</code> identifiers.</p>
+<p>The following characters are legal as the first character of an identifier, or any subsequent character:</p>
+<p><code>_</code> <code>a</code> <code>b</code> <code>c</code> <code>d</code> <code>e</code> <code>f</code> <code>g</code> <code>h</code> <code>i</code> <code>j</code> <code>k</code> <code>l</code> <code>m</code> <code>n</code> <code>o</code> <code>p</code> <code>q</code> <code>r</code> <code>s</code> <code>t</code> <code>u</code> <code>v</code> <code>w</code> <code>x</code> <code>y</code> <code>z</code> <code>A</code> <code>B</code> <code>C</code> <code>D</code> <code>E</code> <code>F</code> <code>G</code> <code>H</code> <code>I</code> <code>J</code> <code>K</code> <code>L</code> <code>M</code> <code>N</code> <code>O</code> <code>P</code> <code>Q</code> <code>R</code> <code>S</code> <code>T</code> <code>U</code> <code>V</code> <code>W</code> <code>X</code> <code>Y</code> <code>Z</code></p>
+<p>The following characters are legal as any character in an identifier except the first:</p>
+<p><code>0</code> <code>1</code> <code>2</code> <code>3</code> <code>4</code> <code>5</code> <code>6</code> <code>7</code> <code>8</code> <code>9</code></p>
+<h2 id="arrays-2">Arrays</h2>
+<p>One may declare an array of material properties by specifying the array size after the material property name.</p>
+<h2 id="external-names-1">External names</h2>
+<p>It is recommended to associate to a material property a glossary or an entry name through the methods <code>setGlossaryName</code> or <code>setEntryName</code> respectively.</p>
+<h2 id="example-27">Example</h2>
+<div class="sourceCode" id="cb30"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="co">// scalar material property</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="er">@</span>MaterialProperty stress young;</a>
+<a class="sourceLine" id="cb30-3" data-line-number="3">young.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</a></code></pre></div>
+<h1 id="the-maximumincrementvalueperiteration-keyword">The <code>@MaximumIncrementValuePerIteration</code> keyword</h1>
+<p>The keyword <code>@MaximumIncrementValuePerIteration</code> is not documented yet</p>
+<h1 id="the-maximumnumberofiterations-keyword">The <code>@MaximumNumberOfIterations</code> keyword</h1>
+<p>The <code>@MaximumNumberOfIterations</code> keyword let the user define the maximum number of iterations allowed. It is followed by a positive integer.</p>
+<h2 id="the-itermax-parameter">The iterMax parameter</h2>
+<p>The <code>@MaximumNumberOfIterations</code> keyword defines the default value for the <code>itermax</code> parameter. This parameter can be changed at runtime.</p>
+<h2 id="example-28">Example</h2>
+<div class="sourceCode" id="cb31"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="er">@</span>MaximumNumberOfIterations <span class="dv">200</span>;</a></code></pre></div>
+<h1 id="the-members-keyword">The <code>@Members</code> keyword</h1>
+<p>The keyword <code>@Members</code> is not documented yet</p>
+<h1 id="the-modellinghypotheses-keyword">The <code>@ModellingHypotheses</code> keyword</h1>
+<p>The keyword <code>@ModellingHypotheses</code> is not documented yet</p>
+<h1 id="the-modellinghypothesis-keyword">The <code>@ModellingHypothesis</code> keyword</h1>
+<p>The keyword <code>@ModellingHypothesis</code> is not documented yet</p>
+<h1 id="the-orthotropicbehaviour-keyword">The <code>@OrthotropicBehaviour</code> keyword</h1>
+<p>The <code>@OrthotropicBehaviour</code> declares the behaviour to be orthotropic.</p>
+<h2 id="example-29">Example</h2>
+<div class="sourceCode" id="cb32"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="er">@</span>OrthotropicBehaviour;</a></code></pre></div>
+<h1 id="the-parameter-keyword">The <code>@Parameter</code> keyword</h1>
+<p>The <code>@Parameter</code> keyword declares a new parameter or a list of new parameters. Optionally, the default value of the declared parameters may also be given following various C++ standard assignment syntaxes.</p>
+<p>The default value of a parameter can also be declared after its declaration using the <code>setDefaultValue</code> method.</p>
+<h2 id="example-30">Example</h2>
+<div class="sourceCode" id="cb33"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="er">@</span>Parameter  R0 = <span class="dv">500</span>;</a>
+<a class="sourceLine" id="cb33-2" data-line-number="2"><span class="er">@</span>Parameter  Q1{<span class="dv">1000000000</span>},b1{<span class="fl">0.000001</span>};</a>
+<a class="sourceLine" id="cb33-3" data-line-number="3"><span class="er">@</span>Parameter  Q2(<span class="dv">0</span>),b2(<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb33-4" data-line-number="4"><span class="er">@</span>Parameter  fc;</a>
+<a class="sourceLine" id="cb33-5" data-line-number="5">fc.setDefaultValue(<span class="dv">1</span>.e<span class="dv">-2</span>);</a></code></pre></div>
+<h1 id="the-parser-keyword">The <code>@Parser</code> keyword</h1>
+<p>The <code>@Paser</code> keyword is a deprecated synonymous of <code>@DSL</code>.</p>
+<h1 id="the-perturbationvaluefornumericaljacobiancomputation-keyword">The <code>@PerturbationValueForNumericalJacobianComputation</code> keyword</h1>
+<p>The <code>@PerturbationValueForNumericalJacobianComputation</code> keyword let the user defines the pertubation value used to compute the numerical jacobian.</p>
+<p>If <span class="math inline">\(Y\)</span> is the vector of integration variables and <span class="math inline">\(F\)</span> the function defining the implicit system, the <span class="math inline">\(j^{\text{th}}\)</span> column of the numerical jacobian <span class="math inline">\(J^{n}\)</span> is defined by the centered finite difference formulae: <span class="math display">\[
+J^{n}(i,j)=\frac{F(Y_{i}^{+\epsilon})-F(Y_{i}^{-\epsilon})}{2\,\epsilon}
+\]</span> where: <span class="math display">\[
+Y_{i}^{+\epsilon}(j)=
+\left\{
+  \begin{aligned}
+    Y(j)          &amp; \text{ si } &amp;j \neq i \\
+    Y(i)+\epsilon &amp; \text{ si } &amp;j =    i
+  \end{aligned}
+\right.
+\]</span></p>
+<h2 id="example-31">Example</h2>
+<div class="sourceCode" id="cb34"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="er">@</span>PerturbationValueForNumericalJacobianComputation <span class="dv">1</span>.e<span class="dv">-7</span>;</a></code></pre></div>
+<h1 id="the-physicalbounds-keyword">The <code>@PhysicalBounds</code> keyword</h1>
+<p>The <code>@PhysicalBounds</code> keyword let the use define the physical domain of a variable.</p>
+<p>The <code>@PhysicalBounds</code> keyword is followed by a variable name, the keyword in and an interval. The interval may contain the infinity, represented by the ’*’ character.</p>
+<h2 id="effect-1">Effect</h2>
+<p>In implicit schemes, if physical bounds are set on a integration variable, this variable is bounded to satisfy them during the internal iterations.</p>
+<p>If a variable is found to be out of its physical bounds, the computations are stopped. The tests are performed at different stages of the integration depending on the nature of the variable.</p>
+<h2 id="example-32">Example</h2>
+<div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="co">// a temperature (in Kelvin) can&#39;t be negative</span></a>
+<a class="sourceLine" id="cb35-2" data-line-number="2"><span class="er">@</span>Bounds T in [<span class="dv">0</span>:*[;</a></code></pre></div>
+<h1 id="the-predictionoperator-keyword">The <code>@PredictionOperator</code> keyword</h1>
+<p>The keyword <code>@PredictionOperator</code> is not documented yet</p>
+<h1 id="the-predictor-keyword">The <code>@Predictor</code> keyword</h1>
+<p>The keyword <code>@Predictor</code> is not documented yet</p>
+<h1 id="the-private-keyword">The <code>@Private</code> keyword</h1>
+<p>The <code>@Private</code> keyword let the user define private methods or members of in the generated behaviour class.</p>
+<h2 id="example-33">Example</h2>
+<div class="sourceCode" id="cb36"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="er">@</span>Private{</a>
+<a class="sourceLine" id="cb36-2" data-line-number="2">  <span class="dt">void</span> display(<span class="dt">void</span>) <span class="at">const</span>{</a>
+<a class="sourceLine" id="cb36-3" data-line-number="3">    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;eto &quot;</span> &lt;&lt; <span class="kw">this</span>-&gt;eto &lt;&lt; <span class="bu">std::</span>endl;</a>
+<a class="sourceLine" id="cb36-4" data-line-number="4">  }</a>
+<a class="sourceLine" id="cb36-5" data-line-number="5">} <span class="co">// end of @Private</span></a></code></pre></div>
+<h1 id="the-profiling-keyword">The <code>@Profiling</code> keyword</h1>
+<p>The <code>@Profiling</code> keyword is followed by a boolean. If true, several high resolutions clocks will be introduced in the generated code to profile performance bottlenecks. The total time spend in various portions of the generated code will be stored and displayed when the calling process exits.</p>
+<h2 id="example-34">Example</h2>
+<div class="sourceCode" id="cb37"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="er">@</span>Profiling <span class="kw">true</span>;</a></code></pre></div>
+<h1 id="the-requirestiffnessoperator-keyword">The <code>@RequireStiffnessOperator</code> keyword</h1>
+<p>The <code>@RequireStiffnessOperator</code> keyword is a deprecated synonymous of <code>@RequireStiffnessTensor</code>.</p>
+<h1 id="the-requirestiffnesstensor-keyword">The <code>@RequireStiffnessTensor</code> keyword</h1>
+<p>The <code>@RequireStiffnessTensor</code> keyword requires the stiffness tensor to be computed by the calling code. This generally means that some extra material properties will be introduced and handled by the interface before the behaviour integration.</p>
+<p>By default, the stiffness tensor will have the same symmetry than the behaviour (see <code>@IsotropicElasticBehaviour</code> to change this in the case of an orthotropic behaviour).</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="er">@</span>RequireStiffnessTensor <span class="kw">true</span>;</a></code></pre></div>
+<h1 id="the-requirethermalexpansioncoefficienttensor-keyword">The <code>@RequireThermalExpansionCoefficientTensor</code> keyword</h1>
+<p>The <code>@RequireThermalExpansionCoefficientTensor</code> keyword requires the thermal expansion coefficient tensor to be computed by the calling code. This generally means that some extra material properties will be introduced and handled by the interface before the behaviour integration.</p>
+<p>The thermal expansion tensor will have the same symmetry than the behaviour. For example, for an isotropic behaviour, the thermal expansion tensor will be proportional to the identity. For an orthotropic behaviour, the thermal expansion tensor is diagonal and expressed in the material frame.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="er">@</span>RequireThermalExpansionCoefficientTensor <span class="kw">true</span>;</a></code></pre></div>
+<h1 id="the-sources-keyword">The <code>@Sources</code> keyword</h1>
+<p>The <code>@Sources</code> keyword let the user define a code block that will be integrated in the generated sources of a behaviour. This allows the user to implement their own classes or functions. This declarations of such classes or functions can be made in a code block introduced by the <code>@Includes</code> keyword.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="er">@</span>Includes{</a>
+<a class="sourceLine" id="cb40-2" data-line-number="2">  <span class="co">//! declaration of the function f</span></a>
+<a class="sourceLine" id="cb40-3" data-line-number="3">  <span class="dt">void</span> f(<span class="dt">void</span>);</a>
+<a class="sourceLine" id="cb40-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb40-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb40-6" data-line-number="6"><span class="er">@</span>Sources{</a>
+<a class="sourceLine" id="cb40-7" data-line-number="7">  <span class="co">// source of the function</span></a>
+<a class="sourceLine" id="cb40-8" data-line-number="8">  <span class="dt">void</span> f(<span class="dt">void</span>){</a>
+<a class="sourceLine" id="cb40-9" data-line-number="9">    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Example of a function &quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</a>
+<a class="sourceLine" id="cb40-10" data-line-number="10">  } <span class="co">// end of f</span></a>
+<a class="sourceLine" id="cb40-11" data-line-number="11">}</a></code></pre></div>
+<h1 id="the-statevar-keyword">The <code>@StateVar</code> keyword</h1>
+<p>The <code>@StateVar</code> keyword is a deprecated synonymous of <code>@StateVariable</code>.</p>
+<h1 id="the-statevariable-keyword">The <code>@StateVariable</code> keyword</h1>
+<p>The <code>StateVariable</code> keyword introduces one or several new state variables. It is followed by a type name and the name(s) of the variable(s) declared, separated by commas.</p>
+<p>The state variables names must be valid <code>C++</code> identifiers.</p>
+<p>The following characters are legal as the first character of an identifier, or any subsequent character:</p>
+<p><code>_</code> <code>a</code> <code>b</code> <code>c</code> <code>d</code> <code>e</code> <code>f</code> <code>g</code> <code>h</code> <code>i</code> <code>j</code> <code>k</code> <code>l</code> <code>m</code> <code>n</code> <code>o</code> <code>p</code> <code>q</code> <code>r</code> <code>s</code> <code>t</code> <code>u</code> <code>v</code> <code>w</code> <code>x</code> <code>y</code> <code>z</code> <code>A</code> <code>B</code> <code>C</code> <code>D</code> <code>E</code> <code>F</code> <code>G</code> <code>H</code> <code>I</code> <code>J</code> <code>K</code> <code>L</code> <code>M</code> <code>N</code> <code>O</code> <code>P</code> <code>Q</code> <code>R</code> <code>S</code> <code>T</code> <code>U</code> <code>V</code> <code>W</code> <code>X</code> <code>Y</code> <code>Z</code></p>
+<p>The following characters are legal as any character in an identifier except the first:</p>
+<p><code>0</code> <code>1</code> <code>2</code> <code>3</code> <code>4</code> <code>5</code> <code>6</code> <code>7</code> <code>8</code> <code>9</code></p>
+<h2 id="arrays-3">Arrays</h2>
+<p>One may declare an array of state variables by specifying the array size after the state variable name.</p>
+<h2 id="external-names-2">External names</h2>
+<p>It is recommended to associate to a state variable a glossary or an entry name through the methods <code>setGlossaryName</code> or <code>setEntryName</code> respectively.</p>
+<h2 id="example-35">Example</h2>
+<div class="sourceCode" id="cb41"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="co">// scalar state variable</span></a>
+<a class="sourceLine" id="cb41-2" data-line-number="2"><span class="er">@</span>StateVariables strain p;</a>
+<a class="sourceLine" id="cb41-3" data-line-number="3"><span class="co">// symmetric tensors state variable</span></a>
+<a class="sourceLine" id="cb41-4" data-line-number="4"><span class="er">@</span>StateVariables StrainStensor evp,evp2;</a></code></pre></div>
+<h1 id="the-staticvar-keyword">The <code>@StaticVar</code> keyword</h1>
+<p>The <code>@StaticVar</code> keyword is a deprecated synonymous of <code>@StaticVariable</code>.</p>
+<h1 id="the-staticvariable-keyword">The <code>@StaticVariable</code> keyword</h1>
+<p>The <code>@StaticVariable</code> keyword let the user define a constant value. Unlike parameters (see the <code>@Parameter</code> keyword), static variables’ values can’t be changed after compilation.</p>
+<p>This keyword must be followed by the type of the constant, its name, an equal sign and its value.</p>
+<h2 id="example-36">Example</h2>
+<div class="sourceCode" id="cb42"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="er">@</span>StaticVariable real A = <span class="fl">1.234e56</span>;</a></code></pre></div>
+<h1 id="the-tangentoperator-keyword">The <code>@TangentOperator</code> keyword</h1>
+<p>The <code>TangentOperator</code> keyword introduces a code block used to define the tangent operator. This code is called once the integration variables, the stresses and the auxiliary state variables (see the <code>@UpdateAuxiliaryStateVariables</code> keyword) have been updated.</p>
+<p>The kind of tangent operator requested is given by variable named <code>smt</code> (stiffness matrix type). As the time of writting this notice, the possible values for <code>smt</code> are the following:</p>
+<ul>
+<li><code>ELASTIC</code>: the elastic operator is requested (undamaged).</li>
+<li><code>SECANT</code>: the secant operator is requested. This operator is only meaningful for behaviours describing brittle damage. The expected operator is then the elastic operator modified by the damage variables.</li>
+<li><code>TANGENTOPERATOR</code>: the tangent operator is requested. This operator is seldom implemented as the consistent tangent operator is more interesting (and easier to compute).</li>
+<li><code>CONSISTENTTANGENTOPERATOR</code>: the consistent tangent operator is requested. If an implicit scheme is used in small strain, the consistent tangent operator can be computed using the jacobian of the implicit system, see the mfront behaviours documentation for details.</li>
+</ul>
+<h2 id="example-37">Example</h2>
+<div class="sourceCode" id="cb43"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="er">@</span>TangentOperator{</a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">  <span class="kw">using</span> <span class="kw">namespace</span> tfel::material::lame;</a>
+<a class="sourceLine" id="cb43-3" data-line-number="3">  <span class="cf">if</span>((smt==ELASTIC)||(smt==SECANTOPERATOR)){</a>
+<a class="sourceLine" id="cb43-4" data-line-number="4">    computeAlteredElasticStiffness&lt;hypothesis,Type&gt;::exe(Dt,lambda,mu);</a>
+<a class="sourceLine" id="cb43-5" data-line-number="5">  } <span class="cf">else</span> <span class="cf">if</span> (smt==CONSISTENTTANGENTOPERATOR){</a>
+<a class="sourceLine" id="cb43-6" data-line-number="6">    StiffnessTensor De;</a>
+<a class="sourceLine" id="cb43-7" data-line-number="7">    Stensor4 Je;</a>
+<a class="sourceLine" id="cb43-8" data-line-number="8">    computeElasticStiffness&lt;N,Type&gt;::exe(De,lambda,mu);</a>
+<a class="sourceLine" id="cb43-9" data-line-number="9">    getPartialJacobianInvert(Je);</a>
+<a class="sourceLine" id="cb43-10" data-line-number="10">    Dt = De*Je;</a>
+<a class="sourceLine" id="cb43-11" data-line-number="11">  } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb43-12" data-line-number="12">    <span class="cf">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb43-13" data-line-number="13">  }</a>
+<a class="sourceLine" id="cb43-14" data-line-number="14">}</a></code></pre></div>
+<h1 id="the-theta-keyword">The <code>@Theta</code> keyword</h1>
+<p>The <code>Theta</code> keyword is used to define the default value of <span class="math inline">\(\theta\)</span> parameter used by implicit schemes. If the <code>Theta</code> keyword is not used, implicit domain specific languages provide their own specific default value (either <span class="math inline">\(0.5\)</span> or <span class="math inline">\(1\)</span>).</p>
+<p>The value given to <span class="math inline">\(\theta\)</span> must be in the range (]0:1]).</p>
+<p>The value of <span class="math inline">\(\theta\)</span> can be changed at runtime by modifying the <code>theta</code> parameter (see the <code>@Parameter</code> keyword).</p>
+<h2 id="example-38">Example</h2>
+<div class="sourceCode" id="cb44"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="er">@</span>Theta <span class="fl">0.5</span>;</a></code></pre></div>
+<h1 id="the-updateauxiliarystatevariables-keyword">The <code>@UpdateAuxiliaryStateVariables</code> keyword</h1>
+<p>The <code>UpdateAuxiliaryStateVariables</code> introduces a code block meant to update the auxiliary state variables after integration.</p>
+<p>In implicit domain specific languages, the code declared by <code>UpdateAuxiliaryStateVariables</code> is called once the integration variables (including state variables) and stresses (see the <code>@ComputeFinalStress</code> keyword) have been updated. The external state variables are not updated.</p>
+<p>In Runge-Kutta domain specific languages, the code declared by <code>UpdateAuxiliaryStateVariables</code> is called after each successful time step. Keep in mind that most Runge-Kutta algorithms performs internal substeppings: in this case, the code declared by <code>UpdateAuxiliaryStateVariables</code> may be called several time during the behaviour integration. An additional variable called <code>dt_</code>, which is lower than the total time step increment <code>dt</code> if substeppings is performed, gives the current time increment. The external state variables are set to their values at the current date.</p>
+<h2 id="example-implicit-dsl-1">Example (Implicit dsl)</h2>
+<div class="sourceCode" id="cb45"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="er">@</span>UpdateAuxiliaryStateVariables{</a>
+<a class="sourceLine" id="cb45-2" data-line-number="2">  <span class="co">// valeur de milieu de pas, q ayant</span></a>
+<a class="sourceLine" id="cb45-3" data-line-number="3">  <span class="co">// déjà été mis à jour</span></a>
+<a class="sourceLine" id="cb45-4" data-line-number="4">  <span class="at">const</span> real <span class="va">q_</span> = q-(<span class="dv">1</span>-theta)*dq;</a>
+<a class="sourceLine" id="cb45-5" data-line-number="5">  <span class="at">const</span> real Q = Q0 + (Qm - Q0) * (<span class="dv">1</span> - exp(<span class="dv">-2</span> * Mu * <span class="va">q_</span>) );</a>
+<a class="sourceLine" id="cb45-6" data-line-number="6">  R+=b*(Q-R)*dp;</a>
+<a class="sourceLine" id="cb45-7" data-line-number="7">}</a></code></pre></div>
+<h2 id="example-runge-kutta-dsl-1">Example (Runge-Kutta dsl)</h2>
+<div class="sourceCode" id="cb46"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="er">@</span>UpdateAuxiliaryStateVariables{</a>
+<a class="sourceLine" id="cb46-2" data-line-number="2">  sigeq = sqrt(sig|sig);</a>
+<a class="sourceLine" id="cb46-3" data-line-number="3">}</a></code></pre></div>
+<h1 id="the-updateauxiliarystatevars-keyword">The <code>@UpdateAuxiliaryStateVars</code> keyword</h1>
+<p>The <code>@UpdateAuxiliaryStateVars</code> keyword is a deprecated synonymous of <code>@UpdateAuxiliaryStateVariables</code>.</p>
+<h1 id="the-usableinpurelyimplicitresolution-keyword">The <code>@UsableInPurelyImplicitResolution</code> keyword</h1>
+<p>The <code>@UsableInPurelyImplicitResolution</code> is a specifier which states that the behaviour is usable in a purely implicit resolution, i. e. if we can call the behaviour by only providing the values of external state variables at the end of the time step and by setting their increments to zero.</p>
+<p>This behaviour characteristic may or may not have any influence depending on the calling code. As the time of writting this notice, only the <code>Licos</code> fuel performance code take advantage of this characteristic. If true, the <code>Licos</code> code will simplify the definition of the external state variables (called material loadings in this context) which may result in some gain in time and memory space.</p>
+<h2 id="example-39">Example</h2>
+<div class="sourceCode" id="cb47"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="er">@</span>UsableInPurelyImplicitResolution <span class="kw">true</span>;</a></code></pre></div>
+<h1 id="the-useqt-keyword">The <code>@UseQt</code> keyword</h1>
+<p>The <code>UseQt</code> keyword (use quantities) specify if the behaviour compilation should perform compile-time units checks. It is followed by a boolean.</p>
+<h2 id="note-2">Note</h2>
+<p>This feature is still experimental and is disabled in most cases.</p>
+<h2 id="example-40">Example</h2>
+<div class="sourceCode" id="cb48"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="er">@</span>UseQt <span class="kw">true</span>;</a></code></pre></div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>How to build and use TFEL and MFront on Windows with the Visual Studio compiler</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">How to build and use <code>TFEL</code> and <code>MFront</code> on <code>Windows</code> with the <code>Visual Studio</code> compiler</h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">1/09/2017</h3>
+          </div>
+            <p>Building and using <code>MFront</code> on <code>Windows</code> is more complex than on other systems for the following reasons:</p>
+<ul>
+<li>There is no default compiler on this platform. In this tutorial, we will use the <code>Microsoft</code> <code>Visual Studio</code> compiler.</li>
+<li>The usage of command line is less common.</li>
+</ul>
+<p>This page is dedicated to show how this issues can be overcome and ease the <code>MFront</code> experience on <code>Windows</code>.</p>
+<p>This tutorial will show that:</p>
+<ul>
+<li>The installation does not require any administrator privileges.</li>
+<li>The main trick is to appropriately update the <code>PATH</code> variable so that the <code>TFEL</code> libraries are found when needed. This can be done by creating small wrapper scripts as discussed bellow.</li>
+</ul>
+<p>This tutorial is mostly based on <code>bat</code> scripts that can be downloaded <a href="downloads/windows-install-scripts.tar.bz2">here</a>.</p>
+<h2 id="notes-on-the-installation-directory">Notes on the installation directory</h2>
+<p>For information, the author use the following convention: the scripts are decompressed in <code>C:\tfel-master\src</code>.</p>
+<p>By default, the previous scripts will install <code>TFEL</code> and <code>MFront</code> in <code>C:\tfel-master\install-vs</code>. The user is, of course, free to choose another installation location: he simply has to edit the scripts accordingly.</p>
+<h2 id="notes-on-bat-scripts">Notes on <code>bat</code> scripts</h2>
+<p>Executing <code>bat</code> scripts is fairly easy: in <code>Windows</code> <code>Explorer</code>, right-click on the script and select <code>Open</code>.</p>
+<p>Modifying <code>bat</code> scripts is also easy: in <code>Windows</code> <code>Explorer</code>, right-click on the script and select <code>Modify</code>. By default, this action will open the script in <code>Notepad</code>, but any text editor will do.</p>
+<h1 id="decompressing-the-archive">Decompressing the archive</h1>
+<p>As said before, this tutorial is mostly based on <code>bat</code> scripts that can be downloaded <a href="downloads/windows-install-scripts.tar.bz2">here</a>.</p>
+<p>The archive contains the following files:</p>
+<ul>
+<li><code>git.bat</code>: a script used to fetch the latest source from the <code>github</code> repository.</li>
+<li><code>git-update.bat</code>: a script used to update the sources to the latest version.</li>
+<li><code>compil-vs.bat</code>: a script used to compile <code>TFEL</code> and <code>MFront</code> using the <code>Visual Studio</code> compiler.</li>
+</ul>
+<p>The two first scripts are not mandatory: the user can directly download an archive from the sourceforge website (<a href="https://sourceforge.net/projects/tfel/files/" class="uri">https://sourceforge.net/projects/tfel/files/</a>).</p>
+<p>It also contains a directory called <code>test</code>. The usage is those scripts is fully detailed in the following sections.</p>
+<p>The other files contained in the archive will not be used in this tutorial.</p>
+<h1 id="prerequisites">Prerequisites</h1>
+<p>In the following, we will suppose that:</p>
+<ul>
+<li><code>git</code> is installed. This is not mandatory. Users that do not want to follow the latest developments of <code>TFEL</code> and <code>MFront</code> can download a packaged version on the sourceforge website. The tutorial will mostly apply, but the name of the directory containing the sources must be changed. <code>git</code> for <code>Windows</code> can be downloaded <a href="https://git-scm.com/download/win">here</a></li>
+<li><code>cmake</code> is installed. <code>cmake</code> can be downloaded <a href="https://cmake.org/download/">here</a>.</li>
+<li><code>Visual Studio</code> <code>2015</code> is installed.</li>
+</ul>
+<blockquote>
+<p><strong>Notes</strong></p>
+<p>At least version <code>2015</code> of the <code>Visual Studio</code> compiler suite is required.</p>
+<p>Full support of <code>Visual Studio</code> on <code>Windows</code> requires at least version <code>3.1.0</code> of <code>TFEL</code>, which is currently under development. Indeed, the last part of this tutorial is based on the support of the <code>CMake</code> generator by <code>MFront</code> (see the <a href="./release-notes-3.1.html">release notes of version 3.1</a> for details).</p>
+</blockquote>
+<blockquote>
+<p><strong>Notes</strong></p>
+<p>In the following, it is expected that <code>git</code> and <code>cmake</code> are located in directories listed in the <code>PATH</code> variables. If this is not the case, the scripts must be modified to update this variable appropriately.</p>
+</blockquote>
+<h1 id="getting-the-sources-using-git">Getting the sources using <code>git</code></h1>
+<p>This section can be skipped if the user wants to use a packaged version of tfel (<a href="https://sourceforge.net/projects/tfel/files/" class="uri">https://sourceforge.net/projects/tfel/files/</a>).</p>
+<h2 id="cloning-the-repository">Cloning the repository</h2>
+<p>The <code>git.bat</code> will clone the <code>git</code> repository on your machine in the current directory. The directory containing the repository is called <code>tfel</code>.</p>
+<h2 id="updating-the-repository">Updating the repository</h2>
+<p>After the <code>git</code> repository has been cloned, the <code>git-update.bat</code> script can be used to synchronize our local repository with the official repository and follow the latest developments.</p>
+<h1 id="compiling-mfront">Compiling <code>MFront</code></h1>
+<p>The <code>compil-vs.bat</code> can now be used to compile and install <code>TFEL</code> using the <code>Visual Studio</code> compiler suite.</p>
+<p>This script supposes that the user uses <code>Visual</code> <code>Studio</code> version <code>2015</code>. Although untested yet, we expect <code>TFEL</code> to build with more recent versions. The version of <code>Visual</code> <code>Studio</code> to be used can be changed by modifying the value following the <code>-G</code> parameter:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">cmake.exe</span> ..\tfel -G <span class="st">&quot;Visual Studio 14 2015 Win64&quot;</span> ...</a></code></pre></div>
+<p>See the <a href="https://cmake.org/cmake/help/v3.0/manual/cmake-generators.7.html"><code>cmake</code> documentation for details</a>.</p>
+<h2 id="changing-the-location-of-the-sources">Changing the location of the sources</h2>
+<p>By default, the script assumes that the sources are in the <code>tfel</code> subdirectory. This is the case if the user cloned the <code>git</code> repository as explained before.</p>
+<p>If the user has downloaded an archive from the <code>sourceforge</code> website, the name of the directory can be different and the user must update the following line:</p>
+<pre class="bat"><code>cmake.exe ..\tfel ...</code></pre>
+<p>For example, if you have downloaded version <code>3.0.1</code>, the name of the archive is <code>tfel-3.0.1.tar.bz2</code>. Assuming that this archive is decompressed in the same directory than the scripts, the name of the directory containing the sources will be <code>tfel-3.0.1</code>. The previous line can thus be udpated as follows:</p>
+<pre class="bat"><code>cmake.exe ..\tfel-3.0.1 -G &quot;MinGW Makefiles&quot; ...</code></pre>
+<h2 id="changing-the-installation-directory">Changing the installation directory</h2>
+<p>The installation directory is passed to <code>cmake</code> through the <code>CMAKE_INSTALL_PREFIX</code> variable. The default install directory is <code>C:\tfel-master\install-vs</code>. The user can modify this value to fit its needs.</p>
+<h1 id="a-simple-test-showing-how-to-perform-cast3m-2017-simulations-with-a-mfront-behaviour">A simple test showing how to perform <code>Cast3M</code> <code>2017</code> simulations with a <code>MFront</code> behaviour</h1>
+<p>The <code>test-vs</code> directory contains an example showing how to build a mfront library and how to perform <code>Cast3M</code> <code>2017</code> simulations with a <code>MFront</code> behaviour.</p>
+<p>It contains:</p>
+<ul>
+<li>a <code>mfront.bat</code> script.</li>
+<li>a <code>launch-castem.bat</code> script.</li>
+<li>a <code>MFront</code> behaviour called <code>LogarithimcStrainPlasticity</code>.</li>
+<li>a <code>Gibiane</code> script called <code>LogarithimcStrainPlasticity-ssna303.dgibi</code>.</li>
+</ul>
+<h2 id="compilation-the-mfront-behaviour">Compilation the <code>MFront</code> behaviour</h2>
+<p>Launch the <code>mfront.bat</code> script. This script is basically a wrapper around the following call to <code>MFront</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="ex">mfront.exe</span> --obuild --interface=castem LogarithmicStrainPlasticity.mfront</a></code></pre></div>
+<p>This command:</p>
+<ul>
+<li>generates <code>C++</code> sources from the <code>LogarithmicStrainPlasticity.mfront</code> file and a <code>CMakeLists.txt</code> file.</li>
+<li>calls the <code>cmake</code> utility to compile the sources an generate the <code>UmatBehaviour.dll</code> library. This library will be located in the <code>src\Release</code> directory.</li>
+</ul>
+<h2 id="launch-the-cast3m-2017-simulation">Launch the <code>Cast3M</code> <code>2017</code> simulation</h2>
+<p>The <code>Cast3M</code> solver can be used directly because it can’t find the <code>TFEL</code> libraries automatically. The <code>launch-castem.bat</code> script thus first updates the <code>PATH</code> variable and then launches the <code>Cast3M</code> solver script.</p>
+<p>Launch the <code>launch-castem.bat</code> script to perform the simulation.</p>
+<!-- Local IspellDict: english -->
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

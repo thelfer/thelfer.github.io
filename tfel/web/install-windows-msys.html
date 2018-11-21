@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Installing TFEL/MFront on Windows with MingGW</title>
+        <meta name="author" content="Helfer Thomas" />
+            <meta name="date" content="2014-11-03" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Installing TFEL/MFront on <a href="http://windows.microsoft.com">Windows</a> with <a href="http://www.mingw.org/">MingGW</a></h1>
+                  <h2 class="author">Helfer Thomas</h2>
+                  <h3 class="date">November 3, 2014</h3>
+          </div>
+            <p>This document describes how to install <code>TFEL/MFront</code> on <a href="http://windows.microsoft.com">Windows plateform</a> using <a href="http://www.mingw.org/">MingGW</a> and <a href="http://www.cmake.org/"><code>cmake</code></a>.</p>
+<p>The main difficulty associated with building <code>TFEL/MFront</code> on <a href="http://windows.microsoft.com">Windows plateform</a> is the lack of an unified build environment which must be set up by the user. We suppose that you want to build <code>TFEL/MFront</code> on top of the <code>Cast3M</code> finite element solver which comes with its own software environment based on <code>MinGW</code>.</p>
+<h1 id="installing-the-mandatory-prerequisites">Installing the mandatory prerequisites</h1>
+<h2 id="installing-msys">Installing <a href="http://www.mingw.org/wiki/MSYS">MSYS</a></h2>
+<p><a href="http://www.mingw.org/wiki/MSYS">MSYS</a> is a collection of GNU utilities, in particular <code>make</code> which is used by <code>MFront</code>. It also provides a convenient shell which is far more easier to use than the <code>DOS</code> terminal provided by the <code>cmd</code> command.</p>
+<p>We will use the <code>mingw-get-setup.exe</code> program that can be grabbed <a href="http://sourceforge.net/projects/mingw/files/Installer">here</a>.</p>
+<p>Installing <a href="http://www.mingw.org/wiki/MSYS">MSYS</a> is a <span class="math inline">\(3\)</span> steps process depicted on the following figures:</p>
+<figure>
+<img src="img/mingw-get1.png" title="Splash Screen (Click on `Continue`)" alt="Splash Screen (Click on Continue)" /><figcaption>Splash Screen (Click on <code>Continue</code>)</figcaption>
+</figure>
+<p>This first step allows you to choose the installation directory of <a href="http://www.mingw.org/wiki/MSYS">MSYS</a>. The default installation path is <code>C:\MinGW</code>.</p>
+<figure>
+<img src="img/mingw-get2.png" title="Downloading the latest list of packages (Click on `Continue` once finished)" alt="Downloading the latest list of packages" /><figcaption>Downloading the latest list of packages</figcaption>
+</figure>
+<p>The second windows appears while <code>mingw-get-setup.exe</code> downloads the latest list of packages. Just click on <code>Continue</code> once finished.</p>
+<figure>
+<img src="img/mingw-get3.png" title="Selecting the components to be installed" alt="Selecting the components to be installed (Select msys-base)" /><figcaption>Selecting the components to be installed (Select <code>msys-base</code>)</figcaption>
+</figure>
+<p>The third windows allows you to select the components to be installed. <strong>The only one required for <code>MFront</code> is the <code>msys-base</code> package.</strong></p>
+<p>Once the components are selected, choose <code>Apply Changes</code> in the <code>Installation</code> menu and click on <code>OK</code> to launch the components installation.</p>
+<h3 id="user-directory-location">User directory location</h3>
+<p>Once done, the <code>msys.bat</code> script launches a shell which is very similar to standard UNiX shells.</p>
+<p>Assuming that <code>MSYS</code> has been installed in <code>C:\MinGW</code>, the user directory is located here:</p>
+<div class="sourceCode" id="home"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="home-1" data-line-number="1"><span class="ex">C</span>:\MinGW\msys\1.0\home<span class="dt">\[</span>user name]</a></code></pre></div>
+<p>This allows easy exchange of file between the <a href="http://windows.microsoft.com">Windows</a> world and the<code>MSYS</code> one.</p>
+<p>Inside <code>MSYS</code>, one can access most <a href="http://windows.microsoft.com">Windows</a> files through the <code>/c/</code> path:</p>
+<div class="sourceCode" id="c"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="c-1" data-line-number="1">$ <span class="fu">ls</span> /c/</a>
+<a class="sourceLine" id="c-2" data-line-number="2"><span class="ex">MinGW</span> Program Files users windows</a></code></pre></div>
+<h2 id="installing-cmake">Installing <code>cmake</code></h2>
+<p>The <code>cmake</code> project provides a graphical installer on its <a href="http://www.cmake.org">website</a>.</p>
+<h2 id="installing-nsis">Installing <code>NSIS</code></h2>
+<p>At the end of the compilation process, we will create a graphical installer based on <code>NSIS</code> which can be grabbed <a href="http://nsis.sourceforge.net/">here</a>.</p>
+<h1 id="compiling-tfel">Compiling <code>TFEL</code></h1>
+<p>Compiling <code>TFEL</code> is merely a simple as opening a new <code>MSYS</code> session and following the instructions given on the <a href="install.html">main installation page</a>.</p>
+<p>The main differences are that one must:</p>
+<ul>
+<li>add to the <code>PATH</code> environment variable, the path to were <code>Cast3M</code> has installed the <code>MinGW</code> compilers.</li>
+<li>pass an appropriate flag to <code>cmake</code> to generate appropriate <code>Makefiles</code> for the `NSIS``build environment.</li>
+</ul>
+<div class="sourceCode" id="compiling"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="compiling-1" data-line-number="1">$ <span class="bu">export</span> <span class="va">PATH=</span>/c/Cast3M/PCW_14/MinGW/x32-4.6.3-posix-dwarf-rev2/mingw/bin/:<span class="va">$PATH</span></a>
+<a class="sourceLine" id="compiling-2" data-line-number="2">$ <span class="fu">cmake</span> -G <span class="st">&quot;MSYS Makefiles&quot;</span> [path to TFEL sources] [options]</a>
+<a class="sourceLine" id="compiling-3" data-line-number="3">$ <span class="fu">make</span></a>
+<a class="sourceLine" id="compiling-4" data-line-number="4">$ <span class="ex">cpack</span> -G <span class="st">&quot;NSIS&quot;</span></a></code></pre></div>
+<h1 id="installation">Installation</h1>
+<p>An executable called <code>tfel-..</code> has been build and can be executed to install <code>TFEL</code>.</p>
+<p>This executable is a standard graphical installer which allows you to choose which components of <code>TFEL</code> you wish to install:</p>
+<ul>
+<li><code>core</code> contains the <code>TFEL</code> library.</li>
+<li><code>mfront</code> et <code>mtest</code> contain the <code>MFront</code> code generator and <code>MTest</code> respectively.</li>
+<li><code>docs</code> contains the documentation in <code>pdf</code> format.</li>
+<li><code>website</code> contains the <code>TFEL</code> website.</li>
+</ul>
+<p>The installer also allows you to choose where <code>TFEL</code> shall be installed: <strong><code>TFEL</code> must be installed in a path without blanks</strong>, for example in the directory <code>C:TFEL</code>.</p>
+<p>We strongly advice the user to create or modify its <code>.profile</code> file in its home directory in the <code>MSYS</code> environment to get the <code>MinGW</code> compilers provided by <code>Cast3M</code> in the path by appending the following lines:</p>
+<pre id="home" class="profile"><code>export PATH=/c/Cast3M/PCW_14/MinGW/x32-4.6.3-posix-dwarf-rev2/mingw/bin/:$PATH
+export PATH:/c/Cast3M/PCW_14/bin/:$PATH
+alias castem=&#39;cmd //c castem14.bat&#39;</code></pre>
+<p>Assuming a standard <code>MSYS</code> environment, the file is located here:</p>
+<div class="sourceCode" id="home"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="home-1" data-line-number="1"><span class="ex">C</span>:\MinGW\msys\1.0\home<span class="dt">\[</span>user name]\.profile</a></code></pre></div>
+<h1 id="usage">Usage</h1>
+<p>Once done, mfront can be used as “usual” (like in Posix environments) in <a href="http://www.mingw.org/wiki/MSYS">MSYS</a>.</p>
+<!-- Local IspellDict: english -->
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

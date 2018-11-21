@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>The Europlexus interface</title>
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href=" css/slideshow.css" />
+        <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">The Europlexus interface</h1>
+                      </div>
+            <div id="slideshow">
+<p><ul class="slides"> <li> <video style="display:block; margin: 0 auto;" width="640" height="320" controls> <source src="media/epx1.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </li> <li> <video style="display:block; margin: 0 auto;" width="640" height="320" controls> <source src="media/epx2.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </li> </ul> <span class="arrow previous"></span> <span class="arrow next"></span></p>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="js/slideshow.js"></script>
+<p><code>Europlexus</code> (<code>EPX</code>) is a simulation software dedicated to the analysis of fast transient phenomena involving structures and fluids in interaction. The program is co-owned by the Commissariat à l’Energie Atomique et aux Energies Alternatives (CEA) and the Joint Research Centre of the European Commission (EC/JRC). Its development is carried out through a Consortium involving the co-owners and so-called major partners who are granted a complete access to the source code and development tools (see <span class="citation" data-cites="cea_epx_2016">CEA and JRC (2016)</span>).</p>
+<p>Time integration is achieved through a conditionally stable explicit scheme.</p>
+<h1 id="description-of-the-interface">Description of the interface</h1>
+<p>The following features are currently available:</p>
+<ul>
+<li>Support for finite strain behaviours
+<ul>
+<li>Small strain behaviours can be embedded though finite strain strategies: currently, <code>MFront</code> provides the <code>FiniteRotationSmallStrain</code> and the <code>MieheApelLambrechtLogarithmicStrain</code> strategies (see <span class="citation" data-cites="edf_loi_2013">EDF (2013)</span>;<span class="citation" data-cites="miehe_anisotropic_2002">Miehe, Apel, and Lambrecht (2002)</span>)</li>
+</ul></li>
+<li><code>Europlexus</code> is able to analyse the generated library to get helpfull information about the mechanical behaviour:
+<ul>
+<li>number and name of material properties</li>
+<li>number, names and type of internal state variables</li>
+<li>number and names external variables</li>
+<li>symmetry of the behaviour (isotropy, orthotropy)</li>
+<li>etc…</li>
+</ul></li>
+<li>An example of input file is automatically generated to help the user in assigning a <code>MFront</code> behaviour to a material.</li>
+</ul>
+<h2 id="example-of-generated-input-file-fragment">Example of generated input file fragment</h2>
+<p>The following listing gives an example of generated input file fragment for an axisymmetric modelling hypothesis:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">MFRONT</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="ex">LIB</span> <span class="st">&#39;libEuroplexusBehaviour.so&#39;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="ex">LAW</span> <span class="st">&#39;LogarithmicStrainNortonCreep&#39;</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">!! <span class="ex">material</span> properties</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="ex">MATP</span> <span class="st">&#39;YoungModulus&#39;</span> ???</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="ex">MATP</span> <span class="st">&#39;PoissonRatio&#39;</span> ???</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="ex">MATP</span> <span class="st">&#39;A&#39;</span> ???</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="ex">MATP</span> <span class="st">&#39;E&#39;</span> ???</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">!! <span class="ex">internal</span> state variables</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">!! <span class="ex">by</span> default, internal state variables are set to zero</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">!! <span class="ex">IVAR</span> <span class="st">&#39;ElasticStrain&#39;</span>  ??? ??? ??? ???</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">!! <span class="ex">IVAR</span> <span class="st">&#39;EquivalentViscoplasticStrain&#39;</span>  ???</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">!! <span class="ex">external</span> state variables</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="ex">EVAR</span> <span class="st">&#39;Temperature&#39;</span> 293.15</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="ex">LECT</span> MESH TERM</a></code></pre></div>
+<p>The user must replace each occurrences of ‘??’ by appropriate values.</p>
+<h1 id="qualification">Qualification</h1>
+<!-- Local IspellDict: english -->
+<div id="refs" class="references">
+<div id="ref-cea_epx_2016">
+<p>CEA, and JRC. 2016. “Europlexus Web Site.” 2016. <a href="http://www-epx.cea.fr/index.php/what-is-epx" class="uri">http://www-epx.cea.fr/index.php/what-is-epx</a>.</p>
+</div>
+<div id="ref-edf_loi_2013">
+<p>EDF. 2013. “Loi de Comportement Hyperélastique : Matériau Presque Incompressible.” Référence du Code Aster R5.03.19. EDF-R&amp;D/MITI/MMN. <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a>.</p>
+</div>
+<div id="ref-miehe_anisotropic_2002">
+<p>Miehe, C., N. Apel, and M. Lambrecht. 2002. “Anisotropic Additive Plasticity in the Logarithmic Strain Space: Modular Kinematic Formulation and Implementation Based on Incremental Minimization Principles for Standard Materials.” <em>Computer Methods in Applied Mechanics and Engineering</em> 191 (47–48): 5383–5425. <a href="https://doi.org/10.1016/S0045-7825(02)00438-3" class="uri">https://doi.org/10.1016/S0045-7825(02)00438-3</a>.</p>
+</div>
+</div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

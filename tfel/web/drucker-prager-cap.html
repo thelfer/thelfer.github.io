@@ -1,0 +1,772 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Implementation of a multi-surface, compressible and perfect plastic behaviour using the Drucker-Prager yield criterion and a cap</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Implementation of a multi-surface, compressible and perfect plastic behaviour using the Drucker-Prager yield criterion and a cap</h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">21/11/2017</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#description">Description</a><ul>
+      <li><a href="#elasticity">Elasticity</a></li>
+      <li><a href="#plasticity">Plasticity</a><ul>
+      <li><a href="#derivatives-of-the-stress-criteria">Derivatives of the stress criteria</a></li>
+      <li><a href="#derivatives-of-sigma_mathrmeqmathrmdp">Derivatives of <span class="math inline">\(\sigma_{\mathrm{eq}}^{\mathrm{DP}}\)</span></a></li>
+      <li><a href="#derivatives-of-sigma_mathrmeqc">Derivatives of <span class="math inline">\(\sigma_{\mathrm{eq}}^{c}\)</span></a></li>
+      </ul></li>
+      </ul></li>
+      <li><a href="#integration-scheme">Integration scheme</a><ul>
+      <li><a href="#choice-of-the-state-variables">Choice of the state variables</a></li>
+      <li><a href="#implicit-scheme">Implicit scheme</a></li>
+      <li><a href="#status">Status</a></li>
+      <li><a href="#elastic-prediction">Elastic prediction</a></li>
+      <li><a href="#equation-associated-with-the-elastic-strain">Equation associated with the elastic strain</a></li>
+      <li><a href="#equation-associated-with-the-drucker-prager-plastic-flow">Equation associated with the Drucker-Prager plastic flow</a></li>
+      <li><a href="#equation-associated-with-the-drucker-prager-plastic-flow-1">Equation associated with the Drucker-Prager plastic flow</a></li>
+      </ul></li>
+      <li><a href="#implementation">Implementation</a><ul>
+      <li><a href="#metadata">Metadata</a></li>
+      <li><a href="#supported-modelling-hypothesis">Supported modelling hypothesis</a></li>
+      <li><a href="#the-standard-elasticity-brick">The standard elasticity brick</a></li>
+      <li><a href="#numerical-parameters">Numerical parameters</a></li>
+      <li><a href="#state-variables">State variables</a></li>
+      <li><a href="#statuses">Statuses</a></li>
+      <li><a href="#local-variables">Local variables</a></li>
+      <li><a href="#material-constants">Material constants</a><ul>
+      <li><a href="#material-constants-associated-with-the-elastic-part-of-the-behaviour">Material constants associated with the elastic part of the behaviour</a></li>
+      <li><a href="#material-constants-associated-with-the-plastic-parts-of-the-behaviour">Material constants associated with the plastic parts of the behaviour</a></li>
+      </ul></li>
+      <li><a href="#initialisation-of-the-local-variables">Initialisation of the local variables</a></li>
+      <li><a href="#elastic-prediction-initial-value-of-the-statuses">Elastic prediction, initial value of the statuses</a></li>
+      <li><a href="#implicit-system">Implicit system</a></li>
+      <li><a href="#a-posterio-checks-validation-of-the-assumptions">A posterio checks: validation of the assumptions</a></li>
+      </ul></li>
+      <li><a href="#evolution-of-the-porosity">Evolution of the porosity</a><ul>
+      <li><a href="#porosity-as-a-state-variable">Porosity as a state variable</a></li>
+      <li><a href="#porosity-as-an-auxiliary-state-variable">Porosity as an auxiliary state variable</a></li>
+      </ul></li>
+      <li><a href="#references">References</a></li>
+      </ul>
+    </div>
+        
+<p>This paper is dedicated to the implementation a multi-surface, compressible, perfect plastic behaviour.</p>
+<h1 id="description">Description</h1>
+<h2 id="elasticity">Elasticity</h2>
+<p>The elasticity is assumed linear and isotropic, i.e. given by the Hooke law: <span class="math display">\[
+\underline{\sigma}=\lambda\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\,\underline{I}+2\,\mu\,\underline{\varepsilon}^{\mathrm{el}}
+\]</span> where <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\mu\)</span> are the first and second Lamé parameters.</p>
+<h2 id="plasticity">Plasticity</h2>
+<ul>
+<li>The first surface is based on the Drucker-Prager yield criterion defined as follows: <span class="math display">\[
+\sigma_{\mathrm{eq}}^{\mathrm{DP}}=q+\tan{\left(\beta\right)}\,p
+\]</span> where:
+<ul>
+<li><span class="math inline">\(p\)</span> is the hydrostatique pressure: <span class="math display">\[
+p = {{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}
+\]</span></li>
+<li><span class="math inline">\(q\)</span> is the von Mises norm of the stress tensor <span class="math inline">\(\underline{\sigma}\)</span>: <span class="math display">\[
+q = \sigma_{\mathrm{eq}}= \sqrt{3\,J_{2}} = \sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,\underline{s}\,\colon\,\underline{s}}
+\]</span> where <span class="math inline">\(\underline{s}\)</span> is the deviatoric part of the stress tensor and <span class="math inline">\(J_{2}\)</span> the second invariant of <span class="math inline">\(\underline{s}\)</span>. The plastic surface is defined using a constant yield stress <span class="math inline">\(R_{0}^{\mathrm{DP}}\)</span>: <span class="math display">\[
+\sigma_{\mathrm{eq}}^{\mathrm{DP}}-R_{0}^{\mathrm{DP}}=0
+\]</span> This surface is a line in the <span class="math inline">\({\left(p,q\right)}\)</span> plane.</li>
+</ul></li>
+<li>The second surface forms a so-called cap which closes the first plastic surface. This plastic surface is based on a criterion close the Green one (See <span class="citation" data-cites="fritzen_computational_2013">Fritzen et al. (2013)</span> and <a href="greenplasticity.html">this page</a> for details): <span class="math display">\[
+\sigma_{\mathrm{eq}}^{c}=\sqrt{{\left(p-p_{a}\right)}^{2}+{\left(R\,q\right)}^{2}}
+\]</span> Again, the plastic surface is defined using a constant yield stress <span class="math inline">\(R_{0}^{c}\)</span>, as follows: <span class="math display">\[
+\sigma_{\mathrm{eq}}^{c}-R_{0}^{c}=0
+\]</span><br />
+This surface is an ellipse in the <span class="math inline">\({\left(p,q\right)}\)</span> plane. The material parameter <span class="math inline">\(p_{a}\)</span> marks the transition between the two plastic surface. For the two surface to intersect at <span class="math inline">\(p_{a}\)</span>, the following relation must hold: <span class="math display">\[
+R_{0}^{c}=R\,{\left(R_{0}^{\mathrm{DP}}-p_{a}\,\tan{\beta}\right)}
+\]</span> The material constants associated with the cap are <span class="math inline">\(p_{a}\)</span> and the ellipse exentricity <span class="math inline">\(R\)</span>. Here, we prefer another material constant, denoted <span class="math inline">\(p_{b}\)</span>, which stands for the minimal pressure allowed. <span class="math inline">\(p_{b}\)</span> is related to <span class="math inline">\(R\)</span> by: <span class="math display">\[
+R = {{\displaystyle \frac{\displaystyle p_{a} - p_{b}}{\displaystyle d - p_{a} \,\tan{\left(\beta\right)}}}};
+\]</span></li>
+</ul>
+<figure>
+<img src="img/DruckerPragerCap.svg" title="Yield surface based on the Drucker-Prager criterion and a cap" alt="Yield surface based on the Drucker-Prager criterion and a cap. The point associated with the MFront key has been obtained with the implementation described in this page (see below for the material constants used)" style="width:80.0%" /><figcaption>Yield surface based on the Drucker-Prager criterion and a cap. The point associated with the <code>MFront</code> key has been obtained with the implementation described in this page (see below for the material constants used)</figcaption>
+</figure>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>Here, the definition of <span class="math inline">\(p\)</span> differs from some authors who use the opposite. With our definition, <span class="math inline">\(p\)</span> is negative in tri-axial compression (<span class="math inline">\({\mathrm{tr}{\left(\underline{\sigma}\right)}}&lt;0\)</span>).</p>
+</blockquote>
+<p>Both criterion <span class="math inline">\(\sigma_{\mathrm{eq}}^{\mathrm{DP}}\)</span> and <span class="math inline">\(\sigma_{\mathrm{eq}}^{c}\)</span> are homogeneous function of degree 1.</p>
+<p>In the following, the flow rule is assumed associated. For each mechanism <span class="math inline">\(i\)</span>, the plastic strain rate <span class="math inline">\(\underline{\dot{\varepsilon}}^{\mathrm{p,i}}\)</span> is given by: <span class="math display">\[
+\underline{\dot{\varepsilon}}^{\mathrm{p,i}}=\dot{p}^{i}\,{\displaystyle \frac{\displaystyle \partial \sigma_{\mathrm{eq}}^{i}}{\displaystyle \partial \underline{\sigma}}}=\dot{p}^{i}\,\underline{n}^{i}
+\]</span> where <span class="math inline">\(\dot{p}^{i}\)</span> is the rate of the equivalent plastic strain <span class="math inline">\(p^{i}\)</span>. The expression of the normals <span class="math inline">\(\underline{n}^{i}\)</span> is given below.</p>
+<h3 id="derivatives-of-the-stress-criteria">Derivatives of the stress criteria</h3>
+<h4 id="derivatives-of-the-invariants">Derivatives of the invariants</h4>
+<p>In the following, we will need the first and second derivatives of <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> with respect to <span class="math inline">\(\underline{\sigma}\)</span>. One may refer to <a href="tensors.html">this page</a> for more details.</p>
+<p>The first derivative of <span class="math inline">\(p\)</span> with respect to <span class="math inline">\(\underline{\sigma}\)</span> is: <span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial p}{\displaystyle \partial \underline{\sigma}}} = {{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,\underline{I}
+\]</span></p>
+<p>The first derivative of <span class="math inline">\(q\)</span> with respect to <span class="math inline">\(\underline{\sigma}\)</span> will be denoted <span class="math inline">\(\underline{n}_{q}\)</span> and is given by: <span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial q}{\displaystyle \partial \underline{\sigma}}} = \underline{n}_{q} = {{\displaystyle \frac{\displaystyle 3}{\displaystyle 2\,q}}}\underline{s}
+\]</span></p>
+<p>The second derivative of <span class="math inline">\(q\)</span> with respect to <span class="math inline">\(\underline{\sigma}\)</span> can be computed as follows: <span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial^{2} q}{\displaystyle \partial \underline{\sigma}^{2}}} =
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle q}}}{\left(\underline{\underline{\mathbf{M}}}-\underline{n}_{q}\,\otimes\,\underline{n}_{q}\right)}
+\]</span> where <span class="math inline">\(\underline{\underline{\mathbf{M}}}\)</span> is given by: <span class="math display">\[
+\underline{\underline{\mathbf{M}}}={{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,{\left(\underline{\underline{\mathbf{I}}}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,\underline{I}\,\otimes\,\underline{I}\right)}
+\]</span></p>
+<h3 id="derivatives-of-sigma_mathrmeqmathrmdp">Derivatives of <span class="math inline">\(\sigma_{\mathrm{eq}}^{\mathrm{DP}}\)</span></h3>
+<p>Using the previous results, the first derivative of <span class="math inline">\(\sigma_{\mathrm{eq}}^{\mathrm{DP}}\)</span> with respect to <span class="math inline">\(\underline{\sigma}\)</span> will be denoted <span class="math inline">\(\underline{n}^{\mathrm{DP}}\)</span> is:</p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial \sigma_{\mathrm{eq}}^{\mathrm{DP}}}{\displaystyle \partial \underline{\sigma}}} =
+\underline{n}^{\mathrm{DP}}=
+\underline{n}_{q}+{{\displaystyle \frac{\displaystyle \tan{\left(\beta\right)}}{\displaystyle 3}}}\,\underline{I}
+\]</span></p>
+<p>The second derivative of <span class="math inline">\(\sigma_{\mathrm{eq}}^{\mathrm{DP}}\)</span> with respect to <span class="math inline">\(\underline{\sigma}\)</span> is: <span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial^{2} \sigma_{\mathrm{eq}}^{\mathrm{DP}}}{\displaystyle \partial \underline{\sigma}^{2}}} =
+{\displaystyle \frac{\displaystyle \partial \underline{n}^{\mathrm{DP}}}{\displaystyle \partial \underline{\sigma}}}=
+{\displaystyle \frac{\displaystyle \partial^{2} q}{\displaystyle \partial \underline{\sigma}^{2}}} = 
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle q}}}{\left(\underline{\underline{\mathbf{M}}}-\underline{n}_{q}\,\otimes\,\underline{n}_{q}\right)}
+\]</span></p>
+<h3 id="derivatives-of-sigma_mathrmeqc">Derivatives of <span class="math inline">\(\sigma_{\mathrm{eq}}^{c}\)</span></h3>
+<p>The first derivative of <span class="math inline">\(\sigma_{\mathrm{eq}}^{\mathrm{DP}}\)</span> with respect to <span class="math inline">\(\underline{\sigma}\)</span> will be denoted <span class="math inline">\(\underline{n}^{c}\)</span> and can be computed as follows:</p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial \sigma_{\mathrm{eq}}^{\mathrm{DP}}}{\displaystyle \partial \underline{\sigma}}} =
+\underline{n}^{c}=
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle \sigma_{\mathrm{eq}}^{c}}}}{\left({{\displaystyle \frac{\displaystyle {\left(p-p_{a}\right)}}{\displaystyle 3}}}\underline{I}+R^{2}\,q\,\underline{n}_{q}
+\right)}
+\]</span></p>
+<p>The second derivative of <span class="math inline">\(\sigma_{\mathrm{eq}}^{c}\)</span> with respect to <span class="math inline">\(\underline{\sigma}\)</span> is: <span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial^{2} \sigma_{\mathrm{eq}}^{c}}{\displaystyle \partial \underline{\sigma}^{2}}}=
+{\displaystyle \frac{\displaystyle \partial \underline{n}^{c}}{\displaystyle \partial \underline{\sigma}}}=
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle \sigma_{\mathrm{eq}}^{c}}}}{\left({{\displaystyle \frac{\displaystyle 1}{\displaystyle 9}}}\,\underline{I}\,\otimes\,\underline{I}+
+R^{2}\,\underline{n}_{q}\,\otimes\,\underline{n}_{q}+
+R^{2}\,{\left(\underline{\underline{\mathbf{M}}}-\underline{n}_{q}\,\otimes\,\underline{n}_{q}\right)}
+-\underline{n}_{c}\,\otimes\,\underline{n}_{c}
+\right)}
+\]</span></p>
+<h1 id="integration-scheme">Integration scheme</h1>
+<p>The behaviour is integrated by an implicit <span class="math inline">\(\theta\)</span>-scheme. This scheme requires to choose the state variables and to associate to each variable an equation.</p>
+<h2 id="choice-of-the-state-variables">Choice of the state variables</h2>
+<p>Three state variables are introduced:</p>
+<ul>
+<li>the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span>.</li>
+<li>the equivalent plastic strain <span class="math inline">\(p^{\mathrm{DP}}\)</span>.</li>
+<li>the equivalent plastic strain <span class="math inline">\(p^{c}\)</span> associated with the cap.</li>
+</ul>
+<p>The elastic strain is automatically defined by the <code>Implicit</code> domain specific language.</p>
+<p><span class="math inline">\(p^{\mathrm{DP}}\)</span> and <span class="math inline">\(p^{c}\)</span>could be considered as an integration variables, but, for post-processing purposes, we choose to keep it as a state variables.</p>
+<h2 id="implicit-scheme">Implicit scheme</h2>
+<p>Let <span class="math inline">\({\left.\vec{Y}\right|_{t}}\)</span> be a vector containing the values of the state variables at the beginning of the time step and <span class="math inline">\(\Delta\,\vec{Y}\)</span> a vector holding the values of unknown increment of those state variables. Here, <span class="math inline">\(\vec{Y}\)</span> and <span class="math inline">\(\Delta\,\vec{Y}\)</span> have the the following form:</p>
+<p><span class="math display">\[
+{\left.\vec{Y}\right|_{t}} =
+\begin{pmatrix}
+{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t}} \\
+{\left.p^{\mathrm{DP}}\right|_{t}} \\
+{\left.p^{c}\right|_{t}} \\
+\end{pmatrix}
+\quad
+\Delta\,\vec{Y}=
+\begin{pmatrix}
+\Delta\,{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t}} \\
+\Delta\,{\left.p^{\mathrm{DP}}\right|_{t}} \\
+\Delta\,{\left.p^{c}\right|_{t}} \\
+\end{pmatrix}
+\]</span></p>
+<p>The principle of implicit schemes is to discretize the constitutive equations so that the increment of the unknowns <span class="math inline">\(\Delta\,\vec{Y}\)</span> satisfy the following equation: <span class="math display">\[
+\vec{F}{\left(\Delta\,\vec{Y}\right)}=0
+\]</span> where <span class="math inline">\(\vec{F}\)</span> is a vectorial function.</p>
+<p>This (non linear) equation is solved iteratively by the Newton-Raphson method. This method requires the jacobian <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \vec{F}}{\displaystyle \partial \vec{Y}}}\)</span> to be defined.</p>
+<p>In the following, <span class="math inline">\(\vec{F}\)</span> will be decomposed as follows: <span class="math display">\[
+\vec{F}{\left(\Delta\,\vec{Y}\right)}=
+\begin{pmatrix}
+f_{\underline{\varepsilon}^{\mathrm{el}}} \\
+f_{p^{\mathrm{DP}}} \\
+f_{p^{c}} \\
+\end{pmatrix}
+\]</span></p>
+<p>The jacobian will be decomposed by blocks as follows: <span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial \vec{F}}{\displaystyle \partial \Delta\,\vec{Y}}}=
+\begin{pmatrix}
+{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;
+{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p^{\mathrm{DP}}}} &amp;
+{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p^{c}}} \\
+{\displaystyle \frac{\displaystyle \partial f_{p^{\mathrm{DP}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;
+{\displaystyle \frac{\displaystyle \partial f_{p^{\mathrm{DP}}}}{\displaystyle \partial \Delta\,p^{\mathrm{DP}}}} &amp;
+{\displaystyle \frac{\displaystyle \partial f_{p^{\mathrm{DP}}}}{\displaystyle \partial \Delta\,p^{c}}} \\
+{\displaystyle \frac{\displaystyle \partial f_{p^{c}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;
+{\displaystyle \frac{\displaystyle \partial f_{p^{c}}}{\displaystyle \partial \Delta\,p^{\mathrm{DP}}}} &amp;
+{\displaystyle \frac{\displaystyle \partial f_{p^{c}}}{\displaystyle \partial \Delta\,p^{c}}} \\
+\end{pmatrix}
+\]</span></p>
+<p>In the following, we will use the following notation: <span class="math display">\[
+{\left.\vec{Y}\right|_{t+\theta\,\Delta\,t}}={\left.\vec{Y}\right|_{t}}+\theta\,\Delta\,\vec{Y}
+\]</span> where <span class="math inline">\(\theta\)</span> is a numerical parameter.</p>
+<p>By extension, the value of every function <span class="math inline">\(f\)</span> of the state variables that is evaluated with <span class="math inline">\({\left.\vec{Y}\right|_{t+\theta\,\Delta\,t}}\)</span> as argument is denoted <span class="math inline">\({\left.f\right|_{t+\theta\,\Delta\,t}}\)</span>. For example, the stress tensor <span class="math inline">\({\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\)</span> is evaluated as follows <span class="math display">\[
+{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}={\left.D\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}
+\]</span> where <span class="math inline">\({\left.D\right|_{t+\theta\,\Delta\,t}}\)</span> is the evaluation of the stiffness tensor at <span class="math inline">\(t+\theta\,\Delta\,t\)</span>. In the example treated here, the stiffness tensor is constant.</p>
+<h2 id="status">Status</h2>
+<p>The integration scheme will be based on a set of three implicit equations:</p>
+<ul>
+<li>The first equation is associated with split of the strain.</li>
+<li>The second equation is associated with the first plastic mechanism (Drucker-Prager).</li>
+<li>The third equation is associated with the second plastic mechanism (cap).</li>
+</ul>
+<p>The last two equations depend on whether the associated mechanism is assumed active or not. For each systems, a first guess will be made based on an elastic prediction of the stress, as discussed in the next paragraph. After a solution to the implicit systems will be found, the validity of those two assumptions will be checked. If one of the assumption is false, the resolution will be restarted by making the opposite assumption.</p>
+<p>In pratice, the activation of a plastic mechanism is associated to a boolean value.</p>
+<h2 id="elastic-prediction">Elastic prediction</h2>
+<p>First, an elastic prediction of the stress <span class="math inline">\(\underline{\sigma}^{\mathrm{tr}}\)</span> is made (The following expression is not valid in plane stress hypothesis, see below): <span class="math display">\[
+\underline{\sigma}^{\mathrm{tr}}=\lambda\,{\mathrm{tr}{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t}}+\theta\,\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}}\,\underline{I}+2\,\mu\,{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t}}+\theta\,\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}
+\]</span></p>
+<ul>
+<li>If the predicted stress is inside the elastic domain, no plastic flow occurs.</li>
+<li>Otherwise, the material state at the end of the time step lies on at least one of the yield surfaces.</li>
+</ul>
+<p>As describe in the previous paragraph, this elastic prediction is used initialize the status associated with each mechanism.</p>
+<h2 id="equation-associated-with-the-elastic-strain">Equation associated with the elastic strain</h2>
+<p>The equation associated with the evolution of the elastic strain is given by the split of strain: <span class="math display">\[
+f_{\underline{\varepsilon}^{\mathrm{el}}}=\Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}+
+\Delta\,p^{\mathrm{DP}}\,{\left.\underline{n}^{\mathrm{DP}}\right|_{t+\theta\,\Delta\,t}}+
+\Delta\,p^{c}\,{\left.\underline{n}^{c}\right|_{t+\theta\,\Delta\,t}}
+\]</span></p>
+<p>The derivatives of this equation with respect to <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span>, <span class="math inline">\(\Delta\,p^{\mathrm{DP}}\)</span> and <span class="math inline">\(\Delta\,p^{c}\)</span> are given by:</p>
+<p><span class="math display">\[
+\left\{
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;=
+\underline{\underline{\mathbf{I}}}
++\theta\,\Delta\,p^{\mathrm{DP}}\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{n}^{\mathrm{DP}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}
++\theta\,\Delta\,p^{c}\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{n}^{c}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
+{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p^{\mathrm{DP}}}} &amp;= {\left.\underline{n}^{\mathrm{DP}}\right|_{t+\theta\,\Delta\,t}}\\
+{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p^{c}}} &amp;= {\left.\underline{n}^{c}\right|_{t+\theta\,\Delta\,t}}\\
+\end{aligned}
+\right.
+\]</span></p>
+<p>where <span class="math inline">\({\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\)</span> is the stiffness tensor. For an isotropic material, <span class="math inline">\({\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\)</span> is equal to:</p>
+<p><span class="math display">\[
+{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}={\left.\lambda\right|_{t+\theta\,\Delta\,t}}\,\underline{I}\,\otimes\,\underline{I}+2\,{\left.\mu\right|_{t+\theta\,\Delta\,t}}\,\underline{\underline{\mathbf{I}}}
+\]</span></p>
+<h2 id="equation-associated-with-the-drucker-prager-plastic-flow">Equation associated with the Drucker-Prager plastic flow</h2>
+<p>If the Drucker-Prager mechanism is active, the material must be on the yield surface. Thus, the equation associated with the mechanism is:</p>
+<p><span class="math display">\[
+f_{p^{\mathrm{DP}}} = {{\displaystyle \frac{\displaystyle 1}{\displaystyle {\left.E\right|_{t+\theta\,\Delta\,t}}}}}\,{\left({\left.\sigma_{\mathrm{eq}}^{\mathrm{DP}}\right|_{t+\theta\,\Delta\,t}}-R_{0}^{\mathrm{DP}}\right)}
+\]</span></p>
+<p>Here, the Young modulus <span class="math inline">\(E\)</span> has been used to normalize the equation.</p>
+<p>The derivatives of this equation with respect to <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span>, <span class="math inline">\(\Delta\,p^{\mathrm{DP}}\)</span> are given by:</p>
+<p><span class="math display">\[
+\left\{
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial f_{p^{\mathrm{DP}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;=
+{{\displaystyle \frac{\displaystyle \theta}{\displaystyle E}}}\,{\left.\underline{n}^{\mathrm{DP}}\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
+{\displaystyle \frac{\displaystyle \partial f_{p^{\mathrm{DP}}}}{\displaystyle \partial \Delta\,p^{\mathrm{DP}}}} &amp;= 0\\
+\end{aligned}
+\right.
+\]</span></p>
+<p>If the Drucker-Prager mechanism is not active, the equation assoaciated with <span class="math inline">\(p^{\mathrm{DP}}\)</span> is simply:</p>
+<p><span class="math display">\[
+f_{p^{\mathrm{DP}}}=\Delta\,p^{\mathrm{DP}}
+\]</span></p>
+<h2 id="equation-associated-with-the-drucker-prager-plastic-flow-1">Equation associated with the Drucker-Prager plastic flow</h2>
+<p>If the cap mechanism is active, the material must be on the yield surface. Thus, the equation associated with the mechanism is:</p>
+<p><span class="math display">\[
+f_{p^{c}} = {{\displaystyle \frac{\displaystyle 1}{\displaystyle {\left.E\right|_{t+\theta\,\Delta\,t}}}}}\,{\left({\left.\sigma_{\mathrm{eq}}^{c}\right|_{t+\theta\,\Delta\,t}}-R_{0}^{c}\right)}
+\]</span></p>
+<p>Here, the Young modulus <span class="math inline">\(E\)</span> has been used to normalize the equation.</p>
+<p>The derivatives of this equation with respect to <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span>, <span class="math inline">\(\Delta\,p^{c}\)</span> are given by:</p>
+<p><span class="math display">\[
+\left\{
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial f_{p^{c}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;= {{\displaystyle \frac{\displaystyle \theta}{\displaystyle E}}}\,{\left.\underline{n}^{c}\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
+{\displaystyle \frac{\displaystyle \partial f_{p^{c}}}{\displaystyle \partial \Delta\,p^{c}}} &amp;= 0\\
+\end{aligned}
+\right.
+\]</span></p>
+<p>If the cap mechanism is not active, the equation assoaciated with <span class="math inline">\(p^{c}\)</span> is simply:</p>
+<p><span class="math display">\[
+f_{p^{c}}=\Delta\,p^{c}
+\]</span></p>
+<h1 id="implementation">Implementation</h1>
+<h2 id="metadata">Metadata</h2>
+<p>The beginning of the file gives some information about the behaviour:</p>
+<ul>
+<li>the integration scheme used, selected by the <code>@DSL</code> keyword.</li>
+<li>the name of the behaviour, introduced by the <code>@Behaviour</code> keyword.</li>
+<li>the author of the implementation (<code>@Author</code>).</li>
+<li>a small description of the behaviour (<code>@Description</code>).</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="er">@</span>Behaviour DruckerPragerCap;</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="er">@</span>Author Thomas Helfer;</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="er">@</span>Description{</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  A simple implementation of a perfect</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  plasticity behaviour <span class="kw">using</span> the</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">  Drucker-Prager yield criterion</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">  closed by a cap.</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">};</a></code></pre></div>
+<h2 id="supported-modelling-hypothesis">Supported modelling hypothesis</h2>
+<p>Thanks to the <code>StandardElasticity</code> brick, all the modelling hypotheses can be supported. The following statement, starting with the <code>@ModellingHypotheses</code>, enables all the modelling hypotheses:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>ModellingHypotheses {<span class="st">&quot;.+&quot;</span>};</a></code></pre></div>
+<h2 id="the-standard-elasticity-brick">The standard elasticity brick</h2>
+<p>To implement this behaviour, we will use the <code>StandardElasticity</code> brick which provides:</p>
+<ul>
+<li>Automatic computation of the stress tensor at various stages of the behaviour integration.</li>
+<li>Automatic computation of the consistent tangent operator.</li>
+<li>Automatic support for plane stress and generalized plane stress modelling hypotheses (The axial strain is defined as an additional state variable and the associated equation in the implicit system is added to enforce the plane stess condition).</li>
+<li>Automatic addition of the standard terms associated with the elastic strain state variable.</li>
+</ul>
+<p>This behaviour brick is fully described <a href="BehaviourBricks.html">here</a>.</p>
+<p>The usage of the <code>StandardElasticity</code> is introduced as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>Brick StandardElasticity;</a></code></pre></div>
+<h2 id="numerical-parameters">Numerical parameters</h2>
+<p>The following part of file give some default values for numerical parameters used by the integration algorithm:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-16</span>;</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="er">@</span>Theta <span class="dv">1</span>;</a></code></pre></div>
+<h2 id="state-variables">State variables</h2>
+<p>The elastic strain is automatically declared the <code>StandardElasticity</code> brick. The associated variable is <code>eel</code>.</p>
+<p>The following statement introduces an array of two states variables named <code>p</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>StateVariable strain p[<span class="dv">2</span>];</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</a></code></pre></div>
+<p>The first entry <code>p[0]</code> will be associated to the Drucker-Prager mechanism. The second entry <code>p[1]</code> will be associated to the cap mechanism.</p>
+<h2 id="statuses">Statuses</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="er">@</span>LocalVariable <span class="dt">bool</span> bpl[<span class="dv">2</span>];</a></code></pre></div>
+<p>The first entry <code>bpl[0]</code> will be associated to the Drucker-Prager mechanism. The second entry <code>bpl[1]</code> will be associated to the cap mechanism.</p>
+<h2 id="local-variables">Local variables</h2>
+<p>Local variables are helpers variables that are accessible in each code blocks during the all the integration of the behaviour:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>LocalVariable real tg;</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="er">@</span>LocalVariable real R;</a></code></pre></div>
+<h2 id="material-constants">Material constants</h2>
+<h3 id="material-constants-associated-with-the-elastic-part-of-the-behaviour">Material constants associated with the elastic part of the behaviour</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>ElasticMaterialProperties {<span class="fl">150e9</span>,<span class="fl">0.3</span>};</a></code></pre></div>
+<h3 id="material-constants-associated-with-the-plastic-parts-of-the-behaviour">Material constants associated with the plastic parts of the behaviour</h3>
+<p>The material constants associated with Drucker-Prager yield surface are <span class="math inline">\(\beta\)</span> and <span class="math inline">\(R_{0}^{\mathrm{DP}}\)</span>. In the following, <span class="math inline">\(R_{0}^{\mathrm{DP}}\)</span>, will be called <code>d</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>Parameter d    = <span class="fl">150e6</span>;</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="er">@</span>Parameter beta = <span class="fl">0.6</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="er">@</span>Parameter pa   = <span class="fl">-10e6</span>;</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="er">@</span>Parameter pb   = <span class="fl">-75e6</span>;</a></code></pre></div>
+<h2 id="initialisation-of-the-local-variables">Initialisation of the local variables</h2>
+<p>The <code>@InitLocalVariables</code> block is called once at the very beginning of the behaviour integration.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="er">@</span>InitLocalVariables {</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  tg = tan(beta);</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  R = (pa - pb) / (d - pa * tg);</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">}</a></code></pre></div>
+<h2 id="elastic-prediction-initial-value-of-the-statuses">Elastic prediction, initial value of the statuses</h2>
+<p>The <code>@Predictor</code> code block is called just before the beginning of the Newton-Raphson algorihtm.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="er">@</span>Predictor{</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> sigel = computeElasticPrediction();</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="co">// Drucker-Prager</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> prel = trace(sigel) / <span class="dv">3</span>;</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">  <span class="at">const</span> <span class="kw">auto</span> qel = sigmaeq(sigel);</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">  bpl[<span class="dv">0</span>] = (qel + prel * tg - d &gt; <span class="dv">0</span>) &amp;&amp; (prel &gt; pa);</a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">  <span class="co">// Cap</span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">  <span class="at">const</span> <span class="kw">auto</span> seq_c = sqrt(power&lt;<span class="dv">2</span>&gt;(prel - pa) + power&lt;<span class="dv">2</span>&gt;(R * qel));</a>
+<a class="sourceLine" id="cb12-9" data-line-number="9">  bpl[<span class="dv">1</span>] = (seq_c &gt; (pa - pb)) &amp;&amp; (prel &lt;= pa);</a>
+<a class="sourceLine" id="cb12-10" data-line-number="10">}</a></code></pre></div>
+<p>The <code>computeElasticPrediction</code> method, introduced by the <code>StandardElasticity</code> brick computes an elastic prediction of stress. This method takes the modelling hypothesis into account when required (plane stress, generalised plane stress).</p>
+<h2 id="implicit-system">Implicit system</h2>
+<p>The implicit system is build inside the <code>@Integrator</code> code block:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="er">@</span>Integrator {</a></code></pre></div>
+<p>We first declare some useful variables:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = Stensor::Id();</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = Stensor4::Id();</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id_x_id = Stensor4::IxI();</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> M = Stensor4::M();</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">  <span class="at">const</span> <span class="kw">auto</span> seps =  real(<span class="dv">1</span>.e<span class="dv">-12</span>) * young;</a></code></pre></div>
+<p>Those variables are declared <code>constexpr</code> to allow the compiler to evaluate them at compile-time. Those variables are declared <code>const</code> so that their values can’t be changed.</p>
+<p>The following code tests if at least one mechanism is active.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1">  <span class="cf">if</span> ((bpl[<span class="dv">0</span>]) || (bpl[<span class="dv">1</span>])) {</a></code></pre></div>
+<p>If at least one mechanism is active, the following code computes <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and their derivatives:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1">    <span class="at">const</span> <span class="kw">auto</span> pr = trace(sig) / <span class="dv">3</span>;</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">    <span class="at">const</span> <span class="kw">auto</span> q = sigmaeq(sig);</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">    <span class="at">const</span> <span class="kw">auto</span> iq = <span class="dv">1</span> / max(q,seps);</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">    <span class="at">const</span> <span class="kw">auto</span> nq = eval(<span class="dv">3</span> * deviator(sig) * (iq / <span class="dv">2</span>));</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">    <span class="at">const</span> <span class="kw">auto</span> dnq = eval((M - (nq ^ nq)) * iq);</a></code></pre></div>
+<p>We now treat the case where the Drucker-Prager mechanism is active.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1">    <span class="cf">if</span> (bpl[<span class="dv">0</span>]) {</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">      <span class="at">const</span> <span class="kw">auto</span> n   = eval(nq+(tg/<span class="dv">3</span>)*id);</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">      feel += dp[<span class="dv">0</span>]*n;</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">      fp(<span class="dv">0</span>) = (q+pr*tg-d)/young;</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">      <span class="co">// jacobian</span></a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">      dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp[<span class="dv">0</span>]*dnq;</a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">      dfeel_ddp(<span class="dv">0</span>) = n;</a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">      dfp_ddp(<span class="dv">0</span>,<span class="dv">0</span>) = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb17-9" data-line-number="9">      dfp_ddeel(<span class="dv">0</span>) = (<span class="dv">2</span>*mu*theta/young)*n+(tg*theta*lambda/young)*id;</a>
+<a class="sourceLine" id="cb17-10" data-line-number="10">    }</a></code></pre></div>
+<p>The following code describes the implicit equations to be solved if the cap mechanism is active.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1">    <span class="cf">if</span> (bpl[<span class="dv">1</span>]) {</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">      <span class="at">const</span> <span class="kw">auto</span> seq_c = sqrt(power&lt;<span class="dv">2</span>&gt;(pr - pa) + power&lt;<span class="dv">2</span>&gt;(R * q));</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">      <span class="at">const</span> <span class="kw">auto</span> iseq_c = <span class="dv">1</span> / max(seq_c,seps);</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">      <span class="at">const</span> <span class="kw">auto</span> n = eval(((pr - pa) * (id / <span class="dv">3</span>) + R * R * q * nq) * iseq_c);</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">      <span class="at">const</span> <span class="kw">auto</span> dn = (Stensor4::IxI() / <span class="dv">9</span> + R * R * M - (n ^ n)) * iseq_c;</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">      <span class="at">const</span> <span class="kw">auto</span> De = <span class="dv">2</span> * mu * id4 + lambda * id_x_id;</a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">      feel += dp[<span class="dv">1</span>] * n;</a>
+<a class="sourceLine" id="cb18-8" data-line-number="8">      fp(<span class="dv">1</span>) = (seq_c - R * (d - pa * tg)) / young;</a>
+<a class="sourceLine" id="cb18-9" data-line-number="9">      <span class="co">// jacobian</span></a>
+<a class="sourceLine" id="cb18-10" data-line-number="10">      dfeel_ddeel += theta * dp[<span class="dv">1</span>] * dn * De;</a>
+<a class="sourceLine" id="cb18-11" data-line-number="11">      dfeel_ddp(<span class="dv">1</span>) = n;</a>
+<a class="sourceLine" id="cb18-12" data-line-number="12">      <span class="cf">if</span>(<span class="bu">std::</span>abs(seq_c)&lt;seps){</a>
+<a class="sourceLine" id="cb18-13" data-line-number="13">        dfp_ddp(<span class="dv">1</span>, <span class="dv">1</span>) = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb18-14" data-line-number="14">      } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb18-15" data-line-number="15">        dfp_ddp(<span class="dv">1</span>, <span class="dv">1</span>) = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb18-16" data-line-number="16">      }</a>
+<a class="sourceLine" id="cb18-17" data-line-number="17">      dfp_ddeel(<span class="dv">1</span>) = theta * (n | De) / young;</a>
+<a class="sourceLine" id="cb18-18" data-line-number="18">    }</a></code></pre></div>
+<p>The following braces closes the test which was used to check that at least one mechanism is active.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" data-line-number="1">  } <span class="co">// end of if ((bpl[0]) || (bpl[1]))</span></a></code></pre></div>
+<p>Finally, the <code>@Integrator</code> code block is closed:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" data-line-number="1">} <span class="co">// end of @Integrator</span></a></code></pre></div>
+<h2 id="a-posterio-checks-validation-of-the-assumptions">A posterio checks: validation of the assumptions</h2>
+<p>The <code>@AdditionalConvergenceChecks</code> code block has been introduced in <code>TFEL-3.1</code> to have a better control on the convergence of the Newton-Raphson algorithm. In particular, this block can be used to change the status associated with each mechanism.</p>
+<p>Here, we will change the status associated with a mechanism once the Newton-Raphson algorithm has converged (this is indicated by the <code>converged</code> boolean variable).</p>
+<p>If a mechanism is active, we check that <span class="math inline">\(\Delta\,p_{i}\)</span> is positive. Otherwise, the mechanism is desactivated and the <code>converged</code> flag is set to <code>false</code>.</p>
+<p>If a mechanism is not active, we check that the final solution remain below the yield surface. Otherwise, the mechanism is activated and the <code>converged</code> flag is set to <code>false</code>.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="er">@</span>AdditionalConvergenceChecks {</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">  <span class="cf">if</span> (converged){</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">    <span class="cf">if</span> (bpl[<span class="dv">0</span>]) {</a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">      <span class="cf">if</span> (dp[<span class="dv">0</span>] &lt; <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb21-5" data-line-number="5">        <span class="co">// desactivating this system</span></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6">        converged = bpl[<span class="dv">0</span>] = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb21-7" data-line-number="7">      }</a>
+<a class="sourceLine" id="cb21-8" data-line-number="8">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb21-9" data-line-number="9">      <span class="at">const</span> <span class="kw">auto</span> pr = trace(sig) / <span class="dv">3</span>;</a>
+<a class="sourceLine" id="cb21-10" data-line-number="10">      <span class="at">const</span> <span class="kw">auto</span> q = sigmaeq(sig);</a>
+<a class="sourceLine" id="cb21-11" data-line-number="11">      <span class="cf">if</span> (q + pr * tg &gt; d) {</a>
+<a class="sourceLine" id="cb21-12" data-line-number="12">        converged = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb21-13" data-line-number="13">        bpl[<span class="dv">0</span>] = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb21-14" data-line-number="14">      }</a>
+<a class="sourceLine" id="cb21-15" data-line-number="15">    }</a>
+<a class="sourceLine" id="cb21-16" data-line-number="16">    <span class="cf">if</span> (bpl[<span class="dv">1</span>]) {</a>
+<a class="sourceLine" id="cb21-17" data-line-number="17">      <span class="cf">if</span> (dp[<span class="dv">1</span>] &lt; <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb21-18" data-line-number="18">        <span class="co">// desactivating this system</span></a>
+<a class="sourceLine" id="cb21-19" data-line-number="19">        converged = bpl[<span class="dv">1</span>] = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb21-20" data-line-number="20">      }</a>
+<a class="sourceLine" id="cb21-21" data-line-number="21">     } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb21-22" data-line-number="22">       <span class="at">const</span> <span class="kw">auto</span> pr = trace(sig) / <span class="dv">3</span>;</a>
+<a class="sourceLine" id="cb21-23" data-line-number="23">       <span class="at">const</span> <span class="kw">auto</span> q = sigmaeq(sig);</a>
+<a class="sourceLine" id="cb21-24" data-line-number="24">       <span class="at">const</span> <span class="kw">auto</span> seq_c = sqrt(power&lt;<span class="dv">2</span>&gt;(pr - pa) + power&lt;<span class="dv">2</span>&gt;(R * q));</a>
+<a class="sourceLine" id="cb21-25" data-line-number="25">       <span class="cf">if</span> ((seq_c &gt; pa - pb) &amp;&amp; (pr &lt; pa)) {</a>
+<a class="sourceLine" id="cb21-26" data-line-number="26">         converged = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb21-27" data-line-number="27">         bpl[<span class="dv">1</span>] = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb21-28" data-line-number="28">       }</a>
+<a class="sourceLine" id="cb21-29" data-line-number="29">     }</a>
+<a class="sourceLine" id="cb21-30" data-line-number="30">  }</a>
+<a class="sourceLine" id="cb21-31" data-line-number="31">}</a></code></pre></div>
+<h1 id="evolution-of-the-porosity">Evolution of the porosity</h1>
+<p>In this paragraph, we will discuss how the evolution of the porosity of the material du to the plastic flow can be added.</p>
+<p>The porosity <span class="math inline">\(f\)</span> is defined as the ratio between the current mass density <span class="math inline">\(\rho\)</span> and the theoretical density <span class="math inline">\(\rho^{\mathrm{th}}\)</span>: <span class="math display">\[
+f=1-{{\displaystyle \frac{\displaystyle \rho}{\displaystyle \rho^{\mathrm{th}}}}}
+\]</span></p>
+<p>The mass conservation reads: <span class="math display">\[
+\rho\,J=\rho_{0}
+\]</span> where <span class="math inline">\(\rho_{0}\)</span> is the initial density and <span class="math inline">\(J\)</span> the change of volume.</p>
+<p>Thus, by derivation with respect to time: <span class="math display">\[
+\dot{\rho}\,J+\rho\,\dot{J}=0\quad\Rightarrow\quad{{\displaystyle \frac{\displaystyle \dot{\rho}}{\displaystyle \rho}}}=-{{\displaystyle \frac{\displaystyle \dot{J}}{\displaystyle J}}}
+\]</span></p>
+<p>In the Hencky strain measure is used (see the <code>@StrainMeasure</code> keyword), the following relation holds: <span class="math display">\[
+J=\exp{\left({\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{to}}\right)}}\right)}
+\]</span> Hence, <span class="math display">\[
+\dot{\rho}=-\rho\,{\mathrm{tr}{\left(\underline{\dot{\varepsilon}}^{\mathrm{to}}\right)}}
+\]</span></p>
+<p>Finally, the evolution of the porosity is: <span class="math display">\[
+\dot{f}={\left(1-f\right)}\,{\mathrm{tr}{\left(\underline{\dot{\varepsilon}}^{\mathrm{to}}\right)}}
+\]</span></p>
+<p>Following <span class="citation" data-cites="chaboche_endommagement_2001">Chaboche, Suquet, and Besson (2001)</span>, the elasic part of the strain is neglected and the following evolution of <span class="math inline">\(f\)</span> is finally kept: <span class="math display">\[
+\dot{f}={\left(1-f\right)}\,{\mathrm{tr}{\left(\underline{\dot{\varepsilon}}^{\mathrm{p}}\right)}}
+\]</span></p>
+<blockquote>
+<p><strong>Dependency of the elastic material properties with the porosity</strong></p>
+<p>For simplicity, we don’t treat here the case where the elastic properties depend on the porosity. Indeed, in this case, the usage of the <code>StandardElasticity</code> brick is not more justified. In pratice, however, neglecting the additional terms du to such a dependency may work quite well.</p>
+</blockquote>
+<p>Assuming no dependency of elastic material properties with the porosity, two cases can be distinguished:</p>
+<ul>
+<li>The yield criteria and the isotropic hardening depend on the porosity. In this case, the simpliest approach is to consider the porosity as a new state variable and to add the appropriate derivatives of the yield surface in the definition of the jacobian of the implicit system.</li>
+<li>The yield criteria and the isotropic hardening do not depend on the porosity. In this second case, the porosity can be treated as an auxiliary state variable.</li>
+</ul>
+<p>In some cases, the second case may also be appropriate even if the yield criteria and the isotropic hardening depend on the porosity, but the evolution of the porosity during the time step has a negligible impact.</p>
+<h2 id="porosity-as-a-state-variable">Porosity as a state variable</h2>
+<p>The discretization of the evolution of the porosity leads to the following equation: <span class="math display">\[
+f_{f} =
+\Delta\,f-{\left(1-{\left.f\right|_{t+\theta\,\Delta\,t}}\right)}\,{\left(
+\Delta\,p^{\mathrm{DP}}\,{\mathrm{tr}{\left({\left.\underline{n}^{\mathrm{DP}}\right|_{t+\theta\,\Delta\,t}}\right)}}
++
+\Delta\,p^{c}\,{\mathrm{tr}{\left({\left.\underline{n}^{c}\right|_{t+\theta\,\Delta\,t}}\right)}}
+\right)}
+\]</span></p>
+<p>The derivatives of the <span class="math inline">\(f_{p}\)</span> are trivial: <span class="math display">\[
+\left\{
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial f_{f}}{\displaystyle \partial \Delta\,f}}&amp;=1+
+\theta\,
+{\left(
+\Delta\,p^{\mathrm{DP}}\,{\mathrm{tr}{\left({\left.\underline{n}^{\mathrm{DP}}\right|_{t+\theta\,\Delta\,t}}\right)}}
+-
+\Delta\,p^{c}\,{\mathrm{tr}{\left({\left.\underline{n}^{c}\right|_{t+\theta\,\Delta\,t}}\right)}}
+\right)}\\
+&amp;+{\left(1-{\left.f\right|_{t+\theta\,\Delta\,t}}\right)}\,
+{\left(
+\Delta\,p^{\mathrm{DP}}\,{\mathrm{tr}{\left({\displaystyle \frac{\displaystyle \partial {\left.\underline{n}^{\mathrm{DP}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,f}}\right)}}
++
+\Delta\,p^{c}\,{\mathrm{tr}{\left({\displaystyle \frac{\displaystyle \partial {\left.\underline{n}^{c}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,f}}\right)}}
+\right)}\\
+{\displaystyle \frac{\displaystyle \partial f_{f}}{\displaystyle \partial \Delta\,p^{\mathrm{DP}}}}&amp;=
+-{\left(1-{\left.f\right|_{t+\theta\,\Delta\,t}}\right)}\,
+{\mathrm{tr}{\left({\left.\underline{n}^{\mathrm{DP}}\right|_{t+\theta\,\Delta\,t}}\right)}}\\
+{\displaystyle \frac{\displaystyle \partial f_{f}}{\displaystyle \partial \Delta\,p^{c}}}&amp;=
+-{\left(1-{\left.f\right|_{t+\theta\,\Delta\,t}}\right)}\,
+{\mathrm{tr}{\left({\left.\underline{n}^{c}\right|_{t+\theta\,\Delta\,t}}\right)}}\\
+{\displaystyle \frac{\displaystyle \partial f_{f}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}&amp;=
+-{\left(1-{\left.f\right|_{t+\theta\,\Delta\,t}}\right)}\,
+\underline{I}\,\colon\,
+{\left({\displaystyle \frac{\displaystyle \partial \underline{n}^{\mathrm{DP}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}+{\displaystyle \frac{\displaystyle \partial \underline{n}^{c}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+\right)}\\
+\end{aligned}
+\right.
+\]</span></p>
+<p>In some case, neglecting the trace of <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\left.\underline{n}^{\mathrm{DP}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,f}}\)</span> and <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\left.\underline{n}^{c}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,f}}\)</span> can be a very good approximation.</p>
+<h2 id="porosity-as-an-auxiliary-state-variable">Porosity as an auxiliary state variable</h2>
+<p>The evolution of the porosity can be computed once the plastic increments are known, as follows:</p>
+<p><span class="math display">\[
+\Delta\,f = {{\displaystyle \frac{\displaystyle {\left(1-{\left.f\right|_{t}}\right)}\,{\mathrm{tr}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{p}}\right)}}}{\displaystyle 1+\theta\,{\mathrm{tr}{\left(\Delta\,\underline{\dot{\varepsilon}}^{\mathrm{p}}\right)}}}}}
+\]</span></p>
+<p>with:</p>
+<p><span class="math display">\[
+{\mathrm{tr}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{p}}\right)}}=
+\Delta\,p^{\mathrm{DP}}\,{\mathrm{tr}{\left({\left.\underline{n}^{\mathrm{DP}}\right|_{t+\theta\,\Delta\,t}}\right)}}+
+\Delta\,p^{c}\,{\mathrm{tr}{\left({\left.\underline{n}^{c}\right|_{t+\theta\,\Delta\,t}}\right)}}
+\]</span></p>
+<h1 id="references">References</h1>
+<!-- Local IspellDict: english -->
+<div id="refs" class="references">
+<div id="ref-chaboche_endommagement_2001">
+<p>Chaboche, Jean-Louis, Pierre Suquet, and Jacques Besson. 2001. “Endommagement et Changement d’échelle.” In <em>Homogénéisation En Mécanique Des Matériaux,</em> Hermes Science Publications, 2:91–146. Lalonde: M. Bornert, T. Bretheau et P. Gilormini. <a href="http://www.lma.cnrs-mrs.fr/sites/www.lma.cnrs-mrs.fr/IMG/pdf/lalonde_tome2_endo.pdf" class="uri">http://www.lma.cnrs-mrs.fr/sites/www.lma.cnrs-mrs.fr/IMG/pdf/lalonde_tome2_endo.pdf</a>.</p>
+</div>
+<div id="ref-fritzen_computational_2013">
+<p>Fritzen, Felix, Samuel Forest, Djimedo Kondo, and Thomas Böhlke. 2013. “Computational Homogenization of Porous Materials of Green Type.” <em>Computational Mechanics</em> 52 (1): 121–34. <a href="https://doi.org/10.1007/s00466-012-0801-z" class="uri">https://doi.org/10.1007/s00466-012-0801-z</a>.</p>
+</div>
+</div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

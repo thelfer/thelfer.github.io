@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>How to use MFront in CalculiX</title>
+        <meta name="author" content="Thomas Helfer, Rafal Brzegowy" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href=" css/slideshow.css" />
+        <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">How to use <code>MFront</code> in <code>CalculiX</code></h1>
+                  <h2 class="author">Thomas Helfer, Rafal Brzegowy</h2>
+                  <h3 class="date">2/02/2017</h3>
+          </div>
+            <div id="slideshow">
+<p><ul class="slides"> <li> <video style="display:block; margin: 0 auto;" width="640" height="320" controls> <source src="media/CalculiXSheetForming-50.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </li> <li><img src="img/CalculiX_MFRONT_WSL.png" width="620" height="320" alt="Forming test by Rafal Brzegowy" /></li> </ul> <span class="arrow previous"></span> <span class="arrow next"></span></p>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="js/slideshow.js"></script>
+<h1 id="user-defined-behaviour-in-calculix">User defined behaviour in <code>CalculiX</code></h1>
+<p>User-defined mechanical behavior can be implemented using three different interfaces:</p>
+<ul>
+<li>The native <code>CalculiX</code> interface.</li>
+<li>The <code>ABAQUS</code> <code>umat</code> routines for linear materials (small strain analyses).</li>
+<li>The <code>ABAQUSNL</code> <code>umat</code> routines for non linear materials (finite strain analyses).</li>
+</ul>
+<p>There are two ways of introducing user-defined mechanical behavior:</p>
+<ul>
+<li>Modify the <code>CalculiX</code> sources. This option is supported for the three interfaces.</li>
+<li>Call a behavior defined in shared libraries.</li>
+</ul>
+<p>Each of these approaches has its own advantages and its own pitfalls.</p>
+<p>The first one is intrusive and requires a partial recompilation of <code>CalculiX</code>, which means having access to the sources and the rights to install the executable if it is meant to be deployed on a system-wide location.</p>
+<p>The second one does not require any modification to <code>CalculiX</code>, is generally easier to set up and is very flexible. There is no intrinsic limitations on the number of shared libraries and functions that can be dynamically loaded. It is thus quite feasible to create mechanical behaviours databases by creating a shared library by specific material. Such libraries will only be loaded if needed. In such an approach, the mechanical behaviour is dedicated to a specific material and is self-contained: it has no external parameter.</p>
+<p>Shared libraries can be shared between co-workers by moving them on a shared folder.</p>
+<p>However, experience shows that using shared libraries can be confusing for some user as they have to update their environment variables (<code>PATH</code> on Windows or <code>LD_LIBRARY_PATH</code> on Unixes) for the libraries to be usable. Shared libraries can also be more sensible to system updates.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>Calling external libraries from <code>CalculiX</code> for the <code>ABAQUS</code> and <code>ABAQUSNL</code> is supported in <code>CalculiX</code> since version <code>2.12</code>. If you are compiling <code>CalculiX</code> from the sources, you must use the <code>Makefile_MFront</code> file (which is part from the sources) to enable it.</p>
+<p>Calling external libraries from <code>CalculiX</code> for the native interface requires a patch in version <code>2.12</code> that can be downloaded <a href="downloads/patchs-CalculiX-2.12.tar.bz2">here</a>.</p>
+</blockquote>
+<h2 id="using-the-calculix-native-interface">Using the <code>CalculiX</code> native interface</h2>
+<p>When compiling a <code>MFront</code> behaviour, the <code>CalculiX</code> native interface is invoked as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=calculix Chaboche.mfront</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="ex">Treating</span> target : all</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="ex">The</span> following library has been built :</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="ex">-</span> libCALCULIXBEHAVIOUR.so :  CHABOCHE</a></code></pre></div>
+<p>The <code>libCALCULIXBEHAVIOUR.so</code> is generated in the <code>src</code> subdirectory. This library shall be copied in a location where the dynamic loade can find it. Another solution is to add the <code>src</code> directory to the <code>LD_LIBRARY_PATH</code> as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="bu">export</span> <span class="va">LD_LIBRARY_PATH=$(</span><span class="bu">pwd</span><span class="va">)</span>/src:<span class="va">$LD_LIBRARY_PATH</span></a></code></pre></div>
+<p>An template for the behaviour declaration has been generated in the <code>calculix</code> subdirectory.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode fortran"><code class="sourceCode fortran"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">** </span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">** File generated by MFront from the Chaboche.mfront source</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">** Example of how to use the Chaboche behaviour law</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">** Author Jean - Michel Proix</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">** Date   26 / 11 / 2013</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">**</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">*Material, name=@CALCULIXBEHAVIOUR_CHABOCHE</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">*Depvar</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="dv">19</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">** The material properties are given as if we used parameters to explicitly</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">** display their names. Users shall replace those declaration by</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">** theirs values</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">*User Material, constants=12</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="op">&lt;</span>YoungModulus<span class="op">&gt;</span>, <span class="op">&lt;</span>PoissonRatio<span class="op">&gt;</span>, <span class="op">&lt;</span>R_inf<span class="op">&gt;</span>, <span class="op">&lt;</span>R_<span class="dv">0</span><span class="op">&gt;</span>, <span class="op">&lt;</span>b<span class="op">&gt;</span>, <span class="op">&lt;</span>k<span class="op">&gt;</span>, <span class="op">&lt;</span>w<span class="op">&gt;</span>, <span class="op">&lt;</span>C_inf_<span class="dv">0</span><span class="op">&gt;</span>, </a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="op">&lt;</span>C_inf_<span class="dv">1</span><span class="op">&gt;</span>, <span class="op">&lt;</span>g_<span class="dv">0_0</span><span class="op">&gt;</span>, <span class="op">&lt;</span>g_<span class="dv">0_1</span><span class="op">&gt;</span>, <span class="op">&lt;</span>a_inf<span class="op">&gt;</span></a></code></pre></div>
+<p>The interesting part here is the name of the material: <code>CALCULIXBEHAVIOUR_CHABOCHE</code>, which can be decomposed in two parts separated by the underscore character (<code>_</code>):</p>
+<ul>
+<li>The first part, <code>CALCULIXBEHAVIOUR</code>, is used to determine in which library the external function is implemented.</li>
+<li>The second part, <code>CHABOCHE</code>, gives the name of external function to be called.</li>
+</ul>
+<p>Here, the library name has been stripped from system-specific convention (the leading <code>lib</code> and the <code>.so</code> extension). <strong>The base name of the library and the name of the function must be upper-cased</strong>. This is due to the way <code>CalculiX</code> interprets the input file.</p>
+<p>The material name can optionally ends with an identifier beginning by the <code>@</code> character. This character can be followed by any character and is used to declare two distinct materials based on the same external behaviour having different material coefficients. For example, the following example declares two distinct materials relying on the same external behaviour:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode fortran"><code class="sourceCode fortran"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">*Material, name=@CALCULIXBEHAVIOUR_ELASTICITY@1</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">** The material properties are given as if we used parameters to explicitly</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">** display their names. Users shall replace those declaration by</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">** theirs values</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">*User Material, constants=2</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="dv">150000</span>,<span class="fl">0.3</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">*Material, name=@CALCULIXBEHAVIOUR_ELASTICITY@2</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">*User Material, constants=2</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="dv">200000</span>,<span class="fl">0.3</span></a></code></pre></div>
+<h3 id="using-a-small-strain-behaviour-in-finite-strain-analysis">Using a small strain behaviour in finite strain analysis</h3>
+<p>In finite strain, <code>CalculiX</code> replaces the linearised strain by the Green-Lagrange strain and interprets the output of the behaviour as the second Piola-Kirchhoff stress. This allows small strain behaviours to be used in the context of finite rotations and this procedures is equivalent to the <code>FiniteRotationSmallStrain</code> introduced by <code>MFront</code> in most interfaces. However, this procedure is said to be limited to small strain because the trace of the Green-Lagrange strain is not related to the change of volume, which is basis of most behaviours describing plasticity and viscoplasticity in small strain: indeed, even though the plastic strain is traceless, the plastic flow will not be <em>isochoric</em>.</p>
+<p>The situation is quite different in the <code>ABAQUSNL</code> interface where the Hencky strain (logarithmic strain) is used (see below): the trace of the logarithimc strain is directly linked to the change of volume.</p>
+<p>This situation is also different from the strategy used in <code>Abaqus/Standard</code> which tries to integrate the behaviour in rate form and then uses the Jauman objective stress rate to ensure objectivity (see <span class="citation" data-cites="hughes_finite_1980">(Hughes and Winget 1980)</span>): this approach is based of the fact that the trace of the deformation rate is directly linked to the change of volume.</p>
+<p>To describe plasticity and viscoplasticity at finite strain using an additive decomposition of the strain, we recommend using the ‘MieheApelLambrechtLogarithmicStrain’ finite strain strategy in <code>MFront</code> which is also based on the Hencky strain but interprets the output of the behaviour as the dual of the Hencky strain, which is consistent from the point of view of energy and automatically ensures objectivity. See <span class="citation" data-cites="miehe_anisotropic_2002">(Miehe, Apel, and Lambrecht 2002)</span> for details.</p>
+<h2 id="using-the-abaqusstandard-interface">Using the <code>Abaqus/Standard</code> interface</h2>
+<p>For performance reasons, <code>CalculiX</code> supports two kinds of interfaces to <code>Abaqus/Standard</code>’s <code>umat</code> behaviours:</p>
+<ul>
+<li><code>ABAQUS</code> is meant to describe linear materials.</li>
+<li><code>ABAQUSNL</code> is meant to describe no linear materials. For nonlinear materials the logarithmic strain and infinitesimal rotation are calculated, which slows down the calculation. Consequently, the nonlinear routine should only be used if necessary.</li>
+</ul>
+<p>Those two interface supports the call to behaviours in external shared libraries.</p>
+<p>Calling shared libraries is triggered by putting the <code>@</code> character in front material name. The material name is then decomposed into three parts, separated by the <code>_</code> character:</p>
+<ul>
+<li>The name of the interface (<code>ABAQUS</code> or <code>ABAQUSNL</code>).</li>
+<li>The base name of the shared library (see below).</li>
+<li>The name of the function implementing the behavior.</li>
+</ul>
+<p>For instance, if we want to call a small strain behavior in a linear analysis, implemented by the <code>CHABOCHE</code> function in the <code>libABAQUSBEHAVIOURS.so</code> shared library (Under <code>Windows</code>, the library name has the <code>dll</code> extension.), one would declare the following material name:</p>
+<p><code>@ABAQUS_ABAQUSBEHAVIOURS_CHABOCHE</code></p>
+<h2 id="using-the-mfront-behaviours-generated-through-the-abaqus-interface">Using the <code>MFront</code> behaviours generated through the <code>abaqus</code> interface</h2>
+<p>As described in the previous section, calling shared libraries in only supported for the <code>ABAQUS</code> or <code>ABAQUSNL</code> interfaces. This means that we can call mechanical behaviours generated by <code>MFront</code> through the <code>abaqus</code> interface quite easily.</p>
+<p>The <code>abaqus</code> interface is described <a href="abaqus.html">here</a>.</p>
+<h3 id="a-first-example-the-saint-venant-kirchoff-hyperelastic-behaviour">A first example, the Saint-Venant Kirchoff hyperelastic behaviour</h3>
+<h4 id="generation-of-the-shared-library">Generation of the shared library</h4>
+<p>Consider the Saint-Venant Kirchoff hyperelastic behaviour as implemented <a href="gallery/hyperelasticity/SaintVenantKirchhoffElasticity.mfront">here</a>.</p>
+<p>The library is generated like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=abaqus SaintVenantKirchhoffElasticity.mfront </a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="ex">Treating</span> target : all</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="ex">The</span> following library has been built :</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="ex">-</span> libABAQUSBEHAVIOUR.so :  SAINTVENANTKIRCHHOFFELASTICITY_AXIS SAINTVENANTKIRCHHOFFELASTICITY_PSTRAIN SAINTVENANTKIRCHHOFFELASTICITY_3D</a></code></pre></div>
+<p>This shows that the library <code>libABAQUSBEHAVIOUR.so</code> has been generated. Then, we have one implementation per modelling hypothesis. For a <span class="math inline">\(3D\)</span> computation, one shall use the <code>SAINTVENANTKIRCHHOFFELASTICITY_3D</code> function.</p>
+<p>Thus, the material name to be used is: <code>@ABAQUSNL_ABAQUSBEHAVIOUR_SAINTVENANTKIRCHHOFFELASTICITY_3D</code>.</p>
+<blockquote>
+<p><strong>Known issue with <code>CalculiX</code> 2.12</strong></p>
+<p>The source code generated by MFront contains a test that checks if the behaviour is called in a finite strain resolution. This information is not available in <code>CalculiX</code> 2.12, so the generation of the library must be made as follows:</p>
+<ol type="1">
+<li>Generate the sources:</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1">$ <span class="ex">mfront</span> --interface=abaqus SaintVenantKirchhoffElasticity.mfront</a></code></pre></div>
+<ol start="2" type="1">
+<li>Modify the sources:</li>
+</ol>
+<p>Comment all the blocks in the <code>src/abaqusSaintVenantKirchhoffElasticity.cxx</code> file of the form:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="cf">if</span>(KSTEP[<span class="dv">2</span>]!=<span class="dv">1</span>){</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="bu">std::</span>cerr &lt;&lt; <span class="st">&quot;the SaintVenantKirchhoffElasticity behaviour is only valid in finite strain analysis</span><span class="sc">\n</span><span class="st">&quot;</span>;</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">*PNEWDT=<span class="dv">-1</span>;</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="cf">return</span>;</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">}</a></code></pre></div>
+<ol start="3" type="1">
+<li>Compile the library:</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild</a></code></pre></div>
+</blockquote>
+<blockquote>
+<p>Another solution is to desactive checks (for <code>TFEL</code> greater than 3.1) like this:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild -D MFRONT_ABAQUS_NORUNTIMECHECKS --interface=abaqus SaintVenantKirchhoffElasticity.mfront</a></code></pre></div>
+</blockquote>
+<h4 id="a-simple-tensile-test">A simple tensile test</h4>
+<p>The description of a simple tensile test is as follows:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode fortran"><code class="sourceCode fortran"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">**</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co">** GEOMETRY</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">**</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co">*Node</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">      <span class="dv">1</span>,           <span class="fl">0.</span>,         <span class="fl">0.</span>,         <span class="fl">1.</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">      <span class="dv">2</span>,           <span class="fl">0.</span>,         <span class="fl">1.</span>,         <span class="fl">1.</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">      <span class="dv">3</span>,           <span class="fl">0.</span>,         <span class="fl">0.</span>,         <span class="fl">0.</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">      <span class="dv">4</span>,           <span class="fl">0.</span>,         <span class="fl">1.</span>,         <span class="fl">0.</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">      <span class="dv">5</span>,           <span class="fl">1.</span>,         <span class="fl">0.</span>,         <span class="fl">1.</span></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">      <span class="dv">6</span>,           <span class="fl">1.</span>,         <span class="fl">1.</span>,         <span class="fl">1.</span></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">      <span class="dv">7</span>,           <span class="fl">1.</span>,         <span class="fl">0.</span>,         <span class="fl">0.</span></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">      <span class="dv">8</span>,           <span class="fl">1.</span>,         <span class="fl">1.</span>,         <span class="fl">0.</span></a>
+<a class="sourceLine" id="cb10-13" data-line-number="13"><span class="co">*Element, type=C3D8, elset=cube</span></a>
+<a class="sourceLine" id="cb10-14" data-line-number="14"><span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span></a>
+<a class="sourceLine" id="cb10-15" data-line-number="15"><span class="co">*Solid Section, elset=cube, material=@ABAQUSNL_ABAQUSBEHAVIOUR_SAINTVENANTKIRCHHOFFELASTICITY_3D</span></a>
+<a class="sourceLine" id="cb10-16" data-line-number="16">,</a>
+<a class="sourceLine" id="cb10-17" data-line-number="17"><span class="co">*Nset, nset=sx2, generate</span></a>
+<a class="sourceLine" id="cb10-18" data-line-number="18"> <span class="dv">5</span>,  <span class="dv">8</span>,  <span class="dv">1</span></a>
+<a class="sourceLine" id="cb10-19" data-line-number="19"><span class="co">*Nset, nset=sx1, generate</span></a>
+<a class="sourceLine" id="cb10-20" data-line-number="20"> <span class="dv">1</span>,  <span class="dv">4</span>,  <span class="dv">1</span></a>
+<a class="sourceLine" id="cb10-21" data-line-number="21"><span class="co">*Nset, nset=sy1</span></a>
+<a class="sourceLine" id="cb10-22" data-line-number="22"> <span class="dv">1</span>,  <span class="dv">3</span>,  <span class="dv">5</span>,  <span class="dv">7</span></a>
+<a class="sourceLine" id="cb10-23" data-line-number="23"><span class="co">*Nset, nset=sy2</span></a>
+<a class="sourceLine" id="cb10-24" data-line-number="24"> <span class="dv">2</span>,  <span class="dv">4</span>,  <span class="dv">6</span>,  <span class="dv">8</span>,</a>
+<a class="sourceLine" id="cb10-25" data-line-number="25"><span class="co">*Nset, nset=sz1</span></a>
+<a class="sourceLine" id="cb10-26" data-line-number="26"> <span class="dv">3</span>,  <span class="dv">4</span>,  <span class="dv">7</span>,  <span class="dv">8</span></a>
+<a class="sourceLine" id="cb10-27" data-line-number="27"><span class="co">*Nset, nset=sz2</span></a>
+<a class="sourceLine" id="cb10-28" data-line-number="28"> <span class="dv">1</span>,  <span class="dv">2</span>,  <span class="dv">5</span>,  <span class="dv">6</span>,</a>
+<a class="sourceLine" id="cb10-29" data-line-number="29"><span class="co">**</span></a>
+<a class="sourceLine" id="cb10-30" data-line-number="30"><span class="co">** MATERIAL</span></a>
+<a class="sourceLine" id="cb10-31" data-line-number="31"><span class="co">** </span></a>
+<a class="sourceLine" id="cb10-32" data-line-number="32"><span class="co">*Material, name=@ABAQUSNL_AbaqusBehaviour_SaintVenantKirchhoffElasticity_3D</span></a>
+<a class="sourceLine" id="cb10-33" data-line-number="33"><span class="co">*Depvar</span></a>
+<a class="sourceLine" id="cb10-34" data-line-number="34">   <span class="dv">0</span></a>
+<a class="sourceLine" id="cb10-35" data-line-number="35"><span class="co">* User Material, constants=2</span></a>
+<a class="sourceLine" id="cb10-36" data-line-number="36">  <span class="fl">150e9</span>, <span class="fl">0.34</span></a>
+<a class="sourceLine" id="cb10-37" data-line-number="37"><span class="co">**</span></a>
+<a class="sourceLine" id="cb10-38" data-line-number="38"><span class="co">** LOADING</span></a>
+<a class="sourceLine" id="cb10-39" data-line-number="39"><span class="co">** </span></a>
+<a class="sourceLine" id="cb10-40" data-line-number="40"><span class="co">*Step, nlgeom=YES</span></a>
+<a class="sourceLine" id="cb10-41" data-line-number="41"><span class="co">*Static</span></a>
+<a class="sourceLine" id="cb10-42" data-line-number="42"><span class="fl">0.02</span>, <span class="fl">1.</span>, <span class="fl">1e-05</span>, <span class="fl">0.2</span></a>
+<a class="sourceLine" id="cb10-43" data-line-number="43"><span class="co">*Boundary</span></a>
+<a class="sourceLine" id="cb10-44" data-line-number="44">sx1, <span class="dv">1</span>, <span class="dv">1</span></a>
+<a class="sourceLine" id="cb10-45" data-line-number="45"><span class="co">*Boundary</span></a>
+<a class="sourceLine" id="cb10-46" data-line-number="46">sy1, <span class="dv">2</span>,<span class="dv">2</span></a>
+<a class="sourceLine" id="cb10-47" data-line-number="47"><span class="co">*Boundary</span></a>
+<a class="sourceLine" id="cb10-48" data-line-number="48">sz1, <span class="dv">3</span>,<span class="dv">3</span></a>
+<a class="sourceLine" id="cb10-49" data-line-number="49"><span class="co">*Boundary</span></a>
+<a class="sourceLine" id="cb10-50" data-line-number="50">sx2, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.2</span></a>
+<a class="sourceLine" id="cb10-51" data-line-number="51"><span class="co">*EL PRINT, ELSET=cube</span></a>
+<a class="sourceLine" id="cb10-52" data-line-number="52">E, S</a>
+<a class="sourceLine" id="cb10-53" data-line-number="53"><span class="co">*End Step</span></a></code></pre></div>
+<blockquote>
+<p><strong>Named state variables</strong></p>
+<p><code>MFront</code> generates an example showing how to use the behaviour in <code>Abaqus/Standard</code>. Such example names each state variables, which is usefull for post-processing. However this feature is currently not supported by <code>CalculiX</code>.</p>
+</blockquote>
+<h1 id="known-issues">Known issues</h1>
+<h2 id="abaqus-and-abaqusnl-interfaces"><code>ABAQUS</code> and <code>ABAQUSNL</code> interfaces</h2>
+<h3 id="number-of-states-variables-and-number-of-material-properties">Number of states variables and number of material properties</h3>
+<p>In <code>CalculiX</code> 2.12, the value of the <code>NSTATV</code> argument passed to the <code>ABAQUS</code> and <code>ABAQUSNL</code> interfaces is the maximum number of state variables for all the materials. This is not what consistent with <code>Abaqus/Standard</code> which passes the number of state variables of the material.</p>
+<p>The same remarks applies to the number of the material properties (<code>NPROPS</code> argument).</p>
+<p>This issue can be circumvent by disabling checks in <code>MFront</code>:</p>
+<blockquote>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild -D MFRONT_ABAQUS_NORUNTIMECHECKS --interface=abaqus SaintVenantKirchhoffElasticity.mfront</a></code></pre></div>
+</blockquote>
+<h3 id="behaviours-at-finite-strain-with-calculix-2.12">Behaviours at finite strain with <code>CalculiX</code> 2.12</h3>
+<p>The source code generated by MFront contains a test that checks if the behaviour is called in a finite strain resolution. This information is not available in <code>CalculiX</code> 2.12. See the <code>SaintVenantKirchhoffElasticity</code> example for details of how to circumvent this issue.</p>
+<h1 id="benchmarks">Benchmarks</h1>
+<h2 id="small-strain">Small strain</h2>
+<p><img src="img/CalculiXBenchmarkSmallStrain.png" /></p>
+<p>This example describes an tensile test on an AE specimen using an <a href="gallery/plasticity/IsotropicLinearKinematicHardeningPlasticity.mfront">isotropic linear hardening plasticity behaviour</a> depicted on the previous figure.</p>
+<p>CPU times between the native implementation and the MFront implementation (using the <code>CalculiX</code> interface) are reported in the following table:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th><code>CalculiX</code></th>
+<th><code>MFront</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>real</td>
+<td>7m43.588s</td>
+<td>8m6.849s</td>
+</tr>
+<tr class="even">
+<td>user</td>
+<td>7m40.572s</td>
+<td>7m59.904s</td>
+</tr>
+<tr class="odd">
+<td>sys</td>
+<td>0m4.180s</td>
+<td>0m6.676s</td>
+</tr>
+</tbody>
+</table>
+<p>Those figures shows that using the <code>MFront</code> implementation is <span class="math inline">\(4.9\%\)</span> slower. Using the <code>callgrind</code> profiling tool of <code>valgrind</code> framework, one can see that more time is spend in looking for function <code>calculix_searchExternalBehaviours</code> than in the behaviour integration: <span class="math inline">\(2.65\%\)</span> of the time vs <span class="math inline">\(1.66\%\)</span> !</p>
+<p>This is du to the mostly non intrusive way of introducing external behaviours in <code>CalculiX</code>. This additional cost could totally disapear with a more clever and intrusive development.</p>
+<p>If those 2.65% are removed from the total computational time, the <code>MFront</code> only causes to a <span class="math inline">\(2.3\%\)</span> slow down, which is acceptable.</p>
+<p>This slow down could be du to the fact that the <code>MFront</code> behaviours update the elastic strain and recomputes the stress (it does not simply update it by adding an increment, as this is done in most implementation). Using the elastic strain is mandatory to handle properly material properties changing with temperature and thermal expansion.</p>
+<h1 id="references">References</h1>
+<!-- Local IspellDict: english -->
+<div id="refs" class="references">
+<div id="ref-hughes_finite_1980">
+<p>Hughes, Thomas J. R., and James Winget. 1980. “Finite Rotation Effects in Numerical Integration of Rate Constitutive Equations Arising in Large-Deformation Analysis.” <em>International Journal for Numerical Methods in Engineering</em> 15 (12): 1862–7. <a href="https://doi.org/10.1002/nme.1620151210" class="uri">https://doi.org/10.1002/nme.1620151210</a>.</p>
+</div>
+<div id="ref-miehe_anisotropic_2002">
+<p>Miehe, C., N. Apel, and M. Lambrecht. 2002. “Anisotropic Additive Plasticity in the Logarithmic Strain Space: Modular Kinematic Formulation and Implementation Based on Incremental Minimization Principles for Standard Materials.” <em>Computer Methods in Applied Mechanics and Engineering</em> 191 (47–48): 5383–5425. <a href="https://doi.org/10.1016/S0045-7825(02)00438-3" class="uri">https://doi.org/10.1016/S0045-7825(02)00438-3</a>.</p>
+</div>
+</div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

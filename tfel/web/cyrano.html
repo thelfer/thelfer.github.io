@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Description of the Cyrano3 interface</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+                <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Description of the <code>Cyrano3</code> interface</h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">9/03/2018</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#supported-modelling-hypotheses"><span class="toc-section-number">1</span> Supported modelling hypotheses</a></li>
+      <li><a href="#finite-strain-modelling"><span class="toc-section-number">2</span> Finite strain modelling</a></li>
+      <li><a href="#references">References</a></li>
+      </ul>
+    </div>
+        
+<!-- the previous works better than the standard solution: -->
+<!-- \newcommand{\tenseurq}[1]{\underline{\underline{{\mathbf{#1}}}}} -->
+
+
+
+
+<p>The industrial reference software CYRANO3 has been developed by EDF for more than 20 years to simulate the PWR fuel thermo-mechanical behaviour under nominal and incidental conventional operating conditions (See <span class="citation" data-cites="thouvenin_edf_2010">Thouvenin et al. (2010)</span>).</p>
+<p>The code integrates extensive knowledge and know-how based on more than 30 years of national and international research and feedback in the framework of nuclear materials under irradiation. It is part of the PLEIADES platform jointly developed by EDF and CEA, and validated on an extensive data base including more than 900 irradiated fuel rods examination and validation results.</p>
+<p><img src="img/topfuel2015-poster.png" /></p>
+<p>The interface with MFront has been presented during the LWR Fuel Performance Meeting in 2015 (Zurich, Switzerland), see <span class="citation" data-cites="petry_advanced_2015">Petry and Helfer (2015)</span>:</p>
+<ul>
+<li><a href="https://github.com/thelfer/tfel-doc/blob/master/Papers/TopFuel2015/topfuel2015.pdf">abstract</a></li>
+<li><a href="https://github.com/thelfer/tfel-doc/blob/master/Papers/TopFuel2015/topfuel2015-poster.pdf">poster</a></li>
+</ul>
+<h1 id="supported-modelling-hypotheses"><span class="header-section-number">1</span> Supported modelling hypotheses</h1>
+<p>The <code>Cyrano3</code> code is based on a 1D description of the fuel rods using a finite element kernel to solve the thermal and mechanical radial equilibrium at different axial positions.</p>
+<figure>
+<img src="img/CyranoPrinciple.png" title="Principle of the rod discretisation in CYRANO3 code" alt="Figure 1: Principle of the rod discretisation in CYRANO3 code" id="fig:CyranoPrinciple" style="width:100.0%" /><figcaption>Figure 1: Principle of the rod discretisation in CYRANO3 code</figcaption>
+</figure>
+<p>The principle of the geometrical discretisation of a single rod is illustrated in Figure  1. Due to revolution axisymmetry, only radial and axial directions are discretised. The fuel rod is axially divided in slices, leading to the so-called “1,5D” typical axisymmetric scheme - each slice being represented by a one-dimensional radial mesh including a pellet and a clad separated by a variable gap.</p>
+<p>To solve the mechanical equilibrium of a slice, two distinct hypotheses concerning the axial direction are supported:</p>
+<ul>
+<li>generalised plane stress (uniform axial stress)</li>
+<li>generalised plane strain (uniform axial strain)</li>
+</ul>
+<h1 id="finite-strain-modelling"><span class="header-section-number">2</span> Finite strain modelling</h1>
+<p><code>Cyrano3</code> finite strain modelling is based on the approach described by T. Helfer (See <span class="citation" data-cites="helfer_extension_2015">Helfer (2015)</span>) which allows to easily extend small strain mono-dimensional code to support finite strain modelling.</p>
+<h2 id="kinematic-and-mechanical-equilibrium"><span class="header-section-number">2.1</span> Kinematic and mechanical equilibrium</h2>
+<p>This approach relies on the the fact that the direct link between the deformation gradient <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span> and the linearized strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in monodimensional modelling:</p>
+<p><span class="math display">\[
+  {\underset{\tilde{}}{\mathbf{F}}} = {\underset{\tilde{}}{\mathbf{I}}} + \underline{\varepsilon}^{\mathrm{to}}
+\]</span></p>
+<p>The mechanical equilibrium is expressed in the reference configuration:</p>
+<p><span class="math display">\[
+  \mathop{\mathrm{Div}}{\underset{\tilde{}}{\mathbf{\Pi}}} = \vec{0}  
+\]</span></p>
+<p>where :</p>
+<ul>
+<li>the gradients in the divergence operator <span class="math inline">\(\mathop{\mathrm{Div}}\)</span> are computed in the reference configuration.</li>
+<li><span class="math inline">\({\underset{\tilde{}}{\mathbf{\Pi}}}\)</span> is the first Piola-Kirchoff stress (which is equal to the nominal stress in <span class="math inline">\(1D\)</span>, as all tensors are symmetric).</li>
+</ul>
+<h3 id="boundary-conditions"><span class="header-section-number">2.1.1</span> Boundary conditions</h3>
+<p>If <span class="math inline">\({{\mathrm{d}}}\,\vec{f}\)</span> is the force applied to an infinitesimal surface <span class="math inline">\({{\mathrm{d}}}\,\vec{s}\)</span> in the current configuration which maps to the infinitesimal surface <span class="math inline">\({{\mathrm{d}}}\,\vec{S}_{0}\)</span> in the reference configuration, the first Piola-Kirchoff stress <span class="math inline">\({\underset{\tilde{}}{\mathbf{\Pi}}}\)</span> has the following property:</p>
+<p><span class="math display">\[
+{{\mathrm{d}}}\,\vec{f}={\underset{\tilde{}}{\mathbf{\Pi}}}\,\colon\,{{\mathrm{d}}}\,\vec{S}_{0}  
+\]</span></p>
+<p>For pressure loading, one have: <span class="math display">\[
+{{\mathrm{d}}}\,\vec{f}=-P\,{{\mathrm{d}}}\,\vec{s}
+\]</span></p>
+<h4 id="radial-boundary-conditions"><span class="header-section-number">2.1.1.1</span> Radial boundary conditions</h4>
+<p>In 1D, the normal is constant, so the radial component <span class="math inline">\(\Pi_{rr}\)</span> of <span class="math inline">\({\underset{\tilde{}}{\mathbf{\Pi}}}\)</span> satisfies:</p>
+<p><span class="math display">\[
+\Pi_{rr}=-P\,{{\displaystyle \frac{\displaystyle S}{\displaystyle S_{0}}}}
+\]</span></p>
+<p>Here, the surface is defined by: <span class="math display">\[
+S=2\,\pi\,R\,H
+\]</span> where <span class="math inline">\(R\)</span> is the actual radius and <span class="math inline">\(H\)</span> is the actual height. Thus,</p>
+<p><span class="math display">\[
+\Pi_{rr}=-P\,{{\displaystyle \frac{\displaystyle R}{\displaystyle R_{0}}}}\,{{\displaystyle \frac{\displaystyle H}{\displaystyle H_{0}}}}=-P\,\left(1+{{\displaystyle \frac{\displaystyle u_r\left(R_{0}\right)}{\displaystyle R_{0}}}}\right)\,\varepsilon^{\mathrm{to}}_{zz}
+\]</span></p>
+<p>where <span class="math inline">\(u_{r}\)</span> is the radial displacement, <span class="math inline">\(R_{0}\)</span> is the initial radius and <span class="math inline">\(\varepsilon^{\mathrm{to}}_{zz}\)</span> is the axial strain.</p>
+<p>This relations are exactly the same as in small strain analysis, except for the dependency of <span class="math inline">\(S\)</span> with the actual radius which adds additional terms to the stiffness matrix.</p>
+<p>In generalised plane stress, the axial strain is not known. As discussed later, the axial strain is generally computed by the behaviour to ensure that the axial stress is equal to the prescribed value. This provides a way to compute the axial strain for the computation of the radial force, but one can not derive the exact stiffness matrix of the system. Another simpler solution is to consider the axial strain as constant during the time step for the computation of the radial forces.</p>
+<h4 id="axial-boundary-conditions"><span class="header-section-number">2.1.1.2</span> Axial boundary conditions</h4>
+<p>For a closed pipe, the axial force applied to the tube can be computed as follows:</p>
+<p><span class="math display">\[
+F = P_{i}\,S^{c}_{i} - P_{e}\,S^{c}_{e}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(P_{i}\)</span> is the internal pressure.</li>
+<li><span class="math inline">\(P_{e}\)</span> is the external pressure.</li>
+<li><span class="math inline">\(S^{c}_{i}\)</span> is the internal surface of the upper cap in the current geometry, defined by <span class="math inline">\(S^{c}_{i}=\pi\,R_{i}^{2}\)</span>.</li>
+<li><span class="math inline">\(S^{c}_{e}\)</span> is the external surface of the upper cap in the current geometry, defined by <span class="math inline">\(S^{c}_{e}=\pi\,R_{e}^{2}\)</span>..</li>
+</ul>
+<p>Here, the pressure is assumed constant over the time step : the sensibility with the geometrical changes is neglected. Dependency of the pressure with the volume can also be taken into account, as in <code>MTest</code> if all the slices are homogeneous, which is almost never the case.</p>
+<h5 id="generalised-plane-stress"><span class="header-section-number">2.1.1.2.1</span> Generalised plane stress</h5>
+<p>In generalised plane stress, <span class="math inline">\(\Pi_{zz}\)</span> is assumed uniform and can determined by:</p>
+<p><span class="math display">\[
+F = \Pi_{zz}\,\left(\left(S^{c}_{e}\right)^{0}-\left(S^{c}_{i}\right)^{0}\right) = P_{i}\,S^{c}_{i} - P_{e}\,S^{c}_{e}
+\]</span></p>
+<p>This relation is exactly the same as in small strain analysis, except for the dependency of <span class="math inline">\(S^{c}_{i}\)</span> and <span class="math inline">\(S^{c}_{e}\)</span> with the actual inner and outer radius which adds additional terms to the stiffness matrix.</p>
+<h5 id="generalised-plane-strain"><span class="header-section-number">2.1.1.2.2</span> Generalised plane strain</h5>
+<p>In generalised plane strain, the total force is given by:</p>
+<p><span class="math display">\[
+F = 2\,\pi\,\int_{R_{i}^{0}}^{R_{e}^{0}}\Pi_{zz}\,R\,dR = P_{i}\,S^{c}_{i} - P_{e}\,S^{c}_{e}
+\]</span></p>
+<p>This is exactly the same relation as in same strain analysis, except for the dependency of <span class="math inline">\(S^{c}_{i}\)</span> and <span class="math inline">\(S^{c}_{e}\)</span> with the actual inner and outer radius which adds additional terms to the stiffness matrix</p>
+<h2 id="finite-strain-mechanical-behaviours"><span class="header-section-number">2.2</span> Finite strain mechanical behaviours</h2>
+<p>Currently, the <code>MFront</code> interface only supports strain-based behaviour based on the Hencky strain measure, as described by Miehe et al. (See <span class="citation" data-cites="miehe_anisotropic_2002">Miehe, Apel, and Lambrecht (2002)</span>).</p>
+<h3 id="support-of-the-hencky-strain-measure"><span class="header-section-number">2.2.1</span> Support of the Hencky strain measure</h3>
+<p>The Hencky strain measure is defined by:</p>
+<p><span class="math display">\[
+\underline{\varepsilon}_{\log}^{\mathrm{tot}}={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,\log{{{\underset{\tilde{}}{\mathbf{F}}}^{\mathop{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}}
+\]</span></p>
+<p>In <span class="math inline">\(1D\)</span>, this relation boils down to (See <span class="citation" data-cites="helfer_extension_2015">Helfer (2015)</span>):</p>
+<p><span class="math display">\[
+  \left(\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{i}=\log\left(1+\underline{\varepsilon}^{\mathrm{to}}_{i}\right)  
+\]</span></p>
+<p>Based on energetic consideration, this strain measure also defined its dual stress denoted <span class="math inline">\(\underline{T}\)</span>. The relation between <span class="math inline">\({\underset{\tilde{}}{\mathbf{\Pi}}}\)</span> and <span class="math inline">\(\underline{T}\)</span> is fairly complex in <span class="math inline">\(3D\)</span>, but quite simple in <span class="math inline">\(1D\)</span>:</p>
+<p><span class="math display">\[
+  \Pi_{i} = {{\displaystyle \frac{\displaystyle T_{i}}{\displaystyle 1+\left(\underline{\varepsilon}^{\mathrm{to}}\right)_{i}}}}
+\]</span></p>
+<h4 id="generalised-plane-stress-1"><span class="header-section-number">2.2.1.1</span> Generalised plane stress</h4>
+<p>The generalised plane stress hypothesis is treated by introducing, at each integration point, an additional unknown: the axial logarithmic strain. Using the previous equations, the implicit equation associated with this unknown is:</p>
+<p><span class="math display">\[
+\exp\left(
+\left.\left(\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{zz}\right|_{t}+
+\Delta\,\left(\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{zz}
+\right)
+\,\left.T_{zz}\right|_{t+\Delta\,t}= \left.\Pi_{zz}^{(i)}\right|_{t+\Delta\,t}
+\]</span></p>
+<p>where <span class="math inline">\(\Pi_{zz}^{(i)}\)</span> is the prescribed axial stress.</p>
+<p>This equation is automatically added by the Hooke stress potential used by the <code>StandardElasticity</code> and <code>StandardViscoplasticity</code> bricks.</p>
+<blockquote>
+<p><strong>Elastic prediction of the stress</strong></p>
+<p>Most stress potentials provide a <code>computeElasticPrediction</code> method. Under the generalised plane stress hypothesis and using the logarithmic strain, this method becomes non linear. The total axial logarithmic strain is computed so that: <span class="math display">\[
+\exp\left(
+\left.\left(\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{zz}\right|_{t}+
+\Delta\,\left(\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{zz}\right)
+\,\left.T_{zz}^{el}\right|_{t+\Delta\,t}= \left.\Pi_{zz}^{(i)}\right|_{t+\Delta\,t}
+\]</span> where <span class="math inline">\(\left.T_{zz}^{el}\right|_{t+\Delta\,t}\)</span> is the elastic prediction of the stress, computed as a function of <span class="math inline">\(\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{zz}\)</span> among other variables (elastic strain at the beginning of the time step, in plane total strain increment, etc…)</p>
+<p>The elastic prediction of the stress is then based on the following approximation of the elastic strain at the middle of the time step: <span class="math display">\[
+\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t}+\theta\,
+\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}-\Delta\underline{\varepsilon}^{sf}\right)
+\]</span> where <span class="math inline">\(\Delta\underline{\varepsilon}^{sf}\)</span> is the increment of all the stress strains (thermal expansion, swelling, and so on.)</p>
+</blockquote>
+<h1 id="references" class="unnumbered">References</h1>
+<div id="refs" class="references">
+<div id="ref-helfer_extension_2015">
+<p>Helfer, Thomas. 2015. “Extension of Monodimensional Fuel Performance Codes to Finite Strain Analysis Using a Lagrangian Logarithmic Strain Framework.” <em>Nuclear Engineering and Design</em> 288 (July): 75–81. <a href="https://doi.org/10.1016/j.nucengdes.2015.02.010" class="uri">https://doi.org/10.1016/j.nucengdes.2015.02.010</a>.</p>
+</div>
+<div id="ref-miehe_anisotropic_2002">
+<p>Miehe, C., N. Apel, and M. Lambrecht. 2002. “Anisotropic Additive Plasticity in the Logarithmic Strain Space: Modular Kinematic Formulation and Implementation Based on Incremental Minimization Principles for Standard Materials.” <em>Computer Methods in Applied Mechanics and Engineering</em> 191 (47–48): 5383–5425. <a href="https://doi.org/10.1016/S0045-7825(02)00438-3" class="uri">https://doi.org/10.1016/S0045-7825(02)00438-3</a>.</p>
+</div>
+<div id="ref-petry_advanced_2015">
+<p>Petry, Charles, and Thomas Helfer. 2015. “Advanced Mechanical Resolution in CYRANO3 Fuel Performance Code Using MFront Generation Tool.” In <em>LWR Fuel Performance Meeting/TopFuel/WRFPM</em>. Zurich, Switzerland.</p>
+</div>
+<div id="ref-thouvenin_edf_2010">
+<p>Thouvenin, Gilles, Daniel Baron, Nathalie Largenton, Rodrigue Largenton, and Philippe Thevenin. 2010. “EDF CYRANO3 Code, Recent Innovations.” In <em>LWR Fuel Performance Meeting/TopFuel/WRFPM</em>. Orlando, Florida, USA.</p>
+</div>
+</div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Thomas Helfer">
+  <meta name="dcterms.date" content="2014-01-01">
+  <title>Writing portable behaviour implementation with MFront</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/beige.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.5em; }
+    .reveal section img {
+        border: none;
+        box-shadow: none;
+    }
+    body {
+        background: url("img/background.svg") no-repeat fixed top left;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0; /* IE 6 */
+        border-bottom: 2pt solid #000;
+        border-top: 2pt solid #000; /* The caption on top will not have a bottom-border */
+        background: lightgrey;
+        display: block;
+        text-align:center; 
+        margin:auto; 
+        table-layout: auto;
+    }
+    /* table td{ */
+    /*     width:40%; */
+    /* } */
+    table thead{
+        background: grey;
+    }
+    /* table tbody tr { border-bottom: 10px solid #000; } */
+  /* <table> */
+  /* <thead> */
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Writing portable behaviour implementation with MFront</h1>
+  <p class="author">Thomas Helfer</p>
+  <p class="date">2014</p>
+</section>
+<section id="TOC">
+<ul>
+<li class="fragment"><a href="#/current-interfaces-to-mechanical-behaviours">Current interfaces to mechanical behaviours</a></li>
+<li class="fragment"><a href="#/strains">Strains</a><ul>
+<li class="fragment"><a href="#/d-case">1D case</a></li>
+</ul></li>
+<li class="fragment"><a href="#/stresses">Stresses</a></li>
+<li class="fragment"><a href="#/convertions">Convertions</a></li>
+<li class="fragment"><a href="#/orthotropy">Orthotropy</a></li>
+<li class="fragment"><a href="#/supported-modelling-hypotheses">Supported modelling hypotheses</a></li>
+<li class="fragment"><a href="#/plane-stress">Plane stress</a></li>
+<li class="fragment"><a href="#/prediction-operator">Prediction operator</a></li>
+<li class="fragment"><a href="#/consistent-tangent-operator">Consistent tangent operator</a></li>
+<li class="fragment"><a href="#/finite-strains">Finite strains</a></li>
+<li class="fragment"><a href="#/consistent-tangent-operator-in-finite-strain">Consistent tangent operator in finite strain</a></li>
+</ul>
+</section>
+
+<section class="slide level1">
+
+
+
+
+
+
+
+
+
+</section>
+<section id="current-interfaces-to-mechanical-behaviours" class="slide level1">
+<h1>Current interfaces to mechanical behaviours</h1>
+<ul>
+<li class="fragment"><code>umat</code> for the <a href="http://www.cea.fr/">CEA</a>’s <a href="http://www-cast3m.cea.fr/">Cast3M</a> finite element solver</li>
+<li class="fragment"><code>aster</code> for the <a href="http://www.edf.com/">EDF</a>’s <a href="http://www.code-aster.org">Code-Aster</a> finite element solver</li>
+<li class="fragment"><code>cyrano</code> for the Cyrano3 fuel performance code.</li>
+<li class="fragment"><code>zmat</code> for the <a href="www.zset-software.com/products/zebulon/">Zebulon</a> finite elemnet solver developed by the <a href="http://www.mines-paristech.fr/">École des Mines ParisTech</a> (France), <a href="http://www.onera.fr">Onera</a>, <a href="http://www.nwnumerics.com">NW Numerics &amp; Modeling</a>, Inc (USA) and various academic partners.</li>
+</ul>
+</section>
+<section id="strains" class="slide level1">
+<h1>Strains</h1>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 92%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Solver</th>
+<th style="text-align: center;">Convention</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">TFEL</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\epsilon^{\mathrm{to}}_{xx},\epsilon^{\mathrm{to}}_{yy},\epsilon^{\mathrm{to}}_{zz},\sqrt{2}\,\epsilon^{\mathrm{to}}_{xy},\sqrt{2}\,\epsilon^{\mathrm{to}}_{xy},\sqrt{2}\,\epsilon^{\mathrm{to}}_{yz}\right)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Cast3M</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\epsilon^{\mathrm{to}}_{xx},\epsilon^{\mathrm{to}}_{yy},\epsilon^{\mathrm{to}}_{zz},2\,\epsilon^{\mathrm{to}}_{xy},2\,\epsilon^{\mathrm{to}}_{xy},2\,\epsilon^{\mathrm{to}}_{yz}\right)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Code-Aster</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\epsilon^{\mathrm{to}}_{xx},\epsilon^{\mathrm{to}}_{yy},\epsilon^{\mathrm{to}}_{zz},\sqrt{2}\,\epsilon^{\mathrm{to}}_{xy},\sqrt{2}\,\epsilon^{\mathrm{to}}_{xy},\sqrt{2}\,\epsilon^{\mathrm{to}}_{yz}\right)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Zebulon</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\epsilon^{\mathrm{to}}_{xx},\epsilon^{\mathrm{to}}_{yy},\epsilon^{\mathrm{to}}_{zz},\sqrt{2}\,\epsilon^{\mathrm{to}}_{xy},\sqrt{2}\,\epsilon^{\mathrm{to}}_{yz},\sqrt{2}\,\epsilon^{\mathrm{to}}_{xz}\right)\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="d-case">1D case</h2>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Solver</th>
+<th style="text-align: center;">Convention</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Cast3M</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\epsilon^{\mathrm{to}}_{rr},\epsilon^{\mathrm{to}}_{zz},\epsilon^{\mathrm{to}}_{\theta}\right)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Code-Aster</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\epsilon^{\mathrm{to}}_{rr},\epsilon^{\mathrm{to}}_{zz},\epsilon^{\mathrm{to}}_{\theta}\right)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Cyrano3</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\epsilon^{\mathrm{to}}_{rr},\epsilon^{\mathrm{to}}_{\theta},\epsilon^{\mathrm{to}}_{zz}\right)\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stresses" class="slide level1">
+<h1>Stresses</h1>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 91%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Solver</th>
+<th style="text-align: center;">Convention</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">TFEL</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\sigma_{xx},\sigma_{yy},\sigma_{zz},\sqrt{2}\,\sigma_{xy},\sqrt{2}\,\sigma_{xy},\sqrt{2}\,\sigma_{yz}\right)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Cast3M</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\sigma_{xx},\sigma_{yy},\sigma_{zz},\sigma_{xy},\sigma_{xy},\sigma_{yz}\right)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Code-Aster</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\sigma_{xx},\sigma_{yy},\sigma_{zz},\sqrt{2}\,\sigma_{xy},\sqrt{2}\,\sigma_{xy},\sqrt{2}\,\sigma_{yz}\right)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Zebulon</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\sigma_{xx},\sigma_{yy},\sigma_{zz},\sqrt{2}\,\sigma_{xy},\sqrt{2}\,\sigma_{yz},\sqrt{2}\,\sigma_{xz}\right)\)</span></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Solver</th>
+<th style="text-align: center;">Convention</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Cast3M</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\sigma_{rr},\sigma_{zz},\sigma_{\theta}\right)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Code-Aster</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\sigma_{rr},\sigma_{zz},\sigma_{\theta}\right)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Cyrano3</td>
+<td style="text-align: center;"><span class="math inline">\(\left(\sigma_{rr},\sigma_{\theta},\sigma_{zz}\right)\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="convertions" class="slide level1">
+<h1>Convertions</h1>
+<ul>
+<li class="fragment">Convertions are handled by the interface</li>
+<li class="fragment">Internal state variables are stored using TFEL conventions
+<ul>
+<li class="fragment">In the material frame (for orthotropic behaviours)</li>
+<li class="fragment">Except for ZeBuLoN</li>
+</ul></li>
+</ul>
+</section>
+<section id="orthotropy" class="slide level1">
+<h1>Orthotropy</h1>
+<p><img data-src="img/pipe.svg" title="Recommended definition for the orthotropic axes for pipes" /></p>
+<ul>
+<li class="fragment">behaviour and orthotropic axes definitions <strong>must be consistent</strong></li>
+<li class="fragment">no general purpose solver allow uniform definition of the orthotropic axes for all modelling hypotheses
+<ul>
+<li class="fragment">example of pipes</li>
+</ul></li>
+</ul>
+</section>
+<section id="supported-modelling-hypotheses" class="slide level1">
+<h1>Supported modelling hypotheses</h1>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 91%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Solver</th>
+<th style="text-align: center;">Convention</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Cast3M</td>
+<td style="text-align: center;">Axisymmetrical generalised plane strain, plane strain, generalised plane strain, plane stress, axisymmetrical, tridimensional</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Code-Aster</td>
+<td style="text-align: center;">Plane strain, plane stress (1), axisymmetrical, tridimensional</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Zebulon</td>
+<td style="text-align: center;"><span class="math inline">\(1D\)</span>, <span class="math inline">\(2D\)</span>, <span class="math inline">\(3D\)</span> (2)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Cyrano</td>
+<td style="text-align: center;">Axisymmetrical generalised plane strain, axisymmetrical generalised plane stress (3)</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li class="fragment">Can be supported by the behaviour or by the solver (De Borst)</li>
+<li class="fragment">Modelling hypothesis is not accessible within the behaviour. Plane stress is supported by the finite element (additional ddl)</li>
+<li class="fragment">The default.</li>
+</ol>
+</section>
+<section id="plane-stress" class="slide level1">
+<h1>Plane stress</h1>
+<ul>
+<li class="fragment">Support for plane stress and axisymmetrical generalised plane stress <em>shall</em> be <strong>explicitely provided</strong>
+<ul>
+<li class="fragment">for performance reasons</li>
+</ul></li>
+<li class="fragment">See the <code>MFront</code> documentation</li>
+</ul>
+</section>
+<section id="prediction-operator" class="slide level1">
+<h1>Prediction operator</h1>
+<p>|:———:|:——-:| |Cast3M | No (1) | |Code-Aster | Elastic, secant, tangent | |Zebulon | No | |Cyrano | No |</p>
+<ol type="1">
+<li class="fragment">Expected in PLEIADES version (2015 ?)</li>
+</ol>
+</section>
+<section id="consistent-tangent-operator" class="slide level1">
+<h1>Consistent tangent operator</h1>
+<p>|:———:|:——-:| |Cast3M | No (1) | |Code-Aster | Elastic, secant, tangent, consistent tangent operator | |Zebulon | Consistent tangent operator (2) | |Cyrano | Consistent tangent operator |</p>
+<ol type="1">
+<li class="fragment">Expected in PLEIADES version (2015 ?)</li>
+<li class="fragment">By default.</li>
+</ol>
+</section>
+<section id="finite-strains" class="slide level1">
+<h1>Finite strains</h1>
+<p><img data-src="img/LogarithmicStrainPlasticity-ssna303.svg" /></p>
+<ul>
+<li class="fragment">for standard laws, <strong>use the Miehe logarithmic strains framework</strong>:
+<ul>
+<li class="fragment">available in Cast3M (through <code>MFront</code>), Code-Aster, ZeBuLoN</li>
+<li class="fragment">can easily inserted in Cyrano (paper under review)</li>
+</ul></li>
+<li class="fragment">avoid using Cast3M’s <code>PASAPAS</code> <code>GRANDS_DEPLACEMENTS</code> option</li>
+</ul>
+</section>
+<section id="consistent-tangent-operator-in-finite-strain" class="slide level1">
+<h1>Consistent tangent operator in finite strain</h1>
+<p>|:———:|:——-:| |Cast3M | No | |Code-Aster | <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\tau}}{\displaystyle \partial \Delta\, \underset{\tilde{}}{\mathbf{F}}}}\)</span> (1) | |Zebulon | <span class="math inline">\(C^{T}\)</span> (2) |</p>
+<p><strong>MFront generates convertion between consistent tangent operators : use the most natural one for your formalism</strong></p>
+<ol type="1">
+<li class="fragment"><span class="math inline">\(\Delta\, \underset{\tilde{}}{\mathbf{F}} = \left.\underset{\tilde{}}{\mathbf{F}}\right|_{t+\Delta\,t}.\left(\left.\underset{\tilde{}}{\mathbf{F}}\right|_{t}\right)^{-1}\)</span></li>
+<li class="fragment">The only finite strain formulation supported by <code>MFront</code> is the <code>Updated_Lagrangian</code>.</li>
+</ol>
+<!-- pandoc -s -f markdown+tex_math_single_backslash --bibliography=bibliography.bib --filter pandoc-citeproc --slide-level 1 --toc --mathjax -i -t revealjs -V theme:beige -H mysettings.css  portability.md -o portability.html -->
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/math/math.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

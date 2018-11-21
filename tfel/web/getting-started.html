@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Getting started with MFront</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Getting started with <code>MFront</code></h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">16/06/2017</h3>
+          </div>
+            <p>This document is meant to help new users to find their ways in the existing documentation of <code>MFront</code> and summarize the most important points.</p>
+<blockquote>
+<p><strong>Material properties and models</strong></p>
+<p>As most users are focused on mechanical behaviours, this document will not discuss <a href="material-properties.html"><em>material properties</em></a> and <a href="models.html"><em>models</em></a>.</p>
+</blockquote>
+<p><code>MFront</code> has been designed to help the user writing complex mechanical behaviours using a domain specific language that are:</p>
+<ul>
+<li>numerically efficient.</li>
+<li>portable from one finite element to another.</li>
+<li>easy to read (by your colleagues) and maintain.</li>
+</ul>
+<p>Before writing your own behaviours, a few advices are helpful:</p>
+<ul>
+<li>You must have some knowledge of this behaviour and of its physical meaning. See <span class="citation" data-cites="doghri_mechanics_2000 besson_non-linear_2009 forest_mecanique_2013">(Doghri 2000; Besson et al. 2009; Forest et al. 2013)</span> for a good introduction. <strong>If you are new to finite strain single crystal plasticity, do not try to directly study the examples found in the <code>MFront</code> tests base.</strong>. It highly recommended to have some basic understanding of the algorithms used to integrate a constitutive equation (see <span class="citation" data-cites="besson_numerical_2004 lemaitre_engineering_2005 besson_non-linear_2009">(Besson and Desmorat 2004; Lemaitre and Desmorat 2005; Besson et al. 2009)</span>).</li>
+<li>You must develop your behaviour <em>step by step</em>. Do not neglect unit testing. This is what <a href=".md"><code>MTest</code></a> has been made for.</li>
+<li>You must have some knowledge about your finite element solver, in particular when using “advanced” features (finite strain, non local models).</li>
+</ul>
+<p>The final advice is the more important: as every open-source project, <code>MFront</code> has its community of users. <strong>Do not hesitate to ask questions</strong>:</p>
+<ul>
+<li><a href="https://sourceforge.net/p/tfel/discussion/">on the forum</a>.</li>
+<li><a href="https://sourceforge.net/p/tfel/tfel/">on the mailing lists</a>.</li>
+<li><script type="text/javascript">
+<!--
+h='&#x63;&#x65;&#x61;&#46;&#102;&#114;';a='&#64;';n='&#116;&#102;&#x65;&#108;&#x2d;&#x63;&#x6f;&#110;&#116;&#x61;&#x63;&#116;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#116;&#x6f;&#32;&#116;&#104;&#x65;&#32;&#x61;&#x75;&#116;&#104;&#x6f;&#114;&#x73;'+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#116;&#x6f;&#32;&#116;&#104;&#x65;&#32;&#x61;&#x75;&#116;&#104;&#x6f;&#114;&#x73;&#32;&#40;&#116;&#102;&#x65;&#108;&#x2d;&#x63;&#x6f;&#110;&#116;&#x61;&#x63;&#116;&#32;&#x61;&#116;&#32;&#x63;&#x65;&#x61;&#32;&#100;&#x6f;&#116;&#32;&#102;&#114;&#x29;</noscript>.</li>
+</ul>
+<h1 id="first-step-installation">First step: installation</h1>
+<p>The installation of <code>MFront</code> is described in depth <a href="install.html">here</a>.</p>
+<p>The main points are the followings:</p>
+<ul>
+<li><code>MFront</code> is mostly distributed as <code>C++</code> sources that must be compiled. Official releases are available on <a href="https://sourceforge.net/projects/tfel/files/">sourceforge</a>.</li>
+<li>For those wanting to follow the latest developments, a clone of the source repository is available on <a href="https://github.com/thelfer/tfel">GitHub</a>. You obviously need to install <code>git</code> to do this.</li>
+<li>In both cases a more or less recent <code>C++</code> compiler is required. Under <code>Unix</code> systems, this is always the case, each system having some official compiler suite (<code>gcc</code> under <code>Linux</code>, <code>clang</code> under <code>Mac Os</code> and <code>FreeBSD</code>). This is not the case under <code>Windows</code> where you have to install a compiler beforehand.</li>
+<li><em>You must understand how extending your solver works and ensure that you do use a compatible compiler</em>. This is particulary important under the <code>Windows</code> platform: on <code>LinuX</code>, most compilers strives to be binary compatible with <code>gcc</code>. For example, if you use <code>Cast3M</code> under windows, you may want to use the compiler which is package with the <code>Cast3M</code> distribution (see <a href="install-windows-Cast3M2017.html">here</a> for details). For <code>Abaqus</code>, you may need to have the Intel compilers (or at least the Intel fortran compiler).</li>
+<li>It is required to have <a href="https://cmake.org/"><code>cmake</code></a> installed to build <code>MFront</code> under <code>Windows</code>. It is strongly recommended under the other platform.</li>
+</ul>
+<h1 id="second-step-understanding-how-mfront-works">Second step: understanding how <code>MFront</code> works</h1>
+<p><code>MFront</code> translate a set of input files into <code>C++</code> sources and compile them. A basic knowledge of the <code>C</code> and <code>C++</code> syntax is then advisable. <code>MFront</code> specific keywords begins with the <code>@</code> letter.</p>
+<p><code>MFront</code> first introduces the notion of <code>Domain Specific Language</code> (<code>DSL</code>), which gives a context about what the input file describes, mainly the type of the material knowledge treated (material property, model, finite strain behaviour, strain based behaviour, cohesive zone moel) and/or the algorithm used to integrate the state variables’ evolution. One highly used <code>DSL</code> is called <code>Implicit</code> and described a strain based behaviour whose integration is based on a generalised mid-point rule (see <span class="citation" data-cites="besson_numerical_2004 lemaitre_engineering_2005 besson_non-linear_2009">(Besson and Desmorat 2004; Lemaitre and Desmorat 2005; Besson et al. 2009)</span>).</p>
+<p>Each <code>DSL</code> has its own conventions, keywords and automatically declared variables.</p>
+<blockquote>
+<p><strong>The <code>Implicit</code> DSL</strong></p>
+<p>For most mechanical behaviours, the <code>Implicit</code> DSL is recommended: the behaviour integration is performed using a generalised mid-point rule and allow the consistent tangent operator, which is required by most finite element sovler to have decent numerical performances, to be computed.</p>
+</blockquote>
+<p>Once the appropriate <code>DSL</code> choosen, the list of available keywords can be retrieved from the command line:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">mfront</span> --help-keywords-list=Implicit</a></code></pre></div>
+<p>where <code>Implicit</code> is the name of the <code>DSL</code>.</p>
+<p>The help of for a specific keyword can be retrieved as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">mfront</span> --help-keywords-list=Implicit:@Author</a></code></pre></div>
+<p>where <code>Implicit</code> is the name of the <code>DSL</code> and <code>@Author</code> the name of the keyword.</p>
+<p>A good way to get familiar with a specific DSL is to look in the <a href="gallery.html"><code>MFront</code> gallery</a> if some examples describe its usage.</p>
+<p>Otherwise, one may want to look at the tests distributed with <code>MFront</code> in the <code>mfront/tests/behaviours</code> directory (online access on github <a href="https://github.com/thelfer/tfel/tree/master/mfront/tests/behaviours">here</a>).</p>
+<blockquote>
+<p><strong>About the tests cases</strong></p>
+<p>Beware that the tests may not reflect the current best way to implement a specific behaviour (<code>MFront</code> evolves a lot and each version introduces new features): they can be kept outdated to ensure backward compatibility.</p>
+</blockquote>
+<blockquote>
+<p><strong>Detailed documentation</strong></p>
+<p>This <a href="documentations.html">page</a> references most of the available documentations.</p>
+<p>For example, the complete description of the <code>DSL</code>s available can be found <a href="documents/mfront/mfront.pdf">here</a> and <a href="documents/mfront/behaviours.pdf">here</a>, in French.</p>
+<p>However, such detailed documentation is not required for most users. We even consider that beginning with <code>MFront</code> from these documents can be overwhelmingly difficult. Reading the detailed example of the gallery is much easier: <code>Longum iter est per praecepta, breve et efficax per exempla</code> (It’s a long way by the rules, but short and efficient with examples).</p>
+<p>For French users, a detailed tutorial can be found <a href="documents/tutoriel/tutoriel.pdf">here</a></p>
+</blockquote>
+<h1 id="third-step-before-starting-to-write-our-first-behaviour">Third step: before starting to write our first behaviour</h1>
+<h2 id="start-looking-at-the-documentation-of-the-tensor-operations">Start looking at the documentation of the tensor operations</h2>
+<p>Second and fourth orders tensors are the basic mathematical tools used to describe mechanical behaviours. <code>MFront</code> is based on the <code>TFEL/Math</code> library which provides many standards operations and functions to handle them. See <a href="tensors.html">here</a> for an introduction.</p>
+<h2 id="start-looking-in-the-mfront-gallery">Start looking in the <code>MFront</code> gallery</h2>
+<p>The <a href="gallery.html"><code>MFront</code> gallery</a> is meant to document how to describe in depth and step by step the implementation of some chosen behaviours. If one of the described behaviour is close to the one you plan to implement, it is highly recommend to start by modifying the one described in the gallery.</p>
+<h2 id="write-your-discretized-equations-by-hand-in-tensor-notations">Write your discretized equations by hand in tensor notations</h2>
+<h1 id="fourth-step-your-first-implementation">Fourth step: your first implementation</h1>
+<h1 id="references">References</h1>
+<!-- Local IspellDict: english -->
+<div id="refs" class="references">
+<div id="ref-besson_non-linear_2009">
+<p>Besson, Jacques, Georges Cailletaud, Jean-Louis Chaboche, Samuel Forest, and Marc Bletry. 2009. <em>Non-Linear Mechanics of Materials</em>. 2010 ed. Dordrecht: Springer.</p>
+</div>
+<div id="ref-besson_numerical_2004">
+<p>Besson, J., and D. Desmorat. 2004. “Numerical Implementation of Constitutive Models.” In <em>Local Approach to Fracture</em>, edited by J. Besson. École des Mines de Paris - les presses.</p>
+</div>
+<div id="ref-doghri_mechanics_2000">
+<p>Doghri, Issam. 2000. <em>Mechanics of Deformable Solids: Linear, Nonlinear, Analytical, and Computational Aspects</em>. Berlin; New York: Springer.</p>
+</div>
+<div id="ref-forest_mecanique_2013">
+<p>Forest, Samuel, Michel Amestoy, Gilles Damamme, Serge Kruch, Vincent Maurel, and Matthieu Mazière. 2013. “Mécanique Des Milieux Continus.” École des Mines de Paris. <a href="http://mms2.ensmp.fr/mmc_paris/mmc_paris.php" class="uri">http://mms2.ensmp.fr/mmc_paris/mmc_paris.php</a>.</p>
+</div>
+<div id="ref-lemaitre_engineering_2005">
+<p>Lemaitre, Jean, and Rodrigue Desmorat. 2005. <em>Engineering Damage Mechanics: Ductile, Creep, Fatigue and Brittle Failures</em>. Berlin Heidelberg: Springer-Verlag. <a href="//www.springer.com/us/book/9783540215035" class="uri">//www.springer.com/us/book/9783540215035</a>.</p>
+</div>
+</div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

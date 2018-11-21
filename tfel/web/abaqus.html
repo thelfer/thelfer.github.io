@@ -1,0 +1,587 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>The Abaqus/Standard and Abaqus/Explicit interfaces</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2016-12-08" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href=" css/slideshow.css" />
+        <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">The <code>Abaqus/Standard</code> and <code>Abaqus/Explicit</code> interfaces</h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">12/08/2016</h3>
+          </div>
+            
+<!-- \newcommand{\paren}[1]{\left(#1\right)} -->
+<div id="slideshow">
+<p><ul class="slides"> <li><img src="img/PSACylinderHeadDesign.png" width="620" height="320" alt="This PSA study by Agathe Forré et al. deals with the Thermal-Mechanical Fatigue design of automotive cylinder heads." /></li> <li> <video style="display:block; margin: 0 auto;" width="640" height="320" controls> <source src="media/DeepDrawing.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </li> <li> <video style="display:block; margin: 0 auto;" width="640" height="320" controls> <source src="media/abaqus-explicit.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </li> <li><img src="img/AbaqusFLD.png" width="620" height="320" alt="Simulation of a Punching test" /></li> <li><img src="img/abaqus-isotropichardening1.png" width="620" height="320" alt="Notched beam under a cyclic loading with an isotropic hardening plastic beahviour" /></li> </ul> <span class="arrow previous"></span> <span class="arrow next"></span></p>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="js/slideshow.js"></script>
+<h1 id="introduction">Introduction</h1>
+<p><code>MFront</code> version 3.0 provides two interfaces for the <code>Abaqus/Standard</code> and <code>Abaqus/Explicit</code> finite element solvers. Those interfaces are fairly features complete:</p>
+<ul>
+<li>Isotropic and orthotropic materials are supported.</li>
+<li>Small and finite strain behaviours are supported.</li>
+</ul>
+<p>It shall be pointed out that the <code>Abaqus/Standard</code> and <code>Abaqus/Explicit</code> solvers have a long history. In particular, the design choices made for the <code>UMAT</code> and <code>VUMAT</code> interfaces were meant to allow the users to easily write finite-strain behaviours in rate-form. However, their choices differ in many points. As a consequence, those interfaces are not compatible “out of the box”: i.e. one cannot restart a simulation with <code>Abaqus/Explicit</code> after a computation with <code>Abaqus/Standard</code> without precautions.</p>
+<p><code>MFront</code> strives to provides behaviours that can be used “just-like” other <code>UMAT</code> and <code>VUMAT</code> subroutines, but there are some cases (namely finite strain orthotropic behaviours) where we were obliged to make some unusual choices that are described in this document for various reasons:</p>
+<ul>
+<li>Ensure the compatibility between the <code>Abaqus/Standard</code> and <code>Abaqus/Explicit</code>.</li>
+<li>Have optimal performances.</li>
+</ul>
+<h2 id="pitfalls">Pitfalls</h2>
+<p>There are also cases of misuses of the generated libraries that can <em>not</em> be prevented by <code>MFront</code>. The most important ones are the following:</p>
+<ul>
+<li>For <code>Abaqus/Standard</code>, small strain isotropic behaviour can be used in finite strain analyses “out of the box”. However, if a behaviour is meant to be used only for finite strain analyses, we recommend using <strong>one one of the finite strain strategies available</strong> (See the <code>@AbaqusFiniteStrainStrategy</code> keyword and the section dedicated to finite strain strategies below). The <code>Native</code> finite strain strategy will use the <code>Abaqus/Standard</code> functionalities to integrate the behaviour in “rate-form” and also adds a correction to the tangent operator (see below for details). <em>The user must then be aware that when using the <code>Native</code> finite strain strategy, results will depend on the fact that an orientation is defined or not</em>. Indeed the <code>Native</code> finite strain strategy will use:
+<ul>
+<li>The Jauman rate if no orientation is defined. In this case, all internal state variables are rotated appropriately.</li>
+<li>The corotationnal frame defined through the polar decomposition of the deformation gradient if an orientation is defined. Futhermore, behaviours using the <code>Native</code> finite strain strategy (or no strategy at all) can not be ported to other solver. If portability is an issue, consider using one of the other finite strain strategy (see below).</li>
+</ul></li>
+<li>For <code>Abaqus/Standard</code>, the usage of the <code>Native</code> finite strain strategy <em>without orientation</em> is <strong>not</strong> compatible with <code>Abaqus/Explicit</code> because the latter always uses a corotationnal frame to integrate the behaviour in rate-form (and not the the Jauman rate as <code>Abaqus/Standard</code> without orientation).</li>
+<li>For <code>Abaqus/Standard</code>, the number of field variables (corresponding to external state variables in <code>MFront</code>) can not be checked.</li>
+<li>For <code>Abaqus/Standard</code>, one shall <em>not</em> combine the <code>MFront</code> orthotropy policy with the definition of an orientation.</li>
+<li>For <code>Abaqus/Standard</code>, one have to use the <code>MFront</code> orthotropy policy to handle orthotropic finite strain behaviours (see below for details).</li>
+</ul>
+<h2 id="current-status">Current status</h2>
+<p>These interfaces have been extensively tested through <code>MTest</code>. Tests on <code>Abaqus/Standard</code> and <code>Abaqus/Explicit</code> shows that MFront behaviours are efficient (to the extent allowed by the <code>UMAT</code> and <code>VUMAT</code> interfaces respectively) and reliable.</p>
+<h1 id="how-the-use-mfront-behaviours-in-abaqusstandard-and-abaqusexplicit">How the use <code>MFront</code> behaviours in <code>Abaqus/Standard</code> and <code>Abaqus/Explicit</code></h1>
+<p>When compiling mechanical behaviours with the <code>Abaqus/Standard</code> and/or <code>Abaqus/Explicit</code> interfaces, <code>MFront</code> generates:</p>
+<ul>
+<li>shared libraries containing one implementation of the considered behaviours per supported modelling hypotheses.</li>
+<li>examples of input files in the <code>abaqus</code> or <code>abaqus-explicit</code> directory, respectively</li>
+<li>a copy of a generic <code>umat.cpp</code> file for the <code>Abaqus/Standard</code> solver</li>
+<li>a copy of generic <code>vumat-sp.cpp</code> (for single precision computation) and <code>vumat-dp.cpp</code> (for double precision computations) files for the <code>Abaqus/Explicit</code> solver</li>
+</ul>
+<p>The user must launch <code>Abaqus/Standard</code> or <code>Abaqus/Explicit</code> with one of the previous generic files as an external user file. Those files handles the loading of <code>MFront</code> shared libraries <em>using the material name</em>: the name of the material shall thus define the function to be called and the library in which this function is implemented.</p>
+<p>The function name includes the modelling hypothesis, see below. An identifier can <em>optionnaly</em> be added to reuse the same behaviour for several material (with different material properties for instance). The identifier is discarded in the <code>umat.cpp</code>, <code>vumat-sp.cpp</code> and and <code>vumat-dp.cpp</code> files.</p>
+<p>Thus, the material name in <code>Abaqus/Standard</code> and <code>Abaqus/Explicit</code> is expected to have the following form: <code>LIBRARY_FUNCTION_HYPOTHESIS_IDENTIFIER</code>.</p>
+<p>The first part is the name of library, without prefix (<code>lib</code>) or suffix (<code>.dll</code> or <code>.so</code> depending on the system). <em>This convention implies that the library name does not contain an underscore character</em>.</p>
+<p>For example, on <code>UNIX</code> systems, if one want to call the <code>ELASTICITY_3D</code> behaviour in <code>libABAQUSBEHAVIOUR.so</code> library, the name of the material in the <code>Abaqus/Standard</code> input file has to be: <code>ABAQUSBEHAVIOUR_ELASTICITY_3D</code>.</p>
+<p>This leads to the following declaration of the material:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="op">*</span>Material, name<span class="op">=</span>ABAQUSBEHAVIOUR_ELASTICITY_3D</a></code></pre></div>
+<p>It is important to note that the name of the behaviour is automatically converted to upper-case by <code>Abaqus/Standard</code> or <code>Abaqus/Explicit</code>. The name of the libraries generated by <code>MFront</code> are thus upper-cased. <em>The user shall thus be aware that he/she must not rename <code>MFront</code> generated libraries using lower-case letters</em>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>The <code>MFront</code> libraries are only generated <em>once</em>, only the generic files needs to be recompiled at each run. This is very handy since compiling the <code>MFront</code> libraries can be time-consuming. Those libraries can be shared between computations and/or between users when placed in a shared folders.</li>
+<li>The fact that <code>MFront</code> generates one implementation per modelling hypothesis allows the distinction between the plane strain hypothesis and the axisymmetrical hypothesis. This is mandatory to consistently handle orthotropy.</li>
+<li>The name of the library can be changed by renaming it after the compilation or by using the <code>@Library</code> keyword.</li>
+</ul>
+<h3 id="note-on-libraries-locations">Note on libraries locations</h3>
+<p>As explained above, <code>MFront</code> libraries will be loaded at the runtime time. This means that the libraries must be found by the dynamic loader of the operating system.</p>
+<h4 id="under-linux">Under Linux</h4>
+<p>Under Linux, the search path for dynamic libraries are specified using the <code>LD_LIBRARY_PATH</code> variable environment. This variable defines a colon-separated set of directories where libraries should be searched for first, before the standard set of directories.</p>
+<p>Depending on the configuration of the system, the current directory can be considered by default.</p>
+<h4 id="under-windows">Under Windows</h4>
+<p>Under Windows, the dynamic libraries are searched:</p>
+<ul>
+<li>in the current directory</li>
+<li>in the directories listed in the <code>PATH</code> environment. This variable defines a semicolon-separated set of directories.</li>
+</ul>
+<h2 id="compilation-of-the-generic-umat.cpp-or-vumat-.cpp-files">Compilation of the generic <code>umat.cpp</code> or <code>vumat-*.cpp</code> files</h2>
+<p>Depending on the compiler and compiler version, appropriate flags shall be added for the compilation of the generic <code>umat.cpp</code> or <code>vumat-*.cpp</code> files which are written against the <code>C++11</code> standard.</p>
+<p>The procedure depends on the version of <code>Abaqus</code> used. In every case, one shall modify a file called <code>abaqus_v6.env</code> which is delivered with <code>Abaqus</code>. The modified version of this file must be in the current working directory.</p>
+<h3 id="versions-later-than-abaqus-2017">Versions later than <code>Abaqus 2017</code></h3>
+<p>In the <code>abaqus_v6.env</code>, one can load a specific environment file using the <code>importEnv</code> function:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Import site specific parameters such as licensing and doc parameters</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">importEnv(<span class="st">&#39;&lt;path&gt;/custom_v6.env&#39;</span>)</a></code></pre></div>
+<p>This file, called <code>custom_v6.env</code>, is used to modify the <code>compile_cpp</code> entry which contains the command line used to compile <code>C++</code> files. The content of this file can be copied from one of the system specific environment file delivered with <code>Abaqus</code>. For example, under <code>LinuX</code>, one can use the <code>lnx86_64.env</code> as a basis to build the <code>custom_v6.env</code>.</p>
+<p>Here is an example of a modified <code>custom_v6.env</code> (we changed several paths that must be updated to match your installation):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Installation of Abaqus CAE 2017</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># Mon Jul 17 15:06:17 2017</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">plugin_central_dir<span class="op">=</span><span class="st">&quot;/appli/abaqus/linuxo/V6R2017x/CAE/plugins&quot;</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">doc_root<span class="op">=</span><span class="st">&quot;file:////usr/DassaultSystemes/SIMULIA2017doc/English&quot;</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">license_server_type<span class="op">=</span>FLEXNET</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">abaquslm_license_file<span class="op">=</span><span class="st">&quot;&lt;licenfile&gt;&quot;</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">compile_cpp <span class="op">=</span> [<span class="st">&#39;g++&#39;</span>, <span class="st">&#39;-O2&#39;</span>, <span class="st">&#39;-std=c++11&#39;</span>,<span class="st">&#39;-c&#39;</span>, <span class="st">&#39;-fPIC&#39;</span>, <span class="st">&#39;-w&#39;</span>, <span class="st">&#39;-Wno-deprecated&#39;</span>, <span class="st">&#39;-DTYPENAME=typename&#39;</span>,</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">               <span class="st">&#39;-D_LINUX_SOURCE&#39;</span>, <span class="st">&#39;-DABQ_LINUX&#39;</span>, <span class="st">&#39;-DABQ_LNX86_64&#39;</span>, <span class="st">&#39;-DSMA_GNUC&#39;</span>,</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">               <span class="st">&#39;-DFOR_TRAIL&#39;</span>, <span class="st">&#39;-DHAS_BOOL&#39;</span>, <span class="st">&#39;-DASSERT_ENABLED&#39;</span>,</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">               <span class="st">&#39;-D_BSD_TYPES&#39;</span>, <span class="st">&#39;-D_BSD_SOURCE&#39;</span>, <span class="st">&#39;-D_GNU_SOURCE&#39;</span>,</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">               <span class="st">&#39;-D_POSIX_SOURCE&#39;</span>, <span class="st">&#39;-D_XOPEN_SOURCE_EXTENDED&#39;</span>, <span class="st">&#39;-D_XOPEN_SOURCE&#39;</span>,</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">               <span class="st">&#39;-DHAVE_OPENGL&#39;</span>, <span class="st">&#39;-DHKS_OPEN_GL&#39;</span>,  <span class="st">&#39;-DGL_GLEXT_PROTOTYPES&#39;</span>,</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">               <span class="st">&#39;-DMULTI_THREADING_ENABLED&#39;</span>, <span class="st">&#39;-D_REENTRANT&#39;</span>,</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">               <span class="st">&#39;-DABQ_MPI_SUPPORT&#39;</span>, <span class="st">&#39;-DBIT64&#39;</span>, <span class="st">&#39;-D_LARGEFILE64_SOURCE&#39;</span>, <span class="st">&#39;-D_FILE_OFFSET_BITS=64&#39;</span>, <span class="st">&#39;%P&#39;</span>,</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">               <span class="co"># &#39;-O0&#39;, # &lt;-- Optimization level</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">               <span class="co"># &#39;-g&#39;,  # &lt;-- Debug symbols</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">               <span class="st">&#39;-I%I&#39;</span>]</a>
+<a class="sourceLine" id="cb3-18" data-line-number="18">usub_lib_dir<span class="op">=</span><span class="st">&#39;&lt;path_to_mfront_generated_libraries&gt;:&lt;path_to_mfront&gt;/lib&#39;</span></a></code></pre></div>
+<p>The last line define a set of paths where shared libraries will be searched for, which is useful if one does not want to install <code>TFEL</code> and <code>MFront</code> on in system wide path (such as <code>/usr/</code>) or modify the <code>LD_LIBRARY_PATH</code> environment variable. One can also specify a shared directory (on a NFS file system for example) to access material behaviours shared among a team of colleagues.</p>
+<h3 id="versions-prior-to-abaqus-v2017">Versions prior to <code>Abaqus v2017</code></h3>
+<p>The appropriate flags can be defined in the <code>abaqus_v6.env</code> file that can be overridden by the user.</p>
+<p>For the <code>gcc</code> compiler, one have to add the <code>--std=c++11</code> flag. The modifications to be made to the <code>abaqus_v6.env</code> are the following:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">cppCmd  <span class="op">=</span> <span class="st">&quot;g++&quot;</span>     <span class="co"># &lt;-- C++ compiler</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">compile_cpp <span class="op">=</span> [cppCmd,</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">               <span class="st">&#39;-c&#39;</span>, <span class="st">&#39;-fPIC&#39;</span>, <span class="st">&#39;-w&#39;</span>, <span class="st">&#39;-Wno-deprecated&#39;</span>, <span class="st">&#39;-DTYPENAME=typename&#39;</span>,</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">               <span class="st">&#39;-D_LINUX_SOURCE&#39;</span>, <span class="st">&#39;-DABQ_LINUX&#39;</span>, <span class="st">&#39;-DABQ_LNX86_64&#39;</span>, <span class="st">&#39;-DSMA_GNUC&#39;</span>,</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">               <span class="st">&#39;-DFOR_TRAIL&#39;</span>, <span class="st">&#39;-DHAS_BOOL&#39;</span>, <span class="st">&#39;-DASSERT_ENABLED&#39;</span>,</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">               <span class="st">&#39;-D_BSD_TYPES&#39;</span>, <span class="st">&#39;-D_BSD_SOURCE&#39;</span>, <span class="st">&#39;-D_GNU_SOURCE&#39;</span>,</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">               <span class="st">&#39;-D_POSIX_SOURCE&#39;</span>, <span class="st">&#39;-D_XOPEN_SOURCE_EXTENDED&#39;</span>, <span class="st">&#39;-D_XOPEN_SOURCE&#39;</span>,</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">               <span class="st">&#39;-DHAVE_OPENGL&#39;</span>, <span class="st">&#39;-DHKS_OPEN_GL&#39;</span>,  <span class="st">&#39;-DGL_GLEXT_PROTOTYPES&#39;</span>,</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">               <span class="st">&#39;-DMULTI_THREADING_ENABLED&#39;</span>, <span class="st">&#39;-D_REENTRANT&#39;</span>,</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">               <span class="st">&#39;-DABQ_MPI_SUPPORT&#39;</span>, <span class="st">&#39;-DBIT64&#39;</span>, <span class="st">&#39;-D_LARGEFILE64_SOURCE&#39;</span>,</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">               <span class="st">&#39;-D_FILE_OFFSET_BITS=64&#39;</span>, <span class="st">&#39;-O2&#39;</span>, <span class="st">&#39;-std=c++11&#39;</span>,</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">               mpiCppImpl,<span class="st">&#39;-I\%I&#39;</span>]</a></code></pre></div>
+<h2 id="generated-input-files">Generated input files</h2>
+<p>Here is an extract of the generated input file for a <code>MFront</code> behaviour named <code>Plasticity</code> for the plane strain modelling hypothesis for the <code>Abaqus/Standard</code> solver:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode pure"><code class="sourceCode pure"><a class="sourceLine" id="cb5-1" data-line-number="1">** Example for the &#39;PlaneStrain&#39; modelling hypothesis</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">*Material, name=ABAQUSBEHAVIOUR_PLASTICITY_PSTRAIN</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">*Depvar</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="dv">5</span>,</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="dv">1</span>, ElasticStrain_11</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="dv">2</span>, ElasticStrain_22</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="dv">3</span>, ElasticStrain_33</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="dv">4</span>, ElasticStrain_12</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="dv">5</span>, EquivalentPlasticStrain</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">** The material properties are given as <span class="kw">if</span> we used parameters to explicitly</a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">** display their names. Users shall replace those declaration by</a>
+<a class="sourceLine" id="cb5-12" data-line-number="12">** theirs values and/or declare those parameters in the appropriate *parameters</a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">** section <span class="kw">of</span> the input file</a>
+<a class="sourceLine" id="cb5-14" data-line-number="14">*User Material, constants=<span class="dv">4</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15">&lt;YoungModulus&gt;, &lt;PoissonRatio&gt;, &lt;H&gt;, &lt;s0&gt;</a></code></pre></div>
+<h1 id="main-features">Main features</h1>
+<h2 id="supported-behaviours">Supported behaviours</h2>
+<p>Isotropic and orthotropic behaviours are both supported.</p>
+<p>For orthotropic behaviours, there are two orthotropy management policy (see the <code>AbaqusOrthotropyManagementPolicy</code> keyword):</p>
+<ul>
+<li><code>Native</code>: an orientation <em>must</em> be defined</li>
+<li><code>MFront</code>: <strong>no</strong> orientation <em>must</em> be defined. The material frame is defined through additional state variables.</li>
+</ul>
+<p>For <code>Abaqus/Standard</code>, small and finite strain behaviours are supported. <strong>For orthotropic finite strain behaviours, one must use the <code>MFront</code> orthotropy management policy</strong>. The reason of this choices is given below.</p>
+<p>For <code>Abaqus/Explicit</code>, only finite strain are supported. Small strain behaviours can be used using one of the finite strain strategies available.</p>
+<h2 id="modelling-hypotheses">Modelling hypotheses</h2>
+<p>The following modelling hypotheses are supported:</p>
+<ul>
+<li>tridimensional (<code>3D</code>)</li>
+<li>plane strain (<code>PSTRAIN</code>)</li>
+<li>plane stress (including shell elements) (<code>PSTRESS</code>)</li>
+<li>axisymmetrical (<code>AXIS</code>)</li>
+</ul>
+<p>The generalised plane strain hypothesis is currently <em>not</em> supported.</p>
+<h1 id="the-abaqusstandard-interface">The <code>Abaqus/Standard</code> interface</h1>
+<p>The <code>Abaqus/Standard</code> solver provides the <code>UMAT</code> interface. In this case, the behaviour shall compute:</p>
+<ul>
+<li>The evolution of the state variables.</li>
+<li>The value the Cauchy stress at the end of the time step. If an orientation is defined, the Cauchy stress must be expressed in the local frame. In finite strain analyses, this local frame rotates with the material.</li>
+<li>The consistent tangent operator. The definition of the consistent tangent operator is given below.</li>
+</ul>
+<p>For finite strain analyses, small strain behaviours can be written in rate form. Without orientation, the behaviour in integrated in the Jauman framework. If an orientation, the behaviour is integrated in a corotational basis. This is different from <code>Abaqus/Explicit</code> which uses a corotational basis in each cases. Indeed, <em>for behaviours written in rate form</em> and using the <code>Native</code> finite strain strategy, <code>Abaqus/Standard</code> and <code>Abaqus/Explicit</code> are only compatible if an orientation is defined.</p>
+<h2 id="finite-strain-behaviours-and-orthotropy-management-policy">Finite strain behaviours and orthotropy management policy</h2>
+<p>In finite strain analyses, the fact that all quantities (deformation gradient, strain and stresses) are expressed in the local frame when an orientation is defined is a source of major difficulties when implementing “true” finite strain behaviours:</p>
+<ul>
+<li>the deformation gradient must be rotated back in the initial configuration, which requires a polar decomposition. Our numerical experiments have shown that this can only be approximate, as <code>Abaqus/Standard</code> uses an approximation of the proper rotation to define the local frame.</li>
+<li>the definition of the consistent tangent operator includes a <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{spin}}\)</span> term the computation of which is quite involved and numerically heavy.</li>
+</ul>
+<p>For those reasons, “true” orthotropic finite strain behaviours are only supported using the <code>MFront</code> orthotropy management policy. In this case, all quantities are expressed in the global configuration. Rotation in the initial material frame is handled by <code>MFront</code>. The consistent tangent operator is much easier to compute.</p>
+<h2 id="finite-strain-strategies">Finite strain strategies</h2>
+<p>Engineers are used to write behaviours based on an additive split of strains, as usual in small strain behaviours. Different strategies exist to:</p>
+<ul>
+<li>write finite strain behaviours that preserve this property.</li>
+<li>guarantee some desirable properties such as energetic consistency and objectivity.</li>
+</ul>
+<p>Through the <code>@AbaqusFiniteStrainStrategy</code>, the user can select on of various finite strain strategies supported by <code>MFront</code>, which are described in this paragraph.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The usage of the <code>@AbaqusFiniteStrainStrategy</code> keyword is mostly deprecated since <code>MFront 3.1</code>: see the <code>@StrainMeasure</code> keyword.</p>
+</blockquote>
+<h3 id="the-native-finite-strain-strategy">The <code>Native</code> finite strain strategy</h3>
+<p>Among them is the <code>Native</code> finite strain strategy which relies on build-in <code>Abaqus/Standard</code> facilities to integrate the behaviours written in rate form. The <code>Native</code> finite strain strategy will use: - the Jauman rate if no orientation is defined. - the corotationnal frame if an orientation is defined.</p>
+<p>Those strategies have some theoretical drawbacks (hypoelasticity, etc…) and are not portable from one code to another.</p>
+<h3 id="recommended-finite-strain-strategies">Recommended finite strain strategies</h3>
+<p>Two other finite strain strategies are available in <code>MFront</code> for the <code>Abaqus/Standard</code> interface (see the <code>@AbaqusFiniteStrainStrategy</code> keyword):</p>
+<ul>
+<li>‘FiniteRotationSmallStrain’: this finite strain strategy is fully described in <span class="citation" data-cites="doghri_mechanics_2000">Doghri (2000)</span>,<span class="citation" data-cites="edf_loi_2013">EDF (2013)</span></li>
+<li>‘MieheApelLambrechtLogarithmicStrain’: this finite strain strategy is fully described in <span class="citation" data-cites="miehe_anisotropic_2002">Miehe, Apel, and Lambrecht (2002)</span> and
+<ol class="example" type="1">
+<li>This finite strain strategy is yet to be implemented.</li>
+</ol></li>
+</ul>
+<p>Those two strategies use lagrangian tensors, which automatically ensures the objectivity of the behaviour.</p>
+<p>Each of these two strategies define an energetic conjugate pair of strain or stress tensors:</p>
+<ul>
+<li>For the ‘FiniteRotationSmallStrain’ case, the strain tensor is the Green-Lagrange strain and the conjugated stress is the second Piola-Kirchhoff stress.</li>
+<li>For the ‘MieheApelLambrechtLogarithmicStrain’, the strain tensor is the langrangian Hencky strain tensor, i.e. the logarithm of the stretch tensor.</li>
+</ul>
+<p>The first strategy is suited for reusing behaviours that were identified under the small strain assumptions in a finite rotation context. The usage of this behaviour is still limited to the small strain assumptions.</p>
+<p>The second strategy is particularly suited for metals, as incompressible flows are characterized by a deviatoric logarithmic strain tensor, which is the exact transposition of the property used in small strain behaviours to handle plastic incompressibility. This means that all valid consistutive equations for small strain behaviours can be automatically reused in finite strain analysis. This does <em>not</em> mean that a behaviour identified under the small strain assumptions can be directly used in a finite strain analysis: the identification would not be consistent.</p>
+<p>Those two finite strain strategies are fairly portable and are available (natively or via <code>MFront</code>) in <code>Cast3M</code>, <code>Code_Aster</code>, <code>Europlexus</code> and <code>Zebulon</code>, etc…</p>
+<h2 id="consistent-tangent-operator-for-finite-strain-behaviours">Consistent tangent operator for finite strain behaviours</h2>
+<h3 id="isotropic-case">Isotropic case</h3>
+<p>The “Abaqus User Subroutines Reference Guide” gives indicates that the tangent moduli required by <code>Abaqus/Standard</code> <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{MJ}\)</span> is closely related to <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\tau\,J}\)</span>, the moduli associated to the Jauman rate of the Kirchhoff stress :</p>
+<p><span class="math display">\[
+J\,\underline{\underline{\mathbf{C}}}^{MJ}=\underline{\underline{\mathbf{C}}}^{\tau\,J}
+\]</span></p>
+<p>where <span class="math inline">\(J\)</span> is the derterminant of the deformation gradient <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span>.</p>
+<p>By definition, <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\tau\,J}\)</span> satisfies: <span class="math display">\[
+\overset{\circ}{\underline{\tau}}^{J}=\underline{\underline{\mathbf{C}}}^{\tau\,J}\,\colon\underline{D}
+\]</span> where <span class="math inline">\(\underline{D}\)</span> is the rate of deformation.</p>
+<h3 id="orthotropic-case">Orthotropic case</h3>
+<p>The orthotropic case, when an orientation is defined, is much more complex and poorly documented. Much of what follows is a matter of deduction and numerical experiments and need to be strengthened.</p>
+<p>For non-linear geometric analyses, <code>Abaqus/Standard</code> uses an hypoelastic based on a corotational stress formulation fully described in the Abaqus manual and the book of Belytschko <span class="citation" data-cites="belytschko_nonlinear_2000">(see Belytschko 2000)</span>.</p>
+<p>The deformation gradient is given in the corotational framework. The output of the <code>UMAT</code> subroutine is the corotational stress <span class="math inline">\(\underline{\hat{\sigma}}\)</span> defined by:</p>
+<p><span class="math display">\[
+\underline{\sigma}={\underset{\tilde{}}{\mathbf{R}}}\,.\,\underline{\hat{\sigma}}\,{{\underset{\tilde{}}{\mathbf{R}}}^{\mathrm{T}}}
+\]</span></p>
+<p>where <span class="math inline">\({\underset{\tilde{}}{\mathbf{R}}}\)</span> is the rotation matrix obtained by the polar decomposition of the deformation gradient <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span>.</p>
+<p>For consistency, one expects the appropriate tangent operator to be be defined by:</p>
+<p><span class="math display">\[
+\underline{\hat{\tau}}=\displaystyle\frac{\displaystyle 1}{\displaystyle J}\underline{\underline{\mathbf{\hat{C}}}}^{\tau}\,\colon\,\underline{\hat{D}}
+\]</span></p>
+<p><span class="math inline">\(\underline{\underline{\mathbf{\hat{C}}}}^{\tau}\)</span> can be directly related to the moduli associated to the corotational Cauchy stress <span class="math inline">\(\underline{\underline{\mathbf{\hat{C}}}}\)</span>. <span class="math inline">\(\underline{\underline{\mathbf{\hat{C}}}}\)</span> is then related to the to the moduli associated to the Green-Nagdi stress rate <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\sigma\,G}\)</span>: <span class="math inline">\(\underline{\underline{\mathbf{\hat{C}}}}\)</span> is obtained by rotationg <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\sigma\,G}\)</span> in the corotational framework.</p>
+<h1 id="the-abaqusexplicit-interface">The <code>Abaqus/Explicit</code> interface</h1>
+<p>Using <code>Abaqus/Explicit</code>, computations can be performed using single (the default) or double precision. The user thus must choose the appropriate generic file for calling <code>MFront</code> behaviours:</p>
+<ul>
+<li>the <code>vumat-sp.cpp</code> file is used for single precision.</li>
+<li>the <code>vumat-dp.cpp</code> file is used for double precision.</li>
+</ul>
+<p><em>For double precision computation, the user must pass the <code>double=both</code> command line arguments to <code>Abaqus/Explicit</code> so that both the packaging steps and the resolution are performed in double precision</em> (by default, if only the <code>double</code> command line argument is passed to <code>Abaqus/Explicit</code>, the packaging step is performed in single precision and the resolution is performed in double precision).</p>
+<p><strong>It is important to carefully respect those instructions: otherwise, <code>Abaqus/Explicit</code> will crash due to a memory corruption (segmentation error)</strong>.</p>
+<p>Here is an example of <code>Abaqus</code> invocation:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="ex">Abaqus</span> user=vumat-dp.cpp double=both job=...</a></code></pre></div>
+<h2 id="finite-strain-strategies-1">Finite strain strategies</h2>
+<p>As for <code>Abaqus/Standard</code>, user may choose one of the finite strain strategies available through <code>MFront</code>.</p>
+<h3 id="the-native-finite-strain-strategy-1">The <code>Native</code> finite strain strategy</h3>
+<p>The <code>Native</code> finite strain strategy relies on build-in <code>Abaqus/Explicit</code> facilities to integrate the behaviours written in rate form, i.e. it will integrate the behaviour using a corotationnal approach based on the polar decomposition of the deformation gradient.</p>
+<h3 id="recommended-finite-strain-strategies-1">Recommended finite strain strategies</h3>
+<p>The other finite strain strategies described for <code>Abaqus/Standard</code> are also available for the <code>Abaqus/Explicit</code> interface:</p>
+<ul>
+<li>‘FiniteRotationSmallStrain’</li>
+<li>‘MieheApelLambrechtLogarithmicStrain’</li>
+</ul>
+<h2 id="energies">Energies</h2>
+<p><code>MFront</code> behaviours can optionally compute the stored and dissipated energies through the <code>@InternalEnergy</code> and <code>@DissipatedEnergy</code> keywords.</p>
+<p>In <code>Abaqus/Standard</code>, the stored energy is returned in the <code>SSE</code> output and the dissipated energy is returned in the <code>SPD</code> output.</p>
+<p>In <code>Abaqus/Explicit</code>, the stored energy is returned in the <code>enerInternNew</code> variable and the the dissipated energy is returned in the <code>enerInelasNew</code> output.</p>
+<h3 id="a">A</h3>
+<!-- - Internal energy per unit mass -->
+<!-- - Dissipated inelastic energy per unit mass -->
+<h1 id="appendix">Appendix</h1>
+<figure>
+<img src="img/FiniteStrainTangentOperatorConvertion.svg" title="Supported relations between tangent operators in `MFront`" alt="“Relation between tangent operators”" /><figcaption>“Relation between tangent operators”</figcaption>
+</figure>
+<p>Most information reported here are extracted from the book of Belytschko (<span class="citation" data-cites="belytschko_nonlinear_2000">Belytschko (2000)</span>).</p>
+<h2 id="relations-between-tangent-operator">Relations between tangent operator</h2>
+<h4 id="relation-with-the-moduli-associated-to-the-truesdell-rate-of-the-cauchy-stress-underlineunderlinemathbfcsigmat">Relation with the moduli associated to the Truesdell rate of the Cauchy Stress <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\sigma\,T}\)</span></h4>
+<p>The moduli associated to the Truesdell rate of the Cauchy Stress <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\sigma\,T}\)</span> is related to <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\tau\,J}\)</span> by the following relationship:</p>
+<p><span class="math display">\[
+\underline{\underline{\mathbf{C}}}^{\tau\,J}=J\,\left(\underline{\underline{\mathbf{C}}}^{\sigma\,T}+\underline{\underline{\mathbf{C}}}^{\prime}\right)\quad\text{with}\quad\underline{\underline{\mathbf{C}}}^{\prime}\colon\underline{D}=\underline{\sigma}\,.\,\underline{D}+\underline{D}\,.\,\underline{\sigma}
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+\underline{\underline{\mathbf{C}}}^{MJ}=\underline{\underline{\mathbf{C}}}^{\sigma\,T}+\underline{\underline{\mathbf{C}}}^{\prime}
+\]</span></p>
+<h4 id="relation-with-the-spatial-moduli-underlineunderlinemathbfcs">Relation with the spatial moduli <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{s}\)</span></h4>
+<p>The spatial moduli <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{s}\)</span> is associated to the Lie derivative of the Kirchhoff stress <span class="math inline">\(\mathcal{L}\underline{\tau}\)</span> , which is also called the convected rate or the Oldroyd rate:</p>
+<p><span class="math display">\[
+\mathcal{L}\underline{\tau}=\underline{\underline{\mathbf{C}}}^{s}\,\colon\,\underline{D}
+\]</span></p>
+<p>The spatial moduli is related to the moduli associated to Truesdell rate of the Cauchy stress <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\sigma\,T}\)</span>:</p>
+<p><span class="math display">\[
+\underline{\underline{\mathbf{C}}}^{\sigma\,T}=J^{-1}\,\underline{\underline{\mathbf{C}}}^{s}
+\]</span></p>
+<p>Thus, we have: <span class="math display">\[
+\underline{\underline{\mathbf{C}}}^{MJ}= J^{-1}\underline{\underline{\mathbf{C}}}^{s}+\underline{\underline{\mathbf{C}}}^{\prime} = J^{-1}\left(\underline{\underline{\mathbf{C}}}^{s}+\underline{\underline{\mathbf{C}}}^{\prime\prime}\right)\quad\text{with}\quad\underline{\underline{\mathbf{C}}}^{\prime\prime}\colon\underline{D}=\underline{\tau}\,.\,\underline{D}+\underline{D}\,.\,\underline{\tau}
+\]</span></p>
+<!-- The relationship between \(CsJ\) and -->
+<!-- \(\Cs\) can be expressed in component form as -->
+<!-- \[ -->
+<!-- CsJ_{ijlk}=\Cs+I_{ik}\tau_{jl}+I_{jl}\tau_{ik} -->
+<!-- \] -->
+<!-- where \tns{I} is the rank 2 identity tensor. -->
+<h4 id="relation-with-underlineunderlinemathbfcmathrmse">Relation with <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{SE}}\)</span></h4>
+<p>The <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{SE}}\)</span> relates the rate of the second Piola-Kirchhoff stress <span class="math inline">\(\underline{S}\)</span> and the Green-Lagrange strain rate <span class="math inline">\(\underline{\varepsilon}^{\mathrm{GL}}\)</span>:</p>
+<p><span class="math display">\[
+\underline{\dot{S}}=\underline{\underline{\mathbf{C}}}^{\mathrm{SE}}\,\colon\,\underline{\dot{\varepsilon}}^{\mathrm{GL}}
+\]</span></p>
+<p>As the Lie derivative of the Kirchhoff stress <span class="math inline">\(\mathcal{L}\underline{\tau}\)</span> is the push-forward of the second Piola-Kirchhoff stress rate <span class="math inline">\(\underline{\dot{S}}\)</span> and the rate of deformation <span class="math inline">\(\underline{D}\)</span> is push-forward of the Green-Lagrange strain rate <span class="math inline">\(\underline{\dot{\varepsilon}}^{\mathrm{GL}}\)</span>, <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{s}\)</span> is the push-forward of <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{SE}}\)</span>:</p>
+<p><span class="math display">\[
+C^{c}_{ijkl}=F_{im}F_{jn}F_{kp}F_{lq}C^{\mathrm{SE}}_{mnpq}
+\]</span></p>
+<h4 id="link-with-displaystylefracdisplaystyle-partial-underlinesigmadisplaystyle-partial-undersettildemathbff">Link with <span class="math inline">\(\displaystyle\frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}\)</span></h4>
+<p>For all variation of the deformation gradient <span class="math inline">\(\delta\,{\underset{\tilde{}}{\mathbf{F}}}\)</span>, the Jauman rate of the Kirchhoff stress satisfies: <span class="math display">\[
+\underline{\underline{\mathbf{C}}}^{\tau\,J}\,\colon\delta\underline{D}=\delta\underline{\tau}-\delta{\underset{\tilde{}}{\mathbf{W}}}.\underline{\tau}+\underline{\tau}.\delta{\underset{\tilde{}}{\mathbf{W}}}
+\]</span></p>
+<p>with:</p>
+<ul>
+<li><span class="math inline">\(\delta{\underset{\tilde{}}{\mathbf{L}}}= \delta{\underset{\tilde{}}{\mathbf{F}}}\,.\,{\underset{\tilde{}}{\mathbf{F}}}^{-1}\)</span></li>
+<li><span class="math inline">\(\delta{\underset{\tilde{}}{\mathbf{W}}}= \displaystyle\frac{\displaystyle 1}{\displaystyle 2}\left(\delta{\underset{\tilde{}}{\mathbf{L}}}-{\delta{\underset{\tilde{}}{\mathbf{L}}}^{\mathrm{T}}}\right)\)</span></li>
+<li><span class="math inline">\(\delta{\underset{\tilde{}}{\mathbf{D}}}= \displaystyle\frac{\displaystyle 1}{\displaystyle 2}\left(\delta{\underset{\tilde{}}{\mathbf{L}}}+{\delta{\underset{\tilde{}}{\mathbf{L}}}^{\mathrm{T}}}\right)\)</span></li>
+</ul>
+<p>Thus, the derivative of the Kirchhoff stress with respect to the deformation gradient yields: <span class="math display">\[
+\displaystyle\frac{\displaystyle \partial \underline{\tau}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}=\underline{\underline{\mathbf{C}}}^{\tau\,J}\,.\,\displaystyle\frac{\displaystyle \partial \underline{D}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}+\left(\partial^{\star}_{r}\left(\tau\right)-\partial^{\star}_{l}\left(\tau\right)\right)\,.\,\displaystyle\frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{W}}}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}
+\]</span></p>
+<p>with <span class="math inline">\(\delta\,\underline{D}=\displaystyle\frac{\displaystyle \partial \underline{D}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}\,\colon\,\delta\,{\underset{\tilde{}}{\mathbf{F}}}\)</span> and <span class="math inline">\(\delta\,{\underset{\tilde{}}{\mathbf{W}}}=\displaystyle\frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{W}}}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}\,\colon\,\delta\,{\underset{\tilde{}}{\mathbf{F}}}\)</span></p>
+<p><span class="math display">\[
+\displaystyle\frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}=\displaystyle\frac{\displaystyle 1}{\displaystyle J}\left(\displaystyle\frac{\displaystyle \partial \underline{\tau}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}-\underline{\sigma}\,\otimes\,\displaystyle\frac{\displaystyle \partial J}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}\right)
+\]</span></p>
+<h3 id="numerical-approximation-of-underlineunderlinemathbfcmj">Numerical approximation of <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{MJ}\)</span></h3>
+<p>Following <span class="citation" data-cites="sun_numerical_2008">Sun, Chaikof, and Levenston (2008)</span>, an numerical approximation of <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{MJ}\)</span> is given by: <span class="math display">\[
+\underline{\underline{\mathbf{C}}}^{MJ}_{ijkl}\approx\displaystyle\frac{\displaystyle 1}{\displaystyle J\,\varepsilon}\left(\underline{\tau}_{ij}\left({\underset{\tilde{}}{\mathbf{F}}}+{\underset{\tilde{}}{\mathbf{\delta F}}}^{kl}\right)-\underline{\tau}_{ij}\left({\underset{\tilde{}}{\mathbf{F}}}\right)\right) \]</span></p>
+<p>where the perturbation <span class="math inline">\({\underset{\tilde{}}{\mathbf{\delta F}}}^{kl}\)</span> is given by:</p>
+<p><span class="math display">\[
+{\underset{\tilde{}}{\mathbf{\delta F}}}^{kl}=\displaystyle\frac{\displaystyle \varepsilon}{\displaystyle 2}\left(\vec{e}_{k}\otimes\vec{e}_{l}+\vec{e}_{l}\otimes\vec{e}_{k}\right)\,.\,{\underset{\tilde{}}{\mathbf{F}}}
+\]</span></p>
+<p>Such perturbation leads to the following rate of deformation: <span class="math display">\[
+\delta\,\underline{D}=\left({\underset{\tilde{}}{\mathbf{\delta F}}}^{kl}\right)\,{\underset{\tilde{}}{\mathbf{F}}}^{-1}=\displaystyle\frac{\displaystyle \varepsilon}{\displaystyle 2}\left(\vec{e}_{k}\otimes\vec{e}_{l}+\vec{e}_{l}\otimes\vec{e}_{k}\right)
+\]</span></p>
+<p>The spin rate <span class="math inline">\(\delta\,\underline{W}\)</span> associated with <span class="math inline">\({\underset{\tilde{}}{\mathbf{\delta F}}}^{kl}\)</span> is null.</p>
+<h4 id="relation-with-the-moduli-associated-to-the-truesdell-rate-of-the-cauchy-stress-underlineunderlinemathbfcsigmat-1">Relation with the moduli associated to the Truesdell rate of the Cauchy Stress <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\sigma\,T}\)</span></h4>
+<p>The moduli associated with Truesdell rate of the Cauchy Stress can be related to the moduli associated to the Green-Nagdi stress rate.</p>
+<p><span class="math display">\[
+\underline{\underline{\mathbf{C}}}^{\sigma\,G}=\underline{\underline{\mathbf{C}}}^{\sigma\,T}+\underline{\underline{\mathbf{C}}}^{\prime}-\underline{\sigma}\otimes\underline{I}+\underline{\underline{\mathbf{C}}}^{\mathrm{spin}}
+\]</span></p>
+<p>where <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{spin}}\)</span> is given in <span class="citation" data-cites="simo_computational_1998">Simo and Hughes (1998)</span>. The computation of the <span class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{spin}}\)</span> moduli is awkward and is not currently supported by <code>MFront</code>.</p>
+<h4 id="relation-with-other-moduli">Relation with other moduli</h4>
+<p>The previous relation can be used to relate to other moduli. See the section describing the isotropic case for details.</p>
+<h1 id="biblography">Biblography</h1>
+<!-- Local IspellDict: english -->
+<div id="refs" class="references">
+<div id="ref-belytschko_nonlinear_2000">
+<p>Belytschko, Ted. 2000. <em>Nonlinear Finite Elements for Continua and Structures</em>. Chichester ; New York: Wiley-Blackwell.</p>
+</div>
+<div id="ref-doghri_mechanics_2000">
+<p>Doghri, Issam. 2000. <em>Mechanics of Deformable Solids: Linear, Nonlinear, Analytical, and Computational Aspects</em>. Berlin; New York: Springer.</p>
+</div>
+<div id="ref-edf_loi_2013">
+<p>EDF. 2013. “Loi de Comportement Hyperélastique : Matériau Presque Incompressible.” Référence du Code Aster R5.03.19. EDF-R&amp;D/MITI/MMN. <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a>.</p>
+</div>
+<div id="ref-miehe_anisotropic_2002">
+<p>Miehe, C., N. Apel, and M. Lambrecht. 2002. “Anisotropic Additive Plasticity in the Logarithmic Strain Space: Modular Kinematic Formulation and Implementation Based on Incremental Minimization Principles for Standard Materials.” <em>Computer Methods in Applied Mechanics and Engineering</em> 191 (47–48): 5383–5425. <a href="https://doi.org/10.1016/S0045-7825(02)00438-3" class="uri">https://doi.org/10.1016/S0045-7825(02)00438-3</a>.</p>
+</div>
+<div id="ref-simo_computational_1998">
+<p>Simo, Juan C, and Thomas J. R Hughes. 1998. <em>Computational Inelasticity</em>. New York: Springer.</p>
+</div>
+<div id="ref-sun_numerical_2008">
+<p>Sun, Wei, Elliot L Chaikof, and Marc E Levenston. 2008. “Numerical Approximation of Tangent Moduli for Finite Element Implementations of Nonlinear Hyperelastic Material Models.” <em>Journal of Biomechanical Engineering</em> 130 (6): 061003–3. <a href="https://doi.org/10.1115/1.2979872" class="uri">https://doi.org/10.1115/1.2979872</a>.</p>
+</div>
+</div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

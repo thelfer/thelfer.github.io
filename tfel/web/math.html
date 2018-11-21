@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>The TFEL/Math library</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">The TFEL/Math library</h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">22/12/2017</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#the-tfelmath-library"><span class="toc-section-number">1</span> The <code>TFELMath</code> library</a></li>
+      <li><a href="#the-tfelmathcubicspline-library"><span class="toc-section-number">2</span> The <code>TFELMathCubicSpline</code> library</a></li>
+      <li><a href="#the-tfelmathkriging-library"><span class="toc-section-number">3</span> The <code>TFELMathKriging</code> library</a></li>
+      <li><a href="#the-tfelmathparser-library"><span class="toc-section-number">4</span> The <code>TFELMathParser</code> library</a><ul>
+      <li><a href="#the-evaluator-class"><span class="toc-section-number">4.1</span> The <code>Evaluator</code> class</a></li>
+      </ul></li>
+      </ul>
+    </div>
+        
+<h1 id="the-tfelmath-library"><span class="header-section-number">1</span> The <code>TFELMath</code> library</h1>
+<p>The <code>TFEL/Math</code> library defines:</p>
+<ul>
+<li>mathematical objects, such as second and fourth order tensors. See <a href="tensors.html">this page</a> for details.</li>
+</ul>
+<h1 id="the-tfelmathcubicspline-library"><span class="header-section-number">2</span> The <code>TFELMathCubicSpline</code> library</h1>
+<h1 id="the-tfelmathkriging-library"><span class="header-section-number">3</span> The <code>TFELMathKriging</code> library</h1>
+<h1 id="the-tfelmathparser-library"><span class="header-section-number">4</span> The <code>TFELMathParser</code> library</h1>
+<h2 id="the-evaluator-class"><span class="header-section-number">4.1</span> The <code>Evaluator</code> class</h2>
+<p>The <code>Evaluator</code> class is used to interpret textual formula, as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1">Evalutator ev(<span class="st">&quot;sin(x)&quot;</span>);</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">ev.setVariableValue(<span class="st">&quot;x&quot;</span>,<span class="dv">12</span>);</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="at">const</span> <span class="kw">auto</span> s = ev.getValue();</a></code></pre></div>
+<p>A shorthand for the previous code is the following:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1">Evalutator ev(<span class="st">&quot;sin(x)&quot;</span>);</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> s = ev.getValue({{x:<span class="dv">12</span>}});</a></code></pre></div>
+<p>The <code>getValue</code> method can also be replaced by the call operator, as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1">Evalutator ev(<span class="st">&quot;sin(x)&quot;</span>);</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> s = ev({{x:<span class="dv">12</span>}});</a></code></pre></div>
+<h3 id="standard-operations"><span class="header-section-number">4.1.1</span> Standard operations</h3>
+<p>Let <code>x</code> and <code>y</code> be two variables, then:</p>
+<ul>
+<li><code>x+y</code>: computes the sum of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</li>
+<li><code>x-y</code>: computes <span class="math inline">\(x\)</span> minus <span class="math inline">\(y\)</span>.</li>
+<li><code>x*y</code>: computes the product of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</li>
+<li><code>x/y</code>: computes <span class="math inline">\(x\)</span> divided by <span class="math inline">\(y\)</span>.</li>
+<li><code>x**y</code>: computes <span class="math inline">\(x^{y}\)</span>.</li>
+</ul>
+<p>The standard priority of those operators has been respected. Parenthesis may be used to define sub-expressions.</p>
+<h3 id="standard-function-and-constants"><span class="header-section-number">4.1.2</span> Standard function and constants</h3>
+<p>This paragraph gives a list of functions known by the <code>Evaluator</code> class.</p>
+<h4 id="constants"><span class="header-section-number">4.1.2.1</span> Constants</h4>
+<p>The physical constants described in <a href="physical-constants.html">this page</a> are accessible through the <code>Cste</code> namespace, as follows:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1">Evalutator ev(<span class="st">&quot;exp(-Q/(Cste::R*T))&quot;</span>);</a></code></pre></div>
+<h4 id="unary-functions"><span class="header-section-number">4.1.2.2</span> Unary functions</h4>
+<p>Most unary function defined by the <code>C++11</code> standard have been bind and can directly be used in formulae that can be evaluated by the <code>Evaluator</code> class:</p>
+<ul>
+<li><code>exp</code>: returns the base-e exponential.</li>
+<li><code>exp2</code>: returns the base-2 exponential.</li>
+<li><code>expm1</code>: returns the base-e exponential minus one.</li>
+<li><code>sqrt</code>: returns the square root</li>
+<li><code>cbrt</code>: returns the cubic root</li>
+<li><code>ln</code>: computes the logarithm of the argment.</li>
+<li><code>log</code>: computes the logarithm of the argment (synonymous of <code>ln</code>).</li>
+<li><code>log10</code>: computes the base-10 logarithm of the argment.</li>
+<li><code>log2</code>: computes the base-2 logarithm of the argment.</li>
+<li><code>log1p</code>: computes the logarithm of the argment plus one.</li>
+<li><code>cosh</code>: computes the hyperbolic cosine.</li>
+<li><code>sinh</code>: computes the hyperbolic sine.</li>
+<li><code>tanh</code>: computes the hyperbolic tangent.</li>
+<li><code>acosh</code>: computes the inverse of the hyperbolic cosine.</li>
+<li><code>asinh</code>: computes the inverse of the hyperbolic sine.</li>
+<li><code>atanh</code>: computes the inverse of the hyperbolic tangent.</li>
+<li><code>abs</code>: computes absolute value.</li>
+<li><code>cos</code>: computes the cosine.</li>
+<li><code>sin</code>: computes the sine.</li>
+<li><code>tan</code>: computes the tangent.</li>
+<li><code>acos</code>: computes the arccosine.</li>
+<li><code>asin</code>: computes the arcsine.</li>
+<li><code>atan</code>: computes the arctangent.</li>
+<li><code>erf</code>: computes the error function.</li>
+<li><code>erfc</code>: computes the complementary error function.</li>
+<li><code>tgamma</code>: computes the Gamma function.</li>
+<li><code>lgamma</code>: compute the natural logarithm of the gamma function.</li>
+</ul>
+<p>Additionally, the following functions have been introduced:</p>
+<ul>
+<li><code>H</code>: Heavyside function</li>
+<li><code>power&lt;N&gt;</code> (<span class="math inline">\(1\,\leq\,N\,\leq\,16\)</span>): raises the argument to power <span class="math inline">\(N\)</span>.</li>
+</ul>
+<blockquote>
+<p><strong>Notes</strong></p>
+<ol type="1">
+<li>Arguments of trigonometric functions are expressed in radians.</li>
+<li>This functions are wrapped so that errors, such as invalid domain for the arguments, are turned into C++ exceptions. See Section  4.1.3 below.</li>
+</ol>
+</blockquote>
+<h4 id="binary-functions"><span class="header-section-number">4.1.2.3</span> Binary functions</h4>
+<ul>
+<li><code>max</code>: returns the minimum of its two arguments.</li>
+<li><code>min</code>: returns the maximum of its two arguments.</li>
+<li><code>hypot</code>: returns the hypotenuse of a right-angled triangle whose legs are x and y, i.e. computes (.</li>
+<li><code>atan2</code>: returns the principal value of the arc tangent of <span class="math inline">\(y/x\)</span>, expressed in radians.</li>
+</ul>
+<h3 id="sec:Evaluator:error"><span class="header-section-number">4.1.3</span> Error handling when calling the <code>getValue</code> method</h3>
+<p>The mathematical functions described earlier are provided by the <code>C++</code> language and reports error using the <code>errno</code> variable. The <code>Evaluator</code> class wraps those functions to catch modification to the <code>errno</code> variable and change it into <code>C++</code> exceptions.</p>
+<!-- Local IspellDict: english -->
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

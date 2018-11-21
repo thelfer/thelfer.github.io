@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Introduction à MFront</title>
+        <meta name="author" content="Helfer Thomas" />
+        <meta name="author" content="Jean-Michel Proix" />
+            <meta name="date" content="2014-09-16" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Introduction à MFront</h1>
+                  <h2 class="author">Helfer Thomas</h2>
+            <h2 class="author">Jean-Michel Proix</h2>
+                  <h3 class="date">September 16, 2014</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#comment-écrire-une-loi-de-comportement-la-loi-de-comportement-de-norton">Comment écrire une loi de comportement: la loi de comportement de Norton</a><ul>
+      <li><a href="#discrétisation-implicite-de-loi-de-norton">Discrétisation implicite de loi de Norton</a></li>
+      <li><a href="#première-implantation">Première implantation</a><ul>
+      <li><a href="#description-ligne-par-ligne">Description ligne par ligne</a></li>
+      </ul></li>
+      <li><a href="#premier-test">Premier test</a></li>
+      </ul></li>
+      <li><a href="#références">Références</a></li>
+      </ul>
+    </div>
+        <p>Cette page est extraitre du tutoriel MFront : <a href="documents/tutoriel/tutoriel.pdf">tutoriel.pdf</a>.</p>
+
+
+
+
+
+
+
+
+<h1 id="comment-écrire-une-loi-de-comportement-la-loi-de-comportement-de-norton">Comment écrire une loi de comportement: la loi de comportement de Norton</h1>
+<p>En guise de préliminaire, prenons par exemple la loi de Norton. Elle est définie par: <span class="math display">\[\left\{
+  \begin{aligned}
+    \underline{\epsilon}^{\mathrm{to}}&amp;= \underline{\epsilon}^{\mathrm{el}}+\underline{\epsilon}^{\mathrm{vis}}\\
+    \underline{\sigma}&amp;= \underline{\mathbf{D}}\,:\,\underline{\epsilon}^{\mathrm{el}}\\
+    \underline{\dot{\epsilon}}^{\mathrm{vis}}&amp;= \dot{p}\,\underline{n} \\
+    \dot{p}       &amp;= A\,\sigma_{\mathrm{eq}}^{m}
+  \end{aligned}
+\right.\]</span> où:</p>
+<ul>
+<li><span class="math inline">\(\underline{\epsilon}^{\mathrm{to}}\)</span>, <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span>, <span class="math inline">\(\underline{\epsilon}^{\mathrm{vis}}\)</span> représentant respectivement les déformations totale, élastique et visqueuse ;</li>
+<li><span class="math inline">\(\underline{n}={\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}\,{\displaystyle \frac{\displaystyle \underline{s}}{\displaystyle \sigma_{\mathrm{eq}}}}\)</span> est la direction d’écoulement ;</li>
+<li><span class="math inline">\(\underline{s}\)</span> est le déviateur des contraintes ;</li>
+<li><span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> est la norme de Von Mises.</li>
+</ul>
+<p>L’opérateur d’élasticité <span class="math inline">\(\underline{\mathbf{D}}\)</span> est calculé à partir du module d’ <span class="math inline">\(E\)</span> et du coefficient de <span class="math inline">\(\nu\)</span>.</p>
+<h2 id="discrétisation-implicite-de-loi-de-norton">Discrétisation implicite de loi de Norton</h2>
+<p>Pour intégrer cette loi dans un calcul de structure, il faut procéder à une discrétisation en temps, ce qui revient à définir une suite d’instants de calcul <span class="math inline">\(\left\{t_{i}\right\}_{1\le i\le I}\)</span>.</p>
+<p>Pour utiliser un algorithme implicite, il suffit d’écrire toutes les quantités à l’instant <span class="math inline">\(t_{i}\)</span> et de remplacer les dérivées en temps par leurs incréments sur l’intervalle <span class="math inline">\(\Delta t= t_{i} - t_{i-1}\)</span> : <span class="math display">\[\left\{
+  \begin{aligned}
+    \Delta\,\underline{\epsilon}^{\mathrm{el}}- \Delta\,\underline{\epsilon}^{\mathrm{to}}+ \Delta\,p\,\underline{n} = 0 \\
+    \Delta\,p  - \Delta\,t\, A\,\sigma_{\mathrm{eq}}^{m} = 0 
+  \end{aligned}
+\right.\]</span></p>
+<p>avec:</p>
+<ul>
+<li><span class="math inline">\(\underline{\sigma}= \underline{\mathbf{D}}\,:\,\underline{\epsilon}^{\mathrm{el}}\)</span> ;</li>
+<li><span class="math inline">\(\underline{n}={\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}\,{\displaystyle \frac{\displaystyle  \underline{s} \left(t_{i}\right)}{\displaystyle  \sigma_{\mathrm{eq}}\left( t_{i}\right)}}\)</span></li>
+</ul>
+<p>On obtient ainsi un système de 7 équations (6 équations — en 3D — relatives à la décomposition additive du tenseur des déformations, et une équation relative à l’écoulement visco-plastique). Les <span class="math inline">\(7\)</span> inconnues sont les <span class="math inline">\(6\)</span> composantes de <span class="math inline">\(\Delta\,\underline{\epsilon}^{\mathrm{el}}\)</span> (en <span class="math inline">\(3D\)</span>) et <span class="math inline">\(\Delta p\)</span>.</p>
+<p>La résolution implicite de ce système est effectuée par une méthode de Newton.</p>
+<h2 id="première-implantation">Première implantation</h2>
+<p>Voici un exemple très simple d’intégration implicite de ce modèle avec <code>MFront</code> :</p>
+<div class="sourceCode" id="UO2YoungModulus"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><a class="sourceLine" id="UO2YoungModulus-1" data-line-number="1"><span class="er">@</span>Parser Implicit;</a>
+<a class="sourceLine" id="UO2YoungModulus-2" data-line-number="2"><span class="er">@</span>Behaviour Norton;</a>
+<a class="sourceLine" id="UO2YoungModulus-3" data-line-number="3"><span class="er">@</span>Algorithm NewtonRaphson_NumericalJacobian ;</a>
+<a class="sourceLine" id="UO2YoungModulus-4" data-line-number="4"></a>
+<a class="sourceLine" id="UO2YoungModulus-5" data-line-number="5"><span class="er">@</span>RequireStiffnessTensor;</a>
+<a class="sourceLine" id="UO2YoungModulus-6" data-line-number="6"></a>
+<a class="sourceLine" id="UO2YoungModulus-7" data-line-number="7"><span class="er">@</span>MaterialProperty real A;</a>
+<a class="sourceLine" id="UO2YoungModulus-8" data-line-number="8"><span class="er">@</span>MaterialProperty real m;</a>
+<a class="sourceLine" id="UO2YoungModulus-9" data-line-number="9"></a>
+<a class="sourceLine" id="UO2YoungModulus-10" data-line-number="10"><span class="er">@</span>StateVariable real p ;</a>
+<a class="sourceLine" id="UO2YoungModulus-11" data-line-number="11"></a>
+<a class="sourceLine" id="UO2YoungModulus-12" data-line-number="12"><span class="er">@</span>ComputeStress{</a>
+<a class="sourceLine" id="UO2YoungModulus-13" data-line-number="13">  sig = D*eel ;</a>
+<a class="sourceLine" id="UO2YoungModulus-14" data-line-number="14">}</a>
+<a class="sourceLine" id="UO2YoungModulus-15" data-line-number="15"></a>
+<a class="sourceLine" id="UO2YoungModulus-16" data-line-number="16"><span class="er">@</span>Integrator{</a>
+<a class="sourceLine" id="UO2YoungModulus-17" data-line-number="17">  real seq = sigmaeq(sig) ;</a>
+<a class="sourceLine" id="UO2YoungModulus-18" data-line-number="18">  Stensor n = Stensor(<span class="fl">0.</span>) ;</a>
+<a class="sourceLine" id="UO2YoungModulus-19" data-line-number="19">  <span class="cf">if</span>(seq &gt; <span class="dv">1</span>.e<span class="dv">-12</span>){</a>
+<a class="sourceLine" id="UO2YoungModulus-20" data-line-number="20">    n = <span class="fl">1.5</span>*deviator(sig)/seq ;</a>
+<a class="sourceLine" id="UO2YoungModulus-21" data-line-number="21">  }</a>
+<a class="sourceLine" id="UO2YoungModulus-22" data-line-number="22">  feel += dp*n-deto ;</a>
+<a class="sourceLine" id="UO2YoungModulus-23" data-line-number="23">  fp -= dt*A*pow(seq,m) ;</a>
+<a class="sourceLine" id="UO2YoungModulus-24" data-line-number="24">} <span class="co">// end of @Integrator</span></a>
+<a class="sourceLine" id="UO2YoungModulus-25" data-line-number="25"></a>
+<a class="sourceLine" id="UO2YoungModulus-26" data-line-number="26"><span class="er">@</span>TangentOperator{</a>
+<a class="sourceLine" id="UO2YoungModulus-27" data-line-number="27">  Stensor4 Je ;</a>
+<a class="sourceLine" id="UO2YoungModulus-28" data-line-number="28">  getPartialJacobianInvert(Je) ;</a>
+<a class="sourceLine" id="UO2YoungModulus-29" data-line-number="29">  Dt = D*Je ;</a>
+<a class="sourceLine" id="UO2YoungModulus-30" data-line-number="30">}</a></code></pre></div>
+<h3 id="description-ligne-par-ligne">Description ligne par ligne</h3>
+<p>Un fichier commence généralement par une partie déclarative décrivant l’algorithme utilisé pour la résolution, le nom du comportement (ici ),puis la liste des propriétés matériau utilisées. On fournit ensuite le nom des variables internes, et la description des équations du système à résoudre.</p>
+<ul>
+<li>la ligne <span class="math inline">\(1\)</span> précise que nous allons utiliser une méthode d’intégration implicite ;</li>
+<li>la ligne <span class="math inline">\(2\)</span> donne le nom de la loi ;</li>
+<li>la ligne <span class="math inline">\(3\)</span> précise que l’on utilise un algorithme de avec jacobienne numérique ;</li>
+<li>la ligne <span class="math inline">\(5\)</span> demande le calcul de la matrice d’élasticité ;</li>
+<li>les lignes <span class="math inline">\(7\)</span> et <span class="math inline">\(8\)</span> définissent les propriétés matériau de la loi ;</li>
+<li>la ligne <span class="math inline">\(10\)</span> déclare la variable interne <span class="math inline">\(p\)</span>. Signalons que la variable interne <code>eel</code> (tenseur déformation élastique <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span>) est prédéfinie par MFront;</li>
+<li>les lignes <span class="math inline">\(16\)</span> à <span class="math inline">\(24\)</span> définissent les équations à résoudre ; la convention de nom est la suivante : pour chaque variale interne <code>x</code>, l’incrément est noté <code>dx</code>, et l’équation correspondante <code>fx</code> ;</li>
+<li>la ligne <span class="math inline">\(17\)</span> demande le calcul de la norme de Von Mises ;</li>
+<li>les lignes <span class="math inline">\(18\)</span> à <span class="math inline">\(21\)</span> correspondent au calcul de la direction d’écoulement ;</li>
+<li>la ligne <span class="math inline">\(22\)</span> définit l’équation <span class="math inline">\(\Delta\,\underline{\epsilon}^{\mathrm{el}}-  \Delta\,\underline{\epsilon}^{\mathrm{to}}+ \Delta\,p\,\underline{n} = 0\)</span>. En effet, <code>feel</code> est initialisé à <code>deel</code> et l’opérateur <code>+=</code> cumule les valeurs (comme en langage <code>c</code>);</li>
+<li>la ligne <span class="math inline">\(22\)</span> définit l’équation <span class="math inline">\(\Delta\, p -  \Delta\,t\,A\,\sigma_{\mathrm{eq}}^{m}=0\)</span>. Comme précédemment, <code>fp</code> est initialisé à dp, et <code>fp -= xx</code> est équivalent à <code>fp = fp - xx</code> .</li>
+<li>les lignes <span class="math inline">\(26\)</span> à <span class="math inline">\(29\)</span> permettent de calculer automatiquement l’opérateur tangent à partir de l’inverse de la matrice jacobienne, comme explicité ci-dessous.</li>
+</ul>
+<p>On constate que l’écriture de la loi se limite quasiment à la description des équations. De plus on bénéficie d’un écriture compacte, utilisant des variables tensorielles.</p>
+<p>Différentes méthodes d’intégration sont diponibles dans MFront ( <span class="citation" data-cites="helfer_generateur_2013">Helfer et al. (2013)</span>). L’algorithme d’intégration utilisé ici (<code>NewtonRaphson\_NumericalJacobian</code>) permet une écriture rapide, et est donc tout à fait adapté au test de modèles.</p>
+<p>L’implantation fournit un code beaucoup plus rapide que celle d’un algorithme explicite, mais peut toutefois être optimisée en termes de performances. Pour cela, il suffit d’ajouter les termes de la matrice jacobienne (dérivées des équations par rapport aux inconnues).</p>
+<p>De plus, la matrice tangente en sortie de l’intégration est calculée automatiquement à partir de la matrice jacobienne, ce qui permet d’économiser un temps de développement important et conduit à une matrice tangente cohérente de très bonne qualité (<span class="citation" data-cites="helfer_generateur_2013">Helfer et al. (2013)</span>). Tout ceci conduit, en très peu de temps, à une intégration robuste, et une convergence très bonne. On voit qu’il est possible de profiter de cette simplicité d’écriture pour effectuer des variantes, des tests de modèles, etc.</p>
+<p>MFront gère la compilation de la loi, il suffit de taper dans un terminal :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=aster norton.mfront</a></code></pre></div>
+<p>ou</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=castem norton.mfront</a></code></pre></div>
+<p>suivant le code que l’on souhaite utiliser. Ceci génère deux répertoires : <code>src</code> et <code>include</code>. Selon l’interface, le répertoire <code>src</code> contient en particulier une bibliothèque dynamique nommée <code>libAsterBehaviour.so</code> pour une exécution avec Code-Aster, ou bien <code>libUmatBehaviour.so</code> pour une exécution avec Cast3M.</p>
+<h2 id="premier-test">Premier test</h2>
+<p>De plus, l’outil MTest permet d’effectuer très facilement des simulations sur point matériel, permettant de calculer la réponse à des sollicitations en contraintes ou en déformations.</p>
+<p>MTest, couplé à un logiciel d’optimisation comme , permet de plus d’effectuer le recalage des propriétés matériau. Le fichier de données de MTest (nommé ici <code>norton.mtest</code>) se présente de la façon suivante :</p>
+<div class="sourceCode" id="UO2YoungModulus"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><a class="sourceLine" id="UO2YoungModulus-1" data-line-number="1"><span class="er">@</span>Behaviour&lt;aster&gt; <span class="ch">&#39;./src/libAsterBehaviour.so&#39;</span> <span class="ch">&#39;asternorton&#39;</span> ;</a>
+<a class="sourceLine" id="UO2YoungModulus-2" data-line-number="2"><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;young&#39;</span> <span class="fl">178600.0E6</span> ;</a>
+<a class="sourceLine" id="UO2YoungModulus-3" data-line-number="3"><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;nu&#39;</span> <span class="fl">0.3</span> ;</a>
+<a class="sourceLine" id="UO2YoungModulus-4" data-line-number="4"><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;A&#39;</span> <span class="dv">8</span>.e<span class="dv">-67</span> ;</a>
+<a class="sourceLine" id="UO2YoungModulus-5" data-line-number="5"><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;m&#39;</span> <span class="fl">8.2</span> ;</a>
+<a class="sourceLine" id="UO2YoungModulus-6" data-line-number="6"><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;Temperature&#39;</span> <span class="fl">293.15</span> ;</a>
+<a class="sourceLine" id="UO2YoungModulus-7" data-line-number="7"><span class="er">@</span>ImposedStress <span class="ch">&#39;SXX&#39;</span> { <span class="fl">0.</span> :  <span class="fl">0.</span>, <span class="fl">30.</span> : <span class="dv">40</span>.e6};</a>
+<a class="sourceLine" id="UO2YoungModulus-8" data-line-number="8"><span class="er">@</span>ImposedStress <span class="ch">&#39;SXY&#39;</span> { <span class="fl">0.</span> :  <span class="fl">0.</span>, <span class="fl">30.</span> : <span class="dv">40</span>.e6};</a>
+<a class="sourceLine" id="UO2YoungModulus-9" data-line-number="9"><span class="er">@</span>Times {<span class="fl">0.</span>,<span class="fl">30.</span> in <span class="dv">100</span>};</a></code></pre></div>
+<ul>
+<li>la ligne <span class="math inline">\(1\)</span> définit la bibliothèque à utiliser et le nom du comportement ;</li>
+<li>les lignes <span class="math inline">\(2\)</span> à <span class="math inline">\(5\)</span> définissent les valeurs des propriétés matériau de la loi ;</li>
+<li>la ligne <span class="math inline">\(6\)</span> déclare la valeur de la température (inutile dans le cas présent) ;</li>
+<li>les lignes <span class="math inline">\(7\)</span> à <span class="math inline">\(8\)</span> spécifient le chargement, sous la forme de composantes de contraintes ou de déformations en fonction du temps ;</li>
+<li>la ligne <span class="math inline">\(9\)</span> définit la discrétisation en temps, donc les instants calculés.</li>
+</ul>
+<p>Il suffit alors de lancer le calcul par :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="ex">mtest</span> norton.mtest</a></code></pre></div>
+<p>Ceci produit un fichier résultat <code>norton.res</code> contenant les composantes des tenseurs de déformation, de contrainte, et les variables internes en fonction du temps. La réponse en déformation est représentée ci-dessous:</p>
+<figure>
+<img src="img/tutorielch12-img1.png" alt="Réponse d’une loi de Norton à un essai de fluage en traction-cisaillement" /><figcaption>Réponse d’une loi de Norton à un essai de fluage en traction-cisaillement</figcaption>
+</figure>
+<h1 id="références">Références</h1>
+<!-- Local IspellDict: english -->
+<div id="refs" class="references">
+<div id="ref-helfer_generateur_2013">
+<p>Helfer, Thomas, Étienne Castelier, Victor Blanc, and Jérôme Julien. 2013. “Le Générateur de Code Mfront : Écriture de Lois de Comportement Mécanique.” Note technique 13-020. CEA DEN/DEC/SESC/LSC.</p>
+</div>
+</div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

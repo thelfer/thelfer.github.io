@@ -173,6 +173,22 @@
     </div>
         <p>This is mainly a bug fix version of the <code>3.2</code> series. All tickets solved are described below.</p>
 <h1 id="tickets-fixed">Tickets fixed</h1>
+<p>#Ticket #153: <code>SignalManager.cxx</code> does not compile under <code>Mac OS</code></p>
+<p>The issue is related to the fact that <code>sigfillset</code> is a macro under <code>Mac OS</code>.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/153/" class="uri">https://sourceforge.net/p/tfel/tickets/153/</a></p>
+<p>#Ticket #150: Option specification for additonal keywords or variable substitution is inconsistent under Windows</p>
+<p>Options under Windows are allowed to be specified with <code>'/'</code> in place of <code>'--'</code> (both specifications are accepted). However, this did not work for additonal keywords or variable substitution.</p>
+<p>The following example failed:</p>
+<pre><code>$ mfront /@CompareToNumericalJacobian=true ...</code></pre>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/150/" class="uri">https://sourceforge.net/p/tfel/tickets/150/</a></p>
+<p>#Ticket #149: Ability to specify the path the python library at runtime</p>
+<p>The following environment variable can now be used to customize how <code>python</code> modules for material properties are build:</p>
+<ul>
+<li><code>PYTHON_INCLUDE_PATH</code>: path to the <code>python</code> header files.</li>
+<li><code>PYTHON_LIBRARY_PATH</code>: path to the <code>python</code> library.</li>
+<li><code>PYTHON_LIBRARY</code>: name of the <code>python</code> library.</li>
+</ul>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/149/" class="uri">https://sourceforge.net/p/tfel/tickets/149/</a></p>
 <p>#Ticket #142: get energies (elastic, plastic…) in the <code>generic</code> interface</p>
 <p>Two outputs have been added in the <code>MFront_GB_State</code> structure:</p>
 <ul>

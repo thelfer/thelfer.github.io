@@ -232,9 +232,18 @@
                   <h3 class="date">October 3, 2014</h3>
           </div>
             <p>The latest version of this document is always available at <a href="http://tfel.sourceforge.net/install.html" class="uri">http://tfel.sourceforge.net/install.html</a>.</p>
-<ul>
-<li>Note : <code>TFEL</code> is a part of the <a href="http://www.code-aster.org/"><code>Code-Aster</code></a> (&gt;12.03) and <a href="www.code-aster.org/"><code>Salome-Meca</code></a> (&gt; 2015.1) packages: no extra installation is required if you use one of these products*</li>
-</ul>
+<blockquote>
+<p><strong>Note</strong> <code>TFEL</code> is a part of the <a href="http://www.code-aster.org/"><code>Code-Aster</code></a> (&gt;12.03) and <a href="www.code-aster.org/"><code>Salome-Meca</code></a> (&gt; 2015.1) packages: no extra installation is required if you use one of these products*</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> <code>TFEL</code> is available as a <code>spack</code> package.</p>
+<p>One easy way to install <code>TFEL</code> under <code>LiNuX</code> and <code>MacOs</code> is to use the following instructions:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="fu">git</span> clone --single-branch -b develop https://github.com/spack/spack.git </a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">$ <span class="bu">.</span> <span class="ex">spack/share/spack/setup-env.sh</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">$ <span class="ex">spack</span> install tfel@master</a></code></pre></div>
+<p>The <code>TFEL</code> package can then be loaded as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">spack</span> load tfel@master</a></code></pre></div>
+</blockquote>
 <p>It refers to the <strong>current development sources</strong>, instructions for specific released versions are included with the sources and detailled in the <code>INSTALL</code> and the <code>INSTALL-cmake</code> files located at the root directory of the sources).</p>
 <p>This document describes the generic installation procedure for <code>TFEL</code> from the sources on posix-compliant systems. Please note that the main systems on which <code>TFEL</code> was developed is <code>Linux</code>. Extensive testing on other posix-compliant operating systems, notably <code>FreeBSD</code>, is lacking, although compilation and unit testing is known to work. A page dedicated to <code>FreeBSD</code> is available <a href="install-freebsd.html">here</a>.</p>
 <p>The installation on <a href="http://windows.microsoft.com">Windows plateform</a> is described in the following pages:</p>
@@ -357,7 +366,7 @@
 <p>This option can be combined with the <code>TFEL_APPEND_VERSION</code> option.</p>
 <h3 id="selecting-the-python-version">Selecting the <code>python</code> version</h3>
 <p>A specific <code>python</code> version can be selected by setting the <code>Python_ADDITIONAL_VERSIONS</code>, as follows:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="fu">cmake</span> ../trunk/ -Denable-python-bindings=ON -DPython_ADDITIONAL_VERSIONS=2.7 ...</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="fu">cmake</span> ../trunk/ -Denable-python-bindings=ON -DPython_ADDITIONAL_VERSIONS=2.7 ...</a></code></pre></div>
 <h2 id="using-the-configure-script">Using the <code>configure</code> script</h2>
 <div class="sourceCode" id="building-configure"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="building-configure-1" data-line-number="1">$ <span class="va">$srcdir</span><span class="ex">/configure</span> --enable-fortran --enable-aster --enable-tests --enable-local-castem-header --prefix=<span class="va">${prefix}</span></a></code></pre></div>
 <p>This will build <code>TFEL</code> with the support of interfaces for the <a href="http://www-cast3m.cea.fr/">Cast3M</a> and <a href="http://www.code-aster.org">Code-Aster</a> finite element solvers.</p>

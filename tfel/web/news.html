@@ -233,6 +233,16 @@
                   <h3 class="date">January 23, 2017</h3>
           </div>
             
+<h1 id="tfel-is-available-as-a-spack-package-27112018"><code>TFEL</code> is available as a <code>spack</code> package (27/11/2018)</h1>
+<p>One easy way to install <code>TFEL</code> under <code>LiNuX</code> and <code>MacOs</code> is to use the <code>spack</code> package manager.</p>
+<p>The <code>spack</code> package manager is fully described here: <a href="https://spack.readthedocs.io/en/latest/index.html" class="uri">https://spack.readthedocs.io/en/latest/index.html</a></p>
+<p>The following instructions will build the latest development versions:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="fu">git</span> clone --single-branch -b develop https://github.com/spack/spack.git </a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">$ <span class="bu">.</span> <span class="ex">spack/share/spack/setup-env.sh</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">$ <span class="ex">spack</span> install tfel@master</a></code></pre></div>
+<p>The <code>TFEL</code> package can then be loaded as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">spack</span> load tfel@master</a></code></pre></div>
+<p>One nifty feature of <code>spack</code> is that you can install various versions of <code>TFEL</code> in parallel.</p>
 <h1 id="introducing-the-mfrontgenericinterfacesupport-project-11092018">Introducing the MFrontGenericInterfaceSupport project (11/09/2018)</h1>
 <p>This project is meant to ease the integration of MFront in various environments, including homebrew solvers (FE, FFT, etc…). Source code can be found here:</p>
 <p><a href="https://github.com/thelfer/MFrontGenericInterfaceSupport.git" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport.git</a></p>
@@ -381,30 +391,30 @@ J_3 &amp;= \det(s_{ij}) \\
 \sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,\underline{s}\,\colon\,\underline{s}}=\sqrt{3\,J_{2}}
 \]</span></p>
 <p>The first and second derivatives of <span class="math inline">\(J_{2}\)</span> with respect to <span class="math inline">\(\sigma\)</span> can be trivially implemented, as follows:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id  = stensor&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">// first derivative of J2</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="at">const</span> <span class="kw">auto</span> dJ2  = deviator(sig);</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">// second derivative of J2</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> d2J2 = eval(id4-(id^id)/<span class="dv">3</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id  = stensor&lt;N,real&gt;::Id();</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">// first derivative of J2</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="at">const</span> <span class="kw">auto</span> dJ2  = deviator(sig);</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">// second derivative of J2</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> d2J2 = eval(id4-(id^id)/<span class="dv">3</span>);</a></code></pre></div>
 <p>In comparison, the computation of the first and second derivatives of <span class="math inline">\(J_{3}\)</span> with respect to <span class="math inline">\(\sigma\)</span> are more cumbersome. In previous versions <code>TFEL</code>, one had to write:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = stensor&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="at">const</span> <span class="kw">auto</span> I1   = trace(sig);</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="at">const</span> <span class="kw">auto</span> I2   = (I1*I1-trace(square(sig)))/<span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="at">const</span> <span class="kw">auto</span> dI2  = I1*id-sig;</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> dI3  = computeDeterminantDerivative(sig);</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="at">const</span> <span class="kw">auto</span> d2I2 = (id^id)-id4;</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="at">const</span> <span class="kw">auto</span> d2I3 = computeDeterminantSecondDerivative(sig);</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">// first derivative of J3</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="at">const</span> <span class="kw">auto</span> dJ3  = eval((<span class="dv">2</span>*I1*I1/<span class="dv">9</span>)*id-(I2*id+I1*dI2)/<span class="dv">3</span>+dI3);</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">// second derivative of J3</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="at">const</span> <span class="kw">auto</span> d2J3 = eval((<span class="dv">4</span>*I1/<span class="dv">9</span>)*(id^id)-((id^dI2)+(dI2^id)+i1*d2I2)/<span class="dv">3</span>+d2I3);</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = stensor&lt;N,real&gt;::Id();</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="at">const</span> <span class="kw">auto</span> I1   = trace(sig);</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="at">const</span> <span class="kw">auto</span> I2   = (I1*I1-trace(square(sig)))/<span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="at">const</span> <span class="kw">auto</span> dI2  = I1*id-sig;</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> dI3  = computeDeterminantDerivative(sig);</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="at">const</span> <span class="kw">auto</span> d2I2 = (id^id)-id4;</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="at">const</span> <span class="kw">auto</span> d2I3 = computeDeterminantSecondDerivative(sig);</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">// first derivative of J3</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="at">const</span> <span class="kw">auto</span> dJ3  = eval((<span class="dv">2</span>*I1*I1/<span class="dv">9</span>)*id-(I2*id+I1*dI2)/<span class="dv">3</span>+dI3);</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">// second derivative of J3</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="at">const</span> <span class="kw">auto</span> d2J3 = eval((<span class="dv">4</span>*I1/<span class="dv">9</span>)*(id^id)-((id^dI2)+(dI2^id)+i1*d2I2)/<span class="dv">3</span>+d2I3);</a></code></pre></div>
 <p>More efficient implementations are now available using the <code>computeDeviatorDeterminantDerivative</code> and <code>computeDeviatorDeterminantSecondDerivative</code> functions:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// first derivative of J3</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> dJ3  = computeDeviatorDeterminantDerivative(sig);</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">// second derivative of J3</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="at">const</span> <span class="kw">auto</span> d2J3 = computeDeviatorDeterminantSecondDerivative(sig);</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// first derivative of J3</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> dJ3  = computeDeviatorDeterminantDerivative(sig);</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">// second derivative of J3</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="at">const</span> <span class="kw">auto</span> d2J3 = computeDeviatorDeterminantSecondDerivative(sig);</a></code></pre></div>
 <h1 id="the-doxygen-documentation-4012018">The <code>doxygen</code> documentation (4/01/2018)</h1>
 <p>Further documentation for advanced users has been published: the internal code documentation of the project, as generated by <a href="http://doxygen.org"><code>doxygen</code></a>, is now available online:</p>
 <p><a href="http://tfel.sourceforge.net/doxygen/index.html" class="uri">http://tfel.sourceforge.net/doxygen/index.html</a></p>
@@ -593,33 +603,33 @@ J_3 &amp;= \det(s_{ij}) \\
 </ul>
 <h2 id="example">Example</h2>
 <p>The following example computes the Barlat equivalent stress, its normal and second derivative:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> l1 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(<span class="dv">-0</span><span class="fl">.069888</span>,<span class="fl">0.936408</span>,</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">                                                         <span class="fl">0.079143</span>,<span class="fl">1.003060</span>,</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">                                                         <span class="fl">0.524741</span>,<span class="fl">1.363180</span>,</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">                                                         <span class="fl">1.023770</span>,<span class="fl">1.069060</span>,</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">                                                         <span class="fl">0.954322</span>);</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> l2 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(<span class="dv">-0</span><span class="fl">.981171</span>,<span class="fl">0.476741</span>,</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">                                                         <span class="fl">0.575316</span>,<span class="fl">0.866827</span>,</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">                                                         <span class="fl">1.145010</span>,<span class="dv">-0</span><span class="fl">.079294</span>,</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">                                                         <span class="fl">1.051660</span>,<span class="fl">1.147100</span>,</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">                                                         <span class="fl">1.404620</span>);</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">stress seq;</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">Stensor  n;</a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">Stensor4 dn;</a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="bu">std::</span>tie(seq,n,dn) = computeBarlatStressSecondDerivative(s,l1,l2,a,seps);</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> l1 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(<span class="dv">-0</span><span class="fl">.069888</span>,<span class="fl">0.936408</span>,</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">                                                         <span class="fl">0.079143</span>,<span class="fl">1.003060</span>,</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">                                                         <span class="fl">0.524741</span>,<span class="fl">1.363180</span>,</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">                                                         <span class="fl">1.023770</span>,<span class="fl">1.069060</span>,</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">                                                         <span class="fl">0.954322</span>);</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> l2 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(<span class="dv">-0</span><span class="fl">.981171</span>,<span class="fl">0.476741</span>,</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">                                                         <span class="fl">0.575316</span>,<span class="fl">0.866827</span>,</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">                                                         <span class="fl">1.145010</span>,<span class="dv">-0</span><span class="fl">.079294</span>,</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">                                                         <span class="fl">1.051660</span>,<span class="fl">1.147100</span>,</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">                                                         <span class="fl">1.404620</span>);</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">stress seq;</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">Stensor  n;</a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">Stensor4 dn;</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="bu">std::</span>tie(seq,n,dn) = computeBarlatStressSecondDerivative(s,l1,l2,a,seps);</a></code></pre></div>
 <p>In this example, <code>s</code> is the stress tensor, <code>a</code> is the Hosford exponent, <code>seps</code> is a numerical parameter used to detect when two eigenvalues are equal.</p>
 <p>If <code>C++-17</code> is available, the previous code can be made much more readable:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> l1 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(<span class="dv">-0</span><span class="fl">.069888</span>,<span class="fl">0.936408</span>,</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">                                                         <span class="fl">0.079143</span>,<span class="fl">1.003060</span>,</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">                                                         <span class="fl">0.524741</span>,<span class="fl">1.363180</span>,</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">                                                         <span class="fl">1.023770</span>,<span class="fl">1.069060</span>,</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">                                                         <span class="fl">0.954322</span>);</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> l2 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(<span class="dv">-0</span><span class="fl">.981171</span>,<span class="fl">0.476741</span>,</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">                                                         <span class="fl">0.575316</span>,<span class="fl">0.866827</span>,</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">                                                         <span class="fl">1.145010</span>,<span class="dv">-0</span><span class="fl">.079294</span>,</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">                                                         <span class="fl">1.051660</span>,<span class="fl">1.147100</span>,</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">                                                         <span class="fl">1.404620</span>);</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="at">const</span> <span class="kw">auto</span> [seq,n,dn] = computeBarlatStressSecondDerivative(s,l1,l2,a,seps);</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> l1 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(<span class="dv">-0</span><span class="fl">.069888</span>,<span class="fl">0.936408</span>,</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">                                                         <span class="fl">0.079143</span>,<span class="fl">1.003060</span>,</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">                                                         <span class="fl">0.524741</span>,<span class="fl">1.363180</span>,</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">                                                         <span class="fl">1.023770</span>,<span class="fl">1.069060</span>,</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">                                                         <span class="fl">0.954322</span>);</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> l2 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(<span class="dv">-0</span><span class="fl">.981171</span>,<span class="fl">0.476741</span>,</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">                                                         <span class="fl">0.575316</span>,<span class="fl">0.866827</span>,</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">                                                         <span class="fl">1.145010</span>,<span class="dv">-0</span><span class="fl">.079294</span>,</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">                                                         <span class="fl">1.051660</span>,<span class="fl">1.147100</span>,</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">                                                         <span class="fl">1.404620</span>);</a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="at">const</span> <span class="kw">auto</span> [seq,n,dn] = computeBarlatStressSecondDerivative(s,l1,l2,a,seps);</a></code></pre></div>
 <h1 id="hosford-equivalent-stress-17102017">Hosford equivalent stress (17/10/2017)</h1>
 <figure>
 <img src="img/HosfordStress.svg" title="Comparison of the Hosford stress (a=100,a=8) and the von Mises stress in plane stress" alt="Comparison of the Hosford stress a=100,a=8 and the von Mises stress" style="width:70.0%" /><figcaption>Comparison of the Hosford stress <span class="math inline">\(a=100,a=8\)</span> and the von Mises stress</figcaption>
@@ -637,13 +647,13 @@ J_3 &amp;= \det(s_{ij}) \\
 </ul>
 <h2 id="example-1">Example</h2>
 <p>The following example computes the Hosford equivalent stress, its normal and second derivative:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1">stress seq;</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">Stensor  n;</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">Stensor4 dn;</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="bu">std::</span>tie(seq,n,dn) = computeHosfordStressSecondDerivative(s,a,seps);</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1">stress seq;</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">Stensor  n;</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">Stensor4 dn;</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="bu">std::</span>tie(seq,n,dn) = computeHosfordStressSecondDerivative(s,a,seps);</a></code></pre></div>
 <p>In this example, <code>s</code> is the stress tensor, <code>a</code> is the Hosford exponent, <code>seps</code> is a numerical parameter used to detect when two eigenvalues are equal.</p>
 <p>If <code>C++-17</code> is available, the previous code can be made much more readable:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> [seq,n,dn] = computeHosfordStressSecondDerivative(s,a,seps);</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> [seq,n,dn] = computeHosfordStressSecondDerivative(s,a,seps);</a></code></pre></div>
 <h1 id="release-of-tfel-3.0.2-25102017">Release of <code>TFEL</code> <code>3.0.2</code> (25/10/2017)</h1>
 <p>Version 3.0.2 of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code> has been released on the 25th October, 2017.</p>
 <p>This is mainly a bug fix version of the <code>3.0</code> series. Detailed release notes are available <a href="release-notes-3.0.2.html">here</a>. There are no known regressions.</p>
@@ -868,9 +878,9 @@ f{\left(\sigma_{H},p\right)} = \sigma_{H}-\sigma_{0}-R\,p
 </div>
 <p>The various eigen solvers available are enumerated in Table  1.</p>
 <p>The eigen solver is passed as a template argument of the <code>computeEigenValues</code> or the <code>computeEigenVectors</code> methods as illustrated in the code below:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1">tmatrix&lt;<span class="dv">3u</span>,<span class="dv">3u</span>,real&gt; m2;</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">tvector&lt;<span class="dv">3u</span>,real&gt;    vp2;</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="bu">std::</span>tie(vp,m)=s.computeEigenVectors&lt;Stensor::GTESYMMETRICQREIGENSOLVER&gt;();</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1">tmatrix&lt;<span class="dv">3u</span>,<span class="dv">3u</span>,real&gt; m2;</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">tvector&lt;<span class="dv">3u</span>,real&gt;    vp2;</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="bu">std::</span>tie(vp,m)=s.computeEigenVectors&lt;Stensor::GTESYMMETRICQREIGENSOLVER&gt;();</a></code></pre></div>
 <div id="tbl:comp_eigensolvers_double">
 <table>
 <caption>Table 2: Test on <span class="math inline">\(10^{6}\)</span> random symmetric tensors in double precision (<code>double</code>).</caption>
@@ -951,11 +961,11 @@ f{\left(\sigma_{H},p\right)} = \sigma_{H}-\sigma_{0}-R\,p
 <p>Thanks to the work of Pedro F. Giffuni , an official port of <code>TFEL/MFront</code> is available for <code>FreeBSD</code>:</p>
 <p><a href="http://www.freshports.org/science/tfel/" class="uri">http://www.freshports.org/science/tfel/</a></p>
 <p>To install an executable package, you can now simply do:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="ex">pkg</span> install tfel-mfront</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="ex">pkg</span> install tfel-mfront</a></code></pre></div>
 <p>Alternativel, to build and install <code>TFEL</code> from the ports tree, one can do:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="bu">cd</span> /usr/ports/science/tfel/</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="fu">make</span></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="fu">make</span> install</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="bu">cd</span> /usr/ports/science/tfel/</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="fu">make</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="fu">make</span> install</a></code></pre></div>
 <h1 id="new-hyperviscoelastic-behaviours-in-the-mfront-model-repository-13012017">New hyper(visco)elastic behaviours in the MFront model repository (13/01/2017)</h1>
 <p>The implementation of the Ogden behaviour is now described in depth in the following page:</p>
 <p><a href="http://tfel.sourceforge.net/ogden.html" class="uri">http://tfel.sourceforge.net/ogden.html</a></p>
@@ -1022,7 +1032,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 </div>
 <p>The Abaqus Explicit interface is becoming quite usable du to the extensive testing efforts of D. Deloison (Airbus). Here is an example a punching test (This test was also modelled using Abaqus Standard).</p>
 <h1 id="documentation-of-behaviour-bricks-27-may-2016">Documentation of behaviour bricks (27 May 2016)</h1>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="er">@</span>Brick <span class="st">&quot;StandardElasticity&quot;</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="er">@</span>Brick <span class="st">&quot;StandardElasticity&quot;</span>;</a></code></pre></div>
 <p>Behaviour bricks will be one of the most important new feature of <code>TFEL 3.0</code>.</p>
 <p>A dedicated page has been created <a href="BehaviourBricks.html">here</a></p>
 <h1 id="the-europlexus-interface-27-may-2016">The <code>EUROPLEXUS</code> interface (27 May 2016)</h1>
@@ -1044,36 +1054,36 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 <p>A new <code>python</code> module has been introduced to analyse <code>MFront</code> files.</p>
 <p>An overview of the module is available <a href="mfront-python.html">here</a>.</p>
 <p>Here is a typical usage example:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="im">import</span> mfront</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">dsl <span class="op">=</span> mfront.getDSL(<span class="st">&quot;Chaboche.mfront&quot;</span>)</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">dsl.setInterfaces([<span class="st">&quot;aster&quot;</span>])</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">dsl.analyseFile(<span class="st">&quot;Chaboche.mfront&quot;</span>,[])</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co"># file description</span></a>
-<a class="sourceLine" id="cb12-8" data-line-number="8">fd <span class="op">=</span> dsl.getFileDescription()</a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="bu">print</span>(<span class="st">&quot;file author:      &quot;</span>, fd.authorName)</a>
-<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;file date:        &quot;</span>, fd.date)</a>
-<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="bu">print</span>(<span class="st">&quot;file descrption:</span><span class="ch">\n</span><span class="st">&quot;</span>, fd.description)</a>
-<a class="sourceLine" id="cb12-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="co"># targets information</span></a>
-<a class="sourceLine" id="cb12-14" data-line-number="14">tgt <span class="op">=</span> dsl.getTargetsDescription()</a>
-<a class="sourceLine" id="cb12-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb12-16" data-line-number="16"><span class="co"># loop over (to be) generated libraries</span></a>
-<a class="sourceLine" id="cb12-17" data-line-number="17"><span class="cf">for</span> l <span class="kw">in</span> tgt:</a>
-<a class="sourceLine" id="cb12-18" data-line-number="18">    <span class="bu">print</span>(l)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="im">import</span> mfront</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">dsl <span class="op">=</span> mfront.getDSL(<span class="st">&quot;Chaboche.mfront&quot;</span>)</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">dsl.setInterfaces([<span class="st">&quot;aster&quot;</span>])</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">dsl.analyseFile(<span class="st">&quot;Chaboche.mfront&quot;</span>,[])</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="co"># file description</span></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">fd <span class="op">=</span> dsl.getFileDescription()</a>
+<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="bu">print</span>(<span class="st">&quot;file author:      &quot;</span>, fd.authorName)</a>
+<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;file date:        &quot;</span>, fd.date)</a>
+<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="bu">print</span>(<span class="st">&quot;file descrption:</span><span class="ch">\n</span><span class="st">&quot;</span>, fd.description)</a>
+<a class="sourceLine" id="cb14-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb14-13" data-line-number="13"><span class="co"># targets information</span></a>
+<a class="sourceLine" id="cb14-14" data-line-number="14">tgt <span class="op">=</span> dsl.getTargetsDescription()</a>
+<a class="sourceLine" id="cb14-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb14-16" data-line-number="16"><span class="co"># loop over (to be) generated libraries</span></a>
+<a class="sourceLine" id="cb14-17" data-line-number="17"><span class="cf">for</span> l <span class="kw">in</span> tgt:</a>
+<a class="sourceLine" id="cb14-18" data-line-number="18">    <span class="bu">print</span>(l)</a></code></pre></div>
 <h1 id="cast3m-2016-is-out-28-april-2016">Cast3m 2016 is out (28 April 2016)</h1>
 <p><img src="img/IconeCast3M_bleue.png" /></p>
 <p><a href="http://www-cast3m.cea.fr"><code>Cast3M</code></a> 2016 has been released.</p>
 <p>This version allow even better integration with <code>MFront</code> and can now directly be used to make direct calls to <code>MFront</code> libraries for material properties (mechanical behaviours can be used since Cast3M 2015).</p>
 <p>This syntax is now officially supported:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" data-line-number="1">Ty <span class="op">=</span> <span class="st">&#39;TABLE&#39;</span> <span class="op">;</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">Ty.<span class="st">&#39;LIB_LOI&#39;</span>   <span class="op">=</span> <span class="st">&#39;libCastemM5.so&#39;</span> <span class="op">;</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">Ty.<span class="st">&#39;FCT_LOI&#39;</span>   <span class="op">=</span> <span class="st">&#39;M5_YoungModulus&#39;</span> <span class="op">;</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">Ty.<span class="st">&#39;VARIABLES&#39;</span> <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span> <span class="st">&#39;T&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6">mo <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> m <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7">ma <span class="op">=</span> <span class="st">&#39;MATERIAU&#39;</span> mo <span class="st">&#39;YOUN&#39;</span> Ty <span class="st">&#39;NU&#39;</span> <span class="fl">0.3</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1">Ty <span class="op">=</span> <span class="st">&#39;TABLE&#39;</span> <span class="op">;</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">Ty.<span class="st">&#39;LIB_LOI&#39;</span>   <span class="op">=</span> <span class="st">&#39;libCastemM5.so&#39;</span> <span class="op">;</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">Ty.<span class="st">&#39;FCT_LOI&#39;</span>   <span class="op">=</span> <span class="st">&#39;M5_YoungModulus&#39;</span> <span class="op">;</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">Ty.<span class="st">&#39;VARIABLES&#39;</span> <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span> <span class="st">&#39;T&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">mo <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> m <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">ma <span class="op">=</span> <span class="st">&#39;MATERIAU&#39;</span> mo <span class="st">&#39;YOUN&#39;</span> Ty <span class="st">&#39;NU&#39;</span> <span class="fl">0.3</span><span class="op">;</span></a></code></pre></div>
 <p>A binary version of TFEL compiled for Cast3M 2016 is now available for download on sourceforge:</p>
 <p><a href="https://sourceforge.net/projects/tfel/files/" class="uri">https://sourceforge.net/projects/tfel/files/</a></p>
 <h1 id="second-mfront-users-day">Second MFront Users Day</h1>
@@ -1155,15 +1165,15 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 <li><code>octave</code> designed for <a href="https://www.gnu.org/software/octave/"><code>GNU Octave</code></a> which is a high-level interpreted language, primarily intended for numerical computations.</li>
 </ul>
 <p>Here is an example of a <a href="https://www.gnu.org/software/octave/"><code>GNU Octave</code></a> session used to compute the Young Modulus of uranium-plutonium carbide <span class="math inline">\(UPuC\)</span> for various porosities over a range of temperatures:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode octave"><code class="sourceCode octave"><a class="sourceLine" id="cb14-1" data-line-number="1">octave:<span class="fl">1</span>&gt; T=[<span class="fl">300</span>:<span class="fl">100</span>:<span class="fl">1500</span>]</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">T =</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">    <span class="fl">300</span>    <span class="fl">400</span>    <span class="fl">500</span>    <span class="fl">600</span>    <span class="fl">700</span>    <span class="fl">800</span>    <span class="fl">900</span>   <span class="fl">1000</span>   <span class="fl">1100</span>   <span class="fl">1200</span>   <span class="fl">1300</span>   <span class="fl">1400</span>   <span class="fl">1500</span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">octave:<span class="fl">2</span>&gt; y01=UPuC_YoungModulus(T,<span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">y01 =</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">   <span class="fl">1.7025e+11</span>   <span class="fl">1.6888e+11</span>   <span class="fl">1.6752e+11</span>   <span class="fl">1.6616e+11</span>   <span class="fl">1.6480e+11</span>   <span class="fl">1.6344e+11</span>   <span class="fl">1.6207e+11</span>   <span class="fl">1.6071e+11</span>   <span class="fl">1.5935e+11</span>   <span class="fl">1.5799e+11</span>   <span class="fl">1.5662e+11</span>   <span class="fl">1.5526e+11</span>   <span class="fl">1.5390e+11</span></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7">octave:<span class="fl">3</span>&gt; y02=UPuC_YoungModulus(T,<span class="fl">0.2</span>)</a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">y02 =</a>
-<a class="sourceLine" id="cb14-9" data-line-number="9">   <span class="fl">1.1853e+11</span>   <span class="fl">1.1758e+11</span>   <span class="fl">1.1663e+11</span>   <span class="fl">1.1568e+11</span>   <span class="fl">1.1474e+11</span>   <span class="fl">1.1379e+11</span>   <span class="fl">1.1284e+11</span>   <span class="fl">1.1189e+11</span>   <span class="fl">1.1094e+11</span>   <span class="fl">1.0999e+11</span>   <span class="fl">1.0905e+11</span>   <span class="fl">1.0810e+11</span>   <span class="fl">1.0715e+11</span></a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode octave"><code class="sourceCode octave"><a class="sourceLine" id="cb16-1" data-line-number="1">octave:<span class="fl">1</span>&gt; T=[<span class="fl">300</span>:<span class="fl">100</span>:<span class="fl">1500</span>]</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">T =</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">    <span class="fl">300</span>    <span class="fl">400</span>    <span class="fl">500</span>    <span class="fl">600</span>    <span class="fl">700</span>    <span class="fl">800</span>    <span class="fl">900</span>   <span class="fl">1000</span>   <span class="fl">1100</span>   <span class="fl">1200</span>   <span class="fl">1300</span>   <span class="fl">1400</span>   <span class="fl">1500</span></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">octave:<span class="fl">2</span>&gt; y01=UPuC_YoungModulus(T,<span class="fl">0.1</span>)</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">y01 =</a>
+<a class="sourceLine" id="cb16-6" data-line-number="6">   <span class="fl">1.7025e+11</span>   <span class="fl">1.6888e+11</span>   <span class="fl">1.6752e+11</span>   <span class="fl">1.6616e+11</span>   <span class="fl">1.6480e+11</span>   <span class="fl">1.6344e+11</span>   <span class="fl">1.6207e+11</span>   <span class="fl">1.6071e+11</span>   <span class="fl">1.5935e+11</span>   <span class="fl">1.5799e+11</span>   <span class="fl">1.5662e+11</span>   <span class="fl">1.5526e+11</span>   <span class="fl">1.5390e+11</span></a>
+<a class="sourceLine" id="cb16-7" data-line-number="7">octave:<span class="fl">3</span>&gt; y02=UPuC_YoungModulus(T,<span class="fl">0.2</span>)</a>
+<a class="sourceLine" id="cb16-8" data-line-number="8">y02 =</a>
+<a class="sourceLine" id="cb16-9" data-line-number="9">   <span class="fl">1.1853e+11</span>   <span class="fl">1.1758e+11</span>   <span class="fl">1.1663e+11</span>   <span class="fl">1.1568e+11</span>   <span class="fl">1.1474e+11</span>   <span class="fl">1.1379e+11</span>   <span class="fl">1.1284e+11</span>   <span class="fl">1.1189e+11</span>   <span class="fl">1.1094e+11</span>   <span class="fl">1.0999e+11</span>   <span class="fl">1.0905e+11</span>   <span class="fl">1.0810e+11</span>   <span class="fl">1.0715e+11</span></a></code></pre></div>
 <h1 id="a-publications-page-has-been-added-to-the-website-july-2015">A “publications” page has been added to the website (July 2015)</h1>
 <p>The number of papers in which <code>MFront</code> is used is increasing. A dedicated page has been added <a href="publications.html">here</a>.</p>
 <p>If you publish papers which refers to <code>MFront</code>, please consider contributing to this page.</p>
@@ -1181,14 +1191,14 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 <p><img src="img/IconeCast3M_verte.png" /></p>
 <p><a href="http://www-cast3m.cea.fr"><code>Cast3M</code></a> 2015 has been released.</p>
 <p>This release allow direct call to <code>MFront</code> libraries for mechanical behaviours. The following syntax of the <code>MODELISER</code> operator is now officially supported:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1">mod1 <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> s1 <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span> <span class="st">&#39;ISOTROPE&#39;</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">   <span class="co">&#39;NON_LINEAIRE&#39;</span> <span class="st">&#39;UTILISATEUR&#39;</span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">   <span class="co">&#39;LIB_LOI&#39;</span> <span class="st">&#39;src/libUmatBehaviour.so&#39;</span></a>
-<a class="sourceLine" id="cb15-4" data-line-number="4">   <span class="co">&#39;FCT_LOI&#39;</span> <span class="st">&#39;umatnorton&#39;</span></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5">   <span class="co">&#39;C_MATERIAU&#39;</span> coel2D</a>
-<a class="sourceLine" id="cb15-6" data-line-number="6">   <span class="co">&#39;C_VARINTER&#39;</span> stav2D</a>
-<a class="sourceLine" id="cb15-7" data-line-number="7">   <span class="co">&#39;PARA_LOI&#39;</span>   para2D</a>
-<a class="sourceLine" id="cb15-8" data-line-number="8">   <span class="co">&#39;CONS&#39;</span> M<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1">mod1 <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> s1 <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span> <span class="st">&#39;ISOTROPE&#39;</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">   <span class="co">&#39;NON_LINEAIRE&#39;</span> <span class="st">&#39;UTILISATEUR&#39;</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">   <span class="co">&#39;LIB_LOI&#39;</span> <span class="st">&#39;src/libUmatBehaviour.so&#39;</span></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">   <span class="co">&#39;FCT_LOI&#39;</span> <span class="st">&#39;umatnorton&#39;</span></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">   <span class="co">&#39;C_MATERIAU&#39;</span> coel2D</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">   <span class="co">&#39;C_VARINTER&#39;</span> stav2D</a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">   <span class="co">&#39;PARA_LOI&#39;</span>   para2D</a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">   <span class="co">&#39;CONS&#39;</span> M<span class="op">;</span></a></code></pre></div>
 <p>See the <a href="castem.html">dedicated page</a> for more information.</p>
 <h1 id="salome-meca-2015.1-is-out-1o-april-2015"><code>Salome-Meca</code> 2015.1 is out (1O April 2015)</h1>
 <p><img src="img/SalomeMeca2015.png" /></p>

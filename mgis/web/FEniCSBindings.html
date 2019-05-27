@@ -93,7 +93,7 @@
         <div id="header">
       <h1 class="title"><code>FEniCS</code> and <code>MFront</code> for complex non linear solid mechanics simulation</h1>
                   <h2 class="author">Thomas Helfer, Jérémy Bleyer</h2>
-                  <h3 class="date">15/01/2019</h3>
+                  <h3 class="date">14/05/2019</h3>
           </div>
             <p>This document is meant to show how <code>FEniCS</code> and <code>MFront</code> can be combined to build almost arbitrary complex non linear solid mechanics simulation. As <code>MFront</code> currently allows the implementation of small and finite strain mechanical behaviours, the current scope of this coupling is limited to standard first order theories<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Generalised behaviours, usable in monolithic multiphysics simulations and/or higher order mechanical theories, will be available in the next version<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
 <p><code>FEniCS</code> will handle:</p>
@@ -108,8 +108,8 @@
 <li>The update of the internal state variables.</li>
 <li>The computation of the consistent tangent operator.</li>
 </ul>
-<p>The interface with <code>FEniCS</code> will be handled by the <code>MFrontGenericInterfaceSupport</code> project<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. This project aims at proving tools (functions, classes, bindings, etc…) to handle behaviours written using <code>MFront</code> generic interface. Written in <code>C++</code>, it provides bindings for various languages: <code>C</code>, <code>python</code>, <code>fortran</code>. This library also provides the so-called <code>FEniCS</code> bindings described below.</p>
-<p>This document considers two approaches:</p>
+<p>The interface with <code>FEniCS</code> will be handled by the <code>MFrontGenericInterfaceSupport</code> project (<code>MGIS</code>)<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. This project aims at proving tools (functions, classes, bindings, etc…) to handle behaviours written using <code>MFront</code> generic interface. Written in <code>C++</code>, it provides bindings for various languages: <code>C</code>, <code>python</code>, <code>fortran</code>. This library also provides the so-called <code>FEniCS</code> bindings briefly described below.</p>
+<p>Two approaches are available:</p>
 <ul>
 <li>The first one will rely on the <code>python</code> bindings. This approach requires the user to write its own version of the Newton solver.</li>
 <li>The second one, strongly inspired by the <code>fenics-solid-mechanics</code> project written by Kristian B. Ølgaard and Garth N. Wells<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>, will allow the usage of the standard Newton-Raphson procedure delivered by <code>dolfin</code>. This approach is the basis of the <code>FEniCS</code> bindings.</li>
@@ -119,9 +119,9 @@
 <li>The first approach is very flexible can be easily used to describe a large number of situations. It is however probably be less efficient numerically. In particular, the consistent tangent operator is stored at each integration point, which can be a memory bottleneck for large simulations.</li>
 <li>The second approach is currently limited to <span class="math inline">\(3D\)</span> simulations written in <code>C++</code> and small strain behaviours<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>. The computation of the gradients and the construction of inner forces and the consistent tangent operator are handled at element level: this explain why only a limited range of behaviours are currently supported. This approach also requires to go deep in the very gory details of <code>FEniCS</code> internals which are far from trivial and, to the authors opinion, currently insufficiently described for new comers in the source code and the <code>doxygen</code> documentation.</li>
 </ul>
-<h1 id="coupling-at-the-python-level">Coupling at the <code>python</code> level</h1>
-<h2 id="rapid-description-of-useful-classes-and-functions-introduced-by-the-mfrontgenericinterface-project">Rapid description of useful classes and functions introduced by the <code>MFrontGenericInterface</code> project</h2>
-<p>In this paper, a limited number of classes and functions of the <code>MFrontGenericInterface</code> project will be considered:</p>
+<p>This document will focus on the coupling at the <code>python</code> level</p>
+<h1 id="rapid-description-of-useful-classes-and-functions-introduced-by-the-mgis-project">Rapid description of useful classes and functions introduced by the <code>MGIS</code> project</h1>
+<p>In this paper, a limited number of classes and functions of the <code>MGIS</code> project will be considered:</p>
 <ul>
 <li>the <code>Behaviour</code> class handles all the information about a specific <code>MFront</code> behaviour. It is created by the <code>load</code> function which takes the path to a library, the name of a behaviour and a modelling hypothesis.</li>
 <li>the <code>MaterialDataManager</code> class handles a bunch of integration points. It is instantiated using an instance of the <code>Behaviour</code> class and the number of integration points<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. The <code>MaterialDataManager</code> contains various interesting members:
@@ -142,7 +142,11 @@
 <li>the <code>integrate</code> function triggers the behaviour integration at each integration points. Various overloads of this function exist. We will use a version taking as argument a <code>MaterialStateManager</code>, the time increment and a range of integration points.</li>
 </ul>
 <p>Those classes and functions are available in the <code>mgis.behaviour</code> <code>python</code> module.</p>
-<h3 id="initialisation-of-a-single-material">Initialisation of a single material</h3>
+<h1 id="application-to-a-small-strain-behaviour">Application to a small strain behaviour</h1>
+<p>This section is extracted from the following tutorial:</p>
+<p><a href="https://comet-fenics.readthedocs.io/en/latest/demo/plasticity_mfront/plasticity_mfront.py.html" class="uri">https://comet-fenics.readthedocs.io/en/latest/demo/plasticity_mfront/plasticity_mfront.py.html</a></p>
+<p>The idea is here to focus on</p>
+<h2 id="initialisation-of-a-single-material">Initialisation of a single material</h2>
 <p>Assuming that number of integration points is known and stored in the <code>ng</code> variable, a possible initialisation of a behaviour and a material data manager can be:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># modelling hypothesis</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">h <span class="op">=</span> mgis_bv.Hypothesis.PlaneStrain</a>
@@ -156,7 +160,7 @@
 <a class="sourceLine" id="cb1-10" data-line-number="10">    mgis_bv.setMaterialProperty(s, <span class="st">&quot;HardeningSlope&quot;</span>, <span class="fl">150e6</span>)</a>
 <a class="sourceLine" id="cb1-11" data-line-number="11">    mgis_bv.setMaterialProperty(s, <span class="st">&quot;YieldStrength&quot;</span>, <span class="fl">200e6</span>)</a>
 <a class="sourceLine" id="cb1-12" data-line-number="12">    mgis_bv.setExternalStateVariable(s, <span class="st">&quot;Temperature&quot;</span>, <span class="fl">293.15</span>)</a></code></pre></div>
-<h3 id="an-example-of-a-newton-raphson-loop-for-a-single-material">An example of a Newton-Raphson loop for a single material</h3>
+<h2 id="an-example-of-a-newton-raphson-loop-for-a-single-material">An example of a Newton-Raphson loop for a single material</h2>
 <p>The following code shows how a simple Newton-Raphson can be setup in the case of a single material:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="cf">for</span> (i, t) <span class="kw">in</span> <span class="bu">enumerate</span>(load_steps):</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">    loading.t <span class="op">=</span> t</a>
@@ -198,109 +202,20 @@ res = -inner(eps(u_), as_3D_tensor(sig))*dxm + F_ext(</code></pre>
 <ul>
 <li>Integration failures are not handled</li>
 <li>Useless copies from <code>FEniCS</code> to <code>MGIS</code> and back:</li>
-<li>Parallelization:</li>
 </ul>
-<h1 id="coupling-at-the-c-level">Coupling at the <code>C++</code> level</h1>
-<h2 id="ufl-file"><code>UFL</code> file</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="im">from</span> math <span class="im">import</span> sqrt</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">scheme<span class="op">=</span> <span class="st">&quot;default&quot;</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">degree <span class="op">=</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">dx <span class="op">=</span> Measure(<span class="st">&quot;dx&quot;</span>)</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">dx <span class="op">=</span> dx(degree<span class="op">=</span>degree, scheme<span class="op">=</span>scheme)</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">elementA <span class="op">=</span> VectorElement(<span class="st">&quot;Lagrange&quot;</span>, tetrahedron, <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">elementS <span class="op">=</span> VectorElement(<span class="st">&quot;Quadrature&quot;</span>, tetrahedron, degree, dim<span class="op">=</span><span class="dv">6</span>, quad_scheme<span class="op">=</span>scheme)</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">elementT <span class="op">=</span> VectorElement(<span class="st">&quot;Quadrature&quot;</span>, tetrahedron, degree, dim<span class="op">=</span><span class="dv">36</span>, quad_scheme<span class="op">=</span>scheme)</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">v <span class="op">=</span> TestFunction(elementA)</a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">u <span class="op">=</span> TrialFunction(elementA)</a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15">t <span class="op">=</span> Coefficient(elementT)</a>
-<a class="sourceLine" id="cb4-16" data-line-number="16">s <span class="op">=</span> Coefficient(elementS)</a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18">f <span class="op">=</span> Coefficient(elementA)</a>
-<a class="sourceLine" id="cb4-19" data-line-number="19">h <span class="op">=</span> Coefficient(elementA)</a>
-<a class="sourceLine" id="cb4-20" data-line-number="20">disp <span class="op">=</span> Coefficient(elementA)</a>
-<a class="sourceLine" id="cb4-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co"># eps_xx, eps_yy, eps_zz, sqrt(2)*eps_xy, sqrt(2)*eps_xz, sqrt(2)*eps_yz</span></a>
-<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="kw">def</span> eps(u):</a>
-<a class="sourceLine" id="cb4-24" data-line-number="24">    <span class="cf">return</span> as_vector([u[i].dx(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>)] <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-25" data-line-number="25">                     [(u[i].dx(j) <span class="op">+</span> u[j].dx(i))<span class="op">/</span>sqrt(<span class="dv">2</span>) <span class="cf">for</span> i, j <span class="kw">in</span> [(<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">0</span>, <span class="dv">2</span>), (<span class="dv">1</span>, <span class="dv">2</span>)]])</a>
-<a class="sourceLine" id="cb4-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="kw">def</span> sigma(s):</a>
-<a class="sourceLine" id="cb4-28" data-line-number="28">    <span class="cf">return</span> as_matrix([[s[<span class="dv">0</span>], s[<span class="dv">3</span>]<span class="op">/</span>sqrt(<span class="dv">2</span>), s[<span class="dv">4</span>]<span class="op">/</span>sqrt(<span class="dv">2</span>)],</a>
-<a class="sourceLine" id="cb4-29" data-line-number="29">                      [s[<span class="dv">3</span>]<span class="op">/</span>sqrt(<span class="dv">2</span>), s[<span class="dv">1</span>], s[<span class="dv">5</span>]<span class="op">/</span>sqrt(<span class="dv">2</span>)],</a>
-<a class="sourceLine" id="cb4-30" data-line-number="30">                      [s[<span class="dv">4</span>]<span class="op">/</span>sqrt(<span class="dv">2</span>), s[<span class="dv">5</span>]<span class="op">/</span>sqrt(<span class="dv">2</span>), s[<span class="dv">2</span>]]])</a>
-<a class="sourceLine" id="cb4-31" data-line-number="31"></a>
-<a class="sourceLine" id="cb4-32" data-line-number="32"><span class="kw">def</span> tangent(t):</a>
-<a class="sourceLine" id="cb4-33" data-line-number="33">  <span class="cf">return</span> as_matrix([[t[i<span class="op">*</span><span class="dv">6</span> <span class="op">+</span> j] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>)] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>)])</a>
-<a class="sourceLine" id="cb4-34" data-line-number="34"></a>
-<a class="sourceLine" id="cb4-35" data-line-number="35"><span class="co"># Bilinear and linear forms</span></a>
-<a class="sourceLine" id="cb4-36" data-line-number="36">a <span class="op">=</span> inner(eps(v), dot(tangent(t), eps(u)) )<span class="op">*</span>dx</a>
-<a class="sourceLine" id="cb4-37" data-line-number="37">L <span class="op">=</span> inner(grad(v), sigma(s))<span class="op">*</span>dx <span class="op">-</span> dot(v, f)<span class="op">*</span>dx <span class="op">-</span> dot(v, h)<span class="op">*</span>ds(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb4-38" data-line-number="38"></a>
-<a class="sourceLine" id="cb4-39" data-line-number="39"><span class="co"># Functionals to compute displacement and load</span></a>
-<a class="sourceLine" id="cb4-40" data-line-number="40">M_d <span class="op">=</span> disp[<span class="dv">0</span>]<span class="op">*</span>ds(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb4-41" data-line-number="41">M_f <span class="op">=</span> h[<span class="dv">0</span>]<span class="op">*</span>ds(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb4-42" data-line-number="42"></a>
-<a class="sourceLine" id="cb4-43" data-line-number="43">forms <span class="op">=</span> [a, L, M_d, M_f]</a></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Extract elements for stress and tangent</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="bu">std::</span>shared_ptr&lt;<span class="at">const</span> dolfin::FiniteElement&gt; <span class="dt">element_t</span>;</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="bu">std::</span>shared_ptr&lt;<span class="at">const</span> dolfin::FiniteElement&gt; element_s;</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">{</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">  MGISSmallStrainFormulation3D::BilinearForm::<span class="dt">CoefficientSpace_t</span> Vt(mesh);</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">  <span class="dt">element_t</span> = Vt.element();</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">}</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">MGISSmallStrainFormulation3D::LinearForm::CoefficientSpace_s Vs(mesh);</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">element_s = Vs.element();</a></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">auto</span> b = mgis::behaviour::load(library, <span class="st">&quot;Elasticity&quot;</span>,</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">                               mgis::behaviour::Hypothesis::TRIDIMENSIONAL);</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">auto</span> m = mgis::fenics::NonLinearMaterial(u,<span class="dt">element_t</span>,element_s,b);</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="at">const</span> <span class="kw">auto</span> yg = <span class="fl">150e9</span>;</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="at">const</span> <span class="kw">auto</span> nu = <span class="fl">0.3</span>;</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">setMaterialProperty(m.s0, <span class="st">&quot;YoungModulus&quot;</span>, yg);</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">setMaterialProperty(m.s1, <span class="st">&quot;YoungModulus&quot;</span>, yg);</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">setMaterialProperty(m.s0, <span class="st">&quot;PoissonRatio&quot;</span>, nu);</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">setMaterialProperty(m.s1, <span class="st">&quot;PoissonRatio&quot;</span>, nu);</a>
-<a class="sourceLine" id="cb6-10" data-line-number="10">setExternalStateVariable(m.s0,<span class="st">&quot;Temperature&quot;</span>, <span class="fl">293.15</span>);</a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">setExternalStateVariable(m.s1,<span class="st">&quot;Temperature&quot;</span>, <span class="fl">293.15</span>);</a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">}</a></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// Create forms and attach functions</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">auto</span> a = <span class="bu">std::</span>make_shared&lt;MGISSmallStrainFormulation3D::BilinearForm&gt;(V, V);</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">a-&gt;t =  m.getTangentOperatorFunction();</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">a-&gt;ds = load_marker;</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="kw">auto</span> L = <span class="bu">std::</span>make_shared&lt;MGISSmallStrainFormulation3D::LinearForm&gt;(V);</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">L-&gt;f = f;</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">L-&gt;h = boundary_load;</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">L-&gt;s = m.getThermodynamicForcesFunction();</a></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">// Solver loop</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">mgis::<span class="dt">size_type</span> step = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">mgis::<span class="dt">size_type</span> steps = <span class="dv">10</span>;</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="dt">double</span> dt = <span class="fl">0.1</span>;</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="cf">while</span> (step &lt; steps) {</a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">  <span class="kw">auto</span> extract = [](<span class="at">const</span> <span class="bu">std::</span>vector&lt;<span class="dt">double</span>&gt; v) {</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">    <span class="cf">return</span> <span class="bu">std::</span>array&lt;<span class="dt">double</span>, <span class="dv">6</span>&gt;{v[<span class="dv">0</span>], v[<span class="dv">1</span>], v[<span class="dv">2</span>], v[<span class="dv">3</span>], v[<span class="dv">4</span>], v[<span class="dv">5</span>]};</a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">  };</a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">  m.setTimeIncrement(dt);</a>
-<a class="sourceLine" id="cb8-10" data-line-number="10">  t += dt;</a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">  ++step;</a>
-<a class="sourceLine" id="cb8-12" data-line-number="12">  <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;step begin: &quot;</span> &lt;&lt; step &lt;&lt; <span class="bu">std::</span>endl;</a>
-<a class="sourceLine" id="cb8-13" data-line-number="13">  <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;time: &quot;</span> &lt;&lt; t &lt;&lt; <span class="bu">std::</span>endl;</a>
-<a class="sourceLine" id="cb8-14" data-line-number="14">  <span class="co">// solve the non-linear problem</span></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15">  nonlinear_solver.solve(nonlinear_problem, *u-&gt;vector());</a>
-<a class="sourceLine" id="cb8-16" data-line-number="16">  <span class="co">// update state variables</span></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17">  mgis::behaviour::update(m);</a>
-<a class="sourceLine" id="cb8-18" data-line-number="18">  <span class="co">// post-processings</span></a>
-<a class="sourceLine" id="cb8-19" data-line-number="19">  <span class="at">const</span> <span class="dt">double</span> u_avg = assemble(*M_d);</a>
-<a class="sourceLine" id="cb8-20" data-line-number="20">  ux.push_back(u_avg);</a>
-<a class="sourceLine" id="cb8-21" data-line-number="21">  <span class="at">const</span> <span class="dt">double</span> force = assemble(*M_f);</a>
-<a class="sourceLine" id="cb8-22" data-line-number="22">  fx.push_back(force);</a>
-<a class="sourceLine" id="cb8-23" data-line-number="23">  e.push_back(extract(m.s1.gradients));</a>
-<a class="sourceLine" id="cb8-24" data-line-number="24">  s.push_back(extract(m.s1.thermodynamic_forces));</a>
-<a class="sourceLine" id="cb8-25" data-line-number="25">}</a></code></pre></div>
-<h1 id="references">References</h1>
+<h1 id="application-to-finite-strain-behaviours">Application to finite strain behaviours</h1>
+<p>Finite strain behaviours generated by <code>MFront</code> can also be used quite easily.</p>
+<p>The mechanical equilibrium is written in weak-form on the initial configuration using the first Piola-Kirchhoff stress in the axisymmetric case:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">res <span class="op">=</span> <span class="op">-</span>inner(grad_MFront(u_), pk1)<span class="op">*</span>x[<span class="dv">0</span>]<span class="op">*</span>dxm</a></code></pre></div>
+<p>The stiffness matrix naturally introduces the derivative of the first Piola-Kirchhoff stress with respect to the deformation gradient, denoted <code>Ct</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">a_Newton <span class="op">=</span> inner(grad_MFront(v), dot(Ct, grad_MFront(u_)))<span class="op">*</span>x[<span class="dv">0</span>]<span class="op">*</span>dxm</a></code></pre></div>
+<p>To tell <code>MFront</code> that we want to use the first Piola-Kirchhoff stress and compute its derivative, one have to modify the call to the <code>load</code> function, as follows:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Loading the behaviour</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">h <span class="op">=</span> mgis_bv.Hypothesis.Axisymmetrical</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">bopts <span class="op">=</span> mgis_bv.FiniteStrainBehaviourOptions()</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">bopts.stress_measure <span class="op">=</span> mgis_bv.FiniteStrainBehaviourOptionsStressMeasure.PK1</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">bopts.tangent_operator <span class="op">=</span> mgis_bv.FiniteStrainBehaviourOptionsTangentOperator.DPK1_DF</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">b <span class="op">=</span> mgis_bv.load(bopts,<span class="st">&#39;src/libBehaviour.so&#39;</span>,<span class="st">&#39;LogarithmicStrainPlasticity&#39;</span>,h)</a></code></pre></div>
 <section class="footnotes">
 <hr />
 <ol>

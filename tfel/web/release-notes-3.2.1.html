@@ -58,6 +58,7 @@
 		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
                     <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
 		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
                 </ul>
            </li>
             <li><a>Versions 3.1.x</a>
@@ -168,20 +169,60 @@
           </div>
             <div id="TOC">
       <ul>
-      <li><a href="#tickets-fixed">Tickets fixed</a></li>
+      <li><a href="#associated-projects-release">Associated projects release</a></li>
+      <li><a href="#tickets-fixed">Tickets fixed</a><ul>
+      <li><a href="#ticket-166-the-offset-in-material-properties-associated-with-the-rotation-matrix-is-not-taken-into-account-propertly-in-the-ansys-interface">Ticket #166: The offset in material properties associated with the rotation matrix is not taken into account propertly in the <code>Ansys</code> interface</a></li>
+      <li><a href="#ticket-165-integration-failure-is-not-always-properly-handled-in-the-ansys-interface">Ticket #165: Integration failure is not always properly handled in the <code>Ansys</code> interface</a></li>
+      <li><a href="#ticket-164-prediction-is-not-handled-properly-in-the-generic-interface">Ticket #164: Prediction is not handled properly in the generic interface</a></li>
+      <li><a href="#ticket-161-buffer-overflow-in-initial-stress-computation-in-the-generic-interface-when-using-a-strain-measure">Ticket #161: Buffer overflow in initial stress computation in the <code>generic</code> interface when using a strain measure</a></li>
+      <li><a href="#ticket-153-signalmanager.cxx-does-not-compile-under-mac-os">Ticket #153: <code>SignalManager.cxx</code> does not compile under <code>Mac OS</code></a></li>
+      <li><a href="#ticket-150-option-specification-for-additonal-keywords-or-variable-substitution-is-inconsistent-under-windows">Ticket #150: Option specification for additonal keywords or variable substitution is inconsistent under Windows</a></li>
+      <li><a href="#ticket-149-ability-to-specify-the-path-the-python-library-at-runtime">Ticket #149: Ability to specify the path the python library at runtime</a></li>
+      <li><a href="#ticket-142-get-energies-elastic-plastic-in-the-generic-interface">Ticket #142: get energies (elastic, plastic…) in the <code>generic</code> interface</a></li>
+      <li><a href="#ticket-141-output-sse-spd-and-scd-in-abaqusstandard">Ticket #141: Output <code>SSE</code>, <code>SPD</code> and <code>SCD</code> in <code>Abaqus/Standard</code></a></li>
+      </ul></li>
+      <li><a href="#references">References</a></li>
       </ul>
     </div>
-        <p>This is mainly a bug fix version of the <code>3.2</code> series. All tickets solved are described below.</p>
+        <p>Version <code>3.2.1</code> is mainly a bug fix version of the <code>3.2</code> series.</p>
+<p>It has been released simultaneously with Versions <a href="release-notes-3.0.4.html"><code>3.0.4</code></a> and <a href="release-notes-3.1.4.html"><code>3.1.4</code></a> and inherits from the improvements made in those versions (See the associated release notes for a complete description).</p>
+<p>The first section announces releases of projects strongly linked with <code>TFEL/MFront</code>. The solved issues described in Section “Tickets fixed” at the end of this document are relative to the <code>3.2</code> branch.</p>
+<p>Version <code>3.2.1</code> can be downloaded:</p>
+<ul>
+<li>on <code>SourceForge</code>: <a href="https://sourceforge.net/projects/tfel/files/" class="uri">https://sourceforge.net/projects/tfel/files/</a></li>
+<li>on <code>github</code>: <a href="https://github.com/thelfer/tfel" class="uri">https://github.com/thelfer/tfel</a></li>
+</ul>
+<p>A <code>Spack</code> recipe is also available (see <a href="https://spack.readthedocs.io/en/latest/" class="uri">https://spack.readthedocs.io/en/latest/</a>).</p>
+<h1 id="associated-projects-release">Associated projects release</h1>
+<p>The following associated projects have been released simultaneously:</p>
+<ul>
+<li>Version <code>1.0.1</code> of the <code>MGIS</code> project (MFront Generic Interface Support). This project aims at providing tools (functions, classes, bindings, etc…) to handle behaviours written using the <code>MFront</code> generic interface. Those tools are meant to be used by (FEM, FFT, etc.) solver developers. Though quite recent, this project already has been integrated in various projects developed internally at <code>CEA</code> and also in some noteworthy external projects, including the <code>XPer</code> solver (see <span class="citation" data-cites="perales_xper_2017">Perales et al. (2017)</span>) and the <a href="https://www.opengeosys.org/"><code>OpenGeoSys</code></a> platform (see <span class="citation" data-cites="kolditz_opengeosys:_2012">Kolditz et al. (2012)</span>). See <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport</a> for details.</li>
+<li>Version <code>1.0.1</code> of the <code>MFrontGallery</code> project which aims at gathering high quality, thoroughly tested, well written, efficient and ready-to-use <code>MFront</code> implementations of various material properties, behaviours and models. See <a href="https://github.com/thelfer/MFrontGallery" class="uri">https://github.com/thelfer/MFrontGallery</a> for details.</li>
+<li>Version <code>1.0.1</code> of the <code>tfel-editor</code> project which aims to provide an <code>EMACS</code>-like text editor with major modes dedicated to <code>MFront</code> and <code>MTest</code> file editing (including syntax highlighting and keyword completion). See <a href="https://github.com/thelfer/tfel-editor" class="uri">https://github.com/thelfer/tfel-editor</a> for details.</li>
+<li>Version <code>1.0.1</code> of the <code>tfel-plot</code> project. See <a href="https://github.com/thelfer/tfel-plot" class="uri">https://github.com/thelfer/tfel-plot</a> for details.</li>
+</ul>
 <h1 id="tickets-fixed">Tickets fixed</h1>
-<p>#Ticket #153: <code>SignalManager.cxx</code> does not compile under <code>Mac OS</code></p>
+<h2 id="ticket-166-the-offset-in-material-properties-associated-with-the-rotation-matrix-is-not-taken-into-account-propertly-in-the-ansys-interface">Ticket #166: The offset in material properties associated with the rotation matrix is not taken into account propertly in the <code>Ansys</code> interface</h2>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/166/" class="uri">https://sourceforge.net/p/tfel/tickets/166/</a></p>
+<h2 id="ticket-165-integration-failure-is-not-always-properly-handled-in-the-ansys-interface">Ticket #165: Integration failure is not always properly handled in the <code>Ansys</code> interface</h2>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/165/" class="uri">https://sourceforge.net/p/tfel/tickets/165/</a></p>
+<h2 id="ticket-164-prediction-is-not-handled-properly-in-the-generic-interface">Ticket #164: Prediction is not handled properly in the generic interface</h2>
+<p>There was a error in the generated code, so the type of computation was not handled properly:</p>
+<pre><code>const auto bp = K[0]&lt;0.5;</code></pre>
+<p>shall be (as documented):</p>
+<pre><code>const auto bp = K[0]&lt;-0.5;</code></pre>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/164/" class="uri">https://sourceforge.net/p/tfel/tickets/164/</a></p>
+<h2 id="ticket-161-buffer-overflow-in-initial-stress-computation-in-the-generic-interface-when-using-a-strain-measure">Ticket #161: Buffer overflow in initial stress computation in the <code>generic</code> interface when using a strain measure</h2>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/161/" class="uri">https://sourceforge.net/p/tfel/tickets/161/</a></p>
+<h2 id="ticket-153-signalmanager.cxx-does-not-compile-under-mac-os">Ticket #153: <code>SignalManager.cxx</code> does not compile under <code>Mac OS</code></h2>
 <p>The issue is related to the fact that <code>sigfillset</code> is a macro under <code>Mac OS</code>.</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/153/" class="uri">https://sourceforge.net/p/tfel/tickets/153/</a></p>
-<p>#Ticket #150: Option specification for additonal keywords or variable substitution is inconsistent under Windows</p>
+<h2 id="ticket-150-option-specification-for-additonal-keywords-or-variable-substitution-is-inconsistent-under-windows">Ticket #150: Option specification for additonal keywords or variable substitution is inconsistent under Windows</h2>
 <p>Options under Windows are allowed to be specified with <code>'/'</code> in place of <code>'--'</code> (both specifications are accepted). However, this did not work for additonal keywords or variable substitution.</p>
 <p>The following example failed:</p>
 <pre><code>$ mfront /@CompareToNumericalJacobian=true ...</code></pre>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/150/" class="uri">https://sourceforge.net/p/tfel/tickets/150/</a></p>
-<p>#Ticket #149: Ability to specify the path the python library at runtime</p>
+<h2 id="ticket-149-ability-to-specify-the-path-the-python-library-at-runtime">Ticket #149: Ability to specify the path the python library at runtime</h2>
 <p>The following environment variable can now be used to customize how <code>python</code> modules for material properties are build:</p>
 <ul>
 <li><code>PYTHON_INCLUDE_PATH</code>: path to the <code>python</code> header files.</li>
@@ -189,7 +230,7 @@
 <li><code>PYTHON_LIBRARY</code>: name of the <code>python</code> library.</li>
 </ul>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/149/" class="uri">https://sourceforge.net/p/tfel/tickets/149/</a></p>
-<p>#Ticket #142: get energies (elastic, plastic…) in the <code>generic</code> interface</p>
+<h2 id="ticket-142-get-energies-elastic-plastic-in-the-generic-interface">Ticket #142: get energies (elastic, plastic…) in the <code>generic</code> interface</h2>
 <p>Two outputs have been added in the <code>MFront_GB_State</code> structure:</p>
 <ul>
 <li>the stored energy, as computed by the <code>@InternalEnergy</code> keyword</li>
@@ -197,7 +238,7 @@
 </ul>
 <p>The <code>MGIS</code> project has been updated to match this evolution.</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/142/" class="uri">https://sourceforge.net/p/tfel/tickets/142/</a></p>
-<p>#Ticket #141: Output <code>SSE</code>, <code>SPD</code> and <code>SCD</code> in <code>Abaqus/Standard</code></p>
+<h2 id="ticket-141-output-sse-spd-and-scd-in-abaqusstandard">Ticket #141: Output <code>SSE</code>, <code>SPD</code> and <code>SCD</code> in <code>Abaqus/Standard</code></h2>
 <p>The <code>Abaqus/Standard</code> solver defines three optional outputs:</p>
 <ul>
 <li><code>SSE</code>: the elastic energy.</li>
@@ -206,6 +247,15 @@
 </ul>
 <p>On the <code>MFront</code> side, the behaviour can optionally compute the stored and dissipated energies through the <code>@InternalEnergy</code> and <code>@DissipatedEnergy</code> keywords. This means that <code>MFront</code> behaviours does not distinguish the energies dissipated by plasticity and viscoplasticity. The choice made in version <code>3.2.1</code> is to store the energy computed by the <code>@InternalEnergy</code> keyword in <code>SSE</code> and to store the energy computed by the <code>@DissipatedEnergy</code> keyword in <code>SPD</code>.</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/141/" class="uri">https://sourceforge.net/p/tfel/tickets/141/</a></p>
+<h1 id="references" class="unnumbered">References</h1>
+<div id="refs" class="references">
+<div id="ref-kolditz_opengeosys:_2012">
+<p>Kolditz, O., S. Bauer, L. Bilke, N. Böttcher, J. O. Delfs, T. Fischer, U. J. Görke, et al. 2012. “OpenGeoSys: An Open-Source Initiative for Numerical Simulation of Thermo-Hydro-Mechanical/Chemical (THM/c) Processes in Porous Media.” <em>Environmental Earth Sciences</em> 67 (2): 589–99. <a href="https://doi.org/10.1007/s12665-012-1546-x" class="uri">https://doi.org/10.1007/s12665-012-1546-x</a>.</p>
+</div>
+<div id="ref-perales_xper_2017">
+<p>Perales, Frédéric, Yann Monerie, Frédéric Dubois, Rémy Mozul, and Fabrice Babik. 2017. “Xper : Une Plateforme Pour La Simulation Numérique Distribuée d’interactions Multiphysiques Entre Corps.” In <em>13e Colloque National En Calcul Des Structures</em>. Giens, Var, France: Université Paris-Saclay. <a href="https://hal.archives-ouvertes.fr/hal-01899269" class="uri">https://hal.archives-ouvertes.fr/hal-01899269</a>.</p>
+</div>
+</div>
         <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

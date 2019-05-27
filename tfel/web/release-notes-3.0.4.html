@@ -58,6 +58,7 @@
 		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
                     <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
 		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
                 </ul>
            </li>
             <li><a>Versions 3.1.x</a>
@@ -169,6 +170,9 @@
             <div id="TOC">
       <ul>
       <li><a href="#tickets-fixed">Tickets fixed</a><ul>
+      <li><a href="#ticket-168-fix-another-windows-oddity-disabling-the-small-macro">Ticket #168: Fix another Windows’ oddity: disabling the <code>small</code> macro</a></li>
+      <li><a href="#ticket-163-mtest-file-generation-shear-components-of-the-strain-are-ill-initialized">Ticket #163: MTest file generation: shear components of the strain are ill initialized</a></li>
+      <li><a href="#ticket-156-sub-stepping-in-the-cast3m-interface-is-broken-for-true-finite-strain-behaviours">Ticket #156: Sub-stepping in the <code>Cast3M</code> interface is broken for true finite strain behaviours</a></li>
       <li><a href="#ticket-154-the-enable-portable-build-option-does-not-work-with-visual-studio">Ticket #154: The <code>enable-portable-build</code> option does not work with <code>Visual Studio</code></a></li>
       <li><a href="#ticket-151-correct-the-python-modules-install-path">Ticket #151: Correct the python modules install path</a></li>
       <li><a href="#ticket-147-improving-material-properties-support-with-visual-studio">Ticket #147: Improving material properties support with Visual Studio</a></li>
@@ -177,6 +181,17 @@
     </div>
         <p>This is mainly a bug fix version of the <code>3.0</code> series. All tickets solved are described below.</p>
 <h1 id="tickets-fixed">Tickets fixed</h1>
+<h2 id="ticket-168-fix-another-windows-oddity-disabling-the-small-macro">Ticket #168: Fix another Windows’ oddity: disabling the <code>small</code> macro</h2>
+<p>Including <code>windows.h</code> comes with a lot of noise. Apart from defining by default the <code>min</code> and <code>max</code> macros (this is already disabled in <code>MFront</code> from a long time), it also defines a macro called <code>small</code>.</p>
+<p>This shall be undefined to avoid strange and stupid errors (very difficult to debug even for advanced developers).</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/168/" class="uri">https://sourceforge.net/p/tfel/tickets/168/</a></p>
+<h2 id="ticket-163-mtest-file-generation-shear-components-of-the-strain-are-ill-initialized">Ticket #163: MTest file generation: shear components of the strain are ill initialized</h2>
+<p>When generating MTest files on failure, the off-diagonal values of the strain were not initialized correctly. However, the strain increment was correctly computed, so this bug may only affect a very limited number of behaviours.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/163/" class="uri">https://sourceforge.net/p/tfel/tickets/163/</a></p>
+<h2 id="ticket-156-sub-stepping-in-the-cast3m-interface-is-broken-for-true-finite-strain-behaviours">Ticket #156: Sub-stepping in the <code>Cast3M</code> interface is broken for true finite strain behaviours</h2>
+<p>The <code>Cast3M</code> interface allows substepping at the Gauss point level in case of non convergence of the behaviour integration.</p>
+<p>This mechanism was broken for “true” finite strain behaviours (behaviours directly using the deformation gradient). This means that strain based behaviours (using the GreenLagrange strain or the Hencky strain) are not affected by this issue.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/156/" class="uri">https://sourceforge.net/p/tfel/tickets/156/</a></p>
 <h2 id="ticket-154-the-enable-portable-build-option-does-not-work-with-visual-studio">Ticket #154: The <code>enable-portable-build</code> option does not work with <code>Visual Studio</code></h2>
 <p>The issue is related to the <code>cmake</code> build system.</p>
 <p>The processor’ optimized flags were not separed from the other optimisation flags and stored in the generic <code>OPTIMISATION_FLAGS</code> variable.</p>

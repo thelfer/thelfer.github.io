@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>MFrontGenericInterfaceSupport Version 1.1</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">MFrontGenericInterfaceSupport Version 1.1</h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#new-functionalities">New functionalities</a><ul>
+      <li><a href="#finite-strain-behaviour-options">Finite strain behaviour options</a></li>
+      <li><a href="#julia-bindings"><code>Julia</code> bindings</a></li>
+      </ul></li>
+      </ul>
+    </div>
+        <h1 id="new-functionalities">New functionalities</h1>
+<h2 id="finite-strain-behaviour-options">Finite strain behaviour options</h2>
+<p>By default, finite strain behaviours use:</p>
+<ul>
+<li>the Cauchy stress measure.</li>
+<li>the derivative of the Cauchy stress with respect to the deformation gradient as tangent operator.</li>
+</ul>
+<p>The <code>FiniteStrainBehaviourOptions</code> data structure allows to specify which stress measure and which tangent operator is expected.</p>
+<p>Here is an example of this structure may be used:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">auto</span> o = FiniteStrainBehaviourOptions{};</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">o.stress_measure = FiniteStrainBehaviourOptions::PK1;</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="at">const</span> <span class="kw">auto</span> b =</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    load(o, <span class="st">&quot;src/libBehaviour.so&quot;</span>, <span class="st">&quot;SaintVenantKirchhoffElasticity&quot;</span>,</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">         Hypothesis::TRIDIMENSIONAL);</a></code></pre></div>
+<h2 id="julia-bindings"><code>Julia</code> bindings</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode julia"><code class="sourceCode julia"><a class="sourceLine" id="cb2-1" data-line-number="1">h = mgis.behaviour.Axisymmetrical</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">b = mgis.behaviour.load(<span class="st">&quot;src/libBehaviour.so&quot;</span>,<span class="st">&quot;Norton2&quot;</span>,h)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co"># meta data</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">@test mgis.behaviour.get_source(b)==<span class="st">&quot;Norton2.mfront&quot;</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">@test mgis.behaviour.get_hypothesis(b)==mgis.behaviour.Axisymmetrical</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">@test mgis.behaviour.get_symmetry(b)==mgis.behaviour.Isotropic</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">@test mgis.behaviour.get_kinematic(b)==mgis.behaviour.SmallStrainKinematic</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">@test mgis.behaviour.get_kinematic(b)==mgis.behaviour.SmallStrainKinematic</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">@test mgis.behaviour.get_behaviour_type(b)== </a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">    mgis.behaviour.StandardStrainBasedBehaviour</a></code></pre></div>
+      </body>
+</html>

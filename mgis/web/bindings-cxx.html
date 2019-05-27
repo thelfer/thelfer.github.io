@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>A brief introduction to the MGIS C++ library for mechanical behaviours</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">A brief introduction to the <code>MGIS</code> <code>C++</code> library for mechanical behaviours</h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">14/05/2019</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#creating-a-mfront-behaviour">Creating a <code>MFront</code> behaviour</a></li>
+      <li><a href="#loading-the-behaviour-the-behaviour-object">Loading the behaviour, the <code>Behaviour</code> object</a><ul>
+      <li><a href="#small-strain-behaviours">Small strain behaviours</a></li>
+      <li><a href="#finite-strain-behaviours">Finite strain behaviours</a></li>
+      <li><a href="#the-behaviour-object">The <code>Behaviour</code> object</a><ul>
+      <li><a href="#material-properties">Material properties</a></li>
+      </ul></li>
+      </ul></li>
+      <li><a href="#state-of-an-integration-point-memory-allocation">State of an integration point, memory allocation</a><ul>
+      <li><a href="#the-behaviourdataview-and-stateview-structures">The <code>BehaviourDataView</code> and <code>StateView</code> structures</a><ul>
+      <li><a href="#description-of-the-initial-values-stored-in-k">Description of the initial values stored in <code>K</code></a></li>
+      <li><a href="#the-stateview-structure">The <code>StateView</code> structure</a></li>
+      <li><a href="#memory-management">Memory management</a></li>
+      </ul></li>
+      <li><a href="#first-case-use-of-the-behaviourdata-data-structure">First case: use of the <code>BehaviourData</code> data structure</a><ul>
+      <li><a href="#creating-a-behaviourdataview-from-a-behaviourdata">Creating a <code>BehaviourDataView</code> from a <code>BehaviourData</code></a></li>
+      <li><a href="#retrieving-the-values-of-a-specific-variable">Retrieving the values of a specific variable</a></li>
+      <li><a href="#updating-the-date-from-one-time-step-to-the-other">Updating the date from one time step to the other</a></li>
+      <li><a href="#restarting-a-time-step">Restarting a time step</a></li>
+      </ul></li>
+      <li><a href="#second-case-use-of-the-materialdatamanager-structure">Second case: use of the <code>MaterialDataManager</code> structure</a><ul>
+      <li><a href="#external-memory-management-and-the-materialdatamanagerinitializer-class">External memory management and the <code>MaterialDataManagerInitializer</code> class</a></li>
+      <li><a href="#updating-the-date-from-one-time-step-to-the-other-1">Updating the date from one time step to the other</a></li>
+      <li><a href="#restarting-a-time-step-1">Restarting a time step</a></li>
+      </ul></li>
+      <li><a href="#third-case-manual-allocation">Third case: manual allocation</a></li>
+      </ul></li>
+      <li><a href="#behaviour-integration">Behaviour integration</a></li>
+      <li><a href="#references">References</a></li>
+      </ul>
+    </div>
+        <h1 id="introduction">Introduction</h1>
+<p>This introduction is meant to enlight how the use the <code>MGIS</code> library in <code>C++</code> to integrate a mechanical behaviour. This document targets solver developers who wish to integrate <code>MGIS</code>.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>This introduction will not describe formally the <code>MGIS</code> API (Application Programming Interface) which would be tedious. The reader may refer to the <code>doxygen</code> documentation of the project.</p>
+</blockquote>
+<h1 id="creating-a-mfront-behaviour">Creating a <code>MFront</code> behaviour</h1>
+<p>The first step to use <code>MGIS</code> is to generate via <code>MFront</code> a shared library which will be loaded by the <code>MGIS</code> library.</p>
+<blockquote>
+<p><strong>About the MFront/MGIS versions compatibility</strong></p>
+<p>This means that a working implementation of <code>MFront</code> is available. The user is responsible to use a version of <code>MFront</code> compatible with the version of <code>MGIS</code> he plans to use. This is explicitly discussed in the <code>README.md</code> file at the root the <code>MGIS</code> sources. Failing to use compatible versions may lead to various errors.</p>
+</blockquote>
+<p>In this document, we will consider two mechanical behaviours:</p>
+<ul>
+<li>a simple small strain viscoplastic behaviour based on the Norton-Hoff Law. This file is available <a href="mfront/Norton.mfront">here</a>.</li>
+<li>a simple finite strain plastic behaviour based on <span class="math inline">\(J_{2}\)</span> plasticity with linear hardening in the logarithmic space (see <span class="citation" data-cites="miehe_anisotropic_2002">Miehe, Apel, and Lambrecht (2002)</span>). This file is available <a href="mfront/Plasticity.mfront">here</a></li>
+</ul>
+<p>Those files can be compiled as follows from the command line<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># generate the C++ sources associated</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># with the Norton behaviour</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">$ <span class="ex">mfront</span> --interface=generic Norton.mfront</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># generate the C++ sources associated</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># with the plastic behaviour</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">$ <span class="ex">mfront</span> --interface=generic Plasticity.mfront</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># generate the library</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">$ <span class="ex">mfront</span> --obuild</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="ex">Treating</span> target : all</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="ex">The</span> following library has been built :</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="ex">-</span> libBehaviour.so :  Norton_AxisymmetricalGeneralisedPlaneStrain Norton_Axisymmetrical Norton_PlaneStrain Norton_GeneralisedPlaneStrain Norton_Tridimensional Plasticity_AxisymmetricalGeneralisedPlaneStrain Plasticity_Axisymmetrical Plasticity_PlaneStrain Plasticity_GeneralisedPlaneStrain Plasticity_Tridimensional</a></code></pre></div>
+<p>The output shows:</p>
+<ul>
+<li>That the compilation process led to the creation of the <code>libBehaviour.so</code> library.</li>
+<li>That <code>MFront</code> has generated one function per behaviour and per supported modelling hypothesis.</li>
+</ul>
+<p>For the following, it is important to note the name of the behaviour generated by <code>MFront</code>.</p>
+<blockquote>
+<p><strong>About the <code>TFEL</code> libraries</strong></p>
+<p>The generated library <code>libBehaviour.so</code> is linked to various libraries provided by the <code>TFEL</code> project. Those libraries must be available in the current environment for the library to be usable in <code>MGIS</code>.</p>
+</blockquote>
+<h1 id="loading-the-behaviour-the-behaviour-object">Loading the behaviour, the <code>Behaviour</code> object</h1>
+<p>The <code>load</code> function is used to load the behaviour. This function returns a <code>Behaviour</code> object which contains all the relevant information about the behaviour and a function pointer.</p>
+<h2 id="small-strain-behaviours">Small strain behaviours</h2>
+<p>The first overload of the <code>load</code> function takes three parameters:</p>
+<ul>
+<li>the name of the library.</li>
+<li>the name of the function.</li>
+<li>the modelling hypothesis to be used.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> h = Hypothesis::TRIDIMENSIONAL;</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> b = load(<span class="ch">&#39;src/libBehaviour.so&#39;</span>, <span class="ch">&#39;Norton&#39;</span>, h);</a></code></pre></div>
+<blockquote>
+<p><strong>The <code>mgis::behaviour</code> namespace</strong></p>
+<p>The example given in this document assumes that the functions and objects defined in the <code>mgis::behaviour</code> namespace are available in the current scope.</p>
+<p>In pratice, this means that the following statement was made earlier:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">using</span> <span class="kw">namespace</span> mgis::behaviour;</a></code></pre></div>
+</blockquote>
+<h2 id="finite-strain-behaviours">Finite strain behaviours</h2>
+<p>The second overload of the <code>load</code> function specifically handles finite strain behaviours and takes four parameters:</p>
+<ul>
+<li>options related the stress measure used on input/output and the consistenant tangent operator expected.</li>
+<li>the name of the library.</li>
+<li>the name of the function.</li>
+<li>the modelling hypothesis to be used.</li>
+</ul>
+<p>The following stress measures are available:</p>
+<ul>
+<li><code>CAUCHY</code>, the Cauchy stress</li>
+<li><code>PK1</code>, the first Piola-Kirchoff stress</li>
+<li><code>PK2</code>, the second Piola-Kirchoff stress</li>
+</ul>
+<p>The following tangent operators are available:</p>
+<ul>
+<li><code>DSIG_DF</code>, the derivative of the Cauchy stress with respect to the deformation gradient.</li>
+<li><code>DS_DEGL</code>, the derivative of the second Piola-Kirchoff stress with respect to the Green-Lagrange strain.</li>
+<li><code>DPK1_DF</code>, the derivative of the first Piola-Kirchoff stress with respect to the deformation gradient.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> h = Hypothesis::TRIDIMENSIONAL;</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">auto</span> o = FiniteStrainBehaviourOptions{};</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">o.stress_measure = FiniteStrainBehaviourOptions::PK1;</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">o.tangent_operator = FiniteStrainBehaviourOptions::DPK1_DF;</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="at">const</span> <span class="kw">auto</span> b = load(o, <span class="ch">&#39;src/libBehaviour.so&#39;</span>, <span class="ch">&#39;Norton&#39;</span>, h);</a></code></pre></div>
+<h2 id="the-behaviour-object">The <code>Behaviour</code> object</h2>
+<p>The <code>Behaviour</code> object contains all the metadata required to interact with the behaviour. A complete description of this object is exceed the scope of this document. Thus, only the analysis of the material properties required by the behaviour is discussed here. Handling external state variables, parameters is made in a very similar manner.</p>
+<h3 id="material-properties">Material properties</h3>
+<p>The list of material properties required by the user is defined in the <code>mps</code> data member as a vector of object of the <code>Variable</code> type.</p>
+<p>The <code>Variable</code> data structure is quite simple:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">struct</span> Variable {</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="co">//! name of the variable</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="bu">std::</span>string name;</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="co">//! type of the variable</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">  <span class="kw">enum</span> Type { SCALAR = <span class="dv">0</span>, VECTOR = <span class="dv">1</span>, STENSOR = <span class="dv">2</span>, TENSOR = <span class="dv">3</span>} type;</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">};  <span class="co">// end of struct Description</span></a></code></pre></div>
+<p>It contains two data members:</p>
+<ul>
+<li>the name</li>
+<li>the type</li>
+</ul>
+<p>For material properties (and external state variables), only scalar variables are allowed.</p>
+<p>With those informations, a solver developer is already able to check the validity of an input file.</p>
+<h1 id="state-of-an-integration-point-memory-allocation">State of an integration point, memory allocation</h1>
+<p>With the <code>Behaviour</code> data structure, one are able to describe a behaviour. The next step is to use this information to create one or more data structures containing the state of an integration point or a set of integrations points.</p>
+<p>Three cases can be met in practice:</p>
+<ol type="1">
+<li>The developer may choose to associate to each integration point an object of the type <code>BehaviourData</code> provided by <code>MGIS</code>.</li>
+<li>The developer may choose to use the <code>MaterialDataManager</code> provided by <code>MGIS</code> to handle the data associated with a set of integration points.</li>
+<li>The developer may choose to store the state of the material in its own data structures.</li>
+</ol>
+<p>Whatever the choice made, at the end, it must be emphasized that the behaviour integration is based on an object of the type <code>BehaviourDataView</code> which only contains pointers to a previously allocated memory. A careful study of this data structure may help to properly design the integration of <code>MGIS</code> in the solver and eventually minimize the data transfer between the code and the <code>MGIS</code> (and even, hopefully, eliminate all data transfer).</p>
+<p>Thus, the <code>BehaviourDataView</code> structure, and the underlying <code>StateView</code> structure, are now discussed. Then more details about the three cases described previously are given.</p>
+<h2 id="the-behaviourdataview-and-stateview-structures">The <code>BehaviourDataView</code> and <code>StateView</code> structures</h2>
+<p>The <code>BehaviourDataView</code> data structure contains the following data members:</p>
+<ul>
+<li><code>dt</code>, the time increment. This is left unmodified by the behaviour integration.</li>
+<li><code>K</code>, a pointer to an array which can hold the consistent tangent operator computed by the behaviour integration.</li>
+<li><code>rdt</code>: proposed time step increment increase factor</li>
+<li><code>s0</code>: the state of the integration point at the beginning of the time step. This is left unmodified by the behaviour integration.</li>
+<li><code>s1</code>: the state of the integration point at the end of the time step.</li>
+</ul>
+<p><code>s0</code> and <code>s1</code> and instances of the <code>StateView</code> structure.</p>
+<h3 id="description-of-the-initial-values-stored-in-k">Description of the initial values stored in <code>K</code></h3>
+<p>On input, the first element of K must contain the type of type of stiffness matrix expected. If this value is negative, only the prediction operator is computed. This value has the following meaning:</p>
+<ul>
+<li>if K[0] is lower than -2.5, the tangent operator must be computed.</li>
+<li>if K[0] is in [-2.5:-1.5]: the secant operator must be computed.</li>
+<li>if K[0] is in [-1.5:-0.5]: the elastic operator must be computed.</li>
+<li>if K[0] is in [-0.5:0.5]: the behaviour integration is performed, but no stiffness matrix.</li>
+<li>if K[0] is in [0.5:1.5]: the elastic operator must be computed.</li>
+<li>if K[0] is in [1.5:2.5]: the secant operator must be computed.</li>
+<li>if K[0] is in [2.5:3.5]: the secant operator must be computed.</li>
+<li>if K[0] is greater than 3.5, the consistent tangent operator must be computed.</li>
+</ul>
+<p>Other values of K are meant to store behaviour’s option. This is currently only meaningful for finite strain behaviours.</p>
+<p>For finite strain behaviours, K[1] holds the choice of the stress measure used by the behaviour on input/output:</p>
+<ul>
+<li>if K[1] &lt; 0.5, the Cauchy stress is used</li>
+<li>if 0.5 &lt; K[1] &lt; 1.5, the second Piola-Kirchoff stress is used</li>
+<li>if 1.5 &lt; K[1] &lt; 2.5, the first Piola-Kirchoff stress is used</li>
+</ul>
+<p>For finite strain behaviours, K[2] holds the choice of the consistent tangent operator returned by the behaviour:</p>
+<ul>
+<li>if K[2]&lt;0.5, the derivative of the Cauchy stress with respect to the deformation gradient is returned</li>
+<li>if 0.5&lt;K[2]&lt;1.5, the derivative of the second Piola-Kirchoff stress with respect to the Green-Lagrange strain is returned</li>
+<li>if 1.5&lt;K[2]&lt;2.5, the derivative of the first Piola-Kirchoff stress with respect to the deformation gradient is returned</li>
+</ul>
+<p>It is important to note that, even if no stiffness matrix is requested, the <code>K</code> array must a least be big enough to store the kind of integration to be performed and the behaviour options.</p>
+<p>The <code>Behaviour</code> structure contains a static constant variable called <code>nopts</code> containing the maximum number of options that a <code>Behaviour</code> may required. Thus, if no stiffness matrix is requested, <code>K</code> must have a size which is at least <code>Behaviour::nopts+1</code>.</p>
+<p>It is also important to note that behaviour options are automatically set by the <code>integrate</code> function describe hereafter.</p>
+<h3 id="the-stateview-structure">The <code>StateView</code> structure</h3>
+<p>This <code>StateView</code> structure contains the following members, describing the state of the material at one integration points at a given time:</p>
+<ul>
+<li><code>gradients</code>: pointer to an array containing the values of the gradients. This is left unmodified by the behaviour integration.</li>
+<li><code>thermodynamic_forces</code>: pointer to an array containing the values of the thermodynamic forces.</li>
+<li><code>material_properties</code>: pointer to an array containing the values of the material properties. This is left unmodified by the behaviour integration.</li>
+<li><code>internal_state_variables</code>: pointer to an array containing the values of the internal state variables.</li>
+<li><code>stored_enery</code>: pointer to the value of the stored energy (computed by <code>@InternalEnergy</code> in <code>MFront</code> files) This output is optional.</li>
+<li><code>dissipated_enery</code>: pointer to the value of the dissipated energy (computed by <code>@DissipatedEnergy</code> in <code>MFront</code> files) This output is optional.</li>
+<li><code>external_state_variables</code>: pointer to an array containing the values of the external state variables. This is left unmodified by the behaviour integration.</li>
+</ul>
+<h3 id="memory-management">Memory management</h3>
+<p>Most data member are thus pointers to a array of values (i.e. a continous memory block). For efficiency, the size of those arrays are not stored in the <code>StateView</code> structure, which means that the developer is responsible of allocating the memory properly.</p>
+<p>If one uses the data structure <code>BehaviourData</code> or the <code>MaterialDataManager</code> data structure provided by <code>MGIS</code>, which are described below, this is automatically ensured.</p>
+<h2 id="first-case-use-of-the-behaviourdata-data-structure">First case: use of the <code>BehaviourData</code> data structure</h2>
+<p>Starting from a behaviour, one can allocate all the memory required to treat one integration point:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">auto</span> d = BehaviourData{b};</a></code></pre></div>
+<p>The data members of the <code>BehaviourData</code> structure are very close to the one of the <code>BehaviourDataView</code> class. In particular, it contains two data members called <code>s0</code> and <code>s1</code> containing the state of integration point.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The <code>BehaviourData</code> structure holds a reference to the behaviour. The use must be sure that the behaviour outlives the behaviour data.</p>
+</blockquote>
+<h3 id="creating-a-behaviourdataview-from-a-behaviourdata">Creating a <code>BehaviourDataView</code> from a <code>BehaviourData</code></h3>
+<p>The <code>make_view</code> function creates a <code>BehaviourDataView</code> from a <code>BehaviourData</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">auto</span> v = make_view(d);</a></code></pre></div>
+<h3 id="retrieving-the-values-of-a-specific-variable">Retrieving the values of a specific variable</h3>
+<p>All the internal state variables are stored in a continuous array. If one wish to retrieve the value of a specific state variable, one first have to retrieve the offset of this variable as follows:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> o = getVariableOffset(b.isvs, <span class="st">&quot;EquivalentViscoplasticStrain&quot;</span>,</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">                                 b.hypothesis);</a></code></pre></div>
+<p>The same applies to material properties, external state variables, etc…</p>
+<h3 id="updating-the-date-from-one-time-step-to-the-other">Updating the date from one time step to the other</h3>
+<p>The <code>update</code> function overwrites the <code>s0</code> member, i.e. the state at the beginning of the time step, with <code>s1</code>, i.e. the state at the end of the time step.</p>
+<h3 id="restarting-a-time-step">Restarting a time step</h3>
+<p>The <code>revert</code> function overwrites the <code>s1</code> member, i.e. the state at the end of the time step, with <code>s0</code>, i.e. the state at the beginning of the time step.</p>
+<h2 id="second-case-use-of-the-materialdatamanager-structure">Second case: use of the <code>MaterialDataManager</code> structure</h2>
+<p>The <code>MaterialDataManager</code> data structure handle the data of a set of integration points (generally representing a material, hence the name), as follows:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1">MaterialDataManager m{b, n};</a></code></pre></div>
+<p>where <code>n</code> is the number of integration points.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>Note that to avoid copying, the move constructor, the copy constructor, the standard assignment and the move assignment of the <code>MaterialDataManager</code> have been disabled.</p>
+</blockquote>
+<p>The <code>MaterialDataManager</code> structure has data members that have the same names and meanings than those of the <code>BehaviourData</code> structure, except that they holds the values of a set of integration points. In particular, the <code>MaterialDataManager</code> structure contains two data members called <code>s0</code> and <code>s1</code> containing the state of integration point.</p>
+<h3 id="external-memory-management-and-the-materialdatamanagerinitializer-class">External memory management and the <code>MaterialDataManagerInitializer</code> class</h3>
+<p>By default, the <code>MaterialDataManager</code> automatically allocates the values used to store all the data required.</p>
+<p>However, one may want to use memory allocated by the solver. In this case, one can have a look at the <code>MaterialDataManagerInitializer</code> class.</p>
+<h3 id="updating-the-date-from-one-time-step-to-the-other-1">Updating the date from one time step to the other</h3>
+<p>The <code>update</code> function overwrites the <code>s0</code> member, i.e. the state at the beginning of the time step, with <code>s1</code>, i.e. the state at the end of the time step.</p>
+<h3 id="restarting-a-time-step-1">Restarting a time step</h3>
+<p>The <code>revert</code> function overwrites the <code>s1</code> member, i.e. the state at the end of the time step, with <code>s0</code>, i.e. the state at the beginning of the time step.</p>
+<h2 id="third-case-manual-allocation">Third case: manual allocation</h2>
+<p>The <code>MGIS</code> library provides a set of functions which allows the developer to properly allocate the memory associated with the data required at each integration point.</p>
+<p>For example, if one wants to known the size of an array able to store all the internal state variables of one integration point, one may use the <code>getArraySize</code> function:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> n = getArraySize(b.isvs, b.hypothesis);</a></code></pre></div>
+<p>In the case of the plastic behaviour, there are two state variables: the elastic strain, which is a symmetric tensor and the equivalent plastic strain, which is a scalar. Thus, the value of <code>n</code> will be equal to <code>7</code>.</p>
+<h1 id="behaviour-integration">Behaviour integration</h1>
+<p>Three overloads of the <code>integrate</code> function are available:</p>
+<p>The first one has the following interface:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="dt">int</span> integrate(BehaviourDataView&amp;, <span class="at">const</span> Behaviour&amp;);</a></code></pre></div>
+<p>The user may refer to the <code>IntegrateTest.cxx</code> file to have an example on how this use this version.</p>
+<p>The second one takes a <code>MaterialDataManager</code> and performs the behaviour integration on a range of integration points. The user may refer to the <code>IntegrateTest2.cxx</code> file to have an example on how this use this second overload.</p>
+<p>The third overload is similar to the second one but also takes an argument of the <code>ThreadPool</code> type allowing a parallelization of the behaviour integration. The user may refer to the <code>IntegrateTest2b.cxx</code> file to have an example on how this use this second overload.</p>
+<h1 id="references" class="unnumbered">References</h1>
+<div id="refs" class="references">
+<div id="ref-miehe_anisotropic_2002">
+<p>Miehe, C., N. Apel, and M. Lambrecht. 2002. “Anisotropic Additive Plasticity in the Logarithmic Strain Space: Modular Kinematic Formulation and Implementation Based on Incremental Minimization Principles for Standard Materials.” <em>Computer Methods in Applied Mechanics and Engineering</em> 191 (47–48): 5383–5425. <a href="https://doi.org/10.1016/S0045-7825(02)00438-3" class="uri">https://doi.org/10.1016/S0045-7825(02)00438-3</a>.</p>
+</div>
+</div>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>For the example, we used the Bourne-again shell (<code>bash</code>) syntax here.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</section>
+      </body>
+</html>

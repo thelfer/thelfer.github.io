@@ -1,0 +1,971 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Invariant-based implementation of the Mohr-Coulomb elasto-plastic model in OpenGeoSys using MFront</title>
+        <meta name="author" content="Thomas Nagel, Dmitri Naumov, Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	    <li><a href="mfm-test-generator.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
+		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Invariant-based implementation of the Mohr-Coulomb elasto-plastic model in OpenGeoSys using MFront</h1>
+                  <h2 class="author">Thomas Nagel, Dmitri Naumov, Thomas Helfer</h2>
+                  <h3 class="date">1/08/2019</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#description-of-the-behaviour">Description of the behaviour</a><ul>
+      <li><a href="#elastic-behaviour">Elastic behaviour</a></li>
+      <li><a href="#yield-surface">Yield surface</a></li>
+      <li><a href="#plastic-potential">Plastic potential</a></li>
+      <li><a href="#plastic-flow-rule">Plastic flow rule</a></li>
+      </ul></li>
+      <li><a href="#integration-algorithm">Integration algorithm</a><ul>
+      <li><a href="#plastic-loading-case">Plastic loading case</a></li>
+      <li><a href="#elastic-loading-case">Elastic loading case</a></li>
+      </ul></li>
+      <li><a href="#implementation">Implementation</a><ul>
+      <li><a href="#choice-of-domain-specific-language">Choice of domain specific language</a></li>
+      <li><a href="#name-of-the-behaviour">Name of the behaviour</a></li>
+      <li><a href="#metadata">Metadata</a></li>
+      <li><a href="#name-of-the-algorithm-of-resolution">Name of the Algorithm of resolution</a></li>
+      <li><a href="#usage-of-the-standardelasticity-brick">Usage of the <code>StandardElasticity</code> brick</a></li>
+      <li><a href="#numerical-parameters">Numerical parameters</a></li>
+      <li><a href="#supported-modelling-hypothesis">Supported modelling hypothesis</a></li>
+      <li><a href="#requirestiffnesstensor">RequireStiffnessTensor<Unaltered></a></li>
+      <li><a href="#state-variable">State variable</a></li>
+      <li><a href="#material-properties">Material properties</a></li>
+      <li><a href="#local-variable">Local variable</a></li>
+      <li><a href="#initialisation-a-the-local-variable">Initialisation a the local variable</a></li>
+      <li><a href="#implicit-system-implementation">Implicit system implementation</a></li>
+      </ul></li>
+      <li><a href="#verification">Verification</a></li>
+      <li><a href="#simplification-of-the-mfront-file-use-of-tfelmaterialmohrcoulombyieldcriterion.hxx-file">Simplification of the MFront file : use of <code>TFEL/Material/MohrCoulombYieldCriterion.hxx</code> file</a></li>
+      <li><a href="#simplification-of-the-mfront-file-use-of-the-standardelastoviscoplasticity-brick">Simplification of the MFront file : use of the <code>StandardElastoViscoPlasticity</code> brick</a></li>
+      <li><a href="#references">References</a></li>
+      </ul>
+    </div>
+        <!--
+pandoc --filter pandoc-crossref --filter pandoc-citeproc --bibliography=bibliography.bib -fmarkdown+tex_math_single_backslash MohrCoulomb.md -o MohrCoulomb.pdf --toc --number-sections  -V geometry:margin=1in
+-->
+
+<p>The following proposal is based on <span class="citation" data-cites="Nagel2016">Nagel et al. (2017)</span> but extended by an apex smoothing from <span class="citation" data-cites="Abbo1995">Abbo and Sloan (1995)</span> (hyperbolic approximation).</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/juWMIkJ64iE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</center>
+<h1 id="description-of-the-behaviour">Description of the behaviour</h1>
+<p>The behaviour is described by a standard decomposition of the strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in an elastic and a plastic component, respectively denoted <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and <span class="math inline">\(\underline{\varepsilon}^{\mathrm{p}}\)</span>:</p>
+<p><span class="math display">\[
+\underline{\varepsilon}^{\mathrm{to}}=\underline{\varepsilon}^{\mathrm{el}}+\underline{\varepsilon}^{\mathrm{p}}
+\]</span></p>
+<h2 id="elastic-behaviour">Elastic behaviour</h2>
+<p>The stress <span class="math inline">\(\underline{\sigma}\)</span> is related to the the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> by a the orthotropic elastic stiffness <span class="math inline">\(\underline{\underline{\mathbf{D}}}\)</span>:</p>
+<p><span class="math display">\[
+\underline{\sigma}= \underline{\underline{\mathbf{D}}}\,\colon\,\underline{\varepsilon}^{\mathrm{el}}
+\]</span></p>
+<h2 id="yield-surface">Yield surface</h2>
+<p>The plastic part of the behaviour is described by the following yield surface: <span class="math display">\[ F = 0 \]</span></p>
+<p>F is defined as follow:</p>
+<p><span id="eq:yield_function"><span class="math display">\[
+    F = \frac{I_1}{3} \sin \phi + \sqrt{J_2 K(\theta)^2 + a^2 \sin^2 \phi} - c \cos \phi
+\qquad(1)\]</span></span> where <span id="eq:K_abbo"><span class="math display">\[
+K(\theta) = \begin{cases}
+    \cos \theta - \frac{1}{\sqrt{3}} \sin \phi \sin \theta &amp; |\theta| &lt; \theta_\mathrm{T}
+    \\ 
+    A - B \sin 3\theta &amp;  |\theta| \geq \theta_\mathrm{T}
+\end{cases}
+\qquad(2)\]</span></span></p>
+<p><span id="eq:Sloan"><span class="math display">\[
+\begin{aligned}
+    A &amp;= \frac{1}{3} \cos \theta_\mathrm{T} \left[ 3 + \tan \theta_\mathrm{T} \tan 3\theta_\mathrm{T} + \frac{1}{\sqrt{3}} \mathrm{sign \theta} \, (\tan 3\theta_\mathrm{T} - 3\tan \theta_\mathrm{T}) \sin \phi \right] \\
+    %
+    B &amp;= \frac{1}{3} \frac{1}{\cos 3\theta_\mathrm{T}} \left[ \mathrm{sign \theta} \, \sin \theta_\mathrm{T} + \frac{1}{\sqrt{3}} \sin \phi \cos \theta_\mathrm{T} \right]
+\end{aligned}
+\qquad(3)\]</span></span></p>
+<p>and</p>
+<p><span class="math display">\[
+    I_1 = {\mathrm{tr}{\left(\underline{\sigma}\right)}} \qquad J_2 = \frac{1}{2} \underline{\sigma}^\mathrm{D} \,:\,\underline{\sigma}^\mathrm{D} \qquad J_3 = \det \underline{\sigma}^\mathrm{D} \qquad \theta = \frac{1}{3} \arcsin \left( -\frac{3\sqrt{3} J_3}{2 \sqrt{J_2^3}} \right)
+\]</span></p>
+<p><span class="math inline">\(\underline{\sigma}^\mathrm{D}\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(\phi\)</span> are respectively the deviatoric part of the tensor <span class="math inline">\(\underline{\sigma}\)</span>, the cohesion and friction angle.</p>
+<hr />
+<p>The contribution of the smoothing is visualized in Figure  1.</p>
+<figure>
+<img src="img/MohrCoulombSmoothing.svg" title="Effect of the smoothing of the yield surface" alt="Figure 1: Effect of the smoothing of the yield surface" id="fig:mc_vis" style="width:115.0%" /><figcaption>Figure 1: Effect of the smoothing of the yield surface</figcaption>
+</figure>
+<hr />
+<h2 id="plastic-potential">Plastic potential</h2>
+<p>The plastic potential differs from the yield surface in order to more accurately estimate dilatancy, but has an analogous structure:</p>
+<p><span id="eq:plastic_potential"><span class="math display">\[
+    G_\mathrm{F} = \frac{I_1}{3} \sin \psi + \sqrt{J_2 K_G^2 + a^2 \sin^2 \psi} - c \cos \psi
+\qquad(4)\]</span></span></p>
+<p>where <span class="math inline">\(\psi\)</span> is the dilatancy angle. <span class="math inline">\(K_G\)</span>, <span class="math inline">\(A_G\)</span> and <span class="math inline">\(B_G\)</span> follow from  2 and  3 by substituting the friction angle with the dilatancy angle :</p>
+<p><span class="math display">\[
+K_G(\theta) = \begin{cases}
+    \cos \theta - \frac{1}{\sqrt{3}} \sin \psi \sin \theta &amp; |\theta| &lt; \theta_\mathrm{T}
+    \\ 
+    A_G - B_G \sin 3\theta &amp;  |\theta| \geq \theta_\mathrm{T}
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+    A_G &amp;= \frac{1}{3} \cos \theta_\mathrm{T} \left[ 3 + \tan \theta_\mathrm{T} \tan 3\theta_\mathrm{T} + \frac{1}{\sqrt{3}} \mathrm{sign \theta} \, (\tan 3\theta_\mathrm{T} - 3\tan \theta_\mathrm{T}) \sin \psi \right] \\
+    %
+    B_G &amp;= \frac{1}{3} \frac{1}{\cos 3\theta_\mathrm{T}} \left[ \mathrm{sign \theta} \sin \theta_\mathrm{T} + \frac{1}{\sqrt{3}} \sin \psi \cos \theta_\mathrm{T} \right]
+\end{aligned}
+\]</span></p>
+<h2 id="plastic-flow-rule">Plastic flow rule</h2>
+<p>Plastic flow follows in a general manner for a <span class="math inline">\(I_1,\,J_2,\,\theta\)</span>-type yield surface as</p>
+<p><span class="math display">\[
+    \underline{n} = \frac{\partial G_{F}}{\partial I_1} \underline{I} + \left( \frac{\partial G_{F}}{\partial J_2} + \frac{\partial G_{F}}{\partial \theta} \frac{\partial \theta}{\partial J_2} \right) \underline{\sigma}^{D} +  \frac{\partial G_{F}}{\partial \theta}  \frac{\partial \theta}{\partial J_3} J_3 {(\underline{\sigma}^{D})}^{-1} \,:\,\underline{\underline{\mathbf{P}}}^{D}
+\]</span></p>
+<p>or by use of the Caley-Hamilton theorem as</p>
+<p><span class="math display">\[
+    \underline{n} = \frac{\partial G_{F}}{\partial I_1} \underline{I} + \left( \frac{\partial G_{F}}{\partial J_2} + \frac{\partial G_{F}}{\partial \theta} \frac{\partial \theta}{\partial J_2} \right) \underline{\sigma}^{D} +  \frac{\partial G_{F}}{\partial \theta}  \frac{\partial \theta}{\partial J_3} (\underline{\sigma}^{D})^{2}\,:\,\underline{\underline{\mathbf{P}}}^{D}
+\]</span></p>
+<h1 id="integration-algorithm">Integration algorithm</h1>
+<p>The previous constitutive equations will be integrated using a standard implicit scheme.</p>
+<h2 id="plastic-loading-case">Plastic loading case</h2>
+<h3 id="implicit-system">Implicit system</h3>
+<p>Assuming a plastic loading, the system of equations to be solved is: <span class="math display">\[
+\left\{
+\begin{aligned}
+    \Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}+\Delta\,p\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}} &amp;= 0 \\
+     F &amp;= 0 \\
+\end{aligned}
+\right.
+\]</span></p>
+<p>where <span class="math inline">\({\left.X\right|_{t+\theta\,\Delta\,t}}\)</span> is the value of <span class="math inline">\(X\)</span> at <span class="math inline">\(t+\theta\,\Delta\,t\)</span>, <span class="math inline">\(\theta\)</span> being a numerical parameter.</p>
+<p>In the following, the first (tensorial) equation is noted <span class="math inline">\(f_{\underline{\varepsilon}^{\mathrm{el}}}\)</span> and the second (scalar) equation is noted <span class="math inline">\(f_{p}\)</span>.</p>
+<p>In practice, it is physically sound to make satisfy exactly the yield condition at the end of the time step (otherwise, stress extrapolation can lead to stress state outside the yield surface and spurious oscillations can also be observed). This leads to the choice <span class="math inline">\(\theta=1\)</span>.</p>
+<h3 id="computation-of-the-jacobian">Computation of the jacobian</h3>
+<p>The jacobian <span class="math inline">\(J\)</span> of the implicit system can be decomposed by blocks: <span id="eq:Jacobian"><span class="math display">\[
+J=
+\begin{pmatrix}
+{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp; {\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p}} &amp; \\\\
+{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp; {\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,p}} \\
+\end{pmatrix}
+\qquad(5)\]</span></span></p>
+<p>The expression of the previous terms is given by:</p>
+<p><span class="math display">\[
+\left\{
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;= \underline{\underline{\mathbf{I}}} + \Delta \lambda \frac{\partial \underline{n}}{\partial \Delta \underline{\epsilon}_{el}} \\
+{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p}} &amp;= \underline{n} \\
+{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;=  E^{-1} \underline{n}_F \,:\,\underline{\underline{\mathbf{C}}}  \\
+{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,p}}           &amp;= 0 
+\end{aligned}
+\right.
+\]</span></p>
+<h2 id="elastic-loading-case">Elastic loading case</h2>
+<p>Assuming an elastic loading, the system of equations to be solved is trivially: <span class="math display">\[
+\left\{
+\begin{aligned}
+    \Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}&amp;= 0 \\
+    \Delta\,p &amp;= 0 \\
+\end{aligned}
+\right.
+\]</span></p>
+<p>The jacobian associated with this system is the identity matrix.</p>
+<h1 id="implementation">Implementation</h1>
+<h2 id="choice-of-domain-specific-language">Choice of domain specific language</h2>
+<p>While not mandatory (the <code>@DSL</code> keyword can be place anywhere in the file), its is convenient to start the implementation by declaring the domain specific language to be used. For an integration by a <span class="math inline">\(\theta\)</span>-scheme, the <code>Implicit</code> domain specific language is choosen:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a></code></pre></div>
+<h2 id="name-of-the-behaviour">Name of the behaviour</h2>
+<p>The <code>@Behaviour</code> keyword is used to give the name of the behaviour.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Behaviour MohrCoulombAbboSloan;</a></code></pre></div>
+<h2 id="metadata">Metadata</h2>
+<p>The following instructions give some information about the author, the date</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>Author Thomas Nagel;</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="er">@</span>Date <span class="bn">05</span>/<span class="bn">02</span>/<span class="dv">2019</span>;</a></code></pre></div>
+<h2 id="name-of-the-algorithm-of-resolution">Name of the Algorithm of resolution</h2>
+<p>The <code>@Algorithm</code> keyword is used to give the name of the algorithm.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>Algorithm NewtonRaphson;</a></code></pre></div>
+<h2 id="usage-of-the-standardelasticity-brick">Usage of the <code>StandardElasticity</code> brick</h2>
+<p>The implicit scheme used satisfies the requirements of the <code>StandardElasticity</code> brick as described <a href="BehaviourBricks.html">here</a>.</p>
+<p>The <code>StandardElasticity</code> brick which provides:</p>
+<ul>
+<li>Automatic computation of the stress tensor at various stages of the behaviour integration.</li>
+<li>Automatic computation of the consistent tangent operator.</li>
+<li>Automatic support for plane stress and generalized plane stress modelling hypotheses (The axial strain is defined as an additional state variable and the associated equation in the implicit system is added to enforce the plane stess condition).</li>
+<li>Automatic addition of the standard terms associated with the elastic strain state variable. The usage of the <code>StandardElasticity</code> is introduced as follows:</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>Brick StandardElasticity;</a></code></pre></div>
+<h2 id="numerical-parameters">Numerical parameters</h2>
+<p>The following instruction changes the default value of the stopping criterion <span class="math inline">\(\epsilon\)</span> used by the Newton-Raphson method and the time integration scheme parameter <span class="math inline">\(\theta\)</span> :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="er">@</span>Theta <span class="fl">1.0</span>;</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-14</span>;</a></code></pre></div>
+<h2 id="supported-modelling-hypothesis">Supported modelling hypothesis</h2>
+<p>Thanks to the <code>StandardElasticity</code> brick, all the modelling hypotheses can be supported. The following statement, starting with the <code>@ModellingHypotheses</code>, enables all the modelling hypotheses:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>ModellingHypotheses {<span class="st">&quot;.+&quot;</span>};</a></code></pre></div>
+<h2 id="requirestiffnesstensor">RequireStiffnessTensor<Unaltered></h2>
+<p>The <code>@RequireStiffnessTensor</code> keyword requires the stiffness tensor to be computed by the calling code. This generally means that some extra material properties will be introduced and handled by the interface before the behaviour integration.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>RequireStiffnessTensor&lt;UnAltered&gt;;</a></code></pre></div>
+<h2 id="state-variable">State variable</h2>
+<p>The <code>@StateVariable</code> keyword introduces the EquivalentPlasticStrain <span class="math inline">\(\lambda\)</span>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>StateVariable real lam;</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">lam.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</a></code></pre></div>
+<h2 id="material-properties">Material properties</h2>
+<p>The <code>@MaterialProperty</code> keyword introduces several properties, here:</p>
+<ul>
+<li>The cohesion c</li>
+<li>The friction angle <span class="math inline">\(\phi\)</span></li>
+<li>The dilatancy angle <span class="math inline">\(\psi\)</span></li>
+<li>The transition angle <span class="math inline">\(\theta_T\)</span></li>
+<li>The tension cut-off control parameter a</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="er">@</span>MaterialProperty stress c;</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">c.setEntryName(<span class="st">&quot;Cohesion&quot;</span>);</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="er">@</span>MaterialProperty real phi;</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">phi.setEntryName(<span class="st">&quot;FrictionAngle&quot;</span>);</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="er">@</span>MaterialProperty real psi;</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">psi.setEntryName(<span class="st">&quot;DilatancyAngle&quot;</span>);</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="er">@</span>MaterialProperty real lodeT;</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">lodeT.setEntryName(<span class="st">&quot;TransitionAngle&quot;</span>);</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="er">@</span>MaterialProperty stress a;</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">a.setEntryName(<span class="st">&quot;TensionCutOffParameter&quot;</span>);</a></code></pre></div>
+<h2 id="local-variable">Local variable</h2>
+<p>In <code>MFront</code>, an integration variable is defined to store a variable and use it in various code block.</p>
+<p>Here several local variables are declared such as the bolean variable F: if true, plastic loading</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="er">@</span>LocalVariable Stensor np;</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="er">@</span>LocalVariable <span class="dt">bool</span> F; <span class="co">// if true, plastic loading</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="er">@</span>LocalVariable real sin_psi;</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="er">@</span>LocalVariable real sin_phi;</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="er">@</span>LocalVariable real cos_phi;</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="er">@</span>LocalVariable real cos_lodeT;</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="er">@</span>LocalVariable real sin_lodeT;</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="er">@</span>LocalVariable real tan_lodeT;</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="er">@</span>LocalVariable real cos_3_lodeT;</a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="er">@</span>LocalVariable real sin_3_lodeT;</a>
+<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="er">@</span>LocalVariable real tan_3_lodeT;</a></code></pre></div>
+<h2 id="initialisation-a-the-local-variable">Initialisation a the local variable</h2>
+<p>The <code>@InitLocalVariables</code> code block is called before the behaviour integration.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="er">@</span>InitLocalVariables </a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">{</a></code></pre></div>
+<p>First, we define some variables :</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1">  <span class="kw">constexpr</span> <span class="kw">auto</span> sqrt3 = Cste&lt;real&gt;::sqrt3;</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="kw">constexpr</span> <span class="kw">auto</span> isqrt3 = Cste&lt;real&gt;::isqrt3;</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="co">// conversion to rad</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">  phi *= pi / <span class="fl">180.</span>;</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">  psi *= pi / <span class="fl">180.</span>;</a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">  lodeT *= pi / <span class="fl">180.</span>;</a>
+<a class="sourceLine" id="cb13-7" data-line-number="7">  sin_psi = sin(psi);</a>
+<a class="sourceLine" id="cb13-8" data-line-number="8">  cos_phi = cos(phi);</a>
+<a class="sourceLine" id="cb13-9" data-line-number="9">  sin_phi = sin(phi);</a>
+<a class="sourceLine" id="cb13-10" data-line-number="10">  sin_lodeT = sin(lodeT);</a>
+<a class="sourceLine" id="cb13-11" data-line-number="11">  cos_lodeT = cos(lodeT);</a>
+<a class="sourceLine" id="cb13-12" data-line-number="12">  tan_lodeT = tan(lodeT);</a>
+<a class="sourceLine" id="cb13-13" data-line-number="13">  cos_3_lodeT = cos(<span class="fl">3.</span> * lodeT);</a>
+<a class="sourceLine" id="cb13-14" data-line-number="14">  sin_3_lodeT = sin(<span class="fl">3.</span> * lodeT);</a>
+<a class="sourceLine" id="cb13-15" data-line-number="15">  tan_3_lodeT = tan(<span class="fl">3.</span> * lodeT);</a></code></pre></div>
+<p>Then the <code>computeElasticPrediction</code> method (introducted with the <code>StandardElasticity</code> brick) is used to compute <span class="math inline">\(\sigma^{el}\)</span></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1">  <span class="co">// elastic prediction</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> sig_el = computeElasticPrediction();</a></code></pre></div>
+<p>The three invariant <span class="math inline">\(I_{1}^{el}\)</span>, <span class="math inline">\(J_{2}^{el}\)</span> and <span class="math inline">\(J_{3}^{el}\)</span> corresponding to the elastic prediction are calculated:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span> <span class="va">s_el</span> = deviator(sig_el);</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> I1_el = trace(sig_el);</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> J2_el = max((<span class="va">s_el</span> | <span class="va">s_el</span>) / <span class="fl">2.</span>, local_zero_tolerance);</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> J3_el = det(<span class="va">s_el</span>);</a></code></pre></div>
+<p>The <span class="math inline">\(\theta^{el}\)</span> angle is defined:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span> arg = min(max(<span class="dv">-3</span>. * sqrt3 * J3_el / (<span class="fl">2.</span> * J2_el * sqrt(J2_el)),</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">                           <span class="fl">-1.</span> + local_zero_tolerance),</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">                       <span class="fl">1.</span> - local_zero_tolerance);</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> lode_el = <span class="fl">1.</span> / <span class="fl">3.</span> * asin(arg);</a></code></pre></div>
+<p>K is initiliazed as <span class="math inline">\(K^{el}\)</span> value:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1">  <span class="kw">auto</span> K = <span class="fl">0.0</span>;</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">  <span class="cf">if</span> (abs(lode_el) &lt; lodeT) {</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">    K = cos(lode_el) - isqrt3 * sin_phi * sin(lode_el);</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">  } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">    <span class="at">const</span> <span class="kw">auto</span> sign =</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">        min(max(lode_el / max(abs(lode_el), local_zero_tolerance), <span class="fl">-1.</span>), <span class="fl">1.</span>);</a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">    <span class="at">const</span> <span class="kw">auto</span> A = <span class="fl">1.</span> / <span class="fl">3.</span> * cos_lodeT *</a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">                   (<span class="fl">3.</span> + tan_lodeT * tan_3_lodeT +</a>
+<a class="sourceLine" id="cb17-9" data-line-number="9">                    isqrt3 * sign * (tan_3_lodeT - <span class="fl">3.</span> * tan_lodeT) * sin_phi);</a>
+<a class="sourceLine" id="cb17-10" data-line-number="10">    <span class="at">const</span> <span class="kw">auto</span> B = <span class="dv">1</span> / (<span class="fl">3.</span> * cos_3_lodeT) *</a>
+<a class="sourceLine" id="cb17-11" data-line-number="11">                   (sign * sin_lodeT + isqrt3 * sin_phi * cos_lodeT);</a>
+<a class="sourceLine" id="cb17-12" data-line-number="12">    K = A - B * arg;</a>
+<a class="sourceLine" id="cb17-13" data-line-number="13">  }</a></code></pre></div>
+<p>To finish <span class="math inline">\(F^{el}\)</span> is calculated and the normal <code>np</code> is initialized.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span> sMC =</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">      I1_el / <span class="dv">3</span> * sin_phi + sqrt(J2_el * K * K + a * a * sin_phi * sin_phi);</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">  F = sMC - c * cos_phi &gt; <span class="fl">0.</span>;</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">  np = Stensor(real(<span class="dv">0</span>));</a></code></pre></div>
+<h2 id="implicit-system-implementation">Implicit system implementation</h2>
+<p>The implementation of the implicit system and its derivative is done in the <code>@Integrator</code> code block:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="er">@</span>Integrator{</a></code></pre></div>
+<p>Some expressions are defined</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" data-line-number="1">  <span class="kw">constexpr</span> <span class="kw">auto</span> sqrt3 = Cste&lt;real&gt;::sqrt3;</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">  <span class="kw">constexpr</span> <span class="kw">auto</span> isqrt3 = Cste&lt;real&gt;::isqrt3;</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">  <span class="kw">constexpr</span> <span class="kw">auto</span> id = Stensor::Id();</a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">  <span class="kw">constexpr</span> <span class="kw">auto</span> id4 = Stensor4::Id();</a></code></pre></div>
+<p>If there is no plasticity (elastic strain) there is no need for additional calculation because the various variables have already been initialized with elastic hypothesis. If there is plastic strain the rest is necessary.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="cf">if</span> (F) {</a></code></pre></div>
+<p><span class="math inline">\(K\)</span> and <span class="math inline">\(\dfrac{\partial K}{\partial \theta}\)</span> are computed:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb22-1" data-line-number="1">    <span class="at">const</span> <span class="kw">auto</span> s = deviator(sig);</a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">    <span class="at">const</span> <span class="kw">auto</span> I1 = trace(sig);</a>
+<a class="sourceLine" id="cb22-3" data-line-number="3">    <span class="at">const</span> <span class="kw">auto</span> J2 = max((s | s) / <span class="fl">2.</span>, local_zero_tolerance);</a>
+<a class="sourceLine" id="cb22-4" data-line-number="4">    <span class="at">const</span> <span class="kw">auto</span> J3 = real(det(s) &lt; <span class="fl">0.</span> ? min(det(s), -local_zero_tolerance)</a>
+<a class="sourceLine" id="cb22-5" data-line-number="5">                                     : max(det(s), local_zero_tolerance));</a>
+<a class="sourceLine" id="cb22-6" data-line-number="6">    <span class="at">const</span> <span class="kw">auto</span> arg = min(max(<span class="dv">-3</span>. * sqrt3 * J3 / (<span class="fl">2.</span> * J2 * sqrt(J2)),</a>
+<a class="sourceLine" id="cb22-7" data-line-number="7">                             <span class="fl">-1.</span> + local_zero_tolerance),</a>
+<a class="sourceLine" id="cb22-8" data-line-number="8">                         <span class="fl">1.</span> - local_zero_tolerance);</a>
+<a class="sourceLine" id="cb22-9" data-line-number="9">    <span class="at">const</span> <span class="kw">auto</span> lode = <span class="fl">1.</span> / <span class="fl">3.</span> * asin(arg);</a>
+<a class="sourceLine" id="cb22-10" data-line-number="10">    <span class="at">const</span> <span class="kw">auto</span> cos_lode = cos(lode);</a>
+<a class="sourceLine" id="cb22-11" data-line-number="11">    <span class="at">const</span> <span class="kw">auto</span> sin_lode = sin(lode);</a>
+<a class="sourceLine" id="cb22-12" data-line-number="12">    <span class="at">const</span> <span class="kw">auto</span> cos_3_lode = cos(<span class="fl">3.</span> * lode);</a>
+<a class="sourceLine" id="cb22-13" data-line-number="13">    <span class="at">const</span> <span class="kw">auto</span> sin_3_lode = arg;</a>
+<a class="sourceLine" id="cb22-14" data-line-number="14">    <span class="at">const</span> <span class="kw">auto</span> tan_3_lode = tan(<span class="fl">3.</span> * lode);</a>
+<a class="sourceLine" id="cb22-15" data-line-number="15">    <span class="kw">auto</span> K = <span class="fl">0.</span>;</a>
+<a class="sourceLine" id="cb22-16" data-line-number="16">    <span class="kw">auto</span> dK_dlode = <span class="fl">1.</span>;</a>
+<a class="sourceLine" id="cb22-17" data-line-number="17">    <span class="cf">if</span> (abs(lode) &lt; lodeT) {</a>
+<a class="sourceLine" id="cb22-18" data-line-number="18">      K = cos_lode - isqrt3 * sin_phi * sin_lode;</a>
+<a class="sourceLine" id="cb22-19" data-line-number="19">      dK_dlode = -sin_lode - isqrt3 * sin_phi * cos_lode;</a>
+<a class="sourceLine" id="cb22-20" data-line-number="20">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb22-21" data-line-number="21">      <span class="at">const</span> <span class="kw">auto</span> sign =</a>
+<a class="sourceLine" id="cb22-22" data-line-number="22">          min(max(lode / max(abs(lode), local_zero_tolerance), <span class="fl">-1.</span>), <span class="fl">1.</span>);</a>
+<a class="sourceLine" id="cb22-23" data-line-number="23">      <span class="at">const</span> <span class="kw">auto</span> A = <span class="fl">1.</span> / <span class="fl">3.</span> * cos_lodeT *</a>
+<a class="sourceLine" id="cb22-24" data-line-number="24">                     (<span class="fl">3.</span> + tan_lodeT * tan_3_lodeT +</a>
+<a class="sourceLine" id="cb22-25" data-line-number="25">                      isqrt3 * sign * (tan_3_lodeT - <span class="fl">3.</span> * tan_lodeT) * sin_phi);</a>
+<a class="sourceLine" id="cb22-26" data-line-number="26">      <span class="at">const</span> <span class="kw">auto</span> B = <span class="fl">1.</span> / (<span class="fl">3.</span> * cos_3_lodeT) *</a>
+<a class="sourceLine" id="cb22-27" data-line-number="27">                     (sign * sin_lodeT + isqrt3 * sin_phi * cos_lodeT);</a>
+<a class="sourceLine" id="cb22-28" data-line-number="28">      K = A - B * sin_3_lode;</a>
+<a class="sourceLine" id="cb22-29" data-line-number="29">      dK_dlode = <span class="fl">-3.</span> * B * cos_3_lode;</a>
+<a class="sourceLine" id="cb22-30" data-line-number="30">    }</a></code></pre></div>
+<p><span class="math inline">\(K_G\)</span>, <span class="math inline">\(\dfrac{\partial K_G}{\partial \theta}\)</span> and <span class="math inline">\(\dfrac{\partial^2 K_G}{\partial^2 \theta}\)</span> are computed :</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb23-1" data-line-number="1">    <span class="kw">auto</span> KG = <span class="fl">0.0</span>; <span class="co">// move into a function to avoid code duplication</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">    <span class="kw">auto</span> dKG_dlode = <span class="fl">1.</span>;</a>
+<a class="sourceLine" id="cb23-3" data-line-number="3">    <span class="kw">auto</span> dKG_ddlode = <span class="fl">1.</span>;</a>
+<a class="sourceLine" id="cb23-4" data-line-number="4">    <span class="cf">if</span> (abs(lode) &lt; lodeT) </a>
+<a class="sourceLine" id="cb23-5" data-line-number="5">    {</a>
+<a class="sourceLine" id="cb23-6" data-line-number="6">      KG = cos_lode - isqrt3 * sin_psi * sin_lode;</a>
+<a class="sourceLine" id="cb23-7" data-line-number="7">      dKG_dlode = -sin_lode - isqrt3 * sin_psi * cos_lode;</a>
+<a class="sourceLine" id="cb23-8" data-line-number="8">      dKG_ddlode = -cos_lode + isqrt3 * sin_psi * sin_lode;</a>
+<a class="sourceLine" id="cb23-9" data-line-number="9">    } </a>
+<a class="sourceLine" id="cb23-10" data-line-number="10">    <span class="cf">else</span> </a>
+<a class="sourceLine" id="cb23-11" data-line-number="11">    {</a>
+<a class="sourceLine" id="cb23-12" data-line-number="12">      <span class="at">const</span> <span class="kw">auto</span> sign =</a>
+<a class="sourceLine" id="cb23-13" data-line-number="13">          min(max(lode / max(abs(lode), local_zero_tolerance), <span class="fl">-1.</span>), <span class="fl">1.</span>);</a>
+<a class="sourceLine" id="cb23-14" data-line-number="14">      <span class="at">const</span> <span class="kw">auto</span> A = <span class="fl">1.</span> / <span class="fl">3.</span> * cos_lodeT *</a>
+<a class="sourceLine" id="cb23-15" data-line-number="15">                     (<span class="fl">3.</span> + tan_lodeT * tan_3_lodeT +</a>
+<a class="sourceLine" id="cb23-16" data-line-number="16">                      isqrt3 * sign * (tan_3_lodeT - <span class="fl">3.</span> * tan_lodeT) * sin_psi);</a>
+<a class="sourceLine" id="cb23-17" data-line-number="17">      <span class="at">const</span> <span class="kw">auto</span> B = <span class="fl">1.</span> / (<span class="fl">3.</span> * cos_3_lodeT) *</a>
+<a class="sourceLine" id="cb23-18" data-line-number="18">                     (sign * sin_lodeT + isqrt3 * sin_psi * cos_lodeT);</a>
+<a class="sourceLine" id="cb23-19" data-line-number="19">      KG = A - B * sin_3_lode;</a>
+<a class="sourceLine" id="cb23-20" data-line-number="20">      dKG_dlode = <span class="fl">-3.</span> * B * cos_3_lode;</a>
+<a class="sourceLine" id="cb23-21" data-line-number="21">      dKG_ddlode = <span class="fl">9.</span> * B * sin_3_lode;</a>
+<a class="sourceLine" id="cb23-22" data-line-number="22">    }</a></code></pre></div>
+<p>The flow direction is computed :</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb24-1" data-line-number="1">    <span class="co">// flow direction</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">    <span class="at">const</span> <span class="kw">auto</span> dev_s_squared = computeJ3Derivative(</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">        sig); <span class="co">// replaces dev_s_squared = deviator(square(s));</span></a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">    <span class="at">const</span> <span class="kw">auto</span> dG_dI1 = sin_psi / <span class="fl">3.</span>;</a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">    <span class="at">const</span> <span class="kw">auto</span> root = max(sqrt(J2 * KG * KG + a * a * sin_psi * sin_psi),</a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">                          local_zero_tolerance);</a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">    <span class="at">const</span> <span class="kw">auto</span> dG_dJ2 = KG / (<span class="fl">2.</span> * root) * (KG - tan_3_lode * dKG_dlode);</a>
+<a class="sourceLine" id="cb24-8" data-line-number="8">    <span class="at">const</span> <span class="kw">auto</span> dG_dJ3 = J2 * KG * tan_3_lode / (<span class="fl">3.</span> * J3 * root) * dKG_dlode;</a>
+<a class="sourceLine" id="cb24-9" data-line-number="9">    <span class="at">const</span> <span class="kw">auto</span> n = eval(dG_dI1 * id + dG_dJ2 * s + dG_dJ3 * dev_s_squared);</a></code></pre></div>
+<p>The yield function <code>F</code> is computed:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb25-1" data-line-number="1">    <span class="co">// yield function</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">    <span class="at">const</span> <span class="kw">auto</span> rootF = max(sqrt(J2 * K * K + a * a * sin_phi * sin_phi), local_zero_tolerance);</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb25-4" data-line-number="4">    <span class="at">const</span> <span class="kw">auto</span> Fy1 = I1 * sin_phi / <span class="dv">3</span> + rootF;</a>
+<a class="sourceLine" id="cb25-5" data-line-number="5">    <span class="at">const</span> <span class="kw">auto</span> Fy =  Fy1 - c * cos_phi;</a></code></pre></div>
+<p>Derivatives are calculated before computing the Jacobian matrix:</p>
+<p><span class="math inline">\(\dfrac{\partial F}{\partial I_1}\)</span>, <span class="math inline">\(\dfrac{\partial F}{\partial J_2}\)</span>, <span class="math inline">\(\dfrac{\partial F}{\partial J_3}\)</span>, <span class="math inline">\(n_F\)</span>, <span class="math inline">\(\dfrac{\partial G}{\partial \theta}\)</span>, <span class="math inline">\(\dfrac{\partial^2 G}{\partial^2 \theta}\)</span> <span class="math inline">\(\dfrac{\partial^2 G}{\partial \theta \partial J_2}\)</span>, <span class="math inline">\(\dfrac{\partial^2 G}{\partial^2 J_2}\)</span>, <span class="math inline">\(\dfrac{\partial^2 G}{\partial^2 J_3}\)</span>, <span class="math inline">\(\dfrac{\partial ^2G}{\partial J_2 \partial J_3}\)</span></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb26-1" data-line-number="1">    <span class="co">// yield function derivative for Jacobian</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">    <span class="at">const</span> <span class="kw">auto</span> dF_dI1 = sin_phi / <span class="fl">3.</span>;</a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">    <span class="at">const</span> <span class="kw">auto</span> dF_dJ2 = K / (<span class="fl">2.</span> * rootF) * (K - tan_3_lode * dK_dlode);</a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">    <span class="at">const</span> <span class="kw">auto</span> dF_dJ3 = J2 * K * tan_3_lode / (<span class="fl">3.</span> * J3 * rootF) * dK_dlode;</a>
+<a class="sourceLine" id="cb26-5" data-line-number="5">    <span class="at">const</span> <span class="kw">auto</span> nF = eval(dF_dI1 * id + dF_dJ2 * s + dF_dJ3 * dev_s_squared);</a>
+<a class="sourceLine" id="cb26-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb26-7" data-line-number="7">    <span class="co">// building dfeel_ddeel</span></a>
+<a class="sourceLine" id="cb26-8" data-line-number="8">    <span class="at">const</span> <span class="kw">auto</span> Pdev = id4 - (id ^ id) / <span class="dv">3</span>;</a>
+<a class="sourceLine" id="cb26-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb26-10" data-line-number="10">    <span class="at">const</span> <span class="kw">auto</span> dG_dlode = KG * J2 / (root)*dKG_dlode;</a>
+<a class="sourceLine" id="cb26-11" data-line-number="11">    <span class="at">const</span> <span class="kw">auto</span> dG_ddlode =</a>
+<a class="sourceLine" id="cb26-12" data-line-number="12">        J2 / root * (dKG_dlode * dKG_dlode * (<span class="fl">1.</span> - J2 * KG * KG / (root * root)) + KG * dKG_ddlode);</a>
+<a class="sourceLine" id="cb26-13" data-line-number="13">    <span class="at">const</span> <span class="kw">auto</span> dG_ddlodeJ2 = KG / root * dKG_dlode * (<span class="fl">1.</span> - J2 * KG * KG / (<span class="dv">2</span> * root * root));</a>
+<a class="sourceLine" id="cb26-14" data-line-number="14">    <span class="at">const</span> <span class="kw">auto</span> dG_ddJ2 =</a>
+<a class="sourceLine" id="cb26-15" data-line-number="15">        -KG * KG * KG * KG / (<span class="fl">4.</span> * root * root * root) + dG_dlode * tan_3_lode / (<span class="dv">2</span> * J2 * J2) -</a>
+<a class="sourceLine" id="cb26-16" data-line-number="16">        tan_3_lode / (<span class="dv">2</span> * J2) * (<span class="dv">2</span> * dG_ddlodeJ2 - tan_3_lode / (<span class="dv">2</span> * J2) * dG_ddlode -</a>
+<a class="sourceLine" id="cb26-17" data-line-number="17">                                 <span class="dv">3</span> / (<span class="dv">2</span> * J2 * cos_3_lode * cos_3_lode) * dG_dlode);</a>
+<a class="sourceLine" id="cb26-18" data-line-number="18">    <span class="at">const</span> <span class="kw">auto</span> dG_ddJ3 = -tan_3_lode / (<span class="dv">3</span> * J3 * J3) * dG_dlode +</a>
+<a class="sourceLine" id="cb26-19" data-line-number="19">                         tan_3_lode / (<span class="dv">3</span> * J3) * (dG_ddlode * tan_3_lode / (<span class="dv">3</span> * J3) +</a>
+<a class="sourceLine" id="cb26-20" data-line-number="20">                                                  dG_dlode * <span class="fl">1.</span> / (J3 * cos_3_lode * cos_3_lode));</a>
+<a class="sourceLine" id="cb26-21" data-line-number="21">    <span class="at">const</span> <span class="kw">auto</span> dG_ddJ2J3 = dG_ddlodeJ2 * tan_3_lode / (<span class="dv">3</span> * J3) -</a>
+<a class="sourceLine" id="cb26-22" data-line-number="22">                           tan_3_lode / (<span class="dv">2</span> * J2) * (dG_ddlode * tan_3_lode / (<span class="dv">3</span> * J3) +</a>
+<a class="sourceLine" id="cb26-23" data-line-number="23">                                                    dG_dlode * <span class="fl">1.</span> / (J3 * cos_3_lode * cos_3_lode));</a></code></pre></div>
+<p><span class="math inline">\(f^{el}\)</span>, <span class="math inline">\(\dfrac{\partial f^{el}}{\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}\)</span>, <span class="math inline">\(\dfrac{\partial f^{el}}{\partial \Delta\,\lambda}\)</span> are computed:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb27-1" data-line-number="1">    <span class="co">// elasticity</span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2">    feel += dlam * n;</a>
+<a class="sourceLine" id="cb27-3" data-line-number="3">    dfeel_ddeel += theta * dlam * (dG_dJ2 * Pdev + dG_dJ3 * computeJ3SecondDerivative(sig) +</a>
+<a class="sourceLine" id="cb27-4" data-line-number="4">                                   dG_ddJ2 * (s ^ s) + dG_ddJ3 * (dev_s_squared ^ dev_s_squared) +</a>
+<a class="sourceLine" id="cb27-5" data-line-number="5">                                   dG_ddJ2J3 * ((dev_s_squared ^ s) + (s ^ dev_s_squared))) *</a>
+<a class="sourceLine" id="cb27-6" data-line-number="6">                   D;</a>
+<a class="sourceLine" id="cb27-7" data-line-number="7">    dfeel_ddlam = n;</a></code></pre></div>
+<p>These equations are equivalent to:</p>
+<p><span class="math display">\[
+\begin{aligned}
+  &amp; f^{el} = \Delta\,\underline{\varepsilon}^{\mathrm{el}}- \Delta\,\underline{\varepsilon}^{\mathrm{to}}\ + \Delta\,\lambda\,\underline{n} = 0  \\
+  &amp; \dfrac{\partial f^{el}}{\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}} = 
+  1 + \Delta \lambda \frac{\partial \underline{n}}{\partial \Delta \underline{\varepsilon}^{\mathrm{el}}} =
+  1 + \Delta \lambda \frac{\partial \underline{n}}{\partial \underline{\sigma}} 
+  \frac{\partial \underline{\sigma}}{\partial \Delta \underline{\varepsilon}^{\mathrm{el}}} \, \\
+  &amp; \dfrac{\partial f^{el}}{\partial \Delta\,\lambda} = \underline{n}
+\end{aligned}
+\]</span></p>
+<p>because this implementation takes into account the fact that the <code>Implicit</code> DSL automatically initializes <code>feel</code> to the current estimation of <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span> and the Jacobian to identity. Moreover, the <code>StandardElasticity</code> brick automatically subtracts <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\)</span> to <code>feel</code>.</p>
+<p>And to finish <span class="math inline">\(f^{\lambda}\)</span>, <span class="math inline">\(\dfrac{\partial f^{\lambda}}{\partial \Delta\,\lambda}\)</span>, <span class="math inline">\(\dfrac{\partial f^{\lambda}}{\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}\)</span> are computed:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb28-1" data-line-number="1">    <span class="co">// plasticity</span></a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">    flam = Fy / D(<span class="dv">0</span>, <span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb28-3" data-line-number="3">    dflam_ddlam = strain(<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb28-4" data-line-number="4">    dflam_ddeel = theta * (nF | D) / D(<span class="dv">0</span>, <span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb28-5" data-line-number="5">    np = n;</a></code></pre></div>
+<p>The Jacobian can now be computed (see  5)</p>
+<h1 id="verification">Verification</h1>
+<figure>
+<img src="img/MohrCoulombPiPlane.svg" title="Trace of the yield surface (green) when approached on different stress paths (purple)" alt="Figure 2: Trace of the yield surface (green) when approached on different stress paths (purple)" id="fig:MC_stress_paths" style="width:90.0%" /><figcaption>Figure 2: Trace of the yield surface (green) when approached on different stress paths (purple)</figcaption>
+</figure>
+<p>The yield function was approached along different stress paths, shown in Figure  2 within the <span class="math inline">\(\pi\)</span>-plane. This shows that a) yield is correctly detected, and b) the stress-state is correctly pulled back onto the yield surface.</p>
+<figure>
+<img src="img/MohrCoulombAnalitical.svg" title="Verification against analytical example. Description in @Nagel2016" alt="Figure 3: Verification against analytical example. Description in Nagel et al. (2017)." id="fig:MC_vis" style="width:125.0%" /><figcaption>Figure 3: Verification against analytical example. Description in <span class="citation" data-cites="Nagel2016">Nagel et al. (2017)</span>.</figcaption>
+</figure>
+<p>The second test (included as a benchmark) follows an analytical solution for a stress-free cavity in an infinite medium under a variable far-field stress. The solution computes stress- and displacement fields as well as the location of the plastified zone. It has been used in <span class="citation" data-cites="Nagel2016">Nagel et al. (2017)</span> where the test is described in more detail (with a partial extension towards non-associated flow).</p>
+<h1 id="simplification-of-the-mfront-file-use-of-tfelmaterialmohrcoulombyieldcriterion.hxx-file">Simplification of the MFront file : use of <code>TFEL/Material/MohrCoulombYieldCriterion.hxx</code> file</h1>
+<p>Because F et G have an analogous structure, it’s possible to simplify the MFront file and to do the calculation in the hxx <code>TFEL/Material/MohrCoulombYieldCriterion.hxx</code> instead of the MFront file.</p>
+<p>Severals simplifications are done:</p>
+<ul>
+<li>parameters and local variables such as <code>sin_phi</code>, <code>sin_psi</code>, … are now defined in the hxx file</li>
+<li>the calculation of <span class="math inline">\(F^{el}\)</span> is done by <code>computeMohrCoulombStressCriterion</code> function</li>
+<li>the calculation of <span class="math inline">\(F\)</span> and this normal <span class="math inline">\(\underline{n}_{F}\)</span> are done by <code>computeMohrCoulombStressCriterionNormal</code> function</li>
+<li>the calculation of <span class="math inline">\(G\)</span>, <span class="math inline">\(\underline{n}_{G}\)</span> and <span class="math inline">\(\dfrac{\partial \underline{n}_{G}}{\partial \underline{\sigma}}\)</span> are done by <code>computeMohrCoulombStressCriterionSecondDerivative</code> function</li>
+</ul>
+<p>Except for some name changes (for example p instead lam for the EquivalentPlasticStrain) and the functions previously introduced (<code>computeMohrCoulombStressCriterion</code>,<code>computeMohrCoulombStressCriterionNormal</code> and <code>computeMohrCoulombStressCriterionSecondDerivative</code>) the rest of the MFront file is identical to that described above in the section <code>Implementation</code>).</p>
+<p>The new MFront file is however much shorter and clearer:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="er">@</span>Behaviour MohrCoulombAbboSloan;</a>
+<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="er">@</span>Author Thomas Nagel;</a>
+<a class="sourceLine" id="cb29-4" data-line-number="4"><span class="er">@</span>Date <span class="bn">05</span> / <span class="bn">02</span> / <span class="dv">2019</span>;</a>
+<a class="sourceLine" id="cb29-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb29-6" data-line-number="6"><span class="er">@</span>Algorithm NewtonRaphson;</a>
+<a class="sourceLine" id="cb29-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb29-8" data-line-number="8"><span class="er">@</span>Brick StandardElasticity;</a>
+<a class="sourceLine" id="cb29-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb29-10" data-line-number="10"><span class="er">@</span>Includes{</a>
+<a class="sourceLine" id="cb29-11" data-line-number="11"><span class="pp">#include </span><span class="im">&quot;TFEL/Material/MohrCoulombYieldCriterion.hxx&quot;</span></a>
+<a class="sourceLine" id="cb29-12" data-line-number="12">}</a>
+<a class="sourceLine" id="cb29-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb29-14" data-line-number="14"><span class="er">@</span>Theta <span class="fl">1.0</span>;     <span class="co">// time integration scheme</span></a>
+<a class="sourceLine" id="cb29-15" data-line-number="15"><span class="er">@</span>Epsilon <span class="fl">1e-14</span>; <span class="co">// tolerance of local stress integration algorithm</span></a>
+<a class="sourceLine" id="cb29-16" data-line-number="16"><span class="er">@</span>ModellingHypotheses{<span class="st">&quot;.+&quot;</span>};</a>
+<a class="sourceLine" id="cb29-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb29-18" data-line-number="18"><span class="er">@</span>RequireStiffnessTensor&lt;UnAltered&gt;;</a>
+<a class="sourceLine" id="cb29-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb29-20" data-line-number="20"><span class="er">@</span>StateVariable real p;</a>
+<a class="sourceLine" id="cb29-21" data-line-number="21">p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</a>
+<a class="sourceLine" id="cb29-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb29-23" data-line-number="23"><span class="er">@</span>MaterialProperty stress c;</a>
+<a class="sourceLine" id="cb29-24" data-line-number="24">c.setEntryName(<span class="st">&quot;Cohesion&quot;</span>);</a>
+<a class="sourceLine" id="cb29-25" data-line-number="25"><span class="er">@</span>MaterialProperty real phi;</a>
+<a class="sourceLine" id="cb29-26" data-line-number="26">phi.setEntryName(<span class="st">&quot;FrictionAngle&quot;</span>);</a>
+<a class="sourceLine" id="cb29-27" data-line-number="27"><span class="er">@</span>MaterialProperty real psi;</a>
+<a class="sourceLine" id="cb29-28" data-line-number="28">psi.setEntryName(<span class="st">&quot;DilatancyAngle&quot;</span>);</a>
+<a class="sourceLine" id="cb29-29" data-line-number="29"><span class="er">@</span>MaterialProperty real lodeT;</a>
+<a class="sourceLine" id="cb29-30" data-line-number="30">lodeT.setEntryName(<span class="st">&quot;TransitionAngle&quot;</span>);</a>
+<a class="sourceLine" id="cb29-31" data-line-number="31"><span class="er">@</span>MaterialProperty stress a;</a>
+<a class="sourceLine" id="cb29-32" data-line-number="32">a.setEntryName(<span class="st">&quot;TensionCutOffParameter&quot;</span>);</a>
+<a class="sourceLine" id="cb29-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb29-34" data-line-number="34"><span class="er">@</span>LocalVariable Stensor ngp;</a>
+<a class="sourceLine" id="cb29-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb29-36" data-line-number="36"><span class="er">@</span>LocalVariable <span class="dt">bool</span> F; <span class="co">// if true, plastic loading</span></a>
+<a class="sourceLine" id="cb29-37" data-line-number="37"><span class="er">@</span>LocalVariable MohrCoulombParameters&lt;StressStensor&gt; pf;</a>
+<a class="sourceLine" id="cb29-38" data-line-number="38"><span class="er">@</span>LocalVariable MohrCoulombParameters&lt;StressStensor&gt; pg;</a>
+<a class="sourceLine" id="cb29-39" data-line-number="39"></a>
+<a class="sourceLine" id="cb29-40" data-line-number="40"><span class="er">@</span>InitLocalVariables {</a>
+<a class="sourceLine" id="cb29-41" data-line-number="41">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> u = MohrCoulombParameters&lt;StressStensor&gt;::DEGREE;</a>
+<a class="sourceLine" id="cb29-42" data-line-number="42">  pf = makeMohrCoulombParameters&lt;StressStensor, u&gt;(c, phi, lodeT, a);</a>
+<a class="sourceLine" id="cb29-43" data-line-number="43">  pg = makeMohrCoulombParameters&lt;StressStensor, u&gt;(c, psi, lodeT, a);</a>
+<a class="sourceLine" id="cb29-44" data-line-number="44">  <span class="at">const</span> <span class="kw">auto</span> sel = computeElasticPrediction();</a>
+<a class="sourceLine" id="cb29-45" data-line-number="45">  <span class="at">const</span> <span class="kw">auto</span> smc = computeMohrCoulombStressCriterion(pf, sel);</a>
+<a class="sourceLine" id="cb29-46" data-line-number="46">  F = smc &gt; stress(<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb29-47" data-line-number="47">  ngp = Stensor(real(<span class="dv">0</span>));</a>
+<a class="sourceLine" id="cb29-48" data-line-number="48">}</a>
+<a class="sourceLine" id="cb29-49" data-line-number="49"></a>
+<a class="sourceLine" id="cb29-50" data-line-number="50"><span class="er">@</span>Integrator {</a>
+<a class="sourceLine" id="cb29-51" data-line-number="51">  <span class="cf">if</span> (F) {</a>
+<a class="sourceLine" id="cb29-52" data-line-number="52">    <span class="co">// in C++11:</span></a>
+<a class="sourceLine" id="cb29-53" data-line-number="53">    <span class="kw">auto</span> Fy = stress{};</a>
+<a class="sourceLine" id="cb29-54" data-line-number="54">    <span class="kw">auto</span> nf = Stensor{};</a>
+<a class="sourceLine" id="cb29-55" data-line-number="55">    <span class="kw">auto</span> Fg = stress{};</a>
+<a class="sourceLine" id="cb29-56" data-line-number="56">    <span class="kw">auto</span> ng = Stensor{};</a>
+<a class="sourceLine" id="cb29-57" data-line-number="57">    <span class="kw">auto</span> dng = Stensor4{};</a>
+<a class="sourceLine" id="cb29-58" data-line-number="58">    <span class="bu">std::</span>tie(Fy, nf) = computeMohrCoulombStressCriterionNormal(pf, sig);</a>
+<a class="sourceLine" id="cb29-59" data-line-number="59">    <span class="bu">std::</span>tie(Fg, ng, dng) = computeMohrCoulombStressCriterionSecondDerivative(pg, sig);</a>
+<a class="sourceLine" id="cb29-60" data-line-number="60">    <span class="co">// elasticity</span></a>
+<a class="sourceLine" id="cb29-61" data-line-number="61">    feel += dp * ng;</a>
+<a class="sourceLine" id="cb29-62" data-line-number="62">    dfeel_ddeel += theta * dp * dng * D;</a>
+<a class="sourceLine" id="cb29-63" data-line-number="63">    dfeel_ddp = ng;</a>
+<a class="sourceLine" id="cb29-64" data-line-number="64">    <span class="co">// plasticity</span></a>
+<a class="sourceLine" id="cb29-65" data-line-number="65">    fp = Fy / D(<span class="dv">0</span>, <span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb29-66" data-line-number="66">    dfp_ddp = strain(<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb29-67" data-line-number="67">    dfp_ddeel = theta * (nf | D) / D(<span class="dv">0</span>, <span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb29-68" data-line-number="68">    ngp = ng;</a>
+<a class="sourceLine" id="cb29-69" data-line-number="69">  }</a>
+<a class="sourceLine" id="cb29-70" data-line-number="70">}</a></code></pre></div>
+<h1 id="simplification-of-the-mfront-file-use-of-the-standardelastoviscoplasticity-brick">Simplification of the MFront file : use of the <code>StandardElastoViscoPlasticity</code> brick</h1>
+<p>The Mohr-Coulomb model has been introduced in the <code>StandardElastoViscoPlasticity</code> brick.</p>
+<p>The <code>MFront</code> file is then very short: the whole model is contained in the brick and can be called by the keyword <code>MohrCoulomb</code></p>
+<p>The MFront file is now:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="er">@</span>Behaviour MohrCoulomAbboSloan3;</a>
+<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="er">@</span>Author HELFER Thomas <span class="dv">202608</span>;</a>
+<a class="sourceLine" id="cb30-5" data-line-number="5"><span class="er">@</span>Date <span class="dv">10</span> / <span class="dv">12</span> / <span class="dv">2019</span>;</a>
+<a class="sourceLine" id="cb30-6" data-line-number="6"><span class="er">@</span>Description {</a>
+<a class="sourceLine" id="cb30-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb30-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb30-9" data-line-number="9"><span class="er">@</span>Algorithm NewtonRaphson;</a>
+<a class="sourceLine" id="cb30-10" data-line-number="10"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-14</span>;</a>
+<a class="sourceLine" id="cb30-11" data-line-number="11"><span class="er">@</span>Theta <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb30-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb30-13" data-line-number="13"><span class="er">@</span>Brick StandardElastoViscoPlasticity{</a>
+<a class="sourceLine" id="cb30-14" data-line-number="14">  stress_potential : <span class="st">&quot;Hooke&quot;</span> {</a>
+<a class="sourceLine" id="cb30-15" data-line-number="15">    young_modulus : <span class="dv">150</span>.e3,</a>
+<a class="sourceLine" id="cb30-16" data-line-number="16">    poisson_ratio : <span class="fl">0.3</span></a>
+<a class="sourceLine" id="cb30-17" data-line-number="17">  },</a>
+<a class="sourceLine" id="cb30-18" data-line-number="18">  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</a>
+<a class="sourceLine" id="cb30-19" data-line-number="19">    criterion : <span class="st">&quot;MohrCoulomb&quot;</span> {</a>
+<a class="sourceLine" id="cb30-20" data-line-number="20">      c : <span class="dv">3</span>.e1,      <span class="co">// cohesion</span></a>
+<a class="sourceLine" id="cb30-21" data-line-number="21">      phi : <span class="fl">0.523598775598299</span>,    <span class="co">// friction angle or dilatancy angle</span></a>
+<a class="sourceLine" id="cb30-22" data-line-number="22">      lodeT : <span class="fl">0.506145483078356</span>,  <span class="co">// transition angle as defined by Abbo and Sloan</span></a>
+<a class="sourceLine" id="cb30-23" data-line-number="23">      a : <span class="fl">1e1</span>       <span class="co">// tension cuff-off parameter</span></a>
+<a class="sourceLine" id="cb30-24" data-line-number="24">    },</a>
+<a class="sourceLine" id="cb30-25" data-line-number="25">    flow_criterion : <span class="st">&quot;MohrCoulomb&quot;</span> {</a>
+<a class="sourceLine" id="cb30-26" data-line-number="26">      c : <span class="dv">3</span>.e1,      <span class="co">// cohesion</span></a>
+<a class="sourceLine" id="cb30-27" data-line-number="27">      phi : <span class="fl">0.174532925199433</span>,    <span class="co">// friction angle or dilatancy angle</span></a>
+<a class="sourceLine" id="cb30-28" data-line-number="28">      lodeT : <span class="fl">0.506145483078356</span>,  <span class="co">// transition angle as defined by Abbo and Sloan</span></a>
+<a class="sourceLine" id="cb30-29" data-line-number="29">      a : <span class="fl">1e1</span>       <span class="co">// tension cuff-off parameter</span></a>
+<a class="sourceLine" id="cb30-30" data-line-number="30">    },</a>
+<a class="sourceLine" id="cb30-31" data-line-number="31">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="st">&quot;0&quot;</span>}</a>
+<a class="sourceLine" id="cb30-32" data-line-number="32">  }</a>
+<a class="sourceLine" id="cb30-33" data-line-number="33">};</a></code></pre></div>
+<h1 id="references">References</h1>
+<!--
+# Appendix 1
+
+Alternative formulation using the Caley-Hamilton theorem:
+\[
+    \tenseur{A}^3 - I_1 \tenseur{A}^2 + I_2 \tenseur{A} - I_3 \tenseur{I} = \tenseur{0}
+\]
+
+Taking the trace and subsequently the derivative w.r.t. \(\tenseur{A}\)
+yields:
+\[
+    I_{3,\tenseur{A}} = \tenseur{A}^2 + I_2 \tenseur{I} - I_1 \tenseur{A}
+\]
+
+For the deviator we have \(I_2(\tsigma^\mathrm{D}) = -J_2\) and
+\(I_1(\tsigma^\mathrm{D})=0\) and thus write:
+\[
+    \frac{\partial J_3}{\partial \tsigma^\mathrm{D}} = J_3 (\tsigma^\mathrm{D})^{-1} = (\tsigma^\mathrm{D})^{2} - J_2 \tenseur{I}
+\]
+
+Furthermore,
+\[
+\frac{\partial J_3}{\partial \tsigma} = \left[(\tsigma^\mathrm{D})^{2} - J_2 \tenseur{I} \right] \dcdot \tenseurq{P}^\mathrm{D} = (\tsigma^\mathrm{D})^{2} \dcdot \tenseurq{P}^\mathrm{D}
+\]
+
+Therefore, 
+\[
+    \tenseur{n} = \frac{\partial G_\mathrm{F}}{\partial I_1} \tenseur{I} + \left( \frac{\partial G_\mathrm{F}}{\partial J_2} + \frac{\partial G_\mathrm{F}}{\partial \theta} \frac{\partial \theta}{\partial J_2} \right) \tsigma^\mathrm{D} +  \frac{\partial G_\mathrm{F}}{\partial \theta}  \frac{\partial \theta}{\partial J_3} J_3 {(\tsigma^{\mathrm{D}})}^{-1} \dcdot \tenseurq{P}^\mathrm{D}
+\]
+or
+\[
+    \tenseur{n} = \frac{\partial G_\mathrm{F}}{\partial I_1} \tenseur{I} + \left( \frac{\partial G_\mathrm{F}}{\partial J_2} + \frac{\partial G_\mathrm{F}}{\partial \theta} \frac{\partial \theta}{\partial J_2} \right) \tsigma^\mathrm{D} +  \frac{\partial G_\mathrm{F}}{\partial \theta}  \frac{\partial \theta}{\partial J_3} (\tsigma^\mathrm{D})^{2}\dcdot \tenseurq{P}^\mathrm{D}
+\]
+
+with the material-independent derivatives:
+
+\[
+\begin{aligned}
+    \left. \frac{\partial \theta}{\partial J_2} \right|_{J_3} &= -\frac{\tan 3\theta}{2J_2}
+    \\
+    \left. \frac{\partial \theta}{\partial J_3} \right|_{J_2} &= \frac{\tan 3\theta}{3J_3}
+\end{aligned}
+\]
+
+and the material-dependent derivatives
+\[
+\begin{aligned}
+    \left. \frac{\partial G_\mathrm{F}}{\partial I_1} \right|_{J_2,J_3} &= \frac{1}{3} \sin \psi
+    \\
+    \left. \frac{\partial G_\mathrm{F}}{\partial J_2} \right|_{I_1,\theta} &= 
+    \frac{K'^2}{2\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}}
+    \\
+    \left. \frac{\partial G_\mathrm{F}}{\partial \theta} \right|_{I_1,J_2} &= 
+    \frac{J_2 K_G}{\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} \frac{\partial K_G}{\partial \theta}
+    \\
+    \frac{\partial K}{\partial \theta} &= \begin{cases}
+    -\sin \theta - \frac{1}{\sqrt{3}}\sin \phi \cos\theta & |\theta| < \theta_\mathrm{T}
+    \\ 
+    -3B\cos3\theta
+\end{cases}
+\end{aligned}
+\]
+
+The following combined entries are useful:
+\[
+\begin{aligned}
+    \frac{\partial G_\mathrm{F}}{\partial \theta}\frac{\partial \theta}{\partial J_2} &= -\frac{K_G\tan 3\theta}{2\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} \frac{\partial K_G}{\partial \theta} 
+\end{aligned}
+\]
+
+Thus,
+\[
+\begin{aligned}
+    \left. \frac{\partial G_\mathrm{F}}{\partial I_1} \right|_{J_2,J_3} &= \frac{1}{3} \sin \psi
+    \\
+    \left.\frac{\partial G_\mathrm{F}}{\partial J_2}\right|_{I_1,J_3} &= 
+    \frac{K_G}{2\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} \left(K_G - \tan 3\theta \frac{\partial K_G}{\partial \theta} \right)
+    \\
+    \left.\frac{\partial G_\mathrm{F}}{\partial J_3}\right|_{I_1,J_2} &= \frac{J_2K_G\tan 3\theta}{3J_3\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} \frac{\partial K_G}{\partial \theta}
+\end{aligned}
+\]
+
+so that:
+\[
+    \tenseur{n} = \frac{\partial G_\mathrm{F}}{\partial I_1} \tenseur{I} + \left.\frac{\partial G_\mathrm{F}}{\partial J_2}\right|_{I_1,J_3} \tsigma^\mathrm{D} +  \left.\frac{\partial G_\mathrm{F}}{\partial J_3}\right|_{I_1,J_2} (\tsigma^{\mathrm{D}})^{2} \dcdot \tenseurq{P}^\mathrm{D}
+\]
+
+
+
+# Linearization of flow rule
+
+\[
+\begin{split}
+    \frac{\partial \tenseur{n}}{\partial \tsigma} &= \left.\frac{\partial G_\mathrm{F}}{\partial J_2}\right|_{I_1,J_3} \tenseurq{P}^\mathrm{D} + \left.\frac{\partial G_\mathrm{F}}{\partial J_3}\right|_{I_1,J_2} \tenseurq{P}^\mathrm{D} \dcdot \left[ \left( \tenseur{I} \otimes \tsigma^\mathrm{D} \right)^{\overset{23}{\mathrm{T}}} + \left(  \tsigma^\mathrm{D} \otimes \tenseur{I}\right)^{\overset{23}{\mathrm{T}}}\right] \dcdot \tenseurq{P}^\mathrm{D} \\
+    &+ \left.\frac{\partial^2 G_\mathrm{F}}{\partial J_2^2} \right|_{J_3} \tsigma^\mathrm{D} \otimes \tsigma^\mathrm{D} + \left. \frac{\partial^2 G_\mathrm{F}}{\partial J_3^2} \right|_{J_2} \left[{(\tsigma^{\mathrm{D}})}^{2} \dcdot \tenseurq{P}^\mathrm{D} \otimes  {(\tsigma^{\mathrm{D}})}^{2} \dcdot \tenseurq{P}^\mathrm{D} \right] \\
+    &+ \frac{\partial}{\partial J_2}\left[ \left. \frac{\partial G_\mathrm{F}}{\partial J_3} \right|_{J_2} \right]_{J_3}  \left[ \tsigma^\mathrm{D} \otimes {(\tsigma^{\mathrm{D}})}^{2} \dcdot \tenseurq{P}^\mathrm{D} + {(\tsigma^{\mathrm{D}})}^{2} \dcdot \tenseurq{P}^\mathrm{D} \otimes \tsigma^{\mathrm{D}} \right]
+\end{split}
+\]
+
+We further require the derivatives:
+\[
+\begin{aligned}
+    \left.\frac{\partial^2 G_\mathrm{F}}{\partial J_2^2} \right|_{J_3} &= \left. \frac{\partial}{\partial J_2}\right|_\theta \left.\frac{\partial G_\mathrm{F}}{\partial J_2}\right|_{I_1,J_3} + \left. \frac{\partial}{\partial \theta} \right|_{J_2} \left.\frac{\partial G_\mathrm{F}}{\partial J_2}\right|_{I_1,J_3} \frac{\partial \theta}{\partial J_2}
+    \\
+    &= \frac{\partial^2 G_\mathrm{F}}{\partial^2 J_2^2} + \frac{\partial^2 G_\mathrm{F}}{\partial J_2 \partial \theta} \frac{\partial \theta}{\partial J_2} + \frac{\partial G_\mathrm{F}}{\partial \theta} \frac{\partial^2 \theta}{\partial J_2^2} \\
+    &+\frac{\partial \theta}{\partial J_2} \left(\frac{\partial^2 G_\mathrm{F}}{\partial J_2 \partial \theta} + \frac{\partial^2 G_\mathrm{F}}{\partial \theta^2} \frac{\partial \theta}{\partial J_2} + \frac{\partial G_\mathrm{F}}{\partial \theta} \frac{\partial^2 \theta}{\partial J_2 \partial \theta}\right)
+    \\
+    &= \frac{\partial^2 G_\mathrm{F}}{\partial^2 J_2^2} +  \frac{\partial G_\mathrm{F}}{\partial \theta} \frac{\partial^2 \theta}{\partial J_2^2}
+    \\
+    &+\frac{\partial \theta}{\partial J_2} \left(2\frac{\partial^2 G_\mathrm{F}}{\partial J_2 \partial \theta} + \frac{\partial^2 G_\mathrm{F}}{\partial \theta^2} \frac{\partial \theta}{\partial J_2} + \frac{\partial G_\mathrm{F}}{\partial \theta} \frac{\partial^2 \theta}{\partial J_2 \partial \theta}\right)
+    \\
+    \\
+    \left. \frac{\partial^2 G_\mathrm{F}}{\partial J_3^2} \right|_{J_2} &= \left. \frac{\partial}{\partial J_3} \right|_\theta \left.\frac{\partial G_\mathrm{F}}{\partial J_3}\right|_{I_1,J_2} + \left. \frac{\partial}{\partial \theta} \right|_{J_3} \left.\frac{\partial G_\mathrm{F}}{\partial J_3}\right|_{I_1,J_2} \frac{\partial \theta}{\partial J_3}
+    \\
+    &= \cancelto{0}{\frac{\partial^2 G_\mathrm{F}}{\partial \theta \partial J_3}}\frac{\partial \theta}{\partial J_3} + \frac{\partial G_\mathrm{F}}{\partial \theta} \frac{\partial^2 \theta}{\partial J_3^2} 
+    \\
+    &+\frac{\partial \theta}{\partial J_3} \left(\frac{\partial^2 G_\mathrm{F}}{\partial \theta^2}\frac{\partial \theta}{\partial J_3} + \frac{\partial G_\mathrm{F}}{\partial \theta}\frac{\partial^2 \theta}{\partial J_3 \partial \theta} \right)
+    \\
+    &= \frac{\partial G_\mathrm{F}}{\partial \theta} \frac{\partial^2 \theta}{\partial J_3^2} +\frac{\partial \theta}{\partial J_3} \left(\frac{\partial^2 G_\mathrm{F}}{\partial \theta^2}\frac{\partial \theta}{\partial J_3} + \frac{\partial G_\mathrm{F}}{\partial \theta}\frac{\partial^2 \theta}{\partial J_3 \partial \theta} \right)
+    \\
+    \\
+    \frac{\partial}{\partial J_2}\left[ \left. \frac{\partial G_\mathrm{F}}{\partial J_3} \right|_{J_2} \right]_{J_3}  &= \left. \frac{\partial}{\partial J_2} \right|_\theta \left.\frac{\partial G_\mathrm{F}}{\partial J_3}\right|_{I_1,J_2} + \left. \frac{\partial}{\partial \theta} \right|_{J_2} \left.\frac{\partial G_\mathrm{F}}{\partial J_3}\right|_{I_1,J_2} \frac{\partial \theta}{\partial J_2}
+    \\
+    &= \frac{\partial^2 G_\mathrm{F}}{\partial J_2 \partial \theta}\frac{\partial \theta}{\partial J_3} + \frac{\partial G_\mathrm{F}}{\partial \theta}\cancelto{0}{\frac{\partial^2 \theta}{\partial J_3 \partial J_2}} 
+    \\
+    &+ \frac{\partial \theta}{\partial J_2} \left( \frac{\partial^2 G_\mathrm{F}}{\partial \theta^2} \frac{\partial \theta}{\partial J_3} + \frac{\partial G_\mathrm{F}}{\partial \theta} \frac{\partial^2 \theta}{\partial J_3 \partial \theta} \right)
+    \\
+    &=\frac{\partial^2 G_\mathrm{F}}{\partial J_2 \partial \theta}\frac{\partial \theta}{\partial J_3} + \frac{\partial \theta}{\partial J_2} \left( \frac{\partial^2 G_\mathrm{F}}{\partial \theta^2} \frac{\partial \theta}{\partial J_3} + \frac{\partial G_\mathrm{F}}{\partial \theta} \frac{\partial^2 \theta}{\partial J_3 \partial \theta} \right)
+\end{aligned}
+\]
+
+Material-independent derivatives:
+\[
+\begin{aligned}
+    \left. \frac{\partial^2 \theta}{\partial J_2^2} \right|_\theta &= \frac{\tan 3\theta}{2J_2^2}
+    \\
+    \left. \frac{\partial^2 \theta}{\partial J_3^2} \right|_\theta &= -\frac{\tan 3\theta}{3J_3^2}
+    \\
+    \frac{\partial^2 \theta}{\partial J_2 \partial \theta} &= - \frac{3}{2J_2 \cos^2 3\theta}
+    \\
+    \frac{\partial^2 \theta}{\partial J_3 \partial \theta} &= \frac{1}{J_3 \cos^2 3\theta}
+\end{aligned}
+\]
+
+Material-dependent derivatives:
+\[
+\begin{aligned}
+    \frac{\partial^2 G_\mathrm{F}}{\partial J_2^2} &= 
+    -\frac{K_G^4}{4\sqrt{(J_2 K_G^2 + a^2 \sin^2 \psi)^3}}
+    \\
+    \frac{\partial^2 G_\mathrm{F}}{\partial \theta^2} &= 
+    \left( \frac{J_2}{\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} - \frac{J_2^2 K_G^2}{\sqrt{(J_2 K_G^2 + a^2 \sin^2 \psi)^3}} \right)\left(\frac{\partial K_G}{\partial \theta}\right)^2 \\
+    &+  \frac{J_2K_G}{\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} \frac{\partial^2 K_G}{\partial \theta^2}  
+\\
+    &=  \frac{J_2}{\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} \left[\left(\frac{\partial K_G}{\partial \theta}\right)^2 \left(1 - \frac{J_2K_G^2}{J_2 K_G^2 + a^2 \sin^2 \psi} \right) + K_G \frac{\partial^2 K_G}{\partial \theta^2}  \right]
+    \\
+    \frac{\partial^2 G_\mathrm{F}}{\partial J_2 \partial \theta} &= 
+    \left( \frac{K_G}{\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} - \frac{J_2 K_G^3}{2\sqrt{(J_2 K_G^2 + a^2 \sin^2 \psi)^3}} \right)\frac{\partial K_G}{\partial \theta}
+    \\
+    &=\frac{K_G}{\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}}\frac{\partial K_G}{\partial \theta}\left( 1 - \frac{J_2 K_G^2}{2(J_2 K_G^2 + a^2 \sin^2 \psi)} \right)
+    \\
+    \frac{\partial^2 K}{\partial \theta^2} &= \begin{cases}
+    -\cos \theta + \frac{1}{\sqrt{3}}\sin \phi \sin\theta & |\theta| < \theta_\mathrm{T}
+    \\ 
+    9B\sin3\theta
+\end{cases}
+\end{aligned}
+\]
+
+Jacobian is here (non-associated!)
+\[
+\tenseur{J} = 
+\begin{pmatrix}
+    \tenseurq{I} + \Delta \lambda \dfrac{\partial \tenseur{n}}{\partial \Delta \tepsilonel} & \tenseur{n} \\
+    E^{-1}\tenseur{n}_F \dcdot \tenseurq{C} & 0
+\end{pmatrix}
+\]{#eq:Jacobian}
+-->
+<div id="refs" class="references">
+<div id="ref-Abbo1995">
+<p>Abbo, A.J., and S.W. Sloan. 1995. “A smooth hyperbolic approximation to the Mohr-Coulomb yield criterion.” <em>Computers &amp; Structures</em> 54 (3): 427–41. <a href="https://doi.org/10.1016/0045-7949(94)00339-5" class="uri">https://doi.org/10.1016/0045-7949(94)00339-5</a>.</p>
+</div>
+<div id="ref-Nagel2016">
+<p>Nagel, Thomas, Wolfgang Minkley, Norbert Böttcher, Dmitri Naumov, Uwe-Jens Görke, and Olaf Kolditz. 2017. “Implicit numerical integration and consistent linearization of inelastic constitutive models of rock salt.” <em>Computers &amp; Structures</em> 182 (April): 87–103. <a href="https://doi.org/10.1016/j.compstruc.2016.11.010" class="uri">https://doi.org/10.1016/j.compstruc.2016.11.010</a>.</p>
+</div>
+</div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

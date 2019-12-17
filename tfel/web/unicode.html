@@ -1,0 +1,566 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>UTF-8 support in MFront</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+                <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	    <li><a href="mfm-test-generator.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
+		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title"><code>UTF-8</code> support in <code>MFront</code></h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">16/07/2019</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#common-symbols">Common symbols</a></li>
+      <li><a href="#list-of-all-supported-symbols">List of all supported symbols</a><ul>
+      <li><a href="#greek-letters">Greek letters</a></li>
+      <li><a href="#mathematical-operators">Mathematical operators</a></li>
+      <li><a href="#mathematical-symbols">Mathematical symbols</a></li>
+      <li><a href="#superscripts-and-subscripts">Superscripts and subscripts</a></li>
+      </ul></li>
+      </ul>
+    </div>
+        <p>Some recent scientific programming languages like <a href="https://julialang.org/"><code>Julia</code></a> or <span class="math inline">\(\nabla\)</span> allow the usage of (a subset of) unicode characters <span class="citation" data-cites="camier_improving_2015 bezanson_julia:_2017">(Camier 2015; Bezanson et al. 2017)</span>. This allows a much more readable code, very close to the mathematical expressions.</p>
+<figure>
+<img src="img/mfront-unicode.png" alt="Implementation of the Norton behaviour with and without unicode support" style="width:100.0%" /><figcaption>Implementation of the Norton behaviour with and without unicode support</figcaption>
+</figure>
+<p>This page describes the subset of <code>UTF-8</code> characters supported in MFront files. This subset includes:</p>
+<ul>
+<li>Greek small letters and greek capital letters.</li>
+<li>Mathematical symbols</li>
+<li>Latin letter superscripts and subscripts.</li>
+<li>Number superscripts and subscripts.</li>
+</ul>
+<h1 id="common-symbols">Common symbols</h1>
+<ul>
+<li>F₀: deformation gradient at the beginning of the time step</li>
+<li>F₁: deformation gradient at the end of the time step</li>
+<li>∂ₜF: rate of the deformation gradient</li>
+<li>εᵗᵒ: total strain</li>
+<li>Δεᵗᵒ: total strain increment</li>
+<li>∂ₜεᵗᵒ: rate of the total strain</li>
+<li>Δεᵗᵒ: total strain increment</li>
+<li>εᵉˡ: elastic strain</li>
+<li>σ: stress tensor</li>
+<li>ℝ₊: ranges of positive numbers</li>
+<li>ℝ₋: ranges of negative numbers</li>
+<li>I₂: second order symmetric identity tensor (object of type <code>stensor</code>)</li>
+<li>I₄: fourth order identity tensor on symmetric tensors (object of type <code>st2tost2</code>)</li>
+</ul>
+<h1 id="list-of-all-supported-symbols">List of all supported symbols</h1>
+<h2 id="greek-letters">Greek letters</h2>
+<table style="width:67%;">
+<caption>Capital greek letters</caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Α</td>
+<td style="text-align: center;">Β</td>
+<td style="text-align: center;">Γ</td>
+<td style="text-align: center;">Δ</td>
+<td style="text-align: center;">Ε</td>
+<td style="text-align: center;">Ζ</td>
+<td style="text-align: center;">Η</td>
+<td style="text-align: center;">Θ</td>
+<td style="text-align: center;">Ι</td>
+<td style="text-align: center;">Κ</td>
+<td style="text-align: center;">Λ</td>
+<td style="text-align: center;">Μ</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ν</td>
+<td style="text-align: center;">Ξ</td>
+<td style="text-align: center;">Ο</td>
+<td style="text-align: center;">Π</td>
+<td style="text-align: center;">Ρ</td>
+<td style="text-align: center;">Σ</td>
+<td style="text-align: center;">Τ</td>
+<td style="text-align: center;">Υ</td>
+<td style="text-align: center;">Φ</td>
+<td style="text-align: center;">Χ</td>
+<td style="text-align: center;">Ψ</td>
+<td style="text-align: center;">Ω</td>
+</tr>
+</tbody>
+</table>
+<table style="width:67%;">
+<caption>Small greek letters</caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">α</td>
+<td style="text-align: center;">β</td>
+<td style="text-align: center;">γ</td>
+<td style="text-align: center;">δ</td>
+<td style="text-align: center;">ε</td>
+<td style="text-align: center;">ζ</td>
+<td style="text-align: center;">η</td>
+<td style="text-align: center;">θ</td>
+<td style="text-align: center;">ι</td>
+<td style="text-align: center;">κ</td>
+<td style="text-align: center;">λ</td>
+<td style="text-align: center;">μ</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ν</td>
+<td style="text-align: center;">ξ</td>
+<td style="text-align: center;">ο</td>
+<td style="text-align: center;">π</td>
+<td style="text-align: center;">ρ</td>
+<td style="text-align: center;">σ</td>
+<td style="text-align: center;">τ</td>
+<td style="text-align: center;">υ</td>
+<td style="text-align: center;">φ</td>
+<td style="text-align: center;">χ</td>
+<td style="text-align: center;">ψ</td>
+<td style="text-align: center;">ω</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mathematical-operators">Mathematical operators</h2>
+<table style="width:11%;">
+<caption>Mathematical operators</caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">⋅</td>
+<td style="text-align: center;">⊗</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mathematical-symbols">Mathematical symbols</h2>
+<table style="width:17%;">
+<caption>Mathematical symbols</caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">∕</td>
+<td style="text-align: center;">∂</td>
+<td style="text-align: center;">∇</td>
+</tr>
+</tbody>
+</table>
+<h2 id="superscripts-and-subscripts">Superscripts and subscripts</h2>
+<h3 id="superscripts">Superscripts</h3>
+<table style="width:50%;">
+<caption>Capital latin letters superscripts</caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ᴬ</td>
+<td style="text-align: center;">ᴰ</td>
+<td style="text-align: center;">ᴱ</td>
+<td style="text-align: center;">ᴳ</td>
+<td style="text-align: center;">ᴴ</td>
+<td style="text-align: center;">ᴵ</td>
+<td style="text-align: center;">ᴶ</td>
+<td style="text-align: center;">ᴷ</td>
+<td style="text-align: center;">ᴸ</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ᴹ</td>
+<td style="text-align: center;">ᴺ</td>
+<td style="text-align: center;">ᴼ</td>
+<td style="text-align: center;">ᴾ</td>
+<td style="text-align: center;">ᴿ</td>
+<td style="text-align: center;">ᵀ</td>
+<td style="text-align: center;">ᵁ</td>
+<td style="text-align: center;">ᵂ</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<table style="width:72%;">
+<caption>Small latin letters superscripts</caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ᵃ</td>
+<td style="text-align: center;">ᵇ</td>
+<td style="text-align: center;">ᶜ</td>
+<td style="text-align: center;">ᵈ</td>
+<td style="text-align: center;">ᵉ</td>
+<td style="text-align: center;">ᶠ</td>
+<td style="text-align: center;">ᵍ</td>
+<td style="text-align: center;">ʰ</td>
+<td style="text-align: center;">ⁱ</td>
+<td style="text-align: center;">ʲ</td>
+<td style="text-align: center;">ᵏ</td>
+<td style="text-align: center;">ˡ</td>
+<td style="text-align: center;">ᵐ</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ⁿ</td>
+<td style="text-align: center;">ᵒ</td>
+<td style="text-align: center;">ᵖ</td>
+<td style="text-align: center;">ʳ</td>
+<td style="text-align: center;">ˢ</td>
+<td style="text-align: center;">ᵗ</td>
+<td style="text-align: center;">ᵘ</td>
+<td style="text-align: center;">ᵛ</td>
+<td style="text-align: center;">ʷ</td>
+<td style="text-align: center;">ˣ</td>
+<td style="text-align: center;">ʸ</td>
+<td style="text-align: center;">ᶻ</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<table style="width:56%;">
+<caption>Arabic numbers superscripts</caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">⁰</td>
+<td style="text-align: center;">¹</td>
+<td style="text-align: center;">²</td>
+<td style="text-align: center;">³</td>
+<td style="text-align: center;">⁴</td>
+<td style="text-align: center;">⁵</td>
+<td style="text-align: center;">⁶</td>
+<td style="text-align: center;">⁷</td>
+<td style="text-align: center;">⁸</td>
+<td style="text-align: center;">⁹</td>
+</tr>
+</tbody>
+</table>
+<h3 id="subscripts">Subscripts</h3>
+<table style="width:28%;">
+<caption>Greek letters subscripts</caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ᵦ</td>
+<td style="text-align: center;">ᵧ</td>
+<td style="text-align: center;">ᵨ</td>
+<td style="text-align: center;">ᵩ</td>
+<td style="text-align: center;">ᵪ</td>
+</tr>
+</tbody>
+</table>
+<table style="width:61%;">
+<caption>Latin letters subscripts</caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ₐ</td>
+<td style="text-align: center;">ₑ</td>
+<td style="text-align: center;">ₒ</td>
+<td style="text-align: center;">ₓ</td>
+<td style="text-align: center;">ₕ</td>
+<td style="text-align: center;">ₖ</td>
+<td style="text-align: center;">ₗ</td>
+<td style="text-align: center;">ₘ</td>
+<td style="text-align: center;">ₚ</td>
+<td style="text-align: center;">ₛ</td>
+<td style="text-align: center;">ₜ</td>
+</tr>
+</tbody>
+</table>
+<table style="width:56%;">
+<caption>Arabic numbers subscripts</caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">₀</td>
+<td style="text-align: center;">₁</td>
+<td style="text-align: center;">₂</td>
+<td style="text-align: center;">₃</td>
+<td style="text-align: center;">₄</td>
+<td style="text-align: center;">₅</td>
+<td style="text-align: center;">₆</td>
+<td style="text-align: center;">₇</td>
+<td style="text-align: center;">₈</td>
+<td style="text-align: center;">₉</td>
+</tr>
+</tbody>
+</table>
+<table style="width:11%;">
+<caption>Mathematic symbols subscripts</caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">₊</td>
+<td style="text-align: center;">₋</td>
+</tr>
+</tbody>
+</table>
+<div id="refs" class="references">
+<div id="ref-bezanson_julia:_2017">
+<p>Bezanson, Jeff, Alan Edelman, Stefan Karpinski, and Viral B Shah. 2017. “Julia: A Fresh Approach to Numerical Computing.” <em>SIAM Review</em> 59 (1): 65–98. <a href="https://doi.org/10.1137/141000671" class="uri">https://doi.org/10.1137/141000671</a>.</p>
+</div>
+<div id="ref-camier_improving_2015">
+<p>Camier, Jean-Sylvain. 2015. “Improving Performance Portability and Exascale Software Productivity with the ∇ Numerical Programming Language.” In <em>Proceedings of the 3rd International Conference on Exascale Applications and Software</em>, 126–31. EASC ’15. Edinburgh, Scotland, UK: University of Edinburgh. <a href="http://dl.acm.org/citation.cfm?id=2820083.2820107" class="uri">http://dl.acm.org/citation.cfm?id=2820083.2820107</a>.</p>
+</div>
+</div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

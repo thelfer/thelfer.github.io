@@ -103,6 +103,7 @@
 	    <li><a href="mfront-doc.html">mfront-doc</a></li>
 	    <li><a href="mtest.html">mtest</a></li>
 	    <li><a href="mfm.html">mfm</a></li>
+	    <li><a href="mfm-test-generator.html">mfm</a></li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
@@ -123,6 +124,7 @@
                     <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
 		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
 		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
+		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
                 </ul>
            </li>
             <li><a>Versions 3.1.x</a>
@@ -132,6 +134,7 @@
 		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
 		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
 		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
                 </ul>
            </li>
             <li><a>Versions 3.2.x</a>
@@ -218,6 +221,7 @@
 	</li>
 	<li><a>Getting Help</a>
 	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
 	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
 	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
 	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
@@ -342,19 +346,21 @@
 \end{aligned}
 \right.
 \]</span></p>
-<p>The flow is associated is <span class="math inline">\(f\)</span> is equal to <span class="math inline">\(g\)</span>. In practice <span class="math inline">\(f\)</span> is defined by a stress criterion <span class="math inline">\(\phi\)</span> and an isotropic hardening rule <span class="math inline">\(R{\left(p\right)}\)</span>, as follows:</p>
+<p>The flow is associated is <span class="math inline">\(f\)</span> is equal to <span class="math inline">\(g\)</span>. In practice <span class="math inline">\(f\)</span> is defined by a stress criterion <span class="math inline">\(\phi\)</span>, a set of kinematic hardening rules, and an isotropic hardening rule, as follows:</p>
 <p><span class="math display">\[
-f{\left(\underline{\sigma},p\right)}= \phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}-R{\left(p\right)}
+f{\left(\underline{\sigma},p\right)}= \phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}-\sum_{i}R_{i}{\left(p\right)}
 \]</span></p>
-<p>where <span class="math inline">\(p\)</span> is the equivalent plastic strain.</p>
+<p>where <span class="math inline">\(p\)</span> is the equivalent plastic strain. Here we have decomposed the limit of the elastic domain as a sum, denoted <span class="math inline">\(\sum_{i}R_{i}{\left(p\right)}\)</span>, to indicate that one may define it by combining various predefined forms of isotropic hardening rules (Voce, Linear, etc.) defined hereafter.</p>
 <h3 id="the-norton-inelastic-flow">The <code>Norton</code> inelastic flow</h3>
 <p>The plastic flow is defined by:</p>
 <ul>
 <li>a function <span class="math inline">\(f{\left(\underline{\sigma}\right)}\)</span> giving the flow intensity</li>
 <li>a viscoplastic potential <span class="math inline">\(g\)</span></li>
+<li>one or more kinematic hardening rule (optional)</li>
+<li>one isotropic hardening rule (optional)</li>
 </ul>
 <p><span class="math display">\[
-f{\left(\underline{\sigma}\right)}=A\left&lt;{{\displaystyle \frac{\displaystyle \phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}}{\displaystyle K}}}\right&gt;^{n}
+f{\left(\underline{\sigma}\right)}=A\left&lt;{{\displaystyle \frac{\displaystyle \phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}-\sum_{i}R_{i}{\left(p\right)}}{\displaystyle K}}}\right&gt;^{n}
 \]</span></p>
 <h2 id="list-of-available-stress-criterion">List of available stress criterion</h2>
 <h3 id="von-mises-stress-criterion">von Mises stress criterion</h3>

@@ -103,6 +103,7 @@
 	    <li><a href="mfront-doc.html">mfront-doc</a></li>
 	    <li><a href="mtest.html">mtest</a></li>
 	    <li><a href="mfm.html">mfm</a></li>
+	    <li><a href="mfm-test-generator.html">mfm</a></li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
@@ -123,6 +124,7 @@
                     <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
 		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
 		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
+		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
                 </ul>
            </li>
             <li><a>Versions 3.1.x</a>
@@ -132,6 +134,7 @@
 		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
 		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
 		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
                 </ul>
            </li>
             <li><a>Versions 3.2.x</a>
@@ -218,6 +221,7 @@
 	</li>
 	<li><a>Getting Help</a>
 	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
 	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
 	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
 	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
@@ -239,8 +243,7 @@
       <li><a href="#evolution-of-the-isotropic-hardening">Evolution of the isotropic hardening</a></li>
       <li><a href="#evolution-of-the-kinematic-hardenings">Evolution of the kinematic hardenings</a></li>
       </ul></li>
-      <li><a href="#theta-scheme"><span class="math inline">\(\theta\)</span>-scheme</a></li>
-      <li><a href="#implicit-system-formulation-and-implementation">Implicit system formulation and implementation</a><ul>
+      <li><a href="#theta-scheme"><span class="math inline">\(\theta\)</span>-scheme</a><ul>
       <li><a href="#computation-of-the-jacobian">Computation of the jacobian</a></li>
       <li><a href="#implementation">Implementation</a></li>
       <li><a href="#an-easy-optimization">An easy optimization</a></li>
@@ -320,17 +323,6 @@ R{\left(p\right)}=R_{\infty} + {\left(R_{0}-R_{\infty}\right)}\,\exp{\left(-b\,p
 <li><span class="math inline">\({\left.\sigma^{e}_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}={\left({\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right)}_{\mathrm{eq}}\)</span></li>
 <li><span class="math inline">\({\left.F\right|_{t+\theta\,\Delta\,t}}={\left.\sigma^{e}_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}-R{\left({\left.p\right|_{t+\theta\,\Delta\,t}}\right)}\)</span></li>
 </ul>
-<h1 id="implicit-system-formulation-and-implementation">Implicit system formulation and implementation</h1>
-<p>The previous equations can be translated in an implicit system in a straightforward manner:</p>
-<p><span class="math display">\[
-\left\{
-\begin{aligned}
-f_{\underline{\varepsilon}^{\mathrm{el}}}&amp;=\Delta\,\underline{\varepsilon}^{\mathrm{el}}+\Delta\,p\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}=\underline{0}\\
-f_{p}&amp;=\Delta\,p-\left\langle{{\displaystyle \frac{\displaystyle {\left.F\right|_{t+\theta\,\Delta\,t}}}{\displaystyle K}}}\right\rangle^{m}\,\Delta\,t=0\\
-f_{\underline{a}_{i}}&amp;=\Delta\,\underline{a}_{i}-\Delta\,\underline{\varepsilon}^{\mathrm{vis}}-g[i]\,{\left.\underline{a}_{i}\right|_{t+\theta\,\Delta\,t}}\,\Delta\,p=\underline{0}
-\end{aligned}
-\right.
-\]</span></p>
 <h2 id="computation-of-the-jacobian">Computation of the jacobian</h2>
 <h3 id="terms-related-to-f_underlinevarepsilonmathrmel">Terms related to <span class="math inline">\(f_{\underline{\varepsilon}^{\mathrm{el}}}\)</span></h3>
 <blockquote>
@@ -521,7 +513,7 @@ f_{\underline{a}_{i}}&amp;=\Delta\,\underline{a}_{i}-\Delta\,\underline{\varepsi
 <p><span class="math display">\[
 \left\{
 \begin{aligned}
-\Delta\,\underline{a}_{i}={{\displaystyle \frac{\displaystyle \Delta\,p\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle 1+g_{i}\,{\left.\underline{a}_{i}\right|_{t}}\,\Delta\,p}}}
+\Delta\,\underline{a}_{i}={{\displaystyle \frac{\displaystyle \Delta\,p\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}-g_{i}{\left.\underline{a}_{i}\right|_{t}}}{\displaystyle 1+g_{i}\,\theta\,\Delta\,p}}}
 \end{aligned}
 \right.
 \]</span></p>

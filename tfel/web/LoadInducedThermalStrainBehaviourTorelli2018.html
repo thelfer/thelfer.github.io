@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>How to implement Torelli 2018’ load induced thermal strain behaviour</title>
+        <meta name="author" content="Thomas Helfer, Giacomo Torelli" />
+            <meta name="date" content="2019-08-12" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	    <li><a href="mfm-test-generator.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
+		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">How to implement Torelli 2018’ load induced thermal strain behaviour</h1>
+                  <h2 class="author">Thomas Helfer, Giacomo Torelli</h2>
+                  <h3 class="date">08/12/2019</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#description">Description</a><ul>
+      <li><a href="#elastic-behaviour">Elastic behaviour</a></li>
+      <li><a href="#load-induced-thermal-strain">Load induced thermal strain</a></li>
+      </ul></li>
+      <li><a href="#implicit-scheme">Implicit scheme</a></li>
+      <li><a href="#implementation">Implementation</a><ul>
+      <li><a href="#choice-of-the-domain-specific-language">Choice of the domain specific language</a></li>
+      <li><a href="#choice-of-the-behaviour-name">Choice of the behaviour name</a></li>
+      <li><a href="#metadata">Metadata</a></li>
+      <li><a href="#use-of-the-standardelasticity-brick">Use of the <code>StandardElasticity</code> brick</a></li>
+      <li><a href="#choice-of-the-numerical-parameter">Choice of the numerical parameter</a></li>
+      <li><a href="#thermoelastic-properties-computation-of-the-thermal-strain">Thermoelastic properties, computation of the thermal strain</a></li>
+      <li><a href="#parameters">Parameters</a></li>
+      <li><a href="#auxiliary-state-variables">Auxiliary state variables</a></li>
+      <li><a href="#local-variables">Local Variables</a></li>
+      <li><a href="#initialization-of-the-local-variables">Initialization of the local variables</a></li>
+      <li><a href="#implicit-system">Implicit system</a></li>
+      <li><a href="#update-of-the-auxiliary-state-variables">Update of the auxiliary state variables</a></li>
+      </ul></li>
+      <li><a href="#references">References</a></li>
+      </ul>
+    </div>
+        
+
+<p>This page shows how to implement a behaviour describing the load induced thermal strain (LITS) phenomena in concrete following the work of <span class="citation" data-cites="torelli_confinement-dependent_2018">Torelli et al. (2018)</span>.</p>
+<p>This implementation is available <a href="gallery/viscoplasticity/LoadInducedThermalStrain_Torelli2018.mfront">here</a>.</p>
+<h1 id="description">Description</h1>
+<p>The behaviour is described by a standard split of the strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in an elastic and a plastic parts, respectively denoted <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and <span class="math inline">\(\underline{\varepsilon}^{\mathrm{LITS}}\)</span>:</p>
+<p><span id="eq:eel"><span class="math display">\[
+\underline{\varepsilon}^{\mathrm{to}}=\underline{\varepsilon}^{\mathrm{el}}+\underline{\varepsilon}^{\mathrm{LITS}}
+\qquad(1)\]</span></span></p>
+<h2 id="elastic-behaviour">Elastic behaviour</h2>
+<p>The stress <span class="math inline">\(\underline{\sigma}\)</span> is related to the the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> by a the standard Hooke behaviour:</p>
+<p><span id="eq:Hooke"><span class="math display">\[
+\underline{\sigma}= \lambda\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\,\underline{I}+2\,\mu\,\underline{\varepsilon}^{\mathrm{el}}
+\qquad(2)\]</span></span></p>
+<h2 id="load-induced-thermal-strain">Load induced thermal strain</h2>
+<p>The evolution of the load induced thermal strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{LITS}}\)</span> is given by:</p>
+<p><span id="eq:delits"><span class="math display">\[
+\underline{\dot{\varepsilon}}^{\mathrm{LITS}}=
+{{\displaystyle \frac{\displaystyle \eta{\left(\underline{\sigma}\right)}\,\beta{\left(T\right)}}{\displaystyle \sigma_{u0}}}}
+\left[
+  -\nu_{\mathrm{LITS}}{\mathrm{tr}{\left({\left&lt;\underline{\sigma}\right&gt;_{-}}\right)}}\,\underline{I}
+  +{\left(1-\nu_{\mathrm{LITS}}\right)}\,{\left&lt;\underline{\sigma}\right&gt;_{-}}
+\right]\,\dot{T}_{e}
+\qquad(3)\]</span></span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\({\left&lt;\sigma\right&gt;_{-}}\)</span> is the negative part of the stress tensor <span class="math inline">\(\underline{\sigma}\)</span>. This negative part is computed as follows: <span class="math display">\[
+  {\left&lt;\sigma\right&gt;_{-}} = \sum_{I=1}^{3}{\left&lt;\sigma_{I}\right&gt;_{-}}\,\underline{n}_{I}
+\]</span> where <span class="math inline">\(\sigma_{I}\)</span> is the Ith eigenvalue of <span class="math inline">\(\underline{\sigma}\)</span> and <span class="math inline">\(\underline{n}_{I}\)</span> the associated eigen tensor.</li>
+<li><span class="math inline">\(\eta{\left(\underline{\sigma}\right)} = 1+C_{m}{\left(\underline{\sigma}\right)}\,\gamma\)</span>. <span class="math inline">\(\eta\)</span> describes the effect of the stress triaxiality.</li>
+<li><span class="math inline">\(C_{m}{\left(\underline{\sigma}\right)}={{\displaystyle \frac{\displaystyle -{\mathrm{tr}{\left({\left&lt;\underline{\sigma}\right&gt;_{-}}\right)}}}{\displaystyle \sqrt{{\left&lt;\underline{\sigma}\right&gt;_{-}}\,\colon\,{\left&lt;\underline{\sigma}\right&gt;_{-}}}}}}\)</span>. <span class="math inline">\(C_{m}\)</span> is the triaxiality index linked to the principal stresses.</li>
+<li><span class="math inline">\(\sigma_{u0}\)</span>, <span class="math inline">\(\nu_{\mathrm{LITS}}\)</span> and <span class="math inline">\(\gamma\)</span> are material parameters. More precisely <span class="math inline">\(\sigma_{u0}\)</span> is the compressive strength of the material and <span class="math inline">\(\gamma\)</span> is a material parameter calibrated to experimental data for the appropriate temperature range.</li>
+<li><span class="math inline">\(\beta{\left(T\right)}\)</span> is a four order polynomial of the temperature describing uniaxial temperature-LITS behaviour observed in the literature: <span class="math display">\[
+  \beta{\left(T\right)}=\beta_{0}+\beta_{1}\,T+\beta_{2}\,T^{2}+\beta_{3}\,T^{3}+\beta_{4}\,T^{4}
+\]</span></li>
+</ul>
+<p><span class="math inline">\(\dot{T}_{e}\)</span> is the effective temperature rate defined as follows:</p>
+<p><span class="math display">\[
+\dot{T}_{e}=
+\left\{
+\begin{aligned}
+\dot{T} &amp;\quad\text{if}\quad T=T_{\mathrm{max}}\\
+0 &amp;\quad\text{if}\quad T&lt;T_{\mathrm{max}}\\
+\end{aligned}
+\right.
+\]</span></p>
+<p>where <span class="math inline">\(T_{\mathrm{max}}\)</span> is the maximal temperature seen by the material over time.</p>
+<p>The negative part of the stress <span class="math inline">\({\left&lt;\sigma\right&gt;_{-}}\)</span> is an isotropic function of the stress. <code>TFEL/Math</code>, the mathematical library behind <code>MFront</code>, offers dedicated functions to compute its value and its derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\left&lt;\sigma\right&gt;_{-}}}{\displaystyle \partial \underline{\sigma}}}\)</span>.</p>
+<h1 id="implicit-scheme">Implicit scheme</h1>
+<p>Equation  3 can be discretized using a standard implicit scheme as follows:</p>
+<p><span id="eq:felits"><span class="math display">\[
+\Delta\,\underline{\varepsilon}^{\mathrm{LITS}}=C\,\eta{\left({\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right)}\,\underline{s}
+\qquad(4)\]</span></span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\theta\)</span> is a numerical parameter (<span class="math inline">\(\theta \in \left[0:1\right]\)</span>.</li>
+<li><span class="math inline">\({\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\)</span> is evaluated by Equation  2: <span class="math display">\[
+  {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}={\left.\lambda\right|_{t+\theta\,\Delta\,t}}\,{\mathrm{tr}{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}\right)}}+
+                2\,{\left.\mu\right|_{t+\theta\,\Delta\,t}}\,{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}+
+\]</span></li>
+<li><span class="math inline">\({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}={\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t}}+\theta\,\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span></li>
+<li><span class="math inline">\({\left.T\right|_{t+\theta\,\Delta\,t}}={\left.T\right|_{t}}+\theta\,\Delta\,T\)</span></li>
+<li><span class="math inline">\(C={{\displaystyle \frac{\displaystyle \beta{\left({\left.T\right|_{t+\theta\,\Delta\,t}}\right)}\,\Delta\,T_{e}}{\displaystyle \sigma_{u0}}}}\)</span></li>
+<li><span class="math inline">\(\underline{s}= -\nu_{\mathrm{LITS}}{\mathrm{tr}{\left({\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\right)}}\,\underline{I}+{\left(1-\nu_{\mathrm{LITS}}\right)}\,{\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\)</span></li>
+</ul>
+<p>In the previous expressions, <span class="math inline">\(\Delta\,T_{e}\)</span> is the effective temperature increment.</p>
+<p>Equation  4 shows that <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{LITS}}\)</span> is known if <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span> is known.</p>
+<p>Using Equation  1 in its increment form thus leads to the following non linear equation whose only unknows is <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span>:</p>
+<p><span id="eq:feel"><span class="math display">\[
+f_{\underline{\varepsilon}^{\mathrm{el}}}=\Delta\,\underline{\varepsilon}^{\mathrm{el}}+\Delta\,\underline{\varepsilon}^{\mathrm{LITS}}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\right)}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}=\underline{0}
+\qquad(5)\]</span></span></p>
+<p>This non linear equation will be solved by a standard Newton-Raphson algorithm, which requires the jacobian <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\)</span>:</p>
+<p><span class="math inline">\({\displaystyle \frac{\displaystyle \partial \eta}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\)</span> is computed as follows:</p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+=\underline{I}+{\displaystyle \frac{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{LITS}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+=\underline{I}+
+C\,\left[
+\underline{s}\,\otimes\,{\displaystyle \frac{\displaystyle \partial \eta}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}+
+\eta{\left({\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right)}\,{\displaystyle \frac{\displaystyle \partial s}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+\right]
+\]</span></p>
+<p><span id="eq:deta_dsig"><span class="math display">\[
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial \eta}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+&amp;=\gamma\,{\displaystyle \frac{\displaystyle \partial C_{m}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\\
+&amp;=\theta\,\gamma\,{\displaystyle \frac{\displaystyle \partial C_{m}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
+&amp;=\theta\,\gamma\,{\displaystyle \frac{\displaystyle \partial C_{m}}{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
+\end{aligned}
+\qquad(6)\]</span></span></p>
+<p>where <span class="math inline">\({\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\)</span> is the elastic stiffness tensor at the middle of the time step:</p>
+<p><span class="math display">\[
+{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}={\left.\lambda\right|_{t+\theta\,\Delta\,t}}\,\underline{I}\,\otimes\,\underline{I}+2\,\mu\,\underline{\underline{\mathbf{I}}}
+\]</span></p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The explicit expression of <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\)</span> is not given here as it will be computed by an build-in function of the <code>TFEL/Math</code> library.</p>
+</blockquote>
+<p><span class="math inline">\({\displaystyle \frac{\displaystyle \partial C_{m}}{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}}\)</span> is computed as follows: <span class="math display">\[
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial C_{m}}{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}}
+&amp;={\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}}{\left({{\displaystyle \frac{\displaystyle -{\mathrm{tr}{\left({\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\right)}}}{\displaystyle \sqrt{{\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\,\colon\,{\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}}}}\right)}\\
+&amp;={{\displaystyle \frac{\displaystyle -\underline{I}}{\displaystyle \sqrt{{\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\,\colon\,{\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}}}}+{\mathrm{tr}{\left({\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\right)}}\,{\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}}{\left({{\displaystyle \frac{\displaystyle -1}{\displaystyle \sqrt{{\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\,\colon\,{\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}}}}\right)}\\
+&amp;={{\displaystyle \frac{\displaystyle -\underline{I}}{\displaystyle \sqrt{{\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\,\colon\,{\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}}}}\,\underline{I}+{\mathrm{tr}{\left({\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\right)}}\,{{\displaystyle \frac{\displaystyle {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}{\displaystyle {\left({\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\,\colon\,{\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\right)}^{3/2}}}}\,
+\end{aligned}
+\]</span></p>
+<p>Finally, <span class="math inline">\({\displaystyle \frac{\displaystyle \partial s}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\)</span> is given by:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial s}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}&amp;=
+{\displaystyle \frac{\displaystyle \partial s}{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\\
+&amp;\theta\,{\displaystyle \frac{\displaystyle \partial s}{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,\underline{\underline{\mathbf{D}}}\\
+\end{aligned}
+\]</span></p>
+<p>where:</p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial s}{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}}=
+-\nu_{\mathrm{LITS}}\,\underline{I}\,\otimes\,\underline{I}+{\left(1-\nu_{\mathrm{LITS}}\right)}\,\underline{\underline{\mathbf{I}}}\\
+\]</span></p>
+<h1 id="implementation">Implementation</h1>
+<h2 id="choice-of-the-domain-specific-language">Choice of the domain specific language</h2>
+<p>The domain specific language suitable for implementing an implicit scheme is called <code>Implicit</code>. The <code>@DSL</code> keyword allows specifying the domain specific language to be used:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a></code></pre></div>
+<h2 id="choice-of-the-behaviour-name">Choice of the behaviour name</h2>
+<p>The <code>@Behaviour</code> allows giving a name the behaviour:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Behaviour LoadInducedThermalStrain_Torelli2018;</a></code></pre></div>
+<p>Defining the name of behaviour is required.</p>
+<h2 id="metadata">Metadata</h2>
+<p>The <code>@Author</code>, <code>@Date</code> and <code>@Description</code> keywords allows adding metadata to the behaviour (respectively the name of the author of the implementation, the date at which the implementation was written, a short description), as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>Author Giacomo Torelli;</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="er">@</span>Date <span class="dv">25</span> / <span class="bn">03</span> / <span class="dv">2018</span>;</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="er">@</span>Description {</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="st">&quot;A confinement-dependent load-induced thermal strain &quot;</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="st">&quot;constitutive model for concrete subjected &quot;</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="st">&quot;to temperatures up to 500 °C&quot;</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="st">&quot;Torelli, Giacomo and Mandal, Parthasarathi and Gillie, &quot;</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">  <span class="st">&quot;Martin and Tran, Van-Xuan&quot;</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">  <span class="st">&quot;International Journal of Mechanical Sciences&quot;</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">  <span class="st">&quot;http://www.sciencedirect.com/science/article/pii/S0020740317337372&quot;</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">}</a></code></pre></div>
+<p>Those metadata, though recommended, are optional.</p>
+<h2 id="use-of-the-standardelasticity-brick">Use of the <code>StandardElasticity</code> brick</h2>
+<p>The behaviour treated in this document allows using the <code>StandardElasticity</code> brick. This brick, described in <a href="BehaviourBricks.html">this page</a>, provides:</p>
+<ul>
+<li>Automatic computation of the stress tensor at various stages of the behaviour integration.</li>
+<li>Automatic computation of the consistent tangent operator.</li>
+<li>Automatic support for plane stress and generalized plane stress modelling hypotheses (The axial strain is defined as an additional state variable and the associated equation in the implicit system is added to enforce the plane stess condition).</li>
+<li>Automatic addition of the standard terms associated with the elastic strain state variable.</li>
+</ul>
+<p>This behaviour brick is fully described <a href="BehaviourBricks.html">here</a>.</p>
+<p>The usage of the <code>StandardElasticity</code> is declared as follows:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>Brick StandardElasticity;</a></code></pre></div>
+<p>As the <code>StandardElasticity</code> brick provides support for all modelling hypotheses, we can declare that your behaviour indeed supports all modelling hypotheses:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>ModellingHypotheses{<span class="st">&quot;.+&quot;</span>};</a></code></pre></div>
+<h2 id="choice-of-the-numerical-parameter">Choice of the numerical parameter</h2>
+<p>The implicit scheme requires three numerical parameters:</p>
+<ul>
+<li>the <span class="math inline">\(\theta\)</span> parameter (default value is <span class="math inline">\(1/2\)</span>).</li>
+<li>the maximum number of iterations (default value is <span class="math inline">\(100\)</span>).</li>
+<li>the stopping criteria (default value is <span class="math inline">\(10^{-8}\)</span>). This may be sufficient in most cases, but not for the computation of the consistent tangent operator by the <code>StandardElasticity</code> brick.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="er">@</span>Theta <span class="fl">0.5</span>;</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="er">@</span>IterMax <span class="dv">100</span>;</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-16</span>;</a></code></pre></div>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>Those values are automatically generates parameters that can be changed at runtime: the names of those parameters are respectively <code>theta</code>, <code>iterMax</code> and <code>epsilon</code>.</p>
+</blockquote>
+<h2 id="thermoelastic-properties-computation-of-the-thermal-strain">Thermoelastic properties, computation of the thermal strain</h2>
+<p>The <code>@ComputeStiffnessTensor</code> keyword allows computing the elastic stiffness tensor in a variable called <code>D</code>. In this case, the <code>UnAltered</code> version of the stiffness tensor is required (“unaltered” means that the modelling hypothesis was not taken into account).</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>ComputeStiffnessTensor&lt;UnAltered&gt;{<span class="dv">47000</span>, <span class="fl">0.25</span>};</a></code></pre></div>
+<p>The <code>@ComputeThermalExpansion</code> keyword allows computing the thermal strain. It is followed by the mean thermal expansion coefficient.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>ComputeThermalExpansion <span class="fl">10e-6</span>;</a></code></pre></div>
+<p>The thermal strain is automatically removed to the total strain and the total strain increment.</p>
+<h2 id="parameters">Parameters</h2>
+<p>The following code declares the various parameters used by the constitutive equations:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>Parameter gamma = <span class="fl">1.5</span>;</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="er">@</span>Parameter sigmultimate = <span class="fl">50.</span>;</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="er">@</span>Parameter nulits = <span class="fl">0.50</span>;</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="er">@</span>Parameter tcrit = <span class="fl">0.</span>;</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="er">@</span>Parameter b[<span class="dv">5</span>] = {<span class="fl">2.7031065533E-05</span>, <span class="fl">-1.0209170592E-06</span>, <span class="fl">6.1200423753E-9</span>, <span class="co">//</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">                   <span class="fl">-1.2632648735E-11</span>, <span class="fl">6.9158539621E-15</span>};</a></code></pre></div>
+<h2 id="auxiliary-state-variables">Auxiliary state variables</h2>
+<p>By default, the <code>Implicit</code> <code>DSL</code> declares the elastic strain as a state variable, i.e. a variable which is part of the implicit system and whose value is saved from one time step to the other.</p>
+<p>We choose to declare two auxiliary state variables, the load induced thermal strain <span class="math inline">\(\elits\)</span> and the maximum value of the temperature seen by the material <span class="math inline">\(T_{\mathrm{max}}\)</span>. Those variables are not part of the implicit system but their values are saved from one time step to the other.</p>
+<p>Saving maximum value of the temperature seen by the material is required, but its evolution is independent of the mechanics.</p>
+<p>Saving the load induced thermal strain is only useful for post-processing. It could be removed for saving some space in memory.</p>
+<p>Auxiliary state variables are introduced by the <code>@AuxiliaryStateVariable</code> keyword, as follows:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="er">@</span>AuxiliaryStateVariable StrainStensor elits;</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">elits.setEntryName(<span class="st">&quot;LoadInducedThermaStrain&quot;</span>);</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="er">@</span>AuxiliaryStateVariable temperature Tmax;</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">Tmax.setEntryName(<span class="st">&quot;MaximalValueOfTheTemperature&quot;</span>);</a></code></pre></div>
+<h2 id="local-variables">Local Variables</h2>
+<p>Local variables are available in every code blocks. Here we will introduce two local variables:</p>
+<ul>
+<li>the increment of the load induced thermal strain, that will be used to update the load induced thermal strain at the end of the time step</li>
+<li>the creep coefficient which allows computing the thermal dependency before the implicit resolution.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">//! LITS increment</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="er">@</span>LocalVariable StrainStensor delits;</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">//! Creep coefficient</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="er">@</span>LocalVariable real C;</a></code></pre></div>
+<h2 id="initialization-of-the-local-variables">Initialization of the local variables</h2>
+<p>The <code>@InitLocalVariables</code> code block is called before the implicit resolution. It is used here to compute the <code>C</code> variable and update the <code>Tmax</code> auxiliary variable.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="er">@</span>InitLocalVariables {</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  Tmax = max(max(tcrit, Tmax), T);</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> T_ = T + theta * dT;</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> beta = b[<span class="dv">0</span>] + T_ * (b[<span class="dv">1</span>] + T_ * (b[<span class="dv">2</span>] + T_ * (b[<span class="dv">3</span>] + T_ * b[<span class="dv">4</span>])));</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">  <span class="at">const</span> <span class="kw">auto</span> dTe = max(T + dT - max(tcrit, Tmax), temperature(<span class="dv">0</span>));</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">  C = (beta / (-sigmultimate)) * dTe;</a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">}</a></code></pre></div>
+<h2 id="implicit-system">Implicit system</h2>
+<p>The implicit system is defined in the code block introduced by the <code>@Integrator</code> code block.</p>
+<p>This code block is called at each iteration of the implicit system, after the stress <span class="math inline">\({\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\)</span> at the middle of the time step has been computed and stored in the <code>sig</code> variable (this is handled by the <code>StandardElasticity</code> brick).</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="er">@</span>Integrator {</a></code></pre></div>
+<p>We first define some useful constants.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1">  <span class="kw">constexpr</span> <span class="at">const</span> stress eeps = <span class="dv">1</span>.e<span class="dv">-12</span>;</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="at">const</span> stress seps = eeps * young;</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = Stensor::Id();</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> esolver = StressStensor::FSESJACOBIEIGENSOLVER;</a></code></pre></div>
+<p>Then the negative part of the stress <span class="math inline">\({\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\)</span> and its derivative with respect to the stress <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\)</span> are computed using the <code>computeIsotropicFunctionAndDerivative</code> method of the <code>stensor</code> class.</p>
+<blockquote>
+<p><strong>Notes</strong></p>
+<p>A scalar function <span class="math inline">\(f\)</span> defines an isotropic function of a symmetric tensor <span class="math inline">\(\underline{a}\)</span> as follows:</p>
+<p><span class="math display">\[
+    f{\underline{a}} = \sum_{I=1}^{3}{\left&lt;a_{I}\right&gt;_{-}}\,\underline{n}_{I}
+\]</span></p>
+<p>where <span class="math inline">\(a_{I}\)</span> are the eigenvalues of <span class="math inline">\(\underline{a}\)</span> and <span class="math inline">\(\underline{n}_{I}\)</span> its eigentensors.</p>
+</blockquote>
+<p>This function requires two scalar functions defining the isotropic function and its derivative. Those functions are called <code>np</code> and <code>dnp</code> here:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1">  <span class="co">// negative part</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> np = [](<span class="at">const</span> stress x) -&gt; stress { <span class="cf">return</span> x &lt;= <span class="dv">0</span> ? x : <span class="dv">0</span>; };</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> dnp = [&amp;seps](<span class="at">const</span> stress x) -&gt; real {</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">    <span class="cf">return</span> <span class="bu">std::</span>abs(x) &lt; seps ? <span class="fl">0.5</span> : ((x &lt; <span class="dv">0</span>) ? <span class="dv">1</span> : <span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">  };</a></code></pre></div>
+<p>Then we call the <code>computeIsotropicFunctionAndDerivative</code> method:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1">  <span class="kw">auto</span> sn = StressStensor{};</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">  <span class="kw">auto</span> dsn = Stensor4{};</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">  <span class="bu">std::</span>tie(sn, dsn) =</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">      sig.<span class="kw">template</span> computeIsotropicFunctionAndDerivative&lt;esolver&gt;(np, dnp,</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">                                                                  seps * <span class="fl">0.1</span>);</a></code></pre></div>
+<p>The previous expression can be simplified in <code>C++-17</code>:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span> [sn,dsn] = </a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">      sig.<span class="kw">template</span> computeIsotropicFunctionAndDerivative&lt;esolver&gt;(np, dnp,</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">                                                                  seps * <span class="fl">0.1</span>);</a></code></pre></div>
+<blockquote>
+<p><strong>About the choice of the eigensolver</strong></p>
+<p>Here we used a the Jacobi algorithm as implemented in <span class="citation" data-cites="kopp_efficient_2008">Kopp (2008)</span>. This algorithm is lower but more accurate than the default one (see <a href="tensors.html">here</a> for an indepth comparison of available algorithms.</p>
+</blockquote>
+<p>The next step is to compute <span class="math inline">\({\left.\eta\right|_{t+\theta\,\Delta\,t}}\)</span> and its derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.sig\right|_{t+\theta\,\Delta\,t}}}}\)</span> (See Equation  6):</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1">  <span class="co">//----- Multiaxial correction coefficient</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> sn_eq = sqrt(sn | sn);</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> isn_eq = <span class="dv">1</span> / max(seps, sn_eq);</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> cm = -trace(sn) * isn_eq;</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">  <span class="at">const</span> <span class="kw">auto</span> dcm_dsig = eval((-isn_eq * id + trace(sn) * power&lt;<span class="dv">3</span>&gt;(isn_eq) * sn) | dsn);</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">  <span class="at">const</span> <span class="kw">auto</span> eta = <span class="dv">1</span> + (cm - <span class="dv">1</span>) * gamma;</a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">  <span class="at">const</span> <span class="kw">auto</span> deta_dsig = gamma * dcm_dsig;</a></code></pre></div>
+<p>We are now able to compute the increment <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{LITS}}\)</span> and its derivative:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span> se = eval((<span class="dv">1</span> + nulits) * sn - nulits * trace(sn) * id);</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">  delits = C * eta * se;</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> dse_dsig = (<span class="dv">1</span> + nulits) * dsn - nulits * ((id ^ id) * dsn);</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> ddelits_dsig = C * (se ^ deta_dsig) + C * eta * dse_dsig;</a></code></pre></div>
+<p>Finally, we form the implicit equation associated with the elastic strain and its derivative:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" data-line-number="1">  feel += delits;</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">  dfeel_ddeel += theta * ddelits_dsig * D;</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">} <span class="co">// end of @Integrator</span></a></code></pre></div>
+<p>Note that we used the fact that <code>feel</code> is implicitly initialized to <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}\)</span>.</p>
+<h2 id="update-of-the-auxiliary-state-variables">Update of the auxiliary state variables</h2>
+<p>The <code>@UpdateAuxiliaryStateVariables</code> code block is called after the implicit resolution, after the computation of the stress at the end of the time step and after the update of the state variables (here the elastic strain).</p>
+<p>We use the last estimate of the its increment to update the <code>elits</code> variable:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="er">@</span>UpdateAuxiliaryStateVariables {</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">  e_lits += delits;</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">}</a></code></pre></div>
+<h1 id="references" class="unnumbered">References</h1>
+<div id="refs" class="references">
+<div id="ref-kopp_efficient_2008">
+<p>Kopp, Joachim. 2008. “Efficient Numerical Diagonalization of Hermitian 3x3 Matrices.” <em>International Journal of Modern Physics C</em> 19 (3): 523–48. <a href="https://doi.org/10.1142/S0129183108012303" class="uri">https://doi.org/10.1142/S0129183108012303</a>.</p>
+</div>
+<div id="ref-torelli_confinement-dependent_2018">
+<p>Torelli, Giacomo, Parthasarathi Mandal, Martin Gillie, and Van-Xuan Tran. 2018. “A Confinement-Dependent Load-Induced Thermal Strain Constitutive Model for Concrete Subjected to Temperatures up to 500 °C.” <em>International Journal of Mechanical Sciences</em>, January. <a href="https://doi.org/10.1016/j.ijmecsci.2017.12.054" class="uri">https://doi.org/10.1016/j.ijmecsci.2017.12.054</a>.</p>
+</div>
+</div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

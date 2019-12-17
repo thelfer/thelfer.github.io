@@ -103,6 +103,7 @@
 	    <li><a href="mfront-doc.html">mfront-doc</a></li>
 	    <li><a href="mtest.html">mtest</a></li>
 	    <li><a href="mfm.html">mfm</a></li>
+	    <li><a href="mfm-test-generator.html">mfm</a></li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
@@ -123,6 +124,7 @@
                     <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
 		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
 		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
+		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
                 </ul>
            </li>
             <li><a>Versions 3.1.x</a>
@@ -132,6 +134,7 @@
 		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
 		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
 		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
                 </ul>
            </li>
             <li><a>Versions 3.2.x</a>
@@ -218,6 +221,7 @@
 	</li>
 	<li><a>Getting Help</a>
 	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
 	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
 	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
 	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
@@ -231,9 +235,32 @@
                   <h2 class="author">Thomas Helfer</h2>
                   <h3 class="date">8/02/2018</h3>
           </div>
-            <h1 id="implicit-schemes">Implicit schemes</h1>
-<h2 id="available-algorithms">Available algorithms</h2>
-<h3 id="notes-about-updating-auxiliary-state-variable-or-local-variables-in-the-integrator-code-blocks-when-the-numerical-evaluation-of-the-jacobian-is-requested">Notes about updating auxiliary state variable or local variables in the <code>Integrator</code> code blocks when the numerical evaluation of the jacobian is requested</h3>
+            
+
+<h1 id="description">Description</h1>
+<p>Let <span class="math inline">\(\vec{Y}\)</span> be a vector satisfying the following ordinary differential equation:</p>
+<p><span class="math display">\[
+\vec{\dot{Y}}=G{\left(\vec{Y},t\right)}
+\]</span></p>
+<p>where <span class="math inline">\(t\)</span> is not meant to describe an explicit dependency to the time but rather a placeholder for variables whose evolutions are known (those variables are called external state variables in <code>MFront</code>).</p>
+<p>An implicit scheme turns this ordinary differential equation into a non linear system of equations whose unknowns are is increment <span class="math inline">\(\Delta\,Y\)</span> over a time step <span class="math inline">\(\Delta\,t\)</span>:</p>
+<p><span class="math display">\[
+\Delta\,\vec{Y}-G{\left({\left.\vec{Y}\right|_{t}}+\theta\,\Delta\,\vec{Y},t+\theta\,\Delta\,t\right)}\,\Delta\,t=0
+\]</span></p>
+<h1 id="available-algorithms">Available algorithms</h1>
+<p>The following algorithms are available:</p>
+<ul>
+<li><code>NewtonRaphson</code></li>
+<li><code>NewtonRaphson_NumericalJacobian</code></li>
+<li><code>PowellDogLeg_NewtonRaphson</code></li>
+<li><code>PowellDogLeg_NewtonRaphson_NumericalJacobian</code></li>
+<li><code>Broyden</code></li>
+<li><code>PowellDogLeg_Broyden</code></li>
+<li><code>Broyden2</code></li>
+<li><code>LevenbergMarquardt</code></li>
+<li><code>LevenbergMarquardt_NumericalJacobian</code></li>
+</ul>
+<h2 id="notes-about-updating-auxiliary-state-variable-or-local-variables-in-the-integrator-code-blocks-when-the-numerical-evaluation-of-the-jacobian-is-requested">Notes about updating auxiliary state variable or local variables in the <code>Integrator</code> code blocks when the numerical evaluation of the jacobian is requested</h2>
 <p>In some cases, it is convenient to update auxiliary state variables in the <code>@Integrator</code> code block, rather than computing them in the <code>@UpdateAuxiliaryStateVariables</code> code block which is only called once the convergence is reached.</p>
 <p>However, if the jacobian matrix is computed numerically (at least partially), such updates could be wrong, because they can be based on the perturbated values of the unknowns.</p>
 <p>In <code>TFEL 3.1</code>, this can be circumvented by testing the value of the <code>perturbatedSystemEvaluation</code> boolean value as follows:</p>

@@ -14,72 +14,7 @@
         <meta name="author" content="Bruno Michel, Thomas Helfer" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
-            <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
-      div.sourceCode { margin: 1em 0; }
-      pre.sourceCode { margin: 0; }
-      @media screen {
-      div.sourceCode { overflow: auto; }
-      }
-      @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
-      }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
-          -webkit-touch-callout: none; -webkit-user-select: none;
-          -khtml-user-select: none; -moz-user-select: none;
-          -ms-user-select: none; user-select: none;
-          padding: 0 4px; width: 4em;
-          color: #aaaaaa;
-        }
-      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-      div.sourceCode
-        {  }
-      @media screen {
-      a.sourceLine::before { text-decoration: underline; }
-      }
-      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #7d9029; } /* Attribute */
-      code span.bn { color: #40a070; } /* BaseN */
-      code span.bu { } /* BuiltIn */
-      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-      code span.ch { color: #4070a0; } /* Char */
-      code span.cn { color: #880000; } /* Constant */
-      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-      code span.dt { color: #902000; } /* DataType */
-      code span.dv { color: #40a070; } /* DecVal */
-      code span.er { color: #ff0000; font-weight: bold; } /* Error */
-      code span.ex { } /* Extension */
-      code span.fl { color: #40a070; } /* Float */
-      code span.fu { color: #06287e; } /* Function */
-      code span.im { } /* Import */
-      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-      code span.op { color: #666666; } /* Operator */
-      code span.ot { color: #007020; } /* Other */
-      code span.pp { color: #bc7a00; } /* Preprocessor */
-      code span.sc { color: #4070a0; } /* SpecialChar */
-      code span.ss { color: #bb6688; } /* SpecialString */
-      code span.st { color: #4070a0; } /* String */
-      code span.va { color: #19177c; } /* Variable */
-      code span.vs { color: #4070a0; } /* VerbatimString */
-      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-    </style>
-            <link rel="stylesheet" href="css/normalize.css"/>
+                <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
           </head>
@@ -235,57 +170,11 @@
                   <h2 class="author">Bruno Michel, Thomas Helfer</h2>
                   <h3 class="date">12/2017</h3>
           </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#local-coordinate">Local coordinate</a></li>
-      <li><a href="#material-properties-associated-with-damage">Material properties associated with damage</a><ul>
-      <li><a href="#fracture-energies">Fracture energies</a></li>
-      </ul></li>
-      <li><a href="#external-pressure-effect">External pressure effect</a></li>
-      <li><a href="#example">Example</a></li>
-      </ul>
-    </div>
-        <p>This page describes the <code>DDIF2</code> brick.</p>
+            <p>This page describes the <code>DDIF2</code> brick.</p>
 <p>The <code>DDIF2</code> behaviour is used to describe the brittle nature of nuclear fuel ceramics and is usually coupled with a description of the viscoplasticity of those ceramics (See for example <span class="citation" data-cites="monerie_overall_2006 salvo_experimental_2015-1">(Monerie and Gatt 2006,<span class="citation" data-cites="salvo_experimental_2015">[@salvo_experimental_2015]</span>; Salvo, Sercombe, Ménard, et al. 2015)</span>).</p>
 <p>The <code>DDIF2</code> brick can be used in place of the <code>StandardElasticity</code> brick. Internally, the <code>DDIF2</code> brick is derived from the <code>StandardElasticity</code> brick, so the definition of the elastic properties follows the same rules.</p>
-<h1 id="local-coordinate">Local coordinate</h1>
-<p>This description is currently limited to initially isotropic behaviours, but the damage is described in three orthogonal directions. Those directions are currently fixed with respect to the global system. For <span class="math inline">\(2D\)</span> and <span class="math inline">\(3D\)</span> modelling hypotheses, those directions are determined by a material property, which external name is <code>AngularCoordinate</code>, giving the angular coordinate in a cylindrical system.</p>
-<h1 id="material-properties-associated-with-damage">Material properties associated with damage</h1>
-<p>The description of damage is based on the following material properties:</p>
-<ul>
-<li>the fracture stresses in each direction. Two options can be used to described them:
-<ul>
-<li>if the <code>fracture_stress</code> option is used, the fracture stresses are equal in each directions.</li>
-<li>otherwise, the <code>fracture_stresses</code> keyword can be used to describe the fracture stresses in each of the three directions.</li>
-</ul></li>
-<li>the softening slopes stresses in each direction. Two options can be used to described them:
-<ul>
-<li>if the <code>softening_slope</code> option is used, the softening slopes are equal in each directions.</li>
-<li>otherwise, the <code>softening_slopes</code> keyword can be used to describe the softening slopes in each of the three directions.</li>
-</ul></li>
-</ul>
-<p>In each case, a material property must be given as a value or as an external <code>MFront</code> file.</p>
-<h2 id="fracture-energies">Fracture energies</h2>
-<p>Following Hillerborg approach (see <span class="citation" data-cites="hillerborg_analysis_1976">Hillerborg, Modéer, and Perterson (1976)</span>), softening slopes can be related to fracture energies by the mesh size. Thus, rather than the softening slopes, the user can provide the fracture energies through one the <code>fracture_energy</code> or <code>fracture_energies</code> options. In this case, an array of three material properties, which external name is <code>ElementSize</code>, is automatically declared.</p>
-<h1 id="external-pressure-effect">External pressure effect</h1>
-<p>The effect of external pressure on the crack surface can be taken into account using the option <code>handle_pressure_on_crack_surface</code>. If this option is true, an external state variable called <code>pr</code>, which external name is <code>PressureOnCrackSurface</code>, is automatically declared.</p>
-<h1 id="example">Example</h1>
-<p>Here is an example of a behaviour based on the <code>DDIF2</code> brick:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="er">@</span>Author Thomas Helfer;</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="er">@</span>Date <span class="dv">25</span>/<span class="dv">10</span>/<span class="dv">2017</span>;</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="er">@</span>Behaviour DDIF2_4;</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="er">@</span>Brick DDIF2 {</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"> fracture_stresses : {<span class="fl">150e6</span>,<span class="fl">150e6</span>,<span class="fl">1e11</span>},</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"> softening_slope : <span class="fl">-75e9</span>,</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"> handle_pressure_on_crack_surface : <span class="kw">true</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">};</a></code></pre></div>
-<p>Here, the fracture stresses are different in each direction. The softening slope is the same in each direction. When a crack is open, the external pressure is applied on the crack surface.</p>
+<p>This brick is mostly a front-end to the <code>DDIF2</code> stress potential. The reader may thus refer to <a href="DDIF2StressPotential.html">this page</a> for a complete description.</p>
 <div id="refs" class="references">
-<div id="ref-hillerborg_analysis_1976">
-<p>Hillerborg, A., M. Modéer, and P.-E. Perterson. 1976. “Analysis of Crack Formation and Crack Growth in Concrete by Means of Fracture Mechanics and Finite Elements.” <em>Cement and Concrete Research</em> 6: 779–82.</p>
-</div>
 <div id="ref-monerie_overall_2006">
 <p>Monerie, Yann, and Jean-Marie Gatt. 2006. “Overall Viscoplastic Behavior of Non-Irradiated Porous Nuclear Ceramics.” <em>Mechanics of Materials</em> 38 (7): 608–19. <a href="https://doi.org/10.1016/j.mechmat.2005.11.004" class="uri">https://doi.org/10.1016/j.mechmat.2005.11.004</a>.</p>
 </div>

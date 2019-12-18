@@ -352,7 +352,7 @@ f_{\underline{\varepsilon}^{\mathrm{el}}}=\Delta\,\underline{\varepsilon}^{\math
 <div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a></code></pre></div>
 <h2 id="choice-of-the-behaviour-name">Choice of the behaviour name</h2>
 <p>The <code>@Behaviour</code> allows giving a name the behaviour:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Behaviour FichantLaBorderieDamageAndTorelliLoadInducedThermalStrain;</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Behaviour FichantLaBorderieDamageAndTorelliLoadInducedThermalStrainBehaviour;</a></code></pre></div>
 <p>Defining the name of behaviour is required.</p>
 <h2 id="metadata">Metadata</h2>
 <p>The <code>@Author</code>, <code>@Date</code> and <code>@Description</code> keywords allows adding metadata to the behaviour (respectively the name of the author of the implementation, the date at which the implementation was written, a short description), as follows:</p>
@@ -494,7 +494,7 @@ f_{\underline{\varepsilon}^{\mathrm{el}}}=\Delta\,\underline{\varepsilon}^{\math
 <a class="sourceLine" id="cb17-4" data-line-number="4">}</a></code></pre></div>
 <div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="er">@</span>TangentOperator {</a>
 <a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="cf">if</span> (smt == ELASTIC) {</a>
-<a class="sourceLine" id="cb18-3" data-line-number="3">    Dt = D;</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">    Dt = De;</a>
 <a class="sourceLine" id="cb18-4" data-line-number="4">  } <span class="cf">else</span> <span class="cf">if</span> (smt==CONSISTENTTANGENTOPERATOR){</a>
 <a class="sourceLine" id="cb18-5" data-line-number="5">    Stensor4 ddeel_ddeto;</a>
 <a class="sourceLine" id="cb18-6" data-line-number="6">    getPartialJacobianInvert(ddeel_ddeto);</a>

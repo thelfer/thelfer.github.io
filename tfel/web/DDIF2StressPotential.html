@@ -177,12 +177,13 @@
       <li><a href="#fracture-energies">Fracture energies</a></li>
       </ul></li>
       <li><a href="#external-pressure-effect">External pressure effect</a></li>
+      <li><a href="#resolution-algorithm">Resolution algorithm</a></li>
       <li><a href="#references">References</a></li>
       </ul>
     </div>
         <p>This page describes the <code>DDIF2</code> stress potential.</p>
 <p>The <code>DDIF2</code> behaviour is used to describe the brittle nature of nuclear fuel ceramics and is usually coupled with a description of the viscoplasticity of those ceramics (See for example <span class="citation" data-cites="monerie_overall_2006 salvo_experimental_2015-1">(Monerie and Gatt 2006,<span class="citation" data-cites="salvo_experimental_2015">[@salvo_experimental_2015]</span>; Salvo, Sercombe, Ménard, et al. 2015)</span>).</p>
-<p>Internally the <code>DDIF2</code> stress potential is derived from the <code>Hooke</code> stress potential, so the definition of the elastic properties follows the same rules.</p>
+<p>Internally the <code>DDIF2</code> stress potential is derived from the <code>Hooke</code> stress potential, so the definition of the elastic properties follows the same rules. See <a href="HookeStressPotential.html">this page</a> for details.</p>
 <h1 id="local-coordinate">Local coordinate</h1>
 <p>This description is currently limited to initially isotropic behaviours, but the damage is described in three orthogonal directions. Those directions are currently fixed with respect to the global system. For <span class="math inline">\(2D\)</span> and <span class="math inline">\(3D\)</span> modelling hypotheses, those directions are determined by a material property, which external name is <code>AngularCoordinate</code>, giving the angular coordinate in a cylindrical system.</p>
 <h1 id="material-properties-associated-with-damage">Material properties associated with damage</h1>
@@ -204,6 +205,14 @@
 <p>Following Hillerborg approach (see <span class="citation" data-cites="hillerborg_analysis_1976">Hillerborg, Modéer, and Perterson (1976)</span>), softening slopes can be related to fracture energies by the mesh size. Thus, rather than the softening slopes, the user can provide the fracture energies through one the <code>fracture_energy</code> or <code>fracture_energies</code> options. In this case, an array of three material properties, which external name is <code>ElementSize</code>, is automatically declared.</p>
 <h1 id="external-pressure-effect">External pressure effect</h1>
 <p>The effect of external pressure on the crack surface can be taken into account using the option <code>handle_pressure_on_crack_surface</code>. If this option is true, an external state variable called <code>pr</code>, which external name is <code>PressureOnCrackSurface</code>, is automatically declared.</p>
+<h1 id="resolution-algorithm">Resolution algorithm</h1>
+<p>By default, the <code>DDIF2</code> damage behaviour is treated using an algorithm based on statuses. In each damage directions, the damage state is kept constant during the Newton iterations. Once converged, the consistency of the damage state with the solution found is tested. If the state is inconsistent, the iterations are restarted with a new state.</p>
+<p>The implicit scheme is divided in two steps by default. In the first step, the time step is set to zero before the prediction stage. This is meant to filter all viscoplastic flows and the convergence is thus performed only on the damage state (unless another rate-independent mechanism is considered). Once converged on the damage state, the time step is reset to its original value and the implicit resolution is restarted.</p>
+<p>The <code>DDIF2</code> stress potential (and thus the DDIF2 brick) has two options to change this behaviour:</p>
+<ul>
+<li><code>use_status_algorithm</code> (boolean value, true by default). If false, the damage state is updated at each iterations.</li>
+<li><code>first_converge_on_damage</code> (boolean value, true by default). If false, the time step is not set to zero at the prediction stage.</li>
+</ul>
 <h1 id="references" class="unnumbered">References</h1>
 <div id="refs" class="references">
 <div id="ref-hillerborg_analysis_1976">

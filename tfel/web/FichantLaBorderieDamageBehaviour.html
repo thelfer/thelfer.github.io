@@ -141,6 +141,12 @@
                 <ul>
 		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
 		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.3.x</a>
+                <ul>
+		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
                 </ul>
            </li>
 	      </ul>
@@ -253,16 +259,18 @@
       <li><a href="#prediction-operator">Prediction operator</a></li>
       <li><a href="#behaviour-integration">Behaviour integration</a></li>
       </ul></li>
+      <li><a href="#references">References</a></li>
       </ul>
     </div>
         
 <!--
 pandoc -f markdown-markdown_in_html_blocks+tex_math_single_backslash+grid_tables --filter pandoc-crossref  --mathjax --email-obfuscation=javascript --default-image-extension=svg FLB.md -o FLB.pdf
 -->
-<p>This document describes how to implement the Fichant-La Borderie damage behaviour.</p>
+<p>This document describes how to implement the Fichant-La Borderie damage behaviour. See <span class="citation" data-cites="fichant_endommagement_1996 gangnant_etude_2016">(Fichant 1996; Gangnant 2016)</span> for a detailed description.</p>
 <p>The Fichant-La Borderie (FLB) model is an extension of the Mazars model, which:</p>
 <ul>
 <li>simplifies the number of input parameters defining the tensile and compressive asymmetry.</li>
+<li>handles unilateral effects (i.e., crack closure).</li>
 <li>features an energy based regularisation method, thus allowing a fracture finite energy in a finite element implementation</li>
 </ul>
 <figure>
@@ -297,6 +305,21 @@ d=1-{{\displaystyle \frac{\displaystyle \epsilon_{0}}{\displaystyle \varepsilon^
 {\left.d\right|_{t+\Delta\,t}}=\max{\left({\left.d\right|_{t}},1-{{\displaystyle \frac{\displaystyle \epsilon_{0}}{\displaystyle {\left.\varepsilon^{\mathrm{to}}_{\mathrm{eq}}\right|_{t+\Delta\,t}}}}}\,\exp{\left(B_{t}\,{\left(\epsilon_{0}-{\left.\varepsilon^{\mathrm{to}}_{\mathrm{eq}}\right|_{t+\Delta\,t}}\right)}\right)}\right)}
 \]</span></p>
 <p>where <span class="math inline">\({\left.\varepsilon^{\mathrm{to}}_{\mathrm{eq}}\right|_{t+\Delta\,t}}\)</span> is the value of the equivalent strain at the end of the time step.</p>
+<blockquote>
+<p><strong>Hillerborg regularisation (see <span class="citation" data-cites="hillerborg_analysis_1976">Hillerborg, Modéer, and Perterson (1976)</span>)</strong></p>
+<p>Local damage models suffers from spurious mesh dependency. In particular, the dissipated energy tends to <span class="math inline">\(0\)</span> as the mesh size decreases.</p>
+<p>The Hillerborg regularisation consists in introducing the mesh size in the material parameter to get a constant dissipated energy.</p>
+<p>In the FLB case, <span class="math inline">\(B_{t}\)</span> can be deduced from the fracture energy <span class="math inline">\(G_{f}\)</span> and the mesh size <span class="math inline">\(h\)</span> as follows:</p>
+<p><span class="math display">\[
+B_{t} ={{\displaystyle \frac{\displaystyle h\,E\,\epsilon_{0}}{\displaystyle G_{f} −{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,E\,\epsilon_{0}^{2}\,h}}}
+\]</span></p>
+<p>where <span class="math inline">\(E\)</span> is the Young modulus</p>
+<p>Note that <span class="math inline">\(B_{t}\)</span> must be positive, which, for a given fracture energy <span class="math inline">\(G_{f}\)</span>, imposes a maximal value for the mesh size <span class="math inline">\(h\)</span>.</p>
+<p><span class="math display">\[
+h &lt; {{\displaystyle \frac{\displaystyle 2\,G_{f}}{\displaystyle E\,\epsilon_{0}^{2}}}}
+\]</span></p>
+<p>A condition which states that the elastic energy stored inside an element at the onset of damage must be less than dissipated energy by damage.</p>
+</blockquote>
 <blockquote>
 <p><strong>Derivatives of the damage</strong></p>
 <p>In case of a growing damage, the derivative of the damage with respect to the equivalent plastic strain is:</p>
@@ -555,6 +578,18 @@ d=1-{{\displaystyle \frac{\displaystyle \epsilon_{0}}{\displaystyle \varepsilon^
   // final stress
   sig = fpd * sp + fpn * sn;
 -->
+<h1 id="references" class="unnumbered">References</h1>
+<div id="refs" class="references">
+<div id="ref-fichant_endommagement_1996">
+<p>Fichant, Stéphanie. 1996. “Endommagement et Anisotropie Induite Du Béton de Structures : Modélisations Approchées.” Thesis, Cachan, Ecole normale supérieure. <a href="http://www.theses.fr/1996DENS0015" class="uri">http://www.theses.fr/1996DENS0015</a>.</p>
+</div>
+<div id="ref-gangnant_etude_2016">
+<p>Gangnant, Alexandre. 2016. “Étude de La Rupture Quasi-Fragile d’un Béton à L’échelle Mésoscopique : Aspects Expérimentaux et Modélisation.” Thesis, Bordeaux. <a href="http://www.theses.fr/2016BORD0401" class="uri">http://www.theses.fr/2016BORD0401</a>.</p>
+</div>
+<div id="ref-hillerborg_analysis_1976">
+<p>Hillerborg, A., M. Modéer, and P.-E. Perterson. 1976. “Analysis of Crack Formation and Crack Growth in Concrete by Means of Fracture Mechanics and Finite Elements.” <em>Cement and Concrete Research</em> 6: 779–82.</p>
+</div>
+</div>
         <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

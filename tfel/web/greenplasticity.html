@@ -125,6 +125,7 @@
 		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
 		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
 		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
+		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
                 </ul>
            </li>
             <li><a>Versions 3.1.x</a>
@@ -147,6 +148,12 @@
             <li><a>Versions 3.3.x</a>
                 <ul>
 		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
+		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.4.x</a>
+                <ul>
+		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
                 </ul>
            </li>
 	      </ul>
@@ -159,6 +166,7 @@
 	  <ul>
 	    <li><a href="documentations.html">General documentation</a></li>
 	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
 	    <li><a>Behaviours</a>
 	      <ul>
 		<li><a href="tutorial.html">Tutorial</a></li>
@@ -269,6 +277,8 @@
     </div>
         
 
+\newcommand{\trace}[1]{{}}
+
 <p>This article shows how to implement an isotropic elliptic yield criterion of the Green type in <code>MFront</code>. Such an example illustrates the usage of <code>StandardElasticity</code> brick (see <a href="BehaviourBricks.html">this page</a>). This page is inspired by the paper of Fritzen et al. (See <span class="citation" data-cites="fritzen_computational_2013">Fritzen et al. (2013)</span>).</p>
 <p>The whole implementation is available <a href="./gallery/plasticity/GreenPerfectPlasticity.mfront">here</a>.</p>
 <h1 id="description-of-the-behaviour">Description of the behaviour</h1>
@@ -346,7 +356,6 @@ J=
 \end{aligned}
 \]</span></p>
 <p>This expression could be further simplified.</p>
-
 <h2 id="elastic-loading-case">Elastic loading case</h2>
 <p>Assuming an elastic loading, the system of equations to be solved is trivially: <span class="math display">\[
 \left\{

@@ -10,9 +10,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>On the Fisher-Burmeister complementary function and its applications to multi-surface plasticity</title>
+    <title>Release notes of the 3.0.6 version of TFEL, MFront and MTest</title>
         <meta name="author" content="Thomas Helfer" />
-            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+            <meta name="date" content="2019-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
@@ -180,86 +181,21 @@
     </header>
     <br></br>
         <div id="header">
-      <h1 class="title">On the Fisher-Burmeister complementary function and its applications to multi-surface plasticity</h1>
+      <h1 class="title">Release notes of the 3.0.6 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
                   <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">17/01/2019</h3>
+                  <h3 class="date">2019</h3>
           </div>
             <div id="TOC">
       <ul>
-      <li><a href="#the-fisher-burmeister-complementary-function">The Fisher-Burmeister complementary function</a><ul>
-      <li><a href="#link-with-karush-kuhn-tucker-condition-of-plasticity">Link with Karush-Kuhn-Tucker condition of plasticity</a></li>
-      <li><a href="#a-regularized-version-of-the-fisher-burmeister-complementary-function">A regularized version of the Fisher-Burmeister complementary function</a></li>
+      <li><a href="#tickets-fixed">Tickets fixed</a><ul>
+      <li><a href="#ticket-197-allow-using-flags-defined-in-standard-environment-variables-to-build-tfelmfront">Ticket #197: Allow using flags defined in standard environment variables to build <code>TFEL/MFront</code></a></li>
       </ul></li>
-      <li><a href="#acknowledgements">Acknowledgements</a></li>
       </ul>
     </div>
-        
-<h1 id="the-fisher-burmeister-complementary-function">The Fisher-Burmeister complementary function</h1>
-<p>The Fisher-Burmeister complementary function <span class="math inline">\(\Phi{\left(x,y\right)}\)</span> is defined as follows:</p>
-<p><span class="math display">\[
-\Phi{\left(x,y\right)}=x+y-\sqrt{x^{2}+y^{2}}
-\]</span></p>
-<p><span class="math inline">\(\Phi{\left(x,y\right)}\)</span> has the following property:</p>
-<p><span id="eq:FB"><span class="math display">\[
-\Phi{\left(x,y\right)}=0
-\quad\Leftrightarrow\quad
-\left\{
-\begin{aligned}
-x&amp;\geq 0\\
-y&amp;\geq 0\\
-x\,y&amp;=0
-\end{aligned}
-\right.
-\qquad(1)\]</span></span></p>
-<h2 id="link-with-karush-kuhn-tucker-condition-of-plasticity">Link with Karush-Kuhn-Tucker condition of plasticity</h2>
-<p>Equation  1 clearly reflects the classical Karush-Kuhn-Tucker condition of plasticity:</p>
-<p><span id="eq:KKK"><span class="math display">\[
-\left\{
-\begin{aligned}
-\dot{\lambda}&amp;\geq 0\\
-f&amp;\leq 0\\
-\dot{\lambda}\,f&amp;=0
-\end{aligned}
-\right.
-\qquad(2)\]</span></span></p>
-<p>where:</p>
-<ul>
-<li><span class="math inline">\(\dot{\lambda}\)</span> is the plastic multiplier.</li>
-<li><span class="math inline">\(f\)</span> is a the yield function such that:
-<ul>
-<li><span class="math inline">\(f&lt; 0\)</span> defines the elastic domain.</li>
-<li><span class="math inline">\(f= 0\)</span> defines the yield surface.</li>
-</ul></li>
-</ul>
-<p>In other words, finding a plastic multiplier <span class="math inline">\(\dot{\lambda}\)</span> satisfying Conditions  2 is equivalent to find the root of the following equation:</p>
-<p><span id="eq:FBp"><span class="math display">\[
-\Phi{\left(\dot{\lambda},-f\right)}=0
-\qquad(3)\]</span></span></p>
-<p>If several plastic surfaces are involved, each plastic multipliers must satisfy an equation similar to  3. In an implicit formulation, this remove the need of using a status method to determine which mechanisms are active or inactive.</p>
-<h2 id="a-regularized-version-of-the-fisher-burmeister-complementary-function">A regularized version of the Fisher-Burmeister complementary function</h2>
-<p><span class="math inline">\(\Phi{\left(x,y\right)}\)</span> is differentiable everywhere, except at <span class="math inline">\(0,0\)</span>. For this reason, following <span class="citation" data-cites="liao-mcpherson_regularized_2019">Liao-McPherson, Huang, and Kolmanovsky (2019)</span>, we introduce a regularized version denoted <span class="math inline">\(\Phi_{\varepsilon}{\left(x,y\right)}\)</span>:</p>
-<p><span class="math display">\[
-\Phi_{\varepsilon}{\left(x,y\right)}=x+y-\sqrt{x^{2}+y^{2}+\varepsilon^{2}}
-\]</span></p>
-<p>where <span class="math inline">\(\varepsilon\)</span> is a small regularization parameter. <span class="math inline">\(\Phi_{\varepsilon}{\left(x,y\right)}\)</span> has the following property:</p>
-<p><span id="eq:FBe"><span class="math display">\[
-\Phi_{\varepsilon}{\left(x,y\right)}=0
-\quad\Leftrightarrow\quad
-\left\{
-\begin{aligned}
-x&amp;\geq 0\\
-y&amp;\geq 0\\
-2\,x\,y&amp;=\varepsilon^{2}
-\end{aligned}
-\right.
-\qquad(4)\]</span></span></p>
-<h1 id="acknowledgements">Acknowledgements</h1>
-<p>The authors are grateful to Y. Chemisky, main developer of the <code>Simcoon</code> library, for introducing them to the use of the Fisher-Burmeister complementary function in multi-surfaces plasticity.</p>
-<div id="refs" class="references">
-<div id="ref-liao-mcpherson_regularized_2019">
-<p>Liao-McPherson, Dominic, Mike Huang, and Ilya Kolmanovsky. 2019. “A Regularized and Smoothed Fischer–Burmeister Method for Quadratic Programming with Applications to Model Predictive Control.” <em>IEEE Transactions on Automatic Control</em> 64 (7): 2937–44. <a href="https://doi.org/10.1109/TAC.2018.2872201" class="uri">https://doi.org/10.1109/TAC.2018.2872201</a>.</p>
-</div>
-</div>
+        <h1 id="tickets-fixed">Tickets fixed</h1>
+<h2 id="ticket-197-allow-using-flags-defined-in-standard-environment-variables-to-build-tfelmfront">Ticket #197: Allow using flags defined in standard environment variables to build <code>TFEL/MFront</code></h2>
+<p>The variable <code>USE_EXTERNAL_COMPILER_FLAGS</code> can now be defined in <code>cmake</code> to use the flags defined in the environment variables <code>CFLAGS</code> and <code>CXXFLAGS</code>.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/197/" class="uri">https://sourceforge.net/p/tfel/tickets/197/</a></p>
         <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

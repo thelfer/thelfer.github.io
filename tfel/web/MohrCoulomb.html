@@ -11,7 +11,7 @@
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Invariant-based implementation of the Mohr-Coulomb elasto-plastic model in OpenGeoSys using MFront</title>
-        <meta name="author" content="Thomas Nagel, Dmitri Naumov, Thomas Helfer" />
+        <meta name="author" content="Gentien Marois, Thomas Nagel, Dmitri Naumov, Thomas Helfer" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
@@ -125,6 +125,7 @@
 		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
 		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
 		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
+		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
                 </ul>
            </li>
             <li><a>Versions 3.1.x</a>
@@ -147,6 +148,12 @@
             <li><a>Versions 3.3.x</a>
                 <ul>
 		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
+		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.4.x</a>
+                <ul>
+		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
                 </ul>
            </li>
 	      </ul>
@@ -159,6 +166,7 @@
 	  <ul>
 	    <li><a href="documentations.html">General documentation</a></li>
 	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
 	    <li><a>Behaviours</a>
 	      <ul>
 		<li><a href="tutorial.html">Tutorial</a></li>
@@ -238,7 +246,7 @@
     <br></br>
         <div id="header">
       <h1 class="title">Invariant-based implementation of the Mohr-Coulomb elasto-plastic model in OpenGeoSys using MFront</h1>
-                  <h2 class="author">Thomas Nagel, Dmitri Naumov, Thomas Helfer</h2>
+                  <h2 class="author">Gentien Marois, Thomas Nagel, Dmitri Naumov, Thomas Helfer</h2>
                   <h3 class="date">1/08/2019</h3>
           </div>
             <div id="TOC">
@@ -278,11 +286,18 @@
 pandoc --filter pandoc-crossref --filter pandoc-citeproc --bibliography=bibliography.bib -fmarkdown+tex_math_single_backslash MohrCoulomb.md -o MohrCoulomb.pdf --toc --number-sections  -V geometry:margin=1in
 -->
 
-<p>The following proposal is based on <span class="citation" data-cites="Nagel2016">Nagel et al. (2017)</span> but extended by an apex smoothing from <span class="citation" data-cites="Abbo1995">Abbo and Sloan (1995)</span> (hyperbolic approximation).</p>
+<p>This page describes how to implement a non-associated plastic behaviour based on the Mohr-Coulomb criterion. The algorithm mostly follows the work of <span class="citation" data-cites="Nagel2016">Nagel et al. (2017)</span> and relies on an apex smoothing introduced by <span class="citation" data-cites="Abbo1995">Abbo and Sloan (1995)</span>.</p>
+<p>This implementation has been introduced in <a href="https://www.opengeosys.org/">OpenGeoSys</a>, as illustrated below:</p>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/juWMIkJ64iE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </center>
+<p>This page shows:</p>
+<ul>
+<li>how to implement a plastic behaviour based on the third invariants of the stress tensor.</li>
+<li>how to simply the implementation by moving the evoluation of the stress criteria (and its first and second derivatives) in a seperate header file.</li>
+<li>how the implementation finally looks like once introduced in the <a href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoplasticity</code> brick</a></li>
+</ul>
 <h1 id="description-of-the-behaviour">Description of the behaviour</h1>
 <p>The behaviour is described by a standard decomposition of the strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in an elastic and a plastic component, respectively denoted <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and <span class="math inline">\(\underline{\varepsilon}^{\mathrm{p}}\)</span>:</p>
 <p><span class="math display">\[
@@ -326,7 +341,7 @@ K(\theta) = \begin{cases}
 <h2 id="plastic-potential">Plastic potential</h2>
 <p>The plastic potential differs from the yield surface in order to more accurately estimate dilatancy, but has an analogous structure:</p>
 <p><span id="eq:plastic_potential"><span class="math display">\[
-    G_\mathrm{F} = \frac{I_1}{3} \sin \psi + \sqrt{J_2 K_G^2 + a^2 \sin^2 \psi} - c \cos \psi
+    G_\mathrm{F} = \frac{I_1}{3} \sin \psi + \sqrt{J_2 K_G^2 + a^2 \tan^2 \phi \cos^2 \psi} - c \cos \psi
 \qquad(4)\]</span></span></p>
 <p>where <span class="math inline">\(\psi\)</span> is the dilatancy angle. <span class="math inline">\(K_G\)</span>, <span class="math inline">\(A_G\)</span> and <span class="math inline">\(B_G\)</span> follow from  2 and  3 by substituting the friction angle with the dilatancy angle :</p>
 <p><span class="math display">\[
@@ -343,6 +358,15 @@ K_G(\theta) = \begin{cases}
     B_G &amp;= \frac{1}{3} \frac{1}{\cos 3\theta_\mathrm{T}} \left[ \mathrm{sign \theta} \sin \theta_\mathrm{T} + \frac{1}{\sqrt{3}} \sin \psi \cos \theta_\mathrm{T} \right]
 \end{aligned}
 \]</span></p>
+<p>Equation ( 4) can be written as follow:</p>
+<p><span id="eq:plastic_potential2"><span class="math display">\[
+    G_\mathrm{F} = \frac{I_1}{3} \sin \psi + \sqrt{J_2 K_G^2 + a_G^2 \sin^2 \psi} - c \cos \psi
+\qquad(5)\]</span></span></p>
+<p>with</p>
+<p><span class="math display">\[
+a_G = a \dfrac{\tan \phi}{\tan \psi}
+\]</span></p>
+<p>this formulation allows the use of the <code>StandardElastoViscoplasticity</code> brick (see the last part).</p>
 <h2 id="plastic-flow-rule">Plastic flow rule</h2>
 <p>Plastic flow follows in a general manner for a <span class="math inline">\(I_1,\,J_2,\,\theta\)</span>-type yield surface as</p>
 <p><span class="math display">\[
@@ -374,7 +398,7 @@ J=
 {\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp; {\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p}} &amp; \\\\
 {\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp; {\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,p}} \\
 \end{pmatrix}
-\qquad(5)\]</span></span></p>
+\qquad(6)\]</span></span></p>
 <p>The expression of the previous terms is given by:</p>
 <p><span class="math display">\[
 \left\{
@@ -466,7 +490,8 @@ J=
 <a class="sourceLine" id="cb11-8" data-line-number="8"><span class="er">@</span>LocalVariable real tan_lodeT;</a>
 <a class="sourceLine" id="cb11-9" data-line-number="9"><span class="er">@</span>LocalVariable real cos_3_lodeT;</a>
 <a class="sourceLine" id="cb11-10" data-line-number="10"><span class="er">@</span>LocalVariable real sin_3_lodeT;</a>
-<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="er">@</span>LocalVariable real tan_3_lodeT;</a></code></pre></div>
+<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="er">@</span>LocalVariable real tan_3_lodeT;</a>
+<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="er">@</span>LocalVariable real a_G;</a></code></pre></div>
 <h2 id="initialisation-a-the-local-variable">Initialisation a the local variable</h2>
 <p>The <code>@InitLocalVariables</code> code block is called before the behaviour integration.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="er">@</span>InitLocalVariables </a>
@@ -486,7 +511,8 @@ J=
 <a class="sourceLine" id="cb13-12" data-line-number="12">  tan_lodeT = tan(lodeT);</a>
 <a class="sourceLine" id="cb13-13" data-line-number="13">  cos_3_lodeT = cos(<span class="fl">3.</span> * lodeT);</a>
 <a class="sourceLine" id="cb13-14" data-line-number="14">  sin_3_lodeT = sin(<span class="fl">3.</span> * lodeT);</a>
-<a class="sourceLine" id="cb13-15" data-line-number="15">  tan_3_lodeT = tan(<span class="fl">3.</span> * lodeT);</a></code></pre></div>
+<a class="sourceLine" id="cb13-15" data-line-number="15">  tan_3_lodeT = tan(<span class="fl">3.</span> * lodeT);</a>
+<a class="sourceLine" id="cb13-16" data-line-number="16">  a_G = (a * tan(phi)) / tan(psi)</a></code></pre></div>
 <p>Then the <code>computeElasticPrediction</code> method (introducted with the <code>StandardElasticity</code> brick) is used to compute <span class="math inline">\(\sigma^{el}\)</span></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1">  <span class="co">// elastic prediction</span></a>
 <a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> sig_el = computeElasticPrediction();</a></code></pre></div>
@@ -588,7 +614,7 @@ J=
 <a class="sourceLine" id="cb24-2" data-line-number="2">    <span class="at">const</span> <span class="kw">auto</span> dev_s_squared = computeJ3Derivative(</a>
 <a class="sourceLine" id="cb24-3" data-line-number="3">        sig); <span class="co">// replaces dev_s_squared = deviator(square(s));</span></a>
 <a class="sourceLine" id="cb24-4" data-line-number="4">    <span class="at">const</span> <span class="kw">auto</span> dG_dI1 = sin_psi / <span class="fl">3.</span>;</a>
-<a class="sourceLine" id="cb24-5" data-line-number="5">    <span class="at">const</span> <span class="kw">auto</span> root = max(sqrt(J2 * KG * KG + a * a * sin_psi * sin_psi),</a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">    <span class="at">const</span> <span class="kw">auto</span> root = max(sqrt(J2 * KG * KG + a_G * a_G * sin_psi * sin_psi),</a>
 <a class="sourceLine" id="cb24-6" data-line-number="6">                          local_zero_tolerance);</a>
 <a class="sourceLine" id="cb24-7" data-line-number="7">    <span class="at">const</span> <span class="kw">auto</span> dG_dJ2 = KG / (<span class="fl">2.</span> * root) * (KG - tan_3_lode * dKG_dlode);</a>
 <a class="sourceLine" id="cb24-8" data-line-number="8">    <span class="at">const</span> <span class="kw">auto</span> dG_dJ3 = J2 * KG * tan_3_lode / (<span class="fl">3.</span> * J3 * root) * dKG_dlode;</a>
@@ -650,7 +676,7 @@ J=
 <a class="sourceLine" id="cb28-3" data-line-number="3">    dflam_ddlam = strain(<span class="dv">0</span>);</a>
 <a class="sourceLine" id="cb28-4" data-line-number="4">    dflam_ddeel = theta * (nF | D) / D(<span class="dv">0</span>, <span class="dv">0</span>);</a>
 <a class="sourceLine" id="cb28-5" data-line-number="5">    np = n;</a></code></pre></div>
-<p>The Jacobian can now be computed (see  5)</p>
+<p>The Jacobian can now be computed (see  6)</p>
 <h1 id="verification">Verification</h1>
 <figure>
 <img src="img/MohrCoulombPiPlane.svg" title="Trace of the yield surface (green) when approached on different stress paths (purple)" alt="Figure 2: Trace of the yield surface (green) when approached on different stress paths (purple)" id="fig:MC_stress_paths" style="width:90.0%" /><figcaption>Figure 2: Trace of the yield surface (green) when approached on different stress paths (purple)</figcaption>
@@ -689,58 +715,61 @@ J=
 <a class="sourceLine" id="cb29-16" data-line-number="16"><span class="er">@</span>ModellingHypotheses{<span class="st">&quot;.+&quot;</span>};</a>
 <a class="sourceLine" id="cb29-17" data-line-number="17"></a>
 <a class="sourceLine" id="cb29-18" data-line-number="18"><span class="er">@</span>RequireStiffnessTensor&lt;UnAltered&gt;;</a>
-<a class="sourceLine" id="cb29-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb29-20" data-line-number="20"><span class="er">@</span>StateVariable real p;</a>
-<a class="sourceLine" id="cb29-21" data-line-number="21">p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</a>
-<a class="sourceLine" id="cb29-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb29-23" data-line-number="23"><span class="er">@</span>MaterialProperty stress c;</a>
-<a class="sourceLine" id="cb29-24" data-line-number="24">c.setEntryName(<span class="st">&quot;Cohesion&quot;</span>);</a>
-<a class="sourceLine" id="cb29-25" data-line-number="25"><span class="er">@</span>MaterialProperty real phi;</a>
-<a class="sourceLine" id="cb29-26" data-line-number="26">phi.setEntryName(<span class="st">&quot;FrictionAngle&quot;</span>);</a>
-<a class="sourceLine" id="cb29-27" data-line-number="27"><span class="er">@</span>MaterialProperty real psi;</a>
-<a class="sourceLine" id="cb29-28" data-line-number="28">psi.setEntryName(<span class="st">&quot;DilatancyAngle&quot;</span>);</a>
-<a class="sourceLine" id="cb29-29" data-line-number="29"><span class="er">@</span>MaterialProperty real lodeT;</a>
-<a class="sourceLine" id="cb29-30" data-line-number="30">lodeT.setEntryName(<span class="st">&quot;TransitionAngle&quot;</span>);</a>
-<a class="sourceLine" id="cb29-31" data-line-number="31"><span class="er">@</span>MaterialProperty stress a;</a>
-<a class="sourceLine" id="cb29-32" data-line-number="32">a.setEntryName(<span class="st">&quot;TensionCutOffParameter&quot;</span>);</a>
-<a class="sourceLine" id="cb29-33" data-line-number="33"></a>
-<a class="sourceLine" id="cb29-34" data-line-number="34"><span class="er">@</span>LocalVariable Stensor ngp;</a>
-<a class="sourceLine" id="cb29-35" data-line-number="35"></a>
-<a class="sourceLine" id="cb29-36" data-line-number="36"><span class="er">@</span>LocalVariable <span class="dt">bool</span> F; <span class="co">// if true, plastic loading</span></a>
-<a class="sourceLine" id="cb29-37" data-line-number="37"><span class="er">@</span>LocalVariable MohrCoulombParameters&lt;StressStensor&gt; pf;</a>
-<a class="sourceLine" id="cb29-38" data-line-number="38"><span class="er">@</span>LocalVariable MohrCoulombParameters&lt;StressStensor&gt; pg;</a>
-<a class="sourceLine" id="cb29-39" data-line-number="39"></a>
-<a class="sourceLine" id="cb29-40" data-line-number="40"><span class="er">@</span>InitLocalVariables {</a>
-<a class="sourceLine" id="cb29-41" data-line-number="41">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> u = MohrCoulombParameters&lt;StressStensor&gt;::DEGREE;</a>
-<a class="sourceLine" id="cb29-42" data-line-number="42">  pf = makeMohrCoulombParameters&lt;StressStensor, u&gt;(c, phi, lodeT, a);</a>
-<a class="sourceLine" id="cb29-43" data-line-number="43">  pg = makeMohrCoulombParameters&lt;StressStensor, u&gt;(c, psi, lodeT, a);</a>
-<a class="sourceLine" id="cb29-44" data-line-number="44">  <span class="at">const</span> <span class="kw">auto</span> sel = computeElasticPrediction();</a>
-<a class="sourceLine" id="cb29-45" data-line-number="45">  <span class="at">const</span> <span class="kw">auto</span> smc = computeMohrCoulombStressCriterion(pf, sel);</a>
-<a class="sourceLine" id="cb29-46" data-line-number="46">  F = smc &gt; stress(<span class="dv">0</span>);</a>
-<a class="sourceLine" id="cb29-47" data-line-number="47">  ngp = Stensor(real(<span class="dv">0</span>));</a>
-<a class="sourceLine" id="cb29-48" data-line-number="48">}</a>
-<a class="sourceLine" id="cb29-49" data-line-number="49"></a>
-<a class="sourceLine" id="cb29-50" data-line-number="50"><span class="er">@</span>Integrator {</a>
-<a class="sourceLine" id="cb29-51" data-line-number="51">  <span class="cf">if</span> (F) {</a>
-<a class="sourceLine" id="cb29-52" data-line-number="52">    <span class="co">// in C++11:</span></a>
-<a class="sourceLine" id="cb29-53" data-line-number="53">    <span class="kw">auto</span> Fy = stress{};</a>
-<a class="sourceLine" id="cb29-54" data-line-number="54">    <span class="kw">auto</span> nf = Stensor{};</a>
-<a class="sourceLine" id="cb29-55" data-line-number="55">    <span class="kw">auto</span> Fg = stress{};</a>
-<a class="sourceLine" id="cb29-56" data-line-number="56">    <span class="kw">auto</span> ng = Stensor{};</a>
-<a class="sourceLine" id="cb29-57" data-line-number="57">    <span class="kw">auto</span> dng = Stensor4{};</a>
-<a class="sourceLine" id="cb29-58" data-line-number="58">    <span class="bu">std::</span>tie(Fy, nf) = computeMohrCoulombStressCriterionNormal(pf, sig);</a>
-<a class="sourceLine" id="cb29-59" data-line-number="59">    <span class="bu">std::</span>tie(Fg, ng, dng) = computeMohrCoulombStressCriterionSecondDerivative(pg, sig);</a>
-<a class="sourceLine" id="cb29-60" data-line-number="60">    <span class="co">// elasticity</span></a>
-<a class="sourceLine" id="cb29-61" data-line-number="61">    feel += dp * ng;</a>
-<a class="sourceLine" id="cb29-62" data-line-number="62">    dfeel_ddeel += theta * dp * dng * D;</a>
-<a class="sourceLine" id="cb29-63" data-line-number="63">    dfeel_ddp = ng;</a>
-<a class="sourceLine" id="cb29-64" data-line-number="64">    <span class="co">// plasticity</span></a>
-<a class="sourceLine" id="cb29-65" data-line-number="65">    fp = Fy / D(<span class="dv">0</span>, <span class="dv">0</span>);</a>
-<a class="sourceLine" id="cb29-66" data-line-number="66">    dfp_ddp = strain(<span class="dv">0</span>);</a>
-<a class="sourceLine" id="cb29-67" data-line-number="67">    dfp_ddeel = theta * (nf | D) / D(<span class="dv">0</span>, <span class="dv">0</span>);</a>
-<a class="sourceLine" id="cb29-68" data-line-number="68">    ngp = ng;</a>
-<a class="sourceLine" id="cb29-69" data-line-number="69">  }</a>
-<a class="sourceLine" id="cb29-70" data-line-number="70">}</a></code></pre></div>
+<a class="sourceLine" id="cb29-19" data-line-number="19"><span class="er">@</span>Parameter pi = <span class="fl">3.14159265359</span>;</a>
+<a class="sourceLine" id="cb29-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb29-21" data-line-number="21"><span class="er">@</span>StateVariable real p;</a>
+<a class="sourceLine" id="cb29-22" data-line-number="22">p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</a>
+<a class="sourceLine" id="cb29-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb29-24" data-line-number="24"><span class="er">@</span>MaterialProperty stress c;</a>
+<a class="sourceLine" id="cb29-25" data-line-number="25">c.setEntryName(<span class="st">&quot;Cohesion&quot;</span>);</a>
+<a class="sourceLine" id="cb29-26" data-line-number="26"><span class="er">@</span>MaterialProperty real phi;</a>
+<a class="sourceLine" id="cb29-27" data-line-number="27">phi.setEntryName(<span class="st">&quot;FrictionAngle&quot;</span>);</a>
+<a class="sourceLine" id="cb29-28" data-line-number="28"><span class="er">@</span>MaterialProperty real psi;</a>
+<a class="sourceLine" id="cb29-29" data-line-number="29">psi.setEntryName(<span class="st">&quot;DilatancyAngle&quot;</span>);</a>
+<a class="sourceLine" id="cb29-30" data-line-number="30"><span class="er">@</span>MaterialProperty real lodeT;</a>
+<a class="sourceLine" id="cb29-31" data-line-number="31">lodeT.setEntryName(<span class="st">&quot;TransitionAngle&quot;</span>);</a>
+<a class="sourceLine" id="cb29-32" data-line-number="32"><span class="er">@</span>MaterialProperty stress a;</a>
+<a class="sourceLine" id="cb29-33" data-line-number="33">a.setEntryName(<span class="st">&quot;TensionCutOffParameter&quot;</span>);</a>
+<a class="sourceLine" id="cb29-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb29-35" data-line-number="35"><span class="er">@</span>LocalVariable Stensor ngp;</a>
+<a class="sourceLine" id="cb29-36" data-line-number="36"></a>
+<a class="sourceLine" id="cb29-37" data-line-number="37"><span class="er">@</span>LocalVariable <span class="dt">bool</span> F; <span class="co">// if true, plastic loading</span></a>
+<a class="sourceLine" id="cb29-38" data-line-number="38"><span class="er">@</span>LocalVariable MohrCoulombParameters&lt;StressStensor&gt; pf;</a>
+<a class="sourceLine" id="cb29-39" data-line-number="39"><span class="er">@</span>LocalVariable MohrCoulombParameters&lt;StressStensor&gt; pg;</a>
+<a class="sourceLine" id="cb29-40" data-line-number="40"><span class="er">@</span>LocalVariable real a_G;</a>
+<a class="sourceLine" id="cb29-41" data-line-number="41"></a>
+<a class="sourceLine" id="cb29-42" data-line-number="42"><span class="er">@</span>InitLocalVariables {</a>
+<a class="sourceLine" id="cb29-43" data-line-number="43">  a_G = (a * tan((phi*pi)/<span class="dv">180</span>)) / tan((psi*pi)/<span class="dv">180</span>);</a>
+<a class="sourceLine" id="cb29-44" data-line-number="44">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> u = MohrCoulombParameters&lt;StressStensor&gt;::DEGREE;</a>
+<a class="sourceLine" id="cb29-45" data-line-number="45">  pf = makeMohrCoulombParameters&lt;StressStensor, u&gt;(c, phi, lodeT, a);</a>
+<a class="sourceLine" id="cb29-46" data-line-number="46">  pg = makeMohrCoulombParameters&lt;StressStensor, u&gt;(c, psi, lodeT, a_G);</a>
+<a class="sourceLine" id="cb29-47" data-line-number="47">  <span class="at">const</span> <span class="kw">auto</span> sel = computeElasticPrediction();</a>
+<a class="sourceLine" id="cb29-48" data-line-number="48">  <span class="at">const</span> <span class="kw">auto</span> smc = computeMohrCoulombStressCriterion(pf, sel);</a>
+<a class="sourceLine" id="cb29-49" data-line-number="49">  F = smc &gt; stress(<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb29-50" data-line-number="50">  ngp = Stensor(real(<span class="dv">0</span>));</a>
+<a class="sourceLine" id="cb29-51" data-line-number="51">}</a>
+<a class="sourceLine" id="cb29-52" data-line-number="52"></a>
+<a class="sourceLine" id="cb29-53" data-line-number="53"><span class="er">@</span>Integrator {</a>
+<a class="sourceLine" id="cb29-54" data-line-number="54">  <span class="cf">if</span> (F) {</a>
+<a class="sourceLine" id="cb29-55" data-line-number="55">    <span class="co">// in C++11:</span></a>
+<a class="sourceLine" id="cb29-56" data-line-number="56">    <span class="kw">auto</span> Fy = stress{};</a>
+<a class="sourceLine" id="cb29-57" data-line-number="57">    <span class="kw">auto</span> nf = Stensor{};</a>
+<a class="sourceLine" id="cb29-58" data-line-number="58">    <span class="kw">auto</span> Fg = stress{};</a>
+<a class="sourceLine" id="cb29-59" data-line-number="59">    <span class="kw">auto</span> ng = Stensor{};</a>
+<a class="sourceLine" id="cb29-60" data-line-number="60">    <span class="kw">auto</span> dng = Stensor4{};</a>
+<a class="sourceLine" id="cb29-61" data-line-number="61">    <span class="bu">std::</span>tie(Fy, nf) = computeMohrCoulombStressCriterionNormal(pf, sig);</a>
+<a class="sourceLine" id="cb29-62" data-line-number="62">    <span class="bu">std::</span>tie(Fg, ng, dng) = computeMohrCoulombStressCriterionSecondDerivative(pg, sig);</a>
+<a class="sourceLine" id="cb29-63" data-line-number="63">    <span class="co">// elasticity</span></a>
+<a class="sourceLine" id="cb29-64" data-line-number="64">    feel += dp * ng;</a>
+<a class="sourceLine" id="cb29-65" data-line-number="65">    dfeel_ddeel += theta * dp * dng * D;</a>
+<a class="sourceLine" id="cb29-66" data-line-number="66">    dfeel_ddp = ng;</a>
+<a class="sourceLine" id="cb29-67" data-line-number="67">    <span class="co">// plasticity</span></a>
+<a class="sourceLine" id="cb29-68" data-line-number="68">    fp = Fy / D(<span class="dv">0</span>, <span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb29-69" data-line-number="69">    dfp_ddp = strain(<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb29-70" data-line-number="70">    dfp_ddeel = theta * (nf | D) / D(<span class="dv">0</span>, <span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb29-71" data-line-number="71">    ngp = ng;</a>
+<a class="sourceLine" id="cb29-72" data-line-number="72">  }</a>
+<a class="sourceLine" id="cb29-73" data-line-number="73">}</a></code></pre></div>
 <h1 id="simplification-of-the-mfront-file-use-of-the-standardelastoviscoplasticity-brick">Simplification of the MFront file : use of the <code>StandardElastoViscoPlasticity</code> brick</h1>
 <p>The Mohr-Coulomb model has been introduced in the <code>StandardElastoViscoPlasticity</code> brick.</p>
 <p>The <code>MFront</code> file is then very short: the whole model is contained in the brick and can be called by the keyword <code>MohrCoulomb</code></p>
@@ -773,7 +802,7 @@ J=
 <a class="sourceLine" id="cb30-26" data-line-number="26">      c : <span class="dv">3</span>.e1,      <span class="co">// cohesion</span></a>
 <a class="sourceLine" id="cb30-27" data-line-number="27">      phi : <span class="fl">0.174532925199433</span>,    <span class="co">// friction angle or dilatancy angle</span></a>
 <a class="sourceLine" id="cb30-28" data-line-number="28">      lodeT : <span class="fl">0.506145483078356</span>,  <span class="co">// transition angle as defined by Abbo and Sloan</span></a>
-<a class="sourceLine" id="cb30-29" data-line-number="29">      a : <span class="fl">1e1</span>       <span class="co">// tension cuff-off parameter</span></a>
+<a class="sourceLine" id="cb30-29" data-line-number="29">      a : <span class="fl">3e1</span>       <span class="co">// tension cuff-off parameter</span></a>
 <a class="sourceLine" id="cb30-30" data-line-number="30">    },</a>
 <a class="sourceLine" id="cb30-31" data-line-number="31">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="st">&quot;0&quot;</span>}</a>
 <a class="sourceLine" id="cb30-32" data-line-number="32">  }</a>
@@ -829,10 +858,10 @@ and the material-dependent derivatives
     \left. \frac{\partial G_\mathrm{F}}{\partial I_1} \right|_{J_2,J_3} &= \frac{1}{3} \sin \psi
     \\
     \left. \frac{\partial G_\mathrm{F}}{\partial J_2} \right|_{I_1,\theta} &= 
-    \frac{K'^2}{2\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}}
+    \frac{K'^2}{2\sqrt{J_2 K_G^2 + a_G^2 \sin^2 \psi}}
     \\
     \left. \frac{\partial G_\mathrm{F}}{\partial \theta} \right|_{I_1,J_2} &= 
-    \frac{J_2 K_G}{\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} \frac{\partial K_G}{\partial \theta}
+    \frac{J_2 K_G}{\sqrt{J_2 K_G^2 + a_G^2 \sin^2 \psi}} \frac{\partial K_G}{\partial \theta}
     \\
     \frac{\partial K}{\partial \theta} &= \begin{cases}
     -\sin \theta - \frac{1}{\sqrt{3}}\sin \phi \cos\theta & |\theta| < \theta_\mathrm{T}
@@ -845,7 +874,7 @@ and the material-dependent derivatives
 The following combined entries are useful:
 \[
 \begin{aligned}
-    \frac{\partial G_\mathrm{F}}{\partial \theta}\frac{\partial \theta}{\partial J_2} &= -\frac{K_G\tan 3\theta}{2\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} \frac{\partial K_G}{\partial \theta} 
+    \frac{\partial G_\mathrm{F}}{\partial \theta}\frac{\partial \theta}{\partial J_2} &= -\frac{K_G\tan 3\theta}{2\sqrt{J_2 K_G^2 + a_G^2 \sin^2 \psi}} \frac{\partial K_G}{\partial \theta} 
 \end{aligned}
 \]
 
@@ -855,9 +884,9 @@ Thus,
     \left. \frac{\partial G_\mathrm{F}}{\partial I_1} \right|_{J_2,J_3} &= \frac{1}{3} \sin \psi
     \\
     \left.\frac{\partial G_\mathrm{F}}{\partial J_2}\right|_{I_1,J_3} &= 
-    \frac{K_G}{2\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} \left(K_G - \tan 3\theta \frac{\partial K_G}{\partial \theta} \right)
+    \frac{K_G}{2\sqrt{J_2 K_G^2 + a_G^2 \sin^2 \psi}} \left(K_G - \tan 3\theta \frac{\partial K_G}{\partial \theta} \right)
     \\
-    \left.\frac{\partial G_\mathrm{F}}{\partial J_3}\right|_{I_1,J_2} &= \frac{J_2K_G\tan 3\theta}{3J_3\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} \frac{\partial K_G}{\partial \theta}
+    \left.\frac{\partial G_\mathrm{F}}{\partial J_3}\right|_{I_1,J_2} &= \frac{J_2K_G\tan 3\theta}{3J_3\sqrt{J_2 K_G^2 + a_G^2 \sin^2 \psi}} \frac{\partial K_G}{\partial \theta}
 \end{aligned}
 \]
 
@@ -927,18 +956,18 @@ Material-dependent derivatives:
 \[
 \begin{aligned}
     \frac{\partial^2 G_\mathrm{F}}{\partial J_2^2} &= 
-    -\frac{K_G^4}{4\sqrt{(J_2 K_G^2 + a^2 \sin^2 \psi)^3}}
+    -\frac{K_G^4}{4\sqrt{(J_2 K_G^2 + a_G^2 \sin^2 \psi)^3}}
     \\
     \frac{\partial^2 G_\mathrm{F}}{\partial \theta^2} &= 
-    \left( \frac{J_2}{\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} - \frac{J_2^2 K_G^2}{\sqrt{(J_2 K_G^2 + a^2 \sin^2 \psi)^3}} \right)\left(\frac{\partial K_G}{\partial \theta}\right)^2 \\
-    &+  \frac{J_2K_G}{\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} \frac{\partial^2 K_G}{\partial \theta^2}  
+    \left( \frac{J_2}{\sqrt{J_2 K_G^2 + a_G^2 \sin^2 \psi}} - \frac{J_2^2 K_G^2}{\sqrt{(J_2 K_G^2 + a_G^2 \sin^2 \psi)^3}} \right)\left(\frac{\partial K_G}{\partial \theta}\right)^2 \\
+    &+  \frac{J_2K_G}{\sqrt{J_2 K_G^2 + a_G^2 \sin^2 \psi}} \frac{\partial^2 K_G}{\partial \theta^2}  
 \\
-    &=  \frac{J_2}{\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} \left[\left(\frac{\partial K_G}{\partial \theta}\right)^2 \left(1 - \frac{J_2K_G^2}{J_2 K_G^2 + a^2 \sin^2 \psi} \right) + K_G \frac{\partial^2 K_G}{\partial \theta^2}  \right]
+    &=  \frac{J_2}{\sqrt{J_2 K_G^2 + a_G^2 \sin^2 \psi}} \left[\left(\frac{\partial K_G}{\partial \theta}\right)^2 \left(1 - \frac{J_2K_G^2}{J_2 K_G^2 + a_G^2 \sin^2 \psi} \right) + K_G \frac{\partial^2 K_G}{\partial \theta^2}  \right]
     \\
     \frac{\partial^2 G_\mathrm{F}}{\partial J_2 \partial \theta} &= 
-    \left( \frac{K_G}{\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}} - \frac{J_2 K_G^3}{2\sqrt{(J_2 K_G^2 + a^2 \sin^2 \psi)^3}} \right)\frac{\partial K_G}{\partial \theta}
+    \left( \frac{K_G}{\sqrt{J_2 K_G^2 + a_G^2 \sin^2 \psi}} - \frac{J_2 K_G^3}{2\sqrt{(J_2 K_G^2 + a_G^2 \sin^2 \psi)^3}} \right)\frac{\partial K_G}{\partial \theta}
     \\
-    &=\frac{K_G}{\sqrt{J_2 K_G^2 + a^2 \sin^2 \psi}}\frac{\partial K_G}{\partial \theta}\left( 1 - \frac{J_2 K_G^2}{2(J_2 K_G^2 + a^2 \sin^2 \psi)} \right)
+    &=\frac{K_G}{\sqrt{J_2 K_G^2 + a_G^2 \sin^2 \psi}}\frac{\partial K_G}{\partial \theta}\left( 1 - \frac{J_2 K_G^2}{2(J_2 K_G^2 + a_G^2 \sin^2 \psi)} \right)
     \\
     \frac{\partial^2 K}{\partial \theta^2} &= \begin{cases}
     -\cos \theta + \frac{1}{\sqrt{3}}\sin \phi \sin\theta & |\theta| < \theta_\mathrm{T}

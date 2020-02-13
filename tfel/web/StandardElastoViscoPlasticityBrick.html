@@ -125,6 +125,7 @@
 		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
 		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
 		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
+		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
                 </ul>
            </li>
             <li><a>Versions 3.1.x</a>
@@ -147,6 +148,12 @@
             <li><a>Versions 3.3.x</a>
                 <ul>
 		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
+		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.4.x</a>
+                <ul>
+		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
                 </ul>
            </li>
 	      </ul>
@@ -159,6 +166,7 @@
 	  <ul>
 	    <li><a href="documentations.html">General documentation</a></li>
 	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
 	    <li><a>Behaviours</a>
 	      <ul>
 		<li><a href="tutorial.html">Tutorial</a></li>
@@ -615,7 +623,7 @@ R{\left(p\right)}=R_{0}^{0}+{\left(R_{\infty}^{0}-R_{0}^{0}\right)}\,{\left(1-\e
 R{\left(p\right)}=R_{0}+H\,p
 \]</span></p>
 <h4 id="options-7">Options</h4>
-<p>The <code>Swift</code> isotropic hardening rule expects one of the two following material properties:</p>
+<p>The <code>Linear</code> isotropic hardening rule expects one of the two following material properties:</p>
 <ul>
 <li><code>R0</code>: the yield strength</li>
 <li><code>H</code>: the hardening slope</li>
@@ -641,25 +649,40 @@ R{\left(p\right)}=R_{0}\,{\left({{\displaystyle \frac{\displaystyle p+p_{0}}{\di
 <h4 id="example-8">Example</h4>
 <p>The following code can be added in a block defining an inelastic flow:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1">    isotropic_hardening : <span class="st">&quot;Swift&quot;</span> {R0 : <span class="fl">120e6</span>, p0 : <span class="fl">1e-8</span>, n : <span class="dv">5</span>.e<span class="dv">-2</span>}</a></code></pre></div>
+<h3 id="the-power-isotropic-hardening-rule-since-tfel-3.4">The <code>Power</code> isotropic hardening rule (since TFEL 3.4)</h3>
+<p>The <code>Power</code> isotropic hardening rule is defined by: <span class="math display">\[
+R{\left(p\right)}=R_{0}\,{\left(p+p_{0}\right)}^{n}
+\]</span></p>
+<h4 id="options-9">Options</h4>
+<p>The <code>Power</code> isotropic hardening rule expects at least the following material properties:</p>
+<ul>
+<li><code>R0</code>: the coefficient of the power law</li>
+<li><code>n</code>: the exponent of the power law</li>
+</ul>
+<p>The <code>p0</code> material property is <em>optional</em> and generally is considered a numerical parameter to avoir an initial infinite derivative of the power law when the exponent is lower than <span class="math inline">\(1\)</span>.</p>
+<h4 id="example-9">Example</h4>
+<p>The following code can be added in a block defining an inelastic flow:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">50e6</span>},</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">    isotropic_hardening : <span class="st">&quot;Power&quot;</span> {R0 : <span class="fl">120e6</span>, p0 : <span class="fl">1e-8</span>, n : <span class="dv">5</span>.e<span class="dv">-2</span>}</a></code></pre></div>
 <h3 id="the-voce-isotropic-hardening-rule">The <code>Voce</code> isotropic hardening rule</h3>
 <p>The <code>Voce</code> isotropic hardening rule is defined by: <span class="math display">\[
 R{\left(p\right)}=R_{\infty}+{\left(R_{0}-R_{\infty}\right)}\,exp{\left(-b\,p\right)}
 \]</span></p>
-<h4 id="options-9">Options</h4>
+<h4 id="options-10">Options</h4>
 <p>The <code>Voce</code> isotropic hardening rule expects three material properties:</p>
 <ul>
 <li><code>R0</code>: the yield strength</li>
 <li><code>Rinf</code>: the utimate strength</li>
 <li><code>b</code></li>
 </ul>
-<h4 id="example-9">Example</h4>
-<p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1">    isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="dv">200</span>, Rinf : <span class="dv">100</span>, b : <span class="dv">20</span>}</a></code></pre></div>
-<h2 id="list-of-available-kinematic-hardening-rules">List of available kinematic hardening rules</h2>
-<h3 id="the-prager-kinematic-hardening-rule">The <code>Prager</code> kinematic hardening rule</h3>
 <h4 id="example-10">Example</h4>
 <p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1">    kinematic_hardening : <span class="st">&quot;Prager&quot;</span> {C : <span class="fl">33e6</span>},</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1">    isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="dv">200</span>, Rinf : <span class="dv">100</span>, b : <span class="dv">20</span>}</a></code></pre></div>
+<h2 id="list-of-available-kinematic-hardening-rules">List of available kinematic hardening rules</h2>
+<h3 id="the-prager-kinematic-hardening-rule">The <code>Prager</code> kinematic hardening rule</h3>
+<h4 id="example-11">Example</h4>
+<p>The following code can be added in a block defining an inelastic flow:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1">    kinematic_hardening : <span class="st">&quot;Prager&quot;</span> {C : <span class="fl">33e6</span>},</a></code></pre></div>
 <h3 id="the-armstrong-frederick-kinematic-hardening-rule">The <code>Armstrong-Frederick</code> kinematic hardening rule</h3>
 <p>The <code>Armstrong-Frederick</code> kinematic hardening rule can be described as follows (see <span class="citation" data-cites="armstrong_mathematical_1966">Armstrong and Frederick (1966)</span>): <span class="math display">\[
 \left\{
@@ -669,9 +692,9 @@ R{\left(p\right)}=R_{\infty}+{\left(R_{0}-R_{\infty}\right)}\,exp{\left(-b\,p\ri
 \end{aligned}
 \right.
 \]</span></p>
-<h4 id="example-11">Example</h4>
+<h4 id="example-12">Example</h4>
 <p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1">    kinematic_hardening : <span class="st">&quot;Armstrong-Frederick&quot;</span> {C : <span class="fl">1.5e9</span>, D : <span class="dv">5</span>}</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1">    kinematic_hardening : <span class="st">&quot;Armstrong-Frederick&quot;</span> {C : <span class="fl">1.5e9</span>, D : <span class="dv">5</span>}</a></code></pre></div>
 <h3 id="the-burlet-cailletaud-kinematic-hardening-rule">The <code>Burlet-Cailletaud</code> kinematic hardening rule</h3>
 <p>The <code>Burlet-Cailletaud</code> kinematic hardening rule is defined as follows (see <span class="citation" data-cites="burlet_modelling_1987">Burlet and Cailletaud (1987)</span>):</p>
 <p><span class="math display">\[
@@ -684,9 +707,9 @@ R{\left(p\right)}=R_{\infty}+{\left(R_{0}-R_{\infty}\right)}\,exp{\left(-b\,p\ri
 \end{aligned}
 \right.
 \]</span></p>
-<h4 id="example-12">Example</h4>
+<h4 id="example-13">Example</h4>
 <p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1">    kinematic_hardening : <span class="st">&quot;Burlet-Cailletaud&quot;</span> {C : <span class="fl">250e7</span>, D : <span class="dv">100</span>, eta : <span class="dv">0</span>}</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1">    kinematic_hardening : <span class="st">&quot;Burlet-Cailletaud&quot;</span> {C : <span class="fl">250e7</span>, D : <span class="dv">100</span>, eta : <span class="dv">0</span>}</a></code></pre></div>
 <h3 id="the-chaboche-2012-kinematic-hardening-rule">The <code>Chaboche 2012</code> kinematic hardening rule</h3>
 <p>The <code>Chaboche 2012</code> kinematic hardening rule is defined as follows (see <span class="citation" data-cites="chaboche_cyclic_2012">Chaboche, Kanouté, and Azzouz (2012)</span>):</p>
 <p><span class="math display">\[
@@ -703,14 +726,14 @@ D\,\Phi\left(p\right)\,\Psi\left(\underline{a}\right)\dot{p}\,\underline{a}
 <li><span class="math inline">\(\Psi^{\left(\underline{X}\right)}\left(\underline{X}\right)= \frac{\left&lt;D\,J\left(\underline{X}\right)-\omega\,C\right&gt;^{m}}{1-\omega}\, \frac{1}{\left(D\,J\left(\underline{X}\right)\right)^{m}}\)</span></li>
 <li><span class="math inline">\(\Psi\left(\underline{a}\right)= \frac{\left&lt;D\,J\left(\underline{a}\right)-\frac{3}{2}\omega\right&gt;^{m}}{1-\omega}\, \frac{1}{\left(D\,J\left(\underline{a}\right)\right)^{m}}\)</span></li>
 </ul>
-<h4 id="example-13">Example</h4>
+<h4 id="example-14">Example</h4>
 <p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1">    kinematic_hardening : <span class="st">&quot;Chaboche 2012&quot;</span> {</a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">      C : <span class="fl">250e7</span>,</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3">      D : <span class="dv">100</span>,</a>
-<a class="sourceLine" id="cb17-4" data-line-number="4">      m : <span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb17-5" data-line-number="5">      w : <span class="fl">0.6</span>,</a>
-<a class="sourceLine" id="cb17-6" data-line-number="6">    }</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1">    kinematic_hardening : <span class="st">&quot;Chaboche 2012&quot;</span> {</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">      C : <span class="fl">250e7</span>,</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">      D : <span class="dv">100</span>,</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">      m : <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">      w : <span class="fl">0.6</span>,</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">    }</a></code></pre></div>
 <h1 id="references" class="unnumbered">References</h1>
 <div id="refs" class="references">
 <div id="ref-armstrong_mathematical_1966">

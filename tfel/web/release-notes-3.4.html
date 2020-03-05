@@ -256,7 +256,11 @@
       <li><a href="#improvement-of-the-standardelastoviscoplasticity-brick"><span class="toc-section-number">1.1</span> Improvement of the <code>StandardElastoViscoplasticity</code> brick</a></li>
       </ul></li>
       <li><a href="#tickets-solved-during-the-development-of-this-version"><span class="toc-section-number">2</span> Tickets solved during the development of this version</a><ul>
-      <li><a href="#ticket-205-add-power-isotropic-hardening-rule"><span class="toc-section-number">2.1</span> Ticket #205: Add power isotropic hardening rule</a></li>
+      <li><a href="#ticket-212-better-const-correctness-in-the-generic-behaviour"><span class="toc-section-number">2.1</span> Ticket #212: Better <code>const</code> correctness in the <code>generic</code> behaviour</a></li>
+      <li><a href="#ticket-209-lack-of-documentation-of-the-gasequationofstate-keyword"><span class="toc-section-number">2.2</span> Ticket #209: lack of documentation of the <code>@GasEquationOfState</code> keyword</a></li>
+      <li><a href="#ticket-205-add-power-isotropic-hardening-rule"><span class="toc-section-number">2.3</span> Ticket #205: Add power isotropic hardening rule</a></li>
+      <li><a href="#ticket-195-export-variables-bounds-for-material-properties"><span class="toc-section-number">2.4</span> Ticket #195 : Export variables bounds for material properties</a></li>
+      <li><a href="#ticket-196-export-variable-names-for-all-interface-of-material-property"><span class="toc-section-number">2.5</span> Ticket #196 : Export variable names for all interface of material property</a></li>
       </ul></li>
       <li><a href="#references"><span class="toc-section-number">3</span> References</a></li>
       </ul>
@@ -281,9 +285,27 @@ R{\left(p\right)}=R_{0}\,{\left(p+p_{0}\right)}^{n}
 <div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">50e6</span>},</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">    isotropic_hardening : <span class="st">&quot;Power&quot;</span> {R0 : <span class="fl">120e6</span>, p0 : <span class="fl">1e-8</span>, n : <span class="dv">5</span>.e<span class="dv">-2</span>}</a></code></pre></div>
 <h1 id="tickets-solved-during-the-development-of-this-version"><span class="header-section-number">2</span> Tickets solved during the development of this version</h1>
-<h2 id="ticket-205-add-power-isotropic-hardening-rule"><span class="header-section-number">2.1</span> Ticket #205: Add power isotropic hardening rule</h2>
-<p>This feature is described in Section  1.1.1.</p>
+<h2 id="ticket-212-better-const-correctness-in-the-generic-behaviour"><span class="header-section-number">2.1</span> Ticket #212: Better <code>const</code> correctness in the <code>generic</code> behaviour</h2>
+<p>The state at the beginning of the time step is now described in a structure called <code>mfront::gb::InitialState</code>, the fields of which are all <code>const</code>.</p>
+<p>The following fields of the <code>mfront::gb::State</code> are now <code>const</code>:</p>
+<ul>
+<li><code>gradients</code></li>
+<li><code>material_properties</code></li>
+<li><code>external_state_variables</code></li>
+</ul>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/212/" class="uri">https://sourceforge.net/p/tfel/tickets/212/</a></p>
+<h2 id="ticket-209-lack-of-documentation-of-the-gasequationofstate-keyword"><span class="header-section-number">2.2</span> Ticket #209: lack of documentation of the <code>@GasEquationOfState</code> keyword</h2>
+<p>This feature is now described in the (<code>MTest</code> page)[mtest.html]</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/209/" class="uri">https://sourceforge.net/p/tfel/tickets/209/</a></p>
+<h2 id="ticket-205-add-power-isotropic-hardening-rule"><span class="header-section-number">2.3</span> Ticket #205: Add power isotropic hardening rule</h2>
+<p>This feature is described in Section 1.1.1.</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/205/" class="uri">https://sourceforge.net/p/tfel/tickets/205/</a></p>
+<h2 id="ticket-195-export-variables-bounds-for-material-properties"><span class="header-section-number">2.4</span> Ticket #195 : Export variables bounds for material properties</h2>
+<p>Variables bounds (both <span class="citation" data-cites="Bounds">(<span class="citeproc-not-found" data-reference-id="Bounds"><strong>???</strong></span>)</span> and <span class="citation" data-cites="PhysicalBounds">(<span class="citeproc-not-found" data-reference-id="PhysicalBounds"><strong>???</strong></span>)</span>) are now available for material properties. They are available directly in the .so file via getExternalLibraryManager().</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/195/" class="uri">https://sourceforge.net/p/tfel/tickets/195/</a></p>
+<h2 id="ticket-196-export-variable-names-for-all-interface-of-material-property"><span class="header-section-number">2.5</span> Ticket #196 : Export variable names for all interface of material property</h2>
+<p>The variable name of material property was available only for castem interface. Now it is available for all interface (c++, python, …). The name can be found in the .so file via getExternalLibraryManager().</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/196/" class="uri">https://sourceforge.net/p/tfel/tickets/196/</a></p>
 <h1 id="references"><span class="header-section-number">3</span> References</h1>
         <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

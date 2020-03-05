@@ -252,7 +252,8 @@
             <h2 class="author">Jean-Michel Proix</h2>
                   <h3 class="date">August 19, 2014</h3>
           </div>
-            <h1 id="overview">Overview</h1>
+            
+<h1 id="overview">Overview</h1>
 <p><code>MFront</code> comes with an handy easy-to-use tool called <code>MTest</code>. This tool handles two types of computations:</p>
 <ul>
 <li>The description of a single material point.</li>
@@ -297,7 +298,43 @@
 <a class="sourceLine" id="MTestPlasticity-7" data-line-number="7"><span class="er">@</span>ImposedStrain&lt;function&gt; <span class="ch">&#39;EXX&#39;</span> <span class="ch">&#39;1.e-3*t&#39;</span>;</a>
 <a class="sourceLine" id="MTestPlasticity-8" data-line-number="8"><span class="er">@</span>Times {<span class="fl">0.</span>,<span class="dv">1</span> in <span class="dv">20</span>};</a></code></pre></div>
 <h1 id="simulation-of-a-pipe">Simulation of a pipe</h1>
-<p><code>MTest</code></p>
+<p><code>MTest</code> can also be used to model a pipe subjected to various loadings.</p>
+<h2 id="radial-loadings">Radial loadings</h2>
+<h3 id="tight-pipe">Tight pipe</h3>
+<h4 id="specifying-the-gas-equation-of-state">Specifying the gas equation of state</h4>
+<p>The equation of state of the gas can be specified using the <code>@GasEquationOfState</code> keyword.</p>
+<p>This keywords expects a function <span class="math inline">\(f{\left(P,V,T\right)}\)</span> such that the equation of state is:</p>
+<p><span id="eq:GasEquationOfState"><span class="math display">\[
+f{\left(P,V,T, n\right)}=0
+\qquad(1)\]</span></span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(P\)</span> is the inner pressure in the pipe.</li>
+<li><span class="math inline">\(V\)</span> is the volume of gas in a pipe of unit height. For small strain analyses, <span class="math inline">\(V\)</span> is equal to the initial volume of the pipe. For finite strain analysis, <span class="math inline">\(V\)</span> is computed by: <span class="math display">\[
+V = \pi \, {\left.R\right|_{t+\Delta\,t}}^{2} \, {\left(1 +{\left.\varepsilon_{zz}\right|_{t+\Delta\,t}}\right)}
+\]</span> where <span class="math inline">\({\left.R\right|_{t+\Delta\,t}}\)</span> and <span class="math inline">\({\left.\varepsilon_{zz}\right|_{t+\Delta\,t}}\)</span> are respectively the current estimation of the radius and the current estimation of the linear axial strain at the end of the time.</li>
+<li><span class="math inline">\(T\)</span> is the current value of temperature at the inner surface of the pipe (the temperature is assumed homogeneous inside the pipe).</li>
+<li><span class="math inline">\(n\)</span> is the amount of substance of the gas. This quantity is assumed constant during the experiment. Its value is deduced from Equation (1) by using:
+<ul>
+<li>The filling pressure (see the <code>@FillingPressure</code> keyword).</li>
+<li>The filling temperature (see the <code>@FillingTemperature</code> keyword).</li>
+<li>The initial inner radius of the pipe<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</li>
+</ul></li>
+</ul>
+<h5 id="a-first-example">A first example</h5>
+<p>In this example, the equation of state of a perfect gas is specified:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>FillingPressure      <span class="dv">1</span>.e5;</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="er">@</span>FillingTemperature <span class="fl">293.15</span>;</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="er">@</span>Real <span class="ch">&#39;R&#39;</span> <span class="fl">8.314</span>;</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="er">@</span>GasEquationOfState <span class="ch">&#39;P*V-n*R*T&#39;</span>;</a></code></pre></div>
+<h5 id="a-second-example">A second example</h5>
+<p>In this example, the equation of state of a perfect gas is specified, but one imagine that the gas can only occupy a fraction <span class="math inline">\(\alpha\,V\)</span> of the volume inside the pipe:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>FillingPressure      <span class="dv">1</span>.e5;</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="er">@</span>FillingTemperature <span class="fl">293.15</span>;</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="er">@</span>Real <span class="ch">&#39;R&#39;</span> <span class="fl">8.314</span>;</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="er">@</span>Real <span class="ch">&#39;a&#39;</span> <span class="ch">&#39;0.8&#39;</span>;</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="er">@</span>GasEquationOfState <span class="ch">&#39;P*a*V-n*R*T&#39;</span>;</a></code></pre></div>
+<h2 id="axial-loadings">Axial loadings</h2>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references">
@@ -317,6 +354,12 @@
 <p>Von Rossum, G. 2007. “Python Library Reference.” <a href="http://docs.python.org" class="uri">http://docs.python.org</a>.</p>
 </div>
 </div>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Using the initial inner radius of the pipe generally endows an approximation as the initial radius is usually known before the gas is introduced in the pipe.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</section>
         <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -188,11 +188,23 @@
             <div id="TOC">
       <ul>
       <li><a href="#tickets-fixed">Tickets fixed</a><ul>
+      <li><a href="#ticket-208-support-of-the-gasequationofstate-keyword-is-broken-in-mtest">Ticket #208: Support of the <code>@GasEquationOfState</code> keyword is broken in <code>MTest</code></a></li>
+      <li><a href="#ticket-207-circumvent-a-possible-bug-in-findboost-for-cmake-3.16">Ticket #207: Circumvent a possible bug in <code>FindBoost</code> for <code>cmake-3.16</code></a></li>
       <li><a href="#ticket-197-allow-using-flags-defined-in-standard-environment-variables-to-build-tfelmfront">Ticket #197: Allow using flags defined in standard environment variables to build <code>TFEL/MFront</code></a></li>
       </ul></li>
       </ul>
     </div>
         <h1 id="tickets-fixed">Tickets fixed</h1>
+<h2 id="ticket-208-support-of-the-gasequationofstate-keyword-is-broken-in-mtest">Ticket #208: Support of the <code>@GasEquationOfState</code> keyword is broken in <code>MTest</code></h2>
+<p><code>MTest</code> is able to model a tight pipe. This hypothesis assumes that the amount of substance of the gas inside the pipe is constant. The evolution of the inner pressure is linked to the temperature and radius evolution through the gas equation of state. By default, the equation of state of a perfect gas is used.</p>
+<p>The <code>@GasEquationOfState</code> keyword was introduced to specify the equation of state of the gas. This feature has never been tested and was not functional in previous versions.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/208/" class="uri">https://sourceforge.net/p/tfel/tickets/208/</a></p>
+<h2 id="ticket-207-circumvent-a-possible-bug-in-findboost-for-cmake-3.16">Ticket #207: Circumvent a possible bug in <code>FindBoost</code> for <code>cmake-3.16</code></h2>
+<p>Two boost components are searched when enabling <code>python</code> bindings: <code>boost-python</code> and <code>boost-numpy</code>. The first one is required and the second one is optional.</p>
+<p>The detection process that was used in previous versions called <code>find_package</code> for two components at the same time and then we checkd of two components were found.</p>
+<p>In <code>cmake</code> 3.16 (at least), the behaviour of <code>find_package</code> changed and if one component is missing, both are declared not found.</p>
+<p>We now check for <code>boost-python</code> first and then search for <code>boost-numpy</code>.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/207/" class="uri">https://sourceforge.net/p/tfel/tickets/207/</a></p>
 <h2 id="ticket-197-allow-using-flags-defined-in-standard-environment-variables-to-build-tfelmfront">Ticket #197: Allow using flags defined in standard environment variables to build <code>TFEL/MFront</code></h2>
 <p>The variable <code>USE_EXTERNAL_COMPILER_FLAGS</code> can now be defined in <code>cmake</code> to use the flags defined in the environment variables <code>CFLAGS</code> and <code>CXXFLAGS</code>.</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/197/" class="uri">https://sourceforge.net/p/tfel/tickets/197/</a></p>

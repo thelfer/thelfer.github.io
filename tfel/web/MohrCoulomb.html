@@ -333,7 +333,7 @@ K(\theta) = \begin{cases}
 \]</span></p>
 <p><span class="math inline">\(\underline{\sigma}^\mathrm{D}\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(\phi\)</span> are respectively the deviatoric part of the tensor <span class="math inline">\(\underline{\sigma}\)</span>, the cohesion and friction angle.</p>
 <hr />
-<p>The contribution of the smoothing is visualized in Figure  1.</p>
+<p>The contribution of the smoothing is visualized in Figure 1.</p>
 <figure>
 <img src="img/MohrCoulombSmoothing.svg" title="Effect of the smoothing of the yield surface" alt="Figure 1: Effect of the smoothing of the yield surface" id="fig:mc_vis" style="width:115.0%" /><figcaption>Figure 1: Effect of the smoothing of the yield surface</figcaption>
 </figure>
@@ -343,7 +343,7 @@ K(\theta) = \begin{cases}
 <p><span id="eq:plastic_potential"><span class="math display">\[
     G_\mathrm{F} = \frac{I_1}{3} \sin \psi + \sqrt{J_2 K_G^2 + a^2 \tan^2 \phi \cos^2 \psi} - c \cos \psi
 \qquad(4)\]</span></span></p>
-<p>where <span class="math inline">\(\psi\)</span> is the dilatancy angle. <span class="math inline">\(K_G\)</span>, <span class="math inline">\(A_G\)</span> and <span class="math inline">\(B_G\)</span> follow from  2 and  3 by substituting the friction angle with the dilatancy angle :</p>
+<p>where <span class="math inline">\(\psi\)</span> is the dilatancy angle. <span class="math inline">\(K_G\)</span>, <span class="math inline">\(A_G\)</span> and <span class="math inline">\(B_G\)</span> follow from (2) and (3) by substituting the friction angle with the dilatancy angle :</p>
 <p><span class="math display">\[
 K_G(\theta) = \begin{cases}
     \cos \theta - \frac{1}{\sqrt{3}} \sin \psi \sin \theta &amp; |\theta| &lt; \theta_\mathrm{T}
@@ -358,7 +358,7 @@ K_G(\theta) = \begin{cases}
     B_G &amp;= \frac{1}{3} \frac{1}{\cos 3\theta_\mathrm{T}} \left[ \mathrm{sign \theta} \sin \theta_\mathrm{T} + \frac{1}{\sqrt{3}} \sin \psi \cos \theta_\mathrm{T} \right]
 \end{aligned}
 \]</span></p>
-<p>Equation ( 4) can be written as follow:</p>
+<p>Equation ((4)) can be written as follow:</p>
 <p><span id="eq:plastic_potential2"><span class="math display">\[
     G_\mathrm{F} = \frac{I_1}{3} \sin \psi + \sqrt{J_2 K_G^2 + a_G^2 \sin^2 \psi} - c \cos \psi
 \qquad(5)\]</span></span></p>
@@ -676,12 +676,12 @@ J=
 <a class="sourceLine" id="cb28-3" data-line-number="3">    dflam_ddlam = strain(<span class="dv">0</span>);</a>
 <a class="sourceLine" id="cb28-4" data-line-number="4">    dflam_ddeel = theta * (nF | D) / D(<span class="dv">0</span>, <span class="dv">0</span>);</a>
 <a class="sourceLine" id="cb28-5" data-line-number="5">    np = n;</a></code></pre></div>
-<p>The Jacobian can now be computed (see  6)</p>
+<p>The Jacobian can now be computed (see (6))</p>
 <h1 id="verification">Verification</h1>
 <figure>
 <img src="img/MohrCoulombPiPlane.svg" title="Trace of the yield surface (green) when approached on different stress paths (purple)" alt="Figure 2: Trace of the yield surface (green) when approached on different stress paths (purple)" id="fig:MC_stress_paths" style="width:90.0%" /><figcaption>Figure 2: Trace of the yield surface (green) when approached on different stress paths (purple)</figcaption>
 </figure>
-<p>The yield function was approached along different stress paths, shown in Figure  2 within the <span class="math inline">\(\pi\)</span>-plane. This shows that a) yield is correctly detected, and b) the stress-state is correctly pulled back onto the yield surface.</p>
+<p>The yield function was approached along different stress paths, shown in Figure 2 within the <span class="math inline">\(\pi\)</span>-plane. This shows that a) yield is correctly detected, and b) the stress-state is correctly pulled back onto the yield surface.</p>
 <figure>
 <img src="img/MohrCoulombAnalitical.svg" title="Verification against analytical example. Description in @Nagel2016" alt="Figure 3: Verification against analytical example. Description in Nagel et al. (2017)." id="fig:MC_vis" style="width:125.0%" /><figcaption>Figure 3: Verification against analytical example. Description in <span class="citation" data-cites="Nagel2016">Nagel et al. (2017)</span>.</figcaption>
 </figure>

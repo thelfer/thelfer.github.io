@@ -343,7 +343,7 @@
 <li><span class="math inline">\(\alpha\)</span> is the surface tension.</li>
 <li><span class="math inline">\(r_{0}\)</span> the average grain size.</li>
 </ul>
-<p>By projecting Equation  3 on the hydrostatic and deviatoric spaces, one gets:</p>
+<p>By projecting Equation (3) on the hydrostatic and deviatoric spaces, one gets:</p>
 <p><span id="eq:viscosity2"><span class="math display">\[
 \begin{aligned}
 {\mathrm{tr}{\left(\underline{\dot{\varepsilon}}^{\mathrm{in}}\right)}}&amp;=\frac{{\mathrm{tr}{\left(\underline{\sigma}\right)}}-3\,\sigma_{s}(\rho)}{6\,\eta_{0}(T)\,\psi(\rho)}\\
@@ -363,7 +363,7 @@
 <li>the inelastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{in}}\)</span>.</li>
 <li>the relative density <span class="math inline">\(\rho\)</span>.</li>
 </ul>
-<p>Their evolutions is governed by a a system of ordinary differential equations given by Equations  2,  3 and  5.</p>
+<p>Their evolutions is governed by a a system of ordinary differential equations given by Equations (2), (3) and (5).</p>
 <p>In its general form, a system of ordinary differential equations may be written as:</p>
 <p><span id="eq:ode"><span class="math display">\[
 \vec{\dot{X}}=G{\left(\vec{X},t\right)}
@@ -379,7 +379,7 @@
 \end{aligned}
 \right)
 \]</span></p>
-<p>In Equation  6, the time appears as a placeholder for external state variables that varies independently of the mechanics. Here the only external state behaviour is the temperature.</p>
+<p>In Equation (6), the time appears as a placeholder for external state variables that varies independently of the mechanics. Here the only external state behaviour is the temperature.</p>
 <p>An implicit <span class="math inline">\(\theta\)</span>-scheme turns this system of ordinary differential equations into a system of of non-linear equations by introducing the increment <span class="math inline">\(\Delta\,\vec{X}\)</span> over a finite time step increment <span class="math inline">\(\Delta\,t\)</span> as follows:</p>
 <p><span class="math display">\[
 f{\left(\Delta\,X\right)}=\Delta\,\vec{X}-\Delta\,t\,G{\left(\vec{X}+\theta\,\Delta\vec{X},t+\theta\,\Delta\,t\right)}
@@ -408,12 +408,12 @@ f_{\rho} \\
 <p>In the following, the increment of the state varaibles, respectively denoted <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span>, <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{in}}\)</span> and <span class="math inline">\(\Delta\,\rho\)</span> and he equations associated with those increment are respectively denoted <span class="math inline">\(f_{\underline{\varepsilon}^{\mathrm{el}}}\)</span>, <span class="math inline">\(f_{\underline{\varepsilon}^{\mathrm{in}}}\)</span> and <span class="math inline">\(f_{\rho}\)</span>.</p>
 <p>We now start by making an explicit derivation of <span class="math inline">\(f_{\underline{\varepsilon}^{\mathrm{el}}}\)</span>, <span class="math inline">\(f_{\underline{\varepsilon}^{\mathrm{in}}}\)</span> and <span class="math inline">\(f_{\rho}\)</span>, and we then discuss how the system of implicit equations can be reduced.</p>
 <h2 id="implicit-equation-associated-with-the-elastic-strain">Implicit equation associated with the elastic strain</h2>
-<p>The implicit equation associated with the the elastic strain derives from the split of strain (Equation  2) as follows:</p>
+<p>The implicit equation associated with the the elastic strain derives from the split of strain (Equation (2)) as follows:</p>
 <p><span id="eq:feel"><span class="math display">\[
 f_{\underline{\varepsilon}^{\mathrm{el}}}=\Delta\,\underline{\varepsilon}^{\mathrm{el}}+\Delta\,\underline{\varepsilon}^{\mathrm{in}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}
 \qquad(7)\]</span></span></p>
 <h2 id="implicit-equation-associated-with-the-trace-of-the-inelastic-strain">Implicit equation associated with the trace of the inelastic strain</h2>
-<p>Using Equation  3 can be discretised as follows:</p>
+<p>Using Equation (3) can be discretised as follows:</p>
 <p><span id="eq:DeltaEpsilonin"><span class="math display">\[
 f_{\underline{\varepsilon}^{\mathrm{in}}}=
 \Delta\,\underline{\varepsilon}^{\mathrm{in}}-
@@ -426,17 +426,17 @@ f_{\underline{\varepsilon}^{\mathrm{in}}}=
 <li><span class="math inline">\({\left.\rho\right|_{t+\theta\,\Delta\,t}}={\left.\rho\right|_{t}}+\theta\,\Delta\,\rho\)</span></li>
 </ul>
 <h2 id="evolution-of-the-relative-density-1">Evolution of the relative density</h2>
-<p>Equation  5 can be discretized as the other equations as follows:</p>
+<p>Equation (5) can be discretized as the other equations as follows:</p>
 <p><span id="eq:f_rho"><span class="math display">\[
 f_{\rho}=\Delta\,\rho+{\left.\rho\right|_{t+\theta\,\Delta\,t}}\,{\mathrm{tr}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{in}}\right)}}
 \qquad(9)\]</span></span></p>
 <p>However, using this equation has a two major disadvantages:</p>
 <ol type="1">
 <li>The relative density <span class="math inline">\(\rho\)</span> is bounded (i.e. positive) but it fairly complex to take this into account during the Newton resolution or event to enforce for large time increment.</li>
-<li>It is trivial to eliminate this equation from the implicit system because the previous equation allows to express <span class="math inline">\(\Delta\,\rho\)</span> as an explicit function of <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{in}}\)</span>. So keeping, Equation  9 leads to a less efficient integration scheme.</li>
+<li>It is trivial to eliminate this equation from the implicit system because the previous equation allows to express <span class="math inline">\(\Delta\,\rho\)</span> as an explicit function of <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{in}}\)</span>. So keeping, Equation (9) leads to a less efficient integration scheme.</li>
 </ol>
-<p>We now propose an alternative integration scheme for Equation  5 that remove the limitations associated with the first point and still allows to eliminate <span class="math inline">\(\Delta\,\rho\)</span> from the implicit system.</p>
-<p>Indeed, Equation  5 can be integrated exactly over the time step as follows:</p>
+<p>We now propose an alternative integration scheme for Equation (5) that remove the limitations associated with the first point and still allows to eliminate <span class="math inline">\(\Delta\,\rho\)</span> from the implicit system.</p>
+<p>Indeed, Equation (5) can be integrated exactly over the time step as follows:</p>
 <p><span class="math display">\[
 \begin{aligned}
  \dot{\rho}&amp;=-\rho \, {\mathrm{tr}{\left(\underline{\dot{\varepsilon}}^{\mathrm{in}}\right)}} \\
@@ -453,13 +453,13 @@ f_{\rho}=\Delta\,\rho+{\left.\rho\right|_{t+\theta\,\Delta\,t}}\,{\mathrm{tr}{\l
 <p><span id="eq:rho_mts"><span class="math display">\[
  {\left.\rho\right|_{t+\theta\,\Delta\,t}}={\left.\rho\right|_{t}}\,\exp{\left(-{\mathrm{tr}{\left(\theta\,\Delta\,\underline{\dot{\varepsilon}}^{\mathrm{in}}\right)}}\right)}
 \qquad(11)\]</span></span></p>
-<p>Equation  11 will be used to eliminate the relative density from the implicit system. Equation  10 will be used to compute the final value of the relative density.</p>
+<p>Equation (11) will be used to eliminate the relative density from the implicit system. Equation (10) will be used to compute the final value of the relative density.</p>
 <blockquote>
 <p><strong>About auxiliary state variables</strong></p>
 <p>Such a variable, whose value is kept from one time to another but is not part of the implicit system, is called an <em>auxiliary state variable</em> in <code>MFront</code>. A dedicated code block named <code>@UpdateAuxiliaryStateVariables</code> is meant to update those variables after the behaviour integration. At this stage, the state variables have been updated to their final values and the stress at the end of the time step has been computed.</p>
 </blockquote>
 <h2 id="reduction-of-the-implicit-scheme">Reduction of the implicit scheme</h2>
-<p>A close look at Equations  7,  8, and  11 shows that it can be efficient to eliminate part of the unknowns and keep the two following variables <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span> and <span class="math inline">\({\mathrm{tr}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{in}}\right)}}\)</span>.</p>
+<p>A close look at Equations (7), (8), and (11) shows that it can be efficient to eliminate part of the unknowns and keep the two following variables <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span> and <span class="math inline">\({\mathrm{tr}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{in}}\right)}}\)</span>.</p>
 <p>In the following, <span class="math inline">\(e\)</span> denotes <span class="math inline">\({\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{in}}\right)}}\)</span>: <span class="math display">\[
 e={\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{in}}\right)}}
 \]</span></p>
@@ -474,7 +474,7 @@ e={\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{in}}\right)}}
 <li>the jacobian blocks associated with <code>fe</code> (here <code>dfe_dde</code> and <code>dfe_ddeel</code>).</li>
 </ul>
 </blockquote>
-<p>Combining Equations  7,  8, and  11 leads to the new system of equations:</p>
+<p>Combining Equations (7), (8), and (11) leads to the new system of equations:</p>
 <p><span id="eq:implicit:system"><span class="math display">\[
 \left\{
 \begin{aligned}
@@ -486,7 +486,7 @@ f_{e}&amp;=\Delta\,e-
 \end{aligned}
 \right.
 \qquad(12)\]</span></span></p>
-<p>where <span class="math inline">\({\left.\rho\right|_{t+\theta\,\Delta\,t}}{\left(\Delta\,e\right)}\)</span> is given by Equation  11.</p>
+<p>where <span class="math inline">\({\left.\rho\right|_{t+\theta\,\Delta\,t}}{\left(\Delta\,e\right)}\)</span> is given by Equation (11).</p>
 <p>For the sake of clarity, the previous equation can be rewritten as follows: <span id="eq:implicit:system:final"><span class="math display">\[
 \left\{
 \begin{aligned}
@@ -508,8 +508,8 @@ C{\left({\left.\rho\right|_{t+\theta\,\Delta\,t}}{\left(\Delta\,e\right)}\right)
 \end{aligned}
 \right.
 \]</span></p>
-<p>Since the deviatoric part of the inelastic strain is linear with the stress, the System  12 may be further reduced to a scalar equation with <span class="math inline">\(\Delta\,e\)</span> as the only unknowns. However, this considerably complicates the implementation of the behaviour, and in particular, the derivation of the consistent tangent operator. Hence, for the sake simplicity, this reduction to a scalar equation is not considered here. However, the reader may refer to <span class="citation" data-cites="derouiche_integration_2018">Derouiche (2018)</span> for an example of such a reduction to a scalar equation may be done in <code>MFront</code>.</p>
-<p>To solve System  13, one must compute its jacobian as follows:</p>
+<p>Since the deviatoric part of the inelastic strain is linear with the stress, the System (12) may be further reduced to a scalar equation with <span class="math inline">\(\Delta\,e\)</span> as the only unknowns. However, this considerably complicates the implementation of the behaviour, and in particular, the derivation of the consistent tangent operator. Hence, for the sake simplicity, this reduction to a scalar equation is not considered here. However, the reader may refer to <span class="citation" data-cites="derouiche_integration_2018">Derouiche (2018)</span> for an example of such a reduction to a scalar equation may be done in <code>MFront</code>.</p>
+<p>To solve System (13), one must compute its jacobian as follows:</p>
 <p><span class="math display">\[
 \left\{
 \begin{aligned}

@@ -1,0 +1,622 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Extending the StandardElastoViscoPlasticity brick with a new stress criterion</title>
+        <meta name="author" content="Thomas Helfer, Jérémy Hure, Mohamed Shokeir" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Interfaces</a></li>
+	    <li><a href="mfront-doc.html">mfront-doc</a></li>
+	    <li><a href="mtest.html">mtest</a></li>
+	    <li><a href="mfm.html">mfm</a></li>
+	    <li><a href="mfm-test-generator.html">mfm</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	    <ul>
+            <li><a>Versions 2.0.x</a>
+                <ul>
+                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
+	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
+                </ul>
+            </li>
+            <li><a>Versions 3.0.x</a>
+                <ul>
+                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
+		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
+                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
+		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
+		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
+		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
+		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.1.x</a>
+                <ul>
+		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
+		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
+		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
+		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
+		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
+		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.2.x</a>
+                <ul>
+		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
+		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
+		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.3.x</a>
+                <ul>
+		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
+		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
+                </ul>
+           </li>
+            <li><a>Versions 3.4.x</a>
+                <ul>
+		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
+                </ul>
+           </li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Extending the <code>StandardElastoViscoPlasticity</code> brick with a new stress criterion</h1>
+                  <h2 class="author">Thomas Helfer, Jérémy Hure, Mohamed Shokeir</h2>
+                  <h3 class="date">April 2020</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#extending-the-tfelmaterial-library">Extending the <code>TFEL/Material</code> library</a><ul>
+      <li><a href="#template-files">Template files</a></li>
+      <li><a href="#creating-a-proper-working-directory-for-the-example-of-the-green-criterion">Creating a proper working directory for the example of the Green criterion</a></li>
+      <li><a href="#implementing-the-green-1972-stress-criterion">Implementing the Green 1972 stress criterion</a></li>
+      </ul></li>
+      <li><a href="#extending-the-tfelmfront-library">Extending the <code>TFELMFront</code> library</a><ul>
+      <li><a href="#updating-the-working-directory">Updating the working directory</a></li>
+      <li><a href="#adding-the-stress-criterion-options">Adding the stress criterion options</a></li>
+      <li><a href="#compilation-of-the-mfront-plugin">Compilation of the <code>MFront</code> plugin</a></li>
+      </ul></li>
+      <li><a href="#references">References</a></li>
+      </ul>
+    </div>
+        
+
+<p>This document gives some insights of how a user may extend the <code>StandardElastoViscoPlasticity</code> brick by adding a new stress criterion.</p>
+<p>The <code>StandardElastoViscoPlasticity</code> brick is fully described <a href="StandardElastoViscoPlasticityBrick.html">here</a>.</p>
+<p>Introducing a new stress criterion in the <code>StandardElastoViscoPlasticity</code> brick has two main steps:</p>
+<ul>
+<li>Extending the <code>TFEL/Material</code> library.</li>
+<li>Extending the <code>TFELMFront</code> library.</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>This tutorial only covers <em>isotropic</em> stress criteria. Orthotropic stress criteria requires to take care of the orthotropic axes convention.</p>
+<p>See the documentation of the <code>@OrthotropicBehaviour</code> keyword for details:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">mfront</span> --help-keyword=Implicit:@OrthotropicBehaviour</a></code></pre></div>
+</blockquote>
+<h1 id="extending-the-tfelmaterial-library">Extending the <code>TFEL/Material</code> library</h1>
+<h2 id="template-files">Template files</h2>
+<p>We recommend that you use the following template files:</p>
+<ul>
+<li><a href="cxx/include/TFEL/Material/StressCriterionTemplate.hxx"><code>StressCriterionTemplate.hxx</code></a></li>
+<li><a href="cxx/include/TFEL/Material/StressCriterionTemplate.ixx"><code>StressCriterionTemplate.ixx</code></a></li>
+<li><a href="mfront/StressCriterionTest.mfront"><code>StressCriterionTest.mfront</code></a></li>
+<li><a href="mfront/StressCriterionTest_NumericalJacobian.mfront"><code>StressCriterionTest_NumericalJacobian.mfront</code></a></li>
+</ul>
+<p>The first file declares:</p>
+<ul>
+<li>A set of aliases</li>
+<li>A data structure holding the structure associated with the criterion.</li>
+<li>Three functions which allows the computation of:
+<ul>
+<li>The value of the stress criterion for the given stress state.</li>
+<li>The value of the stress criterion and its first derivative for the given stress state.</li>
+<li>The value of the stress criterion and its first and second derivatives for the given stress state.</li>
+</ul></li>
+</ul>
+<p>The second file give a skeleton required to implement those three functions.</p>
+<p>Implementing a new stress criterion boils down to the following steps:</p>
+<ol type="1">
+<li>Rename those file to explicitly indicate the name of the stress criterion.</li>
+<li>Replace the following strings by the appropriate values as described below:</li>
+</ol>
+<ul>
+<li><code>__Author__</code></li>
+<li><code>__Date__</code></li>
+<li><code>__StressCriterionName__</code></li>
+<li><code>__STRESS_CRITERION_NAME__</code></li>
+</ul>
+<ol start="3" type="1">
+<li>Implement the three previous functions</li>
+<li>Test your implementation in <code>MFront</code> and <code>MTest</code> (or your favorite solver).</li>
+</ol>
+<h2 id="creating-a-proper-working-directory-for-the-example-of-the-green-criterion">Creating a proper working directory for the example of the Green criterion</h2>
+<p>In this paragraph, we detail Steps 1 and 2. for the case of the Green criterion (see <span class="citation" data-cites="green_plasticity_1972">(<span class="citeproc-not-found" data-reference-id="green_plasticity_1972"><strong>???</strong></span>)</span>) which will be used as an illustrative example throughout this document. We describe all those steps in details and finally gives a shell script that automates the whole process for <code>LiNuX</code> users. When providing command line examples, we assume that the shell is <code>bash</code>.</p>
+<p>The header files <code>StressCriterionTemplate.hxx</code> and <code>StressCriterionTemplate.ixx</code> are placed in a subdirectory called <code>include/TFEL/Material</code> and renamed respectively <code>Green1972StressCriterion.hxx</code> and <code>Green1972StressCriterion.ixx</code>.</p>
+<p>The <code>MFront</code> template files must be copied in the working directory and renamed appropriatly.</p>
+<p>This can be done by taping the following commands in the terminal (under <code>LiNuX</code> or <code>Mac Os</code>):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="fu">mkdir</span> -p include/TFEL/Material</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">$ <span class="fu">mkdir</span> -p tests/test1</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">$ <span class="fu">mv</span> StressCriterionTemplate.hxx \</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">     include/TFEL/Material/Green1972StressCriterion.hxx</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">$ <span class="fu">mv</span> StressCriterionTemplate.ixx \</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">     include/TFEL/Material/Green1972StressCriterion.ixx</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">$ <span class="fu">mv</span> StressCriterionTest.mfront \</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">     tests/test1/Green1972PerfectPlasticity.mfront</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">$ <span class="fu">mv</span> StressCriterionTest_NumericalJacobian.mfront \</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">     tests/test2/Green1972PerfectPlasticity_NumericalJacobian.mfront</a></code></pre></div>
+<p>The working directory is thus organized as follows:</p>
+<p><img src="img/ExtendingStandardElastoViscoPlasticityBrick-tree.png" /></p>
+<p>In all those files, we now replace</p>
+<ul>
+<li><code>__Author__</code> by <code>Thomas Helfer, Jérémy Hure, Mohamed Shokeir</code></li>
+<li><code>__Date__</code> by <code>24/03/2019</code></li>
+<li><code>__StressCriterionName__</code> by <code>Green1972</code></li>
+<li><code>__STRESS_CRITERION_NAME__</code> by <code>GREEN_1972</code></li>
+</ul>
+<p>You may use your favourite text-editor to do this or use the following command (for <code>LiNuX</code> users) :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">for</span> <span class="ex">f</span> in <span class="va">$(</span><span class="fu">find</span> . -type f<span class="va">)</span><span class="kw">;</span>                                        <span class="kw">\</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">do</span> <span class="fu">sed</span> -i                                                          \</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  -e <span class="st">&#39;s|__Author__|Thomas Helfer, Jérémy Hure, Mohamed Shokeir|g;&#39;</span> \</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  -e <span class="st">&#39;s|__Date__|24/03/2020|g;&#39;</span>                                    \</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  -e <span class="st">&#39;s|__StressCriterionName__|Green1972|g;&#39;</span>                      \</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  -e <span class="st">&#39;s|__STRESS_CRITERION_NAME__|GREEN_1972|g&#39;</span> <span class="va">$f</span> <span class="kw">;</span>               <span class="kw">\</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="kw">done</span></a></code></pre></div>
+<p>All those steps are summarized in the following script, which can be downloaded <a href="scripts/generate.sh">here</a>.</p>
+<p>In conclusion, a recommended for starting the development of the a new stress criterion is to download the previous script, modify appropriately the first lines to match your need and run it.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>At this stage, you shall already be able to verify that the provided <code>MFront</code> implementations barely compiles by typing in the <code>tests/test1</code> directory:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="ex">mfront</span> -I <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/../../include --obuild \</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">       --interface=generic        \</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">       Green1972PerfectPlasticity.mfront</a></code></pre></div>
+<p>Note the <code>-I $(pwd)/../../include</code> flags which allows <code>MFront</code> to find the header files implementing the stress criterion (In <code>bash</code>, <code>$(pwd)</code> return the current directory).</p>
+</blockquote>
+<h2 id="implementing-the-green-1972-stress-criterion">Implementing the Green 1972 stress criterion</h2>
+<p>In this paragraph, we detail all the steps required to implement the Green 1972 stress criterion (see <span class="citation" data-cites="green_plasticity_1972">(<span class="citeproc-not-found" data-reference-id="green_plasticity_1972"><strong>???</strong></span>)</span> for the original paper, <span class="citation" data-cites="fritzen_computational_2013">Fritzen et al. (2013)</span> for the paper that we follow for this work).</p>
+<p>The green stress criterion is defined by:</p>
+<p><span class="math display">\[
+\sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,C\,\underline{s}\,\colon\,\underline{s}+F\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}^{2}}
+\]</span></p>
+<p>where <span class="math inline">\(C\)</span> and <span class="math inline">\(F\)</span> are two material properties.</p>
+<p>The implementation of a perfect plasticity in pure <code>MFront</code> is detailed in an entry of the <code>MFront</code> gallery:</p>
+<p><a href="http://tfel.sourceforge.net/greenplasticity.html" class="uri">http://tfel.sourceforge.net/greenplasticity.html</a></p>
+<p>In a new directory, we just follow the steps given by the previous paragraph:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">wget</span> http://tfel.sourceforge.net/scripts/generate.sh</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="fu">chmod</span> +x generate.sh</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="ex">./generate.sh</span></a></code></pre></div>
+<h3 id="modifying-the-green1972stresscriterionparameters-data-structure">Modifying the <code>Green1972StressCriterionParameters</code> data structure</h3>
+<p>The <code>Green1972StressCriterionParameters</code> data structure, declared in <code>Green1972StressCriterion.hxx</code>, must contain the values of the <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> material parameters.</p>
+<p>We modify it as follows:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">template</span> &lt;<span class="kw">typename</span> StressStensor&gt;</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">struct</span> Green1972StressCriterionParameters {</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="co">//! a simple alias</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="kw">using</span> real = Green1972BaseType&lt;StressStensor&gt;;</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">  <span class="co">//! </span><span class="an">\brief</span><span class="co"> </span><span class="an">\f$F\f$</span><span class="co"> material property</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">  real F;</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">  <span class="co">//! </span><span class="an">\brief</span><span class="co"> </span><span class="an">\f$C\f$</span><span class="co"> material property</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">  real C;</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">};  <span class="co">// end of struct Green1972StressCriterionParameters</span></a></code></pre></div>
+<p>The output stream operator must now be implemented in the <code>Green1972StressCriterion.ixx</code> file:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">template</span> &lt;<span class="kw">typename</span> StressStensor&gt;</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="bu">std::</span>ostream &amp;<span class="kw">operator</span>&lt;&lt;(<span class="bu">std::</span>ostream &amp;os,</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">                         <span class="at">const</span> Green1972StressCriterionParameters&lt;StressStensor&gt; &amp;p) {</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">  os &lt;&lt; <span class="st">&quot;{F: &quot;</span> &lt;&lt; p.F &lt;&lt; <span class="st">&quot;, C: &quot;</span> &lt;&lt; p.C &lt;&lt; <span class="st">&quot;}&quot;</span>;</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">  <span class="cf">return</span> os;</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">} <span class="co">// end of operator&lt;&lt;</span></a></code></pre></div>
+<p>This operator is useful when compiling <code>MFront</code> files in <code>debug</code> mode.</p>
+<h3 id="implementing-the-computegreen1972stress-function">Implementing the <code>computeGreen1972Stress</code> function</h3>
+<p>The <code>computeGreen1972Stress</code> function is implemented in the <code>Green1972StressCriterion.ixx</code> file.</p>
+<p>Following the definition of the equivalent stress, this implementation is straightforward:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">template</span> &lt;<span class="kw">typename</span> StressStensor&gt;</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">Green1972StressType&lt;StressStensor&gt; computeGreen1972Stress(</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="at">const</span> StressStensor&amp; sig,</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="at">const</span> Green1972StressCriterionParameters&lt;StressStensor&gt;&amp; p,</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">    <span class="at">const</span> Green1972StressType&lt;StressStensor&gt; seps) {</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">  <span class="at">const</span> <span class="kw">auto</span> s  = deviator(sig);</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">  <span class="at">const</span> <span class="kw">auto</span> <span class="fu">tr</span> = trace(sig);</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">  <span class="cf">return</span> <span class="bu">std::</span>sqrt(<span class="dv">3</span> * (p.C) * (s | s) / <span class="dv">2</span> + <span class="co">//</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">                   (p.F) * <span class="fu">tr</span> * <span class="fu">tr</span>);</a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">}  <span class="co">// end of computeGreen1972YieldStress</span></a></code></pre></div>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>It is worth trying to recompile the <code>MFront</code> file at this stage to see if one did not introduce any error in the <code>C++</code> code.</p>
+</blockquote>
+<h3 id="implementing-the-computegreen1972stressnormal-function">Implementing the <code>computeGreen1972StressNormal</code> function</h3>
+<p>This function computes the equivalent stress and its normal. The expression of the normal is:</p>
+<p><span class="math display">\[
+\underline{n} = {\displaystyle \frac{\displaystyle \partial f}{\displaystyle \partial \underline{\sigma}}} = {{\displaystyle \frac{\displaystyle 1}{\displaystyle \sigma_{\mathrm{eq}}}}}\,{\left({{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,C\,\underline{s}+F\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}\right)}
+\]</span></p>
+<p>This expression introduces the inverse of the equivalent stress which may lead to numerical troubles. To avoid those issues, a numerical threshold is introduced in the computation of the inverse in our implementation:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">template</span> &lt;<span class="kw">typename</span> StressStensor&gt;</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="bu">std::</span>tuple&lt;Green1972StressType&lt;StressStensor&gt;,</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">           Green1972StressNormalType&lt;StressStensor&gt;&gt;</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">computeGreen1972StressNormal(</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">    <span class="at">const</span> StressStensor&amp; sig,</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">    <span class="at">const</span> Green1972StressCriterionParameters&lt;StressStensor&gt;&amp; p,</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">    <span class="at">const</span> Green1972StressType&lt;StressStensor&gt; seps) {</a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = Green1972StressNormalType&lt;StressStensor&gt;::Id();</a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">  <span class="at">const</span> <span class="kw">auto</span> s = deviator(sig);</a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">  <span class="at">const</span> <span class="kw">auto</span> <span class="fu">tr</span> = trace(sig);</a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">  <span class="at">const</span> <span class="kw">auto</span> seq = <span class="bu">std::</span>sqrt(<span class="dv">3</span> * (p.C) * (s | s) / <span class="dv">2</span> + <span class="co">//</span></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">                             (p.F) * <span class="fu">tr</span> * <span class="fu">tr</span>);</a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">  <span class="at">const</span> <span class="kw">auto</span> iseq = <span class="dv">1</span> / (<span class="bu">std::</span>max(seq, seps));</a>
+<a class="sourceLine" id="cb9-14" data-line-number="14">  <span class="at">const</span> <span class="kw">auto</span> n = eval(iseq * ((<span class="dv">3</span> * (p.C)) / <span class="dv">2</span> * s + <span class="co">//</span></a>
+<a class="sourceLine" id="cb9-15" data-line-number="15">                              (p.F) * <span class="fu">tr</span> * id));</a>
+<a class="sourceLine" id="cb9-16" data-line-number="16">  <span class="cf">return</span> {seq, n};</a>
+<a class="sourceLine" id="cb9-17" data-line-number="17">}  <span class="co">// end of computeGreen1972StressNormal</span></a></code></pre></div>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>At this stage, the <code>MFront</code> implementation based on a numerical jacobian could be fully functional if one modifies the <code>@InitLocalVarialbes</code> block to initialize the parameters of stress criterion.</p>
+</blockquote>
+<h3 id="implementing-the-computegreen1972stresssecondderivative-function">Implementing the <code>computeGreen1972StressSecondDerivative</code> function</h3>
+<p>This function computes the equivalent stress, its normal and the derivative of the normal (i.e. the second derivative of the equivalent stress).</p>
+<p>The expression of the derivative of the normal is:</p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial \underline{n}}{\displaystyle \partial \sigma}}={{\displaystyle \frac{\displaystyle 1}{\displaystyle \sigma_{\mathrm{eq}}}}}\,{\left({{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,C\,\,\underline{\underline{\mathbf{I}}}+{\left(F-{\left({{\displaystyle \frac{\displaystyle C}{\displaystyle 2}}}\right)}\right)}\,\underline{I}\,\otimes\,\underline{I}-\underline{n}\,\otimes\,\underline{n}\right)}
+\]</span></p>
+<p>The implementation of the <code>computeGreen1972StressSecondDerivative</code> function is then:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">template</span> &lt;<span class="kw">typename</span> StressStensor&gt;</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="bu">std::</span>tuple&lt;Green1972StressType&lt;StressStensor&gt;,</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">           Green1972StressNormalType&lt;StressStensor&gt;,</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">           Green1972StressSecondDerivativeType&lt;StressStensor&gt;&gt;</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">computeGreen1972StressSecondDerivative(</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">    <span class="at">const</span> StressStensor&amp; sig,</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">    <span class="at">const</span> Green1972StressCriterionParameters&lt;StressStensor&gt;&amp; p,</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">    <span class="at">const</span> Green1972StressType&lt;StressStensor&gt; seps) {</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">  <span class="co">// a simple alias to the underlying numeric type</span></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">  <span class="kw">using</span> real = Green1972BaseType&lt;StressStensor&gt;;</a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">  <span class="co">// space dimension deduced from the type of the stress tensor</span></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> N = tfel::math::StensorTraits&lt;StressStensor&gt;::dime;                           </a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = Green1972StressNormalType&lt;StressStensor&gt;::Id();</a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = tfel::math::st2tost2&lt;N,real&gt;::Id();</a>
+<a class="sourceLine" id="cb10-15" data-line-number="15">  <span class="at">const</span> <span class="kw">auto</span> s = deviator(sig);</a>
+<a class="sourceLine" id="cb10-16" data-line-number="16">  <span class="at">const</span> <span class="kw">auto</span> <span class="fu">tr</span> = trace(sig);</a>
+<a class="sourceLine" id="cb10-17" data-line-number="17">  <span class="at">const</span> <span class="kw">auto</span> seq = <span class="bu">std::</span>sqrt(<span class="dv">3</span> * (p.C) * (s | s) / <span class="dv">2</span> + <span class="co">//</span></a>
+<a class="sourceLine" id="cb10-18" data-line-number="18">                             (p.F) * <span class="fu">tr</span> * <span class="fu">tr</span>);</a>
+<a class="sourceLine" id="cb10-19" data-line-number="19">  <span class="at">const</span> <span class="kw">auto</span> iseq = <span class="dv">1</span> / (<span class="bu">std::</span>max(seq, seps));</a>
+<a class="sourceLine" id="cb10-20" data-line-number="20">  <span class="at">const</span> <span class="kw">auto</span> n = iseq * (<span class="dv">3</span> * (p.C) * s / <span class="dv">2</span> + <span class="co">//</span></a>
+<a class="sourceLine" id="cb10-21" data-line-number="21">                         (p.F) * <span class="fu">tr</span> * id);</a>
+<a class="sourceLine" id="cb10-22" data-line-number="22">  <span class="at">const</span> <span class="kw">auto</span> dn =</a>
+<a class="sourceLine" id="cb10-23" data-line-number="23">      ((<span class="dv">3</span> * p.C / <span class="dv">2</span>) * id4 + (p.F - p.C / <span class="dv">2</span>) * (id ^ id) - (n ^ n)) *</a>
+<a class="sourceLine" id="cb10-24" data-line-number="24">      iseq;</a>
+<a class="sourceLine" id="cb10-25" data-line-number="25">  <span class="cf">return</span> {seq, n, dn};</a>
+<a class="sourceLine" id="cb10-26" data-line-number="26">}  <span class="co">// end of computeGreen1972SecondDerivative</span></a></code></pre></div>
+<h3 id="modifying-the-mfront-implementations">Modifying the <code>MFront</code> implementations</h3>
+<p>At this stage, the provided <code>MFront</code> implementations are almost working. Only the initializations of the parameters of the yield criterion is missing.</p>
+<p>First, we define two parameters called <code>F</code> and <code>C</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="er">@</span>Parameter C = <span class="fl">0.8</span>;</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">C.setEntryName(<span class="st">&quot;GreenYieldCriterion_C&quot;</span>);</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="er">@</span>Parameter F = <span class="fl">0.2</span>;</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">F.setEntryName(<span class="st">&quot;GreenYieldCriterion_F&quot;</span>);</a></code></pre></div>
+<p>And then we use two parameters to initialize the parameters of the yield criterion in the <code>@InitLocalVariables</code> block:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="er">@</span>InitLocalVariables {</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="co">// initialize the parameters from the material properties</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">  params.F = F;</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">  params.C = C;</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">  ...</a></code></pre></div>
+<h3 id="testing">Testing</h3>
+<p>At this stage, your implementations are fully functional. Go in the <code>tests/test1</code> subdirectory and compile the examples with:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" data-line-number="1">$ <span class="ex">mfront</span> -I <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/../../include --obuild --interface=generic \</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">         Green1972PerfectPlasticity.mfront              \</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">         Green1972PerfectPlasticity_NumericalJacobian.mfront</a></code></pre></div>
+<p>One may test it under a simple tensile test:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="er">@</span>Author Thomas Helfer, Jérémy Hure, Mohamed Shokeir;</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="er">@</span>Date   <span class="dv">25</span>/<span class="bn">03</span>/<span class="dv">2020</span>;</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="er">@</span>Description{</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">  A simple tensile test to check the implementation</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">  of a perfect plastic behaviour based of the Green</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">  criterion.</a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">};</a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="er">@</span>MaximumNumberOfSubSteps <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="er">@</span>Behaviour&lt;generic&gt; <span class="ch">&#39;src/libBehaviour.so&#39;</span> <span class="ch">&#39;Green1972PerfectPlasticity&#39;</span>;</a>
+<a class="sourceLine" id="cb14-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="co">// external state variables</span></a>
+<a class="sourceLine" id="cb14-13" data-line-number="13"><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;Temperature&#39;</span> <span class="fl">293.15</span>;</a>
+<a class="sourceLine" id="cb14-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="er">@</span>ImposedStrain <span class="ch">&#39;EXX&#39;</span> {</a>
+<a class="sourceLine" id="cb14-16" data-line-number="16">  <span class="dv">0</span> : <span class="dv">0</span>, <span class="dv">1</span> : <span class="dv">1</span>.e<span class="dv">-2</span></a>
+<a class="sourceLine" id="cb14-17" data-line-number="17">};</a>
+<a class="sourceLine" id="cb14-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb14-19" data-line-number="19"><span class="er">@</span>Times{<span class="dv">0</span>, <span class="dv">1</span> in <span class="dv">10</span>};</a></code></pre></div>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The numerical jacobian version fails with this time discretization at the first time step because the jacobian is singular when the stress tensor is null in perfect plasticity, which happens in the first time step.</p>
+<p>The implementation of the behaviour with analytic jacobian has a little trick in the definition of the <code>df_ddp</code> block to avoid this discrepancy.</p>
+<p>In the numerical jacobian case, one solution is to add a small time step at the beginning, while still is the elastic domain.</p>
+</blockquote>
+<p>This test allows checking that:</p>
+<ul>
+<li>The results are correct.</li>
+<li>The jacobian of the implicit system is properly computed. One may check its value against a numerical jacobian as follows:</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" data-line-number="1">$ <span class="ex">mfront</span> -I <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/../../include --obuild --interface=generic \</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">         Green1972PerfectPlasticity.mfront              \</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">         --@CompareToNumericalJacobian=true             \</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">         --@PerturbationValueForNumericalJacobianComputation=1.e-8</a></code></pre></div>
+<ul>
+<li>The convergence of the implicit algorithm is quadratic (one may compile the <code>MFront</code> file using the <code>--debug</code> flag as follows:</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb16-1" data-line-number="1">$ <span class="ex">mfront</span> -I <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/../../include --obuild --interface=generic \</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">         Green1972PerfectPlasticity.mfront --debug</a></code></pre></div>
+<ul>
+<li>The convergence of <code>MTest</code> is quadratic, i.e. that the consistent tangent operator is correct (this is just another way of checking if the jacobian of the implicit system is correct):</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb17-1" data-line-number="1">$ <span class="ex">mtest</span> Green1972PerfectPlasticity.mtest                   \</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">        --@CompareToNumericalTangentOperator=true          \</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">        --@NumericalTangentOperatorPerturbationValue=1.e-8 \</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">        --@TangentOperatorComparisonCriterium=1</a></code></pre></div>
+<h1 id="extending-the-tfelmfront-library">Extending the <code>TFELMFront</code> library</h1>
+<h2 id="updating-the-working-directory">Updating the working directory</h2>
+<p>We recommend that you use the following template files:</p>
+<ul>
+<li><a href="cxx/mfront/include/MFront/BehaviourBrick/StressCriterionTemplate.hxx"><code>StressCriterionTemplate.hxx</code></a>. Beware that this file is not the same as the one used in the first part of this document.</li>
+<li><a href="cxx/mfront/src/StressCriterionTemplate.cxx"><code>StressCriterionTemplate.cxx</code></a></li>
+</ul>
+<p>The first file must be copied in a directory called <code>mfront/include/MFront/BehaviourBrick</code> and the second one in a directory called <code>mfront/src</code> subdirectory. Both must be renamed appropriately.</p>
+<p>The working directory must now have the following structure:</p>
+<p><img src="img/ExtendingStandardElastoViscoPlasticityBrick-tree-2.png" /></p>
+<p>As in the first part of this document, <code>__Author__</code>, <code>__Date__</code>, <code>__StressCriterionName__</code> and <code>__STRESS_CRITERION_NAME__</code> must be replaced by the appropriate values.</p>
+<h2 id="adding-the-stress-criterion-options">Adding the stress criterion options</h2>
+<p>In our case, one shall only implement the <code>getOptions</code> methods to declare the <code>F</code> and <code>C</code> coefficients.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="bu">std::</span>vector&lt;OptionDescription&gt; Green1972StressCriterion::getOptions() <span class="at">const</span> {</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="kw">auto</span> opts = StressCriterionBase::getOptions();</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">  opts.emplace_back(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;First stress criterion coefficient&quot;</span>,</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">                    OptionDescription::MATERIALPROPERTY);</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">  opts.emplace_back(<span class="st">&quot;C&quot;</span>, <span class="st">&quot;Second stress criterion coefficient&quot;</span>,</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">                    OptionDescription::MATERIALPROPERTY);</a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">  <span class="cf">return</span> opts;</a>
+<a class="sourceLine" id="cb18-8" data-line-number="8">} <span class="co">// end of Green1972StressCriterion::getOptions()</span></a></code></pre></div>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The default implementation of the <code>isNormalDeviatoric</code> method declares that the normal is not deviatoric, which correct in the case of the Green criterion.</p>
+<p>If this is not the case, the implementation of this method must be changed appropriately.</p>
+</blockquote>
+<h2 id="compilation-of-the-mfront-plugin">Compilation of the <code>MFront</code> plugin</h2>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>This paragraph assumes that you are working under a standard <code>LiNuX</code> environment. In particular, we assume that you use <code>g++</code> as your <code>C++</code> compiler. This can easily be changed to match your needs.</p>
+</blockquote>
+<p>The <code>Green1972StressCriterion.cxx</code> can now be compiled in a plugin as follows. Go in the <code>mfront/src</code> directory and type:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb19-1" data-line-number="1">$ <span class="ex">g++</span> -I ../include/ <span class="kw">`</span><span class="ex">tfel-config</span> --includes <span class="kw">`</span>            \</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">      <span class="kw">`</span><span class="ex">tfel-config</span> --oflags --cppflags --compiler-flags<span class="kw">`</span>  \</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">      -DMFRONT_ADITIONNAL_LIBRARY                         \</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">      <span class="kw">`</span><span class="ex">tfel-config</span> --libs<span class="kw">`</span> -lTFELMFront                   \</a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">      --shared -fPIC Green1972StressCriterion.cxx         \</a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">      -o libAdditionalStressCriteria.so</a></code></pre></div>
+<p>The calls to <code>tfel-config</code> allows retrieving the paths to the <code>TFEL</code> headers and libraries. The <code>MFRONT_ADITIONNAL_LIBRARY</code> flag activate a portion of the source file whose only purpose is to register the <code>Green1972</code> stress criterion in an abstract factory.</p>
+<p>#r# Testing the plugin</p>
+<p>To test the plugin, go in the <code>tests/test2</code> directory.</p>
+<p>Create a file <code>Green1972PerfectPlasticity.mfront</code> with the following content:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="er">@</span>Behaviour Green1972PerfectPlasticity;</a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="er">@</span>Author Thomas Helfer, Jérémy Hure, Mohamed Shokeir;</a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="er">@</span>Date <span class="dv">25</span> / <span class="bn">03</span> / <span class="dv">2020</span>;</a>
+<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="er">@</span>Description {</a>
+<a class="sourceLine" id="cb20-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb20-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb20-9" data-line-number="9"><span class="er">@</span>Algorithm NewtonRaphson;</a>
+<a class="sourceLine" id="cb20-10" data-line-number="10"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-14</span>;</a>
+<a class="sourceLine" id="cb20-11" data-line-number="11"><span class="er">@</span>Theta <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb20-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb20-13" data-line-number="13"><span class="er">@</span>ModellingHypotheses{<span class="st">&quot;.+&quot;</span>};</a>
+<a class="sourceLine" id="cb20-14" data-line-number="14"><span class="er">@</span>Brick StandardElastoViscoPlasticity{</a>
+<a class="sourceLine" id="cb20-15" data-line-number="15">  stress_potential : <span class="st">&quot;Hooke&quot;</span> {</a>
+<a class="sourceLine" id="cb20-16" data-line-number="16">    young_modulus : <span class="fl">200e9</span>,</a>
+<a class="sourceLine" id="cb20-17" data-line-number="17">    poisson_ratio : <span class="fl">0.3</span>},</a>
+<a class="sourceLine" id="cb20-18" data-line-number="18">  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</a>
+<a class="sourceLine" id="cb20-19" data-line-number="19">    criterion : <span class="st">&quot;Green1972&quot;</span> {</a>
+<a class="sourceLine" id="cb20-20" data-line-number="20">      C : <span class="fl">0.8</span>,</a>
+<a class="sourceLine" id="cb20-21" data-line-number="21">      F : <span class="fl">0.2</span>},</a>
+<a class="sourceLine" id="cb20-22" data-line-number="22">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {</a>
+<a class="sourceLine" id="cb20-23" data-line-number="23">      R0 : <span class="fl">150e6</span>}</a>
+<a class="sourceLine" id="cb20-24" data-line-number="24">  }</a>
+<a class="sourceLine" id="cb20-25" data-line-number="25">};</a></code></pre></div>
+<p>This file can be compiled as follows:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb21-1" data-line-number="1">$ <span class="va">MFRONT_ADDITIONAL_LIBRARIES=</span>../../mfront/src/libAdditionalStressCriteria.so <span class="kw">\</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">  <span class="ex">mfront</span> -I <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/../../include/ --obuild --interface=generic                \</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">  Green1972PerfectPlasticity.mfront</a></code></pre></div>
+<p>This implementation can be checked with the same <code>MTest</code> file than in the first part of the document.</p>
+<h1 id="references" class="unnumbered">References</h1>
+<div id="refs" class="references">
+<div id="ref-fritzen_computational_2013">
+<p>Fritzen, Felix, Samuel Forest, Djimedo Kondo, and Thomas Böhlke. 2013. “Computational Homogenization of Porous Materials of Green Type.” <em>Computational Mechanics</em> 52 (1): 121–34. <a href="https://doi.org/10.1007/s00466-012-0801-z" class="uri">https://doi.org/10.1007/s00466-012-0801-z</a>.</p>
+</div>
+</div>
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

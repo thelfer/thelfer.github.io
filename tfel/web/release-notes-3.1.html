@@ -359,15 +359,15 @@
 </figure>
 <p>The <code>TFEL/Material</code> provides functions to handle advanced yield criteria, such as:</p>
 <ul>
-<li>the Hosford yield criterion (see <span class="citation" data-cites="hosford_generalized_1972">Hosford (1972)</span>). The associated functions are described in Paragraph  2.4.1.</li>
-<li>the Barlat yield criterion (see <span class="citation" data-cites="barlat_linear_2005">Barlat et al. (2005)</span>). The associated functions are described in Paragraph  2.4.2.</li>
+<li>the Hosford yield criterion (see <span class="citation" data-cites="hosford_generalized_1972">Hosford (1972)</span>). The associated functions are described in Paragraph 2.4.1.</li>
+<li>the Barlat yield criterion (see <span class="citation" data-cites="barlat_linear_2005">Barlat et al. (2005)</span>). The associated functions are described in Paragraph 2.4.2.</li>
 </ul>
 <p>Following Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">Scherzinger (2017)</span> for details), special care has been taken to avoid overflow in the evaluation of the yield stress.</p>
 <p>Those two yield criteria are based on the eigenvalues and of the stress. The computation of the second derivative, required to build the jacobian of the implicit system, is thus quite involved.</p>
 <h2 id="enhanced-numerical-reproducibility-and-stability"><span class="header-section-number">1.3</span> Enhanced numerical reproducibility and stability</h2>
 <p>This release has seen lot of work in the overall numerical reproducibility and stability of <code>TFEL</code> algorithms and lead to duplicate most of tests, who are now run using different rounding modes.</p>
 <p>Tests based on <code>mtest</code> are run <span class="math inline">\(5\)</span> times, one for each of the four rounding modes defined in the <code>IEEE754</code> norm, plus one time using a specific mode which randomly switches between those modes at various stages of the computations.</p>
-<p>Although very crude with respect to advanced approaches such as the <code>CADNA</code> library (see <span class="citation" data-cites="lamotte_cadna_c:_2010">(Lamotte, Chesneaux, and Jézéquel 2010,<span class="citation" data-cites="universite_pierre_et_marie_curie_cadna:_">[@universite_pierre_et_marie_curie_cadna:_]</span>)</span>) or the <code>verrou</code> software, developped by <code>EDF</code> on top of <code>valgrind</code> (see <span class="citation" data-cites="fevotte_verrou:_2016">Févotte and Lathuilière (2016)</span>), those checks, combined with demanding convergence criteria, have proven to be helpful and led to several developments: see for example the section  2.3.1.2 which compares various algorithms to find the eigen vectors of symmetric tensors.</p>
+<p>Although very crude with respect to advanced approaches such as the <code>CADNA</code> library (see <span class="citation" data-cites="lamotte_cadna_c:_2010">(Lamotte, Chesneaux, and Jézéquel 2010,<span class="citation" data-cites="universite_pierre_et_marie_curie_cadna:_">[@universite_pierre_et_marie_curie_cadna:_]</span>)</span>) or the <code>verrou</code> software, developped by <code>EDF</code> on top of <code>valgrind</code> (see <span class="citation" data-cites="fevotte_verrou:_2016">Févotte and Lathuilière (2016)</span>), those checks, combined with demanding convergence criteria, have proven to be helpful and led to several developments: see for example the section 2.3.1.2 which compares various algorithms to find the eigen vectors of symmetric tensors.</p>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>Old versions of the <code>libm</code> library (such as the one package with <code>Debian</code> <code>Wheezy</code> and those found on some exotic systems, such as <code>Haiku</code>), do not support working in other rounding mode than the default one (rounding to the nearest) and can crash (segfaults !).</p>
@@ -379,7 +379,7 @@
 <p>There are two potential issues with this flags:</p>
 <ul>
 <li>due to the lack of the strict IEEE compliance, the resulting code can be less portable. This can also lead to less accurate and more unstable code. In <code>TFEL/MFront</code>, it has been seen that the algorithm used to compute the eigenvalues and the eigenvectors of symmetric tensors can be affected. New algorithms, more stable but less efficient, have been introduce, as discussed below.</li>
-<li>under <code>GCC</code>, various mathematical functions of the standard library behaves in an unexpected manner and can not be trusted. For example, the <code>isnan</code> function returns <code>true</code>, even if its argument is <code>NaN</code>. This issue has been overcome by implementing proper versions of the <code>fpclassify</code>, <code>isnan</code>, <code>isfinite</code> functions, as described below in paragraph  2.3.3.</li>
+<li>under <code>GCC</code>, various mathematical functions of the standard library behaves in an unexpected manner and can not be trusted. For example, the <code>isnan</code> function returns <code>true</code>, even if its argument is <code>NaN</code>. This issue has been overcome by implementing proper versions of the <code>fpclassify</code>, <code>isnan</code>, <code>isfinite</code> functions, as described below in paragraph 2.3.3.</li>
 </ul>
 <p>To build <code>TFEL</code> with the <code>-ffast-math</code>, just pass the <code>-Denable-fast-math=ON</code> option to <code>cmake</code>.</p>
 <blockquote>
@@ -497,7 +497,7 @@
 </ul>
 <h3 id="visual-studio-support"><span class="header-section-number">1.8.1</span> <code>Visual Studio</code> support</h3>
 <p>Support of the <code>Visual Studio</code> has been greatly improved. <code>TFEL</code> versions <code>3.0.x</code> could be compiled and tested with <code>Visual Studio</code> <code>2015</code> and later, but the resulting executables were not really usable by an end user. Indeed, those versions of <code>mfront</code> could not generate a build system compatible with <code>Visual Studio</code>.</p>
-<p>For this reason, the <code>cmake</code> generator, described below in section  3.1, has been introduced.</p>
+<p>For this reason, the <code>cmake</code> generator, described below in section 3.1, has been introduced.</p>
 <h2 id="new-interfaces"><span class="header-section-number">1.9</span> New interfaces</h2>
 <p>Two new interfaces were introduced in <code>MFront</code>:</p>
 <ul>
@@ -579,7 +579,7 @@
 <li>1: Behaviour.</li>
 <li>2: Model.</li>
 </ul>
-<p>The <code>getInterface</code> method allows retrieving the interface of used to generate an entry point. The value returned is defined by <code>MFront</code> following Table  1.</p>
+<p>The <code>getInterface</code> method allows retrieving the interface of used to generate an entry point. The value returned is defined by <code>MFront</code> following Table tbl. 1.</p>
 <div id="tbl:MFrontInterfaceName">
 <table>
 <caption>Table 1: <code>MFront</code> interface name associated to finite element solvers</caption>
@@ -755,7 +755,7 @@
 </tbody>
 </table>
 </div>
-<p>The various eigen solvers available are enumerated in Table  2.</p>
+<p>The various eigen solvers available are enumerated in Table tbl. 2.</p>
 <p>The eigen solver is passed as a template argument of the <code>computeEigenValues</code> or the <code>computeEigenVectors</code> methods as illustrated in the code below:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1">tmatrix&lt;<span class="dv">3u</span>,<span class="dv">3u</span>,real&gt; m2;</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">tvector&lt;<span class="dv">3u</span>,real&gt;    vp2;</a>
@@ -960,7 +960,7 @@
 <p>For a given symmetric tensor, we consider that the computation of the eigenvalues and eigenvectors failed if: <span class="math display">\[
 \Delta_{\infty}=\max_{i\in[1,2,3]}\left\|\underline{s}\,\cdot\,\vec{v}_{i}-\lambda_{i}\,\vec{v}_{i}\right\|&gt;10\,\varepsilon
 \]</span> where <span class="math inline">\(\varepsilon\)</span> is the accuracy of the floatting point considered.</p>
-<p>The results of those tests are reported on Tables  3,  4 and  5:</p>
+<p>The results of those tests are reported on Tables tbl. 3, tbl. 4 and tbl. 5:</p>
 <ul>
 <li>The standard eigen solver available in previous versions of <code>TFEL</code> offers a very interesting compromise between accuracy and numerical efficiency.</li>
 <li>If very accurate results are required, the <code>FSESJACOBIEIGENSOLVER</code> eigen solver is a good choice.</li>

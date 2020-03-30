@@ -188,6 +188,8 @@
             <div id="TOC">
       <ul>
       <li><a href="#issues-solved">Issues solved</a><ul>
+      <li><a href="#ticket-228-many-stress-criteria-of-the-standardelastoviscoplasticity-brick-fail-when-compiling-in-c-17">Ticket #228: Many stress criteria of the StandardElastoViscoplasticity brick fail when compiling in C++-17</a></li>
+      <li><a href="#ticket-222-handling-stored-and-dissated-energies-is-broken-in-mtest-for-abaqusstandard-behaviours">Ticket #222: Handling stored and dissated energies is broken in <code>MTest</code> for <code>Abaqus/Standard</code> behaviours</a></li>
       <li><a href="#ticket-203-cyranointerface-compilation-process-hangs-when-treating-behaviours-based-on-the-hencky-strain-measure-inaxisymmetricalgeneralizedplanestress">Ticket #203: Cyrano<code>interface: compilation process hangs when treating behaviours based on the Hencky strain measure in</code>AxisymmetricalGeneralizedPlaneStress`</a></li>
       </ul></li>
       </ul>
@@ -195,6 +197,12 @@
         <p>Version <code>3.2.3</code> is mainly a bug fix version of the <code>3.2</code> series.</p>
 <p>This version was released along with Version <code>3.1.5</code> and inherits from all the fixes of this version.</p>
 <h1 id="issues-solved">Issues solved</h1>
+<h2 id="ticket-228-many-stress-criteria-of-the-standardelastoviscoplasticity-brick-fail-when-compiling-in-c-17">Ticket #228: Many stress criteria of the StandardElastoViscoplasticity brick fail when compiling in C++-17</h2>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/228/" class="uri">https://sourceforge.net/p/tfel/tickets/228/</a></p>
+<h2 id="ticket-222-handling-stored-and-dissated-energies-is-broken-in-mtest-for-abaqusstandard-behaviours">Ticket #222: Handling stored and dissated energies is broken in <code>MTest</code> for <code>Abaqus/Standard</code> behaviours</h2>
+<p>There were a bug in <code>MTest</code> in the <code>Abaqus/Standard</code> behaviours which didn’t reinitialize the values of the stored and dissipated energies at the end of the time step to their values at the beginning of the time step before the behaviour integration.</p>
+<p>Thus, the dissipated and stored energies, when computed incrementally, are the sums of their increments at each iterations.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/222/" class="uri">https://sourceforge.net/p/tfel/tickets/222/</a></p>
 <h2 id="ticket-203-cyranointerface-compilation-process-hangs-when-treating-behaviours-based-on-the-hencky-strain-measure-inaxisymmetricalgeneralizedplanestress">Ticket #203: Cyrano<code>interface: compilation process hangs when treating behaviours based on the Hencky strain measure in</code>AxisymmetricalGeneralizedPlaneStress`</h2>
 <p>The trouble came from an infinite loop when looking for the external state variable holding the axial stress.</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/203/" class="uri">https://sourceforge.net/p/tfel/tickets/203/</a></p>

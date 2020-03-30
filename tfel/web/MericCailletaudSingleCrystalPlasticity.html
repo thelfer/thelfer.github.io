@@ -376,7 +376,7 @@ f_{\alpha_{i}}&amp;= \Delta\,\alpha_{i}-\Delta\,\gamma_{i}+D\,{\left.\alpha_{i}\
 <li><span class="math inline">\({\left.x_{i}\right|_{t+\theta\,\Delta\,t}}=C\,{\left.\alpha_{i}\right|_{t+\theta\,\Delta\,t}}\)</span> with <span class="math inline">\({\left.\alpha\right|_{t+\theta\,\Delta\,t}}={\left.\alpha\right|_{t}}+\theta\,\Delta\,\alpha\)</span></li>
 <li><span class="math inline">\(\displaystyle{\left.R_{i}\right|_{t+\theta\,\Delta\,t}}=Q\,\sum_{j=1}^{N}h_{ij}\,{\left(1-\exp{\left(-b\,{\left.p_{j}\right|_{t+\theta\,\Delta\,t}}\right)}\right)}\)</span> with <span class="math inline">\({\left.p\right|_{t+\theta\,\Delta\,t}}={\left.p\right|_{t}}+\theta\,\Delta\,p\)</span></li>
 </ul>
-<p>This number of unknowns of System  4 is egal to <span class="math inline">\(6+3\,N_{ss}\)</span> where <span class="math inline">\(N_{ss}\)</span> is the number of slip systems and <span class="math inline">\(6\)</span> is the number of component of the elastic strain.</p>
+<p>This number of unknowns of System (4) is egal to <span class="math inline">\(6+3\,N_{ss}\)</span> where <span class="math inline">\(N_{ss}\)</span> is the number of slip systems and <span class="math inline">\(6\)</span> is the number of component of the elastic strain.</p>
 <h2 id="reduction-of-the-number-of-unknowns">Reduction of the number of unknowns</h2>
 <p>We now show how to reduce the size of this system to <span class="math inline">\(6+N_{ss}\)</span>.</p>
 <blockquote>
@@ -425,7 +425,7 @@ f_{\gamma_{i}}&amp;=\Delta\,\gamma_{i}-\Delta\,t\,v{\left(f\right)}\,\mathop{sgn
 <li><span class="math inline">\(f=\left|\tau_e\right|-R_{i}-\tau_0\)</span></li>
 <li><span class="math inline">\(\tau_e={\left.\tau_{i}\right|_{t+\theta\,\Delta\,t}}-{\left.x_{i}\right|_{t+\theta\,\Delta\,t}}\)</span></li>
 </ul>
-<p>The latter notations have been introduced to ease the analytical computation of the jacobian, see Section  4.1.</p>
+<p>The latter notations have been introduced to ease the analytical computation of the jacobian, see Section 4.1.</p>
 <h1 id="implementation-using-a-numerical-jacobian">Implementation using a numerical jacobian</h1>
 <h2 id="choice-of-the-domain-specific-language">Choice of the domain specific language</h2>
 <p>The implementation begins with the choice of the <code>Implicit</code> domain specific language (dsl):</p>
@@ -543,7 +543,7 @@ f_{\gamma_{i}}&amp;=\Delta\,\gamma_{i}-\Delta\,t\,v{\left(f\right)}\,\mathop{sgn
 <a class="sourceLine" id="cb12-6" data-line-number="6"><span class="er">@</span>Parameter d = <span class="fl">494.0</span>;</a>
 <a class="sourceLine" id="cb12-7" data-line-number="7"><span class="er">@</span>Parameter C = <span class="dv">14363</span>;</a></code></pre></div>
 <h3 id="integration-variables-state-variables-and-auxiliary-state-variables">Integration variables, state variables and auxiliary state variables</h3>
-<p>As described earlier (see Section  2), the viscoplastic slips <span class="math inline">\({\left({\gamma}_{i}\right)}_{i\in[1:N]}\)</span> are declared as integration variables as follows:</p>
+<p>As described earlier (see Section 2), the viscoplastic slips <span class="math inline">\({\left({\gamma}_{i}\right)}_{i\in[1:N]}\)</span> are declared as integration variables as follows:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="er">@</span>IntegrationVariable strain g[Nss];</a>
 <a class="sourceLine" id="cb13-2" data-line-number="2">g.setEntryName(<span class="st">&quot;ViscoplasticSlip&quot;</span>);</a></code></pre></div>
 <p>As discussed before, declaring the viscoplastic slips as state variables would save their values from one step to the other which can be convenient for debugging and/or post-processing.</p>
@@ -594,11 +594,11 @@ f_{\gamma_{i}}&amp;=\Delta\,\gamma_{i}-\Delta\,t\,v{\left(f\right)}\,\mathop{sgn
 <p>Thus, the evaluation of the implicit equations are mostly a loop over the slip systems which is meant to update <code>feel</code> and define the implicit equation for the considered system.</p>
 <p>This loop has three main parts:</p>
 <ol type="1">
-<li>Computing the yield stress by taking into account the contributions of the other slip systems (see Equation  2).</li>
-<li>Computing the back-strain increment and the back stress using Equations  5 and  3.</li>
-<li>Computing the plastic slip rate using the resolved shear stress (see Equation  1).</li>
+<li>Computing the yield stress by taking into account the contributions of the other slip systems (see Equation (2)).</li>
+<li>Computing the back-strain increment and the back stress using Equations (5) and (3).</li>
+<li>Computing the plastic slip rate using the resolved shear stress (see Equation (1)).</li>
 </ol>
-<p>Finally, the implementation of the implicit equations closely mimics System  6.</p>
+<p>Finally, the implementation of the implicit equations closely mimics System (6).</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1">  <span class="co">// loop over the slip systems</span></a>
 <a class="sourceLine" id="cb17-2" data-line-number="2">  <span class="cf">for</span> (<span class="dt">size_type</span> i = <span class="dv">0</span>; i != Nss; ++i) {</a>
 <a class="sourceLine" id="cb17-3" data-line-number="3">    <span class="co">// isostropic hardening</span></a>
@@ -638,7 +638,7 @@ f_{\gamma_{i}}&amp;=\Delta\,\gamma_{i}-\Delta\,t\,v{\left(f\right)}\,\mathop{sgn
 <h1 id="implementation-with-an-analytical-jacobian">Implementation with an analytical jacobian</h1>
 <p>The implementation of the behaviour with an analytical jacobian is quite similar.</p>
 <h2 id="sec:J">Jacobian</h2>
-<p>To solve System  6, one must compute its jacobian <span class="math inline">\(J\)</span>, which can be decomposed by blocks:</p>
+<p>To solve System (6), one must compute its jacobian <span class="math inline">\(J\)</span>, which can be decomposed by blocks:</p>
 <p><span class="math display">\[
 J=
 \begin{pmatrix}

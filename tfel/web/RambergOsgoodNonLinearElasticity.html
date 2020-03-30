@@ -300,12 +300,12 @@
 </ul>
 <h1 id="algorithm">Algorithm</h1>
 <h2 id="sec:StressComputation">Computation of the stress</h2>
-<p>Knowing the strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span>, integration of the behaviour, which boils down to the computation of the stress <span class="math inline">\(\underline{\sigma}\)</span>, requires the inversion of Equation  1.</p>
+<p>Knowing the strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span>, integration of the behaviour, which boils down to the computation of the stress <span class="math inline">\(\underline{\sigma}\)</span>, requires the inversion of Equation (1).</p>
 <p>The projection of this equation on the volumetric axis yields:</p>
 <p><span class="math display">\[
 {\mathrm{tr}{\left(\underline{\sigma}\right)}}=K\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{to}}\right)}}
 \]</span></p>
-<p>Taking the deviatoric part of Equation  1 yields:</p>
+<p>Taking the deviatoric part of Equation (1) yields:</p>
 <p><span id="eq:sigeto_dev"><span class="math display">\[
  \underline{s}^{e}= {\left({{\displaystyle \frac{\displaystyle \sigma_{\mathrm{eq}}}{\displaystyle 3\,\mu}}}+
  \alpha\,{\left({{\displaystyle \frac{\displaystyle \sigma_{\mathrm{eq}}}{\displaystyle \sigma_{0}}}}\right)}^{n}\right)}\,\underline{n} = 
@@ -324,7 +324,7 @@
  f{\left(\sigma_{\mathrm{eq}}\right)}=\varepsilon_{\mathrm{eq}}
 \qquad(3)\]</span></span></p>
 <p>with <span class="math inline">\(\varepsilon_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 2}{\displaystyle 3}}}\,\underline{s}^{e}\,\colon\,\underline{s}^{e}}\)</span>.</p>
-<p>The scalar Equation  3 allows resolving iteratively <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> using a standard Newton-Raphson algorithm. Let <span class="math inline">\(\sigma_{\mathrm{eq}}^{(i)}\)</span> be the current estimate of <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span>, the next estimate is given by:</p>
+<p>The scalar Equation (3) allows resolving iteratively <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> using a standard Newton-Raphson algorithm. Let <span class="math inline">\(\sigma_{\mathrm{eq}}^{(i)}\)</span> be the current estimate of <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span>, the next estimate is given by:</p>
 <p><span class="math display">\[
 \sigma_{\mathrm{eq}}^{(i+1)}=\sigma_{\mathrm{eq}}^{(i)}-{{\displaystyle \frac{\displaystyle f{\left(\sigma_{\mathrm{eq}}^{(i)}\right)}}{\displaystyle {\displaystyle \frac{\displaystyle \mathrm{d} f}{\displaystyle \mathrm{d} \sigma_{\mathrm{eq}}}}{\left(\sigma_{\mathrm{eq}}^{(i)}\right)}}}}
 \]</span></p>
@@ -332,7 +332,7 @@
 <p><span class="math display">\[
 \sigma_{\mathrm{eq}}^{(0)}=\sigma_{0}\,\sqrt[n]{{{\displaystyle \frac{\displaystyle \varepsilon_{\mathrm{eq}}}{\displaystyle \alpha}}}}
 \]</span></p>
-<p>Once <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> is known, Equations  2 and  3 allow computing the normal <span class="math inline">\(\underline{n}\)</span>:</p>
+<p>Once <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> is known, Equations (2) and (3) allow computing the normal <span class="math inline">\(\underline{n}\)</span>:</p>
 <p><span class="math display">\[
 \underline{n}=
 {{\displaystyle \frac{\displaystyle 1}{\displaystyle f{\left(\sigma_{\mathrm{eq}}\right)}}}}\,\underline{s}^{e}=
@@ -356,14 +356,14 @@
 {{\displaystyle \frac{\displaystyle 1}{\displaystyle \varepsilon_{\mathrm{eq}}}}}{\left({{\displaystyle \frac{\displaystyle 2}{\displaystyle 3}}}\,\underline{\underline{\mathbf{P}}}-\underline{n}^{e}\,\otimes\,\underline{n}^{e}\right)}\\
 \end{aligned}
 \]</span> with <span class="math inline">\(\underline{\underline{\mathbf{P}}}=\underline{\underline{\mathbf{I}}}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,\underline{I}\,\otimes\,\underline{I}\)</span></p>
-<p>Equation  4 allows computing the tangent operator as follows:</p>
+<p>Equation (4) allows computing the tangent operator as follows:</p>
 <p><span id="eq:tangentoperator"><span class="math display">\[
 {\displaystyle \frac{\displaystyle \mathrm{d} \underline{\sigma}}{\displaystyle \mathrm{d} \underline{\varepsilon}^{\mathrm{to}}}}=
 K\,\underline{I}\,\otimes\,\underline{I}+
 {\displaystyle \frac{\displaystyle \mathrm{d} \sigma_{\mathrm{eq}}}{\displaystyle \mathrm{d} \varepsilon_{\mathrm{eq}}}}\,\underline{n}^{e}\,\otimes\,\underline{n}^{e}+
 \sigma_{\mathrm{eq}}\,{\displaystyle \frac{\displaystyle \mathrm{d} \underline{n}^{e}}{\displaystyle \mathrm{d} \underline{\varepsilon}^{\mathrm{to}}}}
 \qquad(5)\]</span></span></p>
-<p><span class="math inline">\({\displaystyle \frac{\displaystyle \mathrm{d} \sigma_{\mathrm{eq}}}{\displaystyle \mathrm{d} \varepsilon_{\mathrm{eq}}}}\)</span> is obtained by derivation of Equation  3 as follows:</p>
+<p><span class="math inline">\({\displaystyle \frac{\displaystyle \mathrm{d} \sigma_{\mathrm{eq}}}{\displaystyle \mathrm{d} \varepsilon_{\mathrm{eq}}}}\)</span> is obtained by derivation of Equation (3) as follows:</p>
 <p><span id="eq:dseq_deeq"><span class="math display">\[
 f{\left(\sigma_{\mathrm{eq}}{\left(\varepsilon_{\mathrm{eq}}\right)}\right)}=\varepsilon_{\mathrm{eq}}\Rightarrow
 {\displaystyle \frac{\displaystyle \mathrm{d} \sigma_{\mathrm{eq}}}{\displaystyle \mathrm{d} \varepsilon_{\mathrm{eq}}}}={{\displaystyle \frac{\displaystyle 1}{\displaystyle {\displaystyle \frac{\displaystyle \partial f}{\displaystyle \partial \sigma_{\mathrm{eq}}}}}}}
@@ -496,15 +496,15 @@ f{\left(\sigma_{\mathrm{eq}}{\left(\varepsilon_{\mathrm{eq}}\right)}\right)}=\va
 <a class="sourceLine" id="cb11-23" data-line-number="23">    }</a>
 <a class="sourceLine" id="cb11-24" data-line-number="24">  }</a></code></pre></div>
 <p>If the equivalent strain is below the numerical threshold, a solution corresponding to an elastic behaviour is returned.</p>
-<p>In the other case, a local Newton algorithm is used to determine <code>σₑ</code> and <code>∂σₑ∕∂εₑ</code>, as described by Section  2.1. Except for the usage of a lambda function called <code>ifdf</code>, the code is quite easy to read. A lambda function can be seen as a local function which allows to factorise the code computing the residual and its derivative. The syntax <code>[&amp;]</code> means that the lambda function of has access to all the variables of the surrounding scope by references. Note that we used Equation  6 to identify <span class="math inline">\({{\displaystyle \frac{\displaystyle 1}{\displaystyle {\displaystyle \frac{\displaystyle \mathrm{d} f}{\displaystyle \mathrm{d} \sigma_{\mathrm{eq}}}}}}}\)</span> to <code>∂σₑ∕∂εₑ</code>.</p>
+<p>In the other case, a local Newton algorithm is used to determine <code>σₑ</code> and <code>∂σₑ∕∂εₑ</code>, as described by Section 2.1. Except for the usage of a lambda function called <code>ifdf</code>, the code is quite easy to read. A lambda function can be seen as a local function which allows to factorise the code computing the residual and its derivative. The syntax <code>[&amp;]</code> means that the lambda function of has access to all the variables of the surrounding scope by references. Note that we used Equation (6) to identify <span class="math inline">\({{\displaystyle \frac{\displaystyle 1}{\displaystyle {\displaystyle \frac{\displaystyle \mathrm{d} f}{\displaystyle \mathrm{d} \sigma_{\mathrm{eq}}}}}}}\)</span> to <code>∂σₑ∕∂εₑ</code>.</p>
 <h3 id="computation-of-the-stress">Computation of the stress</h3>
-<p>The computation of the stress is a direct translation of Equation  4:</p>
+<p>The computation of the stress is a direct translation of Equation (4):</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1">  σ = K ⋅ trace(ε) ⋅ I₂ + σₑ ⋅ ne;</a></code></pre></div>
 <h3 id="finalisation">Finalisation</h3>
 <p>The <code>@Integrator</code> code block ends with a final curly brace.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1">} <span class="co">// end of @Integrator</span></a></code></pre></div>
 <h1 id="computation-of-the-tangent-operator-1">Computation of the tangent operator</h1>
-<p>The following block compute the tangent operator using Equation  5:</p>
+<p>The following block compute the tangent operator using Equation (5):</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="er">@</span>TangentOperator{</a>
 <a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> P = I₄ - (I₂ ⊗ I₂) / <span class="dv">3</span>;</a>
 <a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="cf">if</span> ((smt == ELASTIC) || (smt == SECANTOPERATOR)) {</a>

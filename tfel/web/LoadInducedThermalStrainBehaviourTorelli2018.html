@@ -323,14 +323,14 @@
 <p>where <span class="math inline">\(T_{\mathrm{max}}\)</span> is the maximal temperature seen by the material over time.</p>
 <p>The negative part of the stress <span class="math inline">\({\left&lt;\sigma\right&gt;_{-}}\)</span> is an isotropic function of the stress. <code>TFEL/Math</code>, the mathematical library behind <code>MFront</code>, offers dedicated functions to compute its value and its derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\left&lt;\sigma\right&gt;_{-}}}{\displaystyle \partial \underline{\sigma}}}\)</span>.</p>
 <h1 id="implicit-scheme">Implicit scheme</h1>
-<p>Equation  3 can be discretized using a standard implicit scheme as follows:</p>
+<p>Equation (3) can be discretized using a standard implicit scheme as follows:</p>
 <p><span id="eq:felits"><span class="math display">\[
 \Delta\,\underline{\varepsilon}^{\mathrm{LITS}}=C\,\eta{\left({\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right)}\,\underline{s}
 \qquad(4)\]</span></span></p>
 <p>where:</p>
 <ul>
 <li><span class="math inline">\(\theta\)</span> is a numerical parameter (<span class="math inline">\(\theta \in \left[0:1\right]\)</span>.</li>
-<li><span class="math inline">\({\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\)</span> is evaluated by Equation  2: <span class="math display">\[
+<li><span class="math inline">\({\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\)</span> is evaluated by Equation (2): <span class="math display">\[
   {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}={\left.\lambda\right|_{t+\theta\,\Delta\,t}}\,{\mathrm{tr}{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}\right)}}+
                 2\,{\left.\mu\right|_{t+\theta\,\Delta\,t}}\,{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}+
 \]</span></li>
@@ -340,8 +340,8 @@
 <li><span class="math inline">\(\underline{s}= -\nu_{\mathrm{LITS}}{\mathrm{tr}{\left({\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\right)}}\,\underline{I}+{\left(1-\nu_{\mathrm{LITS}}\right)}\,{\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\)</span></li>
 </ul>
 <p>In the previous expressions, <span class="math inline">\(\Delta\,T_{e}\)</span> is the effective temperature increment.</p>
-<p>Equation  4 shows that <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{LITS}}\)</span> is known if <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span> is known.</p>
-<p>Using Equation  1 in its increment form thus leads to the following non linear equation whose only unknows is <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span>:</p>
+<p>Equation (4) shows that <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{LITS}}\)</span> is known if <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span> is known.</p>
+<p>Using Equation (1) in its increment form thus leads to the following non linear equation whose only unknows is <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span>:</p>
 <p><span id="eq:feel"><span class="math display">\[
 f_{\underline{\varepsilon}^{\mathrm{el}}}=\Delta\,\underline{\varepsilon}^{\mathrm{el}}+\Delta\,\underline{\varepsilon}^{\mathrm{LITS}}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\right)}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}=\underline{0}
 \qquad(5)\]</span></span></p>
@@ -526,7 +526,7 @@ C\,\left[
 <p><strong>About the choice of the eigensolver</strong></p>
 <p>Here we used a the Jacobi algorithm as implemented in <span class="citation" data-cites="kopp_efficient_2008">Kopp (2008)</span>. This algorithm is lower but more accurate than the default one (see <a href="tensors.html">here</a> for an indepth comparison of available algorithms.</p>
 </blockquote>
-<p>The next step is to compute <span class="math inline">\({\left.\eta\right|_{t+\theta\,\Delta\,t}}\)</span> and its derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.sig\right|_{t+\theta\,\Delta\,t}}}}\)</span> (See Equation  6):</p>
+<p>The next step is to compute <span class="math inline">\({\left.\eta\right|_{t+\theta\,\Delta\,t}}\)</span> and its derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.sig\right|_{t+\theta\,\Delta\,t}}}}\)</span> (See Equation (6)):</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1">  <span class="co">//----- Multiaxial correction coefficient</span></a>
 <a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> sn_eq = sqrt(sn | sn);</a>
 <a class="sourceLine" id="cb18-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> isn_eq = <span class="dv">1</span> / max(seps, sn_eq);</a>

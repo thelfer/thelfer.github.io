@@ -282,7 +282,7 @@
 <li>Simple point-wise models, such as material swelling used in fuel performance codes.</li>
 </ul>
 <p>Authors of <code>MFront</code> paid particular attention to the robustness, reliability and numerical efficiency of the generated code, in particular for mechanical behaviours: various benchmarks show that <code>MFront</code> implementations are competitive with native implementations available in the <code>Cast3M</code> <span class="citation" data-cites="cea_site_2016">CEA (2016)</span>, <code>Code_Aster</code> <span class="citation" data-cites="edf_site_2016">EDF (2016)</span>, <code>Europlexus</code> <span class="citation" data-cites="cea_epx_2016">CEA and JRC (2016)</span>, <code>Abaqus/Standard</code> , <code>Abaqus/Explicit</code> <span class="citation" data-cites="dassault_abaqus_2016 deloison_testing_2016">(Dassault Systèmes 2016; Deloison and Congourdeau 2016)</span> and <code>Cyrano3</code> <span class="citation" data-cites="petry_advanced_2015">Petry and Helfer (2015)</span> solvers.</p>
-<p>Portability is also a very important issue: a behaviour written in <code>MFront</code> shall be usable in a solvers for which an interface exists. For example, for finite strain analysis, each solver has chosen a specific definition of the consistent tangent operator. <code>MFront</code> will convert the operator provided by the user, who is free to choose the most convenient operator to ease the implementation effort, into the one expected by the solver. The conversion paths currently available are depicted on Figure  1.</p>
+<p>Portability is also a very important issue: a behaviour written in <code>MFront</code> shall be usable in a solvers for which an interface exists. For example, for finite strain analysis, each solver has chosen a specific definition of the consistent tangent operator. <code>MFront</code> will convert the operator provided by the user, who is free to choose the most convenient operator to ease the implementation effort, into the one expected by the solver. The conversion paths currently available are depicted on Figure 1.</p>
 <figure>
 <img src="img/FiniteStrainTangentOperatorConvertion.svg" title="Supported relations between tangent operators in `MFront`" alt="Figure 1: “Relation between tangent operators”" id="fig:FiniteStrainTangentOperatorConvertion" style="width:75.0%" /><figcaption>Figure 1: “Relation between tangent operators”</figcaption>
 </figure>
@@ -307,7 +307,7 @@
 <li>Definition and automatic computation of elastic material properties from external <code>MFront</code> files.</li>
 <li>Support for the automatic computation of the thermal expansion and swelling in the mechanical behaviour.</li>
 <li>Better support for orthotropic behaviours with the notion of orthotropic convention which affects various keywords (<code>@ComputeStiffnessTensor</code>, <code>@ComputeThermalExpansion</code>, <code>@Swelling</code>, <code>@AxialGrowth</code>, <code>@HillTensor</code> etc..).</li>
-<li>An initial support of non local mechanical behaviours. See for example Figure  2.</li>
+<li>An initial support of non local mechanical behaviours. See for example Figure 2.</li>
 <li>Time steps management from the mechanical behaviour.</li>
 <li>Consistent tangent operator support in the <code>Cast3M</code> interface.</li>
 <li>Easier computations of isotropic functions of symmetric tensors and their derivatives.</li>
@@ -343,10 +343,10 @@
 <figure>
 <img src="img/epx-bars.png" alt="Figure 3: Impact of two bars" id="fig:epx" style="width:75.0%" /><figcaption>Figure 3: Impact of two bars</figcaption>
 </figure>
-<p>Figure  3 shows a simple test simulating the impact of two bars.</p>
+<p>Figure 3 shows a simple test simulating the impact of two bars.</p>
 <div id="tbl:epx">
 <table>
-<caption>Table 1: Example of comparison of the computation times for the test depicted on Figure  3 for various behaviours describing istropic plasticity with linear isotropic hardening.</caption>
+<caption>Table 1: Example of comparison of the computation times for the test depicted on Figure 3 for various behaviours describing istropic plasticity with linear isotropic hardening.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Behaviour</th>
@@ -373,7 +373,7 @@
 </tbody>
 </table>
 </div>
-<p>This tests show that, for simple behaviours describing isotropic plasticty, <code>MFront</code> behaviours seems a bit less efficient than Fortran built-in implementations, as reported on Table  1. However, it shall be stated that the behaviours tested are not strictly equivalent (native behaviours are based on objective stress rates while <code>MFront</code> ones are hyperelastoplastic). <code>MFront</code> computational times can be improved by keeping some intermediate results for one step to the next to the expense of memory usage.</p>
+<p>This tests show that, for simple behaviours describing isotropic plasticty, <code>MFront</code> behaviours seems a bit less efficient than Fortran built-in implementations, as reported on Table tbl. 1. However, it shall be stated that the behaviours tested are not strictly equivalent (native behaviours are based on objective stress rates while <code>MFront</code> ones are hyperelastoplastic). <code>MFront</code> computational times can be improved by keeping some intermediate results for one step to the next to the expense of memory usage.</p>
 <p>This interface is fully described here: <a href="http://tfel.sourceforge.net/epx.html" class="uri">http://tfel.sourceforge.net/epx.html</a></p>
 <p><em>Acknowledgements</em> This work was accomplished within the framework of the “dynamique rapide” project, financially supported by the CEA and EDF.</p>
 <h3 id="abaqusstandard-abaqusexplicit-and-calculix"><code>Abaqus/Standard</code>, <code>Abaqus/Explicit</code> and <code>CalculiX</code></h3>
@@ -407,7 +407,7 @@
 </figure>
 <div id="tbl:abaqusexplicit">
 <table>
-<caption>Table 2: Comparison of computational times for a simple isotropic plasticity behaviour with linear kinematic hardening applied to the punching test depicted on Figure  4.</caption>
+<caption>Table 2: Comparison of computational times for a simple isotropic plasticity behaviour with linear kinematic hardening applied to the punching test depicted on Figure 4.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Implementation</th>
@@ -430,7 +430,7 @@
 </tbody>
 </table>
 </div>
-<p>In <code>Abaqus/Explicit</code>, we found that our implementations are about <span class="math inline">\(20\,\%\)</span> slower than the native ones on the simulation of the punching test depicted on Figure  4 for an isotropic plastic behaviour with linear isotropic hardening. However, our implementations are nearly equivalent to <code>VUMAT</code> implementations described in <span class="citation" data-cites="abaqus_vumat_2016">Abaqus Inc. (2005)</span> (see Table  2). This difference can have several explanations:</p>
+<p>In <code>Abaqus/Explicit</code>, we found that our implementations are about <span class="math inline">\(20\,\%\)</span> slower than the native ones on the simulation of the punching test depicted on Figure 4 for an isotropic plastic behaviour with linear isotropic hardening. However, our implementations are nearly equivalent to <code>VUMAT</code> implementations described in <span class="citation" data-cites="abaqus_vumat_2016">Abaqus Inc. (2005)</span> (see Table tbl. 2). This difference can have several explanations:</p>
 <ul>
 <li>the <code>VUMAT</code> implementation is based on an update of the stresses whereas the <code>MFront</code> implementation keeps the elastic strain as an internal state variable.</li>
 <li>the <code>VUMAT</code> implementation is compiled using the <code>INTEL</code> compiler and the <code>MFront</code> implementation is compiled with <code>gcc</code>.</li>
@@ -450,7 +450,7 @@
 <li>The additional equations associated with the plane stress and generalised plane stresss modelling hypotheses support.</li>
 </ul>
 <p>This brick works with isotropic of orthotropic small-strain behaviours implemented using the <code>Implicit</code> domain specific language.</p>
-<p>The use of bricks leads to much smaller, more robust and more portable implementations of mechanical behaviours. The user can focus on the specific parts of the behaviour. Listing  1 shows how a implicit implementation with analytical jacobian of the Norton behaviours can now be written in about 25 lines of codes (without the blank and comment lines).</p>
+<p>The use of bricks leads to much smaller, more robust and more portable implementations of mechanical behaviours. The user can focus on the specific parts of the behaviour. Listing lst. 1 shows how a implicit implementation with analytical jacobian of the Norton behaviours can now be written in about 25 lines of codes (without the blank and comment lines).</p>
 <div id="lst:norton" class="listing numberLines cpp">
 <p>Listing 1: Implicit implementation of the Norton behaviour</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource numberLines cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
@@ -526,7 +526,7 @@
 </tbody>
 </table>
 </div>
-<p>Being very specialized, this extension leads to computational times significantly lower than with general purpose finite element solver (see Table  3).</p>
+<p>Being very specialized, this extension leads to computational times significantly lower than with general purpose finite element solver (see Table tbl. 3).</p>
 <h2 id="new-acceleration-algorithms-in-mtest">New acceleration algorithms in <code>MTest</code></h2>
 <p>The <code>Cast3M</code> finite element solver does not use by default a standard Newton-Raphson algorithm which would require the computation of the consistent tangent operator, but relies on a quasi-Newton algorithm using the elastic stiffness. The displacement is corrected by this fixed point iteration: <span class="math display">\[
 \Delta\,\mathbb{U}^{n+1}=\Delta\,\mathbb{U}^{n}-\mathbb{K}^{-1}_{\mathrm{el}}\,\cdot\,\mathbb{R}\left(\Delta\,\mathbb{U}^{n}\right)
@@ -537,7 +537,7 @@
 <figure>
 <img src="img/anderson-withwithoutacceleration.svg" alt="Figure 5: Convergence of the TMFFT solver with and without acceleration (see Castelier, Gélébart, and Helfer (2016) for details)" id="fig:UAnderson" style="width:75.0%" /><figcaption>Figure 5: Convergence of the TMFFT solver with and without acceleration (see <span class="citation" data-cites="castelier_using_2016">Castelier, Gélébart, and Helfer (2016)</span> for details)</figcaption>
 </figure>
-<p>Those algorithms were improved by É. Castelier to accelerate the equilibrium iterations of the TMFFT solver (see <span class="citation" data-cites="castelier_using_2016">Castelier, Gélébart, and Helfer (2016)</span>) for systems with several millions of degrees of freedom (see Figure  5). They are available in <code>MTest</code> with the name <code>UAnderson</code> and <code>FAnderson</code>. The implementations of those algorithms, which require a special care to get accurate and reliable results, are available as autonomous classes which can be used outside <code>MTest</code>.</p>
+<p>Those algorithms were improved by É. Castelier to accelerate the equilibrium iterations of the TMFFT solver (see <span class="citation" data-cites="castelier_using_2016">Castelier, Gélébart, and Helfer (2016)</span>) for systems with several millions of degrees of freedom (see Figure 5). They are available in <code>MTest</code> with the name <code>UAnderson</code> and <code>FAnderson</code>. The implementations of those algorithms, which require a special care to get accurate and reliable results, are available as autonomous classes which can be used outside <code>MTest</code>.</p>
 <h2 id="a-stable-api-to-build-external-tools-application-to-the-mechanical-behaviours-identification-developed-in-the-map-plateform">A stable API to build external tools: application to the mechanical behaviours identification developed in the MAP plateform</h2>
 <p>With version 3.0.x, <code>MFront</code> and <code>MTest</code> now provide stable API in <code>C++</code> and <code>Python</code> upon which external tools can be built.</p>
 <p>This is illustrated by the recent development by EDF of an identification tool, called <code>c_solver_constitutive_law_0d</code>, in the <code>Material Ageing Plateform</code> (MAP) based on:</p>

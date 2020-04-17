@@ -10,7 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>mgis_fenics_nonlinear_heat_transfer</title>
+    <title>Stationnary non-linear heat transfer</title>
+        <meta name="author" content="Jérémy Bleyer, Thomas Helfer" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
@@ -89,8 +90,12 @@
         <header>
     </header>
     <br></br>
-            <h1 id="stationnary-non-linear-heat-transfer">Stationnary non-linear heat transfer</h1>
-<h2 id="description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</h2>
+        <div id="header">
+      <h1 class="title">Stationnary non-linear heat transfer</h1>
+                  <h2 class="author">Jérémy Bleyer, Thomas Helfer</h2>
+                  <h3 class="date">17/04/2020</h3>
+          </div>
+            <h1 id="description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</h1>
 <p>The thermal material is described by the following non linear Fourier Law:</p>
 <p><span class="math display">\[
 \mathbf{j}=-k\left(T\right)\,\mathbf{\nabla} T
@@ -167,7 +172,7 @@ k\left(T\right)={\displaystyle \frac{\displaystyle 1}{\displaystyle A+B\,T}}
 <a class="sourceLine" id="cb9-2" data-line-number="2">  ∂j∕∂Δ∇T = -k ⋅ tmatrix&lt;N, N, real&gt;::Id();</a>
 <a class="sourceLine" id="cb9-3" data-line-number="3">  ∂j∕∂ΔT  =  B ⋅ k ⋅ k ⋅ (∇T + Δ∇T);</a>
 <a class="sourceLine" id="cb9-4" data-line-number="4">} <span class="co">// end of @TangentOperator </span></a></code></pre></div>
-<h2 id="fenics-implementation">FEniCS implementation</h2>
+<h1 id="fenics-implementation">FEniCS implementation</h1>
 <p>We consider a rectanglar domain with imposed temperatures <code>Tl</code> (resp. <code>Tr</code>) on the left (resp. right boundaries). We want to solve for the temperature field <code>T</code> inside the domain using a <span class="math inline">\(P^1\)</span>-interpolation. We initialize the temperature at value <code>Tl</code> throughout the domain. We finally load the material library with a <code>plane_strain</code> hypothesis.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="op">%</span>matplotlib notebook</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>

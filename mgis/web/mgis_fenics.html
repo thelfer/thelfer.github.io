@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Introduction to the FEniCS interface to MGIS</title>
+        <meta name="author" content="Bleyer Jeremy" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Introduction to the FEniCS interface to MGIS</h1>
+                  <h2 class="author">Bleyer Jeremy</h2>
+                  <h3 class="date">April 5th 2020</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#documented-demos">Documented demos</a></li>
+      <li><a href="#a-brief-overview-of-the-mgis.fenics-module">A brief overview of the <code>mgis.fenics</code> module</a><ul>
+      <li><a href="#the-mfrontnonlinearmaterial-class">The <code>MFrontNonlinearMaterial</code> class</a></li>
+      <li><a href="#the-mfrontnonlinearproblem-class">The <code>MFrontNonlinearProblem</code> class</a><ul>
+      <li><a href="#residual-and-tangent-bilinear-form">Residual and tangent bilinear form</a></li>
+      <li><a href="#flux-and-gradient-objects"><code>Flux</code> and <code>Gradient</code> objects</a></li>
+      <li><a href="#the-registration-concept">The registration concept</a></li>
+      </ul></li>
+      <li><a href="#the-mfrontoptimisationproblem-class">The <code>MFrontOptimisationProblem</code> class</a></li>
+      <li><a href="#current-limitations">Current limitations</a></li>
+      </ul></li>
+      </ul>
+    </div>
+        
+<p>These pages are intended to describe the <code>FEniCS</code> interface to <code>MGIS</code> available in the <code>mgis.fenics</code> Python module. This module has been developed in the spirit of providing sa upport to the implementation of generalized nonlinear behaviours i.e. including multiple gradients and dual flux variables. It can also be used as a simple interface to standard mechanical behaviours (see the plasticity demos). We briefly describe <a href="#a-brief-overview-of-the-mgis.fenics-module">here</a> the general concepts underlying the module implementation.</p>
+<h1 id="documented-demos">Documented demos</h1>
+<p>The provided documented demos have been designed to progressively illustrate the use of the interface and the versatility of the approach when implementing complex generalized behaviours, both on the <code>MFront</code> and <code>FEniCS</code> sides. We recommend browsing the demos in the following order:</p>
+<ul>
+<li><a href="mgis_fenics_nonlinear_heat_transfer.html">Stationnary non-linear heat transfer</a></li>
+<li><a href="mgis_fenics_nonlinear_heat_transfer_3D.html">Stationnary non-linear heat transfer: 3D problem and performance comparisons</a></li>
+<li><a href="mgis_fenics_small_strain_elastoplasticity.html">Small-strain von Mises elastoplasticity</a></li>
+<li><a href="mgis_fenics_finite_strain_elastoplasticity.html">Finite-strain elastoplasticity within the logarithmic strain framework</a></li>
+<li><a href="mgis_fenics_multiphase_model.html">Multiphase model for fiber-reinforced materials</a></li>
+<li><a href="mgis_fenics_phase_field.html">Phase-field approach to brittle fracture</a></li>
+<li><a href="mgis_fenics_transient_nonlinear_heat_equation.html">Transient non-linear heat equation</a></li>
+</ul>
+<h1 id="a-brief-overview-of-the-mgis.fenics-module">A brief overview of the <code>mgis.fenics</code> module</h1>
+<p>This module has been developed based on the concepts exposed in the <a href="https://comet-fenics.readthedocs.io/en/latest/demo/plasticity_mfront/plasticity_mfront.py.html">Elasto-plastic analysis implemented using the MFront code generator</a> demo published on <a href="https://comet-fenics.readthedocs.io">Numerical Tours of Computational Mechanics using FEniCS</a>. We suggest reading first this demo as an introduction to this module implementation concepts. In particular, the module relies on the notion of <code>Quadrature</code> function spaces to express the constitutive relation at the quadrature points level. Their definition will however be handled directly inside the <a href="#the-mfrontnonlinearproblem-class"><code>MFrontNonlinearProblem</code></a> class. The module will also rely on the <code>NewtonSolver</code> available in FEniCS instead of programming the Newton method manually. We also provide access to non-linear optimisation solvers (see the <a href="#the-mfrontoptimisationproblem-class"><code>MFrontOptimisationProblem</code> class</a>). Finite-strain behaviours are now supported as well as parallel computations.</p>
+<h2 id="the-mfrontnonlinearmaterial-class">The <code>MFrontNonlinearMaterial</code> class</h2>
+<p>This class handles the loading of a MFront behaviour through MGIS. In particular, it will contain the following important attributes:</p>
+<ul>
+<li><p><code>behaviour</code>: an instance of MGIS <code>Behaviour</code> class which handles all the information about a specific MFront behaviour. It is created by the <code>load</code> function which takes the path to a library, the name of a behaviour and a modelling hypothesis.</p>
+<p>Note that before loading the behaviour, it is checked if the behaviour is a finite-strain one or not. In the former case, specific finite-strain options are used when calling <code>load</code>. Such options specify that the stress measure will be post-processed by MGIS from Cauchy to First Piola Kirchhoff (PK1) stress and that the tangent operator will be given by <span class="math inline">\(\dfrac{\partial \text{PK1}}{\partial F}\)</span> (<code>DPK1_DF</code>).</p></li>
+<li><p><code>data_manager</code>: an instance of MGIS <code>MaterialDataManager</code> class which handles a bunch of integration points. It is instantiated using <code>behaviour</code>and the number of integration points</p></li>
+</ul>
+<p>A set of helper functions enables to retrieve information about MFront object names and sizes of the form</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="va">self</span>.get_{<span class="dv">1</span>}_{<span class="dv">2</span>}</a></code></pre></div>
+<p>where <code>{1}</code> can be any of <code>material_property</code>, <code>external_state_variable</code>, <code>internal_state_variable</code>, <code>gradient</code>, <code>flux</code> or <code>tangent_block</code> and <code>{2}</code> can be any of <code>names</code> or <code>sizes</code>.</p>
+<h2 id="the-mfrontnonlinearproblem-class">The <code>MFrontNonlinearProblem</code> class</h2>
+<p>This class handles the definition and resolution of a nonlinear problem associated with a <code>MFrontNonlinearMaterial</code>. Its main attributes are:</p>
+<ul>
+<li><p><code>u</code>: the unknown mechanical field <span class="math inline">\(u\)</span> (a <code>dolfin.Function</code>)</p></li>
+<li><p><code>material</code>: the associated <code>MFrontNonlinearMaterial</code></p></li>
+<li><p><code>state_variables</code>: a dictionary of internal and external state variables. External state variables are represented as <code>dolfin</code> objects whereas internal state variables are represented as <a href="#flux-and-gradient-objects">Quadrature functions</a>.</p></li>
+<li><p><code>gradients</code>: a dictionary of <code>Gradient</code> objects</p></li>
+<li><p><code>fluxes</code>: a dictionary of <code>Flux</code> objects</p></li>
+<li><p><code>residual</code>: the nonlinear residual <span class="math inline">\(F(u)\)</span></p></li>
+<li><p><code>tangent_form</code>: the tangent bilinear form associated with the residual</p></li>
+<li><p><code>solver</code>: the non-linear solver (default is <code>NewtonSolver</code>)</p></li>
+</ul>
+<p>Its main methods are:</p>
+<ul>
+<li><p><code>register_gradient</code>: registers a MFront gradient with a UFL expression (see <a href="#the-registration-concept">the registration concept</a>).</p></li>
+<li><p><code>register_external_state_variable</code>: registers a MFront external state variable with a UFL expression (see <a href="#the-registration-concept">the registration concept</a>).</p></li>
+<li><p><code>set_loading</code>: defines the external forces linear form <span class="math inline">\(L(v)\)</span> in the default residual expression</p></li>
+<li><p><code>initialize</code>: initializes the functions associated with gradients, fluxes, external and internal state variables objects and the corresponding tangent blocks. All gradients and external state variables must have been registered first. <a href="#the-registration-concept">Automatic registration</a> is performed at the beginning of the method call. This method has to be called once before calling <code>solve</code>.</p></li>
+<li><p><code>update_constitutive_law</code>: performs the consitutive law update. Currently, this method is called for all quadrature points before assembling the residual or tangent form. Ideally, this should be done locally during the assembly (see <a href="#current-limitations">the module current limitations</a>).</p></li>
+<li><p><code>solve</code>: solves the associated non-linear problem using <code>solver</code></p></li>
+<li><p><code>get_flux</code>: returns the function associated with a flux</p></li>
+<li><p><code>get_state_variable</code>: returns the function associated with an internal state variable</p></li>
+</ul>
+<h3 id="residual-and-tangent-bilinear-form">Residual and tangent bilinear form</h3>
+<p>By default, the nonlinear residual is assumed to take the following form: Find <span class="math inline">\(u\in V\)</span> such that:</p>
+<p><span class="math display">\[
+\begin{equation}
+ \sum_{i=1}^p \int_{\Omega}\boldsymbol{\sigma}_i(u)\cdot\delta\mathbf{g}_i(v) \,\text{dx}- L(v) = 0 \quad \forall v\in V 
+\tag{residual}
+\label{residual}
+\end{equation}
+\]</span></p>
+<p>where the <span class="math inline">\(\boldsymbol{\sigma}_i(u)\)</span> are a set of <strong>fluxes</strong> as defined in the MFront behaviour using <code>@Flux</code> and <span class="math inline">\(\mathbf{g}_i\)</span> are the corresponding set of <strong>gradients</strong>, declared using <code>@Gradient</code>. <span class="math inline">\(\delta \mathbf{g}_i(v)\)</span> denotes the directional derivative of <span class="math inline">\(\mathbf{g}_i\)</span> along direction <span class="math inline">\(v\)</span>, a <code>TestFunction</code> of the function space <span class="math inline">\(V\)</span>, and <span class="math inline">\(L(v)\)</span> is a linear form which can be expressed using standard UFL operators. From the mechanical point of view, this residual expresses the balance between internal and external forces.</p>
+<p>This generic form is suitable for most quasi-static mechanical problems but it does not necessarily encompass all possible situations. In particular, evolution equations such as transient heat transfer cannot be expressed in this form. However, this is not a limitation since the residual can also be redefined explicitly by the user (see <a href="demos/transient_nonlinear_heat_equation.html">Transient non-linear heat equation</a>).</p>
+<p>Either for the default or a user-defined one, the tangent operator associated with the residual is computed automatically using either the UFL symbolic derivation <code>ufl.derivative</code> for simple terms (e.g. involving the unknown field <span class="math inline">\(u\)</span>) or using tangent operator blocks defined in the MFront behaviour for the nonlinear fluxes and internal state variables. More precisely, the variation of each flux is given by:</p>
+<p><span class="math display">\[
+\dfrac{\partial \boldsymbol{\sigma}_i}{\partial u} = \sum_{j\in \text{blocks}(i)} \mathbb{T}^{\boldsymbol{\sigma}_i}_{\mathbf{g}_j}\cdot \delta \mathbf{g}_j(u)
+\]</span> where the flux <span class="math inline">\(\boldsymbol{\sigma}_i\)</span> is assumed to depend on the gradients <span class="math inline">\(\mathbf{g}_j\)</span> for <span class="math inline">\(j\in \text{blocks}(i)\)</span> (which at least contains <span class="math inline">\(i\)</span> itself in general) and <span class="math inline">\(\mathbb{T}^{\boldsymbol{\sigma}_i}_{\mathbf{g}_j} = \dfrac{\partial \boldsymbol{\sigma}_i}{\partial \mathbf{g}_j}\)</span> is the tangent operator associated with the corresponding block. Variations of internal state variables are computed in the same manner.</p>
+<p>In the default case, the tangent bilinear form therefore reads as:</p>
+<p><span class="math display">\[
+a_\text{tangent}(u, v) = \sum_{i=1}^p \sum_{j\in\text{blocks}(i)}\int_{\Omega}\delta\mathbf{g}_j(u)\cdot \mathbb{T}^{\boldsymbol{\sigma}_i}_{\mathbf{g}_j} \cdot\delta\mathbf{g}_i(v) \,\text{dx}
+\]</span></p>
+<h3 id="flux-and-gradient-objects"><code>Flux</code> and <code>Gradient</code> objects</h3>
+<p>Two helper classes have been defined to handle flux and gradient objects:</p>
+<ul>
+<li><p>the <code>Gradient</code> class provides a representation of MFront gradient objects. Its main purpose is to provide the corresponding UFL expression, linking MFront and FEniCS concepts. It also handles:</p>
+<ul>
+<li>the reshaping from UFL tensorial representation to MFront vectorial conventions</li>
+<li>the symbolic expression of the gradient variation (directional derivative)</li>
+<li>the representation as a Quadrature function</li>
+</ul>
+<p>This class is intended for internal use only. Gradient objects must be declared by the user using the <a href="#the-registration-concept">registration concept</a>.</p></li>
+<li><p>the <code>Flux</code> class provides a representation of MFront flux objects. Its main purpose is to store the flux values in the form of a Quadrature function, as well as the tangent block structure of the flux, each of them also represented by a Quadrature function.</p></li>
+<li><p>the <code>InternalStateVariable</code> class is the same as the <code>Flux</code> class but for internal state variables. Both classes derive from the abstract <code>QuadratureFunction</code> class.</p></li>
+</ul>
+<h3 id="the-registration-concept">The registration concept</h3>
+<p>Inspecting the default case <span class="math inline">\(\eqref{residual}\)</span>, MFront provides access to the flux names, shapes and values when performing the constitutive update and also to the corresponding gradient. The definition of the tangent operator blocks inside the MFront behaviour also gives access to the block structure <span class="math inline">\(\text{blocks}(i)\)</span> for each flux. The remaining information which must be provided from the FEniCS side are the unknown field <span class="math inline">\(u\)</span> and its discretization space <span class="math inline">\(V\)</span>, the chosen integration measure <span class="math inline">\(\,\text{dx}\)</span> (through the <code>quadrature_degree</code> keyword) and, finally, the expression of each declared gradients <span class="math inline">\(\mathbf{g}_i\)</span> in terms of the unknown field <span class="math inline">\(u\)</span>. This step is what we call <em>registration</em> of each gradient which will be discussed in depth in the demos. Let us just mention that the gradients can registered using the <code>register_gradient</code> method of the <code>MFrontNonlinearProblem</code> class or via an automatic procedure if the gradient name matches predefined common gradient objects e.g. <code>&quot;Strain&quot;</code>, <code>&quot;TemperatureGradient&quot;</code>, etc.</p>
+<h2 id="the-mfrontoptimisationproblem-class">The <code>MFrontOptimisationProblem</code> class</h2>
+<p>This class is a sibing to the <code>MFrontNonlinearProblem</code> class. It enables to solve nonlinear optimisation problems, especially bound-constrained problems using the default <code>PETScTAOSolver</code> of the form:</p>
+<p><span class="math display">\[
+\min_{b_l \leq u \leq b_u}  f(u)
+\]</span> where <span class="math inline">\(b_l\)</span> (resp. <span class="math inline">\(b_u\)</span>) denotes a lower (resp. upper) bound on the optimisation variable <span class="math inline">\(u\in V\)</span>.</p>
+<p>By default, the objective function <span class="math inline">\(f(u)\)</span> corresponds to the material total energy (stored + dissipated) computed from the <code>get_total_energy()</code> method. The optimisation problem requires the definition of the gradient <span class="math inline">\(F(u)\)</span> which, by default, corresponds to <span class="math inline">\(\eqref{residual}\)</span> and its jacobian which is computed as discussed before.</p>
+<h2 id="current-limitations">Current limitations</h2>
+<p>The module has been developed using FEniCS version 2019.1.0. An important reimplementation will be planned once the <a href="https://github.com/FEniCS/dolfinx"><code>dolfinx</code> project</a> will officially release a stable version. In particular, it will aim at fixing the following current limitations:</p>
+<ul>
+<li><p>the constitutive update is performed before any assembly procedure of the tangent and residual forms. This adds an extra cost of looping over quadrature points and, more importantly, an important memory cost since all tangent blocks at all quadrature points must be saved. The <code>dolfinx</code> project should offer the possibity of using custom assemblers in which constitutive integration should be possible at the local assembly level</p></li>
+<li><p>multi-materials are not completely supported yet. More precisely, spatially varying material properties can be defined but it is not possible to define two different constitutive behaviours on two disting parts of the mesh. This feature has not been supported since it is not possible to define functions on sub-meshes yet. This should also be available soon in the next developments.</p></li>
+<li><p>memory transfers between FEniCS and MGIS objects have not been optimized</p></li>
+</ul>
+      </body>
+</html>

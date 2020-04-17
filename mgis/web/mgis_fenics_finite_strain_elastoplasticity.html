@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Finite-strain elastoplasticity within the logarithmic strain framework</title>
+        <meta name="author" content="Jérémy Bleyer, Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Finite-strain elastoplasticity within the logarithmic strain framework</h1>
+                  <h2 class="author">Jérémy Bleyer, Thomas Helfer</h2>
+                  <h3 class="date">17/04/2020</h3>
+          </div>
+            <p>This demo is dedicated to the resolution of a finite-strain elastoplastic problem using the logarithmic strain framework proposed in <cite data-cite="miehe_anisotropic_2002">(Miehe et al., 2002)</cite>.</p>
+<h1 id="logarithmic-strains">Logarithmic strains</h1>
+<p>This framework expresses constitutive relations between the Hencky strain measure <span class="math inline">\(\boldsymbol{H} = \dfrac{1}{2}\log (\boldsymbol{F}^T\cdot\boldsymbol{F})\)</span> and its dual stress measure <span class="math inline">\(\boldsymbol{T}\)</span>. This approach makes it possible to extend classical small strain constitutive relations to a finite-strain setting. In particular, the total (Hencky) strain can be split <strong>additively</strong> into many contributions (elastic, plastic, thermal, swelling, etc.). Its trace is also linked with the volume change <span class="math inline">\(J=\exp(\operatorname{tr}(\boldsymbol{H}))\)</span>. As a result, the deformation gradient <span class="math inline">\(\boldsymbol{F}\)</span> is used for expressing the Hencky strain <span class="math inline">\(\boldsymbol{H}\)</span>, a small-strain constitutive law is then written for the <span class="math inline">\((\boldsymbol{H},\boldsymbol{T})\)</span>-pair and the dual stress <span class="math inline">\(\boldsymbol{T}\)</span> is then post-processed to an appropriate stress measure such as the Cauchy stress <span class="math inline">\(\boldsymbol{\sigma}\)</span> or Piola-Kirchhoff stresses.</p>
+<h1 id="mfront-implementation">MFront implementation</h1>
+<p>The logarithmic strain framework discussed in the previous paragraph consists merely as a pre-processing and a post-processing stages of the behaviour integration. The pre-processing stage compute the logarithmic strain and its increment and the post-processing stage interprets the stress resulting from the behaviour integration as the dual stress <span class="math inline">\(\boldsymbol{T}\)</span> and convert it to the Cauchy stress.</p>
+<p><code>MFront</code> provides the <code>@StrainMeasure</code> keyword that allows to specify which strain measure is used by the behaviour. When choosing the <code>Hencky</code> strain measure, <code>MFront</code> automatically generates those pre- and post-processing stages, allowing the user to focus on the behaviour integration.</p>
+<p>This leads to the following implementation (see the <a href="mgis_fenics_small_strain_elastoplasticity.html">small-strain elastoplasticity example</a> for details about the various implementation available):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="er">@</span>Behaviour IsotropicLinearHardeningPlasticity;</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="er">@</span>Author Thomas Helfer/Jérémy Bleyer;</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="er">@</span>Date <span class="bn">07</span> / <span class="bn">04</span> / <span class="dv">2020</span>;</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="er">@</span>StrainMeasure Hencky;</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="er">@</span>Algorithm NewtonRaphson;</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-14</span>;</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="er">@</span>Theta <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="er">@</span>MaterialProperty stress s0;</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">s0.setGlossaryName(<span class="st">&quot;YieldStress&quot;</span>);</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="er">@</span>MaterialProperty stress H0;</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">H0.setEntryName(<span class="st">&quot;HardeningSlope&quot;</span>);</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="er">@</span>Brick StandardElastoViscoPlasticity{</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">  stress_potential : <span class="st">&quot;Hooke&quot;</span>,</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">    criterion : <span class="st">&quot;Mises&quot;</span>,</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {H : <span class="st">&quot;H0&quot;</span>, R0 : <span class="st">&quot;s0&quot;</span>}</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">  }</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">};</a></code></pre></div>
+<h1 id="fenics-implementation">FEniCS implementation</h1>
+<p>We define a box mesh representing half of a beam oriented along the <span class="math inline">\(x\)</span>-direction. The beam will be fully clamped on its left side and symmetry conditions will be imposed on its right extremity. The loading consists of a uniform self-weight.</p>
+<p><img src="img/finite_strain_plasticity_solution.png" style="width:75.0%" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="im">from</span> dolfin <span class="im">import</span> <span class="op">*</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="im">import</span> mgis.fenics <span class="im">as</span> mf</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="im">import</span> ufl</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">length, width, height <span class="op">=</span> <span class="fl">1.</span>, <span class="fl">0.04</span>, <span class="fl">0.1</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">nx, ny, nz <span class="op">=</span> <span class="dv">20</span>, <span class="dv">5</span>, <span class="dv">8</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">mesh <span class="op">=</span> BoxMesh(Point(<span class="dv">0</span>, <span class="op">-</span>width<span class="op">/</span><span class="dv">2</span>, <span class="op">-</span>height<span class="op">/</span><span class="fl">2.</span>), Point(length, width<span class="op">/</span><span class="dv">2</span>, height<span class="op">/</span><span class="fl">2.</span>), nx, ny, nz)</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">V <span class="op">=</span> VectorFunctionSpace(mesh, <span class="st">&quot;CG&quot;</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">u <span class="op">=</span> Function(V, name<span class="op">=</span><span class="st">&quot;Displacement&quot;</span>)</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="kw">def</span> left(x, on_boundary):</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">    <span class="cf">return</span> near(x[<span class="dv">0</span>], <span class="dv">0</span>) <span class="kw">and</span> on_boundary</a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="kw">def</span> right(x, on_boundary):</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">    <span class="cf">return</span> near(x[<span class="dv">0</span>], length) <span class="kw">and</span> on_boundary</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">bc <span class="op">=</span> [DirichletBC(V, Constant((<span class="fl">0.</span>,)<span class="op">*</span><span class="dv">3</span>), left),</a>
+<a class="sourceLine" id="cb2-20" data-line-number="20">      DirichletBC(V.sub(<span class="dv">0</span>), Constant(<span class="fl">0.</span>), right)]</a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22">selfweight <span class="op">=</span> Expression((<span class="st">&quot;0&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;-t*qmax&quot;</span>), t<span class="op">=</span><span class="fl">0.</span>, qmax <span class="op">=</span> <span class="fl">50e6</span>, degree<span class="op">=</span><span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24">file_results <span class="op">=</span> XDMFFile(<span class="st">&quot;results/finite_strain_plasticity.xdmf&quot;</span>)</a>
+<a class="sourceLine" id="cb2-25" data-line-number="25">file_results.parameters[<span class="st">&quot;flush_output&quot;</span>] <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26">file_results.parameters[<span class="st">&quot;functions_share_mesh&quot;</span>] <span class="op">=</span> <span class="va">True</span></a></code></pre></div>
+<p>The <code>MFrontNonlinearMaterial</code> instance is loaded from the MFront <code>LogarithmicStrainPlasticity</code> behaviour. This behaviour is a finite-strain behaviour (<code>material.finite_strain=True</code>) which relies on a kinematic description using the total deformation gradient <span class="math inline">\(\boldsymbol{F}\)</span>. By default, a MFront behaviour always returns the Cauchy stress as the stress measure after integration. However, the stress variable dual to the deformation gradient is the first Piloa-Kirchhoff (PK1) stress. An internal option of the MGIS interface is therefore used in the finite-strain context to return the PK1 stress as the “flux” associated to the “gradient” <span class="math inline">\(\boldsymbol{F}\)</span>. Both quantities are non-symmetric tensors, aranged as a 9-dimensional vector in 3D following <a href="http://tfel.sourceforge.net/tensors.html">MFront conventions on tensors</a>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">material <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;../materials/src/libBehaviour.so&quot;</span>,</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">                                      <span class="st">&quot;LogarithmicStrainPlasticity&quot;</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="bu">print</span>(material.behaviour.getBehaviourType())</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="bu">print</span>(material.behaviour.getKinematic())</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="bu">print</span>(material.get_gradient_names(), material.get_gradient_sizes())</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="bu">print</span>(material.get_flux_names(), material.get_flux_sizes())</a></code></pre></div>
+<pre><code>StandardFiniteStrainBehaviour
+F_CAUCHY
+[&#39;DeformationGradient&#39;] [9]
+[&#39;FirstPiolaKirchhoffStress&#39;] [9]</code></pre>
+<p>The <code>MFrontNonlinearProblem</code> instance must therefore register the deformation gradient as <code>Identity(3)+grad(u)</code>. This again done automatically since <code>&quot;DeformationGradient&quot;</code> is a predefined gradient. The following message will be shown upon calling <code>solve</code>: <code>Automatic registration of 'DeformationGradient' as I + (grad(Displacement)).</code> The loading is then defined and, as for the <a href="mgis_fenics_small_strain_elastoplasticity.html">small-strain elastoplasticity example</a>, state variables include the <code>ElasticStrain</code> and <code>EquivalentPlasticStrain</code> since the same behaviour is used as in the small-strain case with the only difference that the total strain is now given by the Hencky strain measure. In particular, the <code>ElasticStrain</code> is still a symmetric tensor (vector of dimension 6). Note that it has not been explicitly defined as a state variable in the MFront behaviour file since this is done automatically when using the <code>IsotropicPlasticMisesFlow</code> parser.</p>
+<p>Finally, we setup a few parameters of the Newton non-linear solver.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">problem <span class="op">=</span> mf.MFrontNonlinearProblem(u, material, bcs<span class="op">=</span>bc)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">problem.set_loading(dot(selfweight, u)<span class="op">*</span>dx)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">p <span class="op">=</span> problem.get_state_variable(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">epsel <span class="op">=</span> problem.get_state_variable(<span class="st">&quot;ElasticStrain&quot;</span>)</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="bu">print</span>(<span class="st">&quot;&#39;ElasticStrain&#39; shape:&quot;</span>, ufl.shape(epsel))</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">prm <span class="op">=</span> problem.solver.parameters</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">prm[<span class="st">&quot;absolute_tolerance&quot;</span>] <span class="op">=</span> <span class="fl">1e-6</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">prm[<span class="st">&quot;relative_tolerance&quot;</span>] <span class="op">=</span> <span class="fl">1e-6</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">prm[<span class="st">&quot;linear_solver&quot;</span>] <span class="op">=</span> <span class="st">&quot;mumps&quot;</span></a></code></pre></div>
+<pre><code>&#39;ElasticStrain&#39; shape: (6,)</code></pre>
+<p>During the load incrementation, we monitor the evolution of the vertical downwards displacement at the middle of the right extremity.</p>
+<p>This simulation is a bit heavy to run so we suggest running it in parallel:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="ex">mpirun</span> -np 4 python3 finite_strain_elastoplasticity.py</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1">P0 <span class="op">=</span> FunctionSpace(mesh, <span class="st">&quot;DG&quot;</span>, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">p_avg <span class="op">=</span> Function(P0, name<span class="op">=</span><span class="st">&quot;Plastic strain&quot;</span>)</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">Nincr <span class="op">=</span> <span class="dv">30</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">load_steps <span class="op">=</span> np.linspace(<span class="fl">0.</span>, <span class="fl">1.</span>, Nincr<span class="op">+</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">results <span class="op">=</span> np.zeros((Nincr<span class="op">+</span><span class="dv">1</span>, <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="cf">for</span> (i, t) <span class="kw">in</span> <span class="bu">enumerate</span>(load_steps[<span class="dv">1</span>:]):</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">    selfweight.t <span class="op">=</span> t</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">    <span class="bu">print</span>(<span class="st">&quot;Increment &quot;</span>, i<span class="op">+</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">    problem.solve(u.vector())</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">    results[i<span class="op">+</span><span class="dv">1</span>, <span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span>u(length, <span class="dv">0</span>, <span class="dv">0</span>)[<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">    results[i<span class="op">+</span><span class="dv">1</span>, <span class="dv">1</span>] <span class="op">=</span> t</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">    file_results.write(u, t)</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">    p_avg.assign(project(p, P0))</a>
+<a class="sourceLine" id="cb8-17" data-line-number="17">    file_results.write(p_avg, t)</a></code></pre></div>
+<pre><code>Increment  1
+Automatic registration of &#39;DeformationGradient&#39; as I + (grad(Displacement)).
+
+Automatic registration of &#39;Temperature&#39; as a Constant value = 293.15.
+
+Increment  2
+Increment  3
+Increment  4
+Increment  5
+Increment  6
+Increment  7
+Increment  8
+Increment  9
+Increment  10
+Increment  11
+Increment  12
+Increment  13
+Increment  14
+Increment  15
+Increment  16
+Increment  17
+Increment  18
+Increment  19
+Increment  20
+Increment  21
+Increment  22
+Increment  23
+Increment  24
+Increment  25
+Increment  26
+Increment  27
+Increment  28
+Increment  29
+Increment  30</code></pre>
+<p>The load-displacement curve exhibits a classical elastoplastic behaviour rapidly followed by a stiffening behaviour due to membrane catenary effects.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1">plt.figure()</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">plt.plot(results[:, <span class="dv">0</span>], results[:, <span class="dv">1</span>], <span class="st">&quot;-o&quot;</span>)</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">plt.xlabel(<span class="st">&quot;Displacement&quot;</span>)</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">plt.ylabel(<span class="st">&quot;Load&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<figure>
+<img src="mgis_fenics_finite_strain_elastoplasticity_files/mgis_fenics_finite_strain_elastoplasticity_9_0.png" alt="png" /><figcaption>png</figcaption>
+</figure>
+      </body>
+</html>

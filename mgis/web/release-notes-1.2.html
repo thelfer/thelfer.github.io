@@ -102,6 +102,7 @@
       <li><a href="#fortran-bindings">Fortran bindings</a></li>
       </ul></li>
       <li><a href="#issues-solved">Issues solved</a><ul>
+      <li><a href="#issue-33-function-for-checking-if-the-behaviour-is-a-finite-strain-one">Issue #33: Function for checking if the behaviour is a Finite Strain one</a></li>
       <li><a href="#issue-32-better-const-correctness">Issue #32: Better <code>const</code> correctness</a></li>
       <li><a href="#issue-30-variables-array-size-depending-on-type-and-modelling-hypothesis">Issue #30: Variables array size depending on type and modelling hypothesis</a></li>
       <li><a href="#issue-28-missing-block-jacobian-info-in-python-bindings">Issue #28: Missing block jacobian info in <code>python</code> bindings</a></li>
@@ -130,6 +131,15 @@
 <li><code>get_variable_size</code>: this function returns the size of a variable (i.e. the number of components) for the given hypothesis.</li>
 </ul>
 <h1 id="issues-solved">Issues solved</h1>
+<h2 id="issue-33-function-for-checking-if-the-behaviour-is-a-finite-strain-one">Issue #33: Function for checking if the behaviour is a Finite Strain one</h2>
+<p>The <code>mgis::behaviour::isStandardFiniteStrainBehaviour</code> has been added to check if a behaviour is a finite strain behaviour and if its kinematic is also standard (i.e. is of the <code>F-Cauchy</code> kind although the stress measure can be chosen when loading the behaviour).</p>
+<p>This function is exposed as:</p>
+<ul>
+<li><code>mgis_bv_is_standard_finite_strain_behaviour</code> in the <code>C</code>’ bindings.</li>
+<li><code>is_standard_finite_strain_behaviour</code> in the <code>mgis_behaviour</code> module in the <code>Fortran</code>’ bindings.</li>
+<li><code>isStandardFiniteStrainBehaviour</code> in in the <code>mgis.behaviour</code> module in the <code>Python</code>’ bindings.</li>
+</ul>
+<p>For details, see <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/33" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/33</a></p>
 <h2 id="issue-32-better-const-correctness">Issue #32: Better <code>const</code> correctness</h2>
 <p>This issue follows this evolution in the generic interface of MFront: <a href="https://sourceforge.net/p/tfel/tickets/212/" class="uri">https://sourceforge.net/p/tfel/tickets/212/</a></p>
 <p>The state at the beginning of the time step is now described in a structure called <code>mgis_bv_InitialStateView</code>, the fields of which are all const.</p>

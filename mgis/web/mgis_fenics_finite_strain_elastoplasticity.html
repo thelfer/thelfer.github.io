@@ -98,7 +98,7 @@
             <p>This demo is dedicated to the resolution of a finite-strain elastoplastic problem using the logarithmic strain framework proposed in <cite data-cite="miehe_anisotropic_2002">(Miehe et al., 2002)</cite>.</p>
 <h1 id="logarithmic-strains">Logarithmic strains</h1>
 <p>This framework expresses constitutive relations between the Hencky strain measure <span class="math inline">\(\boldsymbol{H} = \dfrac{1}{2}\log (\boldsymbol{F}^T\cdot\boldsymbol{F})\)</span> and its dual stress measure <span class="math inline">\(\boldsymbol{T}\)</span>. This approach makes it possible to extend classical small strain constitutive relations to a finite-strain setting. In particular, the total (Hencky) strain can be split <strong>additively</strong> into many contributions (elastic, plastic, thermal, swelling, etc.). Its trace is also linked with the volume change <span class="math inline">\(J=\exp(\operatorname{tr}(\boldsymbol{H}))\)</span>. As a result, the deformation gradient <span class="math inline">\(\boldsymbol{F}\)</span> is used for expressing the Hencky strain <span class="math inline">\(\boldsymbol{H}\)</span>, a small-strain constitutive law is then written for the <span class="math inline">\((\boldsymbol{H},\boldsymbol{T})\)</span>-pair and the dual stress <span class="math inline">\(\boldsymbol{T}\)</span> is then post-processed to an appropriate stress measure such as the Cauchy stress <span class="math inline">\(\boldsymbol{\sigma}\)</span> or Piola-Kirchhoff stresses.</p>
-<h1 id="mfront-implementation">MFront implementation</h1>
+<h1 id="mfront-implementation"><code>MFront</code> implementation</h1>
 <p>The logarithmic strain framework discussed in the previous paragraph consists merely as a pre-processing and a post-processing stages of the behaviour integration. The pre-processing stage compute the logarithmic strain and its increment and the post-processing stage interprets the stress resulting from the behaviour integration as the dual stress <span class="math inline">\(\boldsymbol{T}\)</span> and convert it to the Cauchy stress.</p>
 <p><code>MFront</code> provides the <code>@StrainMeasure</code> keyword that allows to specify which strain measure is used by the behaviour. When choosing the <code>Hencky</code> strain measure, <code>MFront</code> automatically generates those pre- and post-processing stages, allowing the user to focus on the behaviour integration.</p>
 <p>This leads to the following implementation (see the <a href="mgis_fenics_small_strain_elastoplasticity.html">small-strain elastoplasticity example</a> for details about the various implementation available):</p>
@@ -126,7 +126,7 @@
 <a class="sourceLine" id="cb1-22" data-line-number="22">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {H : <span class="st">&quot;H0&quot;</span>, R0 : <span class="st">&quot;s0&quot;</span>}</a>
 <a class="sourceLine" id="cb1-23" data-line-number="23">  }</a>
 <a class="sourceLine" id="cb1-24" data-line-number="24">};</a></code></pre></div>
-<h1 id="fenics-implementation">FEniCS implementation</h1>
+<h1 id="fenics-implementation"><code>FEniCS</code> implementation</h1>
 <p>We define a box mesh representing half of a beam oriented along the <span class="math inline">\(x\)</span>-direction. The beam will be fully clamped on its left side and symmetry conditions will be imposed on its right extremity. The loading consists of a uniform self-weight.</p>
 <p><img src="img/finite_strain_plasticity_solution.png" style="width:75.0%" /></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
@@ -155,34 +155,38 @@
 <a class="sourceLine" id="cb2-24" data-line-number="24">file_results <span class="op">=</span> XDMFFile(<span class="st">&quot;results/finite_strain_plasticity.xdmf&quot;</span>)</a>
 <a class="sourceLine" id="cb2-25" data-line-number="25">file_results.parameters[<span class="st">&quot;flush_output&quot;</span>] <span class="op">=</span> <span class="va">True</span></a>
 <a class="sourceLine" id="cb2-26" data-line-number="26">file_results.parameters[<span class="st">&quot;functions_share_mesh&quot;</span>] <span class="op">=</span> <span class="va">True</span></a></code></pre></div>
-<p>The <code>MFrontNonlinearMaterial</code> instance is loaded from the MFront <code>LogarithmicStrainPlasticity</code> behaviour. This behaviour is a finite-strain behaviour (<code>material.finite_strain=True</code>) which relies on a kinematic description using the total deformation gradient <span class="math inline">\(\boldsymbol{F}\)</span>. By default, a MFront behaviour always returns the Cauchy stress as the stress measure after integration. However, the stress variable dual to the deformation gradient is the first Piloa-Kirchhoff (PK1) stress. An internal option of the MGIS interface is therefore used in the finite-strain context to return the PK1 stress as the “flux” associated to the “gradient” <span class="math inline">\(\boldsymbol{F}\)</span>. Both quantities are non-symmetric tensors, aranged as a 9-dimensional vector in 3D following <a href="http://tfel.sourceforge.net/tensors.html">MFront conventions on tensors</a>.</p>
+<p>The <code>MFrontNonlinearMaterial</code> instance loads the <code>MFront</code> <code>LogarithmicStrainPlasticity</code> behaviour.</p>
+<p>This behaviour is a finite-strain behaviour (<code>material.finite_strain=True</code>) which relies on a kinematic description using the total deformation gradient <span class="math inline">\(\boldsymbol{F}\)</span>. By default, a <code>MFront</code> behaviour always returns the Cauchy stress as the stress measure after integration. However, the stress variable dual to the deformation gradient is the first Piloa-Kirchhoff (PK1) stress. An internal option of the MGIS interface is therefore used in the finite-strain context to return the PK1 stress as the “flux” associated to the “gradient” <span class="math inline">\(\boldsymbol{F}\)</span>. Both quantities are non-symmetric tensors, arranged as a 9-dimensional vector in 3D following <a href="http://tfel.sourceforge.net/tensors.html"><code>MFront</code> conventions on tensors</a>.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">material <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;../materials/src/libBehaviour.so&quot;</span>,</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">                                      <span class="st">&quot;LogarithmicStrainPlasticity&quot;</span>)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="bu">print</span>(material.behaviour.getBehaviourType())</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="bu">print</span>(material.behaviour.getKinematic())</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="bu">print</span>(material.get_gradient_names(), material.get_gradient_sizes())</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="bu">print</span>(material.get_flux_names(), material.get_flux_sizes())</a></code></pre></div>
-<pre><code>StandardFiniteStrainBehaviour
-F_CAUCHY
-[&#39;DeformationGradient&#39;] [9]
-[&#39;FirstPiolaKirchhoffStress&#39;] [9]</code></pre>
-<p>The <code>MFrontNonlinearProblem</code> instance must therefore register the deformation gradient as <code>Identity(3)+grad(u)</code>. This again done automatically since <code>&quot;DeformationGradient&quot;</code> is a predefined gradient. The following message will be shown upon calling <code>solve</code>: <code>Automatic registration of 'DeformationGradient' as I + (grad(Displacement)).</code> The loading is then defined and, as for the <a href="mgis_fenics_small_strain_elastoplasticity.html">small-strain elastoplasticity example</a>, state variables include the <code>ElasticStrain</code> and <code>EquivalentPlasticStrain</code> since the same behaviour is used as in the small-strain case with the only difference that the total strain is now given by the Hencky strain measure. In particular, the <code>ElasticStrain</code> is still a symmetric tensor (vector of dimension 6). Note that it has not been explicitly defined as a state variable in the MFront behaviour file since this is done automatically when using the <code>IsotropicPlasticMisesFlow</code> parser.</p>
+<a class="sourceLine" id="cb3-2" data-line-number="2">                                      <span class="st">&quot;LogarithmicStrainPlasticity&quot;</span>)</a></code></pre></div>
+<p>At this stage, one can retrieve some information about the behaviour:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="bu">print</span>(material.behaviour.getBehaviourType())</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">    StandardFiniteStrainBehaviour</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="bu">print</span>(material.behaviour.getKinematic())</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    F_CAUCHY</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="bu">print</span>(material.get_gradient_names(), material.get_gradient_sizes())</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    [<span class="st">&#39;DeformationGradient&#39;</span>] [<span class="dv">9</span>]</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="bu">print</span>(material.get_flux_names(), material.get_flux_sizes())</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">    [<span class="st">&#39;FirstPiolaKirchhoffStress&#39;</span>] [<span class="dv">9</span>]</a></code></pre></div>
+<p>The <code>MFrontNonlinearProblem</code> instance must therefore register the deformation gradient as <code>Identity(3)+grad(u)</code>. This again done automatically since <code>&quot;DeformationGradient&quot;</code> is a predefined gradient. The following message will be shown upon calling <code>solve</code>:</p>
+<pre><code>Automatic registration of &#39;DeformationGradient&#39; as I + (grad(Displacement)).</code></pre>
+<p>The loading is then defined and, as for the <a href="mgis_fenics_small_strain_elastoplasticity.html">small-strain elastoplasticity example</a>, state variables include the <code>ElasticStrain</code> and <code>EquivalentPlasticStrain</code> since the same behaviour is used as in the small-strain case with the only difference that the total strain is now given by the Hencky strain measure.</p>
+<p>In particular, the <code>ElasticStrain</code> is still a symmetric tensor (vector of dimension 6). Note that it has not been explicitly defined as a state variable in the <code>MFront</code> behaviour file since this is done automatically when using the <code>IsotropicPlasticMisesFlow</code> domain specific language.</p>
 <p>Finally, we setup a few parameters of the Newton non-linear solver.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">problem <span class="op">=</span> mf.MFrontNonlinearProblem(u, material, bcs<span class="op">=</span>bc)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">problem.set_loading(dot(selfweight, u)<span class="op">*</span>dx)</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">p <span class="op">=</span> problem.get_state_variable(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>)</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">epsel <span class="op">=</span> problem.get_state_variable(<span class="st">&quot;ElasticStrain&quot;</span>)</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="bu">print</span>(<span class="st">&quot;&#39;ElasticStrain&#39; shape:&quot;</span>, ufl.shape(epsel))</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">prm <span class="op">=</span> problem.solver.parameters</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">prm[<span class="st">&quot;absolute_tolerance&quot;</span>] <span class="op">=</span> <span class="fl">1e-6</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">prm[<span class="st">&quot;relative_tolerance&quot;</span>] <span class="op">=</span> <span class="fl">1e-6</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">prm[<span class="st">&quot;linear_solver&quot;</span>] <span class="op">=</span> <span class="st">&quot;mumps&quot;</span></a></code></pre></div>
-<pre><code>&#39;ElasticStrain&#39; shape: (6,)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1">problem <span class="op">=</span> mf.MFrontNonlinearProblem(u, material, bcs<span class="op">=</span>bc)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">problem.set_loading(dot(selfweight, u)<span class="op">*</span>dx)</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">p <span class="op">=</span> problem.get_state_variable(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>)</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">epsel <span class="op">=</span> problem.get_state_variable(<span class="st">&quot;ElasticStrain&quot;</span>)</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">prm <span class="op">=</span> problem.solver.parameters</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">prm[<span class="st">&quot;absolute_tolerance&quot;</span>] <span class="op">=</span> <span class="fl">1e-6</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">prm[<span class="st">&quot;relative_tolerance&quot;</span>] <span class="op">=</span> <span class="fl">1e-6</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">prm[<span class="st">&quot;linear_solver&quot;</span>] <span class="op">=</span> <span class="st">&quot;mumps&quot;</span></a></code></pre></div>
+<p>Information about how the elastic strain is stored can be retrieved as follows:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;&#39;ElasticStrain&#39; shape:&quot;</span>, ufl.shape(epsel))</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">    <span class="co">&#39;ElasticStrain&#39;</span> shape: (<span class="dv">6</span>,)</a></code></pre></div>
 <p>During the load incrementation, we monitor the evolution of the vertical downwards displacement at the middle of the right extremity.</p>
-<p>This simulation is a bit heavy to run so we suggest running it in parallel:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="ex">mpirun</span> -np 4 python3 finite_strain_elastoplasticity.py</a></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1">P0 <span class="op">=</span> FunctionSpace(mesh, <span class="st">&quot;DG&quot;</span>, <span class="dv">0</span>)</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">p_avg <span class="op">=</span> Function(P0, name<span class="op">=</span><span class="st">&quot;Plastic strain&quot;</span>)</a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"></a>
@@ -200,40 +204,8 @@ F_CAUCHY
 <a class="sourceLine" id="cb8-15" data-line-number="15">    file_results.write(u, t)</a>
 <a class="sourceLine" id="cb8-16" data-line-number="16">    p_avg.assign(project(p, P0))</a>
 <a class="sourceLine" id="cb8-17" data-line-number="17">    file_results.write(p_avg, t)</a></code></pre></div>
-<pre><code>Increment  1
-Automatic registration of &#39;DeformationGradient&#39; as I + (grad(Displacement)).
-
-Automatic registration of &#39;Temperature&#39; as a Constant value = 293.15.
-
-Increment  2
-Increment  3
-Increment  4
-Increment  5
-Increment  6
-Increment  7
-Increment  8
-Increment  9
-Increment  10
-Increment  11
-Increment  12
-Increment  13
-Increment  14
-Increment  15
-Increment  16
-Increment  17
-Increment  18
-Increment  19
-Increment  20
-Increment  21
-Increment  22
-Increment  23
-Increment  24
-Increment  25
-Increment  26
-Increment  27
-Increment  28
-Increment  29
-Increment  30</code></pre>
+<p>This simulation is a bit heavy to run so we suggest running it in parallel:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="ex">mpirun</span> -np 4 python3 finite_strain_elastoplasticity.py</a></code></pre></div>
 <p>The load-displacement curve exhibits a classical elastoplastic behaviour rapidly followed by a stiffening behaviour due to membrane catenary effects.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1">plt.figure()</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">plt.plot(results[:, <span class="dv">0</span>], results[:, <span class="dv">1</span>], <span class="st">&quot;-o&quot;</span>)</a>

@@ -96,10 +96,11 @@
                   <h3 class="date">17/04/2020</h3>
           </div>
             <h1 id="description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</h1>
-<p>This example is a direct continuation of the <a href="nonlinear_heat_transfer.html">previous 2D example on non-linear heat transfer</a>. The present computations will use the same behaviour <code>StationaryHeatTransfer.mfront</code>.</p>
-<p><embed src="%22img/fuel_rod_solution.png%22" />{width=75%)</p>
+<p>This example is a direct continuation of the <a href="mgis_fenics_nonlinear_heat_transfer.html">previous 2D example on non-linear heat transfer</a>. The present computations will use the same behaviour <code>StationaryHeatTransfer.mfront</code>.</p>
+<p><img src="img/fuel_rod_solution.png" style="width:50.0%" /></p>
 <h1 id="fenics-implementation">FEniCS implementation</h1>
-<p>We now consider a portion of nuclear fuel rod (Uranium Dioxide <span class="math inline">\(\text{UO}_2\)</span>) subject to an external imposed temperature <span class="math inline">\(T_{ext}=1000\text{ K}\)</span> and uniform volumetric heat source <span class="math inline">\(r=300 \text{ MW/m}^3\)</span>. From the steady state heat balance equation <span class="math inline">\(\operatorname{div}\mathbf{j} = r\)</span>, the variational formulation is now:</p>
+<p>We now consider a portion of nuclear fuel rod (Uranium Dioxide <span class="math inline">\(\text{UO}_2\)</span>) subject to an external imposed temperature <span class="math inline">\(T_{ext}=1000\text{ K}\)</span> and uniform volumetric heat source <span class="math inline">\(r=300 \text{
+MW/m}^3\)</span>. From the steady state heat balance equation <span class="math inline">\(\operatorname{div}\mathbf{j} = r\)</span>, the variational formulation is now:</p>
 <p><span class="math display">\[\begin{equation}
 F(\widehat{T}) = \int_\Omega \mathbf{j}(T,\nabla T)\cdot\nabla \widehat{T}\,\text{dx} + \int_\Omega r \widehat{T} \,\text{dx}=0 \quad \forall \widehat{T}
 \end{equation}\]</span></p>
@@ -139,31 +140,23 @@ F(\widehat{u}) = \sum_i \int_\Omega \boldsymbol{\sigma}_i(u)\cdot \mathbf{g}_i(\
 <p>The <code>solve</code> method computing time is monitored:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">tic <span class="op">=</span> time()</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">problem.solve(T.vector())</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&quot;MFront/FEniCS solve time:&quot;</span>, time()<span class="op">-</span>tic)</a></code></pre></div>
-<pre><code>Automatic registration of &#39;TemperatureGradient&#39; as grad(Temperature).
-
-Automatic registration of &#39;Temperature&#39; as an external state variable.
-
-Calling FFC just-in-time (JIT) compiler, this may take some time.
-  Ignoring precision in integral metadata compiled using quadrature representation. Not implemented.
-Calling FFC just-in-time (JIT) compiler, this may take some time.
-  Ignoring precision in integral metadata compiled using quadrature representation. Not implemented.
-MFront/FEniCS solve time: 51.4562623500824</code></pre>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&quot;MFront/FEniCS solve time:&quot;</span>, time()<span class="op">-</span>tic)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    MFront<span class="op">/</span>FEniCS solve time: <span class="fl">51.4562623500824</span></a></code></pre></div>
 <p>The temperature field along a radial direction along the top surface has been compared with computations using <a href="http://www-cast3m.cea.fr/">Cast3M finite-element solver</a>. Both solutions agree perfectly:</p>
-<p><img src="%22img/Temperature_Castem_FEniCS.png" />{width=75%)</p>
+<p><img src="img/Temperature_Castem_FEniCS.png" style="width:75.0%" /></p>
 <h1 id="performance-comparison">Performance comparison</h1>
 <p>For the purpose of performance comparison, we also implement a direct non-linear variational problem with pure UFL expressions. This is possible in the present case since the non-linear heat constitutive law is very simple. Note that we enfore the use of the same quadrature rule degree. The temperature field is also reinterpolated to its previous initial value for a fair comparison between both solution strategies.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">A <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;A&quot;</span>))</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">B <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;B&quot;</span>))</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">j <span class="op">=</span> <span class="dv">-1</span><span class="op">/</span>(A <span class="op">+</span> B<span class="op">*</span>T)<span class="op">*</span>grad(T)</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">F <span class="op">=</span> (dot(grad(T_), j) <span class="op">+</span> r<span class="op">*</span>T_)<span class="op">*</span>dx(metadata<span class="op">=</span>{<span class="st">&#39;quadrature_degree&#39;</span>: quad_deg})</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">J <span class="op">=</span> derivative(F, T, dT)</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">T.interpolate(T0)</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">tic <span class="op">=</span> time()</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">solve(F <span class="op">==</span> <span class="dv">0</span>, T, bc, J<span class="op">=</span>J)</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;Pure FEniCS solve time:&quot;</span>, time()<span class="op">-</span>tic)</a></code></pre></div>
-<pre><code>Pure FEniCS solve time: 47.62119770050049</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">A <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;A&quot;</span>))</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">B <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;B&quot;</span>))</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">j <span class="op">=</span> <span class="dv">-1</span><span class="op">/</span>(A <span class="op">+</span> B<span class="op">*</span>T)<span class="op">*</span>grad(T)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">F <span class="op">=</span> (dot(grad(T_), j) <span class="op">+</span> r<span class="op">*</span>T_)<span class="op">*</span>dx(metadata<span class="op">=</span>{<span class="st">&#39;quadrature_degree&#39;</span>: quad_deg})</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">J <span class="op">=</span> derivative(F, T, dT)</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">T.interpolate(T0)</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">tic <span class="op">=</span> time()</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">solve(F <span class="op">==</span> <span class="dv">0</span>, T, bc, J<span class="op">=</span>J)</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;Pure FEniCS solve time:&quot;</span>, time()<span class="op">-</span>tic)</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">    Pure FEniCS solve time: <span class="fl">47.62119770050049</span></a></code></pre></div>
 <p>We can observe that both methods, relying on the same default Newton solver, yield the same total iteration counts and residual values. As regards computing time, the pure FEniCS implementation is slightly faster as expected. In the following table, comparison has been made for a coarse (approx 4 200 cells) and a refined (approx 34 000 cells) mesh with quadrature degrees equal either to 2 or 5.</p>
 <table>
 <thead>

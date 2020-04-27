@@ -174,15 +174,11 @@
 </ul>
 <h3 id="residual-and-tangent-bilinear-form">Residual and tangent bilinear form</h3>
 <p>By default, the nonlinear residual is assumed to take the following form: Find <span class="math inline">\(u\in V\)</span> such that:</p>
-<p><span class="math display">\[
-\begin{equation}
+<p><span id="eq:residual"><span class="math display">\[
  \sum_{i=1}^p \int_{\Omega}\boldsymbol{\sigma}_i(u)\cdot\delta\mathbf{g}_i(v) \,\text{dx}- L(v) = 0 \quad \forall v\in V 
-\tag{residual}
-\label{residual}
-\end{equation}
-\]</span></p>
+\qquad(1)\]</span></span></p>
 <p>where the <span class="math inline">\(\boldsymbol{\sigma}_i(u)\)</span> are a set of <strong>fluxes</strong> as defined in the <code>MFront</code> behaviour using <code>@Flux</code> and <span class="math inline">\(\mathbf{g}_i\)</span> are the corresponding set of <strong>gradients</strong>, declared using <code>@Gradient</code>. <span class="math inline">\(\delta \mathbf{g}_i(v)\)</span> denotes the directional derivative of <span class="math inline">\(\mathbf{g}_i\)</span> along direction <span class="math inline">\(v\)</span>, a <code>TestFunction</code> of the function space <span class="math inline">\(V\)</span>, and <span class="math inline">\(L(v)\)</span> is a linear form which can be expressed using standard <code>UFL</code> operators. From the mechanical point of view, this residual expresses the balance between internal and external forces.</p>
-<p>This generic form is suitable for most quasi-static mechanical problems but it does not necessarily encompass all possible situations. In particular, evolution equations such as transient heat transfer cannot be expressed in this form. However, this is not a limitation since the residual can also be redefined explicitly by the user (see <a href="demos/transient_nonlinear_heat_equation.html">Transient non-linear heat equation</a>).</p>
+<p>This generic form is suitable for most quasi-static mechanical problems but it does not necessarily encompass all possible situations. In particular, evolution equations such as transient heat transfer cannot be expressed in this form. However, this is not a limitation since the residual can also be redefined explicitly by the user (see <a href="mgis_fenics_nonlinear_heat_transfer.html">Transient non-linear heat equation</a>).</p>
 <p>Either for the default or a user-defined one, the tangent operator associated with the residual is computed automatically using either the <code>UFL</code> symbolic derivation <code>ufl.derivative</code> for simple terms ( e.g. involving the unknown field <span class="math inline">\(u\)</span>) or using tangent operator blocks defined in the <code>MFront</code> behaviour for the nonlinear fluxes and internal state variables. More precisely, the variation of each flux is given by:</p>
 <p><span class="math display">\[
 \dfrac{\partial \boldsymbol{\sigma}_i}{\partial u} = \sum_{j\in \text{blocks}(i)} \mathbb{T}^{\boldsymbol{\sigma}_i}_{\mathbf{g}_j}\cdot \delta \mathbf{g}_j(u)
@@ -205,7 +201,7 @@ a_\text{tangent}(u, v) = \sum_{i=1}^p \sum_{j\in\text{blocks}(i)}\int_{\Omega}\d
 <li>the <code>InternalStateVariable</code> class is the same as the <code>Flux</code> class but for internal state variables. Both classes derive from the abstract <code>QuadratureFunction</code> class.</li>
 </ul>
 <h3 id="the-registration-concept">The registration concept</h3>
-<p>Inspecting the default case <span class="math inline">\(\eqref{residual}\)</span>, <code>MFront</code> provides access to the flux names, shapes and values when performing the constitutive update and also to the corresponding gradient. The definition of the tangent operator blocks inside the <code>MFront</code> behaviour also gives access to the block structure <span class="math inline">\(\text{blocks}(i)\)</span> for each flux.</p>
+<p>Inspecting the default case (1), <code>MFront</code> provides access to the flux names, shapes and values when performing the constitutive update and also to the corresponding gradient. The definition of the tangent operator blocks inside the <code>MFront</code> behaviour also gives access to the block structure <span class="math inline">\(\text{blocks}(i)\)</span> for each flux.</p>
 <p>The remaining information which must be provided from the <code>FEniCS</code> side are the unknown field <span class="math inline">\(u\)</span> and its discretization space <span class="math inline">\(V\)</span>, the chosen integration measure <span class="math inline">\(\,\text{dx}\)</span> (through the <code>quadrature_degree</code> keyword) and, finally, the expression of each declared gradients <span class="math inline">\(\mathbf{g}_i\)</span> in terms of the unknown field <span class="math inline">\(u\)</span>.</p>
 <p>This step is what we call <em>registration</em> of each gradient which will be discussed in depth in the demos. Let us just mention that the gradients can registered using the <code>register_gradient</code> method of the <code>MFrontNonlinearProblem</code> class or via an automatic procedure if the gradient name matches predefined common gradient objects e.g. <code>&quot;Strain&quot;</code>, <code>&quot;TemperatureGradient&quot;</code>, etc.</p>
 <h2 id="the-mfrontoptimisationproblem-class">The <code>MFrontOptimisationProblem</code> class</h2>
@@ -213,7 +209,7 @@ a_\text{tangent}(u, v) = \sum_{i=1}^p \sum_{j\in\text{blocks}(i)}\int_{\Omega}\d
 <p><span class="math display">\[
 \min_{b_l \leq u \leq b_u}  f(u)
 \]</span> where <span class="math inline">\(b_l\)</span> (resp. <span class="math inline">\(b_u\)</span>) denotes a lower (resp. upper) bound on the optimisation variable <span class="math inline">\(u\in V\)</span>.</p>
-<p>By default, the objective function <span class="math inline">\(f(u)\)</span> corresponds to the material total energy (stored + dissipated) computed from the <code>get_total_energy()</code> method. The optimisation problem requires the definition of the gradient <span class="math inline">\(F(u)\)</span> which, by default, corresponds to <span class="math inline">\(\eqref{residual}\)</span> and its jacobian which is computed as discussed before.</p>
+<p>By default, the objective function <span class="math inline">\(f(u)\)</span> corresponds to the material total energy (stored + dissipated) computed from the <code>get_total_energy()</code> method. The optimisation problem requires the definition of the gradient <span class="math inline">\(F(u)\)</span> which, by default, corresponds to (1) and its jacobian which is computed as discussed before.</p>
 <h1 id="current-limitations">Current limitations</h1>
 <p>The module has been developed using <code>FEniCS</code> version 2019.1.0. An important reimplementation will be planned once the <a href="https://github.com/FEniCS/dolfinx"><code>dolfinx</code> project</a> will officially release a stable version. In particular, it will aim at fixing the following current limitations:</p>
 <ul>

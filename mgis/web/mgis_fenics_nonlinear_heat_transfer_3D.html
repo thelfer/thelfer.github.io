@@ -11,7 +11,6 @@
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Stationnary non-linear heat transfer: 3D problem and performance comparisons</title>
-        <meta name="author" content="Jérémy Bleyer, Thomas Helfer" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
@@ -93,18 +92,18 @@
     <br></br>
         <div id="header">
       <h1 class="title">Stationnary non-linear heat transfer: 3D problem and performance comparisons</h1>
-                  <h2 class="author">Jérémy Bleyer, Thomas Helfer</h2>
-                  <h3 class="date">17/04/2020</h3>
-          </div>
+                      </div>
             <div id="TOC">
       <ul>
       <li><a href="#description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</a></li>
-      <li><a href="#fenics-implementation">FEniCS implementation</a></li>
+      <li><a href="#fenics-implementation"><code>FEniCS</code> implementation</a></li>
       <li><a href="#performance-comparison">Performance comparison</a></li>
       <li><a href="#on-the-use-of-the-correct-tangent-operator">On the use of the correct tangent operator</a></li>
       </ul>
     </div>
-        <blockquote>
+        <h1 id="description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</h1>
+<p>This example is a direct continuation of the <a href="./mgis_fenics_nonlinear_heat_transfer.html">previous 2D example on non-linear heat transfer</a>. The present computations will use the same behaviour <code>StationaryHeatTransfer.mfront</code> which will be loaded with a <code>&quot;3d&quot;</code> hypothesis (default case).</p>
+<blockquote>
 <p><strong>Source files:</strong></p>
 <ul>
 <li>Jupyter notebook: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/nonlinear_heat_transfer/mgis_fenics_nonlinear_heat_transfer_3D.ipynb">mgis_fenics_nonlinear_heat_transfer_3D.ipynb</a></li>
@@ -112,10 +111,9 @@
 <li>MFront behaviour file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/nonlinear_heat_transfer/StationaryHeatTransfer.mfront">StationaryHeatTransfer.mfront</a></li>
 </ul>
 </blockquote>
-<h1 id="description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</h1>
 <p>This example is a direct continuation of the <a href="mgis_fenics_nonlinear_heat_transfer.html">previous 2D example on non-linear heat transfer</a>. The present computations will use the same behaviour <code>StationaryHeatTransfer.mfront</code>.</p>
 <p><img src="img/fuel_rod_solution.png" style="width:50.0%" /></p>
-<h1 id="fenics-implementation">FEniCS implementation</h1>
+<h1 id="fenics-implementation"><code>FEniCS</code> implementation</h1>
 <p>We now consider a portion of nuclear fuel rod (Uranium Dioxide <span class="math inline">\(\text{UO}_2\)</span>) subject to an external imposed temperature <span class="math inline">\(T_{ext}=1000\text{ K}\)</span> and uniform volumetric heat source <span class="math inline">\(r=300 \text{
 MW/m}^3\)</span>. From the steady state heat balance equation <span class="math inline">\(\operatorname{div}\mathbf{j} = r\)</span>, the variational formulation is now:</p>
 <p><span class="math display">\[\begin{equation}
@@ -130,10 +128,10 @@ F(\widehat{u}) = \sum_i \int_\Omega \boldsymbol{\sigma}_i(u)\cdot \mathbf{g}_i(\
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="im">from</span> time <span class="im">import</span> time</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb1-5" data-line-number="5">mesh <span class="op">=</span> Mesh()</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="cf">with</span> XDMFFile(<span class="st">&quot;fuel_rod_mesh.xdmf&quot;</span>) <span class="im">as</span> infile:</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="cf">with</span> XDMFFile(<span class="st">&quot;meshes/fuel_rod_mesh.xdmf&quot;</span>) <span class="im">as</span> infile:</a>
 <a class="sourceLine" id="cb1-7" data-line-number="7">    infile.read(mesh)</a>
 <a class="sourceLine" id="cb1-8" data-line-number="8">mvc <span class="op">=</span> MeshValueCollection(<span class="st">&quot;size_t&quot;</span>, mesh, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="cf">with</span> XDMFFile(<span class="st">&quot;fuel_rod_mf.xdmf&quot;</span>) <span class="im">as</span> infile:</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="cf">with</span> XDMFFile(<span class="st">&quot;meshes/fuel_rod_mf.xdmf&quot;</span>) <span class="im">as</span> infile:</a>
 <a class="sourceLine" id="cb1-10" data-line-number="10">    infile.read(mvc, <span class="st">&quot;facets&quot;</span>)</a>
 <a class="sourceLine" id="cb1-11" data-line-number="11">facets <span class="op">=</span> cpp.mesh.MeshFunctionSizet(mesh, mvc)</a>
 <a class="sourceLine" id="cb1-12" data-line-number="12"></a>
@@ -150,38 +148,42 @@ F(\widehat{u}) = \sum_i \int_\Omega \boldsymbol{\sigma}_i(u)\cdot \mathbf{g}_i(\
 <a class="sourceLine" id="cb1-23" data-line-number="23">r <span class="op">=</span> Constant(<span class="fl">3e8</span>)</a>
 <a class="sourceLine" id="cb1-24" data-line-number="24"></a>
 <a class="sourceLine" id="cb1-25" data-line-number="25">quad_deg <span class="op">=</span> <span class="dv">2</span></a>
-<a class="sourceLine" id="cb1-26" data-line-number="26">material <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;../materials/src/libBehaviour.so&quot;</span>,</a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">material <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;./src/libBehaviour.so&quot;</span>,</a>
 <a class="sourceLine" id="cb1-27" data-line-number="27">                                      <span class="st">&quot;StationaryHeatTransfer&quot;</span>)</a>
 <a class="sourceLine" id="cb1-28" data-line-number="28">problem <span class="op">=</span> mf.MFrontNonlinearProblem(T, material, quadrature_degree<span class="op">=</span>quad_deg, bcs<span class="op">=</span>bc)</a>
 <a class="sourceLine" id="cb1-29" data-line-number="29">problem.set_loading(<span class="op">-</span>r<span class="op">*</span>T<span class="op">*</span>dx)</a></code></pre></div>
 <p>The <code>solve</code> method computing time is monitored:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">tic <span class="op">=</span> time()</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">problem.solve(T.vector())</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&quot;MFront/FEniCS solve time:&quot;</span>, time()<span class="op">-</span>tic)</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">    MFront<span class="op">/</span>FEniCS solve time: <span class="fl">51.4562623500824</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&quot;MFront/FEniCS solve time:&quot;</span>, time()<span class="op">-</span>tic)</a></code></pre></div>
+<pre><code>Automatic registration of &#39;TemperatureGradient&#39; as grad(Temperature).
+
+Automatic registration of &#39;Temperature&#39; as an external state variable.
+
+MFront/FEniCS solve time: 53.746278047561646</code></pre>
 <p>The temperature field along a radial direction along the top surface has been compared with computations using <a href="http://www-cast3m.cea.fr/">Cast3M finite-element solver</a>. Both solutions agree perfectly:</p>
 <p><img src="img/Temperature_Castem_FEniCS.png" style="width:75.0%" /></p>
 <h1 id="performance-comparison">Performance comparison</h1>
 <p>For the purpose of performance comparison, we also implement a direct non-linear variational problem with pure UFL expressions. This is possible in the present case since the non-linear heat constitutive law is very simple. Note that we enfore the use of the same quadrature rule degree. The temperature field is also reinterpolated to its previous initial value for a fair comparison between both solution strategies.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">A <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;A&quot;</span>))</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">B <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;B&quot;</span>))</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">j <span class="op">=</span> <span class="dv">-1</span><span class="op">/</span>(A <span class="op">+</span> B<span class="op">*</span>T)<span class="op">*</span>grad(T)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">F <span class="op">=</span> (dot(grad(T_), j) <span class="op">+</span> r<span class="op">*</span>T_)<span class="op">*</span>dx(metadata<span class="op">=</span>{<span class="st">&#39;quadrature_degree&#39;</span>: quad_deg})</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">J <span class="op">=</span> derivative(F, T, dT)</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">T.interpolate(T0)</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">tic <span class="op">=</span> time()</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">solve(F <span class="op">==</span> <span class="dv">0</span>, T, bc, J<span class="op">=</span>J)</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;Pure FEniCS solve time:&quot;</span>, time()<span class="op">-</span>tic)</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">    Pure FEniCS solve time: <span class="fl">47.62119770050049</span></a></code></pre></div>
-<p>We can observe that both methods, relying on the same default Newton solver, yield the same total iteration counts and residual values. As regards computing time, the pure FEniCS implementation is slightly faster as expected. In the following table, comparison has been made for a coarse (approx 4 200 cells) and a refined (approx 34 000 cells) mesh with quadrature degrees equal either to 2 or 5.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">A <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;A&quot;</span>))</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">B <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;B&quot;</span>))</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">j <span class="op">=</span> <span class="dv">-1</span><span class="op">/</span>(A <span class="op">+</span> B<span class="op">*</span>T)<span class="op">*</span>grad(T)</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">F <span class="op">=</span> (dot(grad(T_), j) <span class="op">+</span> r<span class="op">*</span>T_)<span class="op">*</span>dx(metadata<span class="op">=</span>{<span class="st">&#39;quadrature_degree&#39;</span>: quad_deg})</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">J <span class="op">=</span> derivative(F, T, dT)</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">T.interpolate(T0)</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">tic <span class="op">=</span> time()</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">solve(F <span class="op">==</span> <span class="dv">0</span>, T, bc, J<span class="op">=</span>J)</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;Pure FEniCS solve time:&quot;</span>, time()<span class="op">-</span>tic)</a></code></pre></div>
+<pre><code>Pure FEniCS solve time: 49.15058135986328</code></pre>
+<p>We can observe that both methods, relying on the same default Newton solver, yield the same total iteration counts and residual values. As regards computing time, the pure <code>FEniCS</code> implementation is slightly faster as expected. In the following table, comparison has been made for a coarse (approx 4 200 cells) and a refined (approx 34 000 cells) mesh with quadrature degrees equal either to 2 or 5.</p>
 <table>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Mesh type</th>
 <th style="text-align: center;">Quadrature degree</th>
-<th style="text-align: center;">FEniCS/MFront</th>
-<th style="text-align: center;">Pure FEniCS</th>
+<th style="text-align: center;"><code>FEniCS</code>/<code>MFront</code></th>
+<th style="text-align: center;">Pure <code>FEniCS</code></th>
 </tr>
 </thead>
 <tbody>

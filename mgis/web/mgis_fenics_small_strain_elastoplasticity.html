@@ -79,7 +79,8 @@
       code span.vs { color: #4070a0; } /* VerbatimString */
       code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
     </style>
-            <link rel="stylesheet" href="css/normalize.css"/>
+            <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
+        <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
           </head>
@@ -95,12 +96,30 @@
                   <h2 class="author">Jérémy Bleyer, Thomas Helfer</h2>
                   <h3 class="date">17/04/2020</h3>
           </div>
-            <p>This demo is the third installment in a series of two previous demos considering the implementation of von Mises elastoplasticity in FEniCS published on <a href="https://comet-fenics.readthedocs.io">Numerical tours of continuum mechanics using FEniCS</a>:</p>
+            <div id="TOC">
+      <ul>
+      <li><a href="#mfront-implementation">MFront implementation</a><ul>
+      <li><a href="#optimised-implementation">Optimised implementation</a></li>
+      <li><a href="#usage-of-the-standardelastoviscoplasticity-brick">Usage of the <code>StandardElastoViscoPlasticity</code> brick</a></li>
+      </ul></li>
+      <li><a href="#fenics-implementation">FEniCS implementation</a></li>
+      </ul>
+    </div>
+        <p>This demo is the third installment in a series of two previous demos considering the implementation of von Mises elastoplasticity in FEniCS published on <a href="https://comet-fenics.readthedocs.io">Numerical tours of continuum mechanics using FEniCS</a>:</p>
 <ol type="1">
 <li><p><a href="https://comet-fenics.readthedocs.io/en/latest/demo/2D_plasticity/vonMises_plasticity.py.html">Elasto-plastic analysis of a 2D von Mises material</a>: this first installment presents a pure FEniCS implementation of von Mises plasticity which uses UFL operators for implementing the return mapping procedure. It is therefore not general since it relies heavily on the fact that the return mapping can be expressed in closed-form analytic expression in the case of von Mises plasticity with linear isotropic hardening. It nevertheless shows how to integrate the constitutive relation using <code>Quadrature</code> elements, including the use of consistent tangent operators, inside a global Newton-Raphson method.</p></li>
 <li><p><a href="https://comet-fenics.readthedocs.io/en/latest/demo/plasticity_mfront/plasticity_mfront.py.html">Elasto-plastic analysis implemented using the MFront code generator</a>: this second installment is in fact the original demo which led to the development of the proposed FEniCS/MFront interface. It shows how to rely on MFront for the constitutive relation update using the MGIS interface. The way how information is exchanged between FEniCS and MFront in this demo is extremely similar to how the <code>MFrontNonlinearProblem</code> class is implemented.</p></li>
 </ol>
 <p>The present demo therefore directly follows up on this second installment by offering to the use a much more compact syntax, especially avoiding the cumbersome definition of <code>Quadrature</code> spaces and the implementation of a Newton method by hand. The mechanical problem is exactly the same as in these two demos, namely the expansion of a hollow cylinder under internal pressure. The main difference in the present demo is that the same problem will also be solved in axisymmetric conditions, referring therefore to the expansion of a hollow sphere under internal pressure.</p>
+<blockquote>
+<p><strong>Source files:</strong></p>
+<ul>
+<li>Jupyter notebook: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/small_strain_elastoplasticity/mgis_fenics_small_strain_elastoplasticity.ipynb">mgis_fenics_small_strain_elastoplasticity.ipynb</a></li>
+<li>Python file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/small_strain_elastoplasticity/mgis_fenics_small_strain_elastoplasticity.py">mgis_fenics_small_strain_elastoplasticity.py</a></li>
+<li>MFront behaviour file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/small_strain_elastoplasticity/IsotropicLinearHardeningPlasticity.mfront">IsotropicLinearHardeningPlasticity.mfront</a></li>
+<li>MFront behaviour file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/small_strain_elastoplasticity/IsotropicLinearHardeningPlasticityBrick.mfront">IsotropicLinearHardeningPlasticityBrick.mfront</a></li>
+</ul>
+</blockquote>
 <h1 id="mfront-implementation">MFront implementation</h1>
 <h2 id="optimised-implementation">Optimised implementation</h2>
 <p>In this document, we consider a <span class="math inline">\(J_2\)</span> isotropic plastic model with linear isotropic hardening. As the hardening is linear and the von Mises stress is quadratic, the behaviour integration is explicit, as described <a href="http://tfel.sourceforge.net/gallery/plasticity/IsotropicLinearHardeningPlasticity.html">here</a>.</p>

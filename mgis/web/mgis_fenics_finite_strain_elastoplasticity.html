@@ -79,7 +79,8 @@
       code span.vs { color: #4070a0; } /* VerbatimString */
       code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
     </style>
-            <link rel="stylesheet" href="css/normalize.css"/>
+            <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
+        <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
           </head>
@@ -95,7 +96,23 @@
                   <h2 class="author">Jérémy Bleyer, Thomas Helfer</h2>
                   <h3 class="date">17/04/2020</h3>
           </div>
-            <p>This demo is dedicated to the resolution of a finite-strain elastoplastic problem using the logarithmic strain framework proposed in <cite data-cite="miehe_anisotropic_2002">(Miehe et al., 2002)</cite>.</p>
+            <div id="TOC">
+      <ul>
+      <li><a href="#logarithmic-strains">Logarithmic strains</a></li>
+      <li><a href="#mfront-implementation"><code>MFront</code> implementation</a></li>
+      <li><a href="#fenics-implementation"><code>FEniCS</code> implementation</a></li>
+      <li><a href="#references">References</a></li>
+      </ul>
+    </div>
+        <p>This demo is dedicated to the resolution of a finite-strain elastoplastic problem using the logarithmic strain framework proposed in <span class="citation" data-cites="miehe_anisotropic_2002">Miehe, Apel, and Lambrecht (<a href="#ref-miehe_anisotropic_2002">2002</a>)</span>.</p>
+<blockquote>
+<p><strong>Source files:</strong></p>
+<ul>
+<li>Jupyter notebook: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/finite_strain_elastoplasticity/mgis_fenics_finite_strain_elastoplasticity.ipynb">mgis_fenics_finite_strain_elastoplasticity.ipynb</a></li>
+<li>Python file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/finite_strain_elastoplasticity/mgis_fenics_finite_strain_elastoplasticity.py">mgis_fenics_finite_strain_elastoplasticity.py</a></li>
+<li>MFront behaviour file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/finite_strain_elastoplasticity/LogarithmicStrainPlasticity.mfront">LogarithmicStrainPlasticity.mfront</a></li>
+</ul>
+</blockquote>
 <h1 id="logarithmic-strains">Logarithmic strains</h1>
 <p>This framework expresses constitutive relations between the Hencky strain measure <span class="math inline">\(\boldsymbol{H} = \dfrac{1}{2}\log (\boldsymbol{F}^T\cdot\boldsymbol{F})\)</span> and its dual stress measure <span class="math inline">\(\boldsymbol{T}\)</span>. This approach makes it possible to extend classical small strain constitutive relations to a finite-strain setting. In particular, the total (Hencky) strain can be split <strong>additively</strong> into many contributions (elastic, plastic, thermal, swelling, etc.). Its trace is also linked with the volume change <span class="math inline">\(J=\exp(\operatorname{tr}(\boldsymbol{H}))\)</span>. As a result, the deformation gradient <span class="math inline">\(\boldsymbol{F}\)</span> is used for expressing the Hencky strain <span class="math inline">\(\boldsymbol{H}\)</span>, a small-strain constitutive law is then written for the <span class="math inline">\((\boldsymbol{H},\boldsymbol{T})\)</span>-pair and the dual stress <span class="math inline">\(\boldsymbol{T}\)</span> is then post-processed to an appropriate stress measure such as the Cauchy stress <span class="math inline">\(\boldsymbol{\sigma}\)</span> or Piola-Kirchhoff stresses.</p>
 <h1 id="mfront-implementation"><code>MFront</code> implementation</h1>
@@ -214,5 +231,11 @@
 <figure>
 <img src="mgis_fenics_finite_strain_elastoplasticity_files/mgis_fenics_finite_strain_elastoplasticity_9_0.png" alt="png" /><figcaption>png</figcaption>
 </figure>
+<h1 id="references" class="unnumbered">References</h1>
+<div id="refs" class="references">
+<div id="ref-miehe_anisotropic_2002">
+<p>Miehe, C., N. Apel, and M. Lambrecht. 2002. “Anisotropic Additive Plasticity in the Logarithmic Strain Space: Modular Kinematic Formulation and Implementation Based on Incremental Minimization Principles for Standard Materials.” <em>Computer Methods in Applied Mechanics and Engineering</em> 191 (47–48): 5383–5425. <a href="https://doi.org/10.1016/S0045-7825(02)00438-3" class="uri">https://doi.org/10.1016/S0045-7825(02)00438-3</a>.</p>
+</div>
+</div>
       </body>
 </html>

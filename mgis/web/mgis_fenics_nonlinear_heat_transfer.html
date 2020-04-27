@@ -79,7 +79,8 @@
       code span.vs { color: #4070a0; } /* VerbatimString */
       code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
     </style>
-            <link rel="stylesheet" href="css/normalize.css"/>
+            <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
+        <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
           </head>
@@ -95,7 +96,34 @@
                   <h2 class="author">Jérémy Bleyer, Thomas Helfer</h2>
                   <h3 class="date">17/04/2020</h3>
           </div>
-            <h1 id="description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</h1>
+            <div id="TOC">
+      <ul>
+      <li><a href="#description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</a><ul>
+      <li><a href="#expression-of-the-thermal-conductivity">Expression of the thermal conductivity</a></li>
+      <li><a href="#derivatives">Derivatives</a></li>
+      </ul></li>
+      <li><a href="#mfront-implementation"><code>MFront</code>’ implementation</a><ul>
+      <li><a href="#choice-of-the-the-domain-specific-language">Choice of the the domain specific language</a></li>
+      <li><a href="#some-metadata">Some metadata</a></li>
+      <li><a href="#gradients-and-fluxes">Gradients and fluxes</a></li>
+      <li><a href="#tangent-operator-blocks">Tangent operator blocks</a></li>
+      <li><a href="#parameters">Parameters</a></li>
+      <li><a href="#local-variable">Local variable</a></li>
+      <li><a href="#integration-of-the-behaviour">Integration of the behaviour</a></li>
+      <li><a href="#tangent-operator">Tangent operator</a></li>
+      </ul></li>
+      <li><a href="#fenics-implementation"><code>FEniCS</code> implementation</a></li>
+      </ul>
+    </div>
+        <blockquote>
+<p><strong>Source files:</strong></p>
+<ul>
+<li>Jupyter notebook: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/nonlinear_heat_transfer/mgis_fenics_nonlinear_heat_transfer.ipynb">mgis_fenics_nonlinear_heat_transfer.ipynb</a></li>
+<li>Python file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/nonlinear_heat_transfer/mgis_fenics_nonlinear_heat_transfer.py">mgis_fenics_nonlinear_heat_transfer.py</a></li>
+<li>MFront behaviour file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/nonlinear_heat_transfer/StationaryHeatTransfer.mfront">StationaryHeatTransfer.mfront</a></li>
+</ul>
+</blockquote>
+<h1 id="description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</h1>
 <p>The thermal material is described by the following non linear Fourier Law:</p>
 <p><span class="math display">\[
 \mathbf{j}=-k\left(T\right)\,\mathbf{\nabla} T

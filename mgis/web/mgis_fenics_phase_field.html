@@ -251,7 +251,7 @@ H = \max_{m \leq n}\{\psi^+(\bvarepsilon_m)\}
 <p>Finally, we compute the internal stored energy using <code>@InternalEnergy</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>InternalEnergy {</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> gᵈ = ((<span class="dv">1</span> - d) ⋅ (<span class="dv">1</span> - d)) + kres;</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">  Psi_s += gᵈ ⋅ Ψ₊;</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  Psi_s = gᵈ ⋅ Ψ₊;</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">}</a></code></pre></div>
 <h1 id="mfront-behaviour-for-the-damage-problem">MFront behaviour for the damage problem</h1>
 <p>The damage problem variational form using the history function approach for the AT2 model writes:</p>
@@ -308,7 +308,7 @@ H = \max_{m \leq n}\{\psi^+(\bvarepsilon_m)\}
 <a class="sourceLine" id="cb6-9" data-line-number="9">}</a>
 <a class="sourceLine" id="cb6-10" data-line-number="10"></a>
 <a class="sourceLine" id="cb6-11" data-line-number="11"><span class="er">@</span>DissipatedEnergy{</a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">Psi_d += Gc/<span class="dv">2</span>/l₀*(d*d + l₀*l₀*(g|g));</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">Psi_d = Gc/<span class="dv">2</span>/l₀*(d*d + l₀*l₀*(g|g));</a>
 <a class="sourceLine" id="cb6-13" data-line-number="13">}</a></code></pre></div>
 <h1 id="fenics-implementation">FEniCS implementation</h1>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="im">from</span> dolfin <span class="im">import</span> <span class="op">*</span></a>

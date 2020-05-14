@@ -102,6 +102,7 @@
       </ul>
     </div>
         <h1 id="description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</h1>
+<p><img src="img/fuel_rod_solution.png" style="width:50.0%" /></p>
 <p>This example is a direct continuation of the <a href="./mgis_fenics_nonlinear_heat_transfer.html">previous 2D example on non-linear heat transfer</a>. The present computations will use the same behaviour <code>StationaryHeatTransfer.mfront</code> which will be loaded with a <code>&quot;3d&quot;</code> hypothesis (default case).</p>
 <blockquote>
 <p><strong>Source files:</strong></p>
@@ -111,8 +112,6 @@
 <li>MFront behaviour file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/nonlinear_heat_transfer/StationaryHeatTransfer.mfront">StationaryHeatTransfer.mfront</a></li>
 </ul>
 </blockquote>
-<p>This example is a direct continuation of the <a href="mgis_fenics_nonlinear_heat_transfer.html">previous 2D example on non-linear heat transfer</a>. The present computations will use the same behaviour <code>StationaryHeatTransfer.mfront</code>.</p>
-<p><img src="img/fuel_rod_solution.png" style="width:50.0%" /></p>
 <h1 id="fenics-implementation"><code>FEniCS</code> implementation</h1>
 <p>We now consider a portion of nuclear fuel rod (Uranium Dioxide <span class="math inline">\(\text{UO}_2\)</span>) subject to an external imposed temperature <span class="math inline">\(T_{ext}=1000\text{ K}\)</span> and uniform volumetric heat source <span class="math inline">\(r=300 \text{
 MW/m}^3\)</span>. From the steady state heat balance equation <span class="math inline">\(\operatorname{div}\mathbf{j} = r\)</span>, the variational formulation is now:</p>
@@ -164,7 +163,7 @@ MFront/FEniCS solve time: 53.746278047561646</code></pre>
 <p>The temperature field along a radial direction along the top surface has been compared with computations using <a href="http://www-cast3m.cea.fr/">Cast3M finite-element solver</a>. Both solutions agree perfectly:</p>
 <p><img src="img/Temperature_Castem_FEniCS.png" style="width:75.0%" /></p>
 <h1 id="performance-comparison">Performance comparison</h1>
-<p>For the purpose of performance comparison, we also implement a direct non-linear variational problem with pure UFL expressions. This is possible in the present case since the non-linear heat constitutive law is very simple. Note that we enfore the use of the same quadrature rule degree. The temperature field is also reinterpolated to its previous initial value for a fair comparison between both solution strategies.</p>
+<p>For the purpose of performance comparison, we also implement a direct non-linear variational problem with pure UFL expressions. This is possible in the present case since the non-linear heat constitutive law is very simple. Note that we enforce the use of the same quadrature rule degree. The temperature field is also reinterpolated to its previous initial value for a fair comparison between both solution strategies.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">A <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;A&quot;</span>))</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">B <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;B&quot;</span>))</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3">j <span class="op">=</span> <span class="dv">-1</span><span class="op">/</span>(A <span class="op">+</span> B<span class="op">*</span>T)<span class="op">*</span>grad(T)</a>

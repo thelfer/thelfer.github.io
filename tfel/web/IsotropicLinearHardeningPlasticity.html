@@ -250,32 +250,27 @@
                   <h3 class="date">24/04/2018</h3>
           </div>
             <div id="TOC">
-      <ul>
-      <li><a href="#description-of-the-behaviour">Description of the behaviour</a><ul>
-      <li><a href="#elastic-behaviour">Elastic behaviour</a></li>
-      <li><a href="#plastic-flow">Plastic flow</a></li>
-      </ul></li>
-      <li><a href="#integration-algorithm">Integration algorithm</a></li>
-      </ul>
+      true
     </div>
         
 
 <p>This article shows how to implement an orthotropic plastic behaviour with isotropic linear hardening in <code>MFront</code>.</p>
+<p>The implementation is available <a href="gallery/plasticity/IsotropicLinearHardeningPlasticity.mfront">here</a>.</p>
 <h1 id="description-of-the-behaviour">Description of the behaviour</h1>
 <p>The behaviour is described by a standard decomposition of the strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in an elastic and a plastic component, respectively denoted <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and <span class="math inline">\(\underline{\varepsilon}^{\mathrm{p}}\)</span>:</p>
-<p><span class="math display">\[
+<p><span id="eq:strain_slip"><span class="math display">\[
 \underline{\varepsilon}^{\mathrm{to}}=\underline{\varepsilon}^{\mathrm{el}}+\underline{\varepsilon}^{\mathrm{p}}
-\]</span></p>
+\qquad(1)\]</span></span></p>
 <h2 id="elastic-behaviour">Elastic behaviour</h2>
 <p>The stress <span class="math inline">\(\underline{\sigma}\)</span> is related to the the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> by a the standard Hooke behaviour:</p>
 <p><span class="math display">\[
 \underline{\sigma}= \lambda\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\,\underline{I}+2\,\mu\,\underline{\varepsilon}^{\mathrm{el}}
 \]</span></p>
 <h2 id="plastic-flow">Plastic flow</h2>
-<p>The plastic part of the behaviour is described by the following yield surface: <span class="math display">\[
+<p>The plastic part of the behaviour is described by the following yield surface: <span id="eq:yield_surface"><span class="math display">\[
 f{\left(\sigma_{\mathrm{eq}},p\right)} = \sigma_{\mathrm{eq}}-\sigma_{0}-R\,p
-\]</span></p>
-<p>where <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> is the Hill stress defined below, <span class="math inline">\(p\)</span> is the equivalent plastic strain, <span class="math inline">\(\sigma_{0}\)</span> is the yield stress and <span class="math inline">\(R\)</span> is the hardening slope.</p>
+\qquad(2)\]</span></span></p>
+<p>where <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> is the vonMises stress defined below, <span class="math inline">\(p\)</span> is the equivalent plastic strain, <span class="math inline">\(\sigma_{0}\)</span> is the yield stress and <span class="math inline">\(R\)</span> is the hardening slope.</p>
 <p>The von Mises stress is defined by: <span class="math display">\[
 \sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,\underline{s}\,\colon\,\underline{s}}=\sqrt{3\,J_{2}}
 \]</span> where:</p>
@@ -295,8 +290,73 @@ f{\left(\sigma_{\mathrm{eq}},p\right)} = \sigma_{\mathrm{eq}}-\sigma_{0}-R\,p
 <p><span class="math display">\[
 \underline{n} = {\displaystyle \frac{\displaystyle \partial f}{\displaystyle \partial \underline{\sigma}}} = {{\displaystyle \frac{\displaystyle 3}{\displaystyle 2\,\sigma_{\mathrm{eq}}}}}\,\underline{s}
 \]</span></p>
+<p>One may readily check that:</p>
+<p><span id="eq:n_norm"><span class="math display">\[
+\underline{n}\,\colon\underline{n}={{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}
+\qquad(3)\]</span></span></p>
 <h1 id="integration-algorithm">Integration algorithm</h1>
-<p>The previous constitutive equations will be integrated using a standard implicit scheme.</p>
+<p>The previous constitutive equations will be integrated using a standard implicit scheme which, due to the isotropy of the elastic behaviour, the quadratic nature of the equivalent stress and the linearity of the isotropic hardening rule can be solved analytically.</p>
+<h2 id="expression-of-the-plastic-strain-increment">Expression of the plastic strain increment</h2>
+<p>Assuming that a plastic flow occurs, the plastic increment <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{p}}\)</span> over the time step is approximated by:</p>
+<p><span class="math display">\[
+\Delta\,\underline{\varepsilon}^{\mathrm{p}}= \Delta\,p\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}
+\]</span></p>
+<p>The slip of strain given by Equation (1) may be written incrementally:</p>
+<p><span id="eq:strain_increment_slip"><span class="math display">\[
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}=\Delta\,\underline{\varepsilon}^{\mathrm{el}}+\Delta\,\underline{\varepsilon}^{\mathrm{p}}=\Delta\,\underline{\varepsilon}^{\mathrm{el}}+\Delta\,p\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}
+\qquad(4)\]</span></span></p>
+<p>and projected on the deviatoric space as follows:</p>
+<p><span class="math display">\[
+\Delta\,\underline{s}^{\mathrm{to}} = \Delta\,\underline{s}^{\mathrm{el}}+\Delta\,p\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}
+\]</span></p>
+<p>The isotropy of the elastic behaviour projected on the deviatoric space leads to:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\left.\underline{s}\right|_{t+\theta\,\Delta\,t}} &amp;= {{\displaystyle \frac{\displaystyle 2}{\displaystyle 3}}}\,{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\\
+                  &amp;= 2\,{\left.\mu\right|_{t+\theta\,\Delta\,t}}\,{\left({\left.\underline{s}^{\mathrm{el}}\right|_{t}}+\theta\,\Delta\,\underline{s}^{\mathrm{el}}\right)} \\
+                  &amp;= 2\,{\left.\mu\right|_{t+\theta\,\Delta\,t}}\,{\left({\left.\underline{s}^{\mathrm{el}}\right|_{t}}
+                                   +\theta\,\Delta\,\underline{s}^{\mathrm{to}}
+                                   -\theta\,\Delta\,p\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\right)}
+\end{aligned}
+\]</span></p>
+<p>The previous equations leads to:</p>
+<p><span id="eq:trial_stress"><span class="math display">\[
+{\left({{\displaystyle \frac{\displaystyle 2}{\displaystyle 3}}}\,{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}+\theta\,\Delta\,p\right)}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}} = 2\,{\left.\mu\right|_{t+\theta\,\Delta\,t}}\,{\left({\left.\underline{s}^{\mathrm{el}}\right|_{t}}+\theta\,\Delta\,\underline{s}^{\mathrm{to}}\right)}
+\qquad(5)\]</span></span></p>
+<p>The right hand side is the value of the deviatoric part of the stress tensor that would be obtained in a pure elastic loading. It is commonly called the trial stress <span class="math inline">\({\left.\underline{s}^{\mathrm{tr}}\right|_{t+\theta\,\Delta\,t}}\)</span>:</p>
+<p><span class="math display">\[
+{\left.\underline{s}^{\mathrm{tr}}\right|_{t+\theta\,\Delta\,t}}=2\,{\left.\mu\right|_{t+\theta\,\Delta\,t}}\,{\left({\left.\underline{s}^{\mathrm{el}}\right|_{t}}+\theta\,\Delta\,\underline{s}^{\mathrm{to}}\right)}
+\]</span></p>
+<p>Taking the von Mises norm of both side of Equation (5) yields:</p>
+<p><span class="math display">\[
+{\left({{\displaystyle \frac{\displaystyle 2}{\displaystyle 3}}}\,{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}+\theta\,\Delta\,p\right)}\,\sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\colon{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}} = {\left.\sigma_{\mathrm{eq}}^{\mathrm{tr}}\right|_{t+\theta\,\Delta\,t}}
+\]</span></p>
+<p>where <span class="math inline">\({\left.\sigma_{\mathrm{eq}}^{\mathrm{tr}}\right|_{t+\theta\,\Delta\,t}}\)</span> is the so-called trial equivalent stress.</p>
+<p>It is important to note that <span class="math inline">\(\underline{s}^{\mathrm{tr}}\)</span> and <span class="math inline">\({\left.\sigma_{\mathrm{eq}}^{\mathrm{tr}}\right|_{t+\theta\,\Delta\,t}}\)</span> can be computed <em>a priori</em>, only with the known values of the elastic strain at the beginning of the time step and the total strain increment.</p>
+<p>The previous expressions leads to a closed form expression of the normal:</p>
+<p><span id="eq:normal_value"><span class="math display">\[
+{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}} = {{\displaystyle \frac{\displaystyle 3}{\displaystyle 2\,{\left.\sigma_{\mathrm{eq}}^{\mathrm{tr}}\right|_{t+\theta\,\Delta\,t}}}}}\underline{s}^{\mathrm{tr}}
+\qquad(6)\]</span></span></p>
+<p>Finally, taking into account Equation (3), the von Mises stress satisfies:</p>
+<p><span class="math display">\[
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}} = {\left.\sigma_{\mathrm{eq}}^{\mathrm{tr}}\right|_{t+\theta\,\Delta\,t}} - 3\,{\left.\mu\right|_{t+\theta\,\Delta\,t}}\,\theta\,\Delta\,p
+\]</span></p>
+<p>Using the fact that, during plastic loading, the stress state must be on the Yield Surface (2), the von Mises stress also satisfies:</p>
+<p><span class="math display">\[
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}=\sigma_{0}+R\,{\left.p\right|_{t+\theta\,\Delta\,t}}=\sigma_{0}+R\,{\left({\left.p\right|_{t}}+\theta\,\Delta\,p\right)}
+\]</span></p>
+<p>Combining those equations yields this closed-form expression of the plastic strain increment:</p>
+<p><span id="eq:dp"><span class="math display">\[
+\Delta\,p = {{\displaystyle \frac{\displaystyle {\left.\sigma_{\mathrm{eq}}^{\mathrm{tr}}\right|_{t+\theta\,\Delta\,t}} - \sigma_{0} - R\,{\left.p\right|_{t}}}{\displaystyle {\left(3\,{\left.\mu\right|_{t+\theta\,\Delta\,t}}\, + R\right)}\,\theta}}}
+\qquad(7)\]</span></span></p>
+<h2 id="expression-of-the-elastic-strain-increment">Expression of the elastic strain increment</h2>
+<p>The elastic strain increment is given in closed formed by Equations (4), (6) and (7):</p>
+<p><span class="math display">\[
+\Delta\underline{\varepsilon}^{\mathrm{el}}= \Delta\,\underline{\varepsilon}^{\mathrm{to}}-\Delta\,p\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}
+\]</span></p>
+<h2 id="expression-of-the-consistent-tangent-operator">Expression of the consistent tangent operator</h2>
+<h1 id="implementation">Implementation</h1>
+<p>We now assume that <span class="math inline">\(\theta=1\)</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL DefaultDSL;</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="er">@</span>Behaviour IsotropicLinearHardeningPlasticity;</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="er">@</span>Author Thomas Helfer;</a>

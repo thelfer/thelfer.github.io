@@ -133,13 +133,11 @@
 \boldsymbol{\sigma}&amp;=\rho \dfrac{\partial \Phi}{\partial \boldsymbol{\varepsilon}^{\mathrm{to}}}=\lambda\,{\mathrm{tr}{\left(\boldsymbol{\varepsilon}^{\mathrm{to}}\right)}}\,\mathbf{I}+2\,\mu\,\boldsymbol{\varepsilon}^{\mathrm{to}}-\kappa\,{\left(T-T^{\mathrm{ref}}\right)}\,\mathbf{I}\\
 s&amp;={\displaystyle \frac{\displaystyle \partial \Phi}{\displaystyle \partial T}}={{\displaystyle \frac{\displaystyle C_{\varepsilon}}{\displaystyle T^{\mathrm{ref}}}}}\,{\left(T-T^{\mathrm{ref}}\right)}+{{\displaystyle \frac{\displaystyle \kappa}{\displaystyle \rho}}}\,{\mathrm{tr}{\left(\boldsymbol{\varepsilon}^{\mathrm{to}}\right)}}\\
 \end{aligned}
-\tag{1}
 \qquad(1)\]</span></span></p>
 <p>where <span class="math inline">\(\kappa=\alpha\,{\left(3\,\lambda+2\,\mu\right)}\)</span>.</p>
 <p>The heat flux <span class="math inline">\(\mathbf{j}\)</span> is related to the temperature gradient <span class="math inline">\(\nabla\, T\)</span> by the linear Fourier law:</p>
 <p><span id="eq:constitutive_equations_2"><span class="math display">\[
 \mathbf{j}=-k\,\nabla\, T
-\tag{2}
 \qquad(2)\]</span></span></p>
 <h1 id="mfront-implementation"><code>MFront</code> implementation</h1>
 <h2 id="choice-of-the-domain-specific-language">Choice of the domain specific language</h2>
@@ -287,7 +285,7 @@ s&amp;={\displaystyle \frac{\displaystyle \partial \Phi}{\displaystyle \partial 
 \begin{aligned}
 \int_{\Omega}\boldsymbol{\sigma}:\nabla^s\widehat{\boldsymbol{u}}\text{ d} \Omega &amp;=\int_{\partial \Omega} (\boldsymbol{\sigma}\cdot\boldsymbol{n})\cdot\widehat{\boldsymbol{u}} dS \quad \forall \widehat{\boldsymbol{u}}\in V_U \\
 \int_{\Omega}\rho T^\text{ref} \dfrac{\partial s}{\partial t}\widehat{T}d\Omega - \int_{\Omega} \mathbf{j}\cdot\nabla \widehat{T}d\Omega &amp;= -\int_{\partial \Omega} \mathbf{j}\cdot\boldsymbol{n} \widehat{T} dS \quad \forall \widehat{T} \in V_T
-\end{aligned} \tag{3}
+\end{aligned}
 \qquad(3)\]</span></span></p>
 <p>with <span class="math inline">\(V_U\)</span> and <span class="math inline">\(V_T\)</span> being the displacement and temperature function spaces.</p>
 <p>The time derivative in the heat equation is now replaced by an implicit Euler scheme, so that the previous weak form at the time increment <span class="math inline">\(n+1\)</span> is now:</p>

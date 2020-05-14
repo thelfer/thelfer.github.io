@@ -3,15 +3,18 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Stationnary non-linear heat transfer: 3D problem and performance comparisons</title>
-            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <title>Stationnary non-linear heat transfer using mgis.fenics, 3D problem and performance comparisons</title>
+        <meta name="author" content="Jérémy Bleyer" />
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2020-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       a.sourceLine { display: inline-block; line-height: 1.25; }
@@ -44,39 +47,38 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        {  }
+        { background-color: #f8f8f8; }
       @media screen {
       a.sourceLine::before { text-decoration: underline; }
       }
-      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #7d9029; } /* Attribute */
-      code span.bn { color: #40a070; } /* BaseN */
-      code span.bu { } /* BuiltIn */
-      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-      code span.ch { color: #4070a0; } /* Char */
-      code span.cn { color: #880000; } /* Constant */
-      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-      code span.dt { color: #902000; } /* DataType */
-      code span.dv { color: #40a070; } /* DecVal */
-      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #c4a000; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #000000; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
-      code span.fl { color: #40a070; } /* Float */
-      code span.fu { color: #06287e; } /* Function */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #000000; } /* Function */
       code span.im { } /* Import */
-      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-      code span.op { color: #666666; } /* Operator */
-      code span.ot { color: #007020; } /* Other */
-      code span.pp { color: #bc7a00; } /* Preprocessor */
-      code span.sc { color: #4070a0; } /* SpecialChar */
-      code span.ss { color: #bb6688; } /* SpecialString */
-      code span.st { color: #4070a0; } /* String */
-      code span.va { color: #19177c; } /* Variable */
-      code span.vs { color: #4070a0; } /* VerbatimString */
-      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #000000; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
     </style>
             <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
@@ -91,18 +93,15 @@
     </header>
     <br></br>
         <div id="header">
-      <h1 class="title">Stationnary non-linear heat transfer: 3D problem and performance comparisons</h1>
-                      </div>
+      <h1 class="title">Stationnary non-linear heat transfer using <code>mgis.fenics</code>, 3D problem and performance comparisons</h1>
+                  <h2 class="author">Jérémy Bleyer</h2>
+            <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">2020</h3>
+          </div>
             <div id="TOC">
-      <ul>
-      <li><a href="#description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</a></li>
-      <li><a href="#fenics-implementation"><code>FEniCS</code> implementation</a></li>
-      <li><a href="#performance-comparison">Performance comparison</a></li>
-      <li><a href="#on-the-use-of-the-correct-tangent-operator">On the use of the correct tangent operator</a></li>
-      </ul>
+      true
     </div>
-        <h1 id="description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</h1>
-<p><img src="img/fuel_rod_solution.png" style="width:50.0%" /></p>
+        <p><img src="img/fuel_rod_solution.png" style="width:50.0%" /></p>
 <p>This example is a direct continuation of the <a href="./mgis_fenics_nonlinear_heat_transfer.html">previous 2D example on non-linear heat transfer</a>. The present computations will use the same behaviour <code>StationaryHeatTransfer.mfront</code> which will be loaded with a <code>&quot;3d&quot;</code> hypothesis (default case).</p>
 <blockquote>
 <p><strong>Source files:</strong></p>
@@ -160,8 +159,10 @@ F(\widehat{u}) = \sum_i \int_\Omega \boldsymbol{\sigma}_i(u)\cdot \mathbf{g}_i(\
 Automatic registration of &#39;Temperature&#39; as an external state variable.
 
 MFront/FEniCS solve time: 53.746278047561646</code></pre>
-<p>The temperature field along a radial direction along the top surface has been compared with computations using <a href="http://www-cast3m.cea.fr/">Cast3M finite-element solver</a>. Both solutions agree perfectly:</p>
-<p><img src="img/Temperature_Castem_FEniCS.png" style="width:75.0%" /></p>
+<p>The temperature field along a radial direction along the top surface has been compared with computations using <a href="http://www-cast3m.cea.fr/">Cast3M finite-element solver</a>. Both solutions agree perfectly, as shown on Figure 1.</p>
+<figure>
+<img src="img/Temperature_Castem_FEniCS.png" alt="Figure 1: Temperature profile in the mid-pellet plane. Comparison of the results obtained with FEniCS" id="fig:NonLinearHeatTransfer3D:TemperatureProfile" style="width:75.0%" /><figcaption>Figure 1: Temperature profile in the mid-pellet plane. Comparison of the results obtained with <code>FEniCS</code></figcaption>
+</figure>
 <h1 id="performance-comparison">Performance comparison</h1>
 <p>For the purpose of performance comparison, we also implement a direct non-linear variational problem with pure UFL expressions. This is possible in the present case since the non-linear heat constitutive law is very simple. Note that we enforce the use of the same quadrature rule degree. The temperature field is also reinterpolated to its previous initial value for a fair comparison between both solution strategies.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">A <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;A&quot;</span>))</a>
@@ -175,8 +176,9 @@ MFront/FEniCS solve time: 53.746278047561646</code></pre>
 <a class="sourceLine" id="cb4-9" data-line-number="9">solve(F <span class="op">==</span> <span class="dv">0</span>, T, bc, J<span class="op">=</span>J)</a>
 <a class="sourceLine" id="cb4-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;Pure FEniCS solve time:&quot;</span>, time()<span class="op">-</span>tic)</a></code></pre></div>
 <pre><code>Pure FEniCS solve time: 49.15058135986328</code></pre>
-<p>We can observe that both methods, relying on the same default Newton solver, yield the same total iteration counts and residual values. As regards computing time, the pure <code>FEniCS</code> implementation is slightly faster as expected. In the following table, comparison has been made for a coarse (approx 4 200 cells) and a refined (approx 34 000 cells) mesh with quadrature degrees equal either to 2 or 5.</p>
+<div id="tbl:NonLinearHeatTransfer3D:Performances">
 <table>
+<caption>Table 1: Performance comparisons</caption>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Mesh type</th>
@@ -212,10 +214,12 @@ MFront/FEniCS solve time: 53.746278047561646</code></pre>
 </tr>
 </tbody>
 </table>
+</div>
+<p>We can observe that both methods, relying on the same default Newton solver, yield the same total iteration counts and residual values. As regards computing time, the pure <code>FEniCS</code> implementation is slightly faster as expected. In Table 1, comparison has been made for a coarse (approx 4 200 cells) and a refined (approx 34 000 cells) mesh with quadrature degrees equal either to 2 or 5.</p>
 <p>The difference is slightly larger for large quadrature degrees, however, the difference is moderate when compared to the total computing time for large scale problems.</p>
 <h1 id="on-the-use-of-the-correct-tangent-operator">On the use of the correct tangent operator</h1>
 <p>Most FE software do not take into account the contribution of <span class="math inline">\(\dfrac{\partial \mathbf{j}}{\partial T}\)</span> to the tangent operator. One can easily test this variant by assigning <code>dj_ddT</code> in the MFront behaviour or change the expression of the jacobian in the pure FEniCS implementation by:</p>
-<pre><code>J = dot(grad(T_), -grad(dT)/(A+B*T))*dx(metadata={&#39;quadrature_degree&#39;: quad_deg})</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1">J <span class="op">=</span> dot(grad(T_), <span class="op">-</span>grad(dT)<span class="op">/</span>(A<span class="op">+</span>B<span class="op">*</span>T))<span class="op">*</span>dx(metadata<span class="op">=</span>{<span class="st">&#39;quadrature_degree&#39;</span>: quad_deg})</a></code></pre></div>
 <p>In the present case, using this partial tangent operator yields a convergence in 4 iterations instead of 3, giving a computational cost increase by roughly 25%.</p>
       </body>
 </html>

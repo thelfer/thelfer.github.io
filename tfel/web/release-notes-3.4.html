@@ -295,7 +295,7 @@
 <h1 id="new-features-of-the-tfel-libraries"><span class="header-section-number">2</span> New features of the <code>TFEL</code> libraries</h1>
 <h2 id="new-features-of-the-tfelmath-library"><span class="header-section-number">2.1</span> New features of the <code>TFEL/Math</code> library</h2>
 <h3 id="scalar-newton-raphson-algorithm"><span class="header-section-number">2.1.1</span> Scalar Newton-Raphson algorithm</h3>
-<p>The function <code>scalarNewtonRaphson</code>, declared in the <code>TFEL/Math/ScalarNewtonRaphson.hxx</code> is a generic implementation of the Newton-Raphson algorithm for scalar non linear equations.</p>
+<p>The function <code>scalarNewtonRaphson</code>, declared in the <code>TFEL/Math/ScalarNewtonRaphson.hxx</code> is a generic implementation of the Newton-Raphson algorithm for scalar non linear equations. The Newton algorithm is coupled with bisection whenever root-bracketting is possible, which considerably increase its robustness.</p>
 <p>This implementation handles properly <code>IEEE754</code> exceptional cases (infinite numbers, <code>NaN</code> values), even if advanced compilers options are used (such as <code>-ffast-math</code> under <code>gcc</code>).</p>
 <h4 id="usage"><span class="header-section-number">2.1.1.1</span> Usage</h4>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// this lambda takes the current estimate of the root and returns</span></a>

@@ -508,7 +508,7 @@ R{\left(p\right)}=R_{\infty} + {\left(R_{0}-R_{\infty}\right)}\,\exp{\left(-b\,p
 <a class="sourceLine" id="cb18-12" data-line-number="12">    <span class="co">// computation of the jacobian matrix</span></a>
 <a class="sourceLine" id="cb18-13" data-line-number="13">    dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp*Jmn*iseq ;</a>
 <a class="sourceLine" id="cb18-14" data-line-number="14">    dfeel_ddp    = n;</a>
-<a class="sourceLine" id="cb18-15" data-line-number="15">    dfp_ddeel    = - Fexp*m*dt* <span class="dv">2</span>*mu*theta*(n| Stensor4::M() )*two_third;</a>
+<a class="sourceLine" id="cb18-15" data-line-number="15">    dfp_ddeel    = - Fexp*m*dt * <span class="dv">2</span> * mu* theta * n;</a>
 <a class="sourceLine" id="cb18-16" data-line-number="16">    dfp_ddp     += theta* Fexp *m *dt*b*(Rinf-Rp);</a>
 <a class="sourceLine" id="cb18-17" data-line-number="17">    <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=<span class="dv">2</span>;++i){</a>
 <a class="sourceLine" id="cb18-18" data-line-number="18">      dfeel_dda(i)   = -C[i]*dp*theta*iseq*two_third*Jmn ;</a>

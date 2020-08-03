@@ -250,22 +250,22 @@
           </div>
             <div id="TOC">
       <ul>
-      <li><a href="#extending-the-tfelmaterial-library">Extending the <code>TFEL/Material</code> library</a><ul>
-      <li><a href="#template-files">Template files</a></li>
-      <li><a href="#creating-a-proper-working-directory-for-the-example-of-the-green-criterion">Creating a proper working directory for the example of the Green criterion</a></li>
-      <li><a href="#implementing-the-green-1972-stress-criterion">Implementing the Green 1972 stress criterion</a></li>
+      <li><a href="#extending-the-tfelmaterial-library"><span class="toc-section-number">1</span> Extending the <code>TFEL/Material</code> library</a><ul>
+      <li><a href="#template-files"><span class="toc-section-number">1.1</span> Template files</a></li>
+      <li><a href="#creating-a-proper-working-directory-for-the-example-of-the-green-criterion"><span class="toc-section-number">1.2</span> Creating a proper working directory for the example of the Green criterion</a></li>
+      <li><a href="#implementing-the-green-1972-stress-criterion"><span class="toc-section-number">1.3</span> Implementing the Green 1972 stress criterion</a></li>
       </ul></li>
-      <li><a href="#extending-the-tfelmfront-library">Extending the <code>TFELMFront</code> library</a><ul>
-      <li><a href="#updating-the-working-directory">Updating the working directory</a></li>
-      <li><a href="#adding-the-stress-criterion-options">Adding the stress criterion options</a></li>
-      <li><a href="#compilation-of-the-mfront-plugin">Compilation of the <code>MFront</code> plugin</a></li>
+      <li><a href="#extending-the-tfelmfront-library"><span class="toc-section-number">2</span> Extending the <code>TFELMFront</code> library</a><ul>
+      <li><a href="#updating-the-working-directory"><span class="toc-section-number">2.1</span> Updating the working directory</a></li>
+      <li><a href="#adding-the-stress-criterion-options"><span class="toc-section-number">2.2</span> Adding the stress criterion options</a></li>
+      <li><a href="#compilation-of-the-mfront-plugin"><span class="toc-section-number">2.3</span> Compilation of the <code>MFront</code> plugin</a></li>
       </ul></li>
       <li><a href="#references">References</a></li>
       </ul>
     </div>
         
 
-<p>This document gives some insights of how a user may extend the <code>StandardElastoViscoPlasticity</code> brick by adding a new stress criterion.</p>
+<p>This document gives some insights on how a user may extend the <code>StandardElastoViscoPlasticity</code> brick by adding a new stress criterion.</p>
 <p>The <code>StandardElastoViscoPlasticity</code> brick is fully described <a href="StandardElastoViscoPlasticityBrick.html">here</a>.</p>
 <p>Introducing a new stress criterion in the <code>StandardElastoViscoPlasticity</code> brick has two main steps:</p>
 <ul>
@@ -278,8 +278,8 @@
 <p>See the documentation of the <code>@OrthotropicBehaviour</code> keyword for details:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">mfront</span> --help-keyword=Implicit:@OrthotropicBehaviour</a></code></pre></div>
 </blockquote>
-<h1 id="extending-the-tfelmaterial-library">Extending the <code>TFEL/Material</code> library</h1>
-<h2 id="template-files">Template files</h2>
+<h1 id="extending-the-tfelmaterial-library"><span class="header-section-number">1</span> Extending the <code>TFEL/Material</code> library</h1>
+<h2 id="template-files"><span class="header-section-number">1.1</span> Template files</h2>
 <p>We recommend that you use the following template files:</p>
 <ul>
 <li><a href="cxx/include/TFEL/Material/StressCriterionTemplate.hxx"><code>StressCriterionTemplate.hxx</code></a></li>
@@ -314,7 +314,7 @@
 <li>Implement the three previous functions</li>
 <li>Test your implementation in <code>MFront</code> and <code>MTest</code> (or your favorite solver).</li>
 </ol>
-<h2 id="creating-a-proper-working-directory-for-the-example-of-the-green-criterion">Creating a proper working directory for the example of the Green criterion</h2>
+<h2 id="creating-a-proper-working-directory-for-the-example-of-the-green-criterion"><span class="header-section-number">1.2</span> Creating a proper working directory for the example of the Green criterion</h2>
 <p>In this paragraph, we detail Steps 1 and 2. for the case of the Green criterion (see <span class="citation" data-cites="green_plasticity_1972">Green (1972)</span>) which will be used as an illustrative example throughout this document. We describe all those steps in details and finally gives a shell script that automates the whole process for <code>LiNuX</code> users. When providing command line examples, we assume that the shell is <code>bash</code>.</p>
 <p>The header files <code>StressCriterionTemplate.hxx</code> and <code>StressCriterionTemplate.ixx</code> are placed in a subdirectory called <code>include/TFEL/Material</code> and renamed respectively <code>Green1972StressCriterion.hxx</code> and <code>Green1972StressCriterion.ixx</code>.</p>
 <p>The <code>MFront</code> template files must be copied in the working directory and renamed appropriatly.</p>
@@ -328,7 +328,7 @@
 <a class="sourceLine" id="cb2-7" data-line-number="7">$ <span class="fu">mv</span> StressCriterionTest.mfront \</a>
 <a class="sourceLine" id="cb2-8" data-line-number="8">     tests/test1/Green1972PerfectPlasticity.mfront</a>
 <a class="sourceLine" id="cb2-9" data-line-number="9">$ <span class="fu">mv</span> StressCriterionTest_NumericalJacobian.mfront \</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">     tests/test2/Green1972PerfectPlasticity_NumericalJacobian.mfront</a></code></pre></div>
+<a class="sourceLine" id="cb2-10" data-line-number="10">     tests/test1/Green1972PerfectPlasticity_NumericalJacobian.mfront</a></code></pre></div>
 <p>The working directory is thus organized as follows:</p>
 <p><img src="img/ExtendingStandardElastoViscoPlasticityBrick-tree.png" /></p>
 <p>In all those files, we now replace</p>
@@ -356,7 +356,7 @@
 <a class="sourceLine" id="cb4-3" data-line-number="3">       Green1972PerfectPlasticity.mfront</a></code></pre></div>
 <p>Note the <code>-I $(pwd)/../../include</code> flags which allows <code>MFront</code> to find the header files implementing the stress criterion (In <code>bash</code>, <code>$(pwd)</code> return the current directory).</p>
 </blockquote>
-<h2 id="implementing-the-green-1972-stress-criterion">Implementing the Green 1972 stress criterion</h2>
+<h2 id="implementing-the-green-1972-stress-criterion"><span class="header-section-number">1.3</span> Implementing the Green 1972 stress criterion</h2>
 <p>In this paragraph, we detail all the steps required to implement the Green 1972 stress criterion (see <span class="citation" data-cites="green_plasticity_1972">Green (1972)</span> for the original paper, <span class="citation" data-cites="fritzen_computational_2013">Fritzen et al. (2013)</span> for the paper that we follow for this work).</p>
 <p>The green stress criterion is defined by:</p>
 <p><span class="math display">\[
@@ -369,7 +369,7 @@
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">wget</span> http://tfel.sourceforge.net/scripts/generate.sh</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="fu">chmod</span> +x generate.sh</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="ex">./generate.sh</span></a></code></pre></div>
-<h3 id="modifying-the-green1972stresscriterionparameters-data-structure">Modifying the <code>Green1972StressCriterionParameters</code> data structure</h3>
+<h3 id="modifying-the-green1972stresscriterionparameters-data-structure"><span class="header-section-number">1.3.1</span> Modifying the <code>Green1972StressCriterionParameters</code> data structure</h3>
 <p>The <code>Green1972StressCriterionParameters</code> data structure, declared in <code>Green1972StressCriterion.hxx</code>, must contain the values of the <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> material parameters.</p>
 <p>We modify it as follows:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">template</span> &lt;<span class="kw">typename</span> StressStensor&gt;</a>
@@ -389,7 +389,7 @@
 <a class="sourceLine" id="cb7-5" data-line-number="5">  <span class="cf">return</span> os;</a>
 <a class="sourceLine" id="cb7-6" data-line-number="6">} <span class="co">// end of operator&lt;&lt;</span></a></code></pre></div>
 <p>This operator is useful when compiling <code>MFront</code> files in <code>debug</code> mode.</p>
-<h3 id="implementing-the-computegreen1972stress-function">Implementing the <code>computeGreen1972Stress</code> function</h3>
+<h3 id="implementing-the-computegreen1972stress-function"><span class="header-section-number">1.3.2</span> Implementing the <code>computeGreen1972Stress</code> function</h3>
 <p>The <code>computeGreen1972Stress</code> function is implemented in the <code>Green1972StressCriterion.ixx</code> file.</p>
 <p>Following the definition of the equivalent stress, this implementation is straightforward:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">template</span> &lt;<span class="kw">typename</span> StressStensor&gt;</a>
@@ -406,7 +406,7 @@
 <p><strong>Note</strong></p>
 <p>It is worth trying to recompile the <code>MFront</code> file at this stage to see if one did not introduce any error in the <code>C++</code> code.</p>
 </blockquote>
-<h3 id="implementing-the-computegreen1972stressnormal-function">Implementing the <code>computeGreen1972StressNormal</code> function</h3>
+<h3 id="implementing-the-computegreen1972stressnormal-function"><span class="header-section-number">1.3.3</span> Implementing the <code>computeGreen1972StressNormal</code> function</h3>
 <p>This function computes the equivalent stress and its normal. The expression of the normal is:</p>
 <p><span class="math display">\[
 \underline{n} = {\displaystyle \frac{\displaystyle \partial f}{\displaystyle \partial \underline{\sigma}}} = {{\displaystyle \frac{\displaystyle 1}{\displaystyle \sigma_{\mathrm{eq}}}}}\,{\left({{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,C\,\underline{s}+F\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}\right)}
@@ -433,7 +433,7 @@
 <p><strong>Note</strong></p>
 <p>At this stage, the <code>MFront</code> implementation based on a numerical jacobian could be fully functional if one modifies the <code>@InitLocalVarialbes</code> block to initialize the parameters of stress criterion.</p>
 </blockquote>
-<h3 id="implementing-the-computegreen1972stresssecondderivative-function">Implementing the <code>computeGreen1972StressSecondDerivative</code> function</h3>
+<h3 id="implementing-the-computegreen1972stresssecondderivative-function"><span class="header-section-number">1.3.4</span> Implementing the <code>computeGreen1972StressSecondDerivative</code> function</h3>
 <p>This function computes the equivalent stress, its normal and the derivative of the normal (i.e. the second derivative of the equivalent stress).</p>
 <p>The expression of the derivative of the normal is:</p>
 <p><span class="math display">\[
@@ -466,7 +466,7 @@
 <a class="sourceLine" id="cb10-24" data-line-number="24">      iseq;</a>
 <a class="sourceLine" id="cb10-25" data-line-number="25">  <span class="cf">return</span> {seq, n, dn};</a>
 <a class="sourceLine" id="cb10-26" data-line-number="26">}  <span class="co">// end of computeGreen1972SecondDerivative</span></a></code></pre></div>
-<h3 id="modifying-the-mfront-implementations">Modifying the <code>MFront</code> implementations</h3>
+<h3 id="modifying-the-mfront-implementations"><span class="header-section-number">1.3.5</span> Modifying the <code>MFront</code> implementations</h3>
 <p>At this stage, the provided <code>MFront</code> implementations are almost working. Only the initializations of the parameters of the yield criterion is missing.</p>
 <p>First, we define two parameters called <code>F</code> and <code>C</code>:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="er">@</span>Parameter C = <span class="fl">0.8</span>;</a>
@@ -479,7 +479,7 @@
 <a class="sourceLine" id="cb12-3" data-line-number="3">  params.F = F;</a>
 <a class="sourceLine" id="cb12-4" data-line-number="4">  params.C = C;</a>
 <a class="sourceLine" id="cb12-5" data-line-number="5">  ...</a></code></pre></div>
-<h3 id="testing">Testing</h3>
+<h3 id="testing"><span class="header-section-number">1.3.6</span> Testing</h3>
 <p>At this stage, your implementations are fully functional. Go in the <code>tests/test1</code> subdirectory and compile the examples with:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" data-line-number="1">$ <span class="ex">mfront</span> -I <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/../../include --obuild --interface=generic \</a>
 <a class="sourceLine" id="cb13-2" data-line-number="2">         Green1972PerfectPlasticity.mfront              \</a>
@@ -531,8 +531,8 @@
 <a class="sourceLine" id="cb17-2" data-line-number="2">        --@CompareToNumericalTangentOperator=true          \</a>
 <a class="sourceLine" id="cb17-3" data-line-number="3">        --@NumericalTangentOperatorPerturbationValue=1.e-8 \</a>
 <a class="sourceLine" id="cb17-4" data-line-number="4">        --@TangentOperatorComparisonCriterium=1</a></code></pre></div>
-<h1 id="extending-the-tfelmfront-library">Extending the <code>TFELMFront</code> library</h1>
-<h2 id="updating-the-working-directory">Updating the working directory</h2>
+<h1 id="extending-the-tfelmfront-library"><span class="header-section-number">2</span> Extending the <code>TFELMFront</code> library</h1>
+<h2 id="updating-the-working-directory"><span class="header-section-number">2.1</span> Updating the working directory</h2>
 <p>We recommend that you use the following template files:</p>
 <ul>
 <li><a href="cxx/mfront/include/MFront/BehaviourBrick/StressCriterionTemplate.hxx"><code>StressCriterionTemplate.hxx</code></a>. Beware that this file is not the same as the one used in the first part of this document.</li>
@@ -542,8 +542,8 @@
 <p>The working directory must now have the following structure:</p>
 <p><img src="img/ExtendingStandardElastoViscoPlasticityBrick-tree-2.png" /></p>
 <p>As in the first part of this document, <code>__Author__</code>, <code>__Date__</code>, <code>__StressCriterionName__</code> and <code>__STRESS_CRITERION_NAME__</code> must be replaced by the appropriate values.</p>
-<h2 id="adding-the-stress-criterion-options">Adding the stress criterion options</h2>
-<p>In our case, one shall only implement the <code>getOptions</code> methods to declare the <code>F</code> and <code>C</code> coefficients.</p>
+<h2 id="adding-the-stress-criterion-options"><span class="header-section-number">2.2</span> Adding the stress criterion options</h2>
+<p>In our case, one shall only implement the <code>getOptions</code> method to declare the <code>F</code> and <code>C</code> coefficients.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="bu">std::</span>vector&lt;OptionDescription&gt; Green1972StressCriterion::getOptions() <span class="at">const</span> {</a>
 <a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="kw">auto</span> opts = StressCriterionBase::getOptions();</a>
 <a class="sourceLine" id="cb18-3" data-line-number="3">  opts.emplace_back(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;First stress criterion coefficient&quot;</span>,</a>
@@ -557,7 +557,7 @@
 <p>The default implementation of the <code>isNormalDeviatoric</code> method declares that the normal is not deviatoric, which correct in the case of the Green criterion.</p>
 <p>If this is not the case, the implementation of this method must be changed appropriately.</p>
 </blockquote>
-<h2 id="compilation-of-the-mfront-plugin">Compilation of the <code>MFront</code> plugin</h2>
+<h2 id="compilation-of-the-mfront-plugin"><span class="header-section-number">2.3</span> Compilation of the <code>MFront</code> plugin</h2>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>This paragraph assumes that you are working under a standard <code>LiNuX</code> environment. In particular, we assume that you use <code>g++</code> as your <code>C++</code> compiler. This can easily be changed to match your needs.</p>

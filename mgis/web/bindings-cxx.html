@@ -88,6 +88,61 @@
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
         <header>
+      <center>
+	<ul id="nav">
+	  <li><a href="index.html">Overview</a></li>
+	  <li><a>Documentation</a>
+	    <ul>
+	      <li><a href="https://www.theoj.org/joss-papers/joss.02003/10.21105.joss.02003.pdf"> JOSS paper</a></li>
+	      <li><a href="bindings-cxx.html">Description of the C++ library</a></li>
+	      <li><a href="install.html">Installation guide</a></li>
+	      <!-- <li><a>Bindings</a> -->
+	      <!-- 	<ul> -->
+	      <!-- 	</ul> -->
+	      <!-- </li> -->
+	      <li><a href="mgis_fenics.html">mgis.fenics</a>
+		<ul>
+		  <li><a href="mgis_fenics.html">Overview of mgis.fenics</a></li>
+		  <li><a href="mgis_fenics_nonlinear_heat_transfer.html">Stationnary non-linear heat transfer</a></li>
+		  <li><a href="mgis_fenics_nonlinear_heat_transfer_3D.html">Stationnary non-linear heat transfer: 3D problem and performance comparisons</a></li>
+		  <li><a href="mgis_fenics_heat_equation_phase_change.html">Transient heat equation with phase change</a></li>
+		  <li><a href="mgis_fenics_monolithic_transient_thermoelasticity.html">Monolithic transient thermoelasticity</a></li>
+		  <li><a href="mgis_fenics_small_strain_elastoplasticity.html">Small-strain von Mises elastoplasticity</a></li>
+		  <li><a href="mgis_fenics_finite_strain_elastoplasticity.html">Finite-strain elastoplasticity within the logarithmic strain framework</a></li>
+		  <li><a href="mgis_fenics_multiphase_model.html">Multiphase model for fiber-reinforced materials</a></li>
+		  <li><a href="mgis_fenics_phase_field.html">Phase-field approach to brittle fracture</a></li>
+		</ul>
+	      </li>
+	      <li><a>Release notes</a>
+		<ul>
+		  <li><a href="release-notes-1.1.html">Version 1.1</a></li>
+		  <li><a href="release-notes-1.1.1.html">Version 1.1.1</a></li>
+		  <li><a href="release-notes-1.2.html">Version 1.2</a></li>
+		</ul>
+	      </li>
+	      <li><a>Specific topics</a>
+		<ul>
+		  <li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
+		</ul>
+	      </li>
+	      <li><a href="faq.html">FAQ</a></li>
+	      <li><a href="about.html">About</a></li>
+	    </ul>
+	  </li>
+	  <li><a>Contributing</a>
+	    <ul>
+	      <li><a href="contributing.html">Contributing guidelines</a></li>
+	      <li><a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues">Report bugs</a></li>
+	    </ul>
+	  </li>
+	  <li><a>Getting Help</a>
+	    <ul>
+	      <li><a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues">Forum</a></li>
+	      <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	    </ul>
+	  </li>
+	</ul>
+      </center>
     </header>
     <br></br>
         <div id="header">
@@ -126,6 +181,7 @@
       <li><a href="#third-case-manual-allocation">Third case: manual allocation</a></li>
       </ul></li>
       <li><a href="#behaviour-integration">Behaviour integration</a></li>
+      <li><a href="#orthotropic-behaviours">Orthotropic behaviours</a></li>
       <li><a href="#references">References</a></li>
       </ul>
     </div>
@@ -338,6 +394,8 @@
 <p>The user may refer to the <code>IntegrateTest.cxx</code> file to have an example on how this use this version.</p>
 <p>The second one takes a <code>MaterialDataManager</code> and performs the behaviour integration on a range of integration points. The user may refer to the <code>IntegrateTest2.cxx</code> file to have an example on how this use this second overload.</p>
 <p>The third overload is similar to the second one but also takes an argument of the <code>ThreadPool</code> type allowing a parallelization of the behaviour integration. The user may refer to the <code>IntegrateTest2b.cxx</code> file to have an example on how this use this second overload.</p>
+<h1 id="orthotropic-behaviours">Orthotropic behaviours</h1>
+<p>Orthotropic behaviours require to handle the rotations between the global frame and the material frame. This is described in depth <a href="orthotropic-behaviours.html">here</a>.</p>
 <h1 id="references" class="unnumbered">References</h1>
 <div id="refs" class="references">
 <div id="ref-miehe_anisotropic_2002">

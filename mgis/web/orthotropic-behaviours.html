@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Support of orthotropic behaviours in MGIS</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2020-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        { background-color: #f8f8f8; }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #c4a000; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #000000; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #000000; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #000000; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
+        <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <center>
+	<ul id="nav">
+	  <li><a href="index.html">Overview</a></li>
+	  <li><a>Documentation</a>
+	    <ul>
+	      <li><a href="https://www.theoj.org/joss-papers/joss.02003/10.21105.joss.02003.pdf"> JOSS paper</a></li>
+	      <li><a href="bindings-cxx.html">Description of the C++ library</a></li>
+	      <li><a href="install.html">Installation guide</a></li>
+	      <!-- <li><a>Bindings</a> -->
+	      <!-- 	<ul> -->
+	      <!-- 	</ul> -->
+	      <!-- </li> -->
+	      <li><a href="mgis_fenics.html">mgis.fenics</a>
+		<ul>
+		  <li><a href="mgis_fenics.html">Overview of mgis.fenics</a></li>
+		  <li><a href="mgis_fenics_nonlinear_heat_transfer.html">Stationnary non-linear heat transfer</a></li>
+		  <li><a href="mgis_fenics_nonlinear_heat_transfer_3D.html">Stationnary non-linear heat transfer: 3D problem and performance comparisons</a></li>
+		  <li><a href="mgis_fenics_heat_equation_phase_change.html">Transient heat equation with phase change</a></li>
+		  <li><a href="mgis_fenics_monolithic_transient_thermoelasticity.html">Monolithic transient thermoelasticity</a></li>
+		  <li><a href="mgis_fenics_small_strain_elastoplasticity.html">Small-strain von Mises elastoplasticity</a></li>
+		  <li><a href="mgis_fenics_finite_strain_elastoplasticity.html">Finite-strain elastoplasticity within the logarithmic strain framework</a></li>
+		  <li><a href="mgis_fenics_multiphase_model.html">Multiphase model for fiber-reinforced materials</a></li>
+		  <li><a href="mgis_fenics_phase_field.html">Phase-field approach to brittle fracture</a></li>
+		</ul>
+	      </li>
+	      <li><a>Release notes</a>
+		<ul>
+		  <li><a href="release-notes-1.1.html">Version 1.1</a></li>
+		  <li><a href="release-notes-1.1.1.html">Version 1.1.1</a></li>
+		  <li><a href="release-notes-1.2.html">Version 1.2</a></li>
+		</ul>
+	      </li>
+	      <li><a>Specific topics</a>
+		<ul>
+		  <li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
+		</ul>
+	      </li>
+	      <li><a href="faq.html">FAQ</a></li>
+	      <li><a href="about.html">About</a></li>
+	    </ul>
+	  </li>
+	  <li><a>Contributing</a>
+	    <ul>
+	      <li><a href="contributing.html">Contributing guidelines</a></li>
+	      <li><a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues">Report bugs</a></li>
+	    </ul>
+	  </li>
+	  <li><a>Getting Help</a>
+	    <ul>
+	      <li><a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues">Forum</a></li>
+	      <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	    </ul>
+	  </li>
+	</ul>
+      </center>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Support of orthotropic behaviours in <code>MGIS</code></h1>
+                  <h2 class="author">Thomas Helfer</h2>
+                  <h3 class="date">2020</h3>
+          </div>
+            <div id="TOC">
+      <ul>
+      <li><a href="#outline-of-this-document">Outline of this document</a></li>
+      <li><a href="#sec:mgis:orthotropic_behaviours:introduction">About orthotropic behaviours</a></li>
+      <li><a href="#sec:mgis:orthotropic_behaviours:generic_interface">Functions generated by the <code>generic</code> interface</a><ul>
+      <li><a href="#finite-strain-behaviours">Finite strain behaviours</a></li>
+      </ul></li>
+      <li><a href="#sec:mgis:orthotropic_behaviours:mgis_support">Features of <code>MGIS</code> related to orthotropic behaviours</a><ul>
+      <li><a href="#additional-members-of-the-behaviour-class-and-some-helper-functions">Additional members of the <code>Behaviour</code> class and some helper functions</a><ul>
+      <li><a href="#example-of-usage">Example of usage</a></li>
+      </ul></li>
+      <li><a href="#c-bindings"><code>C</code> bindings</a></li>
+      <li><a href="#fortran-bindings"><code>Fortran</code> bindings</a><ul>
+      <li><a href="#example-of-usage-1">Example of usage</a></li>
+      </ul></li>
+      <li><a href="#python-bindings"><code>Python</code> bindings</a><ul>
+      <li><a href="#example-of-usage-2">Example of usage</a></li>
+      </ul></li>
+      <li><a href="#julia-bindings"><code>Julia</code> bindings</a></li>
+      </ul></li>
+      </ul>
+    </div>
+        <p>Behaviours generated by the <code>generic</code> interface of <code>MFront</code> are meant to be integrated in the material frame. This choice allows the calling solver to develop its own strategy and code for dealing with orthotropic behaviours.</p>
+<p>However, dealing with orthotropic behaviours may be tedious and require an considerable amount of developments. Since version <span class="math inline">\(3.4\)</span> of <code>TFEL</code>, the <code>generic</code> interface generates additional functions which performs those steps efficiently. The purpose of this document is to introduce some of the features provided by <code>MGIS</code> built around those functions.</p>
+<h2 id="outline-of-this-document">Outline of this document</h2>
+<p>Section 2 provides an small introduction on the specific issues related to orthotropic behaviours from the behaviour integration point of view.</p>
+<p>The functions generated by the <code>MFront</code>’ <code>generic</code> interface are described in Section 3.</p>
+<p>Section 4 is devoted to functionalities and wrappers around those functions and how to use them efficiently.</p>
+<h1 id="sec:mgis:orthotropic_behaviours:introduction">About orthotropic behaviours</h1>
+<p>Dealing with such behaviours implies, for the calling solver:</p>
+<ol type="1">
+<li>Rotating the gradients from the global frame to the material frame before the behaviour integration. At each equilibrium iterations, only the gradients at the end of the time steps are generally rotated as the values of the gradients in the material frame at the beginning of the time step may be stored by the <code>BehaviourData</code> (for one integration point) or <code>MaterialDataManager</code> classes (for a set of integration points).</li>
+<li>Rotating the thermodynamic forces and tangent operator blocks from the material frame to the global frame after the behaviour integration for the assembly of the inner forces and stiffness matrices.</li>
+</ol>
+<h1 id="sec:mgis:orthotropic_behaviours:generic_interface">Functions generated by the <code>generic</code> interface</h1>
+<p>The first set of functions generated by the <code>generic</code> interface are named as follows:</p>
+<ul>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateGradients</code></li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateThermodynamicForces</code></li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks</code></li>
+</ul>
+<p>Note that those functions are only generated for orthotropic behaviours.</p>
+<p>All those functions take three arguments:</p>
+<ul>
+<li>a pointer to the location where the rotated variables will be stored.</li>
+<li>a pointer to the location where the original variables are stored.</li>
+<li>a pointer to the rotation matrix from the global frame to the material frame. The rotation matrix has 9 components stored in column-major format. For the function handling the thermodynamic forces and the tangent operators blocks, this rotation matrix is transposed internally to get the rotation matrix from the material frame to the global frame.</li>
+</ul>
+<p>Note that, for efficiency reasons, those functions do no perform any consistency checks. In particular:</p>
+<ul>
+<li>the callee is responsible for properly allocating the memory of the gradients and the rotation matrix.</li>
+<li>the callee is responsible for building an appropriate rotation matrix. For instance, the previous functions do no check that the column of the matrix forms an orthonormal basis of <span class="math inline">\(\mathbb{R}^{3}\)</span>.</li>
+</ul>
+<p>In place rotations is explicitly allowed, i.e. the first and second arguments can be a pointer to the same location.</p>
+<p>The three previous functions works for an integration point. Three other functions are also generated:</p>
+<ul>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateArrayOfGradients</code></li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateArrayOfThermodynamicForces</code></li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateArrayOfTangentOperatorBlocks</code></li>
+</ul>
+<p>Those functions takes an additional arguments which is the number of integration points to be treated.</p>
+<h3 id="finite-strain-behaviours">Finite strain behaviours</h3>
+<p>Finite strain behaviours are a special case, because the returned stress measure and the returned tangent operator can be chosen at runtime time. A specific rotation function is generated for each supported stress measure and each supported tangent operator.</p>
+<p>Here is the list of the generated functions:</p>
+<ul>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateThermodynamicForces_CauchyStress</code>. This function assumes that its first argument is the Cauchy stress in the material frame.</li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateThermodynamicForces_PK1Stress</code>. This function assumes that its first argument is the first Piola-Kirchhoff stress in the material frame.</li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateThermodynamicForces_PK2Stress</code>. This function assumes that its first argument is the second Piola-Kirchhoff stress in the material frame. <code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_dsig_dF</code>. This function assumes that its first argument is the derivative of the Cauchy stress with respect to the deformation gradient in the material frame.</li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_dPK1_dF</code>. This function assumes that its first argument is the derivative of the first Piola-Kirchhoff stress with respect to the deformation gradient in the material frame.</li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_PK2Stress</code>. This function assumes that its first argument is the derivative of the second Piola-Kirchhoff stress with respect to the Green-Lagrange strain in the material frame.</li>
+</ul>
+<h1 id="sec:mgis:orthotropic_behaviours:mgis_support">Features of <code>MGIS</code> related to orthotropic behaviours</h1>
+<h2 id="additional-members-of-the-behaviour-class-and-some-helper-functions">Additional members of the <code>Behaviour</code> class and some helper functions</h2>
+<p>The <code>Behaviour</code> class exposes the following data members:</p>
+<ul>
+<li><code>rotate_gradients_ptr</code></li>
+<li><code>rotate_array_of_gradients_ptr</code></li>
+<li><code>rotate_thermodynamic_forces_ptr</code></li>
+<li><code>rotate_array_of_thermodynamic_forces_ptr</code></li>
+<li><code>rotate_tangent_operator_blocks_ptr</code></li>
+<li><code>rotate_array_of_tangent_operator_blocks_ptr</code></li>
+</ul>
+<p>which are functions pointers to the appropriate functions (i.e. the modelling hypothesis and, for finite strain behaviours, the choices of the stress measures and tangent operator kind, are automatically taken into account by the <code>load</code> functions.</p>
+<p>Direct use of those functions is meant to be highly efficient but still don’t perform any consistency checks.</p>
+<p>The following helper functions are thus provided:</p>
+<ul>
+<li><code>rotateGradients</code></li>
+<li><code>rotateThermodynamicForces</code></li>
+<li><code>rotateTangentOperatorBlocks</code></li>
+</ul>
+<p>Those functions takes memory blocks (wrapped in <code>mgis::span</code> objects) and checks that the size of those blocks are consistent. For each of those functions, two overloads exist, one for in place rotation, one for out of place rotations.</p>
+<p>Those functions are perfectly fine for managing the rotations of the gradients of a set of integration points. However, their overhead is probably significant when dealing with only one integration point and their use shall probably be limited to <code>debug</code> builds.</p>
+<h3 id="example-of-usage">Example of usage</h3>
+<p>The following example loads and orthotropic behaviour, defines a rotation matrix, and rotates a strain from the global frame to the material frame:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> b = load(<span class="st">&quot;src/libBehaviour.so&quot;</span>, <span class="st">&quot;OrthotropicElasticity&quot;</span>,</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">                    Hypothesis::GENERALISEDPLANESTRAIN);</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="at">const</span> <span class="bu">std::</span>array&lt;real, <span class="dv">9</span>&gt; r = {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="co">//</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">                               <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="co">//</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">                               <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>};</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="at">const</span> <span class="bu">std::</span>array&lt;real, <span class="dv">4</span>&gt; ge = {<span class="fl">1e-3</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>};</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="bu">std::</span>array&lt;real, <span class="dv">4</span>&gt; me;</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">rotateGradients(me, b, ge, r);</a></code></pre></div>
+<h2 id="c-bindings"><code>C</code> bindings</h2>
+<p>The <code>C</code> bindings provides the following functions, declared in the <code>MGIS/Behaviour/Behaviour.h</code> header:</p>
+<ul>
+<li><code>mgis_bv_behaviour_rotate_gradients_in_place</code></li>
+<li><code>mgis_bv_behaviour_rotate_gradients_out_of_place</code></li>
+<li><code>mgis_bv_behaviour_rotate_array_of_gradients_in_place</code></li>
+<li><code>mgis_bv_behaviour_rotate_array_of_gradients_out_of_place</code></li>
+<li><code>mgis_bv_behaviour_rotate_thermodynamic_forces_in_place</code></li>
+<li><code>mgis_bv_behaviour_rotate_thermodynamic_forces_out_of_place</code></li>
+<li><code>mgis_bv_behaviour_rotate_array_of_thermodynamic_forces_in_place</code></li>
+<li><code>mgis_bv_behaviour_rotate_array_of_thermodynamic_forces_out_of_place</code></li>
+<li><code>mgis_bv_behaviour_rotate_tangent_operator_blocks_in_place</code></li>
+<li><code>mgis_bv_behaviour_rotate_tangent_operator_blocks_out_of_place</code></li>
+<li><code>mgis_bv_behaviour_rotate_array_of_tangent_operator_blocks_in_place</code></li>
+<li><code>mgis_bv_behaviour_rotate_array_of_tangent_operator_blocks_out_of_place</code></li>
+</ul>
+<h2 id="fortran-bindings"><code>Fortran</code> bindings</h2>
+<p>The <code>mgis.behaviours</code> bindings provides the following functions, declared in the <code>mgis_behaviour</code> header:</p>
+<ul>
+<li><code>rotate_gradients_in_place</code></li>
+<li><code>rotate_gradients_out_of_place</code></li>
+<li><code>rotate_array_of_gradients_in_place</code></li>
+<li><code>rotate_array_of_gradients_out_of_place</code></li>
+<li><code>rotate_thermodynamic_forces_in_place</code></li>
+<li><code>rotate_thermodynamic_forces_out_of_place</code></li>
+<li><code>rotate_array_of_thermodynamic_forces_in_place</code></li>
+<li><code>rotate_array_of_thermodynamic_forces_out_of_place</code></li>
+<li><code>rotate_tangent_operator_blocks_in_place</code></li>
+<li><code>rotate_tangent_operator_blocks_out_of_place</code></li>
+<li><code>rotate_array_of_tangent_operator_blocks_in_place</code></li>
+<li><code>rotate_array_of_tangent_operator_blocks_out_of_place</code></li>
+</ul>
+<h3 id="example-of-usage-1">Example of usage</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode fortran"><code class="sourceCode fortran"><a class="sourceLine" id="cb2-1" data-line-number="1">g <span class="kw">=</span> <span class="kw">(/</span> <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span><span class="kw">/)</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">r <span class="kw">=</span> <span class="kw">(/</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="kw">&amp;</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">       <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="kw">&amp;</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">       <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span><span class="kw">/)</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw">call</span> check_status(load_behaviour(b, <span class="kw">&amp;</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">     get_mfront_behaviour_test_library_path(), <span class="kw">&amp;</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">     <span class="st">&#39;OrthotropicElasticity&#39;</span>, <span class="st">&#39;Tridimensional&#39;</span>))</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="kw">call</span> check_status(rotate_gradients_in_place(g, b, r))</a></code></pre></div>
+<h2 id="python-bindings"><code>Python</code> bindings</h2>
+<p>The <code>Python</code> module <code>mgis.behaviour</code> provide the following free functions:</p>
+<ul>
+<li><code>rotateGradients</code></li>
+<li><code>rotateThermodynamicForces</code></li>
+<li><code>rotateTangentOperatorBlocks</code></li>
+</ul>
+<p>Those functions takes <code>NumPy</code> arrays as arguments. Two overloads are available for in-place or out-of-place rotations.</p>
+<p>For convenience, those functions are also available as members of the <code>Behaviour</code> class.</p>
+<h3 id="example-of-usage-2">Example of usage</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="im">from</span> mgis.behaviour <span class="im">import</span> <span class="op">*</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">r <span class="op">=</span> np.array([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>], dtype<span class="op">=</span>np.double)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">g1 <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>], dtype<span class="op">=</span>np.double)</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">g2 <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>], dtype<span class="op">=</span>np.double)</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">b <span class="op">=</span> load(<span class="st">&#39;src/libBehaviour.so&#39;</span>, <span class="st">&#39;OrthotropicElasticity&#39;</span>, Hypothesis.TRIDIMENSIONAL)</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">b.rotateGradients(g1,r)</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">rotateGradients(g2, b, r)</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="bu">print</span>(g1)</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="bu">print</span>(g2)</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">g3 <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>], dtype<span class="op">=</span>np.double)</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">b.rotateGradients(g3, r)</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="bu">print</span>(g3)</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">g4 <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>], dtype<span class="op">=</span>np.double)</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">b.rotateGradients(g4[<span class="dv">0</span>:<span class="dv">6</span>], r)</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="bu">print</span>(g4)</a></code></pre></div>
+<h2 id="julia-bindings"><code>Julia</code> bindings</h2>
+<p>Not yet available.</p>
+      </body>
+</html>

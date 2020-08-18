@@ -253,16 +253,17 @@
       <ul>
       <li><a href="#known-incompatibilities"><span class="toc-section-number">1</span> Known incompatibilities</a><ul>
       <li><a href="#getpartialjacobianinvert"><span class="toc-section-number">1.1</span> <code>getPartialJacobianInvert</code></a></li>
+      <li><a href="#declaration-of-the-offsets-of-the-integration-variables-in-implicit-schemes"><span class="toc-section-number">1.2</span> Declaration of the offsets of the integration variables in implicit schemes</a></li>
       </ul></li>
       <li><a href="#documentation"><span class="toc-section-number">2</span> Documentation</a></li>
       <li><a href="#new-features-of-the-tfel-libraries"><span class="toc-section-number">3</span> New features of the <code>TFEL</code> libraries</a><ul>
       <li><a href="#new-features-of-the-tfelmath-library"><span class="toc-section-number">3.1</span> New features of the <code>TFEL/Math</code> library</a></li>
       </ul></li>
       <li><a href="#new-features-of-mfront"><span class="toc-section-number">4</span> New features of <code>MFront</code></a><ul>
-      <li><a href="#coupling-visco-plasticity-with-porosity-evolutions-in-the-standardelastoviscoplasticity-brick"><span class="toc-section-number">4.1</span> Coupling (visco-)plasticity with porosity evolutions in the <code>StandardElastoViscoPlasticity</code> brick</a></li>
-      <li><a href="#the-standardstresscriterionbase-and-standardporousstresscriterionbase-base-class-to-ease-the-extension-of-the-standardelastoviscoplasticity-brick"><span class="toc-section-number">4.2</span> The <code>StandardStressCriterionBase</code> and <code>StandardPorousStressCriterionBase</code> base class to ease the extension of the <code>StandardElastoViscoPlasticity</code> brick</a></li>
-      <li><a href="#improved-robustness-of-the-isotropic-dsls"><span class="toc-section-number">4.3</span> Improved robustness of the isotropic DSLs</a></li>
-      <li><a href="#generic-behaviours"><span class="toc-section-number">4.4</span> Generic behaviours</a></li>
+      <li><a href="#debugging-options"><span class="toc-section-number">4.1</span> Debugging options</a></li>
+      <li><a href="#improved-robustness-of-the-isotropic-dsls"><span class="toc-section-number">4.2</span> Improved robustness of the isotropic DSLs</a></li>
+      <li><a href="#generic-behaviours"><span class="toc-section-number">4.3</span> Generic behaviours</a></li>
+      <li><a href="#improvements-to-the-implicit-domain-specific-languages"><span class="toc-section-number">4.4</span> Improvements to the implicit domain specific languages</a></li>
       <li><a href="#improvement-of-the-standardelastoviscoplasticity-brick"><span class="toc-section-number">4.5</span> Improvement of the <code>StandardElastoViscoplasticity</code> brick</a></li>
       <li><a href="#improvement-of-the-generic-interface"><span class="toc-section-number">4.6</span> Improvement of the <code>generic</code> interface</a></li>
       <li><a href="#support-of-orthotropic-behaviours"><span class="toc-section-number">4.7</span> Support of orthotropic behaviours</a></li>
@@ -275,23 +276,27 @@
       <li><a href="#improvements-of-the-tfel.math-module"><span class="toc-section-number">6.1</span> Improvements of the <code>tfel.math</code> module</a></li>
       </ul></li>
       <li><a href="#tfel-unicode-filt"><span class="toc-section-number">7</span> <code>tfel-unicode-filt</code></a></li>
-      <li><a href="#improvements-to-the-build-system"><span class="toc-section-number">8</span> Improvements to the build system</a><ul>
-      <li><a href="#exporting-cmake-targets"><span class="toc-section-number">8.1</span> Exporting <code>CMake</code>’ targets</a></li>
-      <li><a href="#disabling-numpy-support"><span class="toc-section-number">8.2</span> Disabling <code>NumPy</code> support</a></li>
+      <li><a href="#improvements-to-tfel-config"><span class="toc-section-number">8</span> Improvements to <code>tfel-config</code></a></li>
+      <li><a href="#improvements-to-the-build-system"><span class="toc-section-number">9</span> Improvements to the build system</a><ul>
+      <li><a href="#exporting-cmake-targets"><span class="toc-section-number">9.1</span> Exporting <code>CMake</code>’ targets</a></li>
+      <li><a href="#disabling-numpy-support"><span class="toc-section-number">9.2</span> Disabling <code>NumPy</code> support</a></li>
       </ul></li>
-      <li><a href="#tickets-solved-during-the-development-of-this-version"><span class="toc-section-number">9</span> Tickets solved during the development of this version</a><ul>
-      <li><a href="#ticket-234-import-behaviour-parameters-in-mtest"><span class="toc-section-number">9.1</span> Ticket #234: Import behaviour parameters in <code>MTest</code></a></li>
-      <li><a href="#ticket-231-support-for-tensors-as-gradients-and-thermodynamic-forces-in-the-generic-behaviours"><span class="toc-section-number">9.2</span> Ticket #231: Support for tensors as gradients and thermodynamic forces in the <code>generic</code> behaviours</a></li>
-      <li><a href="#ticket-219-add-the-possibility-to-define-the-tangent-operator-blocks"><span class="toc-section-number">9.3</span> Ticket #219: Add the possibility to define the tangent operator blocks</a></li>
-      <li><a href="#ticket-212-better-const-correctness-in-the-generic-behaviour"><span class="toc-section-number">9.4</span> Ticket #212: Better <code>const</code> correctness in the <code>generic</code> behaviour</a></li>
-      <li><a href="#ticket-209-lack-of-documentation-of-the-gasequationofstate-keyword"><span class="toc-section-number">9.5</span> Ticket #209: lack of documentation of the <code>@GasEquationOfState</code> keyword</a></li>
-      <li><a href="#ticket-206-export-tfel-targets-for-use-by-external-projects"><span class="toc-section-number">9.6</span> Ticket #206: Export <code>TFEL</code> targets for use by external projects</a></li>
-      <li><a href="#ticket-205-add-power-isotropic-hardening-rule"><span class="toc-section-number">9.7</span> Ticket #205: Add power isotropic hardening rule</a></li>
-      <li><a href="#ticket-195-export-variables-bounds-for-material-properties"><span class="toc-section-number">9.8</span> Ticket #195 : Export variables bounds for material properties</a></li>
-      <li><a href="#ticket-202-dsls-for-isotropic-behaviours-dont-handle-nan"><span class="toc-section-number">9.9</span> Ticket #202: DSLs for isotropic behaviours don’t handle <code>NaN</code></a></li>
-      <li><a href="#ticket-196-export-variable-names-for-all-interface-of-material-property"><span class="toc-section-number">9.10</span> Ticket #196 : Export variable names for all interface of material property</a></li>
+      <li><a href="#tickets-solved-during-the-development-of-this-version"><span class="toc-section-number">10</span> Tickets solved during the development of this version</a><ul>
+      <li><a href="#ticket-234-import-behaviour-parameters-in-mtest"><span class="toc-section-number">10.1</span> Ticket #234: Import behaviour parameters in <code>MTest</code></a></li>
+      <li><a href="#ticket-231-support-for-tensors-as-gradients-and-thermodynamic-forces-in-the-generic-behaviours"><span class="toc-section-number">10.2</span> Ticket #231: Support for tensors as gradients and thermodynamic forces in the <code>generic</code> behaviours</a></li>
+      <li><a href="#ticket-219-add-the-possibility-to-define-the-tangent-operator-blocks"><span class="toc-section-number">10.3</span> Ticket #219: Add the possibility to define the tangent operator blocks</a></li>
+      <li><a href="#ticket-214-add-a-debugging-option-to-mfront"><span class="toc-section-number">10.4</span> Ticket #214: Add a debugging option to <code>MFront</code></a></li>
+      <li><a href="#ticket-212-better-const-correctness-in-the-generic-behaviour"><span class="toc-section-number">10.5</span> Ticket #212: Better <code>const</code> correctness in the <code>generic</code> behaviour</a></li>
+      <li><a href="#ticket-209-lack-of-documentation-of-the-gasequationofstate-keyword"><span class="toc-section-number">10.6</span> Ticket #209: lack of documentation of the <code>@GasEquationOfState</code> keyword</a></li>
+      <li><a href="#ticket-206-export-tfel-targets-for-use-by-external-projects"><span class="toc-section-number">10.7</span> Ticket #206: Export <code>TFEL</code> targets for use by external projects</a></li>
+      <li><a href="#ticket-205-add-power-isotropic-hardening-rule"><span class="toc-section-number">10.8</span> Ticket #205: Add power isotropic hardening rule</a></li>
+      <li><a href="#ticket-201-allow-better-control-of-the-convergence-in-the-standardelastoviscoplascity-brick"><span class="toc-section-number">10.9</span> Ticket #201: Allow better control of the convergence in the <code>StandardElastoviscoPlascity</code> brick</a></li>
+      <li><a href="#ticket-200-allow-choosing-the-eigen-solver-for-some-stress-criteria-in-the-standardelastoviscoplascity-brick"><span class="toc-section-number">10.10</span> Ticket #200: Allow choosing the eigen solver for some stress criteria in the <code>StandardElastoviscoPlascity</code> brick</a></li>
+      <li><a href="#ticket-195-export-variables-bounds-for-material-properties"><span class="toc-section-number">10.11</span> Ticket #195 : Export variables bounds for material properties</a></li>
+      <li><a href="#ticket-202-dsls-for-isotropic-behaviours-dont-handle-nan"><span class="toc-section-number">10.12</span> Ticket #202: DSLs for isotropic behaviours don’t handle <code>NaN</code></a></li>
+      <li><a href="#ticket-196-export-variable-names-for-all-interface-of-material-property"><span class="toc-section-number">10.13</span> Ticket #196 : Export variable names for all interface of material property</a></li>
       </ul></li>
-      <li><a href="#references"><span class="toc-section-number">10</span> References</a></li>
+      <li><a href="#references">References</a></li>
       </ul>
     </div>
         
@@ -301,7 +306,10 @@
 <p>In previous versions, <code>getPartialJacobianInvert</code> was implemented as a method.</p>
 <p>This may broke the code, in the extremely unlikely case, that the call to <code>getPartialJacobianInvert</code> was explicitly qualified as a method, i.e. if it was preceded by the <code>this</code> pointer. Hence, the following statement is not more valid:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">this</span>-&gt;getPartialJacobianInvert(Je);</a></code></pre></div>
-<p>We don’t know any implementation affected by this incompatibility.</p>
+<p>To the best of our knowledge, no implementation is affected by this incompatibility.</p>
+<h2 id="declaration-of-the-offsets-of-the-integration-variables-in-implicit-schemes"><span class="header-section-number">1.2</span> Declaration of the offsets of the integration variables in implicit schemes</h2>
+<p>The offsets of the integration variables in implicit schemes are now automatically declared in the <code>@Integrator</code> code block. The names of the variables associated with those offsets may conflict with user defined variables. See Section 4.4.1 for a description of this new feature.</p>
+<p>To the best of our knowledge, no implementation is affected by this incompatibility.</p>
 <h1 id="documentation"><span class="header-section-number">2</span> Documentation</h1>
 <p><a href="ExtendingStandardElastoViscoPlasticityBrick-StressCriterion.md">This page</a> describes how to extend the <code>TFEL/Material</code> library and the <code>StandardElastoViscoPlasticity</code> brick with a new stress criterion.</p>
 <h1 id="new-features-of-the-tfel-libraries"><span class="header-section-number">3</span> New features of the <code>TFEL</code> libraries</h1>
@@ -354,32 +362,107 @@
 <a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">// the maximum number of iterations to be performed</span></a>
 <a class="sourceLine" id="cb6-21" data-line-number="21"><span class="at">const</span> <span class="kw">auto</span> r = tfel::math::scalarNewtonRaphson(fdf, c, <span class="fl">0.1</span>, <span class="dv">100</span>);</a></code></pre></div>
 <h1 id="new-features-of-mfront"><span class="header-section-number">4</span> New features of <code>MFront</code></h1>
-<h2 id="coupling-visco-plasticity-with-porosity-evolutions-in-the-standardelastoviscoplasticity-brick"><span class="header-section-number">4.1</span> Coupling (visco-)plasticity with porosity evolutions in the <code>StandardElastoViscoPlasticity</code> brick</h2>
-<h2 id="the-standardstresscriterionbase-and-standardporousstresscriterionbase-base-class-to-ease-the-extension-of-the-standardelastoviscoplasticity-brick"><span class="header-section-number">4.2</span> The <code>StandardStressCriterionBase</code> and <code>StandardPorousStressCriterionBase</code> base class to ease the extension of the <code>StandardElastoViscoPlasticity</code> brick</h2>
-<h2 id="improved-robustness-of-the-isotropic-dsls"><span class="header-section-number">4.3</span> Improved robustness of the isotropic DSLs</h2>
+<h2 id="debugging-options"><span class="header-section-number">4.1</span> Debugging options</h2>
+<p>A new command line option has been added to <code>MFront</code>. The <code>-g</code> option adds standard debugging flags to the compiler flags when compiling shared libraries.</p>
+<h2 id="improved-robustness-of-the-isotropic-dsls"><span class="header-section-number">4.2</span> Improved robustness of the isotropic DSLs</h2>
 <p>The <code>@Flow</code> block can now return a boolean value in the <code>IsotropicMisesCreep</code>, <code>IsotropicMisesPlasticFlow</code>, <code>IsotropicStrainHardeningMisesCreep</code> DSLs.</p>
 <p>This allows to check to avoid Newton steps leading to too high values of the equivalent stress by returning <code>false</code>. This usually occurs if in elastic prediction is made (the default), i.e. when the plastic strain increment is too low.</p>
 <p>If <code>false</code> is returned, the value of the plastic strain increment is increased by doubling the previous Newton correction. If this happens at the first iteration, the value of the plastic strain increment is set to half of its upper bound value (this upper bound value is such that the associated von Mises stress is null).</p>
-<h2 id="generic-behaviours"><span class="header-section-number">4.4</span> Generic behaviours</h2>
-<h3 id="add-the-possibility-of-definining-the-tangent-operator-blocks-the-tangentoperatorblock-and-tangentoperatorblocks-keywords"><span class="header-section-number">4.4.1</span> Add the possibility of definining the tangent operator blocks: the <code>@TangentOperatorBlock</code> and <code>@TangentOperatorBlocks</code> keywords</h3>
+<h2 id="generic-behaviours"><span class="header-section-number">4.3</span> Generic behaviours</h2>
+<h3 id="add-the-possibility-of-definining-the-tangent-operator-blocks-the-tangentoperatorblock-and-tangentoperatorblocks-keywords"><span class="header-section-number">4.3.1</span> Add the possibility of definining the tangent operator blocks: the <code>@TangentOperatorBlock</code> and <code>@TangentOperatorBlocks</code> keywords</h3>
 <p>In version <code>3.3.x</code>, some tangent operator blocks are automatically declared, namely, the derivatives of all the fluxes with respect to all the gradients. The <code>@AdditionalTangentOperatorBlock</code> and <code>@AdditionalTangentOperatorBlocks</code> keywords allowed to add tangent operator blocks to this default set.</p>
 <p>The <code>@TangentOperatorBlock</code> and <code>@TangentOperatorBlocks</code> allow a more fine grained control of the tangent operator blocks available and disable the use of the default tangent operation blocks. Hence, tangent operator blocks that are structurally zero (for example due to symmetry conditions) don’t have to be compute any more.</p>
+<h2 id="improvements-to-the-implicit-domain-specific-languages"><span class="header-section-number">4.4</span> Improvements to the implicit domain specific languages</h2>
+<h3 id="sec:mfront:releas3.4:integration_variables_offset"><span class="header-section-number">4.4.1</span> Automatic definition of the offsets associated with integration variables</h3>
+<p>Let <code>X</code> be the name of an integration variable. The variable <code>X_offset</code> is now automatically defined in the <code>@Integrator</code> code block.</p>
+<p>This variable allows a direct modification of the residual associated with this variable (though the variable <code>fzeros</code>) and jacobian matrix (though the variable <code>jacobian</code>).</p>
 <h2 id="improvement-of-the-standardelastoviscoplasticity-brick"><span class="header-section-number">4.5</span> Improvement of the <code>StandardElastoViscoplasticity</code> brick</h2>
-<h3 id="sec:power_isotropic_hardening_rule"><span class="header-section-number">4.5.1</span> The <code>Power</code> isotropic hardening rule</h3>
+<h3 id="porous-visco-plasticity"><span class="header-section-number">4.5.1</span> Porous (visco-)plasticity</h3>
+<h3 id="sec:standardelastoviscoplascity:eigen_solver"><span class="header-section-number">4.5.2</span> Choice of the eigen solver for some stress criteria in the <code>StandardElastoviscoPlascity</code> brick</h3>
+<p>The <code>Hosford1972</code> and <code>Barlat2004</code> now has an <code>eigen_solver</code> option. This option may take either one of the following values:</p>
+<ul>
+<li><code>default</code>: The default eigen solver for symmetric tensors used in <code>TFEL/Math</code>. It is based on analytical computations of the eigen values and eigen vectors. Such computations are numerically more efficient but less accurate than the iterative Jacobi algorithm.</li>
+<li><code>Jacobi</code>: The iterative Jacobi algorithm (see <span class="citation" data-cites="kopp_efficient_2008 kopp_numerical_2017">(Kopp <a href="#ref-kopp_efficient_2008">2008</a>, <a href="#ref-kopp_numerical_2017">2017</a>)</span> for details).</li>
+</ul>
+<h4 id="example"><span class="header-section-number">4.5.2.1</span> Example</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>Brick StandardElastoViscoPlasticity{</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">150e9</span>, poisson_ratio : <span class="fl">0.3</span>},</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    criterion : <span class="st">&quot;Hosford1972&quot;</span> {a : <span class="dv">100</span>, eigen_solver : <span class="st">&quot;Jacobi&quot;</span>},</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">150e6</span>}</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">  }</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">};</a></code></pre></div>
+<h3 id="built-in-convergence-helpers"><span class="header-section-number">4.5.3</span> Built-in convergence helpers</h3>
+<h4 id="sec:inelastic_flow:cosine_check"><span class="header-section-number">4.5.3.1</span> Newton steps rejections based on the change of the flow direction between two successive estimates</h4>
+<p>Some stress criteria (Hosford 1972, Barlat 2004, Mohr-Coulomb) shows sharp edges that may cause the failure of the standard Newton algorithm, due to oscillations in the prediction of the flow direction.</p>
+<p>Rejecting Newton steps leading to a too large variation of the flow direction between the new estimate of the flow direction and the previous estimate is a cheap and efficient method to overcome this issue. This method can be viewed as a bisectional linesearch based on the Newton prediction: the Newton steps magnitude is divided by two if its results to a too large change in the flow direction.</p>
+<p>More precisely, the change of the flow direction is estimated by the computation of the cosine of the angle between the two previous estimates:</p>
+<p><span class="math display">\[
+\cos{\left(\alpha_{\underline{n}}\right)}=\dfrac{\underline{n}\,\colon\,\underline{n}_{p}}{\lVert \underline{n}\rVert\,\lVert \underline{n}\rVert}
+\]</span></p>
+<p>with <span class="math inline">\(\lVert \underline{n}\rVert=\sqrt{\underline{n}\,\colon\,\underline{n}}\)</span>.</p>
+<p>The Newton step is rejected if the value of <span class="math inline">\(\cos{\left(\alpha_{\underline{n}}\right)}\)</span> is lower than a user defined threshold. This threshold must be in the range <span class="math inline">\(\left[-1:1\right]\)</span>, but due to the slow variation of the cosine near <span class="math inline">\(0\)</span>, a typical value of this threshold is <span class="math inline">\(0.99\)</span> which is equivalent to impose that the angle between two successive estimates is below <span class="math inline">\(8\mbox{}^{\circ}\)</span>.</p>
+<h5 id="example-1"><span class="header-section-number">4.5.3.1.1</span> Example</h5>
+<p>Here is an implementation of a perfectly plastic behaviour based on the Hosford criterion with a very high exponent (<span class="math inline">\(100\)</span>), which closely approximate the Tresca criterion:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="er">@</span>Behaviour HosfordPerfectPlasticity100;</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="er">@</span>Author Thomas Helfer;</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="er">@</span>Description{</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">  A simple implementation of a perfect plasticity</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">  behaviour <span class="kw">using</span> the Hosford stress.</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">};</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="er">@</span>ModellingHypotheses{<span class="st">&quot;.+&quot;</span>};</a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-16</span>;</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="er">@</span>Theta <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="er">@</span>Brick StandardElastoViscoPlasticity{</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">  stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">150e9</span>, poisson_ratio : <span class="fl">0.3</span>},</a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">    criterion : <span class="st">&quot;Hosford1972&quot;</span> {a : <span class="dv">100</span>},</a>
+<a class="sourceLine" id="cb8-17" data-line-number="17">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">150e6</span>},</a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">    cosine_threshold : <span class="fl">0.99</span></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">  }</a>
+<a class="sourceLine" id="cb8-20" data-line-number="20">};</a></code></pre></div>
+<h4 id="sec:plastic_flow:maximum_equivalent_stress"><span class="header-section-number">4.5.3.2</span> Maximum equivalent stress in the <code>Plastic</code> flow</h4>
+<p>During the Newton iterations, the current estimate of the equivalent stress <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> may be significantly higher than the elastic limit <span class="math inline">\(R\)</span>. This may lead to a divergence of the Newton algorithm.</p>
+<p>One may reject the Newton steps leading to such high values of the elastic limit by specifying a relative threshold denoted <span class="math inline">\(\alpha\)</span>, i.e. if <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> is greater than <span class="math inline">\(\alpha\,\cdot\,R\)</span>. A typical value for <span class="math inline">\(\alpha\)</span> is <span class="math inline">\(1.5\)</span>. This relative threshold is specified by the <code>maximum_equivalent_stress_factor</code> option.</p>
+<p>In some cases, rejecting steps may also lead to a divergence of the Newton algorithm, so one may specify a relative threshold <span class="math inline">\(\beta\)</span> on the iteration number which desactivate this check, i.e. the check is performed only if the current iteration number is below <span class="math inline">\(\beta\,\cdot\,i_{\max{}}\)</span> where <span class="math inline">\(i_{\max{}}\)</span> is the maximum number of iterations allowed for the Newton algorithm. A typical value for <span class="math inline">\(\beta\)</span> is <span class="math inline">\(0.4\)</span>. This relative threshold is specified by the <code>equivalent_stress_check_maximum_iteration_factor</code> option.</p>
+<h5 id="example-2"><span class="header-section-number">4.5.3.2.1</span> Example</h5>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="er">@</span>Behaviour PerfectPlasticity;</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="er">@</span>Author Thomas Helfer;</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="er">@</span>Date <span class="dv">17</span> / <span class="er">08</span> / <span class="dv">2020</span>;</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="er">@</span>Description{};</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-14</span>;</a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="er">@</span>Theta <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="er">@</span>Brick StandardElastoViscoPlasticity{</a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">  stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">200e9</span>, poisson_ratio : <span class="fl">0.3</span>},</a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">    criterion : <span class="st">&quot;Mises&quot;</span>,</a>
+<a class="sourceLine" id="cb9-14" data-line-number="14">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">150e6</span>},</a>
+<a class="sourceLine" id="cb9-15" data-line-number="15">    maximum_equivalent_stress_factor : <span class="fl">1.5</span>,</a>
+<a class="sourceLine" id="cb9-16" data-line-number="16">    equivalent_stress_check_maximum_iteration_factor: <span class="fl">0.4</span></a>
+<a class="sourceLine" id="cb9-17" data-line-number="17">  }</a>
+<a class="sourceLine" id="cb9-18" data-line-number="18">};</a></code></pre></div>
+<h3 id="the-standardstresscriterionbase-and-standardporousstresscriterionbase-base-class-to-ease-the-extension-of-the-standardelastoviscoplasticity-brick"><span class="header-section-number">4.5.4</span> The <code>StandardStressCriterionBase</code> and <code>StandardPorousStressCriterionBase</code> base class to ease the extension of the <code>StandardElastoViscoPlasticity</code> brick</h3>
+<h3 id="sec:power_isotropic_hardening_rule"><span class="header-section-number">4.5.5</span> The <code>Power</code> isotropic hardening rule</h3>
 <p>The <code>Power</code> isotropic hardening rule is defined by: <span class="math display">\[
 R{\left(p\right)}=R_{0}\,{\left(p+p_{0}\right)}^{n}
 \]</span></p>
-<h4 id="options"><span class="header-section-number">4.5.1.1</span> Options</h4>
+<h4 id="options"><span class="header-section-number">4.5.5.1</span> Options</h4>
 <p>The <code>Power</code> isotropic hardening rule expects at least the following material properties:</p>
 <ul>
 <li><code>R0</code>: the coefficient of the power law</li>
 <li><code>n</code>: the exponent of the power law</li>
 </ul>
 <p>The <code>p0</code> material property is <em>optional</em> and generally is considered a numerical parameter to avoir an initial infinite derivative of the power law when the exponent is lower than <span class="math inline">\(1\)</span>.</p>
-<h4 id="example"><span class="header-section-number">4.5.1.2</span> Example</h4>
+<h4 id="example-3"><span class="header-section-number">4.5.5.2</span> Example</h4>
 <p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">50e6</span>},</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">    isotropic_hardening : <span class="st">&quot;Power&quot;</span> {R0 : <span class="fl">120e6</span>, p0 : <span class="fl">1e-8</span>, n : <span class="dv">5</span>.e<span class="dv">-2</span>}</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">50e6</span>},</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">    isotropic_hardening : <span class="st">&quot;Power&quot;</span> {R0 : <span class="fl">120e6</span>, p0 : <span class="fl">1e-8</span>, n : <span class="dv">5</span>.e<span class="dv">-2</span>}</a></code></pre></div>
 <h2 id="improvement-of-the-generic-interface"><span class="header-section-number">4.6</span> Improvement of the <code>generic</code> interface</h2>
 <h2 id="support-of-orthotropic-behaviours"><span class="header-section-number">4.7</span> Support of orthotropic behaviours</h2>
 <p>Orthotropic behaviours requires to:</p>
@@ -439,59 +522,63 @@ R{\left(p\right)}=R_{0}\,{\left(p+p_{0}\right)}^{n}
 <p>The <code>FAnderson</code> and <code>UAnderson</code> acceleration algorithms are now available in the <code>tfel.math</code> module. This requires <code>NumPy</code> support.</p>
 <h4 id="example-of-the-usage-of-the-uanderson-acceleration-algorithm"><span class="header-section-number">6.1.2.1</span> Example of the usage of the <code>UAnderson</code> acceleration algorithm</h4>
 <p>The following code computes the solution of the equation <span class="math inline">\(x=\cos{\left(x\right)}\)</span> using a fixed point algorithm.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="im">from</span> math <span class="im">import</span> cos</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="im">import</span> numpy <span class="im">as</span> np</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="im">import</span> tfel.math</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co"># The accelerator will be based on</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co"># the 5 last Picard iterations and</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co"># will be performed at every step</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">a <span class="op">=</span> tfel.math.UAnderson(<span class="dv">5</span>,<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10">f <span class="op">=</span> <span class="kw">lambda</span> x: np.cos(x)</a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">    </a>
-<a class="sourceLine" id="cb8-12" data-line-number="12">x0 <span class="op">=</span> <span class="bu">float</span>(<span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb8-13" data-line-number="13">x <span class="op">=</span> np.array([x0])    </a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co"># This shall be called each time a</span></a>
-<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="co"># new resolution starts</span></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17">a.initialize(x)</a>
-<a class="sourceLine" id="cb8-18" data-line-number="18"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">100</span>):</a>
-<a class="sourceLine" id="cb8-19" data-line-number="19">    x <span class="op">=</span> f(x)</a>
-<a class="sourceLine" id="cb8-20" data-line-number="20">    <span class="bu">print</span>(i, x, f(x[<span class="dv">0</span>]))</a>
-<a class="sourceLine" id="cb8-21" data-line-number="21">    <span class="cf">if</span>(<span class="bu">abs</span>(f(x[<span class="dv">0</span>])<span class="op">-</span>x[<span class="dv">0</span>])<span class="op">&lt;</span><span class="dv">1</span>.e<span class="dv">-14</span>):</a>
-<a class="sourceLine" id="cb8-22" data-line-number="22">        <span class="cf">break</span></a>
-<a class="sourceLine" id="cb8-23" data-line-number="23">    <span class="co"># apply the acceleration</span></a>
-<a class="sourceLine" id="cb8-24" data-line-number="24">    a.accelerate(x)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="im">from</span> math <span class="im">import</span> cos</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="im">import</span> tfel.math</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co"># The accelerator will be based on</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co"># the 5 last Picard iterations and</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co"># will be performed at every step</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">a <span class="op">=</span> tfel.math.UAnderson(<span class="dv">5</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">f <span class="op">=</span> <span class="kw">lambda</span> x: np.cos(x)</a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">    </a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">x0 <span class="op">=</span> <span class="bu">float</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb11-13" data-line-number="13">x <span class="op">=</span> np.array([x0])    </a>
+<a class="sourceLine" id="cb11-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb11-15" data-line-number="15"><span class="co"># This shall be called each time a</span></a>
+<a class="sourceLine" id="cb11-16" data-line-number="16"><span class="co"># new resolution starts</span></a>
+<a class="sourceLine" id="cb11-17" data-line-number="17">a.initialize(x)</a>
+<a class="sourceLine" id="cb11-18" data-line-number="18"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">100</span>):</a>
+<a class="sourceLine" id="cb11-19" data-line-number="19">    x <span class="op">=</span> f(x)</a>
+<a class="sourceLine" id="cb11-20" data-line-number="20">    <span class="bu">print</span>(i, x, f(x[<span class="dv">0</span>]))</a>
+<a class="sourceLine" id="cb11-21" data-line-number="21">    <span class="cf">if</span>(<span class="bu">abs</span>(f(x[<span class="dv">0</span>])<span class="op">-</span>x[<span class="dv">0</span>])<span class="op">&lt;</span><span class="dv">1</span>.e<span class="dv">-14</span>):</a>
+<a class="sourceLine" id="cb11-22" data-line-number="22">        <span class="cf">break</span></a>
+<a class="sourceLine" id="cb11-23" data-line-number="23">    <span class="co"># apply the acceleration</span></a>
+<a class="sourceLine" id="cb11-24" data-line-number="24">    a.accelerate(x)</a></code></pre></div>
 <p>Without acceleration, this algorithm takes <span class="math inline">\(78\)</span> iterations. In comparison, the accelerated algorithm takes <span class="math inline">\(9\)</span> iterations.</p>
 <h1 id="tfel-unicode-filt"><span class="header-section-number">7</span> <code>tfel-unicode-filt</code></h1>
 <p>Version 3.3 introduces unicode support in <code>MFront</code>. This feature significantly improves the readability of <code>MFront</code> files, bringing it even closer to the mathematical expressions.</p>
 <p>When generating <code>C++</code> sources, unicode characters are mangled, i.e. translated into an acceptable form for the <code>C++</code> compiler. This mangled form may appears in the compiler error message and are difficult to read.</p>
 <p>The <code>tfel-unicode-filt</code> tool, which is similar to the famous <code>c++filt</code> tool, can be use to demangle the outputs of the compiler.</p>
 <p>For example, the following error message:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild  --interface=generic ThermalNorton.mfront</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="ex">Treating</span> target : all</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="ex">In</span> file included from ThermalNorton-generic.cxx:33:0:</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="ex">ThermalNorton.mfront</span>: In member function ‘bool tfel::material::ThermalNorton<span class="op">&lt;</span>hypothesis, Type, false<span class="op">&gt;</span>::computeConsistentTangentOperator(tfel::material::ThermalNorton<span class="op">&lt;</span>hypothesis, Type, false<span class="op">&gt;</span>::SMType)’:</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="ex">ThermalNorton.mfront</span>:147:75: error: ‘tum_2202__tum_0394__tum_03B5__eltum_2215__tum_2202__tum_0394__T’ was not declared in this scope</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild  --interface=generic ThermalNorton.mfront</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="ex">Treating</span> target : all</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="ex">In</span> file included from ThermalNorton-generic.cxx:33:0:</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="ex">ThermalNorton.mfront</span>: In member function ‘bool tfel::material::ThermalNorton<span class="op">&lt;</span>hypothesis, Type, false<span class="op">&gt;</span>::computeConsistentTangentOperator(tfel::material::ThermalNorton<span class="op">&lt;</span>hypothesis, Type, false<span class="op">&gt;</span>::SMType)’:</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="ex">ThermalNorton.mfront</span>:147:75: error: ‘tum_2202__tum_0394__tum_03B5__eltum_2215__tum_2202__tum_0394__T’ was not declared in this scope</a></code></pre></div>
 <p>can be significantly improved by <code>tfel-unicode-filt</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild  --interface=generic ThermalNorton.mfront <span class="op">2&gt;&amp;1</span> <span class="kw">|</span> <span class="ex">tfel-unicode-filt</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="ex">Treating</span> target : all</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="ex">In</span> file included from ThermalNorton-generic.cxx:33:0:</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="ex">ThermalNorton.mfront</span>: In member function ‘bool tfel::material::ThermalNorton<span class="op">&lt;</span>hypothesis, Type, false<span class="op">&gt;</span>::computeConsistentTangentOperator(tfel::material::ThermalNorton<span class="op">&lt;</span>hypothesis, Type, false<span class="op">&gt;</span>::SMType)’:</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="ex">ThermalNorton.mfront</span>:147:75: error: ‘∂Δεel∕∂ΔT’ was not declared in this scope</a></code></pre></div>
-<p>However, the compiler is not aware</p>
-<h1 id="improvements-to-the-build-system"><span class="header-section-number">8</span> Improvements to the build system</h1>
-<h2 id="exporting-cmake-targets"><span class="header-section-number">8.1</span> Exporting <code>CMake</code>’ targets</h2>
-<h2 id="disabling-numpy-support"><span class="header-section-number">8.2</span> Disabling <code>NumPy</code> support</h2>
-<h1 id="tickets-solved-during-the-development-of-this-version"><span class="header-section-number">9</span> Tickets solved during the development of this version</h1>
-<h2 id="ticket-234-import-behaviour-parameters-in-mtest"><span class="header-section-number">9.1</span> Ticket #234: Import behaviour parameters in <code>MTest</code></h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild  --interface=generic ThermalNorton.mfront <span class="op">2&gt;&amp;1</span> <span class="kw">|</span> <span class="ex">tfel-unicode-filt</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="ex">Treating</span> target : all</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="ex">In</span> file included from ThermalNorton-generic.cxx:33:0:</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="ex">ThermalNorton.mfront</span>: In member function ‘bool tfel::material::ThermalNorton<span class="op">&lt;</span>hypothesis, Type, false<span class="op">&gt;</span>::computeConsistentTangentOperator(tfel::material::ThermalNorton<span class="op">&lt;</span>hypothesis, Type, false<span class="op">&gt;</span>::SMType)’:</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="ex">ThermalNorton.mfront</span>:147:75: error: ‘∂Δεel∕∂ΔT’ was not declared in this scope</a></code></pre></div>
+<h1 id="improvements-to-tfel-config"><span class="header-section-number">8</span> Improvements to <code>tfel-config</code></h1>
+<p>The command line option <code>--debug-flags</code> has been added to <code>tfel-config</code>. When used, <code>tfel-config</code> returns the standard debugging flags.</p>
+<h1 id="improvements-to-the-build-system"><span class="header-section-number">9</span> Improvements to the build system</h1>
+<h2 id="exporting-cmake-targets"><span class="header-section-number">9.1</span> Exporting <code>CMake</code>’ targets</h2>
+<h2 id="disabling-numpy-support"><span class="header-section-number">9.2</span> Disabling <code>NumPy</code> support</h2>
+<h1 id="tickets-solved-during-the-development-of-this-version"><span class="header-section-number">10</span> Tickets solved during the development of this version</h1>
+<h2 id="ticket-234-import-behaviour-parameters-in-mtest"><span class="header-section-number">10.1</span> Ticket #234: Import behaviour parameters in <code>MTest</code></h2>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/234/" class="uri">https://sourceforge.net/p/tfel/tickets/234/</a></p>
-<h2 id="ticket-231-support-for-tensors-as-gradients-and-thermodynamic-forces-in-the-generic-behaviours"><span class="header-section-number">9.2</span> Ticket #231: Support for tensors as gradients and thermodynamic forces in the <code>generic</code> behaviours</h2>
+<h2 id="ticket-231-support-for-tensors-as-gradients-and-thermodynamic-forces-in-the-generic-behaviours"><span class="header-section-number">10.2</span> Ticket #231: Support for tensors as gradients and thermodynamic forces in the <code>generic</code> behaviours</h2>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/231/" class="uri">https://sourceforge.net/p/tfel/tickets/231/</a></p>
-<h2 id="ticket-219-add-the-possibility-to-define-the-tangent-operator-blocks"><span class="header-section-number">9.3</span> Ticket #219: Add the possibility to define the tangent operator blocks</h2>
+<h2 id="ticket-219-add-the-possibility-to-define-the-tangent-operator-blocks"><span class="header-section-number">10.3</span> Ticket #219: Add the possibility to define the tangent operator blocks</h2>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/219/" class="uri">https://sourceforge.net/p/tfel/tickets/219/</a></p>
-<h2 id="ticket-212-better-const-correctness-in-the-generic-behaviour"><span class="header-section-number">9.4</span> Ticket #212: Better <code>const</code> correctness in the <code>generic</code> behaviour</h2>
+<h2 id="ticket-214-add-a-debugging-option-to-mfront"><span class="header-section-number">10.4</span> Ticket #214: Add a debugging option to <code>MFront</code></h2>
+<p>The <code>-g</code> option of <code>MFront</code> now adds standard debugging flags to the compiler flags when compiling shared libraries.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/214/" class="uri">https://sourceforge.net/p/tfel/tickets/214/</a></p>
+<h2 id="ticket-212-better-const-correctness-in-the-generic-behaviour"><span class="header-section-number">10.5</span> Ticket #212: Better <code>const</code> correctness in the <code>generic</code> behaviour</h2>
 <p>The state at the beginning of the time step is now described in a structure called <code>mfront::gb::InitialState</code>, the fields of which are all <code>const</code>.</p>
 <p>The following fields of the <code>mfront::gb::State</code> are now <code>const</code>:</p>
 <ul>
@@ -500,33 +587,47 @@ R{\left(p\right)}=R_{0}\,{\left(p+p_{0}\right)}^{n}
 <li><code>external_state_variables</code></li>
 </ul>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/212/" class="uri">https://sourceforge.net/p/tfel/tickets/212/</a></p>
-<h2 id="ticket-209-lack-of-documentation-of-the-gasequationofstate-keyword"><span class="header-section-number">9.5</span> Ticket #209: lack of documentation of the <code>@GasEquationOfState</code> keyword</h2>
+<h2 id="ticket-209-lack-of-documentation-of-the-gasequationofstate-keyword"><span class="header-section-number">10.6</span> Ticket #209: lack of documentation of the <code>@GasEquationOfState</code> keyword</h2>
 <p>This feature is now described in the (<code>MTest</code> page)[mtest.html]</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/209/" class="uri">https://sourceforge.net/p/tfel/tickets/209/</a></p>
-<h2 id="ticket-206-export-tfel-targets-for-use-by-external-projects"><span class="header-section-number">9.6</span> Ticket #206: Export <code>TFEL</code> targets for use by external projects</h2>
+<h2 id="ticket-206-export-tfel-targets-for-use-by-external-projects"><span class="header-section-number">10.7</span> Ticket #206: Export <code>TFEL</code> targets for use by external projects</h2>
 <p>Here is a minimal example on how to use this feature:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cmake"><code class="sourceCode cmake"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">project</span>(<span class="st">&quot;tfel-test&quot;</span>)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> 3.0)</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="kw">find_package</span>(TFELException <span class="ot">REQUIRED</span>)</a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="kw">find_package</span>(TFELMath <span class="ot">REQUIRED</span>)</a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="kw">add_executable</span>(test-test test.cxx)</a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="kw">target_link_libraries</span>(test-test tfel::TFELMath)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cmake"><code class="sourceCode cmake"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">project</span>(<span class="st">&quot;tfel-test&quot;</span>)</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> 3.0)</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="kw">find_package</span>(TFELException <span class="ot">REQUIRED</span>)</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="kw">find_package</span>(TFELMath <span class="ot">REQUIRED</span>)</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="kw">add_executable</span>(test-test test.cxx)</a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="kw">target_link_libraries</span>(test-test tfel::TFELMath)</a></code></pre></div>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/209/" class="uri">https://sourceforge.net/p/tfel/tickets/209/</a></p>
-<h2 id="ticket-205-add-power-isotropic-hardening-rule"><span class="header-section-number">9.7</span> Ticket #205: Add power isotropic hardening rule</h2>
-<p>This feature is described in Section 4.5.1.</p>
+<h2 id="ticket-205-add-power-isotropic-hardening-rule"><span class="header-section-number">10.8</span> Ticket #205: Add power isotropic hardening rule</h2>
+<p>This feature is described in Section 4.5.5.</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/205/" class="uri">https://sourceforge.net/p/tfel/tickets/205/</a></p>
-<h2 id="ticket-195-export-variables-bounds-for-material-properties"><span class="header-section-number">9.8</span> Ticket #195 : Export variables bounds for material properties</h2>
+<h2 id="ticket-201-allow-better-control-of-the-convergence-in-the-standardelastoviscoplascity-brick"><span class="header-section-number">10.9</span> Ticket #201: Allow better control of the convergence in the <code>StandardElastoviscoPlascity</code> brick</h2>
+<p>See Sections 4.5.3.1 and 4.5.3.2.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/201/" class="uri">https://sourceforge.net/p/tfel/tickets/201/</a></p>
+<h2 id="ticket-200-allow-choosing-the-eigen-solver-for-some-stress-criteria-in-the-standardelastoviscoplascity-brick"><span class="header-section-number">10.10</span> Ticket #200: Allow choosing the eigen solver for some stress criteria in the <code>StandardElastoviscoPlascity</code> brick</h2>
+<p>See 4.5.2.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/200/" class="uri">https://sourceforge.net/p/tfel/tickets/200/</a></p>
+<h2 id="ticket-195-export-variables-bounds-for-material-properties"><span class="header-section-number">10.11</span> Ticket #195 : Export variables bounds for material properties</h2>
 <p>Variables bounds (both <span class="citation" data-cites="Bounds">(<span class="citeproc-not-found" data-reference-id="Bounds"><strong>???</strong></span>)</span> and <span class="citation" data-cites="PhysicalBounds">(<span class="citeproc-not-found" data-reference-id="PhysicalBounds"><strong>???</strong></span>)</span>) are now available for material properties. They are available directly in the .so file via getExternalLibraryManager().</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/195/" class="uri">https://sourceforge.net/p/tfel/tickets/195/</a></p>
-<h2 id="ticket-202-dsls-for-isotropic-behaviours-dont-handle-nan"><span class="header-section-number">9.9</span> Ticket #202: DSLs for isotropic behaviours don’t handle <code>NaN</code></h2>
+<h2 id="ticket-202-dsls-for-isotropic-behaviours-dont-handle-nan"><span class="header-section-number">10.12</span> Ticket #202: DSLs for isotropic behaviours don’t handle <code>NaN</code></h2>
 <p>The <code>IsotropicMisesCreep</code>, <code>IsotropicMisesPlasticFlow</code>, <code>IsotropicStrainHardeningMisesCreep</code> and <code>MultipleIsotropicMisesFlowsDSL</code> now handle properly <code>NaN</code> values.</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/202/" class="uri">https://sourceforge.net/p/tfel/tickets/202/</a></p>
-<h2 id="ticket-196-export-variable-names-for-all-interface-of-material-property"><span class="header-section-number">9.10</span> Ticket #196 : Export variable names for all interface of material property</h2>
+<h2 id="ticket-196-export-variable-names-for-all-interface-of-material-property"><span class="header-section-number">10.13</span> Ticket #196 : Export variable names for all interface of material property</h2>
 <p>The variable name of material property was available only for castem interface. Now it is available for all interface (c++, python, …). The name can be found in the .so file via getExternalLibraryManager().</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/196/" class="uri">https://sourceforge.net/p/tfel/tickets/196/</a></p>
-<h1 id="references"><span class="header-section-number">10</span> References</h1>
+<h1 id="references" class="unnumbered">References</h1>
+<div id="refs" class="references">
+<div id="ref-kopp_efficient_2008">
+<p>Kopp, Joachim. 2008. “Efficient Numerical Diagonalization of Hermitian 3x3 Matrices.” <em>International Journal of Modern Physics C</em> 19 (3): 523–48. <a href="https://doi.org/10.1142/S0129183108012303" class="uri">https://doi.org/10.1142/S0129183108012303</a>.</p>
+</div>
+<div id="ref-kopp_numerical_2017">
+<p>———. 2017. “Numerical Diagonalization of 3x3 Matrices.” 2017. <a href="https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/" class="uri">https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/</a>.</p>
+</div>
+</div>
         <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

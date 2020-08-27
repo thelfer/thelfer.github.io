@@ -392,14 +392,27 @@ f{\left(\underline{\sigma},p\right)}= \phi{\left(\underline{\sigma}-\sum_{i}\und
 <h3 id="the-norton-inelastic-flow"><span class="header-section-number">2.1.2</span> The <code>Norton</code> inelastic flow</h3>
 <p>The plastic flow is defined by:</p>
 <ul>
-<li>a function <span class="math inline">\(f{\left(\underline{\sigma}\right)}\)</span> giving the flow intensity</li>
+<li>a function <span class="math inline">\(f{\left(\underline{\sigma}\right)}\)</span> giving the flow intensity: <span class="math display">\[
+f{\left(\underline{\sigma}\right)}=A\,\left&lt;\dfrac{\phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}-\sum_{i}R_{i}{\left(p\right)}}{K}\right&gt;^{n}
+\]</span></li>
+<li>a stress criterion <span class="math inline">\(\phi\)</span></li>
 <li>a viscoplastic potential <span class="math inline">\(g\)</span></li>
-<li>one or more kinematic hardening rule (optional)</li>
-<li>one isotropic hardening rule (optional)</li>
+<li>one or more kinematic hardening rule (optional), denoted <span class="math inline">\(\underline{X}_{i}\)</span></li>
+<li>one isotropic hardening rule (optional), denoted <span class="math inline">\(R_{i}\)</span></li>
 </ul>
-<p><span class="math display">\[
-f{\left(\underline{\sigma}\right)}=A\left&lt;{{\displaystyle \frac{\displaystyle \phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}-\sum_{i}R_{i}{\left(p\right)}}{\displaystyle K}}}\right&gt;^{n}
-\]</span></p>
+<h3 id="the-hyperbolicsine-inelastic-flow"><span class="header-section-number">2.1.3</span> The <code>HyperbolicSine</code> inelastic flow</h3>
+<p>The plastic flow is defined by:</p>
+<ul>
+<li>a function <span class="math inline">\(f{\left(\underline{\sigma}\right)}\)</span> giving the flow intensity given by: <span class="math display">\[
+f{\left(\underline{\sigma}\right)}=A\,\sinh{\left(\dfrac{\left&lt;\phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}-\sum_{i}R_{i}{\left(p\right)}\right&gt;}{K}\right)}^{n}
+\]</span></li>
+<li>a stress criterion <span class="math inline">\(\phi\)</span></li>
+<li>a viscoplastic potential <span class="math inline">\(g\)</span></li>
+<li>one or more kinematic hardening rule (optional), denoted <span class="math inline">\(\underline{X}_{i}\)</span></li>
+<li>one isotropic hardening rule (optional), denoted <span class="math inline">\(R_{i}\)</span></li>
+</ul>
+<h4 id="newton-steps-rejection"><span class="header-section-number">2.1.3.1</span> Newton steps rejection</h4>
+<p>The exponential nature of the hyperbolic sinus function may lead to divergence of the Newton method. To avoid this, one may specify a relative threshold denoted <span class="math inline">\(K_{sf}\)</span>: if the stress estimate is greater than <span class="math inline">\(K_{sf}\,K\)</span>, the step is rejected.</p>
 <h2 id="sec:cosine_checks"><span class="header-section-number">2.2</span> Newton steps rejections based on the change of the flow direction between two successive estimates</h2>
 <p>Some stress criteria (Hosford 1972, Barlat 2004, Mohr-Coulomb) shows sharp edges that may cause the failure of the standard Newton algorithm, due to oscillations in the prediction of the flow direction.</p>
 <p>Rejecting Newton steps leading to a too large variation of the flow direction between the new estimate of the flow direction and the previous estimate is a cheap and efficient method to overcome this issue. This method can be viewed as a bisectional linesearch based on the Newton prediction: the Newton steps magnitude is divided by two if its results to a too large change in the flow direction.</p>
@@ -418,12 +431,12 @@ f{\left(\underline{\sigma}\right)}=A\left&lt;{{\displaystyle \frac{\displaystyle
 <h3 id="von-mises-stress-criterion"><span class="header-section-number">2.3.1</span> von Mises stress criterion</h3>
 <h4 id="definition"><span class="header-section-number">2.3.1.1</span> Definition</h4>
 <p>The von Mises stress is defined by: <span class="math display">\[
-\sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,\underline{s}\,\colon\,\underline{s}}=\sqrt{3\,J_{2}}
+\sigma_{\mathrm{eq}}=\sqrt{\dfrac{3}{2}\,\underline{s}\,\colon\,\underline{s}}=\sqrt{3\,J_{2}}
 \]</span> where: - <span class="math inline">\(\underline{s}\)</span> is the deviatoric stress defined as follows: <span class="math display">\[
-\underline{s}=\underline{\sigma}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
+\underline{s}=\underline{\sigma}-\dfrac{1}{3}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
 \]</span> - <span class="math inline">\(J_{2}\)</span> is the second invariant of <span class="math inline">\(\underline{s}\)</span>.</p>
 <p>In terms of the eigenvalues of the stress, denoted by <span class="math inline">\(\sigma_{1}\)</span>, <span class="math inline">\(\sigma_{2}\)</span> and <span class="math inline">\(\sigma_{3}\)</span>, the von Mises stress can also be defined by: <span class="math display">\[
-\sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{\left({\left|\sigma_{1}-\sigma_{2}\right|}^{2}+{\left|\sigma_{1}-\sigma_{3}\right|}^{2}+{\left|\sigma_{2}-\sigma_{3}\right|}^{2}\right)}}
+\sigma_{\mathrm{eq}}=\sqrt{\dfrac{1}{2}{\left({\left|\sigma_{1}-\sigma_{2}\right|}^{2}+{\left|\sigma_{1}-\sigma_{3}\right|}^{2}+{\left|\sigma_{2}-\sigma_{3}\right|}^{2}\right)}}
 \]</span></p>
 <h4 id="options"><span class="header-section-number">2.3.1.2</span> Options</h4>
 <p>This stress criterion does not have any option.</p>
@@ -433,10 +446,10 @@ f{\left(\underline{\sigma}\right)}=A\left&lt;{{\displaystyle \frac{\displaystyle
 \sigma_{\mathrm{eq}}=\sqrt{3}\sqrt[6]{J_{2}^3-c\,J_{3}^{2}}
 \]</span> where:</p>
 <ul>
-<li><span class="math inline">\(J_{2}={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,\underline{s}\,\colon\,\underline{s}\)</span> is the second invariant of <span class="math inline">\(\underline{s}\)</span>.</li>
+<li><span class="math inline">\(J_{2}=\dfrac{1}{2}\,\underline{s}\,\colon\,\underline{s}\)</span> is the second invariant of <span class="math inline">\(\underline{s}\)</span>.</li>
 <li><span class="math inline">\(J_{3}=\mathrm{det}{\left(\underline{s}\right)}\)</span> is the third invariant of <span class="math inline">\(\underline{s}\)</span>.</li>
 <li><span class="math inline">\(\underline{s}\)</span> is the deviatoric stress defined as follows: <span class="math display">\[
-\underline{s}=\underline{\sigma}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
+\underline{s}=\underline{\sigma}-\dfrac{1}{3}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
 \]</span></li>
 </ul>
 <h3 id="example-1"><span class="header-section-number">2.3.3</span> Example</h3>
@@ -445,7 +458,7 @@ f{\left(\underline{\sigma}\right)}=A\left&lt;{{\displaystyle \frac{\displaystyle
 <p>The user must provide the <span class="math inline">\(c\)</span> coefficient.</p>
 <h3 id="hosford-1972-stress-criterion"><span class="header-section-number">2.3.4</span> Hosford 1972 stress criterion</h3>
 <p>The Hosford equivalent stress is defined by (see <span class="citation" data-cites="hosford_generalized_1972">Hosford (<a href="#ref-hosford_generalized_1972">1972</a>)</span>): <span class="math display">\[
-\sigma_{\mathrm{eq}}^{H}=\sqrt[a]{{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{\left({\left|\sigma_{1}-\sigma_{2}\right|}^{a}+{\left|\sigma_{1}-\sigma_{3}\right|}^{a}+{\left|\sigma_{2}-\sigma_{3}\right|}^{a}\right)}}
+\sigma_{\mathrm{eq}}^{H}=\sqrt[a]{\dfrac{1}{2}{\left({\left|\sigma_{1}-\sigma_{2}\right|}^{a}+{\left|\sigma_{1}-\sigma_{3}\right|}^{a}+{\left|\sigma_{2}-\sigma_{3}\right|}^{a}\right)}}
 \]</span> where <span class="math inline">\(\sigma_{1}\)</span>, <span class="math inline">\(\sigma_{2}\)</span> and <span class="math inline">\(\sigma_{3}\)</span> are the eigenvalues of the stress.</p>
 <p>Therefore, when <span class="math inline">\(a\)</span> goes to infinity, the Hosford stress reduces to the Tresca stress. When <span class="math inline">\(n = 2\)</span> the Hosford stress reduces to the von Mises stress.</p>
 <figure>
@@ -467,10 +480,10 @@ f{\left(\underline{\sigma}\right)}=A\left&lt;{{\displaystyle \frac{\displaystyle
 \]</span></p>
 <p>where:</p>
 <ul>
-<li><span class="math inline">\(J_{2}={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,\underline{s}\,\colon\,\underline{s}\)</span> is the second invariant of <span class="math inline">\(\underline{s}\)</span>.</li>
+<li><span class="math inline">\(J_{2}=\dfrac{1}{2}\,\underline{s}\,\colon\,\underline{s}\)</span> is the second invariant of <span class="math inline">\(\underline{s}\)</span>.</li>
 <li><span class="math inline">\(J_{3}=\mathrm{det}{\left(\underline{s}\right)}\)</span> is the third invariant of <span class="math inline">\(\underline{s}\)</span>.</li>
 <li><span class="math inline">\(\underline{s}\)</span> is the deviatoric stress defined as follows: <span class="math display">\[
-\underline{s}=\underline{\sigma}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
+\underline{s}=\underline{\sigma}-\dfrac{1}{3}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
 \]</span></li>
 </ul>
 <h3 id="example-3"><span class="header-section-number">2.3.9</span> Example</h3>
@@ -598,7 +611,7 @@ J_{3}^{O}=
 \underline{\mathbf{L}}&#39;&#39;&amp;=\underline{\mathbf{C}}&#39;&#39;\,\colon\,\underline{\mathbf{M}}
 \end{aligned}
 \]</span> where <span class="math inline">\(\underline{\mathbf{M}}\)</span> is the transformation of the stress to its deviator: <span class="math display">\[
-\underline{\mathbf{M}}=\underline{\mathbf{I}}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\underline{I}\,\otimes\,\underline{I}
+\underline{\mathbf{M}}=\underline{\mathbf{I}}-\dfrac{1}{3}\underline{I}\,\otimes\,\underline{I}
 \]</span></p>
 <p>The linear transformations <span class="math inline">\(\underline{\mathbf{C}}&#39;\)</span> and <span class="math inline">\(\underline{\mathbf{C}}&#39;&#39;\)</span> of the deviator stress are defined as follows: <span class="math display">\[
 \underline{\mathbf{C}}&#39;=
@@ -683,7 +696,7 @@ R{\left(p\right)}=R_{0}+H\,p
 <div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">120e6</span>, H : <span class="fl">438e6</span>},</a></code></pre></div>
 <h3 id="the-swift-isotropic-hardening-rule"><span class="header-section-number">2.4.2</span> The <code>Swift</code> isotropic hardening rule</h3>
 <p>The <code>Swift</code> isotropic hardening rule is defined by: <span class="math display">\[
-R{\left(p\right)}=R_{0}\,{\left({{\displaystyle \frac{\displaystyle p+p_{0}}{\displaystyle p_{0}}}}\right)}^{n}
+R{\left(p\right)}=R_{0}\,{\left(\dfrac{p+p_{0}}{p_{0}}\right)}^{n}
 \]</span></p>
 <h4 id="options-9"><span class="header-section-number">2.4.2.1</span> Options</h4>
 <p>The <code>Swift</code> isotropic hardening rule expects three material properties:</p>
@@ -733,7 +746,7 @@ R{\left(p\right)}=R_{\infty}+{\left(R_{0}-R_{\infty}\right)}\,exp{\left(-b\,p\ri
 <p>The <code>Armstrong-Frederick</code> kinematic hardening rule can be described as follows (see <span class="citation" data-cites="armstrong_mathematical_1966">Armstrong and Frederick (<a href="#ref-armstrong_mathematical_1966">1966</a>)</span>): <span class="math display">\[
 \left\{
 \begin{aligned}
-\underline{X}&amp;={{\displaystyle \frac{\displaystyle 2}{\displaystyle 3}}}\,C\,\underline{a} \\
+\underline{X}&amp;=\dfrac{2}{3}\,C\,\underline{a} \\
 \underline{\dot{a}}&amp;=\dot{p}\,\underline{n}-D\,\dot{p}\,\underline{a} \\
 \end{aligned}
 \right.
@@ -746,10 +759,10 @@ R{\left(p\right)}=R_{\infty}+{\left(R_{0}-R_{\infty}\right)}\,exp{\left(-b\,p\ri
 <p><span class="math display">\[
 \left\{
 \begin{aligned}
-\underline{X}&amp;={{\displaystyle \frac{\displaystyle 2}{\displaystyle 3}}}\,C\,\underline{a} \\
+\underline{X}&amp;=\dfrac{2}{3}\,C\,\underline{a} \\
 \underline{\dot{a}}&amp;=\dot{p}\,\underline{n}
 -\eta\,D\,\dot{p}\,\underline{a}
--{\left(1-\eta\right)}\,D\,{{\displaystyle \frac{\displaystyle 2}{\displaystyle 3}}}\,\dot{p}\,{\left(\underline{a}\,\colon\,\underline{n}\right)}\,\underline{n} \\
+-{\left(1-\eta\right)}\,D\,\dfrac{2}{3}\,\dot{p}\,{\left(\underline{a}\,\colon\,\underline{n}\right)}\,\underline{n} \\
 \end{aligned}
 \right.
 \]</span></p>

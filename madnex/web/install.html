@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Installation guide</title>
+        <meta name="author" content="Thomas Helfer, François Curtit" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+                <link rel="stylesheet" href="/home/th202608/codes/madnex/master/src/madnex/docs/web/css/main.css" />
+        <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="index.html">Overview</a></li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="madnex-query.html">madnex-query</a></li>
+	    <li><a href="install.html">Installation guide</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/madnex/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/madnex/issues">Forum</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Installation guide</h1>
+                  <h2 class="author">Thomas Helfer, François Curtit</h2>
+                  <h3 class="date">08/2020</h3>
+          </div>
+            <h1 id="installing-from-source">Installing from source</h1>
+<p>These are generic installation instructions. Building from source requires <code>cmake</code> to be installed (<a href="https://cmake.org/" class="uri">https://cmake.org/</a>).</p>
+<h2 id="overview">Overview</h2>
+<p>The simplest way to compile this package is:</p>
+<ol type="1">
+<li><p><code>cd</code> to the directory containing the package’s source code and type <code>cmake .</code> to configure the package for your system. This will build <code>madnex</code> in place.</p>
+<p>However, we strongly recommend building <code>madnex</code> out of the source tree as follows:</p>
+<ul>
+<li>Create a <code>build</code> directory et go in this directory</li>
+<li>Call <code>cmake &lt;path_to_madnex_SOURCES&gt;</code> to configure the directory</li>
+</ul>
+<p>Useful options are listed below.</p>
+<p>Running <code>cmake</code> takes awhile. While running, it prints some messages telling which features it is checking for.</p></li>
+<li><p>Type <code>make</code> to compile the package.</p></li>
+<li><p>Optionally, type <code>make check</code> to run any self-tests that come with the package.</p></li>
+<li><p>Type <code>make install</code> to install the programs and any data files and documentation.</p></li>
+<li><p>You can remove the program binaries and object files from the source code directory by typing <code>make clean</code>.</p></li>
+</ol>
+<h2 id="options">Options</h2>
+<ul>
+<li><code>enable-website</code>: generate the TFEL website (enabled by default if pandoc is found)</li>
+<li><code>enable-portable-build</code>: do not use processor specific flags.</li>
+<li><code>enable-doxygen-doc</code>: enable the generation of the API documentation using with <code>Doxygen</code>.</li>
+</ul>
+<h2 id="cmake-usefull-variables"><code>cmake</code> usefull variables</h2>
+<ul>
+<li><code>CMAKE_BUILD_TYPE</code> : two values are supported <code>Release</code> and <code>Debug</code></li>
+<li><code>CASTEM_INSTALL_PATH</code> : specify where the castem has been installed</li>
+<li><code>CMAKE_TOOLCHAIN_FILE</code> : specify a tool chain file</li>
+<li><code>Python_ADDITIONAL_VERSIONS</code> : select the <code>python</code> version to use. Note that only the major and minor version of python shall be passed, not the revision version or the detection fails.</li>
+</ul>
+      </body>
+</html>

@@ -54,17 +54,14 @@
                   <h2 class="author">Thomas Helfer, François Curtit, Jean-François Rit, Shun Huang, Charles Toulemonde</h2>
                   <h3 class="date">2020</h3>
           </div>
-            <div id="TOC">
-      true
-    </div>
-        <!--
+            <!--
 pandoc -f markdow+tex_math_single_backslash -F pandoc-crossref mfront-behaviours-storage.md -o mfront-behaviours-storage.md
 -->
 <p>This document specifies how an <code>MFront</code> behaviour is stored in a <code>MADNEX</code> file and discusses how information about such an <code>MFront</code> behaviour can be queried using <code>mfront-query</code> and compiled using <code>mfront</code>.</p>
 <figure>
-<img src="img/MFrontBehaviourStorage.svg" title="Hierarchy of a `MADNEX` file" alt="Hierarchy of a MADNEX file" id="fig:madnex:MFrontBehaviourStorage" /><figcaption>Hierarchy of a <code>MADNEX</code> file</figcaption>
+<img src="img/MFrontBehaviourStorage.svg" title="Hierarchy of a `MADNEX` file" alt="Figure 1: Hierarchy of a MADNEX file" id="fig:madnex:MFrontBehaviourStorage" style="width:100.0%" /><figcaption>Figure 1: Hierarchy of a <code>MADNEX</code> file</figcaption>
 </figure>
-<p>Figure <span class="citation" data-cites="fig:madnex:MFrontBehaviourStorage">@fig:madnex:MFrontBehaviourStorage</span> shows how material knowledge implementation are stored in a <code>madnex</code> file. Three kinds of material knowledge implementations are supported:</p>
+<p>Figure 1 shows how material knowledge implementation are stored in a <code>madnex</code> file. Three kinds of material knowledge implementations are supported:</p>
 <ul>
 <li>Material properties.</li>
 <li>Behaviours.</li>
@@ -73,7 +70,7 @@ pandoc -f markdow+tex_math_single_backslash -F pandoc-crossref mfront-behaviours
 <p>For the sake of simplicity, only behaviours are considered in the rest of this document.</p>
 <p>This hierarchy is the same of the one adopted in the <code>MFrontMaterials</code> project.</p>
 <h1 id="about-material-identifiers">About material identifiers</h1>
-<p>As depicted on Figure <span class="citation" data-cites="fig:madnex:MFrontBehaviourStorage">@fig:madnex:MFrontBehaviourStorage</span>, <code>MFront</code> implementations are stored under the <code>MFront</code> group. Then the implementations are sorted using a material identifier. This material identifier is optional and behaviours may be directly stored in a <code>Behaviours</code> group directly under the <code>MFront</code> group<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p>As depicted on Figure 1, <code>MFront</code> implementations are stored under the <code>MFront</code> group. Then the implementations are sorted using a material identifier. This material identifier is optional and behaviours may be directly stored in a <code>Behaviours</code> group directly under the <code>MFront</code> group<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
 <p>Material identifiers must conform the restrictions imposed by <code>MFront</code> <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
 <h1 id="about-behaviour-identifiers">About behaviour identifiers</h1>
 <p>Behaviour identifiers must be unique and follow the restrictions of the behaviour names imposed by <code>MFront</code><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>

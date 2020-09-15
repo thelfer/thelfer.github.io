@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Storage of material knowledge implementation written in MFront in MADNEX files and its usage</title>
+        <meta name="author" content="Thomas Helfer, François Curtit, Jean-François Rit, Shun Huang, Charles Toulemonde" />
+            <meta name="date" content="2020-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+                <link rel="stylesheet" href="/home/th202608/codes/madnex/master/src/madnex/docs/web/css/main.css" />
+        <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="index.html">Overview</a></li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="mfront-implementations-storage.html">Storage of MFront files</a></li>
+	    <li><a href="madnex-query.html">madnex-query</a></li>
+	    <li><a href="install.html">Installation guide</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/madnex/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/madnex/issues">Forum</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">Storage of material knowledge implementation written in <code>MFront</code> in <code>MADNEX</code> files and its usage</h1>
+                  <h2 class="author">Thomas Helfer, François Curtit, Jean-François Rit, Shun Huang, Charles Toulemonde</h2>
+                  <h3 class="date">2020</h3>
+          </div>
+            <div id="TOC">
+      true
+    </div>
+        <!--
+pandoc -f markdow+tex_math_single_backslash -F pandoc-crossref mfront-behaviours-storage.md -o mfront-behaviours-storage.md
+-->
+<p>This document specifies how an <code>MFront</code> behaviour is stored in a <code>MADNEX</code> file and discusses how information about such an <code>MFront</code> behaviour can be queried using <code>mfront-query</code> and compiled using <code>mfront</code>.</p>
+<figure>
+<img src="img/MFrontBehaviourStorage.svg" title="Hierarchy of a `MADNEX` file" alt="Hierarchy of a MADNEX file" id="fig:madnex:MFrontBehaviourStorage" /><figcaption>Hierarchy of a <code>MADNEX</code> file</figcaption>
+</figure>
+<p>Figure <span class="citation" data-cites="fig:madnex:MFrontBehaviourStorage">@fig:madnex:MFrontBehaviourStorage</span> shows how material knowledge implementation are stored in a <code>madnex</code> file. Three kinds of material knowledge implementations are supported:</p>
+<ul>
+<li>Material properties.</li>
+<li>Behaviours.</li>
+<li>Models.</li>
+</ul>
+<p>For the sake of simplicity, only behaviours are considered in the rest of this document.</p>
+<p>This hierarchy is the same of the one adopted in the <code>MFrontMaterials</code> project.</p>
+<h1 id="about-material-identifiers">About material identifiers</h1>
+<p>As depicted on Figure <span class="citation" data-cites="fig:madnex:MFrontBehaviourStorage">@fig:madnex:MFrontBehaviourStorage</span>, <code>MFront</code> implementations are stored under the <code>MFront</code> group. Then the implementations are sorted using a material identifier. This material identifier is optional and behaviours may be directly stored in a <code>Behaviours</code> group directly under the <code>MFront</code> group<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p>Material identifiers must conform the restrictions imposed by <code>MFront</code> <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
+<h1 id="about-behaviour-identifiers">About behaviour identifiers</h1>
+<p>Behaviour identifiers must be unique and follow the restrictions of the behaviour names imposed by <code>MFront</code><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<h1 id="global-identifier">Global identifier</h1>
+<p>The combination of material identifier and behaviour identifier shall result in a unique identifier. A <code>madnex</code> file containing two material knowledge with the same identifiers is ill-formed.</p>
+<h1 id="group-associated-with-a-behaviour">Group associated with a behaviour</h1>
+<p>The identification a behaviour starts from an existing implementation file whose parameters or material properties are fitted to adjust experimental data. The structure of the group associated with a behaviour reflects this.</p>
+<h2 id="the-source-data-set-required">The <code>source</code> data set (required)</h2>
+<p>The group associated with a behaviour shall contains a data set called <code>source</code> storing an <code>MFront</code> implementation. This implementation serves as the basis for building the final behaviour, which means that the information it contains may be overridden by information retrieved in the other data set of the group.</p>
+<h2 id="the-metadata-data-set-optional">The <code>metadata</code> data set (optional)</h2>
+<p>The <code>metadata</code> data set is a compound which may alter the meta data of the <code>MFront</code> implementation. The following entries are allowed, but not required:</p>
+<ul>
+<li><code>author</code>: name of the person in charge of the identification</li>
+<li><code>date</code>: date at which the identification of the behaviour took place</li>
+<li><code>description</code>: description of this new behaviour</li>
+</ul>
+<h2 id="the-parameters-data-set-optional">The <code>parameters</code> data set (optional)</h2>
+<p>The <code>parameters</code> data set allows:</p>
+<ul>
+<li>Redefining material properties as parameters.</li>
+<li>Assigning new default values to parameters.</li>
+</ul>
+<p>The parameters names must be a subset of the parameters or material properties defined in the <code>source</code> data set.</p>
+<h2 id="the-bounds-data-optional">The <code>bounds</code> data (optional)</h2>
+<p>The bounds data shall reflect the domain over which the identification is assumed to be valid.</p>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This implies that <code>Behaviours</code>, <code>Material Properties</code> and <code>MOdels</code> can’t be used as material identifiers.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>See the documentation of the <code>@Material</code> keyword. Those restrictions mostly states that the material’ name must be a valid <code>C++</code> identifier.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>See the documentation of the <code>@Behaviour</code> keyword. Those restrictions mostly states that the behaviour’ name must be a valid <code>C++</code> identifier.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+</ol>
+</section>
+      </body>
+</html>

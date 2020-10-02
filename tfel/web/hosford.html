@@ -303,7 +303,7 @@ f{\left(\underline{\sigma}\right)}=\sigma_{\mathrm{eq}}^{H}-\sigma_{Y}
 <li><span class="math inline">\(\sigma_{\mathrm{eq}}^{H}\)</span> is the Hosford equivalent stress defined hereafter.</li>
 <li>The yield stress <span class="math inline">\(\sigma_{Y}\)</span> is a constant material parameter.</li>
 </ul>
-<p>The Hosford equivalent stress is defined by (see <span class="citation" data-cites="hosford_generalized_1972">Hosford (<a href="#ref-hosford_generalized_1972">1972</a>)</span>): <span class="math display">\[
+<p>The Hosford equivalent stress is defined by (see <span class="citation" data-cites="hosford_generalized_1972">[<a href="#ref-hosford_generalized_1972">1</a>]</span>): <span class="math display">\[
 \sigma_{\mathrm{eq}}^{H}=\sqrt[a]{{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{\left({\left|\sigma_{1}-\sigma_{2}\right|}^{a}+{\left|\sigma_{1}-\sigma_{3}\right|}^{a}+{\left|\sigma_{2}-\sigma_{3}\right|}^{a}\right)}}
 \]</span> where <span class="math inline">\(\sigma_{1}\)</span>, <span class="math inline">\(\sigma_{2}\)</span> and <span class="math inline">\(\sigma_{3}\)</span> are the eigenvalues of the stress.</p>
 <p>Therefore, when <span class="math inline">\(a\)</span> goes to infinity, the Hosford stress reduces to the Tresca stress. When <span class="math inline">\(n = 2\)</span> the Hosford stress reduces to the von Mises stress.</p>
@@ -418,7 +418,7 @@ f_{p}={\left.\sigma_{\mathrm{eq}}^{H}\right|_{t+\theta\,\Delta\,t}}-\sigma_{Y}=0
 <ul>
 <li>the stress,</li>
 <li>the Hosford exponent,</li>
-<li>a criterion used to check if the von Mises stress is non zero. The von Mises stress is used to normalize the eigenvalues of the stress and avoid numerical overflows (See <span class="citation" data-cites="scherzinger_return_2017">Scherzinger (<a href="#ref-scherzinger_return_2017">2017</a>)</span> for details).</li>
+<li>a criterion used to check if the von Mises stress is non zero. The von Mises stress is used to normalize the eigenvalues of the stress and avoid numerical overflows (See <span class="citation" data-cites="scherzinger_return_2017">[<a href="#ref-scherzinger_return_2017">2</a>]</span> for details).</li>
 </ul>
 <p>At the last line, the boolean variable <code>b</code> is set to <code>true</code> if the elastic prediction of the Hosford stress exceeds the yield stress.</p>
 <h2 id="implicit-system">Implicit system</h2>
@@ -520,7 +520,7 @@ f_{p}={\left.\sigma_{\mathrm{eq}}^{H}\right|_{t+\theta\,\Delta\,t}}-\sigma_{Y}=0
 <h1 id="comparing-the-robustness-of-various-algorithms">Comparing the robustness of various algorithms</h1>
 <p>This section compares the robustness of various algorithms used to solve the implicit system used to integrate the Hosford behaviour.</p>
 <h2 id="description-of-the-test">Description of the test</h2>
-<p>The test presented is based on the paper of Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">Scherzinger (<a href="#ref-scherzinger_return_2017">2017</a>)</span>). The test is based on the following steps:</p>
+<p>The test presented is based on the paper of Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">[<a href="#ref-scherzinger_return_2017">2</a>]</span>). The test is based on the following steps:</p>
 <ul>
 <li>A direction in the <span class="math inline">\(\pi\)</span>-plane, characterized by an angle <span class="math inline">\(\alpha\)</span>, is choosen. <span class="math inline">\(\alpha\)</span> varies from <span class="math inline">\(-\pi\)</span> to <span class="math inline">\(\pi\)</span>: this range is discretized <span class="math inline">\(1000\)</span> times.</li>
 <li>A stress state <span class="math inline">\(\underline{\sigma}_{\alpha}\)</span> which lies on the yield surface <span class="math inline">\(\sigma_{\mathrm{eq}}^{H}=\sigma_{Y}\)</span> is determined. Such a stress state is characterized by its unique coordinates <span class="math inline">\(\tilde{\pi}{\left(\underline{\sigma}_{\alpha}\right)}\)</span> in the <span class="math inline">\(\pi\)</span>-plane and this projection determines its three eigenvalues. <span class="math inline">\(\underline{\sigma}_{\alpha}\)</span> is choosen diagonal.</li>
@@ -653,10 +653,10 @@ f_{p}={\left.\sigma_{\mathrm{eq}}^{H}\right|_{t+\theta\,\Delta\,t}}-\sigma_{Y}=0
 <!-- Local IspellDict: english -->
 <div id="refs" class="references">
 <div id="ref-hosford_generalized_1972">
-<p>Hosford, W. F. 1972. “A Generalized Isotropic Yield Criterion.” <em>Journal of Applied Mechanics</em> 39 (2): 607–9.</p>
+<p>1. <span class="smallcaps">Hosford</span>, W. F. A generalized isotropic yield criterion. <em>Journal of Applied Mechanics</em>. 1972. Vol. 39, no. 2, p. 607–609. </p>
 </div>
 <div id="ref-scherzinger_return_2017">
-<p>Scherzinger, W. M. 2017. “A Return Mapping Algorithm for Isotropic and Anisotropic Plasticity Models Using a Line Search Method.” <em>Computer Methods in Applied Mechanics and Engineering</em> 317 (April): 526–53. <a href="https://doi.org/10.1016/j.cma.2016.11.026" class="uri">https://doi.org/10.1016/j.cma.2016.11.026</a>.</p>
+<p>2. <span class="smallcaps">Scherzinger</span>, W. M. A return mapping algorithm for isotropic and anisotropic plasticity models using a line search method. <em>Computer Methods in Applied Mechanics and Engineering</em>. 15 April 2017. Vol. 317, p. 526–553. DOI <a href="https://doi.org/10.1016/j.cma.2016.11.026">10.1016/j.cma.2016.11.026</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S004578251630370X" class="uri">http://www.sciencedirect.com/science/article/pii/S004578251630370X</a></p>
 </div>
 </div>
         <script>

@@ -192,7 +192,7 @@
 <p>Numerous performances assessments were made within the PLEIADES platform : replacing fortran implementations by their <code>MFront</code> counterparts led to significant improvements, from <span class="math inline">\(30\%\)</span> to <span class="math inline">\(50\%\)</span> of the total computational times of some fuel performance codes developed in the platform.</p>
 <p>This improvements were mainly due to fact that the behaviour integration schemes changed from explicit Runge-Kutta schemes to implicit ones. The main benefit of <code>MFront</code> was to grant users an easier access to the implicit schemes.</p>
 <h2 id="cyrano3-fuel-performance-code"><code>Cyrano3</code> fuel performance code</h2>
-<p>Relying on the specific modelling hypotheses supported by this code, namely axisymmetrical generalised plane stress and axisymmetrical generalised plane strain, highly specialised and efficient implementations of mechanical behaviours were developed in <code>Cyrano3</code> fuel performance code <span class="citation" data-cites="thouvenin_edf_2010">(see Thouvenin et al. 2010)</span> for both isotropic and orthotropic materials : numerical integration boils down to solving a scalar non linear equation in both cases and provides the consistent tangent operator.</p>
+<p>Relying on the specific modelling hypotheses supported by this code, namely axisymmetrical generalised plane stress and axisymmetrical generalised plane strain, highly specialised and efficient implementations of mechanical behaviours were developed in <code>Cyrano3</code> fuel performance code <span class="citation" data-cites="thouvenin_edf_2010">[1]</span> for both isotropic and orthotropic materials : numerical integration boils down to solving a scalar non linear equation in both cases and provides the consistent tangent operator.</p>
 <p>The figure below compares the total computational times of a native implementation of a cladding behaviour to its equivalent <code>MFront</code> implementation: the last one appears to be competitive with the native implementation (the average computational time using the <code>MFront</code> implementation is sightly lower than the average computational time using the native implementation).</p>
 <figure>
 <img src="img/cyrano-mfront.svg" title="Comparing the total computational times of a native implementation of a cladding behaviour available in `Cyrano3` to its equivalent `MFront` implementation" alt="Comparing the total computational times of a native implementation of a cladding behaviour available in Cyrano3 to its equivalent MFront implementation" /><figcaption>Comparing the total computational times of a native implementation of a cladding behaviour available in <code>Cyrano3</code> to its equivalent <code>MFront</code> implementation</figcaption>
@@ -216,37 +216,37 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">Visco-plastic and damaging for steel <span class="citation" data-cites="mustata_creep_2005 edf_comportement_2012">(see Mustata and Hayhurst 2005; EDF 2012)</span> - 3D Notched specimen implying large deformation</td>
+<td style="text-align: center;">Visco-plastic and damaging for steel <span class="citation" data-cites="mustata_creep_2005 edf_comportement_2012">[2, 3]</span> - 3D Notched specimen implying large deformation</td>
 <td style="text-align: center;"><code>Implicit</code></td>
 <td style="text-align: center;"><span class="math inline">\(17mn 43s\)</span> vs <span class="math inline">\(7mn 58s\)</span></td>
 <td style="text-align: center;"><img src="img/Behaviour-img2.png" /></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Damaging for concrete <span class="citation" data-cites="mazars_new_2014 edf_modeendommagement_2013">(see Mazars, Hamon, and Grange 2014; EDF 2013b)</span>, 3D beam bending</td>
+<td style="text-align: center;">Damaging for concrete <span class="citation" data-cites="mazars_new_2014 edf_modeendommagement_2013">[4, 5]</span>, 3D beam bending</td>
 <td style="text-align: center;"><code>Default</code></td>
 <td style="text-align: center;"><span class="math inline">\(45mn\)</span> vs <span class="math inline">\(63mn\)</span></td>
 <td style="text-align: center;"><img src="img/Behaviour-img3.png" /></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">Generic Single crystal viscoplasticity <span class="citation" data-cites="meric_single_1991 edf_comportements_2013-1">(see Méric and Cailletaud 1991; EDF 2013a)</span>, 3D aggregate, 300 grains</td>
+<td style="text-align: center;">Generic Single crystal viscoplasticity <span class="citation" data-cites="meric_single_1991 edf_comportements_2013-1">[6, 7]</span>, 3D aggregate, 300 grains</td>
 <td style="text-align: center;"><code>Implicit</code></td>
 <td style="text-align: center;"><span class="math inline">\(28mn\)</span> vs <span class="math inline">\(24mn\)</span></td>
 <td style="text-align: center;"><img src="img/Behaviour-img5.png" /></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">FCC single crystal viscoplasticity <span class="citation" data-cites="monnet_orowan_2011">(see Monnet, Naamane, and Devincre 2011 <span class="citation" data-cites="edf_comportements_2013-1">[@edf_comportements_2013-1]</span>)</span> , 2D specimen with displacement boundary conditions from EBSD experiment</td>
+<td style="text-align: center;">FCC single crystal viscoplasticity <span class="citation" data-cites="monnet_orowan_2011">[8]</span> , 2D specimen with displacement boundary conditions from EBSD experiment</td>
 <td style="text-align: center;"><code>Ìmplicit</code></td>
 <td style="text-align: center;"><span class="math inline">\(33m54s\)</span> vs <span class="math inline">\(29m30s\)</span></td>
 <td style="text-align: center;"><img src="img/Behaviour-img6.png" /></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">FCC homogeneized polycrystals 30 grains <span class="citation" data-cites="berveiller_extension_1978 edf_comportements_2013-1">(see Berveiller and Zaoui 1978; EDF 2013a)</span>, unit testing</td>
+<td style="text-align: center;">FCC homogeneized polycrystals 30 grains <span class="citation" data-cites="berveiller_extension_1978 edf_comportements_2013-1">[7, 9]</span>, unit testing</td>
 <td style="text-align: center;"><code>Runge-Kutta 4/5</code></td>
 <td style="text-align: center;"><span class="math inline">\(9s67\)</span> vs <span class="math inline">\(8s22\)</span></td>
 <td style="text-align: center;"><img src="img/Behaviour-img8.png" /></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Anisotropic creep with phase transformation, 3D pipe <span class="citation" data-cites="edf_modecomportement_2013">(see EDF 2013c)</span></td>
+<td style="text-align: center;">Anisotropic creep with phase transformation, 3D pipe <span class="citation" data-cites="edf_modecomportement_2013">[10]</span></td>
 <td style="text-align: center;"><code>Implicit</code></td>
 <td style="text-align: center;"><span class="math inline">\(180s\)</span> vs <span class="math inline">\(171s\)</span></td>
 <td style="text-align: center;"><img src="img/Behaviour-img9.png" /></td>
@@ -255,48 +255,48 @@
 </table>
 <p>Developers of the <code>Code-Aster</code> general purpose finite element solver, made independent extensive tests, comparing their own native implementations to the ones generated with <code>MFront</code>, generally using an implicit scheme in both cases. Without discussing the very details of each test performed, several general conclusions can be drawn:</p>
 <ul>
-<li>native implementations offers superior performances in the case of simple explicit behaviours (Mazars damaging behaviour <span class="citation" data-cites="mazars_new_2014">(see Mazars, Hamon, and Grange 2014)</span>) in the case of isotropic behaviours that can be reduce to one scalar equations <span class="citation" data-cites="chaboche_integration_1996">(see Chaboche and Cailletaud 1996)</span>. For explicit behaviours, the difference will be reduced by the development of an optimised treatment of <code>MFront</code> behaviours. In the second case, the difference can be explained by the fact that the Code-Aster implementations uses the Brent algorithm <span class="citation" data-cites="brent_algorithms_1973">(see Brent 1973)</span> which clearly outperforms the standard Newton method. The availability of this algorithm in <code>MFront</code> is planed.</li>
+<li>native implementations offers superior performances in the case of simple explicit behaviours (Mazars damaging behaviour <span class="citation" data-cites="mazars_new_2014">[4]</span>) in the case of isotropic behaviours that can be reduce to one scalar equations <span class="citation" data-cites="chaboche_integration_1996">[11]</span>. For explicit behaviours, the difference will be reduced by the development of an optimised treatment of <code>MFront</code> behaviours. In the second case, the difference can be explained by the fact that the Code-Aster implementations uses the Brent algorithm <span class="citation" data-cites="brent_algorithms_1973">[12]</span> which clearly outperforms the standard Newton method. The availability of this algorithm in <code>MFront</code> is planed.</li>
 <li>for more complex behaviours, <code>MFront</code> implementation are on par or outperforms the native implementations.</li>
 </ul>
 <p>For a given behaviour, the development time was found significantly lower with <code>MFront</code>.</p>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references">
-<div id="ref-berveiller_extension_1978">
-<p>Berveiller, M., and A. Zaoui. 1978. “An Extension of the Self-Consistent Scheme to Plastically-Flowing Polycrystals.” <em>Journal of the Mechanics and Physics of Solids</em> 26 (5–6): 325–44. <a href="https://doi.org/10.1016/0022-5096(78)90003-0" class="uri">https://doi.org/10.1016/0022-5096(78)90003-0</a>.</p>
-</div>
-<div id="ref-brent_algorithms_1973">
-<p>Brent, Richard P. 1973. <em>Algorithms for Minimization Without Derivatives</em>. Dover Publications.</p>
-</div>
-<div id="ref-chaboche_integration_1996">
-<p>Chaboche, J.L., and G. Cailletaud. 1996. “Integration Methods for Complex Plastic Constitutive Equations.” <em>Computer Method in Applied Mechanics and Engineering</em> 133: 125–55.</p>
-</div>
-<div id="ref-edf_comportement_2012">
-<p>EDF. 2012. “Comportement Viscoplastique Avec Endommagement de Hayhurst.” Référence du Code Aster R5.03.13 révision : 8886. EDF-R&amp;D/AMA. <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a>.</p>
-</div>
-<div id="ref-edf_comportements_2013-1">
-<p>———. 2013a. “Comportements élastoviscoplastiques Mono et Polycristallins.” Référence du Code Aster R5.03.11 révision : 10623. EDF-R&amp;D/AMA. <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a>.</p>
-</div>
-<div id="ref-edf_modeendommagement_2013">
-<p>———. 2013b. “Modèle d’endommagement de Mazars.” Référence du Code Aster R7.01.08 révision : 10461. EDF-R&amp;D/AMA. <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a>.</p>
-</div>
-<div id="ref-edf_modecomportement_2013">
-<p>———. 2013c. “Modèle de Comportement élasto-Visqueux META_LEMA_ANI Avec Prise En Compte de La Métallurgie Pour Les Tubes de Gaine Du Crayon Combustible.” Documentation du Code-Aster R4.04.05. EDF-R&amp;D/AMA. <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a>.</p>
-</div>
-<div id="ref-mazars_new_2014">
-<p>Mazars, Jacky, François Hamon, and Stéphane Grange. 2014. “A New 3D Damage Model for Concrete Under Monotonic, Cyclic and Dynamic Loadings.” <em>Materials and Structures</em>, October, 1–15. <a href="https://doi.org/10.1617/s11527-014-0439-8" class="uri">https://doi.org/10.1617/s11527-014-0439-8</a>.</p>
-</div>
-<div id="ref-meric_single_1991">
-<p>Méric, L., and Georges Cailletaud. 1991. “Single Crystal Modelling for Structural Calculations.” <em>Journal of Engineering Material and Technology</em> 113 (January): 171–82.</p>
-</div>
-<div id="ref-monnet_orowan_2011">
-<p>Monnet, G., S. Naamane, and B. Devincre. 2011. “Orowan Strengthening at Low Temperatures in Bcc Materials Studied by Dislocation Dynamics Simulations.” <em>Acta Materialia</em> 59 (2): 451–61. <a href="https://doi.org/10.1016/j.actamat.2010.09.039" class="uri">https://doi.org/10.1016/j.actamat.2010.09.039</a>.</p>
+<div id="ref-thouvenin_edf_2010">
+<p>1. <span class="smallcaps">Thouvenin</span>, Gilles, <span class="smallcaps">Baron</span>, Daniel, <span class="smallcaps">Largenton</span>, Nathalie, <span class="smallcaps">Largenton</span>, Rodrigue and <span class="smallcaps">Thevenin</span>, Philippe. EDF CYRANO3 code, recent innovations. In : <em>LWR Fuel Performance Meeting/TopFuel/WRFPM</em>. Orlando, Florida, USA, September 2010. </p>
 </div>
 <div id="ref-mustata_creep_2005">
-<p>Mustata, R., and D. R. Hayhurst. 2005. “Creep Constitutive Equations for a 0.5Cr 0.5 Mo 0.25V Ferritic Steel in the Temperature Range 565 °C - 675 °C.” <em>International Journal of Pressure Vessels and Piping</em> 82 (5): 363–72. <a href="https://doi.org/10.1016/j.ijpvp.2004.11.002" class="uri">https://doi.org/10.1016/j.ijpvp.2004.11.002</a>.</p>
+<p>2. <span class="smallcaps">Mustata</span>, R. and <span class="smallcaps">Hayhurst</span>, D. R. Creep constitutive equations for a 0.5Cr 0.5 Mo 0.25V ferritic steel in the temperature range 565 °C - 675 °C. <em>International Journal of Pressure Vessels and Piping</em>. May 2005. Vol. 82, no. 5, p. 363–372. DOI <a href="https://doi.org/10.1016/j.ijpvp.2004.11.002">10.1016/j.ijpvp.2004.11.002</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0308016105000037" class="uri">http://www.sciencedirect.com/science/article/pii/S0308016105000037</a></p>
 </div>
-<div id="ref-thouvenin_edf_2010">
-<p>Thouvenin, Gilles, Daniel Baron, Nathalie Largenton, Rodrigue Largenton, and Philippe Thevenin. 2010. “EDF CYRANO3 Code, Recent Innovations.” In <em>LWR Fuel Performance Meeting/TopFuel/WRFPM</em>. Orlando, Florida, USA.</p>
+<div id="ref-edf_comportement_2012">
+<p>3. <span class="smallcaps">EDF</span>. R5.03.13 révision : 8886: Comportement viscoplastique avec endommagement de Hayhurst. Référence du Code Aster. EDF-R&amp;D/AMA, 2012. Available from: <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a></p>
+</div>
+<div id="ref-mazars_new_2014">
+<p>4. <span class="smallcaps">Mazars</span>, Jacky, <span class="smallcaps">Hamon</span>, François and <span class="smallcaps">Grange</span>, Stéphane. A new 3D damage model for concrete under monotonic, cyclic and dynamic loadings. <em>Materials and Structures</em>. October 2014. P. 1–15. DOI <a href="https://doi.org/10.1617/s11527-014-0439-8">10.1617/s11527-014-0439-8</a>. Available from: <a href="http://link.springer.com/article/10.1617/s11527-014-0439-8" class="uri">http://link.springer.com/article/10.1617/s11527-014-0439-8</a></p>
+</div>
+<div id="ref-edf_modeendommagement_2013">
+<p>5. <span class="smallcaps">EDF</span>. R7.01.08 révision : 10461: Modèle d’endommagement de Mazars. Référence du Code Aster. EDF-R&amp;D/AMA, 2013. Available from: <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a></p>
+</div>
+<div id="ref-meric_single_1991">
+<p>6. <span class="smallcaps">Méric</span>, L. and <span class="smallcaps">Cailletaud</span>, Georges. Single crystal modelling for structural calculations. <em>Journal of Engineering Material and Technology</em>. January 1991. Vol. 113, p. 171–182. </p>
+</div>
+<div id="ref-edf_comportements_2013-1">
+<p>7. <span class="smallcaps">EDF</span>. R5.03.11 révision : 10623: Comportements élastoviscoplastiques mono et polycristallins. Référence du Code Aster. EDF-R&amp;D/AMA, 2013. Available from: <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a></p>
+</div>
+<div id="ref-monnet_orowan_2011">
+<p>8. <span class="smallcaps">Monnet</span>, G., <span class="smallcaps">Naamane</span>, S. and <span class="smallcaps">Devincre</span>, B. Orowan strengthening at low temperatures in bcc materials studied by dislocation dynamics simulations. <em>Acta Materialia</em>. January 2011. Vol. 59, no. 2, p. 451–461. DOI <a href="https://doi.org/10.1016/j.actamat.2010.09.039">10.1016/j.actamat.2010.09.039</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S1359645410006166" class="uri">http://www.sciencedirect.com/science/article/pii/S1359645410006166</a></p>
+</div>
+<div id="ref-berveiller_extension_1978">
+<p>9. <span class="smallcaps">Berveiller</span>, M. and <span class="smallcaps">Zaoui</span>, A. An extension of the self-consistent scheme to plastically-flowing polycrystals. <em>Journal of the Mechanics and Physics of Solids</em>. October 1978. Vol. 26, no. 5–6, p. 325–344. DOI <a href="https://doi.org/10.1016/0022-5096(78)90003-0">10.1016/0022-5096(78)90003-0</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/0022509678900030" class="uri">http://www.sciencedirect.com/science/article/pii/0022509678900030</a></p>
+</div>
+<div id="ref-edf_modecomportement_2013">
+<p>10. <span class="smallcaps">EDF</span>. R4.04.05: Modèle de comportement élasto-visqueux META_LEMA_ANI avec prise en compte de la métallurgie pour les tubes de gaine du crayon combustible. Documentation du Code-Aster. EDF-R&amp;D/AMA, 2013. Available from: <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a></p>
+</div>
+<div id="ref-chaboche_integration_1996">
+<p>11. <span class="smallcaps">Chaboche</span>, J.L. and <span class="smallcaps">Cailletaud</span>, G. Integration methods for complex plastic constitutive equations. <em>Computer method in applied mechanics and engineering</em>. 1996. Vol. 133, p. 125–155. </p>
+</div>
+<div id="ref-brent_algorithms_1973">
+<p>12. <span class="smallcaps">Brent</span>, Richard P. Algorithms for Minimization Without Derivatives. Dover Publications, 1973. ISBN <a href="https://worldcat.org/isbn/9780486419985">9780486419985</a>. </p>
 </div>
 </div>
         <script>

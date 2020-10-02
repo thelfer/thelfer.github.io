@@ -275,7 +275,7 @@
     </div>
         
 
-<p>This page shows how to implement a behaviour describing the load induced thermal strain (LITS) phenomena in concrete following the work of <span class="citation" data-cites="torelli_confinement-dependent_2018">Torelli et al. (2018)</span>.</p>
+<p>This page shows how to implement a behaviour describing the load induced thermal strain (LITS) phenomena in concrete following the work of <span class="citation" data-cites="torelli_confinement-dependent_2018">[1]</span>.</p>
 <p>This implementation is available <a href="gallery/viscoplasticity/LoadInducedThermalStrain_Torelli2018.mfront">here</a>.</p>
 <h1 id="description">Description</h1>
 <p>The behaviour is described by a standard split of the strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in an elastic and a plastic parts, respectively denoted <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and <span class="math inline">\(\underline{\varepsilon}^{\mathrm{LITS}}\)</span>:</p>
@@ -523,7 +523,7 @@ C\,\left[
 <a class="sourceLine" id="cb17-3" data-line-number="3">                                                                  seps * <span class="fl">0.1</span>);</a></code></pre></div>
 <blockquote>
 <p><strong>About the choice of the eigensolver</strong></p>
-<p>Here we used a the Jacobi algorithm as implemented in <span class="citation" data-cites="kopp_efficient_2008">Kopp (2008)</span>. This algorithm is lower but more accurate than the default one (see <a href="tensors.html">here</a> for an indepth comparison of available algorithms.</p>
+<p>Here we used a the Jacobi algorithm as implemented in <span class="citation" data-cites="kopp_efficient_2008">[2]</span>. This algorithm is lower but more accurate than the default one (see <a href="tensors.html">here</a> for an indepth comparison of available algorithms.</p>
 </blockquote>
 <p>The next step is to compute <span class="math inline">\({\left.\eta\right|_{t+\theta\,\Delta\,t}}\)</span> and its derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.sig\right|_{t+\theta\,\Delta\,t}}}}\)</span> (See Equation (6)):</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1">  <span class="co">//----- Multiaxial correction coefficient</span></a>
@@ -551,11 +551,11 @@ C\,\left[
 <a class="sourceLine" id="cb21-3" data-line-number="3">}</a></code></pre></div>
 <h1 id="references" class="unnumbered">References</h1>
 <div id="refs" class="references">
-<div id="ref-kopp_efficient_2008">
-<p>Kopp, Joachim. 2008. “Efficient Numerical Diagonalization of Hermitian 3x3 Matrices.” <em>International Journal of Modern Physics C</em> 19 (3): 523–48. <a href="https://doi.org/10.1142/S0129183108012303" class="uri">https://doi.org/10.1142/S0129183108012303</a>.</p>
-</div>
 <div id="ref-torelli_confinement-dependent_2018">
-<p>Torelli, Giacomo, Parthasarathi Mandal, Martin Gillie, and Van-Xuan Tran. 2018. “A Confinement-Dependent Load-Induced Thermal Strain Constitutive Model for Concrete Subjected to Temperatures up to 500 °C.” <em>International Journal of Mechanical Sciences</em>, January. <a href="https://doi.org/10.1016/j.ijmecsci.2017.12.054" class="uri">https://doi.org/10.1016/j.ijmecsci.2017.12.054</a>.</p>
+<p>1. <span class="smallcaps">Torelli</span>, Giacomo, <span class="smallcaps">Mandal</span>, Parthasarathi, <span class="smallcaps">Gillie</span>, Martin and <span class="smallcaps">Tran</span>, Van-Xuan. A confinement-dependent load-induced thermal strain constitutive model for concrete subjected to temperatures up to 500 °C. <em>International Journal of Mechanical Sciences</em>. 4 January 2018. DOI <a href="https://doi.org/10.1016/j.ijmecsci.2017.12.054">10.1016/j.ijmecsci.2017.12.054</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0020740317337372" class="uri">http://www.sciencedirect.com/science/article/pii/S0020740317337372</a></p>
+</div>
+<div id="ref-kopp_efficient_2008">
+<p>2. <span class="smallcaps">Kopp</span>, Joachim. Efficient numerical diagonalization of hermitian 3x3 matrices. <em>International Journal of Modern Physics C</em>. March 2008. Vol. 19, no. 3, p. 523–548. DOI <a href="https://doi.org/10.1142/S0129183108012303">10.1142/S0129183108012303</a>. Available from: <a href="http://arxiv.org/abs/physics/0610206" class="uri">http://arxiv.org/abs/physics/0610206</a></p>
 </div>
 </div>
         <script>

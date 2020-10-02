@@ -275,7 +275,7 @@
       <li><a href="#positive-and-negative-parts-of-a-symmetric-tensor"><span class="toc-section-number">3.4</span> Positive and negative parts of a symmetric tensor</a></li>
       <li><a href="#sec:transpose"><span class="toc-section-number">3.5</span> Transposition</a></li>
       <li><a href="#sec:invariants"><span class="toc-section-number">3.6</span> Second order tensor invariants</a></li>
-      <li><a href="#sec:deviatoric:invariants"><span class="toc-section-number">3.7</span> Invariants of the stress deviator tensor <span class="citation" data-cites="wikipedia_invariants_2017">(“Invariants of Tensors” <span>2017</span>)</span></a></li>
+      <li><a href="#sec:deviatoric:invariants"><span class="toc-section-number">3.7</span> Invariants of the stress deviator tensor <span class="citation" data-cites="wikipedia_invariants_2017">[<span>1</span>]</span></a></li>
       <li><a href="#sec:deviatoric:orthotropic:invariants"><span class="toc-section-number">3.8</span> Orthotropic generalization of the invariants of the stress deviator tensor</a></li>
       <li><a href="#eigenvalues-eigenvectors-and-eigentensors-of-symmetric-tensors"><span class="toc-section-number">3.9</span> Eigenvalues, eigenvectors and eigentensors of symmetric tensors</a></li>
       <li><a href="#isotropic-functions-of-a-symmetric-tensor"><span class="toc-section-number">3.10</span> Isotropic functions of a symmetric tensor</a></li>
@@ -584,7 +584,7 @@ I_{3} &amp;= \det{\left({\underset{\tilde{}}{\mathbf{a}}}\right)}
 <a class="sourceLine" id="cb25-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> d2I2_dA2 = (id^id)-st2tot2&lt;N,real&gt;::Id();</a></code></pre></div>
 <p>The <span class="math inline">\({\displaystyle \frac{\displaystyle \partial^{2} I_{3}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{a}}}^{2}}}\)</span> term can be computed using the <code>computeDeterminantSecondDerivative</code> function, as follows:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> d2I3_dA2 = computeDeterminantSecondDerivative(A);</a></code></pre></div>
-<h2 id="sec:deviatoric:invariants"><span class="header-section-number">3.7</span> Invariants of the stress deviator tensor <span class="citation" data-cites="wikipedia_invariants_2017">(“Invariants of Tensors” <a href="#ref-wikipedia_invariants_2017">2017</a>)</span></h2>
+<h2 id="sec:deviatoric:invariants"><span class="header-section-number">3.7</span> Invariants of the stress deviator tensor <span class="citation" data-cites="wikipedia_invariants_2017">[<a href="#ref-wikipedia_invariants_2017">1</a>]</span></h2>
 <p>Let <span class="math inline">\(\underline{\sigma}\)</span> be a stress tensor. Its deviatoric part <span class="math inline">\(\underline{s}\)</span> is: <span class="math display">\[
 \underline{s}=\underline{\sigma}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
 ={\left(\underline{\underline{\mathbf{I}}}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,\underline{I}\,\otimes\,\underline{I}\right)}\,\colon\,\underline{\sigma}
@@ -666,7 +666,7 @@ J_3 &amp;= \det{\left(\underline{s}\right)} \\
 <div class="sourceCode" id="cb32"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> d2J3 = computeDeviatorDeterminantSecondDerivative(J);</a></code></pre></div>
 <p>The <code>computeJ3SecondDerivative</code>, defined in <code>tfel::material</code> namespace, is a synonym for the <code>computeDeviatorDeterminantSecondDerivative</code> function.</p>
 <h2 id="sec:deviatoric:orthotropic:invariants"><span class="header-section-number">3.8</span> Orthotropic generalization of the invariants of the stress deviator tensor</h2>
-<p>Within the framework of the theory of representation, generalizations to orthotropic conditions of the invariants of the deviatoric stress have been proposed by Cazacu and Barlat (see <span class="citation" data-cites="cazacu_generalization_2001">Cazacu and Barlat (<a href="#ref-cazacu_generalization_2001">2001</a>)</span>):</p>
+<p>Within the framework of the theory of representation, generalizations to orthotropic conditions of the invariants of the deviatoric stress have been proposed by Cazacu and Barlat (see <span class="citation" data-cites="cazacu_generalization_2001">[<a href="#ref-cazacu_generalization_2001">2</a>]</span>):</p>
 <ul>
 <li>The generalization of <span class="math inline">\(J_{2}\)</span> is denoted <span class="math inline">\(J_{2}^{O}\)</span>. It is defined by: <span class="math display">\[
 J_{2}^{O}= a_6\,s_{yz}^2+a_5\,s_{xz}^2+a_4\,s_{xy}^2+\frac{a_2}{6}\,(s_{yy}-s_{zz})^2+\frac{a_3}{6}\,(s_{xx}-s_{zz})^2+\frac{a_1}{6}\,(s_{xx}-s_{yy})^2
@@ -715,7 +715,7 @@ J_{3}^{O}=
 <div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> es = stensor&lt;<span class="dv">3u</span>,real&gt;::FSESQLEIGENSOLVER;</a>
 <a class="sourceLine" id="cb35-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> vp = s.computeEigenValues&lt;es&gt;();</a></code></pre></div>
 <h3 id="sec:eigensolvers"><span class="header-section-number">3.9.2</span> Eigenvectors</h3>
-<p>The default eigen solver for symmetric tensors used in <code>TFEL</code> is based on analitical computations of the eigen values and eigen vectors. Such computations are more efficient but less accurate than the iterative Jacobi algorithm (see <span class="citation" data-cites="kopp_efficient_2008 kopp_numerical_2017">(Kopp <a href="#ref-kopp_efficient_2008">2008</a>, <a href="#ref-kopp_numerical_2017">2017</a>)</span>).</p>
+<p>The default eigen solver for symmetric tensors used in <code>TFEL</code> is based on analitical computations of the eigen values and eigen vectors. Such computations are more efficient but less accurate than the iterative Jacobi algorithm (see <span class="citation" data-cites="kopp_efficient_2008 kopp_numerical_2017">[<a href="#ref-kopp_efficient_2008">3</a>, <a href="#ref-kopp_numerical_2017">4</a>]</span>).</p>
 <p>With the courtesy of Joachim Kopp, we have created a <code>C++11</code> compliant version of his routines that we gathered in header-only library called <code>FSES</code> (Fast Symmetric Eigen Solver). This library is included with <code>TFEL</code> and provides the following algorithms:</p>
 <ul>
 <li>Jacobi</li>
@@ -725,7 +725,7 @@ J_{3}^{O}=
 <li>Hybrid</li>
 <li>Householder reduction</li>
 </ul>
-<p>We have also introduced the Jacobi implementation of the <code>Geometric</code> <code>Tools</code> library (see <span class="citation" data-cites="eberly_robust_2016 eberly_geometric_2017">(Eberly <a href="#ref-eberly_robust_2016">2016</a>, <a href="#ref-eberly_geometric_2017">2017</a>)</span>).</p>
+<p>We have also introduced the Jacobi implementation of the <code>Geometric</code> <code>Tools</code> library (see <span class="citation" data-cites="eberly_robust_2016 eberly_geometric_2017">[<a href="#ref-eberly_robust_2016">5</a>, <a href="#ref-eberly_geometric_2017">6</a>]</span>).</p>
 <p>Those algorithms are available in 3D. For 2D symmetric tensors, we fall back to some default algorithm as described below.</p>
 <div id="tbl:eigensolvers">
 <table>
@@ -808,7 +808,7 @@ f{\left(\underline{s}\right)}=\sum_{i=1}^{3}f{\left(\lambda_{i}\right)}\underlin
 <a class="sourceLine" id="cb37-3" data-line-number="3"><span class="at">const</span> <span class="kw">auto</span> [f,df] = Stensor::computeIsotropicFunctionAndDerivative(evp,evp,vp,m,<span class="dv">1</span>.e<span class="dv">-12</span>);</a></code></pre></div>
 <h1 id="special-operations-for-mechanical-behaviours"><span class="header-section-number">4</span> Special operations for mechanical behaviours</h1>
 <h2 id="yield-criteria"><span class="header-section-number">4.1</span> Yield criteria</h2>
-<h3 id="von-mises-stress-wikipedia_von_mises_2017"><span class="header-section-number">4.1.1</span> von Mises stress <span class="citation" data-cites="wikipedia_von_Mises_2017">(“Von Mises Yield Criterion” <a href="#ref-wikipedia_von_Mises_2017">2017</a>)</span></h3>
+<h3 id="von-mises-stress-wikipedia_von_mises_2017"><span class="header-section-number">4.1.1</span> von Mises stress <span class="citation" data-cites="wikipedia_von_Mises_2017">[<a href="#ref-wikipedia_von_Mises_2017">7</a>]</span></h3>
 <p>The von Mises stress is defined by: <span class="math display">\[
 \sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,\underline{s}\,\colon\,\underline{s}}=\sqrt{3\,J_{2}}
 \]</span> where:</p>
@@ -902,7 +902,7 @@ F+H &amp; -F  &amp; -H  &amp; 0 &amp; 0 &amp; 0 \\
 <img src="img/HosfordStress.svg" title="Comparison of the Hosford stress (a=100,a=8) and the von Mises stress in plane stress" alt="Comparison of the Hosford stress a=100,a=8 and the von Mises stress" style="width:70.0%" /><figcaption>Comparison of the Hosford stress <span class="math inline">\(a=100,a=8\)</span> and the von Mises stress</figcaption>
 </figure>
 <p>The header <code>TFEL/Material/Hosford1972YieldCriterion.hxx</code> introduces three functions which are meant to compute the Hosford equivalent stress and its first and second derivatives. <em>This header is automatically included by <code>MFront</code>.</em></p>
-<p>The Hosford equivalent stress is defined by (see <span class="citation" data-cites="hosford_generalized_1972">Hosford (<a href="#ref-hosford_generalized_1972">1972</a>)</span>): <span class="math display">\[
+<p>The Hosford equivalent stress is defined by (see <span class="citation" data-cites="hosford_generalized_1972">[<a href="#ref-hosford_generalized_1972">8</a>]</span>): <span class="math display">\[
 \sigma_{\mathrm{eq}}^{H}=\sqrt[a]{{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{\left({\left|\sigma_{1}-\sigma_{2}\right|}^{a}+{\left|\sigma_{1}-\sigma_{3}\right|}^{a}+{\left|\sigma_{2}-\sigma_{3}\right|}^{a}\right)}}
 \]</span> where <span class="math inline">\(\sigma_{1}\)</span>, <span class="math inline">\(\sigma_{2}\)</span> and <span class="math inline">\(\sigma_{3}\)</span> are the eigenvalues of the stress.</p>
 <p>Therefore, when <span class="math inline">\(a\)</span> goes to infinity, the Hosford stress reduces to the Tresca stress. When <span class="math inline">\(n = 2\)</span> the Hosford stress reduces to the von Mises stress.</p>
@@ -912,14 +912,14 @@ F+H &amp; -F  &amp; -H  &amp; 0 &amp; 0 &amp; 0 \\
 <li><code>computeHosfordStressNormal</code>: return a tuple containg the Hosford equivalent stress and its first derivative (the normal)</li>
 <li><code>computeHosfordStressSecondDerivative</code>: return a tuple containg the Hosford equivalent stress, its first derivative (the normal) and the second derivative.</li>
 </ul>
-<p>The implementation of those functions are greatly inspired by the work of Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">Scherzinger (<a href="#ref-scherzinger_return_2017">2017</a>)</span>). In particular, great care is given to avoid overflows in the computations of the Hosford stress.</p>
+<p>The implementation of those functions are greatly inspired by the work of Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">[<a href="#ref-scherzinger_return_2017">9</a>]</span>). In particular, great care is given to avoid overflows in the computations of the Hosford stress.</p>
 <p>Those functions have two template parameters:</p>
 <ul>
 <li>the type of symmetric tensors used for the stress tensor (automatically deduced, but required if the second parameter is specified).</li>
 <li>the eigen solver to be used (See Section 3.9.2).</li>
 </ul>
 <h3 id="barlat-stress"><span class="header-section-number">4.1.4</span> Barlat stress</h3>
-<p>The Barlat equivalent stress is defined as follows (See <span class="citation" data-cites="barlat_linear_2005">Barlat et al. (<a href="#ref-barlat_linear_2005">2005</a>)</span>): <span class="math display">\[
+<p>The Barlat equivalent stress is defined as follows (See <span class="citation" data-cites="barlat_linear_2005">[<a href="#ref-barlat_linear_2005">10</a>]</span>): <span class="math display">\[
 \sigma_{\mathrm{eq}}^{B}=
 \sqrt[a]{
   \frac{1}{4}\left(
@@ -975,7 +975,7 @@ F+H &amp; -F  &amp; -H  &amp; 0 &amp; 0 &amp; 0 \\
 <li><code>computeBarlatStressNormal</code>: return a tuple containg the Barlat equivalent stress and its first derivative (the normal).</li>
 <li><code>computeBarlatStressSecondDerivative</code>: return a tuple containg the Barlat equivalent stress, its first derivative (the normal) and the second derivative.</li>
 </ul>
-<p>The implementation of those functions are greatly inspired by the work of Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">Scherzinger (<a href="#ref-scherzinger_return_2017">2017</a>)</span>). In particular, great care is given to avoid overflows in the computations of the Barlat stress.</p>
+<p>The implementation of those functions are greatly inspired by the work of Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">[<a href="#ref-scherzinger_return_2017">9</a>]</span>). In particular, great care is given to avoid overflows in the computations of the Barlat stress.</p>
 <p>Those functions have two template parameters:</p>
 <ul>
 <li>the type of symmetric tensors used for the stress tensor (automatically deduced, but required if the second parameter is specified).</li>
@@ -1011,35 +1011,35 @@ xx &amp; yy &amp; zz &amp; xy &amp; xz &amp; yz
 <h1 id="references"><span class="header-section-number">5</span> References</h1>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references">
-<div id="ref-barlat_linear_2005">
-<p>Barlat, F., H. Aretz, J. W. Yoon, M. E. Karabin, J. C. Brem, and R. E. Dick. 2005. “Linear Transfomation-Based Anisotropic Yield Functions.” <em>International Journal of Plasticity</em> 21 (5): 1009–39. <a href="https://doi.org/10.1016/j.ijplas.2004.06.004" class="uri">https://doi.org/10.1016/j.ijplas.2004.06.004</a>.</p>
+<div id="ref-wikipedia_invariants_2017">
+<p>1. Invariants of tensors. <em>Wikipedia</em>. 2017. Available from: <a href="https://en.wikipedia.org/w/index.php?title=Invariants_of_tensors&amp;oldid=813063385" class="uri">https://en.wikipedia.org/w/index.php?title=Invariants_of_tensors&amp;oldid=813063385</a>Page Version ID: 813063385</p>
 </div>
 <div id="ref-cazacu_generalization_2001">
-<p>Cazacu, Oana, and Frédéric Barlat. 2001. “Generalization of Drucker’s Yield Criterion to Orthotropy.” <em>Mathematics and Mechanics of Solids</em> 6 (6): 613–30. <a href="https://doi.org/10.1177/108128650100600603" class="uri">https://doi.org/10.1177/108128650100600603</a>.</p>
-</div>
-<div id="ref-eberly_robust_2016">
-<p>Eberly, David. 2016. “A Robust Eigensolver for 3 × 3 Symmetric Matrices.” <a href="https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf" class="uri">https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf</a>.</p>
-</div>
-<div id="ref-eberly_geometric_2017">
-<p>———. 2017. “Geometric Tools.” 2017. <a href="http://www.geometrictools.com/" class="uri">http://www.geometrictools.com/</a>.</p>
-</div>
-<div id="ref-hosford_generalized_1972">
-<p>Hosford, W. F. 1972. “A Generalized Isotropic Yield Criterion.” <em>Journal of Applied Mechanics</em> 39 (2): 607–9.</p>
-</div>
-<div id="ref-wikipedia_invariants_2017">
-<p>“Invariants of Tensors.” 2017. <em>Wikipedia</em>. <a href="https://en.wikipedia.org/w/index.php?title=Invariants_of_tensors&amp;oldid=813063385" class="uri">https://en.wikipedia.org/w/index.php?title=Invariants_of_tensors&amp;oldid=813063385</a>.</p>
+<p>2. <span class="smallcaps">Cazacu</span>, Oana and <span class="smallcaps">Barlat</span>, Frédéric. Generalization of drucker’s yield criterion to orthotropy. <em>Mathematics and Mechanics of Solids</em>. 1 December 2001. Vol. 6, no. 6, p. 613–630. DOI <a href="https://doi.org/10.1177/108128650100600603">10.1177/108128650100600603</a>. Available from: <a href="https://doi.org/10.1177/108128650100600603" class="uri">https://doi.org/10.1177/108128650100600603</a></p>
 </div>
 <div id="ref-kopp_efficient_2008">
-<p>Kopp, Joachim. 2008. “Efficient Numerical Diagonalization of Hermitian 3x3 Matrices.” <em>International Journal of Modern Physics C</em> 19 (3): 523–48. <a href="https://doi.org/10.1142/S0129183108012303" class="uri">https://doi.org/10.1142/S0129183108012303</a>.</p>
+<p>3. <span class="smallcaps">Kopp</span>, Joachim. Efficient numerical diagonalization of hermitian 3x3 matrices. <em>International Journal of Modern Physics C</em>. March 2008. Vol. 19, no. 3, p. 523–548. DOI <a href="https://doi.org/10.1142/S0129183108012303">10.1142/S0129183108012303</a>. Available from: <a href="http://arxiv.org/abs/physics/0610206" class="uri">http://arxiv.org/abs/physics/0610206</a></p>
 </div>
 <div id="ref-kopp_numerical_2017">
-<p>———. 2017. “Numerical Diagonalization of 3x3 Matrices.” 2017. <a href="https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/" class="uri">https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/</a>.</p>
+<p>4. <span class="smallcaps">Kopp</span>, Joachim. Numerical diagonalization of 3x3 matrices.. 2017. Available from: <a href="https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/" class="uri">https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/</a></p>
 </div>
-<div id="ref-scherzinger_return_2017">
-<p>Scherzinger, W. M. 2017. “A Return Mapping Algorithm for Isotropic and Anisotropic Plasticity Models Using a Line Search Method.” <em>Computer Methods in Applied Mechanics and Engineering</em> 317 (April): 526–53. <a href="https://doi.org/10.1016/j.cma.2016.11.026" class="uri">https://doi.org/10.1016/j.cma.2016.11.026</a>.</p>
+<div id="ref-eberly_robust_2016">
+<p>5. <span class="smallcaps">Eberly</span>, David. A robust eigensolver for 3 × 3 symmetric matrices. September 2016. Available from: <a href="https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf" class="uri">https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf</a></p>
+</div>
+<div id="ref-eberly_geometric_2017">
+<p>6. <span class="smallcaps">Eberly</span>, David. Geometric tools.. 2017. Available from: <a href="http://www.geometrictools.com/" class="uri">http://www.geometrictools.com/</a></p>
 </div>
 <div id="ref-wikipedia_von_Mises_2017">
-<p>“Von Mises Yield Criterion.” 2017. <em>Wikipedia</em>. <a href="https://en.wikipedia.org/w/index.php?title=Von_Mises_yield_criterion&amp;oldid=812733048" class="uri">https://en.wikipedia.org/w/index.php?title=Von_Mises_yield_criterion&amp;oldid=812733048</a>.</p>
+<p>7. Von mises yield criterion. <em>Wikipedia</em>. 2017. Available from: <a href="https://en.wikipedia.org/w/index.php?title=Von_Mises_yield_criterion&amp;oldid=812733048" class="uri">https://en.wikipedia.org/w/index.php?title=Von_Mises_yield_criterion&amp;oldid=812733048</a>Page Version ID: 812733048</p>
+</div>
+<div id="ref-hosford_generalized_1972">
+<p>8. <span class="smallcaps">Hosford</span>, W. F. A generalized isotropic yield criterion. <em>Journal of Applied Mechanics</em>. 1972. Vol. 39, no. 2, p. 607–609. </p>
+</div>
+<div id="ref-scherzinger_return_2017">
+<p>9. <span class="smallcaps">Scherzinger</span>, W. M. A return mapping algorithm for isotropic and anisotropic plasticity models using a line search method. <em>Computer Methods in Applied Mechanics and Engineering</em>. 15 April 2017. Vol. 317, p. 526–553. DOI <a href="https://doi.org/10.1016/j.cma.2016.11.026">10.1016/j.cma.2016.11.026</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S004578251630370X" class="uri">http://www.sciencedirect.com/science/article/pii/S004578251630370X</a></p>
+</div>
+<div id="ref-barlat_linear_2005">
+<p>10. <span class="smallcaps">Barlat</span>, F., <span class="smallcaps">Aretz</span>, H., <span class="smallcaps">Yoon</span>, J. W., <span class="smallcaps">Karabin</span>, M. E., <span class="smallcaps">Brem</span>, J. C. and <span class="smallcaps">Dick</span>, R. E. Linear transfomation-based anisotropic yield functions. <em>International Journal of Plasticity</em>. 1 May 2005. Vol. 21, no. 5, p. 1009–1039. DOI <a href="https://doi.org/10.1016/j.ijplas.2004.06.004">10.1016/j.ijplas.2004.06.004</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641904001160" class="uri">http://www.sciencedirect.com/science/article/pii/S0749641904001160</a></p>
 </div>
 </div>
         <script>

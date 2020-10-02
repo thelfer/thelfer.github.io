@@ -285,7 +285,7 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IGocYZKyvgQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </center>
-<p>This article shows the implementation of an isotropic linear viscous model based on Skorohold-Olevsky Viscous Sintering (SOVS) model. This page is inspired by the paper of Lester <span class="citation" data-cites="Lester2017">Lester (2017)</span>. For a more comprenhensive reading about the model, refer to the original paper of Olevsky <span class="citation" data-cites="Olevsky1998">A. Olevsky (1998)</span>.</p>
+<p>This article shows the implementation of an isotropic linear viscous model based on Skorohold-Olevsky Viscous Sintering (SOVS) model. This page is inspired by the paper of Lester <span class="citation" data-cites="Lester2017">[1]</span>. For a more comprenhensive reading about the model, refer to the original paper of Olevsky <span class="citation" data-cites="Olevsky1998">[2]</span>.</p>
 <p>This behaviour will be integrated using an implicit scheme.Such an example illustrates:</p>
 <ul>
 <li>the usage of <code>StandardElasticity</code> brick (see <a href="BehaviourBricks.html">this page</a>).</li>
@@ -293,8 +293,8 @@
 </ul>
 <p>The full implementation is available <a href="gallery/viscoelasticity/SkoroholdOlevskyViscousSinteringBehaviour.mfront">here</a></p>
 <h1 id="about-the-skorohold-olevsky-viscous-sintering-sovs-model">About the Skorohold-Olevsky Viscous Sintering (SOVS) model</h1>
-<p>SOVS model predicts sintering shrinkage and densification of ceramics and composites. It serves to enhance our ability to understand, predict, and control sintering. Additionally, it provides the potencial for more cost-effective net or near-net-shape manufacturing <span class="citation" data-cites="ZIPSE19971707">Zipse (1997)</span>.</p>
-<p>SOVS model has been succesfully used to predict the sintering of ZnO <span class="citation" data-cites="Reiterer2006">Reiterer, Ewsuk, and Argüello (2006)</span> and porous bilayered bodies <span class="citation" data-cites="Ni2013 MOLLA20131297">(Ni et al. 2013; Molla et al. 2013)</span>. Regarding the ceramic tiles, viscosity models have been developed to predict the shrinkage and the residual stresses that appear when materials of the porcelain tile type are cooled <span class="citation" data-cites="dal2012modelizacion MILANI2019543">(Dal Bó et al. 2012; Milani et al. 2019)</span>. SOVS model can extend the functionality of those viscous models to predict the sintering, whose investigation is in process.</p>
+<p>SOVS model predicts sintering shrinkage and densification of ceramics and composites. It serves to enhance our ability to understand, predict, and control sintering. Additionally, it provides the potencial for more cost-effective net or near-net-shape manufacturing <span class="citation" data-cites="ZIPSE19971707">[3]</span>.</p>
+<p>SOVS model has been succesfully used to predict the sintering of ZnO <span class="citation" data-cites="Reiterer2006">[4]</span> and porous bilayered bodies <span class="citation" data-cites="Ni2013 MOLLA20131297">[5, 6]</span>. Regarding the ceramic tiles, viscosity models have been developed to predict the shrinkage and the residual stresses that appear when materials of the porcelain tile type are cooled <span class="citation" data-cites="dal2012modelizacion MILANI2019543">[7, 8]</span>. SOVS model can extend the functionality of those viscous models to predict the sintering, whose investigation is in process.</p>
 <h1 id="description">Description</h1>
 <p>The behaviour is described by a standard decomposition of the strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in an elastic and a viscous component, respectively denoted <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and <span class="math inline">\(\underline{\varepsilon}^{\mathrm{in}}\)</span>:</p>
 <p><span id="eq:split"><span class="math display">\[
@@ -507,7 +507,7 @@ C{\left({\left.\rho\right|_{t+\theta\,\Delta\,t}}{\left(\Delta\,e\right)}\right)
 \end{aligned}
 \right.
 \]</span></p>
-<p>Since the deviatoric part of the inelastic strain is linear with the stress, the System (12) may be further reduced to a scalar equation with <span class="math inline">\(\Delta\,e\)</span> as the only unknowns. However, this considerably complicates the implementation of the behaviour, and in particular, the derivation of the consistent tangent operator. Hence, for the sake simplicity, this reduction to a scalar equation is not considered here. However, the reader may refer to <span class="citation" data-cites="derouiche_integration_2018">Derouiche (2018)</span> for an example of such a reduction to a scalar equation may be done in <code>MFront</code>.</p>
+<p>Since the deviatoric part of the inelastic strain is linear with the stress, the System (12) may be further reduced to a scalar equation with <span class="math inline">\(\Delta\,e\)</span> as the only unknowns. However, this considerably complicates the implementation of the behaviour, and in particular, the derivation of the consistent tangent operator. Hence, for the sake simplicity, this reduction to a scalar equation is not considered here. However, the reader may refer to <span class="citation" data-cites="derouiche_integration_2018">[9]</span> for an example of such a reduction to a scalar equation may be done in <code>MFront</code>.</p>
 <p>To solve System (13), one must compute its jacobian as follows:</p>
 <p><span class="math display">\[
 \left\{
@@ -658,32 +658,32 @@ C{\left({\left.\rho\right|_{t+\theta\,\Delta\,t}}{\left(\Delta\,e\right)}\right)
 <a class="sourceLine" id="cb26-3" data-line-number="3">}</a></code></pre></div>
 <h1 id="references" class="unnumbered">References</h1>
 <div id="refs" class="references">
-<div id="ref-Olevsky1998">
-<p>A. Olevsky, Eugene. 1998. “Sintering Theory: From Discrete to Continuum.” <em>Materials Science and Engineering: R: Reports</em> 23 (June): 41–100. <a href="https://doi.org/10.1016/S0927-796X(98)00009-6" class="uri">https://doi.org/10.1016/S0927-796X(98)00009-6</a>.</p>
-</div>
-<div id="ref-dal2012modelizacion">
-<p>Dal Bó, Marcelo, Vicente Cantavella Soler, Enrique Javier Sánchez Vilches, Dachamir Hotza, and A O Boschi. 2012. “Modelización mecánica del enfriamiento rápido en sistemas tipo gres porcelánico.” <em>Bol. Soc. Esp. Ceram. Vidr.</em> Sociedad Española de Cerámica y Vidrio.</p>
-</div>
-<div id="ref-derouiche_integration_2018">
-<p>Derouiche, Khouloud. 2018. “Intégration Simplifiée de Modèles de Comportement Non-Linéaire. ResearchGate.” 2018. <a href="https://www.researchgate.net/publication/327845534_Integration_simplifiee_de_modeles_de_comportement_non-lineaire" class="uri">https://www.researchgate.net/publication/327845534_Integration_simplifiee_de_modeles_de_comportement_non-lineaire</a>.</p>
-</div>
 <div id="ref-Lester2017">
-<p>Lester, Brian T. 2017. “Verification of the Skorohod-Olevsky Viscous Sintering (Sovs) Model,” November. <a href="https://doi.org/10.2172/1411315" class="uri">https://doi.org/10.2172/1411315</a>.</p>
+<p>1. <span class="smallcaps">Lester</span>, Brian T. Verification of the skorohod-olevsky viscous sintering (sovs) model.. November 2017. DOI <a href="https://doi.org/10.2172/1411315">10.2172/1411315</a>. </p>
 </div>
-<div id="ref-MILANI2019543">
-<p>Milani, M., L. Montorsi, M. Venturelli, J.M. Tiscar, and J. García-Ten. 2019. “A Numerical Approach for the Combined Analysis of the Dynamic Thermal Behaviour of an Entire Ceramic Roller Kiln and the Stress Formation in the Tiles.” <em>Energy</em> 177: 543–53. <a href="https://doi.org/https://doi.org/10.1016/j.energy.2019.04.037" class="uri">https://doi.org/https://doi.org/10.1016/j.energy.2019.04.037</a>.</p>
-</div>
-<div id="ref-MOLLA20131297">
-<p>Molla, Tesfaye Tadesse, Henrik Lund Frandsen, Rasmus Bjørk, De Wei Ni, Eugene Olevsky, and Nini Pryds. 2013. “Modeling Kinetics of Distortion in Porous Bi-Layered Structures.” <em>Journal of the European Ceramic Society</em> 33 (7): 1297–1305. <a href="https://doi.org/https://doi.org/10.1016/j.jeurceramsoc.2012.12.019" class="uri">https://doi.org/https://doi.org/10.1016/j.jeurceramsoc.2012.12.019</a>.</p>
-</div>
-<div id="ref-Ni2013">
-<p>Ni, De Wei, Eugene Olevsky, Vincenzo Esposito, Tesfaye T. Molla, Søren P. V. Foghmoes, Rasmus Bjørk, Henrik L. Frandsen, Elena Aleksandrova, and Nini Pryds. 2013. “Sintering of Multilayered Porous Structures: Part Ii–Experiments and Model Applications.” <em>Journal of the American Ceramic Society</em> 96 (8): 2666–73. <a href="https://doi.org/10.1111/jace.12374" class="uri">https://doi.org/10.1111/jace.12374</a>.</p>
-</div>
-<div id="ref-Reiterer2006">
-<p>Reiterer, M. W., K. G. Ewsuk, and J. G. Argüello. 2006. “An Arrhenius-Type Viscosity Function to Model Sintering Using the Skorohod–Olevsky Viscous Sintering Model Within a Finite-Element Code.” <em>Journal of the American Ceramic Society</em> 89 (6): 1930–5. <a href="https://doi.org/10.1111/j.1551-2916.2006.01041.x" class="uri">https://doi.org/10.1111/j.1551-2916.2006.01041.x</a>.</p>
+<div id="ref-Olevsky1998">
+<p>2. <span class="smallcaps">A. Olevsky</span>, Eugene. Sintering theory: From discrete to continuum. <em>Materials Science and Engineering: R: Reports</em>. June 1998. Vol. 23, p. 41–100. DOI <a href="https://doi.org/10.1016/S0927-796X(98)00009-6">10.1016/S0927-796X(98)00009-6</a>. </p>
 </div>
 <div id="ref-ZIPSE19971707">
-<p>Zipse, H. 1997. “Finite-Element Simulation of the Die Pressing and Sintering of a Ceramic Component.” <em>Journal of the European Ceramic Society</em> 17 (14): 1707–13. <a href="https://doi.org/https://doi.org/10.1016/S0955-2219(97)00037-X" class="uri">https://doi.org/https://doi.org/10.1016/S0955-2219(97)00037-X</a>.</p>
+<p>3. <span class="smallcaps">Zipse</span>, H. Finite-element simulation of the die pressing and sintering of a ceramic component. <em>Journal of the European Ceramic Society</em>. 1997. Vol. 17, no. 14, p. 1707–1713. DOI <a href="https://doi.org/https://doi.org/10.1016/S0955-2219(97)00037-X">https://doi.org/10.1016/S0955-2219(97)00037-X</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S095522199700037X" class="uri">http://www.sciencedirect.com/science/article/pii/S095522199700037X</a></p>
+</div>
+<div id="ref-Reiterer2006">
+<p>4. <span class="smallcaps">Reiterer</span>, M. W., <span class="smallcaps">Ewsuk</span>, K. G. and <span class="smallcaps">Argüello</span>, J. G. An arrhenius-type viscosity function to model sintering using the skorohod–olevsky viscous sintering model within a finite-element code. <em>Journal of the American Ceramic Society</em>. 2006. Vol. 89, no. 6, p. 1930–1935. DOI <a href="https://doi.org/10.1111/j.1551-2916.2006.01041.x">10.1111/j.1551-2916.2006.01041.x</a>. Available from: <a href="https://ceramics.onlinelibrary.wiley.com/doi/abs/10.1111/j.1551-2916.2006.01041.x" class="uri">https://ceramics.onlinelibrary.wiley.com/doi/abs/10.1111/j.1551-2916.2006.01041.x</a></p>
+</div>
+<div id="ref-Ni2013">
+<p>5. <span class="smallcaps">Ni</span>, De Wei, <span class="smallcaps">Olevsky</span>, Eugene, <span class="smallcaps">Esposito</span>, Vincenzo, <span class="smallcaps">Molla</span>, Tesfaye T., <span class="smallcaps">Foghmoes</span>, Søren P. V., <span class="smallcaps">Bjørk</span>, Rasmus, <span class="smallcaps">Frandsen</span>, Henrik L., <span class="smallcaps">Aleksandrova</span>, Elena and <span class="smallcaps">Pryds</span>, Nini. Sintering of multilayered porous structures: Part ii–experiments and model applications. <em>Journal of the American Ceramic Society</em>. 2013. Vol. 96, no. 8, p. 2666–2673. DOI <a href="https://doi.org/10.1111/jace.12374">10.1111/jace.12374</a>. Available from: <a href="https://ceramics.onlinelibrary.wiley.com/doi/abs/10.1111/jace.12374" class="uri">https://ceramics.onlinelibrary.wiley.com/doi/abs/10.1111/jace.12374</a></p>
+</div>
+<div id="ref-MOLLA20131297">
+<p>6. <span class="smallcaps">Molla</span>, Tesfaye Tadesse, <span class="smallcaps">Frandsen</span>, Henrik Lund, <span class="smallcaps">Bjørk</span>, Rasmus, <span class="smallcaps">Ni</span>, De Wei, <span class="smallcaps">Olevsky</span>, Eugene and <span class="smallcaps">Pryds</span>, Nini. Modeling kinetics of distortion in porous bi-layered structures. <em>Journal of the European Ceramic Society</em>. 2013. Vol. 33, no. 7, p. 1297–1305. DOI <a href="https://doi.org/https://doi.org/10.1016/j.jeurceramsoc.2012.12.019">https://doi.org/10.1016/j.jeurceramsoc.2012.12.019</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0955221913000253" class="uri">http://www.sciencedirect.com/science/article/pii/S0955221913000253</a></p>
+</div>
+<div id="ref-dal2012modelizacion">
+<p>7. <span class="smallcaps">Dal Bó</span>, Marcelo, <span class="smallcaps">Cantavella Soler</span>, Vicente, <span class="smallcaps">Sánchez Vilches</span>, Enrique Javier, <span class="smallcaps">Hotza</span>, Dachamir and <span class="smallcaps">Boschi</span>, A O. Modelización mecánica del enfriamiento rápido en sistemas tipo gres porcelánico. <em>Bol. Soc. Esp. Ceram. Vidr.</em> 2012. </p>
+</div>
+<div id="ref-MILANI2019543">
+<p>8. <span class="smallcaps">Milani</span>, M., <span class="smallcaps">Montorsi</span>, L., <span class="smallcaps">Venturelli</span>, M., <span class="smallcaps">Tiscar</span>, J.M. and <span class="smallcaps">García-Ten</span>, J. A numerical approach for the combined analysis of the dynamic thermal behaviour of an entire ceramic roller kiln and the stress formation in the tiles. <em>Energy</em>. 2019. Vol. 177, p. 543–553. DOI <a href="https://doi.org/https://doi.org/10.1016/j.energy.2019.04.037">https://doi.org/10.1016/j.energy.2019.04.037</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0360544219306619" class="uri">http://www.sciencedirect.com/science/article/pii/S0360544219306619</a></p>
+</div>
+<div id="ref-derouiche_integration_2018">
+<p>9. <span class="smallcaps">Derouiche</span>, Khouloud. Intégration simplifiée de modèles de comportement non-linéaire. ResearchGate.. 2018. Available from: <a href="https://www.researchgate.net/publication/327845534_Integration_simplifiee_de_modeles_de_comportement_non-lineaire" class="uri">https://www.researchgate.net/publication/327845534_Integration_simplifiee_de_modeles_de_comportement_non-lineaire</a></p>
 </div>
 </div>
         <script>

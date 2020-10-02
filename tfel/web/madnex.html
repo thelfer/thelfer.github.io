@@ -258,13 +258,14 @@
       <li><a href="#options-specific-to-madnex-files">Options specific to <code>madnex</code> files</a></li>
       <li><a href="#querying-information-about-implementation-options-specific-to-madnex-files">Querying information about implementation, options specific to <code>madnex</code> files</a></li>
       </ul></li>
+      <li><a href="#storing-an-mfront-file-in-a-madnex-file">Storing an <code>MFront</code> file in a <code>madnex</code> file</a></li>
       <li><a href="#references">References</a></li>
       </ul>
     </div>
         <p>The <code>madnex</code> file format has been developed by <code>EDF</code> to store their experimental data. It extends the <code>HDF5</code> file format by providing a suitable data model. Internally, <code>EDF</code> uses a closed-source <code>python</code> library to insert, query and extract data from <code>madnex</code> file.</p>
 <p>The <code>madnex</code> library is an open-source <code>C++</code> library which currently focus on the storage of <code>MFront</code> implementations. This library can be downloaded here:</p>
 <p><a href="https://github.com/thelfer/madnex" class="uri">https://github.com/thelfer/madnex</a></p>
-<p>The website of this library <span class="citation" data-cites="cea_edf_madnex_library_2020">(CEA <a href="#ref-cea_edf_madnex_library_2020">2020</a>)</span> details the data model used to store <code>MFront</code> implementations [@].</p>
+<p>The website of this library <span class="citation" data-cites="cea_edf_madnex_library_2020">[<a href="#ref-cea_edf_madnex_library_2020">1</a>]</span> details the data model used to store <code>MFront</code> implementations.</p>
 <h1 id="compilation-of-tfel-with-madnex-files-support">Compilation of <code>TFEL</code> with <code>madnex</code> files support</h1>
 <p>By default, support of <code>madnex</code> files is disabled.</p>
 <p>Support for <code>madnex</code> files as inputs of <code>MFront</code> must be explicitly enabled during the compilation of the <code>TFEL</code> project. More precisely, when invoking the <a href="https://cmake.org/"><code>cmake</code></a> build system, the following variables must be set:</p>
@@ -330,10 +331,11 @@
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1">$ <span class="ex">mfront-query</span> --obuild --interface=generic --material=<span class="op">&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.madnex --state-variables</a></code></pre></div>
 <p>Here, <code>behaviour_id</code> can be a regular expression.</p>
 <p>For material properties and models, the <code>--material-property</code> and <code>--model</code> options have a similar role than the <code>--behaviour</code> option for behaviours.</p>
+<h1 id="storing-an-mfront-file-in-a-madnex-file">Storing an <code>MFront</code> file in a <code>madnex</code> file</h1>
 <h1 id="references" class="unnumbered">References</h1>
 <div id="refs" class="references">
 <div id="ref-cea_edf_madnex_library_2020">
-<p>CEA, EDF. 2020. “The ‘Madnex‘ Library.” 2020. <a href="https://thelfer.github.io/madnex/web/index.html" class="uri">https://thelfer.github.io/madnex/web/index.html</a>.</p>
+<p>1. <span class="smallcaps">CEA</span>, EDF. The ‘madnex‘ library.. 2020. Available from: <a href="https://thelfer.github.io/madnex/web/index.html" class="uri">https://thelfer.github.io/madnex/web/index.html</a></p>
 </div>
 </div>
         <script>

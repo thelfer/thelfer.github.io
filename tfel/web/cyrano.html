@@ -198,7 +198,7 @@
 
 
 
-<p>The industrial reference software CYRANO3 has been developed by EDF for more than 20 years to simulate the PWR fuel thermo-mechanical behaviour under nominal and incidental conventional operating conditions (See <span class="citation" data-cites="thouvenin_edf_2010">Thouvenin et al. (2010)</span>).</p>
+<p>The industrial reference software CYRANO3 has been developed by EDF for more than 20 years to simulate the PWR fuel thermo-mechanical behaviour under nominal and incidental conventional operating conditions (See <span class="citation" data-cites="thouvenin_edf_2010">[1]</span>).</p>
 <p>The code integrates extensive knowledge and know-how based on more than 30 years of national and international research and feedback in the framework of nuclear materials under irradiation. It is part of the PLEIADES platform jointly developed by EDF and CEA, and validated on an extensive data base including more than 900 irradiated fuel rods examination and validation results.</p>
 <h1 id="material-properties"><span class="header-section-number">1</span> Material properties</h1>
 <p>The <code>cyrano</code> interface for material properties generates function having the following prototype:</p>
@@ -222,7 +222,7 @@
 </ul>
 <h1 id="mechanical-behaviours"><span class="header-section-number">2</span> Mechanical behaviours</h1>
 <p><img src="img/topfuel2015-poster.png" /></p>
-<p>The interface with MFront has been presented during the LWR Fuel Performance Meeting in 2015 (Zurich, Switzerland), see <span class="citation" data-cites="petry_advanced_2015">Petry and Helfer (2015)</span>:</p>
+<p>The interface with MFront has been presented during the LWR Fuel Performance Meeting in 2015 (Zurich, Switzerland), see <span class="citation" data-cites="petry_advanced_2015">[2]</span>:</p>
 <ul>
 <li><a href="https://github.com/thelfer/tfel-doc/blob/master/Papers/TopFuel2015/topfuel2015.pdf">abstract</a></li>
 <li><a href="https://github.com/thelfer/tfel-doc/blob/master/Papers/TopFuel2015/topfuel2015-poster.pdf">poster</a></li>
@@ -239,7 +239,7 @@
 <li>generalised plane strain (uniform axial strain)</li>
 </ul>
 <h2 id="finite-strain-modelling"><span class="header-section-number">2.2</span> Finite strain modelling</h2>
-<p><code>Cyrano3</code> finite strain modelling is based on the approach described by T. Helfer (See <span class="citation" data-cites="helfer_extension_2015">Helfer (2015)</span>) which allows to easily extend small strain mono-dimensional code to support finite strain modelling.</p>
+<p><code>Cyrano3</code> finite strain modelling is based on the approach described by T. Helfer (See <span class="citation" data-cites="helfer_extension_2015">[3]</span>) which allows to easily extend small strain mono-dimensional code to support finite strain modelling.</p>
 <h3 id="kinematic-and-mechanical-equilibrium"><span class="header-section-number">2.2.1</span> Kinematic and mechanical equilibrium</h3>
 <p>This approach relies on the the fact that the direct link between the deformation gradient <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span> and the linearized strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in monodimensional modelling:</p>
 <p><span class="math display">\[
@@ -302,13 +302,13 @@ F = 2\,\pi\,\int_{R_{i}^{0}}^{R_{e}^{0}}\Pi_{zz}\,R\,dR = P_{i}\,S^{c}_{i} - P_{
 \]</span></p>
 <p>This is exactly the same relation as in same strain analysis, except for the dependency of <span class="math inline">\(S^{c}_{i}\)</span> and <span class="math inline">\(S^{c}_{e}\)</span> with the actual inner and outer radius which adds additional terms to the stiffness matrix</p>
 <h3 id="finite-strain-mechanical-behaviours"><span class="header-section-number">2.2.3</span> Finite strain mechanical behaviours</h3>
-<p>Currently, the <code>MFront</code> interface only supports strain-based behaviour based on the Hencky strain measure, as described by Miehe et al. (See <span class="citation" data-cites="miehe_anisotropic_2002">Miehe, Apel, and Lambrecht (2002)</span>).</p>
+<p>Currently, the <code>MFront</code> interface only supports strain-based behaviour based on the Hencky strain measure, as described by Miehe et al. (See <span class="citation" data-cites="miehe_anisotropic_2002">[4]</span>).</p>
 <h4 id="support-of-the-hencky-strain-measure"><span class="header-section-number">2.2.3.1</span> Support of the Hencky strain measure</h4>
 <p>The Hencky strain measure is defined by:</p>
 <p><span class="math display">\[
 \underline{\varepsilon}_{\log}^{\mathrm{tot}}={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,\log{{{\underset{\tilde{}}{\mathbf{F}}}^{\mathop{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}}
 \]</span></p>
-<p>In <span class="math inline">\(1D\)</span>, this relation boils down to (See <span class="citation" data-cites="helfer_extension_2015">Helfer (2015)</span>):</p>
+<p>In <span class="math inline">\(1D\)</span>, this relation boils down to (See <span class="citation" data-cites="helfer_extension_2015">[3]</span>):</p>
 <p><span class="math display">\[
   \left(\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{i}=\log\left(1+\underline{\varepsilon}^{\mathrm{to}}_{i}\right)  
 \]</span></p>
@@ -342,17 +342,17 @@ F = 2\,\pi\,\int_{R_{i}^{0}}^{R_{e}^{0}}\Pi_{zz}\,R\,dR = P_{i}\,S^{c}_{i} - P_{
 </blockquote>
 <h1 id="references" class="unnumbered">References</h1>
 <div id="refs" class="references">
-<div id="ref-helfer_extension_2015">
-<p>Helfer, Thomas. 2015. “Extension of Monodimensional Fuel Performance Codes to Finite Strain Analysis Using a Lagrangian Logarithmic Strain Framework.” <em>Nuclear Engineering and Design</em> 288 (July): 75–81. <a href="https://doi.org/10.1016/j.nucengdes.2015.02.010" class="uri">https://doi.org/10.1016/j.nucengdes.2015.02.010</a>.</p>
-</div>
-<div id="ref-miehe_anisotropic_2002">
-<p>Miehe, C., N. Apel, and M. Lambrecht. 2002. “Anisotropic Additive Plasticity in the Logarithmic Strain Space: Modular Kinematic Formulation and Implementation Based on Incremental Minimization Principles for Standard Materials.” <em>Computer Methods in Applied Mechanics and Engineering</em> 191 (47–48): 5383–5425. <a href="https://doi.org/10.1016/S0045-7825(02)00438-3" class="uri">https://doi.org/10.1016/S0045-7825(02)00438-3</a>.</p>
+<div id="ref-thouvenin_edf_2010">
+<p>1. <span class="smallcaps">Thouvenin</span>, Gilles, <span class="smallcaps">Baron</span>, Daniel, <span class="smallcaps">Largenton</span>, Nathalie, <span class="smallcaps">Largenton</span>, Rodrigue and <span class="smallcaps">Thevenin</span>, Philippe. EDF CYRANO3 code, recent innovations. In : <em>LWR Fuel Performance Meeting/TopFuel/WRFPM</em>. Orlando, Florida, USA, September 2010. </p>
 </div>
 <div id="ref-petry_advanced_2015">
-<p>Petry, Charles, and Thomas Helfer. 2015. “Advanced Mechanical Resolution in CYRANO3 Fuel Performance Code Using MFront Generation Tool.” In <em>LWR Fuel Performance Meeting/TopFuel/WRFPM</em>. Zurich, Switzerland.</p>
+<p>2. <span class="smallcaps">Petry</span>, Charles and <span class="smallcaps">Helfer</span>, Thomas. Advanced mechanical resolution in CYRANO3 fuel performance code using MFront generation tool. In : <em>LWR Fuel Performance Meeting/TopFuel/WRFPM</em>. Zurich, Switzerland, 2015. </p>
 </div>
-<div id="ref-thouvenin_edf_2010">
-<p>Thouvenin, Gilles, Daniel Baron, Nathalie Largenton, Rodrigue Largenton, and Philippe Thevenin. 2010. “EDF CYRANO3 Code, Recent Innovations.” In <em>LWR Fuel Performance Meeting/TopFuel/WRFPM</em>. Orlando, Florida, USA.</p>
+<div id="ref-helfer_extension_2015">
+<p>3. <span class="smallcaps">Helfer</span>, Thomas. Extension of monodimensional fuel performance codes to finite strain analysis using a Lagrangian logarithmic strain framework. <em>Nuclear Engineering and Design</em>. July 2015. Vol. 288, p. 75–81. DOI <a href="https://doi.org/10.1016/j.nucengdes.2015.02.010">10.1016/j.nucengdes.2015.02.010</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0029549315000928" class="uri">http://www.sciencedirect.com/science/article/pii/S0029549315000928</a></p>
+</div>
+<div id="ref-miehe_anisotropic_2002">
+<p>4. <span class="smallcaps">Miehe</span>, C., <span class="smallcaps">Apel</span>, N. and <span class="smallcaps">Lambrecht</span>, M. Anisotropic additive plasticity in the logarithmic strain space: Modular kinematic formulation and implementation based on incremental minimization principles for standard materials. <em>Computer Methods in Applied Mechanics and Engineering</em>. November 2002. Vol. 191, no. 47–48, p. 5383–5425. DOI <a href="https://doi.org/10.1016/S0045-7825(02)00438-3">10.1016/S0045-7825(02)00438-3</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0045782502004383" class="uri">http://www.sciencedirect.com/science/article/pii/S0045782502004383</a></p>
 </div>
 </div>
         <script>

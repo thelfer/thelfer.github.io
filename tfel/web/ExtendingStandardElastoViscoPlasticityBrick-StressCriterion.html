@@ -315,7 +315,7 @@
 <li>Test your implementation in <code>MFront</code> and <code>MTest</code> (or your favorite solver).</li>
 </ol>
 <h2 id="creating-a-proper-working-directory-for-the-example-of-the-green-criterion"><span class="header-section-number">1.2</span> Creating a proper working directory for the example of the Green criterion</h2>
-<p>In this paragraph, we detail Steps 1 and 2. for the case of the Green criterion (see <span class="citation" data-cites="green_plasticity_1972">Green (1972)</span>) which will be used as an illustrative example throughout this document. We describe all those steps in details and finally gives a shell script that automates the whole process for <code>LiNuX</code> users. When providing command line examples, we assume that the shell is <code>bash</code>.</p>
+<p>In this paragraph, we detail Steps 1 and 2. for the case of the Green criterion (see <span class="citation" data-cites="green_plasticity_1972">[1]</span>) which will be used as an illustrative example throughout this document. We describe all those steps in details and finally gives a shell script that automates the whole process for <code>LiNuX</code> users. When providing command line examples, we assume that the shell is <code>bash</code>.</p>
 <p>The header files <code>StressCriterionTemplate.hxx</code> and <code>StressCriterionTemplate.ixx</code> are placed in a subdirectory called <code>include/TFEL/Material</code> and renamed respectively <code>Green1972StressCriterion.hxx</code> and <code>Green1972StressCriterion.ixx</code>.</p>
 <p>The <code>MFront</code> template files must be copied in the working directory and renamed appropriatly.</p>
 <p>This can be done by taping the following commands in the terminal (under <code>LiNuX</code> or <code>Mac Os</code>):</p>
@@ -357,7 +357,7 @@
 <p>Note the <code>-I $(pwd)/../../include</code> flags which allows <code>MFront</code> to find the header files implementing the stress criterion (In <code>bash</code>, <code>$(pwd)</code> return the current directory).</p>
 </blockquote>
 <h2 id="implementing-the-green-1972-stress-criterion"><span class="header-section-number">1.3</span> Implementing the Green 1972 stress criterion</h2>
-<p>In this paragraph, we detail all the steps required to implement the Green 1972 stress criterion (see <span class="citation" data-cites="green_plasticity_1972">Green (1972)</span> for the original paper, <span class="citation" data-cites="fritzen_computational_2013">Fritzen et al. (2013)</span> for the paper that we follow for this work).</p>
+<p>In this paragraph, we detail all the steps required to implement the Green 1972 stress criterion (see <span class="citation" data-cites="green_plasticity_1972">[1]</span> for the original paper, <span class="citation" data-cites="fritzen_computational_2013">[2]</span> for the paper that we follow for this work).</p>
 <p>The green stress criterion is defined by:</p>
 <p><span class="math display">\[
 \sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,C\,\underline{s}\,\colon\,\underline{s}+F\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}^{2}}
@@ -605,11 +605,11 @@
 <p>This implementation can be checked with the same <code>MTest</code> file than in the first part of the document.</p>
 <h1 id="references" class="unnumbered">References</h1>
 <div id="refs" class="references">
-<div id="ref-fritzen_computational_2013">
-<p>Fritzen, Felix, Samuel Forest, Djimedo Kondo, and Thomas Böhlke. 2013. “Computational Homogenization of Porous Materials of Green Type.” <em>Computational Mechanics</em> 52 (1): 121–34. <a href="https://doi.org/10.1007/s00466-012-0801-z" class="uri">https://doi.org/10.1007/s00466-012-0801-z</a>.</p>
-</div>
 <div id="ref-green_plasticity_1972">
-<p>Green, R. J. 1972. “A Plasticity Theory for Porous Solids.” <em>International Journal of Mechanical Sciences</em> 14 (4): 215–24. <a href="https://doi.org/10.1016/0020-7403(72)90063-X" class="uri">https://doi.org/10.1016/0020-7403(72)90063-X</a>.</p>
+<p>1. <span class="smallcaps">Green</span>, R. J. A plasticity theory for porous solids. <em>International Journal of Mechanical Sciences</em>. 1 April 1972. Vol. 14, no. 4, p. 215–224. DOI <a href="https://doi.org/10.1016/0020-7403(72)90063-X">10.1016/0020-7403(72)90063-X</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/002074037290063X" class="uri">http://www.sciencedirect.com/science/article/pii/002074037290063X</a></p>
+</div>
+<div id="ref-fritzen_computational_2013">
+<p>2. <span class="smallcaps">Fritzen</span>, Felix, <span class="smallcaps">Forest</span>, Samuel, <span class="smallcaps">Kondo</span>, Djimedo and <span class="smallcaps">Böhlke</span>, Thomas. Computational homogenization of porous materials of green type. <em>Computational Mechanics</em>. 1 July 2013. Vol. 52, no. 1, p. 121–134. DOI <a href="https://doi.org/10.1007/s00466-012-0801-z">10.1007/s00466-012-0801-z</a>. Available from: <a href="https://link.springer.com/article/10.1007/s00466-012-0801-z" class="uri">https://link.springer.com/article/10.1007/s00466-012-0801-z</a></p>
 </div>
 </div>
         <script>

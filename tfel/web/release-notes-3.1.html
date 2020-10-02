@@ -358,15 +358,15 @@
 </figure>
 <p>The <code>TFEL/Material</code> provides functions to handle advanced yield criteria, such as:</p>
 <ul>
-<li>the Hosford yield criterion (see <span class="citation" data-cites="hosford_generalized_1972">Hosford (1972)</span>). The associated functions are described in Paragraph 2.4.1.</li>
-<li>the Barlat yield criterion (see <span class="citation" data-cites="barlat_linear_2005">Barlat et al. (2005)</span>). The associated functions are described in Paragraph 2.4.2.</li>
+<li>the Hosford yield criterion (see <span class="citation" data-cites="hosford_generalized_1972">[1]</span>). The associated functions are described in Paragraph 2.4.1.</li>
+<li>the Barlat yield criterion (see <span class="citation" data-cites="barlat_linear_2005">[2]</span>). The associated functions are described in Paragraph 2.4.2.</li>
 </ul>
-<p>Following Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">Scherzinger (2017)</span> for details), special care has been taken to avoid overflow in the evaluation of the yield stress.</p>
+<p>Following Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">[3]</span> for details), special care has been taken to avoid overflow in the evaluation of the yield stress.</p>
 <p>Those two yield criteria are based on the eigenvalues and of the stress. The computation of the second derivative, required to build the jacobian of the implicit system, is thus quite involved.</p>
 <h2 id="enhanced-numerical-reproducibility-and-stability"><span class="header-section-number">1.3</span> Enhanced numerical reproducibility and stability</h2>
 <p>This release has seen lot of work in the overall numerical reproducibility and stability of <code>TFEL</code> algorithms and lead to duplicate most of tests, who are now run using different rounding modes.</p>
 <p>Tests based on <code>mtest</code> are run <span class="math inline">\(5\)</span> times, one for each of the four rounding modes defined in the <code>IEEE754</code> norm, plus one time using a specific mode which randomly switches between those modes at various stages of the computations.</p>
-<p>Although very crude with respect to advanced approaches such as the <code>CADNA</code> library (see <span class="citation" data-cites="lamotte_cadna_c:_2010">(Lamotte, Chesneaux, and Jézéquel 2010,<span class="citation" data-cites="universite_pierre_et_marie_curie_cadna:_">[@universite_pierre_et_marie_curie_cadna:_]</span>)</span>) or the <code>verrou</code> software, developped by <code>EDF</code> on top of <code>valgrind</code> (see <span class="citation" data-cites="fevotte_verrou:_2016">Févotte and Lathuilière (2016)</span>), those checks, combined with demanding convergence criteria, have proven to be helpful and led to several developments: see for example the section 2.3.1.2 which compares various algorithms to find the eigen vectors of symmetric tensors.</p>
+<p>Although very crude with respect to advanced approaches such as the <code>CADNA</code> library (see <span class="citation" data-cites="lamotte_cadna_c:_2010">[4]</span>) or the <code>verrou</code> software, developped by <code>EDF</code> on top of <code>valgrind</code> (see <span class="citation" data-cites="fevotte_verrou:_2016">[6]</span>), those checks, combined with demanding convergence criteria, have proven to be helpful and led to several developments: see for example the section 2.3.1.2 which compares various algorithms to find the eigen vectors of symmetric tensors.</p>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>Old versions of the <code>libm</code> library (such as the one package with <code>Debian</code> <code>Wheezy</code> and those found on some exotic systems, such as <code>Haiku</code>), do not support working in other rounding mode than the default one (rounding to the nearest) and can crash (segfaults !).</p>
@@ -426,7 +426,7 @@
 </ul>
 <p>In each case, a material property must be given as a value or as an external <code>MFront</code> file.</p>
 <h4 id="fracture-energies"><span class="header-section-number">1.5.2.1</span> Fracture energies</h4>
-<p>Following Hillerborg approach (see <span class="citation" data-cites="hillerborg_analysis_1976">Hillerborg, Modéer, and Perterson (1976)</span>), softening slopes can be related to fracture energies by the mesh size. Thus, rather than the softening slopes, the user can provide the fracture energies through one the <code>fracture_energy</code> or <code>fracture_energies</code> options. In this case, an array of three material properties, which external name is <code>ElementSize</code>, is automatically declared.</p>
+<p>Following Hillerborg approach (see <span class="citation" data-cites="hillerborg_analysis_1976">[7]</span>), softening slopes can be related to fracture energies by the mesh size. Thus, rather than the softening slopes, the user can provide the fracture energies through one the <code>fracture_energy</code> or <code>fracture_energies</code> options. In this case, an array of three material properties, which external name is <code>ElementSize</code>, is automatically declared.</p>
 <h3 id="external-pressure-effect"><span class="header-section-number">1.5.3</span> External pressure effect</h3>
 <p>The effect of external pressure on the crack surface can be taken into account using the option <code>handle_pressure_on_crack_surface</code>. If this option is true, an external state variable called <code>pr</code>, which external name is <code>PressureOnCrackSurface</code>, is automatically declared.</p>
 <h3 id="example"><span class="header-section-number">1.5.4</span> Example</h3>
@@ -447,7 +447,7 @@
 <p>This is very important for a generic behaviour, which describe a physical phenomenon with no reference to a particular material, but it is not appropriate for a specific behaviour, identified for a specific material, because the definition of the strain is intrinsically part of the behaviour.</p>
 <p>Three strain measure are currently supported:</p>
 <ul>
-<li>the Hencky strain (see <span class="citation" data-cites="miehe_anisotropic_2002">Miehe, Apel, and Lambrecht (2002)</span>).</li>
+<li>the Hencky strain (see <span class="citation" data-cites="miehe_anisotropic_2002">[8]</span>).</li>
 <li>the Green-Lagrange strain.</li>
 <li>the linearised strain.</li>
 </ul>
@@ -693,7 +693,7 @@
 <a class="sourceLine" id="cb9-2" data-line-number="2">tvector&lt;<span class="dv">3u</span>,real&gt;    vp2;</a>
 <a class="sourceLine" id="cb9-3" data-line-number="3"><span class="bu">std::</span>tie(vp,m)=s.computeEigenVectors(Stensor::ASCENDING);</a></code></pre></div>
 <h4 id="sec:eigensolvers"><span class="header-section-number">2.3.1.2</span> New eigen solvers</h4>
-<p>The default eigen solver for symmetric tensors used in <code>TFEL</code> is based on analytical computations of the eigen values and eigen vectors. Such computations are more efficient but less accurate than the iterative Jacobi algorithm (see <span class="citation" data-cites="kopp_efficient_2008 kopp_numerical_2017">(Kopp 2008, 2017)</span>).</p>
+<p>The default eigen solver for symmetric tensors used in <code>TFEL</code> is based on analytical computations of the eigen values and eigen vectors. Such computations are more efficient but less accurate than the iterative Jacobi algorithm (see <span class="citation" data-cites="kopp_efficient_2008 kopp_numerical_2017">[9, 10]</span>).</p>
 <p>With the courtesy of Joachim Kopp, we have created a <code>C++11</code> compliant version of his routines that we gathered in header-only library called <code>FSES</code> (Fast Symmetric Eigen Solver). This library is included with <code>TFEL</code> and provides the following algorithms:</p>
 <ul>
 <li>Jacobi</li>
@@ -703,7 +703,7 @@
 <li>Hybrid</li>
 <li>Householder reduction</li>
 </ul>
-<p>We have also introduced the Jacobi implementation of the <code>Geometric</code> <code>Tools</code> library (see <span class="citation" data-cites="eberly_robust_2016 eberly_geometric_2017">(Eberly 2016, 2017)</span>).</p>
+<p>We have also introduced the Jacobi implementation of the <code>Geometric</code> <code>Tools</code> library (see <span class="citation" data-cites="eberly_robust_2016 eberly_geometric_2017">[11, 12]</span>).</p>
 <p>Those algorithms are available in 3D. For 2D symmetric tensors, we fall back to some default algorithm as described below.</p>
 <div id="tbl:eigensolvers">
 <table>
@@ -989,7 +989,7 @@ f\left(\underline{s}\right)=\sum_{i=1}^{3}f\left(\lambda_{i}\right)\underline{n}
 </ul>
 <p>The <code>C++11</code> provides a set of overload for single precision (<code>float</code>) and extended precision (<code>long double</code>) floatting-point numbers.</p>
 <p>Those functions are very handy to check the validity of a computation. However, those functions are not compatible with the use of the <code>-ffast-math</code> option of the <code>GNU</code> compiler which also implies the <code>-ffinite-math-only</code> option. This latter option allows optimizations for floating-point arithmetic that assume that arguments and results are finite numbers. As a consequence, when this option is enabled, the previous functions does not behave as expected. For example, <code>isnan</code> always returns false, whatever the value of its argument.</p>
-<p>To overcome this issue, we have introduced in <code>TFEL/Math</code> the implementation of these functions provided by the <code>musl</code> library (see <span class="citation" data-cites="musl_libc_2017">Musl development community (2017)</span>). Those implementations are compatible with the <code>-ffast-math</code> option of the <code>GNU</code> compiler. Those implementations are defined in the <code>TFEL/Math/General/IEEE754.hxx</code> header file in the <code>tfel::math::ieee754</code> namespace.</p>
+<p>To overcome this issue, we have introduced in <code>TFEL/Math</code> the implementation of these functions provided by the <code>musl</code> library (see <span class="citation" data-cites="musl_libc_2017">[13]</span>). Those implementations are compatible with the <code>-ffast-math</code> option of the <code>GNU</code> compiler. Those implementations are defined in the <code>TFEL/Math/General/IEEE754.hxx</code> header file in the <code>tfel::math::ieee754</code> namespace.</p>
 <h2 id="tfelmaterial"><span class="header-section-number">2.4</span> <code>TFEL/Material</code></h2>
 <h3 id="sec:hosford"><span class="header-section-number">2.4.1</span> Hosford equivalent stress</h3>
 <p>The header <code>TFEL/Material/Hosford.hxx</code> introduces three functions which are meant to compute the Hosford equivalent stress and its first and second derivatives. <em>This header is automatically included by <code>MFront</code></em></p>
@@ -1014,7 +1014,7 @@ f\left(\underline{s}\right)=\sum_{i=1}^{3}f\left(\lambda_{i}\right)\underline{n}
 <div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> [seq,n,dn] = computeHosfordStressSecondDerivative(s,a,seps);</a></code></pre></div>
 <h3 id="sec:barlat"><span class="header-section-number">2.4.2</span> Barlat equivalent stress</h3>
 <p>The header <code>TFEL/Material/Barlat.hxx</code> introduces various functions which are meant to compute the Barlat equivalent stress and its first and second derivatives. <em>This header is automatically included by <code>MFront</code></em> for orthotropic behaviours.</p>
-<p>The Barlat equivalent stress is defined as follows (see <span class="citation" data-cites="barlat_linear_2005">Barlat et al. (2005)</span>): <span class="math display">\[
+<p>The Barlat equivalent stress is defined as follows (see <span class="citation" data-cites="barlat_linear_2005">[2]</span>): <span class="math display">\[
 \sigma_{\mathrm{eq}}^{B}=
 \sqrt[a]{
   \frac{1}{4}\left(
@@ -1204,7 +1204,7 @@ xx &amp; yy &amp; zz &amp; xy &amp; xz &amp; yz
 <p>The pre- and post-computations performed by the <code>MieheApelLambrechtLogarithmic</code> finite strain strategy , which require the computation of the eigen values and eigen vectors of the right Cauchy strecth tensor, are now based the Jacobi algorithm from the <code>FSES</code> library for improved accuracy.</p>
 <h3 id="the-code_aster-interface"><span class="header-section-number">3.3.3</span> The <code>Code_Aster</code> interface</h3>
 <h4 id="support-for-the-grot_gdep-finite-strain-formulation"><span class="header-section-number">3.3.3.1</span> Support for the <code>GROT_GDEP</code> finite strain formulation</h4>
-<p><code>GROT_GDEP</code> is the name in <code>Code_Aster</code> of a finite strain formulation based on the principle of virtual work in the reference configuration expressed in term of the Green-Lagrange strain and the second Piola-Kirchhoff stress. Such a formulation is also called <code>Total Lagrangian</code> in the litterature (see <span class="citation" data-cites="belytschko_nonlinear_2000">Belytschko (2000)</span>) and in other finite element solvers.</p>
+<p><code>GROT_GDEP</code> is the name in <code>Code_Aster</code> of a finite strain formulation based on the principle of virtual work in the reference configuration expressed in term of the Green-Lagrange strain and the second Piola-Kirchhoff stress. Such a formulation is also called <code>Total Lagrangian</code> in the litterature (see <span class="citation" data-cites="belytschko_nonlinear_2000">[14]</span>) and in other finite element solvers.</p>
 <p>Prior to this version, <code>MFront</code> behaviours were meant to be used with the <code>SIMO_MIEHE</code> finite strain formulation and could not be used with the <code>GROT_GDEP</code> finite strain formulation.</p>
 <p>From the behaviour point of view, using <code>SIMO_MIEHE</code> or <code>GROT_GDEP</code> differs from the choice of the output stress and the definition of the consistent tangent operator.</p>
 <h4 id="the-asterfinitestrainformulation-keyword"><span class="header-section-number">3.3.3.2</span> The <code>@AsterFiniteStrainFormulation</code> keyword</h4>
@@ -1718,47 +1718,47 @@ xx &amp; yy &amp; zz &amp; xy &amp; xz &amp; yz
 <h1 id="references"><span class="header-section-number">11</span> References</h1>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references">
-<div id="ref-barlat_linear_2005">
-<p>Barlat, F., H. Aretz, J. W. Yoon, M. E. Karabin, J. C. Brem, and R. E. Dick. 2005. “Linear Transfomation-Based Anisotropic Yield Functions.” <em>International Journal of Plasticity</em> 21 (5): 1009–39. <a href="https://doi.org/10.1016/j.ijplas.2004.06.004" class="uri">https://doi.org/10.1016/j.ijplas.2004.06.004</a>.</p>
-</div>
-<div id="ref-belytschko_nonlinear_2000">
-<p>Belytschko, Ted. 2000. <em>Nonlinear Finite Elements for Continua and Structures</em>. Chichester ; New York: Wiley-Blackwell.</p>
-</div>
-<div id="ref-eberly_robust_2016">
-<p>Eberly, David. 2016. “A Robust Eigensolver for 3 × 3 Symmetric Matrices.” <a href="https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf" class="uri">https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf</a>.</p>
-</div>
-<div id="ref-eberly_geometric_2017">
-<p>———. 2017. “Geometric Tools.” 2017. <a href="http://www.geometrictools.com/" class="uri">http://www.geometrictools.com/</a>.</p>
-</div>
-<div id="ref-fevotte_verrou:_2016">
-<p>Févotte, François, and Bruno Lathuilière. 2016. “VERROU: Assessing Floating-Point Accuracy Without Recompiling.” <a href="https://hal.archives-ouvertes.fr/hal-01383417/" class="uri">https://hal.archives-ouvertes.fr/hal-01383417/</a>.</p>
-</div>
-<div id="ref-hillerborg_analysis_1976">
-<p>Hillerborg, A., M. Modéer, and P.-E. Perterson. 1976. “Analysis of Crack Formation and Crack Growth in Concrete by Means of Fracture Mechanics and Finite Elements.” <em>Cement and Concrete Research</em> 6: 779–82.</p>
-</div>
 <div id="ref-hosford_generalized_1972">
-<p>Hosford, W. F. 1972. “A Generalized Isotropic Yield Criterion.” <em>Journal of Applied Mechanics</em> 39 (2): 607–9.</p>
+<p>1. <span class="smallcaps">Hosford</span>, W. F. A generalized isotropic yield criterion. <em>Journal of Applied Mechanics</em>. 1972. Vol. 39, no. 2, p. 607–609. </p>
 </div>
-<div id="ref-kopp_efficient_2008">
-<p>Kopp, Joachim. 2008. “Efficient Numerical Diagonalization of Hermitian 3x3 Matrices.” <em>International Journal of Modern Physics C</em> 19 (3): 523–48. <a href="https://doi.org/10.1142/S0129183108012303" class="uri">https://doi.org/10.1142/S0129183108012303</a>.</p>
-</div>
-<div id="ref-kopp_numerical_2017">
-<p>———. 2017. “Numerical Diagonalization of 3x3 Matrices.” 2017. <a href="https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/" class="uri">https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/</a>.</p>
-</div>
-<div id="ref-lamotte_cadna_c:_2010">
-<p>Lamotte, J.-L., J.-M. Chesneaux, and F. Jézéquel. 2010. “CADNA_C: A Version of CADNA for Use with c or C++ Programs.” <em>Computer Physics Communications</em> 181 (11): 1925–6.</p>
-</div>
-<div id="ref-miehe_anisotropic_2002">
-<p>Miehe, C., N. Apel, and M. Lambrecht. 2002. “Anisotropic Additive Plasticity in the Logarithmic Strain Space: Modular Kinematic Formulation and Implementation Based on Incremental Minimization Principles for Standard Materials.” <em>Computer Methods in Applied Mechanics and Engineering</em> 191 (47–48): 5383–5425. <a href="https://doi.org/10.1016/S0045-7825(02)00438-3" class="uri">https://doi.org/10.1016/S0045-7825(02)00438-3</a>.</p>
-</div>
-<div id="ref-musl_libc_2017">
-<p>Musl development community. 2017. “Musl Libc.” 2017. <a href="https://www.musl-libc.org/" class="uri">https://www.musl-libc.org/</a>.</p>
+<div id="ref-barlat_linear_2005">
+<p>2. <span class="smallcaps">Barlat</span>, F., <span class="smallcaps">Aretz</span>, H., <span class="smallcaps">Yoon</span>, J. W., <span class="smallcaps">Karabin</span>, M. E., <span class="smallcaps">Brem</span>, J. C. and <span class="smallcaps">Dick</span>, R. E. Linear transfomation-based anisotropic yield functions. <em>International Journal of Plasticity</em>. 1 May 2005. Vol. 21, no. 5, p. 1009–1039. DOI <a href="https://doi.org/10.1016/j.ijplas.2004.06.004">10.1016/j.ijplas.2004.06.004</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641904001160" class="uri">http://www.sciencedirect.com/science/article/pii/S0749641904001160</a></p>
 </div>
 <div id="ref-scherzinger_return_2017">
-<p>Scherzinger, W. M. 2017. “A Return Mapping Algorithm for Isotropic and Anisotropic Plasticity Models Using a Line Search Method.” <em>Computer Methods in Applied Mechanics and Engineering</em> 317 (April): 526–53. <a href="https://doi.org/10.1016/j.cma.2016.11.026" class="uri">https://doi.org/10.1016/j.cma.2016.11.026</a>.</p>
+<p>3. <span class="smallcaps">Scherzinger</span>, W. M. A return mapping algorithm for isotropic and anisotropic plasticity models using a line search method. <em>Computer Methods in Applied Mechanics and Engineering</em>. 15 April 2017. Vol. 317, p. 526–553. DOI <a href="https://doi.org/10.1016/j.cma.2016.11.026">10.1016/j.cma.2016.11.026</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S004578251630370X" class="uri">http://www.sciencedirect.com/science/article/pii/S004578251630370X</a></p>
+</div>
+<div id="ref-lamotte_cadna_c:_2010">
+<p>4. <span class="smallcaps">Lamotte</span>, J.-L., <span class="smallcaps">Chesneaux</span>, J.-M. and <span class="smallcaps">Jézéquel</span>, F. CADNA_C: A version of CADNA for use with c or c++ programs. <em>Computer Physics Communications</em>. 2010. Vol. 181, no. 11, p. 1925–1926. </p>
 </div>
 <div id="ref-universite_pierre_et_marie_curie_cadna:_">
-<p>Université Pierre et Marie Curie, France, Paris. 2017. “CADNA: Control of Accuracy and Debugging for Numerical Applications.” <a href="http://www.lip6.fr/cadna" class="uri">http://www.lip6.fr/cadna</a>.</p>
+<p>5. <span class="smallcaps">Université Pierre et Marie Curie</span>, France, Paris. CADNA: Control of accuracy and debugging for numerical applications. 2017. Available from: <a href="http://www.lip6.fr/cadna" class="uri">http://www.lip6.fr/cadna</a></p>
+</div>
+<div id="ref-fevotte_verrou:_2016">
+<p>6. <span class="smallcaps">Févotte</span>, François and <span class="smallcaps">Lathuilière</span>, Bruno. VERROU: Assessing floating-point accuracy without recompiling. 2016. Available from: <a href="https://hal.archives-ouvertes.fr/hal-01383417/" class="uri">https://hal.archives-ouvertes.fr/hal-01383417/</a></p>
+</div>
+<div id="ref-hillerborg_analysis_1976">
+<p>7. <span class="smallcaps">Hillerborg</span>, A., <span class="smallcaps">Modéer</span>, M. and <span class="smallcaps">Perterson</span>, P.-E. Analysis of crack formation and crack growth in concrete by means of fracture mechanics and finite elements. <em>Cement and Concrete Research</em>. 1976. Vol. 6, p. 779–782. </p>
+</div>
+<div id="ref-miehe_anisotropic_2002">
+<p>8. <span class="smallcaps">Miehe</span>, C., <span class="smallcaps">Apel</span>, N. and <span class="smallcaps">Lambrecht</span>, M. Anisotropic additive plasticity in the logarithmic strain space: Modular kinematic formulation and implementation based on incremental minimization principles for standard materials. <em>Computer Methods in Applied Mechanics and Engineering</em>. November 2002. Vol. 191, no. 47–48, p. 5383–5425. DOI <a href="https://doi.org/10.1016/S0045-7825(02)00438-3">10.1016/S0045-7825(02)00438-3</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0045782502004383" class="uri">http://www.sciencedirect.com/science/article/pii/S0045782502004383</a></p>
+</div>
+<div id="ref-kopp_efficient_2008">
+<p>9. <span class="smallcaps">Kopp</span>, Joachim. Efficient numerical diagonalization of hermitian 3x3 matrices. <em>International Journal of Modern Physics C</em>. March 2008. Vol. 19, no. 3, p. 523–548. DOI <a href="https://doi.org/10.1142/S0129183108012303">10.1142/S0129183108012303</a>. Available from: <a href="http://arxiv.org/abs/physics/0610206" class="uri">http://arxiv.org/abs/physics/0610206</a></p>
+</div>
+<div id="ref-kopp_numerical_2017">
+<p>10. <span class="smallcaps">Kopp</span>, Joachim. Numerical diagonalization of 3x3 matrices.. 2017. Available from: <a href="https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/" class="uri">https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/</a></p>
+</div>
+<div id="ref-eberly_robust_2016">
+<p>11. <span class="smallcaps">Eberly</span>, David. A robust eigensolver for 3 × 3 symmetric matrices. September 2016. Available from: <a href="https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf" class="uri">https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf</a></p>
+</div>
+<div id="ref-eberly_geometric_2017">
+<p>12. <span class="smallcaps">Eberly</span>, David. Geometric tools.. 2017. Available from: <a href="http://www.geometrictools.com/" class="uri">http://www.geometrictools.com/</a></p>
+</div>
+<div id="ref-musl_libc_2017">
+<p>13. <span class="smallcaps">Musl development community</span>. Musl libc.. 2017. Available from: <a href="https://www.musl-libc.org/" class="uri">https://www.musl-libc.org/</a></p>
+</div>
+<div id="ref-belytschko_nonlinear_2000">
+<p>14. <span class="smallcaps">Belytschko</span>, Ted. Nonlinear Finite Elements for Continua and Structures. Chichester ; New York : Wiley-Blackwell, 2000. ISBN <a href="https://worldcat.org/isbn/9780471987741">9780471987741</a>. </p>
 </div>
 </div>
         <script>

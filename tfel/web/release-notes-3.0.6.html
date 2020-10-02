@@ -188,6 +188,7 @@
             <div id="TOC">
       <ul>
       <li><a href="#tickets-fixed">Tickets fixed</a><ul>
+      <li><a href="#ticket-246-explicit-implementation-of-the-berveiller-zaoui-homogeneisation-scheme-is-inefficient">Ticket #246: Explicit implementation of the Berveiller-Zaoui homogeneisation scheme is inefficient</a></li>
       <li><a href="#ticket-244-some-header-files-related-to-mtest-are-not-installed-by-cmake">Ticket #244: Some header files related to MTest are not installed by <code>cmake</code></a></li>
       <li><a href="#ticket-239-missing-ostream-header-for-gcc-10.1.0">Ticket #239: Missing <code>ostream</code> header for <code>gcc-10.1.0</code></a></li>
       <li><a href="#ticket-238-getpartialjacobianinvert-is-broken-for-arrays-of-internal-state-variables">Ticket #238: <code>getPartialJacobianInvert</code> is broken for arrays of internal state variables</a></li>
@@ -199,6 +200,11 @@
       </ul>
     </div>
         <h1 id="tickets-fixed">Tickets fixed</h1>
+<h2 id="ticket-246-explicit-implementation-of-the-berveiller-zaoui-homogeneisation-scheme-is-inefficient">Ticket #246: Explicit implementation of the Berveiller-Zaoui homogeneisation scheme is inefficient</h2>
+<p>Several polycrystal behaviours based on the Berveiller-Zaoui homogeneisation scheme are available in the tests of <code>MFront</code>.</p>
+<p>For some unknown reasons, those implementations declared the equivalent plastic strain as an auxiliary state variable. This lead to a significantly more difficult convergence of the <code>Runge-Kutta</code> algorithm.</p>
+<p>Since the results are correct, those implementations are kept as they are, but new corrected implementations are provided. Appropriate warnings are added to the description of flawed behaviours. Users are advised to use the newly proposed implementation.</p>
+<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/246/" class="uri">https://sourceforge.net/p/tfel/tickets/246/</a></p>
 <h2 id="ticket-244-some-header-files-related-to-mtest-are-not-installed-by-cmake">Ticket #244: Some header files related to MTest are not installed by <code>cmake</code></h2>
 <p>The following headers were not installed by <code>cmake</code>:</p>
 <ul>

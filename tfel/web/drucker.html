@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Implementation of a perfect plastic behaviour using the Drucker yield criterion (Drucker (1949)) and two of its extensions to orthotropy (Cazacu and Barlat (2001))</title>
+    <title>Implementation of a perfect plastic behaviour using the Drucker yield criterion ([1]) and two of its extensions to orthotropy ([2])</title>
         <meta name="author" content="Thomas Helfer" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
@@ -244,7 +244,7 @@
     </header>
     <br></br>
         <div id="header">
-      <h1 class="title">Implementation of a perfect plastic behaviour using the Drucker yield criterion (<span class="citation" data-cites="drucker_relation_1949">Drucker (1949)</span>) and two of its extensions to orthotropy (<span class="citation" data-cites="cazacu_generalization_2001">Cazacu and Barlat (2001)</span>)</h1>
+      <h1 class="title">Implementation of a perfect plastic behaviour using the Drucker yield criterion (<span class="citation" data-cites="drucker_relation_1949">[1]</span>) and two of its extensions to orthotropy (<span class="citation" data-cites="cazacu_generalization_2001">[2]</span>)</h1>
                   <h2 class="author">Thomas Helfer</h2>
                   <h3 class="date">21/11/2017</h3>
           </div>
@@ -275,10 +275,10 @@
       <li><a href="#local-variable-initialization">Local variable initialization</a></li>
       <li><a href="#implicit-system">Implicit system</a></li>
       </ul></li>
-      <li><a href="#a-first-extension-to-orthotropy-cazacu_generalization_2001">A first Extension to orthotropy (<span class="citation" data-cites="cazacu_generalization_2001">Cazacu and Barlat (2001)</span>)</a><ul>
+      <li><a href="#a-first-extension-to-orthotropy-cazacu_generalization_2001">A first Extension to orthotropy (<span class="citation" data-cites="cazacu_generalization_2001">[2]</span>)</a><ul>
       <li><a href="#verification">Verification</a></li>
       </ul></li>
-      <li><a href="#a-second-extension-to-orthotropy-barlat_linear_2007">A second extension to orthotropy (<span class="citation" data-cites="barlat_linear_2007">Barlat, Yoon, and Cazacu (2007)</span>)</a><ul>
+      <li><a href="#a-second-extension-to-orthotropy-barlat_linear_2007">A second extension to orthotropy (<span class="citation" data-cites="barlat_linear_2007">[3]</span>)</a><ul>
       <li><a href="#verification-1">Verification</a></li>
       </ul></li>
       <li><a href="#references">References</a></li>
@@ -305,7 +305,7 @@ f{\left(\underline{\sigma}\right)}=\sigma_{\mathrm{eq}}^{D}-\sigma_{Y}
 <li><span class="math inline">\(\sigma_{\mathrm{eq}}^{D}\)</span> is the Drucker yield criterion defined hereafter.</li>
 <li>The yield stress <span class="math inline">\(\sigma_{Y}\)</span> is a constant material parameter.</li>
 </ul>
-<p>The Drucker yield criterion is defined by (<span class="citation" data-cites="drucker_relation_1949">Drucker (1949)</span>): <span class="math display">\[
+<p>The Drucker yield criterion is defined by (<span class="citation" data-cites="drucker_relation_1949">[1]</span>): <span class="math display">\[
 \sigma_{\mathrm{eq}}^{D}=\sqrt{3}\,{\left(J_{2}^{3}-c\,J_{3}^2\right)}^{\tfrac{1}{6}}
 \]</span> where <span class="math inline">\(J_{2}\)</span> and <span class="math inline">\(J_{3}\)</span> are the invariants of <span class="math inline">\(\underline{s}\)</span> the deviatoric part of the stress tensor which are defined as follows: <span class="math display">\[
 \left\{
@@ -556,8 +556,8 @@ f_{p}={\left.\sigma_{\mathrm{eq}}^{D}\right|_{t+\theta\,\Delta\,t}}-\sigma_{Y}=0
 <li>the jacobian has been set to identity, following standard conventions defined in the <code>Implicit</code> domain specific language.</li>
 </ul>
 <p>Thus, all the variables have been set to describe a purely elastic behaviour. Hence, nothing is to be done if the boolean variable <code>b</code> is <code>false</code>. In this case, one just return <code>true</code>.</p>
-<h1 id="a-first-extension-to-orthotropy-cazacu_generalization_2001">A first Extension to orthotropy (<span class="citation" data-cites="cazacu_generalization_2001">Cazacu and Barlat (2001)</span>)</h1>
-<p>Within the framework of the theory of representation, generalizations to orthotropic conditions of the invariants of the deviatoric stress have been proposed by Cazacu and Barlat (see <span class="citation" data-cites="cazacu_generalization_2001">Cazacu and Barlat (2001)</span>):</p>
+<h1 id="a-first-extension-to-orthotropy-cazacu_generalization_2001">A first Extension to orthotropy (<span class="citation" data-cites="cazacu_generalization_2001">[2]</span>)</h1>
+<p>Within the framework of the theory of representation, generalizations to orthotropic conditions of the invariants of the deviatoric stress have been proposed by Cazacu and Barlat (see <span class="citation" data-cites="cazacu_generalization_2001">[2]</span>):</p>
 <ul>
 <li>The generalization of <span class="math inline">\(J_{2}\)</span> is denoted <span class="math inline">\(J_{2}^{O}\)</span>. It is defined by: <span class="math display">\[
 J_{2}^{O}= a_6\,s_{yz}^2+a_5\,s_{xz}^2+a_4\,s_{xy}^2+\frac{a_2}{6}\,(s_{yy}-s_{zz})^2+\frac{a_3}{6}\,(s_{xx}-s_{zz})^2+\frac{a_1}{6}\,(s_{xx}-s_{yy})^2
@@ -590,9 +590,9 @@ J_{3}^{O}=
 \]</span></p>
 <h2 id="verification">Verification</h2>
 <figure>
-<img src="img/Cazacu2001_2090-T3.svg" title="Plane stress yield surface ((\sigma_{xy}=0) and (\sigma_{xy}=0.45,\sigma_{0})) of 2090-T3 alloy sheet as predicted by the generalization of the Drucker yield criterion using generalized invariants (See @cazacu_generalization_2001, Figure 3)" alt="Plane stress yield surface (\sigma_{xy}=0 and \sigma_{xy}=0.45\,\sigma_{0}) of 2090-T3 alloy sheet as predicted by the generalization of the Drucker yield criterion using generalized invariants (See Cazacu and Barlat (2001), Figure 6)." style="width:80.0%" /><figcaption>Plane stress yield surface (<span class="math inline">\(\sigma_{xy}=0\)</span> and <span class="math inline">\(\sigma_{xy}=0.45\,\sigma_{0}\)</span>) of 2090-T3 alloy sheet as predicted by the generalization of the Drucker yield criterion using generalized invariants (See <span class="citation" data-cites="cazacu_generalization_2001">Cazacu and Barlat (2001)</span>, Figure 6).</figcaption>
+<img src="img/Cazacu2001_2090-T3.svg" title="Plane stress yield surface ((\sigma_{xy}=0) and (\sigma_{xy}=0.45,\sigma_{0})) of 2090-T3 alloy sheet as predicted by the generalization of the Drucker yield criterion using generalized invariants (See @cazacu_generalization_2001, Figure 3)" alt="Plane stress yield surface (\sigma_{xy}=0 and \sigma_{xy}=0.45\,\sigma_{0}) of 2090-T3 alloy sheet as predicted by the generalization of the Drucker yield criterion using generalized invariants (See [2], Figure 6)." style="width:80.0%" /><figcaption>Plane stress yield surface (<span class="math inline">\(\sigma_{xy}=0\)</span> and <span class="math inline">\(\sigma_{xy}=0.45\,\sigma_{0}\)</span>) of 2090-T3 alloy sheet as predicted by the generalization of the Drucker yield criterion using generalized invariants (See <span class="citation" data-cites="cazacu_generalization_2001">[2]</span>, Figure 6).</figcaption>
 </figure>
-<h1 id="a-second-extension-to-orthotropy-barlat_linear_2007">A second extension to orthotropy (<span class="citation" data-cites="barlat_linear_2007">Barlat, Yoon, and Cazacu (2007)</span>)</h1>
+<h1 id="a-second-extension-to-orthotropy-barlat_linear_2007">A second extension to orthotropy (<span class="citation" data-cites="barlat_linear_2007">[3]</span>)</h1>
 <p>Another approach is to introduce a linear transformation of the stress, as follows: <span class="math display">\[
 \underline{s&#39;}=\underline{\underline{\mathbf{L}}}\,\colon\,\underline{\sigma}
 \]</span></p>
@@ -628,19 +628,19 @@ J_{3}^{O}=
 <p>The expressions of <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \sigma_{\mathrm{eq}}^{D,OL}}{\displaystyle \partial \underline{s}&#39;}}\)</span> and <span class="math inline">\({\displaystyle \frac{\displaystyle \partial^{2} \sigma_{\mathrm{eq}}^{D,OL}}{\displaystyle \partial \underline{s}&#39;^{2}}}\)</span> are the obtained from the isotropic case by replacing <span class="math inline">\(\underline{\sigma}\)</span> with <span class="math inline">\(\underline{s}&#39;\)</span>, which is trivial to implement on the basis of the isotropic implementation described in the beginning of this document.</p>
 <h2 id="verification-1">Verification</h2>
 <figure>
-<img src="img/Cazacu2001_6016-T4-YdLin.svg" title="Plane stress yield surface ((\sigma_{xy}=0)) of 6016-T4 alloy sheet as predicted by the generalization of the Drucker yield criterion using a linear transformation (See @cazacu_generalization_2001, Figure 3)" alt="Plane stress yield surface (\sigma_{xy}=0) of 6016-T4 alloy sheet as predicted by the generalization of the Drucker yield criterion using a linear transformation (See Cazacu and Barlat (2001), Figure 3)." style="width:80.0%" /><figcaption>Plane stress yield surface (<span class="math inline">\(\sigma_{xy}=0\)</span>) of 6016-T4 alloy sheet as predicted by the generalization of the Drucker yield criterion using a linear transformation (See <span class="citation" data-cites="cazacu_generalization_2001">Cazacu and Barlat (2001)</span>, Figure 3).</figcaption>
+<img src="img/Cazacu2001_6016-T4-YdLin.svg" title="Plane stress yield surface ((\sigma_{xy}=0)) of 6016-T4 alloy sheet as predicted by the generalization of the Drucker yield criterion using a linear transformation (See @cazacu_generalization_2001, Figure 3)" alt="Plane stress yield surface (\sigma_{xy}=0) of 6016-T4 alloy sheet as predicted by the generalization of the Drucker yield criterion using a linear transformation (See [2], Figure 3)." style="width:80.0%" /><figcaption>Plane stress yield surface (<span class="math inline">\(\sigma_{xy}=0\)</span>) of 6016-T4 alloy sheet as predicted by the generalization of the Drucker yield criterion using a linear transformation (See <span class="citation" data-cites="cazacu_generalization_2001">[2]</span>, Figure 3).</figcaption>
 </figure>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references">
-<div id="ref-barlat_linear_2007">
-<p>Barlat, Frédéric, Jeong Whan Yoon, and Oana Cazacu. 2007. “On Linear Transformations of Stress Tensors for the Description of Plastic Anisotropy.” <em>International Journal of Plasticity</em> 23 (5): 876–96. <a href="https://doi.org/10.1016/j.ijplas.2006.10.001" class="uri">https://doi.org/10.1016/j.ijplas.2006.10.001</a>.</p>
+<div id="ref-drucker_relation_1949">
+<p>1. <span class="smallcaps">Drucker</span>, Daniel Charles. Relation of experiments to mathematical theories of plasticity. <em>Journal of Applied Mechanics</em>. 1949. No. 16, p. 349–357. </p>
 </div>
 <div id="ref-cazacu_generalization_2001">
-<p>Cazacu, Oana, and Frédéric Barlat. 2001. “Generalization of Drucker’s Yield Criterion to Orthotropy.” <em>Mathematics and Mechanics of Solids</em> 6 (6): 613–30. <a href="https://doi.org/10.1177/108128650100600603" class="uri">https://doi.org/10.1177/108128650100600603</a>.</p>
+<p>2. <span class="smallcaps">Cazacu</span>, Oana and <span class="smallcaps">Barlat</span>, Frédéric. Generalization of drucker’s yield criterion to orthotropy. <em>Mathematics and Mechanics of Solids</em>. 1 December 2001. Vol. 6, no. 6, p. 613–630. DOI <a href="https://doi.org/10.1177/108128650100600603">10.1177/108128650100600603</a>. Available from: <a href="https://doi.org/10.1177/108128650100600603" class="uri">https://doi.org/10.1177/108128650100600603</a></p>
 </div>
-<div id="ref-drucker_relation_1949">
-<p>Drucker, Daniel Charles. 1949. “Relation of Experiments to Mathematical Theories of Plasticity.” <em>Journal of Applied Mechanics</em>, no. 16: 349–57.</p>
+<div id="ref-barlat_linear_2007">
+<p>3. <span class="smallcaps">Barlat</span>, Frédéric, <span class="smallcaps">Yoon</span>, Jeong Whan and <span class="smallcaps">Cazacu</span>, Oana. On linear transformations of stress tensors for the description of plastic anisotropy. <em>International Journal of Plasticity</em>. 1 May 2007. Vol. 23, no. 5, p. 876–896. DOI <a href="https://doi.org/10.1016/j.ijplas.2006.10.001">10.1016/j.ijplas.2006.10.001</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641906001288" class="uri">http://www.sciencedirect.com/science/article/pii/S0749641906001288</a></p>
 </div>
 </div>
         <script>

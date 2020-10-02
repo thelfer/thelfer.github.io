@@ -285,7 +285,7 @@
 <p>See the documentation of the <code>@OrthotropicBehaviour</code> keyword for details:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">mfront</span> --help-keyword=Implicit:@OrthotropicBehaviour</a></code></pre></div>
 </blockquote>
-<p>Those steps are illustrated by the implementation so-called hollow sphere criterion proposed by Michel and Suquet which describe the macroscopic viscoplasticty of a porous material by the following law (see <span class="citation" data-cites="michel_constitutive_1992">Michel and Suquet (<a href="#ref-michel_constitutive_1992">1992</a>)</span>):</p>
+<p>Those steps are illustrated by the implementation so-called hollow sphere criterion proposed by Michel and Suquet which describe the macroscopic viscoplasticty of a porous material by the following law (see <span class="citation" data-cites="michel_constitutive_1992">[<a href="#ref-michel_constitutive_1992">1</a>]</span>):</p>
 <p>The viscoplastic strain rate is defined by:</p>
 <p><span class="math display">\[
 \underline{\dot{\varepsilon}}^{\mathrm{vp}}=\dot{\varepsilon}_{0}\,{\left({{\displaystyle \frac{\displaystyle \sigma_{\mathrm{eq}}^{MS}}{\displaystyle \sigma_{0}}}}\right)}^{E}\,\underline{n}^{MS}
@@ -354,7 +354,7 @@
 <li>Test your implementation in <code>MFront</code> and <code>MTest</code> (or your favorite solver).</li>
 </ol>
 <h2 id="creating-a-proper-working-directory-for-the-example-of-the-so-called-hollow-sphere-criterion-proposed-by-michel-and-suquet"><span class="header-section-number">1.2</span> Creating a proper working directory for the example of the so-called hollow sphere criterion proposed by Michel and Suquet</h2>
-<p>In this paragraph, we detail Steps 1 and 2. for the case of the so-called hollow sphere criterion proposed by Michel and Suquet criterion (see <span class="citation" data-cites="michel_constitutive_1992">Michel and Suquet (<a href="#ref-michel_constitutive_1992">1992</a>)</span>) which will be used as an illustrative example throughout this document. We describe all those steps in details and finally gives a shell script that automates the whole process for <code>LiNuX</code> users. When providing command line examples, we assume that the shell is <code>bash</code>.</p>
+<p>In this paragraph, we detail Steps 1 and 2. for the case of the so-called hollow sphere criterion proposed by Michel and Suquet criterion (see <span class="citation" data-cites="michel_constitutive_1992">[<a href="#ref-michel_constitutive_1992">1</a>]</span>) which will be used as an illustrative example throughout this document. We describe all those steps in details and finally gives a shell script that automates the whole process for <code>LiNuX</code> users. When providing command line examples, we assume that the shell is <code>bash</code>.</p>
 <p>The header files <code>PorousStressCriterionTemplate.hxx</code> and <code>PorousStressCriterionTemplate.ixx</code> are placed in a subdirectory called <code>include/TFEL/Material</code> and renamed respectively <code>MichelAndSuquet1992HollowSphereTestStressCriterionTest.hxx</code> and <code>MichelAndSuquet1992HollowPorousStressCriterionTest.ixx</code>.</p>
 <p>The <code>MFront</code> template files must be copied in the working directory and renamed appropriatly.</p>
 <p>This can be done by taping the following commands in the terminal (under <code>LiNuX</code> or <code>Mac Os</code>):</p>
@@ -969,7 +969,7 @@ E\,{{\displaystyle \frac{\displaystyle 1}{\displaystyle {\left.\sigma_{\mathrm{e
 <p>This implementation can be checked with the same <code>MTest</code> file than in the first part of this tutorial.</p>
 <h1 id="applications-to-uranimum-dioxyde-viscoplastic-behaviours"><span class="header-section-number">3</span> Applications to uranimum dioxyde viscoplastic behaviours</h1>
 <h2 id="implementation-of-salvo-viscoplastic-behaviour"><span class="header-section-number">3.1</span> Implementation of Salvo’ viscoplastic behaviour</h2>
-<p>This behaviour has been described in <span class="citation" data-cites="salvo_experimental_2015-1">(Salvo et al. <a href="#ref-salvo_experimental_2015-1">2015</a>)</span>.</p>
+<p>This behaviour has been described in <span class="citation" data-cites="salvo_experimental_2015-1">[<a href="#ref-salvo_experimental_2015-1">2</a>]</span>.</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
 <a class="sourceLine" id="cb28-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb28-3" data-line-number="3"><span class="er">@</span>Behaviour Salvo2015ViscoplasticBehaviour;</a>
@@ -1016,7 +1016,7 @@ E\,{{\displaystyle \frac{\displaystyle 1}{\displaystyle {\left.\sigma_{\mathrm{e
 <p>This implementation has been proposed as an example of how the brick can be used in practice. This implementation barely compiles at this stage and shall be carefully verified before any usage in a fuel performance code.</p>
 </blockquote>
 <h2 id="coupling-of-the-salvo-viscoplastic-behaviour-with-the-ddif2-damage-law"><span class="header-section-number">3.2</span> Coupling of the Salvo’ viscoplastic behaviour with the <code>DDIF2</code> damage law</h2>
-<p>The <code>DDIF2</code> damage law is currently the standard damage law used in <code>CEA</code>’ fuel performance codes (see <span class="citation" data-cites="michel_3d_2008 michel_3d_2016 michel_new_2017">(Michel et al. <a href="#ref-michel_3d_2008">2008</a>, <a href="#ref-michel_3d_2016">2016</a>, <a href="#ref-michel_new_2017">2017</a>)</span> for a complete description). Coupling of the Salvo’ viscoplastic behaviour with the <code>DDIF2</code> damage law boils downs to replacing the <code>Hooke</code> stress potential with the <code>DDIF2</code> stress potential, as follows:</p>
+<p>The <code>DDIF2</code> damage law is currently the standard damage law used in <code>CEA</code>’ fuel performance codes (see <span class="citation" data-cites="michel_3d_2008 michel_3d_2016 michel_new_2017">[<a href="#ref-michel_3d_2008">3</a>–<a href="#ref-michel_new_2017">5</a>]</span> for a complete description). Coupling of the Salvo’ viscoplastic behaviour with the <code>DDIF2</code> damage law boils downs to replacing the <code>Hooke</code> stress potential with the <code>DDIF2</code> stress potential, as follows:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
 <a class="sourceLine" id="cb29-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb29-3" data-line-number="3"><span class="er">@</span>Behaviour DDIF2Salvo2015ViscoplasticBehaviour;</a>
@@ -1063,20 +1063,20 @@ E\,{{\displaystyle \frac{\displaystyle 1}{\displaystyle {\left.\sigma_{\mathrm{e
 <a class="sourceLine" id="cb29-44" data-line-number="44">};</a></code></pre></div>
 <h1 id="references" class="unnumbered">References</h1>
 <div id="refs" class="references">
-<div id="ref-michel_new_2017">
-<p>Michel, B., T. Helfer, I. Ramière, and C. Esnoul. 2017. “A New Numerical Methodology for Simulation of Unstable Crack Growth in Time Independent Brittle Materials.” <em>Engineering Fracture Mechanics</em>, August. <a href="https://doi.org/10.1016/j.engfracmech.2017.08.009" class="uri">https://doi.org/10.1016/j.engfracmech.2017.08.009</a>.</p>
-</div>
-<div id="ref-michel_3d_2016">
-<p>Michel, Bruno, Thomas Helfer, Isabelle Ramière, and Coralie Esnoul. 2016. “3D Continuum Damage Approach for Simulation of Crack Initiation and Growth in Ceramic Materials.” <em>Key Engineering Materials</em> 713. <a href="https://doi.org/10.4028/www.scientific.net/KEM.713.155" class="uri">https://doi.org/10.4028/www.scientific.net/KEM.713.155</a>.</p>
-</div>
-<div id="ref-michel_3d_2008">
-<p>Michel, Bruno, Jérôme Sercombe, Gilles Thouvenin, and Rémy Chatelet. 2008. “3D Fuel Cracking Modelling in Pellet Cladding Mechanical Interaction.” <em>Engineering Fracture Mechanics</em> 75 (11): 3581–98. <a href="https://doi.org/10.1016/j.engfracmech.2006.12.014" class="uri">https://doi.org/10.1016/j.engfracmech.2006.12.014</a>.</p>
-</div>
 <div id="ref-michel_constitutive_1992">
-<p>Michel, J. C., and P. Suquet. 1992. “The Constitutive Law of Nonlinear Viscous and Porous Materials.” <em>Journal of the Mechanics and Physics of Solids</em> 40 (4): 783–812. <a href="https://doi.org/10.1016/0022-5096(92)90004-L" class="uri">https://doi.org/10.1016/0022-5096(92)90004-L</a>.</p>
+<p>1. <span class="smallcaps">Michel</span>, J. C. and <span class="smallcaps">Suquet</span>, P. The constitutive law of nonlinear viscous and porous materials. <em>Journal of the Mechanics and Physics of Solids</em>. 1 May 1992. Vol. 40, no. 4, p. 783–812. DOI <a href="https://doi.org/10.1016/0022-5096(92)90004-L">10.1016/0022-5096(92)90004-L</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/002250969290004L" class="uri">http://www.sciencedirect.com/science/article/pii/002250969290004L</a></p>
 </div>
 <div id="ref-salvo_experimental_2015-1">
-<p>Salvo, Maxime, Jérôme Sercombe, Jean-Claude Ménard, Jérôme Julien, Thomas Helfer, and Thierry Désoyer. 2015. “Experimental Characterization and Modelling of UO2 Behavior at High Temperatures and High Strain Rates.” <em>Journal of Nuclear Materials</em> 456 (January): 54–67. <a href="https://doi.org/10.1016/j.jnucmat.2014.09.024" class="uri">https://doi.org/10.1016/j.jnucmat.2014.09.024</a>.</p>
+<p>2. <span class="smallcaps">Salvo</span>, Maxime, <span class="smallcaps">Sercombe</span>, Jérôme, <span class="smallcaps">Ménard</span>, Jean-Claude, <span class="smallcaps">Julien</span>, Jérôme, <span class="smallcaps">Helfer</span>, Thomas and <span class="smallcaps">Désoyer</span>, Thierry. Experimental characterization and modelling of UO2 behavior at high temperatures and high strain rates. <em>Journal of Nuclear Materials</em>. January 2015. Vol. 456, p. 54–67. DOI <a href="https://doi.org/10.1016/j.jnucmat.2014.09.024">10.1016/j.jnucmat.2014.09.024</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S002231151400614X" class="uri">http://www.sciencedirect.com/science/article/pii/S002231151400614X</a></p>
+</div>
+<div id="ref-michel_3d_2008">
+<p>3. <span class="smallcaps">Michel</span>, Bruno, <span class="smallcaps">Sercombe</span>, Jérôme, <span class="smallcaps">Thouvenin</span>, Gilles and <span class="smallcaps">Chatelet</span>, Rémy. 3D fuel cracking modelling in pellet cladding mechanical interaction. <em>Engineering Fracture Mechanics</em>. July 2008. Vol. 75, no. 11, p. 3581–3598. DOI <a href="https://doi.org/10.1016/j.engfracmech.2006.12.014">10.1016/j.engfracmech.2006.12.014</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0013794406004759" class="uri">http://www.sciencedirect.com/science/article/pii/S0013794406004759</a></p>
+</div>
+<div id="ref-michel_3d_2016">
+<p>4. <span class="smallcaps">Michel</span>, Bruno, <span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Ramière</span>, Isabelle and <span class="smallcaps">Esnoul</span>, Coralie. 3D continuum damage approach for simulation of crack initiation and growth in ceramic materials. <em>Key Engineering Materials</em>. 2016. Vol. 713. DOI <a href="https://doi.org/10.4028/www.scientific.net/KEM.713.155">10.4028/www.scientific.net/KEM.713.155</a>. </p>
+</div>
+<div id="ref-michel_new_2017">
+<p>5. <span class="smallcaps">Michel</span>, B., <span class="smallcaps">Helfer</span>, T., <span class="smallcaps">Ramière</span>, I. and <span class="smallcaps">Esnoul</span>, C. A new numerical methodology for simulation of unstable crack growth in time independent brittle materials. <em>Engineering Fracture Mechanics</em>. 12 August 2017. DOI <a href="https://doi.org/10.1016/j.engfracmech.2017.08.009">10.1016/j.engfracmech.2017.08.009</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S001379441630412X" class="uri">http://www.sciencedirect.com/science/article/pii/S001379441630412X</a></p>
 </div>
 </div>
         <script>

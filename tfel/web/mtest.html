@@ -275,7 +275,7 @@
 <h3 id="the---help-keyword-option">The <code>--help-keyword</code> option</h3>
 <p>The <code>--help-keyword</code> displays the help associated with a keyword. If this keyword is specific to the simulation of a pipe, use <code>--scheme=ptest</code> option <em>before</em> the <code>--help-keyword</code> option.</p>
 <h1 id="material-point">Material point</h1>
-<p><code>MTest</code> can test the local behaviour of a material, by imposing independent constraints on each component of the driving variables (or deformation gradient or or the stress. It equivalent to the <code>SIMU_POINT_MAT</code> operator available within the <code>Code-Aster</code> finite element solver <span class="citation" data-cites="edf_macro-commande_2013">(EDF 2013)</span> or to the <code>SiDoLo</code> software <span class="citation" data-cites="pilvin_sidolo_2003">(Pilvin 2003)</span>.</p>
+<p><code>MTest</code> can test the local behaviour of a material, by imposing independent constraints on each component of the driving variables (or deformation gradient or or the stress. It equivalent to the <code>SIMU_POINT_MAT</code> operator available within the <code>Code-Aster</code> finite element solver <span class="citation" data-cites="edf_macro-commande_2013">[1]</span> or to the <code>SiDoLo</code> software <span class="citation" data-cites="pilvin_sidolo_2003">[2]</span>.</p>
 <p><code>MTest</code> can be used to model various experiments, as far as a stage implying strain localisation is not reached: tensile, compressive or shear tests driven by stresses or deformations, pipe loaded by internal or external pressure,  test, etc.</p>
 <p><code>MTest</code> generates a text file containing the evolution of the strains (for small strains behaviours), the stresses an the state variables during the loading history. Other <code>MTest</code> functionalities include:</p>
 <ul>
@@ -283,7 +283,7 @@
 <li>the ability to test isotropic and orthotropic behaviours;</li>
 <li>the support of various modelling hypotheses, notably the plane stress and axisymmetric generalised imposed plane stress hypotheses;</li>
 <li>many features to evaluate the numerical performances of mechanical behaviours. For example, user can compare the computed tangent consistent operator to a numerical approximation;</li>
-<li>a C++ library and a Python interface <span class="citation" data-cites="von_rossum_python_2007">(Von Rossum 2007)</span>. <code>MTest</code> can be embedded in general purpose scientific environment to fit behaviour parameters against experimental data. In particular, <code>MTest</code> can be used in ADAO <span class="citation" data-cites="salome_adao_2014">(Salome 2014a)</span>, a module for Data Assimilation and Optimization of the Salome platform <span class="citation" data-cites="salome_open_2014">(Salome 2014b)</span>;</li>
+<li>a C++ library and a Python interface <span class="citation" data-cites="von_rossum_python_2007">[3]</span>. <code>MTest</code> can be embedded in general purpose scientific environment to fit behaviour parameters against experimental data. In particular, <code>MTest</code> can be used in ADAO <span class="citation" data-cites="salome_adao_2014">[4]</span>, a module for Data Assimilation and Optimization of the Salome platform <span class="citation" data-cites="salome_open_2014">[5]</span>;</li>
 <li>comparison of the results (strains, stresses, internal state variables) to reference or analytical results. <code>MTest</code> automatically generates XML file using the <a href="http://junit.org">JUnit</a> format. Those files can be used for reporting using the <a href="http://jenkins-ci.org/">Jenkins continuous integration application</a> This functionality is central in the assurance quality procedure of <code>MFront</code>.</li>
 </ul>
 <p>Through an appropriate option, a behaviour implementation generated through <code>MFront</code> may create an <code>MTest</code> file in case of integration failure: this <code>MTest</code> file only describe the failed time step with the appropriate initial conditions. This feature is particularly useful to analyse the failure of large simulations which may happen after several hours of computations.</p>
@@ -338,19 +338,19 @@ V = \pi \, {\left.R\right|_{t+\Delta\,t}}^{2} \, {\left(1 +{\left.\varepsilon_{z
 <!-- Local IspellDict: english -->
 <div id="refs" class="references">
 <div id="ref-edf_macro-commande_2013">
-<p>EDF. 2013. “Macro-Commande SIMU_POINT_MAT.” Référence du Code Aster U4.51.12 révision 9069. EDF-R&amp;D/AMA. <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a>.</p>
+<p>1. <span class="smallcaps">EDF</span>. U4.51.12 révision 9069: Macro-commande SIMU_POINT_MAT. Référence du Code Aster. EDF-R&amp;D/AMA, 2013. Available from: <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a></p>
 </div>
 <div id="ref-pilvin_sidolo_2003">
-<p>Pilvin, P. 2003. “SiDoLo Version 2.4495.” Notice d’utilisation. Laboratoire Génie Mécanique et Matériaux, Université de Bretagne Sud.</p>
-</div>
-<div id="ref-salome_adao_2014">
-<p>Salome. 2014a. “ADAO, a SALOME Module for Data Assimilation and Optimization.” <a href="http://www.salome-platform.org/" class="uri">http://www.salome-platform.org/</a>.</p>
-</div>
-<div id="ref-salome_open_2014">
-<p>———. 2014b. “The Open Source Integration Platform for Numerical Simulation.” <a href="http://www.salome-platform.org/" class="uri">http://www.salome-platform.org/</a>.</p>
+<p>2. <span class="smallcaps">Pilvin</span>, P. SiDoLo Version 2.4495. Notice d’utilisation. Laboratoire Génie Mécanique et Matériaux, Université de Bretagne Sud, 2003. </p>
 </div>
 <div id="ref-von_rossum_python_2007">
-<p>Von Rossum, G. 2007. “Python Library Reference.” <a href="http://docs.python.org" class="uri">http://docs.python.org</a>.</p>
+<p>3. <span class="smallcaps">Von Rossum</span>, G. Python Library Reference. 2007. Available from: <a href="http://docs.python.org" class="uri">http://docs.python.org</a></p>
+</div>
+<div id="ref-salome_adao_2014">
+<p>4. <span class="smallcaps">Salome</span>. ADAO, a SALOME module for Data Assimilation and Optimization. 2014. Available from: <a href="http://www.salome-platform.org/" class="uri">http://www.salome-platform.org/</a></p>
+</div>
+<div id="ref-salome_open_2014">
+<p>5. <span class="smallcaps">Salome</span>. The Open Source Integration Platform for Numerical Simulation. 2014. Available from: <a href="http://www.salome-platform.org/" class="uri">http://www.salome-platform.org/</a></p>
 </div>
 </div>
 <section class="footnotes">

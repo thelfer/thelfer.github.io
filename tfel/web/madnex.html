@@ -103,7 +103,8 @@
 	    <li><a href="mfront-doc.html">mfront-doc</a></li>
 	    <li><a href="mtest.html">mtest</a></li>
 	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm</a></li>
+	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	    <li><a href="tfel-check.html">tfel-check</a></li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
@@ -289,7 +290,7 @@
 <h1 id="mfront-python-module"><code>mfront</code> python module</h1>
 <p>The <code>mfront</code> python module is fully described here:</p>
 <p><a href="http://tfel.sourceforge.net/mfront-python.html" class="uri">http://tfel.sourceforge.net/mfront-python.html</a></p>
-<p>The main function related to <code>madnex</code> file support is the <code>getMFrontImplementationsPaths</code> which takes five arguments:</p>
+<p>The main function related to <code>madnex</code> file support is the <code>getImplementationsPaths</code> which takes five arguments:</p>
 <ul>
 <li>the name of the file. The name of this argument is <code>file</code>;</li>
 <li>the name of a material. If the material name is empty, the implementations associated with all the materials are are considered and also the implementations associated with no material. To select only implementations associated with no material, one shall use the special material name <code>&lt;none&gt;</code>. The name of this argument is <code>material</code>.</li>
@@ -300,9 +301,9 @@
 <p>This function returns a list of strings where the path of the implementation is encoded.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="im">import</span> mfront</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">paths <span class="op">=</span> mfront.getMFrontImplementationsPaths(<span class="st">&quot;file.madnex&quot;</span>,</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">                                             material<span class="op">=&lt;</span>material_id<span class="op">&gt;</span>,</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">                                             behaviour<span class="op">=</span>behaviour_id<span class="op">&gt;</span>)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">paths <span class="op">=</span> mfront.getImplementationPaths(<span class="st">&quot;file.madnex&quot;</span>,</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">                                      material<span class="op">=&lt;</span>material_id<span class="op">&gt;</span>,</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">                                      behaviour<span class="op">=</span>behaviour_id<span class="op">&gt;</span>)</a>
 <a class="sourceLine" id="cb4-6" data-line-number="6"><span class="cf">if</span> <span class="bu">len</span>(paths) <span class="op">==</span> <span class="dv">0</span>:</a>
 <a class="sourceLine" id="cb4-7" data-line-number="7">  <span class="cf">raise</span>(<span class="st">&quot;no matching implementation&quot;</span>)</a>
 <a class="sourceLine" id="cb4-8" data-line-number="8"></a>
@@ -332,6 +333,19 @@
 <p>Here, <code>behaviour_id</code> can be a regular expression.</p>
 <p>For material properties and models, the <code>--material-property</code> and <code>--model</code> options have a similar role than the <code>--behaviour</code> option for behaviours.</p>
 <h1 id="storing-an-mfront-file-in-a-madnex-file">Storing an <code>MFront</code> file in a <code>madnex</code> file</h1>
+<p>The easiest way to store an <code>MFront</code> file is to create an instance of the <code>OverridableImplementation</code> class and then call the <code>write</code> function. Here is an example in <code>python</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="im">import</span> mfront</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</a></code></pre></div>
+<p>However, the <code>OverridableImplementation</code> class also allows modifying the medata of a implementation, as follows:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="im">import</span> mfront</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">i.overrideBehaviourName(<span class="st">&quot;Plasticity_SRMA2022&quot;</span>)</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">i.overrideMaterial(<span class="st">&quot;A316LN&quot;</span>)</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">i.overrideAuthor(<span class="st">&quot;John Mac Enroe&quot;</span>)</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</a></code></pre></div>
 <h1 id="references" class="unnumbered">References</h1>
 <div id="refs" class="references">
 <div id="ref-cea_edf_madnex_library_2020">

@@ -106,7 +106,8 @@
 	    <li><a href="mfront-doc.html">mfront-doc</a></li>
 	    <li><a href="mtest.html">mtest</a></li>
 	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm</a></li>
+	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	    <li><a href="tfel-check.html">tfel-check</a></li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
@@ -442,20 +443,25 @@ pandoc --pdf-engine=xelatex  -f markdown+tex_math_single_backslash -F pandoc-cro
 <div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span>&amp; gs = PCSlidingSystems::getPolyCrystalsSlidingSystems(<span class="st">&quot;isotrope_240_normalise.csv&quot;</span>);</a></code></pre></div>
 <div class="sourceCode" id="cb17"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1">  <span class="co">// macroscopic equivalent stress</span></a>
 <a class="sourceLine" id="cb17-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> σᵉ = sigmaeq(σ);</a></code></pre></div>
+<p>The macroscopic strain rate is then initialised to zero:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1">  <span class="co">// initialisation of the macroscopic strain rate</span></a>
-<a class="sourceLine" id="cb18-2" data-line-number="2">  ∂ₜεᵛᵖ = Stensor(real(<span class="dv">0</span>));</a></code></pre></div>
+<a class="sourceLine" id="cb18-2" data-line-number="2">  ∂ₜεᵛᵖ = Stensor(strainrate(<span class="dv">0</span>));</a></code></pre></div>
+<p>Then, the loop over the phases is started, as follows:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" data-line-number="1">  <span class="co">// loop over the phases</span></a>
 <a class="sourceLine" id="cb19-2" data-line-number="2">  <span class="cf">for</span> (<span class="dt">unsigned</span> <span class="dt">short</span> k = <span class="dv">0</span>; k != Np; ++k) {</a>
 <a class="sourceLine" id="cb19-3" data-line-number="3">    <span class="co">// volume fraction of the phase</span></a>
 <a class="sourceLine" id="cb19-4" data-line-number="4">    <span class="at">const</span> <span class="kw">auto</span> φ = gs.volume_fractions[k];</a></code></pre></div>
+<p>The local stress is computed following the Berveiller-Zaoui scheme (Equation (2)):</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" data-line-number="1">    <span class="co">// local stress following the Berveiller-Zaoui scheme</span></a>
 <a class="sourceLine" id="cb20-2" data-line-number="2">    <span class="kw">auto</span> σᵍ = StressStensor(stress(<span class="dv">0</span>));</a>
 <a class="sourceLine" id="cb20-3" data-line-number="3">    <span class="cf">if</span> (<span class="dv">2</span> ⋅ σᵉ + <span class="dv">3</span> ⋅ Mu ⋅ p &gt; <span class="dv">0</span>) {</a>
 <a class="sourceLine" id="cb20-4" data-line-number="4">      <span class="at">const</span> <span class="kw">auto</span> α = <span class="dv">2</span> ⋅ σᵉ / (<span class="dv">2</span> ⋅ σᵉ + <span class="dv">3</span> ⋅ Mu ⋅ p);</a>
 <a class="sourceLine" id="cb20-5" data-line-number="5">      σᵍ = σ + <span class="dv">2</span> ⋅ (<span class="dv">1</span> - β) ⋅ Mu ⋅ α ⋅ (εᵛᵖ - εᵛᵖᵍ[k]);</a>
 <a class="sourceLine" id="cb20-6" data-line-number="6">    }</a></code></pre></div>
+<p>We then initialise the microscopic strain rate:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb21-1" data-line-number="1">    <span class="co">// initialisation of the microscopic strain rate</span></a>
-<a class="sourceLine" id="cb21-2" data-line-number="2">    ∂ₜεᵛᵖᵍ[k] = Stensor(real(<span class="dv">0</span>));</a></code></pre></div>
+<a class="sourceLine" id="cb21-2" data-line-number="2">    ∂ₜεᵛᵖᵍ[k] = Stensor(strainrate(<span class="dv">0</span>));</a></code></pre></div>
+<p>We now start the loop over the slip system of the considered phase and evaluate the contribution to the microscopic strain rate:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb22-1" data-line-number="1">    <span class="cf">for</span> (<span class="dt">unsigned</span> <span class="dt">short</span> i = <span class="dv">0</span>; i != Nss; ++i) {</a>
 <a class="sourceLine" id="cb22-2" data-line-number="2">      <span class="at">const</span> <span class="kw">auto</span> idx = [&amp;i] {</a>
 <a class="sourceLine" id="cb22-3" data-line-number="3">        <span class="cf">if</span> (i &lt;= <span class="dv">2</span>) {</a>
@@ -466,40 +472,39 @@ pandoc --pdf-engine=xelatex  -f markdown+tex_math_single_backslash -F pandoc-cro
 <a class="sourceLine" id="cb22-8" data-line-number="8">          <span class="cf">return</span> <span class="dv">2</span>;</a>
 <a class="sourceLine" id="cb22-9" data-line-number="9">        }</a>
 <a class="sourceLine" id="cb22-10" data-line-number="10">        <span class="cf">return</span> <span class="dv">3</span>;</a>
-<a class="sourceLine" id="cb22-11" data-line-number="11">      }(); <span class="co">// return the family number </span></a></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb23-1" data-line-number="1">      <span class="co">// orientation tensors in the material frame</span></a>
-<a class="sourceLine" id="cb23-2" data-line-number="2">      <span class="at">const</span> <span class="kw">auto</span>&amp; μⁱᵏ = gs.mus[k][i];</a></code></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb24-1" data-line-number="1">      <span class="co">// resolved shear stress</span></a>
-<a class="sourceLine" id="cb24-2" data-line-number="2">      <span class="at">const</span> <span class="kw">auto</span> τ = μⁱᵏ | σᵍ;</a></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb25-1" data-line-number="1">      <span class="cf">if</span> (abs(τ) - τᶜ[idx] &gt; <span class="dv">1</span>.e5) {</a>
-<a class="sourceLine" id="cb25-2" data-line-number="2">        <span class="cf">return</span> <span class="kw">false</span>;</a>
-<a class="sourceLine" id="cb25-3" data-line-number="3">      }</a></code></pre></div>
-<div class="sourceCode" id="cb26"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb26-1" data-line-number="1">     <span class="at">const</span> <span class="kw">auto</span> rτ = (abs(τ) - τᶜ[idx]) / K;</a>
-<a class="sourceLine" id="cb26-2" data-line-number="2">     <span class="cf">if</span> (rτ &gt; <span class="dv">0</span>) {</a>
-<a class="sourceLine" id="cb26-3" data-line-number="3">        <span class="at">const</span> <span class="kw">auto</span> sgn = τ &gt; <span class="dv">0</span> ? <span class="dv">1</span> : <span class="dv">-1</span>;</a>
-<a class="sourceLine" id="cb26-4" data-line-number="4">        <span class="at">const</span> <span class="kw">auto</span> ∂ₜg = sgn ⋅ pow(rτ, m[idx]);</a>
-<a class="sourceLine" id="cb26-5" data-line-number="5">        dεᵛᵖᵍ[k] += ∂ₜg ⋅ μⁱᵏ;</a>
-<a class="sourceLine" id="cb26-6" data-line-number="6">      }</a>
-<a class="sourceLine" id="cb26-7" data-line-number="7">    } <span class="co">// end of the loop over the slip systems</span></a></code></pre></div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb27-1" data-line-number="1">    ∂ₜεᵛᵖ += ∂ₜεᵛᵖᵍ[k] ⋅ φ;</a></code></pre></div>
-<div class="sourceCode" id="cb28"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb28-1" data-line-number="1">  } <span class="co">// end of the loop over the phases</span></a></code></pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb29-1" data-line-number="1">  <span class="co">// rate of the macroscopic equivalent plastic strain</span></a>
-<a class="sourceLine" id="cb29-2" data-line-number="2">  ∂ₜp = sqrt((<span class="dv">2</span> ⋅ (∂ₜεᵛᵖ | ∂ₜεᵛᵖ)) / <span class="dv">3</span>);</a>
-<a class="sourceLine" id="cb29-3" data-line-number="3">  <span class="co">// elastic strain rain</span></a>
-<a class="sourceLine" id="cb29-4" data-line-number="4">  ∂ₜεᵉˡ = ∂ₜεᵗᵒ - ∂ₜεᵛᵖ;</a></code></pre></div>
+<a class="sourceLine" id="cb22-11" data-line-number="11">      }(); <span class="co">// return the family number </span></a>
+<a class="sourceLine" id="cb22-12" data-line-number="12">      <span class="co">// orientation tensors in the material frame</span></a>
+<a class="sourceLine" id="cb22-13" data-line-number="13">      <span class="at">const</span> <span class="kw">auto</span>&amp; μⁱᵏ = gs.mus[k][i];</a>
+<a class="sourceLine" id="cb22-14" data-line-number="14">      <span class="co">// resolved shear stress</span></a>
+<a class="sourceLine" id="cb22-15" data-line-number="15">      <span class="at">const</span> <span class="kw">auto</span> τ = μⁱᵏ | σᵍ;</a>
+<a class="sourceLine" id="cb22-16" data-line-number="16">      <span class="at">const</span> <span class="kw">auto</span> rτ = (abs(τ) - τᶜ[idx]) / K;</a>
+<a class="sourceLine" id="cb22-17" data-line-number="17">      <span class="cf">if</span> (rτ &gt; <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb22-18" data-line-number="18">        <span class="at">const</span> <span class="kw">auto</span> sgn = τ &gt; <span class="dv">0</span> ? <span class="dv">1</span> : <span class="dv">-1</span>;</a>
+<a class="sourceLine" id="cb22-19" data-line-number="19">        <span class="at">const</span> <span class="kw">auto</span> ∂ₜg = sgn ⋅ pow(rτ, m[idx]);</a>
+<a class="sourceLine" id="cb22-20" data-line-number="20">        dεᵛᵖᵍ[k] += ∂ₜg ⋅ μⁱᵏ;</a>
+<a class="sourceLine" id="cb22-21" data-line-number="21">      }</a>
+<a class="sourceLine" id="cb22-22" data-line-number="22">    } <span class="co">// end of the loop over the slip systems</span></a></code></pre></div>
+<p>The macroscopic strain rate is then updated by the contribution of the considered phase:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb23-1" data-line-number="1">    ∂ₜεᵛᵖ += ∂ₜεᵛᵖᵍ[k] ⋅ φ;</a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">  } <span class="co">// end of the loop over the phases</span></a></code></pre></div>
+<p>After the loop over the phases, one can update the rate of the macroscopic equivalent plastic strain and the macroscopic elastic strain rate:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb24-1" data-line-number="1">  <span class="co">// rate of the macroscopic equivalent plastic strain</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">  ∂ₜp = sqrt((<span class="dv">2</span> ⋅ (∂ₜεᵛᵖ | ∂ₜεᵛᵖ)) / <span class="dv">3</span>);</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">  <span class="co">// elastic strain rate</span></a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">  ∂ₜεᵉˡ = ∂ₜεᵗᵒ - ∂ₜεᵛᵖ;</a></code></pre></div>
 <p>The only tangent operator available is the elastic operator. This leads to this simple implementation of the <code>@TangentOperator</code> code block:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="er">@</span>TangentOperator {</a>
-<a class="sourceLine" id="cb30-2" data-line-number="2">  Dt = D;</a>
-<a class="sourceLine" id="cb30-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="er">@</span>TangentOperator {</a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">  Dt = D;</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3">}</a></code></pre></div>
 <h2 id="sec:mfront:bz:uniaxialtensiletest">Unit testing</h2>
 <p>The following <code>MTest</code> file imposes a tensile test with a constant strain rate of <span class="math inline">\(2\,10^{-4}\, s^{-1}\)</span> in the tensile direction:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="er">@</span>AccelerationAlgorithm <span class="ch">&#39;Cast3M&#39;</span>;</a>
-<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="er">@</span>StiffnessMatrixType <span class="ch">&#39;Elastic&#39;</span> ;</a>
-<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="er">@</span>Behaviour <span class="ch">&#39;src/libBehaviour.so&#39;</span> <span class="ch">&#39;PolycrystalHCP_BZ&#39;</span>;</a>
-<a class="sourceLine" id="cb31-4" data-line-number="4"><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;Temperature&#39;</span> <span class="fl">293.15</span>;</a>
-<a class="sourceLine" id="cb31-5" data-line-number="5"><span class="er">@</span>Real <span class="ch">&#39;tmax&#39;</span> <span class="dv">75</span> ;</a>
-<a class="sourceLine" id="cb31-6" data-line-number="6"><span class="er">@</span>ImposedStrain <span class="ch">&#39;EXX&#39;</span> {<span class="fl">0.</span>: <span class="fl">0.</span>, <span class="dv">75</span> : <span class="fl">0.015</span> };</a>
-<a class="sourceLine" id="cb31-7" data-line-number="7"><span class="er">@</span>Times {<span class="fl">0.</span>,<span class="ch">&#39;tmax&#39;</span> in <span class="dv">1000</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="er">@</span>AccelerationAlgorithm <span class="ch">&#39;Cast3M&#39;</span>;</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="er">@</span>StiffnessMatrixType <span class="ch">&#39;Elastic&#39;</span> ;</a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="er">@</span>Behaviour <span class="ch">&#39;src/libBehaviour.so&#39;</span> <span class="ch">&#39;PolycrystalHCP_BZ&#39;</span>;</a>
+<a class="sourceLine" id="cb26-4" data-line-number="4"><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;Temperature&#39;</span> <span class="fl">293.15</span>;</a>
+<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="er">@</span>Real <span class="ch">&#39;tmax&#39;</span> <span class="dv">75</span> ;</a>
+<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="er">@</span>ImposedStrain <span class="ch">&#39;EXX&#39;</span> {<span class="fl">0.</span>: <span class="fl">0.</span>, <span class="dv">75</span> : <span class="fl">0.015</span> };</a>
+<a class="sourceLine" id="cb26-7" data-line-number="7"><span class="er">@</span>Times {<span class="fl">0.</span>,<span class="ch">&#39;tmax&#39;</span> in <span class="dv">1000</span>};</a></code></pre></div>
 <p>Note that since the explicit behaviour does not provide a consistent tangent operator, we rely on an elastic search operator. The equilibrium iterations are accelerated using the <code>Cast3M</code> acceleration scheme which mimics the algorithm used by this code <span class="citation" data-cites="verpeaux_algorithmes_2014 ramiere_iterative_2015">[<a href="#ref-verpeaux_algorithmes_2014">3</a>, <a href="#ref-ramiere_iterative_2015">4</a>]</span>.</p>
 <p>Specifying the temperature is required, although not used by the behaviour.</p>
 <figure>

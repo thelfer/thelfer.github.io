@@ -267,7 +267,6 @@
       <li><a href="#improvements-to-the-implicit-domain-specific-languages"><span class="toc-section-number">4.4</span> Improvements to the implicit domain specific languages</a></li>
       <li><a href="#improvement-of-the-standardelastoviscoplasticity-brick"><span class="toc-section-number">4.5</span> Improvement of the <code>StandardElastoViscoplasticity</code> brick</a></li>
       <li><a href="#improvement-of-the-generic-interface"><span class="toc-section-number">4.6</span> Improvement of the <code>generic</code> interface</a></li>
-      <li><a href="#support-of-orthotropic-behaviours"><span class="toc-section-number">4.7</span> Support of orthotropic behaviours</a></li>
       </ul></li>
       <li><a href="#new-features-in-mtest"><span class="toc-section-number">5</span> New features in <code>MTest</code></a><ul>
       <li><a href="#import-behaviour-parameters"><span class="toc-section-number">5.1</span> Import behaviour parameters</a></li>
@@ -465,7 +464,7 @@ R{\left(p\right)}=R_{0}\,{\left(p+p_{0}\right)}^{n}
 <div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1">    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">50e6</span>},</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">    isotropic_hardening : <span class="st">&quot;Power&quot;</span> {R0 : <span class="fl">120e6</span>, p0 : <span class="fl">1e-8</span>, n : <span class="dv">5</span>.e<span class="dv">-2</span>}</a></code></pre></div>
 <h2 id="improvement-of-the-generic-interface"><span class="header-section-number">4.6</span> Improvement of the <code>generic</code> interface</h2>
-<h2 id="support-of-orthotropic-behaviours"><span class="header-section-number">4.7</span> Support of orthotropic behaviours</h2>
+<h3 id="support-of-orthotropic-behaviours"><span class="header-section-number">4.6.1</span> Support of orthotropic behaviours</h3>
 <p>Orthotropic behaviours requires to:</p>
 <ul>
 <li>rotate the gradients in the material frame in the global frame before the behaviour integration.</li>
@@ -492,7 +491,7 @@ R{\left(p\right)}=R_{0}\,{\left(p+p_{0}\right)}^{n}
 <li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateArrayOfTangentOperatorBlocks</code></li>
 </ul>
 <p>Those functions takes an additional arguments which is the number of integration points to be treated.</p>
-<h3 id="finite-strain-behaviours"><span class="header-section-number">4.7.1</span> Finite strain behaviours</h3>
+<h4 id="finite-strain-behaviours"><span class="header-section-number">4.6.1.1</span> Finite strain behaviours</h4>
 <p>Finite strain behaviours are a special case, because the returned stress measure and the returned tangent operator can be chosen at runtime time. A specific rotation function is generated for each supported stress measure and each supported tangent operator.</p>
 <p>Here is the list of the generated functions:</p>
 <ul>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['explicitscheme',['EXPLICITSCHEME',['../structmfront_1_1_behaviour_description.html#a7a1e8ae0e6a27ecb67bf94abe9b1c685af97e442d7a0cdae94be50f378fde4cd9',1,'mfront::BehaviourDescription']]]
+  ['explicitscheme',['EXPLICITSCHEME',['../namespacemfront.html#ab15b0888f12e362dc6b5181e88500190a7c43b318555eaa4d00e0cf6173788c77',1,'mfront']]]
 ];

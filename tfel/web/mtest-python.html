@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -99,64 +98,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -178,6 +194,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -244,36 +261,40 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">The MTest Python API</h1>
-                  <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">10/06/2016</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#the-behaviour-class">The <code>Behaviour</code> class</a><ul>
-      <li><a href="#rationale">Rationale</a></li>
-      <li><a href="#usage">Usage</a></li>
-      <li><a href="#methods-available">Methods available</a></li>
-      </ul></li>
-      <li><a href="#the-mtest-class">The <code>MTest</code> class</a><ul>
-      <li><a href="#the-mtestcurrentstate-class">The <code>MTestCurrentState</code> class</a><ul>
-      <li><a href="#fields-of-the-mtestcurrentstate-class">Fields of the <code>MTestCurrentState</code> class</a></li>
-      <li><a href="#methods-of-the-mtestcurrentstate-class">Methods of the <code>MTestCurrentState</code> class</a></li>
-      </ul></li>
-      </ul></li>
-      <li><a href="#the-pipetest-class">The <code>PipeTest</code> class</a><ul>
-      <li><a href="#the-studycurrentstate-structurecurrentstate-and-currentstate-classes">The <code>StudyCurrentState</code>, <code>StructureCurrentState</code> and <code>CurrentState</code> classes</a><ul>
-      <li><a href="#the-studycurrentstate-class">The <code>StudyCurrentState</code> class</a></li>
-      <li><a href="#the-structurecurrentstate-class">The <code>StructureCurrentState</code> class</a></li>
-      <li><a href="#the-currentstate-class">The <code>CurrentState</code> class</a></li>
-      <li><a href="#example-of-use-of-the-pipetest-class">Example of use of the <code>PipeTest</code> class</a></li>
-      </ul></li>
-      </ul></li>
-      </ul>
-    </div>
-        <p>This page describes the <code>mtest</code> module</p>
+<div id="header">
+<h1 class="title">The MTest Python API</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">10/06/2016</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#the-behaviour-class">The <code>Behaviour</code> class</a>
+<ul>
+<li><a href="#rationale">Rationale</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#methods-available">Methods available</a></li>
+</ul></li>
+<li><a href="#the-mtest-class">The <code>MTest</code> class</a>
+<ul>
+<li><a href="#the-mtestcurrentstate-class">The <code>MTestCurrentState</code> class</a>
+<ul>
+<li><a href="#fields-of-the-mtestcurrentstate-class">Fields of the <code>MTestCurrentState</code> class</a></li>
+<li><a href="#methods-of-the-mtestcurrentstate-class">Methods of the <code>MTestCurrentState</code> class</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#the-pipetest-class">The <code>PipeTest</code> class</a>
+<ul>
+<li><a href="#the-studycurrentstate-structurecurrentstate-and-currentstate-classes">The <code>StudyCurrentState</code>, <code>StructureCurrentState</code> and <code>CurrentState</code> classes</a>
+<ul>
+<li><a href="#the-studycurrentstate-class">The <code>StudyCurrentState</code> class</a></li>
+<li><a href="#the-structurecurrentstate-class">The <code>StructureCurrentState</code> class</a></li>
+<li><a href="#the-currentstate-class">The <code>CurrentState</code> class</a></li>
+<li><a href="#example-of-use-of-the-pipetest-class">Example of use of the <code>PipeTest</code> class</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<p>This page describes the <code>mtest</code> module</p>
 <h1 id="the-behaviour-class">The <code>Behaviour</code> class</h1>
 <h2 id="rationale">Rationale</h2>
 <p>The <code>Behaviour</code> class retrieves information in a shared library about a behaviour specific implementation.</p>
@@ -286,8 +307,8 @@
 <li>Most of time, support for the plane stress hypothesis defines an additional state variable, the axial strain (see for example the <code>StandardElasticity</code> brick). This variable is only defined for this specific modelling hypothesis.</li>
 </ul>
 <h2 id="usage">Usage</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="im">import</span> mtest</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">b <span class="op">=</span> mtest.Behaviour(<span class="st">&#39;aster&#39;</span>,<span class="st">&#39;libAsterBehaviour.so&#39;</span>,<span class="st">&#39;asterplasticity&#39;</span>,<span class="st">&#39;PlaneStrain&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mtest</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> mtest.Behaviour(<span class="st">&#39;aster&#39;</span>,<span class="st">&#39;libAsterBehaviour.so&#39;</span>,<span class="st">&#39;asterplasticity&#39;</span>,<span class="st">&#39;PlaneStrain&#39;</span>)</span></code></pre></div>
 <h2 id="methods-available">Methods available</h2>
 <p>The following methods are avaiable:</p>
 <ul>
@@ -339,54 +360,54 @@
 </ul>
 <h1 id="the-mtest-class">The <code>MTest</code> class</h1>
 <p>Here is a first example of the <code>MTest</code> class usage:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="im">import</span> std</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="im">import</span> tfel.tests</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="im">from</span> mtest <span class="im">import</span> <span class="op">*</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">m <span class="op">=</span> MTest()</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">umax <span class="op">=</span> <span class="dv">3</span>.e<span class="dv">-6</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">setVerboseMode(VerboseLevel.VERBOSE_LEVEL2)</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">m.setPredictionPolicy(PredictionPolicy.LINEARPREDICTION)</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">m.setBehaviour(<span class="st">&quot;umat&quot;</span>,<span class="st">&quot;src/libUmatBehaviour.so&quot;</span>,<span class="st">&quot;umattvergaard&quot;</span>)</a>
-<a class="sourceLine" id="cb2-13" data-line-number="13">m.setMaterialProperty(<span class="st">&#39;NormalStiffness&#39;</span>,<span class="dv">2</span>.e16)</a>
-<a class="sourceLine" id="cb2-14" data-line-number="14">m.setMaterialProperty(<span class="st">&#39;TangentialStiffness&#39;</span>,<span class="dv">2</span>.e16)</a>
-<a class="sourceLine" id="cb2-15" data-line-number="15">m.setMaterialProperty(<span class="st">&#39;MassDensity&#39;</span>,<span class="fl">0.</span>)</a>
-<a class="sourceLine" id="cb2-16" data-line-number="16">m.setMaterialProperty(<span class="st">&#39;NormalThermalExpansion&#39;</span>,<span class="fl">0.</span>)</a>
-<a class="sourceLine" id="cb2-17" data-line-number="17">m.setMaterialProperty(<span class="st">&#39;MaximumStress&#39;</span>,<span class="dv">200</span>.e6)</a>
-<a class="sourceLine" id="cb2-18" data-line-number="18">m.setMaterialProperty(<span class="st">&#39;MaximumOpeningDisplacement&#39;</span>,<span class="dv">3</span>.e<span class="dv">-6</span>)</a>
-<a class="sourceLine" id="cb2-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20">m.setExternalStateVariable(<span class="st">&quot;Temperature&quot;</span>,<span class="fl">293.15</span>)</a>
-<a class="sourceLine" id="cb2-21" data-line-number="21">m.setImposedOpeningDisplacement(<span class="st">&#39;Un&#39;</span>,{<span class="fl">0.</span>:<span class="fl">0.</span>,<span class="fl">1800.</span>:umax<span class="op">/</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb2-22" data-line-number="22">                      <span class="fl">2400.</span>:<span class="fl">0.</span>,<span class="dv">2600</span>:<span class="op">-</span><span class="dv">1</span>.e<span class="dv">-8</span>,<span class="dv">3000</span>:<span class="fl">0.</span>,</a>
-<a class="sourceLine" id="cb2-23" data-line-number="23">                      <span class="fl">3600.</span>:umax})</a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25">m.setTimes([<span class="fl">3.6</span><span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">1001</span>)])</a>
-<a class="sourceLine" id="cb2-26" data-line-number="26">m.setOutputFileName(<span class="st">&quot;castemtvergaard.res&quot;</span>)</a>
-<a class="sourceLine" id="cb2-27" data-line-number="27">m.execute()</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> std</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.tests</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mtest <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> MTest()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>umax <span class="op">=</span> <span class="fl">3.e-6</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>setVerboseMode(VerboseLevel.VERBOSE_LEVEL2)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>m.setPredictionPolicy(PredictionPolicy.LINEARPREDICTION)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>m.setBehaviour(<span class="st">&quot;umat&quot;</span>,<span class="st">&quot;src/libUmatBehaviour.so&quot;</span>,<span class="st">&quot;umattvergaard&quot;</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;NormalStiffness&#39;</span>,<span class="fl">2.e16</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;TangentialStiffness&#39;</span>,<span class="fl">2.e16</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;MassDensity&#39;</span>,<span class="fl">0.</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;NormalThermalExpansion&#39;</span>,<span class="fl">0.</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;MaximumStress&#39;</span>,<span class="fl">200.e6</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;MaximumOpeningDisplacement&#39;</span>,<span class="fl">3.e-6</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>m.setExternalStateVariable(<span class="st">&quot;Temperature&quot;</span>,<span class="fl">293.15</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>m.setImposedOpeningDisplacement(<span class="st">&#39;Un&#39;</span>,{<span class="fl">0.</span>:<span class="fl">0.</span>,<span class="fl">1800.</span>:umax<span class="op">/</span><span class="dv">2</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                      <span class="fl">2400.</span>:<span class="fl">0.</span>,<span class="dv">2600</span>:<span class="op">-</span><span class="fl">1.e-8</span>,<span class="dv">3000</span>:<span class="fl">0.</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                      <span class="fl">3600.</span>:umax})</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>m.setTimes([<span class="fl">3.6</span><span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">1001</span>)])</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>m.setOutputFileName(<span class="st">&quot;castemtvergaard.res&quot;</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>m.execute()</span></code></pre></div>
 <p>This example shows that there is almost a one to one mapping between the keywords used in <code>mtest</code> input file and the methods of the <code>MTest</code> class.</p>
 <p>The last instruction will execute all the time steps defined the time discretization defined using the <code>setTimes</code> method.</p>
 <p>This is not convenient and the <code>mtest</code> module allows you to precisely define and manage how the computations are performed.</p>
 <p>The three last line are indeed equivalent to:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">s  <span class="op">=</span> MTestCurrentState()</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">wk <span class="op">=</span> MTestWorkSpace()</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">m.setOutputFileName(<span class="st">&quot;castemtvergaard.res&quot;</span>)</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">m.completeInitialisation()</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">m.initializeCurrentState(s)</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">m.initializeWorkSpace(wk)</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">t <span class="op">=</span> [<span class="fl">3.6</span><span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">1001</span>)]</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co"># values at 0</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">m.printOutput(t[<span class="dv">0</span>],s)</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co"># do the job</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">    m.setEvolutionValue(<span class="st">&#39;Un&#39;</span>,t[i<span class="op">+</span><span class="dv">1</span>],umax<span class="op">*</span>t[i<span class="op">+</span><span class="dv">1</span>]<span class="op">/</span>t[<span class="op">-</span><span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb3-16" data-line-number="16">    m.execute(s,wk,t[i],t[i<span class="op">+</span><span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb3-17" data-line-number="17">    m.printOutput(t[i<span class="op">+</span><span class="dv">1</span>],s)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>s  <span class="op">=</span> MTestCurrentState()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>wk <span class="op">=</span> MTestWorkSpace()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>m.setOutputFileName(<span class="st">&quot;castemtvergaard.res&quot;</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>m.completeInitialisation()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>m.initializeCurrentState(s)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>m.initializeWorkSpace(wk)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> [<span class="fl">3.6</span><span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">1001</span>)]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># values at 0</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>m.printOutput(t[<span class="dv">0</span>],s)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># do the job</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    m.setEvolutionValue(<span class="st">&#39;Un&#39;</span>,t[i<span class="op">+</span><span class="dv">1</span>],umax<span class="op">*</span>t[i<span class="op">+</span><span class="dv">1</span>]<span class="op">/</span>t[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    m.execute(s,wk,t[i],t[i<span class="op">+</span><span class="dv">1</span>])</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    m.printOutput(t[i<span class="op">+</span><span class="dv">1</span>],s)</span></code></pre></div>
 <p>The previous example introduces two classes: the <code>MTestWorkSpace</code> class and the <code>MTestCurrentState</code> class.</p>
 <p>The <code>MTestWorkSpace</code> is of no interest for the end-user. It only manages to memory allocated to perform the computation: this memory is allocated once when calling the <code>initializeWorkSpace</code> of the MTest class.</p>
 <p>The <code>MTestCurrentState</code> class will be discussed in depth in the next section.</p>
@@ -440,52 +461,52 @@
 <p>The <code>MTestCurrentState</code> also provides <code>getInternalStateVariableValue</code> and <code>setInternalStateVariableValue</code> methods, which are described more in depth below.</p>
 <h1 id="the-pipetest-class">The <code>PipeTest</code> class</h1>
 <p>Here is an example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="im">import</span> std</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="im">import</span> tfel.tests</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="im">from</span> mtest <span class="im">import</span> PipeTest,StudyCurrentState,SolverWorkSpace, <span class="op">\</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">    setVerboseMode, VerboseLevel</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">setVerboseMode(VerboseLevel.VERBOSE_QUIET)</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">t <span class="op">=</span> PipeTest()</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co"># geometry and meshing</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">t.setInnerRadius(<span class="fl">4.2e-3</span>)</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">t.setOuterRadius(<span class="fl">4.7e-3</span>)</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">t.setNumberOfElements(<span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">t.setElementType(<span class="st">&#39;Linear&#39;</span>)</a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co"># modelling hypothesis</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16">t.setAxialLoading(<span class="st">&#39;None&#39;</span>)</a>
-<a class="sourceLine" id="cb4-17" data-line-number="17">t.performSmallStrainAnalysis()</a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19">t.setTimes([<span class="dv">0</span>,<span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb4-20" data-line-number="20">t.setInnerPressureEvolution(<span class="fl">1.5e6</span>)</a>
-<a class="sourceLine" id="cb4-21" data-line-number="21">t.setOuterPressureEvolution({<span class="dv">0</span>:<span class="fl">1.5e6</span>,<span class="dv">1</span>:<span class="fl">10e6</span>})</a>
-<a class="sourceLine" id="cb4-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb4-23" data-line-number="23">t.setBehaviour(<span class="st">&#39;castem&#39;</span>,<span class="st">&#39;../../src/libUmatBehaviour.so&#39;</span>,<span class="st">&#39;umatelasticity&#39;</span>)</a>
-<a class="sourceLine" id="cb4-24" data-line-number="24">t.setMaterialProperty(<span class="st">&#39;YoungModulus&#39;</span>,<span class="fl">150e9</span>)</a>
-<a class="sourceLine" id="cb4-25" data-line-number="25">t.setMaterialProperty(<span class="st">&#39;PoissonRatio&#39;</span>,<span class="fl">0.3</span>)</a>
-<a class="sourceLine" id="cb4-26" data-line-number="26">t.setExternalStateVariable(<span class="st">&#39;Temperature&#39;</span>,<span class="fl">293.15</span>)</a>
-<a class="sourceLine" id="cb4-27" data-line-number="27"></a>
-<a class="sourceLine" id="cb4-28" data-line-number="28">t.setOutputFileName(<span class="st">&quot;pipe.res&quot;</span>)</a>
-<a class="sourceLine" id="cb4-29" data-line-number="29"></a>
-<a class="sourceLine" id="cb4-30" data-line-number="30">t.execute()</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> std</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.tests</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mtest <span class="im">import</span> PipeTest,StudyCurrentState,SolverWorkSpace, <span class="op">\</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    setVerboseMode, VerboseLevel</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>setVerboseMode(VerboseLevel.VERBOSE_QUIET)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> PipeTest()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># geometry and meshing</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>t.setInnerRadius(<span class="fl">4.2e-3</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>t.setOuterRadius(<span class="fl">4.7e-3</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>t.setNumberOfElements(<span class="dv">10</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>t.setElementType(<span class="st">&#39;Linear&#39;</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># modelling hypothesis</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>t.setAxialLoading(<span class="st">&#39;None&#39;</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>t.performSmallStrainAnalysis()</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>t.setTimes([<span class="dv">0</span>,<span class="dv">1</span>])</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>t.setInnerPressureEvolution(<span class="fl">1.5e6</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>t.setOuterPressureEvolution({<span class="dv">0</span>:<span class="fl">1.5e6</span>,<span class="dv">1</span>:<span class="fl">10e6</span>})</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>t.setBehaviour(<span class="st">&#39;castem&#39;</span>,<span class="st">&#39;../../src/libUmatBehaviour.so&#39;</span>,<span class="st">&#39;umatelasticity&#39;</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;YoungModulus&#39;</span>,<span class="fl">150e9</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;PoissonRatio&#39;</span>,<span class="fl">0.3</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>t.setExternalStateVariable(<span class="st">&#39;Temperature&#39;</span>,<span class="fl">293.15</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>t.setOutputFileName(<span class="st">&quot;pipe.res&quot;</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>t.execute()</span></code></pre></div>
 <h2 id="the-studycurrentstate-structurecurrentstate-and-currentstate-classes">The <code>StudyCurrentState</code>, <code>StructureCurrentState</code> and <code>CurrentState</code> classes</h2>
 <h3 id="the-studycurrentstate-class">The <code>StudyCurrentState</code> class</h3>
 <p>As with the <code>MTest</code> class, the user can have precise control of how the computations are performed. The last instruction of the previous example can be changed by the following code:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">s  <span class="op">=</span> StudyCurrentState()</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">wk <span class="op">=</span> SolverWorkSpace()</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">t.completeInitialisation()</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">t.initializeCurrentState(s)</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">t.initializeWorkSpace(wk)</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co"># values at 0</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">t.printOutput(<span class="dv">0</span>,s)</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co"># resolution from 0 to 1</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">t.execute(s,wk,<span class="fl">0.</span>,<span class="fl">1.</span>)</a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co"># values at 1</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">t.printOutput(<span class="fl">1.</span>,s)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>s  <span class="op">=</span> StudyCurrentState()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>wk <span class="op">=</span> SolverWorkSpace()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>t.completeInitialisation()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>t.initializeCurrentState(s)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>t.initializeWorkSpace(wk)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># values at 0</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>t.printOutput(<span class="dv">0</span>,s)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># resolution from 0 to 1</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>t.execute(s,wk,<span class="fl">0.</span>,<span class="fl">1.</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># values at 1</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>t.printOutput(<span class="fl">1.</span>,s)</span></code></pre></div>
 <p>This code introduces two new classes: <code>SolverWorkSpace</code> and <code>StudyCurrentState</code>. Only the latter is interesting for the end user.</p>
 <p>The <code>StudyCurrentState</code> has been designed to encapsulate all the test cases handled by <code>MTest</code>, in the current and future versions of <code>TFEL</code>.</p>
 <p>The <code>StudyCurrentState</code> provides the following fields:</p>
@@ -525,12 +546,12 @@
 </ul>
 <p>Those fields are the same than those of the <code>MTestCurrentState</code> which indeed acts as a proxy for the unique integration point it handles.</p>
 <p>Here is an example of use of the <code>StudyCurrentState</code> class:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># get the structure current state</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">scs <span class="op">=</span> s.getStructureCurrentState(<span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># iterate of over the integration points</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="cf">for</span> cs <span class="kw">in</span> scs.istates:</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">    <span class="co">#print the radial stress, the axial stress, the hoop stress</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">    <span class="bu">print</span>(<span class="bu">str</span>(cs.s1[<span class="dv">0</span>])<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(cs.s1[<span class="dv">1</span>])<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(cs .s1[<span class="dv">1</span>]))</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the structure current state</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>scs <span class="op">=</span> s.getStructureCurrentState(<span class="st">&quot;&quot;</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># iterate of over the integration points</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cs <span class="kw">in</span> scs.istates:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print the radial stress, the axial stress, the hoop stress</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">str</span>(cs.s1[<span class="dv">0</span>])<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(cs.s1[<span class="dv">1</span>])<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(cs .s1[<span class="dv">1</span>]))</span></code></pre></div>
 <h4 id="accessing-the-values-of-the-internal-state-variables">Accessing the values of the internal state variables</h4>
 <p>The internal state variables are stored in the <code>iv_1</code>, <code>iv0</code> and <code>iv1</code> fields. Beware that access to those fields creates a copy of the underlying array of values.</p>
 <p>The <code>CurrentState</code> also provides a method called <code>getInternalStateVariableValue</code> which has two overloads.</p>
@@ -545,9 +566,9 @@
 <p>The initial values of the internal state variables can be specified by the <code>setInternalStateVariableInitialValue</code> method of the <code>MTest</code> or <code>PipeTest</code> class. This method takes the name of internal state variable and a <code>list</code> of <code>floats</code> (a <code>float</code> is accepted for scalar internal state variables).</p>
 <p>The values are stored in the <code>MTest</code> or <code>PipeTest</code> object and will be used every time the <code>initializeCurrentState</code> method is called.</p>
 <p>Here is an example of use of the <code>getInternalStateVariableValue</code> method:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">scs <span class="op">=</span> s.getStructureCurrentState(<span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co"># get the maximum of the equivalent plastic strain over the integration points</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">p <span class="op">=</span> <span class="bu">max</span>([cs.getInternalStateVariableValue(<span class="st">&#39;EquivalentPlasticStrain&#39;</span>) <span class="cf">for</span> cs <span class="kw">in</span> scs.istates])</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>scs <span class="op">=</span> s.getStructureCurrentState(<span class="st">&quot;&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># get the maximum of the equivalent plastic strain over the integration points</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="bu">max</span>([cs.getInternalStateVariableValue(<span class="st">&#39;EquivalentPlasticStrain&#39;</span>) <span class="cf">for</span> cs <span class="kw">in</span> scs.istates])</span></code></pre></div>
 <h4 id="modifying-the-values-of-the-internal-state-variables">Modifying the values of the internal state variables</h4>
 <p>Sometimes, it can be usefull to modify the values of the internal state variables during the computation. This can</p>
 <p>The internal state variables are stored in the <code>iv_1</code>, <code>iv0</code> and <code>iv1</code> fields. Access to those variables creates a copy of the underlying array of values. Thus, modifying those values has no effect of the <code>CurrentState</code> object.</p>
@@ -562,90 +583,90 @@
 </ul></li>
 </ul>
 <p>Here is an example of use of the <code>setInternalStateVariableValue</code> method:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1">scs <span class="op">=</span> s.getStructureCurrentState(<span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co"># iterate of over the integration points</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="cf">for</span> cs <span class="kw">in</span> scs.istates:</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="co"># set the value of the equivalent plastic strain</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">    cs.setInternalStateVariableValue(<span class="st">&#39;EquivalentPlasticStrain&#39;</span>,<span class="dv">2</span>.e<span class="dv">-2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>scs <span class="op">=</span> s.getStructureCurrentState(<span class="st">&quot;&quot;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># iterate of over the integration points</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cs <span class="kw">in</span> scs.istates:</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># set the value of the equivalent plastic strain</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    cs.setInternalStateVariableValue(<span class="st">&#39;EquivalentPlasticStrain&#39;</span>,<span class="fl">2.e-2</span>)</span></code></pre></div>
 <h3 id="example-of-use-of-the-pipetest-class">Example of use of the <code>PipeTest</code> class</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="im">from</span> mtest <span class="im">import</span> PipeTest,StudyCurrentState,SolverWorkSpace, <span class="op">\</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">    setVerboseMode, VerboseLevel</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co"># no output</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">setVerboseMode(VerboseLevel.VERBOSE_QUIET)</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7">Re <span class="op">=</span> <span class="fl">4.18e-3</span></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8">Fz <span class="op">=</span> <span class="fl">3.1415926</span><span class="op">*</span>Re<span class="op">*</span>Re<span class="op">*</span><span class="fl">20e6</span></a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb9-10" data-line-number="10">t <span class="op">=</span> PipeTest()</a>
-<a class="sourceLine" id="cb9-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="co"># geometric and meshing options</span></a>
-<a class="sourceLine" id="cb9-13" data-line-number="13">t.setInnerRadius(<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb9-14" data-line-number="14">t.setOuterRadius(Re)</a>
-<a class="sourceLine" id="cb9-15" data-line-number="15">t.setNumberOfElements(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb9-16" data-line-number="16">t.setElementType(<span class="st">&#39;Quadratic&#39;</span>)</a>
-<a class="sourceLine" id="cb9-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb9-18" data-line-number="18"><span class="co"># Type of loading</span></a>
-<a class="sourceLine" id="cb9-19" data-line-number="19">t.setAxialLoading(<span class="st">&#39;ImposedAxialForce&#39;</span>)</a>
-<a class="sourceLine" id="cb9-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb9-21" data-line-number="21"><span class="co"># no geometrical update</span></a>
-<a class="sourceLine" id="cb9-22" data-line-number="22">t.performSmallStrainAnalysis()</a>
-<a class="sourceLine" id="cb9-23" data-line-number="23"></a>
-<a class="sourceLine" id="cb9-24" data-line-number="24"><span class="co"># by default, with the &#39;castem&#39; interface, one does not use the</span></a>
-<a class="sourceLine" id="cb9-25" data-line-number="25"><span class="co"># consistent tangent operator. Using the acceleration algorithm</span></a>
-<a class="sourceLine" id="cb9-26" data-line-number="26"><span class="co"># is mandatory for convergence.</span></a>
-<a class="sourceLine" id="cb9-27" data-line-number="27">t.setUseCastemAccelerationAlgorithm(<span class="va">True</span>)</a>
-<a class="sourceLine" id="cb9-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb9-29" data-line-number="29"><span class="co"># axial loading</span></a>
-<a class="sourceLine" id="cb9-30" data-line-number="30">t.setAxialForceEvolution({<span class="fl">0.</span>:<span class="fl">0.</span>,<span class="dv">1</span>.e<span class="dv">-6</span> :Fz,<span class="dv">3600</span>:Fz})</a>
-<a class="sourceLine" id="cb9-31" data-line-number="31"></a>
-<a class="sourceLine" id="cb9-32" data-line-number="32"><span class="co"># definition of the mechanical behaviour and the material properties</span></a>
-<a class="sourceLine" id="cb9-33" data-line-number="33">t.setBehaviour(<span class="st">&#39;castem&#39;</span>,<span class="st">&#39;../../src/libUmatBehaviour.so&#39;</span>,<span class="st">&#39;umatnorton&#39;</span>)</a>
-<a class="sourceLine" id="cb9-34" data-line-number="34">t.setMaterialProperty(<span class="st">&#39;YoungModulus&#39;</span>,<span class="fl">150e9</span>)</a>
-<a class="sourceLine" id="cb9-35" data-line-number="35">t.setMaterialProperty(<span class="st">&#39;PoissonRatio&#39;</span>,<span class="fl">0.3</span>)</a>
-<a class="sourceLine" id="cb9-36" data-line-number="36">t.setMaterialProperty(<span class="st">&#39;A&#39;</span>,<span class="dv">8</span>.e<span class="dv">-67</span>)</a>
-<a class="sourceLine" id="cb9-37" data-line-number="37">t.setMaterialProperty(<span class="st">&#39;E&#39;</span>,<span class="fl">8.2</span>)</a>
-<a class="sourceLine" id="cb9-38" data-line-number="38"></a>
-<a class="sourceLine" id="cb9-39" data-line-number="39"><span class="co"># temperature (mandatory)</span></a>
-<a class="sourceLine" id="cb9-40" data-line-number="40">t.setExternalStateVariable(<span class="st">&#39;Temperature&#39;</span>,<span class="fl">293.15</span>)</a>
-<a class="sourceLine" id="cb9-41" data-line-number="41"></a>
-<a class="sourceLine" id="cb9-42" data-line-number="42"><span class="co"># results file</span></a>
-<a class="sourceLine" id="cb9-43" data-line-number="43">t.setOutputFileName(<span class="st">&#39;pipe4.res&#39;</span>)</a>
-<a class="sourceLine" id="cb9-44" data-line-number="44"></a>
-<a class="sourceLine" id="cb9-45" data-line-number="45">s  <span class="op">=</span> StudyCurrentState()</a>
-<a class="sourceLine" id="cb9-46" data-line-number="46">wk <span class="op">=</span> SolverWorkSpace()</a>
-<a class="sourceLine" id="cb9-47" data-line-number="47"></a>
-<a class="sourceLine" id="cb9-48" data-line-number="48"><span class="co"># complete initialisation of the problem</span></a>
-<a class="sourceLine" id="cb9-49" data-line-number="49">t.completeInitialisation()</a>
-<a class="sourceLine" id="cb9-50" data-line-number="50">t.initializeCurrentState(s)</a>
-<a class="sourceLine" id="cb9-51" data-line-number="51">t.initializeWorkSpace(wk)</a>
-<a class="sourceLine" id="cb9-52" data-line-number="52"></a>
-<a class="sourceLine" id="cb9-53" data-line-number="53"><span class="co"># time discretization</span></a>
-<a class="sourceLine" id="cb9-54" data-line-number="54">times <span class="op">=</span> [<span class="dv">0</span>]<span class="op">+</span>[<span class="dv">1</span>.e<span class="dv">-6</span><span class="op">+</span>((<span class="fl">3600.</span><span class="op">-</span><span class="dv">1</span>.e<span class="dv">-6</span>)<span class="op">/</span><span class="fl">20.</span>)<span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">21</span>)]<span class="op">;</span></a>
-<a class="sourceLine" id="cb9-55" data-line-number="55"></a>
-<a class="sourceLine" id="cb9-56" data-line-number="56"><span class="co"># get the state of the pipe (unique structure defined)</span></a>
-<a class="sourceLine" id="cb9-57" data-line-number="57">scs <span class="op">=</span> s.getStructureCurrentState(<span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb9-58" data-line-number="58">p   <span class="op">=</span> <span class="bu">max</span>([cs.getInternalStateVariableValue(<span class="st">&quot;EquivalentViscoplasticStrain&quot;</span>)</a>
-<a class="sourceLine" id="cb9-59" data-line-number="59">           <span class="cf">for</span> cs <span class="kw">in</span> scs.istates])</a>
-<a class="sourceLine" id="cb9-60" data-line-number="60"><span class="bu">print</span>(<span class="bu">str</span>(times[<span class="dv">0</span>])<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(p))</a>
-<a class="sourceLine" id="cb9-61" data-line-number="61"></a>
-<a class="sourceLine" id="cb9-62" data-line-number="62"><span class="co"># loop over the time steps</span></a>
-<a class="sourceLine" id="cb9-63" data-line-number="63"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(times)<span class="op">-</span><span class="dv">1</span>):</a>
-<a class="sourceLine" id="cb9-64" data-line-number="64">    <span class="co"># search the mechanical equilibrium at the end of the time step</span></a>
-<a class="sourceLine" id="cb9-65" data-line-number="65">    t.execute(s,wk,times[i],times[i<span class="op">+</span><span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb9-66" data-line-number="66">    <span class="co"># write in the output file</span></a>
-<a class="sourceLine" id="cb9-67" data-line-number="67">    t.printOutput(times[i<span class="op">+</span><span class="dv">1</span>],s)</a>
-<a class="sourceLine" id="cb9-68" data-line-number="68">    <span class="co"># iterate of over the integration points</span></a>
-<a class="sourceLine" id="cb9-69" data-line-number="69">    p <span class="op">=</span> <span class="bu">max</span>([cs.getInternalStateVariableValue(<span class="st">&quot;EquivalentViscoplasticStrain&quot;</span>)</a>
-<a class="sourceLine" id="cb9-70" data-line-number="70">             <span class="cf">for</span> cs <span class="kw">in</span> scs.istates])</a>
-<a class="sourceLine" id="cb9-71" data-line-number="71">    <span class="bu">print</span>(<span class="bu">str</span>(times[i<span class="op">+</span><span class="dv">1</span>])<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(p))</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mtest <span class="im">import</span> PipeTest,StudyCurrentState,SolverWorkSpace, <span class="op">\</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    setVerboseMode, VerboseLevel</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># no output</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>setVerboseMode(VerboseLevel.VERBOSE_QUIET)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>Re <span class="op">=</span> <span class="fl">4.18e-3</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>Fz <span class="op">=</span> <span class="fl">3.1415926</span><span class="op">*</span>Re<span class="op">*</span>Re<span class="op">*</span><span class="fl">20e6</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> PipeTest()</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># geometric and meshing options</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>t.setInnerRadius(<span class="dv">0</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>t.setOuterRadius(Re)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>t.setNumberOfElements(<span class="dv">1</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>t.setElementType(<span class="st">&#39;Quadratic&#39;</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Type of loading</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>t.setAxialLoading(<span class="st">&#39;ImposedAxialForce&#39;</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co"># no geometrical update</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>t.performSmallStrainAnalysis()</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co"># by default, with the &#39;castem&#39; interface, one does not use the</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co"># consistent tangent operator. Using the acceleration algorithm</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co"># is mandatory for convergence.</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>t.setUseCastemAccelerationAlgorithm(<span class="va">True</span>)</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co"># axial loading</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>t.setAxialForceEvolution({<span class="fl">0.</span>:<span class="fl">0.</span>,<span class="fl">1.e-6</span> :Fz,<span class="dv">3600</span>:Fz})</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="co"># definition of the mechanical behaviour and the material properties</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>t.setBehaviour(<span class="st">&#39;castem&#39;</span>,<span class="st">&#39;../../src/libUmatBehaviour.so&#39;</span>,<span class="st">&#39;umatnorton&#39;</span>)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;YoungModulus&#39;</span>,<span class="fl">150e9</span>)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;PoissonRatio&#39;</span>,<span class="fl">0.3</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;A&#39;</span>,<span class="fl">8.e-67</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;E&#39;</span>,<span class="fl">8.2</span>)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="co"># temperature (mandatory)</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>t.setExternalStateVariable(<span class="st">&#39;Temperature&#39;</span>,<span class="fl">293.15</span>)</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="co"># results file</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>t.setOutputFileName(<span class="st">&#39;pipe4.res&#39;</span>)</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>s  <span class="op">=</span> StudyCurrentState()</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>wk <span class="op">=</span> SolverWorkSpace()</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a><span class="co"># complete initialisation of the problem</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>t.completeInitialisation()</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>t.initializeCurrentState(s)</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>t.initializeWorkSpace(wk)</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a><span class="co"># time discretization</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [<span class="dv">0</span>]<span class="op">+</span>[<span class="fl">1.e-6</span><span class="op">+</span>((<span class="fl">3600.</span><span class="op">-</span><span class="fl">1.e-6</span>)<span class="op">/</span><span class="fl">20.</span>)<span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">21</span>)]<span class="op">;</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a><span class="co"># get the state of the pipe (unique structure defined)</span></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>scs <span class="op">=</span> s.getStructureCurrentState(<span class="st">&quot;&quot;</span>)</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>p   <span class="op">=</span> <span class="bu">max</span>([cs.getInternalStateVariableValue(<span class="st">&quot;EquivalentViscoplasticStrain&quot;</span>)</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>           <span class="cf">for</span> cs <span class="kw">in</span> scs.istates])</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">str</span>(times[<span class="dv">0</span>])<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(p))</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a><span class="co"># loop over the time steps</span></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(times)<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>    <span class="co"># search the mechanical equilibrium at the end of the time step</span></span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>    t.execute(s,wk,times[i],times[i<span class="op">+</span><span class="dv">1</span>])</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># write in the output file</span></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>    t.printOutput(times[i<span class="op">+</span><span class="dv">1</span>],s)</span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>    <span class="co"># iterate of over the integration points</span></span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> <span class="bu">max</span>([cs.getInternalStateVariableValue(<span class="st">&quot;EquivalentViscoplasticStrain&quot;</span>)</span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>             <span class="cf">for</span> cs <span class="kw">in</span> scs.istates])</span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">str</span>(times[i<span class="op">+</span><span class="dv">1</span>])<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(p))</span></code></pre></div>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references">
-<div id="ref-helfer_extension_2015">
-<p>1. <span class="smallcaps">Helfer</span>, Thomas. Extension of monodimensional fuel performance codes to finite strain analysis using a Lagrangian logarithmic strain framework. <em>Nuclear Engineering and Design</em>. July 2015. Vol. 288, p. 75–81. DOI <a href="https://doi.org/10.1016/j.nucengdes.2015.02.010">10.1016/j.nucengdes.2015.02.010</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0029549315000928" class="uri">http://www.sciencedirect.com/science/article/pii/S0029549315000928</a></p>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-helfer_extension_2015" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas. Extension of monodimensional fuel performance codes to finite strain analysis using a <span>Lagrangian</span> logarithmic strain framework. <em>Nuclear Engineering and Design</em>. July 2015. Vol. 288, p. 75–81. DOI <a href="https://doi.org/10.1016/j.nucengdes.2015.02.010">10.1016/j.nucengdes.2015.02.010</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0029549315000928">http://www.sciencedirect.com/science/article/pii/S0029549315000928</a></div>
 </div>
 </div>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

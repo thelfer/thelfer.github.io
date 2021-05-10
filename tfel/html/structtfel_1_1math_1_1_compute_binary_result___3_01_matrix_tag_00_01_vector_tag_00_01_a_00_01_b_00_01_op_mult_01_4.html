@@ -91,18 +91,18 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a771031b89e6e544159a018f389209f17"><td class="memItemLeft" align="right" valign="top"><a id="a771031b89e6e544159a018f389209f17"></a>
-typedef <a class="el" href="structtfel_1_1math_1_1_matrix_type.html">MatrixType</a>&lt; typename std::decay&lt; A &gt;::type &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>MatA</b></td></tr>
-<tr class="separator:a771031b89e6e544159a018f389209f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1872cdda48799857aa94fd5aa6f02c77"><td class="memItemLeft" align="right" valign="top"><a id="a1872cdda48799857aa94fd5aa6f02c77"></a>
-typedef <a class="el" href="structtfel_1_1math_1_1_vector_type.html">VectorType</a>&lt; typename std::decay&lt; B &gt;::type &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>VecB</b></td></tr>
-<tr class="separator:a1872cdda48799857aa94fd5aa6f02c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ee505a1f47abec4adccb1d6253f7031"><td class="memItemLeft" align="right" valign="top"><a id="a3ee505a1f47abec4adccb1d6253f7031"></a>
-typedef <a class="el" href="structtfel_1_1math_1_1_result_type.html">ResultType</a>&lt; MatA, VecB, <a class="el" href="structtfel_1_1math_1_1_op_mult.html">OpMult</a> &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>Result</b></td></tr>
-<tr class="separator:a3ee505a1f47abec4adccb1d6253f7031"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc96a5b2d817bae5e2288fda5c7029f5"><td class="memItemLeft" align="right" valign="top"><a id="afc96a5b2d817bae5e2288fda5c7029f5"></a>
-typedef std::conditional&lt; <a class="el" href="structtfel_1_1typetraits_1_1_is_invalid.html">tfel::typetraits::IsInvalid</a>&lt; Result &gt;::cond, DummyHandle, typename <a class="el" href="classtfel_1_1math_1_1_matrix_vector_handle.html">MatrixVectorHandle</a>&lt; MatA, VecB, A, B &gt;::type &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>Handle</b></td></tr>
-<tr class="separator:afc96a5b2d817bae5e2288fda5c7029f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81f93679bff05a167f255c2d02044e33"><td class="memItemLeft" align="right" valign="top"><a id="a81f93679bff05a167f255c2d02044e33"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixTypeA</b> = <a class="el" href="namespacetfel_1_1math.html#af77fbcb0679a70e562fe1e0f10f5e61c">EvaluationResult</a>&lt; A &gt;</td></tr>
+<tr class="separator:a81f93679bff05a167f255c2d02044e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cbc2ad0112b3b4c2cca1ef187d57a1f"><td class="memItemLeft" align="right" valign="top"><a id="a1cbc2ad0112b3b4c2cca1ef187d57a1f"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>VectorTypeB</b> = <a class="el" href="namespacetfel_1_1math.html#af77fbcb0679a70e562fe1e0f10f5e61c">EvaluationResult</a>&lt; B &gt;</td></tr>
+<tr class="separator:a1cbc2ad0112b3b4c2cca1ef187d57a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57ae347d7a56cf379b9bc50048e5bf36"><td class="memItemLeft" align="right" valign="top"><a id="a57ae347d7a56cf379b9bc50048e5bf36"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Result</b> = <a class="el" href="namespacetfel_1_1math.html#a148d63c9fac3faf5a99af96ffdb36664">result_type</a>&lt; MatrixTypeA, VectorTypeB, <a class="el" href="structtfel_1_1math_1_1_op_mult.html">OpMult</a> &gt;</td></tr>
+<tr class="separator:a57ae347d7a56cf379b9bc50048e5bf36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a570fb1a2d5247976a86324fca9fa76ed"><td class="memItemLeft" align="right" valign="top"><a id="a570fb1a2d5247976a86324fca9fa76ed"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Handle</b> = std::conditional_t&lt; <a class="el" href="structtfel_1_1typetraits_1_1_is_invalid.html">tfel::typetraits::IsInvalid</a>&lt; Result &gt;::cond, DummyHandle, typename <a class="el" href="classtfel_1_1math_1_1_matrix_vector_handle.html">MatrixVectorHandle</a>&lt; MatrixTypeA, VectorTypeB, A, B &gt;::type &gt;</td></tr>
+<tr class="separator:a570fb1a2d5247976a86324fca9fa76ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="_matrix_concept_operations_8hxx.html">MatrixConceptOperations.hxx</a></li>
@@ -116,7 +116,7 @@ typedef std::conditional&lt; <a class="el" href="structtfel_1_1typetraits_1_1_is
 </div>
 </div>
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 18 2018 20:55:03 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 3 2021 21:24:48 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

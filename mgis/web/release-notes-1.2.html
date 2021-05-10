@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -82,7 +81,7 @@
             <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -118,6 +117,8 @@
 		<li><a href="release-notes-1.1.html">Version 1.1</a></li>
 		<li><a href="release-notes-1.1.1.html">Version 1.1.1</a></li>
 		<li><a href="release-notes-1.2.html">Version 1.2</a></li>
+		<li><a href="release-notes-1.2.1.html">Version 1.2.1</a></li>
+		<li><a href="release-notes-1.3.html">Version 1.3</a></li>
 	      </ul>
 	    </li>
 	    <li><a>Specific topics</a>
@@ -144,32 +145,39 @@
       </ul>
     </header>
     <br></br>
-        <div id="header">
-      <h1 class="title">MFrontGenericInterfaceSupport Version 1.2</h1>
-                  <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">2020</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#new-functionalities">New functionalities</a><ul>
-      <li><a href="#orthotropic-behaviours">Orthotropic behaviours</a><ul>
-      <li><a href="#example">Example</a></li>
-      </ul></li>
-      <li><a href="#update-to-the-c-bindings">Update to the <code>C</code> bindings</a></li>
-      <li><a href="#fortran-bindings">Fortran bindings</a></li>
-      </ul></li>
-      <li><a href="#issues-solved">Issues solved</a><ul>
-      <li><a href="#issue-33-function-for-checking-if-the-behaviour-is-a-finite-strain-one">Issue #33: Function for checking if the behaviour is a Finite Strain one</a></li>
-      <li><a href="#issue-32-better-const-correctness">Issue #32: Better <code>const</code> correctness</a></li>
-      <li><a href="#issue-30-variables-array-size-depending-on-type-and-modelling-hypothesis">Issue #30: Variables array size depending on type and modelling hypothesis</a></li>
-      <li><a href="#issue-28-missing-block-jacobian-info-in-python-bindings">Issue #28: Missing block jacobian info in <code>python</code> bindings</a></li>
-      <li><a href="#issue-27-get-internal-state-variables-array-size-via-fortran-bindings">Issue #27: Get internal state variables array size via fortran bindings</a></li>
-      <li><a href="#issue-25-exporting-mgis-build-tree-for-use-by-external-projects">Issue #25: Exporting MGIS build tree for use by external projects</a></li>
-      </ul></li>
-      <li><a href="#references">References</a></li>
-      </ul>
-    </div>
-        <p>Version 1.2 of <code>MFrontGenericInterfaceSupport</code> is compatible with the Version 3.4 of <code>TFEL/MFront</code>.</p>
+<div id="header">
+<h1 class="title">MFrontGenericInterfaceSupport Version 1.2</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">2020</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#known-incompatibilities">Known incompatibilities</a></li>
+<li><a href="#new-functionalities">New functionalities</a>
+<ul>
+<li><a href="#orthotropic-behaviours">Orthotropic behaviours</a>
+<ul>
+<li><a href="#example">Example</a></li>
+</ul></li>
+<li><a href="#update-to-the-c-bindings">Update to the <code>C</code> bindings</a></li>
+<li><a href="#fortran-bindings">Fortran bindings</a></li>
+</ul></li>
+<li><a href="#issues-solved">Issues solved</a>
+<ul>
+<li><a href="#issues-54-inform-the-calling-code-about-dissipatedenergy-andor-internalenergy">Issues #54: Inform the calling code about <code>@DissipatedEnergy</code> and/or <code>@InternalEnergy</code></a></li>
+<li><a href="#issue-33-function-for-checking-if-the-behaviour-is-a-finite-strain-one">Issue #33: Function for checking if the behaviour is a Finite Strain one</a></li>
+<li><a href="#issue-32-better-const-correctness">Issue #32: Better <code>const</code> correctness</a></li>
+<li><a href="#issue-30-variables-array-size-depending-on-type-and-modelling-hypothesis">Issue #30: Variables array size depending on type and modelling hypothesis</a></li>
+<li><a href="#issue-28-missing-block-jacobian-info-in-python-bindings">Issue #28: Missing block jacobian info in <code>python</code> bindings</a></li>
+<li><a href="#issue-27-get-internal-state-variables-array-size-via-fortran-bindings">Issue #27: Get internal state variables array size via fortran bindings</a></li>
+<li><a href="#issue-25-exporting-mgis-build-tree-for-use-by-external-projects">Issue #25: Exporting MGIS build tree for use by external projects</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<p>Version 1.2 of <code>MFrontGenericInterfaceSupport</code> is compatible with the Version 3.4 of <code>TFEL/MFront</code>.</p>
+<h1 id="known-incompatibilities">Known incompatibilities</h1>
+<p>The <code>stored_energies</code> and <code>dissipated_energies</code> are now automatically allocated only of the behaviours by the <code>MaterialStateManager</code> class only if the behaviours is able to compute them.</p>
 <h1 id="new-functionalities">New functionalities</h1>
 <h2 id="orthotropic-behaviours">Orthotropic behaviours</h2>
 <p>For orthotropic behaviours, the <code>Behaviour</code> structure exposes <span class="math inline">\(6\)</span> function pointers:</p>
@@ -196,10 +204,10 @@
 <p>For convenience (and debugging), the call to those functions pointers are mapped into the following free functions: <code>rotateGradients</code>, <code>rotateArrayOfGradients</code>, <code>rotateThermodynamicForces</code> and <code>rotateArrayOfThermodynamicForces</code>. Those functions perform additional consistency checks (compared to the functions exposed by the <code>Behaviour</code> class) which might hurt performances, especially when dealing with one integration point only. Each of these functions is overloaded twice for in-place operations and out-of-place operations.</p>
 <h3 id="example">Example</h3>
 <p>The following example shows how to rotate the gradients of a small strain strain behaviour in generalised plane strain:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="at">const</span> <span class="bu">std::</span>array&lt;real, <span class="dv">9</span>&gt; r = {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>};</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="at">const</span> <span class="bu">std::</span>array&lt;real, <span class="dv">4</span>&gt; ge = {<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>};</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="bu">std::</span>array&lt;real, <span class="dv">4</span>&gt; me;</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">rotateGradients(me, b, ge, r);</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="bu">std::</span>array&lt;real, <span class="dv">9</span>&gt; r = {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>};</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="bu">std::</span>array&lt;real, <span class="dv">4</span>&gt; ge = {<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>};</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>array&lt;real, <span class="dv">4</span>&gt; me;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>rotateGradients(me, b, ge, r);</span></code></pre></div>
 <h2 id="update-to-the-c-bindings">Update to the <code>C</code> bindings</h2>
 <p>The following functions are now available:</p>
 <ul>
@@ -217,6 +225,17 @@
 <li><code>get_variable_size</code>: this function returns the size of a variable (i.e. the number of components) for the given hypothesis.</li>
 </ul>
 <h1 id="issues-solved">Issues solved</h1>
+<h2 id="issues-54-inform-the-calling-code-about-dissipatedenergy-andor-internalenergy">Issues #54: Inform the calling code about <code>@DissipatedEnergy</code> and/or <code>@InternalEnergy</code></h2>
+<p>The <code>Behaviour</code> class now exposes two new boolean data members:</p>
+<ul>
+<li><code>computesStoredEnergy</code>: if true, the behaviour computes the stored energy</li>
+<li><code>computesDissipatedEnergy</code>: if false, the behaviour computes the dissipated energy</li>
+</ul>
+<p>In the <code>C</code> bindings, the <code>mgis_bv_behaviour_computes_stored_energy</code> and <code>mgis_bv_behaviour_computes_dissipated_energy</code> functions are now available.</p>
+<p>In the <code>fortran</code> bindings, the functions <code>behaviour_computes_stored_energy</code> and <code>behaviour_computes_dissipated_energy</code> are now available in the <code>mgis_behaviour</code> module.</p>
+<p>In the <code>python</code> bindings, the <code>Behaviour</code> class now exposes two read only properties: <code>computesStoredEnergy</code> and <code>computesDissipatedEnergy</code>.</p>
+<p>The <code>MaterialDataManager</code> constructor now only allocates the memory associated with the stored and disspated energies only if the behaviour computes those energies.</p>
+<p>For details, see <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/54" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/54</a></p>
 <h2 id="issue-33-function-for-checking-if-the-behaviour-is-a-finite-strain-one">Issue #33: Function for checking if the behaviour is a Finite Strain one</h2>
 <p>The <code>mgis::behaviour::isStandardFiniteStrainBehaviour</code> has been added to check if a behaviour is a finite strain behaviour and if its kinematic is also standard (i.e. is of the <code>F-Cauchy</code> kind although the stress measure can be chosen when loading the behaviour).</p>
 <p>This function is exposed as:</p>
@@ -243,12 +262,12 @@
 <p>The tangent operator blocks are now available in the <code>python</code> bindings under the <code>tangent_operator_blocks</code> property of the <code>Behaviour</code> class.</p>
 <p>Those blocks are accessible as an array of tuples of instances of the <code>Variable</code> class.</p>
 <p>This feature can be used as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="im">import</span> mgis.behaviour <span class="im">as</span> mgis_bv</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">h <span class="op">=</span> mgis_bv.Hypothesis.Tridimensional</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">b <span class="op">=</span> mgis_bv.load(<span class="st">&#39;src/libBehaviour.so&#39;</span>,<span class="st">&#39;StationaryHeatTransfer2&#39;</span>,h)</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="cf">for</span> t <span class="kw">in</span> b.tangent_operator_blocks:</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="bu">print</span>(<span class="st">&#39;d</span><span class="sc">{}</span><span class="st">_d</span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(t[<span class="dv">0</span>].name,t[<span class="dv">1</span>].name))</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mgis.behaviour <span class="im">as</span> mgis_bv</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> mgis_bv.Hypothesis.Tridimensional</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> mgis_bv.load(<span class="st">&#39;src/libBehaviour.so&#39;</span>,<span class="st">&#39;StationaryHeatTransfer2&#39;</span>,h)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> b.tangent_operator_blocks:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;d</span><span class="sc">{}</span><span class="st">_d</span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(t[<span class="dv">0</span>].name,t[<span class="dv">1</span>].name))</span></code></pre></div>
 <p>For details, see <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/28" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/28</a></p>
 <h2 id="issue-27-get-internal-state-variables-array-size-via-fortran-bindings">Issue #27: Get internal state variables array size via fortran bindings</h2>
 <p>For details, see <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/27" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/27</a></p>
@@ -260,11 +279,11 @@
 <li><code>MFrontGenericInterface-fortranConfig.cmake</code>: configuration file for the <code>MFrontGenericInterface-fortran</code> library which contains the <code>fortran</code> bindings of <code>MGIS</code>.</li>
 </ul>
 <p>Those files can be used as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cmake"><code class="sourceCode cmake"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">find_package</span> (MFrontGenericInterface <span class="ot">REQUIRED</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">find_package</span> (MFrontGenericInterface <span class="ot">REQUIRED</span>)</span></code></pre></div>
 <p>The previous instruction imports the <code>mgis::MFrontGenericInterface</code> target, which can be used as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cmake"><code class="sourceCode cmake"><a class="sourceLine" id="cb4-1" data-line-number="1">  <span class="kw">target_link_libraries</span>(HybridHighOrder</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="ot">PRIVATE</span> mgis::MFrontGenericInterface)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">target_link_libraries</span>(HybridHighOrder</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="ot">PRIVATE</span> <span class="bn">mgis::MFrontGenericInterface</span>)</span></code></pre></div>
 <p>For details, see <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/25" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/25</a></p>
 <h1 id="references">References</h1>
-      </body>
+</body>
 </html>

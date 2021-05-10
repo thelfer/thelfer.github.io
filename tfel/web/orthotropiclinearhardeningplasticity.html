@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -80,7 +79,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -98,64 +97,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -177,6 +193,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -243,31 +260,31 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">How to implement an orthotropic plastic behaviour with isotropic linear hardening in MFront</h1>
-                  <h2 class="author">Thomas Helfer, Lorenzo Riparbelli, Ioannis Christovasilis</h2>
-                  <h3 class="date">27/01/2017</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#description-of-the-behaviour">Description of the behaviour</a><ul>
-      <li><a href="#elastic-behaviour">Elastic behaviour</a></li>
-      <li><a href="#plastic-flow">Plastic flow</a></li>
-      </ul></li>
-      <li><a href="#integration-algorithm">Integration algorithm</a><ul>
-      <li><a href="#plastic-loading-case">Plastic loading case</a></li>
-      <li><a href="#elastic-loading-case">Elastic loading case</a></li>
-      </ul></li>
-      <li><a href="#implementation">Implementation</a><ul>
-      <li><a href="#preamble">Preamble</a></li>
-      <li><a href="#initialization-of-the-local-variables-determination-of-the-loading-case">Initialization of the local variables, determination of the loading case</a></li>
-      <li><a href="#implicit-system-and-jacobian">Implicit system and jacobian</a></li>
-      </ul></li>
-      </ul>
-    </div>
-        
-
+<div id="header">
+<h1 class="title">How to implement an orthotropic plastic behaviour with isotropic linear hardening in MFront</h1>
+<h2 class="author">Thomas Helfer, Lorenzo Riparbelli, Ioannis Christovasilis</h2>
+<h3 class="date">27/01/2017</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#description-of-the-behaviour">Description of the behaviour</a>
+<ul>
+<li><a href="#elastic-behaviour">Elastic behaviour</a></li>
+<li><a href="#plastic-flow">Plastic flow</a></li>
+</ul></li>
+<li><a href="#integration-algorithm">Integration algorithm</a>
+<ul>
+<li><a href="#plastic-loading-case">Plastic loading case</a></li>
+<li><a href="#elastic-loading-case">Elastic loading case</a></li>
+</ul></li>
+<li><a href="#implementation">Implementation</a>
+<ul>
+<li><a href="#preamble">Preamble</a></li>
+<li><a href="#initialization-of-the-local-variables-determination-of-the-loading-case">Initialization of the local variables, determination of the loading case</a></li>
+<li><a href="#implicit-system-and-jacobian">Implicit system and jacobian</a></li>
+</ul></li>
+</ul>
+</div>
 <p>This article shows how to implement an orthotropic plastic behaviour with isotropic linear hardening in <code>MFront</code>. Such an example illustrates:</p>
 <ul>
 <li>The usage of <code>StandardElasticity</code> brick (see <a href="BehaviourBricks.html">this page</a>).</li>
@@ -344,17 +361,17 @@ J=
 <p>In the plastic loading case, the system of equations to be solved is <em>non-linear</em>. We choose the Newton-Raphson algorithm with an analytical jacobian. Compared to other algorithm available in <code>MFront</code> (Runge-Kutta, Broyden, Newton-Raphson with numerical jacobian, etc..), this algorithm is generally the <em>most efficient</em> in pratice.</p>
 <h2 id="preamble">Preamble</h2>
 <p>The implementation begins with the choice of the <code>Implicit</code> domain specific language (dsl):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span></code></pre></div>
 <p>Note that this dsl automatically declares the elastic strain <code>eel</code> as a state variable.</p>
 <p>As discussed before, we explicit state that a fully implicit integration will be used by default:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Theta <span class="dv">1</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span>;</span></code></pre></div>
 <p>This value can be changed at runtime by modifying the <code>theta</code> parameter.</p>
 <p>The stopping criterion is chosen low, to ensure the quality of the consistent tangent operator (the default value, <span class="math inline">\(10^{-8}\)</span> is enough to ensure a good estimation of the state variable evolution, but is not enough to have a proper estimation of the consistent tangent operator):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>Epsilon <span class="fl">1e-14</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1e-14</span>;</span></code></pre></div>
 <p>We then declare the behaviour to be orthotropic. We choose the <code>pipe</code> orthotropic convention to have a consistent definition of the elastic stiffness tensor and hill tensor for all modelling hypotheses (axes are automatically permuted for plane modelling hypotheses):</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>OrthotropicBehaviour&lt;Pipe&gt;;</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>OrthotropicBehaviour&lt;Pipe&gt;;</span></code></pre></div>
 <p>We then declare that we want to support all the modelling hypotheses:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>ModellingHypotheses {<span class="st">&quot;.+&quot;</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses {<span class="st">&quot;.+&quot;</span>};</span></code></pre></div>
 <p>The support of plane stress modelling hypotheses are handled by the <code>StandardElasticity</code> brick and will not be discussed here.</p>
 <h3 id="usage-of-the-standardelasticity-brick">Usage of the <code>StandardElasticity</code> brick</h3>
 <p>To implement this behaviour, we will use the <code>StandardElasticity</code> brick which provides:</p>
@@ -366,75 +383,75 @@ J=
 </ul>
 <p>This behaviour brick is fully described <a href="BehaviourBricks.html">here</a>.</p>
 <p>The usage of the <code>StandardElasticity</code> is declared as follows:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="er">@</span>Brick StandardElasticity;</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity;</span></code></pre></div>
 <h3 id="elastic-stiffness-tensor">Elastic stiffness tensor</h3>
 <p>The elastic stiffness tensor <span class="math inline">\(D\)</span> is defined using <code>@ComputeStiffnessTensor</code> keyword by giving the elastic material properties as constants:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>ComputeStiffnessTensor&lt;UnAltered&gt; {</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="co">// YoungModulus1 YoungModulus2 YoungModulus3</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">  <span class="fl">7.8e+10</span>,<span class="fl">2.64233e+11</span>,<span class="fl">3.32e+11</span>,</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="co">// PoissonRatio12 PoissonRatio23 PoissonRatio13</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">  <span class="fl">0.13</span>,<span class="fl">0.24</span>,<span class="fl">0.18</span>,</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">  <span class="co">// ShearModulus12 ShearModulus23 ShearModulus13</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">  <span class="fl">4.8e+10</span>,<span class="fl">1.16418e+11</span>,<span class="fl">7.8e+10</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">};</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeStiffnessTensor&lt;UnAltered&gt; {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// YoungModulus1 YoungModulus2 YoungModulus3</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fl">7.8e+10</span>,<span class="fl">2.64233e+11</span>,<span class="fl">3.32e+11</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// PoissonRatio12 PoissonRatio23 PoissonRatio13</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.13</span>,<span class="fl">0.24</span>,<span class="fl">0.18</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// ShearModulus12 ShearModulus23 ShearModulus13</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fl">4.8e+10</span>,<span class="fl">1.16418e+11</span>,<span class="fl">7.8e+10</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
 <p>This computed stiffness is stored in a variable <code>D</code>. A second variable <code>D_tdt</code> is also introduced. As the material properties are constants, <code>D_tdt</code> is an alias to <code>D</code>.</p>
 <p>The elastic material properties can be changed at runtime time by modifying the following parameters: <code>YoungModulus1</code>, <code>YoungModulus2</code>,<code>YoungModulus3</code>, <code>PoissonRatio12</code>, <code>PoissonRatio23</code>, <code>PoissonRatio13</code>, <code>ShearModulus12</code>, <code>ShearModulus23</code> and <code>ShearModulus13</code>.</p>
 <p>Rather than constants, one can also use correlations implemented in seperate <code>MFront</code> files. This allows to take into account the dependency of the material properties with the temperature for example. In this case, the variable <code>D</code> contains the stiffness tensor at <span class="math inline">\(t+\theta\,\Delta\,t\)</span> and the variable <code>D_tdt</code> contains the stiffness tensor at <span class="math inline">\(t+\Delta\,t\)</span>.</p>
 <p>Another possibility is to use the <code>@RequireStiffnessTensor</code> keyword. In this case, the elastic material properties must be computed by the calling solver at the end of the time step (and furnished to the mechanical behaviours through hidden material properties).</p>
 <h3 id="hill-tensor">Hill tensor</h3>
 <p>For the computation of the Hill tensor, we make use of the <code>@HillTensor</code> keyword:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>HillTensor H {<span class="fl">0.371</span>,<span class="fl">0.629</span>,<span class="fl">4.052</span>,<span class="fl">1.5</span>,<span class="fl">1.5</span>,<span class="fl">1.5</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>HillTensor H {<span class="fl">0.371</span>,<span class="fl">0.629</span>,<span class="fl">4.052</span>,<span class="fl">1.5</span>,<span class="fl">1.5</span>,<span class="fl">1.5</span>};</span></code></pre></div>
 <h3 id="variable-declarations">Variable declarations</h3>
 <h4 id="state-variables">State variables</h4>
 <p>As stated earlier, the state variable <code>eel</code> is automatically declared by the <code>Implicit</code> dsl.</p>
 <p>The equivalent plastic strain state variable <code>p</code> is declared as:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>StateVariable real p;</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real p;</span></code></pre></div>
 <p>We then associate the appropriate glossary name to this variable:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1">p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</span></code></pre></div>
 <h4 id="parameters">Parameters</h4>
 <p>The definition of yield surface introduces two material coefficients <span class="math inline">\(\sigma_{0}\)</span> and <span class="math inline">\(R\)</span> that we declare as parameters:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="er">@</span>Parameter s0 = <span class="fl">150e6</span>;</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">s0.setGlossaryName(<span class="st">&quot;YieldStress&quot;</span>);</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="er">@</span>Parameter R  = <span class="fl">150e9</span>;</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">R.setEntryName(<span class="st">&quot;HardeningSlope&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter s0 = <span class="fl">150e6</span>;</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>s0.setGlossaryName(<span class="st">&quot;YieldStress&quot;</span>);</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter R  = <span class="fl">150e9</span>;</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>R.setEntryName(<span class="st">&quot;HardeningSlope&quot;</span>);</span></code></pre></div>
 <p>The <code>YieldStress</code> is an entry of the glossary (see <a href="glossary.html">here</a>). The <code>HardeningSlope</code> name is not declared in the glossary name (yet) and is then associated to the <span class="math inline">\(R\)</span> variable with the <code>setEntryName</code> method.</p>
 <h4 id="local-variable">Local variable</h4>
 <p>To select the implicit system associated either with the elastic or plastic loading case, we introduce a boolean local variable <code>b</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="er">@</span>LocalVariable <span class="dt">bool</span> b; <span class="co">// if true, plastic loading</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">bool</span> b; <span class="co">// if true, plastic loading</span></span></code></pre></div>
 <h2 id="initialization-of-the-local-variables-determination-of-the-loading-case">Initialization of the local variables, determination of the loading case</h2>
 <p>Before solving the implicit system, the code block introduced by the <code>@InitLocalVariables</code> keyword is executed. For this behaviour, this block will select either the elastic or plastic loading case.</p>
 <p>We first make an <em>elastic prediction</em> of the stress at the end of the time step. We use the <code>computeElasticPrediction</code> method introduced by the <code>StandardElasticity</code> brick. This method takes into account the modelling hypothesis, which is mandatory for plane stress modelling hypotheses. We then make an elastic prediction of the Hill equivalent stress and check whether or not this elastic prediction is inside the elastic domain. The latter information is stored in the boolean value <code>b</code> which will be <code>false</code> (no plastic loading) if the loading is elastic.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="er">@</span>InitLocalVariables{</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> s   = computeElasticPrediction();</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> seq = sqrt(s|H*s);</a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">  b = seq-s0-R*p &gt; <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb13-5" data-line-number="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables{</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> s   = computeElasticPrediction();</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> seq = sqrt(s|H*s);</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  b = seq-s0-R*p &gt; <span class="dv">0</span>;</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="implicit-system-and-jacobian">Implicit system and jacobian</h2>
 <p>Finally, we describe how the implicit system and the computation of the jacobian is written in a code block introduced by the <code>@Integrator</code> keyword.</p>
 <p>We use the following facts:</p>
 <ul>
-<li>The equations of implicit system are initialized to the state variables increments (i.e. <code>feel</code> is initialized to <code>deel</code>).</li>
-<li>The jacobian <span class="math inline">\(J\)</span> is initialized to the identity (i.e. <code>dfeel_ddeel</code> is initialized to the identity tensor).</li>
+<li>The equations of implicit system are initialized to the state variables increments (i.e. <code>feel</code> is initialized to <code>deel</code>).</li>
+<li>The jacobian <span class="math inline">\(J\)</span> is initialized to the identity (i.e. <code>dfeel_ddeel</code> is initialized to the identity tensor).</li>
 <li>The increment of the total strain is automatically deduced from <code>feel</code> by the <code>StandardElasticity</code> brick.</li>
 </ul>
 <p>Apart from those facts, the code is an almost direct translation of the mathematical expression described in previous sections and boils down to the following lines of code:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="er">@</span>Integrator{</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="cf">if</span>(b){</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">    <span class="at">const</span> <span class="kw">auto</span> seq = sqrt(sig|H*sig);</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">    <span class="at">const</span> <span class="kw">auto</span> iseq = <span class="dv">1</span>/(max(seq,real(<span class="dv">1</span>.e<span class="dv">-10</span>*D(<span class="dv">0</span>,<span class="dv">0</span>))));</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">    <span class="at">const</span> <span class="kw">auto</span> n = iseq*H*sig;</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">    <span class="co">// elasticity</span></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7">    feel        += dp*n;</a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">    dfeel_ddeel += theta*dp*iseq*(H-(n^n))*D;</a>
-<a class="sourceLine" id="cb14-9" data-line-number="9">    dfeel_ddp    = n;</a>
-<a class="sourceLine" id="cb14-10" data-line-number="10">    <span class="co">// plasticity</span></a>
-<a class="sourceLine" id="cb14-11" data-line-number="11">    fp           = (seq-s0-R*(p+theta*dp))/D(<span class="dv">0</span>,<span class="dv">0</span>);</a>
-<a class="sourceLine" id="cb14-12" data-line-number="12">    dfp_ddp      = -theta*(R/D(<span class="dv">0</span>,<span class="dv">0</span>));</a>
-<a class="sourceLine" id="cb14-13" data-line-number="13">    dfp_ddeel    =  theta*(n|D)/D(<span class="dv">0</span>,<span class="dv">0</span>);</a>
-<a class="sourceLine" id="cb14-14" data-line-number="14">  }</a>
-<a class="sourceLine" id="cb14-15" data-line-number="15">}</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(b){</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> seq = sqrt(sig|H*sig);</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> iseq = <span class="dv">1</span>/(max(seq,real(<span class="fl">1.e-10</span>*D(<span class="dv">0</span>,<span class="dv">0</span>))));</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> n = iseq*H*sig;</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// elasticity</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    feel        += dp*n;</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    dfeel_ddeel += theta*dp*iseq*(H-(n^n))*D;</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    dfeel_ddp    = n;</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// plasticity</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    fp           = (seq-s0-R*(p+theta*dp))/D(<span class="dv">0</span>,<span class="dv">0</span>);</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    dfp_ddp      = -theta*(R/D(<span class="dv">0</span>,<span class="dv">0</span>));</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    dfp_ddeel    =  theta*(n|D)/D(<span class="dv">0</span>,<span class="dv">0</span>);</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <!-- Local IspellDict: english -->
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

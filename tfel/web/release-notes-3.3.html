@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -82,7 +81,7 @@
             <link rel="stylesheet" href=" css/slideshow.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -100,64 +99,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -179,6 +195,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -245,54 +262,58 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">New functionalities of the 3.3 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
-                  <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">2019</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#documentation-and-talks"><span class="toc-section-number">1</span> Documentation and talks</a><ul>
-      <li><a href="#new-entries-of-the-mfront-gallery"><span class="toc-section-number">1.1</span> New entries of the <code>MFront</code>’ gallery</a></li>
-      <li><a href="#talks-of-the-fifth-mfront-user-day"><span class="toc-section-number">1.2</span> Talks of the fifth <code>MFront</code> User Day</a></li>
-      </ul></li>
-      <li><a href="#improvements-to-mfront"><span class="toc-section-number">2</span> Improvements to <code>MFront</code></a><ul>
-      <li><a href="#unicode-support"><span class="toc-section-number">2.1</span> Unicode Support</a></li>
-      <li><a href="#initial-support-for-generalised-behaviours"><span class="toc-section-number">2.2</span> Initial support for generalised behaviours</a></li>
-      <li><a href="#a-new-stress-potential-in-the-standardelastoviscoplasticity-brick"><span class="toc-section-number">2.3</span> A new stress potential in the <code>StandardElastoViscoPlasticity</code> brick</a></li>
-      <li><a href="#sec:build_identifiers"><span class="toc-section-number">2.4</span> Specifying a build identifier</a></li>
-      <li><a href="#parameters-can-now-be-declared-with-a-type"><span class="toc-section-number">2.5</span> Parameters can now be declared with a type</a></li>
-      <li><a href="#sec:cyrano:material_properties"><span class="toc-section-number">2.6</span> New material property interface for the <code>Cyrano</code> fuel performance code</a></li>
-      <li><a href="#sec:mfrontcastem:exported_elastic_properties"><span class="toc-section-number">2.7</span> Improvements to the <code>Cast3M</code>’ behaviour interface</a></li>
-      <li><a href="#improvements-to-the-cyrano-behaviour-interface"><span class="toc-section-number">2.8</span> Improvements to the <code>Cyrano</code>’ behaviour interface</a></li>
-      <li><a href="#various-api-improvements"><span class="toc-section-number">2.9</span> Various API improvements</a></li>
-      <li><a href="#new-experimental-interfaces-for-comsol-multiphysics-and-diana-fea"><span class="toc-section-number">2.10</span> New experimental interfaces for <code>COMSOL Multiphysics</code> and <code>DIANA FEA</code></a></li>
-      </ul></li>
-      <li><a href="#improvements-to-mtest"><span class="toc-section-number">3</span> Improvements to <code>MTest</code></a><ul>
-      <li><a href="#ability-to-choose-the-stress-measure-used-in-inputoutput-and-the-consistent-tangent-operator-returned-for-finite-strain-behaviours-through-the-generic-interface"><span class="toc-section-number">3.1</span> Ability to choose the stress measure used in input/output and the consistent tangent operator returned for finite strain behaviours through the <code>generic</code> interface</a></li>
-      <li><a href="#sec:mtest:castem:exported_elastic_properties"><span class="toc-section-number">3.2</span> Automatically load exported elastic properties for <code>Cast3M</code> behaviours</a></li>
-      <li><a href="#new-methods-python-bindings"><span class="toc-section-number">3.3</span> New methods (<code>python</code> bindings)</a></li>
-      </ul></li>
-      <li><a href="#mfm-test-generator"><span class="toc-section-number">4</span> <code>mfm-test-generator</code></a></li>
-      <li><a href="#tfel-core-libraries"><span class="toc-section-number">5</span> <code>TFEL</code>’ core libraries</a><ul>
-      <li><a href="#improvements-and-new-features-of-tfelmaterial-library"><span class="toc-section-number">5.1</span> Improvements and new features of <code>TFEL/Material</code> library</a></li>
-      <li><a href="#new-library-tfelunicodesupport"><span class="toc-section-number">5.2</span> New library: <code>TFELUnicodeSupport</code></a></li>
-      <li><a href="#improvements-and-new-features-of-tfelsystem-library"><span class="toc-section-number">5.3</span> Improvements and new features of <code>TFEL/System</code> library</a></li>
-      </ul></li>
-      <li><a href="#known-incompatibilities"><span class="toc-section-number">6</span> Known incompatibilities</a><ul>
-      <li><a href="#api-changes-in-the-class-targetsdescription"><span class="toc-section-number">6.1</span> API changes in the class <code>TargetsDescription</code></a></li>
-      </ul></li>
-      <li><a href="#tickets-solved-during-the-development-of-this-version"><span class="toc-section-number">7</span> Tickets solved during the development of this version</a><ul>
-      <li><a href="#ticket-183-calling-an-mfront-function-material-properties-with-the-cyrano-interface"><span class="toc-section-number">7.1</span> Ticket #183: Calling an MFront function (material properties) with the ‘cyrano’ interface</a></li>
-      <li><a href="#ticket-172-support-for-dynamic-choice-of-the-consistent-tangent-operator-of-finite-strain-behaviours-using-the-generic-interface"><span class="toc-section-number">7.2</span> Ticket #172: Support for dynamic choice of the consistent tangent operator of finite strain behaviours using the <code>generic</code> interface</a></li>
-      <li><a href="#ticket-171-add-the-derivative-of-the-first-piola-kirchoff-stress-as-a-possible-consistent-tangentor-for-finite-strain-behaviours"><span class="toc-section-number">7.3</span> Ticket #171: Add the derivative of the first Piola-Kirchoff stress as a possible consistent tangentor for finite strain behaviours</a></li>
-      <li><a href="#ticket-169-determinant-of-a-fourth-order-tensor"><span class="toc-section-number">7.4</span> Ticket #169: Determinant of a fourth-order tensor</a></li>
-      </ul></li>
-      <li><a href="#references">References</a></li>
-      </ul>
-    </div>
-        
+<div id="header">
+<h1 class="title">New functionalities of the 3.3 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">2019</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#documentation-and-talks"><span class="toc-section-number">1</span> Documentation and talks</a>
+<ul>
+<li><a href="#new-entries-of-the-mfront-gallery"><span class="toc-section-number">1.1</span> New entries of the <code>MFront</code>’ gallery</a></li>
+<li><a href="#talks-of-the-fifth-mfront-user-day"><span class="toc-section-number">1.2</span> Talks of the fifth <code>MFront</code> User Day</a></li>
+</ul></li>
+<li><a href="#improvements-to-mfront"><span class="toc-section-number">2</span> Improvements to <code>MFront</code></a>
+<ul>
+<li><a href="#unicode-support"><span class="toc-section-number">2.1</span> Unicode Support</a></li>
+<li><a href="#initial-support-for-generalised-behaviours"><span class="toc-section-number">2.2</span> Initial support for generalised behaviours</a></li>
+<li><a href="#a-new-stress-potential-in-the-standardelastoviscoplasticity-brick"><span class="toc-section-number">2.3</span> A new stress potential in the <code>StandardElastoViscoPlasticity</code> brick</a></li>
+<li><a href="#sec:build_identifiers"><span class="toc-section-number">2.4</span> Specifying a build identifier</a></li>
+<li><a href="#parameters-can-now-be-declared-with-a-type"><span class="toc-section-number">2.5</span> Parameters can now be declared with a type</a></li>
+<li><a href="#sec:cyrano:material_properties"><span class="toc-section-number">2.6</span> New material property interface for the <code>Cyrano</code> fuel performance code</a></li>
+<li><a href="#sec:mfrontcastem:exported_elastic_properties"><span class="toc-section-number">2.7</span> Improvements to the <code>Cast3M</code>’ behaviour interface</a></li>
+<li><a href="#improvements-to-the-cyrano-behaviour-interface"><span class="toc-section-number">2.8</span> Improvements to the <code>Cyrano</code>’ behaviour interface</a></li>
+<li><a href="#various-api-improvements"><span class="toc-section-number">2.9</span> Various API improvements</a></li>
+<li><a href="#new-experimental-interfaces-for-comsol-multiphysics-and-diana-fea"><span class="toc-section-number">2.10</span> New experimental interfaces for <code>COMSOL Multiphysics</code> and <code>DIANA FEA</code></a></li>
+</ul></li>
+<li><a href="#improvements-to-mtest"><span class="toc-section-number">3</span> Improvements to <code>MTest</code></a>
+<ul>
+<li><a href="#ability-to-choose-the-stress-measure-used-in-inputoutput-and-the-consistent-tangent-operator-returned-for-finite-strain-behaviours-through-the-generic-interface"><span class="toc-section-number">3.1</span> Ability to choose the stress measure used in input/output and the consistent tangent operator returned for finite strain behaviours through the <code>generic</code> interface</a></li>
+<li><a href="#sec:mtest:castem:exported_elastic_properties"><span class="toc-section-number">3.2</span> Automatically load exported elastic properties for <code>Cast3M</code> behaviours</a></li>
+<li><a href="#new-methods-python-bindings"><span class="toc-section-number">3.3</span> New methods (<code>python</code> bindings)</a></li>
+</ul></li>
+<li><a href="#mfm-test-generator"><span class="toc-section-number">4</span> <code>mfm-test-generator</code></a></li>
+<li><a href="#tfel-core-libraries"><span class="toc-section-number">5</span> <code>TFEL</code>’ core libraries</a>
+<ul>
+<li><a href="#improvements-and-new-features-of-tfelmaterial-library"><span class="toc-section-number">5.1</span> Improvements and new features of <code>TFEL/Material</code> library</a></li>
+<li><a href="#new-library-tfelunicodesupport"><span class="toc-section-number">5.2</span> New library: <code>TFELUnicodeSupport</code></a></li>
+<li><a href="#improvements-and-new-features-of-tfelsystem-library"><span class="toc-section-number">5.3</span> Improvements and new features of <code>TFEL/System</code> library</a></li>
+</ul></li>
+<li><a href="#known-incompatibilities"><span class="toc-section-number">6</span> Known incompatibilities</a>
+<ul>
+<li><a href="#api-changes-in-the-class-targetsdescription"><span class="toc-section-number">6.1</span> API changes in the class <code>TargetsDescription</code></a></li>
+</ul></li>
+<li><a href="#tickets-solved-during-the-development-of-this-version"><span class="toc-section-number">7</span> Tickets solved during the development of this version</a>
+<ul>
+<li><a href="#ticket-183-calling-an-mfront-function-material-properties-with-the-cyrano-interface"><span class="toc-section-number">7.1</span> Ticket #183: Calling an MFront function (material properties) with the ‘cyrano’ interface</a></li>
+<li><a href="#ticket-172-support-for-dynamic-choice-of-the-consistent-tangent-operator-of-finite-strain-behaviours-using-the-generic-interface"><span class="toc-section-number">7.2</span> Ticket #172: Support for dynamic choice of the consistent tangent operator of finite strain behaviours using the <code>generic</code> interface</a></li>
+<li><a href="#ticket-171-add-the-derivative-of-the-first-piola-kirchoff-stress-as-a-possible-consistent-tangentor-for-finite-strain-behaviours"><span class="toc-section-number">7.3</span> Ticket #171: Add the derivative of the first Piola-Kirchoff stress as a possible consistent tangentor for finite strain behaviours</a></li>
+<li><a href="#ticket-169-determinant-of-a-fourth-order-tensor"><span class="toc-section-number">7.4</span> Ticket #169: Determinant of a fourth-order tensor</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
 <p>The page declares the new functionalities of the 3.3 version of the <code>TFEL</code> project.</p>
 <p>This version was released along with the following bug-fix releases:</p>
 <ul>
@@ -310,8 +331,8 @@
 <li>Various POSIX systems, such as <code>OpenSolaris</code>, <code>Haiku</code>, etc.</li>
 </ul>
 <p>More tests are available in the <a href="https://github.com/thelfer/MFrontGallery"><code>MFrontGallery</code> project</a>.</p>
-<h1 id="documentation-and-talks"><span class="header-section-number">1</span> Documentation and talks</h1>
-<h2 id="new-entries-of-the-mfront-gallery"><span class="header-section-number">1.1</span> New entries of the <code>MFront</code>’ gallery</h2>
+<h1 data-number="1" id="documentation-and-talks"><span class="header-section-number">1</span> Documentation and talks</h1>
+<h2 data-number="1.1" id="new-entries-of-the-mfront-gallery"><span class="header-section-number">1.1</span> New entries of the <code>MFront</code>’ gallery</h2>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IGocYZKyvgQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
@@ -325,7 +346,7 @@
 <li>The implementation of a behaviour coupling Fichant-La Borderie damage and Torelli’ load induced thermal strain is described <a href="FichantLaBorderieDamageAndTorelliLoadInducedStrainBehaviour.html">here</a>.</li>
 <li>The implementation of the non associated Mohr-Coulomb plastic behaviour is described <a href="MohrCoulomb.html">here</a>.</li>
 </ul>
-<h2 id="talks-of-the-fifth-mfront-user-day"><span class="header-section-number">1.2</span> Talks of the fifth <code>MFront</code> User Day</h2>
+<h2 data-number="1.2" id="talks-of-the-fifth-mfront-user-day"><span class="header-section-number">1.2</span> Talks of the fifth <code>MFront</code> User Day</h2>
 <p>Some of the talks of the fifth <code>MFront</code> User Day are available online:</p>
 <ul>
 <li><a href="https://github.com/thelfer/tfel-doc/tree/master/MFrontUserDays/FifthUserDays/TFEL-3.3-Helfer-MFrontUserDays-2019.pdf">Version 3.3 of the TFEL project</a>, by T. Helfer (CEA).</li>
@@ -337,149 +358,149 @@
 <li><a href="https://github.com/thelfer/tfel-doc/tree/master/MFrontUserDays/FifthUserDays/OpenGeoSys-Nagel-MFrontUserDays-2019.pdf">MFront and OpenGeoSys Connecting two open-source initiatives for simulations in environmental geosciences and energy geotechnics</a>, by T. Nagel, F. Parisio, D. Naumov, C. Lehmann, and O. Kolditz (Technische Universität Bergakademie Freiberg/Helmholtz Zentrum für Umweltforschung GmbH/Technische Universität Dresden/Competence Centre for Environmental Geosciences)</li>
 <li><a href="https://github.com/thelfer/tfel-doc/tree/master/MFrontUserDays/FifthUserDays/Xper-Perales-MFrontUserDays-2019.pdf">Xper: a software dedicated to the fracture of nonlinear heterogeneous materials. Coupling with MFront using MGIS</a>, by F. Péralès (IRNS).</li>
 </ul>
-<h1 id="improvements-to-mfront"><span class="header-section-number">2</span> Improvements to <code>MFront</code></h1>
-<h2 id="unicode-support"><span class="header-section-number">2.1</span> Unicode Support</h2>
+<h1 data-number="2" id="improvements-to-mfront"><span class="header-section-number">2</span> Improvements to <code>MFront</code></h1>
+<h2 data-number="2.1" id="unicode-support"><span class="header-section-number">2.1</span> Unicode Support</h2>
 <p>Some recent scientific programming languages like <a href="https://julialang.org/"><code>Julia</code></a> or <span class="math inline">\(\nabla\)</span> allow the usage of (a subset of) unicode characters <span class="citation" data-cites="camier_improving_2015 bezanson_julia:_2017">[1, 2]</span>. This allows a much more readable code, very close to the mathematical expressions.</p>
 <p>Here is an example of the implementation of a Norton behaviour:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>Integrator{</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> σᵉ = sigmaeq(σ);</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> iσᵉ = <span class="dv">1</span> / (max(σᵉ, real(<span class="dv">1</span>.e<span class="dv">-12</span>) ⋅ E));</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> vᵖ = A ⋅ pow(σᵉ, nn);</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="at">const</span> <span class="kw">auto</span> ∂vᵖ∕∂σᵉ = nn ⋅ vᵖ ⋅ iσᵉ;</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="at">const</span> <span class="kw">auto</span> n = <span class="dv">3</span> ⋅ deviator(σ) ⋅ (iσᵉ / <span class="dv">2</span>);</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">  <span class="co">// Implicit system</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">  fεᵉˡ += Δp ⋅ n;</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">  fp -= vᵖ ⋅ Δt;</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">  <span class="co">// jacobian</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">  ∂fεᵉˡ∕∂Δεᵉˡ += <span class="dv">2</span> ⋅ μ ⋅ θ ⋅ dp ⋅ iσᵉ ⋅ (Mᵉ - (n ⊗ n));</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">  ∂fεᵉˡ∕∂Δp = n;</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">  ∂fp∕∂Δεᵉˡ = <span class="dv">-2</span> ⋅ μ ⋅ θ ⋅ ∂vᵖ∕∂σᵉ ⋅ Δt ⋅ n;</a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">} <span class="co">// end of @Integrator</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> σᵉ = sigmaeq(σ);</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> iσᵉ = <span class="dv">1</span> / (max(σᵉ, real(<span class="fl">1.e-12</span>) ⋅ E));</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> vᵖ = A ⋅ pow(σᵉ, nn);</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂vᵖ∕∂σᵉ = nn ⋅ vᵖ ⋅ iσᵉ;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> n = <span class="dv">3</span> ⋅ deviator(σ) ⋅ (iσᵉ / <span class="dv">2</span>);</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Implicit system</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  fεᵉˡ += Δp ⋅ n;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  fp -= vᵖ ⋅ Δt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">// jacobian</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  ∂fεᵉˡ∕∂Δεᵉˡ += <span class="dv">2</span> ⋅ μ ⋅ θ ⋅ dp ⋅ iσᵉ ⋅ (Mᵉ - (n ⊗ n));</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  ∂fεᵉˡ∕∂Δp = n;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  ∂fp∕∂Δεᵉˡ = -<span class="dv">2</span> ⋅ μ ⋅ θ ⋅ ∂vᵖ∕∂σᵉ ⋅ Δt ⋅ n;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Integrator</span></span></code></pre></div>
 <p>The supported subset of unicode characters is fully detailed <a href="unicode.html">here</a>.</p>
-<h2 id="initial-support-for-generalised-behaviours"><span class="header-section-number">2.2</span> Initial support for generalised behaviours</h2>
+<h2 data-number="2.2" id="initial-support-for-generalised-behaviours"><span class="header-section-number">2.2</span> Initial support for generalised behaviours</h2>
 <p>Generalised behaviours relate a set of gradients to their conjugated fluxes.</p>
 <p>The following example shows how the linear Fourier law can be implemented:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>DSL DefaultGenericBehaviour;</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="er">@</span>Behaviour StationaryHeatTransfer;</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="er">@</span>Author Thomas Helfer;</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="er">@</span>Date <span class="dv">15</span>/<span class="bn">02</span>/<span class="dv">2019</span>;</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="er">@</span>Gradient TemperatureGradient gT;</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">gT.setGlossaryName(<span class="st">&quot;TemperatureGradient&quot;</span>);</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="er">@</span>Flux HeatFlux j;</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">j.setGlossaryName(<span class="st">&quot;HeatFlux&quot;</span>);</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="er">@</span>MaterialProperty thermalconductivity k;</a>
-<a class="sourceLine" id="cb2-13" data-line-number="13">k.setGlossaryName(<span class="st">&quot;ThermalConductivity&quot;</span>);</a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="er">@</span>Integrator{</a>
-<a class="sourceLine" id="cb2-16" data-line-number="16">  j = -k * (gT + dgT);</a>
-<a class="sourceLine" id="cb2-17" data-line-number="17">} <span class="co">// end of @Integrator</span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="er">@</span>TangentOperator {</a>
-<a class="sourceLine" id="cb2-20" data-line-number="20">  Dt = -k * tmatrix&lt;N, N, real&gt;::Id();</a>
-<a class="sourceLine" id="cb2-21" data-line-number="21">}</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultGenericBehaviour;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour StationaryHeatTransfer;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">15</span>/<span class="bn">02</span>/<span class="dv">2019</span>;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient TemperatureGradient gT;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>gT.setGlossaryName(<span class="st">&quot;TemperatureGradient&quot;</span>);</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux HeatFlux j;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>j.setGlossaryName(<span class="st">&quot;HeatFlux&quot;</span>);</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty thermalconductivity k;</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>k.setGlossaryName(<span class="st">&quot;ThermalConductivity&quot;</span>);</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  j = -k * (gT + dgT);</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Integrator</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator {</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  Dt = -k * tmatrix&lt;N, N, real&gt;::Id();</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>The non linear case is much more interesting as the consistent tangent operator can be split in two blocks:</p>
 <ul>
 <li>the derivative of the flux with respect to the gradient.</li>
 <li>the derivative of the flux with respect to the temperature.</li>
 </ul>
 <p>The latter is introduced by the <code>@AdditionalTangentOperatorBlock</code> code block.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>DSL DefaultGenericBehaviour;</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="er">@</span>Behaviour StationaryNonLinearHeatTransfer;</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="er">@</span>Author Thomas Helfer;</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="er">@</span>Date <span class="dv">15</span>/<span class="bn">02</span>/<span class="dv">2019</span>;</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="er">@</span>Gradient TemperatureGradient gT;</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">gT.setGlossaryName(<span class="st">&quot;TemperatureGradient&quot;</span>);</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="er">@</span>Flux HeatFlux j;</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">j.setGlossaryName(<span class="st">&quot;HeatFlux&quot;</span>);</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="er">@</span>AdditionalTangentOperatorBlock dj_ddT;</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="er">@</span>Parameter real A = <span class="fl">0.0375</span>;</a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="er">@</span>Parameter real B = <span class="fl">2.165e-4</span>;</a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="er">@</span>LocalVariable thermalconductivity k;</a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="er">@</span>Integrator{</a>
-<a class="sourceLine" id="cb3-20" data-line-number="20">  <span class="at">const</span> <span class="kw">auto</span> T_ = T + dT;</a>
-<a class="sourceLine" id="cb3-21" data-line-number="21">  k = <span class="dv">1</span> / (A + B * T_);</a>
-<a class="sourceLine" id="cb3-22" data-line-number="22">  j = -k * (gT + dgT);</a>
-<a class="sourceLine" id="cb3-23" data-line-number="23">} <span class="co">// end of @Integrator</span></a>
-<a class="sourceLine" id="cb3-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="er">@</span>TangentOperator {</a>
-<a class="sourceLine" id="cb3-26" data-line-number="26">  dj_ddgT = -k * tmatrix&lt;N, N, real&gt;::Id();</a>
-<a class="sourceLine" id="cb3-27" data-line-number="27">  dj_ddT  =  B * k * k * (gT + dgT);</a>
-<a class="sourceLine" id="cb3-28" data-line-number="28">} <span class="co">// end of @TangentOperator </span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultGenericBehaviour;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour StationaryNonLinearHeatTransfer;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">15</span>/<span class="bn">02</span>/<span class="dv">2019</span>;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient TemperatureGradient gT;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>gT.setGlossaryName(<span class="st">&quot;TemperatureGradient&quot;</span>);</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux HeatFlux j;</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>j.setGlossaryName(<span class="st">&quot;HeatFlux&quot;</span>);</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalTangentOperatorBlock dj_ddT;</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real A = <span class="fl">0.0375</span>;</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real B = <span class="fl">2.165e-4</span>;</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable thermalconductivity k;</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> T_ = T + dT;</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  k = <span class="dv">1</span> / (A + B * T_);</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  j = -k * (gT + dgT);</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Integrator</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator {</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  dj_ddgT = -k * tmatrix&lt;N, N, real&gt;::Id();</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  dj_ddT  =  B * k * k * (gT + dgT);</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @TangentOperator </span></span></code></pre></div>
 <p>The last example deals with solid-liquid phase change in transient heat-transfer. The enthalpy is treated in as a state variable. Its derivative with respect to temperature is yet another block in the tangent operator:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>DSL DefaultGenericBehaviour;</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="er">@</span>Behaviour HeatTransfer;</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="er">@</span>Author Thomas Helfer;</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="er">@</span>Date <span class="dv">15</span> / <span class="bn">02</span> / <span class="dv">2019</span>;</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="er">@</span>Gradient TemperatureGradient gT;</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">gT.setGlossaryName(<span class="st">&quot;TemperatureGradient&quot;</span>);</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="er">@</span>Flux HeatFlux j;</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">j.setGlossaryName(<span class="st">&quot;HeatFlux&quot;</span>);</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="er">@</span>StateVariable real H;</a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">H.setEntryName(<span class="st">&quot;Enthalpy&quot;</span>);</a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="er">@</span>AdditionalTangentOperatorBlock dj_ddT;</a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="er">@</span>AdditionalTangentOperatorBlock dH_ddT;</a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="er">@</span>Parameter Tm = <span class="fl">933.15</span>;  </a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="er">@</span>Parameter ks = <span class="dv">210</span>;</a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="er">@</span>Parameter Cs = <span class="dv">3</span>.e6;</a>
-<a class="sourceLine" id="cb4-21" data-line-number="21"><span class="er">@</span>Parameter kl = <span class="dv">95</span>;</a>
-<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="er">@</span>Parameter Cl = <span class="fl">2.58e6</span>;</a>
-<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="er">@</span>Parameter dHsl = <span class="fl">1.08048e9</span>;</a>
-<a class="sourceLine" id="cb4-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="er">@</span>LocalVariable thermalconductivity k;</a>
-<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co">// @LocalVariable real H0;</span></a>
-<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="er">@</span>LocalVariable real Ce;</a>
-<a class="sourceLine" id="cb4-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb4-29" data-line-number="29"><span class="er">@</span>Integrator {</a>
-<a class="sourceLine" id="cb4-30" data-line-number="30">  <span class="at">const</span> <span class="kw">auto</span> T_ = T + dT;</a>
-<a class="sourceLine" id="cb4-31" data-line-number="31">  <span class="co">// const auto Te = temperature(0.01);</span></a>
-<a class="sourceLine" id="cb4-32" data-line-number="32">  <span class="co">// const auto Ts = Tm-Te;</span></a>
-<a class="sourceLine" id="cb4-33" data-line-number="33">  <span class="co">// const auto Tl = Tm+Te;</span></a>
-<a class="sourceLine" id="cb4-34" data-line-number="34">  <span class="co">// heat flux</span></a>
-<a class="sourceLine" id="cb4-35" data-line-number="35">  k = (T_&lt;Tm) ? ks : kl;</a>
-<a class="sourceLine" id="cb4-36" data-line-number="36">  j = -k*(gT+dgT);</a>
-<a class="sourceLine" id="cb4-37" data-line-number="37">  <span class="co">// enthalpy</span></a>
-<a class="sourceLine" id="cb4-38" data-line-number="38">  <span class="cf">if</span>(T_&lt;Tm){</a>
-<a class="sourceLine" id="cb4-39" data-line-number="39">    Ce = Cs;</a>
-<a class="sourceLine" id="cb4-40" data-line-number="40">    H = Cs*T_;</a>
-<a class="sourceLine" id="cb4-41" data-line-number="41">  } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb4-42" data-line-number="42">    Ce = Cl;</a>
-<a class="sourceLine" id="cb4-43" data-line-number="43">    H = Cl*(T_-Tm)+dHsl+Cs*Tm;</a>
-<a class="sourceLine" id="cb4-44" data-line-number="44">  }</a>
-<a class="sourceLine" id="cb4-45" data-line-number="45">}  <span class="co">// end of @Integrator</span></a>
-<a class="sourceLine" id="cb4-46" data-line-number="46"></a>
-<a class="sourceLine" id="cb4-47" data-line-number="47"><span class="er">@</span>TangentOperator {</a>
-<a class="sourceLine" id="cb4-48" data-line-number="48">  dj_ddgT = -k * tmatrix&lt;N, N, real&gt;::Id();</a>
-<a class="sourceLine" id="cb4-49" data-line-number="49">  dj_ddT = tvector&lt;N, real&gt;(real(<span class="dv">0</span>));</a>
-<a class="sourceLine" id="cb4-50" data-line-number="50">  dH_ddT = Ce;</a>
-<a class="sourceLine" id="cb4-51" data-line-number="51">}  <span class="co">// end of @TangentOperator</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultGenericBehaviour;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour HeatTransfer;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">15</span> / <span class="bn">02</span> / <span class="dv">2019</span>;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient TemperatureGradient gT;</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>gT.setGlossaryName(<span class="st">&quot;TemperatureGradient&quot;</span>);</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux HeatFlux j;</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>j.setGlossaryName(<span class="st">&quot;HeatFlux&quot;</span>);</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real H;</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>H.setEntryName(<span class="st">&quot;Enthalpy&quot;</span>);</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalTangentOperatorBlock dj_ddT;</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalTangentOperatorBlock dH_ddT;</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter Tm = <span class="fl">933.15</span>;  </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter ks = <span class="dv">210</span>;</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter Cs = <span class="fl">3.e6</span>;</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter kl = <span class="dv">95</span>;</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter Cl = <span class="fl">2.58e6</span>;</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter dHsl = <span class="fl">1.08048e9</span>;</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable thermalconductivity k;</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">// @LocalVariable real H0;</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real Ce;</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> T_ = T + dT;</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  <span class="co">// const auto Te = temperature(0.01);</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="co">// const auto Ts = Tm-Te;</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  <span class="co">// const auto Tl = Tm+Te;</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>  <span class="co">// heat flux</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  k = (T_&lt;Tm) ? ks : kl;</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  j = -k*(gT+dgT);</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="co">// enthalpy</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(T_&lt;Tm){</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    Ce = Cs;</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    H = Cs*T_;</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    Ce = Cl;</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    H = Cl*(T_-Tm)+dHsl+Cs*Tm;</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>}  <span class="co">// end of @Integrator</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator {</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>  dj_ddgT = -k * tmatrix&lt;N, N, real&gt;::Id();</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  dj_ddT = tvector&lt;N, real&gt;(real(<span class="dv">0</span>));</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  dH_ddT = Ce;</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>}  <span class="co">// end of @TangentOperator</span></span></code></pre></div>
 <p>All those examples have been tested in the <code>FEniCS</code> platform and validated against analytical results or test cases extracted from the <code>Cast3M</code> or <code>Code_Aster</code> codes.</p>
-<h3 id="limitations"><span class="header-section-number">2.2.1</span> Limitations</h3>
+<h3 data-number="2.2.1" id="limitations"><span class="header-section-number">2.2.1</span> Limitations</h3>
 <p>Generalised behaviours are currently limited by the tensorial objects provided by the <code>TFEL/Math</code> library.</p>
 <p>Only the <code>generic</code> interface handles generalised behaviours.</p>
-<h2 id="a-new-stress-potential-in-the-standardelastoviscoplasticity-brick"><span class="header-section-number">2.3</span> A new stress potential in the <code>StandardElastoViscoPlasticity</code> brick</h2>
+<h2 data-number="2.3" id="a-new-stress-potential-in-the-standardelastoviscoplasticity-brick"><span class="header-section-number">2.3</span> A new stress potential in the <code>StandardElastoViscoPlasticity</code> brick</h2>
 <p>A regularised Mohr-Coulomb stress potential is now available. This stress potential is fully described <a href="MohrCoulomb.html">here</a>.</p>
-<h2 id="sec:build_identifiers"><span class="header-section-number">2.4</span> Specifying a build identifier</h2>
+<h2 data-number="2.4" id="sec:build_identifiers"><span class="header-section-number">2.4</span> Specifying a build identifier</h2>
 <p>As defined by Wikipedia, Quality assurance (QA) is a way of preventing mistakes and defects in manufactured products and avoiding problems when delivering products.</p>
 <p>Fuel performance codes are developed under stringent Quality Assurance requirements that make their developers reluctant to rely on shared libraries to deliver material knowledge they are responsible for. A risk that must be mitigated as much as possible is the replacement of a shared library by another one, either intentionally to modify the results of the code or by accident (conflict with a previous version for example).</p>
 <p>Specifying a build identifier proposes a solution for this issue. During building the shared libraries, developers may now specify a build identifier using the TFEL_BUILD_ID environment variable. This identifier is meant to be only known by the developers of the code and is hidden to end users. At runtime, when calling a shared library, the code can retrieve its build identifier, if any, and can check if it matches the identifier defined by the developers. If not, it may indicate a conflict exists with a previous versions of the shared library or that the end user wants to test a new material property or a new mechanical behaviour. In both cases, the code will report that results are unreliable and not coverered by the code specifications.</p>
-<h2 id="parameters-can-now-be-declared-with-a-type"><span class="header-section-number">2.5</span> Parameters can now be declared with a type</h2>
+<h2 data-number="2.5" id="parameters-can-now-be-declared-with-a-type"><span class="header-section-number">2.5</span> Parameters can now be declared with a type</h2>
 <p>In previous versions, parameters had the implicit type <code>real</code>. The user can now specify any scalar type. This makes the declaration of parameters consistent with the declaration of the other variables.</p>
 <pre><code>@Parameter strainrate de0 = 1e-4;</code></pre>
-<h2 id="sec:cyrano:material_properties"><span class="header-section-number">2.6</span> New material property interface for the <code>Cyrano</code> fuel performance code</h2>
+<h2 data-number="2.6" id="sec:cyrano:material_properties"><span class="header-section-number">2.6</span> New material property interface for the <code>Cyrano</code> fuel performance code</h2>
 <p>For the <code>Cyrano</code> fuel performance code to call external material properties, a dedicated interface has been built.</p>
 <p>The prototype of the generated functions is as follows:</p>
 <pre class="{.c++}"><code>CyranoRealType (*)(CyranoOutputStatus* const,
@@ -487,11 +508,11 @@
                    const CyranoIntegerType,
                    const CyranoOutOfBoundsPolicy);</code></pre>
 <p>This new interface is fully documented <a href="cyrano.html">here</a>.</p>
-<h2 id="sec:mfrontcastem:exported_elastic_properties"><span class="header-section-number">2.7</span> Improvements to the <code>Cast3M</code>’ behaviour interface</h2>
+<h2 data-number="2.7" id="sec:mfrontcastem:exported_elastic_properties"><span class="header-section-number">2.7</span> Improvements to the <code>Cast3M</code>’ behaviour interface</h2>
 <p><code>Cast3M</code> users have to deal with two <em>a priori</em> incompatible requirements:</p>
 <ul>
 <li>On one hand, <code>Cast3M</code>’ default algorithm relies on the definition of the elastic stiffness.</li>
-<li>On the other hand, Quality Assurance requirements urge <code>MFront</code> implementations to define the elastic properties internally<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</li>
+<li>On the other hand, Quality Assurance requirements urge <code>MFront</code> implementations to define the elastic properties internally<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
 </ul>
 <p>Possible workarounds so far include:</p>
 <ul>
@@ -511,41 +532,41 @@
 <li>The existence of those properties can be check as part of the metadata associated with the behaviour. Though not useful for raw <code>Cast3M</code> usage, this is very useful for more advanced solvers built on top of <code>Cast3M</code>, such as the ones available in the <code>PLEIADES</code> platform. See also Section 3.2.</li>
 <li>The generated example of usage shows how the material properties must be declared (see the example below).</li>
 </ul>
-<h3 id="example"><span class="header-section-number">2.7.1</span> Example</h3>
+<h3 data-number="2.7.1" id="example"><span class="header-section-number">2.7.1</span> Example</h3>
 <p>Consider the following minimal example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="er">@</span>Behaviour Test;</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="er">@</span>ElasticMaterialProperties{<span class="st">&quot;127.8e9*(1-7.825e-5*(T-293.15))&quot;</span>, <span class="fl">0.3</span>};</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="er">@</span>ComputeStress{</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"> σ = λ ⋅ trace(εᵉˡ) ⋅ I₂ + <span class="dv">2</span> ⋅ μ ⋅ εᵉˡ;</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">}</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="er">@</span>Integrator {</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">  fεᵉˡ += Δεᵗᵒ;</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">}</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour Test;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ElasticMaterialProperties{<span class="st">&quot;127.8e9*(1-7.825e-5*(T-293.15))&quot;</span>, <span class="fl">0.3</span>};</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeStress{</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> σ = λ ⋅ trace(εᵉˡ) ⋅ I₂ + <span class="dv">2</span> ⋅ μ ⋅ εᵉˡ;</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  fεᵉˡ += Δεᵗᵒ;</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Compiling this behaviour with the <code>Cast3M</code> interface generates the following output:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="ex">Treating</span> target : all</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="ex">The</span> following library has been built :</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="ex">-</span> libUmatBehaviour.so :  umattest Test_YoungModulus Test_PoissonRatio</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Treating</span> target : all</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following library has been built :</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> libUmatBehaviour.so :  umattest Test_YoungModulus Test_PoissonRatio</span></code></pre></div>
 <p>In addition of the behaviour, this output highlights that two functions associated respectively with the <code>YoungModulus</code> and the <code>PoissonRatio</code> were generated.</p>
 <p>In the generated example of usage, the material properties are declared as follows:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1">xyoun <span class="op">=</span> <span class="st">&#39;TABLE&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">xyoun . <span class="st">&#39;MODELE&#39;</span> <span class="op">=</span> <span class="st">&#39;Test_YoungModulus&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">xyoun . <span class="st">&#39;LIBRAIRIE&#39;</span> <span class="op">=</span> <span class="st">&#39;&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">xyoun . <span class="st">&#39;VARIABLES&#39;</span> <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span>  <span class="st">&#39;T&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">xnu <span class="op">=</span> <span class="fl">0.3</span><span class="op">;</span></a></code></pre></div>
-<h2 id="improvements-to-the-cyrano-behaviour-interface"><span class="header-section-number">2.8</span> Improvements to the <code>Cyrano</code>’ behaviour interface</h2>
-<h3 id="sec:cyrano:elastic_material_properties"><span class="header-section-number">2.8.1</span> Generation of elastic material properties from the behaviour</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>xyoun <span class="op">=</span> <span class="st">&#39;TABLE&#39;</span><span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>xyoun . <span class="st">&#39;MODELE&#39;</span> <span class="op">=</span> <span class="st">&#39;Test_YoungModulus&#39;</span><span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>xyoun . <span class="st">&#39;LIBRAIRIE&#39;</span> <span class="op">=</span> <span class="st">&#39;&#39;</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>xyoun . <span class="st">&#39;VARIABLES&#39;</span> <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span>  <span class="st">&#39;T&#39;</span><span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>xnu <span class="op">=</span> <span class="fl">0.3</span><span class="op">;</span></span></code></pre></div>
+<h2 data-number="2.8" id="improvements-to-the-cyrano-behaviour-interface"><span class="header-section-number">2.8</span> Improvements to the <code>Cyrano</code>’ behaviour interface</h2>
+<h3 data-number="2.8.1" id="sec:cyrano:elastic_material_properties"><span class="header-section-number">2.8.1</span> Generation of elastic material properties from the behaviour</h3>
 <p>For post-processing reasons, the <code>Cyrano</code> fuel performance code must access the elastic material properties used by the behaviour. To ensure consistency, the behaviour now automatically exports the elastic material properties when they are defined internally.</p>
-<h2 id="various-api-improvements"><span class="header-section-number">2.9</span> Various API improvements</h2>
+<h2 data-number="2.9" id="various-api-improvements"><span class="header-section-number">2.9</span> Various API improvements</h2>
 <p>The <code>MFront</code> API was greatly improved to allow the implementation of the <code>tfel-editor</code>’ behaviour wizard.</p>
-<h2 id="new-experimental-interfaces-for-comsol-multiphysics-and-diana-fea"><span class="header-section-number">2.10</span> New experimental interfaces for <code>COMSOL Multiphysics</code> and <code>DIANA FEA</code></h2>
+<h2 data-number="2.10" id="new-experimental-interfaces-for-comsol-multiphysics-and-diana-fea"><span class="header-section-number">2.10</span> New experimental interfaces for <code>COMSOL Multiphysics</code> and <code>DIANA FEA</code></h2>
 <p>This release introduces two new experimental interfaces for the <code>COMSOL Multiphysics</code> and <code>DIANA FEA</code> solvers.</p>
 <p>Experimental means that those interfaces have been build using the solvers specifications but have not been tested in those solvers.</p>
 <p>There are <code>125</code> unit tests associated with the <code>DIANA FEA</code> solver through <code>MTest</code>.</p>
 <p>Users of those solvers willing to test those new interfaces are welcomed.</p>
-<h1 id="improvements-to-mtest"><span class="header-section-number">3</span> Improvements to <code>MTest</code></h1>
-<h2 id="ability-to-choose-the-stress-measure-used-in-inputoutput-and-the-consistent-tangent-operator-returned-for-finite-strain-behaviours-through-the-generic-interface"><span class="header-section-number">3.1</span> Ability to choose the stress measure used in input/output and the consistent tangent operator returned for finite strain behaviours through the <code>generic</code> interface</h2>
+<h1 data-number="3" id="improvements-to-mtest"><span class="header-section-number">3</span> Improvements to <code>MTest</code></h1>
+<h2 data-number="3.1" id="ability-to-choose-the-stress-measure-used-in-inputoutput-and-the-consistent-tangent-operator-returned-for-finite-strain-behaviours-through-the-generic-interface"><span class="header-section-number">3.1</span> Ability to choose the stress measure used in input/output and the consistent tangent operator returned for finite strain behaviours through the <code>generic</code> interface</h2>
 <p>The following options can be passed to the behaviour:</p>
 <ul>
 <li><code>stress_measure</code>. The value of this option must be either <code>CauchyStress</code> (or <code>CAUCHY</code>), <code>SecondPiolaKirchoffStress</code> (or <code>PK2</code>) or <code>FirstPiolaKirchoffStress</code> (or <code>PK1</code>).</li>
@@ -556,56 +577,56 @@
 <li><code>DPK1_DF</code>: the derivative of the first Piola-Kirchoff stress with respect to the deformation gradient is returned</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="er">@</span>Behaviour&lt;generic&gt; <span class="ch">&#39;src/libBehaviour.so&#39;</span> <span class="ch">&#39;LogarithmicStrainElasticity2&#39;</span> {</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">  stress_measure : PK2,</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">  tangent_operator : DPK1_DF</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">};</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour&lt;generic&gt; <span class="ch">&#39;s</span><span class="er">rc/libBehaviour.so</span><span class="ch">&#39;</span> <span class="ch">&#39;L</span><span class="er">ogarithmicStrainElasticity2</span><span class="ch">&#39;</span> {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  stress_measure : PK2,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  tangent_operator : DPK1_DF</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
 <p>The output of the behaviour is still the Cauchy stress. The stress measure on input and input are converted from or to the Cauchy stress.</p>
 <p>The non linear algorithm still relies on the derivative of the Cauchy stress with respect to the deformation gradient: the tangent operator returned by the behaviour is automatically converted to this derivative.</p>
-<h2 id="sec:mtest:castem:exported_elastic_properties"><span class="header-section-number">3.2</span> Automatically load exported elastic properties for <code>Cast3M</code> behaviours</h2>
+<h2 data-number="3.2" id="sec:mtest:castem:exported_elastic_properties"><span class="header-section-number">3.2</span> Automatically load exported elastic properties for <code>Cast3M</code> behaviours</h2>
 <p>As detailed in Section 2.7, behaviours generated by the <code>Cast3M</code> interface may export their elastic properties. If so, those elastic properties are automatically loaded by <code>MTest</code> (if not declared by the user).</p>
-<h2 id="new-methods-python-bindings"><span class="header-section-number">3.3</span> New methods (<code>python</code> bindings)</h2>
+<h2 data-number="3.3" id="new-methods-python-bindings"><span class="header-section-number">3.3</span> New methods (<code>python</code> bindings)</h2>
 <p>Various methods have been added to the <code>MTest</code> and <code>PipeTest</code> class in <code>python</code>:</p>
 <ul>
 <li><code>completeInitialisation</code>: this method used to be called internally by the <code>execute</code> method. However, this prevented multiple calls to the <code>execute</code> method. The <code>completeInitialisation</code> is made public. If this method is called explicitly by the user, the <code>execute</code> method shall be called with the <code>False</code> argument. <strong>This method shall only be called once</strong></li>
 <li><code>resetOutputFiles</code>: this method closes and reopens all the output files.</li>
 </ul>
-<h1 id="mfm-test-generator"><span class="header-section-number">4</span> <code>mfm-test-generator</code></h1>
+<h1 data-number="4" id="mfm-test-generator"><span class="header-section-number">4</span> <code>mfm-test-generator</code></h1>
 <p><code>mfm-test-generator</code> provides a way to generate input files for various solvers for specific cases. See the <a href="mfm-test-generator.html">dedicated page</a> for details.</p>
-<h1 id="tfel-core-libraries"><span class="header-section-number">5</span> <code>TFEL</code>’ core libraries</h1>
-<h2 id="improvements-and-new-features-of-tfelmaterial-library"><span class="header-section-number">5.1</span> Improvements and new features of <code>TFEL/Material</code> library</h2>
-<h3 id="support-for-displaystyle-fracdisplaystyle-partial-undersettildemathbfpidisplaystyle-partial-undersettildemathbff"><span class="header-section-number">5.1.1</span> Support for <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{\Pi}}}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}}\)</span></h3>
+<h1 data-number="5" id="tfel-core-libraries"><span class="header-section-number">5</span> <code>TFEL</code>’ core libraries</h1>
+<h2 data-number="5.1" id="improvements-and-new-features-of-tfelmaterial-library"><span class="header-section-number">5.1</span> Improvements and new features of <code>TFEL/Material</code> library</h2>
+<h3 data-number="5.1.1" id="support-for-displaystyle-fracdisplaystyle-partial-undersettildemathbfpidisplaystyle-partial-undersettildemathbff"><span class="header-section-number">5.1.1</span> Support for <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{\Pi}}}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}}}\)</span></h3>
 <p>The derivative of the first Piola-Kirchhoff stress with respect to the deformation gradient is now available as a tangent operator for finite strain behaviour.</p>
-<h3 id="the-mohr-coulomb-yield-criterion"><span class="header-section-number">5.1.2</span> The Mohr-Coulomb yield criterion</h3>
+<h3 data-number="5.1.2" id="the-mohr-coulomb-yield-criterion"><span class="header-section-number">5.1.2</span> The Mohr-Coulomb yield criterion</h3>
 <p>Various functions allowing the computation of the Mohr-Coulomb yield criterion, its first and second derivatives are now available. See <a href="MohrCoulomb.html">this page</a> for details.</p>
-<h2 id="new-library-tfelunicodesupport"><span class="header-section-number">5.2</span> New library: <code>TFELUnicodeSupport</code></h2>
+<h2 data-number="5.2" id="new-library-tfelunicodesupport"><span class="header-section-number">5.2</span> New library: <code>TFELUnicodeSupport</code></h2>
 <p>This release introduces a new library called <code>TFELUnicodeSupport</code>. The purpose of this library is mainly to provide some mangling mechanisms that convert names based a subset of <code>UTF-8</code> characters into valid <code>C++</code> identifiers.</p>
-<h2 id="improvements-and-new-features-of-tfelsystem-library"><span class="header-section-number">5.3</span> Improvements and new features of <code>TFEL/System</code> library</h2>
-<h3 id="improvements-to-externallibrarymanager"><span class="header-section-number">5.3.1</span> Improvements to <code>ExternalLibraryManager</code></h3>
+<h2 data-number="5.3" id="improvements-and-new-features-of-tfelsystem-library"><span class="header-section-number">5.3</span> Improvements and new features of <code>TFEL/System</code> library</h2>
+<h3 data-number="5.3.1" id="improvements-to-externallibrarymanager"><span class="header-section-number">5.3.1</span> Improvements to <code>ExternalLibraryManager</code></h3>
 <p><code>ExternalLibraryManager</code>’ new features includes:</p>
 <ul>
 <li>retrieving the build identifier of a material knowledge (see Section 2.4).</li>
 <li>retrieving a material property implemented using the <code>Cyrano</code> interface (see Section 2.6).</li>
 </ul>
-<h3 id="improvements-to-the-externalbehaviourdata-structure"><span class="header-section-number">5.3.2</span> Improvements to the <code>ExternalBehaviourData</code> structure</h3>
+<h3 data-number="5.3.2" id="improvements-to-the-externalbehaviourdata-structure"><span class="header-section-number">5.3.2</span> Improvements to the <code>ExternalBehaviourData</code> structure</h3>
 <p>The <code>ExternalBehaviourData</code> class now contains three new fields associated respectively with the build identifier see Section 2.4), the interface used to generate the behaviour, and the exported elastic material properties.</p>
 <p>The later is empty if the behaviour does not export elastic material properties.</p>
 <p>See the <a href="doxygen/structtfel_1_1system_1_1_external_behaviour_data.html">doxygen documentation</a> for details.</p>
-<h3 id="the-externalmaterialpropertydata-and-externalmaterialpropertydescription-structures"><span class="header-section-number">5.3.3</span> The <code>ExternalMaterialPropertyData</code> and <code>ExternalMaterialPropertyDescription</code> structures</h3>
+<h3 data-number="5.3.3" id="the-externalmaterialpropertydata-and-externalmaterialpropertydescription-structures"><span class="header-section-number">5.3.3</span> The <code>ExternalMaterialPropertyData</code> and <code>ExternalMaterialPropertyDescription</code> structures</h3>
 <p>The <code>ExternalMaterialPropertyData</code> and <code>ExternalMaterialPropertyDescription</code> structures provides metadata about a material property. See the <a href="doxygen/structtfel_1_1system_1_1_external_material_property_data.html">doxygen documentation</a> for details.</p>
-<h1 id="known-incompatibilities"><span class="header-section-number">6</span> Known incompatibilities</h1>
-<h2 id="api-changes-in-the-class-targetsdescription"><span class="header-section-number">6.1</span> API changes in the class <code>TargetsDescription</code></h2>
+<h1 data-number="6" id="known-incompatibilities"><span class="header-section-number">6</span> Known incompatibilities</h1>
+<h2 data-number="6.1" id="api-changes-in-the-class-targetsdescription"><span class="header-section-number">6.1</span> API changes in the class <code>TargetsDescription</code></h2>
 <p>In previous versions, the class <code>TargetsDescription</code> was mainly designed to handle libraries. Version 3.3 provides a better support for executables.</p>
 <p>The following changes were made:</p>
 <ul>
 <li>a <code>TargetsDescription</code> is not more iterable. One shall use the <code>getLibraries()</code> methods to get an iterable object over libraries.</li>
 <li>a <code>LibraryDescrition</code> can’t be retrieved via the subscript operator <code>[]</code>, one shall use the <code>getLibrary</code> method instead.</li>
 </ul>
-<h1 id="tickets-solved-during-the-development-of-this-version"><span class="header-section-number">7</span> Tickets solved during the development of this version</h1>
-<h2 id="ticket-183-calling-an-mfront-function-material-properties-with-the-cyrano-interface"><span class="header-section-number">7.1</span> Ticket #183: Calling an MFront function (material properties) with the ‘cyrano’ interface</h2>
+<h1 data-number="7" id="tickets-solved-during-the-development-of-this-version"><span class="header-section-number">7</span> Tickets solved during the development of this version</h1>
+<h2 data-number="7.1" id="ticket-183-calling-an-mfront-function-material-properties-with-the-cyrano-interface"><span class="header-section-number">7.1</span> Ticket #183: Calling an MFront function (material properties) with the ‘cyrano’ interface</h2>
 <p>This feature is detailled in Section 2.8.1. See also Section 2.6.</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/183/" class="uri">https://sourceforge.net/p/tfel/tickets/183/</a></p>
-<h2 id="ticket-172-support-for-dynamic-choice-of-the-consistent-tangent-operator-of-finite-strain-behaviours-using-the-generic-interface"><span class="header-section-number">7.2</span> Ticket #172: Support for dynamic choice of the consistent tangent operator of finite strain behaviours using the <code>generic</code> interface</h2>
+<h2 data-number="7.2" id="ticket-172-support-for-dynamic-choice-of-the-consistent-tangent-operator-of-finite-strain-behaviours-using-the-generic-interface"><span class="header-section-number">7.2</span> Ticket #172: Support for dynamic choice of the consistent tangent operator of finite strain behaviours using the <code>generic</code> interface</h2>
 <p>The <code>generic</code> interface now allows to specify, for finite strain behaviours (including the behaviours based on the Green-Lagrange and the Hencky strain measure):</p>
 <ul>
 <li>the stress measure used on input/output</li>
@@ -625,26 +646,26 @@
 <li>if 1.5&lt;<code>K[2]</code>&lt;2.5, the derivative of the first Piola-Kirchoff stress with respect to the deformation gradient is returned</li>
 </ul>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/172/" class="uri">https://sourceforge.net/p/tfel/tickets/172/</a></p>
-<h2 id="ticket-171-add-the-derivative-of-the-first-piola-kirchoff-stress-as-a-possible-consistent-tangentor-for-finite-strain-behaviours"><span class="header-section-number">7.3</span> Ticket #171: Add the derivative of the first Piola-Kirchoff stress as a possible consistent tangentor for finite strain behaviours</h2>
+<h2 data-number="7.3" id="ticket-171-add-the-derivative-of-the-first-piola-kirchoff-stress-as-a-possible-consistent-tangentor-for-finite-strain-behaviours"><span class="header-section-number">7.3</span> Ticket #171: Add the derivative of the first Piola-Kirchoff stress as a possible consistent tangentor for finite strain behaviours</h2>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/171/" class="uri">https://sourceforge.net/p/tfel/tickets/171/</a></p>
-<h2 id="ticket-169-determinant-of-a-fourth-order-tensor"><span class="header-section-number">7.4</span> Ticket #169: Determinant of a fourth-order tensor</h2>
+<h2 data-number="7.4" id="ticket-169-determinant-of-a-fourth-order-tensor"><span class="header-section-number">7.4</span> Ticket #169: Determinant of a fourth-order tensor</h2>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/169/" class="uri">https://sourceforge.net/p/tfel/tickets/169/</a></p>
-<h1 id="references" class="unnumbered">References</h1>
-<div id="refs" class="references">
-<div id="ref-camier_improving_2015">
-<p>1. <span class="smallcaps">Camier</span>, Jean-Sylvain. Improving performance portability and exascale software productivity with the ∇ numerical programming language. In : <em>Proceedings of the 3rd international conference on exascale applications and software</em>. Edinburgh, Scotland, UK : University of Edinburgh, 2015. p. 126–131. EASC ’15. ISBN <a href="https://worldcat.org/isbn/978-0-9926615-1-9">978-0-9926615-1-9</a>. Available from: <a href="http://dl.acm.org/citation.cfm?id=2820083.2820107" class="uri">http://dl.acm.org/citation.cfm?id=2820083.2820107</a>event-place: Edinburgh, UK</p>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-camier_improving_2015" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Camier</span>, Jean-Sylvain. Improving performance portability and exascale software productivity with the ∇ numerical programming language. In : <em>Proceedings of the 3rd international conference on exascale applications and software</em>. Edinburgh, Scotland, <span>UK</span> : University of Edinburgh, 2015. p. 126–131. <span>EASC</span> ’15. ISBN <a href="https://worldcat.org/isbn/978-0-9926615-1-9">978-0-9926615-1-9</a>. Available from: <a href="http://dl.acm.org/citation.cfm?id=2820083.2820107">http://dl.acm.org/citation.cfm?id=2820083.2820107</a></div><div class="csl-right-inline">event-place: Edinburgh, <span>UK</span></div>
 </div>
-<div id="ref-bezanson_julia:_2017">
-<p>2. <span class="smallcaps">Bezanson</span>, Jeff, <span class="smallcaps">Edelman</span>, Alan, <span class="smallcaps">Karpinski</span>, Stefan and <span class="smallcaps">Shah</span>, Viral B. Julia: A fresh approach to numerical computing. <em>SIAM review</em>. 2017. Vol. 59, no. 1, p. 65–98. Available from: <a href="https://doi.org/10.1137/141000671" class="uri">https://doi.org/10.1137/141000671</a></p>
+<div id="ref-bezanson_julia:_2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Bezanson</span>, Jeff, <span class="smallcaps">Edelman</span>, Alan, <span class="smallcaps">Karpinski</span>, Stefan and <span class="smallcaps">Shah</span>, Viral B. Julia: A fresh approach to numerical computing. <em><span>SIAM</span> review</em>. 2017. Vol. 59, no. 1, p. 65–98. Available from: <a href="https://doi.org/10.1137/141000671">https://doi.org/10.1137/141000671</a></div>
 </div>
 </div>
-<section class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Elastic properties may be defined in various ways. One way is to use either the <code>@ElasticMaterialProperties</code> keyword or the <code>@ComputeStiffnessTensor</code> keyword. Another way is to define them inside the options of bricks.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p>Elastic properties may be defined in various ways. One way is to use either the <code>@ElasticMaterialProperties</code> keyword or the <code>@ComputeStiffnessTensor</code> keyword. Another way is to define them inside the options of bricks.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

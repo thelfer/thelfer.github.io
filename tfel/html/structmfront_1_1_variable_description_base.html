@@ -96,7 +96,7 @@ Inheritance diagram for mfront::VariableDescriptionBase:</div>
   <map id="mfront::VariableDescriptionBase_map" name="mfront::VariableDescriptionBase_map">
 <area href="structmfront_1_1_static_variable_description.html" title="class representing a static variable " alt="mfront::StaticVariableDescription" shape="rect" coords="0,56,196,80"/>
 <area href="structmfront_1_1_variable_description.html" title="structure standing for a standard (non static) variable " alt="mfront::VariableDescription" shape="rect" coords="206,56,402,80"/>
-<area href="structmfront_1_1_driving_variable.html" alt="mfront::DrivingVariable" shape="rect" coords="103,112,299,136"/>
+<area href="structmfront_1_1_gradient.html" alt="mfront::Gradient" shape="rect" coords="103,112,299,136"/>
 <area href="structmfront_1_1_thermodynamic_force.html" title="structure describes the thermodynamic force associated with a driving variable. " alt="mfront::ThermodynamicForce" shape="rect" coords="309,112,505,136"/>
 </map>
  </div></div>
@@ -125,6 +125,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae6004b22206a9ff06c426934416f4654"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61271dda9a4e2b011949721ea3edf620"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfront_1_1_variable_description_base.html#a61271dda9a4e2b011949721ea3edf620">VariableDescriptionBase</a> (const std::string &amp;, const std::string &amp;, const unsigned short, const size_t)</td></tr>
 <tr class="separator:a61271dda9a4e2b011949721ea3edf620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae89445837110d0c6ade80ae6229a176"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfront_1_1_variable_description_base.html#aae89445837110d0c6ade80ae6229a176">VariableDescriptionBase</a> (const std::string &amp;, const std::string &amp;, const std::string &amp;, const unsigned short, const size_t)</td></tr>
+<tr class="separator:aae89445837110d0c6ade80ae6229a176"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1766a7638f490fb0a055d012b6dd703"><td class="memItemLeft" align="right" valign="top"><a id="af1766a7638f490fb0a055d012b6dd703"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfront_1_1_variable_description_base.html#af1766a7638f490fb0a055d012b6dd703">~VariableDescriptionBase</a> ()</td></tr>
 <tr class="memdesc:af1766a7638f490fb0a055d012b6dd703"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
@@ -136,6 +138,10 @@ Public Attributes</h2></td></tr>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfront_1_1_variable_description_base.html#a1a5f0b3b9a44d03e8fffecbee6c08b1b">type</a></td></tr>
 <tr class="memdesc:a1a5f0b3b9a44d03e8fffecbee6c08b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the variable <br /></td></tr>
 <tr class="separator:a1a5f0b3b9a44d03e8fffecbee6c08b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add54fa80723e4138fd911f42d65cb446"><td class="memItemLeft" align="right" valign="top"><a id="add54fa80723e4138fd911f42d65cb446"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfront_1_1_variable_description_base.html#add54fa80723e4138fd911f42d65cb446">symbolic_form</a></td></tr>
+<tr class="memdesc:add54fa80723e4138fd911f42d65cb446"><td class="mdescLeft">&#160;</td><td class="mdescRight">symbolic representation of the variable <br /></td></tr>
+<tr class="separator:add54fa80723e4138fd911f42d65cb446"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64834282c8e8086972fa9514c05b54ec"><td class="memItemLeft" align="right" valign="top"><a id="a64834282c8e8086972fa9514c05b54ec"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfront_1_1_variable_description_base.html#a64834282c8e8086972fa9514c05b54ec">name</a></td></tr>
 <tr class="memdesc:a64834282c8e8086972fa9514c05b54ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">name of the variable <br /></td></tr>
@@ -157,7 +163,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 <div class="textblock"><p>structure standing for a variable. The support of fixed-sized arrays has been added lately. This variable is considered as an array if arraySize is greater than 1. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a61271dda9a4e2b011949721ea3edf620"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61271dda9a4e2b011949721ea3edf620">&#9670;&nbsp;</a></span>VariableDescriptionBase()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a61271dda9a4e2b011949721ea3edf620">&#9670;&nbsp;</a></span>VariableDescriptionBase() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,10 +201,66 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 </div><div class="memdoc">
 <p>Constructor </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>: variable type </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>: variable name </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>: if greater than 1, this variable will be considered as an array </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>: line number </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>variable type </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>variable name </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">as</td><td>if greater than 1, this variable will be considered as an array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>line number </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aae89445837110d0c6ade80ae6229a176"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae89445837110d0c6ade80ae6229a176">&#9670;&nbsp;</a></span>VariableDescriptionBase() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">mfront::VariableDescriptionBase::VariableDescriptionBase </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned&#160;</td>
+          <td class="paramname"><em>short</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>variable type </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>variable name </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>variable name </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">as</td><td>if greater than 1, this variable will be considered as an array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>line number </td></tr>
   </table>
   </dd>
 </dl>
@@ -217,7 +279,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 </div>
 </div>
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 18 2018 20:55:02 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 3 2021 21:24:46 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

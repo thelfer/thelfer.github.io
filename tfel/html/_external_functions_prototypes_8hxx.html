@@ -86,12 +86,18 @@ $(function() {
 <p>26 jan 2010  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_material_property_8hxx.html">Cyrano/MaterialProperty.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="include_2_cyrano_2_behaviour_8hxx.html">Cyrano/Behaviour.hxx</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a47dc08b947f382c69f1578e44756ea52"><td class="memItemLeft" align="right" valign="top"><a id="a47dc08b947f382c69f1578e44756ea52"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>TFEL_ADDCALL_PTR</b>&#160;&#160;&#160;*</td></tr>
 <tr class="separator:a47dc08b947f382c69f1578e44756ea52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8866f6c78fb618df336a0cb9f40e34a1"><td class="memItemLeft" align="right" valign="top"><a id="a8866f6c78fb618df336a0cb9f40e34a1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MFRONT_GB_BEHAVIOURDATA_FORWARD_DECLARATION</b></td></tr>
+<tr class="separator:a8866f6c78fb618df336a0cb9f40e34a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -107,15 +113,15 @@ typedef int&#160;</td><td class="memItemRight" valign="bottom"><b>EuroplexusInte
 <tr class="memitem:ab168dd0aaaedafe88e2963c9da999d16"><td class="memItemLeft" align="right" valign="top"><a id="ab168dd0aaaedafe88e2963c9da999d16"></a>
 typedef int&#160;</td><td class="memItemRight" valign="bottom"><b>CalculiXIntegerType</b></td></tr>
 <tr class="separator:ab168dd0aaaedafe88e2963c9da999d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21ce9f9099635255562e9667998a4b23"><td class="memItemLeft" align="right" valign="top"><a id="a21ce9f9099635255562e9667998a4b23"></a>
+typedef int&#160;</td><td class="memItemRight" valign="bottom"><b>DianaFEAIntegerType</b></td></tr>
+<tr class="separator:a21ce9f9099635255562e9667998a4b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25ec4ce5ba334fb1e6609c22eef2b138"><td class="memItemLeft" align="right" valign="top"><a id="a25ec4ce5ba334fb1e6609c22eef2b138"></a>
 typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>AbaqusRealType</b></td></tr>
 <tr class="separator:a25ec4ce5ba334fb1e6609c22eef2b138"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d525953d0761bf3bf83253d9a0708a7"><td class="memItemLeft" align="right" valign="top"><a id="a5d525953d0761bf3bf83253d9a0708a7"></a>
 typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>AnsysRealType</b></td></tr>
 <tr class="separator:a5d525953d0761bf3bf83253d9a0708a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0739d5c3a87cc19dec118becec41859"><td class="memItemLeft" align="right" valign="top"><a id="ae0739d5c3a87cc19dec118becec41859"></a>
-typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>CyranoRealType</b></td></tr>
-<tr class="separator:ae0739d5c3a87cc19dec118becec41859"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae44fdef575d3169b803a748292cb09e4"><td class="memItemLeft" align="right" valign="top"><a id="ae44fdef575d3169b803a748292cb09e4"></a>
 typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>CastemRealType</b></td></tr>
 <tr class="separator:ae44fdef575d3169b803a748292cb09e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,6 +134,18 @@ typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>EuroplexusR
 <tr class="memitem:a3a675ab061ae50c59467f962a6708d71"><td class="memItemLeft" align="right" valign="top"><a id="a3a675ab061ae50c59467f962a6708d71"></a>
 typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>CalculiXRealType</b></td></tr>
 <tr class="separator:a3a675ab061ae50c59467f962a6708d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0864811ab30555313b43ba202a15f2e7"><td class="memItemLeft" align="right" valign="top"><a id="a0864811ab30555313b43ba202a15f2e7"></a>
+typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>DianaFEARealType</b></td></tr>
+<tr class="separator:a0864811ab30555313b43ba202a15f2e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8213c7338e26d1db92d6c7cebd82ad18"><td class="memItemLeft" align="right" valign="top"><a id="a8213c7338e26d1db92d6c7cebd82ad18"></a>
+typedef struct mfront_gb_BehaviourData&#160;</td><td class="memItemRight" valign="bottom"><b>mfront_gb_BehaviourData</b></td></tr>
+<tr class="separator:a8213c7338e26d1db92d6c7cebd82ad18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71a74035f3b2f7f3ae452d0332b03042"><td class="memItemLeft" align="right" valign="top"><a id="a71a74035f3b2f7f3ae452d0332b03042"></a>
+typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>mfront_gb_real</b></td></tr>
+<tr class="separator:a71a74035f3b2f7f3ae452d0332b03042"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19da425ed2566a17892272e798ff41d4"><td class="memItemLeft" align="right" valign="top"><a id="a19da425ed2566a17892272e798ff41d4"></a>
+typedef size_t&#160;</td><td class="memItemRight" valign="bottom"><b>mfront_gb_size_type</b></td></tr>
+<tr class="separator:a19da425ed2566a17892272e798ff41d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>26 jan 2010 </p>
@@ -142,7 +160,7 @@ typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>CalculiXRea
 </div>
 </div>
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 18 2018 20:54:59 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 3 2021 21:24:42 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

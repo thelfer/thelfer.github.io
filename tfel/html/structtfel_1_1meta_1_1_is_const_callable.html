@@ -86,6 +86,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>a metafunction which determines of the T::operator()(declval&lt;Args&gt;()...) const exists.  
+ <a href="structtfel_1_1meta_1_1_is_const_callable.html#details">More...</a></p>
+
 <p><code>#include &lt;/home/th202608/codes/tfel/trunk/src/trunk/include/TFEL/Metaprogramming/IsConstCallable.hxx&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -109,9 +112,9 @@ Static Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:a9f1544a81b82467fbf2a454710922b9e"><td class="memTemplParams" colspan="2">template&lt;typename T2 , typename... Args2&gt; </td></tr>
-<tr class="memitem:a9f1544a81b82467fbf2a454710922b9e"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt; !std::is_same&lt; decltype(std::declval&lt; const T2 &amp; &gt;).operator()(std::declval&lt; Args2 &gt;)...)), InvalidType &gt;::value, <a class="el" href="structtfel_1_1meta_1_1_is_const_callable.html#a2c95ec32dfb6a0ad642b6e18227c59db">Small</a> &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1meta_1_1_is_const_callable.html#a9f1544a81b82467fbf2a454710922b9e">test</a> (const T2 &amp;, const Args2 &amp;...)</td></tr>
-<tr class="separator:a9f1544a81b82467fbf2a454710922b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37d91f5f512ec8d69ab34c742260fcad"><td class="memTemplParams" colspan="2">template&lt;typename T2 , typename... Args2&gt; </td></tr>
+<tr class="memitem:a37d91f5f512ec8d69ab34c742260fcad"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if_t&lt; !std::is_same_v&lt; decltype(std::declval&lt; const T2 &amp; &gt;).operator()(std::declval&lt; Args2 &gt;)...)), InvalidType &gt;, <a class="el" href="structtfel_1_1meta_1_1_is_const_callable.html#a2c95ec32dfb6a0ad642b6e18227c59db">Small</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1meta_1_1_is_const_callable.html#a37d91f5f512ec8d69ab34c742260fcad">test</a> (const T2 &amp;, const Args2 &amp;...)</td></tr>
+<tr class="separator:a37d91f5f512ec8d69ab34c742260fcad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c9559307d49416e9653f1227b068833"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structtfel_1_1meta_1_1_is_const_callable_1_1_big.html">Big</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1meta_1_1_is_const_callable.html#a0c9559307d49416e9653f1227b068833">test</a> (...)</td></tr>
 <tr class="separator:a0c9559307d49416e9653f1227b068833"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -121,8 +124,8 @@ struct tfel::meta::IsConstCallable&lt; T, Args &gt;</h3>
 
 <p>a metafunction which determines of the T::operator()(declval&lt;Args&gt;()...) const exists. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9f1544a81b82467fbf2a454710922b9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f1544a81b82467fbf2a454710922b9e">&#9670;&nbsp;</a></span>test() <span class="overload">[1/2]</span></h2>
+<a id="a37d91f5f512ec8d69ab34c742260fcad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37d91f5f512ec8d69ab34c742260fcad">&#9670;&nbsp;</a></span>test() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -135,7 +138,7 @@ template&lt;typename T2 , typename... Args2&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::enable_if&lt; !std::is_same&lt;decltype(std::declval&lt;const T2&amp;&gt;).operator()(std::declval&lt;Args2&gt;)...)), InvalidType&gt;::value, <a class="el" href="structtfel_1_1meta_1_1_is_const_callable.html#a2c95ec32dfb6a0ad642b6e18227c59db">Small</a>&gt;::type <a class="el" href="structtfel_1_1meta_1_1_is_const_callable.html">tfel::meta::IsConstCallable</a>&lt; T, Args &gt;::test </td>
+          <td class="memname">static std::enable_if_t&lt; !std::is_same_v&lt;decltype(std::declval&lt;const T2&amp;&gt;).operator()( std::declval&lt;Args2&gt;)...)), InvalidType&gt;, <a class="el" href="structtfel_1_1meta_1_1_is_const_callable.html#a2c95ec32dfb6a0ad642b6e18227c59db">Small</a>&gt; <a class="el" href="structtfel_1_1meta_1_1_is_const_callable.html">tfel::meta::IsConstCallable</a>&lt; T, Args &gt;::test </td>
           <td>(</td>
           <td class="paramtype">const T2 &amp;&#160;</td>
           <td class="paramname">, </td>
@@ -213,7 +216,7 @@ template&lt;typename T , typename... Args&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">sizeof</span>(<a class="code" href="structtfel_1_1meta_1_1_is_const_callable.html#a9f1544a81b82467fbf2a454710922b9e">test</a>(std::declval&lt;<span class="keyword">typename</span> std::decay&lt;T&gt;::type&gt;(),</div><div class="line">                           std::declval&lt;<span class="keyword">typename</span> std::decay&lt;Args&gt;::type&gt;()...))==<span class="keyword">sizeof</span>(<a class="code" href="structtfel_1_1meta_1_1_is_const_callable.html#a2c95ec32dfb6a0ad642b6e18227c59db">Small</a>)</div></div><!-- fragment -->
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">        <span class="keyword">sizeof</span>(<a class="code" href="structtfel_1_1meta_1_1_is_const_callable.html#a37d91f5f512ec8d69ab34c742260fcad">test</a>(std::declval&lt;<span class="keyword">typename</span> std::decay&lt;T&gt;::type&gt;(),</div><div class="line">                    std::declval&lt;<span class="keyword">typename</span> std::decay&lt;Args&gt;::type&gt;()...)) ==</div><div class="line">        <span class="keyword">sizeof</span>(<a class="code" href="structtfel_1_1meta_1_1_is_const_callable.html#a2c95ec32dfb6a0ad642b6e18227c59db">Small</a>)</div></div><!-- fragment -->
 <p>The result of the metafunction. </p>
 
 </div>
@@ -230,7 +233,7 @@ template&lt;typename T , typename... Args&gt; </div>
 </div>
 </div>
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 18 2018 20:55:06 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 3 2021 21:24:51 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

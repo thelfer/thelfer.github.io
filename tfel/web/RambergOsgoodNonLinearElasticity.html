@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -80,7 +79,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -98,64 +97,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -177,6 +193,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -243,38 +260,39 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">Non linear elasticity of the Ramberg-Osgood type</h1>
-                  <h2 class="author">Thomas Helfer, Duc Vinh Nguyen</h2>
-                  <h3 class="date">10/11</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#description-of-the-behaviour">Description of the behaviour</a></li>
-      <li><a href="#algorithm">Algorithm</a><ul>
-      <li><a href="#sec:StressComputation">Computation of the stress</a></li>
-      <li><a href="#computation-of-the-tangent-operator">Computation of the tangent operator</a></li>
-      </ul></li>
-      <li><a href="#implementation">Implementation</a><ul>
-      <li><a href="#choice-of-domain-specific-language">Choice of domain specific language</a></li>
-      <li><a href="#name-of-the-behaviour">Name of the behaviour</a></li>
-      <li><a href="#metadata">Metadata</a></li>
-      <li><a href="#material-properties">Material properties</a></li>
-      <li><a href="#a-numerical-parameter">A numerical parameter</a></li>
-      <li><a href="#local-variables">Local variables</a></li>
-      <li><a href="#initialisation-of-local-variables">Initialisation of local variables</a></li>
-      <li><a href="#prediction-operator">Prediction operator</a></li>
-      <li><a href="#the-behaviour-integration">The behaviour integration</a></li>
-      <li><a href="#first-part-of-the-computation">First part of the computation</a></li>
-      </ul></li>
-      <li><a href="#computation-of-the-tangent-operator-1">Computation of the tangent operator</a></li>
-      <li><a href="#examples-of-usage">Examples of usage</a><ul>
-      <li><a href="#uniaxial-tensile-test">Uniaxial tensile test</a></li>
-      </ul></li>
-      </ul>
-    </div>
-        
+<div id="header">
+<h1 class="title">Non linear elasticity of the Ramberg-Osgood type</h1>
+<h2 class="author">Thomas Helfer, Duc Vinh Nguyen</h2>
+<h3 class="date">10/11</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#description-of-the-behaviour">Description of the behaviour</a></li>
+<li><a href="#algorithm">Algorithm</a>
+<ul>
+<li><a href="#sec:StressComputation">Computation of the stress</a></li>
+<li><a href="#computation-of-the-tangent-operator">Computation of the tangent operator</a></li>
+</ul></li>
+<li><a href="#implementation">Implementation</a>
+<ul>
+<li><a href="#choice-of-domain-specific-language">Choice of domain specific language</a></li>
+<li><a href="#name-of-the-behaviour">Name of the behaviour</a></li>
+<li><a href="#metadata">Metadata</a></li>
+<li><a href="#material-properties">Material properties</a></li>
+<li><a href="#a-numerical-parameter">A numerical parameter</a></li>
+<li><a href="#local-variables">Local variables</a></li>
+<li><a href="#initialisation-of-local-variables">Initialisation of local variables</a></li>
+<li><a href="#prediction-operator">Prediction operator</a></li>
+<li><a href="#the-behaviour-integration">The behaviour integration</a></li>
+<li><a href="#first-part-of-the-computation">First part of the computation</a></li>
+</ul></li>
+<li><a href="#computation-of-the-tangent-operator-1">Computation of the tangent operator</a></li>
+<li><a href="#examples-of-usage">Examples of usage</a>
+<ul>
+<li><a href="#uniaxial-tensile-test">Uniaxial tensile test</a></li>
+</ul></li>
+</ul>
+</div>
 <p>In fracture mechanics, it is classical to replace the plastic behaviour by an equivalent non linear elastic behaviour.</p>
 <p>This document describes the implementation of non linear elastic behaviour of the Ramberg-Osgood type using the <code>Default</code> domain specific language of <code>MFront</code>.</p>
 <p>The full implementation is available <a href="gallery/nonlinearelasticity/RambergOsgoodNonLinearElasticity.mfront">here</a>.</p>
@@ -371,21 +389,21 @@ f{\left(\sigma_{\mathrm{eq}}{\left(\varepsilon_{\mathrm{eq}}\right)}\right)}=\va
 <h1 id="implementation">Implementation</h1>
 <h2 id="choice-of-domain-specific-language">Choice of domain specific language</h2>
 <p>While not mandatory (the <code>@DSL</code> keyword can be place anywhere in the file), its is convenient to start the implementation by declaring the domain specific language to be used. The <code>Default</code> DSL, which does not set any particular integration scheme, is the most appropriate here:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL Default;</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Default;</span></code></pre></div>
 <h2 id="name-of-the-behaviour">Name of the behaviour</h2>
 <p>The <code>@Behaviour</code> keyword is used to give the name of the behaviour.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Behaviour RambergOsgoodNonLinearElasticity;</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour RambergOsgoodNonLinearElasticity;</span></code></pre></div>
 <h2 id="metadata">Metadata</h2>
 <p>The following instructions give some information about the author, the date and some description of the behaviour.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>Author L. Gelebart/V. Duc Nguyen;</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="er">@</span>Description {</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="st">&quot;Ramberg-Osgood model (non-(linear elastic formulation)&quot;</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="st">&quot;Eps = S:Sig +β.σ_eq^n. N&quot;</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="st">&quot;with:&quot;</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="st">&quot; - N = (3/2) Sig_dev / σ_eq&quot;</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">  <span class="st">&quot; - σ_eq = rac((3/2)σ_dev:σ_dev))&quot;</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="st">&quot; - β = α⋅σ₀/E&quot;</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">}</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author L. Gelebart/V. Duc Nguyen;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Ramberg-Osgood model (non-(linear elastic formulation)&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Eps = S:Sig +β.σ_eq^n. N&quot;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;with:&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot; - N = (3/2) Sig_dev / σ_eq&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot; - σ_eq = rac((3/2)σ_dev:σ_dev))&quot;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot; - β = α⋅σ₀/E&quot;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="material-properties">Material properties</h2>
 <p>This behaviour is meant to be generic, which means that the specific characteristics of the material are to be given by the calling solver.</p>
 <p>Here, we declare <span class="math inline">\(5\)</span> material properties:</p>
@@ -393,60 +411,60 @@ f{\left(\sigma_{\mathrm{eq}}{\left(\varepsilon_{\mathrm{eq}}\right)}\right)}=\va
 <li>Two properties associated with the elastic part of the behaviour: the Young modulus <span class="math inline">\(E\)</span> and the Poisson ratio <span class="math inline">\(\nu\)</span>. Although this set of elastic properties is not the most convenient for this specific case (the bulk modulus and the shear modulus are more appropriate), it is compatible with the requirement of the <code>Cast3M</code> solver.</li>
 <li>Three properties associated with the plastic part of the behaviour: <span class="math inline">\(n\)</span>, <span class="math inline">\(\alpha\)</span> and the <span class="math inline">\(\sigma_{0}\)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>MaterialProperty stress E;</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">E.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="er">@</span>MaterialProperty real ν;</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">ν.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="er">@</span>MaterialProperty real n;</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="er">@</span>MaterialProperty real α;</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">α.setEntryName(<span class="st">&quot;alpha&quot;</span>);</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="er">@</span>MaterialProperty stress σ₀;</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">σ₀.setGlossaryName(<span class="st">&quot;YieldStrength&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress E;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>E.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real ν;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>ν.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real n;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real α;</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>α.setEntryName(<span class="st">&quot;alpha&quot;</span>);</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress σ₀;</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>σ₀.setGlossaryName(<span class="st">&quot;YieldStrength&quot;</span>);</span></code></pre></div>
 <p>Here, we use the subset of UTF-8 characters supported by <code>MFront</code> (See <a href="unicode.html">this page</a> for details) to define the variables. Note that it is important to associate so called external names to those variables using one of the <code>setEntryName</code> and <code>setGlossaryName</code> methods: it is highly recommended that the external names only contains <code>ASCII</code> characters.</p>
 <h2 id="a-numerical-parameter">A numerical parameter</h2>
 <p>The following numerical parameter will be used as threshold to avoid division by zero.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">//! Numerical threshold </span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="er">@</span>Parameter real <span class="va">e_</span>ε = <span class="fl">1e-12</span>;</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="va">e_</span>ε.setEntryName(<span class="st">&quot;NumericalThreshold&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! Numerical threshold </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real e_ε = <span class="fl">1e-12</span>;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>e_ε.setEntryName(<span class="st">&quot;NumericalThreshold&quot;</span>);</span></code></pre></div>
 <h2 id="local-variables">Local variables</h2>
 <p>The following local variables are used:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">//! the shear modulus</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="er">@</span>LocalVariable stress μ;</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">//! the bulk modulus</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="er">@</span>LocalVariable stress K;</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">//! an helper variable</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="er">@</span>LocalVariable real β;</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">//! von Mises equivalent stress</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="er">@</span>LocalVariable stress σₑ;</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">/*!</span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co"> * derivative of the von Mises equivalent stress</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co"> * with respect to the equivalent strain</span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="er">@</span>LocalVariable stress ∂σₑ∕∂εₑ;</a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">//! the equivalent strain</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="er">@</span>LocalVariable strain εₑ;</a>
-<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">//! inverse of the equivalent strain</span></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="er">@</span>LocalVariable real iεₑ;</a>
-<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">//! normal associated with the deviatoric part of the strain</span></a>
-<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="er">@</span>LocalVariable StrainStensor ne;</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! the shear modulus</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable stress μ;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">//! the bulk modulus</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable stress K;</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">//! an helper variable</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real β;</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">//! von Mises equivalent stress</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable stress σₑ;</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">/*!</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"> * derivative of the von Mises equivalent stress</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"> * with respect to the equivalent strain</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable stress ∂σₑ∕∂εₑ;</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">//! the equivalent strain</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable strain εₑ;</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">//! inverse of the equivalent strain</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real iεₑ;</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">//! normal associated with the deviatoric part of the strain</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable StrainStensor ne;</span></code></pre></div>
 <p>Local variables are available in each code blocks.</p>
 <h2 id="initialisation-of-local-variables">Initialisation of local variables</h2>
 <p>The initialisation of local variables is devoted to the <code>@InitLocalVariables</code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>InitLocalVariables {</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">  μ = computeMu(E, ν);</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">  K = E / (<span class="dv">3</span> ⋅ (<span class="dv">1</span> - <span class="dv">2</span> ⋅ ν));</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">  β = α ⋅ σ₀ / E;</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">  σₑ = stress{};</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">  ∂σₑ∕∂εₑ = stress{};</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">}</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  μ = computeMu(E, ν);</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  K = E / (<span class="dv">3</span> ⋅ (<span class="dv">1</span> - <span class="dv">2</span> ⋅ ν));</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  β = α ⋅ σ₀ / E;</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  σₑ = stress{};</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  ∂σₑ∕∂εₑ = stress{};</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Note that we use here the symbol <code>⋅</code> in place of <code>*</code> as the multiplication sign. Both are equivalent.</p>
 <p>The statement <code>σₑ = stress{};</code> initializes <code>σₑ</code> to a default value (which is <code>0</code>).</p>
 <h2 id="prediction-operator">Prediction operator</h2>
 <p>The prediction operator can used by <code>code_aster</code> to initialize the algorithm used to find the equilibrium. Here we only implement an elastic prediction operator.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>PredictionOperator{</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> P = I₄ - (I₂ ⊗ I₂) / <span class="dv">3</span>;</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">  Dt = K ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ μ ⋅ P;</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>PredictionOperator{</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> P = I₄ - (I₂ ⊗ I₂) / <span class="dv">3</span>;</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  Dt = K ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ μ ⋅ P;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>where:</p>
 <ul>
 <li><code>I₄</code> is the fourth order identity tensor (of type <code>st2tost2</code>, i.e. a fourth order tensor which transforms a symmetric tensor to a a symmetric tensor).</li>
@@ -455,7 +473,7 @@ f{\left(\sigma_{\mathrm{eq}}{\left(\varepsilon_{\mathrm{eq}}\right)}\right)}=\va
 </ul>
 <h2 id="the-behaviour-integration">The behaviour integration</h2>
 <p>The behaviour integration is <code>@Integrator</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>Integrator{</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span></code></pre></div>
 <p>The integrator part is divided in three parts:</p>
 <ul>
 <li>The first part computes some useful variables.</li>
@@ -464,66 +482,66 @@ f{\left(\sigma_{\mathrm{eq}}{\left(\varepsilon_{\mathrm{eq}}\right)}\right)}=\va
 </ul>
 <h2 id="first-part-of-the-computation">First part of the computation</h2>
 <p>The first part computes the strain at the end of the time step, its deviatoric part, the equivalent strain and the normal.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span> ε = εᵗᵒ + Δεᵗᵒ;</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> se = deviator(ε);</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">  εₑ = sqrt(<span class="dv">2</span> ⋅ (se | se) / <span class="dv">3</span>);</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">  iεₑ = <span class="dv">1</span> / max(εₑ, <span class="va">e_</span>ε);</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">  ne = <span class="dv">2</span> ⋅ se ⋅ (iεₑ / <span class="dv">3</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ε = εᵗᵒ + Δεᵗᵒ;</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> se = deviator(ε);</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  εₑ = sqrt(<span class="dv">2</span> ⋅ (se | se) / <span class="dv">3</span>);</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  iεₑ = <span class="dv">1</span> / max(εₑ, e_ε);</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  ne = <span class="dv">2</span> ⋅ se ⋅ (iεₑ / <span class="dv">3</span>);</span></code></pre></div>
 <h3 id="computation-of-the-von-mises-stress-and-its-derivative">Computation of the von Mises stress and its derivative</h3>
 <p>The following code computes the von Mises stress and its derivative:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1">  <span class="cf">if</span> (εₑ &lt; <span class="va">e_</span>ε) {</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">    σₑ = <span class="dv">3</span> ⋅ μ ⋅ εₑ;</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">    ∂σₑ∕∂εₑ = <span class="dv">3</span> ⋅ μ;</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">  } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">    <span class="at">const</span> <span class="kw">auto</span> <span class="va">e_</span>σ = E ⋅ <span class="va">e_</span>ε;</a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">    <span class="at">const</span> <span class="kw">auto</span> i3μ = <span class="dv">1</span> / (<span class="dv">3</span> ⋅ μ);</a>
-<a class="sourceLine" id="cb11-7" data-line-number="7">    <span class="kw">auto</span> f = real{};</a>
-<a class="sourceLine" id="cb11-8" data-line-number="8">    <span class="kw">auto</span> fidf = [&amp;]() {</a>
-<a class="sourceLine" id="cb11-9" data-line-number="9">      <span class="at">const</span> <span class="kw">auto</span> rσₑⁿ = pow(σₑ / σ₀, n);</a>
-<a class="sourceLine" id="cb11-10" data-line-number="10">      <span class="at">const</span> <span class="kw">auto</span> iσₑ = <span class="dv">1</span> / max(<span class="va">e_</span>σ, σₑ);</a>
-<a class="sourceLine" id="cb11-11" data-line-number="11">      f = σₑ ⋅ i3μ + β ⋅ rσₑⁿ - εₑ;</a>
-<a class="sourceLine" id="cb11-12" data-line-number="12">      ∂σₑ∕∂εₑ = <span class="dv">1</span> / max(i3μ + n ⋅ β ⋅ rσₑⁿ ⋅ iσₑ, i3μ ⋅ <span class="va">e_</span>ε);</a>
-<a class="sourceLine" id="cb11-13" data-line-number="13">    };</a>
-<a class="sourceLine" id="cb11-14" data-line-number="14">    σₑ = σ₀ ⋅ pow(εₑ / β, <span class="dv">1</span> / n);</a>
-<a class="sourceLine" id="cb11-15" data-line-number="15">    <span class="kw">auto</span> iter = <span class="dt">int</span>{};</a>
-<a class="sourceLine" id="cb11-16" data-line-number="16">    fidf();</a>
-<a class="sourceLine" id="cb11-17" data-line-number="17">    <span class="cf">while</span> (abs(f) &gt; <span class="va">e_</span>ε) {</a>
-<a class="sourceLine" id="cb11-18" data-line-number="18">      fidf();</a>
-<a class="sourceLine" id="cb11-19" data-line-number="19">      σₑ -= f ⋅ ∂σₑ∕∂εₑ;</a>
-<a class="sourceLine" id="cb11-20" data-line-number="20">      <span class="cf">if</span> (++iter &gt; <span class="dv">20</span>) {</a>
-<a class="sourceLine" id="cb11-21" data-line-number="21">        <span class="cf">throw</span>(DivergenceException());</a>
-<a class="sourceLine" id="cb11-22" data-line-number="22">      }</a>
-<a class="sourceLine" id="cb11-23" data-line-number="23">    }</a>
-<a class="sourceLine" id="cb11-24" data-line-number="24">  }</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (εₑ &lt; e_ε) {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    σₑ = <span class="dv">3</span> ⋅ μ ⋅ εₑ;</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    ∂σₑ∕∂εₑ = <span class="dv">3</span> ⋅ μ;</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> e_σ = E ⋅ e_ε;</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> i3μ = <span class="dv">1</span> / (<span class="dv">3</span> ⋅ μ);</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> f = real{};</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> fidf = [&amp;]() {</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> rσₑⁿ = pow(σₑ / σ₀, n);</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> iσₑ = <span class="dv">1</span> / max(e_σ, σₑ);</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>      f = σₑ ⋅ i3μ + β ⋅ rσₑⁿ - εₑ;</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>      ∂σₑ∕∂εₑ = <span class="dv">1</span> / max(i3μ + n ⋅ β ⋅ rσₑⁿ ⋅ iσₑ, i3μ ⋅ e_ε);</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    };</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    σₑ = σ₀ ⋅ pow(εₑ / β, <span class="dv">1</span> / n);</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> iter = <span class="dt">int</span>{};</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    fidf();</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (abs(f) &gt; e_ε) {</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>      fidf();</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>      σₑ -= f ⋅ ∂σₑ∕∂εₑ;</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (++iter &gt; <span class="dv">20</span>) {</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span>(DivergenceException());</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
 <p>If the equivalent strain is below the numerical threshold, a solution corresponding to an elastic behaviour is returned.</p>
 <p>In the other case, a local Newton algorithm is used to determine <code>σₑ</code> and <code>∂σₑ∕∂εₑ</code>, as described by Section 2.1. Except for the usage of a lambda function called <code>ifdf</code>, the code is quite easy to read. A lambda function can be seen as a local function which allows to factorise the code computing the residual and its derivative. The syntax <code>[&amp;]</code> means that the lambda function of has access to all the variables of the surrounding scope by references. Note that we used Equation (6) to identify <span class="math inline">\({{\displaystyle \frac{\displaystyle 1}{\displaystyle {\displaystyle \frac{\displaystyle \mathrm{d} f}{\displaystyle \mathrm{d} \sigma_{\mathrm{eq}}}}}}}\)</span> to <code>∂σₑ∕∂εₑ</code>.</p>
 <h3 id="computation-of-the-stress">Computation of the stress</h3>
 <p>The computation of the stress is a direct translation of Equation (4):</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1">  σ = K ⋅ trace(ε) ⋅ I₂ + σₑ ⋅ ne;</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  σ = K ⋅ trace(ε) ⋅ I₂ + σₑ ⋅ ne;</span></code></pre></div>
 <h3 id="finalisation">Finalisation</h3>
 <p>The <code>@Integrator</code> code block ends with a final curly brace.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1">} <span class="co">// end of @Integrator</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Integrator</span></span></code></pre></div>
 <h1 id="computation-of-the-tangent-operator-1">Computation of the tangent operator</h1>
 <p>The following block compute the tangent operator using Equation (5):</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="er">@</span>TangentOperator{</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> P = I₄ - (I₂ ⊗ I₂) / <span class="dv">3</span>;</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="cf">if</span> ((smt == ELASTIC) || (smt == SECANTOPERATOR)) {</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">    Dt = K ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ μ ⋅ P;</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">  } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">    <span class="cf">if</span> (εₑ &lt; <span class="va">e_</span>ε) {</a>
-<a class="sourceLine" id="cb14-7" data-line-number="7">      Dt = K ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ μ ⋅ P;</a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">    } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb14-9" data-line-number="9">      Dt = K ⋅ (I₂ ⊗ I₂) + ∂σₑ∕∂εₑ ⋅ (ne ⊗ ne) +</a>
-<a class="sourceLine" id="cb14-10" data-line-number="10">           σₑ ⋅ iεₑ ⋅ (<span class="dv">2</span> ⋅ P / <span class="dv">3</span> - (ne ⊗ ne));</a>
-<a class="sourceLine" id="cb14-11" data-line-number="11">    }</a>
-<a class="sourceLine" id="cb14-12" data-line-number="12">  }</a>
-<a class="sourceLine" id="cb14-13" data-line-number="13">}</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator{</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> P = I₄ - (I₂ ⊗ I₂) / <span class="dv">3</span>;</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> ((smt == ELASTIC) || (smt == SECANTOPERATOR)) {</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    Dt = K ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ μ ⋅ P;</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (εₑ &lt; e_ε) {</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>      Dt = K ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ μ ⋅ P;</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>      Dt = K ⋅ (I₂ ⊗ I₂) + ∂σₑ∕∂εₑ ⋅ (ne ⊗ ne) +</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>           σₑ ⋅ iεₑ ⋅ (<span class="dv">2</span> ⋅ P / <span class="dv">3</span> - (ne ⊗ ne));</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h1 id="examples-of-usage">Examples of usage</h1>
 <h2 id="uniaxial-tensile-test">Uniaxial tensile test</h2>
 <figure>
-<img src="./img/RambergOsgoodNonLinearElasticity-UniaxialTensileTest.png" title="Result of an uniaxial tensile test" alt="Result of an uniaxial tensile test" /><figcaption>Result of an uniaxial tensile test</figcaption>
+<img src="./img/RambergOsgoodNonLinearElasticity-UniaxialTensileTest.png" title="Result of an uniaxial tensile test" alt="Result of an uniaxial tensile test" /><figcaption aria-hidden="true">Result of an uniaxial tensile test</figcaption>
 </figure>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

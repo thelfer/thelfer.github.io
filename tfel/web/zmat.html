@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -99,64 +98,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -178,6 +194,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -244,33 +261,32 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">MFront usage in <a href="http://www.zset-software.com/products/zebulon">ZeBuLoN</a></h1>
-                  <h2 class="author">Helfer Thomas</h2>
-                  <h3 class="date">October 13, 2014</h3>
-          </div>
-            <p>This document shows how to use <code>MFront</code> mechanical behaviour in the <a href="http://www.zset-software.com/products/zebulon">ZeBuLoN finite element solver</a>. It is extracted from the <a href="documents/mfront/zmat.pdf"><code>zmat</code> documentation</a>.</p>
+<div id="header">
+<h1 class="title">MFront usage in <a href="http://www.zset-software.com/products/zebulon">ZeBuLoN</a></h1>
+<h2 class="author">Helfer Thomas</h2>
+<h3 class="date">October 13, 2014</h3>
+</div>
+<p>This document shows how to use <code>MFront</code> mechanical behaviour in the <a href="http://www.zset-software.com/products/zebulon">ZeBuLoN finite element solver</a>. It is extracted from the <a href="documents/mfront/zmat.pdf"><code>zmat</code> documentation</a>.</p>
 <p>This interface has been tested with the version <span class="math inline">\(8.5\)</span> of <a href="http://www.zset-software.com/products/zebulon">ZeBuLoN</a>. The files used can be downloaded <a href="downloads/example-zset8.5.tar.bz2">here</a>.</p>
 <h1 id="compilation-of-the-behaviour">Compilation of the behaviour</h1>
 <p>The following instruction will compile the <code>MFront</code> behaviour using the <code>zmat</code> interface :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=zmat norton.mfront</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>zmat norton.mfront</span></code></pre></div>
 <h1 id="usage-in-zebulon">Usage in <a href="http://www.zset-software.com/products/zebulon">ZeBuLoN</a></h1>
 <p>The generated library must be placed in a directory registered by the <code>ZEBUPATH</code> environment variable. The generated library is then automatically loaded at <code>ZeBuLoN</code> start-up and all the behaviours are available.</p>
 <p>The behaviour can then be used as standard <code>ZMAT</code> behaviour:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="ex">***behavior</span> Norton</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"> <span class="ex">**material_properties</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">   <span class="ex">YoungModulus</span> 150e9</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">   <span class="ex">PoissonRatio</span>   0.33</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">   <span class="ex">A</span>[0] 8.e-67</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">   <span class="ex">A</span>[1] 1.</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">   <span class="ex">E</span> 8.2</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"> <span class="ex">**out_of_bounds_policy</span> Strict</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"> <span class="ex">**parameters</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">   <span class="ex">epsilon</span> 1.e-12</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="ex">***return</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">***behavior</span> Norton</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> <span class="ex">**material_properties</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">YoungModulus</span> 150e9</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">PoissonRatio</span>   0.33</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>   <span class="va">A</span><span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="ex">8.e-67</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>   <span class="va">A</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="ex">1.</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>   <span class="ex">E</span> 8.2</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a> <span class="ex">**out_of_bounds_policy</span> Strict</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a> <span class="ex">**parameters</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>   <span class="ex">epsilon</span> 1.e-12</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">***return</span></span></code></pre></div>
 <!-- Local IspellDict: english -->
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -80,7 +79,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -98,64 +97,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -177,6 +193,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -243,56 +260,60 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">Implementation of a multi-surface, compressible and perfect plastic behaviour using the Drucker-Prager yield criterion and a cap</h1>
-                  <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">21/11/2017</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#description">Description</a><ul>
-      <li><a href="#elasticity">Elasticity</a></li>
-      <li><a href="#plasticity">Plasticity</a><ul>
-      <li><a href="#derivatives-of-the-stress-criteria">Derivatives of the stress criteria</a></li>
-      <li><a href="#derivatives-of-sigma_mathrmeqmathrmdp">Derivatives of <span class="math inline">\(\sigma_{\mathrm{eq}}^{\mathrm{DP}}\)</span></a></li>
-      <li><a href="#derivatives-of-sigma_mathrmeqc">Derivatives of <span class="math inline">\(\sigma_{\mathrm{eq}}^{c}\)</span></a></li>
-      </ul></li>
-      </ul></li>
-      <li><a href="#integration-scheme">Integration scheme</a><ul>
-      <li><a href="#choice-of-the-state-variables">Choice of the state variables</a></li>
-      <li><a href="#implicit-scheme">Implicit scheme</a></li>
-      <li><a href="#status">Status</a></li>
-      <li><a href="#elastic-prediction">Elastic prediction</a></li>
-      <li><a href="#equation-associated-with-the-elastic-strain">Equation associated with the elastic strain</a></li>
-      <li><a href="#equation-associated-with-the-drucker-prager-plastic-flow">Equation associated with the Drucker-Prager plastic flow</a></li>
-      <li><a href="#equation-associated-with-the-drucker-prager-plastic-flow-1">Equation associated with the Drucker-Prager plastic flow</a></li>
-      </ul></li>
-      <li><a href="#implementation">Implementation</a><ul>
-      <li><a href="#metadata">Metadata</a></li>
-      <li><a href="#supported-modelling-hypothesis">Supported modelling hypothesis</a></li>
-      <li><a href="#the-standard-elasticity-brick">The standard elasticity brick</a></li>
-      <li><a href="#numerical-parameters">Numerical parameters</a></li>
-      <li><a href="#state-variables">State variables</a></li>
-      <li><a href="#statuses">Statuses</a></li>
-      <li><a href="#local-variables">Local variables</a></li>
-      <li><a href="#material-constants">Material constants</a><ul>
-      <li><a href="#material-constants-associated-with-the-elastic-part-of-the-behaviour">Material constants associated with the elastic part of the behaviour</a></li>
-      <li><a href="#material-constants-associated-with-the-plastic-parts-of-the-behaviour">Material constants associated with the plastic parts of the behaviour</a></li>
-      </ul></li>
-      <li><a href="#initialisation-of-the-local-variables">Initialisation of the local variables</a></li>
-      <li><a href="#elastic-prediction-initial-value-of-the-statuses">Elastic prediction, initial value of the statuses</a></li>
-      <li><a href="#implicit-system">Implicit system</a></li>
-      <li><a href="#a-posterio-checks-validation-of-the-assumptions">A posterio checks: validation of the assumptions</a></li>
-      </ul></li>
-      <li><a href="#evolution-of-the-porosity">Evolution of the porosity</a><ul>
-      <li><a href="#porosity-as-a-state-variable">Porosity as a state variable</a></li>
-      <li><a href="#porosity-as-an-auxiliary-state-variable">Porosity as an auxiliary state variable</a></li>
-      </ul></li>
-      <li><a href="#references">References</a></li>
-      </ul>
-    </div>
-        
+<div id="header">
+<h1 class="title">Implementation of a multi-surface, compressible and perfect plastic behaviour using the Drucker-Prager yield criterion and a cap</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">21/11/2017</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#description">Description</a>
+<ul>
+<li><a href="#elasticity">Elasticity</a></li>
+<li><a href="#plasticity">Plasticity</a>
+<ul>
+<li><a href="#derivatives-of-the-stress-criteria">Derivatives of the stress criteria</a></li>
+<li><a href="#derivatives-of-sigma_mathrmeqmathrmdp">Derivatives of <span class="math inline">\(\sigma_{\mathrm{eq}}^{\mathrm{DP}}\)</span></a></li>
+<li><a href="#derivatives-of-sigma_mathrmeqc">Derivatives of <span class="math inline">\(\sigma_{\mathrm{eq}}^{c}\)</span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#integration-scheme">Integration scheme</a>
+<ul>
+<li><a href="#choice-of-the-state-variables">Choice of the state variables</a></li>
+<li><a href="#implicit-scheme">Implicit scheme</a></li>
+<li><a href="#status">Status</a></li>
+<li><a href="#elastic-prediction">Elastic prediction</a></li>
+<li><a href="#equation-associated-with-the-elastic-strain">Equation associated with the elastic strain</a></li>
+<li><a href="#equation-associated-with-the-drucker-prager-plastic-flow">Equation associated with the Drucker-Prager plastic flow</a></li>
+<li><a href="#equation-associated-with-the-drucker-prager-plastic-flow-1">Equation associated with the Drucker-Prager plastic flow</a></li>
+</ul></li>
+<li><a href="#implementation">Implementation</a>
+<ul>
+<li><a href="#metadata">Metadata</a></li>
+<li><a href="#supported-modelling-hypothesis">Supported modelling hypothesis</a></li>
+<li><a href="#the-standard-elasticity-brick">The standard elasticity brick</a></li>
+<li><a href="#numerical-parameters">Numerical parameters</a></li>
+<li><a href="#state-variables">State variables</a></li>
+<li><a href="#statuses">Statuses</a></li>
+<li><a href="#local-variables">Local variables</a></li>
+<li><a href="#material-constants">Material constants</a>
+<ul>
+<li><a href="#material-constants-associated-with-the-elastic-part-of-the-behaviour">Material constants associated with the elastic part of the behaviour</a></li>
+<li><a href="#material-constants-associated-with-the-plastic-parts-of-the-behaviour">Material constants associated with the plastic parts of the behaviour</a></li>
+</ul></li>
+<li><a href="#initialisation-of-the-local-variables">Initialisation of the local variables</a></li>
+<li><a href="#elastic-prediction-initial-value-of-the-statuses">Elastic prediction, initial value of the statuses</a></li>
+<li><a href="#implicit-system">Implicit system</a></li>
+<li><a href="#a-posterio-checks-validation-of-the-assumptions">A posterio checks: validation of the assumptions</a></li>
+</ul></li>
+<li><a href="#evolution-of-the-porosity">Evolution of the porosity</a>
+<ul>
+<li><a href="#porosity-as-a-state-variable">Porosity as a state variable</a></li>
+<li><a href="#porosity-as-an-auxiliary-state-variable">Porosity as an auxiliary state variable</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
 <p>This paper is dedicated to the implementation a multi-surface, compressible, perfect plastic behaviour.</p>
 <h1 id="description">Description</h1>
 <h2 id="elasticity">Elasticity</h2>
@@ -326,7 +347,7 @@ R = {{\displaystyle \frac{\displaystyle p_{a} - p_{b}}{\displaystyle d - p_{a} \
 \]</span></li>
 </ul>
 <figure>
-<img src="img/DruckerPragerCap.svg" title="Yield surface based on the Drucker-Prager criterion and a cap" alt="Yield surface based on the Drucker-Prager criterion and a cap. The point associated with the MFront key has been obtained with the implementation described in this page (see below for the material constants used)" style="width:80.0%" /><figcaption>Yield surface based on the Drucker-Prager criterion and a cap. The point associated with the <code>MFront</code> key has been obtained with the implementation described in this page (see below for the material constants used)</figcaption>
+<img src="img/DruckerPragerCap.svg" title="Yield surface based on the Drucker-Prager criterion and a cap" style="width:80.0%" alt="Yield surface based on the Drucker-Prager criterion and a cap. The point associated with the MFront key has been obtained with the implementation described in this page (see below for the material constants used)" /><figcaption aria-hidden="true">Yield surface based on the Drucker-Prager criterion and a cap. The point associated with the <code>MFront</code> key has been obtained with the implementation described in this page (see below for the material constants used)</figcaption>
 </figure>
 <blockquote>
 <p><strong>Note</strong></p>
@@ -369,13 +390,15 @@ R = {{\displaystyle \frac{\displaystyle p_{a} - p_{b}}{\displaystyle d - p_{a} \
 <p><span class="math display">\[
 {\displaystyle \frac{\displaystyle \partial \sigma_{\mathrm{eq}}^{\mathrm{DP}}}{\displaystyle \partial \underline{\sigma}}} =
 \underline{n}^{c}=
-{{\displaystyle \frac{\displaystyle 1}{\displaystyle \sigma_{\mathrm{eq}}^{c}}}}{\left({{\displaystyle \frac{\displaystyle {\left(p-p_{a}\right)}}{\displaystyle 3}}}\underline{I}+R^{2}\,q\,\underline{n}_{q}
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle \sigma_{\mathrm{eq}}^{c}}}}{\left(
+{{\displaystyle \frac{\displaystyle {\left(p-p_{a}\right)}}{\displaystyle 3}}}\underline{I}+R^{2}\,q\,\underline{n}_{q}
 \right)}
 \]</span></p>
 <p>The second derivative of <span class="math inline">\(\sigma_{\mathrm{eq}}^{c}\)</span> with respect to <span class="math inline">\(\underline{\sigma}\)</span> is: <span class="math display">\[
 {\displaystyle \frac{\displaystyle \partial^{2} \sigma_{\mathrm{eq}}^{c}}{\displaystyle \partial \underline{\sigma}^{2}}}=
 {\displaystyle \frac{\displaystyle \partial \underline{n}^{c}}{\displaystyle \partial \underline{\sigma}}}=
-{{\displaystyle \frac{\displaystyle 1}{\displaystyle \sigma_{\mathrm{eq}}^{c}}}}{\left({{\displaystyle \frac{\displaystyle 1}{\displaystyle 9}}}\,\underline{I}\,\otimes\,\underline{I}+
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle \sigma_{\mathrm{eq}}^{c}}}}{\left(
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle 9}}}\,\underline{I}\,\otimes\,\underline{I}+
 R^{2}\,\underline{n}_{q}\,\otimes\,\underline{n}_{q}+
 R^{2}\,{\left(\underline{\underline{\mathbf{M}}}-\underline{n}_{q}\,\otimes\,\underline{n}_{q}\right)}
 -\underline{n}_{c}\,\otimes\,\underline{n}_{c}
@@ -530,18 +553,18 @@ f_{p^{c}}=\Delta\,p^{c}
 <li>the author of the implementation (<code>@Author</code>).</li>
 <li>a small description of the behaviour (<code>@Description</code>).</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="er">@</span>Behaviour DruckerPragerCap;</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="er">@</span>Author Thomas Helfer;</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="er">@</span>Description{</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">  A simple implementation of a perfect</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">  plasticity behaviour <span class="kw">using</span> the</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">  Drucker-Prager yield criterion</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">  closed by a cap.</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">};</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour DruckerPragerCap;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description{</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  A simple implementation of a perfect</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  plasticity behaviour <span class="kw">using</span> the</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  Drucker-Prager yield criterion</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  closed by a cap.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
 <h2 id="supported-modelling-hypothesis">Supported modelling hypothesis</h2>
 <p>Thanks to the <code>StandardElasticity</code> brick, all the modelling hypotheses can be supported. The following statement, starting with the <code>@ModellingHypotheses</code>, enables all the modelling hypotheses:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>ModellingHypotheses {<span class="st">&quot;.+&quot;</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses {<span class="st">&quot;.+&quot;</span>};</span></code></pre></div>
 <h2 id="the-standard-elasticity-brick">The standard elasticity brick</h2>
 <p>To implement this behaviour, we will use the <code>StandardElasticity</code> brick which provides:</p>
 <ul>
@@ -552,140 +575,140 @@ f_{p^{c}}=\Delta\,p^{c}
 </ul>
 <p>This behaviour brick is fully described <a href="BehaviourBricks.html">here</a>.</p>
 <p>The usage of the <code>StandardElasticity</code> is introduced as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>Brick StandardElasticity;</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity;</span></code></pre></div>
 <h2 id="numerical-parameters">Numerical parameters</h2>
 <p>The following part of file give some default values for numerical parameters used by the integration algorithm:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-16</span>;</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="er">@</span>Theta <span class="dv">1</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-16</span>;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span>;</span></code></pre></div>
 <h2 id="state-variables">State variables</h2>
 <p>The elastic strain is automatically declared the <code>StandardElasticity</code> brick. The associated variable is <code>eel</code>.</p>
 <p>The following statement introduces an array of two states variables named <code>p</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>StateVariable strain p[<span class="dv">2</span>];</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable strain p[<span class="dv">2</span>];</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</span></code></pre></div>
 <p>The first entry <code>p[0]</code> will be associated to the Drucker-Prager mechanism. The second entry <code>p[1]</code> will be associated to the cap mechanism.</p>
 <h2 id="statuses">Statuses</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="er">@</span>LocalVariable <span class="dt">bool</span> bpl[<span class="dv">2</span>];</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">bool</span> bpl[<span class="dv">2</span>];</span></code></pre></div>
 <p>The first entry <code>bpl[0]</code> will be associated to the Drucker-Prager mechanism. The second entry <code>bpl[1]</code> will be associated to the cap mechanism.</p>
 <h2 id="local-variables">Local variables</h2>
 <p>Local variables are helpers variables that are accessible in each code blocks during the all the integration of the behaviour:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>LocalVariable real tg;</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="er">@</span>LocalVariable real R;</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real tg;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real R;</span></code></pre></div>
 <h2 id="material-constants">Material constants</h2>
 <h3 id="material-constants-associated-with-the-elastic-part-of-the-behaviour">Material constants associated with the elastic part of the behaviour</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>ElasticMaterialProperties {<span class="fl">150e9</span>,<span class="fl">0.3</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ElasticMaterialProperties {<span class="fl">150e9</span>,<span class="fl">0.3</span>};</span></code></pre></div>
 <h3 id="material-constants-associated-with-the-plastic-parts-of-the-behaviour">Material constants associated with the plastic parts of the behaviour</h3>
 <p>The material constants associated with Drucker-Prager yield surface are <span class="math inline">\(\beta\)</span> and <span class="math inline">\(R_{0}^{\mathrm{DP}}\)</span>. In the following, <span class="math inline">\(R_{0}^{\mathrm{DP}}\)</span>, will be called <code>d</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>Parameter d    = <span class="fl">150e6</span>;</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="er">@</span>Parameter beta = <span class="fl">0.6</span>;</a></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="er">@</span>Parameter pa   = <span class="fl">-10e6</span>;</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="er">@</span>Parameter pb   = <span class="fl">-75e6</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter d    = <span class="fl">150e6</span>;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter beta = <span class="fl">0.6</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter pa   = -<span class="fl">10e6</span>;</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter pb   = -<span class="fl">75e6</span>;</span></code></pre></div>
 <h2 id="initialisation-of-the-local-variables">Initialisation of the local variables</h2>
 <p>The <code>@InitLocalVariables</code> block is called once at the very beginning of the behaviour integration.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="er">@</span>InitLocalVariables {</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">  tg = tan(beta);</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">  R = (pa - pb) / (d - pa * tg);</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  tg = tan(beta);</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  R = (pa - pb) / (d - pa * tg);</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="elastic-prediction-initial-value-of-the-statuses">Elastic prediction, initial value of the statuses</h2>
 <p>The <code>@Predictor</code> code block is called just before the beginning of the Newton-Raphson algorihtm.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="er">@</span>Predictor{</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> sigel = computeElasticPrediction();</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="co">// Drucker-Prager</span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> prel = trace(sigel) / <span class="dv">3</span>;</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">  <span class="at">const</span> <span class="kw">auto</span> qel = sigmaeq(sigel);</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6">  bpl[<span class="dv">0</span>] = (qel + prel * tg - d &gt; <span class="dv">0</span>) &amp;&amp; (prel &gt; pa);</a>
-<a class="sourceLine" id="cb12-7" data-line-number="7">  <span class="co">// Cap</span></a>
-<a class="sourceLine" id="cb12-8" data-line-number="8">  <span class="at">const</span> <span class="kw">auto</span> seq_c = sqrt(power&lt;<span class="dv">2</span>&gt;(prel - pa) + power&lt;<span class="dv">2</span>&gt;(R * qel));</a>
-<a class="sourceLine" id="cb12-9" data-line-number="9">  bpl[<span class="dv">1</span>] = (seq_c &gt; (pa - pb)) &amp;&amp; (prel &lt;= pa);</a>
-<a class="sourceLine" id="cb12-10" data-line-number="10">}</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Predictor{</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sigel = computeElasticPrediction();</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Drucker-Prager</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> prel = trace(sigel) / <span class="dv">3</span>;</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> qel = sigmaeq(sigel);</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  bpl[<span class="dv">0</span>] = (qel + prel * tg - d &gt; <span class="dv">0</span>) &amp;&amp; (prel &gt; pa);</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Cap</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> seq_c = sqrt(power&lt;<span class="dv">2</span>&gt;(prel - pa) + power&lt;<span class="dv">2</span>&gt;(R * qel));</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  bpl[<span class="dv">1</span>] = (seq_c &gt; (pa - pb)) &amp;&amp; (prel &lt;= pa);</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>The <code>computeElasticPrediction</code> method, introduced by the <code>StandardElasticity</code> brick computes an elastic prediction of stress. This method takes the modelling hypothesis into account when required (plane stress, generalised plane stress).</p>
 <h2 id="implicit-system">Implicit system</h2>
 <p>The implicit system is build inside the <code>@Integrator</code> code block:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="er">@</span>Integrator {</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span></code></pre></div>
 <p>We first declare some useful variables:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = Stensor::Id();</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = Stensor4::Id();</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id_x_id = Stensor4::IxI();</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> M = Stensor4::M();</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">  <span class="at">const</span> <span class="kw">auto</span> seps =  real(<span class="dv">1</span>.e<span class="dv">-12</span>) * young;</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = Stensor::Id();</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = Stensor4::Id();</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id_x_id = Stensor4::IxI();</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> M = Stensor4::M();</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> seps =  real(<span class="fl">1.e-12</span>) * young;</span></code></pre></div>
 <p>Those variables are declared <code>constexpr</code> to allow the compiler to evaluate them at compile-time. Those variables are declared <code>const</code> so that their values can’t be changed.</p>
 <p>The following code tests if at least one mechanism is active.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1">  <span class="cf">if</span> ((bpl[<span class="dv">0</span>]) || (bpl[<span class="dv">1</span>])) {</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> ((bpl[<span class="dv">0</span>]) || (bpl[<span class="dv">1</span>])) {</span></code></pre></div>
 <p>If at least one mechanism is active, the following code computes <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and their derivatives:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1">    <span class="at">const</span> <span class="kw">auto</span> pr = trace(sig) / <span class="dv">3</span>;</a>
-<a class="sourceLine" id="cb16-2" data-line-number="2">    <span class="at">const</span> <span class="kw">auto</span> q = sigmaeq(sig);</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3">    <span class="at">const</span> <span class="kw">auto</span> iq = <span class="dv">1</span> / max(q,seps);</a>
-<a class="sourceLine" id="cb16-4" data-line-number="4">    <span class="at">const</span> <span class="kw">auto</span> nq = eval(<span class="dv">3</span> * deviator(sig) * (iq / <span class="dv">2</span>));</a>
-<a class="sourceLine" id="cb16-5" data-line-number="5">    <span class="at">const</span> <span class="kw">auto</span> dnq = eval((M - (nq ^ nq)) * iq);</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> pr = trace(sig) / <span class="dv">3</span>;</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> q = sigmaeq(sig);</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> iq = <span class="dv">1</span> / max(q,seps);</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> nq = eval(<span class="dv">3</span> * deviator(sig) * (iq / <span class="dv">2</span>));</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dnq = eval((M - (nq ^ nq)) * iq);</span></code></pre></div>
 <p>We now treat the case where the Drucker-Prager mechanism is active.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1">    <span class="cf">if</span> (bpl[<span class="dv">0</span>]) {</a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">      <span class="at">const</span> <span class="kw">auto</span> n   = eval(nq+(tg/<span class="dv">3</span>)*id);</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3">      feel += dp[<span class="dv">0</span>]*n;</a>
-<a class="sourceLine" id="cb17-4" data-line-number="4">      fp(<span class="dv">0</span>) = (q+pr*tg-d)/young;</a>
-<a class="sourceLine" id="cb17-5" data-line-number="5">      <span class="co">// jacobian</span></a>
-<a class="sourceLine" id="cb17-6" data-line-number="6">      dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp[<span class="dv">0</span>]*dnq;</a>
-<a class="sourceLine" id="cb17-7" data-line-number="7">      dfeel_ddp(<span class="dv">0</span>) = n;</a>
-<a class="sourceLine" id="cb17-8" data-line-number="8">      dfp_ddp(<span class="dv">0</span>,<span class="dv">0</span>) = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb17-9" data-line-number="9">      dfp_ddeel(<span class="dv">0</span>) = (<span class="dv">2</span>*mu*theta/young)*n+(tg*theta*lambda/young)*id;</a>
-<a class="sourceLine" id="cb17-10" data-line-number="10">    }</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (bpl[<span class="dv">0</span>]) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> n   = eval(nq+(tg/<span class="dv">3</span>)*id);</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>      feel += dp[<span class="dv">0</span>]*n;</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>      fp(<span class="dv">0</span>) = (q+pr*tg-d)/young;</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>      <span class="co">// jacobian</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>      dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp[<span class="dv">0</span>]*dnq;</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>      dfeel_ddp(<span class="dv">0</span>) = n;</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>      dfp_ddp(<span class="dv">0</span>,<span class="dv">0</span>) = <span class="dv">0</span>;</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>      dfp_ddeel(<span class="dv">0</span>) = (<span class="dv">2</span>*mu*theta/young)*n+(tg*theta*lambda/young)*id;</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div>
 <p>The following code describes the implicit equations to be solved if the cap mechanism is active.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1">    <span class="cf">if</span> (bpl[<span class="dv">1</span>]) {</a>
-<a class="sourceLine" id="cb18-2" data-line-number="2">      <span class="at">const</span> <span class="kw">auto</span> seq_c = sqrt(power&lt;<span class="dv">2</span>&gt;(pr - pa) + power&lt;<span class="dv">2</span>&gt;(R * q));</a>
-<a class="sourceLine" id="cb18-3" data-line-number="3">      <span class="at">const</span> <span class="kw">auto</span> iseq_c = <span class="dv">1</span> / max(seq_c,seps);</a>
-<a class="sourceLine" id="cb18-4" data-line-number="4">      <span class="at">const</span> <span class="kw">auto</span> n = eval(((pr - pa) * (id / <span class="dv">3</span>) + R * R * q * nq) * iseq_c);</a>
-<a class="sourceLine" id="cb18-5" data-line-number="5">      <span class="at">const</span> <span class="kw">auto</span> dn = (Stensor4::IxI() / <span class="dv">9</span> + R * R * M - (n ^ n)) * iseq_c;</a>
-<a class="sourceLine" id="cb18-6" data-line-number="6">      <span class="at">const</span> <span class="kw">auto</span> De = <span class="dv">2</span> * mu * id4 + lambda * id_x_id;</a>
-<a class="sourceLine" id="cb18-7" data-line-number="7">      feel += dp[<span class="dv">1</span>] * n;</a>
-<a class="sourceLine" id="cb18-8" data-line-number="8">      fp(<span class="dv">1</span>) = (seq_c - R * (d - pa * tg)) / young;</a>
-<a class="sourceLine" id="cb18-9" data-line-number="9">      <span class="co">// jacobian</span></a>
-<a class="sourceLine" id="cb18-10" data-line-number="10">      dfeel_ddeel += theta * dp[<span class="dv">1</span>] * dn * De;</a>
-<a class="sourceLine" id="cb18-11" data-line-number="11">      dfeel_ddp(<span class="dv">1</span>) = n;</a>
-<a class="sourceLine" id="cb18-12" data-line-number="12">      <span class="cf">if</span>(<span class="bu">std::</span>abs(seq_c)&lt;seps){</a>
-<a class="sourceLine" id="cb18-13" data-line-number="13">        dfp_ddp(<span class="dv">1</span>, <span class="dv">1</span>) = <span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb18-14" data-line-number="14">      } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb18-15" data-line-number="15">        dfp_ddp(<span class="dv">1</span>, <span class="dv">1</span>) = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb18-16" data-line-number="16">      }</a>
-<a class="sourceLine" id="cb18-17" data-line-number="17">      dfp_ddeel(<span class="dv">1</span>) = theta * (n | De) / young;</a>
-<a class="sourceLine" id="cb18-18" data-line-number="18">    }</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (bpl[<span class="dv">1</span>]) {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> seq_c = sqrt(power&lt;<span class="dv">2</span>&gt;(pr - pa) + power&lt;<span class="dv">2</span>&gt;(R * q));</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> iseq_c = <span class="dv">1</span> / max(seq_c,seps);</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> n = eval(((pr - pa) * (id / <span class="dv">3</span>) + R * R * q * nq) * iseq_c);</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> dn = (Stensor4::IxI() / <span class="dv">9</span> + R * R * M - (n ^ n)) * iseq_c;</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> De = <span class="dv">2</span> * mu * id4 + lambda * id_x_id;</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>      feel += dp[<span class="dv">1</span>] * n;</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>      fp(<span class="dv">1</span>) = (seq_c - R * (d - pa * tg)) / young;</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>      <span class="co">// jacobian</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>      dfeel_ddeel += theta * dp[<span class="dv">1</span>] * dn * De;</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>      dfeel_ddp(<span class="dv">1</span>) = n;</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(<span class="bu">std::</span>abs(seq_c)&lt;seps){</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>        dfp_ddp(<span class="dv">1</span>, <span class="dv">1</span>) = <span class="dv">1</span>;</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>        dfp_ddp(<span class="dv">1</span>, <span class="dv">1</span>) = <span class="dv">0</span>;</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>      dfp_ddeel(<span class="dv">1</span>) = theta * (n | De) / young;</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div>
 <p>The following braces closes the test which was used to check that at least one mechanism is active.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" data-line-number="1">  } <span class="co">// end of if ((bpl[0]) || (bpl[1]))</span></a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>  } <span class="co">// end of if ((bpl[0]) || (bpl[1]))</span></span></code></pre></div>
 <p>Finally, the <code>@Integrator</code> code block is closed:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" data-line-number="1">} <span class="co">// end of @Integrator</span></a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Integrator</span></span></code></pre></div>
 <h2 id="a-posterio-checks-validation-of-the-assumptions">A posterio checks: validation of the assumptions</h2>
 <p>The <code>@AdditionalConvergenceChecks</code> code block has been introduced in <code>TFEL-3.1</code> to have a better control on the convergence of the Newton-Raphson algorithm. In particular, this block can be used to change the status associated with each mechanism.</p>
 <p>Here, we will change the status associated with a mechanism once the Newton-Raphson algorithm has converged (this is indicated by the <code>converged</code> boolean variable).</p>
 <p>If a mechanism is active, we check that <span class="math inline">\(\Delta\,p_{i}\)</span> is positive. Otherwise, the mechanism is desactivated and the <code>converged</code> flag is set to <code>false</code>.</p>
 <p>If a mechanism is not active, we check that the final solution remain below the yield surface. Otherwise, the mechanism is activated and the <code>converged</code> flag is set to <code>false</code>.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="er">@</span>AdditionalConvergenceChecks {</a>
-<a class="sourceLine" id="cb21-2" data-line-number="2">  <span class="cf">if</span> (converged){</a>
-<a class="sourceLine" id="cb21-3" data-line-number="3">    <span class="cf">if</span> (bpl[<span class="dv">0</span>]) {</a>
-<a class="sourceLine" id="cb21-4" data-line-number="4">      <span class="cf">if</span> (dp[<span class="dv">0</span>] &lt; <span class="dv">0</span>) {</a>
-<a class="sourceLine" id="cb21-5" data-line-number="5">        <span class="co">// desactivating this system</span></a>
-<a class="sourceLine" id="cb21-6" data-line-number="6">        converged = bpl[<span class="dv">0</span>] = <span class="kw">false</span>;</a>
-<a class="sourceLine" id="cb21-7" data-line-number="7">      }</a>
-<a class="sourceLine" id="cb21-8" data-line-number="8">    } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb21-9" data-line-number="9">      <span class="at">const</span> <span class="kw">auto</span> pr = trace(sig) / <span class="dv">3</span>;</a>
-<a class="sourceLine" id="cb21-10" data-line-number="10">      <span class="at">const</span> <span class="kw">auto</span> q = sigmaeq(sig);</a>
-<a class="sourceLine" id="cb21-11" data-line-number="11">      <span class="cf">if</span> (q + pr * tg &gt; d) {</a>
-<a class="sourceLine" id="cb21-12" data-line-number="12">        converged = <span class="kw">false</span>;</a>
-<a class="sourceLine" id="cb21-13" data-line-number="13">        bpl[<span class="dv">0</span>] = <span class="kw">true</span>;</a>
-<a class="sourceLine" id="cb21-14" data-line-number="14">      }</a>
-<a class="sourceLine" id="cb21-15" data-line-number="15">    }</a>
-<a class="sourceLine" id="cb21-16" data-line-number="16">    <span class="cf">if</span> (bpl[<span class="dv">1</span>]) {</a>
-<a class="sourceLine" id="cb21-17" data-line-number="17">      <span class="cf">if</span> (dp[<span class="dv">1</span>] &lt; <span class="dv">0</span>) {</a>
-<a class="sourceLine" id="cb21-18" data-line-number="18">        <span class="co">// desactivating this system</span></a>
-<a class="sourceLine" id="cb21-19" data-line-number="19">        converged = bpl[<span class="dv">1</span>] = <span class="kw">false</span>;</a>
-<a class="sourceLine" id="cb21-20" data-line-number="20">      }</a>
-<a class="sourceLine" id="cb21-21" data-line-number="21">     } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb21-22" data-line-number="22">       <span class="at">const</span> <span class="kw">auto</span> pr = trace(sig) / <span class="dv">3</span>;</a>
-<a class="sourceLine" id="cb21-23" data-line-number="23">       <span class="at">const</span> <span class="kw">auto</span> q = sigmaeq(sig);</a>
-<a class="sourceLine" id="cb21-24" data-line-number="24">       <span class="at">const</span> <span class="kw">auto</span> seq_c = sqrt(power&lt;<span class="dv">2</span>&gt;(pr - pa) + power&lt;<span class="dv">2</span>&gt;(R * q));</a>
-<a class="sourceLine" id="cb21-25" data-line-number="25">       <span class="cf">if</span> ((seq_c &gt; pa - pb) &amp;&amp; (pr &lt; pa)) {</a>
-<a class="sourceLine" id="cb21-26" data-line-number="26">         converged = <span class="kw">false</span>;</a>
-<a class="sourceLine" id="cb21-27" data-line-number="27">         bpl[<span class="dv">1</span>] = <span class="kw">true</span>;</a>
-<a class="sourceLine" id="cb21-28" data-line-number="28">       }</a>
-<a class="sourceLine" id="cb21-29" data-line-number="29">     }</a>
-<a class="sourceLine" id="cb21-30" data-line-number="30">  }</a>
-<a class="sourceLine" id="cb21-31" data-line-number="31">}</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalConvergenceChecks {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (converged){</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (bpl[<span class="dv">0</span>]) {</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (dp[<span class="dv">0</span>] &lt; <span class="dv">0</span>) {</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">// desactivating this system</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        converged = bpl[<span class="dv">0</span>] = <span class="kw">false</span>;</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> pr = trace(sig) / <span class="dv">3</span>;</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> q = sigmaeq(sig);</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (q + pr * tg &gt; d) {</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>        converged = <span class="kw">false</span>;</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>        bpl[<span class="dv">0</span>] = <span class="kw">true</span>;</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (bpl[<span class="dv">1</span>]) {</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (dp[<span class="dv">1</span>] &lt; <span class="dv">0</span>) {</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">// desactivating this system</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>        converged = bpl[<span class="dv">1</span>] = <span class="kw">false</span>;</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>     } <span class="cf">else</span> {</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">const</span> <span class="kw">auto</span> pr = trace(sig) / <span class="dv">3</span>;</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">const</span> <span class="kw">auto</span> q = sigmaeq(sig);</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">const</span> <span class="kw">auto</span> seq_c = sqrt(power&lt;<span class="dv">2</span>&gt;(pr - pa) + power&lt;<span class="dv">2</span>&gt;(R * q));</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span> ((seq_c &gt; pa - pb) &amp;&amp; (pr &lt; pa)) {</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>         converged = <span class="kw">false</span>;</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>         bpl[<span class="dv">1</span>] = <span class="kw">true</span>;</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>       }</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>     }</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h1 id="evolution-of-the-porosity">Evolution of the porosity</h1>
 <p>In this paragraph, we will discuss how the evolution of the porosity of the material du to the plastic flow can be added.</p>
 <p>The porosity <span class="math inline">\(f\)</span> is defined as the ratio between the current mass density <span class="math inline">\(\rho\)</span> and the theoretical density <span class="math inline">\(\rho^{\mathrm{th}}\)</span>: <span class="math display">\[
@@ -752,7 +775,9 @@ f_{f} =
 {\displaystyle \frac{\displaystyle \partial f_{f}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}&amp;=
 -{\left(1-{\left.f\right|_{t+\theta\,\Delta\,t}}\right)}\,
 \underline{I}\,\colon\,
-{\left({\displaystyle \frac{\displaystyle \partial \underline{n}^{\mathrm{DP}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}+{\displaystyle \frac{\displaystyle \partial \underline{n}^{c}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+{\left(
+{\displaystyle \frac{\displaystyle \partial \underline{n}^{\mathrm{DP}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}+
+{\displaystyle \frac{\displaystyle \partial \underline{n}^{c}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
 \right)}\\
 \end{aligned}
 \right.
@@ -771,15 +796,15 @@ f_{f} =
 \]</span></p>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references">
-<div id="ref-fritzen_computational_2013">
-<p>1. <span class="smallcaps">Fritzen</span>, Felix, <span class="smallcaps">Forest</span>, Samuel, <span class="smallcaps">Kondo</span>, Djimedo and <span class="smallcaps">Böhlke</span>, Thomas. Computational homogenization of porous materials of green type. <em>Computational Mechanics</em>. 1 July 2013. Vol. 52, no. 1, p. 121–134. DOI <a href="https://doi.org/10.1007/s00466-012-0801-z">10.1007/s00466-012-0801-z</a>. Available from: <a href="https://link.springer.com/article/10.1007/s00466-012-0801-z" class="uri">https://link.springer.com/article/10.1007/s00466-012-0801-z</a></p>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-fritzen_computational_2013" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Fritzen</span>, Felix, <span class="smallcaps">Forest</span>, Samuel, <span class="smallcaps">Kondo</span>, Djimedo and <span class="smallcaps">Böhlke</span>, Thomas. Computational homogenization of porous materials of green type. <em>Computational Mechanics</em>. 1 July 2013. Vol. 52, no. 1, p. 121–134. DOI <a href="https://doi.org/10.1007/s00466-012-0801-z">10.1007/s00466-012-0801-z</a>. Available from: <a href="https://link.springer.com/article/10.1007/s00466-012-0801-z">https://link.springer.com/article/10.1007/s00466-012-0801-z</a></div>
 </div>
-<div id="ref-chaboche_endommagement_2001">
-<p>2. <span class="smallcaps">Chaboche</span>, Jean-Louis, <span class="smallcaps">Suquet</span>, Pierre and <span class="smallcaps">Besson</span>, Jacques. Endommagement et changement d’échelle. In : <em>Homogénéisation en mécanique des matériaux,</em> Hermes Science Publications. Lalonde : M. Bornert, T. Bretheau et P. Gilormini, 2001. p. 91–146. Available from: <a href="http://www.lma.cnrs-mrs.fr/sites/www.lma.cnrs-mrs.fr/IMG/pdf/lalonde_tome2_endo.pdf" class="uri">http://www.lma.cnrs-mrs.fr/sites/www.lma.cnrs-mrs.fr/IMG/pdf/lalonde_tome2_endo.pdf</a></p>
+<div id="ref-chaboche_endommagement_2001" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Chaboche</span>, Jean-Louis, <span class="smallcaps">Suquet</span>, Pierre and <span class="smallcaps">Besson</span>, Jacques. Endommagement et changement d’échelle. In : <em>Homogénéisation en mécanique des matériaux,</em>. Hermes Science Publications. Lalonde : M. Bornert, T. Bretheau et P. Gilormini, 2001. p. 91–146. Available from: <a href="http://www.lma.cnrs-mrs.fr/sites/www.lma.cnrs-mrs.fr/IMG/pdf/lalonde_tome2_endo.pdf">http://www.lma.cnrs-mrs.fr/sites/www.lma.cnrs-mrs.fr/IMG/pdf/lalonde_tome2_endo.pdf</a></div>
 </div>
 </div>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

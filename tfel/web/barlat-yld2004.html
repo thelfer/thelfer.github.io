@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -80,7 +79,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -98,64 +97,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -177,6 +193,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -243,39 +260,40 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">Implementation of Barlat’ Yld2004-18p behaviour</h1>
-                  <h2 class="author">Thomas Helfer, Dominique Deloison</h2>
-                  <h3 class="date">7/01/2018</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#description-of-the-behaviour">Description of the behaviour</a><ul>
-      <li><a href="#elasticity">Elasticity</a></li>
-      <li><a href="#plasticity">Plasticity</a></li>
-      </ul></li>
-      <li><a href="#implicit-scheme">Implicit scheme</a><ul>
-      <li><a href="#choice-of-the-state-variables">Choice of the state variables</a></li>
-      <li><a href="#elastic-prediction">Elastic prediction</a></li>
-      <li><a href="#equations-governing-the-material-evolution-under-plastic-loading">Equations governing the material evolution under plastic loading</a></li>
-      </ul></li>
-      <li><a href="#implementation">Implementation</a><ul>
-      <li><a href="#metadata">Metadata</a></li>
-      <li><a href="#orthotropic-axes-convention">Orthotropic axes convention</a></li>
-      <li><a href="#the-standard-elasticity-brick">The standard elasticity brick</a></li>
-      <li><a href="#numerical-parameters">Numerical parameters</a></li>
-      <li><a href="#elastic-properties-and-yield-stress">Elastic properties and yield stress</a></li>
-      <li><a href="#state-variables">State variables</a></li>
-      <li><a href="#local-variables-declaration">Local variables declaration</a></li>
-      <li><a href="#local-variable-initialization">Local variable initialization</a></li>
-      <li><a href="#implicit-system">Implicit system</a></li>
-      </ul></li>
-      <li><a href="#references">References</a></li>
-      </ul>
-    </div>
-        
-<p>This article discusses the implementation of the Yld2004-18p behaviour, as decribed by Barlat et al. (See <span class="citation" data-cites="barlat_linear_2005">[1]</span>).</p>
+<div id="header">
+<h1 class="title">Implementation of Barlat’ Yld2004-18p behaviour</h1>
+<h2 class="author">Thomas Helfer, Dominique Deloison</h2>
+<h3 class="date">7/01/2018</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#description-of-the-behaviour">Description of the behaviour</a>
+<ul>
+<li><a href="#elasticity">Elasticity</a></li>
+<li><a href="#plasticity">Plasticity</a></li>
+</ul></li>
+<li><a href="#implicit-scheme">Implicit scheme</a>
+<ul>
+<li><a href="#choice-of-the-state-variables">Choice of the state variables</a></li>
+<li><a href="#elastic-prediction">Elastic prediction</a></li>
+<li><a href="#equations-governing-the-material-evolution-under-plastic-loading">Equations governing the material evolution under plastic loading</a></li>
+</ul></li>
+<li><a href="#implementation">Implementation</a>
+<ul>
+<li><a href="#metadata">Metadata</a></li>
+<li><a href="#orthotropic-axes-convention">Orthotropic axes convention</a></li>
+<li><a href="#the-standard-elasticity-brick">The standard elasticity brick</a></li>
+<li><a href="#numerical-parameters">Numerical parameters</a></li>
+<li><a href="#elastic-properties-and-yield-stress">Elastic properties and yield stress</a></li>
+<li><a href="#state-variables">State variables</a></li>
+<li><a href="#local-variables-declaration">Local variables declaration</a></li>
+<li><a href="#local-variable-initialization">Local variable initialization</a></li>
+<li><a href="#implicit-system">Implicit system</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<p>This article discusses the implementation of the Yld2004-18p behaviour, as decribed by Barlat et al. (See <span class="citation" data-cites="barlat_linear_2005">[1]</span>).</p>
 <h1 id="description-of-the-behaviour">Description of the behaviour</h1>
 <h2 id="elasticity">Elasticity</h2>
 <p>The elasticity is assumed linear and isotropic, i.e. given by the Hooke law: <span class="math display">\[
@@ -391,11 +409,11 @@ f_{p}={{\displaystyle \frac{\displaystyle {\left.\sigma_{\mathrm{eq}}^{B}\right|
 </ul>
 <h2 id="orthotropic-axes-convention">Orthotropic axes convention</h2>
 <p>An orthotropic axes convention has to be defined to have consistent definition of the linear transformations <span class="math inline">\(l_{1}\)</span> and <span class="math inline">\(l_{2}\)</span>. The behaviour has been identified for plates, so the natural choice is the <code>Plate</code> orthotropic convention:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>OrthotropicBehaviour&lt;Plate&gt;;</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>OrthotropicBehaviour&lt;Plate&gt;;</span></code></pre></div>
 <p>This choice limits the number of possible modelling hypotheses that are available to the following list: <code>Tridimensional</code>, <code>PlaneStrain</code>, <code>GeneralisedPlaneStrain</code>, <code>PlaneStress</code>.</p>
 <p>Thanks to the <code>StandardElasticity</code> brick defined below, all those modelling hypotheses can be supported, but the support for the plane stress hypothesis as to be explicitly requested. The following statement, starting with the <code>@ModellingHypotheses</code>, enables all the previously listed modelling hypotheses:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>ModellingHypotheses {Tridimensional,PlaneStrain,</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">                      GeneralisedPlaneStrain,PlaneStress};</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses {Tridimensional,PlaneStrain,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                      GeneralisedPlaneStrain,PlaneStress};</span></code></pre></div>
 <h2 id="the-standard-elasticity-brick">The standard elasticity brick</h2>
 <p>To implement this behaviour, we will use the <code>StandardElasticity</code> brick which provides:</p>
 <ul>
@@ -406,33 +424,33 @@ f_{p}={{\displaystyle \frac{\displaystyle {\left.\sigma_{\mathrm{eq}}^{B}\right|
 </ul>
 <p>This behaviour brick is fully described <a href="BehaviourBricks.html">here</a>.</p>
 <p>The usage of the <code>StandardElasticity</code> is introduced as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>Brick StandardElasticity;</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity;</span></code></pre></div>
 <h2 id="numerical-parameters">Numerical parameters</h2>
 <p>The following part of file give some default values for numerical parameters used by the integration algorithm:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-16</span>;</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="er">@</span>Theta   <span class="dv">1</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-16</span>;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta   <span class="dv">1</span>;</span></code></pre></div>
 <h2 id="elastic-properties-and-yield-stress">Elastic properties and yield stress</h2>
 <p>The material properties are hard-coded. The <code>@ElasticMaterialProperties</code> is used to declare the Young modulus and the Poisson ratio.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>ElasticMaterialProperties {<span class="fl">150e9</span>,<span class="fl">0.3</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ElasticMaterialProperties {<span class="fl">150e9</span>,<span class="fl">0.3</span>};</span></code></pre></div>
 <p>This keyword automatically declares two parameters called <code>YoungModulus</code> and <code>PoissonRatio</code>.</p>
 <p>In the <code>Implicit</code> scheme, the lame coefficients are automatically deduced from the Young modulus and the Poisson ratio. They are accessible though the <code>lambda</code> and <code>mu</code> local variables which are automatically defined.</p>
 <p>The parameters associated with the plastic part of the behaviour are defined as follows:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="er">@</span>Parameter a    = <span class="dv">8</span>;</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">// 646*0.025**0.227</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="er">@</span>Parameter sig0 = <span class="fl">150e6</span>;</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">sig0.setEntryName(<span class="st">&quot;HardeningReferenceStress&quot;</span>);</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="er">@</span>Parameter p0   = <span class="dv">1</span>.e<span class="dv">-4</span>;</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">p0.setEntryName(<span class="st">&quot;HardeningReferenceStrain&quot;</span>);</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="er">@</span>Parameter np   = <span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">np.setEntryName(<span class="st">&quot;BarlatExponent&quot;</span>);</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="er">@</span>Parameter c1p[<span class="dv">9</span>]  = {<span class="dv">-0</span><span class="fl">.069888</span>,<span class="fl">0.079143</span>,<span class="fl">0.936408</span>,</a>
-<a class="sourceLine" id="cb6-10" data-line-number="10">              <span class="fl">0.524741</span>,<span class="fl">1.00306</span>,<span class="fl">1.36318</span>,</a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">              <span class="fl">0.954322</span>,<span class="fl">1.06906</span>,<span class="fl">1.02377</span>};</a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">c1p.setEntryName(<span class="st">&quot;BarlatLinearTransformationCoefficients1&quot;</span>);</a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="er">@</span>Parameter c2p[<span class="dv">9</span>]  = {<span class="fl">0.981171</span>,<span class="fl">0.575316</span>,<span class="fl">0.476741</span>,</a>
-<a class="sourceLine" id="cb6-14" data-line-number="14">              <span class="fl">1.14501</span>,<span class="fl">0.866827</span>,<span class="dv">-0</span><span class="fl">.079294</span>,</a>
-<a class="sourceLine" id="cb6-15" data-line-number="15">              <span class="fl">1.40462</span>,<span class="fl">1.1471</span>,<span class="fl">1.05166</span>};</a>
-<a class="sourceLine" id="cb6-16" data-line-number="16">c2p.setEntryName(<span class="st">&quot;BarlatLinearTransformationCoefficients2&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter a    = <span class="dv">8</span>;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 646*0.025**0.227</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter sig0 = <span class="fl">150e6</span>;</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>sig0.setEntryName(<span class="st">&quot;HardeningReferenceStress&quot;</span>);</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter p0   = <span class="fl">1.e-4</span>;</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>p0.setEntryName(<span class="st">&quot;HardeningReferenceStrain&quot;</span>);</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter np   = <span class="dv">2</span>;</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>np.setEntryName(<span class="st">&quot;BarlatExponent&quot;</span>);</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter c1p[<span class="dv">9</span>]  = {-<span class="fl">0.069888</span>,<span class="fl">0.079143</span>,<span class="fl">0.936408</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.524741</span>,<span class="fl">1.00306</span>,<span class="fl">1.36318</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.954322</span>,<span class="fl">1.06906</span>,<span class="fl">1.02377</span>};</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>c1p.setEntryName(<span class="st">&quot;BarlatLinearTransformationCoefficients1&quot;</span>);</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter c2p[<span class="dv">9</span>]  = {<span class="fl">0.981171</span>,<span class="fl">0.575316</span>,<span class="fl">0.476741</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>              <span class="fl">1.14501</span>,<span class="fl">0.866827</span>,-<span class="fl">0.079294</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>              <span class="fl">1.40462</span>,<span class="fl">1.1471</span>,<span class="fl">1.05166</span>};</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>c2p.setEntryName(<span class="st">&quot;BarlatLinearTransformationCoefficients2&quot;</span>);</span></code></pre></div>
 <p>Here <code>a</code> stands for the Barlat exponent, <code>sig0</code>, <code>p0</code> and <code>np</code> are the parameters describing the hardening of the material.</p>
 <p>The parameters associated with the first linear transformation are given in the following order (see <a href="tensors.html">this page</a> for details):</p>
 <p><span class="math display">\[
@@ -456,60 +474,60 @@ xx &amp; yy &amp; zz &amp; xy &amp; xz &amp; yz
 <h2 id="state-variables">State variables</h2>
 <p>The elastic strain is automatically declared the <code>StandardElasticity</code> brick. The associated variable is <code>eel</code>.</p>
 <p>The following statement introduces the equivalent plastic strain named <code>p</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>StateVariable strain p;</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable strain p;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</span></code></pre></div>
 <h2 id="local-variables-declaration">Local variables declaration</h2>
 <p>For the implementations, we will need three local variables:</p>
 <ul>
 <li>a boolean <code>b</code>. This boolean will be <code>true</code> if a plastic loading occurs.</li>
 <li>two fourth order tensors <code>l1</code> and <code>l2</code> that stands for the linear transformation of the stress tensors.</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>LocalVariable <span class="dt">bool</span> b;</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="er">@</span>LocalVariable Stensor4 l1,l2;</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">bool</span> b;</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable Stensor4 l1,l2;</span></code></pre></div>
 <h2 id="local-variable-initialization">Local variable initialization</h2>
 <p>The main goal of the local variable initialization is to test if the elastic prediction of the stress lies inside the yield surface.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>InitializeLocalVariables{</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="co">// when using the `Plate` orthotropic axes convention, all the</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="co">// modelling hypotheses uses the same convention, so we can just</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="co">// use the `makeBarlatLinearTransformation` function with the</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="co">// space dimension N as the template parameter</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">  l1 = makeBarlatLinearTransformation&lt;N&gt;(c1p[<span class="dv">0</span>],c1p[<span class="dv">1</span>],c1p[<span class="dv">2</span>],</a>
-<a class="sourceLine" id="cb9-7" data-line-number="7">                                         c1p[<span class="dv">3</span>],c1p[<span class="dv">4</span>],c1p[<span class="dv">5</span>],</a>
-<a class="sourceLine" id="cb9-8" data-line-number="8">                                         c1p[<span class="dv">6</span>],c1p[<span class="dv">7</span>],c1p[<span class="dv">8</span>]);</a>
-<a class="sourceLine" id="cb9-9" data-line-number="9">  l2 = makeBarlatLinearTransformation&lt;N&gt;(c2p[<span class="dv">0</span>],c2p[<span class="dv">1</span>],c2p[<span class="dv">2</span>],</a>
-<a class="sourceLine" id="cb9-10" data-line-number="10">                                         c2p[<span class="dv">3</span>],c2p[<span class="dv">4</span>],c2p[<span class="dv">5</span>],</a>
-<a class="sourceLine" id="cb9-11" data-line-number="11">                                         c2p[<span class="dv">6</span>],c2p[<span class="dv">7</span>],c2p[<span class="dv">8</span>]);</a>
-<a class="sourceLine" id="cb9-12" data-line-number="12">  <span class="at">const</span> stress seps = <span class="dv">1</span>.e<span class="dv">-10</span>*young;</a>
-<a class="sourceLine" id="cb9-13" data-line-number="13">  <span class="at">const</span> <span class="kw">auto</span> sigel = computeElasticPrediction();</a>
-<a class="sourceLine" id="cb9-14" data-line-number="14">  <span class="at">const</span> <span class="kw">auto</span> seqel = computeBarlatStress(sigel,l1,l2,a,seps);</a>
-<a class="sourceLine" id="cb9-15" data-line-number="15">  b = seqel/sig0&gt;pow(<span class="dv">1</span>+p/p0,np);</a>
-<a class="sourceLine" id="cb9-16" data-line-number="16">}</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitializeLocalVariables{</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// when using the `Plate` orthotropic axes convention, all the</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// modelling hypotheses uses the same convention, so we can just</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// use the `makeBarlatLinearTransformation` function with the</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// space dimension N as the template parameter</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  l1 = makeBarlatLinearTransformation&lt;N&gt;(c1p[<span class="dv">0</span>],c1p[<span class="dv">1</span>],c1p[<span class="dv">2</span>],</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                                         c1p[<span class="dv">3</span>],c1p[<span class="dv">4</span>],c1p[<span class="dv">5</span>],</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                                         c1p[<span class="dv">6</span>],c1p[<span class="dv">7</span>],c1p[<span class="dv">8</span>]);</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  l2 = makeBarlatLinearTransformation&lt;N&gt;(c2p[<span class="dv">0</span>],c2p[<span class="dv">1</span>],c2p[<span class="dv">2</span>],</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                                         c2p[<span class="dv">3</span>],c2p[<span class="dv">4</span>],c2p[<span class="dv">5</span>],</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                                         c2p[<span class="dv">6</span>],c2p[<span class="dv">7</span>],c2p[<span class="dv">8</span>]);</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> stress seps = <span class="fl">1.e-10</span>*young;</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sigel = computeElasticPrediction();</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> seqel = computeBarlatStress(sigel,l1,l2,a,seps);</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  b = seqel/sig0&gt;pow(<span class="dv">1</span>+p/p0,np);</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>The <code>computeElasticPrediction</code> method, provided by the <code>StandardElasticity</code> brick, computes the elastic prediction of the stress and takes into account the modelling hypothesis. This prediction is thus valid under the plane stress hypothesis.</p>
 <p>The <code>makeBarlatLinearTransformation</code> and the <code>computeBarlatStress</code> functions are described in details <a href="tensors.hml">here</a></p>
 <h2 id="implicit-system">Implicit system</h2>
 <p>The code describing the implicit system is rather short:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="er">@</span>Integrator{</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="at">const</span> stress seps = <span class="dv">1</span>.e<span class="dv">-10</span>*young;</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="cf">if</span>(!b){</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">    <span class="co">// elastic loading, nothing to be done</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">    <span class="cf">return</span> <span class="kw">true</span>;</a>
-<a class="sourceLine" id="cb10-6" data-line-number="6">  }</a>
-<a class="sourceLine" id="cb10-7" data-line-number="7">  <span class="at">const</span> <span class="kw">auto</span> <span class="va">p_</span> = p+theta*dp;</a>
-<a class="sourceLine" id="cb10-8" data-line-number="8">  <span class="cf">if</span>(<span class="va">p_</span>&lt;<span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb10-9" data-line-number="9">    <span class="cf">return</span> <span class="kw">false</span>;</a>
-<a class="sourceLine" id="cb10-10" data-line-number="10">  }</a>
-<a class="sourceLine" id="cb10-11" data-line-number="11">  real seq;</a>
-<a class="sourceLine" id="cb10-12" data-line-number="12">  Stensor n;</a>
-<a class="sourceLine" id="cb10-13" data-line-number="13">  Stensor4 dn;</a>
-<a class="sourceLine" id="cb10-14" data-line-number="14">  <span class="at">const</span> <span class="kw">auto</span> tmp = pow(<span class="dv">1</span>+<span class="va">p_</span>/p0,np);</a>
-<a class="sourceLine" id="cb10-15" data-line-number="15">  <span class="bu">std::</span>tie(seq,n,dn) = computeBarlatStressSecondDerivative(sig,l1,l2,a,seps);</a>
-<a class="sourceLine" id="cb10-16" data-line-number="16">  feel        += dp*n;</a>
-<a class="sourceLine" id="cb10-17" data-line-number="17">  dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp*dn;</a>
-<a class="sourceLine" id="cb10-18" data-line-number="18">  dfeel_ddp    = n;</a>
-<a class="sourceLine" id="cb10-19" data-line-number="19">  fp           = seq/sig0-tmp;</a>
-<a class="sourceLine" id="cb10-20" data-line-number="20">  dfp_ddeel    = (<span class="dv">2</span>*mu*theta)/sig0*n;</a>
-<a class="sourceLine" id="cb10-21" data-line-number="21">  dfp_ddp      = (np*theta)/(p0+<span class="va">p_</span>)*tmp;</a>
-<a class="sourceLine" id="cb10-22" data-line-number="22">}</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> stress seps = <span class="fl">1.e-10</span>*young;</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(!b){</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// elastic loading, nothing to be done</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span>;</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">p_</span> = p+theta*dp;</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="va">p_</span>&lt;<span class="dv">0</span>){</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span>;</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  real seq;</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  Stensor n;</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  Stensor4 dn;</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> tmp = pow(<span class="dv">1</span>+<span class="va">p_</span>/p0,np);</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="bu">std::</span>tie(seq,n,dn) = computeBarlatStressSecondDerivative(sig,l1,l2,a,seps);</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  feel        += dp*n;</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp*dn;</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  dfeel_ddp    = n;</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  fp           = seq/sig0-tmp;</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  dfp_ddeel    = (<span class="dv">2</span>*mu*theta)/sig0*n;</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  dfp_ddp      = (np*theta)/(p0+<span class="va">p_</span>)*tmp;</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>It shall be noted that, at the beginning of this code block:</p>
 <ul>
 <li><code>feel</code> has been initialized to <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}\)</span> by the <code>StandardElasticity</code> brick</li>
@@ -525,33 +543,33 @@ xx &amp; yy &amp; zz &amp; xy &amp; xz &amp; yz
 </ul>
 <p>The implicit system is then readily written, using expressions given in the previous paragraph.</p>
 <p>In <code>C++17</code>, the previous code can be more simplier and smaller, using <em>structured bindings</em>:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="er">@</span>Integrator{</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="at">const</span> stress seps = <span class="dv">1</span>.e<span class="dv">-10</span>*young;</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="cf">if</span>(!b){</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">    <span class="co">// elastic loading, nothing to be done</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">    <span class="cf">return</span> <span class="kw">true</span>;</a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">  }</a>
-<a class="sourceLine" id="cb11-7" data-line-number="7">  <span class="at">const</span> <span class="kw">auto</span> <span class="va">p_</span> = p+theta*dp;</a>
-<a class="sourceLine" id="cb11-8" data-line-number="8">  <span class="cf">if</span>(<span class="va">p_</span>&lt;<span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb11-9" data-line-number="9">    <span class="cf">return</span> <span class="kw">false</span>;</a>
-<a class="sourceLine" id="cb11-10" data-line-number="10">  }</a>
-<a class="sourceLine" id="cb11-11" data-line-number="11">  <span class="at">const</span> <span class="kw">auto</span> tmp = pow(<span class="dv">1</span>+<span class="va">p_</span>/p0,np);</a>
-<a class="sourceLine" id="cb11-12" data-line-number="12">  <span class="at">const</span> <span class="kw">auto</span> [seq,n,dn] = computeBarlatStressSecondDerivative(sig,l1,l2,a,seps);</a>
-<a class="sourceLine" id="cb11-13" data-line-number="13">  feel        += dp*n;</a>
-<a class="sourceLine" id="cb11-14" data-line-number="14">  dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp*dn;</a>
-<a class="sourceLine" id="cb11-15" data-line-number="15">  dfeel_ddp    = n;</a>
-<a class="sourceLine" id="cb11-16" data-line-number="16">  fp           = seq/sig0-tmp;</a>
-<a class="sourceLine" id="cb11-17" data-line-number="17">  dfp_ddeel    = (<span class="dv">2</span>*mu*theta)/sig0*n;</a>
-<a class="sourceLine" id="cb11-18" data-line-number="18">  dfp_ddp      = (np*theta)/(p0+<span class="va">p_</span>)*tmp;</a>
-<a class="sourceLine" id="cb11-19" data-line-number="19">}</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> stress seps = <span class="fl">1.e-10</span>*young;</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(!b){</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// elastic loading, nothing to be done</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span>;</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">p_</span> = p+theta*dp;</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="va">p_</span>&lt;<span class="dv">0</span>){</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span>;</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> tmp = pow(<span class="dv">1</span>+<span class="va">p_</span>/p0,np);</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> [seq,n,dn] = computeBarlatStressSecondDerivative(sig,l1,l2,a,seps);</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  feel        += dp*n;</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp*dn;</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  dfeel_ddp    = n;</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  fp           = seq/sig0-tmp;</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  dfp_ddeel    = (<span class="dv">2</span>*mu*theta)/sig0*n;</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  dfp_ddp      = (np*theta)/(p0+<span class="va">p_</span>)*tmp;</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references">
-<div id="ref-barlat_linear_2005">
-<p>1. <span class="smallcaps">Barlat</span>, F., <span class="smallcaps">Aretz</span>, H., <span class="smallcaps">Yoon</span>, J. W., <span class="smallcaps">Karabin</span>, M. E., <span class="smallcaps">Brem</span>, J. C. and <span class="smallcaps">Dick</span>, R. E. Linear transfomation-based anisotropic yield functions. <em>International Journal of Plasticity</em>. 1 May 2005. Vol. 21, no. 5, p. 1009–1039. DOI <a href="https://doi.org/10.1016/j.ijplas.2004.06.004">10.1016/j.ijplas.2004.06.004</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641904001160" class="uri">http://www.sciencedirect.com/science/article/pii/S0749641904001160</a></p>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-barlat_linear_2005" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Barlat</span>, F., <span class="smallcaps">Aretz</span>, H., <span class="smallcaps">Yoon</span>, J. W., <span class="smallcaps">Karabin</span>, M. E., <span class="smallcaps">Brem</span>, J. C. and <span class="smallcaps">Dick</span>, R. E. Linear transfomation-based anisotropic yield functions. <em>International Journal of Plasticity</em>. 1 May 2005. Vol. 21, no. 5, p. 1009–1039. DOI <a href="https://doi.org/10.1016/j.ijplas.2004.06.004">10.1016/j.ijplas.2004.06.004</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641904001160">http://www.sciencedirect.com/science/article/pii/S0749641904001160</a></div>
 </div>
 </div>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

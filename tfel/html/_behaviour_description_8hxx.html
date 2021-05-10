@@ -90,6 +90,7 @@ $(function() {
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;optional&gt;</code><br />
 <code>#include &quot;<a class="el" href="_gen_type_base_8hxx.html">TFEL/Utilities/GenTypeBase.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="tvector_8hxx.html">TFEL/Math/tvector.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_crystal_structure_8hxx.html">TFEL/Material/CrystalStructure.hxx</a>&quot;</code><br />
@@ -101,8 +102,9 @@ $(function() {
 <code>#include &quot;<a class="el" href="_code_block_8hxx.html">MFront/CodeBlock.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_supported_types_8hxx.html">MFront/SupportedTypes.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_behaviour_attribute_8hxx.html">MFront/BehaviourAttribute.hxx</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_behaviour_data_8hxx.html">MFront/BehaviourData.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mfront_2include_2_m_front_2_behaviour_data_8hxx.html">MFront/BehaviourData.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_behaviour_symmetry_type_8hxx.html">MFront/BehaviourSymmetryType.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_integration_scheme_8hxx.html">MFront/IntegrationScheme.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_behaviour_description_8ixx.html">MFront/BehaviourDescription.ixx</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -119,8 +121,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">this structure holds the value of a material property defined through an mfront file  <a href="structmfront_1_1_behaviour_description_1_1_external_m_front_material_property.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfront_1_1_behaviour_description_1_1_hill_tensor.html">mfront::BehaviourDescription::HillTensor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure used to defined a Hill tensor  <a href="structmfront_1_1_behaviour_description_1_1_hill_tensor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfront_1_1_behaviour_description_1_1_material_property_input.html">mfront::BehaviourDescription::MaterialPropertyInput</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple structure used to compte the value of a material property  <a href="structmfront_1_1_behaviour_description_1_1_material_property_input.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -131,13 +135,17 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7a89c928d3f25c909d1234e3c8e09104"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a7a89c928d3f25c909d1234e3c8e09104">mfront::setElasticSymmetryType</a> (BehaviourDescription &amp;, const BehaviourSymmetryType)</td></tr>
+<tr class="memitem:a17b3f0af9335c86f4943427f26f49e02"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a17b3f0af9335c86f4943427f26f49e02">mfront::getParametersFileName</a> (const BehaviourDescription &amp;)</td></tr>
+<tr class="separator:a17b3f0af9335c86f4943427f26f49e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d09142b388b5c02dd9763d2f5082a25"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a1d09142b388b5c02dd9763d2f5082a25">mfront::getParametersFileName</a> (const BehaviourDescription &amp;, const BehaviourDescription::Hypothesis)</td></tr>
+<tr class="separator:a1d09142b388b5c02dd9763d2f5082a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a89c928d3f25c909d1234e3c8e09104"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a7a89c928d3f25c909d1234e3c8e09104">mfront::setElasticSymmetryType</a> (BehaviourDescription &amp;, const BehaviourSymmetryType)</td></tr>
 <tr class="memdesc:a7a89c928d3f25c909d1234e3c8e09104"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the elastic symmetry of a material if not already defined. If already defined, check that the symmetry is the same as the one given in argument  <a href="namespacemfront.html#a7a89c928d3f25c909d1234e3c8e09104">More...</a><br /></td></tr>
 <tr class="separator:a7a89c928d3f25c909d1234e3c8e09104"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83d0ccbb48b35815c668014be1573004"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a83d0ccbb48b35815c668014be1573004">mfront::checkIsStrictlyPositive</a> (const BehaviourDescription::MaterialProperty &amp;)</td></tr>
+<tr class="memitem:a83d0ccbb48b35815c668014be1573004"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a83d0ccbb48b35815c668014be1573004">mfront::checkIsStrictlyPositive</a> (const BehaviourDescription::MaterialProperty &amp;)</td></tr>
 <tr class="memdesc:a83d0ccbb48b35815c668014be1573004"><td class="mdescLeft">&#160;</td><td class="mdescRight">check that the given material property description is strictly positive, when described by a constant material property  <a href="namespacemfront.html#a83d0ccbb48b35815c668014be1573004">More...</a><br /></td></tr>
 <tr class="separator:a83d0ccbb48b35815c668014be1573004"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80a4e2a85b67be2d042e0917cf199ac5"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a80a4e2a85b67be2d042e0917cf199ac5">mfront::checkIsStrictlyNegative</a> (const BehaviourDescription::MaterialProperty &amp;)</td></tr>
+<tr class="memitem:a80a4e2a85b67be2d042e0917cf199ac5"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a80a4e2a85b67be2d042e0917cf199ac5">mfront::checkIsStrictlyNegative</a> (const BehaviourDescription::MaterialProperty &amp;)</td></tr>
 <tr class="memdesc:a80a4e2a85b67be2d042e0917cf199ac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">check that the given material property description is strictly negative,when described by a constant material property  <a href="namespacemfront.html#a80a4e2a85b67be2d042e0917cf199ac5">More...</a><br /></td></tr>
 <tr class="separator:a80a4e2a85b67be2d042e0917cf199ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -154,7 +162,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 18 2018 20:54:59 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 3 2021 21:24:42 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

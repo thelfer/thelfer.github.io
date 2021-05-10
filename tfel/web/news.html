@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -82,7 +81,7 @@
             <link rel="stylesheet" href=" css/slideshow.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -100,64 +99,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -179,6 +195,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -245,13 +262,11 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">News</h1>
-                  <h2 class="author">Helfer Thomas</h2>
-                  <h3 class="date">January 23, 2017</h3>
-          </div>
-            
+<div id="header">
+<h1 class="title">News</h1>
+<h2 class="author">Helfer Thomas</h2>
+<h3 class="date">January 23, 2017</h3>
+</div>
 <center>
 <a class="twitter-timeline" data-lang="en" data-width="600" data-height="600" data-theme="dark" data-link-color="#E95F28" href="https://twitter.com/TFEL_MFront?ref_src=twsrc%5Etfw">
 Tweets by TFEL_MFront
@@ -287,11 +302,11 @@ Tweets by TFEL_MFront
 <p>One easy way to install <code>TFEL</code> under <code>LiNuX</code> and <code>MacOs</code> is to use the <code>spack</code> package manager.</p>
 <p>The <code>spack</code> package manager is fully described here: <a href="https://spack.readthedocs.io/en/latest/index.html" class="uri">https://spack.readthedocs.io/en/latest/index.html</a></p>
 <p>The following instructions will build the latest development versions:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="fu">git</span> clone --single-branch -b develop https://github.com/spack/spack.git </a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">$ <span class="bu">.</span> <span class="ex">spack/share/spack/setup-env.sh</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">$ <span class="ex">spack</span> install tfel@master</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone <span class="at">--single-branch</span> <span class="at">-b</span> develop https://github.com/spack/spack.git </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> . spack/share/spack/setup-env.sh</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> spack install tfel@master</span></code></pre></div>
 <p>The <code>TFEL</code> package can then be loaded as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">spack</span> load tfel@master</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> spack load tfel@master</span></code></pre></div>
 <p>One nifty feature of <code>spack</code> is that you can install various versions of <code>TFEL</code> in parallel.</p>
 <h1 id="introducing-the-mfrontgenericinterfacesupport-project-11092018">Introducing the MFrontGenericInterfaceSupport project (11/09/2018)</h1>
 <p>This project is meant to ease the integration of MFront in various environments, including homebrew solvers (FE, FFT, etc…). Source code can be found here:</p>
@@ -356,7 +371,7 @@ q = \sigma_{\mathrm{eq}}= \sqrt{3\,J_{2}} = \sqrt{{{\displaystyle \frac{\display
 This surface is an ellipse in the <span class="math inline">\({\left(p,q\right)}\)</span> plane.</li>
 </ul>
 <figure>
-<img src="img/DruckerPragerCap.svg" title="Yield surface based on the Drucker-Prager criterion and a cap" alt="Yield surface based on the Drucker-Prager criterion and a cap. The point associated with the MFront key has been obtained with the implementation described in this page (see below for the material constants used)" style="width:80.0%" /><figcaption>Yield surface based on the Drucker-Prager criterion and a cap. The point associated with the <code>MFront</code> key has been obtained with the implementation described in this page (see below for the material constants used)</figcaption>
+<img src="img/DruckerPragerCap.svg" title="Yield surface based on the Drucker-Prager criterion and a cap" style="width:80.0%" alt="Yield surface based on the Drucker-Prager criterion and a cap. The point associated with the MFront key has been obtained with the implementation described in this page (see below for the material constants used)" /><figcaption aria-hidden="true">Yield surface based on the Drucker-Prager criterion and a cap. The point associated with the <code>MFront</code> key has been obtained with the implementation described in this page (see below for the material constants used)</figcaption>
 </figure>
 <h1 id="simulation-of-deep-drawing-for-a-very-anisotropic-material-23052018">Simulation of deep drawing for a very anisotropic material (23/05/2018)</h1>
 <div id="abaqus-video">
@@ -365,12 +380,12 @@ This surface is an ellipse in the <span class="math inline">\({\left(p,q\right)}
 <p>This video reproduces the work of Yoon et al (See <span class="citation" data-cites="yoon_prediction_2006">[2]</span>). in Abaqus/Standard and Abaqus/Explicit. The material is described by Barlat’ Yld2004-18p yield function (See <span class="citation" data-cites="barlat_linear_2005">[3]</span>), as described <a href="barlat-yld2004.html">here</a>.</p>
 <h1 id="a-newly-published-paper-void-growth-and-coalescence-in-irradiated-copper-under-deformation.-21042018">A newly published paper “Void Growth and Coalescence in Irradiated Copper Under Deformation.” (21/04/2018)</h1>
 <figure>
-<img src="img/Barrioz2018.png" title="Numerical simulations of void growth and coalescence: local plastic strain field p" alt="Numerical simulations of void growth and coalescence: local plastic strain field p" style="width:100.0%" /><figcaption>Numerical simulations of void growth and coalescence: local plastic strain field p</figcaption>
+<img src="img/Barrioz2018.png" title="Numerical simulations of void growth and coalescence: local plastic strain field p" style="width:100.0%" alt="Numerical simulations of void growth and coalescence: local plastic strain field p" /><figcaption aria-hidden="true">Numerical simulations of void growth and coalescence: local plastic strain field p</figcaption>
 </figure>
 <p>A new paper using <code>MFront</code> has been published in the Journal of Nuclear Materials (<span class="citation" data-cites="barrioz_void_2018">[4]</span>). See <a href="https://doi.org/10.1016/j.jnucmat.2018.01.064" class="uri">https://doi.org/10.1016/j.jnucmat.2018.01.064</a> for the online version.</p>
 <h1 id="a-new-constitutive-law-to-model-the-load-induced-thermal-strain-lits-of-concrete-materials-11042018">A new constitutive law to model the load induced thermal strain (LITS) of concrete materials (11/04/2018)</h1>
 <figure>
-<img src="img/LoadInducedThermalStrain_Torelli2018.png" title="Illustration of load induced thermal strain (LITS)" alt="Illustration of load induced thermal strain (LITS)" style="width:100.0%" /><figcaption>Illustration of load induced thermal strain (LITS)</figcaption>
+<img src="img/LoadInducedThermalStrain_Torelli2018.png" title="Illustration of load induced thermal strain (LITS)" style="width:100.0%" alt="Illustration of load induced thermal strain (LITS)" /><figcaption aria-hidden="true">Illustration of load induced thermal strain (LITS)</figcaption>
 </figure>
 <p>Giacomo Torelli (The University of Cambridge), Parthasarathi Mandal (The University of Manchester) and Martin Gillie (The University of Warwick) developed a new constitutive laws describing the Load-Induced-Thermal-Strain (LITS) which captures the experimentally demonstrated behaviour of concrete in the case of heating under multiaxial mechanical load, for temperatures up to <span class="math inline">\(500\mbox^{\circ{}}C\)</span>.</p>
 <p>In contrast to the models available in the literature, this new behaviour takes into account the observed dependency of LITS on stress confinement. Such a dependency is introduced through a confinement coefficient which makes LITS directly proportional to the confinement of the stress state.</p>
@@ -441,30 +456,30 @@ J_3 &amp;= \det(s_{ij}) \\
 \sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,\underline{s}\,\colon\,\underline{s}}=\sqrt{3\,J_{2}}
 \]</span></p>
 <p>The first and second derivatives of <span class="math inline">\(J_{2}\)</span> with respect to <span class="math inline">\(\sigma\)</span> can be trivially implemented, as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id  = stensor&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">// first derivative of J2</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="at">const</span> <span class="kw">auto</span> dJ2  = deviator(sig);</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">// second derivative of J2</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> d2J2 = eval(id4-(id^id)/<span class="dv">3</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id  = stensor&lt;N,real&gt;::Id();</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">// first derivative of J2</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ2  = deviator(sig);</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">// second derivative of J2</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2J2 = eval(id4-(id^id)/<span class="dv">3</span>);</span></code></pre></div>
 <p>In comparison, the computation of the first and second derivatives of <span class="math inline">\(J_{3}\)</span> with respect to <span class="math inline">\(\sigma\)</span> are more cumbersome. In previous versions <code>TFEL</code>, one had to write:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = stensor&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="at">const</span> <span class="kw">auto</span> I1   = trace(sig);</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="at">const</span> <span class="kw">auto</span> I2   = (I1*I1-trace(square(sig)))/<span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="at">const</span> <span class="kw">auto</span> dI2  = I1*id-sig;</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> dI3  = computeDeterminantDerivative(sig);</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="at">const</span> <span class="kw">auto</span> d2I2 = (id^id)-id4;</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="at">const</span> <span class="kw">auto</span> d2I3 = computeDeterminantSecondDerivative(sig);</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">// first derivative of J3</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="at">const</span> <span class="kw">auto</span> dJ3  = eval((<span class="dv">2</span>*I1*I1/<span class="dv">9</span>)*id-(I2*id+I1*dI2)/<span class="dv">3</span>+dI3);</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">// second derivative of J3</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="at">const</span> <span class="kw">auto</span> d2J3 = eval((<span class="dv">4</span>*I1/<span class="dv">9</span>)*(id^id)-((id^dI2)+(dI2^id)+i1*d2I2)/<span class="dv">3</span>+d2I3);</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = stensor&lt;N,real&gt;::Id();</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I1   = trace(sig);</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I2   = (I1*I1-trace(square(sig)))/<span class="dv">2</span>;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dI2  = I1*id-sig;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dI3  = computeDeterminantDerivative(sig);</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2I2 = (id^id)-id4;</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2I3 = computeDeterminantSecondDerivative(sig);</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">// first derivative of J3</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ3  = eval((<span class="dv">2</span>*I1*I1/<span class="dv">9</span>)*id-(I2*id+I1*dI2)/<span class="dv">3</span>+dI3);</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">// second derivative of J3</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2J3 = eval((<span class="dv">4</span>*I1/<span class="dv">9</span>)*(id^id)-((id^dI2)+(dI2^id)+i1*d2I2)/<span class="dv">3</span>+d2I3);</span></code></pre></div>
 <p>More efficient implementations are now available using the <code>computeDeviatorDeterminantDerivative</code> and <code>computeDeviatorDeterminantSecondDerivative</code> functions:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// first derivative of J3</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> dJ3  = computeDeviatorDeterminantDerivative(sig);</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">// second derivative of J3</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="at">const</span> <span class="kw">auto</span> d2J3 = computeDeviatorDeterminantSecondDerivative(sig);</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// first derivative of J3</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ3  = computeDeviatorDeterminantDerivative(sig);</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">// second derivative of J3</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2J3 = computeDeviatorDeterminantSecondDerivative(sig);</span></code></pre></div>
 <h1 id="the-doxygen-documentation-4012018">The <code>doxygen</code> documentation (4/01/2018)</h1>
 <p>Further documentation for advanced users has been published: the internal code documentation of the project, as generated by <a href="http://doxygen.org"><code>doxygen</code></a>, is now available online:</p>
 <p><a href="http://tfel.sourceforge.net/doxygen/index.html" class="uri">http://tfel.sourceforge.net/doxygen/index.html</a></p>
@@ -579,7 +594,7 @@ J_3 &amp;= \det(s_{ij}) \\
 <p>This is mainly a bug fix version of the <code>3.0</code> series. Detailed release notes are available <a href="release-notes-3.0.3.html">here</a>. There are no known regressions.</p>
 <h1 id="new-entry-in-the-gallery-perfect-plasticity-based-on-the-green-yield-criterion-30112017">New entry in the gallery: perfect plasticity based on the Green yield criterion (30/11/2017)</h1>
 <figure>
-<img src="img/GreenYieldCriterion.svg" title="Comparison of the Green criterion (C=1,F=0.2) and the von Mises criterion in plane stress" alt="Comparison of the Green criterion C=1,F=0.2 and the von Mises criterion" style="width:70.0%" /><figcaption>Comparison of the Green criterion <span class="math inline">\(C=1,F=0.2\)</span> and the von Mises criterion</figcaption>
+<img src="img/GreenYieldCriterion.svg" title="Comparison of the Green criterion (C=1,F=0.2) and the von Mises criterion in plane stress" style="width:70.0%" alt="Comparison of the Green criterion C=1,F=0.2 and the von Mises criterion" /><figcaption aria-hidden="true">Comparison of the Green criterion <span class="math inline">\(C=1,F=0.2\)</span> and the von Mises criterion</figcaption>
 </figure>
 <p>The Green yield criterion is based on the definition of an equivalent stress <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> defined as follows: <span class="math display">\[
 \sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,C\,\underline{s}\,\colon\,\underline{s}+F\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}^{2}}
@@ -653,36 +668,36 @@ J_3 &amp;= \det(s_{ij}) \\
 </ul>
 <h2 id="example">Example</h2>
 <p>The following example computes the Barlat equivalent stress, its normal and second derivative:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> l1 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(<span class="dv">-0</span><span class="fl">.069888</span>,<span class="fl">0.936408</span>,</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">                                                         <span class="fl">0.079143</span>,<span class="fl">1.003060</span>,</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">                                                         <span class="fl">0.524741</span>,<span class="fl">1.363180</span>,</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">                                                         <span class="fl">1.023770</span>,<span class="fl">1.069060</span>,</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">                                                         <span class="fl">0.954322</span>);</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> l2 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(<span class="dv">-0</span><span class="fl">.981171</span>,<span class="fl">0.476741</span>,</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">                                                         <span class="fl">0.575316</span>,<span class="fl">0.866827</span>,</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">                                                         <span class="fl">1.145010</span>,<span class="dv">-0</span><span class="fl">.079294</span>,</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">                                                         <span class="fl">1.051660</span>,<span class="fl">1.147100</span>,</a>
-<a class="sourceLine" id="cb6-10" data-line-number="10">                                                         <span class="fl">1.404620</span>);</a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">stress seq;</a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">Stensor  n;</a>
-<a class="sourceLine" id="cb6-13" data-line-number="13">Stensor4 dn;</a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="bu">std::</span>tie(seq,n,dn) = computeBarlatStressSecondDerivative(s,l1,l2,a,seps);</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> l1 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(-<span class="fl">0.069888</span>,<span class="fl">0.936408</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">0.079143</span>,<span class="fl">1.003060</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">0.524741</span>,<span class="fl">1.363180</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">1.023770</span>,<span class="fl">1.069060</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">0.954322</span>);</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> l2 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(-<span class="fl">0.981171</span>,<span class="fl">0.476741</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">0.575316</span>,<span class="fl">0.866827</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">1.145010</span>,-<span class="fl">0.079294</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">1.051660</span>,<span class="fl">1.147100</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">1.404620</span>);</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>stress seq;</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>Stensor  n;</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>Stensor4 dn;</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>tie(seq,n,dn) = computeBarlatStressSecondDerivative(s,l1,l2,a,seps);</span></code></pre></div>
 <p>In this example, <code>s</code> is the stress tensor, <code>a</code> is the Hosford exponent, <code>seps</code> is a numerical parameter used to detect when two eigenvalues are equal.</p>
 <p>If <code>C++-17</code> is available, the previous code can be made much more readable:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> l1 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(<span class="dv">-0</span><span class="fl">.069888</span>,<span class="fl">0.936408</span>,</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">                                                         <span class="fl">0.079143</span>,<span class="fl">1.003060</span>,</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">                                                         <span class="fl">0.524741</span>,<span class="fl">1.363180</span>,</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">                                                         <span class="fl">1.023770</span>,<span class="fl">1.069060</span>,</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">                                                         <span class="fl">0.954322</span>);</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> l2 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(<span class="dv">-0</span><span class="fl">.981171</span>,<span class="fl">0.476741</span>,</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">                                                         <span class="fl">0.575316</span>,<span class="fl">0.866827</span>,</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">                                                         <span class="fl">1.145010</span>,<span class="dv">-0</span><span class="fl">.079294</span>,</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">                                                         <span class="fl">1.051660</span>,<span class="fl">1.147100</span>,</a>
-<a class="sourceLine" id="cb7-10" data-line-number="10">                                                         <span class="fl">1.404620</span>);</a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="at">const</span> <span class="kw">auto</span> [seq,n,dn] = computeBarlatStressSecondDerivative(s,l1,l2,a,seps);</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> l1 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(-<span class="fl">0.069888</span>,<span class="fl">0.936408</span>,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">0.079143</span>,<span class="fl">1.003060</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">0.524741</span>,<span class="fl">1.363180</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">1.023770</span>,<span class="fl">1.069060</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">0.954322</span>);</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> l2 = makeBarlatLinearTransformation&lt;N,<span class="dt">double</span>&gt;(-<span class="fl">0.981171</span>,<span class="fl">0.476741</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">0.575316</span>,<span class="fl">0.866827</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">1.145010</span>,-<span class="fl">0.079294</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">1.051660</span>,<span class="fl">1.147100</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                                                         <span class="fl">1.404620</span>);</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> [seq,n,dn] = computeBarlatStressSecondDerivative(s,l1,l2,a,seps);</span></code></pre></div>
 <h1 id="hosford-equivalent-stress-17102017">Hosford equivalent stress (17/10/2017)</h1>
 <figure>
-<img src="img/HosfordStress.svg" title="Comparison of the Hosford stress (a=100,a=8) and the von Mises stress in plane stress" alt="Comparison of the Hosford stress a=100,a=8 and the von Mises stress" style="width:70.0%" /><figcaption>Comparison of the Hosford stress <span class="math inline">\(a=100,a=8\)</span> and the von Mises stress</figcaption>
+<img src="img/HosfordStress.svg" title="Comparison of the Hosford stress (a=100,a=8) and the von Mises stress in plane stress" style="width:70.0%" alt="Comparison of the Hosford stress a=100,a=8 and the von Mises stress" /><figcaption aria-hidden="true">Comparison of the Hosford stress <span class="math inline">\(a=100,a=8\)</span> and the von Mises stress</figcaption>
 </figure>
 <p>The header <code>TFEL/Material/Hosford1972YieldCriterion.hxx</code> introduces three functions which are meant to compute the Hosford equivalent stress and its first and second derivatives. <em>This header is automatically included by <code>MFront</code></em></p>
 <p>The Hosford equivalent stress is defined by: <span class="math display">\[
@@ -697,13 +712,13 @@ J_3 &amp;= \det(s_{ij}) \\
 </ul>
 <h2 id="example-1">Example</h2>
 <p>The following example computes the Hosford equivalent stress, its normal and second derivative:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1">stress seq;</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">Stensor  n;</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">Stensor4 dn;</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="bu">std::</span>tie(seq,n,dn) = computeHosfordStressSecondDerivative(s,a,seps);</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>stress seq;</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Stensor  n;</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Stensor4 dn;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>tie(seq,n,dn) = computeHosfordStressSecondDerivative(s,a,seps);</span></code></pre></div>
 <p>In this example, <code>s</code> is the stress tensor, <code>a</code> is the Hosford exponent, <code>seps</code> is a numerical parameter used to detect when two eigenvalues are equal.</p>
 <p>If <code>C++-17</code> is available, the previous code can be made much more readable:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> [seq,n,dn] = computeHosfordStressSecondDerivative(s,a,seps);</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> [seq,n,dn] = computeHosfordStressSecondDerivative(s,a,seps);</span></code></pre></div>
 <h1 id="release-of-tfel-3.0.2-25102017">Release of <code>TFEL</code> <code>3.0.2</code> (25/10/2017)</h1>
 <p>Version 3.0.2 of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code> has been released on the 25th October, 2017.</p>
 <p>This is mainly a bug fix version of the <code>3.0</code> series. Detailed release notes are available <a href="release-notes-3.0.2.html">here</a>. There are no known regressions.</p>
@@ -717,7 +732,7 @@ J_3 &amp;= \det(s_{ij}) \\
 <li><code>JohnsonCook_ssr</code> : which describes both strain hardening and rate effects.</li>
 <li><code>JohnsonCook_ssrt</code>: which describes both strain hardening, rate effects and adiabatic heating.</li>
 </ul></li>
-<li>The Rusinek-Klepaczko law as described in: “Constitutive relations in 3-D for a wide range of strain rates and temperatures - Application to mild steels”. A. Rusinek, R. Zaera and J. R. Klepaczko. Int. J. of Solids and Structures, Vol. 44, 5611-5634, 2007.</li>
+<li>The Rusinek-Klepaczko law as described in: “Constitutive relations in 3-D for a wide range of strain rates and temperatures - Application to mild steels.” A. Rusinek, R. Zaera and J. R. Klepaczko. Int. J. of Solids and Structures, Vol. 44, 5611-5634, 2007.</li>
 </ul>
 <h1 id="support-for-the-total-lagragian-framework-in-code_aster">Support for the total lagragian framework in <code>Code_Aster</code></h1>
 <p><img src="img/AsterTotalLagrangian.png" style="width:50.0%" /></p>
@@ -928,9 +943,9 @@ f{\left(\sigma_{H},p\right)} = \sigma_{H}-\sigma_{0}-R\,p
 </div>
 <p>The various eigen solvers available are enumerated in Table tbl. 1.</p>
 <p>The eigen solver is passed as a template argument of the <code>computeEigenValues</code> or the <code>computeEigenVectors</code> methods as illustrated in the code below:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1">tmatrix&lt;<span class="dv">3u</span>,<span class="dv">3u</span>,real&gt; m2;</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">tvector&lt;<span class="dv">3u</span>,real&gt;    vp2;</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="bu">std::</span>tie(vp,m)=s.computeEigenVectors&lt;Stensor::GTESYMMETRICQREIGENSOLVER&gt;();</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tmatrix&lt;<span class="dv">3</span><span class="bu">u</span>,<span class="dv">3</span><span class="bu">u</span>,real&gt; m2;</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>tvector&lt;<span class="dv">3</span><span class="bu">u</span>,real&gt;    vp2;</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>tie(vp,m)=s.computeEigenVectors&lt;Stensor::GTESYMMETRICQREIGENSOLVER&gt;();</span></code></pre></div>
 <div id="tbl:comp_eigensolvers_double">
 <table>
 <caption>Table 2: Test on <span class="math inline">\(10^{6}\)</span> random symmetric tensors in double precision (<code>double</code>).</caption>
@@ -1011,11 +1026,11 @@ f{\left(\sigma_{H},p\right)} = \sigma_{H}-\sigma_{0}-R\,p
 <p>Thanks to the work of Pedro F. Giffuni , an official port of <code>TFEL/MFront</code> is available for <code>FreeBSD</code>:</p>
 <p><a href="http://www.freshports.org/science/tfel/" class="uri">http://www.freshports.org/science/tfel/</a></p>
 <p>To install an executable package, you can now simply do:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="ex">pkg</span> install tfel-mfront</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pkg</span> install tfel-mfront</span></code></pre></div>
 <p>Alternativel, to build and install <code>TFEL</code> from the ports tree, one can do:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="bu">cd</span> /usr/ports/science/tfel/</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="fu">make</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="fu">make</span> install</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /usr/ports/science/tfel/</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> install</span></code></pre></div>
 <h1 id="new-hyperviscoelastic-behaviours-in-the-mfront-model-repository-13012017">New hyper(visco)elastic behaviours in the MFront model repository (13/01/2017)</h1>
 <p>The implementation of the Ogden behaviour is now described in depth in the following page:</p>
 <p><a href="http://tfel.sourceforge.net/ogden.html" class="uri">http://tfel.sourceforge.net/ogden.html</a></p>
@@ -1082,7 +1097,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 </div>
 <p>The Abaqus Explicit interface is becoming quite usable du to the extensive testing efforts of D. Deloison (Airbus). Here is an example a punching test (This test was also modelled using Abaqus Standard).</p>
 <h1 id="documentation-of-behaviour-bricks-27-may-2016">Documentation of behaviour bricks (27 May 2016)</h1>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="er">@</span>Brick <span class="st">&quot;StandardElasticity&quot;</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick <span class="st">&quot;StandardElasticity&quot;</span>;</span></code></pre></div>
 <p>Behaviour bricks will be one of the most important new feature of <code>TFEL 3.0</code>.</p>
 <p>A dedicated page has been created <a href="BehaviourBricks.html">here</a></p>
 <h1 id="the-europlexus-interface-27-may-2016">The <code>EUROPLEXUS</code> interface (27 May 2016)</h1>
@@ -1104,36 +1119,36 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 <p>A new <code>python</code> module has been introduced to analyse <code>MFront</code> files.</p>
 <p>An overview of the module is available <a href="mfront-python.html">here</a>.</p>
 <p>Here is a typical usage example:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="im">import</span> mfront</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">dsl <span class="op">=</span> mfront.getDSL(<span class="st">&quot;Chaboche.mfront&quot;</span>)</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">dsl.setInterfaces([<span class="st">&quot;aster&quot;</span>])</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">dsl.analyseFile(<span class="st">&quot;Chaboche.mfront&quot;</span>,[])</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="co"># file description</span></a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">fd <span class="op">=</span> dsl.getFileDescription()</a>
-<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="bu">print</span>(<span class="st">&quot;file author:      &quot;</span>, fd.authorName)</a>
-<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;file date:        &quot;</span>, fd.date)</a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="bu">print</span>(<span class="st">&quot;file descrption:</span><span class="ch">\n</span><span class="st">&quot;</span>, fd.description)</a>
-<a class="sourceLine" id="cb14-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb14-13" data-line-number="13"><span class="co"># targets information</span></a>
-<a class="sourceLine" id="cb14-14" data-line-number="14">tgt <span class="op">=</span> dsl.getTargetsDescription()</a>
-<a class="sourceLine" id="cb14-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb14-16" data-line-number="16"><span class="co"># loop over (to be) generated libraries</span></a>
-<a class="sourceLine" id="cb14-17" data-line-number="17"><span class="cf">for</span> l <span class="kw">in</span> tgt:</a>
-<a class="sourceLine" id="cb14-18" data-line-number="18">    <span class="bu">print</span>(l)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>dsl <span class="op">=</span> mfront.getDSL(<span class="st">&quot;Chaboche.mfront&quot;</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>dsl.setInterfaces([<span class="st">&quot;aster&quot;</span>])</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>dsl.analyseFile(<span class="st">&quot;Chaboche.mfront&quot;</span>,[])</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># file description</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>fd <span class="op">=</span> dsl.getFileDescription()</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;file author:      &quot;</span>, fd.authorName)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;file date:        &quot;</span>, fd.date)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;file descrption:</span><span class="ch">\n</span><span class="st">&quot;</span>, fd.description)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># targets information</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>tgt <span class="op">=</span> dsl.getTargetsDescription()</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co"># loop over (to be) generated libraries</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> l <span class="kw">in</span> tgt:</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(l)</span></code></pre></div>
 <h1 id="cast3m-2016-is-out-28-april-2016">Cast3m 2016 is out (28 April 2016)</h1>
 <p><img src="img/IconeCast3M_bleue.png" /></p>
 <p><a href="http://www-cast3m.cea.fr"><code>Cast3M</code></a> 2016 has been released.</p>
 <p>This version allow even better integration with <code>MFront</code> and can now directly be used to make direct calls to <code>MFront</code> libraries for material properties (mechanical behaviours can be used since Cast3M 2015).</p>
 <p>This syntax is now officially supported:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1">Ty <span class="op">=</span> <span class="st">&#39;TABLE&#39;</span> <span class="op">;</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">Ty.<span class="st">&#39;LIB_LOI&#39;</span>   <span class="op">=</span> <span class="st">&#39;libCastemM5.so&#39;</span> <span class="op">;</span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">Ty.<span class="st">&#39;FCT_LOI&#39;</span>   <span class="op">=</span> <span class="st">&#39;M5_YoungModulus&#39;</span> <span class="op">;</span></a>
-<a class="sourceLine" id="cb15-4" data-line-number="4">Ty.<span class="st">&#39;VARIABLES&#39;</span> <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span> <span class="st">&#39;T&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6">mo <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> m <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb15-7" data-line-number="7">ma <span class="op">=</span> <span class="st">&#39;MATERIAU&#39;</span> mo <span class="st">&#39;YOUN&#39;</span> Ty <span class="st">&#39;NU&#39;</span> <span class="fl">0.3</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Ty <span class="op">=</span> <span class="st">&#39;TABLE&#39;</span> <span class="op">;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>Ty.<span class="st">&#39;LIB_LOI&#39;</span>   <span class="op">=</span> <span class="st">&#39;libCastemM5.so&#39;</span> <span class="op">;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>Ty.<span class="st">&#39;FCT_LOI&#39;</span>   <span class="op">=</span> <span class="st">&#39;M5_YoungModulus&#39;</span> <span class="op">;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>Ty.<span class="st">&#39;VARIABLES&#39;</span> <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span> <span class="st">&#39;T&#39;</span><span class="op">;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>mo <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> m <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span><span class="op">;</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>ma <span class="op">=</span> <span class="st">&#39;MATERIAU&#39;</span> mo <span class="st">&#39;YOUN&#39;</span> Ty <span class="st">&#39;NU&#39;</span> <span class="fl">0.3</span><span class="op">;</span></span></code></pre></div>
 <p>A binary version of TFEL compiled for Cast3M 2016 is now available for download on sourceforge:</p>
 <p><a href="https://sourceforge.net/projects/tfel/files/" class="uri">https://sourceforge.net/projects/tfel/files/</a></p>
 <h1 id="second-mfront-users-day">Second MFront Users Day</h1>
@@ -1146,7 +1161,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 // -->
 </script><noscript>&#116;&#102;&#x65;&#108;&#x2d;&#x63;&#x6f;&#110;&#116;&#x61;&#x63;&#116;&#32;&#x61;&#116;&#32;&#x63;&#x65;&#x61;&#32;&#100;&#x6f;&#116;&#32;&#102;&#114;</noscript>.</p>
 <p>This users day will take place on Friday, May 20th, 2016 at EDF Lab Paris-Saclay (access map).</p>
-<p>Registration is required to ensure proper organization. See the dedicated form on the Code_Aster website: <a href="http://www.code-aster.org/spip.php?article906" class="uri">http://www.code-aster.org/spip.php?article906</a></p>
+<p>Registration is required to ensure proper organization. See the dedicated form on the Code_Aster website: <a href="http://www.code-aster.org/spip.php?article906">http://www.code-aster.org/spip.php?article906</a></p>
 <h1 id="abaqus-interface">Abaqus interface</h1>
 <p>The current development version now includes an experimental interface to the <a href="http://www.3ds.com/products-services/simulia/products/abaqus/"><code>Abaqus</code></a> solver through the <code>umat</code> subroutine.</p>
 <p>The following results shows the results obtained on notched beam under a cyclic loading with an isotropic hardening plastic beahviour implemented with <code>mfront</code>:</p>
@@ -1215,15 +1230,15 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 <li><code>octave</code> designed for <a href="https://www.gnu.org/software/octave/"><code>GNU Octave</code></a> which is a high-level interpreted language, primarily intended for numerical computations.</li>
 </ul>
 <p>Here is an example of a <a href="https://www.gnu.org/software/octave/"><code>GNU Octave</code></a> session used to compute the Young Modulus of uranium-plutonium carbide <span class="math inline">\(UPuC\)</span> for various porosities over a range of temperatures:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode octave"><code class="sourceCode octave"><a class="sourceLine" id="cb16-1" data-line-number="1">octave:<span class="fl">1</span>&gt; T=[<span class="fl">300</span>:<span class="fl">100</span>:<span class="fl">1500</span>]</a>
-<a class="sourceLine" id="cb16-2" data-line-number="2">T =</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3">    <span class="fl">300</span>    <span class="fl">400</span>    <span class="fl">500</span>    <span class="fl">600</span>    <span class="fl">700</span>    <span class="fl">800</span>    <span class="fl">900</span>   <span class="fl">1000</span>   <span class="fl">1100</span>   <span class="fl">1200</span>   <span class="fl">1300</span>   <span class="fl">1400</span>   <span class="fl">1500</span></a>
-<a class="sourceLine" id="cb16-4" data-line-number="4">octave:<span class="fl">2</span>&gt; y01=UPuC_YoungModulus(T,<span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb16-5" data-line-number="5">y01 =</a>
-<a class="sourceLine" id="cb16-6" data-line-number="6">   <span class="fl">1.7025e+11</span>   <span class="fl">1.6888e+11</span>   <span class="fl">1.6752e+11</span>   <span class="fl">1.6616e+11</span>   <span class="fl">1.6480e+11</span>   <span class="fl">1.6344e+11</span>   <span class="fl">1.6207e+11</span>   <span class="fl">1.6071e+11</span>   <span class="fl">1.5935e+11</span>   <span class="fl">1.5799e+11</span>   <span class="fl">1.5662e+11</span>   <span class="fl">1.5526e+11</span>   <span class="fl">1.5390e+11</span></a>
-<a class="sourceLine" id="cb16-7" data-line-number="7">octave:<span class="fl">3</span>&gt; y02=UPuC_YoungModulus(T,<span class="fl">0.2</span>)</a>
-<a class="sourceLine" id="cb16-8" data-line-number="8">y02 =</a>
-<a class="sourceLine" id="cb16-9" data-line-number="9">   <span class="fl">1.1853e+11</span>   <span class="fl">1.1758e+11</span>   <span class="fl">1.1663e+11</span>   <span class="fl">1.1568e+11</span>   <span class="fl">1.1474e+11</span>   <span class="fl">1.1379e+11</span>   <span class="fl">1.1284e+11</span>   <span class="fl">1.1189e+11</span>   <span class="fl">1.1094e+11</span>   <span class="fl">1.0999e+11</span>   <span class="fl">1.0905e+11</span>   <span class="fl">1.0810e+11</span>   <span class="fl">1.0715e+11</span></a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode octave"><code class="sourceCode octave"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>octave<span class="op">:</span><span class="fl">1</span><span class="op">&gt;</span> T<span class="op">=</span>[<span class="fl">300</span><span class="op">:</span><span class="fl">100</span><span class="op">:</span><span class="fl">1500</span>]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fl">300</span>    <span class="fl">400</span>    <span class="fl">500</span>    <span class="fl">600</span>    <span class="fl">700</span>    <span class="fl">800</span>    <span class="fl">900</span>   <span class="fl">1000</span>   <span class="fl">1100</span>   <span class="fl">1200</span>   <span class="fl">1300</span>   <span class="fl">1400</span>   <span class="fl">1500</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>octave<span class="op">:</span><span class="fl">2</span><span class="op">&gt;</span> y01<span class="op">=</span>UPuC_YoungModulus(T<span class="op">,</span><span class="fl">0.1</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>y01 <span class="op">=</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>   <span class="fl">1.7025e+11</span>   <span class="fl">1.6888e+11</span>   <span class="fl">1.6752e+11</span>   <span class="fl">1.6616e+11</span>   <span class="fl">1.6480e+11</span>   <span class="fl">1.6344e+11</span>   <span class="fl">1.6207e+11</span>   <span class="fl">1.6071e+11</span>   <span class="fl">1.5935e+11</span>   <span class="fl">1.5799e+11</span>   <span class="fl">1.5662e+11</span>   <span class="fl">1.5526e+11</span>   <span class="fl">1.5390e+11</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>octave<span class="op">:</span><span class="fl">3</span><span class="op">&gt;</span> y02<span class="op">=</span>UPuC_YoungModulus(T<span class="op">,</span><span class="fl">0.2</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>y02 <span class="op">=</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>   <span class="fl">1.1853e+11</span>   <span class="fl">1.1758e+11</span>   <span class="fl">1.1663e+11</span>   <span class="fl">1.1568e+11</span>   <span class="fl">1.1474e+11</span>   <span class="fl">1.1379e+11</span>   <span class="fl">1.1284e+11</span>   <span class="fl">1.1189e+11</span>   <span class="fl">1.1094e+11</span>   <span class="fl">1.0999e+11</span>   <span class="fl">1.0905e+11</span>   <span class="fl">1.0810e+11</span>   <span class="fl">1.0715e+11</span></span></code></pre></div>
 <h1 id="a-publications-page-has-been-added-to-the-website-july-2015">A “publications” page has been added to the website (July 2015)</h1>
 <p>The number of papers in which <code>MFront</code> is used is increasing. A dedicated page has been added <a href="publications.html">here</a>.</p>
 <p>If you publish papers which refers to <code>MFront</code>, please consider contributing to this page.</p>
@@ -1241,14 +1256,14 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 <p><img src="img/IconeCast3M_verte.png" /></p>
 <p><a href="http://www-cast3m.cea.fr"><code>Cast3M</code></a> 2015 has been released.</p>
 <p>This release allow direct call to <code>MFront</code> libraries for mechanical behaviours. The following syntax of the <code>MODELISER</code> operator is now officially supported:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1">mod1 <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> s1 <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span> <span class="st">&#39;ISOTROPE&#39;</span></a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">   <span class="co">&#39;NON_LINEAIRE&#39;</span> <span class="st">&#39;UTILISATEUR&#39;</span></a>
-<a class="sourceLine" id="cb17-3" data-line-number="3">   <span class="co">&#39;LIB_LOI&#39;</span> <span class="st">&#39;src/libUmatBehaviour.so&#39;</span></a>
-<a class="sourceLine" id="cb17-4" data-line-number="4">   <span class="co">&#39;FCT_LOI&#39;</span> <span class="st">&#39;umatnorton&#39;</span></a>
-<a class="sourceLine" id="cb17-5" data-line-number="5">   <span class="co">&#39;C_MATERIAU&#39;</span> coel2D</a>
-<a class="sourceLine" id="cb17-6" data-line-number="6">   <span class="co">&#39;C_VARINTER&#39;</span> stav2D</a>
-<a class="sourceLine" id="cb17-7" data-line-number="7">   <span class="co">&#39;PARA_LOI&#39;</span>   para2D</a>
-<a class="sourceLine" id="cb17-8" data-line-number="8">   <span class="co">&#39;CONS&#39;</span> M<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> s1 <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span> <span class="st">&#39;ISOTROPE&#39;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;NON_LINEAIRE&#39;</span> <span class="st">&#39;UTILISATEUR&#39;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;LIB_LOI&#39;</span> <span class="st">&#39;src/libUmatBehaviour.so&#39;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;FCT_LOI&#39;</span> <span class="st">&#39;umatnorton&#39;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;C_MATERIAU&#39;</span> coel2D</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;C_VARINTER&#39;</span> stav2D</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;PARA_LOI&#39;</span>   para2D</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;CONS&#39;</span> M<span class="op">;</span></span></code></pre></div>
 <p>See the <a href="castem.html">dedicated page</a> for more information.</p>
 <h1 id="salome-meca-2015.1-is-out-1o-april-2015"><code>Salome-Meca</code> 2015.1 is out (1O April 2015)</h1>
 <p><img src="img/SalomeMeca2015.png" /></p>
@@ -1330,7 +1345,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#11
 <p>An <code>MFront</code> talk was given at Materiaux 2014. Slides (in french) are available <a href="https://github.com/thelfer/tfel-doc/tree/master/Talks/Materiaux2014">here</a>.</p>
 <h1 id="beta-release-of-tfel-2.0.1-for-windows-64bits-and-cast3m-2014-18-november-2014">Beta release of tfel-2.0.1 for <code>Windows 64bits</code> and <code>Cast3M 2014</code> (18 November 2014)</h1>
 <figure>
-<img src="img/Win64.png" title="TFEL and Cast3M 2014 on Windows 7 64 bits" alt="TFEL and Cast3M 2014 on Windows 7 64 bits" /><figcaption>TFEL and Cast3M 2014 on Windows 7 64 bits</figcaption>
+<img src="img/Win64.png" title="TFEL and Cast3M 2014 on Windows 7 64 bits" alt="TFEL and Cast3M 2014 on Windows 7 64 bits" /><figcaption aria-hidden="true">TFEL and Cast3M 2014 on Windows 7 64 bits</figcaption>
 </figure>
 <p>A beta version of tfel-2.0.1 for <code>Windows 64bits</code> and <a href="http://www-cast3m.cea.fr"><code>Cast3M</code></a> <code>2014</code> has been released. A binary installer is provided <a href="http://sourceforge.net/projects/tfel/files/Devel/Cast3M-2014/">here</a>.</p>
 <p>Installing this version requires a functional installation of <a href="http://www-cast3m.cea.fr"><code>Cast3M</code></a> <span class="math inline">\(2014\)</span> (which shall be <a href="downloads/patchs-Cast3M-2014.tar.bz2">patched</a> to call external libraries) and the <code>MSYS</code> shell (It is recommended not to install <code>mingw</code> compilers along with the <code>MSYS</code> shell as <a href="http://www-cast3m.cea.fr"><code>Cast3M</code></a> provides its own version of those compilers).</p>
@@ -1341,12 +1356,12 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#11
 <h1 id="mfront-behaviours-can-now-be-used-in-amitex_fftp-24-october-2014"><code>MFront</code> behaviours can now be used in <code>AMITEX_FFTP</code> (24 October 2014)</h1>
 <p><code>AMITEX_FFTP</code> is a massively parallel mechanical solver based on FFT developed at CEA. <code>MFront</code> behaviours can be used in <code>AMITEX_FFTP</code> through the <code>UMAT</code> interface introduced by the <a href="http://www-cast3m.cea.fr"><code>Cast3M</code></a> finite element solver.</p>
 <figure>
-<img src="img/AMITEX_FFTP_sig1.png" title="Polycrystals computation made with `AMITEX_FFTP` ((1024^{3}) voxels)" alt="Polycrystals computation made with AMITEX_FFTP (1024^{3} voxels)" /><figcaption>Polycrystals computation made with <code>AMITEX_FFTP</code> (<span class="math inline">\(1024^{3}\)</span> voxels)</figcaption>
+<img src="img/AMITEX_FFTP_sig1.png" title="Polycrystals computation made with `AMITEX_FFTP` ((1024^{3}) voxels)" alt="Polycrystals computation made with AMITEX_FFTP (1024^{3} voxels)" /><figcaption aria-hidden="true">Polycrystals computation made with <code>AMITEX_FFTP</code> (<span class="math inline">\(1024^{3}\)</span> voxels)</figcaption>
 </figure>
 <h1 id="tfelmfront-on-cast3m-web-site-15-october-2014"><code>TFEL/MFront</code> on <a href="http://www-cast3m.cea.fr"><code>Cast3M</code></a> web site (15 October 2014)</h1>
 <p><a href="http://www-cast3m.cea.fr/index.php?xml=mfront">A page dedicated</a> to <code>MFront</code> is now available on the <a href="http://www-cast3m.cea.fr"><code>Cast3M</code></a> web site.</p>
 <figure>
-<img src="img/CastemWebSite.png" title="The MFront page on the Cast3M web site" alt="The MFront page on the Cast3M web site" /><figcaption>The <code>MFront</code> page on the <code>Cast3M</code> web site</figcaption>
+<img src="img/CastemWebSite.png" title="The MFront page on the Cast3M web site" alt="The MFront page on the Cast3M web site" /><figcaption aria-hidden="true">The <code>MFront</code> page on the <code>Cast3M</code> web site</figcaption>
 </figure>
 <h1 id="release-of-tfel-2.0-1-october-2014">Release of TFEL 2.0 (1 October 2014)</h1>
 <p>Here is the official announcement by Jean-Paul DEFFAIN (in French):</p>
@@ -1377,42 +1392,42 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#x6
 </blockquote>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references">
-<div id="ref-fritzen_computational_2013">
-<p>1. <span class="smallcaps">Fritzen</span>, Felix, <span class="smallcaps">Forest</span>, Samuel, <span class="smallcaps">Kondo</span>, Djimedo and <span class="smallcaps">Böhlke</span>, Thomas. Computational homogenization of porous materials of green type. <em>Computational Mechanics</em>. 1 July 2013. Vol. 52, no. 1, p. 121–134. DOI <a href="https://doi.org/10.1007/s00466-012-0801-z">10.1007/s00466-012-0801-z</a>. Available from: <a href="https://link.springer.com/article/10.1007/s00466-012-0801-z" class="uri">https://link.springer.com/article/10.1007/s00466-012-0801-z</a></p>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-fritzen_computational_2013" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Fritzen</span>, Felix, <span class="smallcaps">Forest</span>, Samuel, <span class="smallcaps">Kondo</span>, Djimedo and <span class="smallcaps">Böhlke</span>, Thomas. Computational homogenization of porous materials of green type. <em>Computational Mechanics</em>. 1 July 2013. Vol. 52, no. 1, p. 121–134. DOI <a href="https://doi.org/10.1007/s00466-012-0801-z">10.1007/s00466-012-0801-z</a>. Available from: <a href="https://link.springer.com/article/10.1007/s00466-012-0801-z">https://link.springer.com/article/10.1007/s00466-012-0801-z</a></div>
 </div>
-<div id="ref-yoon_prediction_2006">
-<p>2. <span class="smallcaps">Yoon</span>, J. W., <span class="smallcaps">Barlat</span>, F., <span class="smallcaps">Dick</span>, R. E. and <span class="smallcaps">Karabin</span>, M. E. Prediction of six or eight ears in a drawn cup based on a new anisotropic yield function. <em>International Journal of Plasticity</em>. 1 January 2006. Vol. 22, no. 1, p. 174–193. DOI <a href="https://doi.org/10.1016/j.ijplas.2005.03.013">10.1016/j.ijplas.2005.03.013</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S074964190500063X" class="uri">http://www.sciencedirect.com/science/article/pii/S074964190500063X</a></p>
+<div id="ref-yoon_prediction_2006" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Yoon</span>, J. W., <span class="smallcaps">Barlat</span>, F., <span class="smallcaps">Dick</span>, R. E. and <span class="smallcaps">Karabin</span>, M. E. Prediction of six or eight ears in a drawn cup based on a new anisotropic yield function. <em>International Journal of Plasticity</em>. 1 January 2006. Vol. 22, no. 1, p. 174–193. DOI <a href="https://doi.org/10.1016/j.ijplas.2005.03.013">10.1016/j.ijplas.2005.03.013</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S074964190500063X">http://www.sciencedirect.com/science/article/pii/S074964190500063X</a></div>
 </div>
-<div id="ref-barlat_linear_2005">
-<p>3. <span class="smallcaps">Barlat</span>, F., <span class="smallcaps">Aretz</span>, H., <span class="smallcaps">Yoon</span>, J. W., <span class="smallcaps">Karabin</span>, M. E., <span class="smallcaps">Brem</span>, J. C. and <span class="smallcaps">Dick</span>, R. E. Linear transfomation-based anisotropic yield functions. <em>International Journal of Plasticity</em>. 1 May 2005. Vol. 21, no. 5, p. 1009–1039. DOI <a href="https://doi.org/10.1016/j.ijplas.2004.06.004">10.1016/j.ijplas.2004.06.004</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641904001160" class="uri">http://www.sciencedirect.com/science/article/pii/S0749641904001160</a></p>
+<div id="ref-barlat_linear_2005" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">Barlat</span>, F., <span class="smallcaps">Aretz</span>, H., <span class="smallcaps">Yoon</span>, J. W., <span class="smallcaps">Karabin</span>, M. E., <span class="smallcaps">Brem</span>, J. C. and <span class="smallcaps">Dick</span>, R. E. Linear transfomation-based anisotropic yield functions. <em>International Journal of Plasticity</em>. 1 May 2005. Vol. 21, no. 5, p. 1009–1039. DOI <a href="https://doi.org/10.1016/j.ijplas.2004.06.004">10.1016/j.ijplas.2004.06.004</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641904001160">http://www.sciencedirect.com/science/article/pii/S0749641904001160</a></div>
 </div>
-<div id="ref-barrioz_void_2018">
-<p>4. <span class="smallcaps">Barrioz</span>, P. O., <span class="smallcaps">Hure</span>, J. and <span class="smallcaps">Tanguy</span>, B. Void growth and coalescence in irradiated copper under deformation. <em>Journal of Nuclear Materials</em>. 15 April 2018. Vol. 502, p. 123–131. DOI <a href="https://doi.org/10.1016/j.jnucmat.2018.01.064">10.1016/j.jnucmat.2018.01.064</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S002231151731574X" class="uri">http://www.sciencedirect.com/science/article/pii/S002231151731574X</a></p>
+<div id="ref-barrioz_void_2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline"><span class="smallcaps">Barrioz</span>, P. O., <span class="smallcaps">Hure</span>, J. and <span class="smallcaps">Tanguy</span>, B. Void growth and coalescence in irradiated copper under deformation. <em>Journal of Nuclear Materials</em>. 15 April 2018. Vol. 502, p. 123–131. DOI <a href="https://doi.org/10.1016/j.jnucmat.2018.01.064">10.1016/j.jnucmat.2018.01.064</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S002231151731574X">http://www.sciencedirect.com/science/article/pii/S002231151731574X</a></div>
 </div>
-<div id="ref-torelli_confinement-dependent_2018">
-<p>5. <span class="smallcaps">Torelli</span>, Giacomo, <span class="smallcaps">Mandal</span>, Parthasarathi, <span class="smallcaps">Gillie</span>, Martin and <span class="smallcaps">Tran</span>, Van-Xuan. A confinement-dependent load-induced thermal strain constitutive model for concrete subjected to temperatures up to 500 °C. <em>International Journal of Mechanical Sciences</em>. 4 January 2018. DOI <a href="https://doi.org/10.1016/j.ijmecsci.2017.12.054">10.1016/j.ijmecsci.2017.12.054</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0020740317337372" class="uri">http://www.sciencedirect.com/science/article/pii/S0020740317337372</a></p>
+<div id="ref-torelli_confinement-dependent_2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline"><span class="smallcaps">Torelli</span>, Giacomo, <span class="smallcaps">Mandal</span>, Parthasarathi, <span class="smallcaps">Gillie</span>, Martin and <span class="smallcaps">Tran</span>, Van-Xuan. A confinement-dependent load-induced thermal strain constitutive model for concrete subjected to temperatures up to 500 °c. <em>International Journal of Mechanical Sciences</em>. 4 January 2018. DOI <a href="https://doi.org/10.1016/j.ijmecsci.2017.12.054">10.1016/j.ijmecsci.2017.12.054</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0020740317337372">http://www.sciencedirect.com/science/article/pii/S0020740317337372</a></div>
 </div>
-<div id="ref-cazacu_generalization_2001">
-<p>6. <span class="smallcaps">Cazacu</span>, Oana and <span class="smallcaps">Barlat</span>, Frédéric. Generalization of drucker’s yield criterion to orthotropy. <em>Mathematics and Mechanics of Solids</em>. 1 December 2001. Vol. 6, no. 6, p. 613–630. DOI <a href="https://doi.org/10.1177/108128650100600603">10.1177/108128650100600603</a>. Available from: <a href="https://doi.org/10.1177/108128650100600603" class="uri">https://doi.org/10.1177/108128650100600603</a></p>
+<div id="ref-cazacu_generalization_2001" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline"><span class="smallcaps">Cazacu</span>, Oana and <span class="smallcaps">Barlat</span>, Frédéric. Generalization of drucker’s yield criterion to orthotropy. <em>Mathematics and Mechanics of Solids</em>. 1 December 2001. Vol. 6, no. 6, p. 613–630. DOI <a href="https://doi.org/10.1177/108128650100600603">10.1177/108128650100600603</a>. Available from: <a href="https://doi.org/10.1177/108128650100600603">https://doi.org/10.1177/108128650100600603</a></div>
 </div>
-<div id="ref-scherzinger_return_2017">
-<p>7. <span class="smallcaps">Scherzinger</span>, W. M. A return mapping algorithm for isotropic and anisotropic plasticity models using a line search method. <em>Computer Methods in Applied Mechanics and Engineering</em>. 15 April 2017. Vol. 317, p. 526–553. DOI <a href="https://doi.org/10.1016/j.cma.2016.11.026">10.1016/j.cma.2016.11.026</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S004578251630370X" class="uri">http://www.sciencedirect.com/science/article/pii/S004578251630370X</a></p>
+<div id="ref-scherzinger_return_2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline"><span class="smallcaps">Scherzinger</span>, W. M. A return mapping algorithm for isotropic and anisotropic plasticity models using a line search method. <em>Computer Methods in Applied Mechanics and Engineering</em>. 15 April 2017. Vol. 317, p. 526–553. DOI <a href="https://doi.org/10.1016/j.cma.2016.11.026">10.1016/j.cma.2016.11.026</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S004578251630370X">http://www.sciencedirect.com/science/article/pii/S004578251630370X</a></div>
 </div>
-<div id="ref-kopp_efficient_2008">
-<p>8. <span class="smallcaps">Kopp</span>, Joachim. Efficient numerical diagonalization of hermitian 3x3 matrices. <em>International Journal of Modern Physics C</em>. March 2008. Vol. 19, no. 3, p. 523–548. DOI <a href="https://doi.org/10.1142/S0129183108012303">10.1142/S0129183108012303</a>. Available from: <a href="http://arxiv.org/abs/physics/0610206" class="uri">http://arxiv.org/abs/physics/0610206</a></p>
+<div id="ref-kopp_efficient_2008" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline"><span class="smallcaps">Kopp</span>, Joachim. Efficient numerical diagonalization of hermitian 3x3 matrices. <em>International Journal of Modern Physics C</em>. March 2008. Vol. 19, no. 3, p. 523–548. DOI <a href="https://doi.org/10.1142/S0129183108012303">10.1142/S0129183108012303</a>. Available from: <a href="http://arxiv.org/abs/physics/0610206">http://arxiv.org/abs/physics/0610206</a></div>
 </div>
-<div id="ref-kopp_numerical_2017">
-<p>9. <span class="smallcaps">Kopp</span>, Joachim. Numerical diagonalization of 3x3 matrices.. 2017. Available from: <a href="https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/" class="uri">https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/</a></p>
+<div id="ref-kopp_numerical_2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline"><span class="smallcaps">Kopp</span>, Joachim. Numerical diagonalization of 3x3 matrices. 2017. Available from: <a href="https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/">https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/</a></div>
 </div>
-<div id="ref-eberly_robust_2016">
-<p>10. <span class="smallcaps">Eberly</span>, David. A robust eigensolver for 3 × 3 symmetric matrices. September 2016. Available from: <a href="https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf" class="uri">https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf</a></p>
+<div id="ref-eberly_robust_2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline"><span class="smallcaps">Eberly</span>, David. A robust eigensolver for 3 × 3 symmetric matrices. September 2016. Available from: <a href="https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf">https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf</a></div>
 </div>
-<div id="ref-eberly_geometric_2017">
-<p>11. <span class="smallcaps">Eberly</span>, David. Geometric tools.. 2017. Available from: <a href="http://www.geometrictools.com/" class="uri">http://www.geometrictools.com/</a></p>
+<div id="ref-eberly_geometric_2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline"><span class="smallcaps">Eberly</span>, David. Geometric tools. 2017. Available from: <a href="http://www.geometrictools.com/">http://www.geometrictools.com/</a></div>
 </div>
 </div>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

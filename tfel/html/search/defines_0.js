@@ -19,7 +19,6 @@ var searchData=
   ['tfel_5fpp_5fdo_5fjoin',['TFEL_PP_DO_JOIN',['../_macros_8hxx.html#a7a9fa4f10f7ca2078bef709eb164bae5',1,'TFEL_PP_DO_JOIN():&#160;Macros.hxx'],['../_test_proxy_8hxx.html#a7a9fa4f10f7ca2078bef709eb164bae5',1,'TFEL_PP_DO_JOIN():&#160;TestProxy.hxx']]],
   ['tfel_5fpp_5fdo_5fjoin2',['TFEL_PP_DO_JOIN2',['../_macros_8hxx.html#af6c8991d5ccdee35884e40e5ffc1db69',1,'TFEL_PP_DO_JOIN2():&#160;Macros.hxx'],['../_test_proxy_8hxx.html#af6c8991d5ccdee35884e40e5ffc1db69',1,'TFEL_PP_DO_JOIN2():&#160;TestProxy.hxx']]],
   ['tfel_5fpp_5fjoin',['TFEL_PP_JOIN',['../_test_proxy_8hxx.html#abcaa1acece826da222066a031bf6957c',1,'TestProxy.hxx']]],
-  ['tfel_5fstatic_5fassert',['TFEL_STATIC_ASSERT',['../_static_assert_8hxx.html#affcd15a30d090698f9ee677fd13fa4b9',1,'StaticAssert.hxx']]],
   ['tfel_5ftests_5fassert',['TFEL_TESTS_ASSERT',['../_test_case_8hxx.html#a562f500d2269b4db7443d585cbffd702',1,'TestCase.hxx']]],
   ['tfel_5ftests_5fcallmethod',['TFEL_TESTS_CALLMETHOD',['../_test_case_8hxx.html#a2db04f472cff48673527f17081ce98d0',1,'TestCase.hxx']]],
   ['tfel_5ftests_5fcheck_5fequal',['TFEL_TESTS_CHECK_EQUAL',['../_test_case_8hxx.html#abd8b58953e7735de289d6d0697ea43f7',1,'TestCase.hxx']]],

@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -99,64 +98,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -178,6 +194,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -244,38 +261,37 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">How to implement Torelli 2018’ load induced thermal strain behaviour</h1>
-                  <h2 class="author">Thomas Helfer, Giacomo Torelli</h2>
-                  <h3 class="date">08/12/2019</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#description">Description</a><ul>
-      <li><a href="#elastic-behaviour">Elastic behaviour</a></li>
-      <li><a href="#load-induced-thermal-strain">Load induced thermal strain</a></li>
-      </ul></li>
-      <li><a href="#implicit-scheme">Implicit scheme</a></li>
-      <li><a href="#implementation">Implementation</a><ul>
-      <li><a href="#choice-of-the-domain-specific-language">Choice of the domain specific language</a></li>
-      <li><a href="#choice-of-the-behaviour-name">Choice of the behaviour name</a></li>
-      <li><a href="#metadata">Metadata</a></li>
-      <li><a href="#use-of-the-standardelasticity-brick">Use of the <code>StandardElasticity</code> brick</a></li>
-      <li><a href="#choice-of-the-numerical-parameter">Choice of the numerical parameter</a></li>
-      <li><a href="#thermoelastic-properties-computation-of-the-thermal-strain">Thermoelastic properties, computation of the thermal strain</a></li>
-      <li><a href="#parameters">Parameters</a></li>
-      <li><a href="#auxiliary-state-variables">Auxiliary state variables</a></li>
-      <li><a href="#local-variables">Local Variables</a></li>
-      <li><a href="#initialization-of-the-local-variables">Initialization of the local variables</a></li>
-      <li><a href="#implicit-system">Implicit system</a></li>
-      <li><a href="#update-of-the-auxiliary-state-variables">Update of the auxiliary state variables</a></li>
-      </ul></li>
-      <li><a href="#references">References</a></li>
-      </ul>
-    </div>
-        
-
+<div id="header">
+<h1 class="title">How to implement Torelli 2018’ load induced thermal strain behaviour</h1>
+<h2 class="author">Thomas Helfer, Giacomo Torelli</h2>
+<h3 class="date">08/12/2019</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#description">Description</a>
+<ul>
+<li><a href="#elastic-behaviour">Elastic behaviour</a></li>
+<li><a href="#load-induced-thermal-strain">Load induced thermal strain</a></li>
+</ul></li>
+<li><a href="#implicit-scheme">Implicit scheme</a></li>
+<li><a href="#implementation">Implementation</a>
+<ul>
+<li><a href="#choice-of-the-domain-specific-language">Choice of the domain specific language</a></li>
+<li><a href="#choice-of-the-behaviour-name">Choice of the behaviour name</a></li>
+<li><a href="#metadata">Metadata</a></li>
+<li><a href="#use-of-the-standardelasticity-brick">Use of the <code>StandardElasticity</code> brick</a></li>
+<li><a href="#choice-of-the-numerical-parameter">Choice of the numerical parameter</a></li>
+<li><a href="#thermoelastic-properties-computation-of-the-thermal-strain">Thermoelastic properties, computation of the thermal strain</a></li>
+<li><a href="#parameters">Parameters</a></li>
+<li><a href="#auxiliary-state-variables">Auxiliary state variables</a></li>
+<li><a href="#local-variables">Local Variables</a></li>
+<li><a href="#initialization-of-the-local-variables">Initialization of the local variables</a></li>
+<li><a href="#implicit-system">Implicit system</a></li>
+<li><a href="#update-of-the-auxiliary-state-variables">Update of the auxiliary state variables</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
 <p>This page shows how to implement a behaviour describing the load induced thermal strain (LITS) phenomena in concrete following the work of <span class="citation" data-cites="torelli_confinement-dependent_2018">[1]</span>.</p>
 <p>This implementation is available <a href="gallery/viscoplasticity/LoadInducedThermalStrain_Torelli2018.mfront">here</a>.</p>
 <h1 id="description">Description</h1>
@@ -396,27 +412,27 @@ C\,\left[
 <h1 id="implementation">Implementation</h1>
 <h2 id="choice-of-the-domain-specific-language">Choice of the domain specific language</h2>
 <p>The domain specific language suitable for implementing an implicit scheme is called <code>Implicit</code>. The <code>@DSL</code> keyword allows specifying the domain specific language to be used:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span></code></pre></div>
 <h2 id="choice-of-the-behaviour-name">Choice of the behaviour name</h2>
 <p>The <code>@Behaviour</code> allows giving a name the behaviour:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Behaviour LoadInducedThermalStrain_Torelli2018;</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour LoadInducedThermalStrain_Torelli2018;</span></code></pre></div>
 <p>Defining the name of behaviour is required.</p>
 <h2 id="metadata">Metadata</h2>
 <p>The <code>@Author</code>, <code>@Date</code> and <code>@Description</code> keywords allows adding metadata to the behaviour (respectively the name of the author of the implementation, the date at which the implementation was written, a short description), as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>Author Giacomo Torelli;</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="er">@</span>Date <span class="dv">25</span> / <span class="bn">03</span> / <span class="dv">2018</span>;</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="er">@</span>Description {</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="st">&quot;A confinement-dependent load-induced thermal strain &quot;</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="st">&quot;constitutive model for concrete subjected &quot;</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="st">&quot;to temperatures up to 500 °C&quot;</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="st">&quot;Torelli, Giacomo and Mandal, Parthasarathi and Gillie, &quot;</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">  <span class="st">&quot;Martin and Tran, Van-Xuan&quot;</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">  <span class="st">&quot;International Journal of Mechanical Sciences&quot;</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">  <span class="st">&quot;http://www.sciencedirect.com/science/article/pii/S0020740317337372&quot;</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">}</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Giacomo Torelli;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">25</span> / <span class="bn">03</span> / <span class="dv">2018</span>;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;A confinement-dependent load-induced thermal strain &quot;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;constitutive model for concrete subjected &quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;to temperatures up to 500 °C&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Torelli, Giacomo and Mandal, Parthasarathi and Gillie, &quot;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Martin and Tran, Van-Xuan&quot;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;International Journal of Mechanical Sciences&quot;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;http://www.sciencedirect.com/science/article/pii/S0020740317337372&quot;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Those metadata, though recommended, are optional.</p>
 <h2 id="use-of-the-standardelasticity-brick">Use of the <code>StandardElasticity</code> brick</h2>
 <p>The behaviour treated in this document allows using the <code>StandardElasticity</code> brick. This brick, described in <a href="BehaviourBricks.html">this page</a>, provides:</p>
@@ -428,9 +444,9 @@ C\,\left[
 </ul>
 <p>This behaviour brick is fully described <a href="BehaviourBricks.html">here</a>.</p>
 <p>The usage of the <code>StandardElasticity</code> is declared as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>Brick StandardElasticity;</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity;</span></code></pre></div>
 <p>As the <code>StandardElasticity</code> brick provides support for all modelling hypotheses, we can declare that your behaviour indeed supports all modelling hypotheses:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>ModellingHypotheses{<span class="st">&quot;.+&quot;</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses{<span class="st">&quot;.+&quot;</span>};</span></code></pre></div>
 <h2 id="choice-of-the-numerical-parameter">Choice of the numerical parameter</h2>
 <p>The implicit scheme requires three numerical parameters:</p>
 <ul>
@@ -438,65 +454,65 @@ C\,\left[
 <li>the maximum number of iterations (default value is <span class="math inline">\(100\)</span>).</li>
 <li>the stopping criteria (default value is <span class="math inline">\(10^{-8}\)</span>). This may be sufficient in most cases, but not for the computation of the consistent tangent operator by the <code>StandardElasticity</code> brick.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="er">@</span>Theta <span class="fl">0.5</span>;</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="er">@</span>IterMax <span class="dv">100</span>;</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-16</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="fl">0.5</span>;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IterMax <span class="dv">100</span>;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-16</span>;</span></code></pre></div>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>Those values are automatically generates parameters that can be changed at runtime: the names of those parameters are respectively <code>theta</code>, <code>iterMax</code> and <code>epsilon</code>.</p>
 </blockquote>
 <h2 id="thermoelastic-properties-computation-of-the-thermal-strain">Thermoelastic properties, computation of the thermal strain</h2>
 <p>The <code>@ComputeStiffnessTensor</code> keyword allows computing the elastic stiffness tensor in a variable called <code>D</code>. In this case, the <code>UnAltered</code> version of the stiffness tensor is required (“unaltered” means that the modelling hypothesis was not taken into account).</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>ComputeStiffnessTensor&lt;UnAltered&gt;{<span class="dv">47000</span>, <span class="fl">0.25</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeStiffnessTensor&lt;UnAltered&gt;{<span class="dv">47000</span>, <span class="fl">0.25</span>};</span></code></pre></div>
 <p>The <code>@ComputeThermalExpansion</code> keyword allows computing the thermal strain. It is followed by the mean thermal expansion coefficient.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>ComputeThermalExpansion <span class="fl">10e-6</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeThermalExpansion <span class="fl">10e-6</span>;</span></code></pre></div>
 <p>The thermal strain is automatically removed to the total strain and the total strain increment.</p>
 <h2 id="parameters">Parameters</h2>
 <p>The following code declares the various parameters used by the constitutive equations:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>Parameter gamma = <span class="fl">1.5</span>;</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="er">@</span>Parameter sigmultimate = <span class="fl">50.</span>;</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="er">@</span>Parameter nulits = <span class="fl">0.50</span>;</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="er">@</span>Parameter tcrit = <span class="fl">0.</span>;</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="er">@</span>Parameter b[<span class="dv">5</span>] = {<span class="fl">2.7031065533E-05</span>, <span class="fl">-1.0209170592E-06</span>, <span class="fl">6.1200423753E-9</span>, <span class="co">//</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">                   <span class="fl">-1.2632648735E-11</span>, <span class="fl">6.9158539621E-15</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter gamma = <span class="fl">1.5</span>;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter sigmultimate = <span class="fl">50.</span>;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter nulits = <span class="fl">0.50</span>;</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter tcrit = <span class="fl">0.</span>;</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter b[<span class="dv">5</span>] = {<span class="fl">2.7031065533E-05</span>, -<span class="fl">1.0209170592E-06</span>, <span class="fl">6.1200423753E-9</span>, <span class="co">//</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                   -<span class="fl">1.2632648735E-11</span>, <span class="fl">6.9158539621E-15</span>};</span></code></pre></div>
 <h2 id="auxiliary-state-variables">Auxiliary state variables</h2>
 <p>By default, the <code>Implicit</code> <code>DSL</code> declares the elastic strain as a state variable, i.e. a variable which is part of the implicit system and whose value is saved from one time step to the other.</p>
 <p>We choose to declare two auxiliary state variables, the load induced thermal strain <span class="math inline">\(\elits\)</span> and the maximum value of the temperature seen by the material <span class="math inline">\(T_{\mathrm{max}}\)</span>. Those variables are not part of the implicit system but their values are saved from one time step to the other.</p>
 <p>Saving maximum value of the temperature seen by the material is required, but its evolution is independent of the mechanics.</p>
 <p>Saving the load induced thermal strain is only useful for post-processing. It could be removed for saving some space in memory.</p>
 <p>Auxiliary state variables are introduced by the <code>@AuxiliaryStateVariable</code> keyword, as follows:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="er">@</span>AuxiliaryStateVariable StrainStensor elits;</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">elits.setEntryName(<span class="st">&quot;LoadInducedThermaStrain&quot;</span>);</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="er">@</span>AuxiliaryStateVariable temperature Tmax;</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">Tmax.setEntryName(<span class="st">&quot;MaximalValueOfTheTemperature&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable StrainStensor elits;</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>elits.setEntryName(<span class="st">&quot;LoadInducedThermaStrain&quot;</span>);</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable temperature Tmax;</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>Tmax.setEntryName(<span class="st">&quot;MaximalValueOfTheTemperature&quot;</span>);</span></code></pre></div>
 <h2 id="local-variables">Local Variables</h2>
 <p>Local variables are available in every code blocks. Here we will introduce two local variables:</p>
 <ul>
 <li>the increment of the load induced thermal strain, that will be used to update the load induced thermal strain at the end of the time step</li>
 <li>the creep coefficient which allows computing the thermal dependency before the implicit resolution.</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">//! LITS increment</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="er">@</span>LocalVariable StrainStensor delits;</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">//! Creep coefficient</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="er">@</span>LocalVariable real C;</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! LITS increment</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable StrainStensor delits;</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">//! Creep coefficient</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real C;</span></code></pre></div>
 <h2 id="initialization-of-the-local-variables">Initialization of the local variables</h2>
 <p>The <code>@InitLocalVariables</code> code block is called before the implicit resolution. It is used here to compute the <code>C</code> variable and update the <code>Tmax</code> auxiliary variable.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="er">@</span>InitLocalVariables {</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">  Tmax = max(max(tcrit, Tmax), T);</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> T_ = T + theta * dT;</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> beta = b[<span class="dv">0</span>] + T_ * (b[<span class="dv">1</span>] + T_ * (b[<span class="dv">2</span>] + T_ * (b[<span class="dv">3</span>] + T_ * b[<span class="dv">4</span>])));</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">  <span class="at">const</span> <span class="kw">auto</span> dTe = max(T + dT - max(tcrit, Tmax), temperature(<span class="dv">0</span>));</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6">  C = (beta / (-sigmultimate)) * dTe;</a>
-<a class="sourceLine" id="cb12-7" data-line-number="7">}</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  Tmax = max(max(tcrit, Tmax), T);</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> T_ = T + theta * dT;</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> beta = b[<span class="dv">0</span>] + T_ * (b[<span class="dv">1</span>] + T_ * (b[<span class="dv">2</span>] + T_ * (b[<span class="dv">3</span>] + T_ * b[<span class="dv">4</span>])));</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dTe = max(T + dT - max(tcrit, Tmax), temperature(<span class="dv">0</span>));</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  C = (beta / (-sigmultimate)) * dTe;</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="implicit-system">Implicit system</h2>
 <p>The implicit system is defined in the code block introduced by the <code>@Integrator</code> code block.</p>
 <p>This code block is called at each iteration of the implicit system, after the stress <span class="math inline">\({\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\)</span> at the middle of the time step has been computed and stored in the <code>sig</code> variable (this is handled by the <code>StandardElasticity</code> brick).</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="er">@</span>Integrator {</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span></code></pre></div>
 <p>We first define some useful constants.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1">  <span class="kw">constexpr</span> <span class="at">const</span> stress eeps = <span class="dv">1</span>.e<span class="dv">-12</span>;</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="at">const</span> stress seps = eeps * young;</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = Stensor::Id();</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> esolver = StressStensor::FSESJACOBIEIGENSOLVER;</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> stress eeps = <span class="fl">1.e-12</span>;</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> stress seps = eeps * young;</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = Stensor::Id();</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> esolver = StressStensor::FSESJACOBIEIGENSOLVER;</span></code></pre></div>
 <p>Then the negative part of the stress <span class="math inline">\({\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}\)</span> and its derivative with respect to the stress <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\)</span> are computed using the <code>computeIsotropicFunctionAndDerivative</code> method of the <code>stensor</code> class.</p>
 <blockquote>
 <p><strong>Notes</strong></p>
@@ -507,59 +523,59 @@ C\,\left[
 <p>where <span class="math inline">\(a_{I}\)</span> are the eigenvalues of <span class="math inline">\(\underline{a}\)</span> and <span class="math inline">\(\underline{n}_{I}\)</span> its eigentensors.</p>
 </blockquote>
 <p>This function requires two scalar functions defining the isotropic function and its derivative. Those functions are called <code>np</code> and <code>dnp</code> here:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1">  <span class="co">// negative part</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> np = [](<span class="at">const</span> stress x) -&gt; stress { <span class="cf">return</span> x &lt;= <span class="dv">0</span> ? x : <span class="dv">0</span>; };</a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> dnp = [&amp;seps](<span class="at">const</span> stress x) -&gt; real {</a>
-<a class="sourceLine" id="cb15-4" data-line-number="4">    <span class="cf">return</span> <span class="bu">std::</span>abs(x) &lt; seps ? <span class="fl">0.5</span> : ((x &lt; <span class="dv">0</span>) ? <span class="dv">1</span> : <span class="dv">0</span>);</a>
-<a class="sourceLine" id="cb15-5" data-line-number="5">  };</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// negative part</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> np = [](<span class="at">const</span> stress x) -&gt; stress { <span class="cf">return</span> x &lt;= <span class="dv">0</span> ? x : <span class="dv">0</span>; };</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dnp = [&amp;seps](<span class="at">const</span> stress x) -&gt; real {</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">std::</span>abs(x) &lt; seps ? <span class="fl">0.5</span> : ((x &lt; <span class="dv">0</span>) ? <span class="dv">1</span> : <span class="dv">0</span>);</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  };</span></code></pre></div>
 <p>Then we call the <code>computeIsotropicFunctionAndDerivative</code> method:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1">  <span class="kw">auto</span> sn = StressStensor{};</a>
-<a class="sourceLine" id="cb16-2" data-line-number="2">  <span class="kw">auto</span> dsn = Stensor4{};</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3">  <span class="bu">std::</span>tie(sn, dsn) =</a>
-<a class="sourceLine" id="cb16-4" data-line-number="4">      sig.<span class="kw">template</span> computeIsotropicFunctionAndDerivative&lt;esolver&gt;(np, dnp,</a>
-<a class="sourceLine" id="cb16-5" data-line-number="5">                                                                  seps * <span class="fl">0.1</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> sn = StressStensor{};</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> dsn = Stensor4{};</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">std::</span>tie(sn, dsn) =</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>      sig.<span class="kw">template</span> computeIsotropicFunctionAndDerivative&lt;esolver&gt;(np, dnp,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                                                                  seps * <span class="fl">0.1</span>);</span></code></pre></div>
 <p>The previous expression can be simplified in <code>C++-17</code>:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span> [sn,dsn] = </a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">      sig.<span class="kw">template</span> computeIsotropicFunctionAndDerivative&lt;esolver&gt;(np, dnp,</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3">                                                                  seps * <span class="fl">0.1</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> [sn,dsn] = </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>      sig.<span class="kw">template</span> computeIsotropicFunctionAndDerivative&lt;esolver&gt;(np, dnp,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                                                                  seps * <span class="fl">0.1</span>);</span></code></pre></div>
 <blockquote>
 <p><strong>About the choice of the eigensolver</strong></p>
 <p>Here we used a the Jacobi algorithm as implemented in <span class="citation" data-cites="kopp_efficient_2008">[2]</span>. This algorithm is lower but more accurate than the default one (see <a href="tensors.html">here</a> for an indepth comparison of available algorithms.</p>
 </blockquote>
 <p>The next step is to compute <span class="math inline">\({\left.\eta\right|_{t+\theta\,\Delta\,t}}\)</span> and its derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.sig\right|_{t+\theta\,\Delta\,t}}}}\)</span> (See Equation (6)):</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1">  <span class="co">//----- Multiaxial correction coefficient</span></a>
-<a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> sn_eq = sqrt(sn | sn);</a>
-<a class="sourceLine" id="cb18-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> isn_eq = <span class="dv">1</span> / max(seps, sn_eq);</a>
-<a class="sourceLine" id="cb18-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> cm = -trace(sn) * isn_eq;</a>
-<a class="sourceLine" id="cb18-5" data-line-number="5">  <span class="at">const</span> <span class="kw">auto</span> dcm_dsig = eval((-isn_eq * id + trace(sn) * power&lt;<span class="dv">3</span>&gt;(isn_eq) * sn) | dsn);</a>
-<a class="sourceLine" id="cb18-6" data-line-number="6">  <span class="at">const</span> <span class="kw">auto</span> eta = <span class="dv">1</span> + (cm - <span class="dv">1</span>) * gamma;</a>
-<a class="sourceLine" id="cb18-7" data-line-number="7">  <span class="at">const</span> <span class="kw">auto</span> deta_dsig = gamma * dcm_dsig;</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">//----- Multiaxial correction coefficient</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sn_eq = sqrt(sn | sn);</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> isn_eq = <span class="dv">1</span> / max(seps, sn_eq);</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> cm = -trace(sn) * isn_eq;</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dcm_dsig = eval((-isn_eq * id + trace(sn) * power&lt;<span class="dv">3</span>&gt;(isn_eq) * sn) | dsn);</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> eta = <span class="dv">1</span> + (cm - <span class="dv">1</span>) * gamma;</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> deta_dsig = gamma * dcm_dsig;</span></code></pre></div>
 <p>We are now able to compute the increment <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{LITS}}\)</span> and its derivative:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span> se = eval((<span class="dv">1</span> + nulits) * sn - nulits * trace(sn) * id);</a>
-<a class="sourceLine" id="cb19-2" data-line-number="2">  delits = C * eta * se;</a>
-<a class="sourceLine" id="cb19-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> dse_dsig = (<span class="dv">1</span> + nulits) * dsn - nulits * ((id ^ id) * dsn);</a>
-<a class="sourceLine" id="cb19-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> ddelits_dsig = C * (se ^ deta_dsig) + C * eta * dse_dsig;</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> se = eval((<span class="dv">1</span> + nulits) * sn - nulits * trace(sn) * id);</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  delits = C * eta * se;</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dse_dsig = (<span class="dv">1</span> + nulits) * dsn - nulits * ((id ^ id) * dsn);</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ddelits_dsig = C * (se ^ deta_dsig) + C * eta * dse_dsig;</span></code></pre></div>
 <p>Finally, we form the implicit equation associated with the elastic strain and its derivative:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" data-line-number="1">  feel += delits;</a>
-<a class="sourceLine" id="cb20-2" data-line-number="2">  dfeel_ddeel += theta * ddelits_dsig * D;</a>
-<a class="sourceLine" id="cb20-3" data-line-number="3">} <span class="co">// end of @Integrator</span></a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>  feel += delits;</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  dfeel_ddeel += theta * ddelits_dsig * D;</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Integrator</span></span></code></pre></div>
 <p>Note that we used the fact that <code>feel</code> is implicitly initialized to <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}\)</span>.</p>
 <h2 id="update-of-the-auxiliary-state-variables">Update of the auxiliary state variables</h2>
 <p>The <code>@UpdateAuxiliaryStateVariables</code> code block is called after the implicit resolution, after the computation of the stress at the end of the time step and after the update of the state variables (here the elastic strain).</p>
 <p>We use the last estimate of the its increment to update the <code>elits</code> variable:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="er">@</span>UpdateAuxiliaryStateVariables {</a>
-<a class="sourceLine" id="cb21-2" data-line-number="2">  e_lits += delits;</a>
-<a class="sourceLine" id="cb21-3" data-line-number="3">}</a></code></pre></div>
-<h1 id="references" class="unnumbered">References</h1>
-<div id="refs" class="references">
-<div id="ref-torelli_confinement-dependent_2018">
-<p>1. <span class="smallcaps">Torelli</span>, Giacomo, <span class="smallcaps">Mandal</span>, Parthasarathi, <span class="smallcaps">Gillie</span>, Martin and <span class="smallcaps">Tran</span>, Van-Xuan. A confinement-dependent load-induced thermal strain constitutive model for concrete subjected to temperatures up to 500 °C. <em>International Journal of Mechanical Sciences</em>. 4 January 2018. DOI <a href="https://doi.org/10.1016/j.ijmecsci.2017.12.054">10.1016/j.ijmecsci.2017.12.054</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0020740317337372" class="uri">http://www.sciencedirect.com/science/article/pii/S0020740317337372</a></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UpdateAuxiliaryStateVariables {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  e_lits += delits;</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-torelli_confinement-dependent_2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Torelli</span>, Giacomo, <span class="smallcaps">Mandal</span>, Parthasarathi, <span class="smallcaps">Gillie</span>, Martin and <span class="smallcaps">Tran</span>, Van-Xuan. A confinement-dependent load-induced thermal strain constitutive model for concrete subjected to temperatures up to 500 °c. <em>International Journal of Mechanical Sciences</em>. 4 January 2018. DOI <a href="https://doi.org/10.1016/j.ijmecsci.2017.12.054">10.1016/j.ijmecsci.2017.12.054</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0020740317337372">http://www.sciencedirect.com/science/article/pii/S0020740317337372</a></div>
 </div>
-<div id="ref-kopp_efficient_2008">
-<p>2. <span class="smallcaps">Kopp</span>, Joachim. Efficient numerical diagonalization of hermitian 3x3 matrices. <em>International Journal of Modern Physics C</em>. March 2008. Vol. 19, no. 3, p. 523–548. DOI <a href="https://doi.org/10.1142/S0129183108012303">10.1142/S0129183108012303</a>. Available from: <a href="http://arxiv.org/abs/physics/0610206" class="uri">http://arxiv.org/abs/physics/0610206</a></p>
+<div id="ref-kopp_efficient_2008" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Kopp</span>, Joachim. Efficient numerical diagonalization of hermitian 3x3 matrices. <em>International Journal of Modern Physics C</em>. March 2008. Vol. 19, no. 3, p. 523–548. DOI <a href="https://doi.org/10.1142/S0129183108012303">10.1142/S0129183108012303</a>. Available from: <a href="http://arxiv.org/abs/physics/0610206">http://arxiv.org/abs/physics/0610206</a></div>
 </div>
 </div>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

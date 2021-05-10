@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -80,7 +79,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -98,64 +97,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -177,6 +193,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -243,25 +260,22 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">How to implement an hyperviscoelastic behaviour in MFront</h1>
-                  <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">15/12/2016</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#computation-of-the-cauchy-stress">Computation of the Cauchy stress</a><ul>
-      <li><a href="#evolution-of-the-overstresses">Evolution of the overstresses</a></li>
-      <li><a href="#computation-of-second-piola-kirchhoff-stress">Computation of second Piola-Kirchhoff stress</a></li>
-      <li><a href="#computation-of-the-cauchy-stress-1">Computation of the Cauchy stress</a></li>
-      </ul></li>
-      <li><a href="#computation-of-the-consistent-tangent-operator">Computation of the consistent tangent operator</a></li>
-      </ul>
-    </div>
-        
-
-
+<div id="header">
+<h1 class="title">How to implement an hyperviscoelastic behaviour in MFront</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">15/12/2016</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#computation-of-the-cauchy-stress">Computation of the Cauchy stress</a>
+<ul>
+<li><a href="#evolution-of-the-overstresses">Evolution of the overstresses</a></li>
+<li><a href="#computation-of-second-piola-kirchhoff-stress">Computation of second Piola-Kirchhoff stress</a></li>
+<li><a href="#computation-of-the-cauchy-stress-1">Computation of the Cauchy stress</a></li>
+</ul></li>
+<li><a href="#computation-of-the-consistent-tangent-operator">Computation of the consistent tangent operator</a></li>
+</ul>
+</div>
 <p>This article shows how to implement hyperviscoelastic behaviours in <code>MFront</code>.</p>
 <p>The hyperelastic behaviour is left unspecified. We only assume that one can compute <span class="math inline">\(\underline{S}^{\infty}\)</span> and its derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{S}^{\infty}}{\displaystyle \partial \underline{C}}}\)</span>.</p>
 <p>The reader can refer to the following pages describing the implementation of various hyperelastic behaviours:</p>
@@ -284,7 +298,7 @@
 <li>specify the appropriate flag to the <code>C++</code> compiler. Assuming that the current shell is <code>bash</code> and that the compiler is <code>g++</code>, this can be done by invoking mfront as follows:</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="va">CXXFLAGS=</span><span class="st">&quot;</span><span class="kw">`</span><span class="ex">tfel-config</span> --oflags<span class="kw">`</span><span class="st"> -std=c++11&quot;</span> <span class="ex">mfront</span> --obuild --interface=aster SignoriniHyperViscoelasticity-tfel-2.0.3.mfront<span class="kw">`</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">CXXFLAGS=</span><span class="st">&quot;</span><span class="kw">`</span><span class="ex">tfel-config</span> <span class="at">--oflags</span><span class="kw">`</span><span class="st"> -std=c++11&quot;</span> <span class="ex">mfront</span> <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>aster SignoriniHyperViscoelasticity-tfel-2.0.3.mfront<span class="kw">`</span></span></code></pre></div>
 <p>An implementation where those changes were made is available <a href="./gallery/hyperviscoelasticity/SignoriniHyperViscoelasticity-tfel-2.0.3.mfront">here</a></p>
 </blockquote>
 <h1 id="computation-of-the-cauchy-stress">Computation of the Cauchy stress</h1>
@@ -302,20 +316,20 @@
 {\left.\underline{H}_{i}\right|_{t+\Delta\,t}}=\exp{\left(-{{\displaystyle \frac{\displaystyle dt}{\displaystyle \tau_{i}}}}\right)}{\left.\underline{H}_{i}\right|_{t}}+g_{i}\,\tau_{i}{\left(1-\exp{\left(-{{\displaystyle \frac{\displaystyle dt}{\displaystyle \tau_{i}}}}\right)}\right)}{{\displaystyle \frac{\displaystyle {\left({\left.S^{i\,\infty}\right|_{t+\Delta\,t}}-{\left.S^{i\,\infty}\right|_{t}}\right)}}{\displaystyle dt}}}
 \]</span></p>
 <h2 id="computation-of-second-piola-kirchhoff-stress">Computation of second Piola-Kirchhoff stress</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// updating the viscoelastic stresses and computing the Second</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">// Piola-Kirchhoff stress</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">StressStensor S = Sv+Se;</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="cf">if</span>(dt&gt;<span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nv;++i){</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="at">const</span> <span class="kw">auto</span> dtr = dt/tau[i];</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">    e[i] = exp(-dtr);</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">    H[i] = e[i]*H[i]+g[i]*(<span class="dv">1</span>-e[i])/dtr*(Se-Se_1);</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">    S += H[i];</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">  }</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11">}</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// updating the viscoelastic stresses and computing the Second</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Piola-Kirchhoff stress</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>StressStensor S = Sv+Se;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(dt&gt;<span class="dv">0</span>){</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nv;++i){</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dtr = dt/tau[i];</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    e[i] = exp(-dtr);</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    H[i] = e[i]*H[i]+g[i]*(<span class="dv">1</span>-e[i])/dtr*(Se-Se_1);</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    S += H[i];</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="computation-of-the-cauchy-stress-1">Computation of the Cauchy stress</h2>
 <p>The function <code>convertSecondPiolaKirchhoffStressToCauchyStress</code> converts the second Piola Kirchhoff stress to the Cauchy stress using the deformation gradient. It is used as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1">sig = convertSecondPiolaKirchhoffStressToCauchyStress(S,F1);</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sig = convertSecondPiolaKirchhoffStressToCauchyStress(S,F1);</span></code></pre></div>
 <h1 id="computation-of-the-consistent-tangent-operator">Computation of the consistent tangent operator</h1>
 <p>Assuming that <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{S}^{v\,\infty}}{\displaystyle \partial \underline{C}}}\)</span> and <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{S}^{i\,\infty}}{\displaystyle \partial \underline{C}}}\)</span> are known, the expression of the consistent tangent operator is:</p>
 <p><span class="math display">\[
@@ -326,16 +340,16 @@
 \end{aligned}
 \]</span></p>
 <p>This expression can be implemented in a straightforward manner:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">auto</span> c = real(<span class="dv">1</span>);</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="cf">if</span>(dt&gt;<span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nv;++i){</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="at">const</span> <span class="kw">auto</span> dtr = dt/tau[i];</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">    c += g[i]*(<span class="dv">1</span>-e[i])/dtr;</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">  }</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">}</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">dS_dC = dSv_dC+c*dSi_dC;</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> c = real(<span class="dv">1</span>);</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(dt&gt;<span class="dv">0</span>){</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nv;++i){</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dtr = dt/tau[i];</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    c += g[i]*(<span class="dv">1</span>-e[i])/dtr;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>dS_dC = dSv_dC+c*dSi_dC;</span></code></pre></div>
 <!-- Local IspellDict: english -->
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

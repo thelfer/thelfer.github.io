@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -80,7 +79,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -98,64 +97,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -177,6 +193,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -243,43 +260,42 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">The TFEL/Math library</h1>
-                  <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">22/12/2017</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#the-tfelmath-library"><span class="toc-section-number">1</span> The <code>TFELMath</code> library</a></li>
-      <li><a href="#the-tfelmathcubicspline-library"><span class="toc-section-number">2</span> The <code>TFELMathCubicSpline</code> library</a></li>
-      <li><a href="#the-tfelmathkriging-library"><span class="toc-section-number">3</span> The <code>TFELMathKriging</code> library</a></li>
-      <li><a href="#the-tfelmathparser-library"><span class="toc-section-number">4</span> The <code>TFELMathParser</code> library</a><ul>
-      <li><a href="#the-evaluator-class"><span class="toc-section-number">4.1</span> The <code>Evaluator</code> class</a></li>
-      </ul></li>
-      </ul>
-    </div>
-        
-<h1 id="the-tfelmath-library"><span class="header-section-number">1</span> The <code>TFELMath</code> library</h1>
+<div id="header">
+<h1 class="title">The TFEL/Math library</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">22/12/2017</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#the-tfelmath-library"><span class="toc-section-number">1</span> The <code>TFELMath</code> library</a></li>
+<li><a href="#the-tfelmathcubicspline-library"><span class="toc-section-number">2</span> The <code>TFELMathCubicSpline</code> library</a></li>
+<li><a href="#the-tfelmathkriging-library"><span class="toc-section-number">3</span> The <code>TFELMathKriging</code> library</a></li>
+<li><a href="#the-tfelmathparser-library"><span class="toc-section-number">4</span> The <code>TFELMathParser</code> library</a>
+<ul>
+<li><a href="#the-evaluator-class"><span class="toc-section-number">4.1</span> The <code>Evaluator</code> class</a></li>
+</ul></li>
+</ul>
+</div>
+<h1 data-number="1" id="the-tfelmath-library"><span class="header-section-number">1</span> The <code>TFELMath</code> library</h1>
 <p>The <code>TFEL/Math</code> library defines:</p>
 <ul>
 <li>mathematical objects, such as second and fourth order tensors. See <a href="tensors.html">this page</a> for details.</li>
 </ul>
-<h1 id="the-tfelmathcubicspline-library"><span class="header-section-number">2</span> The <code>TFELMathCubicSpline</code> library</h1>
-<h1 id="the-tfelmathkriging-library"><span class="header-section-number">3</span> The <code>TFELMathKriging</code> library</h1>
-<h1 id="the-tfelmathparser-library"><span class="header-section-number">4</span> The <code>TFELMathParser</code> library</h1>
-<h2 id="the-evaluator-class"><span class="header-section-number">4.1</span> The <code>Evaluator</code> class</h2>
+<h1 data-number="2" id="the-tfelmathcubicspline-library"><span class="header-section-number">2</span> The <code>TFELMathCubicSpline</code> library</h1>
+<h1 data-number="3" id="the-tfelmathkriging-library"><span class="header-section-number">3</span> The <code>TFELMathKriging</code> library</h1>
+<h1 data-number="4" id="the-tfelmathparser-library"><span class="header-section-number">4</span> The <code>TFELMathParser</code> library</h1>
+<h2 data-number="4.1" id="the-evaluator-class"><span class="header-section-number">4.1</span> The <code>Evaluator</code> class</h2>
 <p>The <code>Evaluator</code> class is used to interpret textual formula, as follows:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1">Evalutator ev(<span class="st">&quot;sin(x)&quot;</span>);</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">ev.setVariableValue(<span class="st">&quot;x&quot;</span>,<span class="dv">12</span>);</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="at">const</span> <span class="kw">auto</span> s = ev.getValue();</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev(<span class="st">&quot;sin(x)&quot;</span>);</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ev.setVariableValue(<span class="st">&quot;x&quot;</span>,<span class="dv">12</span>);</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s = ev.getValue();</span></code></pre></div>
 <p>A shorthand for the previous code is the following:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1">Evalutator ev(<span class="st">&quot;sin(x)&quot;</span>);</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> s = ev.getValue({{x:<span class="dv">12</span>}});</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev(<span class="st">&quot;sin(x)&quot;</span>);</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s = ev.getValue({{x:<span class="dv">12</span>}});</span></code></pre></div>
 <p>The <code>getValue</code> method can also be replaced by the call operator, as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1">Evalutator ev(<span class="st">&quot;sin(x)&quot;</span>);</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> s = ev({{x:<span class="dv">12</span>}});</a></code></pre></div>
-<h3 id="standard-operations"><span class="header-section-number">4.1.1</span> Standard operations</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev(<span class="st">&quot;sin(x)&quot;</span>);</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s = ev({{x:<span class="dv">12</span>}});</span></code></pre></div>
+<h3 data-number="4.1.1" id="standard-operations"><span class="header-section-number">4.1.1</span> Standard operations</h3>
 <p>Let <code>x</code> and <code>y</code> be two variables, then:</p>
 <ul>
 <li><code>x+y</code>: computes the sum of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</li>
@@ -289,12 +305,12 @@
 <li><code>x**y</code>: computes <span class="math inline">\(x^{y}\)</span>.</li>
 </ul>
 <p>The standard priority of those operators has been respected. Parenthesis may be used to define sub-expressions.</p>
-<h3 id="standard-function-and-constants"><span class="header-section-number">4.1.2</span> Standard function and constants</h3>
+<h3 data-number="4.1.2" id="standard-function-and-constants"><span class="header-section-number">4.1.2</span> Standard function and constants</h3>
 <p>This paragraph gives a list of functions known by the <code>Evaluator</code> class.</p>
-<h4 id="constants"><span class="header-section-number">4.1.2.1</span> Constants</h4>
+<h4 data-number="4.1.2.1" id="constants"><span class="header-section-number">4.1.2.1</span> Constants</h4>
 <p>The physical constants described in <a href="physical-constants.html">this page</a> are accessible through the <code>Cste</code> namespace, as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1">Evalutator ev(<span class="st">&quot;exp(-Q/(Cste::R*T))&quot;</span>);</a></code></pre></div>
-<h4 id="unary-functions"><span class="header-section-number">4.1.2.2</span> Unary functions</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev(<span class="st">&quot;exp(-Q/(Cste::R*T))&quot;</span>);</span></code></pre></div>
+<h4 data-number="4.1.2.2" id="unary-functions"><span class="header-section-number">4.1.2.2</span> Unary functions</h4>
 <p>Most unary function defined by the <code>C++11</code> standard have been bind and can directly be used in formulae that can be evaluated by the <code>Evaluator</code> class:</p>
 <ul>
 <li><code>exp</code>: returns the base-e exponential.</li>
@@ -337,17 +353,17 @@
 <li>This functions are wrapped so that errors, such as invalid domain for the arguments, are turned into C++ exceptions. See Section 4.1.3 below.</li>
 </ol>
 </blockquote>
-<h4 id="binary-functions"><span class="header-section-number">4.1.2.3</span> Binary functions</h4>
+<h4 data-number="4.1.2.3" id="binary-functions"><span class="header-section-number">4.1.2.3</span> Binary functions</h4>
 <ul>
 <li><code>max</code>: returns the minimum of its two arguments.</li>
 <li><code>min</code>: returns the maximum of its two arguments.</li>
 <li><code>hypot</code>: returns the hypotenuse of a right-angled triangle whose legs are x and y, i.e. computes (.</li>
 <li><code>atan2</code>: returns the principal value of the arc tangent of <span class="math inline">\(y/x\)</span>, expressed in radians.</li>
 </ul>
-<h3 id="sec:Evaluator:error"><span class="header-section-number">4.1.3</span> Error handling when calling the <code>getValue</code> method</h3>
+<h3 data-number="4.1.3" id="sec:Evaluator:error"><span class="header-section-number">4.1.3</span> Error handling when calling the <code>getValue</code> method</h3>
 <p>The mathematical functions described earlier are provided by the <code>C++</code> language and reports error using the <code>errno</code> variable. The <code>Evaluator</code> class wraps those functions to catch modification to the <code>errno</code> variable and change it into <code>C++</code> exceptions.</p>
 <!-- Local IspellDict: english -->
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

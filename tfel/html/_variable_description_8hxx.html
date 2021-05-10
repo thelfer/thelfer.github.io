@@ -90,6 +90,7 @@ $(function() {
 <div class="textblock"><code>#include &lt;map&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;optional&gt;</code><br />
 <code>#include &lt;initializer_list&gt;</code><br />
 <code>#include &quot;<a class="el" href="_gen_type_base_8hxx.html">TFEL/Utilities/GenTypeBase.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_m_front_config_8hxx.html">MFront/MFrontConfig.hxx</a>&quot;</code><br />
@@ -120,13 +121,15 @@ Typedefs</h2></td></tr>
 typedef VariableDescription&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#ac14e4994078c9ba950e27558af93eabc">mfront::VarHandler</a></td></tr>
 <tr class="memdesc:ac14e4994078c9ba950e27558af93eabc"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias for backward compatibility <br /></td></tr>
 <tr class="separator:ac14e4994078c9ba950e27558af93eabc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e6f3c9abf853cd24cda57e2ebc0e685"><td class="memItemLeft" align="right" valign="top"><a id="a1e6f3c9abf853cd24cda57e2ebc0e685"></a>
-typedef VariableDescriptionContainer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a1e6f3c9abf853cd24cda57e2ebc0e685">mfront::VarContainer</a></td></tr>
-<tr class="memdesc:a1e6f3c9abf853cd24cda57e2ebc0e685"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias for backward compatibility <br /></td></tr>
-<tr class="separator:a1e6f3c9abf853cd24cda57e2ebc0e685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af57293a292505942e5dcd42149817fff"><td class="memItemLeft" align="right" valign="top"><a id="af57293a292505942e5dcd42149817fff"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#af57293a292505942e5dcd42149817fff">mfront::VarContainer</a> = VariableDescriptionContainer</td></tr>
+<tr class="memdesc:af57293a292505942e5dcd42149817fff"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias for backward compatibility <br /></td></tr>
+<tr class="separator:af57293a292505942e5dcd42149817fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a48a1614edab2ab6fe607f42d5079930e"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT SupportedTypes::TypeSize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a48a1614edab2ab6fe607f42d5079930e">mfront::getTypeSize</a> (const VariableDescription &amp;)</td></tr>
+<tr class="separator:a48a1614edab2ab6fe607f42d5079930e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af39ab3f99649ecc8813a0ad46c824459"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#af39ab3f99649ecc8813a0ad46c824459">mfront::hasBounds</a> (const VariableDescription &amp;)</td></tr>
 <tr class="separator:af39ab3f99649ecc8813a0ad46c824459"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d51285a40ee07f9e48e9352b2cfec5d"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a5d51285a40ee07f9e48e9352b2cfec5d">mfront::hasBounds</a> (const VariableDescription &amp;, const unsigned short)</td></tr>
@@ -135,10 +138,34 @@ Functions</h2></td></tr>
 <tr class="separator:a55b4c3112eca7131d291f5f78cbac51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e70fa44b1baf7c4cfdff2ff45c88f6a"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a2e70fa44b1baf7c4cfdff2ff45c88f6a">mfront::hasPhysicalBounds</a> (const VariableDescription &amp;, const unsigned short)</td></tr>
 <tr class="separator:a2e70fa44b1baf7c4cfdff2ff45c88f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa55dca2f470dd0206fedd88a95962090"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#aa55dca2f470dd0206fedd88a95962090">mfront::getSymbol</a> (std::map&lt; std::string, std::string &gt; &amp;, const VariableDescription &amp;)</td></tr>
+<tr class="memdesc:aa55dca2f470dd0206fedd88a95962090"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieve the symbol of the given variable description.  <a href="namespacemfront.html#aa55dca2f470dd0206fedd88a95962090">More...</a><br /></td></tr>
+<tr class="separator:aa55dca2f470dd0206fedd88a95962090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fea4c5164c361faefe633695d6a18e1"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a7fea4c5164c361faefe633695d6a18e1">mfront::getIncrementSymbol</a> (std::map&lt; std::string, std::string &gt; &amp;, const VariableDescription &amp;)</td></tr>
+<tr class="memdesc:a7fea4c5164c361faefe633695d6a18e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieve the symbols associated with the increment of the given variable.  <a href="namespacemfront.html#a7fea4c5164c361faefe633695d6a18e1">More...</a><br /></td></tr>
+<tr class="separator:a7fea4c5164c361faefe633695d6a18e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2099d790aea6b6088098a2e54965b7d6"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a2099d790aea6b6088098a2e54965b7d6">mfront::getTimeDerivativeSymbol</a> (std::map&lt; std::string, std::string &gt; &amp;, const VariableDescription &amp;)</td></tr>
+<tr class="memdesc:a2099d790aea6b6088098a2e54965b7d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieve the symbols associated with the time derivative of the given variable.  <a href="namespacemfront.html#a2099d790aea6b6088098a2e54965b7d6">More...</a><br /></td></tr>
+<tr class="separator:a2099d790aea6b6088098a2e54965b7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaa9900b002ea1601dd12ddf3fabbb8b"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT VariableDescriptionContainer::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#abaa9900b002ea1601dd12ddf3fabbb8b">mfront::findByExternalName</a> (const VariableDescriptionContainer &amp;, const std::string &amp;)</td></tr>
+<tr class="separator:abaa9900b002ea1601dd12ddf3fabbb8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9480b09fe7d0d115542a7e89aee276b3"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT SupportedTypes::TypeSize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a9480b09fe7d0d115542a7e89aee276b3">mfront::getTypeSize</a> (const VariableDescriptionContainer &amp;)</td></tr>
+<tr class="separator:a9480b09fe7d0d115542a7e89aee276b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae64d1e6787e57312af863c5bfe6776c8"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#ae64d1e6787e57312af863c5bfe6776c8">mfront::hasBounds</a> (const VariableDescriptionContainer &amp;)</td></tr>
 <tr class="separator:ae64d1e6787e57312af863c5bfe6776c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4338e1f5c1a194fe2eb5bf8972e87d95"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a4338e1f5c1a194fe2eb5bf8972e87d95">mfront::hasPhysicalBounds</a> (const VariableDescriptionContainer &amp;)</td></tr>
 <tr class="separator:a4338e1f5c1a194fe2eb5bf8972e87d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bcdaf4d538d58f40ecd06ff1586e909"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a7bcdaf4d538d58f40ecd06ff1586e909">mfront::getSymbols</a> (std::map&lt; std::string, std::string &gt; &amp;, const VariableDescriptionContainer &amp;)</td></tr>
+<tr class="memdesc:a7bcdaf4d538d58f40ecd06ff1586e909"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieve all symbols in the given variables.  <a href="namespacemfront.html#a7bcdaf4d538d58f40ecd06ff1586e909">More...</a><br /></td></tr>
+<tr class="separator:a7bcdaf4d538d58f40ecd06ff1586e909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a483eb6a5c7e8ca882de4fbb138079df7"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a483eb6a5c7e8ca882de4fbb138079df7">mfront::getIncrementSymbols</a> (std::map&lt; std::string, std::string &gt; &amp;, const VariableDescriptionContainer &amp;)</td></tr>
+<tr class="memdesc:a483eb6a5c7e8ca882de4fbb138079df7"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieve all symbols associated with the increment of the given variables.  <a href="namespacemfront.html#a483eb6a5c7e8ca882de4fbb138079df7">More...</a><br /></td></tr>
+<tr class="separator:a483eb6a5c7e8ca882de4fbb138079df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44d93b9eb707d1b02c51b8fd30d3270f"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a44d93b9eb707d1b02c51b8fd30d3270f">mfront::getTimeDerivativeSymbols</a> (std::map&lt; std::string, std::string &gt; &amp;, const VariableDescriptionContainer &amp;)</td></tr>
+<tr class="memdesc:a44d93b9eb707d1b02c51b8fd30d3270f"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieve all symbols associated with the time derivative of the given variables.  <a href="namespacemfront.html#a44d93b9eb707d1b02c51b8fd30d3270f">More...</a><br /></td></tr>
+<tr class="separator:a44d93b9eb707d1b02c51b8fd30d3270f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68938de59c162d033eb660ee4666cc70"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT SupportedTypes::TypeSize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront.html#a68938de59c162d033eb660ee4666cc70">mfront::getOffset</a> (const VariableDescriptionContainer &amp;, const std::string &amp;)</td></tr>
+<tr class="separator:a68938de59c162d033eb660ee4666cc70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file declares the VariableDescription class. </p>
@@ -154,7 +181,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 18 2018 20:55:00 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 3 2021 21:24:43 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

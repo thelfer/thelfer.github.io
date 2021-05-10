@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
             <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -117,6 +116,8 @@
 		<li><a href="release-notes-1.1.html">Version 1.1</a></li>
 		<li><a href="release-notes-1.1.1.html">Version 1.1.1</a></li>
 		<li><a href="release-notes-1.2.html">Version 1.2</a></li>
+		<li><a href="release-notes-1.2.1.html">Version 1.2.1</a></li>
+		<li><a href="release-notes-1.3.html">Version 1.3</a></li>
 	      </ul>
 	    </li>
 	    <li><a>Specific topics</a>
@@ -143,27 +144,28 @@
       </ul>
     </header>
     <br></br>
-        <div id="header">
-      <h1 class="title">Overview of the <code>mgis.fenics</code> module</h1>
-                  <h2 class="author">Bleyer Jeremy</h2>
-                  <h3 class="date">April 5th 2020</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#documented-demos">Documented demos</a></li>
-      <li><a href="#a-brief-overview-of-the-mgis.fenics-module">A brief overview of the <code>mgis.fenics</code> module</a><ul>
-      <li><a href="#the-mfrontnonlinearmaterial-class">The <code>MFrontNonlinearMaterial</code> class</a></li>
-      <li><a href="#the-mfrontnonlinearproblem-class">The <code>MFrontNonlinearProblem</code> class</a><ul>
-      <li><a href="#residual-and-tangent-bilinear-form">Residual and tangent bilinear form</a></li>
-      <li><a href="#flux-and-gradient-objects"><code>Flux</code> and <code>Gradient</code> objects</a></li>
-      <li><a href="#the-registration-concept">The registration concept</a></li>
-      </ul></li>
-      <li><a href="#the-mfrontoptimisationproblem-class">The <code>MFrontOptimisationProblem</code> class</a></li>
-      </ul></li>
-      <li><a href="#current-limitations">Current limitations</a></li>
-      </ul>
-    </div>
-        
+<div id="header">
+<h1 class="title">Overview of the <code>mgis.fenics</code> module</h1>
+<h2 class="author">Bleyer Jeremy</h2>
+<h3 class="date">April 5th 2020</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#documented-demos">Documented demos</a></li>
+<li><a href="#a-brief-overview-of-the-mgis.fenics-module">A brief overview of the <code>mgis.fenics</code> module</a>
+<ul>
+<li><a href="#the-mfrontnonlinearmaterial-class">The <code>MFrontNonlinearMaterial</code> class</a></li>
+<li><a href="#the-mfrontnonlinearproblem-class">The <code>MFrontNonlinearProblem</code> class</a>
+<ul>
+<li><a href="#residual-and-tangent-bilinear-form">Residual and tangent bilinear form</a></li>
+<li><a href="#flux-and-gradient-objects"><code>Flux</code> and <code>Gradient</code> objects</a></li>
+<li><a href="#the-registration-concept">The registration concept</a></li>
+</ul></li>
+<li><a href="#the-mfrontoptimisationproblem-class">The <code>MFrontOptimisationProblem</code> class</a></li>
+</ul></li>
+<li><a href="#current-limitations">Current limitations</a></li>
+</ul>
+</div>
 <p>These pages are intended to describe the <code>FEniCS</code> interface to <code>MGIS</code> available in the <code>mgis.fenics</code> Python module. This module has been developed in the spirit of providing sa upport to the implementation of generalized nonlinear behaviours i.e. including multiple gradients and dual flux variables. It can also be used as a simple interface to standard mechanical behaviours in small or finite strain (see the plasticity demos below). We briefly describe <a href="#a-brief-overview-of-the-mgis.fenics-module">here</a> the general concepts underlying the module implementation.</p>
 <h1 id="documented-demos">Documented demos</h1>
 <blockquote>
@@ -200,7 +202,7 @@
 <p>Before loading the behaviour, it is checked if the behaviour is a finite-strain one or not. In the former case, specific finite-strain options are used when calling <code>load</code>. Such options specify that the stress measure will be post-processed by <code>MGIS</code> from Cauchy to First Piola Kirchhoff (PK1) stress and that the tangent operator will be given by <span class="math inline">\(\dfrac{\partial \text{PK1}}{\partial F}\)</span> (<code>DPK1_DF</code>).</p>
 </blockquote>
 <p>A set of helper functions enables to retrieve information about <code>MFront</code> object names and sizes of the form</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="va">self</span>.get_{<span class="dv">1</span>}_{<span class="dv">2</span>}</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">self</span>.get_{<span class="dv">1</span>}_{<span class="dv">2</span>}</span></code></pre></div>
 <p>where <code>{1}</code> can be any of <code>material_property</code>, <code>external_state_variable</code>, <code>internal_state_variable</code>, <code>gradient</code>, <code>flux</code> or <code>tangent_block</code> and <code>{2}</code> can be any of <code>names</code> or <code>sizes</code>.</p>
 <h2 id="the-mfrontnonlinearproblem-class">The <code>MFrontNonlinearProblem</code> class</h2>
 <p>This class handles the definition and resolution of a nonlinear problem associated with a <code>MFrontNonlinearMaterial</code>. Its main attributes are:</p>
@@ -232,7 +234,7 @@
 \qquad(1)\]</span></span></p>
 <p>where the <span class="math inline">\(\boldsymbol{\sigma}_i(u)\)</span> are a set of <strong>fluxes</strong> as defined in the <code>MFront</code> behaviour using <code>@Flux</code> and <span class="math inline">\(\mathbf{g}_i\)</span> are the corresponding set of <strong>gradients</strong>, declared using <code>@Gradient</code>. <span class="math inline">\(\delta \mathbf{g}_i(v)\)</span> denotes the directional derivative of <span class="math inline">\(\mathbf{g}_i\)</span> along direction <span class="math inline">\(v\)</span>, a <code>TestFunction</code> of the function space <span class="math inline">\(V\)</span>, and <span class="math inline">\(L(v)\)</span> is a linear form which can be expressed using standard <code>UFL</code> operators. From the mechanical point of view, this residual expresses the balance between internal and external forces.</p>
 <p>This generic form is suitable for most quasi-static mechanical problems but it does not necessarily encompass all possible situations. In particular, evolution equations such as transient heat transfer cannot be expressed in this form. However, this is not a limitation since the residual can also be redefined explicitly by the user (see <a href="mgis_fenics_nonlinear_heat_transfer.html">Transient non-linear heat equation</a>).</p>
-<p>Either for the default or a user-defined one, the tangent operator associated with the residual is computed automatically using either the <code>UFL</code> symbolic derivation <code>ufl.derivative</code> for simple terms ( e.g. involving the unknown field <span class="math inline">\(u\)</span>) or using tangent operator blocks defined in the <code>MFront</code> behaviour for the nonlinear fluxes and internal state variables. More precisely, the variation of each flux is given by:</p>
+<p>Either for the default or a user-defined one, the tangent operator associated with the residual is computed automatically using either the <code>UFL</code> symbolic derivation <code>ufl.derivative</code> for simple terms (e.g. involving the unknown field <span class="math inline">\(u\)</span>) or using tangent operator blocks defined in the <code>MFront</code> behaviour for the nonlinear fluxes and internal state variables. More precisely, the variation of each flux is given by:</p>
 <p><span class="math display">\[
 \dfrac{\partial \boldsymbol{\sigma}_i}{\partial u} = \sum_{j\in \text{blocks}(i)} \mathbb{T}^{\boldsymbol{\sigma}_i}_{\mathbf{g}_j}\cdot \delta \mathbf{g}_j(u)
 \]</span></p>
@@ -256,7 +258,7 @@ a_\text{tangent}(u, v) = \sum_{i=1}^p \sum_{j\in\text{blocks}(i)}\int_{\Omega}\d
 <h3 id="the-registration-concept">The registration concept</h3>
 <p>Inspecting the default case (1), <code>MFront</code> provides access to the flux names, shapes and values when performing the constitutive update and also to the corresponding gradient. The definition of the tangent operator blocks inside the <code>MFront</code> behaviour also gives access to the block structure <span class="math inline">\(\text{blocks}(i)\)</span> for each flux.</p>
 <p>The remaining information which must be provided from the <code>FEniCS</code> side are the unknown field <span class="math inline">\(u\)</span> and its discretization space <span class="math inline">\(V\)</span>, the chosen integration measure <span class="math inline">\(\,\text{dx}\)</span> (through the <code>quadrature_degree</code> keyword) and, finally, the expression of each declared gradients <span class="math inline">\(\mathbf{g}_i\)</span> in terms of the unknown field <span class="math inline">\(u\)</span>.</p>
-<p>This step is what we call <em>registration</em> of each gradient which will be discussed in depth in the demos. Let us just mention that the gradients can registered using the <code>register_gradient</code> method of the <code>MFrontNonlinearProblem</code> class or via an automatic procedure if the gradient name matches predefined common gradient objects e.g. <code>&quot;Strain&quot;</code>, <code>&quot;TemperatureGradient&quot;</code>, etc.</p>
+<p>This step is what we call <em>registration</em> of each gradient which will be discussed in depth in the demos. Let us just mention that the gradients can registered using the <code>register_gradient</code> method of the <code>MFrontNonlinearProblem</code> class or via an automatic procedure if the gradient name matches predefined common gradient objects e.g. <code>"Strain"</code>, <code>"TemperatureGradient"</code>, etc.</p>
 <h2 id="the-mfrontoptimisationproblem-class">The <code>MFrontOptimisationProblem</code> class</h2>
 <p>This class is a sibing to the <code>MFrontNonlinearProblem</code> class. It enables to solve nonlinear optimisation problems, especially bound-constrained problems using the default <code>PETScTAOSolver</code> of the form:</p>
 <p><span class="math display">\[
@@ -270,5 +272,5 @@ a_\text{tangent}(u, v) = \sum_{i=1}^p \sum_{j\in\text{blocks}(i)}\int_{\Omega}\d
 <li>multi-materials are not completely supported yet. More precisely, spatially varying material properties can be defined but it is not possible to define two different constitutive behaviours on two different parts of the mesh. This feature has not been supported since it is not possible to define functions on sub-meshes yet. This should also be available soon in the next developments.</li>
 <li>memory transfers between <code>FEniCS</code> and <code>MGIS</code> objects have not been optimized.</li>
 </ul>
-      </body>
+</body>
 </html>

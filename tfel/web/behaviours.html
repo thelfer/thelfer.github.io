@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -99,64 +98,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -178,6 +194,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -244,26 +261,17 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">Mechanical behaviours in MFront</h1>
-                  <h2 class="author">Helfer Thomas</h2>
-                  <h3 class="date">October 15, 2014</h3>
-          </div>
-            
-
-
-
-
-
-
-
+<div id="header">
+<h1 class="title">Mechanical behaviours in MFront</h1>
+<h2 class="author">Helfer Thomas</h2>
+<h3 class="date">October 15, 2014</h3>
+</div>
 <h1 id="overview">Overview</h1>
 <p>Versatility of general purpose mechanical solver mainly relies on its ability to let the user define the material behaviour. <code>MFront</code> provides a high level language to write mechanical behaviours.</p>
-<p>It can be compared to the <code>ZebFront</code> tool developped by the Centre des Matériaux de Mines ParisTech as part of the Zset software <span class="citation" data-cites="foerch_polymorphic_1997 besson_object-oriented_1998-1 northwest_numerics_and_modeling_inc._zebfront_2014">[1–3]</span>. One major difference between <code>ZebFront</code> and <code>MFront</code> is the programming techniques used: <code>ZebFront</code> mostly relies on object oriented techniques where <code>MFront</code> relies on generic programming leading to almost orthogonal design choices.</p>
+<p>It can be compared to the <code>ZebFront</code> tool developped by the Centre des Matériaux de Mines ParisTech as part of the Zset software <span class="citation" data-cites="foerch_polymorphic_1997 besson_object-oriented_1998-1 northwest_numerics_and_modeling_inc._zebfront_2014">[see 1, 2, 3]</span>. One major difference between <code>ZebFront</code> and <code>MFront</code> is the programming techniques used: <code>ZebFront</code> mostly relies on object oriented techniques where <code>MFront</code> relies on generic programming leading to almost orthogonal design choices.</p>
 <p>Three kind of mechanical behaviours are currently considered with <code>MFront</code>: small and finite strain behaviours and cohesive zone models.</p>
 <h2 id="mechanical-behaviour-role">Mechanical behaviour role</h2>
-<p>We now precise the role of the mechanical behaviours in standard displacement-based finite element solver <span class="citation" data-cites="zienkiewicz_finite_1977 besson_mecanique_2001 edf_algorithme_2013">[4–6]</span>. For the sake of simplicity, we only treat the case of small strain behaviours for the rest of this document.</p>
+<p>We now precise the role of the mechanical behaviours in standard displacement-based finite element solver <span class="citation" data-cites="zienkiewicz_finite_1977 besson_mecanique_2001 edf_algorithme_2013">[see 4, 5, 6]</span>. For the sake of simplicity, we only treat the case of small strain behaviours for the rest of this document.</p>
 <p>At each time step, the following resolution procedure is used:</p>
 <ol type="1">
 <li>a prediction of the displacement is made. Such a prediction may use the derivate of the stress tensor with respect of the strain tensor <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \underline{\epsilon}^{\mathrm{to}}}}\)</span> or an approximation of it. This prediction step will not be discussed in this article but can also be handled by behaviour implementations made with <code>MFront</code>;</li>
@@ -278,15 +286,15 @@
 <h2 id="isotropic-j_2-plasticvsicplastic-behaviours.-example-of-finite-strain-pre--and-post-processing">Isotropic <span class="math inline">\(J_{2}\)</span> plastic/vsicplastic behaviours. Example of finite strain pre- and post-processing</h2>
 <p><span class="math inline">\(4\)</span> domain specific languages address the case of small strain isotropic <span class="math inline">\(J_{2}\)</span> plastic and/or viscoplastic behaviours which are of common use and for which efficient implicit scalar radial return mapping algorithms exist (see <span class="citation" data-cites="simo_computational_1998">[8]</span>).</p>
 <p>The following listing shows how a simple plastic behaviour can be implemented:</p>
-<div class="sourceCode" id="Plasticity"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><a class="sourceLine" id="Plasticity-1" data-line-number="1"><span class="er">@</span>DSL IsotropicPlasticMisesFlow; <span class="co">//&lt; domain specific language</span></a>
-<a class="sourceLine" id="Plasticity-2" data-line-number="2"><span class="er">@</span>Behaviour Plasticity;             <span class="co">//&lt; name of the behaviour</span></a>
-<a class="sourceLine" id="Plasticity-3" data-line-number="3"><span class="er">@</span>Parameter  H  = <span class="fl">22e9</span>;             <span class="co">//&lt; hardening slope</span></a>
-<a class="sourceLine" id="Plasticity-4" data-line-number="4"><span class="er">@</span>Parameter s0 = <span class="fl">200e6</span>;             <span class="co">//&lt; elasticity limit</span></a>
-<a class="sourceLine" id="Plasticity-5" data-line-number="5"><span class="er">@</span>FlowRule{                         <span class="co">//&lt; flow rule</span></a>
-<a class="sourceLine" id="Plasticity-6" data-line-number="6">  f       = seq-H*p-s0;</a>
-<a class="sourceLine" id="Plasticity-7" data-line-number="7">  df_dseq = <span class="dv">1</span>;</a>
-<a class="sourceLine" id="Plasticity-8" data-line-number="8">  df_dp   = -H;</a>
-<a class="sourceLine" id="Plasticity-9" data-line-number="9">}</a></code></pre></div>
+<div class="sourceCode" id="Plasticity"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Plasticity-1"><a href="#Plasticity-1"></a><span class="er">@</span>DSL IsotropicPlasticMisesFlow; <span class="co">//&lt; domain specific language</span></span>
+<span id="Plasticity-2"><a href="#Plasticity-2"></a><span class="er">@</span>Behaviour Plasticity;             <span class="co">//&lt; name of the behaviour</span></span>
+<span id="Plasticity-3"><a href="#Plasticity-3"></a><span class="er">@</span>Parameter  H  = <span class="fl">22e9</span>;             <span class="co">//&lt; hardening slope</span></span>
+<span id="Plasticity-4"><a href="#Plasticity-4"></a><span class="er">@</span>Parameter s0 = <span class="fl">200e6</span>;             <span class="co">//&lt; elasticity limit</span></span>
+<span id="Plasticity-5"><a href="#Plasticity-5"></a><span class="er">@</span>FlowRule{                         <span class="co">//&lt; flow rule</span></span>
+<span id="Plasticity-6"><a href="#Plasticity-6"></a>  f       = seq-H*p-s0;</span>
+<span id="Plasticity-7"><a href="#Plasticity-7"></a>  df_dseq = <span class="dv">1</span>;</span>
+<span id="Plasticity-8"><a href="#Plasticity-8"></a>  df_dp   = -H;</span>
+<span id="Plasticity-9"><a href="#Plasticity-9"></a>}</span></code></pre></div>
 <p>The plastic behaviour is governed by the following yield surface (see <span class="citation" data-cites="besson_mecanique_2001">[5]</span>;<span class="citation" data-cites="chaboche_mecanique_2009">[9]</span>): <span class="math display">\[
 f\left(\sigma_{\mathrm{eq}},p\right)=\sigma_{\mathrm{eq}}-H\,p-\sigma_{0} \leq 0
 \]</span> where <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> is the Von Mises stress, <span class="math inline">\(p\)</span> the equivalent plastic strain, <span class="math inline">\(R\)</span> the isotropic hardening slope and <span class="math inline">\(\sigma_{0}\)</span> the initial elasticity limit.</p>
@@ -312,66 +320,66 @@ f\left(\sigma_{\mathrm{eq}},p\right)=\sigma_{\mathrm{eq}}-H\,p-\sigma_{0} \leq 0
 </ol>
 <p>The following figure shows how our example can be used to model a notched specimen under a tensile test:</p>
 <figure>
-<img src="img/LogarithmicStrainPlasticity-ssna303.svg" title="Von Mises stress" alt="Von Mises stress" /><figcaption>Von Mises stress</figcaption>
+<img src="img/LogarithmicStrainPlasticity-ssna303.svg" title="Von Mises stress" alt="Von Mises stress" /><figcaption aria-hidden="true">Von Mises stress</figcaption>
 </figure>
 <p>In this case, the material parameters <span class="math inline">\(H\)</span> and <span class="math inline">\(\sigma_{0}\)</span> of the behaviour must be identified on tests implying finite strains. As an additional remark, the results found using logarithmic strains were remarkably closed to those obtained by the classical formulation based on an <span class="math inline">\(F_{e}\,F_{p}\)</span> decomposition proposed by Simo and Miehe (see <span class="citation" data-cites="simo_associative_1992">[12]</span>) (that was also implemented using <code>MFront</code>).</p>
 <h2 id="generic-domain-specific-languages">Generic domain specific languages</h2>
 <p>Apart from the domain specific languages dealing with isotropic <span class="math inline">\(J_{2}\)</span> plastic and viscoplastic behaviours presented in the previous paragraph, <code>MFront</code> also provides several general-purpose domain specific languages:</p>
 <ol type="1">
-<li>the <code>Default</code> domain specific language allows the user the write its own integration algorithm. This is very useful for explicit behaviours such as the classical  cohesive zone model <span class="citation" data-cites="tvergaard_effect_1990">[13]</span>.</li>
+<li>the <code>Default</code> domain specific language allows the user the write its own integration algorithm. This is very useful for explicit behaviours such as the classical  cohesive zone model <span class="citation" data-cites="tvergaard_effect_1990">[see 13]</span>.</li>
 <li>the <code>Runge-Kutta</code> domain specific language allows the user to write the constitutive equations given as a system of ordinary time differential equations. Using those algorithms is generally less efficient than using implicit integration to be described. Various algorithms are however available.</li>
 <li>the <code>Implicit</code> domain specific language allows the user to perform the local integration using an implicit algorithm. An introduction to those algorithms is given in the next paragraph.</li>
 </ol>
 <h3 id="example-of-a-cohesive-zone-model">Example of a cohesive zone model</h3>
 <p>The implementation of the Tvergaard cohesive zone model using the <code>Default</code> domain specific language is given below:</p>
-<div class="sourceCode" id="Tvergaard"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><a class="sourceLine" id="Tvergaard-1" data-line-number="1"><span class="er">@</span>DSL DefaultCZM;     <span class="co">// domain specific language</span></a>
-<a class="sourceLine" id="Tvergaard-2" data-line-number="2"><span class="er">@</span>Behaviour Tvergaard;         <span class="co">// name of the behaviour</span></a>
-<a class="sourceLine" id="Tvergaard-3" data-line-number="3"><span class="er">@</span>MaterialProperty stress kn;  <span class="co">// normal stiffness</span></a>
-<a class="sourceLine" id="Tvergaard-4" data-line-number="4"><span class="er">@</span>MaterialProperty stress ks;  <span class="co">// tangential elastic stiffness</span></a>
-<a class="sourceLine" id="Tvergaard-5" data-line-number="5"><span class="er">@</span>MaterialProperty stress smax;<span class="co">// maximal stress</span></a>
-<a class="sourceLine" id="Tvergaard-6" data-line-number="6"><span class="er">@</span>MaterialProperty real delta; <span class="co">// maximal normal opening displacement</span></a>
-<a class="sourceLine" id="Tvergaard-7" data-line-number="7"><span class="er">@</span>StateVariable real d;        <span class="co">// damage variable</span></a>
-<a class="sourceLine" id="Tvergaard-8" data-line-number="8"><span class="er">@</span>Integrator{</a>
-<a class="sourceLine" id="Tvergaard-9" data-line-number="9">  <span class="at">const</span> real C = real(<span class="dv">27</span>)/real(<span class="dv">4</span>);</a>
-<a class="sourceLine" id="Tvergaard-10" data-line-number="10">  <span class="dt">t_t</span> = ks*(<span class="dt">u_t</span>+<span class="dt">du_t</span>);        <span class="co">// tangential behaviour</span></a>
-<a class="sourceLine" id="Tvergaard-11" data-line-number="11">  <span class="cf">if</span>(u_n+du_n&lt;<span class="dv">0</span>){             <span class="co">// normal behaviour in compression</span></a>
-<a class="sourceLine" id="Tvergaard-12" data-line-number="12">    t_n = kn*(u_n+du_n);</a>
-<a class="sourceLine" id="Tvergaard-13" data-line-number="13">  } <span class="cf">else</span> {                    <span class="co">// normal behaviour in traction</span></a>
-<a class="sourceLine" id="Tvergaard-14" data-line-number="14">    <span class="at">const</span> real rod = (u_n+du_n)/delta;   <span class="co">// reduced opening displacement</span></a>
-<a class="sourceLine" id="Tvergaard-15" data-line-number="15">    <span class="at">const</span> real d_1 = d;             <span class="co">// previous damage</span></a>
-<a class="sourceLine" id="Tvergaard-16" data-line-number="16">    d   = min(max(d,rod),<span class="fl">0.99</span>);     <span class="co">// damage indicator</span></a>
-<a class="sourceLine" id="Tvergaard-17" data-line-number="17">    <span class="at">const</span> real K1 = C*smax/delta;   <span class="co">// initial stiffness</span></a>
-<a class="sourceLine" id="Tvergaard-18" data-line-number="18">    <span class="at">const</span> real K  = K1*(<span class="dv">1</span>-d)*(<span class="dv">1</span>-d); <span class="co">// secant stiffness</span></a>
-<a class="sourceLine" id="Tvergaard-19" data-line-number="19">    t_n = K*(u_n+du_n);</a>
-<a class="sourceLine" id="Tvergaard-20" data-line-number="20">  }</a>
-<a class="sourceLine" id="Tvergaard-21" data-line-number="21">} <span class="co">// end of @Integrator</span></a></code></pre></div>
+<div class="sourceCode" id="Tvergaard"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Tvergaard-1"><a href="#Tvergaard-1"></a><span class="er">@</span>DSL DefaultCZM;     <span class="co">// domain specific language</span></span>
+<span id="Tvergaard-2"><a href="#Tvergaard-2"></a><span class="er">@</span>Behaviour Tvergaard;         <span class="co">// name of the behaviour</span></span>
+<span id="Tvergaard-3"><a href="#Tvergaard-3"></a><span class="er">@</span>MaterialProperty stress kn;  <span class="co">// normal stiffness</span></span>
+<span id="Tvergaard-4"><a href="#Tvergaard-4"></a><span class="er">@</span>MaterialProperty stress ks;  <span class="co">// tangential elastic stiffness</span></span>
+<span id="Tvergaard-5"><a href="#Tvergaard-5"></a><span class="er">@</span>MaterialProperty stress smax;<span class="co">// maximal stress</span></span>
+<span id="Tvergaard-6"><a href="#Tvergaard-6"></a><span class="er">@</span>MaterialProperty real delta; <span class="co">// maximal normal opening displacement</span></span>
+<span id="Tvergaard-7"><a href="#Tvergaard-7"></a><span class="er">@</span>StateVariable real d;        <span class="co">// damage variable</span></span>
+<span id="Tvergaard-8"><a href="#Tvergaard-8"></a><span class="er">@</span>Integrator{</span>
+<span id="Tvergaard-9"><a href="#Tvergaard-9"></a>  <span class="at">const</span> real C = real(<span class="dv">27</span>)/real(<span class="dv">4</span>);</span>
+<span id="Tvergaard-10"><a href="#Tvergaard-10"></a>  <span class="dt">t_t</span> = ks*(<span class="dt">u_t</span>+<span class="dt">du_t</span>);        <span class="co">// tangential behaviour</span></span>
+<span id="Tvergaard-11"><a href="#Tvergaard-11"></a>  <span class="cf">if</span>(u_n+du_n&lt;<span class="dv">0</span>){             <span class="co">// normal behaviour in compression</span></span>
+<span id="Tvergaard-12"><a href="#Tvergaard-12"></a>    t_n = kn*(u_n+du_n);</span>
+<span id="Tvergaard-13"><a href="#Tvergaard-13"></a>  } <span class="cf">else</span> {                    <span class="co">// normal behaviour in traction</span></span>
+<span id="Tvergaard-14"><a href="#Tvergaard-14"></a>    <span class="at">const</span> real rod = (u_n+du_n)/delta;   <span class="co">// reduced opening displacement</span></span>
+<span id="Tvergaard-15"><a href="#Tvergaard-15"></a>    <span class="at">const</span> real d_1 = d;             <span class="co">// previous damage</span></span>
+<span id="Tvergaard-16"><a href="#Tvergaard-16"></a>    d   = min(max(d,rod),<span class="fl">0.99</span>);     <span class="co">// damage indicator</span></span>
+<span id="Tvergaard-17"><a href="#Tvergaard-17"></a>    <span class="at">const</span> real K1 = C*smax/delta;   <span class="co">// initial stiffness</span></span>
+<span id="Tvergaard-18"><a href="#Tvergaard-18"></a>    <span class="at">const</span> real K  = K1*(<span class="dv">1</span>-d)*(<span class="dv">1</span>-d); <span class="co">// secant stiffness</span></span>
+<span id="Tvergaard-19"><a href="#Tvergaard-19"></a>    t_n = K*(u_n+du_n);</span>
+<span id="Tvergaard-20"><a href="#Tvergaard-20"></a>  }</span>
+<span id="Tvergaard-21"><a href="#Tvergaard-21"></a>} <span class="co">// end of @Integrator</span></span></code></pre></div>
 <p>Details about the computation of the consistent tangent operator were eluded. The opening displacement <span class="math inline">\(\vec{u}\)</span> is automatically decomposed into the normal opening displacement <span class="math inline">\(u_{n}\)</span> and its tangential opening displacement <span class="math inline">\(\vec{u}_{t}\)</span></p>
 <h3 id="explicit-algorithm-example">Explicit algorithm example</h3>
 <p>The implementation of a generalisation of the Norton creep law for anisotropic materials is given below:</p>
-<div class="sourceCode" id="OrthotropicCreep"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><a class="sourceLine" id="OrthotropicCreep-1" data-line-number="1"><span class="er">@</span>DSL    RungeKutta;              <span class="co">// domain specific language</span></a>
-<a class="sourceLine" id="OrthotropicCreep-2" data-line-number="2"><span class="er">@</span>Behaviour OrthotropicCreep;     <span class="co">// name of the behaviour</span></a>
-<a class="sourceLine" id="OrthotropicCreep-3" data-line-number="3"><span class="er">@</span>OrthotropicBehaviour;           <span class="co">// treating an orthotropic behaviou</span></a>
-<a class="sourceLine" id="OrthotropicCreep-4" data-line-number="4"><span class="er">@</span>RequireStiffnessTensor;         <span class="co">// requires the stiffness tensor to be computed</span></a>
-<a class="sourceLine" id="OrthotropicCreep-5" data-line-number="5"><span class="er">@</span>StateVariable Stensor evp;      <span class="co">// viscoplastic strain</span></a>
-<a class="sourceLine" id="OrthotropicCreep-6" data-line-number="6"><span class="er">@</span>StateVariable strain p;         <span class="co">// Equivalent viscoplastic strain</span></a>
-<a class="sourceLine" id="OrthotropicCreep-7" data-line-number="7"><span class="er">@</span>ComputeStress{                  <span class="co">/* stress computation */</span></a>
-<a class="sourceLine" id="OrthotropicCreep-8" data-line-number="8">  sig = D*eel;</a>
-<a class="sourceLine" id="OrthotropicCreep-9" data-line-number="9">}</a>
-<a class="sourceLine" id="OrthotropicCreep-10" data-line-number="10"><span class="er">@</span>Derivative{                     <span class="co">/* constitutive equations */</span></a>
-<a class="sourceLine" id="OrthotropicCreep-11" data-line-number="11">  st2tost2&lt;N,real&gt; H;            <span class="co">// Hill Tensor</span></a>
-<a class="sourceLine" id="OrthotropicCreep-12" data-line-number="12">  H = hillTensor&lt;N,real&gt;(<span class="fl">0.371</span>,<span class="fl">0.629</span>,<span class="fl">4.052</span>,<span class="fl">1.5</span>,<span class="fl">1.5</span>,<span class="fl">1.5</span>);</a>
-<a class="sourceLine" id="OrthotropicCreep-13" data-line-number="13">  stress sigeq = sqrt(sig|H*sig);  <span class="co">// equivalent Hill stress</span></a>
-<a class="sourceLine" id="OrthotropicCreep-14" data-line-number="14">  <span class="cf">if</span>(sigeq&gt;<span class="fl">1e9</span>){                   <span class="co">// automatic sub-stepping</span></a>
-<a class="sourceLine" id="OrthotropicCreep-15" data-line-number="15">    <span class="cf">return</span> <span class="kw">false</span>;</a>
-<a class="sourceLine" id="OrthotropicCreep-16" data-line-number="16">  }</a>
-<a class="sourceLine" id="OrthotropicCreep-17" data-line-number="17">  Stensor  n(real(<span class="dv">0</span>));                <span class="co">// flow direction</span></a>
-<a class="sourceLine" id="OrthotropicCreep-18" data-line-number="18">  <span class="cf">if</span>(sigeq &gt; <span class="dv">10</span>.e<span class="dv">-7</span>){</a>
-<a class="sourceLine" id="OrthotropicCreep-19" data-line-number="19">    n    = H*sig/sigeq;</a>
-<a class="sourceLine" id="OrthotropicCreep-20" data-line-number="20">  }</a>
-<a class="sourceLine" id="OrthotropicCreep-21" data-line-number="21">  dp   = <span class="dv">8</span>.e<span class="dv">-67</span>*pow(sigeq,<span class="fl">8.2</span>); <span class="co">// evolution of p</span></a>
-<a class="sourceLine" id="OrthotropicCreep-22" data-line-number="22">  devp = dp*n;                  <span class="co">// evolution of the viscoplastic strains</span></a>
-<a class="sourceLine" id="OrthotropicCreep-23" data-line-number="23">  deel = deto - devp;           <span class="co">// evolution of the elastic strains</span></a>
-<a class="sourceLine" id="OrthotropicCreep-24" data-line-number="24">}</a></code></pre></div>
+<div class="sourceCode" id="OrthotropicCreep"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="OrthotropicCreep-1"><a href="#OrthotropicCreep-1"></a><span class="er">@</span>DSL    RungeKutta;              <span class="co">// domain specific language</span></span>
+<span id="OrthotropicCreep-2"><a href="#OrthotropicCreep-2"></a><span class="er">@</span>Behaviour OrthotropicCreep;     <span class="co">// name of the behaviour</span></span>
+<span id="OrthotropicCreep-3"><a href="#OrthotropicCreep-3"></a><span class="er">@</span>OrthotropicBehaviour;           <span class="co">// treating an orthotropic behaviou</span></span>
+<span id="OrthotropicCreep-4"><a href="#OrthotropicCreep-4"></a><span class="er">@</span>RequireStiffnessTensor;         <span class="co">// requires the stiffness tensor to be computed</span></span>
+<span id="OrthotropicCreep-5"><a href="#OrthotropicCreep-5"></a><span class="er">@</span>StateVariable Stensor evp;      <span class="co">// viscoplastic strain</span></span>
+<span id="OrthotropicCreep-6"><a href="#OrthotropicCreep-6"></a><span class="er">@</span>StateVariable strain p;         <span class="co">// Equivalent viscoplastic strain</span></span>
+<span id="OrthotropicCreep-7"><a href="#OrthotropicCreep-7"></a><span class="er">@</span>ComputeStress{                  <span class="co">/* stress computation */</span></span>
+<span id="OrthotropicCreep-8"><a href="#OrthotropicCreep-8"></a>  sig = D*eel;</span>
+<span id="OrthotropicCreep-9"><a href="#OrthotropicCreep-9"></a>}</span>
+<span id="OrthotropicCreep-10"><a href="#OrthotropicCreep-10"></a><span class="er">@</span>Derivative{                     <span class="co">/* constitutive equations */</span></span>
+<span id="OrthotropicCreep-11"><a href="#OrthotropicCreep-11"></a>  st2tost2&lt;N,real&gt; H;            <span class="co">// Hill Tensor</span></span>
+<span id="OrthotropicCreep-12"><a href="#OrthotropicCreep-12"></a>  H = hillTensor&lt;N,real&gt;(<span class="fl">0.371</span>,<span class="fl">0.629</span>,<span class="fl">4.052</span>,<span class="fl">1.5</span>,<span class="fl">1.5</span>,<span class="fl">1.5</span>);</span>
+<span id="OrthotropicCreep-13"><a href="#OrthotropicCreep-13"></a>  stress sigeq = sqrt(sig|H*sig);  <span class="co">// equivalent Hill stress</span></span>
+<span id="OrthotropicCreep-14"><a href="#OrthotropicCreep-14"></a>  <span class="cf">if</span>(sigeq&gt;<span class="fl">1e9</span>){                   <span class="co">// automatic sub-stepping</span></span>
+<span id="OrthotropicCreep-15"><a href="#OrthotropicCreep-15"></a>    <span class="cf">return</span> <span class="kw">false</span>;</span>
+<span id="OrthotropicCreep-16"><a href="#OrthotropicCreep-16"></a>  }</span>
+<span id="OrthotropicCreep-17"><a href="#OrthotropicCreep-17"></a>  Stensor  n(real(<span class="dv">0</span>));                <span class="co">// flow direction</span></span>
+<span id="OrthotropicCreep-18"><a href="#OrthotropicCreep-18"></a>  <span class="cf">if</span>(sigeq &gt; <span class="fl">10.e-7</span>){</span>
+<span id="OrthotropicCreep-19"><a href="#OrthotropicCreep-19"></a>    n    = H*sig/sigeq;</span>
+<span id="OrthotropicCreep-20"><a href="#OrthotropicCreep-20"></a>  }</span>
+<span id="OrthotropicCreep-21"><a href="#OrthotropicCreep-21"></a>  dp   = <span class="fl">8.e-67</span>*pow(sigeq,<span class="fl">8.2</span>); <span class="co">// evolution of p</span></span>
+<span id="OrthotropicCreep-22"><a href="#OrthotropicCreep-22"></a>  devp = dp*n;                  <span class="co">// evolution of the viscoplastic strains</span></span>
+<span id="OrthotropicCreep-23"><a href="#OrthotropicCreep-23"></a>  deel = deto - devp;           <span class="co">// evolution of the elastic strains</span></span>
+<span id="OrthotropicCreep-24"><a href="#OrthotropicCreep-24"></a>}</span></code></pre></div>
 <p>Integration is performed in the material referential. The elastic strain state variable <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> is automatically declared. For each state variable <code>Y</code>, its time derivative <code>dY</code> is automatically declared.</p>
 <h2 id="implicit-integration">Implicit integration</h2>
 <p>If the evolution of the state variables, grouped into a single vector <span class="math inline">\(Y\)</span> whose components <span class="math inline">\(Y_{i}\)</span> may be scalars or symmetric tensors, is given by the following system of differential equations: <span class="math display">\[
@@ -387,7 +395,7 @@ f\left(\sigma_{\mathrm{eq}},p\right)=\sigma_{\mathrm{eq}}-H\,p-\sigma_{0} \leq 0
 \right.
 \]</span></p>
 <p>where the dependency with respect to time stands for the evolution of some external state variables and the evolution of strains (for small strain behaviours) which are supposed to evolve <em>linearly</em> during the time step.</p>
-<p>The integration of this ordinary differential equation over a time step <span class="math inline">\(\Delta\,t\)</span> using an implicit algorithm leads to the (generally non-linear) system of equations <span class="citation" data-cites="besson_numerical_2004">[14]</span>: <span class="math display">\[
+<p>The integration of this ordinary differential equation over a time step <span class="math inline">\(\Delta\,t\)</span> using an implicit algorithm leads to the (generally non-linear) system of equations <span class="citation" data-cites="besson_numerical_2004">[see 14]</span>: <span class="math display">\[
 F\left(\Delta\,Y\right)=0\quad \Leftrightarrow\quad
 \left\{
 \begin{aligned}
@@ -402,7 +410,7 @@ f_{Y_{N}}&amp;=\Delta\,Y_{N}-\Delta\,t\,g_{y_{N}}\left(\left.Y\right|_{t+\theta\
 <p>where the unknowns are the state variables increments <span class="math inline">\(\Delta\,Y_{i}\)</span>, and we introduced the following notation: <span class="math display">\[
   \left.Y\right|_{t+\theta\,\Delta\,t}=Y+\theta\,\Delta\,Y
 \]</span></p>
-<p>Algorithms used to solve this system of equations may require the jacobian matrix <span class="math inline">\(J\)</span> of <span class="math inline">\(F\)</span> which can be computed by blocks <span class="citation" data-cites="besson_mecanique_2001">[5]</span>: <span class="math display">\[
+<p>Algorithms used to solve this system of equations may require the jacobian matrix <span class="math inline">\(J\)</span> of <span class="math inline">\(F\)</span> which can be computed by blocks <span class="citation" data-cites="besson_mecanique_2001">[see 5]</span>: <span class="math display">\[
   J={\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\,Y}}=
   \begin{pmatrix}
     {\displaystyle \frac{\displaystyle \partial f_{y_{1}}}{\displaystyle \partial \Delta\,y_{1}}} &amp; \ldots &amp; \ldots &amp; \ldots &amp; \ldots \\
@@ -421,99 +429,99 @@ f_{Y_{N}}&amp;=\Delta\,Y_{N}-\Delta\,t\,g_{y_{N}}\left(\left.Y\right|_{t+\theta\
 \Delta\,Y^{\left(n+1\right)}=\Delta\,Y^{\left(n\right)}-J^{-1}\,.\,F\left(\Delta\,Y^{\left(n\right)}\right)
 \]</span> The user must explicitly compute the jacobian matrix, which constitutes the main difficulty of this method. For debugging purposes, <code>MFront</code> may generate the comparison of each block of the jacobian matrix with a numerical approximation.</li>
 <li><code>NewtonRaphson_NumericalJacobian</code> is a variation of the standard  algorithm using a jacobian matrix computed by a second order finite difference. Writing behaviour implementations using this algorithm is as easy as using the  domain specific languages. It can be considered as a first step toward an implicit implementation with an analytical jacobian matrix.</li>
-<li><code>Broyden</code> algorithms which do not require to computation of the jacobian matrix: these algorithms update an approximation of the jacobian matrix (first Broyden algorithm) or its inverse (second Broyden algorithm) at each iteration. The first Broyden algorithm can sometimes be interesting as one may compute analitically some part of the jacobian matrix and let the algorithm compute the other parts. If the computation of those other parts takes a significant amount of CPU time, this algorithm can in same cases outperfom the {Newton-Raphson} algorithm.</li>
-<li><code>PowellDogLeg_XX}</code> algorithm, where <code>XX</code> is one of the previous algorithm. Those trust-region algorithms implements the classical Powell dogleg method <span class="citation" data-cites="chen_modification_1981">[15]</span> to improve the robustness of the resolution.</li>
+<li><code>Broyden</code> algorithms which do not require to computation of the jacobian matrix: these algorithms update an approximation of the jacobian matrix (first Broyden algorithm) or its inverse (second Broyden algorithm) at each iteration. The first Broyden algorithm can sometimes be interesting as one may compute analitically some part of the jacobian matrix and let the algorithm compute the other parts. If the computation of those other parts takes a significant amount of CPU time, this algorithm can in same cases outperfom the {} algorithm.</li>
+<li><code>PowellDogLeg_XX}</code> algorithm, where <code>XX</code> is one of the previous algorithm. Those trust-region algorithms implements the classical Powell dogleg method <span class="citation" data-cites="chen_modification_1981">[see 15]</span> to improve the robustness of the resolution.</li>
 </ul>
 <h3 id="consistent-tangent-operator">Consistent tangent operator</h3>
 <p>For most small strain behaviours, algorithms providing the jacobian matrix <span class="math inline">\(J\)</span> of the implicit system have a significant advantage: the consistent tangent operator <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \Delta\,\sigma}{\displaystyle \partial \Delta\,\underline{\epsilon}^{\mathrm{to}}}}\)</span> can be computed almost automatically with only a small numerical cost.</p>
 <h3 id="example">Example</h3>
 <p>The Norton creep law can be implemented as follows:</p>
-<div class="sourceCode" id="ImplicitNorton"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><a class="sourceLine" id="ImplicitNorton-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a>
-<a class="sourceLine" id="ImplicitNorton-2" data-line-number="2"><span class="er">@</span>Behaviour ImplicitNorton;</a>
-<a class="sourceLine" id="ImplicitNorton-3" data-line-number="3"><span class="er">@</span>Brick StandardElasticity;</a>
-<a class="sourceLine" id="ImplicitNorton-4" data-line-number="4"></a>
-<a class="sourceLine" id="ImplicitNorton-5" data-line-number="5"><span class="er">@</span>MaterialProperty stress young; <span class="co">/* mandatory for castem */</span></a>
-<a class="sourceLine" id="ImplicitNorton-6" data-line-number="6">young.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</a>
-<a class="sourceLine" id="ImplicitNorton-7" data-line-number="7"><span class="er">@</span>MaterialProperty real nu;    <span class="co">/* mandatory for castem */</span></a>
-<a class="sourceLine" id="ImplicitNorton-8" data-line-number="8">nu.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</a>
-<a class="sourceLine" id="ImplicitNorton-9" data-line-number="9"></a>
-<a class="sourceLine" id="ImplicitNorton-10" data-line-number="10"><span class="er">@</span>LocalVariable stress lambda,mu;</a>
-<a class="sourceLine" id="ImplicitNorton-11" data-line-number="11"></a>
-<a class="sourceLine" id="ImplicitNorton-12" data-line-number="12"><span class="er">@</span>StateVariable real    p;</a>
-<a class="sourceLine" id="ImplicitNorton-13" data-line-number="13"><span class="er">@</span>PhysicalBounds p in [<span class="dv">0</span>:*[;</a>
-<a class="sourceLine" id="ImplicitNorton-14" data-line-number="14"></a>
-<a class="sourceLine" id="ImplicitNorton-15" data-line-number="15"><span class="co">/* Initialize Lame coefficients */</span></a>
-<a class="sourceLine" id="ImplicitNorton-16" data-line-number="16"><span class="er">@</span>InitLocalVariables{</a>
-<a class="sourceLine" id="ImplicitNorton-17" data-line-number="17">  <span class="kw">using</span> <span class="kw">namespace</span> tfel::material::lame;</a>
-<a class="sourceLine" id="ImplicitNorton-18" data-line-number="18">  lambda = computeLambda(young,nu);</a>
-<a class="sourceLine" id="ImplicitNorton-19" data-line-number="19">  mu = computeMu(young,nu);</a>
-<a class="sourceLine" id="ImplicitNorton-20" data-line-number="20">} <span class="co">// end of @InitLocalVars</span></a>
-<a class="sourceLine" id="ImplicitNorton-21" data-line-number="21"></a>
-<a class="sourceLine" id="ImplicitNorton-22" data-line-number="22"><span class="er">@</span>Integrator{</a>
-<a class="sourceLine" id="ImplicitNorton-23" data-line-number="23">  <span class="at">const</span> real A = <span class="dv">8</span>.e<span class="dv">-67</span>;</a>
-<a class="sourceLine" id="ImplicitNorton-24" data-line-number="24">  <span class="at">const</span> real E = <span class="fl">8.2</span>;</a>
-<a class="sourceLine" id="ImplicitNorton-25" data-line-number="25">  <span class="at">const</span> <span class="kw">auto</span> seq = sigmaeq(sig);</a>
-<a class="sourceLine" id="ImplicitNorton-26" data-line-number="26">  <span class="at">const</span> <span class="kw">auto</span> tmp = A*pow(seq,E<span class="fl">-1.</span>);</a>
-<a class="sourceLine" id="ImplicitNorton-27" data-line-number="27">  <span class="at">const</span> <span class="kw">auto</span> df_dseq = E*tmp;</a>
-<a class="sourceLine" id="ImplicitNorton-28" data-line-number="28">  <span class="at">const</span> <span class="kw">auto</span> iseq = <span class="dv">1</span>/max(seq,real(<span class="dv">1</span>.e<span class="dv">-8</span>)*young);</a>
-<a class="sourceLine" id="ImplicitNorton-29" data-line-number="29">  <span class="at">const</span> <span class="kw">auto</span> n    = eval(<span class="dv">3</span>*deviator(sig)*iseq/<span class="dv">2</span>);</a>
-<a class="sourceLine" id="ImplicitNorton-30" data-line-number="30">  feel += dp*n;</a>
-<a class="sourceLine" id="ImplicitNorton-31" data-line-number="31">  fp   -= tmp*seq*dt;</a>
-<a class="sourceLine" id="ImplicitNorton-32" data-line-number="32">  <span class="co">// jacobian</span></a>
-<a class="sourceLine" id="ImplicitNorton-33" data-line-number="33">  dfeel_ddeel += <span class="fl">2.</span>*mu*theta*dp*iseq*(Stensor4::M()-(n^n));</a>
-<a class="sourceLine" id="ImplicitNorton-34" data-line-number="34">  dfeel_ddp    = n;</a>
-<a class="sourceLine" id="ImplicitNorton-35" data-line-number="35">  dfp_ddeel    = <span class="dv">-2</span>*mu*theta*df_dseq*dt*n;</a>
-<a class="sourceLine" id="ImplicitNorton-36" data-line-number="36">} <span class="co">// end of @Integrator</span></a></code></pre></div>
+<div class="sourceCode" id="ImplicitNorton"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="ImplicitNorton-1"><a href="#ImplicitNorton-1"></a><span class="er">@</span>DSL Implicit;</span>
+<span id="ImplicitNorton-2"><a href="#ImplicitNorton-2"></a><span class="er">@</span>Behaviour ImplicitNorton;</span>
+<span id="ImplicitNorton-3"><a href="#ImplicitNorton-3"></a><span class="er">@</span>Brick StandardElasticity;</span>
+<span id="ImplicitNorton-4"><a href="#ImplicitNorton-4"></a></span>
+<span id="ImplicitNorton-5"><a href="#ImplicitNorton-5"></a><span class="er">@</span>MaterialProperty stress young; <span class="co">/* mandatory for castem */</span></span>
+<span id="ImplicitNorton-6"><a href="#ImplicitNorton-6"></a>young.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
+<span id="ImplicitNorton-7"><a href="#ImplicitNorton-7"></a><span class="er">@</span>MaterialProperty real nu;    <span class="co">/* mandatory for castem */</span></span>
+<span id="ImplicitNorton-8"><a href="#ImplicitNorton-8"></a>nu.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</span>
+<span id="ImplicitNorton-9"><a href="#ImplicitNorton-9"></a></span>
+<span id="ImplicitNorton-10"><a href="#ImplicitNorton-10"></a><span class="er">@</span>LocalVariable stress lambda,mu;</span>
+<span id="ImplicitNorton-11"><a href="#ImplicitNorton-11"></a></span>
+<span id="ImplicitNorton-12"><a href="#ImplicitNorton-12"></a><span class="er">@</span>StateVariable real    p;</span>
+<span id="ImplicitNorton-13"><a href="#ImplicitNorton-13"></a><span class="er">@</span>PhysicalBounds p in [<span class="dv">0</span>:*[;</span>
+<span id="ImplicitNorton-14"><a href="#ImplicitNorton-14"></a></span>
+<span id="ImplicitNorton-15"><a href="#ImplicitNorton-15"></a><span class="co">/* Initialize Lame coefficients */</span></span>
+<span id="ImplicitNorton-16"><a href="#ImplicitNorton-16"></a><span class="er">@</span>InitLocalVariables{</span>
+<span id="ImplicitNorton-17"><a href="#ImplicitNorton-17"></a>  <span class="kw">using</span> <span class="kw">namespace</span> tfel::material::lame;</span>
+<span id="ImplicitNorton-18"><a href="#ImplicitNorton-18"></a>  lambda = computeLambda(young,nu);</span>
+<span id="ImplicitNorton-19"><a href="#ImplicitNorton-19"></a>  mu = computeMu(young,nu);</span>
+<span id="ImplicitNorton-20"><a href="#ImplicitNorton-20"></a>} <span class="co">// end of @InitLocalVars</span></span>
+<span id="ImplicitNorton-21"><a href="#ImplicitNorton-21"></a></span>
+<span id="ImplicitNorton-22"><a href="#ImplicitNorton-22"></a><span class="er">@</span>Integrator{</span>
+<span id="ImplicitNorton-23"><a href="#ImplicitNorton-23"></a>  <span class="at">const</span> real A = <span class="fl">8.e-67</span>;</span>
+<span id="ImplicitNorton-24"><a href="#ImplicitNorton-24"></a>  <span class="at">const</span> real E = <span class="fl">8.2</span>;</span>
+<span id="ImplicitNorton-25"><a href="#ImplicitNorton-25"></a>  <span class="at">const</span> <span class="kw">auto</span> seq = sigmaeq(sig);</span>
+<span id="ImplicitNorton-26"><a href="#ImplicitNorton-26"></a>  <span class="at">const</span> <span class="kw">auto</span> tmp = A*pow(seq,E-<span class="fl">1.</span>);</span>
+<span id="ImplicitNorton-27"><a href="#ImplicitNorton-27"></a>  <span class="at">const</span> <span class="kw">auto</span> df_dseq = E*tmp;</span>
+<span id="ImplicitNorton-28"><a href="#ImplicitNorton-28"></a>  <span class="at">const</span> <span class="kw">auto</span> iseq = <span class="dv">1</span>/max(seq,real(<span class="fl">1.e-8</span>)*young);</span>
+<span id="ImplicitNorton-29"><a href="#ImplicitNorton-29"></a>  <span class="at">const</span> <span class="kw">auto</span> n    = eval(<span class="dv">3</span>*deviator(sig)*iseq/<span class="dv">2</span>);</span>
+<span id="ImplicitNorton-30"><a href="#ImplicitNorton-30"></a>  feel += dp*n;</span>
+<span id="ImplicitNorton-31"><a href="#ImplicitNorton-31"></a>  fp   -= tmp*seq*dt;</span>
+<span id="ImplicitNorton-32"><a href="#ImplicitNorton-32"></a>  <span class="co">// jacobian</span></span>
+<span id="ImplicitNorton-33"><a href="#ImplicitNorton-33"></a>  dfeel_ddeel += <span class="fl">2.</span>*mu*theta*dp*iseq*(Stensor4::M()-(n^n));</span>
+<span id="ImplicitNorton-34"><a href="#ImplicitNorton-34"></a>  dfeel_ddp    = n;</span>
+<span id="ImplicitNorton-35"><a href="#ImplicitNorton-35"></a>  dfp_ddeel    = -<span class="dv">2</span>*mu*theta*df_dseq*dt*n;</span>
+<span id="ImplicitNorton-36"><a href="#ImplicitNorton-36"></a>} <span class="co">// end of @Integrator</span></span></code></pre></div>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references">
-<div id="ref-foerch_polymorphic_1997">
-<p>1. <span class="smallcaps">Foerch</span>, R., <span class="smallcaps">Besson</span>, J., <span class="smallcaps">Cailletaud</span>, G. and <span class="smallcaps">Pilvin</span>, P. Polymorphic constitutive equations in finite element codes. <em>Computer Methods in Applied Mechanics and Engineering</em>. February 1997. Vol. 141, no. 3–4, p. 355–372. DOI <a href="https://doi.org/10.1016/S0045-7825(96)01111-5">10.1016/S0045-7825(96)01111-5</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0045782596011115" class="uri">http://www.sciencedirect.com/science/article/pii/S0045782596011115</a></p>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-foerch_polymorphic_1997" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Foerch</span>, R., <span class="smallcaps">Besson</span>, J., <span class="smallcaps">Cailletaud</span>, G. and <span class="smallcaps">Pilvin</span>, P. Polymorphic constitutive equations in finite element codes. <em>Computer Methods in Applied Mechanics and Engineering</em>. February 1997. Vol. 141, no. 3–4, p. 355–372. DOI <a href="https://doi.org/10.1016/S0045-7825(96)01111-5">10.1016/S0045-7825(96)01111-5</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0045782596011115">http://www.sciencedirect.com/science/article/pii/S0045782596011115</a></div>
 </div>
-<div id="ref-besson_object-oriented_1998-1">
-<p>2. <span class="smallcaps">Besson</span>, Jacques, <span class="smallcaps">Le Riche</span>, Rodolphe, <span class="smallcaps">Foerch</span>, Ronald and <span class="smallcaps">Cailletaud</span>, Georges. Object-oriented programming applied to the finite element method Part II. Application to Material Behaviors. <em>Revue Européenne des Éléments</em>. 1998. Vol. 7, no. 5, p. 567–588. </p>
+<div id="ref-besson_object-oriented_1998-1" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Besson</span>, Jacques, <span class="smallcaps">Le Riche</span>, Rodolphe, <span class="smallcaps">Foerch</span>, Ronald and <span class="smallcaps">Cailletaud</span>, Georges. Object-oriented programming applied to the finite element method <span>Part</span> <span>II</span>. <span>Application</span> to <span>Material</span> <span>Behaviors</span>. <em>Revue Européenne des Éléments</em>. 1998. Vol. 7, no. 5, p. 567–588. </div>
 </div>
-<div id="ref-northwest_numerics_and_modeling_inc._zebfront_2014">
-<p>3. <span class="smallcaps">Northwest Numerics and Modeling</span>, Inc. ZebFront. 2014. Available from: <a href="http://www.nwnumerics.com/Z-mat/ZebFront" class="uri">http://www.nwnumerics.com/Z-mat/ZebFront</a></p>
+<div id="ref-northwest_numerics_and_modeling_inc._zebfront_2014" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">Northwest Numerics and Modeling</span>, Inc. <span>ZebFront</span>. 2014. Available from: <a href="http://www.nwnumerics.com/Z-mat/ZebFront">http://www.nwnumerics.com/Z-mat/ZebFront</a></div>
 </div>
-<div id="ref-zienkiewicz_finite_1977">
-<p>4. <span class="smallcaps">Zienkiewicz</span>, O.C. The finite element method. McGraw-Hill, 1977. ISBN <a href="https://worldcat.org/isbn/9780070840720">9780070840720</a>. </p>
+<div id="ref-zienkiewicz_finite_1977" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline"><span class="smallcaps">Zienkiewicz</span>, O. C. The finite element method. McGraw-Hill, 1977. ISBN <a href="https://worldcat.org/isbn/9780070840720">9780070840720</a>. </div>
 </div>
-<div id="ref-besson_mecanique_2001">
-<p>5. <span class="smallcaps">Besson</span>, Jacques, <span class="smallcaps">Cailletaud</span>, Georges and <span class="smallcaps">Chaboche</span>, Jean-Louis. Mécanique non linéaire des matériaux. Paris : Hermès, 2001. ISBN <a href="https://worldcat.org/isbn/2746202689 9782746202689">2746202689 9782746202689</a>. </p>
+<div id="ref-besson_mecanique_2001" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline"><span class="smallcaps">Besson</span>, Jacques, <span class="smallcaps">Cailletaud</span>, Georges and <span class="smallcaps">Chaboche</span>, Jean-Louis. Mécanique non linéaire des matériaux. Paris : Hermès, 2001. ISBN <a href="https://worldcat.org/isbn/2746202689 9782746202689">2746202689 9782746202689</a>. </div>
 </div>
-<div id="ref-edf_algorithme_2013">
-<p>6. <span class="smallcaps">EDF</span>. R5.03.01 révision : 10290: Algorithme non linéaire quasi-statique STAT_NON_LINE. Référence du Code Aster. EDF-R&amp;D/AMA, 2013. Available from: <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a></p>
+<div id="ref-edf_algorithme_2013" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline"><span class="smallcaps">EDF</span>. R5.03.01 révision : 10290: Algorithme non linéaire quasi-statique <span>STAT</span>_NON_LINE. Référence du Code Aster. EDF-R&amp;D/AMA, 2013. Available from: <a href="http://www.code-aster.org">http://www.code-aster.org</a></div>
 </div>
-<div id="ref-simo_consistent_1985">
-<p>7. <span class="smallcaps">Simo</span>, J. C. and <span class="smallcaps">Taylor</span>, R. L. Consistent tangent operators for rate-independent elastoplasticity. <em>Computer Methods in Applied Mechanics and Engineering</em>. February 1985. Vol. 48, no. 1, p. 101–118. DOI <a href="https://doi.org/10.1016/0045-7825(85)90070-2">10.1016/0045-7825(85)90070-2</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/0045782585900702" class="uri">http://www.sciencedirect.com/science/article/pii/0045782585900702</a></p>
+<div id="ref-simo_consistent_1985" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline"><span class="smallcaps">Simo</span>, J. C. and <span class="smallcaps">Taylor</span>, R. L. Consistent tangent operators for rate-independent elastoplasticity. <em>Computer Methods in Applied Mechanics and Engineering</em>. February 1985. Vol. 48, no. 1, p. 101–118. DOI <a href="https://doi.org/10.1016/0045-7825(85)90070-2">10.1016/0045-7825(85)90070-2</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/0045782585900702">http://www.sciencedirect.com/science/article/pii/0045782585900702</a></div>
 </div>
-<div id="ref-simo_computational_1998">
-<p>8. <span class="smallcaps">Simo</span>, Juan C and <span class="smallcaps">Hughes</span>, Thomas J. R. Computational inelasticity. New York : Springer, 1998. ISBN <a href="https://worldcat.org/isbn/0387975209  9780387975207">0387975209  9780387975207</a>. </p>
+<div id="ref-simo_computational_1998" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline"><span class="smallcaps">Simo</span>, Juan C and <span class="smallcaps">Hughes</span>, Thomas J. R. Computational inelasticity. New York : Springer, 1998. ISBN <a href="https://worldcat.org/isbn/0387975209 9780387975207">0387975209 9780387975207</a>. </div>
 </div>
-<div id="ref-chaboche_mecanique_2009">
-<p>9. <span class="smallcaps">Chaboche</span>, Jean-Louis, <span class="smallcaps">Lemaître</span>, Jean, <span class="smallcaps">Benallal</span>, Ahmed and <span class="smallcaps">Desmorat</span>, Rodrigue. Mécanique des matériaux solides. Paris : Dunod, 2009. ISBN <a href="https://worldcat.org/isbn/9782100516230  210051623X">9782100516230  210051623X</a>. </p>
+<div id="ref-chaboche_mecanique_2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline"><span class="smallcaps">Chaboche</span>, Jean-Louis, <span class="smallcaps">Lemaître</span>, Jean, <span class="smallcaps">Benallal</span>, Ahmed and <span class="smallcaps">Desmorat</span>, Rodrigue. Mécanique des matériaux solides. Paris : Dunod, 2009. ISBN <a href="https://worldcat.org/isbn/9782100516230 210051623X">9782100516230 210051623X</a>. </div>
 </div>
-<div id="ref-doghri_mechanics_2000">
-<p>10. <span class="smallcaps">Doghri</span>, Issam. Mechanics of deformable solids: Linear, nonlinear, analytical, and computational aspects. Berlin; New York : Springer, 2000. ISBN <a href="https://worldcat.org/isbn/3540669604  9783540669609  3642086292 9783642086298">3540669604  9783540669609  3642086292 9783642086298</a>. </p>
+<div id="ref-doghri_mechanics_2000" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline"><span class="smallcaps">Doghri</span>, Issam. Mechanics of deformable solids: Linear, nonlinear, analytical, and computational aspects. Berlin; New York : Springer, 2000. ISBN <a href="https://worldcat.org/isbn/3540669604 9783540669609 3642086292 9783642086298">3540669604 9783540669609 3642086292 9783642086298</a>. </div>
 </div>
-<div id="ref-miehe_anisotropic_2002">
-<p>11. <span class="smallcaps">Miehe</span>, C., <span class="smallcaps">Apel</span>, N. and <span class="smallcaps">Lambrecht</span>, M. Anisotropic additive plasticity in the logarithmic strain space: Modular kinematic formulation and implementation based on incremental minimization principles for standard materials. <em>Computer Methods in Applied Mechanics and Engineering</em>. November 2002. Vol. 191, no. 47–48, p. 5383–5425. DOI <a href="https://doi.org/10.1016/S0045-7825(02)00438-3">10.1016/S0045-7825(02)00438-3</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0045782502004383" class="uri">http://www.sciencedirect.com/science/article/pii/S0045782502004383</a></p>
+<div id="ref-miehe_anisotropic_2002" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline"><span class="smallcaps">Miehe</span>, C., <span class="smallcaps">Apel</span>, N. and <span class="smallcaps">Lambrecht</span>, M. Anisotropic additive plasticity in the logarithmic strain space: Modular kinematic formulation and implementation based on incremental minimization principles for standard materials. <em>Computer Methods in Applied Mechanics and Engineering</em>. November 2002. Vol. 191, no. 47–48, p. 5383–5425. DOI <a href="https://doi.org/10.1016/S0045-7825(02)00438-3">10.1016/S0045-7825(02)00438-3</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0045782502004383">http://www.sciencedirect.com/science/article/pii/S0045782502004383</a></div>
 </div>
-<div id="ref-simo_associative_1992">
-<p>12. <span class="smallcaps">Simo</span>, J.C. and <span class="smallcaps">Miehe</span>, C. Associative coupled thermoplasticity at finite strains: Formulation, numerical analysis and implementation. <em>Computer Methods in Applied Mechanics and Engineering</em>. July 1992. Vol. 98, no. 1, p. 41–104. DOI <a href="https://doi.org/10.1016/0045-7825(92)90170-O">10.1016/0045-7825(92)90170-O</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/004578259290170O" class="uri">http://www.sciencedirect.com/science/article/pii/004578259290170O</a></p>
+<div id="ref-simo_associative_1992" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">12. </div><div class="csl-right-inline"><span class="smallcaps">Simo</span>, J. C. and <span class="smallcaps">Miehe</span>, C. Associative coupled thermoplasticity at finite strains: <span>Formulation</span>, numerical analysis and implementation. <em>Computer Methods in Applied Mechanics and Engineering</em>. July 1992. Vol. 98, no. 1, p. 41–104. DOI <a href="https://doi.org/10.1016/0045-7825(92)90170-O">10.1016/0045-7825(92)90170-O</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/004578259290170O">http://www.sciencedirect.com/science/article/pii/004578259290170O</a></div>
 </div>
-<div id="ref-tvergaard_effect_1990">
-<p>13. <span class="smallcaps">Tvergaard</span>, V. Effect of fibre debonding in a whisker reinforced metal. <em>Mater. Sci. Eng.</em> 1990. Vol. A125, p. pp. 203–213. </p>
+<div id="ref-tvergaard_effect_1990" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">13. </div><div class="csl-right-inline"><span class="smallcaps">Tvergaard</span>, V. Effect of fibre debonding in a whisker reinforced metal. <em>Mater. Sci. Eng.</em> 1990. Vol. A125, p. pp. 203–213. </div>
 </div>
-<div id="ref-besson_numerical_2004">
-<p>14. <span class="smallcaps">Besson</span>, J. and <span class="smallcaps">Desmorat</span>, D. Numerical implementation of constitutive models. In : BESSON, J. [ed.], <em>Local approach to fracture</em>. École des Mines de Paris - les presses, 2004. </p>
+<div id="ref-besson_numerical_2004" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">14. </div><div class="csl-right-inline"><span class="smallcaps">Besson</span>, J. and <span class="smallcaps">Desmorat</span>, D. Numerical implementation of constitutive models. In : BESSON, J. [ed.], <em>Local approach to fracture</em>. École des Mines de Paris - les presses, 2004. </div>
 </div>
-<div id="ref-chen_modification_1981">
-<p>15. <span class="smallcaps">Chen</span>, Hern-Shann and <span class="smallcaps">Stadtherr</span>, Mark A. A modification of Powell’s dogleg method for solving systems of nonlinear equations. <em>Computers &amp; Chemical Engineering</em>. 1981. Vol. 5, no. 3, p. 143–150. DOI <a href="https://doi.org/10.1016/0098-1354(81)85003-X">10.1016/0098-1354(81)85003-X</a>. </p>
+<div id="ref-chen_modification_1981" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">15. </div><div class="csl-right-inline"><span class="smallcaps">Chen</span>, Hern-Shann and <span class="smallcaps">Stadtherr</span>, Mark A. A modification of <span>Powell</span>’s dogleg method for solving systems of nonlinear equations. <em>Computers &amp; Chemical Engineering</em>. 1981. Vol. 5, no. 3, p. 143–150. DOI <a href="https://doi.org/10.1016/0098-1354(81)85003-X">10.1016/0098-1354(81)85003-X</a>. </div>
 </div>
 </div>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

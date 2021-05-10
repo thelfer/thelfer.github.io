@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -99,64 +98,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -178,6 +194,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -244,46 +261,48 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">The <code>Implicit</code> domain specific language</h1>
-                  <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">2020</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#description"><span class="toc-section-number">1</span> Description</a></li>
-      <li><a href="#available-algorithms"><span class="toc-section-number">2</span> Available algorithms</a><ul>
-      <li><a href="#notes-about-updating-auxiliary-state-variable-or-local-variables-in-the-integrator-code-blocks-when-the-numerical-evaluation-of-the-jacobian-is-requested"><span class="toc-section-number">2.1</span> Notes about updating auxiliary state variable or local variables in the <code>Integrator</code> code blocks when the numerical evaluation of the jacobian is requested</a></li>
-      </ul></li>
-      <li><a href="#computation-of-the-consistent-tangent-operator"><span class="toc-section-number">3</span> Computation of the consistent tangent operator</a><ul>
-      <li><a href="#sec:tangent_operator:small_strain_behaviours"><span class="toc-section-number">3.1</span> Computation of the consistent tangent operator for small strain behaviours</a><ul>
-      <li><a href="#formal-derivation-of-the-consistent-tangent-operator"><span class="toc-section-number">3.1.1</span> Formal derivation of the consistent tangent operator</a></li>
-      <li><a href="#sec:tangent_operator:discussion"><span class="toc-section-number">3.1.2</span> Discussion</a></li>
-      <li><a href="#simplication-of-the-equation-eqtangent_operatorconsistent_tangent_operator-in-common-cases"><span class="toc-section-number">3.1.3</span> Simplication of the Equation (5) in common cases</a></li>
-      </ul></li>
-      <li><a href="#sec:tangent_operator:generalised_behaviours"><span class="toc-section-number">3.2</span> Extension to generalised behaviours</a><ul>
-      <li><a href="#discussion"><span class="toc-section-number">3.2.1</span> Discussion</a></li>
-      <li><a href="#computation-of-the-displaystyle-fracdisplaystyle-partial-fdisplaystyle-partial-delta-x-matrix."><span class="toc-section-number">3.2.2</span> Computation of the <span class="math inline">\({\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\, X}}\)</span> matrix.</a></li>
-      <li><a href="#the-getintegrationvariablesderivatives_x-local-function-objects"><span class="toc-section-number">3.2.3</span> The <code>getIntegrationVariablesDerivatives_X</code> local function objects</a></li>
-      <li><a href="#block-decomposition-of-the-invert-of-the-jacobian"><span class="toc-section-number">3.2.4</span> Block decomposition of the invert of the jacobian</a></li>
-      </ul></li>
-      <li><a href="#applications"><span class="toc-section-number">3.3</span> Applications</a><ul>
-      <li><a href="#a-first-example-of-a-viscoplastic-behaviour-coupled-with-heat-transfer"><span class="toc-section-number">3.3.1</span> A first example of a viscoplastic behaviour coupled with heat transfer</a></li>
-      <li><a href="#computation-of-displaystyle-fracdisplaystyle-partial-fdisplaystyle-partial-delta-t"><span class="toc-section-number">3.3.2</span> Computation of <span class="math inline">\({\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta T}}\)</span></a></li>
-      <li><a href="#computing-displaystyle-fracdisplaystyle-partial-underlinesigmadisplaystyle-partial-deltat-using-getintegrationvariablesderivatives_t"><span class="toc-section-number">3.3.3</span> Computing <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,T}}\)</span> using <code>getIntegrationVariablesDerivatives_T</code></a></li>
-      <li><a href="#computing-displaystyle-fracdisplaystyle-partial-underlinesigmadisplaystyle-partial-deltat-using-the-block-decomposition-of-the-invert-of-jacobian"><span class="toc-section-number">3.3.4</span> Computing <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,T}}\)</span> using the block decomposition of the invert of jacobian</a></li>
-      </ul></li>
-      </ul></li>
-      </ul>
-    </div>
-        
-
+<div id="header">
+<h1 class="title">The <code>Implicit</code> domain specific language</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">2020</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#description"><span class="toc-section-number">1</span> Description</a></li>
+<li><a href="#available-algorithms"><span class="toc-section-number">2</span> Available algorithms</a>
+<ul>
+<li><a href="#notes-about-updating-auxiliary-state-variable-or-local-variables-in-the-integrator-code-blocks-when-the-numerical-evaluation-of-the-jacobian-is-requested"><span class="toc-section-number">2.1</span> Notes about updating auxiliary state variable or local variables in the <code>Integrator</code> code blocks when the numerical evaluation of the jacobian is requested</a></li>
+</ul></li>
+<li><a href="#computation-of-the-consistent-tangent-operator"><span class="toc-section-number">3</span> Computation of the consistent tangent operator</a>
+<ul>
+<li><a href="#sec:tangent_operator:small_strain_behaviours"><span class="toc-section-number">3.1</span> Computation of the consistent tangent operator for small strain behaviours</a>
+<ul>
+<li><a href="#formal-derivation-of-the-consistent-tangent-operator"><span class="toc-section-number">3.1.1</span> Formal derivation of the consistent tangent operator</a></li>
+<li><a href="#sec:tangent_operator:discussion"><span class="toc-section-number">3.1.2</span> Discussion</a></li>
+<li><a href="#simplication-of-the-equation-eqtangent_operatorconsistent_tangent_operator-in-common-cases"><span class="toc-section-number">3.1.3</span> Simplication of the Equation (5) in common cases</a></li>
+</ul></li>
+<li><a href="#sec:tangent_operator:generalised_behaviours"><span class="toc-section-number">3.2</span> Extension to generalised behaviours</a>
+<ul>
+<li><a href="#discussion"><span class="toc-section-number">3.2.1</span> Discussion</a></li>
+<li><a href="#computation-of-the-displaystyle-fracdisplaystyle-partial-fdisplaystyle-partial-delta-x-matrix."><span class="toc-section-number">3.2.2</span> Computation of the <span class="math inline">\({\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\, X}}\)</span> matrix.</a></li>
+<li><a href="#the-getintegrationvariablesderivatives_x-local-function-objects"><span class="toc-section-number">3.2.3</span> The <code>getIntegrationVariablesDerivatives_X</code> local function objects</a></li>
+<li><a href="#block-decomposition-of-the-invert-of-the-jacobian"><span class="toc-section-number">3.2.4</span> Block decomposition of the invert of the jacobian</a></li>
+</ul></li>
+<li><a href="#applications"><span class="toc-section-number">3.3</span> Applications</a>
+<ul>
+<li><a href="#a-first-example-of-a-viscoplastic-behaviour-coupled-with-heat-transfer"><span class="toc-section-number">3.3.1</span> A first example of a viscoplastic behaviour coupled with heat transfer</a></li>
+<li><a href="#computation-of-displaystyle-fracdisplaystyle-partial-fdisplaystyle-partial-delta-t"><span class="toc-section-number">3.3.2</span> Computation of <span class="math inline">\({\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta T}}\)</span></a></li>
+<li><a href="#computing-displaystyle-fracdisplaystyle-partial-underlinesigmadisplaystyle-partial-deltat-using-getintegrationvariablesderivatives_t"><span class="toc-section-number">3.3.3</span> Computing <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,T}}\)</span> using <code>getIntegrationVariablesDerivatives_T</code></a></li>
+<li><a href="#computing-displaystyle-fracdisplaystyle-partial-underlinesigmadisplaystyle-partial-deltat-using-the-block-decomposition-of-the-invert-of-jacobian"><span class="toc-section-number">3.3.4</span> Computing <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,T}}\)</span> using the block decomposition of the invert of jacobian</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
 <figure>
-<img src="img/ImplicitDSL.svg" alt="Description of the steps of the implicit scheme and the associated code blocks." style="width:100.0%" /><figcaption>Description of the steps of the implicit scheme and the associated code blocks.</figcaption>
+<img src="img/ImplicitDSL.svg" style="width:100.0%" alt="Description of the steps of the implicit scheme and the associated code blocks." /><figcaption aria-hidden="true">Description of the steps of the implicit scheme and the associated code blocks.</figcaption>
 </figure>
-<h1 id="description"><span class="header-section-number">1</span> Description</h1>
-<p>Let <span class="math inline">\(\vec{Y}\)</span> be a vector holding all the integration variables<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. The evolution of <span class="math inline">\(\vec{Y}\)</span> is assumed to satisfy the following differential equation:</p>
+<h1 data-number="1" id="description"><span class="header-section-number">1</span> Description</h1>
+<p>Let <span class="math inline">\(\vec{Y}\)</span> be a vector holding all the integration variables<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The evolution of <span class="math inline">\(\vec{Y}\)</span> is assumed to satisfy the following differential equation:</p>
 <p><span class="math display">\[
 \vec{\dot{Y}}=G{\left(\vec{Y},t\right)}
 \]</span></p>
@@ -308,7 +327,7 @@ F{\left(\Delta\,\vec{Y},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}=0
 <p><span id="eq:tangent_operator:implicit_system2"><span class="math display">\[
 \vec{F}{\left(\Delta\,\vec{Y}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}=0
 \qquad(2)\]</span></span></p>
-<h1 id="available-algorithms"><span class="header-section-number">2</span> Available algorithms</h1>
+<h1 data-number="2" id="available-algorithms"><span class="header-section-number">2</span> Available algorithms</h1>
 <p>The following algorithms are available:</p>
 <ul>
 <li><code>NewtonRaphson</code></li>
@@ -321,27 +340,27 @@ F{\left(\Delta\,\vec{Y},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}=0
 <li><code>LevenbergMarquardt</code></li>
 <li><code>LevenbergMarquardt_NumericalJacobian</code></li>
 </ul>
-<h2 id="notes-about-updating-auxiliary-state-variable-or-local-variables-in-the-integrator-code-blocks-when-the-numerical-evaluation-of-the-jacobian-is-requested"><span class="header-section-number">2.1</span> Notes about updating auxiliary state variable or local variables in the <code>Integrator</code> code blocks when the numerical evaluation of the jacobian is requested</h2>
+<h2 data-number="2.1" id="notes-about-updating-auxiliary-state-variable-or-local-variables-in-the-integrator-code-blocks-when-the-numerical-evaluation-of-the-jacobian-is-requested"><span class="header-section-number">2.1</span> Notes about updating auxiliary state variable or local variables in the <code>Integrator</code> code blocks when the numerical evaluation of the jacobian is requested</h2>
 <p>In some cases, it is convenient to update auxiliary state variables in the <code>@Integrator</code> code block, rather than computing them in the <code>@UpdateAuxiliaryStateVariables</code> code block which is only called once the convergence is reached.</p>
 <p>However, if the jacobian matrix is computed numerically (at least partially), such updates could be wrong, because they can be based on the perturbated values of the unknowns.</p>
 <p>In <code>TFEL 3.1</code>, this can be circumvented by testing the value of the <code>perturbatedSystemEvaluation</code> boolean value as follows:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// let av be an auxiliary state variable</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="er">@</span>AuxiliaryStateVariable StrainStensor av;</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="er">@</span>Integrator{</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="co">// put updated value of av in a temporary variable</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="at">const</span> <span class="kw">auto</span> <span class="va">av_</span> = eval(...);  </a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">  ...</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">  definition of the implicit system</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">  ...</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">  <span class="cf">if</span>(!perturbatedSystemEvaluation){</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="co">// update auxiliary state variables</span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">    av = <span class="va">av_</span>;</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">  }</a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">} <span class="co">// end of @Integrator</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// let av be an auxiliary state variable</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable StrainStensor av;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// put updated value of av in a temporary variable</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">av_</span> = eval(...);  </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  definition of the implicit system</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(!perturbatedSystemEvaluation){</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// update auxiliary state variables</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    av = <span class="va">av_</span>;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Integrator</span></span></code></pre></div>
 <p>In many cases, rather than updating auxiliary variables during the Newton iterations, it can be more pratical to compute its increment, defined in by local variable and to update the auxiliary variable in the <code>@UpdateAuxiliaryStateVariables</code> code block. The previous trick can be used in this case in a straightforward manner.</p>
-<h1 id="computation-of-the-consistent-tangent-operator"><span class="header-section-number">3</span> Computation of the consistent tangent operator</h1>
-<h2 id="sec:tangent_operator:small_strain_behaviours"><span class="header-section-number">3.1</span> Computation of the consistent tangent operator for small strain behaviours</h2>
+<h1 data-number="3" id="computation-of-the-consistent-tangent-operator"><span class="header-section-number">3</span> Computation of the consistent tangent operator</h1>
+<h2 data-number="3.1" id="sec:tangent_operator:small_strain_behaviours"><span class="header-section-number">3.1</span> Computation of the consistent tangent operator for small strain behaviours</h2>
 <p>In this section, a small strain behaviour is considered.</p>
 <p>The increment <span class="math inline">\(\Delta\,\vec{Y}\)</span> of the state variables satisfies the following implicit system:</p>
 <p><span id="eq:tangent_operator:small_strain:implicit_system"><span class="math display">\[
@@ -353,9 +372,9 @@ F{\left(\Delta\,\vec{Y},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}=0
 \qquad(4)\]</span></span></p>
 <p>The stress tensor <span class="math inline">\(\underline{\sigma}\)</span> are assumed to be an explicit function of the integration variables <span class="math inline">\({\left.\vec{Y}\right|_{t+\Delta\,t}}\)</span> at the end of the time step and the total strain <span class="math inline">\({\left.\underline{\varepsilon}^{\mathrm{to}}\right|_{t+\Delta\,t}}\)</span> at the end of time step:</p>
 <p><span class="math display">\[
-\underline{\sigma}{\left({\left.\vec{Y}\right|_{t+\Delta\,t}},{\left.\underline{\varepsilon}^{\mathrm{to}}\right|_{t+\Delta\,t}}\right)}
+\underline{\sigma}{\left({\left.\vec{Y}\right|_{t+\Delta\,t}}, {\left.\underline{\varepsilon}^{\mathrm{to}}\right|_{t+\Delta\,t}}\right)}
 \]</span></p>
-<h3 id="formal-derivation-of-the-consistent-tangent-operator"><span class="header-section-number">3.1.1</span> Formal derivation of the consistent tangent operator</h3>
+<h3 data-number="3.1.1" id="formal-derivation-of-the-consistent-tangent-operator"><span class="header-section-number">3.1.1</span> Formal derivation of the consistent tangent operator</h3>
 <p>The consistent tangent operator is thus given by:</p>
 <p><span class="math display">\[
 {\displaystyle \frac{\displaystyle \mathrm{d}\underline{\sigma}}{\displaystyle \mathrm{d}\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}=
@@ -380,7 +399,7 @@ F{\left(\Delta\,\vec{Y},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}=0
 {\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}-
 {\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,\vec{Y}}}\,J^{-1}\,{\displaystyle \frac{\displaystyle \partial \vec{F}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
 \qquad(5)\]</span></span></p>
-<h3 id="sec:tangent_operator:discussion"><span class="header-section-number">3.1.2</span> Discussion</h3>
+<h3 data-number="3.1.2" id="sec:tangent_operator:discussion"><span class="header-section-number">3.1.2</span> Discussion</h3>
 <p>Equation (5) may be extented almost directly to generalised behaviours. However, direct usage of Equation (5) has several practical disadvantages:</p>
 <ul>
 <li>The matrix <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,\vec{Y}}}\)</span> is usually sparse. For example, most small strain behaviours are based on the Hooke law, which means that the stress <span class="math inline">\(\underline{\sigma}\)</span> only depends on the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span>. In many behaviours, the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> are only a small subset of the integration variables <span class="math inline">\(\vec{Y}\)</span>.</li>
@@ -388,7 +407,7 @@ F{\left(\Delta\,\vec{Y},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}=0
 <li>The matrix <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \vec{F}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\)</span> is also usually sparse. For example, the <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\)</span> commonly only appears in the implicit equation describing the split of the strain.</li>
 </ul>
 <p>Hence, a computation of the consistent tangent based on Equation (5) may imply a significant performance hit which can be avoided in many most common cases, as discussed in the following section.</p>
-<h3 id="simplication-of-the-equation-eqtangent_operatorconsistent_tangent_operator-in-common-cases"><span class="header-section-number">3.1.3</span> Simplication of the Equation (5) in common cases</h3>
+<h3 data-number="3.1.3" id="simplication-of-the-equation-eqtangent_operatorconsistent_tangent_operator-in-common-cases"><span class="header-section-number">3.1.3</span> Simplication of the Equation (5) in common cases</h3>
 <p>Equation (5) can be simplified if the following assumptions are made:</p>
 <ul>
 <li>The integration variable <span class="math inline">\(\vec{Y}\)</span> is decomposed as: <span class="math display">\[
@@ -436,30 +455,30 @@ f_{\underline{\varepsilon}^{\mathrm{el}}}=\Delta\underline{\varepsilon}^{\mathrm
 <p><span id="eq:tangent_operator:small_strain:common_cases"><span class="math display">\[
 {\displaystyle \frac{\displaystyle \mathrm{d}\underline{\sigma}}{\displaystyle \mathrm{d}\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}={\left.\underline{\underline{\mathbf{D}}}\right|_{t+\Delta\,t}}\,\cdot\,J_{\underline{\varepsilon}^{\mathrm{el}}}^{-1}
 \qquad(9)\]</span></span></p>
-<h4 id="sec:tangent_operator:getPartialTangentOperator"><span class="header-section-number">3.1.3.1</span> The <code>getPartialJacobianInvert</code> method</h4>
+<h4 data-number="3.1.3.1" id="sec:tangent_operator:getPartialTangentOperator"><span class="header-section-number">3.1.3.1</span> The <code>getPartialJacobianInvert</code> method</h4>
 <p>The <code>getPartialJacobianInvert</code> method allows the computation of the <span class="math inline">\(J_{\underline{\varepsilon}^{\mathrm{el}}}^{-1}\)</span> tensors as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1">Stensor4 iJe;</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">getPartialJacobianInvert(iJe);</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Stensor4 iJe;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>getPartialJacobianInvert(iJe);</span></code></pre></div>
 <p>The <code>getPartialJacobianInvert</code> method assumes that the jacobian matrix is decomposed (using the <code>LU</code> algorithm with partial pivoting in the current version of <code>TFEL</code>), which is guaranteed in the <code>@TangentOperatorBlock</code>. So <span class="math inline">\(J_{\underline{\varepsilon}^{\mathrm{el}}}^{-1}\)</span> is computed by solving <span class="math inline">\(6\)</span> linear systems. In particular, the jacobian matrix is not inverted.</p>
 <p>A typical computation of the consistent tangent operator is as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1">    StiffnessTensor De;</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">    Stensor4 iJe;</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">    computeElasticStiffness&lt;N,Type&gt;::exe(De,lambda,mu);</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">    getPartialJacobianInvert(iJe);</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">    Dt = De * Je;</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    StiffnessTensor De;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    Stensor4 iJe;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    computeElasticStiffness&lt;N,Type&gt;::exe(De,lambda,mu);</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    getPartialJacobianInvert(iJe);</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    Dt = De * Je;</span></code></pre></div>
 <p>This code is loosely the one generated by the <code>StandardElastoViscoplasticy</code> brick.</p>
-<h4 id="extensions-to-more-general-class-of-behaviours"><span class="header-section-number">3.1.3.2</span> Extensions to more general class of behaviours</h4>
+<h4 data-number="3.1.3.2" id="extensions-to-more-general-class-of-behaviours"><span class="header-section-number">3.1.3.2</span> Extensions to more general class of behaviours</h4>
 <p>The <code>getPartialJacobianInvert</code> may take several arguments which will give the derivatives of the other integration variables.</p>
-<p>For example, the following code can be used to compute the consistent tangent operator of a behaviour in which the stress computed using a standard damaging law of the form <span class="math inline">\({\left.\underline{\sigma}\right|_{t+\Delta\,t}}={\left(1-{\left.d\right|_{t+\Delta\,t}}\right)}\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\Delta\,t}}\,\colon\,{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\Delta\,t}}\)</span><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a><span class="math inline">\(\mbox{}^{,}\)</span><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1">    StiffnessTensor De;</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">    Stensor4 iJe;</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">    Stensor iJd;</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">    computeUnalteredElasticStiffness&lt;N,Type&gt;::exe(De, lambda, mu);</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">    getPartialJacobianInvert(iJe, iJd);</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">    Dt = (<span class="dv">1</span> - d) * De * iJe - ((De * eel) ^ iJd);</a></code></pre></div>
-<h2 id="sec:tangent_operator:generalised_behaviours"><span class="header-section-number">3.2</span> Extension to generalised behaviours</h2>
+<p>For example, the following code can be used to compute the consistent tangent operator of a behaviour in which the stress computed using a standard damaging law of the form <span class="math inline">\({\left.\underline{\sigma}\right|_{t+\Delta\,t}}={\left(1-{\left.d\right|_{t+\Delta\,t}}\right)}\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\Delta\,t}}\,\colon\,{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\Delta\,t}}\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a><span class="math inline">\(\mbox{}^{,}\)</span><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    StiffnessTensor De;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    Stensor4 iJe;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    Stensor iJd;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    computeUnalteredElasticStiffness&lt;N,Type&gt;::exe(De, lambda, mu);</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    getPartialJacobianInvert(iJe, iJd);</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    Dt = (<span class="dv">1</span> - d) * De * iJe - ((De * eel) ^ iJd);</span></code></pre></div>
+<h2 data-number="3.2" id="sec:tangent_operator:generalised_behaviours"><span class="header-section-number">3.2</span> Extension to generalised behaviours</h2>
 <p>The idea is to extend this method for generalised behaviours.</p>
-<h3 id="discussion"><span class="header-section-number">3.2.1</span> Discussion</h3>
+<h3 data-number="3.2.1" id="discussion"><span class="header-section-number">3.2.1</span> Discussion</h3>
 <p>In Section 3.1.2, we discussed various drawbacks of a direct use of Equation (5).</p>
 <p>The equivalent of the consistent tangent operator for generalised behaviours are so called tangent operator blocks which can be:</p>
 <ul>
@@ -475,7 +494,7 @@ f_{\underline{\varepsilon}^{\mathrm{el}}}=\Delta\underline{\varepsilon}^{\mathrm
 <li>have access to the blocks of the invert of the jacobian matrix.</li>
 </ul>
 <p>In both cases, <span class="math inline">\({\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\, X}}\)</span> matrix must be computed. The next paragraph is devoted to this computation.</p>
-<h3 id="computation-of-the-displaystyle-fracdisplaystyle-partial-fdisplaystyle-partial-delta-x-matrix."><span class="header-section-number">3.2.2</span> Computation of the <span class="math inline">\({\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\, X}}\)</span> matrix.</h3>
+<h3 data-number="3.2.2" id="computation-of-the-displaystyle-fracdisplaystyle-partial-fdisplaystyle-partial-delta-x-matrix."><span class="header-section-number">3.2.2</span> Computation of the <span class="math inline">\({\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\, X}}\)</span> matrix.</h3>
 <p>The <span class="math inline">\({\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\, X}}\)</span> matrix can be decomposed by blocks:</p>
 <p><span id="eq:tangent_operator:dF_dX"><span class="math display">\[
 {\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\, X}}
@@ -503,9 +522,9 @@ f_{y_{n}}
 <p>The advantage of the Decomposition (10) is that each blocks <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f_{y_{i}}}{\displaystyle \partial \Delta\, X}}\)</span> is a tensorial object that can be computed using the facilities offered by <code>TFEL/Math</code> library</p>
 <p>If one of the block <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f_{y_{i}}}{\displaystyle \partial \Delta\, X}}\)</span> appears in a <code>@TangentOperator</code> code block, <code>MFront</code> automatically defines the matrix <span class="math inline">\({\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\, X}}\)</span> as an hidden variable and <strong>initializes it to zero</strong>. <strong>This does mean that only non zero derivatives must be defined by the user</strong></p>
 <p>For a standard integration variable, a view called <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f_{y_{i}}}{\displaystyle \partial \Delta\, X}}\)</span> is also automatically defined. For array of integration variables, a local function object <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f_{y_{i}}}{\displaystyle \partial \Delta\, X}}\)</span> is defined. This mechanism is similar to the one used to access the jacobian by block.</p>
-<h3 id="the-getintegrationvariablesderivatives_x-local-function-objects"><span class="header-section-number">3.2.3</span> The <code>getIntegrationVariablesDerivatives_X</code> local function objects</h3>
+<h3 data-number="3.2.3" id="the-getintegrationvariablesderivatives_x-local-function-objects"><span class="header-section-number">3.2.3</span> The <code>getIntegrationVariablesDerivatives_X</code> local function objects</h3>
 <p>When required in a <code>@TangentOperator</code> code block (i.e. when used), the <code>getIntegrationVariablesDerivatives_X</code> is defined as a local function object which may the blocks of <span class="math inline">\(-J^{-1}\,{\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\, X}}\)</span></p>
-<h3 id="block-decomposition-of-the-invert-of-the-jacobian"><span class="header-section-number">3.2.4</span> Block decomposition of the invert of the jacobian</h3>
+<h3 data-number="3.2.4" id="block-decomposition-of-the-invert-of-the-jacobian"><span class="header-section-number">3.2.4</span> Block decomposition of the invert of the jacobian</h3>
 <p>The invert of the jacobian <span class="math inline">\(J\)</span> can be decomposed as:</p>
 <p><span class="math display">\[
 J^{-1}=
@@ -521,14 +540,14 @@ J^{-1}_{{\left(f_{y_{n}}, y_{1}\right)}}&amp;\cdots&amp;J^{-1}_{{\left(f_{y_{n}}
 <li>If <span class="math inline">\(y\)</span> and/or <span class="math inline">\(z\)</span> are arrays, <code>iJ_x_z</code> is a function object taking indices as arguments and returning a view to the corresponding block of the invert of the jacobian.</li>
 </ul>
 <p>For example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>TangentOperator{</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"> <span class="co">// iJ_eel_p is the block corresponding to:</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"> <span class="co">// 1. the elastic strain (row)</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"> <span class="co">// 2. the equivalent viscoplastic strain</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">}</a></code></pre></div>
-<h2 id="applications"><span class="header-section-number">3.3</span> Applications</h2>
-<h3 id="a-first-example-of-a-viscoplastic-behaviour-coupled-with-heat-transfer"><span class="header-section-number">3.3.1</span> A first example of a viscoplastic behaviour coupled with heat transfer</h3>
-<h4 id="description-of-the-behaviour"><span class="header-section-number">3.3.1.1</span> Description of the behaviour</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator{</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> <span class="co">// iJ_eel_p is the block corresponding to:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> <span class="co">// 1. the elastic strain (row)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a> <span class="co">// 2. the equivalent viscoplastic strain</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 data-number="3.3" id="applications"><span class="header-section-number">3.3</span> Applications</h2>
+<h3 data-number="3.3.1" id="a-first-example-of-a-viscoplastic-behaviour-coupled-with-heat-transfer"><span class="header-section-number">3.3.1</span> A first example of a viscoplastic behaviour coupled with heat transfer</h3>
+<h4 data-number="3.3.1.1" id="description-of-the-behaviour"><span class="header-section-number">3.3.1.1</span> Description of the behaviour</h4>
 <p>Let us consider the following simple isotropic viscoplastic behaviour.</p>
 <p>The total strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> is split into an elastic part <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span>, a thermal strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{th}}\)</span> and a viscoplastic part <span class="math inline">\(\underline{\varepsilon}^{\mathrm{vp}}\)</span>:</p>
 <p><span class="math display">\[
@@ -561,7 +580,7 @@ J^{-1}_{{\left(f_{y_{n}}, y_{1}\right)}}&amp;\cdots&amp;J^{-1}_{{\left(f_{y_{n}}
 <p>The integration variables are the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and the equivalent plastic strain <span class="math inline">\(p\)</span>.</p>
 <p>The tangent operator blocks to be computed are <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\)</span> and <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,T}}\)</span>.</p>
 <p>The computation is of <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\)</span> readily follows Section 3.1.3.1 and will not be described here.</p>
-<h4 id="implicit-scheme"><span class="header-section-number">3.3.1.2</span> Implicit scheme</h4>
+<h4 data-number="3.3.1.2" id="implicit-scheme"><span class="header-section-number">3.3.1.2</span> Implicit scheme</h4>
 <p><span class="math display">\[
 \left\{
 \begin{aligned}
@@ -570,7 +589,7 @@ f_{p}&amp;=\Delta\,p-A\,\exp{\left(-{{\displaystyle \frac{\displaystyle T_{a}}{\
 \end{aligned}
 \right.
 \]</span></p>
-<h3 id="computation-of-displaystyle-fracdisplaystyle-partial-fdisplaystyle-partial-delta-t"><span class="header-section-number">3.3.2</span> Computation of <span class="math inline">\({\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta T}}\)</span></h3>
+<h3 data-number="3.3.2" id="computation-of-displaystyle-fracdisplaystyle-partial-fdisplaystyle-partial-delta-t"><span class="header-section-number">3.3.2</span> Computation of <span class="math inline">\({\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta T}}\)</span></h3>
 <p><span class="math display">\[
 \left\{
 \begin{aligned}
@@ -580,45 +599,45 @@ f_{p}&amp;=\Delta\,p-A\,\exp{\left(-{{\displaystyle \frac{\displaystyle T_{a}}{\
 \end{aligned}
 \right.
 \]</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1">∂fεᵉˡ∕∂ΔT = ...;</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">∂fp∕∂ΔT = ...;</a></code></pre></div>
-<h3 id="computing-displaystyle-fracdisplaystyle-partial-underlinesigmadisplaystyle-partial-deltat-using-getintegrationvariablesderivatives_t"><span class="header-section-number">3.3.3</span> Computing <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,T}}\)</span> using <code>getIntegrationVariablesDerivatives_T</code></h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>TangentOperatorBlock{</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">  ∂fεᵉˡ∕∂ΔT = ...;</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">  ∂fp∕∂ΔT = ...;</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="kw">auto</span> ∂Δεᵉˡ∕∂ΔT = Stensor{};</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">  getIntegrationVariablesDerivatives_T(∂Δεᵉˡ∕∂ΔT);</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">  <span class="at">const</span> <span class="kw">auto</span> λ =...;</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">  <span class="at">const</span> <span class="kw">auto</span> μ =...;</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">  <span class="at">const</span> <span class="kw">auto</span> ∂λ∕∂T =...;</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">  <span class="at">const</span> <span class="kw">auto</span> ∂μ∕∂T =...;</a>
-<a class="sourceLine" id="cb7-10" data-line-number="10">  <span class="at">const</span> <span class="kw">auto</span> De = λ  ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ μ ⋅ I₄;  </a>
-<a class="sourceLine" id="cb7-11" data-line-number="11">  <span class="at">const</span> <span class="kw">auto</span> ∂De∕∂T = ∂λ∕∂T  ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ ∂μ∕∂T ⋅ I₄;  </a>
-<a class="sourceLine" id="cb7-12" data-line-number="12">  ∂σ∕∂ΔT = De ⋅ ∂Δεᵉˡ∕∂ΔT + ∂De∕∂T ⋅ εᵉˡ;</a>
-<a class="sourceLine" id="cb7-13" data-line-number="13">}</a></code></pre></div>
-<h3 id="computing-displaystyle-fracdisplaystyle-partial-underlinesigmadisplaystyle-partial-deltat-using-the-block-decomposition-of-the-invert-of-jacobian"><span class="header-section-number">3.3.4</span> Computing <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,T}}\)</span> using the block decomposition of the invert of jacobian</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>TangentOperatorBlock{</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> λ =...;</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> μ =...;</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> De = λ  ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ μ ⋅ I₄;  </a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="co">// computation of ∂σ∕∂ΔT</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">  ∂fεᵉˡ∕∂ΔT = ...;</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">  ∂fp∕∂ΔT = ...;</a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">  <span class="at">const</span> <span class="kw">auto</span> ∂Δεᵉˡ∕∂ΔT = -(iJ_fεᵉˡ_εᵉˡ ⋅ ∂fεᵉˡ∕∂ΔT + iJ_fεᵉˡ_p ⋅ ∂fp∕∂ΔT);</a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">  <span class="at">const</span> <span class="kw">auto</span> ∂λ∕∂T =...;</a>
-<a class="sourceLine" id="cb8-10" data-line-number="10">  <span class="at">const</span> <span class="kw">auto</span> ∂μ∕∂T =...;</a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">  <span class="at">const</span> <span class="kw">auto</span> ∂De∕∂T = ∂λ∕∂T  ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ ∂μ∕∂T ⋅ I₄;  </a>
-<a class="sourceLine" id="cb8-12" data-line-number="12">  ∂σ∕∂ΔT = De ⋅ ∂Δεᵉˡ∕∂ΔT + ∂De∕∂T ⋅ εᵉˡ;</a>
-<a class="sourceLine" id="cb8-13" data-line-number="13">}</a></code></pre></div>
-<section class="footnotes">
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>∂fεᵉˡ∕∂ΔT = ...;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>∂fp∕∂ΔT = ...;</span></code></pre></div>
+<h3 data-number="3.3.3" id="computing-displaystyle-fracdisplaystyle-partial-underlinesigmadisplaystyle-partial-deltat-using-getintegrationvariablesderivatives_t"><span class="header-section-number">3.3.3</span> Computing <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,T}}\)</span> using <code>getIntegrationVariablesDerivatives_T</code></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperatorBlock{</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  ∂fεᵉˡ∕∂ΔT = ...;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  ∂fp∕∂ΔT = ...;</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> ∂Δεᵉˡ∕∂ΔT = Stensor{};</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  getIntegrationVariablesDerivatives_T(∂Δεᵉˡ∕∂ΔT);</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ =...;</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ =...;</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂λ∕∂T =...;</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂μ∕∂T =...;</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> De = λ  ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ μ ⋅ I₄;  </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂De∕∂T = ∂λ∕∂T  ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ ∂μ∕∂T ⋅ I₄;  </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  ∂σ∕∂ΔT = De ⋅ ∂Δεᵉˡ∕∂ΔT + ∂De∕∂T ⋅ εᵉˡ;</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h3 data-number="3.3.4" id="computing-displaystyle-fracdisplaystyle-partial-underlinesigmadisplaystyle-partial-deltat-using-the-block-decomposition-of-the-invert-of-jacobian"><span class="header-section-number">3.3.4</span> Computing <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,T}}\)</span> using the block decomposition of the invert of jacobian</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperatorBlock{</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ =...;</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ =...;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> De = λ  ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ μ ⋅ I₄;  </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// computation of ∂σ∕∂ΔT</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  ∂fεᵉˡ∕∂ΔT = ...;</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  ∂fp∕∂ΔT = ...;</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂Δεᵉˡ∕∂ΔT = -(iJ_fεᵉˡ_εᵉˡ ⋅ ∂fεᵉˡ∕∂ΔT + iJ_fεᵉˡ_p ⋅ ∂fp∕∂ΔT);</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂λ∕∂T =...;</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂μ∕∂T =...;</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂De∕∂T = ∂λ∕∂T  ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ ∂μ∕∂T ⋅ I₄;  </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  ∂σ∕∂ΔT = De ⋅ ∂Δεᵉˡ∕∂ΔT + ∂De∕∂T ⋅ εᵉˡ;</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>In <code>MFront</code>, the integration variables refers to variables which are part of the implicit systems, i.e. variables the increments of which are the solutions of the implicit system. A state variable, declared with <code>@StateVariable</code> keyword, is saved from one step to the other and is automatically added to the list of integration variables. An auxiliary state variable, declared with <code>@AuxiliaryStateVariable</code> keyword, is also saved from one step to the other, but is not added to the list of the integration variables. The <code>@IntegrationVariable</code> keyword allows to append a variable to the integration variables but its value wil not be saved from one step to the other.<a href="#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p>This assumes that the damage <span class="math inline">\(d\)</span> is the second integration variables.<a href="#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>This code uses the fact the state variables have been updated to their values at the end of the time step before the call to <code>@TangentOperator</code> code block.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p>In <code>MFront</code>, the integration variables refers to variables which are part of the implicit systems, i.e. variables the increments of which are the solutions of the implicit system. A state variable, declared with <code>@StateVariable</code> keyword, is saved from one step to the other and is automatically added to the list of integration variables. An auxiliary state variable, declared with <code>@AuxiliaryStateVariable</code> keyword, is also saved from one step to the other, but is not added to the list of the integration variables. The <code>@IntegrationVariable</code> keyword allows to append a variable to the integration variables but its value wil not be saved from one step to the other.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>This assumes that the damage <span class="math inline">\(d\)</span> is the second integration variables.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>This code uses the fact the state variables have been updated to their values at the end of the time step before the call to <code>@TangentOperator</code> code block.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

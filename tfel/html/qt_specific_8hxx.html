@@ -77,7 +77,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -87,7 +86,8 @@ $(function() {
 
 <p>This file pecialises some class traits for quantities.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="_is_scalar_8hxx.html">TFEL/TypeTraits/IsScalar.hxx</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_base_type_8hxx.html">TFEL/TypeTraits/BaseType.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_is_scalar_8hxx.html">TFEL/TypeTraits/IsScalar.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_is_real_8hxx.html">TFEL/TypeTraits/IsReal.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_is_complex_8hxx.html">TFEL/TypeTraits/IsComplex.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_real_part_type_8hxx.html">TFEL/TypeTraits/RealPartType.hxx</a>&quot;</code><br />
@@ -143,12 +143,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1typetraits_1_1_is_safely_reinterpret_castable_to_3_01tfel_1_1math_1_1qt_3_01tfel_1857f88f8a01364e1bee118f7d5b5ddeb.html">tfel::typetraits::IsSafelyReinterpretCastableTo&lt; tfel::math::qt&lt; tfel::math::NoUnit, T &gt;, tfel::math::qt&lt; tfel::math::NoUnit, T &gt; &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Partial specialisation for qt.  <a href="structtfel_1_1typetraits_1_1_is_safely_reinterpret_castable_to_3_01tfel_1_1math_1_1qt_3_01tfel_1857f88f8a01364e1bee118f7d5b5ddeb.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacetfel"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel.html">tfel</a></td></tr>
-<tr class="memdesc:namespacetfel"><td class="mdescLeft">&#160;</td><td class="mdescRight">the namespace tfel encloses all the TFEL project. This namespace is empty. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -279,7 +273,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">                                                        \</div><div class="line">    template&lt;typename unit&gt;                                    \</div><div class="line">    struct BaseType&lt;tfel::math::qt&lt;unit,X &gt; &gt;                  \</div><div class="line">    {                                                          \                                               \</div><div class="line">      typedef <a class="code" href="classtfel_1_1math_1_1qt.html">tfel::math::qt&lt;tfel::math::NoUnit,X &gt;</a> type;      \</div><div class="line">    };                                                         \                                                   \</div><div class="line">    template&lt;&gt;                                     \</div><div class="line">    struct BaseType&lt;tfel::math::qt&lt;tfel::math::NoUnit,X &gt; &gt;    \</div><div class="line">    {                                                      \                                           \</div><div class="line">      typedef <a class="code" href="classtfel_1_1math_1_1qt.html">tfel::math::qt&lt;tfel::math::NoUnit,X &gt;</a> type;      \</div><div class="line">    }</div><div class="ttc" id="classtfel_1_1math_1_1qt_html"><div class="ttname"><a href="classtfel_1_1math_1_1qt.html">tfel::math::qt</a></div><div class="ttdoc">This class describes numbers with unit. qt must be has efficient and simple to use that standard nume...</div><div class="ttdef"><b>Definition:</b> Forward/qt.hxx:37</div></div>
+<b>Value:</b><div class="fragment"><div class="line">                                                      \</div><div class="line">  template &lt;typename unit&gt;                                 \</div><div class="line">  struct BaseType&lt;tfel::math::qt&lt;unit, X&gt;&gt; {               \                                                    \</div><div class="line">    typedef <a class="code" href="classtfel_1_1math_1_1qt.html">tfel::math::qt&lt;tfel::math::NoUnit, X&gt;</a> type;    \</div><div class="line">  };                                                       \                                                      \</div><div class="line">  template &lt;&gt;                                              \</div><div class="line">  struct BaseType&lt;tfel::math::qt&lt;tfel::math::NoUnit, X&gt;&gt; { \                                                    \</div><div class="line">    typedef <a class="code" href="classtfel_1_1math_1_1qt.html">tfel::math::qt&lt;tfel::math::NoUnit, X&gt;</a> type;    \</div><div class="line">  }</div><div class="ttc" id="classtfel_1_1math_1_1qt_html"><div class="ttname"><a href="classtfel_1_1math_1_1qt.html">tfel::math::qt</a></div><div class="ttdoc">This class describes numbers with unit. qt must be has efficient and simple to use that standard nume...</div><div class="ttdef"><b>Definition:</b> Forward/qt.hxx:35</div></div>
 </div><!-- fragment -->
 <p>An helper macro used to define BaseType for quantity. </p>
 <dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
@@ -302,7 +296,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">                                \</div><div class="line">    template&lt;typename T&gt;                        \</div><div class="line">    struct IsAssignableTo&lt;tfel::math::qt&lt;tfel::math::NoUnit,T&gt;,X &gt;  \</div><div class="line">    {                                   \                                           \</div><div class="line">      static constexpr <span class="keywordtype">bool</span> cond = IsAssignableTo&lt;T,X &gt;::cond;      \</div><div class="line">    };                                  \</div><div class="line">                                    \                               \</div><div class="line">    template&lt;typename T&gt;                        \</div><div class="line">    struct IsAssignableTo&lt;X,tfel::math::qt&lt;tfel::math::NoUnit,T&gt; &gt;  \</div><div class="line">    {                                   \                                           \</div><div class="line">      static constexpr <span class="keywordtype">bool</span> cond = IsAssignableTo&lt;X,T&gt;::cond;       \</div><div class="line">    }</div></div><!-- fragment -->
+<b>Value:</b><div class="fragment"><div class="line">                                                               \</div><div class="line">  template &lt;typename T&gt;                                             \</div><div class="line">  struct IsAssignableTo&lt;tfel::math::qt&lt;tfel::math::NoUnit, T&gt;, X&gt; { \                                                             \</div><div class="line">    static constexpr <span class="keywordtype">bool</span> cond = IsAssignableTo&lt;T, X&gt;::cond;        \</div><div class="line">  };                                                                \</div><div class="line">                                                                    \                                                               \</div><div class="line">  template &lt;typename T&gt;                                             \</div><div class="line">  struct IsAssignableTo&lt;X, tfel::math::qt&lt;tfel::math::NoUnit, T&gt;&gt; { \                                                             \</div><div class="line">    static constexpr <span class="keywordtype">bool</span> cond = IsAssignableTo&lt;X, T&gt;::cond;        \</div><div class="line">  }</div></div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
@@ -314,7 +308,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 18 2018 20:54:59 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 3 2021 21:24:43 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

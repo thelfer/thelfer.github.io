@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['j2ocoefficients',['J2OCoefficients',['../namespacetfel_1_1material.html#aae8030f90a97e7c69768e3ce6ace772f',1,'tfel::material']]],
-  ['j3ocoefficients',['J3OCoefficients',['../namespacetfel_1_1material.html#a69001afeace538680222beacb73cbc0a',1,'tfel::material']]],
+  ['j2ocoefficients',['J2OCoefficients',['../namespacetfel_1_1material.html#a62fad0f0d0c554697afef27b740dbb0a',1,'tfel::material']]],
+  ['j3ocoefficients',['J3OCoefficients',['../namespacetfel_1_1material.html#a916d8e0d7eaffc31b73cc55a6d270f30',1,'tfel::material']]],
   ['jacobiantype',['JacobianType',['../structtfel_1_1config_1_1internals_1_1_jacobian_type.html',1,'tfel::config::internals']]],
   ['jacobiantype_2ehxx',['JacobianType.hxx',['../_jacobian_type_8hxx.html',1,'']]],
   ['jacobiantype_3c_201u_2c_20t_2c_20false_20_3e',['JacobianType&lt; 1u, T, false &gt;',['../structtfel_1_1config_1_1internals_1_1_jacobian_type_3_011u_00_01_t_00_01false_01_4.html',1,'tfel::config::internals']]],

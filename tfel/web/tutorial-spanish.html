@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -99,64 +98,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -178,6 +194,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -244,78 +261,80 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">A spanish introduction to <code>MFront</code> and <code>Salome-MECA</code></h1>
-                  <h2 class="author">Jordi Alberich Domingo (alberichjordi@gmail.com)</h2>
-                  <h3 class="date">2017</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#introducción">Introducción</a><ul>
-      <li><a href="#cómo-funciona-un-primer-ejemplo">Cómo funciona: un primer ejemplo</a><ul>
-      <li><a href="#la-ley-de-comportamiento-de-norton">La ley de comportamiento de Norton</a></li>
-      <li><a href="#implantación-de-la-ley-de-norton-en-mfront">Implantación de la Ley de Norton en MFront</a></li>
-      <li><a href="#compilación-de-norton.mfront">Compilación de Norton.mfront</a></li>
-      <li><a href="#la-utilidad-mtest">La utilidad <code>MTest</code></a></li>
-      </ul></li>
-      </ul></li>
-      <li><a href="#archivos-.mfront">Archivos .mfront</a><ul>
-      <li><a href="#estructura-del-archivo-.mfront">Estructura del archivo .mfront</a></li>
-      <li><a href="#uso-de-las-instrucciones">Uso de las instrucciones</a><ul>
-      <li><a href="#instrucciones-informativas">Instrucciones informativas</a></li>
-      <li><a href="#importación-de-una-definición-e-inclusión-de-otros-archivos-mfront">Importación de una definición e inclusión de otros archivos mfront</a></li>
-      <li><a href="#instrucciones-de-compilación-de-librerías">Instrucciones de compilación de librerías</a></li>
-      <li><a href="#gestión-de-límites">Gestión de límites</a></li>
-      <li><a href="#definición-de-parámetros">Definición de parámetros</a></li>
-      <li><a href="#la-instrucción-function">La instrucción <code>@Function</code></a></li>
-      </ul></li>
-      <li><a href="#propiedades-del-material">Propiedades del material</a><ul>
-      <li><a href="#variables-de-entrada">Variables de entrada</a></li>
-      <li><a href="#variables-de-salida">Variables de salida</a></li>
-      <li><a href="#variables-estáticas">Variables estáticas</a></li>
-      <li><a href="#parámetros">Parámetros</a></li>
-      <li><a href="#constantes">Constantes</a></li>
-      </ul></li>
-      <li><a href="#modelos-puntuales-simples">Modelos puntuales simples</a><ul>
-      <li><a href="#instrucción-model">Instrucción <code>@Model</code></a></li>
-      </ul></li>
-      <li><a href="#comportamientos-mecánicos">Comportamientos mecánicos</a><ul>
-      <li><a href="#instrucciones-particulares">Instrucciones particulares</a></li>
-      </ul></li>
-      </ul></li>
-      <li><a href="#linea-de-comandos">Linea de comandos</a><ul>
-      <li><a href="#opciones-disponibles">Opciones disponibles</a></li>
-      </ul></li>
-      <li><a href="#mtest">MTest</a><ul>
-      <li><a href="#opciones-de-mtest">Opciones de MTest</a></li>
-      <li><a href="#estructura-del-archivo-.mtest">Estructura del archivo <code>.mtest</code></a></li>
-      <li><a href="#instrucciones">Instrucciones</a></li>
-      </ul></li>
-      <li><a href="#salome-meca">Salome-Meca</a><ul>
-      <li><a href="#salome-meca-la-unión-de-salome-y-code-aster">Salome-Meca, la unión de Salome y Code-Aster</a></li>
-      </ul></li>
-      <li><a href="#inclusión-de-librerías-mfront-a-salome-meca">Inclusión de librerías MFront a Salome-Meca</a><ul>
-      <li><a href="#generación-de-la-librería-con-mfront">Generación de la librería con <code>MFront</code></a></li>
-      <li><a href="#generación-de-un-modelo-de-estudio-geométrico-con-salome-meca">Generación de un modelo de estudio geométrico con Salome Meca</a></li>
-      <li><a href="#mallado-del-modelo">Mallado del modelo</a></li>
-      <li><a href="#cálculo-mecánico-con-el-módulo-aster">Cálculo mecánico con el módulo Aster</a></li>
-      <li><a href="#modificación-del-archivo-.comm-para-incluir-la-librería">Modificación del archivo .comm para incluir la librería</a></li>
-      </ul></li>
-      <li><a href="#anexo-1-instalación-de-los-prerequisitos">Anexo 1: Instalación de los prerequisitos</a></li>
-      <li><a href="#anexo-2-instalación-de-tfelmfront">Anexo 2: Instalación de TFEL/MFRONT</a></li>
-      <li><a href="#anexo-3-instalación-de-salome-meca">Anexo 3: Instalación de Salome-Meca</a></li>
-      <li><a href="#anexo-5-archivo-de-comandos-test_1.comm">Anexo 4: Archivo de comandos Test_1.comm</a></li>
-      </ul>
-    </div>
-        
-
-
-
-
-
-
-
+<div id="header">
+<h1 class="title">A spanish introduction to <code>MFront</code> and <code>Salome-MECA</code></h1>
+<h2 class="author">Jordi Alberich Domingo (alberichjordi@gmail.com)</h2>
+<h3 class="date">2017</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#introducción">Introducción</a>
+<ul>
+<li><a href="#cómo-funciona-un-primer-ejemplo">Cómo funciona: un primer ejemplo</a>
+<ul>
+<li><a href="#la-ley-de-comportamiento-de-norton">La ley de comportamiento de Norton</a></li>
+<li><a href="#implantación-de-la-ley-de-norton-en-mfront">Implantación de la Ley de Norton en MFront</a></li>
+<li><a href="#compilación-de-norton.mfront">Compilación de Norton.mfront</a></li>
+<li><a href="#la-utilidad-mtest">La utilidad <code>MTest</code></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#archivos-.mfront">Archivos .mfront</a>
+<ul>
+<li><a href="#estructura-del-archivo-.mfront">Estructura del archivo .mfront</a></li>
+<li><a href="#uso-de-las-instrucciones">Uso de las instrucciones</a>
+<ul>
+<li><a href="#instrucciones-informativas">Instrucciones informativas</a></li>
+<li><a href="#importación-de-una-definición-e-inclusión-de-otros-archivos-mfront">Importación de una definición e inclusión de otros archivos mfront</a></li>
+<li><a href="#instrucciones-de-compilación-de-librerías">Instrucciones de compilación de librerías</a></li>
+<li><a href="#gestión-de-límites">Gestión de límites</a></li>
+<li><a href="#definición-de-parámetros">Definición de parámetros</a></li>
+<li><a href="#la-instrucción-function">La instrucción <code>@Function</code></a></li>
+</ul></li>
+<li><a href="#propiedades-del-material">Propiedades del material</a>
+<ul>
+<li><a href="#variables-de-entrada">Variables de entrada</a></li>
+<li><a href="#variables-de-salida">Variables de salida</a></li>
+<li><a href="#variables-estáticas">Variables estáticas</a></li>
+<li><a href="#parámetros">Parámetros</a></li>
+<li><a href="#constantes">Constantes</a></li>
+</ul></li>
+<li><a href="#modelos-puntuales-simples">Modelos puntuales simples</a>
+<ul>
+<li><a href="#instrucción-model">Instrucción <code>@Model</code></a></li>
+</ul></li>
+<li><a href="#comportamientos-mecánicos">Comportamientos mecánicos</a>
+<ul>
+<li><a href="#instrucciones-particulares">Instrucciones particulares</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#linea-de-comandos">Linea de comandos</a>
+<ul>
+<li><a href="#opciones-disponibles">Opciones disponibles</a></li>
+</ul></li>
+<li><a href="#mtest">MTest</a>
+<ul>
+<li><a href="#opciones-de-mtest">Opciones de MTest</a></li>
+<li><a href="#estructura-del-archivo-.mtest">Estructura del archivo <code>.mtest</code></a></li>
+<li><a href="#instrucciones">Instrucciones</a></li>
+</ul></li>
+<li><a href="#salome-meca">Salome-Meca</a>
+<ul>
+<li><a href="#salome-meca-la-unión-de-salome-y-code-aster">Salome-Meca, la unión de Salome y Code-Aster</a></li>
+</ul></li>
+<li><a href="#inclusión-de-librerías-mfront-a-salome-meca">Inclusión de librerías MFront a Salome-Meca</a>
+<ul>
+<li><a href="#generación-de-la-librería-con-mfront">Generación de la librería con <code>MFront</code></a></li>
+<li><a href="#generación-de-un-modelo-de-estudio-geométrico-con-salome-meca">Generación de un modelo de estudio geométrico con Salome Meca</a></li>
+<li><a href="#mallado-del-modelo">Mallado del modelo</a></li>
+<li><a href="#cálculo-mecánico-con-el-módulo-aster">Cálculo mecánico con el módulo Aster</a></li>
+<li><a href="#modificación-del-archivo-.comm-para-incluir-la-librería">Modificación del archivo .comm para incluir la librería</a></li>
+</ul></li>
+<li><a href="#anexo-1-instalación-de-los-prerequisitos">Anexo 1: Instalación de los prerequisitos</a></li>
+<li><a href="#anexo-2-instalación-de-tfelmfront">Anexo 2: Instalación de TFEL/MFRONT</a></li>
+<li><a href="#anexo-3-instalación-de-salome-meca">Anexo 3: Instalación de Salome-Meca</a></li>
+<li><a href="#anexo-5-archivo-de-comandos-test_1.comm">Anexo 4: Archivo de comandos Test_1.comm</a></li>
+</ul>
+</div>
 <blockquote>
 <p>La siguiente página es una introducción a MFront / MTest 2.0.4 y Salome-Meca 2016.</p>
 <p>Te da una buena visión general de las habilidades de MFront y MTest y todos los ejemplos funcionarán con las versiones más recientes. Sin embargo, las nuevas versiones (&gt;= 3.0.x) introducen nuevos conceptos e instrucciones que simplifican aún más la implementación de nuevos comportamientos mecánicos (en particular, el bloque StandardElasticity descrito <a href="http://tfel.sourceforge.net/BehaviourBricks.html">aquí</a>.</p>
@@ -371,7 +390,7 @@
 <h3 id="implantación-de-la-ley-de-norton-en-mfront">Implantación de la Ley de Norton en MFront</h3>
 <p>A continuación, en la Ilustración 1, se muestra un ejemplo de la implantación del resultado obtenido de la resolución implícita del punto anterior a un archivo MFront, donde tan solo se necesita escribir el siguiente código con un editor de texto sin formato y guardar-lo con extensión <code>..mfront</code>.</p>
 <figure>
-<img src="img/tutorial-spanish-1.png" alt="Ilustración 1: Implantación Ley de Norton, Norton.mfront" style="width:3.37569in;height:4.29358in" /><figcaption>Ilustración 1: Implantación Ley de Norton, <code>Norton.mfront</code></figcaption>
+<img src="img/tutorial-spanish-1.png" style="width:3.37569in;height:4.29358in" alt="Ilustración 1: Implantación Ley de Norton, Norton.mfront" /><figcaption aria-hidden="true">Ilustración 1: Implantación Ley de Norton, <code>Norton.mfront</code></figcaption>
 </figure>
 <p>Un fichero <code>mfront</code> empieza normalmente por una parte descriptiva indicando el algoritmo utilizado para la resolución, el nombre del comportamiento (en este caso Norton), y a continuación la lista de materiales utilizados, la definición de las variables internas y finalmente la descripción de las ecuaciones del sistema a resolver.</p>
 <ul>
@@ -387,14 +406,14 @@
 </ul>
 <h3 id="compilación-de-norton.mfront">Compilación de Norton.mfront</h3>
 <p>Una vez creado el archivo con la extensión <code>.mfront</code> se puede al fin compilar accediendo a su ubicación a través del <code>Terminal</code> y con la siguiente línea de comandos:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=aster Norton.mfront</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>aster Norton.mfront</span></code></pre></div>
 <p>Definiendo en el parámetro <code>--interface</code> el código que se desea utilizar, correspondiendo la interface <code>aster</code> a <code>Code_Aster</code>.</p>
 <p>Esto genera dos directorios: <code>include</code> y <code>src</code> con varios archivos en cada uno, particularmente, en el directorio <code>src</code> se generan las librerías dinámicas: <strong>src/libAsterBehaviour.so</strong></p>
 <h3 id="la-utilidad-mtest">La utilidad <code>MTest</code></h3>
 <p>La utilidad <code>MTest</code> incluida en el paquete TFEL/MFront permite efectuar simulaciones para calcular la respuesta a las tensiones o deformaciones.</p>
 <p>Para ello debemos crear un archivo con extensión <code>.mtest</code> como el que se muestra a continuación en la Ilustración 2:</p>
 <figure>
-<img src="img/tutorial-spanish-2.png" alt="Ilustración 2: Norton.mtest" style="width:5.2452in;height:1.54162in" /><figcaption>Ilustración 2: Norton.mtest</figcaption>
+<img src="img/tutorial-spanish-2.png" style="width:5.2452in;height:1.54162in" alt="Ilustración 2: Norton.mtest" /><figcaption aria-hidden="true">Ilustración 2: Norton.mtest</figcaption>
 </figure>
 <ul>
 <li><code>@Behaviour</code>: declara el comportamiento utilizado para la prueba. Se indica la interfaz utilizada por el comportamiento.</li>
@@ -404,10 +423,10 @@
 <li><code>@Times</code>: permite al usuario especificar una lista de tiempos utilizados para los cálculos.</li>
 </ul>
 <p>Con el archivo <code>Norton.mtest</code> ya preparado, se puede ejecutar la simulación a través del <code>Terminal</code> con la siguiente línea de comandos:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">mtest</span> Norton.mtest</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mtest Norton.mtest</span></code></pre></div>
 <p>Esto generará un archivo <code>Norton.res</code> con el resultado numérico de la simulación el cual se puede representar gráficamente con, por ejemplo, <code>gnuplot</code>, dando un resultado como el de la Ilustración 3:</p>
 <figure>
-<img src="img/tutorial-spanish-3.png" alt="Ilustración 3: Respuesta representada gráficamente con gnuplot de Norton.res" style="width:5.70972in;height:4.26563in" /><figcaption>Ilustración 3: Respuesta representada gráficamente con gnuplot de <code>Norton.res</code></figcaption>
+<img src="img/tutorial-spanish-3.png" style="width:5.70972in;height:4.26563in" alt="Ilustración 3: Respuesta representada gráficamente con gnuplot de Norton.res" /><figcaption aria-hidden="true">Ilustración 3: Respuesta representada gráficamente con gnuplot de <code>Norton.res</code></figcaption>
 </figure>
 <h1 id="archivos-.mfront">Archivos .mfront</h1>
 <p>Tal y como se ha visto, la creación de los archivos de entrada en formato <code>.mfront</code> consisten en la edición de un archivo de texto sin formato en el que se debe definir cada parte del código con una serie de instrucciones señalizadas con <code>@</code>.</p>
@@ -441,29 +460,29 @@
 <li><code>Model</code>: Este analizador se usa para definir modelos de materiales simples.</li>
 </ul>
 <p>La instrucción <code>@Parser</code> define el analizador con el que se trabajará, el cual tiene su propio conjunto de instrucciones admitidas, es decir, cada analizador admite ciertas instrucciones.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>Parser MaterialLaw;</a></code></pre></div>
-<p>Todas las instrucciones disponibles en MFront están clasificadas según los analizadores que las pueden usar en el “Anexo 1 – Instrucciones Disponibles”.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parser MaterialLaw;</span></code></pre></div>
+<p>Todas las instrucciones disponibles en MFront están clasificadas según los analizadores que las pueden usar en el “Anexo 1 – Instrucciones Disponibles.”</p>
 <p>A continuación, se describen algunas de las instrucciones más comunes.</p>
 <h3 id="instrucciones-informativas">Instrucciones informativas</h3>
 <p>En este punto se describirán cuatro instrucciones opcionales cuyo objetivo es tan solo informativo.</p>
 <p><code>@Author</code> se usa para dar el nombre de quien ha escrito el archivo mfront.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>Author Jordi Alberich;</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Jordi Alberich;</span></code></pre></div>
 <p><code>@Description</code> describe la propiedad del material, el comportamiento o el modelo que se implementa en el archivo.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>Description{</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">Aquí se suelen describir las referencias del artículo o informe técnico</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">del que se extrae la propiedad del material, el comportamiento o el</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">modelo.</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">El nombre de los autores.</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">Las modificaciones hechas.</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">}</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description{</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Aquí se suelen describir las referencias del artículo o informe técnico</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>del que se extrae la propiedad del material, el comportamiento o el</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>modelo.</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>El nombre de los autores.</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>Las modificaciones hechas.</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><code>@Date</code> permite al usuario especificar cuándo se escribió el archivo mfront.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="er">@</span>Date <span class="dv">2016-11-23</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">2016</span>-<span class="dv">11</span>-<span class="dv">23</span>;</span></code></pre></div>
 <p><code>@Material</code> permite al usuario especificar qué material es tratado por el archivo actual.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>Material UO2;</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Material UO2;</span></code></pre></div>
 <h3 id="importación-de-una-definición-e-inclusión-de-otros-archivos-mfront">Importación de una definición e inclusión de otros archivos mfront</h3>
 <p>Para minimizar errores, con la instrucción <code>@MaterialLaw</code> MFront permite importar la definición de una ley material definida en un archivo mfront y compila, como parte de la biblioteca actual, una función utilizando la interfaz mfront.</p>
 <p>Los archivos a importar se buscarán en este orden:</p>
@@ -473,34 +492,34 @@
 <li>A partir de los directorios especificados a través de la variable de entorno <code>MFRONT_INCLUDE_PATH</code>.</li>
 </ul>
 <p>Como ejemplo, si se ha definido en un archivo:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>Parser MaterialLaw;</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="er">@</span>Law ThermalExCoef;</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="er">@</span>Material AE1307Inventado;</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="er">@</span>Author Jordi Alberich;</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">//… … …</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parser MaterialLaw;</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Law ThermalExCoef;</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Material AE1307Inventado;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Jordi Alberich;</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">//… … …</span></span></code></pre></div>
 <p>Este se podrá usar en otro con la instrucción <code>@MaterialLaw</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>MaterialLaw <span class="st">&quot;AE1307Inventado_ThermalExCoef.mfront&quot;</span>;</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="er">@</span>InitiLocalVariables {</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">  a = AE1307Inventado_ThermalExCoef(T+theta\*dT);</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialLaw <span class="st">&quot;AE1307Inventado_ThermalExCoef.mfront&quot;</span>;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitiLocalVariables {</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  a = AE1307Inventado_ThermalExCoef(T+theta\*dT);</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Por otra parte, la instrucción <code>@Import</code> permite la inclusión de uno o varios archivos mfront externos.</p>
 <p>Esta instrucción interrumpe el tratamiento del archivo actual e inicia el tratamiento secuencial de cada archivo a importar.</p>
 <p>El orden de las rutas de búsqueda del archivo a importar será el mismo que en el caso de <code>@MaterialLaw</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="er">@</span>Import <span class="st">&quot;SlidingSystemsCC.mfront&quot;</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Import <span class="st">&quot;SlidingSystemsCC.mfront&quot;</span>;</span></code></pre></div>
 <h3 id="instrucciones-de-compilación-de-librerías">Instrucciones de compilación de librerías</h3>
 <p>Hay tres instrucciones relacionadas con la compilación de fuentes. Las instrucciones <code>@Include</code> y <code>@Link</code> tienen una importancia particular debido a que permiten utilizar características definidas en librerías <code>C++</code> externas.</p>
 <p><code>@Library</code> permite al usuario especificar el nombre de la librería generada.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="er">@</span>Library LibreriaJordi;</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Library LibreriaJordi;</span></code></pre></div>
 <p><code>@Includes</code> presenta un bloque donde el usuario puede definir algunas instrucciones del preprocesador C++, normalmente instrucciones del tipo <em>#include</em>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="er">@</span>Includes{</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="pp">#include</span><span class="im">&lt;fstream&gt;</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="pp">#include</span><span class="im">&lt;TFEL/Material/Lame.hxx&gt;</span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes{</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;fstream&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;TFEL/Material/Lame.hxx&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><code>@Link</code> se usa para vincular librerías generadas con librerías externas.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">//link explicito con libm.so</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="er">@</span>Link <span class="st">&quot;-lm&quot;</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">//link explicito con libm.so</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Link <span class="st">&quot;-lm&quot;</span>;</span></code></pre></div>
 <h3 id="gestión-de-límites">Gestión de límites</h3>
 <p>Hay variables de estado que pueden tener límites inherentes, como por ejemplo, una temperatura no puede ser negativa, o una porosidad superior a 1.</p>
 <p>Para gestionar estos límites, se ofrecen estas instrucciones:</p>
@@ -511,67 +530,67 @@
 <li><code>Warning</code>, que muestra un mensaje, pero los cálculos no se detienen.</li>
 <li><code>Strict</code>, que se detienen los cálculos con un mensaje de error.</li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co">// El intervalo puede contener el infinito, representado por el carácter &#39;\*&#39;.</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="er">@</span>Bounds T in [<span class="fl">293.15</span>:<span class="fl">873.15</span>];</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// El intervalo puede contener el infinito, representado por el carácter &#39;\*&#39;.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Bounds T in [<span class="fl">293.15</span>:<span class="fl">873.15</span>];</span></code></pre></div>
 <p><code>@PhysicalBounds</code> permite al usuario definir el dominio físico de una variable. En los esquemas implícitos, si se establecen límites físicos en una variable, esta variable se limita a satisfacerlos durante las iteraciones internas.</p>
 <p>Si se encuentra que una variable está fuera de sus límites físicos, los cálculos se detienen. Las pruebas se realizan en diferentes etapas de integración dependiendo de la naturaleza de la variable.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co">// La temperatura (en Kelvin) no puede ser negativa.</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="er">@</span>PhysicalBounds T in [<span class="dv">0</span>:*[;</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// La temperatura (en Kelvin) no puede ser negativa.</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>PhysicalBounds T in [<span class="dv">0</span>:*[;</span></code></pre></div>
 <h3 id="definición-de-parámetros">Definición de parámetros</h3>
 <p>Para la definición de parámetros para las propiedades y leyes de comportamiento, se han definido las siguientes instrucciones:</p>
 <p><code>@Parameter</code> declara un nuevo parámetro o una lista de nuevos parámetros. Opcionalmente, el valor predeterminado de los parámetros declarados también se puede dar siguiendo varias sintaxis de asignación estándar de C++.</p>
 <p>El valor predeterminado de un parámetro también se puede asignar después de su declaración utilizando la orden setDefaultValue.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="er">@</span>Parameter R0 = <span class="dv">500</span>;</a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="er">@</span>Parameter Q1{<span class="dv">10000</span>},b1{<span class="fl">0.00001</span>};</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="er">@</span>Parameter Q2(<span class="dv">0</span>),b2(<span class="dv">0</span>);</a>
-<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="er">@</span>Parameter fc;</a>
-<a class="sourceLine" id="cb16-5" data-line-number="5">fc.setDefaultValue(<span class="dv">1</span>.e<span class="dv">-2</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter R0 = <span class="dv">500</span>;</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter Q1{<span class="dv">10000</span>},b1{<span class="fl">0.00001</span>};</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter Q2(<span class="dv">0</span>),b2(<span class="dv">0</span>);</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter fc;</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>fc.setDefaultValue(<span class="fl">1.e-2</span>);</span></code></pre></div>
 <p>Para el analizador <code>Model</code> unas instrucciones específicas, <code>@GlobalParameter</code> para definir los parámetros del modelo que se podrán usar en otros modelos, y <code>@LocalParameter</code> para definir parámetros especializados del modelo actual.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="er">@</span>GlobalParameter real a;</a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">a.setDefaultValue(<span class="fl">1.23</span>);</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="er">@</span>LocalParameter real b;</a>
-<a class="sourceLine" id="cb17-4" data-line-number="4">b.setDefaultValue(<span class="fl">1.23</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>GlobalParameter real a;</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>a.setDefaultValue(<span class="fl">1.23</span>);</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalParameter real b;</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>b.setDefaultValue(<span class="fl">1.23</span>);</span></code></pre></div>
 <h3 id="la-instrucción-function">La instrucción <code>@Function</code></h3>
 <p>La instrucción <code>@Function</code> se usa en el analizador <code>MaterialLaw</code> y permite definir en código C++ la propiedad del material.</p>
 <p>La salida predeterminada se denomina <code>res</code>, aunque se puede cambiar con la instrucción <code>@Output</code>.</p>
 <p>Aunque la mayoría de interfaces usan el <code>double</code> para las operaciones con punto flotante, esto puede no ser siempre necesario. Se ha introducido un <code>typedef</code> especial llamado <code>real</code> recomendado para definir las variables locales.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="er">@</span>Function{</a>
-<a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="at">const</span> real C0 = <span class="fl">575.57</span>;</a>
-<a class="sourceLine" id="cb18-3" data-line-number="3">  <span class="at">const</span> real C1 = <span class="fl">-21094.</span>;</a>
-<a class="sourceLine" id="cb18-4" data-line-number="4">  Cp = C0+C1/T;</a>
-<a class="sourceLine" id="cb18-5" data-line-number="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Function{</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> real C0 = <span class="fl">575.57</span>;</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> real C1 = -<span class="fl">21094.</span>;</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  Cp = C0+C1/T;</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="propiedades-del-material">Propiedades del material</h2>
 <p>Las propiedades del material son uno de los elementos esenciales para el conocimiento del material. Una propiedad del material es una función de un conjunto de variables de estado termodinámico del material.</p>
 <p>A continuación, se describirán los diferentes tipos de variables al escribir las propiedades del material a usar con el analizador <code>MaterialLaw</code>.</p>
 <h3 id="variables-de-entrada">Variables de entrada</h3>
 <p>Las variables de entrada de las propiedades del material se definen con la instrucción <code>@Input</code>.</p>
 <p>Se recomienda asociar a una variable de entrada un glosario o nombre de entrada con la orden setGlossaryName.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="er">@</span>Input T,p;</a>
-<a class="sourceLine" id="cb19-2" data-line-number="2">T.setGlossaryName(<span class="st">&quot;Temperature&quot;</span>);</a>
-<a class="sourceLine" id="cb19-3" data-line-number="3">p.setGlossaryName(<span class="st">&quot;Porosity&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input T,p;</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>T.setGlossaryName(<span class="st">&quot;Temperature&quot;</span>);</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>p.setGlossaryName(<span class="st">&quot;Porosity&quot;</span>);</span></code></pre></div>
 <h3 id="variables-de-salida">Variables de salida</h3>
 <p>Tal como ya se ha descrito en el punto “La instrucción <code>@Function</code>, la instrucción <code>@Output</code> permite cambiar el nombre de la variable de salida que por defecto es <code>res</code>.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="er">@</span>Output b;</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Output b;</span></code></pre></div>
 <h3 id="variables-estáticas">Variables estáticas</h3>
 <p>La instrucción <code>@StaticVariable</code> permite al usuario definir un valor constante. A diferencia de los parámetros definidos con <code>@Parameter</code>, los valores de las variables estáticas no se pueden cambiar después de la compilación.</p>
 <p>Al definir este tipo de variable, se deberá indicar el tipo de constante y su valor.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="er">@</span>StaticVariable real A = <span class="fl">1.234e56</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StaticVariable real A = <span class="fl">1.234e56</span>;</span></code></pre></div>
 <h3 id="parámetros">Parámetros</h3>
-<p>La instrucción <code>@Parameter</code> ya se ha descrito en el punto “Definición de parámetros”.</p>
+<p>La instrucción <code>@Parameter</code> ya se ha descrito en el punto “Definición de parámetros.”</p>
 <h3 id="constantes">Constantes</h3>
 <p>La instrucción <code>@Constant</code> permite al usuario definir un valor constante. Esta instrucción es sinónima de la instrucción <code>@StaticVariable</code> para una variable real.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="er">@</span>Constant A <span class="fl">1.234e56</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Constant A <span class="fl">1.234e56</span>;</span></code></pre></div>
 <h2 id="modelos-puntuales-simples">Modelos puntuales simples</h2>
 <p>Generalmente, se pueden distinguir dos tipos de modelos:</p>
 <ul>
 <li>Los modelos que requieren de una solución global sobre el conjunto del dominio considerado. Estos modelos generalmente tratan la distribución (térmica o química) y el equilibrio mecánico.</li>
 <li>Los modelos “point” que describen la evolución local del material de acuerdo con su estado termodinámico local. Este tipo de modelo incluye los modelos de producción de gas de fisión, concentración isotópica, la corrosión, etc.</li>
 </ul>
-<p>MFront no procesa los modelos que requieren de una solución global, tan solo puede tratar los modelos tipo “point”.</p>
+<p>MFront no procesa los modelos que requieren de una solución global, tan solo puede tratar los modelos tipo “point.”</p>
 <p>Para tratar estos modelos, MFront ofrece el analizador <em>Model.</em></p>
 <h3 id="instrucción-model">Instrucción <code>@Model</code></h3>
 <p>Este analizador no ofrece muchas instrucciones, y la mayoría de ellas ya se han descrito en los puntos anteriores. Una de las únicas instrucciones que se puede encontrar de más es la instrucción <code>@Model</code> que tan solo permite al usuario definir el nombre del modelo.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="er">@</span>Model SolidSwelling;</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Model SolidSwelling;</span></code></pre></div>
 <h2 id="comportamientos-mecánicos">Comportamientos mecánicos</h2>
 <p>Para el debido conocimiento del material, otro factor a tener en cuenta, sino quizás el más importante, es su comportamiento mecánico.</p>
 <p>Los analizadores disponibles para definir los comportamientos mecánicos son:</p>
@@ -604,10 +623,10 @@
 <li><code>LevenbergMarquardt_NumericalJacobian</code></li>
 </ul>
 <p>Y los algoritmos disponibles para el analizador <code>Runge-Kutta</code> son: <code>Euler</code>, <code>rk2</code>, <code>rk4</code>, <code>rk42</code>, <code>rk54</code> y <code>rkCastem</code>.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co">//Ejemplo en dsl Implicito</span></a>
-<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="er">@</span>Algorithm NewtonRaphson;</a></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co">//Ejemplo en dsl Runge-Kutta</span></a>
-<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="er">@</span>Algorithm rk54;</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">//Ejemplo en dsl Implicito</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson;</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">//Ejemplo en dsl Runge-Kutta</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm rk54;</span></code></pre></div>
 <p><code>@ModellingHypotheses</code> permite especificar las hipótesis de modelado. Las hipótesis válidas serán las siguientes:</p>
 <ul>
 <li><code>AxisymmetricalGeneralisedPlaneStrain</code></li>
@@ -618,71 +637,71 @@
 <li><code>Tridimensional</code></li>
 </ul>
 <p><code>@OrthotropicBehaviour</code> declara que el material es ortótropo, es decir, que tiene dos o tres ejes ortogonales entre sí, de doble simetría rotacional, de forma que sus propiedades mecánicas son, en general, diferentes en las direcciones de cada uno de esos ejes.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="er">@</span>OrthotropicBehaviour;</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>OrthotropicBehaviour;</span></code></pre></div>
 <p><code>@IsotropicElasticBehaviour</code> declara que el comportamiento elástico es isotrópico incluso si el material ha sido declarado ortótropo. Esta declaración afecta al comportamiento <code>@RequireStiffnessTensor</code>.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="er">@</span>IsotropicElasticBehaviour;</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IsotropicElasticBehaviour;</span></code></pre></div>
 <p><code>@RequireStiffnessTensor</code> requiere que el código calcule la rigidez del tensor. Esto generalmente significa que se introducirán algunas propiedades de material extra y serán usadas por la interfaz antes de la integración del comportamiento.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="er">@</span>RequireStiffnessTensor <span class="kw">true</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RequireStiffnessTensor <span class="kw">true</span>;</span></code></pre></div>
 <p><code>@RequireThermalExpansionCoefficientTensor</code> requiere que el código calcule el tensor del coeficiente de expansión térmica.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="er">@</span>RequireThermalExpansionCoefficientTensor <span class="kw">true</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RequireThermalExpansionCoefficientTensor <span class="kw">true</span>;</span></code></pre></div>
 <p><code>@MaterialProperty</code> permite al usuario una varias propiedades del material. Se le debe especificar el tipo de propiedad del material y una lista de los nombres de las propiedades. Se recomienda asociar a una propiedad del material un glosario o nombre con las ordenes setGlossaryName o setEntryName.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="er">@</span>MaterialProperty stress young;</a>
-<a class="sourceLine" id="cb30-2" data-line-number="2">young.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress young;</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>young.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span></code></pre></div>
 <p><code>@Sources</code> permite al usuario definir un bloque de código que se integrará a las fuentes generadas de un comportamiento. Esto permite al usuario implementar sus propias clases o funciones. Estas declaraciones de tales clases o funciones pueden realizarse en un bloque de código introducido por la instrucción <code>@Includes</code>.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="er">@</span>Includes{</a>
-<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="dt">void</span> f(<span class="dt">void</span>); <span class="co">//declaración de la función f</span></a>
-<a class="sourceLine" id="cb31-3" data-line-number="3">}</a></code></pre></div>
-<div class="sourceCode" id="cb32"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="er">@</span>Sources{</a>
-<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="dt">void</span> f(<span class="dt">void</span>){</a>
-<a class="sourceLine" id="cb32-3" data-line-number="3">  <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Ejemplo de una función&quot; &lt;&lt; std::endl;</span></a>
-<a class="sourceLine" id="cb32-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb32-5" data-line-number="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes{</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> f(<span class="dt">void</span>); <span class="co">//declaración de la función f</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Sources{</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> f(<span class="dt">void</span>){</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Ejemplo de una función&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><code>@TangentOperator</code> introduce un bloque de código utilizado para definir el operador tangente. Este código se llama una vez que se han actualizado las variables de integración, las tensiones y las variables de estado auxiliares.</p>
 <p>El tipo de operador tangente solicitado está dado por la variable smt (Stiffness matrix type), cuyos posibles valores serán <code>ELASTIC</code>, <code>SECANT</code>, <code>TANGENTOPERATOR</code> y <code>CONSISTENTTANGENTOPERATOR</code>.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="er">@</span>TangentOperator{</a>
-<a class="sourceLine" id="cb33-2" data-line-number="2">  <span class="cf">if</span>((smt==ELASTIC)||(smt==SECANTOPERATOR)){</a>
-<a class="sourceLine" id="cb33-3" data-line-number="3">    Dt = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb33-4" data-line-number="4">  } <span class="cf">else</span> <span class="cf">if</span> (smt==CONSISTENTTANGENTOPERATOR){</a>
-<a class="sourceLine" id="cb33-5" data-line-number="5">    Dt = De * Je;</a>
-<a class="sourceLine" id="cb33-6" data-line-number="6">  } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb33-7" data-line-number="7">    <span class="cf">return</span> <span class="kw">false</span>;</a>
-<a class="sourceLine" id="cb33-8" data-line-number="8">  }</a>
-<a class="sourceLine" id="cb33-9" data-line-number="9">}</a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator{</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>((smt==ELASTIC)||(smt==SECANTOPERATOR)){</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    Dt = <span class="dv">0</span>;</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (smt==CONSISTENTTANGENTOPERATOR){</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    Dt = De * Je;</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span>;</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><code>@UpdateAuxiliaryStateVariables</code> introduce un bloque de código destinado a actualizar las variables de estado auxiliares después de la integración.</p>
 <p>En los lenguajes específicos de dominio implícito, el código declarado por <code>@UpdateAuxiliaryStateVariables</code> se llama una vez que se han actualizado las variables de integración (incluidas las variables de estado) y las tensiones. Las variables de estado externas no se actualizan.</p>
 <p>En los lenguajes específicos de Runge-Kutta, el código declarado por <code>@UpdateAuxiliaryStateVariables</code> se llama después de cada paso de tiempo exitoso. Hay que tener en cuenta que la mayoría de algoritmos de Runge-Kutta realiza subescalas internas, en este caso, el código declarado por <code>@UpdateAuxiliaryStateVariables</code> puede ser llamado varias veces durante la integración del comportamiento. Una variable adicional llamada dt_, que es menor que el incremento de paso de tiempo total <code>dt</code> si se realizan subpasos, da el incremento de tiempo actual.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="co">//Ejemplo dsl Implícito</span></a>
-<a class="sourceLine" id="cb34-2" data-line-number="2"><span class="er">@</span>UpdateAuxiliaryStateVariables{</a>
-<a class="sourceLine" id="cb34-3" data-line-number="3">  <span class="at">const</span> real <span class="va">q_</span> = q–(<span class="dv">1</span> – theta)*dq;</a>
-<a class="sourceLine" id="cb34-4" data-line-number="4">  <span class="at">const</span> real Q = Q0+(Qm–Q0)*(<span class="dv">1</span>–exp (<span class="dv">-2</span>*Mu*<span class="va">q_</span>));</a>
-<a class="sourceLine" id="cb34-5" data-line-number="5">  R+=b*(Q-R)*dp;</a>
-<a class="sourceLine" id="cb34-6" data-line-number="6">}</a></code></pre></div>
-<div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="co">//Ejemplo dsl Runge-Kutta</span></a>
-<a class="sourceLine" id="cb35-2" data-line-number="2"><span class="er">@</span>UpdateAuxiliaryStateVariables{</a>
-<a class="sourceLine" id="cb35-3" data-line-number="3"> sigeq = sqrt(sig|sig};</a>
-<a class="sourceLine" id="cb35-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">//Ejemplo dsl Implícito</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UpdateAuxiliaryStateVariables{</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> real <span class="va">q_</span> = q–(<span class="dv">1</span> – theta)*dq;</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> real Q = Q0+(Qm–Q0)*(<span class="dv">1</span>–exp (-<span class="dv">2</span>*Mu*<span class="va">q_</span>));</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  R+=b*(Q-R)*dp;</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">//Ejemplo dsl Runge-Kutta</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UpdateAuxiliaryStateVariables{</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a> sigeq = sqrt(sig|sig};</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><code>@MaximumNumberOfIterations</code> le permite al usuario definir el número máximo de iteraciones.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="er">@</span>MaximumNumberOfIteration <span class="dv">200</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaximumNumberOfIteration <span class="dv">200</span>;</span></code></pre></div>
 <p><code>@Theta</code> se usa para definir el valor predeterminado del parámetro <span class="math inline">\(\theta\)</span> usado por los esquemas implícitos. Si no se usa esta instrucción, los lenguajes de dominio implícito le asignan su propio valor predeterminado (0.5 o 1).</p>
 <p>El valor de <span class="math inline">\(\theta\)</span> debe estar entre el rango ( ]0:1] ).</p>
 <p>El valor de <span class="math inline">\(\theta\)</span> se puede cambiar durante la ejecución modificando el parámetro <code>theta</code>.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="er">@</span>Theta <span class="fl">0.5</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="fl">0.5</span>;</span></code></pre></div>
 <p><code>@Epsilon</code> permite al usuario definir el valor del criterio de convergencia.</p>
 <p>Este valor se puede cambiar durante la ejecución modificando el parámetro <code>epsilon</code>.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-12</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-12</span>;</span></code></pre></div>
 <p><code>@ComputeStress</code> introduce un bloque de código destinado a calcular el tensor simétrico de tensión. Esta instrucción interpreta el código para generar dos métodos:</p>
 <ul>
 <li>El primero se utiliza antes del paso de integración, utilizando valores actualizados para las variables de estado y las variables de estado externas.</li>
 <li>El segundo es un candidato para el cálculo del estrés al final de la integración. Este candidato se utiliza si el usuario no proporciona una forma adecuada de calcular el estrés al final del paso de tiempo utilizando la instrucción <code>@ComputeFinalStress</code>.</li>
 </ul>
 <p>Si el usuario proporciona una forma de calcular el estrés al final del paso con la instrucción <code>@ComputeFinalStress</code>, se considerará que el uso de <code>@ComputeStress</code> no tiene sentido y aconseja al usuario calcular de forma explícita el esfuerzo como parte del paso de integración.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="er">@</span>ComputeStress{</a>
-<a class="sourceLine" id="cb39-2" data-line-number="2">sig = (<span class="dv">1</span>-d)*(lambda*trace(eel)*Stensor::Id()<span class="dv">+2</span>*mu*eel);</a>
-<a class="sourceLine" id="cb39-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeStress{</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>sig = (<span class="dv">1</span>-d)*(lambda*trace(eel)*Stensor::Id()+<span class="dv">2</span>*mu*eel);</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h1 id="linea-de-comandos">Linea de comandos</h1>
 <p>En este apartado se describirá como usar MFront en línea de comandos una vez ya elaborado el archivo <code>.mfront</code>.</p>
 <p>La forma genérica de uso de MFront es la siguiente:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb40-1" data-line-number="1">$ <span class="ex">mfront</span> [opciones] [archivos]</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront [opciones] [archivos]</span></code></pre></div>
 <h2 id="opciones-disponibles">Opciones disponibles</h2>
 <p>Las opciones disponibles para usar en línea de comandos con MFront son las siguientes:</p>
 <ul>
@@ -694,18 +713,18 @@
 <li><code>--help-command</code> y <code>–help-keyword</code> muestran la ayuda asociada a la instrucción dada según el analizador indicado como se puede ver en la Ilustración 4.</li>
 </ul>
 <figure>
-<img src="img/tutorial-spanish-4.png" alt="Ilustración 4: --help-command, descripción instrucción" style="width:5.89514in;height:2.3375in" /><figcaption>Ilustración 4: <code>--help-command</code>, descripción instrucción</figcaption>
+<img src="img/tutorial-spanish-4.png" style="width:5.89514in;height:2.3375in" alt="Ilustración 4: --help-command, descripción instrucción" /><figcaption aria-hidden="true">Ilustración 4: <code>--help-command</code>, descripción instrucción</figcaption>
 </figure>
 <ul>
 <li><code>--help-commands-list</code> y <code>–help-keywords-list</code> muestran una lista de las instrucciones disponibles según el analizador dado tal como se muestra en la Ilustración 5</li>
 </ul>
 <figure>
-<img src="img/tutorial-spanish-5.png" alt="Ilustración 5: –help-commands-list, lista de instrucciones" style="width:5.4952in;height:3.69635in" /><figcaption>Ilustración 5: –help-commands-list, lista de instrucciones</figcaption>
+<img src="img/tutorial-spanish-5.png" style="width:5.4952in;height:3.69635in" alt="Ilustración 5: –help-commands-list, lista de instrucciones" /><figcaption aria-hidden="true">Ilustración 5: –help-commands-list, lista de instrucciones</figcaption>
 </figure>
 <ul>
 <li><code>--include</code>: y <strong>–search-path</strong> añaden una nueva ruta al principio de las rutas de búsqueda. También se puede usar como <strong>–I</strong>.</li>
 <li><code>--interface</code>: especifica la interfaz a usar.</li>
-<li><code>--list-parsers</code>: muestra una lista de los analizadores disponibles añadiendo también una pequeña descripción de ellos como la descrita en el punto “Uso de las instrucciones”.</li>
+<li><code>--list-parsers</code>: muestra una lista de los analizadores disponibles añadiendo también una pequeña descripción de ellos como la descrita en el punto “Uso de las instrucciones.”</li>
 <li><code>--make</code>: genera el archivo <code>Makefile.mfront</code>.</li>
 <li><code>-nodeps</code> evita la inclusión de reglas de dependencia en el archivo generado <code>Makefile.mfront</code>. Esta opción fue introducida para evitar algunos problemas en <code>Windows</code>.</li>
 <li><code>--nomelt</code>: evita fusionar directorios de librerías.</li>
@@ -727,12 +746,12 @@
 <p><code>MTest</code> es una herramienta de simulación del comportamiento mecánico de un punto material.</p>
 <p>Con esta herramienta, el usuario puede simular varios ensayos mecánicos simples, por ejemplo:</p>
 <ul>
-<li>La mayoría de ensayos “multi-céntricos”.</li>
+<li>La mayoría de ensayos “multi-céntricos.”</li>
 <li>Pruebas de tensión/compresión.</li>
 <li>Ensayos de corte.</li>
 <li>Ensayos de flujo.</li>
 <li>Ensayos de relajación.</li>
-<li>Prueba “SATOH”.</li>
+<li>Prueba “SATOH.”</li>
 <li>Ensayos de presión interna en un tubo.</li>
 </ul>
 <p>Los resultados obtenidos se pueden comparar con las soluciones analíticas o soluciones de referencia. En la salida, se crean dos archivos:</p>
@@ -742,7 +761,7 @@
 </ul>
 <h2 id="opciones-de-mtest">Opciones de MTest</h2>
 <p>La forma genérica de uso de <code>MTest</code> es la siguiente:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb41-1" data-line-number="1">$ <span class="ex">mtest</span> [opciones] [archivos]</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mtest [opciones] [archivos]</span></code></pre></div>
 <p>Siendo las siguientes opciones disponibles:</p>
 <ul>
 <li><code>--backtrace</code>: pila del proceso de impresión al obtener las señales <code>SIGSEGV</code> (error de segmentación) o <code>SIGFPE</code> (excepción matemática). También se puede usar <code>–bt</code>.</li>
@@ -762,7 +781,7 @@
 <li><code>--xml-output</code>: salida xml de control (‘No’ por defecto).</li>
 </ul>
 <figure>
-<img src="img/tutorial-spanish-6.png" alt="Ilustración 6: –commands-list, instrucciones de MTest" style="width:4.97525in;height:9.10625in" /><figcaption>Ilustración 6: –commands-list, instrucciones de <code>MTest</code></figcaption>
+<img src="img/tutorial-spanish-6.png" style="width:4.97525in;height:9.10625in" alt="Ilustración 6: –commands-list, instrucciones de MTest" /><figcaption aria-hidden="true">Ilustración 6: –commands-list, instrucciones de <code>MTest</code></figcaption>
 </figure>
 <h2 id="estructura-del-archivo-.mtest">Estructura del archivo <code>.mtest</code></h2>
 <p>Los archivos <code>.mtest</code> toman la misma estructura que los archivos <code>.mfront</code>. Se presentan como una lista de instrucciones que empiezan por el símbolo <code>@</code>. Algunas de estas instrucciones pueden tener opciones asociadas dadas entre los símbolos <code>&lt;</code> y <code>&gt;</code>.</p>
@@ -776,41 +795,41 @@
 <h2 id="instrucciones">Instrucciones</h2>
 <p>A continuación, se detallarán algunas de las instrucciones más significativas de <code>MTest</code>.</p>
 <p><code>@Author</code>: se utiliza para dar el nombre de la persona que escribió el archivo <code>.mtest</code>.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="er">@</span>Author Jordi Alberich;</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Jordi Alberich;</span></code></pre></div>
 <p><code>@Behaviour</code>: declara el comportamiento utilizado para la prueba. Esta instrucción debe ir seguida de una opción que especifique la interfaz utilizada por el comportamiento. Están disponibles las interfaces castem<em>,</em> cyrano y aster.</p>
 <p>Se esperan dos cadenas, la biblioteca en la que se implementa el comporamiento, y el nombre de la función.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="er">@</span>Behaviour&lt;castem&gt; <span class="ch">&#39;libMFrontCastemBehaviours.so&#39;</span> <span class="ch">&#39;umatnorton&#39;</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour&lt;castem&gt; <span class="ch">&#39;l</span><span class="er">ibMFrontCastemBehaviours.so</span><span class="ch">&#39;</span> <span class="ch">&#39;u</span><span class="er">matnorton</span><span class="ch">&#39;</span>;</span></code></pre></div>
 <p><code>@CastemAccelerationPeriod</code> especifica el número de iteraciones entre dos llamadas al algoritmo de aceleración.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="er">@</span>CastemAccelerationPeriod <span class="dv">3</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>CastemAccelerationPeriod <span class="dv">3</span>;</span></code></pre></div>
 <p><code>@Date</code> permite al usuario especificar cuándo se escribió el archivo <em>.mtest</em>.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="er">@</span>Date <span class="dv">2016-11-28</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">2016</span>-<span class="dv">11</span>-<span class="dv">28</span>;</span></code></pre></div>
 <p><code>@Description</code> permite dar una descripción del test implementado en el archivo.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="er">@</span>Description{</a>
-<a class="sourceLine" id="cb46-2" data-line-number="2"><span class="st">&quot;Descripción del test a realizar&quot;</span></a>
-<a class="sourceLine" id="cb46-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description{</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Descripción del test a realizar&quot;</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><code>@Evolution</code> especifica una función del tiempo.</p>
 <p>Esta instrucción puede tener una opción, que es la forma en que se definirá la evolución. Se aceptan dos valores: evolution y function. Si no se especifica ninguna opción, se elige la opción de evolution.</p>
 <p>A continuación se define, en forma de cadena, el nombre de la evolución.</p>
 <p>Si se ha seleccionado la opción de evolution, el usuario puede especificar una evolución constante simplemente dando su valor. De lo contrario, las evoluciones complejas se pueden construir utilizando una matriz asociativa donde la clave es el tiempo y el valor de la evolución. Entre dos tiempos, los valores serán interpolados linealmente. Antes del primer tiempo declarado dado, se utiliza el valor correspondiente a esta primera vez. Después de la última vez dada, se utiliza el valor correspondiente a esta última vez.</p>
 <p>Si se ha seleccionado la opción de function, se espera una cadena que se interpretará como una función del tiempo. El tiempo está representado por la variable <code>t</code>.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="co">//Evolución constante</span></a>
-<a class="sourceLine" id="cb47-2" data-line-number="2"><span class="er">@</span>Evolution <span class="ch">&#39;Pressure&#39;</span> <span class="dv">1</span>.e5;</a>
-<a class="sourceLine" id="cb47-3" data-line-number="3"><span class="co">//Evolución lineal</span></a>
-<a class="sourceLine" id="cb47-4" data-line-number="4"><span class="er">@</span>Evolution <span class="ch">&#39;Pressure&#39;</span> {<span class="dv">0</span>:<span class="fl">0.</span>,<span class="fl">1.</span>:<span class="dv">1</span>.e5};</a>
-<a class="sourceLine" id="cb47-5" data-line-number="5"><span class="co">//Función</span></a>
-<a class="sourceLine" id="cb47-6" data-line-number="6"><span class="er">@</span>Real P0 <span class="dv">2</span>.e<span class="dv">5</span></a>
-<a class="sourceLine" id="cb47-7" data-line-number="7"><span class="er">@</span>Real P1 <span class="dv">4</span>.e<span class="dv">5</span></a>
-<a class="sourceLine" id="cb47-8" data-line-number="8"><span class="er">@</span>Evolution&lt;function&gt; <span class="ch">&#39;Pressure&#39;</span> <span class="ch">&#39;P0+(P1-P0)</span><span class="sc">\</span><span class="st">*</span><span class="ch">t</span><span class="sc">\</span><span class="st">*</span><span class="sc">\</span><span class="st">*</span><span class="ch">2&#39;</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">//Evolución constante</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Evolution <span class="ch">&#39;P</span><span class="er">ressure</span><span class="ch">&#39;</span> <span class="fl">1.e5</span>;</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co">//Evolución lineal</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Evolution <span class="ch">&#39;P</span><span class="er">ressure</span><span class="ch">&#39;</span> {<span class="dv">0</span>:<span class="fl">0.</span>,<span class="fl">1.</span>:<span class="fl">1.e5</span>};</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co">//Función</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real P0 <span class="fl">2.e5</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real P1 <span class="fl">4.e5</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Evolution&lt;function&gt; <span class="ch">&#39;P</span><span class="er">ressure</span><span class="ch">&#39;</span> <span class="ch">&#39;P</span><span class="er">0+(P1-P0)\*t\*\*2</span><span class="ch">&#39;</span>;</span></code></pre></div>
 <p><code>@ExternalStateVariable</code> permite al usuario especificar la evolución de las variables de estado externas, incluida la temperatura que generalmente se define por defecto en las interfaces de comportamiento.</p>
 <p>Esta instrucción puede tener una opción asociada, que es la forma en que se definirá la evolución. Al igual que en la instrucción <code>@Evolution</code>, se aceptan dos valores, evolution y function.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="co">//Evolución constante</span></a>
-<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;Temperature&#39;</span> <span class="fl">293.15</span>;</a>
-<a class="sourceLine" id="cb48-3" data-line-number="3"><span class="co">//Evolución lineal</span></a>
-<a class="sourceLine" id="cb48-4" data-line-number="4"><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;Temperature&#39;</span> {<span class="dv">0</span>:<span class="fl">293.15</span>,<span class="fl">1.</span>:<span class="dv">800</span>};</a>
-<a class="sourceLine" id="cb48-5" data-line-number="5"><span class="co">//Función</span></a>
-<a class="sourceLine" id="cb48-6" data-line-number="6"><span class="er">@</span>Real T0 <span class="fl">293.15</span></a>
-<a class="sourceLine" id="cb48-7" data-line-number="7"><span class="er">@</span>Real T1 <span class="fl">400.15</span></a>
-<a class="sourceLine" id="cb48-8" data-line-number="8"><span class="er">@</span>ExternalStateVariable&lt;function&gt;<span class="ch">&#39;Temperature&#39;&#39;T0+(T1-T0)</span><span class="sc">\</span><span class="st">*</span><span class="ch">t</span><span class="sc">\</span><span class="st">*</span><span class="sc">\</span><span class="st">*</span><span class="ch">2&#39;</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">//Evolución constante</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;T</span><span class="er">emperature</span><span class="ch">&#39;</span> <span class="fl">293.15</span>;</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co">//Evolución lineal</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;T</span><span class="er">emperature</span><span class="ch">&#39;</span> {<span class="dv">0</span>:<span class="fl">293.15</span>,<span class="fl">1.</span>:<span class="dv">800</span>};</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co">//Función</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real T0 <span class="fl">293.15</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real T1 <span class="fl">400.15</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable&lt;function&gt;<span class="ch">&#39;T</span><span class="er">emperature</span><span class="ch">&#39;&#39;T</span><span class="er">0+(T1-T0)\*t\*\*2</span><span class="ch">&#39;</span>;</span></code></pre></div>
 <p><code>@ImposedStrain</code> permite al usuario imponer la evolución de un componente de las tensiones.</p>
 <p>Esta instrucción puede tener asociada una opción que corresponde a la forma en que se definirá la evolución, pudiendo ser evolution o function (evolution por defecto). A continuación, se especificará el nombre del componente de las tensiones.</p>
 <p>Son válidos los siguientes nombres de componentes según la hipótesis de modelado:</p>
@@ -822,12 +841,12 @@
 <li><code>GeneralisedPlaneStrain</code>: EXX EYY EZZ EXY.</li>
 <li><code>Tridimensional</code>: EXX EYY EZZ EXY EXZ EYZ.</li>
 </ul>
-<div class="sourceCode" id="cb49"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="co">//Evolución constante</span></a>
-<a class="sourceLine" id="cb49-2" data-line-number="2"><span class="er">@</span>ImposedStrain&lt;evolution&gt; <span class="ch">&#39;EXX&#39;</span> <span class="fl">1e-3</span>;</a>
-<a class="sourceLine" id="cb49-3" data-line-number="3"><span class="co">//Evolución lineal</span></a>
-<a class="sourceLine" id="cb49-4" data-line-number="4"><span class="er">@</span>ImposedStrain&lt;evolution&gt; <span class="ch">&#39;EXX&#39;</span> {<span class="fl">0.</span>:<span class="fl">0.</span>,<span class="dv">1</span>:<span class="fl">1e-3</span>};</a>
-<a class="sourceLine" id="cb49-5" data-line-number="5"><span class="co">//Función</span></a>
-<a class="sourceLine" id="cb49-6" data-line-number="6"><span class="er">@</span>ImposedStrain&lt;function&gt; <span class="ch">&#39;EXX&#39;</span> <span class="ch">&#39;e0</span><span class="sc">\</span><span class="st">*</span><span class="ch">sin(t/900.)&#39;</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">//Evolución constante</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStrain&lt;evolution&gt; <span class="ch">&#39;E</span><span class="er">XX</span><span class="ch">&#39;</span> <span class="fl">1e-3</span>;</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="co">//Evolución lineal</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStrain&lt;evolution&gt; <span class="ch">&#39;E</span><span class="er">XX</span><span class="ch">&#39;</span> {<span class="fl">0.</span>:<span class="fl">0.</span>,<span class="dv">1</span>:<span class="fl">1e-3</span>};</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="co">//Función</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStrain&lt;function&gt; <span class="ch">&#39;E</span><span class="er">XX</span><span class="ch">&#39;</span> <span class="ch">&#39;e</span><span class="er">0\*sin(t/900.)</span><span class="ch">&#39;</span>;</span></code></pre></div>
 <p><code>@ImposedStress</code> permite al usuario imponer la evolución de un componente de estrés.</p>
 <p>El funcionamiento de esta instrucción es igual al de la anterior (<code>@ImposedStrain</code>), siendo válidos los siguientes nombres según la hipótesis de modelado:</p>
 <ul>
@@ -838,15 +857,15 @@
 <li><code>GeneralisedPlaneStrain</code>: SXX SYY SZZ SXY.</li>
 <li><code>Tridimensional</code>: SXX SYY SZZ SXY SXZ SYZ.</li>
 </ul>
-<div class="sourceCode" id="cb50"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="co">//Evolución constante</span></a>
-<a class="sourceLine" id="cb50-2" data-line-number="2"><span class="er">@</span>ImposedStress <span class="ch">&#39;SXX&#39;</span> <span class="dv">50</span>.e6;</a>
-<a class="sourceLine" id="cb50-3" data-line-number="3"><span class="co">//Evolución lineal</span></a>
-<a class="sourceLine" id="cb50-4" data-line-number="4"><span class="er">@</span>ImposedStress&lt;evolution&gt; <span class="ch">&#39;SXX&#39;</span> {<span class="fl">0.</span>:<span class="fl">0.</span>,<span class="dv">1</span>:<span class="fl">50e6</span>};</a>
-<a class="sourceLine" id="cb50-5" data-line-number="5"><span class="co">//Función</span></a>
-<a class="sourceLine" id="cb50-6" data-line-number="6"><span class="er">@</span>ImposedStress&lt;function&gt; <span class="ch">&#39;SXX&#39;</span> <span class="ch">&#39;s0</span><span class="sc">\</span><span class="st">*</span><span class="ch">sin(t/900.)&#39;</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">//Evolución constante</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStress <span class="ch">&#39;S</span><span class="er">XX</span><span class="ch">&#39;</span> <span class="fl">50.e6</span>;</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co">//Evolución lineal</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStress&lt;evolution&gt; <span class="ch">&#39;S</span><span class="er">XX</span><span class="ch">&#39;</span> {<span class="fl">0.</span>:<span class="fl">0.</span>,<span class="dv">1</span>:<span class="fl">50e6</span>};</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co">//Función</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStress&lt;function&gt; <span class="ch">&#39;S</span><span class="er">XX</span><span class="ch">&#39;</span> <span class="ch">&#39;s</span><span class="er">0\*sin(t/900.)</span><span class="ch">&#39;</span>;</span></code></pre></div>
 <p><code>@InternalStateVariable</code> define el valor inicial de una variable de estado.</p>
 <p>Si esta variable de estado interna es escalar, se espera un valor real. En cambio, si esta variable de estado interna es un tensor simétrico, se espera una matriz de valores reales del tamaño apropiado. Un tensor simétrico tiene 3 componentes en 1D, 4 componentes en 2D y 6 componentes en 3D. Los componentes fuera de las diagonales se declararán con un factor <span class="math inline">\(\sqrt{2}\)</span>.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="er">@</span>InternalStateVariable <span class="ch">&#39;ElasticStrain&#39;</span> {<span class="ch">&#39;EELRR0&#39;</span> , <span class="ch">&#39;EELZZ0&#39;</span> , <span class="ch">&#39;EELZZ0&#39;</span>,<span class="fl">0.</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InternalStateVariable <span class="ch">&#39;E</span><span class="er">lasticStrain</span><span class="ch">&#39;</span> {<span class="ch">&#39;E</span><span class="er">ELRR0</span><span class="ch">&#39;</span> , <span class="ch">&#39;E</span><span class="er">ELZZ0</span><span class="ch">&#39;</span> , <span class="ch">&#39;E</span><span class="er">ELZZ0</span><span class="ch">&#39;</span>,<span class="fl">0.</span>};</span></code></pre></div>
 <p><code>@MaterialProperty</code> define una propiedad de material. Sólo pueden usarse las propiedades mecánicas definidas por el comportamiento para la hipótesis de modelado considerada con la excepción de las expansiones térmicas:</p>
 <ul>
 <li>La expansión térmica isotrópica se define a través de la propiedad <code>ThermalExpansion</code>.</li>
@@ -858,22 +877,22 @@
 <li><code>castem</code>: se deberá indicar el nombre de la biblioteca y el nombre de la función que implementa la propiedad material.</li>
 <li><code>function</code>: se deberá definir la función.</li>
 </ul>
-<div class="sourceCode" id="cb52"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="co">//constant</span></a>
-<a class="sourceLine" id="cb52-2" data-line-number="2"><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;YoungModulus&#39;</span> <span class="dv">150</span>.e9;</a>
-<a class="sourceLine" id="cb52-3" data-line-number="3"><span class="co">//castem</span></a>
-<a class="sourceLine" id="cb52-4" data-line-number="4"><span class="er">@</span>MaterialProperty&lt;castem&gt; <span class="ch">&#39;YoungModulus&#39;</span> <span class="ch">&#39;libIncone1600MaterialProperties.so&#39;</span> <span class="ch">&#39;Incone1600_YoungModulus&#39;</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">//constant</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;Y</span><span class="er">oungModulus</span><span class="ch">&#39;</span> <span class="fl">150.e9</span>;</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co">//castem</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty&lt;castem&gt; <span class="ch">&#39;Y</span><span class="er">oungModulus</span><span class="ch">&#39;</span> <span class="ch">&#39;l</span><span class="er">ibIncone1600MaterialProperties.so</span><span class="ch">&#39;</span> <span class="ch">&#39;I</span><span class="er">ncone1600_YoungModulus</span><span class="ch">&#39;</span>;</span></code></pre></div>
 <p><code>@Parameter</code> especifica el valor de un parámetro real del comportamiento.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="er">@</span>Parameter <span class="ch">&#39;epsilon&#39;</span> <span class="dv">1</span>.e<span class="dv">-8</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter <span class="ch">&#39;e</span><span class="er">psilon</span><span class="ch">&#39;</span> <span class="fl">1.e-8</span>;</span></code></pre></div>
 <p><code>@IntegerParameter</code> especifica el valor de un parámetro entero del comportamiento.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="er">@</span>IntegerParameter <span class="ch">&#39;iter&#39;</span> <span class="dv">12</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IntegerParameter <span class="ch">&#39;i</span><span class="er">ter</span><span class="ch">&#39;</span> <span class="dv">12</span>;</span></code></pre></div>
 <p><code>@UnsignedIntegerParameter</code> especifica el valor de un parámetro entero positivo del comportamiento.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb55-1" data-line-number="1"><span class="er">@</span>UnsignedIntegerParameter <span class="ch">&#39;iterMax&#39;</span> <span class="dv">12</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UnsignedIntegerParameter <span class="ch">&#39;i</span><span class="er">terMax</span><span class="ch">&#39;</span> <span class="dv">12</span>;</span></code></pre></div>
 <p><code>@MaximumNumberOfIterations</code> permite al usuario especificar el número máximo de iteraciones del algoritmo global para alcanzar el equilibrio.</p>
 <p>Si el número de iteraciones alcanza el valor máximo autorizado, el paso de tiempo se divide por dos. El número máximo de sub-pasos se puede especificar usando la instrucción <code>@MaximumNumberOfSubSteps</code>.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="er">@</span>MaximumNumberOfIterations <span class="dv">10</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaximumNumberOfIterations <span class="dv">10</span>;</span></code></pre></div>
 <p><code>@MaximumNumberOfSubSteps</code> permite al usuario especificar el número máximo de sub-pasos permitidos.</p>
 <p>Cuando el algoritmo global no alcanza el equilibrio, el paso de tiempo puede dividirse por dos. El número máximo de veces que el paso de tiempo se reduce se da por el número máximo de sub-pasos.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="er">@</span>MaximumNumberOsSubSteps <span class="dv">10</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaximumNumberOsSubSteps <span class="dv">10</span>;</span></code></pre></div>
 <p><code>@ModellingHypotesis</code> permite al usuario elegir la hipótesis de modelado a utilizar. Se admiten los siguientes valores dados como una cadena:</p>
 <ul>
 <li><code>AxisymmetricalGeneralisedPlaneStrain</code> (1D).</li>
@@ -885,9 +904,9 @@
 </ul>
 <p>La hipótesis de modelado cambia el nombre de los componentes de los tensores simétricos y sus números como se ha visto en <code>@ImposedStrain</code> y <code>@ImposedStress</code>.</p>
 <p><code>@OutputFile</code> especifica el nombre del archivo de salida. De forma predeterminada, el nombre del archivo de salida es igual al nombre de entrada con la extensión <em>‘.res’</em>.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="er">@</span>OutputFile <span class="ch">&#39;results.txt&#39;</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>OutputFile <span class="ch">&#39;r</span><span class="er">esults.txt</span><span class="ch">&#39;</span>;</span></code></pre></div>
 <p><code>@OutputFilePrecision</code> especifica el número de dígitos utilizados para imprimir los resultados en el archivo de salida.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="er">@</span>OutputFilePrecision <span class="dv">15</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>OutputFilePrecision <span class="dv">15</span>;</span></code></pre></div>
 <p><code>@PredictionPolicy</code> le permite al usuario definir cómo se obtendrá la estimación inicial de la solución, pudiendo ser:</p>
 <ul>
 <li><code>Noprediction</code></li>
@@ -897,13 +916,13 @@
 <li><code>SecantPrediction</code></li>
 <li><code>TangentPrediction</code></li>
 </ul>
-<div class="sourceCode" id="cb60"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="er">@</span>PredictionPolicy <span class="ch">&#39;ElasticPrediction&#39;</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>PredictionPolicy <span class="ch">&#39;E</span><span class="er">lasticPrediction</span><span class="ch">&#39;</span>;</span></code></pre></div>
 <p><code>@Real</code> permite al usuario definir una constante.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="er">@</span>Real <span class="ch">&#39;SXX0&#39;</span> <span class="fl">20.6</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;S</span><span class="er">XX0</span><span class="ch">&#39;</span> <span class="fl">20.6</span>;</span></code></pre></div>
 <p><code>@RotationMatrix</code> permite al usuario especificar una matriz de rotación, de manera que las direcciones principales del material sean diferentes de las utilizadas para la resolución y las condiciones de contorno.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="er">@</span>RotationMatrix {{<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>},</a>
-<a class="sourceLine" id="cb62-2" data-line-number="2">                 {<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>},</a>
-<a class="sourceLine" id="cb62-3" data-line-number="3">                 {<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>}};</a></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RotationMatrix {{<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>},</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>                 {<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>},</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>                 {<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>}};</span></code></pre></div>
 <p><code>@StiffnessMatrixType</code> permite al usuario especificar el tipo de matriz de rigidez que debe ser dada por el comportamiento mecánico y que será utilizado por el algoritmo de resolución. Son válidos los siguientes valores:</p>
 <ul>
 <li><code>Elastic</code></li>
@@ -911,66 +930,66 @@
 <li><code>TangentOperator</code></li>
 <li><code>ConsistentTangentOperator</code></li>
 </ul>
-<div class="sourceCode" id="cb63"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="er">@</span>StiffnessMatrixType <span class="ch">&#39;Elastic&#39;</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StiffnessMatrixType <span class="ch">&#39;E</span><span class="er">lastic</span><span class="ch">&#39;</span>;</span></code></pre></div>
 <p><code>@Strain</code> permite al usuario especificar el valor inicial de las tensiones.</p>
 <p>Se debe especificar una matriz, donde el tamaño de este array debe ser igual al número de componentes de los tensores simétricos para la hipótesis de modelado considerada.</p>
 <p>Los valores deben seguir las convenciones TFEL. En 3D, las tensiones están almacenadas en el siguiente orden:</p>
 <p><span class="math display">\[\left( \text{varepsilon}_{\text{xx}},\varepsilon_{\text{yy}},\varepsilon_{\text{zz}},{\sqrt{2}\varepsilon}_{\text{xy}},{\sqrt{2}\varepsilon}_{\text{xz}},{\sqrt{2}\varepsilon}_{\text{yz}} \right)\]</span></p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="er">@</span>Strain { <span class="fl">0.000239466253465591</span>,</a>
-<a class="sourceLine" id="cb64-2" data-line-number="2">         <span class="fl">-7.18398760396772e-05</span>,</a>
-<a class="sourceLine" id="cb64-3" data-line-number="3">         <span class="fl">-7.18398760396772e-05</span>,</a>
-<a class="sourceLine" id="cb64-4" data-line-number="4">         <span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Strain { <span class="fl">0.000239466253465591</span>,</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>         -<span class="fl">7.18398760396772e-05</span>,</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>         -<span class="fl">7.18398760396772e-05</span>,</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>         <span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>};</span></code></pre></div>
 <p><code>@Stress</code> permite al usuario especificar el valor inicial del estrés.</p>
 <p>Se debe especificar una matriz, donde el tamaño de este array debe ser igual al número de componentes de los tensores simétricos para la hipótesis de modelado considerada.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="er">@</span>Stress {<span class="ch">&#39;YoungModulus</span><span class="sc">\</span><span class="st">*</span><span class="ch">EXX0&#39;</span>,</a>
-<a class="sourceLine" id="cb65-2" data-line-number="2">         <span class="ch">&#39;-PoissonRatio</span><span class="sc">\</span><span class="st">*</span><span class="ch">YoungModulus</span><span class="sc">\</span><span class="st">*</span><span class="ch">EXX0&#39;</span>,</a>
-<a class="sourceLine" id="cb65-3" data-line-number="3">         <span class="ch">&#39;-PoissonRatio</span><span class="sc">\</span><span class="st">*</span><span class="ch">YoungModulus</span><span class="sc">\</span><span class="st">*</span><span class="ch">EXX0&#39;</span>,</a>
-<a class="sourceLine" id="cb65-4" data-line-number="4">         <span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Stress {<span class="ch">&#39;Y</span><span class="er">oungModulus\*EXX0</span><span class="ch">&#39;</span>,</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>         <span class="ch">&#39;-</span><span class="er">PoissonRatio\*YoungModulus\*EXX0</span><span class="ch">&#39;</span>,</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>         <span class="ch">&#39;-</span><span class="er">PoissonRatio\*YoungModulus\*EXX0</span><span class="ch">&#39;</span>,</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>         <span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>};</span></code></pre></div>
 <p><code>@StressEpsilon</code>. El algoritmo global utiliza dos criterios para comprobar si se ha encontrado un equilibrio satisfactorio: uno sobre las tensiones y el otro sobre el estrés.</p>
 <p>Este criterio sobre el estrés comprueba que el residuo del Algoritmo de Newton es bajo. Por defecto este valor es 1.e-3.</p>
 <p>La instrucción <code>@StressEpsilon</code> permite al usuario especificar el criterio de valor utilizado para el criterio de estrés.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="er">@</span>StressEpsilon <span class="dv">1</span>.e2;</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StressEpsilon <span class="fl">1.e2</span>;</span></code></pre></div>
 <p><code>@Test</code> permite al usuario añadir una prueba a los resultados. Se admiten dos tipos de pruebas:</p>
 <ul>
 <li><code>function</code>: se permiten dos sintaxis. En la primera, se esperan tres argumentos: el nombre de la variable probada, una función del tiempo y un valor de criterio utilizado para la comparación. En la segunda sintaxis, se esperan dos argumentos: un mapa que asocia el nombre de una variable probada a una función de tiempo y un valor de criterio utilizado para la comparación. Las funciones pueden depender explícitamente del tiempo a través de la variable <code>t</code>.</li>
 </ul>
-<div class="sourceCode" id="cb67"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="er">@</span>Test&lt;function&gt; <span class="ch">&#39;EXY&#39;</span> <span class="ch">&#39;0.&#39;</span> <span class="dv">1</span>.e<span class="dv">-12</span>;</a>
-<a class="sourceLine" id="cb67-2" data-line-number="2"><span class="er">@</span>Test&lt;function&gt;{ <span class="ch">&#39;EXX&#39;</span>: <span class="ch">&#39;SXX/YoungModulus&#39;</span>,</a>
-<a class="sourceLine" id="cb67-3" data-line-number="3">                 <span class="ch">&#39;EYY&#39;</span>: <span class="ch">&#39;-PoissonRatio</span><span class="sc">\</span><span class="st">*</span><span class="ch">SXX/YoungModulus&#39;</span>,</a>
-<a class="sourceLine" id="cb67-4" data-line-number="4">                 <span class="ch">&#39;EZZ&#39;</span>: <span class="ch">&#39;-PoissonRatio</span><span class="sc">\</span><span class="st">*</span><span class="ch">SXX/YoungModulus&#39;</span>,</a>
-<a class="sourceLine" id="cb67-5" data-line-number="5">                 <span class="ch">&#39;EXY&#39;</span>: <span class="ch">&#39;0.&#39;</span>,<span class="ch">&#39;EXZ:&#39;</span><span class="fl">0.</span><span class="ch">&#39;,&#39;</span>EYZ<span class="ch">&#39;:&#39;</span><span class="fl">0.</span><span class="ch">&#39;}1.e-12;</span></a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test&lt;function&gt; <span class="ch">&#39;E</span><span class="er">XY</span><span class="ch">&#39;</span> <span class="ch">&#39;0</span><span class="er">.</span><span class="ch">&#39;</span> <span class="fl">1.e-12</span>;</span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test&lt;function&gt;{ <span class="ch">&#39;E</span><span class="er">XX</span><span class="ch">&#39;</span>: <span class="ch">&#39;S</span><span class="er">XX/YoungModulus</span><span class="ch">&#39;</span>,</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>                 <span class="ch">&#39;E</span><span class="er">YY</span><span class="ch">&#39;</span>: <span class="ch">&#39;-</span><span class="er">PoissonRatio\*SXX/YoungModulus</span><span class="ch">&#39;</span>,</span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>                 <span class="ch">&#39;E</span><span class="er">ZZ</span><span class="ch">&#39;</span>: <span class="ch">&#39;-</span><span class="er">PoissonRatio\*SXX/YoungModulus</span><span class="ch">&#39;</span>,</span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>                 <span class="ch">&#39;E</span><span class="er">XY</span><span class="ch">&#39;</span>: <span class="ch">&#39;0</span><span class="er">.</span><span class="ch">&#39;</span>,<span class="ch">&#39;E</span><span class="er">XZ:</span><span class="ch">&#39;</span><span class="fl">0.</span><span class="ch">&#39;,&#39;</span>EYZ<span class="ch">&#39;:&#39;</span><span class="fl">0.</span><span class="ch">&#39;}</span><span class="er">1.e-12;</span></span></code></pre></div>
 <ul>
-<li><code>file</code>: los valores esperados se leen en columnas de un archivo de texto. Se dará el nombre del archivo de texto y se permitirán dos sintaxis. En la primera, se esperan tres argumentos: el nombre de la variable probada, el número de columna y un criterio utilizado para la comparación. En la segunda sintaxis, se esperan dos argumentos: un mapa que asocia el nombre de la variable probada a un número de columna y un criterio utilizado para la comparación. En cada caso, los valores dados por la línea ‘n+1’ corresponden a los valores esperados después del periodo ‘n’.</li>
+<li><code>file</code>: los valores esperados se leen en columnas de un archivo de texto. Se dará el nombre del archivo de texto y se permitirán dos sintaxis. En la primera, se esperan tres argumentos: el nombre de la variable probada, el número de columna y un criterio utilizado para la comparación. En la segunda sintaxis, se esperan dos argumentos: un mapa que asocia el nombre de la variable probada a un número de columna y un criterio utilizado para la comparación. En cada caso, los valores dados por la línea ‘n+1’ corresponden a los valores esperados después del periodo ‘n.’</li>
 </ul>
-<div class="sourceCode" id="cb68"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="er">@</span>Test&lt;file&gt; <span class="ch">&#39;reference.txt&#39;</span> <span class="ch">&#39;EXY&#39;</span> <span class="dv">1</span> <span class="dv">1</span>.e<span class="dv">-12</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test&lt;file&gt; <span class="ch">&#39;r</span><span class="er">eference.txt</span><span class="ch">&#39;</span> <span class="ch">&#39;E</span><span class="er">XY</span><span class="ch">&#39;</span> <span class="dv">1</span> <span class="fl">1.e-12</span>;</span></code></pre></div>
 <p><code>@Times</code> permite al usuario especificar una lista de tiempos utilizados para los cálculos.</p>
 <p>Esto se especificará con una matriz que describe los intervalos de tiempo. De forma predeterminada, se utiliza un paso de tiempo para pasar de un momento dado al siguiente. El comando ‘in’ permite al usuario dividir un intervalo en un número dado de intervalos más pequeños.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="er">@</span>Times {<span class="fl">0.</span>, <span class="fl">3600.</span>}; <span class="co">/* 1 paso de tiempo de 3600. Segundos */</span></a>
-<a class="sourceLine" id="cb69-2" data-line-number="2"><span class="er">@</span>Times {<span class="fl">0.</span>, <span class="fl">3600.</span> in <span class="dv">10</span>}; <span class="co">/*10 pasos de tiempo de 360 segundos */</span></a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Times {<span class="fl">0.</span>, <span class="fl">3600.</span>}; <span class="co">/* 1 paso de tiempo de 3600. Segundos */</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Times {<span class="fl">0.</span>, <span class="fl">3600.</span> in <span class="dv">10</span>}; <span class="co">/*10 pasos de tiempo de 360 segundos */</span></span></code></pre></div>
 <h1 id="salome-meca">Salome-Meca</h1>
 <h2 id="salome-meca-la-unión-de-salome-y-code-aster">Salome-Meca, la unión de Salome y Code-Aster</h2>
 <p>Para empezar, se debería definir qué es la plataforma <code>SALOME</code>, la cual es una plataforma genérica de Pre-procesamiento y Post-procesamiento para simulaciones numéricas desarrollada por EDF (Électricité de France). Es un programa de código abierto (licencia LGPL) el cual se basa en una arquitectura abierta y flexible hecha de herramientas propias e integrando otras herramientas del mundo del software de código abierto, así como otras herramientas comerciales con licencias de código cerrado.</p>
 <figure>
-<img src="img/tutorial-spanish-7.png" alt="Ilustración 7: Imagen de salome-platform.org" style="width:3.1254in;height:3.1254in" /><figcaption>Ilustración 7: Imagen de salome-platform.org</figcaption>
+<img src="img/tutorial-spanish-7.png" style="width:3.1254in;height:3.1254in" alt="Ilustración 7: Imagen de salome-platform.org" /><figcaption aria-hidden="true">Ilustración 7: Imagen de salome-platform.org</figcaption>
 </figure>
 <p>Por otra parte, <strong>CODE-ASTER</strong> es una aplicación de elementos finitos, desarrollado también por EDF. Creado principalmente para el área de cálculos mecánicos, cubre un gran número de aplicaciones como pueden ser análisis térmicos y mecánicos tanto lineales como no lineales, fatiga, análisis de fracturas, etc.</p>
 <p>Code-Aster ofrece una versión modificada de Salome a la cual le incluye distintas herramientas para poder trabajar con este solver FEM, llamada <code>SALOME-MECA</code>. Además del propio solver, Salome-Meca incluye también herramientas para trabajar con Code-Aster como <code>Eficas</code> con el que podemos escribir los casos FEM mediante una interfaz gráfica la cual da acceso a todos los comandos posibles y evalúa los pasos necesarios para cumplir con cada comando. Con <code>ASTK</code> se puede manejar y configurar las simulaciones a realizar.</p>
 <p>Así, las principales características de Salome-Meca son:</p>
 <p><strong>Módulo de geometría (<code>Geometry</code>)</strong>: donde se puede crear la geometría del problema a analizar, o incluso se puede importar de otros programas.</p>
 <figure>
-<img src="img/tutorial-spanish-8.png" alt="Ilustración 8: Módulo de geometría" style="width:4.17135in;height:2.40196in" /><figcaption>Ilustración 8: Módulo de geometría</figcaption>
+<img src="img/tutorial-spanish-8.png" style="width:4.17135in;height:2.40196in" alt="Ilustración 8: Módulo de geometría" /><figcaption aria-hidden="true">Ilustración 8: Módulo de geometría</figcaption>
 </figure>
 <p><strong>Módulo de mallado (<code>Mesh</code>)</strong>: es usado para generar mallas 1D, 2D o 3D para los análisis numéricos. Para ello cuenta con varios algoritmos de mallado propios.</p>
 <figure>
-<img src="img/tutorial-spanish-9.png" alt="Ilustración 9: Módulo de mallado" style="width:4.19098in;height:2.76392in" /><figcaption>Ilustración 9: Módulo de mallado</figcaption>
+<img src="img/tutorial-spanish-9.png" style="width:4.19098in;height:2.76392in" alt="Ilustración 9: Módulo de mallado" /><figcaption aria-hidden="true">Ilustración 9: Módulo de mallado</figcaption>
 </figure>
 <p><strong>Módulo de Code-Aster (<code>Aster</code>)</strong>: como se ha descrito anteriormente, Aster és un módulo destinado al área de cálculos mecánicos que incluye las herramientas Eficas y Astk.</p>
 <figure>
-<img src="img/tutorial-spanish-10.png" alt="Ilustración 10: Eficas y ASTK del módulo Aster" style="width:5.89375in;height:2.91458in" /><figcaption>Ilustración 10: Eficas y ASTK del módulo Aster</figcaption>
+<img src="img/tutorial-spanish-10.png" style="width:5.89375in;height:2.91458in" alt="Ilustración 10: Eficas y ASTK del módulo Aster" /><figcaption aria-hidden="true">Ilustración 10: Eficas y ASTK del módulo Aster</figcaption>
 </figure>
 <p><strong>Módulo de post-procesamiento (<code>ParaViS</code>):</strong> éste módulo se usa para analizar los resultados de la simulación incluyendo el software para post-procesamiento ParaView, el cual tiene un sin fin de herramientas utilizando técnicas cualitativas y cuantitativas de utilidad para poder usar en el post-procesamiento de nuestros análisis numéricos.</p>
 <figure>
-<img src="img/tutorial-spanish-11.png" alt="Ilustración 11: Módulo de post-procesamiento" style="width:4.2443in;height:2.70451in" /><figcaption>Ilustración 11: Módulo de post-procesamiento</figcaption>
+<img src="img/tutorial-spanish-11.png" style="width:4.2443in;height:2.70451in" alt="Ilustración 11: Módulo de post-procesamiento" /><figcaption aria-hidden="true">Ilustración 11: Módulo de post-procesamiento</figcaption>
 </figure>
 <h1 id="inclusión-de-librerías-mfront-a-salome-meca">Inclusión de librerías MFront a Salome-Meca</h1>
 <p>Al realizar un estudio con Salome-Meca, puede resultar interesante, o de utilidad, añadir algún tipo de comportamiento del material, algo que como se ha visto en los puntos anteriores se puede definir con <code>MFront</code>.</p>
@@ -978,87 +997,87 @@
 <h2 id="generación-de-la-librería-con-mfront">Generación de la librería con <code>MFront</code></h2>
 <p>Para ver un ejemplo de cómo introducir una librería de comportamiento material en un estudio en Salome-Meca, se procederá con la ley de comportamiento viscoplástico de Lemaitre, cuyo modelo escrito de forma implícita en <code>MFront</code> será el que se muestra en la Ilustración 12 que puede ser escrito con un editor de texto genérico, y luego se guardará el archivo con la extensión ’<em>.mfront’</em>:</p>
 <figure>
-<img src="img/tutorial-spanish-12.png" alt="Ilustración 12: Comportamiento viscoplastico de Lemaitre Lemaitre.mfront" style="width:4.19915in;height:4.77405in" /><figcaption>Ilustración 12: Comportamiento viscoplastico de Lemaitre <code>Lemaitre.mfront</code></figcaption>
+<img src="img/tutorial-spanish-12.png" style="width:4.19915in;height:4.77405in" alt="Ilustración 12: Comportamiento viscoplastico de Lemaitre Lemaitre.mfront" /><figcaption aria-hidden="true">Ilustración 12: Comportamiento viscoplastico de Lemaitre <code>Lemaitre.mfront</code></figcaption>
 </figure>
-<p>La compilación del archivo se ejecutará a través del Terminal, donde con el comando `–interface&quot; se le indica el lenguaje destino con el que se quiere usar la librería.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb70-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=aster Lemaitre.mfront</a></code></pre></div>
+<p>La compilación del archivo se ejecutará a través del Terminal, donde con el comando `–interface" se le indica el lenguaje destino con el que se quiere usar la librería.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>aster Lemaitre.mfront</span></code></pre></div>
 <p>Una vez compilado el archivo, si no hay ningún error en él, <code>MFront</code> genera dos nuevos directorios en el directorio actual para almacenar los archivos generados como se puede ver en la Ilustración 13</p>
 <figure>
-<img src="img/tutorial-spanish-13.png" alt="Ilustración 13: Generación de carpetas al compilar" style="width:3.94082in;height:2.03001in" /><figcaption>Ilustración 13: Generación de carpetas al compilar</figcaption>
+<img src="img/tutorial-spanish-13.png" style="width:3.94082in;height:2.03001in" alt="Ilustración 13: Generación de carpetas al compilar" /><figcaption aria-hidden="true">Ilustración 13: Generación de carpetas al compilar</figcaption>
 </figure>
 <p>La librería generada necesaria para su uso en Salome-Meca, se encuentra dentro del directorio <code>src</code> y se llama <em><code>libAsterBehaviour.so</code></em>.</p>
 <h2 id="generación-de-un-modelo-de-estudio-geométrico-con-salome-meca">Generación de un modelo de estudio geométrico con Salome Meca</h2>
 <p>Antes de incluir la librería generada en el punto anterior, se debe generar el modelo que se quiere estudiar en Salome-Meca.</p>
 <p>Para ello, se debe ejecutar desde el terminal Salome-Meca desde el directorio donde está instalado (generalmente en <em>/root/salome_meca/appli_V2016/</em>):</p>
 <p>:/root/salome_meca/appli_V2016 $ ./salome</p>
-<p>Una vez se haya cargado Salome-Meca, su pantalla inicial será como la que se muestra en la Ilustración 14, donde se puede ver que en la parte superior se encuentran las herramientas básicas de cualquier programa (<em>‘nuevo documento’, ‘abrir documento’, ‘guardar’,</em> etc.), y a la izquierda de estas herramientas, se encuentran los distintos módulos disponibles de Salome-Meca, seleccionables desde el menú desplegable, o directamente desde los botones a la derecha de este.</p>
+<p>Una vez se haya cargado Salome-Meca, su pantalla inicial será como la que se muestra en la Ilustración 14, donde se puede ver que en la parte superior se encuentran las herramientas básicas de cualquier programa (<em>‘nuevo documento,’ ‘abrir documento,’ ‘guardar,’</em> etc.), y a la izquierda de estas herramientas, se encuentran los distintos módulos disponibles de Salome-Meca, seleccionables desde el menú desplegable, o directamente desde los botones a la derecha de este.</p>
 <p>Estas herramientas son: <code>Aster,</code>JobManager, <code>Geometry,</code>Parametric, <code>Mesh,</code>Homard, <code>ParaVis,</code>ADAO, <code>MED,</code>Eficas, <code>YACS,</code>Europlexus`.</p>
 <p>Y finalmente, al pie del programa, se puede encontrar una consola Python para poder trabajar en lenguaje Python.</p>
 <figure>
-<img src="img/tutorial-spanish-14.png" alt="Ilustración 14: Pantalla inicial de Salome-Meca" style="width:5.89097in;height:3.72292in" /><figcaption>Ilustración 14: Pantalla inicial de Salome-Meca</figcaption>
+<img src="img/tutorial-spanish-14.png" style="width:5.89097in;height:3.72292in" alt="Ilustración 14: Pantalla inicial de Salome-Meca" /><figcaption aria-hidden="true">Ilustración 14: Pantalla inicial de Salome-Meca</figcaption>
 </figure>
 <p>Para empezar a crear un modelo de estudio útil para el ejemplo actual, se deberá seleccionar el módulo <code>Geometry</code> donde aparecerá un dialogo donde preguntará si se desea crear un nuevo proyecto, o abrir uno ya existente.</p>
 <p>Una vez activado el módulo Geometry, en la barra de menús principal, se clicará sobre el menú New Entity Primitives Box, y emergerá una ventana de dialogo en la que se deberá seleccionar el segundo algoritmo del apartado Box y se dejará el resto tal y como aparece en la Ilustración 15 y para finalizar se clicará el botón de Apply and Close.</p>
 <figure>
-<img src="img/tutorial-spanish-15.png" alt="Ilustración 15: Módulo Geometry, construcción de un cubo" style="width:2.62803in;height:2.19233in" /><figcaption>Ilustración 15: Módulo Geometry, construcción de un cubo</figcaption>
+<img src="img/tutorial-spanish-15.png" style="width:2.62803in;height:2.19233in" alt="Ilustración 15: Módulo Geometry, construcción de un cubo" /><figcaption aria-hidden="true">Ilustración 15: Módulo Geometry, construcción de un cubo</figcaption>
 </figure>
 <p>Esto generará un cubo de las dimensiones especificadas, teniendo el aspecto de la Ilustración 16.</p>
 <figure>
-<img src="img/tutorial-spanish-16.png" alt="Ilustración 16: Generación de un cubo en el módulo Geometry" style="width:5.89097in;height:4.32639in" /><figcaption>Ilustración 16: Generación de un cubo en el módulo Geometry</figcaption>
+<img src="img/tutorial-spanish-16.png" style="width:5.89097in;height:4.32639in" alt="Ilustración 16: Generación de un cubo en el módulo Geometry" /><figcaption aria-hidden="true">Ilustración 16: Generación de un cubo en el módulo Geometry</figcaption>
 </figure>
 <p>El siguiente paso consiste en crear grupos que serán útiles para el análisis de elementos finitos. Para ello se debe seleccionar la opción New Entity Group Create Group.</p>
 <p>Se deberá seleccionar la tercera opción en Shape Type para poder seleccionar una cara entera del cubo. En el campo <code>Name</code> se le pondrá el nombre que se le quiera dar al grupo, en este caso <code>Fix</code>. En el campo Main Shape, si la geometría creada ya estaba seleccionada, aparecerá en el campo automáticamente, sino, tan solo es necesario clicar sobre el botón de la flecha y seleccionar la geometría sobre la que se quieren crear los grupos. A continuación, se rotará el cubo hasta que sea visible la cara inferior de este para poder seleccionarla, y se clicará sobre el botón Add para que se pueda añadir la selección como aparece en la Ilustración 17, se clicará sobre el botón inferior Apply, y se repetirá este proceso cambiando el campo Name a <code>Press</code>, y seleccionando la cara superior del cubo. Finalmente, ya se puede clicar sobre Apply and Close.</p>
 <figure>
-<img src="img/tutorial-spanish-17.png" alt="Ilustración 17: Módulo Geometry, creación grupo" style="width:2.62803in;height:3.48951in" /><figcaption>Ilustración 17: Módulo Geometry, creación grupo</figcaption>
+<img src="img/tutorial-spanish-17.png" style="width:2.62803in;height:3.48951in" alt="Ilustración 17: Módulo Geometry, creación grupo" /><figcaption aria-hidden="true">Ilustración 17: Módulo Geometry, creación grupo</figcaption>
 </figure>
 <p>Esto habrá creado los dos grupos sobre la geometría generada y el navegador de objetos deberá tener el siguiente aspecto de la Ilustración 18.</p>
 <figure>
-<img src="img/tutorial-spanish-18.png" alt="Ilustración 18: Módulo Geometry, Object Browser" style="width:1.83853in;height:1.38397in" /><figcaption>Ilustración 18: Módulo Geometry, Object Browser</figcaption>
+<img src="img/tutorial-spanish-18.png" style="width:1.83853in;height:1.38397in" alt="Ilustración 18: Módulo Geometry, Object Browser" /><figcaption aria-hidden="true">Ilustración 18: Módulo Geometry, Object Browser</figcaption>
 </figure>
 <p>Y con ello quedará concluida la creación del objeto de estudio sobre el módulo de geometría.</p>
 <h2 id="mallado-del-modelo">Mallado del modelo</h2>
 <p>El siguiente paso ahora, es crear un mallado del objeto creado en el punto anterior para que se pueda hacer el estudio correspondiente, para ello se debe seleccionar el módulo <code>Mesh</code> de Salome-Meca.</p>
 <p>Una vez cargado el módulo, se creará el mallado desde el menú principal Mesh Create Mesh lo cual mostrará la ventana de la Ilustración 19 donde se seleccionará la geometría creada en el punto anterior <code>Box_1</code>, y se seleccionará en el campo Algorithm el algoritmo Netgen 1D-2D-3D, y en el campo Hypothesis se deberá clicar sobre el botón con forma de tuerca a la derecha de este campo, y se seleccionará la opción NETGEN 3D Parameters con lo que emergerá otra ventana con una serie de parámetros que se dejarán en su valor predeterminado. Finalmente, se podrá clicar sobre el botón de Apply and Close.</p>
 <figure>
-<img src="img/tutorial-spanish-19.png" alt="Ilustración 19: Módulo Mesh, crear mallado" style="width:3.37803in;height:2.54338in" /><figcaption>Ilustración 19: Módulo Mesh, crear mallado</figcaption>
+<img src="img/tutorial-spanish-19.png" style="width:3.37803in;height:2.54338in" alt="Ilustración 19: Módulo Mesh, crear mallado" /><figcaption aria-hidden="true">Ilustración 19: Módulo Mesh, crear mallado</figcaption>
 </figure>
 <p>Esto añadirá los campos <code>Hypotheses</code>, `<code>Algorithms</code> y <code>Mesh_1</code> al navegador de objetos.</p>
 <figure>
-<img src="img/tutorial-spanish-20.png" alt="Ilustración 20: Módulo Mesh, Object Browser" style="width:1.87254in;height:1.867in" /><figcaption>Ilustración 20: Módulo Mesh, Object Browser</figcaption>
+<img src="img/tutorial-spanish-20.png" style="width:1.87254in;height:1.867in" alt="Ilustración 20: Módulo Mesh, Object Browser" /><figcaption aria-hidden="true">Ilustración 20: Módulo Mesh, Object Browser</figcaption>
 </figure>
 <p>Ahora, haciendo clic derecho sobre el campo <code>Mesh_1</code> que aparece seleccionado en la Ilustración 20, se deberá clicar sobre la opción Compute con el dibujo de una tuerca, que también se puede clicar sobre el botón con este mismo dibujo que aparece debajo del menú principal desplegable de los módulos de seleccionables.</p>
 <p>Con esto, aparecerá una ventana como la de la Ilustración 21 con los resultados de la computación del mallado.</p>
 <figure>
-<img src="img/tutorial-spanish-21.png" alt="Ilustración 21: Módulo Mesh, computación del mallado" style="width:3.23228in;height:3.33537in" /><figcaption>Ilustración 21: Módulo Mesh, computación del mallado</figcaption>
+<img src="img/tutorial-spanish-21.png" style="width:3.23228in;height:3.33537in" alt="Ilustración 21: Módulo Mesh, computación del mallado" /><figcaption aria-hidden="true">Ilustración 21: Módulo Mesh, computación del mallado</figcaption>
 </figure>
 <p>Quedando el objeto creado en el módulo de geometría mallado como aparece en la Ilustración 22.</p>
 <figure>
-<img src="img/tutorial-spanish-22.png" alt="Ilustración 22: Módulo Mesh, resultado" style="width:5.89097in;height:3.55417in" /><figcaption>Ilustración 22: Módulo Mesh, resultado</figcaption>
+<img src="img/tutorial-spanish-22.png" style="width:5.89097in;height:3.55417in" alt="Ilustración 22: Módulo Mesh, resultado" /><figcaption aria-hidden="true">Ilustración 22: Módulo Mesh, resultado</figcaption>
 </figure>
 <h2 id="cálculo-mecánico-con-el-módulo-aster">Cálculo mecánico con el módulo Aster</h2>
 <p>Habiendo creado el modelo geométrico y habiéndole dado grupos geométricos, y luego, habiendo creado un mallado 3D del modelo geométrico que será usado para el análisis de elementos finitos, ahora le toca el turno del módulo Aster de Salome-Meca.</p>
 <p>Para ello, se debe seleccionar dicho módulo clicando sobre <code>Aster</code> en el menú desplegable.</p>
 <p>Asegurándose de que <code>Mesh_1</code> sigue seleccionado, se deberá acceder desde la barra de menús principal a la opción Aster Wizards Linear elastic, esto abrirá el cuadro de dialogo de la Ilustración 23 done pide la definición del modelo.</p>
 <figure>
-<img src="img/tutorial-spanish-23.png" alt="Ilustración 23: Módulo Aster, definición del modelo" style="width:3.00303in;height:2.32287in" /><figcaption>Ilustración 23: Módulo Aster, definición del modelo</figcaption>
+<img src="img/tutorial-spanish-23.png" style="width:3.00303in;height:2.32287in" alt="Ilustración 23: Módulo Aster, definición del modelo" /><figcaption aria-hidden="true">Ilustración 23: Módulo Aster, definición del modelo</figcaption>
 </figure>
 <p>En el siguiente paso (Ilustración 24), pide seleccionar el mallado sobre el que se desea hacer el estudio.</p>
 <figure>
-<img src="img/tutorial-spanish-24.png" alt="Ilustración 24: Módulo Aster, selección mallado" style="width:3.00303in;height:2.33789in" /><figcaption>Ilustración 24: Módulo Aster, selección mallado</figcaption>
+<img src="img/tutorial-spanish-24.png" style="width:3.00303in;height:2.33789in" alt="Ilustración 24: Módulo Aster, selección mallado" /><figcaption aria-hidden="true">Ilustración 24: Módulo Aster, selección mallado</figcaption>
 </figure>
 <p>En el siguiente cuadro de dialogo (Ilustración 25), se deben indicar el valor de las propiedades del material.</p>
 <figure>
-<img src="img/tutorial-spanish-25.png" alt="Ilustración 25: Módulo Aster, propiedades del material" style="width:3.0262in;height:2.34964in" /><figcaption>Ilustración 25: Módulo Aster, propiedades del material</figcaption>
+<img src="img/tutorial-spanish-25.png" style="width:3.0262in;height:2.34964in" alt="Ilustración 25: Módulo Aster, propiedades del material" /><figcaption aria-hidden="true">Ilustración 25: Módulo Aster, propiedades del material</figcaption>
 </figure>
 <p>En los dos siguientes pasos (Ilustración 26), se pueden añadir condiciones de contorno al estudio.</p>
-<p><img src="img/tutorial-spanish-26.png" style="width:2.88968in;height:2.23043in" /> <img src="img/tutorial-spanish-27.png" alt="Ilustración 26:Módulo Aster, condiciones de contorno" style="width:2.86194in;height:2.21845in" /></p>
+<p><img src="img/tutorial-spanish-26.png" style="width:2.88968in;height:2.23043in" /> <img src="img/tutorial-spanish-27.png" style="width:2.86194in;height:2.21845in" alt="Ilustración 26:Módulo Aster, condiciones de contorno" /></p>
 <p>Y finalmente, en el último paso, se le debe indicar el nombre del archivo de comandos <code>.comm</code></p>
 <figure>
-<img src="img/tutorial-spanish-28.png" alt="Ilustración 27: Módulo Aster, nombre archivo .comm" style="width:2.87803in;height:2.24058in" /><figcaption>Ilustración 27: Módulo Aster, nombre archivo .comm</figcaption>
+<img src="img/tutorial-spanish-28.png" style="width:2.87803in;height:2.24058in" alt="Ilustración 27: Módulo Aster, nombre archivo .comm" /><figcaption aria-hidden="true">Ilustración 27: Módulo Aster, nombre archivo .comm</figcaption>
 </figure>
 <p>Habiendo creado el estudio, aparecerán los nuevos campos (Ilustración 28) en el navegador de objetos.</p>
 <figure>
-<img src="img/tutorial-spanish-29.png" alt="Ilustración 28: módulo Aster, Object browser" style="width:1.94042in;height:2.3742in" /><figcaption>Ilustración 28: módulo Aster, Object browser</figcaption>
+<img src="img/tutorial-spanish-29.png" style="width:1.94042in;height:2.3742in" alt="Ilustración 28: módulo Aster, Object browser" /><figcaption aria-hidden="true">Ilustración 28: módulo Aster, Object browser</figcaption>
 </figure>
 <p>Y finalmente, se puede ejecutar el estudio haciendo clic derecho sobre el estudio seleccionado en la ilustración anterior (<code>linear-static</code>), y haciendo clic sobre la opción <code>Run</code>. Esto entregará (después de pasar unos instantes de computación) un mensaje de información, el cual indicará si todo ha salido bien, o de lo contrario mostrará un mensaje de error. Además, este mensaje indica que, si todo ha salido bien, se podrán ver los resultados de la simulación en el módulo ParaViS.</p>
 <ol type="1">
@@ -1068,11 +1087,11 @@
 <p>Si al activar el módulo ParaViS, en el lado izquierdo del programa sigue viéndose tan solo el navegador de objetos, será necesario añadir dos vistas adicionales desde el menú principal View Windows <code>Pipeline Browser</code> y <code>Display</code>.</p>
 <p>Sobre la nueva ventana que se añadirá al lado izquierdo del programa llamada <code>Pipeline Browser</code>, se podrá hacer clic derecho y luego clic sobre la opción Open para añadir el archivo de resultados <code>linear-static.rmed</code> generado por el módulo Aster como aparece en la Ilustración 29.</p>
 <figure>
-<img src="img/tutorial-spanish-30.png" alt="Ilustración 29: Módulo ParaViS, Pipeline browser" style="width:1.75303in;height:1.92442in" /><figcaption>Ilustración 29: Módulo ParaViS, Pipeline browser</figcaption>
+<img src="img/tutorial-spanish-30.png" style="width:1.75303in;height:1.92442in" alt="Ilustración 29: Módulo ParaViS, Pipeline browser" /><figcaption aria-hidden="true">Ilustración 29: Módulo ParaViS, Pipeline browser</figcaption>
 </figure>
 <p>Una vez añadido el archivo de resultados, haciendo clic sobre el icono situado a su izquierda con forma de ojo, se podrán ver los resultados seleccionándolos desde el campo <code>Coloring</code> de la ventana <code>Display</code> como se muestra en la Ilustración 30.</p>
 <figure>
-<img src="img/tutorial-spanish-31.png" alt="Ilustración 30: Módulo ParaViS, visualización de resultados" style="width:5.25303in;height:3.17333in" /><figcaption>Ilustración 30: Módulo ParaViS, visualización de resultados</figcaption>
+<img src="img/tutorial-spanish-31.png" style="width:5.25303in;height:3.17333in" alt="Ilustración 30: Módulo ParaViS, visualización de resultados" /><figcaption aria-hidden="true">Ilustración 30: Módulo ParaViS, visualización de resultados</figcaption>
 </figure>
 <h2 id="modificación-del-archivo-.comm-para-incluir-la-librería">Modificación del archivo .comm para incluir la librería</h2>
 <p>Para poder incluir la librería generada con <code>MFront</code>, se debe modificar el archivo de comandos <code>.comm</code> creado en el apartado ’</p>
@@ -1081,27 +1100,27 @@
 <p>El primer paso para la inclusión de librerías <code>MFront</code>, es asegurarse que la versión con la que se está trabajando de Aster sea compatible con <code>MFront</code>, es decir, si la versión instalada de Aster en Salome-Meca es superior a la 13.2 no habrá ningún problema, pero en cambio, en la versión de Salome-Meca instalada para este trabajo, la versión de Aster 13.2 estaba en fase de test, y por defecto trabajaba con una versión anterior no compatible con <code>MFront</code>.</p>
 <p>Para poder trabajar con la versión 13.2, con el módulo <code>Aster</code> activado, se deberá hacer clic derecho sobre el estudio <em>linear-static</em> en el navegador de objetos y hacer clic sobre la opción Edit, con lo que aparecerá la ventana de la Ilustración 31 donde se deberá seleccionar la versión 13.2 en el campo Aster Version.</p>
 <figure>
-<img src="img/tutorial-spanish-32.png" alt="Ilustración 31: Módulo Aster, asignación de la versión Aster" style="width:4.25303in;height:2.84003in" /><figcaption>Ilustración 31: Módulo Aster, asignación de la versión Aster</figcaption>
+<img src="img/tutorial-spanish-32.png" style="width:4.25303in;height:2.84003in" alt="Ilustración 31: Módulo Aster, asignación de la versión Aster" /><figcaption aria-hidden="true">Ilustración 31: Módulo Aster, asignación de la versión Aster</figcaption>
 </figure>
 <p>Ahora, clicando sobre el estudio <em>linear-static</em> del navegador, aparecerán dos campos relativos a este. Donde desplegando el campo <code>Data</code> aparecerá el archivo de comandos referente al estudio configurado en el punto ’</p>
 <p>Cálculo mecánico con el módulo Aster’. Haciendo clic derecho sobre este archivo se deberá hacer clic sobre la opción Run Eficas que, mostrará el siguiente mensaje (Ilustración 32), donde se deberá seleccionar la versión 13.2 de Aster.</p>
 <figure>
-<img src="img/tutorial-spanish-33.png" alt="Ilustración 32: Módulo Eficas, selección de versión" style="width:3.00303in;height:1.93499in" /><figcaption>Ilustración 32: Módulo Eficas, selección de versión</figcaption>
+<img src="img/tutorial-spanish-33.png" style="width:3.00303in;height:1.93499in" alt="Ilustración 32: Módulo Eficas, selección de versión" /><figcaption aria-hidden="true">Ilustración 32: Módulo Eficas, selección de versión</figcaption>
 </figure>
 <p>Una vez ya se ha seleccionado la opción, se ejecutará el programa <code>Eficas</code> y tendrá el aspecto de la Ilustración 33, donde se puede ver en el apartado izquierdo, los comandos incluidos en el archivo actual, cada uno de ellos desplegable para mostrar sus parámetros adicionales, en el apartado central se muestran las instrucciones o parámetros disponibles, y finalmente en el derecho las reglas de uso de la instrucción o parámetro seleccionado.</p>
 <p>En la parte superior del bloque derecho aparecen tres pestañas. La primera (Add Keyword) es la que indica las instrucciones o parámetros disponibles según el comando seleccionado en la columna izquierda. La función de la segunda pestaña (Concept’s Name) es la de asignar un nombre al comando seleccionado. Y finalmente, la función de la última pestaña (New Command) es para añadir nuevos comandos.</p>
 <figure>
-<img src="img/tutorial-spanish-34.png" alt="Ilustración 33: Módulo Eficas" style="width:5.89097in;height:3.58403in" /><figcaption>Ilustración 33: Módulo Eficas</figcaption>
+<img src="img/tutorial-spanish-34.png" style="width:5.89097in;height:3.58403in" alt="Ilustración 33: Módulo Eficas" /><figcaption aria-hidden="true">Ilustración 33: Módulo Eficas</figcaption>
 </figure>
 <p>Además, haciendo clic derecho sobre la columna izquierda (donde aparecen los comandos) se pueden añadir parámetros o comentarios. Así que se puede empezar añadiendo los parámetros necesarios en el comportamiento preparado con <code>MFront</code> que se quiera añadir al estudio como se puede ver en la Ilustración 34.</p>
 <figure>
-<img src="img/tutorial-spanish-35.png" alt="Ilustración 34: Módulo Eficas, inclusión de parámetros" style="width:5.90069in;height:1.27708in" /><figcaption>Ilustración 34: Módulo Eficas, inclusión de parámetros</figcaption>
+<img src="img/tutorial-spanish-35.png" style="width:5.90069in;height:1.27708in" alt="Ilustración 34: Módulo Eficas, inclusión de parámetros" /><figcaption aria-hidden="true">Ilustración 34: Módulo Eficas, inclusión de parámetros</figcaption>
 </figure>
 <p>El siguiente comando DEFI_MATERIAU que consiste en la definición de los parámetros describiendo el comportamiento de un material, ahora tiene definidos el parámetro E (coeficiente de Young) y NU (Poisson) que ya se habían definido al crear el estudio lineal elástico con Aster.</p>
 <p>En este comando se deberán añadir los parámetros asociados al comportamiento añadido con <code>MFront</code>, para ello se deberá añadir la instrucción llamada MFRONT de la columna central cuando está seleccionado el comando <code>DEFI_MATERIAU</code>. Añadida la instrucción, aparecerá en la columna central un solo parámetro disponible (<code>LISTE_COEF</code>) el cual se deberá añadir también.</p>
 <p>A continuación, se pueden añadir los valores de forma manual, añadiendo los valores a la lista (si no se hubieran definido previamente los parámetros Young, poisson, m, etc…), o se podrán añadir los valores directamente de los parámetros haciendo clic sobre el botón Parameters. Esto mostrará una lista de los parámetros definidos anteriormente y se podrán seleccionar los que interese y se deberá hacer clic sobre Validate una vez ya estén seleccionados.</p>
 <figure>
-<img src="img/tutorial-spanish-36.png" alt="Ilustración 35: Módulo Eficas, DEFI_MATERIAU" style="width:5.89097in;height:2.04931in" /><figcaption>Ilustración 35: Módulo Eficas, <code>DEFI_MATERIAU</code></figcaption>
+<img src="img/tutorial-spanish-36.png" style="width:5.89097in;height:2.04931in" alt="Ilustración 35: Módulo Eficas, DEFI_MATERIAU" /><figcaption aria-hidden="true">Ilustración 35: Módulo Eficas, <code>DEFI_MATERIAU</code></figcaption>
 </figure>
 <p>Mientras se está editando un comando, las figuras (cuadrados, rombos y círculos) situados a la izquierda de cada parámetro o instrucción aparecen en amarillo y en rojo para indicar que aún no está completa o es errónea la edición del comando como se puede observar en la Ilustración 35. Cuando la edición esté completa y sea correcta, estos elementos aparecerán de color verde. Hay que recordar, que al final de la edición de un nuevo comando, Eficas requiere la asignación de un nombre del comando, en el caso de <code>DEFI_MATERIAU</code> viene predefinido como <code>MA</code>.</p>
 <p>Ahora, el siguiente punto consiste en añadir al fichero de comandos la librería creada con <code>MFront</code>.</p>
@@ -1109,32 +1128,32 @@
 <p>En el primero, <code>LIBRARIE</code> se le deberá indicar la ruta completa de la librería que se desea añadir al estudio como se muestra en la Ilustración 36.</p>
 <p>Y en el segundo campo, <code>NOM_ROUTINE</code>, permite especificar el modelo de comportamiento elegido, lo cual es útil si se han compilado varias leyes juntas. Este nombre se construye con la concatenación de <code>aster</code> con el nombre definido en la instrucción <code>@Behaviour</code> del archivo <code>MFront</code>.</p>
 <figure>
-<img src="img/tutorial-spanish-37.png" alt="Ilustración 36: Módulo Eficas, STAT_NON_LINE" style="width:5.90069in;height:2.88125in" /><figcaption>Ilustración 36: Módulo Eficas, <code>STAT_NON_LINE</code></figcaption>
+<img src="img/tutorial-spanish-37.png" style="width:5.90069in;height:2.88125in" alt="Ilustración 36: Módulo Eficas, STAT_NON_LINE" /><figcaption aria-hidden="true">Ilustración 36: Módulo Eficas, <code>STAT_NON_LINE</code></figcaption>
 </figure>
 <p>El último paso será añadir los cálculos que se deseen realizar en el comando <code>CALC_CHAMP</code> indicándole en el campo RESULTAT que se harán sobre el comportamiento añadido anterior (<code>RESM</code>) e indicándole dichos análisis en el campo <code>b_non_lin</code>. Y finalmente se deberán añadir estos análisis a la impresión de resultados en el comando <code>IMPR_RESU</code> incluyéndolos en el campo b_extrac como se muestra en la Ilustración 37.</p>
 <figure>
-<img src="img/tutorial-spanish-38.png" alt="Ilustración 37: Módulo Eficas, CALC_CHAMP y IMPR_RESU" style="width:4.25303in;height:2.78297in" /><figcaption>Ilustración 37: Módulo Eficas, <code>CALC_CHAMP</code> y <code>IMPR_RESU</code></figcaption>
+<img src="img/tutorial-spanish-38.png" style="width:4.25303in;height:2.78297in" alt="Ilustración 37: Módulo Eficas, CALC_CHAMP y IMPR_RESU" /><figcaption aria-hidden="true">Ilustración 37: Módulo Eficas, <code>CALC_CHAMP</code> y <code>IMPR_RESU</code></figcaption>
 </figure>
 <p>Con esto (guardando el archivo editado <code>.comm</code>), se puede dar por concluida la edición básica del archivo de comandos para la inclusión de la librería del comportamiento editado con <code>MFront</code>, quedando para el usuario la edición del resto de comandos o parámetros del archivo según los intereses de este. (El archivo .comm resultante de este ejemplo está incluido en el “Anexo 4: Archivo de comandos Test_1.”)</p>
 <p>Una vez editado el archivo de comandos, tan solo queda volver al módulo Aster y ejecutar el análisis.</p>
 <p>Si el resultado de la ejecución es satisfactorio (Ilustración 38) tan solo queda ver los resultados en el módulo ParaVis (Ilustración 39)</p>
 <figure>
-<img src="img/tutorial-spanish-39.png" alt="Ilustración 38: Módulo Aster, resultado de la ejecución ‘Success’" style="width:3.62803in;height:0.96357in" /><figcaption>Ilustración 38: Módulo Aster, resultado de la ejecución ‘Success’</figcaption>
+<img src="img/tutorial-spanish-39.png" style="width:3.62803in;height:0.96357in" alt="Ilustración 38: Módulo Aster, resultado de la ejecución ‘Success’" /><figcaption aria-hidden="true">Ilustración 38: Módulo Aster, resultado de la ejecución ‘Success’</figcaption>
 </figure>
 <figure>
-<img src="img/tutorial-spanish-40.png" alt="Ilustración 39: Módulo ParaViS, visualización de resultados nuevos" style="width:5.85802in;height:3.02258in" /><figcaption>Ilustración 39: Módulo ParaViS, visualización de resultados nuevos</figcaption>
+<img src="img/tutorial-spanish-40.png" style="width:5.85802in;height:3.02258in" alt="Ilustración 39: Módulo ParaViS, visualización de resultados nuevos" /><figcaption aria-hidden="true">Ilustración 39: Módulo ParaViS, visualización de resultados nuevos</figcaption>
 </figure>
 <p>Si la ejecución del análisis reporta un mensaje de error (Ilustración 41), se puede consultar el error cometido en el archivo guardado en el directorio (donde se han guardado el resto de los archivos del estudio) con la extensión <code>.resu</code> (Ilustración 41)</p>
 <figure>
-<img src="img/tutorial-spanish-41.png" alt="Ilustración 40: Módulo Aster, resultado de la ejecución ‘Failure’" style="width:3.62803in;height:0.95558in" /><figcaption>Ilustración 40: Módulo Aster, resultado de la ejecución ‘Failure’</figcaption>
+<img src="img/tutorial-spanish-41.png" style="width:3.62803in;height:0.95558in" alt="Ilustración 40: Módulo Aster, resultado de la ejecución ‘Failure’" /><figcaption aria-hidden="true">Ilustración 40: Módulo Aster, resultado de la ejecución ‘Failure’</figcaption>
 </figure>
 <figure>
-<img src="img/tutorial-spanish-42.png" alt="Ilustración 41: Resultados de la ejecución en el archivo ‘linear-static.resu’" style="width:4.45716in;height:2.85674in" /><figcaption>Ilustración 41: Resultados de la ejecución en el archivo ‘linear-static.resu’</figcaption>
+<img src="img/tutorial-spanish-42.png" style="width:4.45716in;height:2.85674in" alt="Ilustración 41: Resultados de la ejecución en el archivo ‘linear-static.resu’" /><figcaption aria-hidden="true">Ilustración 41: Resultados de la ejecución en el archivo ‘linear-static.resu’</figcaption>
 </figure>
-<h1 id="anexo-1-instalación-de-los-prerequisitos" class="ListParagraph">Anexo 1: Instalación de los prerequisitos</h1>
+<h1 class="ListParagraph" id="anexo-1-instalación-de-los-prerequisitos">Anexo 1: Instalación de los prerequisitos</h1>
 <p>El primero a tener en cuenta, es que, para utilizar los programas necesarios de este documento, se necesitará trabajar en un entorno Linux, por lo que, en el caso personal, se ha instalado un sistema Ubuntu desde una máquina virtual en un equipo Mac.</p>
 <p>En este punto, y los siguientes, para evitar problemas de accesos a determinados archivos o carpetas, se trabajará como <code>root</code> desde el Terminal del sistema:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb71-1" data-line-number="1">$ <span class="fu">sudo</span> –i</a></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo –i</span></code></pre></div>
 <p>Para el correcto funcionamiento de los programas que se mencionan en este documento, es necesaria la instalación de los siguientes paquetes antes de instalar los programas en cuestión:</p>
 <ul>
 <li><code>gcc</code></li>
@@ -1158,100 +1177,100 @@
 <li><code>zlib1g-dev</code></li>
 </ul>
 <p>Cada uno de estos paquetes se instalará usando el siguiente comando desde el terminal (trabajando como <code>root</code>):</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb72-1" data-line-number="1">$ <span class="ex">apt</span> install [nombre_paquete]</a></code></pre></div>
-<h1 id="anexo-2-instalación-de-tfelmfront" class="ListParagraph">Anexo 2: Instalación de TFEL/MFRONT</h1>
+<div class="sourceCode" id="cb72"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> apt install [nombre_paquete]</span></code></pre></div>
+<h1 class="ListParagraph" id="anexo-2-instalación-de-tfelmfront">Anexo 2: Instalación de TFEL/MFRONT</h1>
 <p>Para la instalación del paquete de TFEL/MFRONT hay que tener en cuenta que TFEL ya forma parte de las versiones superiores a la 12.03 de Code-Aster y a las superiores a la 2015.1 de Salome-Meca, por lo que si ya se dispone de alguno de estos productos no será necesaria su instalación.</p>
 <p>Se podrá descargar la última versión lanzada del producto desde la página dedicada a la descarga de archivos de TFEL (<a href="https://sourceforge.net/projects/tfel/files/"><em>https://sourceforge.net/projects/tfel/files/)</em></a>), donde a fecha de realización de este trabajo, la última versión disponible era la <code>tfel-2.0.4</code>.</p>
 <p>Una vez ya se haya descargado el archivo <code>tfel-2.0.4.tar.bz2</code>, se accederá al directorio de descargas:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb73-1" data-line-number="1">$ <span class="bu">cd</span> /home/*<span class="dt">\[</span>nombre_usuario<span class="dt">\]</span>*/Descargas</a></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd /home/<span class="pp">*</span><span class="dt">\[</span>nombre_usuario\]<span class="pp">*</span>/Descargas</span></code></pre></div>
 <p>Y se descomprimirá el archivo descargado:</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb74-1" data-line-number="1">$ <span class="fu">tar</span> xvf tfel-2.0.4.tar.bz2</a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tar xvf tfel-2.0.4.tar.bz2</span></code></pre></div>
 <p>Antes de proceder a la instalación del paquete descargado, hay que asegurarse que la versión de <code>cmake</code> sea superior a la 2.8:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb75-1" data-line-number="1">$ <span class="fu">cmake</span> --version</a></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--version</span></span></code></pre></div>
 <p>Si se cumple, ya se puede proceder a la instalación:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb76-1" data-line-number="1">$ <span class="fu">cmake</span> <span class="dt">\[</span>opciones<span class="dt">\]</span></a>
-<a class="sourceLine" id="cb76-2" data-line-number="2">$ <span class="fu">make</span></a>
-<a class="sourceLine" id="cb76-3" data-line-number="3">$ <span class="fu">make</span> install</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="dt">\[</span>opciones<span class="dt">\]</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make install</span></code></pre></div>
 <p>Donde las opciones serán según las preferencias del usuario, por ejemplo, una instalación recomendada sería:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb77-1" data-line-number="1">$ <span class="fu">cmake</span> –DCMAKE_BUILD_TYPE=Release –Dlocal-castem-header=ON</a>
-<a class="sourceLine" id="cb77-2" data-line-number="2">–<span class="ex">Denable-fortran</span>=ON –Denable-aster=ON –DCMAKE_INSTALL_PREFIX=</a>
-<a class="sourceLine" id="cb77-3" data-line-number="3"><span class="ex">/root/tfel</span></a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake –DCMAKE_BUILD_TYPE=Release –Dlocal-castem-header=ON</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="ex">–Denable-fortran=ON</span> –Denable-aster=ON –DCMAKE_INSTALL_PREFIX=</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/root/tfel</span></span></code></pre></div>
 <p>Finalmente, para asegurarse que la instalación se ha realizado correctamente, tan solo queda probarlo:</p>
 <p><img src="img/tutorial-spanish-43.png" style="width:5.79279in;height:0.80169in" /></p>
-<h1 id="anexo-3-instalación-de-salome-meca" class="ListParagraph">Anexo 3: Instalación de Salome-Meca</h1>
+<h1 class="ListParagraph" id="anexo-3-instalación-de-salome-meca">Anexo 3: Instalación de Salome-Meca</h1>
 <p>Para la instalación de Salome-Meca se podrá efectuar la descarga del archivo desde la página oficial de Code-Aster (<a href="http://www.code-aster.org">www.code-aster.org</a>) donde en el menú principal se deberá acceder a la sección de descargas (<code>Download</code> o <code>Téléchargement</code>).</p>
 <p>La sección de descargar dispone de un menú a la izquierda desde donde se podrá acceder a la sección <em>Salome-Meca</em> y donde ya se podrá descargar las distintas versiones lanzadas de Salome-Meca. La última al día de la elaboración de este documento, <code>Salome-Meca 2016</code>.</p>
 <p>Entonces, una vez ya descargado el paquete deseado, se accede a la carpeta de descargas y se deberá descomprimir el binario descargado:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb78-1" data-line-number="1">$ <span class="fu">tar</span> xvf SALOME-MECA-2016-LGPL-1.tgz</a></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tar xvf SALOME-MECA-2016-LGPL-1.tgz</span></code></pre></div>
 <p>Y cuando se haya descomprimido, se puede ejecutar el instalador:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb79-1" data-line-number="1">$ <span class="ex">./SMECA_V2016_LGPL.run</span></a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./SMECA_V2016_LGPL.run</span></code></pre></div>
 <p>Cuando se haya instalado se podrá acceder donde se haya instalado (por defecto /root/salome_meca), y desde ese directorio, para ejecutar-lo:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb80-1" data-line-number="1">$ <span class="bu">cd</span> appli_V2016</a>
-<a class="sourceLine" id="cb80-2" data-line-number="2">$ <span class="ex">./salome</span></a></code></pre></div>
-<h1 id="anexo-5-archivo-de-comandos-test_1.comm" class="ListParagraph">Anexo 4: Archivo de comandos Test_1.comm</h1>
+<div class="sourceCode" id="cb80"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd appli_V2016</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./salome</span></code></pre></div>
+<h1 class="ListParagraph" id="anexo-5-archivo-de-comandos-test_1.comm">Anexo 4: Archivo de comandos Test_1.comm</h1>
 <p>En este anexo se incluye el archivo resultante del apartado “Modificación del archivo .comm para incluir la librería” donde se modifica un archivo .comm ya generado con la ayuda del programa <code>EFICAS Aster</code> para poder incluir en él una librería ya generada con <code>MFront</code>.</p>
 <p>En él se puede ver que los comandos importantes donde hay que fijarse para la inclusión de una librería en el estudio son:</p>
 <p><code>DEFI_MATERIAU</code>: donde se le deberá indicar que trabajará con unos materiales definidos por MFRONT.</p>
 <p><code>STAT_NON_LINE</code> (o cualquier otro comando de computación): donde se le deberá indicar la ruta completa de donde se encuentra la librería en cuestión.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb81-1" data-line-number="1">DEBUT()<span class="op">;</span></a>
-<a class="sourceLine" id="cb81-2" data-line-number="2">young <span class="op">=</span> <span class="dv">210000</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb81-3" data-line-number="3">poisson <span class="op">=</span> <span class="fl">0.3</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb81-4" data-line-number="4">m <span class="op">=</span> <span class="dv">11</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb81-5" data-line-number="5">un_sur_k <span class="op">=</span> <span class="fl">0.00032840723</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb81-6" data-line-number="6">un_sur_m <span class="op">=</span> <span class="fl">0.178571429</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb81-7" data-line-number="7">L_REEL<span class="op">=</span>DEFI_LIST_REEL(DEBUT<span class="op">=</span><span class="fl">0.0</span>,</a>
-<a class="sourceLine" id="cb81-8" data-line-number="8">                      INTERVALLE<span class="op">=</span>(_F(JUSQU_A<span class="op">=</span><span class="fl">0.02</span>,</a>
-<a class="sourceLine" id="cb81-9" data-line-number="9">                                     PAS<span class="op">=</span><span class="fl">0.002</span>,),</a>
-<a class="sourceLine" id="cb81-10" data-line-number="10">                                  _F(JUSQU_A<span class="op">=</span><span class="fl">0.06</span>,</a>
-<a class="sourceLine" id="cb81-11" data-line-number="11">                                     PAS<span class="op">=</span><span class="fl">0.004</span>,),</a>
-<a class="sourceLine" id="cb81-12" data-line-number="12">                                  _F(JUSQU_A<span class="op">=</span><span class="fl">0.24</span>,</a>
-<a class="sourceLine" id="cb81-13" data-line-number="13">                                     PAS<span class="op">=</span><span class="fl">0.01</span>,),),)<span class="op">;</span></a>
-<a class="sourceLine" id="cb81-14" data-line-number="14">L_INST<span class="op">=</span>DEFI_LIST_INST(DEFI_LIST<span class="op">=</span>_F(METHODE<span class="op">=</span><span class="st">&#39;MANUEL&#39;</span>,</a>
-<a class="sourceLine" id="cb81-15" data-line-number="15">                                   LIST_INST<span class="op">=</span>L_REEL,),)<span class="op">;</span></a>
-<a class="sourceLine" id="cb81-16" data-line-number="16">MA<span class="op">=**</span>DEFI_MATERIAU<span class="op">**</span>(ELAS<span class="op">=</span>_F(E<span class="op">=</span><span class="fl">2.1e+11</span>,</a>
-<a class="sourceLine" id="cb81-17" data-line-number="17">                             NU<span class="op">=</span><span class="fl">0.3</span>,),</a>
-<a class="sourceLine" id="cb81-18" data-line-number="18">                     <span class="op">**</span>MFRONT<span class="op">=</span>_F(LISTE_COEF<span class="op">=</span>(young,poisson,m,un_sur_k,un_sur_m,),)<span class="op">**</span>,)<span class="op">;</span></a>
-<a class="sourceLine" id="cb81-19" data-line-number="19">MAIL<span class="op">=</span>LIRE_MAILLAGE(FORMAT<span class="op">=</span><span class="st">&#39;MED&#39;</span>,)<span class="op">;</span></a>
-<a class="sourceLine" id="cb81-20" data-line-number="20">MAIL<span class="op">=</span>MODI_MAILLAGE(reuse <span class="op">=</span>MAIL,</a>
-<a class="sourceLine" id="cb81-21" data-line-number="21">                   MAILLAGE<span class="op">=</span>MAIL,</a>
-<a class="sourceLine" id="cb81-22" data-line-number="22">                   ORIE_PEAU_3D<span class="op">=</span>_F(GROUP_MA<span class="op">=</span><span class="st">&#39;Press&#39;</span>,),)<span class="op">;</span></a>
-<a class="sourceLine" id="cb81-23" data-line-number="23">MODE<span class="op">=</span>AFFE_MODELE(MAILLAGE<span class="op">=</span>MAIL,</a>
-<a class="sourceLine" id="cb81-24" data-line-number="24">                 AFFE<span class="op">=</span>_F(TOUT<span class="op">=</span><span class="st">&#39;OUI&#39;</span>,</a>
-<a class="sourceLine" id="cb81-25" data-line-number="25">                         PHENOMENE<span class="op">=</span><span class="st">&#39;MECANIQUE&#39;</span>,</a>
-<a class="sourceLine" id="cb81-26" data-line-number="26">                         MODELISATION<span class="op">=</span><span class="st">&#39;3D&#39;</span>,),)<span class="op">;</span></a>
-<a class="sourceLine" id="cb81-27" data-line-number="27">MATE<span class="op">=</span>AFFE_MATERIAU(MAILLAGE<span class="op">=</span>MAIL,</a>
-<a class="sourceLine" id="cb81-28" data-line-number="28">                   AFFE<span class="op">=</span>_F(TOUT<span class="op">=</span><span class="st">&#39;OUI&#39;</span>,</a>
-<a class="sourceLine" id="cb81-29" data-line-number="29">                           MATER<span class="op">=</span>MA,),)<span class="op">;</span></a>
-<a class="sourceLine" id="cb81-30" data-line-number="30">CHAR<span class="op">=</span>AFFE_CHAR_MECA(MODELE<span class="op">=</span>MODE,</a>
-<a class="sourceLine" id="cb81-31" data-line-number="31">                    DDL_IMPO<span class="op">=</span>_F(GROUP_MA<span class="op">=</span><span class="st">&#39;Fix&#39;</span>,</a>
-<a class="sourceLine" id="cb81-32" data-line-number="32">                                DX<span class="op">=</span><span class="fl">0.0</span>,</a>
-<a class="sourceLine" id="cb81-33" data-line-number="33">                                DY<span class="op">=</span><span class="fl">0.0</span>,</a>
-<a class="sourceLine" id="cb81-34" data-line-number="34">                                DZ<span class="op">=</span><span class="fl">0.0</span>,),</a>
-<a class="sourceLine" id="cb81-35" data-line-number="35">                    PRES_REP<span class="op">=</span>_F(GROUP_MA<span class="op">=</span><span class="st">&#39;Press&#39;</span>,</a>
-<a class="sourceLine" id="cb81-36" data-line-number="36">                                PRES<span class="op">=</span><span class="fl">1.0</span>,),)<span class="op">;</span></a>
-<a class="sourceLine" id="cb81-37" data-line-number="37">RESM<span class="op">=**</span>STAT_NON_LINE<span class="op">**</span>(MODELE<span class="op">=</span>MODE,</a>
-<a class="sourceLine" id="cb81-38" data-line-number="38">                       CHAM_MATER<span class="op">=</span>MATE,</a>
-<a class="sourceLine" id="cb81-39" data-line-number="39">                       EXCIT<span class="op">=</span>_F(CHARGE<span class="op">=</span>CHAR,),</a>
-<a class="sourceLine" id="cb81-40" data-line-number="40">                       <span class="op">**</span>COMPORTEMENT<span class="op">=</span>_F(RELATION<span class="op">=</span><span class="st">&#39;MFRONT&#39;</span>,</a>
-<a class="sourceLine" id="cb81-41" data-line-number="41">                                         LIBRAIRIE<span class="op">=</span><span class="st">&#39;/home/jordi/Mfront/Test_1/src/libAsterBehaviour.so&#39;</span>,<span class="op">**</span></a>
-<a class="sourceLine" id="cb81-42" data-line-number="42">                                         <span class="op">**</span>NOM_ROUTINE<span class="op">=</span><span class="st">&#39;asterlemaitre&#39;</span>,),<span class="op">**</span></a>
-<a class="sourceLine" id="cb81-43" data-line-number="43">                       INCREMENT<span class="op">=</span>_F(LIST_INST<span class="op">=</span>L_INST,),</a>
-<a class="sourceLine" id="cb81-44" data-line-number="44">                       NEWTON<span class="op">=</span>_F(REAC_INCR<span class="op">=</span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb81-45" data-line-number="45">                                 REAC_ITER<span class="op">=</span><span class="dv">1</span>,),)<span class="op">;</span></a>
-<a class="sourceLine" id="cb81-46" data-line-number="46">RESU<span class="op">=</span>MECA_STATIQUE(MODELE<span class="op">=</span>MODE,</a>
-<a class="sourceLine" id="cb81-47" data-line-number="47">                   CHAM_MATER<span class="op">=</span>MATE,</a>
-<a class="sourceLine" id="cb81-48" data-line-number="48">                   EXCIT<span class="op">=</span>_F(CHARGE<span class="op">=</span>CHAR,),)<span class="op">;</span></a>
-<a class="sourceLine" id="cb81-49" data-line-number="49">RESM<span class="op">=</span>CALC_CHAMP(reuse <span class="op">=</span>RESM,</a>
-<a class="sourceLine" id="cb81-50" data-line-number="50">                RESULTAT<span class="op">=</span>RESM,</a>
-<a class="sourceLine" id="cb81-51" data-line-number="51">                PRECISION<span class="op">=</span><span class="fl">1e-06</span>,</a>
-<a class="sourceLine" id="cb81-52" data-line-number="52">                CONTRAINTE<span class="op">=</span>(<span class="st">&#39;SIGM_ELNO&#39;</span>,<span class="st">&#39;SIGM_NOEU&#39;</span>,),</a>
-<a class="sourceLine" id="cb81-53" data-line-number="53">                CRITERES<span class="op">=</span>(<span class="st">&#39;SIEQ_ELNO&#39;</span>,<span class="st">&#39;SIEQ_NOEU&#39;</span>,),)<span class="op">;</span></a>
-<a class="sourceLine" id="cb81-54" data-line-number="54">IMPR_RESU(FORMAT<span class="op">=</span><span class="st">&#39;MED&#39;</span>,</a>
-<a class="sourceLine" id="cb81-55" data-line-number="55">          UNITE<span class="op">=</span><span class="dv">80</span>,</a>
-<a class="sourceLine" id="cb81-56" data-line-number="56">          RESU<span class="op">=</span>_F(RESULTAT<span class="op">=</span>RESM,</a>
-<a class="sourceLine" id="cb81-57" data-line-number="57">                  NOM_CHAM<span class="op">=</span>(<span class="st">&#39;SIGM_NOEU&#39;</span>,<span class="st">&#39;SIEQ_NOEU&#39;</span>,<span class="st">&#39;DEPL&#39;</span>,<span class="st">&#39;SIGM_ELNO&#39;</span>,<span class="st">&#39;SIEQ_ELNO&#39;</span>,),),)<span class="op">;</span></a>
-<a class="sourceLine" id="cb81-58" data-line-number="58">FIN()<span class="op">;</span></a></code></pre></div>
-        <script>
+<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>DEBUT()<span class="op">;</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>young <span class="op">=</span> <span class="dv">210000</span><span class="op">;</span></span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>poisson <span class="op">=</span> <span class="fl">0.3</span><span class="op">;</span></span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="dv">11</span><span class="op">;</span></span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>un_sur_k <span class="op">=</span> <span class="fl">0.00032840723</span><span class="op">;</span></span>
+<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a>un_sur_m <span class="op">=</span> <span class="fl">0.178571429</span><span class="op">;</span></span>
+<span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a>L_REEL<span class="op">=</span>DEFI_LIST_REEL(DEBUT<span class="op">=</span><span class="fl">0.0</span>,</span>
+<span id="cb81-8"><a href="#cb81-8" aria-hidden="true" tabindex="-1"></a>                      INTERVALLE<span class="op">=</span>(_F(JUSQU_A<span class="op">=</span><span class="fl">0.02</span>,</span>
+<span id="cb81-9"><a href="#cb81-9" aria-hidden="true" tabindex="-1"></a>                                     PAS<span class="op">=</span><span class="fl">0.002</span>,),</span>
+<span id="cb81-10"><a href="#cb81-10" aria-hidden="true" tabindex="-1"></a>                                  _F(JUSQU_A<span class="op">=</span><span class="fl">0.06</span>,</span>
+<span id="cb81-11"><a href="#cb81-11" aria-hidden="true" tabindex="-1"></a>                                     PAS<span class="op">=</span><span class="fl">0.004</span>,),</span>
+<span id="cb81-12"><a href="#cb81-12" aria-hidden="true" tabindex="-1"></a>                                  _F(JUSQU_A<span class="op">=</span><span class="fl">0.24</span>,</span>
+<span id="cb81-13"><a href="#cb81-13" aria-hidden="true" tabindex="-1"></a>                                     PAS<span class="op">=</span><span class="fl">0.01</span>,),),)<span class="op">;</span></span>
+<span id="cb81-14"><a href="#cb81-14" aria-hidden="true" tabindex="-1"></a>L_INST<span class="op">=</span>DEFI_LIST_INST(DEFI_LIST<span class="op">=</span>_F(METHODE<span class="op">=</span><span class="st">&#39;MANUEL&#39;</span>,</span>
+<span id="cb81-15"><a href="#cb81-15" aria-hidden="true" tabindex="-1"></a>                                   LIST_INST<span class="op">=</span>L_REEL,),)<span class="op">;</span></span>
+<span id="cb81-16"><a href="#cb81-16" aria-hidden="true" tabindex="-1"></a>MA<span class="op">=**</span>DEFI_MATERIAU<span class="op">**</span>(ELAS<span class="op">=</span>_F(E<span class="op">=</span><span class="fl">2.1e+11</span>,</span>
+<span id="cb81-17"><a href="#cb81-17" aria-hidden="true" tabindex="-1"></a>                             NU<span class="op">=</span><span class="fl">0.3</span>,),</span>
+<span id="cb81-18"><a href="#cb81-18" aria-hidden="true" tabindex="-1"></a>                     <span class="op">**</span>MFRONT<span class="op">=</span>_F(LISTE_COEF<span class="op">=</span>(young,poisson,m,un_sur_k,un_sur_m,),)<span class="op">**</span>,)<span class="op">;</span></span>
+<span id="cb81-19"><a href="#cb81-19" aria-hidden="true" tabindex="-1"></a>MAIL<span class="op">=</span>LIRE_MAILLAGE(FORMAT<span class="op">=</span><span class="st">&#39;MED&#39;</span>,)<span class="op">;</span></span>
+<span id="cb81-20"><a href="#cb81-20" aria-hidden="true" tabindex="-1"></a>MAIL<span class="op">=</span>MODI_MAILLAGE(reuse <span class="op">=</span>MAIL,</span>
+<span id="cb81-21"><a href="#cb81-21" aria-hidden="true" tabindex="-1"></a>                   MAILLAGE<span class="op">=</span>MAIL,</span>
+<span id="cb81-22"><a href="#cb81-22" aria-hidden="true" tabindex="-1"></a>                   ORIE_PEAU_3D<span class="op">=</span>_F(GROUP_MA<span class="op">=</span><span class="st">&#39;Press&#39;</span>,),)<span class="op">;</span></span>
+<span id="cb81-23"><a href="#cb81-23" aria-hidden="true" tabindex="-1"></a>MODE<span class="op">=</span>AFFE_MODELE(MAILLAGE<span class="op">=</span>MAIL,</span>
+<span id="cb81-24"><a href="#cb81-24" aria-hidden="true" tabindex="-1"></a>                 AFFE<span class="op">=</span>_F(TOUT<span class="op">=</span><span class="st">&#39;OUI&#39;</span>,</span>
+<span id="cb81-25"><a href="#cb81-25" aria-hidden="true" tabindex="-1"></a>                         PHENOMENE<span class="op">=</span><span class="st">&#39;MECANIQUE&#39;</span>,</span>
+<span id="cb81-26"><a href="#cb81-26" aria-hidden="true" tabindex="-1"></a>                         MODELISATION<span class="op">=</span><span class="st">&#39;3D&#39;</span>,),)<span class="op">;</span></span>
+<span id="cb81-27"><a href="#cb81-27" aria-hidden="true" tabindex="-1"></a>MATE<span class="op">=</span>AFFE_MATERIAU(MAILLAGE<span class="op">=</span>MAIL,</span>
+<span id="cb81-28"><a href="#cb81-28" aria-hidden="true" tabindex="-1"></a>                   AFFE<span class="op">=</span>_F(TOUT<span class="op">=</span><span class="st">&#39;OUI&#39;</span>,</span>
+<span id="cb81-29"><a href="#cb81-29" aria-hidden="true" tabindex="-1"></a>                           MATER<span class="op">=</span>MA,),)<span class="op">;</span></span>
+<span id="cb81-30"><a href="#cb81-30" aria-hidden="true" tabindex="-1"></a>CHAR<span class="op">=</span>AFFE_CHAR_MECA(MODELE<span class="op">=</span>MODE,</span>
+<span id="cb81-31"><a href="#cb81-31" aria-hidden="true" tabindex="-1"></a>                    DDL_IMPO<span class="op">=</span>_F(GROUP_MA<span class="op">=</span><span class="st">&#39;Fix&#39;</span>,</span>
+<span id="cb81-32"><a href="#cb81-32" aria-hidden="true" tabindex="-1"></a>                                DX<span class="op">=</span><span class="fl">0.0</span>,</span>
+<span id="cb81-33"><a href="#cb81-33" aria-hidden="true" tabindex="-1"></a>                                DY<span class="op">=</span><span class="fl">0.0</span>,</span>
+<span id="cb81-34"><a href="#cb81-34" aria-hidden="true" tabindex="-1"></a>                                DZ<span class="op">=</span><span class="fl">0.0</span>,),</span>
+<span id="cb81-35"><a href="#cb81-35" aria-hidden="true" tabindex="-1"></a>                    PRES_REP<span class="op">=</span>_F(GROUP_MA<span class="op">=</span><span class="st">&#39;Press&#39;</span>,</span>
+<span id="cb81-36"><a href="#cb81-36" aria-hidden="true" tabindex="-1"></a>                                PRES<span class="op">=</span><span class="fl">1.0</span>,),)<span class="op">;</span></span>
+<span id="cb81-37"><a href="#cb81-37" aria-hidden="true" tabindex="-1"></a>RESM<span class="op">=**</span>STAT_NON_LINE<span class="op">**</span>(MODELE<span class="op">=</span>MODE,</span>
+<span id="cb81-38"><a href="#cb81-38" aria-hidden="true" tabindex="-1"></a>                       CHAM_MATER<span class="op">=</span>MATE,</span>
+<span id="cb81-39"><a href="#cb81-39" aria-hidden="true" tabindex="-1"></a>                       EXCIT<span class="op">=</span>_F(CHARGE<span class="op">=</span>CHAR,),</span>
+<span id="cb81-40"><a href="#cb81-40" aria-hidden="true" tabindex="-1"></a>                       <span class="op">**</span>COMPORTEMENT<span class="op">=</span>_F(RELATION<span class="op">=</span><span class="st">&#39;MFRONT&#39;</span>,</span>
+<span id="cb81-41"><a href="#cb81-41" aria-hidden="true" tabindex="-1"></a>                                         LIBRAIRIE<span class="op">=</span><span class="st">&#39;/home/jordi/Mfront/Test_1/src/libAsterBehaviour.so&#39;</span>,<span class="op">**</span></span>
+<span id="cb81-42"><a href="#cb81-42" aria-hidden="true" tabindex="-1"></a>                                         <span class="op">**</span>NOM_ROUTINE<span class="op">=</span><span class="st">&#39;asterlemaitre&#39;</span>,),<span class="op">**</span></span>
+<span id="cb81-43"><a href="#cb81-43" aria-hidden="true" tabindex="-1"></a>                       INCREMENT<span class="op">=</span>_F(LIST_INST<span class="op">=</span>L_INST,),</span>
+<span id="cb81-44"><a href="#cb81-44" aria-hidden="true" tabindex="-1"></a>                       NEWTON<span class="op">=</span>_F(REAC_INCR<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb81-45"><a href="#cb81-45" aria-hidden="true" tabindex="-1"></a>                                 REAC_ITER<span class="op">=</span><span class="dv">1</span>,),)<span class="op">;</span></span>
+<span id="cb81-46"><a href="#cb81-46" aria-hidden="true" tabindex="-1"></a>RESU<span class="op">=</span>MECA_STATIQUE(MODELE<span class="op">=</span>MODE,</span>
+<span id="cb81-47"><a href="#cb81-47" aria-hidden="true" tabindex="-1"></a>                   CHAM_MATER<span class="op">=</span>MATE,</span>
+<span id="cb81-48"><a href="#cb81-48" aria-hidden="true" tabindex="-1"></a>                   EXCIT<span class="op">=</span>_F(CHARGE<span class="op">=</span>CHAR,),)<span class="op">;</span></span>
+<span id="cb81-49"><a href="#cb81-49" aria-hidden="true" tabindex="-1"></a>RESM<span class="op">=</span>CALC_CHAMP(reuse <span class="op">=</span>RESM,</span>
+<span id="cb81-50"><a href="#cb81-50" aria-hidden="true" tabindex="-1"></a>                RESULTAT<span class="op">=</span>RESM,</span>
+<span id="cb81-51"><a href="#cb81-51" aria-hidden="true" tabindex="-1"></a>                PRECISION<span class="op">=</span><span class="fl">1e-06</span>,</span>
+<span id="cb81-52"><a href="#cb81-52" aria-hidden="true" tabindex="-1"></a>                CONTRAINTE<span class="op">=</span>(<span class="st">&#39;SIGM_ELNO&#39;</span>,<span class="st">&#39;SIGM_NOEU&#39;</span>,),</span>
+<span id="cb81-53"><a href="#cb81-53" aria-hidden="true" tabindex="-1"></a>                CRITERES<span class="op">=</span>(<span class="st">&#39;SIEQ_ELNO&#39;</span>,<span class="st">&#39;SIEQ_NOEU&#39;</span>,),)<span class="op">;</span></span>
+<span id="cb81-54"><a href="#cb81-54" aria-hidden="true" tabindex="-1"></a>IMPR_RESU(FORMAT<span class="op">=</span><span class="st">&#39;MED&#39;</span>,</span>
+<span id="cb81-55"><a href="#cb81-55" aria-hidden="true" tabindex="-1"></a>          UNITE<span class="op">=</span><span class="dv">80</span>,</span>
+<span id="cb81-56"><a href="#cb81-56" aria-hidden="true" tabindex="-1"></a>          RESU<span class="op">=</span>_F(RESULTAT<span class="op">=</span>RESM,</span>
+<span id="cb81-57"><a href="#cb81-57" aria-hidden="true" tabindex="-1"></a>                  NOM_CHAM<span class="op">=</span>(<span class="st">&#39;SIGM_NOEU&#39;</span>,<span class="st">&#39;SIEQ_NOEU&#39;</span>,<span class="st">&#39;DEPL&#39;</span>,<span class="st">&#39;SIGM_ELNO&#39;</span>,<span class="st">&#39;SIEQ_ELNO&#39;</span>,),),)<span class="op">;</span></span>
+<span id="cb81-58"><a href="#cb81-58" aria-hidden="true" tabindex="-1"></a>FIN()<span class="op">;</span></span></code></pre></div>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

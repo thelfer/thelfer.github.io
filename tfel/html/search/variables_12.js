@@ -1,20 +1,28 @@
 var searchData=
 [
-  ['r',['r',['../structmtest_1_1_current_state.html#a871fc01b2e02e4b4a051b0c355acc2ee',1,'mtest::CurrentState::r()'],['../structtfel_1_1_physical_constants.html#a4bee7f850b08428dbc2a6fb435c65268',1,'tfel::PhysicalConstants::R()']]],
+  ['r',['R',['../structtfel_1_1_physical_constants.html#a4bee7f850b08428dbc2a6fb435c65268',1,'tfel::PhysicalConstants::R()'],['../structmtest_1_1_current_state.html#a78812082990c799ca802f5c6462ac5b5',1,'mtest::CurrentState::r()']]],
+  ['r0',['R0',['../structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html#ac04211e1c50aa27586560694a5430597',1,'mfront::bbrick::PowerIsotropicHardeningRule']]],
   ['red',['Red',['../structtfel_1_1utilities_1_1_terminal_colors.html#a2d80a88f92165ce583f61ab7c6beb65c',1,'tfel::utilities::TerminalColors']]],
   ['registerline',['registerLine',['../structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html#a00ba1f809d6aec590a6760b91167d715',1,'mfront::DSLBase::CodeBlockParserOptions']]],
   ['registredkeywords',['registredKeyWords',['../structmfront_1_1_behaviour_d_s_l_common.html#a080ed7ce8a3941f4689eb549b93c37ef',1,'mfront::BehaviourDSLCommon::registredKeyWords()'],['../structmfront_1_1_material_property_d_s_l.html#a1c546761b3af876bfa569183e84cc6ba',1,'mfront::MaterialPropertyDSL::registredKeyWords()']]],
+  ['requirecrystalstructuredefinition',['requireCrystalStructureDefinition',['../structmfront_1_1_behaviour_brick_description.html#a2f17d61a8dbee36fc04ad5697c241f52',1,'mfront::BehaviourBrickDescription::requireCrystalStructureDefinition()'],['../structmfront_1_1_behaviour_d_s_l_description.html#addf614e75dc732956367b8ee608d6904',1,'mfront::BehaviourDSLDescription::requireCrystalStructureDefinition()']]],
   ['required_5foptions',['required_options',['../structmfront_1_1bbrick_1_1_option_description.html#a4d4215696e247304a965b7244319e4b7',1,'mfront::bbrick::OptionDescription']]],
+  ['requires_5fjacobian_5fdecomposition',['requires_jacobian_decomposition',['../structmfront_1_1_code_block.html#a82c153aa08a43a0e3c02e1a1c2394c4b',1,'mfront::CodeBlock']]],
   ['requiresstiffnesstensor',['requiresStiffnessTensor',['../structtfel_1_1system_1_1_external_behaviour_data.html#ad704cca53101b85d68f04abeeeeb4b56',1,'tfel::system::ExternalBehaviourData::requiresStiffnessTensor()'],['../structmfront_1_1_behaviour_description.html#a6ba246856d9db74b387f0a6f531b8849',1,'mfront::BehaviourDescription::requiresStiffnessTensor()']]],
   ['requiresthermalexpansioncoefficienttensor',['requiresThermalExpansionCoefficientTensor',['../structtfel_1_1system_1_1_external_behaviour_data.html#aa73ffd981a484ea22a8fd89f3861fc1b',1,'tfel::system::ExternalBehaviourData::requiresThermalExpansionCoefficientTensor()'],['../structmfront_1_1_behaviour_description.html#a9c85d219a673dfe46eca222490312d3a',1,'mfront::BehaviourDescription::requiresThermalExpansionCoefficientTensor()']]],
+  ['requirestiffnesstensordefinition',['requireStiffnessTensorDefinition',['../structmfront_1_1_behaviour_brick_description.html#a122a0341759cfa777c5da05f86e79783',1,'mfront::BehaviourBrickDescription::requireStiffnessTensorDefinition()'],['../structmfront_1_1_behaviour_d_s_l_description.html#a56df1496d35b577c1659fbc09e21a807',1,'mfront::BehaviourDSLDescription::requireStiffnessTensorDefinition()']]],
   ['requiresunalteredstiffnesstensor',['requiresUnAlteredStiffnessTensor',['../structmfront_1_1_behaviour_description.html#a03158836c528e05cbd78e16368379db9',1,'mfront::BehaviourDescription']]],
   ['reservednames',['reservedNames',['../structmfront_1_1_material_property_description.html#af29a17bc3ecf0088c8a51368299f4c2b',1,'mfront::MaterialPropertyDescription']]],
   ['reset',['Reset',['../structtfel_1_1utilities_1_1_terminal_colors.html#a5b45e1b47ab940059f2d023220e77cc2',1,'tfel::utilities::TerminalColors']]],
   ['residual',['residual',['../structmtest_1_1_scheme_base.html#a11f64e07ed91d89aea2c2e1661768d92',1,'mtest::SchemeBase']]],
   ['residualfilename',['residualFileName',['../structmtest_1_1_scheme_base.html#a008e04d5aaf9c02c7d7ca999b5f5ef52',1,'mtest::SchemeBase']]],
+  ['residualstiffnessfactor',['residualStiffnessFactor',['../structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a9a95f3c46760ba5694d5e19713c010a9',1,'mfront::bbrick::HookeStressPotentialBase']]],
   ['result',['result',['../structtfel_1_1math_1_1_abs_sum.html#a19ba234f268f708ae7f30a397a654ac1',1,'tfel::math::AbsSum::result()'],['../structtfel_1_1tests_1_1_test_case.html#a20d86a6059784ab0905393af8ed2ba54',1,'tfel::tests::TestCase::result()']]],
   ['results',['results',['../structmtest_1_1_analytical_test.html#a4167622a10d3db4b232cce3a839aa02d',1,'mtest::AnalyticalTest::results()'],['../structmtest_1_1_reference_file_comparison_test.html#a42c93ee68c1c53ac4d41aad1f208480b',1,'mtest::ReferenceFileComparisonTest::results()']]],
+  ['rg_5ffct',['rg_fct',['../structmtest_1_1_generic_behaviour.html#a9b150364ab5ae829fa8c23af413250bf',1,'mtest::GenericBehaviour']]],
   ['rm',['rm',['../structmtest_1_1_m_test.html#adeb72394491c284e620f959e5f264141',1,'mtest::MTest']]],
   ['rp',['rp',['../structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#a5d7bedc7ab3c237ea64abcf46f9f9175',1,'mfront::bbrick::DDIF2StressPotential']]],
-  ['rprec',['rprec',['../structmtest_1_1_scheme_base.html#a0a63f048f10216a84cac2b880564176b',1,'mtest::SchemeBase']]]
+  ['rprec',['rprec',['../structmtest_1_1_scheme_base.html#a0a63f048f10216a84cac2b880564176b',1,'mtest::SchemeBase']]],
+  ['rtf_5ffct',['rtf_fct',['../structmtest_1_1_generic_behaviour.html#a219ec27fcb3b93c0e3bee1a2b0a169a8',1,'mtest::GenericBehaviour']]],
+  ['rto_5ffct',['rto_fct',['../structmtest_1_1_generic_behaviour.html#a4ebdd29c60290279a77f40ff2fd4e07c',1,'mtest::GenericBehaviour']]]
 ];

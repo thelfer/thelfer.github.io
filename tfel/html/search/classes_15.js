@@ -1,7 +1,7 @@
 var searchData=
 [
   ['vanderpol',['VanDerPol',['../class_van_der_pol.html',1,'']]],
-  ['variable',['Variable',['../structtfel_1_1math_1_1parser_1_1_variable.html',1,'tfel::math::parser::Variable'],['../structtfel_1_1math_1_1_integer_evaluator_1_1_t_variable_1_1_variable.html',1,'tfel::math::IntegerEvaluator::TVariable::Variable'],['../structmfront_1_1_local_data_structure_1_1_variable.html',1,'mfront::LocalDataStructure::Variable']]],
+  ['variable',['Variable',['../structmfront_1_1_local_data_structure_1_1_variable.html',1,'mfront::LocalDataStructure::Variable'],['../structtfel_1_1math_1_1_integer_evaluator_1_1_t_variable_1_1_variable.html',1,'tfel::math::IntegerEvaluator::TVariable::Variable'],['../structtfel_1_1math_1_1parser_1_1_variable.html',1,'tfel::math::parser::Variable']]],
   ['variableboundsdescription',['VariableBoundsDescription',['../structmfront_1_1_variable_bounds_description.html',1,'mfront']]],
   ['variabledescription',['VariableDescription',['../structmfront_1_1_variable_description.html',1,'mfront']]],
   ['variabledescriptionbase',['VariableDescriptionBase',['../structmfront_1_1_variable_description_base.html',1,'mfront']]],
@@ -65,12 +65,6 @@ var searchData=
   ['vectortotab_3c_207u_20_3e',['vectorToTab&lt; 7u &gt;',['../structtfel_1_1math_1_1vector_to_tab_3_017u_01_4.html',1,'tfel::math']]],
   ['vectortotab_3c_208u_20_3e',['vectorToTab&lt; 8u &gt;',['../structtfel_1_1math_1_1vector_to_tab_3_018u_01_4.html',1,'tfel::math']]],
   ['vectortotab_3c_209u_20_3e',['vectorToTab&lt; 9u &gt;',['../structtfel_1_1math_1_1vector_to_tab_3_019u_01_4.html',1,'tfel::math']]],
-  ['vectortraits',['VectorTraits',['../structtfel_1_1math_1_1_vector_traits.html',1,'tfel::math']]],
-  ['vectortraits_3c_20expr_3c_20t_5ftype_2c_20operation_20_3e_20_3e',['VectorTraits&lt; Expr&lt; T_type, Operation &gt; &gt;',['../structtfel_1_1math_1_1_vector_traits_3_01_expr_3_01_t__type_00_01_operation_01_4_01_4.html',1,'tfel::math']]],
-  ['vectortraits_3c_20tvector_3c_20n_2c_20t_20_3e_20_3e',['VectorTraits&lt; tvector&lt; N, T &gt; &gt;',['../structtfel_1_1math_1_1_vector_traits_3_01tvector_3_01_n_00_01_t_01_4_01_4.html',1,'tfel::math']]],
-  ['vectortraits_3c_20vector_3c_20t_20_3e_20_3e',['VectorTraits&lt; vector&lt; T &gt; &gt;',['../structtfel_1_1math_1_1_vector_traits_3_01vector_3_01_t_01_4_01_4.html',1,'tfel::math']]],
-  ['vectortype',['VectorType',['../structtfel_1_1math_1_1_vector_type.html',1,'tfel::math']]],
-  ['vectortype_3c_20expr_3c_20result_2c_20operation_20_3e_20_3e',['VectorType&lt; Expr&lt; Result, Operation &gt; &gt;',['../structtfel_1_1math_1_1_vector_type_3_01_expr_3_01_result_00_01_operation_01_4_01_4.html',1,'tfel::math']]],
   ['vectorutilities',['VectorUtilities',['../structtfel_1_1math_1_1_vector_utilities.html',1,'tfel::math']]],
   ['vectorutilities_3c_200u_20_3e',['VectorUtilities&lt; 0u &gt;',['../structtfel_1_1math_1_1_vector_utilities_3_010u_01_4.html',1,'tfel::math']]],
   ['vectorvectordotproduct',['VectorVectorDotProduct',['../structtfel_1_1math_1_1_vector_vector_dot_product.html',1,'tfel::math']]],

@@ -17,28 +17,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -47,9 +46,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -83,7 +82,7 @@
             <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -119,6 +118,8 @@
 		<li><a href="release-notes-1.1.html">Version 1.1</a></li>
 		<li><a href="release-notes-1.1.1.html">Version 1.1.1</a></li>
 		<li><a href="release-notes-1.2.html">Version 1.2</a></li>
+		<li><a href="release-notes-1.2.1.html">Version 1.2.1</a></li>
+		<li><a href="release-notes-1.3.html">Version 1.3</a></li>
 	      </ul>
 	    </li>
 	    <li><a>Specific topics</a>
@@ -145,19 +146,18 @@
       </ul>
     </header>
     <br></br>
-        <div id="header">
-      <h1 class="title">Transient heat equation with phase change</h1>
-                  <h2 class="author">Jérémy Bleyer</h2>
-            <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">2020</h3>
-          </div>
-            <div id="TOC">
-      true
-    </div>
-        <!--
+<div id="header">
+<h1 class="title">Transient heat equation with phase change</h1>
+<h2 class="author">Jérémy Bleyer</h2>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">2020</h3>
+</div>
+<div id="TOC">
+true
+</div>
+<!--
 pandoc --pdf-engine=xelatex -F pandoc-crossref -F pandoc-citeproc --highlight-style=tango mgis_fenics_heat_equation_phase_change.md -o mgis_fenics_heat_equation_phase_change.pdf 
 -->
-
 <p>In this demo, we expand on the <a href="https://thelfer.github.io/mgis/web/mgis_fenics_nonlinear_heat_transfer.html">stationnary nonlinear heat transfer demo</a> and consider a transient heat equation with non-linear heat transfer law including solid/liquid phase change. This demo corresponds to the <a href="https://www.code-aster.org/V2/doc/default/fr/man_v/v4/v4.22.002.pdf">TTNL02 elementary test case</a> of the <a href="https://www.code-aster.org"><code>code_aster</code> finite-element software</a>.</p>
 <!--
 <p align="center">
@@ -226,110 +226,110 @@ c_l(T-T_l)+c_sT_s+\dfrac{cs+cl}{2}T_\text{smooth}+\Delta h_{s/l} &amp; \text{if 
 <h1 id="mfront-implementation"><code>MFront</code> implementation</h1>
 <h2 id="gradient-flux-and-tangent-operator-blocks">Gradient, flux and tangent operator blocks</h2>
 <p>Similarly to the <a href="mgis_fenics_nonlinear_heat_transfer.html">stationnary nonlinear heat transfer demo</a>, the <code>MFront</code> implementation relies on the <code>DefaultGenericBehaviour</code> DSL and declares the pair of temperature gradient and heat flux. In addition, the volumic enthalpy <span class="math inline">\(h\)</span> is also declared as an internal state variable. In addition to the two tangent operator blocks <code>∂j∕∂Δ∇T</code> and <code>∂j∕∂ΔT</code> already discussed in the first demo, we also declare the additional block <code>∂h∕∂ΔT</code>, referring to the fact that the enthalpy will vary with the temperature and will enter the transient heat equation.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL DefaultGenericBehaviour;</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="er">@</span>Behaviour HeatTransferPhaseChange;</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="er">@</span>Author Thomas Helfer / Jérémy Bleyer;</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="er">@</span>Date <span class="dv">15</span> / <span class="bn">02</span> / <span class="dv">2019</span>;</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="er">@</span>Gradient TemperatureGradient ∇T;</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">∇T.setGlossaryName(<span class="st">&quot;TemperatureGradient&quot;</span>);</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="er">@</span>Flux HeatFlux j;</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">j.setGlossaryName(<span class="st">&quot;HeatFlux&quot;</span>);</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="er">@</span>StateVariable real h;</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">h.setEntryName(<span class="st">&quot;Enthalpy&quot;</span>); <span class="co">//per unit of volume</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="er">@</span>AdditionalTangentOperatorBlock ∂j∕∂ΔT;</a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="er">@</span>AdditionalTangentOperatorBlock ∂h∕∂ΔT;</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultGenericBehaviour;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour HeatTransferPhaseChange;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer / Jérémy Bleyer;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">15</span> / <span class="bn">02</span> / <span class="dv">2019</span>;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient TemperatureGradient ∇T;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>∇T.setGlossaryName(<span class="st">&quot;TemperatureGradient&quot;</span>);</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux HeatFlux j;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>j.setGlossaryName(<span class="st">&quot;HeatFlux&quot;</span>);</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real h;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>h.setEntryName(<span class="st">&quot;Enthalpy&quot;</span>); <span class="co">//per unit of volume</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalTangentOperatorBlock ∂j∕∂ΔT;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalTangentOperatorBlock ∂h∕∂ΔT;</span></code></pre></div>
 <h2 id="material-parameters-and-local-variables">Material parameters and local variables</h2>
 <p>We now declare the various material properties corresponding to those of aluminium. The material parameters are assumed to be uniform for both phases. Finally, we also introduce the smoothing temperature width <span class="math inline">\(T_\text{smooth}\)</span>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Parameter Tₘ = <span class="fl">933.15</span>;        <span class="co">// [K]</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">Tₘ.setEntryName(<span class="st">&quot;MeltingTemperature&quot;</span>);</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="er">@</span>Parameter kₛ = <span class="dv">210</span>;           <span class="co">// [W/m/K]</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">kₛ.setEntryName(<span class="st">&quot;SolidConductivity&quot;</span>);</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="er">@</span>Parameter cₛ = <span class="dv">3</span>.e6;          <span class="co">// [J/m^3/K]</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">cₛ.setEntryName(<span class="st">&quot;SolidHeatCapacity&quot;</span>);</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="er">@</span>Parameter kₗ = <span class="dv">95</span>;            <span class="co">// [W/m/K]</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">kₗ.setEntryName(<span class="st">&quot;LiquidConductivity&quot;</span>);</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="er">@</span>Parameter cₗ = <span class="fl">2.58e6</span>;        <span class="co">// [J/m^3/K]</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">cₗ.setEntryName(<span class="st">&quot;LiquidHeatCapacity&quot;</span>);</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="er">@</span>Parameter Δhₛₗ = <span class="fl">1.08048e9</span>;   <span class="co">// [J/m^3]</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">Δhₛₗ.setEntryName(<span class="st">&quot;FusionEnthalpy&quot;</span>);</a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="er">@</span>Parameter Tₛₘₒₒₜₕ = <span class="fl">0.1</span>;      <span class="co">// smoothing temperature width [K]</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14">Tₛₘₒₒₜₕ.setEntryName(<span class="st">&quot;Tsmooth&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter Tₘ = <span class="fl">933.15</span>;        <span class="co">// [K]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Tₘ.setEntryName(<span class="st">&quot;MeltingTemperature&quot;</span>);</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter kₛ = <span class="dv">210</span>;           <span class="co">// [W/m/K]</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>kₛ.setEntryName(<span class="st">&quot;SolidConductivity&quot;</span>);</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter cₛ = <span class="fl">3.e6</span>;          <span class="co">// [J/m^3/K]</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>cₛ.setEntryName(<span class="st">&quot;SolidHeatCapacity&quot;</span>);</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter kₗ = <span class="dv">95</span>;            <span class="co">// [W/m/K]</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>kₗ.setEntryName(<span class="st">&quot;LiquidConductivity&quot;</span>);</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter cₗ = <span class="fl">2.58e6</span>;        <span class="co">// [J/m^3/K]</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>cₗ.setEntryName(<span class="st">&quot;LiquidHeatCapacity&quot;</span>);</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter Δhₛₗ = <span class="fl">1.08048e9</span>;   <span class="co">// [J/m^3]</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>Δhₛₗ.setEntryName(<span class="st">&quot;FusionEnthalpy&quot;</span>);</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter Tₛₘₒₒₜₕ = <span class="fl">0.1</span>;      <span class="co">// smoothing temperature width [K]</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>Tₛₘₒₒₜₕ.setEntryName(<span class="st">&quot;Tsmooth&quot;</span>);</span></code></pre></div>
 <p>We define some local variables corresponding to the values of the conductivity <span class="math inline">\(k\)</span>, the volumic heat capacity <span class="math inline">\(c\)</span> and the derivative of the heat conductivity with respect to the temperature.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>LocalVariable thermalconductivity k;</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="er">@</span>LocalVariable real c;</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="er">@</span>LocalVariable real ∂k∕∂T;</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable thermalconductivity k;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real c;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real ∂k∕∂T;</span></code></pre></div>
 <h2 id="integration-of-the-behaviour">Integration of the behaviour</h2>
 <p>Again, the behaviour integration is straightforward: after computing the temperature at the end of the time step <code>T_</code>, we compute the thermal conductivity, its derivative with respect to the temperature, the volumic enthalpy and the volumic heat capacity depending on whether <code>T_</code> belongs to the solid state (<span class="math inline">\(T\leq T_s\)</span>), the liquid state (<span class="math inline">\(T\geq T_l\)</span>) or to the transition region (<span class="math inline">\(T_s \leq T \leq T_l\)</span>). We finish by computing the heat flux.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>Integrator {</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> T_ = T + ΔT;     <span class="co">// current temperature</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> Tₛ = Tₘ-Tₛₘₒₒₜₕ/<span class="dv">2</span>; <span class="co">// solidus temperature</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> Tₗ = Tₘ+Tₛₘₒₒₜₕ/<span class="dv">2</span>; <span class="co">// liquidus temperature</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="cf">if</span>(T_&lt;Tₛ){                  <span class="co">// solid state</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">    k = kₛ;</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">    c = cₛ;</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">    h = cₛ*T_;</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">    ∂k∕∂T = <span class="fl">0.</span>;</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">  } <span class="cf">else</span> <span class="cf">if</span> (T_ &gt; Tₗ) {        <span class="co">// liquid state</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">    k = kₗ;</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">    c = cₗ;</a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">    h = cₗ*(T_-Tₗ)+Δhₛₗ+cₛ*Tₛ+(cₛ+cₗ)*Tₛₘₒₒₜₕ/<span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb4-14" data-line-number="14">    ∂k∕∂T = <span class="fl">0.</span>;</a>
-<a class="sourceLine" id="cb4-15" data-line-number="15">  } <span class="cf">else</span> {                    <span class="co">// solid/liquid smooth transition</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16">    k = kₛ + (kₗ-kₛ)*(T_-Tₛ)/Tₛₘₒₒₜₕ;</a>
-<a class="sourceLine" id="cb4-17" data-line-number="17">    h = cₛ*Tₛ+((cₛ+cₗ)/<span class="dv">2</span>+Δhₛₗ/Tₛₘₒₒₜₕ)*(T_-Tₛ);</a>
-<a class="sourceLine" id="cb4-18" data-line-number="18">    c = Δhₛₗ/(Tₗ-Tₛ);</a>
-<a class="sourceLine" id="cb4-19" data-line-number="19">    ∂k∕∂T = -(kₗ-kₛ)/Tₛₘₒₒₜₕ;</a>
-<a class="sourceLine" id="cb4-20" data-line-number="20">  }</a>
-<a class="sourceLine" id="cb4-21" data-line-number="21">  <span class="co">// heat flux</span></a>
-<a class="sourceLine" id="cb4-22" data-line-number="22">  j = -k ⋅ (∇T + Δ∇T);</a>
-<a class="sourceLine" id="cb4-23" data-line-number="23">}  <span class="co">// end of @Integrator</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> T_ = T + ΔT;     <span class="co">// current temperature</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Tₛ = Tₘ-Tₛₘₒₒₜₕ/<span class="dv">2</span>; <span class="co">// solidus temperature</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Tₗ = Tₘ+Tₛₘₒₒₜₕ/<span class="dv">2</span>; <span class="co">// liquidus temperature</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(T_&lt;Tₛ){                  <span class="co">// solid state</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    k = kₛ;</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    c = cₛ;</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    h = cₛ*T_;</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    ∂k∕∂T = <span class="fl">0.</span>;</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (T_ &gt; Tₗ) {        <span class="co">// liquid state</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    k = kₗ;</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    c = cₗ;</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    h = cₗ*(T_-Tₗ)+Δhₛₗ+cₛ*Tₛ+(cₛ+cₗ)*Tₛₘₒₒₜₕ/<span class="dv">2</span>;</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    ∂k∕∂T = <span class="fl">0.</span>;</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {                    <span class="co">// solid/liquid smooth transition</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    k = kₛ + (kₗ-kₛ)*(T_-Tₛ)/Tₛₘₒₒₜₕ;</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    h = cₛ*Tₛ+((cₛ+cₗ)/<span class="dv">2</span>+Δhₛₗ/Tₛₘₒₒₜₕ)*(T_-Tₛ);</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    c = Δhₛₗ/(Tₗ-Tₛ);</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    ∂k∕∂T = -(kₗ-kₛ)/Tₛₘₒₒₜₕ;</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">// heat flux</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  j = -k ⋅ (∇T + Δ∇T);</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>}  <span class="co">// end of @Integrator</span></span></code></pre></div>
 <h1 id="tangent-operator">Tangent operator</h1>
 <p>The computation of the tangent operator blocks is then straightforward:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>TangentOperator {</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">  ∂j∕∂Δ∇T = -k * tmatrix&lt;N, N, real&gt;::Id();</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">  ∂j∕∂ΔT = ∂k∕∂T * (∇T + Δ∇T);</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">  ∂h∕∂ΔT = c;</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">}  <span class="co">// end of @TangentOperator</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  ∂j∕∂Δ∇T = -k * tmatrix&lt;N, N, real&gt;::Id();</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  ∂j∕∂ΔT = ∂k∕∂T * (∇T + Δ∇T);</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  ∂h∕∂ΔT = c;</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}  <span class="co">// end of @TangentOperator</span></span></code></pre></div>
 <h1 id="fenics-implementation">FEniCS implementation</h1>
 <h2 id="geometry-and-material">Geometry and material</h2>
 <p>We consider a rectanglar domain of length 0.1 with imposed temperatures <code>T0</code> (resp. <code>Ti</code>) on the left (resp. right) boundaries. We look here for the temperature field <code>T</code> using a <span class="math inline">\(P^2\)</span>-interpolation which is initially at the uniform temperature <code>Ti</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="op">%</span>matplotlib notebook</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="im">from</span> dolfin <span class="im">import</span> <span class="op">*</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="im">import</span> mgis.fenics <span class="im">as</span> mf</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="im">import</span> numpy <span class="im">as</span> np</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">length <span class="op">=</span> <span class="fl">0.1</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">width <span class="op">=</span> <span class="fl">0.01</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">Nx <span class="op">=</span> <span class="dv">1000</span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10">Ny <span class="op">=</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">mesh <span class="op">=</span> RectangleMesh(Point(<span class="fl">0.</span>, <span class="fl">0.</span>), Point(length, width), Nx, Ny, <span class="st">&quot;crossed&quot;</span>)</a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">x <span class="op">=</span> np.linspace(<span class="dv">0</span>, length, Nx)</a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14">V <span class="op">=</span> FunctionSpace(mesh, <span class="st">&quot;CG&quot;</span>, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb6-15" data-line-number="15">T <span class="op">=</span> Function(V, name<span class="op">=</span><span class="st">&quot;Temperature&quot;</span>)</a>
-<a class="sourceLine" id="cb6-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="kw">def</span> left(x, on_boundary):</a>
-<a class="sourceLine" id="cb6-18" data-line-number="18">    <span class="cf">return</span> near(x[<span class="dv">0</span>], <span class="dv">0</span>) <span class="kw">and</span> on_boundary</a>
-<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="kw">def</span> right(x, on_boundary):</a>
-<a class="sourceLine" id="cb6-20" data-line-number="20">    <span class="cf">return</span> near(x[<span class="dv">0</span>], length) <span class="kw">and</span> on_boundary</a>
-<a class="sourceLine" id="cb6-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb6-22" data-line-number="22">T0 <span class="op">=</span> Constant(<span class="fl">853.15</span>)</a>
-<a class="sourceLine" id="cb6-23" data-line-number="23">Ti <span class="op">=</span> Constant(<span class="fl">1013.15</span>)</a>
-<a class="sourceLine" id="cb6-24" data-line-number="24">T.interpolate(Ti)</a>
-<a class="sourceLine" id="cb6-25" data-line-number="25"></a>
-<a class="sourceLine" id="cb6-26" data-line-number="26">bc <span class="op">=</span> [DirichletBC(V, T0, left),</a>
-<a class="sourceLine" id="cb6-27" data-line-number="27">      DirichletBC(V, Ti, right)]</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib notebook</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dolfin <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mgis.fenics <span class="im">as</span> mf</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>length <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>Nx <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>Ny <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>mesh <span class="op">=</span> RectangleMesh(Point(<span class="fl">0.</span>, <span class="fl">0.</span>), Point(length, width), Nx, Ny, <span class="st">&quot;crossed&quot;</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, length, Nx)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> FunctionSpace(mesh, <span class="st">&quot;CG&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> Function(V, name<span class="op">=</span><span class="st">&quot;Temperature&quot;</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> left(x, on_boundary):</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> near(x[<span class="dv">0</span>], <span class="dv">0</span>) <span class="kw">and</span> on_boundary</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> right(x, on_boundary):</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> near(x[<span class="dv">0</span>], length) <span class="kw">and</span> on_boundary</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>T0 <span class="op">=</span> Constant(<span class="fl">853.15</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>Ti <span class="op">=</span> Constant(<span class="fl">1013.15</span>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>T.interpolate(Ti)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>bc <span class="op">=</span> [DirichletBC(V, T0, left),</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>      DirichletBC(V, Ti, right)]</span></code></pre></div>
 <p>We now load the material behaviour <code>HeatTransferPhaseChange</code> and also change the default value of <code>Tsmooth</code> to a slightly larger one (but still sufficiently small). Note that the mesh must be sufficiently refined to use a smaller value. Indeed, the spatial resolution must be able to capture with a few elements the sharp transition which will occur during the phase change. We also verify that 3 different tangent blocks have indeed been defined, the last one involving the internal state variable <code>Enthalpy</code> with respect to the temperature.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">material <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;./src/libBehaviour.so&quot;</span>,</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">                                      <span class="st">&quot;HeatTransferPhaseChange&quot;</span>,</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">                                      hypothesis<span class="op">=</span><span class="st">&quot;plane_strain&quot;</span>,</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">                                       parameters<span class="op">=</span>{<span class="st">&quot;Tsmooth&quot;</span>: <span class="fl">1.</span>})</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="bu">print</span>([<span class="st">&quot;d</span><span class="sc">{}</span><span class="st">_d</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="op">*</span>t) <span class="cf">for</span> t <span class="kw">in</span> material.get_tangent_block_names()])</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>material <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;./src/libBehaviour.so&quot;</span>,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;HeatTransferPhaseChange&quot;</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                      hypothesis<span class="op">=</span><span class="st">&quot;plane_strain&quot;</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                       parameters<span class="op">=</span>{<span class="st">&quot;Tsmooth&quot;</span>: <span class="fl">1.</span>})</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>([<span class="st">&quot;d</span><span class="sc">{}</span><span class="st">_d</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="op">*</span>t) <span class="cf">for</span> t <span class="kw">in</span> material.get_tangent_block_names()])</span></code></pre></div>
 <pre><code>[&#39;dHeatFlux_dTemperatureGradient&#39;, &#39;dHeatFlux_dTemperature&#39;, &#39;dEnthalpy_dTemperature&#39;]</code></pre>
 <h2 id="time-discretization-of-the-heat-equation">Time discretization of the heat equation</h2>
 <p>The heat equation must also be discretized in time. We use here the <span class="math inline">\(\theta\)</span>-method and approximate:</p>
@@ -346,52 +346,52 @@ c_l(T-T_l)+c_sT_s+\dfrac{cs+cl}{2}T_\text{smooth}+\Delta h_{s/l} &amp; \text{if 
 <p>We therefore see that the above non-linear problem does not fit into the default form of a <code>MFrontNonlinearProblem</code> residual. We will therefore have to specify its form manually. To do so, we need to get the functions <code>h</code> and <code>j</code> associated to the current values of the enthalpy and the heat flux.</p>
 <p>Second, we must call the <code>initialize</code> method which initializes the functions associated with gradients, fluxes, external and internal state variables objects and the corresponding tangent blocks. All gradients and external state variables must have been registered before calling this method. In this case, we rely on the automatic registration of the temperature and its gradient.</p>
 <p>Finally, to implement the <span class="math inline">\(\theta\)</span> time discretization scheme, we will also need to keep track of the enthalpy and heat flux values at the previous time step. We can simply define these new functions as deep copies of <code>h</code> and <code>j</code>. Doing so, <code>h_old</code> and <code>j_old</code> will also be Quadrature functions.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1">problem <span class="op">=</span> mf.MFrontNonlinearProblem(T, material, quadrature_degree<span class="op">=</span><span class="dv">2</span>, bcs<span class="op">=</span>bc)</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">h <span class="op">=</span> problem.get_state_variable(<span class="st">&quot;Enthalpy&quot;</span>)</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">j <span class="op">=</span> problem.get_flux(<span class="st">&quot;HeatFlux&quot;</span>)</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">problem.initialize()</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">j_old <span class="op">=</span> j.copy(deepcopy<span class="op">=</span><span class="va">True</span>)</a>
-<a class="sourceLine" id="cb9-7" data-line-number="7">h_old <span class="op">=</span> h.copy(deepcopy<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>problem <span class="op">=</span> mf.MFrontNonlinearProblem(T, material, quadrature_degree<span class="op">=</span><span class="dv">2</span>, bcs<span class="op">=</span>bc)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> problem.get_state_variable(<span class="st">&quot;Enthalpy&quot;</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> problem.get_flux(<span class="st">&quot;HeatFlux&quot;</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>problem.initialize()</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>j_old <span class="op">=</span> j.copy(deepcopy<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>h_old <span class="op">=</span> h.copy(deepcopy<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
 <pre><code>    Automatic registration of &#39;TemperatureGradient&#39; as grad(Temperature).
     
     Automatic registration of &#39;Temperature&#39; as an external state variable.</code></pre>
 <h2 id="residual-definition-and-tangent-form-computation">Residual definition and tangent form computation</h2>
 <p>We are now ready to define the expression of the above residual. Note that we must use the integration measure <code>dx</code> associated with the <code>MFrontNonlinearProblem</code> containing the correct quadrature degree matching that of the various Quadrature functions. Finally, the tangent form can be automatically computed using the <code>compute_tangent_form</code> method from the residual expression and the structure of the different tangent blocks.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1">dt <span class="op">=</span> Constant(<span class="fl">0.</span>)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">theta <span class="op">=</span> Constant(<span class="fl">1.</span>)</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">T_ <span class="op">=</span> TestFunction(V)</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">j_theta <span class="op">=</span> theta<span class="op">*</span>j <span class="op">+</span> (<span class="dv">1</span><span class="op">-</span>theta)<span class="op">*</span>j_old</a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">problem.residual <span class="op">=</span> (T_<span class="op">*</span>(h <span class="op">-</span> h_old)<span class="op">-</span>dt<span class="op">*</span>dot(grad(T_), j_theta))<span class="op">*</span>problem.dx</a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">problem.compute_tangent_form()</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> Constant(<span class="fl">0.</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> Constant(<span class="fl">1.</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>T_ <span class="op">=</span> TestFunction(V)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>j_theta <span class="op">=</span> theta<span class="op">*</span>j <span class="op">+</span> (<span class="dv">1</span><span class="op">-</span>theta)<span class="op">*</span>j_old</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>problem.residual <span class="op">=</span> (T_<span class="op">*</span>(h <span class="op">-</span> h_old)<span class="op">-</span>dt<span class="op">*</span>dot(grad(T_), j_theta))<span class="op">*</span>problem.dx</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>problem.compute_tangent_form()</span></code></pre></div>
 <h2 id="time-stepping-loop-and-comparison-with-code_aster-results">Time-stepping loop and comparison with <code>code_aster</code> results</h2>
 <p>We now implement the time-stepping loop which simply solves the non-linear problem and update the fields corresponding to the values at the previous time step. We also load the values of the one-dimensional temperature field <span class="math inline">\(T(x, t)\)</span> given in the <code>code_aster</code> test-case and compare them with what we obtain every second.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1">cA_results <span class="op">=</span> np.loadtxt(<span class="st">&quot;results_code_Aster.csv&quot;</span>, delimiter<span class="op">=</span><span class="st">&quot;,&quot;</span>)</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">code_Aster_times <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">7</span>)</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">Nsteps <span class="op">=</span> <span class="dv">60</span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">times <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="fl">6.</span>, Nsteps<span class="op">+</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="cf">for</span> (t, delta_t) <span class="kw">in</span> <span class="bu">zip</span>(times[<span class="dv">1</span>:], np.diff(times)):</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6">    dt.assign(Constant(delta_t))</a>
-<a class="sourceLine" id="cb12-7" data-line-number="7">    </a>
-<a class="sourceLine" id="cb12-8" data-line-number="8">    problem.solve(T.vector())</a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb12-10" data-line-number="10">    h_old.assign(h) <span class="co"># update enthalpy</span></a>
-<a class="sourceLine" id="cb12-11" data-line-number="11">    j_old.assign(j) <span class="co"># update heat flux</span></a>
-<a class="sourceLine" id="cb12-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb12-13" data-line-number="13">    sol_time <span class="op">=</span> np.isclose(t, code_Aster_times)</a>
-<a class="sourceLine" id="cb12-14" data-line-number="14">    <span class="cf">if</span> <span class="bu">any</span>(sol_time):</a>
-<a class="sourceLine" id="cb12-15" data-line-number="15">        plt.figure()</a>
-<a class="sourceLine" id="cb12-16" data-line-number="16">        plt.title(<span class="st">&quot;Time </span><span class="sc">{:0.1f}</span><span class="st">s&quot;</span>.<span class="bu">format</span>(t), fontsize<span class="op">=</span><span class="dv">16</span>)</a>
-<a class="sourceLine" id="cb12-17" data-line-number="17">        ax1 <span class="op">=</span> plt.gca()</a>
-<a class="sourceLine" id="cb12-18" data-line-number="18">        ax1.set_xlabel(<span class="st">&#39;$x$ coordinate&#39;</span>)</a>
-<a class="sourceLine" id="cb12-19" data-line-number="19">        ax1.set_ylabel(<span class="st">&#39;Temperature [°C]&#39;</span>)</a>
-<a class="sourceLine" id="cb12-20" data-line-number="20">        ax1.plot(x, np.array([T(xi, width<span class="op">/</span><span class="dv">2</span>)<span class="op">-</span><span class="fl">273.15</span> <span class="cf">for</span> xi <span class="kw">in</span> x]), <span class="st">&quot;-b&quot;</span>, label<span class="op">=</span><span class="st">&quot;FEniCS/MFront&quot;</span>)</a>
-<a class="sourceLine" id="cb12-21" data-line-number="21">        ax1.plot(cA_results[:, <span class="dv">0</span>], cA_results[:, np.where(sol_time)[<span class="dv">0</span>]<span class="op">+</span><span class="dv">1</span>], <span class="st">&quot;or&quot;</span>, label<span class="op">=</span><span class="st">&quot;Code\_Aster&quot;</span>)</a>
-<a class="sourceLine" id="cb12-22" data-line-number="22">        Tm <span class="op">=</span> material.get_parameter(<span class="st">&quot;MeltingTemperature&quot;</span>) <span class="op">-</span> <span class="fl">273.15</span></a>
-<a class="sourceLine" id="cb12-23" data-line-number="23">        ax1.plot(x, Tm <span class="op">+</span> <span class="dv">0</span><span class="op">*</span>x, <span class="st">&quot;--k&quot;</span>)</a>
-<a class="sourceLine" id="cb12-24" data-line-number="24">        ax1.annotate(<span class="st">&quot;liquid</span><span class="ch">\n</span><span class="st">solid&quot;</span>, xy<span class="op">=</span>(<span class="fl">0.08</span>, Tm), fontsize<span class="op">=</span><span class="dv">16</span>, va<span class="op">=</span><span class="st">&quot;center&quot;</span>)</a>
-<a class="sourceLine" id="cb12-25" data-line-number="25">        plt.legend()</a>
-<a class="sourceLine" id="cb12-26" data-line-number="26">        plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cA_results <span class="op">=</span> np.loadtxt(<span class="st">&quot;results_code_Aster.csv&quot;</span>, delimiter<span class="op">=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>code_Aster_times <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">7</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>Nsteps <span class="op">=</span> <span class="dv">60</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="fl">6.</span>, Nsteps<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t, delta_t) <span class="kw">in</span> <span class="bu">zip</span>(times[<span class="dv">1</span>:], np.diff(times)):</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    dt.assign(Constant(delta_t))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    problem.solve(T.vector())</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    h_old.assign(h) <span class="co"># update enthalpy</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    j_old.assign(j) <span class="co"># update heat flux</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    sol_time <span class="op">=</span> np.isclose(t, code_Aster_times)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">any</span>(sol_time):</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        plt.figure()</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        plt.title(<span class="st">&quot;Time </span><span class="sc">{:0.1f}</span><span class="st">s&quot;</span>.<span class="bu">format</span>(t), fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        ax1 <span class="op">=</span> plt.gca()</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        ax1.set_xlabel(<span class="st">&#39;$x$ coordinate&#39;</span>)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        ax1.set_ylabel(<span class="st">&#39;Temperature [°C]&#39;</span>)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>        ax1.plot(x, np.array([T(xi, width<span class="op">/</span><span class="dv">2</span>)<span class="op">-</span><span class="fl">273.15</span> <span class="cf">for</span> xi <span class="kw">in</span> x]), <span class="st">&quot;-b&quot;</span>, label<span class="op">=</span><span class="st">&quot;FEniCS/MFront&quot;</span>)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>        ax1.plot(cA_results[:, <span class="dv">0</span>], cA_results[:, np.where(sol_time)[<span class="dv">0</span>]<span class="op">+</span><span class="dv">1</span>], <span class="st">&quot;or&quot;</span>, label<span class="op">=</span><span class="st">&quot;Code\_Aster&quot;</span>)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>        Tm <span class="op">=</span> material.get_parameter(<span class="st">&quot;MeltingTemperature&quot;</span>) <span class="op">-</span> <span class="fl">273.15</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>        ax1.plot(x, Tm <span class="op">+</span> <span class="dv">0</span><span class="op">*</span>x, <span class="st">&quot;--k&quot;</span>)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>        ax1.annotate(<span class="st">&quot;liquid</span><span class="ch">\n</span><span class="st">solid&quot;</span>, xy<span class="op">=</span>(<span class="fl">0.08</span>, Tm), fontsize<span class="op">=</span><span class="dv">16</span>, va<span class="op">=</span><span class="st">&quot;center&quot;</span>)</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>        plt.legend()</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>        plt.show()</span></code></pre></div>
 <pre><code>    &lt;IPython.core.display.Javascript object&gt;</code></pre>
 <p><img src="img/HeatEquationPhaseChange-1.png" style="width:75.0%" /></p>
 <pre><code>    &lt;IPython.core.display.Javascript object&gt;</code></pre>
@@ -404,5 +404,5 @@ c_l(T-T_l)+c_sT_s+\dfrac{cs+cl}{2}T_\text{smooth}+\Delta h_{s/l} &amp; \text{if 
 <p><img src="img/HeatEquationPhaseChange-5.png" style="width:75.0%" /></p>
 <pre><code>    &lt;IPython.core.display.Javascript object&gt;</code></pre>
 <p><img src="img/HeatEquationPhaseChange-6.png" style="width:75.0%" /></p>
-      </body>
+</body>
 </html>

@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
             <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -117,6 +116,8 @@
 		<li><a href="release-notes-1.1.html">Version 1.1</a></li>
 		<li><a href="release-notes-1.1.1.html">Version 1.1.1</a></li>
 		<li><a href="release-notes-1.2.html">Version 1.2</a></li>
+		<li><a href="release-notes-1.2.1.html">Version 1.2.1</a></li>
+		<li><a href="release-notes-1.3.html">Version 1.3</a></li>
 	      </ul>
 	    </li>
 	    <li><a>Specific topics</a>
@@ -143,12 +144,12 @@
       </ul>
     </header>
     <br></br>
-        <div id="header">
-      <h1 class="title">Installation Guide</h1>
-                  <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">20/01/2020</h3>
-          </div>
-            <h1 id="installing-from-source">Installing from source</h1>
+<div id="header">
+<h1 class="title">Installation Guide</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">20/01/2020</h3>
+</div>
+<h1 id="installing-from-source">Installing from source</h1>
 <p>These are generic installation instructions. Building from source requires <code>cmake</code> to be installed (<a href="https://cmake.org/" class="uri">https://cmake.org/</a>).</p>
 <h2 id="overview">Overview</h2>
 <p>The simplest way to compile this package is:</p>
@@ -188,7 +189,7 @@
 <h1 id="installing-using-spack">Installing using <code>spack</code></h1>
 <p><code>spack</code> is flexible package manager (https://spack.io/).</p>
 <p>Installing <code>mgis</code> using <code>spack</code> shall be as easy as:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">spack</span> install mgis</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> spack install mgis</span></code></pre></div>
 <p>By default, the <code>c</code>, <code>python</code> and <code>fortran</code> bindings are installed. The mgis package has numerous variants which allows customizing which bindings must be built.</p>
-      </body>
+</body>
 </html>

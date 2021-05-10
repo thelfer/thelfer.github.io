@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
             <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -117,6 +116,8 @@
 		<li><a href="release-notes-1.1.html">Version 1.1</a></li>
 		<li><a href="release-notes-1.1.1.html">Version 1.1.1</a></li>
 		<li><a href="release-notes-1.2.html">Version 1.2</a></li>
+		<li><a href="release-notes-1.2.1.html">Version 1.2.1</a></li>
+		<li><a href="release-notes-1.3.html">Version 1.3</a></li>
 	      </ul>
 	    </li>
 	    <li><a>Specific topics</a>
@@ -143,32 +144,34 @@
       </ul>
     </header>
     <br></br>
-        <div id="header">
-      <h1 class="title">MFrontGenericInterfaceSupport Version 1.1</h1>
-                  <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">17/12/2019</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#new-functionalities">New functionalities</a><ul>
-      <li><a href="#finite-strain-behaviour-options">Finite strain behaviour options</a></li>
-      <li><a href="#add-support-for-generalised-behaviours">Add support for generalised behaviours</a></li>
-      <li><a href="#markdown-output">Markdown output</a></li>
-      <li><a href="#specify-the-type-of-integration-to-be-performed-in-the-integrate-function">Specify the type of integration to be performed in the <code>integrate</code> function</a></li>
-      <li><a href="#the-materialdatamanagerinitializer-and-materialstatemanagerinitializer-data-structures">The <code>MaterialDataManagerInitializer</code> and <code>MaterialStateManagerInitializer</code> data structures</a></li>
-      <li><a href="#julia-bindings"><code>Julia</code> bindings</a></li>
-      </ul></li>
-      <li><a href="#references">References</a></li>
-      </ul>
-    </div>
-        <p>Version 1.1 of <code>MFrontGenericInterfaceSupport</code> is compatible with the Version 3.3 of <code>TFEL/MFront</code>.</p>
+<div id="header">
+<h1 class="title">MFrontGenericInterfaceSupport Version 1.1</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">17/12/2019</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#new-functionalities">New functionalities</a>
+<ul>
+<li><a href="#finite-strain-behaviour-options">Finite strain behaviour options</a></li>
+<li><a href="#add-support-for-generalised-behaviours">Add support for generalised behaviours</a></li>
+<li><a href="#markdown-output">Markdown output</a></li>
+<li><a href="#specify-the-type-of-integration-to-be-performed-in-the-integrate-function">Specify the type of integration to be performed in the <code>integrate</code> function</a></li>
+<li><a href="#the-materialdatamanagerinitializer-and-materialstatemanagerinitializer-data-structures">The <code>MaterialDataManagerInitializer</code> and <code>MaterialStateManagerInitializer</code> data structures</a></li>
+<li><a href="#julia-bindings"><code>Julia</code> bindings</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+<li><a href="#bibliography">References</a></li>
+</ul>
+</div>
+<p>Version 1.1 of <code>MFrontGenericInterfaceSupport</code> is compatible with the Version 3.3 of <code>TFEL/MFront</code>.</p>
 <p>This version has been used in many projects:</p>
 <ul>
 <li><code>Mefisto</code>. See it in action <a href="https://www.youtube.com/watch?v=7YvqhzGagt0">here</a>.</li>
-<li><a href="https://github.com/thelfer/tfel-doc/tree/master/MFrontUserDays/FifthUserDays/FEniCS-Bleyer-MFrontUserDays-2019.pdf">Modelling non-linear constitutive material laws in FEniCS with MFront</a>, by J. Bleyer (Laboratoire Navier, UMR 8205, École des Ponts ParisTech-IFSTTAR-CNRS). See also <span class="citation" data-cites="bleyer_fenics_2019 bleyer_elasto-plastic_2019">(Bleyer and Helfer <a href="#ref-bleyer_fenics_2019">2019</a><a href="#ref-bleyer_fenics_2019">b</a>, <a href="#ref-bleyer_elasto-plastic_2019">2019</a><a href="#ref-bleyer_elasto-plastic_2019">a</a>)</span>. See it in action <a href="https://www.youtube.com/watch?v=LyRq6_Q15D0">here</a>.</li>
+<li><a href="https://github.com/thelfer/tfel-doc/tree/master/MFrontUserDays/FifthUserDays/FEniCS-Bleyer-MFrontUserDays-2019.pdf">Modelling non-linear constitutive material laws in FEniCS with MFront</a>, by J. Bleyer (Laboratoire Navier, UMR 8205, École des Ponts ParisTech-IFSTTAR-CNRS). See also <span class="citation" data-cites="bleyer_fenics_2019 bleyer_elasto-plastic_2019">(<a href="#ref-bleyer_fenics_2019" role="doc-biblioref">Bleyer and Helfer 2019b</a>, <a href="#ref-bleyer_elasto-plastic_2019" role="doc-biblioref">2019a</a>)</span>. See it in action <a href="https://www.youtube.com/watch?v=LyRq6_Q15D0">here</a>.</li>
 <li><a href="https://github.com/thelfer/tfel-doc/tree/master/MFrontUserDays/FifthUserDays/OpenGeoSys-Nagel-MFrontUserDays-2019.pdf">MFront and OpenGeoSys Connecting two open-source initiatives for simulations in environmental geosciences and energy geotechnics</a>, by T. Nagel, F. Parisio, D. Naumov, C. Lehmann, and O. Kolditz (Technische Universität Bergakademie Freiberg/Helmholtz Zentrum für Umweltforschung GmbH/Technische Universität Dresden/Competence Centre for Environmental Geosciences). See it action <a href="https://www.youtube.com/watch?v=juWMIkJ64iE">here</a>.</li>
 <li><a href="https://github.com/thelfer/tfel-doc/tree/master/MFrontUserDays/FifthUserDays/Xper-Perales-MFrontUserDays-2019.pdf">Xper: a software dedicated to the fracture of nonlinear heterogeneous materials. Coupling with MFront using MGIS</a>, by F. Péralès (IRNS).</li>
-<li><code>JuliaFEM</code>. See <span class="citation" data-cites="frondelius_mfrontinterface_2019">Frondelius et al. (<a href="#ref-frondelius_mfrontinterface_2019">2019</a>)</span> for details.</li>
+<li><code>JuliaFEM</code>. See <span class="citation" data-cites="frondelius_mfrontinterface_2019"><a href="#ref-frondelius_mfrontinterface_2019" role="doc-biblioref">Frondelius et al.</a> (<a href="#ref-frondelius_mfrontinterface_2019" role="doc-biblioref">2019</a>)</span> for details.</li>
 <li><code>Kratos Multiphysics</code>. See it in action <a href="https://www.youtube.com/watch?v=402rqrygT4k">here</a>.</li>
 </ul>
 <h1 id="new-functionalities">New functionalities</h1>
@@ -180,11 +183,11 @@
 </ul>
 <p>The <code>FiniteStrainBehaviourOptions</code> data structure allows to specify which stress measure and which tangent operator is expected.</p>
 <p>Here is an example of this structure may be used:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">auto</span> o = FiniteStrainBehaviourOptions{};</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">o.stress_measure = FiniteStrainBehaviourOptions::PK1;</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="at">const</span> <span class="kw">auto</span> b =</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">    load(o, <span class="st">&quot;src/libBehaviour.so&quot;</span>, <span class="st">&quot;SaintVenantKirchhoffElasticity&quot;</span>,</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">         Hypothesis::TRIDIMENSIONAL);</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> o = FiniteStrainBehaviourOptions{};</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>o.stress_measure = FiniteStrainBehaviourOptions::PK1;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> b =</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    load(o, <span class="st">&quot;src/libBehaviour.so&quot;</span>, <span class="st">&quot;SaintVenantKirchhoffElasticity&quot;</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         Hypothesis::TRIDIMENSIONAL);</span></code></pre></div>
 <h2 id="add-support-for-generalised-behaviours">Add support for generalised behaviours</h2>
 <p>Generalised behaviours in <code>MFront</code> can be based on multiple tangent operator blocks.</p>
 <h2 id="markdown-output">Markdown output</h2>
@@ -195,42 +198,43 @@
 <li>a detailled (verbose) description of the state of an integration point.</li>
 </ul>
 <h2 id="specify-the-type-of-integration-to-be-performed-in-the-integrate-function">Specify the type of integration to be performed in the <code>integrate</code> function</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">enum</span> <span class="kw">struct</span> IntegrationType {</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">  PREDICTION_TANGENT_OPERATOR = <span class="dv">-3</span>,</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">  PREDICTION_SECANT_OPERATOR = <span class="dv">-2</span>,</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  PREDICTION_ELASTIC_OPERATOR = <span class="dv">-1</span>,</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  INTEGRATION_NO_TANGENT_OPERATOR = <span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">  INTEGRATION_ELASTIC_OPERATOR = <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">  INTEGRATION_SECANT_OPERATOR = <span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">  INTEGRATION_TANGENT_OPERATOR = <span class="dv">3</span>,</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">  INTEGRATION_CONSISTENT_TANGENT_OPERATOR = <span class="dv">4</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">};  <span class="co">// end of enum IntegrationType</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="kw">struct</span> IntegrationType {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  PREDICTION_TANGENT_OPERATOR = -<span class="dv">3</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  PREDICTION_SECANT_OPERATOR = -<span class="dv">2</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  PREDICTION_ELASTIC_OPERATOR = -<span class="dv">1</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  INTEGRATION_NO_TANGENT_OPERATOR = <span class="dv">0</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  INTEGRATION_ELASTIC_OPERATOR = <span class="dv">1</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  INTEGRATION_SECANT_OPERATOR = <span class="dv">2</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  INTEGRATION_TANGENT_OPERATOR = <span class="dv">3</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  INTEGRATION_CONSISTENT_TANGENT_OPERATOR = <span class="dv">4</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>};  <span class="co">// end of enum IntegrationType</span></span></code></pre></div>
 <h2 id="the-materialdatamanagerinitializer-and-materialstatemanagerinitializer-data-structures">The <code>MaterialDataManagerInitializer</code> and <code>MaterialStateManagerInitializer</code> data structures</h2>
 <p>The <code>MaterialDataManagerInitializer</code> data structure is in charge of holding information on how a material data manager shall be initialized. It may contain pointers to externally allocated data, that won’t be handled by the final data manager. If a pointer is not initialized, the material data manager will allocate and handle memory internally.</p>
 <p>The <code>MaterialStateManagerInitializer</code> data structure is in charge of holding information on how a material state manager shall be initialized. It may contain pointers to externally allocated data, that won’t be handled by the final state manager. If a pointer is not initialized, the material state manager will allocate and handle memory internally.</p>
 <h2 id="julia-bindings"><code>Julia</code> bindings</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode julia"><code class="sourceCode julia"><a class="sourceLine" id="cb3-1" data-line-number="1">h = mgis.behaviour.Axisymmetrical</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">b = mgis.behaviour.load(<span class="st">&quot;src/libBehaviour.so&quot;</span>,<span class="st">&quot;Norton2&quot;</span>,h)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># meta data</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">@test mgis.behaviour.get_source(b)==<span class="st">&quot;Norton2.mfront&quot;</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">@test mgis.behaviour.get_hypothesis(b)==mgis.behaviour.Axisymmetrical</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">@test mgis.behaviour.get_symmetry(b)==mgis.behaviour.Isotropic</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">@test mgis.behaviour.get_kinematic(b)==mgis.behaviour.SmallStrainKinematic</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">@test mgis.behaviour.get_kinematic(b)==mgis.behaviour.SmallStrainKinematic</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">@test mgis.behaviour.get_behaviour_type(b)== </a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">    mgis.behaviour.StandardStrainBasedBehaviour</a></code></pre></div>
-<h1 id="references" class="unnumbered">References</h1>
-<div id="refs" class="references">
-<div id="ref-bleyer_elasto-plastic_2019">
-<p>Bleyer, Jérémy, and Thomas Helfer. 2019a. “Elasto-Plastic Analysis Implemented Using the MFront Code Generator. Numerical Tours of Continuum Mechanics Using FEniCS.” 2019. <a href="https://comet-fenics.readthedocs.io/en/latest/demo/plasticity_mfront/plasticity_mfront.py.html" class="uri">https://comet-fenics.readthedocs.io/en/latest/demo/plasticity_mfront/plasticity_mfront.py.html</a>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> mgis.behaviour.Axisymmetrical</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> mgis.behaviour.load(<span class="st">&quot;src/libBehaviour.so&quot;</span><span class="op">,</span><span class="st">&quot;Norton2&quot;</span><span class="op">,</span>h)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># meta data</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="pp">@test</span> mgis.behaviour.get_source(b)<span class="op">==</span><span class="st">&quot;Norton2.mfront&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="pp">@test</span> mgis.behaviour.get_hypothesis(b)<span class="op">==</span>mgis.behaviour.Axisymmetrical</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="pp">@test</span> mgis.behaviour.get_symmetry(b)<span class="op">==</span>mgis.behaviour.Isotropic</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="pp">@test</span> mgis.behaviour.get_kinematic(b)<span class="op">==</span>mgis.behaviour.SmallStrainKinematic</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="pp">@test</span> mgis.behaviour.get_kinematic(b)<span class="op">==</span>mgis.behaviour.SmallStrainKinematic</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="pp">@test</span> mgis.behaviour.get_behaviour_type(b)<span class="op">==</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    mgis.behaviour.StandardStrainBasedBehaviour</span></code></pre></div>
+<h1 id="references">References</h1>
+<h1 class="unnumbered" id="bibliography">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-bleyer_elasto-plastic_2019" class="csl-entry" role="doc-biblioentry">
+Bleyer, Jérémy, and Thomas Helfer. 2019a. <span>“Elasto-Plastic Analysis Implemented Using the <span>MFront</span> Code Generator. Numerical Tours of Continuum Mechanics Using <span>FEniCS</span>.”</span> 2019. <a href="https://comet-fenics.readthedocs.io/en/latest/demo/plasticity_mfront/plasticity_mfront.py.html">https://comet-fenics.readthedocs.io/en/latest/demo/plasticity_mfront/plasticity_mfront.py.html</a>.
 </div>
-<div id="ref-bleyer_fenics_2019">
-<p>———. 2019b. “FEniCS and MFront for Complex Non Linear Solid Mechanics Simulation.” <a href="https://doi.org/10.13140/RG.2.2.35501.54247" class="uri">https://doi.org/10.13140/RG.2.2.35501.54247</a>.</p>
+<div id="ref-bleyer_fenics_2019" class="csl-entry" role="doc-biblioentry">
+———. 2019b. <span>“<span>FEniCS</span> and <span>MFront</span> for Complex Non Linear Solid Mechanics Simulation.”</span> <a href="https://doi.org/10.13140/RG.2.2.35501.54247">https://doi.org/10.13140/RG.2.2.35501.54247</a>.
 </div>
-<div id="ref-frondelius_mfrontinterface_2019">
-<p>Frondelius, Tero, Thomas Helfer, Ivan Yashchuk, Joona Vaara, and Anssi Laukkanen. 2019. “MFrontInterface.jl: MFront Material Models in JuliaFEM.” In <em>Proceedings of the 32nd Nordic Seminar on Computational Mechanics</em>, edited by H. Koivurova and A. H. Niemi.</p>
+<div id="ref-frondelius_mfrontinterface_2019" class="csl-entry" role="doc-biblioentry">
+Frondelius, Tero, Thomas Helfer, Ivan Yashchuk, Joona Vaara, and Anssi Laukkanen. 2019. <span>“MFrontInterface.jl: MFront Material Models in Julia<span>FEM</span>.”</span> In <em>Proceedings of the 32nd Nordic Seminar on Computational Mechanics</em>, edited by H. Koivurova and A. H. Niemi.
 </div>
 </div>
-      </body>
+</body>
 </html>

@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -80,7 +79,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -98,64 +97,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -177,6 +193,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -243,52 +260,56 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">Implementation of a perfect plastic behaviour using the Hosford equivalent stress</h1>
-                  <h2 class="author">Thomas Helfer, Jérémy Hure, Mohamed Shokeir</h2>
-                  <h3 class="date">21/11/2017</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#description">Description</a><ul>
-      <li><a href="#elasticity">Elasticity</a></li>
-      <li><a href="#plasticity">Plasticity</a></li>
-      </ul></li>
-      <li><a href="#implicit-scheme">Implicit scheme</a><ul>
-      <li><a href="#choice-of-the-state-variables">Choice of the state variables</a></li>
-      <li><a href="#elastic-prediction">Elastic prediction</a></li>
-      <li><a href="#equations-governing-the-material-evolution-under-plastic-loading">Equations governing the material evolution under plastic loading</a></li>
-      </ul></li>
-      <li><a href="#implementation">Implementation</a><ul>
-      <li><a href="#metadata">Metadata</a></li>
-      <li><a href="#supported-modelling-hypothesis">Supported modelling hypothesis</a></li>
-      <li><a href="#the-standard-elasticity-brick">The standard elasticity brick</a></li>
-      <li><a href="#numerical-parameters">Numerical parameters</a></li>
-      <li><a href="#state-variables">State variables</a></li>
-      <li><a href="#material-constants">Material constants</a></li>
-      <li><a href="#local-variable-declaration">Local variable declaration</a></li>
-      <li><a href="#local-variable-initialization">Local variable initialization</a></li>
-      <li><a href="#implicit-system">Implicit system</a></li>
-      </ul></li>
-      <li><a href="#determining-the-yield-surface-in-plane-stress">Determining the yield surface in plane stress</a><ul>
-      <li><a href="#compilation-of-the-behaviour">Compilation of the behaviour</a></li>
-      <li><a href="#a-simple-python-script-to-determine-the-yield-surface-in-plane-stress">A simple <code>python</code> script to determine the yield surface in plane stress</a></li>
-      </ul></li>
-      <li><a href="#comparing-the-robustness-of-various-algorithms">Comparing the robustness of various algorithms</a><ul>
-      <li><a href="#description-of-the-test">Description of the test</a></li>
-      <li><a href="#algorithms-tested">Algorithms tested</a></li>
-      <li><a href="#hosford-a6">Hosford <span class="math inline">\(a=6\)</span></a></li>
-      <li><a href="#hosford-a8">Hosford <span class="math inline">\(a=8\)</span></a></li>
-      <li><a href="#hosford-a100">Hosford <span class="math inline">\(a=100\)</span></a><ul>
-      <li><a href="#influence-of-the-eigen-solver">Influence of the eigen solver</a></li>
-      </ul></li>
-      <li><a href="#conclusions">Conclusions</a></li>
-      </ul></li>
-      <li><a href="#references">References</a></li>
-      </ul>
-    </div>
-        
+<div id="header">
+<h1 class="title">Implementation of a perfect plastic behaviour using the Hosford equivalent stress</h1>
+<h2 class="author">Thomas Helfer, Jérémy Hure, Mohamed Shokeir</h2>
+<h3 class="date">21/11/2017</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#description">Description</a>
+<ul>
+<li><a href="#elasticity">Elasticity</a></li>
+<li><a href="#plasticity">Plasticity</a></li>
+</ul></li>
+<li><a href="#implicit-scheme">Implicit scheme</a>
+<ul>
+<li><a href="#choice-of-the-state-variables">Choice of the state variables</a></li>
+<li><a href="#elastic-prediction">Elastic prediction</a></li>
+<li><a href="#equations-governing-the-material-evolution-under-plastic-loading">Equations governing the material evolution under plastic loading</a></li>
+</ul></li>
+<li><a href="#implementation">Implementation</a>
+<ul>
+<li><a href="#metadata">Metadata</a></li>
+<li><a href="#supported-modelling-hypothesis">Supported modelling hypothesis</a></li>
+<li><a href="#the-standard-elasticity-brick">The standard elasticity brick</a></li>
+<li><a href="#numerical-parameters">Numerical parameters</a></li>
+<li><a href="#state-variables">State variables</a></li>
+<li><a href="#material-constants">Material constants</a></li>
+<li><a href="#local-variable-declaration">Local variable declaration</a></li>
+<li><a href="#local-variable-initialization">Local variable initialization</a></li>
+<li><a href="#implicit-system">Implicit system</a></li>
+</ul></li>
+<li><a href="#determining-the-yield-surface-in-plane-stress">Determining the yield surface in plane stress</a>
+<ul>
+<li><a href="#compilation-of-the-behaviour">Compilation of the behaviour</a></li>
+<li><a href="#a-simple-python-script-to-determine-the-yield-surface-in-plane-stress">A simple <code>python</code> script to determine the yield surface in plane stress</a></li>
+</ul></li>
+<li><a href="#comparing-the-robustness-of-various-algorithms">Comparing the robustness of various algorithms</a>
+<ul>
+<li><a href="#description-of-the-test">Description of the test</a></li>
+<li><a href="#algorithms-tested">Algorithms tested</a></li>
+<li><a href="#hosford-a6">Hosford <span class="math inline">\(a=6\)</span></a></li>
+<li><a href="#hosford-a8">Hosford <span class="math inline">\(a=8\)</span></a></li>
+<li><a href="#hosford-a100">Hosford <span class="math inline">\(a=100\)</span></a>
+<ul>
+<li><a href="#influence-of-the-eigen-solver">Influence of the eigen solver</a></li>
+</ul></li>
+<li><a href="#conclusions">Conclusions</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
 <p>This paper is dedicated to the implementation a perfect plastic behaviour based on the Hosford equivalent stress.</p>
 <p>The whole implementation is available <a href="./gallery/plasticity/HosfordPerfectPlasticity.mfront">here</a>.</p>
 <h1 id="description">Description</h1>
@@ -304,12 +325,12 @@ f{\left(\underline{\sigma}\right)}=\sigma_{\mathrm{eq}}^{H}-\sigma_{Y}
 <li><span class="math inline">\(\sigma_{\mathrm{eq}}^{H}\)</span> is the Hosford equivalent stress defined hereafter.</li>
 <li>The yield stress <span class="math inline">\(\sigma_{Y}\)</span> is a constant material parameter.</li>
 </ul>
-<p>The Hosford equivalent stress is defined by (see <span class="citation" data-cites="hosford_generalized_1972">[<a href="#ref-hosford_generalized_1972">1</a>]</span>): <span class="math display">\[
+<p>The Hosford equivalent stress is defined by (see <span class="citation" data-cites="hosford_generalized_1972">[<a href="#ref-hosford_generalized_1972" role="doc-biblioref">1</a>]</span>): <span class="math display">\[
 \sigma_{\mathrm{eq}}^{H}=\sqrt[a]{{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{\left({\left|\sigma_{1}-\sigma_{2}\right|}^{a}+{\left|\sigma_{1}-\sigma_{3}\right|}^{a}+{\left|\sigma_{2}-\sigma_{3}\right|}^{a}\right)}}
 \]</span> where <span class="math inline">\(\sigma_{1}\)</span>, <span class="math inline">\(\sigma_{2}\)</span> and <span class="math inline">\(\sigma_{3}\)</span> are the eigenvalues of the stress.</p>
 <p>Therefore, when <span class="math inline">\(a\)</span> goes to infinity, the Hosford stress reduces to the Tresca stress. When <span class="math inline">\(n = 2\)</span> the Hosford stress reduces to the von Mises stress.</p>
 <figure>
-<img src="img/HosfordStress.svg" title="Comparison of the Hosford stress (a=100,a=8) and the von Mises stress in plane stress" alt="Comparison of the Hosford stress a=100,a=8 and the von Mises stress in plane stress" style="width:70.0%" /><figcaption>Comparison of the Hosford stress <span class="math inline">\(a=100,a=8\)</span> and the von Mises stress in plane stress</figcaption>
+<img src="img/HosfordStress.svg" title="Comparison of the Hosford stress (a=100,a=8) and the von Mises stress in plane stress" style="width:70.0%" alt="Comparison of the Hosford stress a=100,a=8 and the von Mises stress in plane stress" /><figcaption aria-hidden="true">Comparison of the Hosford stress <span class="math inline">\(a=100,a=8\)</span> and the von Mises stress in plane stress</figcaption>
 </figure>
 <p>The Hosford stress is an isotropic homogeneous function of degree 1. The flow rule is assumed associated and the plastic strain rate <span class="math inline">\(\underline{\dot{\varepsilon}}^{\mathrm{p}}\)</span> is given by: <span class="math display">\[
 \underline{\dot{\varepsilon}}^{\mathrm{p}}=\dot{p}\,{\displaystyle \frac{\displaystyle \partial \sigma_{\mathrm{eq}}^{H}}{\displaystyle \partial \underline{\sigma}}}=\dot{p}\,\underline{n}^{H}
@@ -363,17 +384,17 @@ f_{p}={\left.\sigma_{\mathrm{eq}}^{H}\right|_{t+\theta\,\Delta\,t}}-\sigma_{Y}=0
 <li>the author of the implementation (<code>@Author</code>).</li>
 <li>a small description of the behaviour (<code>@Description</code>).</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL       Implicit;</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="er">@</span>Behaviour HosfordPerfectPlasticity;</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="er">@</span>Author    Thomas Helfer;</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="er">@</span>Description{</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">  A simple implementation of a perfect</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">  plasticity behaviour <span class="kw">using</span> the</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">  Hosford stress.</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">};</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL       Implicit;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour HosfordPerfectPlasticity;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author    Thomas Helfer;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description{</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  A simple implementation of a perfect</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  plasticity behaviour <span class="kw">using</span> the</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  Hosford stress.</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
 <h2 id="supported-modelling-hypothesis">Supported modelling hypothesis</h2>
 <p>Thanks to the <code>StandardElasticity</code> brick, all the modelling hypotheses can be supported. The following statement, starting with the <code>@ModellingHypotheses</code>, enables all the modelling hypotheses:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>ModellingHypotheses {<span class="st">&quot;.+&quot;</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses {<span class="st">&quot;.+&quot;</span>};</span></code></pre></div>
 <h2 id="the-standard-elasticity-brick">The standard elasticity brick</h2>
 <p>To implement this behaviour, we will use the <code>StandardElasticity</code> brick which provides:</p>
 <ul>
@@ -384,69 +405,69 @@ f_{p}={\left.\sigma_{\mathrm{eq}}^{H}\right|_{t+\theta\,\Delta\,t}}-\sigma_{Y}=0
 </ul>
 <p>This behaviour brick is fully described <a href="BehaviourBricks.html">here</a>.</p>
 <p>The usage of the <code>StandardElasticity</code> is introduced as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>Brick StandardElasticity;</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity;</span></code></pre></div>
 <h2 id="numerical-parameters">Numerical parameters</h2>
 <p>The following part of file give some default values for numerical parameters used by the integration algorithm:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-16</span>;</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="er">@</span>Theta <span class="dv">1</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-16</span>;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span>;</span></code></pre></div>
 <h2 id="state-variables">State variables</h2>
 <p>The elastic strain is automatically declared the <code>StandardElasticity</code> brick. The associated variable is <code>eel</code>.</p>
 <p>The following statement introduces the equivalent plastic strain named <code>p</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>StateVariable strain p;</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable strain p;</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</span></code></pre></div>
 <h2 id="material-constants">Material constants</h2>
 <p>The material properties are hard-coded. The <code>@ElasticMaterialProperties</code> is used to declare the Young modulus and the Poisson ratio.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="er">@</span>ElasticMaterialProperties {<span class="fl">150e9</span>,<span class="fl">0.3</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ElasticMaterialProperties {<span class="fl">150e9</span>,<span class="fl">0.3</span>};</span></code></pre></div>
 <p>In the <code>Implicit</code> scheme, the lame coefficients are automatically deduced from the Young modulus and the Poisson ratio. They are accessible though the <code>lambda</code> and <code>mu</code> local variables which are automatically defined.</p>
 <p>The parameters associated with the plastic part of the behaviour are defined as follows:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>Parameter a    = <span class="dv">8</span>;</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="er">@</span>Parameter sigy = <span class="fl">150e6</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter a    = <span class="dv">8</span>;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter sigy = <span class="fl">150e6</span>;</span></code></pre></div>
 <p>Here <code>a</code> stands for the Hosford exponent and <code>sigy</code> is the yield stress.</p>
 <h2 id="local-variable-declaration">Local variable declaration</h2>
 <p>A boolean <code>b</code> is declared as a local variable.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>LocalVariable <span class="dt">bool</span> b;</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">bool</span> b;</span></code></pre></div>
 <p>This boolean will be <code>true</code> if plastic loading occurs.</p>
 <h2 id="local-variable-initialization">Local variable initialization</h2>
 <p>The main goal of the local variable initialization is to test if the elastic prediction of the stress lies inside the yield surface.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>InitializeLocalVariables{</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="at">const</span> stress seps = <span class="dv">1</span>.e<span class="dv">-10</span>*young;</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> sigel = computeElasticPrediction();</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> seqel = computeHosfordStress(sigel,a,seps);</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">  b = seqel&gt;sigy;</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitializeLocalVariables{</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> stress seps = <span class="fl">1.e-10</span>*young;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sigel = computeElasticPrediction();</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> seqel = computeHosfordStress(sigel,a,seps);</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  b = seqel&gt;sigy;</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>The <code>computeElasticPrediction</code> method, provided by the <code>StandardElasticity</code> brick, computes the elastic prediction of the stress and takes into account the modelling hypothesis. This prediction is thus valid under the plane stress hypothesis.</p>
 <p>The <code>computeHosfordStress</code> is then called. It takes three arguments:</p>
 <ul>
 <li>the stress,</li>
 <li>the Hosford exponent,</li>
-<li>a criterion used to check if the von Mises stress is non zero. The von Mises stress is used to normalize the eigenvalues of the stress and avoid numerical overflows (See <span class="citation" data-cites="scherzinger_return_2017">[<a href="#ref-scherzinger_return_2017">2</a>]</span> for details).</li>
+<li>a criterion used to check if the von Mises stress is non zero. The von Mises stress is used to normalize the eigenvalues of the stress and avoid numerical overflows (See <span class="citation" data-cites="scherzinger_return_2017">[<a href="#ref-scherzinger_return_2017" role="doc-biblioref">2</a>]</span> for details).</li>
 </ul>
 <p>At the last line, the boolean variable <code>b</code> is set to <code>true</code> if the elastic prediction of the Hosford stress exceeds the yield stress.</p>
 <h2 id="implicit-system">Implicit system</h2>
 <p>The code describing the implicit system is rather short:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="er">@</span>Integrator{</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="at">const</span> stress seps = <span class="dv">1</span>.e<span class="dv">-10</span>*young;</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="cf">if</span>(!b){</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">    <span class="co">// elastic loading, nothing to be done</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">    <span class="cf">return</span> <span class="kw">true</span>;</a>
-<a class="sourceLine" id="cb10-6" data-line-number="6">  }</a>
-<a class="sourceLine" id="cb10-7" data-line-number="7">  real seq;</a>
-<a class="sourceLine" id="cb10-8" data-line-number="8">  Stensor n;</a>
-<a class="sourceLine" id="cb10-9" data-line-number="9">  Stensor4 dn;</a>
-<a class="sourceLine" id="cb10-10" data-line-number="10">  <span class="bu">std::</span>tie(seq,n,dn) = computeHosfordStressSecondDerivative(sig,a,seps);</a>
-<a class="sourceLine" id="cb10-11" data-line-number="11">  feel        += dp*n;</a>
-<a class="sourceLine" id="cb10-12" data-line-number="12">  dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp*dn;</a>
-<a class="sourceLine" id="cb10-13" data-line-number="13">  dfeel_ddp    = n;</a>
-<a class="sourceLine" id="cb10-14" data-line-number="14">  fp           = (seq-sigy)/young;</a>
-<a class="sourceLine" id="cb10-15" data-line-number="15">  dfp_ddeel    = <span class="dv">2</span>*mu*theta*n/young;</a>
-<a class="sourceLine" id="cb10-16" data-line-number="16">  <span class="co">// this is a small trick that is necessary if the first time</span></a>
-<a class="sourceLine" id="cb10-17" data-line-number="17">  <span class="co">// step leads to a plastic loading:</span></a>
-<a class="sourceLine" id="cb10-18" data-line-number="18">  <span class="co">// on this case, the stress are zero on the first iteration and</span></a>
-<a class="sourceLine" id="cb10-19" data-line-number="19">  <span class="co">// this results in a null line in the jacobian matrix because</span></a>
-<a class="sourceLine" id="cb10-20" data-line-number="20">  <span class="co">// the normal is then undefined.</span></a>
-<a class="sourceLine" id="cb10-21" data-line-number="21">  <span class="co">// To avoid the issue, we arbitrarily set dfp_ddp to 1 in that case. </span></a>
-<a class="sourceLine" id="cb10-22" data-line-number="22">  dfp_ddp      = (seq&lt;seps) ? <span class="dv">1</span>:  <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb10-23" data-line-number="23">}</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> stress seps = <span class="fl">1.e-10</span>*young;</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(!b){</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// elastic loading, nothing to be done</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span>;</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  real seq;</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  Stensor n;</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  Stensor4 dn;</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="bu">std::</span>tie(seq,n,dn) = computeHosfordStressSecondDerivative(sig,a,seps);</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  feel        += dp*n;</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp*dn;</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  dfeel_ddp    = n;</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  fp           = (seq-sigy)/young;</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  dfp_ddeel    = <span class="dv">2</span>*mu*theta*n/young;</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// this is a small trick that is necessary if the first time</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">// step leads to a plastic loading:</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">// on this case, the stress are zero on the first iteration and</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">// this results in a null line in the jacobian matrix because</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the normal is then undefined.</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">// To avoid the issue, we arbitrarily set dfp_ddp to 1 in that case. </span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  dfp_ddp      = (seq&lt;seps) ? <span class="dv">1</span>:  <span class="dv">0</span>;</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>It shall be noted that, at the beginning of this code block:</p>
 <ul>
 <li><code>feel</code> has been initialized to <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}\)</span> by the <code>StandardElasticity</code> brick</li>
@@ -463,65 +484,65 @@ f_{p}={\left.\sigma_{\mathrm{eq}}^{H}\right|_{t+\theta\,\Delta\,t}}-\sigma_{Y}=0
 <p>The implicit system is then readily written, using expressions given in the previous paragraph.</p>
 <blockquote>
 <p><strong>Note</strong> With <code>C++-17</code> structured bindings enabled, the previous code is much more readable:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="er">@</span>Integrator{</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="at">const</span> stress seps = <span class="dv">1</span>.e<span class="dv">-10</span>*young;</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="cf">if</span>(!b){</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">    <span class="co">// elastic loading, nothing to be done</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">    <span class="cf">return</span> <span class="kw">true</span>;</a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">  }</a>
-<a class="sourceLine" id="cb11-7" data-line-number="7">  <span class="at">const</span> <span class="kw">auto</span> [seq,n,dn] = computeHosfordStressSecondDerivative(sig,a,seps);</a>
-<a class="sourceLine" id="cb11-8" data-line-number="8">  feel        += dp*n;</a>
-<a class="sourceLine" id="cb11-9" data-line-number="9">  dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp*dn;</a>
-<a class="sourceLine" id="cb11-10" data-line-number="10">  dfeel_ddp    = n;</a>
-<a class="sourceLine" id="cb11-11" data-line-number="11">  fp           = (seq-sigy)/young;</a>
-<a class="sourceLine" id="cb11-12" data-line-number="12">  dfp_ddeel    = <span class="dv">2</span>*mu*theta*n/young;</a>
-<a class="sourceLine" id="cb11-13" data-line-number="13">  dfp_ddp      = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb11-14" data-line-number="14">}</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> stress seps = <span class="fl">1.e-10</span>*young;</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(!b){</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// elastic loading, nothing to be done</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span>;</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> [seq,n,dn] = computeHosfordStressSecondDerivative(sig,a,seps);</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  feel        += dp*n;</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp*dn;</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  dfeel_ddp    = n;</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  fp           = (seq-sigy)/young;</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  dfp_ddeel    = <span class="dv">2</span>*mu*theta*n/young;</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  dfp_ddp      = <span class="dv">0</span>;</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </blockquote>
 <h1 id="determining-the-yield-surface-in-plane-stress">Determining the yield surface in plane stress</h1>
 <p>In this section, we show how to use a simple <code>python</code> script to determine the yield surface in plane stress.</p>
 <h2 id="compilation-of-the-behaviour">Compilation of the behaviour</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=abaqus HosfordPerfectPlasticity.mfront</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="ex">Treating</span> target : all</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="ex">The</span> following library has been built :</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="ex">-</span> libABAQUSBEHAVIOUR.so :  HOSFORDPERFECTPLASTICITY_AXIS HOSFORDPERFECTPLASTICITY_PSTRESS HOSFORDPERFECTPLASTICITY_PSTRAIN HOSFORDPERFECTPLASTICITY_3D</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>abaqus HosfordPerfectPlasticity.mfront</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Treating</span> target : all</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following library has been built :</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> libABAQUSBEHAVIOUR.so :  HOSFORDPERFECTPLASTICITY_AXIS HOSFORDPERFECTPLASTICITY_PSTRESS HOSFORDPERFECTPLASTICITY_PSTRAIN HOSFORDPERFECTPLASTICITY_3D</span></code></pre></div>
 <h2 id="a-simple-python-script-to-determine-the-yield-surface-in-plane-stress">A simple <code>python</code> script to determine the yield surface in plane stress</h2>
 <p>The following script determines the yield stress under the plane stress assumption in the principal stress space by a brute force approach. It imposes strain paths in varying directions and a constraint the shear stress is null. The computations stops when the plastic equivalent strain exceeds <span class="math inline">\(10^{-3}\)</span>. The current stress state is then printed.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="im">from</span> math <span class="im">import</span> pi,cos,sin,sqrt</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="im">import</span> mtest</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="cf">for</span> theta <span class="kw">in</span> [pi<span class="op">*</span>(<span class="op">-</span><span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">*</span><span class="bu">float</span>(i)<span class="op">/</span><span class="dv">99</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">100</span>)]:</a>
-<a class="sourceLine" id="cb13-5" data-line-number="5">    em   <span class="op">=</span> <span class="dv">2</span>.e<span class="dv">-2</span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6">    npas <span class="op">=</span> <span class="dv">100</span></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7">    tmax <span class="op">=</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb13-8" data-line-number="8">    c    <span class="op">=</span> cos(theta)</a>
-<a class="sourceLine" id="cb13-9" data-line-number="9">    s    <span class="op">=</span> sin(theta)</a>
-<a class="sourceLine" id="cb13-10" data-line-number="10">    m    <span class="op">=</span> mtest.MTest()</a>
-<a class="sourceLine" id="cb13-11" data-line-number="11">    mtest.setVerboseMode(mtest.VerboseLevel.VERBOSE_QUIET)</a>
-<a class="sourceLine" id="cb13-12" data-line-number="12">    m.setModellingHypothesis(<span class="st">&#39;PlaneStress&#39;</span>)</a>
-<a class="sourceLine" id="cb13-13" data-line-number="13">    m.setMaximumNumberOfSubSteps(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb13-14" data-line-number="14">    m.setBehaviour(<span class="st">&#39;abaqus&#39;</span>,<span class="st">&#39;src/libABAQUSBEHAVIOUR.so&#39;</span>,</a>
-<a class="sourceLine" id="cb13-15" data-line-number="15">                   <span class="st">&#39;HOSFORDPERFECTPLASTICITY_PSTRESS&#39;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb13-16" data-line-number="16">    m.setExternalStateVariable(<span class="st">&quot;Temperature&quot;</span>,<span class="fl">293.15</span>)</a>
-<a class="sourceLine" id="cb13-17" data-line-number="17">    m.setImposedStrain(<span class="st">&#39;EXX&#39;</span>,{<span class="dv">0</span>:<span class="dv">0</span>,tmax:em<span class="op">*</span>c})</a>
-<a class="sourceLine" id="cb13-18" data-line-number="18">    m.setImposedStrain(<span class="st">&#39;EYY&#39;</span>,{<span class="dv">0</span>:<span class="dv">0</span>,tmax:em<span class="op">*</span>s})</a>
-<a class="sourceLine" id="cb13-19" data-line-number="19">    m.setNonLinearConstraint(<span class="st">&#39;SXY&#39;</span>,<span class="st">&#39;Stress&#39;</span>)</a>
-<a class="sourceLine" id="cb13-20" data-line-number="20">    s  <span class="op">=</span> mtest.MTestCurrentState()</a>
-<a class="sourceLine" id="cb13-21" data-line-number="21">    wk <span class="op">=</span> mtest.MTestWorkSpace()    </a>
-<a class="sourceLine" id="cb13-22" data-line-number="22">    m.completeInitialisation()    </a>
-<a class="sourceLine" id="cb13-23" data-line-number="23">    m.initializeCurrentState(s)</a>
-<a class="sourceLine" id="cb13-24" data-line-number="24">    m.initializeWorkSpace(wk)</a>
-<a class="sourceLine" id="cb13-25" data-line-number="25">    ltime<span class="op">=</span>[(tmax<span class="op">/</span>(npas<span class="dv">-1</span>))<span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(npas)]</a>
-<a class="sourceLine" id="cb13-26" data-line-number="26">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(npas<span class="dv">-1</span>):</a>
-<a class="sourceLine" id="cb13-27" data-line-number="27">        m.execute(s,wk,ltime[i],ltime[i<span class="op">+</span><span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb13-28" data-line-number="28">        p <span class="op">=</span> s.getInternalStateVariableValue(<span class="st">&#39;EquivalentPlasticStrain&#39;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb13-29" data-line-number="29">        <span class="cf">if</span>(p<span class="op">&gt;</span><span class="fl">0.001</span>):</a>
-<a class="sourceLine" id="cb13-30" data-line-number="30">            <span class="bu">print</span>(<span class="bu">str</span>(theta)<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(s.s1[<span class="dv">0</span>])<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(s.s1[<span class="dv">1</span>]))</a>
-<a class="sourceLine" id="cb13-31" data-line-number="31">            <span class="cf">break</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi,cos,sin,sqrt</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mtest</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> theta <span class="kw">in</span> [pi<span class="op">*</span>(<span class="op">-</span><span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">*</span><span class="bu">float</span>(i)<span class="op">/</span><span class="dv">99</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">100</span>)]:</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    em   <span class="op">=</span> <span class="fl">2.e-2</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    npas <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    tmax <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    c    <span class="op">=</span> cos(theta)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    s    <span class="op">=</span> sin(theta)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    m    <span class="op">=</span> mtest.MTest()</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    mtest.setVerboseMode(mtest.VerboseLevel.VERBOSE_QUIET)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    m.setModellingHypothesis(<span class="st">&#39;PlaneStress&#39;</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    m.setMaximumNumberOfSubSteps(<span class="dv">1</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    m.setBehaviour(<span class="st">&#39;abaqus&#39;</span>,<span class="st">&#39;src/libABAQUSBEHAVIOUR.so&#39;</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&#39;HOSFORDPERFECTPLASTICITY_PSTRESS&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    m.setExternalStateVariable(<span class="st">&quot;Temperature&quot;</span>,<span class="fl">293.15</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    m.setImposedStrain(<span class="st">&#39;EXX&#39;</span>,{<span class="dv">0</span>:<span class="dv">0</span>,tmax:em<span class="op">*</span>c})</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    m.setImposedStrain(<span class="st">&#39;EYY&#39;</span>,{<span class="dv">0</span>:<span class="dv">0</span>,tmax:em<span class="op">*</span>s})</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    m.setNonLinearConstraint(<span class="st">&#39;SXY&#39;</span>,<span class="st">&#39;Stress&#39;</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    s  <span class="op">=</span> mtest.MTestCurrentState()</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    wk <span class="op">=</span> mtest.MTestWorkSpace()    </span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    m.completeInitialisation()    </span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    m.initializeCurrentState(s)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    m.initializeWorkSpace(wk)</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    ltime<span class="op">=</span>[(tmax<span class="op">/</span>(npas<span class="op">-</span><span class="dv">1</span>))<span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(npas)]</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(npas<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>        m.execute(s,wk,ltime[i],ltime[i<span class="op">+</span><span class="dv">1</span>])</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>        p <span class="op">=</span> s.getInternalStateVariableValue(<span class="st">&#39;EquivalentPlasticStrain&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(p<span class="op">&gt;</span><span class="fl">0.001</span>):</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="bu">str</span>(theta)<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(s.s1[<span class="dv">0</span>])<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(s.s1[<span class="dv">1</span>]))</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span></code></pre></div>
 <h1 id="comparing-the-robustness-of-various-algorithms">Comparing the robustness of various algorithms</h1>
 <p>This section compares the robustness of various algorithms used to solve the implicit system used to integrate the Hosford behaviour.</p>
 <h2 id="description-of-the-test">Description of the test</h2>
-<p>The test presented is based on the paper of Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">[<a href="#ref-scherzinger_return_2017">2</a>]</span>). The test is based on the following steps:</p>
+<p>The test presented is based on the paper of Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">[<a href="#ref-scherzinger_return_2017" role="doc-biblioref">2</a>]</span>). The test is based on the following steps:</p>
 <ul>
 <li>A direction in the <span class="math inline">\(\pi\)</span>-plane, characterized by an angle <span class="math inline">\(\alpha\)</span>, is choosen. <span class="math inline">\(\alpha\)</span> varies from <span class="math inline">\(-\pi\)</span> to <span class="math inline">\(\pi\)</span>: this range is discretized <span class="math inline">\(1000\)</span> times.</li>
 <li>A stress state <span class="math inline">\(\underline{\sigma}_{\alpha}\)</span> which lies on the yield surface <span class="math inline">\(\sigma_{\mathrm{eq}}^{H}=\sigma_{Y}\)</span> is determined. Such a stress state is characterized by its unique coordinates <span class="math inline">\(\tilde{\pi}{\left(\underline{\sigma}_{\alpha}\right)}\)</span> in the <span class="math inline">\(\pi\)</span>-plane and this projection determines its three eigenvalues. <span class="math inline">\(\underline{\sigma}_{\alpha}\)</span> is choosen diagonal.</li>
@@ -531,52 +552,52 @@ f_{p}={\left.\sigma_{\mathrm{eq}}^{H}\right|_{t+\theta\,\Delta\,t}}-\sigma_{Y}=0
 <p>For each values of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(x\)</span>, the number of iterations needed to solve the implicit system is recorded.</p>
 <p>The implementation presented so far is modified to declare an additional state variable using to save the number of iterations required to reach the convergence.</p>
 <p>The <code>python</code> script which implements the test is the following, in the case of a Hosford exponent egal to <span class="math inline">\(100\)</span>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="im">from</span> math <span class="im">import</span> pi,cos,sin</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="im">import</span> tfel.math     <span class="im">as</span> tmath</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="im">import</span> tfel.material <span class="im">as</span> tmaterial</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="im">import</span> mtest</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">nmax  <span class="op">=</span> <span class="dv">1000</span></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7">nmax2 <span class="op">=</span> <span class="dv">1000</span></a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">E  <span class="op">=</span> <span class="fl">150e9</span></a>
-<a class="sourceLine" id="cb14-9" data-line-number="9">nu <span class="op">=</span> <span class="fl">0.3</span></a>
-<a class="sourceLine" id="cb14-10" data-line-number="10">s0 <span class="op">=</span> <span class="fl">150e6</span></a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="cf">for</span> a <span class="kw">in</span> [pi<span class="op">*</span>(<span class="op">-</span><span class="fl">1.</span><span class="op">+</span>(<span class="fl">2.</span><span class="op">*</span>i)<span class="op">/</span>(nmax<span class="dv">-1</span>)) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,nmax)]:</a>
-<a class="sourceLine" id="cb14-13" data-line-number="13">    <span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">1</span><span class="op">+</span>(<span class="fl">29.</span><span class="op">*</span>i)<span class="op">/</span>(nmax2<span class="dv">-1</span>)  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,nmax2)]:</a>
-<a class="sourceLine" id="cb14-14" data-line-number="14">        nbiter<span class="op">=</span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb14-15" data-line-number="15">        s     <span class="op">=</span> tmath.makeStensor3D(tmaterial.buildFromPiPlane(cos(a),sin(a)))</a>
-<a class="sourceLine" id="cb14-16" data-line-number="16">        seq   <span class="op">=</span> tmaterial.computeHosfordStress(s,<span class="dv">100</span>,<span class="dv">1</span>.e<span class="dv">-12</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-17" data-line-number="17">        s    <span class="op">*=</span> x<span class="op">*</span>(s0<span class="op">/</span>seq)</a>
-<a class="sourceLine" id="cb14-18" data-line-number="18">        e0    <span class="op">=</span> (s[<span class="dv">0</span>]<span class="op">-</span>nu<span class="op">*</span>(s[<span class="dv">1</span>]<span class="op">+</span>s[<span class="dv">2</span>]))<span class="op">/</span>E</a>
-<a class="sourceLine" id="cb14-19" data-line-number="19">        e1    <span class="op">=</span> (s[<span class="dv">1</span>]<span class="op">-</span>nu<span class="op">*</span>(s[<span class="dv">0</span>]<span class="op">+</span>s[<span class="dv">2</span>]))<span class="op">/</span>E</a>
-<a class="sourceLine" id="cb14-20" data-line-number="20">        e2    <span class="op">=</span> (s[<span class="dv">2</span>]<span class="op">-</span>nu<span class="op">*</span>(s[<span class="dv">0</span>]<span class="op">+</span>s[<span class="dv">1</span>]))<span class="op">/</span>E</a>
-<a class="sourceLine" id="cb14-21" data-line-number="21">        m    <span class="op">=</span> mtest.MTest()</a>
-<a class="sourceLine" id="cb14-22" data-line-number="22">        mtest.setVerboseMode(mtest.VerboseLevel.VERBOSE_QUIET)</a>
-<a class="sourceLine" id="cb14-23" data-line-number="23">        m.setModellingHypothesis(<span class="st">&#39;Tridimensional&#39;</span>)</a>
-<a class="sourceLine" id="cb14-24" data-line-number="24">        m.setMaximumNumberOfSubSteps(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb14-25" data-line-number="25">        m.setBehaviour(<span class="st">&#39;abaqus&#39;</span>,<span class="st">&#39;src/libABAQUSBEHAVIOUR.so&#39;</span>,</a>
-<a class="sourceLine" id="cb14-26" data-line-number="26">                       <span class="st">&#39;HOSFORDPERFECTPLASTICITY100_3D&#39;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-27" data-line-number="27">        m.setExternalStateVariable(<span class="st">&quot;Temperature&quot;</span>,<span class="fl">293.15</span>)</a>
-<a class="sourceLine" id="cb14-28" data-line-number="28">        m.setImposedStrain(<span class="st">&#39;EXX&#39;</span>,{<span class="dv">0</span>:<span class="dv">0</span>,<span class="dv">1</span>:e0})</a>
-<a class="sourceLine" id="cb14-29" data-line-number="29">        m.setImposedStrain(<span class="st">&#39;EYY&#39;</span>,{<span class="dv">0</span>:<span class="dv">0</span>,<span class="dv">1</span>:e1})</a>
-<a class="sourceLine" id="cb14-30" data-line-number="30">        m.setImposedStrain(<span class="st">&#39;EZZ&#39;</span>,{<span class="dv">0</span>:<span class="dv">0</span>,<span class="dv">1</span>:e2})</a>
-<a class="sourceLine" id="cb14-31" data-line-number="31">        m.setImposedStrain(<span class="st">&#39;EXY&#39;</span>,<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb14-32" data-line-number="32">        m.setImposedStrain(<span class="st">&#39;EXZ&#39;</span>,<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb14-33" data-line-number="33">        m.setImposedStrain(<span class="st">&#39;EYZ&#39;</span>,<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb14-34" data-line-number="34">        s  <span class="op">=</span> mtest.MTestCurrentState()</a>
-<a class="sourceLine" id="cb14-35" data-line-number="35">        wk <span class="op">=</span> mtest.MTestWorkSpace()</a>
-<a class="sourceLine" id="cb14-36" data-line-number="36">        m.completeInitialisation()</a>
-<a class="sourceLine" id="cb14-37" data-line-number="37">        m.initializeCurrentState(s)</a>
-<a class="sourceLine" id="cb14-38" data-line-number="38">        m.initializeWorkSpace(wk)</a>
-<a class="sourceLine" id="cb14-39" data-line-number="39">        <span class="cf">try</span>:</a>
-<a class="sourceLine" id="cb14-40" data-line-number="40">            m.execute(s,wk,<span class="dv">0</span>,<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb14-41" data-line-number="41">            nbiter<span class="op">=</span>s.getInternalStateVariableValue(<span class="st">&quot;NumberOfIterations&quot;</span>)</a>
-<a class="sourceLine" id="cb14-42" data-line-number="42">        <span class="cf">except</span>:</a>
-<a class="sourceLine" id="cb14-43" data-line-number="43">            nbiter<span class="op">=</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb14-44" data-line-number="44">            <span class="cf">break</span></a>
-<a class="sourceLine" id="cb14-45" data-line-number="45">        <span class="bu">print</span>(<span class="bu">str</span>((x<span class="op">/</span>seq)<span class="op">*</span>cos(a))<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>((x<span class="op">/</span>seq)<span class="op">*</span>sin(a))<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(nbiter))</a>
-<a class="sourceLine" id="cb14-46" data-line-number="46">    <span class="bu">print</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi,cos,sin</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.math     <span class="im">as</span> tmath</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.material <span class="im">as</span> tmaterial</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mtest</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>nmax  <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>nmax2 <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>E  <span class="op">=</span> <span class="fl">150e9</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>nu <span class="op">=</span> <span class="fl">0.3</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>s0 <span class="op">=</span> <span class="fl">150e6</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> a <span class="kw">in</span> [pi<span class="op">*</span>(<span class="op">-</span><span class="fl">1.</span><span class="op">+</span>(<span class="fl">2.</span><span class="op">*</span>i)<span class="op">/</span>(nmax<span class="op">-</span><span class="dv">1</span>)) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,nmax)]:</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">1</span><span class="op">+</span>(<span class="fl">29.</span><span class="op">*</span>i)<span class="op">/</span>(nmax2<span class="op">-</span><span class="dv">1</span>)  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,nmax2)]:</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>        nbiter<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>        s     <span class="op">=</span> tmath.makeStensor3D(tmaterial.buildFromPiPlane(cos(a),sin(a)))</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>        seq   <span class="op">=</span> tmaterial.computeHosfordStress(s,<span class="dv">100</span>,<span class="fl">1.e-12</span>)<span class="op">;</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>        s    <span class="op">*=</span> x<span class="op">*</span>(s0<span class="op">/</span>seq)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>        e0    <span class="op">=</span> (s[<span class="dv">0</span>]<span class="op">-</span>nu<span class="op">*</span>(s[<span class="dv">1</span>]<span class="op">+</span>s[<span class="dv">2</span>]))<span class="op">/</span>E</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>        e1    <span class="op">=</span> (s[<span class="dv">1</span>]<span class="op">-</span>nu<span class="op">*</span>(s[<span class="dv">0</span>]<span class="op">+</span>s[<span class="dv">2</span>]))<span class="op">/</span>E</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>        e2    <span class="op">=</span> (s[<span class="dv">2</span>]<span class="op">-</span>nu<span class="op">*</span>(s[<span class="dv">0</span>]<span class="op">+</span>s[<span class="dv">1</span>]))<span class="op">/</span>E</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>        m    <span class="op">=</span> mtest.MTest()</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>        mtest.setVerboseMode(mtest.VerboseLevel.VERBOSE_QUIET)</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        m.setModellingHypothesis(<span class="st">&#39;Tridimensional&#39;</span>)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>        m.setMaximumNumberOfSubSteps(<span class="dv">1</span>)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>        m.setBehaviour(<span class="st">&#39;abaqus&#39;</span>,<span class="st">&#39;src/libABAQUSBEHAVIOUR.so&#39;</span>,</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>                       <span class="st">&#39;HOSFORDPERFECTPLASTICITY100_3D&#39;</span>)<span class="op">;</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>        m.setExternalStateVariable(<span class="st">&quot;Temperature&quot;</span>,<span class="fl">293.15</span>)</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>        m.setImposedStrain(<span class="st">&#39;EXX&#39;</span>,{<span class="dv">0</span>:<span class="dv">0</span>,<span class="dv">1</span>:e0})</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>        m.setImposedStrain(<span class="st">&#39;EYY&#39;</span>,{<span class="dv">0</span>:<span class="dv">0</span>,<span class="dv">1</span>:e1})</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>        m.setImposedStrain(<span class="st">&#39;EZZ&#39;</span>,{<span class="dv">0</span>:<span class="dv">0</span>,<span class="dv">1</span>:e2})</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>        m.setImposedStrain(<span class="st">&#39;EXY&#39;</span>,<span class="dv">0</span>)</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>        m.setImposedStrain(<span class="st">&#39;EXZ&#39;</span>,<span class="dv">0</span>)</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>        m.setImposedStrain(<span class="st">&#39;EYZ&#39;</span>,<span class="dv">0</span>)</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>        s  <span class="op">=</span> mtest.MTestCurrentState()</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>        wk <span class="op">=</span> mtest.MTestWorkSpace()</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>        m.completeInitialisation()</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>        m.initializeCurrentState(s)</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>        m.initializeWorkSpace(wk)</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>            m.execute(s,wk,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>            nbiter<span class="op">=</span>s.getInternalStateVariableValue(<span class="st">&quot;NumberOfIterations&quot;</span>)</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span>:</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>            nbiter<span class="op">=</span><span class="dv">100</span></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="bu">str</span>((x<span class="op">/</span>seq)<span class="op">*</span>cos(a))<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>((x<span class="op">/</span>seq)<span class="op">*</span>sin(a))<span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span><span class="bu">str</span>(nbiter))</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>()</span></code></pre></div>
 <p>This script outputs, for each couple <span class="math inline">\({\left(\alpha,x\right)}\)</span> for which the behaviour integration succeeds, the coordinates <span class="math inline">\(\tilde{\pi}{\left(\underline{\sigma}_{\alpha}\right)}\)</span> scaled by <span class="math inline">\(\sigma_{Y}\)</span> and the number of iterations required to reach the convergence.</p>
 <h2 id="algorithms-tested">Algorithms tested</h2>
 <p>The following algorithms are considered:</p>
@@ -584,9 +605,9 @@ f_{p}={\left.\sigma_{\mathrm{eq}}^{H}\right|_{t+\theta\,\Delta\,t}}-\sigma_{Y}=0
 <li><strong>Algorithm 1</strong>: The standard Newton-Raphson algorithm.</li>
 <li><strong>Algorithm 2</strong>: The Newton-Raphson algorithm with a test on the value of the equivalent Hosford stress <span class="math inline">\({\left.\sigma_{\mathrm{eq}}^{H}\right|_{t+\theta\,\Delta\,t}}\)</span> for the current estimation of the elastic strain increment. If this <span class="math inline">\({\left.\sigma_{\mathrm{eq}}^{H}\right|_{t+\theta\,\Delta\,t}}\)</span> is greater than <span class="math inline">\(\beta\,\sigma_{Y}\)</span>, the Newton step is rejected: the direction is kept unchanged but the amplitude of the correction to the internal state variables increment is divided by two. In the following, <span class="math inline">\(\beta\)</span> is choosen equal to <span class="math inline">\(\frac{3}{2}\)</span>. The test has to be made in the <code>@Integrator</code> code block: if the test fails, one just have to return the <code>false</code> value. This is obtained by adding the following line after the computation of the Hosford equivalent stress:</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="cf">if</span>(seq&gt;<span class="dv">3</span>*(sigy/<span class="dv">2</span>)){</a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">  <span class="cf">return</span> <span class="kw">false</span>;</a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(seq&gt;<span class="dv">3</span>*(sigy/<span class="dv">2</span>)){</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">false</span>;</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><strong>Algorithm 3</strong>: The Newton-Raphson algorithm with a limitation of the increment of the elastic strain increment at each iteration. This can be activated by using the <code>setMaximumIncrementValuePerIteration</code> method on the <code>eel</code> variable.</li>
 <li><strong>Algorithm 4</strong>: The standard Levenberg-Marquardt algorithm. This algorithm is selected using the <code>@Algorithm</code> keyword.</li>
@@ -594,41 +615,41 @@ f_{p}={\left.\sigma_{\mathrm{eq}}^{H}\right|_{t+\theta\,\Delta\,t}}-\sigma_{Y}=0
 <h2 id="hosford-a6">Hosford <span class="math inline">\(a=6\)</span></h2>
 <p>The Hosford yield surface for an exponent egal to <span class="math inline">\(a=6\)</span> is smooth.</p>
 <figure>
-<img src="img/Scherzinger/Hosford6/Newton.png" title="Robustness of Algorithm 1 for (a=6)" alt="Figure 1: Robustness of Algorithm 1 for a=6" id="fig:hosford6:alg1" style="width:70.0%" /><figcaption>Figure 1: Robustness of Algorithm 1 for <span class="math inline">\(a=6\)</span></figcaption>
+<img src="img/Scherzinger/Hosford6/Newton.png" title="Robustness of Algorithm 1 for (a=6)" id="fig:hosford6:alg1" style="width:70.0%" alt="Figure 1: Robustness of Algorithm 1 for a=6" /><figcaption aria-hidden="true">Figure 1: Robustness of Algorithm 1 for <span class="math inline">\(a=6\)</span></figcaption>
 </figure>
 <p>Figure 1 displays the output of the previous script in the <span class="math inline">\(\pi\)</span>-plane (each coordinate being scaled by <span class="math inline">\(\sigma_{Y}\)</span>). The maximum number of iteration allowed to reach the convergence is <span class="math inline">\(100\)</span> by default. However, as stated by Scherzinger, if the convergence is not reached for <span class="math inline">\(30\)</span> iterations, most of the time the convergence will not be reached.</p>
 <p>The results depicted on Figure 1 confirms the ones of Scherzinger: the standard Newton algorithm conditionally converges. Indeed, it can be seen that the standard Newton algorithm converges for all values of <span class="math inline">\(\alpha\)</span> if <span class="math inline">\(x\)</span> is low enough. For large values of <span class="math inline">\(x\)</span>, the convergence clearly depends on <span class="math inline">\(\alpha\)</span>.</p>
 <figure>
-<img src="img/Scherzinger/Hosford6/TestOnYieldStress.png" title="Robustness of Algorithm 2 for (a=6)" alt="Figure 2: Robustness of Algorithm 2 for a=6" id="fig:hosford6:alg2" style="width:70.0%" /><figcaption>Figure 2: Robustness of Algorithm 2 for <span class="math inline">\(a=6\)</span></figcaption>
+<img src="img/Scherzinger/Hosford6/TestOnYieldStress.png" title="Robustness of Algorithm 2 for (a=6)" id="fig:hosford6:alg2" style="width:70.0%" alt="Figure 2: Robustness of Algorithm 2 for a=6" /><figcaption aria-hidden="true">Figure 2: Robustness of Algorithm 2 for <span class="math inline">\(a=6\)</span></figcaption>
 </figure>
 <p>Figure 2 displays the output of the previous script for the second algorithm. This figure shows that this slight modification of the standard Newton algorithm considerably increases the robustness: the convergence is reached for all tested values of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(x\)</span>.</p>
 <p>Results for the third and fourth algorithms are not shown but are very similar to the one obtained with the second algorithm. Indeed, in terms of robustness, differences between those three algorithms only arises for high values of the Hosford exponent <span class="math inline">\(a\)</span>.</p>
 <h2 id="hosford-a8">Hosford <span class="math inline">\(a=8\)</span></h2>
 <p>For an exponent equal to <span class="math inline">\(a=8\)</span>, the curvature of the yield surface varies more rapidly.</p>
 <figure>
-<img src="img/Scherzinger/Hosford8/Newton.png" title="Robustness of Algorithm 1 for (a=8)" alt="Figure 3: Robustness of Algorithm 1 for a=8" id="fig:hosford8:alg1" style="width:70.0%" /><figcaption>Figure 3: Robustness of Algorithm 1 for <span class="math inline">\(a=8\)</span></figcaption>
+<img src="img/Scherzinger/Hosford8/Newton.png" title="Robustness of Algorithm 1 for (a=8)" id="fig:hosford8:alg1" style="width:70.0%" alt="Figure 3: Robustness of Algorithm 1 for a=8" /><figcaption aria-hidden="true">Figure 3: Robustness of Algorithm 1 for <span class="math inline">\(a=8\)</span></figcaption>
 </figure>
 <p>As already stated by Scherzinger, Figure 3 shows that the performance in terms of robustness of the standard Newton algorithm is getting worse as the Hosford exponent increases.</p>
 <figure>
-<img src="img/Scherzinger/Hosford8/TestOnYieldStress.png" title="Robustness of Algorithm 2 for (a=8)" alt="Figure 4: Robustness of Algorithm 2 for a=8" id="fig:hosford8:alg2" style="width:70.0%" /><figcaption>Figure 4: Robustness of Algorithm 2 for <span class="math inline">\(a=8\)</span></figcaption>
+<img src="img/Scherzinger/Hosford8/TestOnYieldStress.png" title="Robustness of Algorithm 2 for (a=8)" id="fig:hosford8:alg2" style="width:70.0%" alt="Figure 4: Robustness of Algorithm 2 for a=8" /><figcaption aria-hidden="true">Figure 4: Robustness of Algorithm 2 for <span class="math inline">\(a=8\)</span></figcaption>
 </figure>
 <p>Again, Algorithm 2 shows a remarkable benefit in terms of robustness.</p>
 <h2 id="hosford-a100">Hosford <span class="math inline">\(a=100\)</span></h2>
 <p>For a very high exponent <span class="math inline">\(a=100\)</span>, the yield surface is very close to the Tresca yield surface and shows very sharp edges.</p>
 <figure>
-<img src="img/Scherzinger/Hosford100/Newton.png" title="Robustness of Algorithm 1 for (a=100)" alt="Figure 5: Robustness of Algorithm 1 for a=100" id="fig:hosford100:alg1" style="width:70.0%" /><figcaption>Figure 5: Robustness of Algorithm 1 for <span class="math inline">\(a=100\)</span></figcaption>
+<img src="img/Scherzinger/Hosford100/Newton.png" title="Robustness of Algorithm 1 for (a=100)" id="fig:hosford100:alg1" style="width:70.0%" alt="Figure 5: Robustness of Algorithm 1 for a=100" /><figcaption aria-hidden="true">Figure 5: Robustness of Algorithm 1 for <span class="math inline">\(a=100\)</span></figcaption>
 </figure>
 <p>Figure 5 shows that the standard Newton algorithm performs very poorly.</p>
 <figure>
-<img src="img/Scherzinger/Hosford100/TestOnYieldStress.png" title="Robustness of Algorithm 2 for (a=100)" alt="Figure 6: Robustness of Algorithm 2 for a=100" id="fig:hosford100:alg2" style="width:70.0%" /><figcaption>Figure 6: Robustness of Algorithm 2 for <span class="math inline">\(a=100\)</span></figcaption>
+<img src="img/Scherzinger/Hosford100/TestOnYieldStress.png" title="Robustness of Algorithm 2 for (a=100)" id="fig:hosford100:alg2" style="width:70.0%" alt="Figure 6: Robustness of Algorithm 2 for a=100" /><figcaption aria-hidden="true">Figure 6: Robustness of Algorithm 2 for <span class="math inline">\(a=100\)</span></figcaption>
 </figure>
 <p>In this case, the second algorithm does not improve the robustness as shown on Figure 6. This algorithm performs almost as poorly than the standard Newton algorithm.</p>
 <figure>
-<img src="img/Scherzinger/Hosford100/MaximumIncrementValuePerIteration.png" title="Robustness of Algorithm 3 for (a=100)" alt="Figure 7: Robustness of Algorithm 3 for a=100" id="fig:hosford100:alg3" style="width:70.0%" /><figcaption>Figure 7: Robustness of Algorithm 3 for <span class="math inline">\(a=100\)</span></figcaption>
+<img src="img/Scherzinger/Hosford100/MaximumIncrementValuePerIteration.png" title="Robustness of Algorithm 3 for (a=100)" id="fig:hosford100:alg3" style="width:70.0%" alt="Figure 7: Robustness of Algorithm 3 for a=100" /><figcaption aria-hidden="true">Figure 7: Robustness of Algorithm 3 for <span class="math inline">\(a=100\)</span></figcaption>
 </figure>
 <p>Figure 7 shows that the third algorithm clearly increases the robustness in some directions but the robustness remains low for angles close the edges of the yield surfaces.</p>
 <figure>
-<img src="img/Scherzinger/Hosford100/LevenbergMarquardt.png" title="Robustness of Algorithm 4 for (a=100)" alt="Figure 8: Robustness of Algorithm 4 for a=100" id="fig:hosford100:alg4" style="width:70.0%" /><figcaption>Figure 8: Robustness of Algorithm 4 for <span class="math inline">\(a=100\)</span></figcaption>
+<img src="img/Scherzinger/Hosford100/LevenbergMarquardt.png" title="Robustness of Algorithm 4 for (a=100)" id="fig:hosford100:alg4" style="width:70.0%" alt="Figure 8: Robustness of Algorithm 4 for a=100" /><figcaption aria-hidden="true">Figure 8: Robustness of Algorithm 4 for <span class="math inline">\(a=100\)</span></figcaption>
 </figure>
 <p>Figure 7 shows that the Levenberg-Marquardt algorithm outperforms Algorithm 3. However, the robustness remains low for angles close the edges of the yield surfaces.</p>
 <h3 id="influence-of-the-eigen-solver">Influence of the eigen solver</h3>
@@ -639,11 +660,11 @@ f_{p}={\left.\sigma_{\mathrm{eq}}^{H}\right|_{t+\theta\,\Delta\,t}}-\sigma_{Y}=0
 <li>does not increase the robustness of the first and second algorithms for <span class="math inline">\(a=100\)</span>.</li>
 </ul>
 <figure>
-<img src="img/Scherzinger/Hosford100/MaximumIncrementValuePerIterationJacobi.png" title="Robustness of Algorithm 3 for (a=100)" alt="Figure 9: Robustness of Algorithm 3 for a=100" id="fig:hosford100:alg3:jacobi" style="width:70.0%" /><figcaption>Figure 9: Robustness of Algorithm 3 for <span class="math inline">\(a=100\)</span></figcaption>
+<img src="img/Scherzinger/Hosford100/MaximumIncrementValuePerIterationJacobi.png" title="Robustness of Algorithm 3 for (a=100)" id="fig:hosford100:alg3:jacobi" style="width:70.0%" alt="Figure 9: Robustness of Algorithm 3 for a=100" /><figcaption aria-hidden="true">Figure 9: Robustness of Algorithm 3 for <span class="math inline">\(a=100\)</span></figcaption>
 </figure>
 <p>Figure 9 shows that using the Jacobi eigen solver has a strong influence on the robustness of Algorithm 3.</p>
 <figure>
-<img src="img/Scherzinger/Hosford100/LevenbergMarquardtJacobi.png" title="Robustness of Algorithm 4 for (a=100)" alt="Figure 10: Robustness of Algorithm 4 for a=100" id="fig:hosford100:alg4:jacobi" style="width:70.0%" /><figcaption>Figure 10: Robustness of Algorithm 4 for <span class="math inline">\(a=100\)</span></figcaption>
+<img src="img/Scherzinger/Hosford100/LevenbergMarquardtJacobi.png" title="Robustness of Algorithm 4 for (a=100)" id="fig:hosford100:alg4:jacobi" style="width:70.0%" alt="Figure 10: Robustness of Algorithm 4 for a=100" /><figcaption aria-hidden="true">Figure 10: Robustness of Algorithm 4 for <span class="math inline">\(a=100\)</span></figcaption>
 </figure>
 <p>Using the Jacobi eigen solver with Algorithm 4 shows that convergence is reached for all tested values of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(x\)</span>.</p>
 <h2 id="conclusions">Conclusions</h2>
@@ -652,15 +673,15 @@ f_{p}={\left.\sigma_{\mathrm{eq}}^{H}\right|_{t+\theta\,\Delta\,t}}-\sigma_{Y}=0
 <p>Those results has to confirmed on real structural analyses. In particular, the impact of each algorithms on the overall efficiency of the simulations has to be evaluated.</p>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references">
-<div id="ref-hosford_generalized_1972">
-<p>1. <span class="smallcaps">Hosford</span>, W. F. A generalized isotropic yield criterion. <em>Journal of Applied Mechanics</em>. 1972. Vol. 39, no. 2, p. 607–609. </p>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-hosford_generalized_1972" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Hosford</span>, W. F. A generalized isotropic yield criterion. <em>Journal of Applied Mechanics</em>. 1972. Vol. 39, no. 2, p. 607–609. </div>
 </div>
-<div id="ref-scherzinger_return_2017">
-<p>2. <span class="smallcaps">Scherzinger</span>, W. M. A return mapping algorithm for isotropic and anisotropic plasticity models using a line search method. <em>Computer Methods in Applied Mechanics and Engineering</em>. 15 April 2017. Vol. 317, p. 526–553. DOI <a href="https://doi.org/10.1016/j.cma.2016.11.026">10.1016/j.cma.2016.11.026</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S004578251630370X" class="uri">http://www.sciencedirect.com/science/article/pii/S004578251630370X</a></p>
+<div id="ref-scherzinger_return_2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Scherzinger</span>, W. M. A return mapping algorithm for isotropic and anisotropic plasticity models using a line search method. <em>Computer Methods in Applied Mechanics and Engineering</em>. 15 April 2017. Vol. 317, p. 526–553. DOI <a href="https://doi.org/10.1016/j.cma.2016.11.026">10.1016/j.cma.2016.11.026</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S004578251630370X">http://www.sciencedirect.com/science/article/pii/S004578251630370X</a></div>
 </div>
 </div>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

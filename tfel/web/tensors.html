@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -80,7 +79,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -98,64 +97,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -177,6 +193,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -243,56 +260,56 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">Second and fourth-order tensor objects in <code>TFEL/Math</code></h1>
-                  <h2 class="author">Thomas Helfer, Jérémy Hure, Mohamed Shokeir</h2>
-                  <h3 class="date">08/2020</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#classes-describing-second-and-fourth-order-tensors"><span class="toc-section-number">1</span> Classes describing second and fourth order tensors</a><ul>
-      <li><a href="#symmetric-second-order-tensors"><span class="toc-section-number">1.1</span> Symmetric second order tensors</a></li>
-      <li><a href="#vector-notations-for-symmetric-tensors"><span class="toc-section-number">1.2</span> Vector notations for symmetric tensors</a></li>
-      <li><a href="#general-non-symmetric-second-order-tensors"><span class="toc-section-number">1.3</span> General (non symmetric) second order tensors</a></li>
-      <li><a href="#vector-notations-for-non-symmetric-tensors"><span class="toc-section-number">1.4</span> Vector notations for non symmetric tensors</a></li>
-      <li><a href="#fourth-order-tensors"><span class="toc-section-number">1.5</span> Fourth order tensors</a></li>
-      </ul></li>
-      <li><a href="#standard-operations"><span class="toc-section-number">2</span> Standard operations</a><ul>
-      <li><a href="#basic-operations"><span class="toc-section-number">2.1</span> Basic operations</a></li>
-      <li><a href="#symmetrization-and-unsymmetrization-of-second-order-tensors"><span class="toc-section-number">2.2</span> Symmetrization and unsymmetrization of second order tensors</a></li>
-      <li><a href="#frobenius-inner-product-of-second-order-tensors"><span class="toc-section-number">2.3</span> Frobenius inner product of second order tensors</a></li>
-      <li><a href="#diadic-product"><span class="toc-section-number">2.4</span> Diadic product</a></li>
-      <li><a href="#polar-decomposition"><span class="toc-section-number">2.5</span> Polar decomposition</a></li>
-      <li><a href="#application-of-a-fourth-order-tensor"><span class="toc-section-number">2.6</span> Application of a fourth order tensor</a></li>
-      <li><a href="#multiplication-of-second-order-tensors"><span class="toc-section-number">2.7</span> Multiplication of second order tensors</a></li>
-      <li><a href="#symmetric-product-of-two-symmetric-second-order-tensors"><span class="toc-section-number">2.8</span> Symmetric product of two symmetric second order tensors</a></li>
-      <li><a href="#second-symmetric-product-of-two-symmetric-second-order-tensors-underlineacdotunderlinebcdotunderlinea"><span class="toc-section-number">2.9</span> Second symmetric product of two symmetric second order tensors <span class="math inline">\(\underline{a}\,\cdot\,\underline{b}\,\cdot\,\underline{a}\)</span></a></li>
-      </ul></li>
-      <li><a href="#special-mathematical-functions"><span class="toc-section-number">3</span> Special mathematical functions</a><ul>
-      <li><a href="#change-the-basis"><span class="toc-section-number">3.1</span> Change the basis</a></li>
-      <li><a href="#inverses"><span class="toc-section-number">3.2</span> Inverses</a></li>
-      <li><a href="#square-of-a-symmetric-tensor"><span class="toc-section-number">3.3</span> Square of a symmetric tensor</a></li>
-      <li><a href="#positive-and-negative-parts-of-a-symmetric-tensor"><span class="toc-section-number">3.4</span> Positive and negative parts of a symmetric tensor</a></li>
-      <li><a href="#sec:transpose"><span class="toc-section-number">3.5</span> Transposition</a></li>
-      <li><a href="#sec:invariants"><span class="toc-section-number">3.6</span> Second order tensor invariants</a></li>
-      <li><a href="#sec:deviatoric:invariants"><span class="toc-section-number">3.7</span> Invariants of the stress deviator tensor <span class="citation" data-cites="wikipedia_invariants_2017">[<span>1</span>]</span></a></li>
-      <li><a href="#sec:deviatoric:orthotropic:invariants"><span class="toc-section-number">3.8</span> Orthotropic generalization of the invariants of the stress deviator tensor</a></li>
-      <li><a href="#eigenvalues-eigenvectors-and-eigentensors-of-symmetric-tensors"><span class="toc-section-number">3.9</span> Eigenvalues, eigenvectors and eigentensors of symmetric tensors</a></li>
-      <li><a href="#isotropic-functions-of-a-symmetric-tensor"><span class="toc-section-number">3.10</span> Isotropic functions of a symmetric tensor</a></li>
-      </ul></li>
-      <li><a href="#special-operations-for-mechanical-behaviours"><span class="toc-section-number">4</span> Special operations for mechanical behaviours</a><ul>
-      <li><a href="#yield-criteria"><span class="toc-section-number">4.1</span> Yield criteria</a></li>
-      </ul></li>
-      <li><a href="#references"><span class="toc-section-number">5</span> References</a></li>
-      </ul>
-    </div>
-        
-
-
+<div id="header">
+<h1 class="title">Second and fourth-order tensor objects in <code>TFEL/Math</code></h1>
+<h2 class="author">Thomas Helfer, Jérémy Hure, Mohamed Shokeir</h2>
+<h3 class="date">08/2020</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#classes-describing-second-and-fourth-order-tensors"><span class="toc-section-number">1</span> Classes describing second and fourth order tensors</a>
+<ul>
+<li><a href="#symmetric-second-order-tensors"><span class="toc-section-number">1.1</span> Symmetric second order tensors</a></li>
+<li><a href="#vector-notations-for-symmetric-tensors"><span class="toc-section-number">1.2</span> Vector notations for symmetric tensors</a></li>
+<li><a href="#general-non-symmetric-second-order-tensors"><span class="toc-section-number">1.3</span> General (non symmetric) second order tensors</a></li>
+<li><a href="#vector-notations-for-non-symmetric-tensors"><span class="toc-section-number">1.4</span> Vector notations for non symmetric tensors</a></li>
+<li><a href="#fourth-order-tensors"><span class="toc-section-number">1.5</span> Fourth order tensors</a></li>
+</ul></li>
+<li><a href="#standard-operations"><span class="toc-section-number">2</span> Standard operations</a>
+<ul>
+<li><a href="#basic-operations"><span class="toc-section-number">2.1</span> Basic operations</a></li>
+<li><a href="#symmetrization-and-unsymmetrization-of-second-order-tensors"><span class="toc-section-number">2.2</span> Symmetrization and unsymmetrization of second order tensors</a></li>
+<li><a href="#frobenius-inner-product-of-second-order-tensors"><span class="toc-section-number">2.3</span> Frobenius inner product of second order tensors</a></li>
+<li><a href="#diadic-product"><span class="toc-section-number">2.4</span> Diadic product</a></li>
+<li><a href="#polar-decomposition"><span class="toc-section-number">2.5</span> Polar decomposition</a></li>
+<li><a href="#application-of-a-fourth-order-tensor"><span class="toc-section-number">2.6</span> Application of a fourth order tensor</a></li>
+<li><a href="#multiplication-of-second-order-tensors"><span class="toc-section-number">2.7</span> Multiplication of second order tensors</a></li>
+<li><a href="#symmetric-product-of-two-symmetric-second-order-tensors"><span class="toc-section-number">2.8</span> Symmetric product of two symmetric second order tensors</a></li>
+<li><a href="#second-symmetric-product-of-two-symmetric-second-order-tensors-underlineacdotunderlinebcdotunderlinea"><span class="toc-section-number">2.9</span> Second symmetric product of two symmetric second order tensors <span class="math inline">\(\underline{a}\,\cdot\,\underline{b}\,\cdot\,\underline{a}\)</span></a></li>
+</ul></li>
+<li><a href="#special-mathematical-functions"><span class="toc-section-number">3</span> Special mathematical functions</a>
+<ul>
+<li><a href="#change-the-basis"><span class="toc-section-number">3.1</span> Change the basis</a></li>
+<li><a href="#inverses"><span class="toc-section-number">3.2</span> Inverses</a></li>
+<li><a href="#square-of-a-symmetric-tensor"><span class="toc-section-number">3.3</span> Square of a symmetric tensor</a></li>
+<li><a href="#positive-and-negative-parts-of-a-symmetric-tensor"><span class="toc-section-number">3.4</span> Positive and negative parts of a symmetric tensor</a></li>
+<li><a href="#sec:transpose"><span class="toc-section-number">3.5</span> Transposition</a></li>
+<li><a href="#sec:invariants"><span class="toc-section-number">3.6</span> Second order tensor invariants</a></li>
+<li><a href="#sec:deviatoric:invariants"><span class="toc-section-number">3.7</span> Invariants of the stress deviator tensor <span class="citation" data-cites="wikipedia_invariants_2017">[<span>1</span>]</span></a></li>
+<li><a href="#sec:deviatoric:orthotropic:invariants"><span class="toc-section-number">3.8</span> Orthotropic generalization of the invariants of the stress deviator tensor</a></li>
+<li><a href="#eigenvalues-eigenvectors-and-eigentensors-of-symmetric-tensors"><span class="toc-section-number">3.9</span> Eigenvalues, eigenvectors and eigentensors of symmetric tensors</a></li>
+<li><a href="#isotropic-functions-of-a-symmetric-tensor"><span class="toc-section-number">3.10</span> Isotropic functions of a symmetric tensor</a></li>
+</ul></li>
+<li><a href="#special-operations-for-mechanical-behaviours"><span class="toc-section-number">4</span> Special operations for mechanical behaviours</a>
+<ul>
+<li><a href="#yield-criteria"><span class="toc-section-number">4.1</span> Yield criteria</a></li>
+</ul></li>
+<li><a href="#references"><span class="toc-section-number">5</span> References</a></li>
+</ul>
+</div>
 <p>This page is meant to describe the various tensor objects and operations available in <code>TFEL/Math</code> and some functionalities provided by the <code>TFEL/Material</code> library.</p>
-<h1 id="classes-describing-second-and-fourth-order-tensors"><span class="header-section-number">1</span> Classes describing second and fourth order tensors</h1>
-<h2 id="symmetric-second-order-tensors"><span class="header-section-number">1.1</span> Symmetric second order tensors</h2>
+<h1 data-number="1" id="classes-describing-second-and-fourth-order-tensors"><span class="header-section-number">1</span> Classes describing second and fourth order tensors</h1>
+<h2 data-number="1.1" id="symmetric-second-order-tensors"><span class="header-section-number">1.1</span> Symmetric second order tensors</h2>
 <p>When dealing with constitutive equations, most computations are performed on <em>symmetric</em> tensors.</p>
 <p>Classes describing symmetric second order tensors satisfies the <code>StensorConcept</code>.</p>
 <p>An end user will mostly use the <code>stensor</code> class, which have the following template arguments:</p>
@@ -301,16 +318,16 @@
 <li>The type used to perform the computation.</li>
 </ul>
 <p>The following code declares a symmetric second order tensor in <span class="math inline">\(2D\)</span> using single precision floating-point number:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1">stensor&lt;<span class="dv">2</span>,<span class="dt">float</span>&gt; s;</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>stensor&lt;<span class="dv">2</span>,<span class="dt">float</span>&gt; s;</span></code></pre></div>
 <p>Symmetric tensors are denoted as follows <span class="math inline">\(\underline{s}\)</span>.</p>
-<h3 id="aliases-used-in-mfront"><span class="header-section-number">1.1.1</span> Aliases used in <code>MFront</code></h3>
+<h3 data-number="1.1.1" id="aliases-used-in-mfront"><span class="header-section-number">1.1.1</span> Aliases used in <code>MFront</code></h3>
 <p>In <code>MFront</code>, various aliases are introduced to ease the implementation of mechanical behaviours:</p>
 <ul>
 <li><code>Stensor</code> is an alias to <code>stensor&lt;N,real&gt;</code> where <code>N</code> is the space dimension and <code>real</code> is the numerical type used. The value of <code>N</code> depends of the current modelling hypothesis. The concrete type for <code>real</code> depends on the interface used.</li>
 <li><code>StrainStensor</code> is an alias to <code>stensor&lt;N,strain&gt;</code>.</li>
 <li><code>StressStensor</code> is an alias to <code>stensor&lt;N,stess&gt;</code>.</li>
 </ul>
-<h2 id="vector-notations-for-symmetric-tensors"><span class="header-section-number">1.2</span> Vector notations for symmetric tensors</h2>
+<h2 data-number="1.2" id="vector-notations-for-symmetric-tensors"><span class="header-section-number">1.2</span> Vector notations for symmetric tensors</h2>
 <p>A symmetric tensor is stored as an array of values, as follows in <span class="math inline">\(3D\)</span>: <span class="math display">\[
   \underline{s}=
   \begin{pmatrix}
@@ -323,7 +340,7 @@
   \end{pmatrix}^{T}
 \]</span></p>
 <p>The contracted product of two symmetric tensors is the scalar product of their vector forms (hence the <span class="math inline">\(\sqrt{2}\)</span>).</p>
-<h2 id="general-non-symmetric-second-order-tensors"><span class="header-section-number">1.3</span> General (non symmetric) second order tensors</h2>
+<h2 data-number="1.3" id="general-non-symmetric-second-order-tensors"><span class="header-section-number">1.3</span> General (non symmetric) second order tensors</h2>
 <p>Classes describing symmetric second order tensors satisfies the <code>TensorConcept</code>.</p>
 <p>An end user will mostly use the <code>tensor</code> class, which have the following template arguments:</p>
 <ul>
@@ -331,7 +348,7 @@
 <li>The type used to perform the computation.</li>
 </ul>
 <p>Non symmetric tensors are denoted as follows <span class="math inline">\({\underset{\tilde{}}{\mathbf{a}}}\)</span>.</p>
-<h2 id="vector-notations-for-non-symmetric-tensors"><span class="header-section-number">1.4</span> Vector notations for non symmetric tensors</h2>
+<h2 data-number="1.4" id="vector-notations-for-non-symmetric-tensors"><span class="header-section-number">1.4</span> Vector notations for non symmetric tensors</h2>
 <p>A tensor is stored as an array of values, as follows in <span class="math inline">\(3D\)</span>: <span class="math display">\[
   \underline{s}=
   \begin{pmatrix}
@@ -346,10 +363,10 @@
     s_{\,32}
   \end{pmatrix}^{T}
 \]</span></p>
-<h3 id="the-identity-tensor"><span class="header-section-number">1.4.1</span> The identity tensor</h3>
+<h3 data-number="1.4.1" id="the-identity-tensor"><span class="header-section-number">1.4.1</span> The identity tensor</h3>
 <p>The symmetric second order identity tensor is returned by the <code>Id</code> static member of the <code>stensor</code> class as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = stensor&lt;<span class="dv">3u</span>,real&gt;::Id();</a></code></pre></div>
-<h2 id="fourth-order-tensors"><span class="header-section-number">1.5</span> Fourth order tensors</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = stensor&lt;<span class="dv">3</span><span class="bu">u</span>,real&gt;::Id();</span></code></pre></div>
+<h2 data-number="1.5" id="fourth-order-tensors"><span class="header-section-number">1.5</span> Fourth order tensors</h2>
 <p>Fourth order tensors can be defined as linear mappings from the second order tensors to second order tensors. As there is two kinds of second order tensors (i.e. symmetric and non symmetric tensors), there are four kinds of fourth order tensors defined in the <code>TFEL/Math</code> library, which satisfy the following concepts:</p>
 <ul>
 <li><code>ST2toST2Concept</code>: linear mapping from symmetric tensors to symmetric tensors.</li>
@@ -362,14 +379,14 @@
 <li>The space dimesion (<code>1</code>, <code>2</code> or <code>3</code>).</li>
 <li>The type used to perform the computation.</li>
 </ul>
-<h3 id="aliases-used-in-mfront-1"><span class="header-section-number">1.5.1</span> Aliases used in <code>MFront</code></h3>
+<h3 data-number="1.5.1" id="aliases-used-in-mfront-1"><span class="header-section-number">1.5.1</span> Aliases used in <code>MFront</code></h3>
 <p>In <code>MFront</code>, various aliases are introduced to ease the implementation of mechanical behaviours:</p>
 <ul>
 <li><code>Stensor4</code> is an alias to <code>st2tost2&lt;N,real&gt;</code> where <code>N</code> is the space dimension and <code>real</code> is the numerical type used. The value of <code>N</code> depends of the current modelling hypothesis. The concrete type for <code>real</code> depends on the interface used.</li>
 <li><code>StiffnessTensor</code> is an alias to <code>st2tost2&lt;N,stress&gt;</code>.</li>
 </ul>
-<h3 id="special-values"><span class="header-section-number">1.5.2</span> Special values</h3>
-<h4 id="special-values-of-the-st2tost2-class"><span class="header-section-number">1.5.2.1</span> Special values of the <code>st2tost2</code> class</h4>
+<h3 data-number="1.5.2" id="special-values"><span class="header-section-number">1.5.2</span> Special values</h3>
+<h4 data-number="1.5.2.1" id="special-values-of-the-st2tost2-class"><span class="header-section-number">1.5.2.1</span> Special values of the <code>st2tost2</code> class</h4>
 <p>The <code>st2tost2</code> provides the following static methods:</p>
 <ul>
 <li><code>Id</code>: returns the identity matrix.</li>
@@ -384,7 +401,7 @@
 \sigma_{\mathrm{eq}}=\sqrt{\underline{\sigma}\,\colon\,\underline{\underline{\mathbf{M}}}\,\colon\,\underline{\sigma}}
 \]</span></li>
 </ul>
-<h4 id="special-values-of-the-t2tot2-class"><span class="header-section-number">1.5.2.2</span> Special values of the <code>t2tot2</code> class</h4>
+<h4 data-number="1.5.2.2" id="special-values-of-the-t2tot2-class"><span class="header-section-number">1.5.2.2</span> Special values of the <code>t2tot2</code> class</h4>
 <p>The <code>t2tot2</code> provides the following static method:</p>
 <ul>
 <li><code>Id</code>: returns the identity matrix.</li>
@@ -396,8 +413,8 @@
 \]</span></li>
 <li><code>K</code>: returns the tensor defined by <span class="math inline">\({\underset{\tilde{}}{\mathbf{I}}}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,{\underset{\tilde{}}{\mathbf{I}}}\,\otimes\,{\underset{\tilde{}}{\mathbf{I}}}\)</span>. This is tensor is indeed the projector on the deviatoric space.</li>
 </ul>
-<h1 id="standard-operations"><span class="header-section-number">2</span> Standard operations</h1>
-<h2 id="basic-operations"><span class="header-section-number">2.1</span> Basic operations</h2>
+<h1 data-number="2" id="standard-operations"><span class="header-section-number">2</span> Standard operations</h1>
+<h2 data-number="2.1" id="basic-operations"><span class="header-section-number">2.1</span> Basic operations</h2>
 <p>Thanks to operator overloading, the following operations are written using standard mathematical notations:</p>
 <ul>
 <li>Addition of two tensors.</li>
@@ -406,30 +423,30 @@
 <li>Multiplication and division of a tensor by a scalar.</li>
 </ul>
 <p>For example, the following code shows how to perform the addition of two tensors <code>a</code> and <code>b</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> c=a+b;</a></code></pre></div>
-<h3 id="expression-templates"><span class="header-section-number">2.1.1</span> Expression templates</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> c=a+b;</span></code></pre></div>
+<h3 data-number="2.1.1" id="expression-templates"><span class="header-section-number">2.1.1</span> Expression templates</h3>
 <p>For optimization purpose, the result of the previous operations are not evaluted. In the previous example, <code>c</code> is not the result but a special class built on the fly representing the addition of the tensors <code>a</code> and <code>b</code>.</p>
 <p>The <code>eval</code> function can be used to explicitly evaluate the result of the operation.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> c=eval(a+b);</a></code></pre></div>
-<h3 id="in-place-operations"><span class="header-section-number">2.1.2</span> In-place operations</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> c=eval(a+b);</span></code></pre></div>
+<h3 data-number="2.1.2" id="in-place-operations"><span class="header-section-number">2.1.2</span> In-place operations</h3>
 <p>Operations like <code>b=b+a</code> can be also be written using operator <code>+=</code> as follows:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1">b+=a;</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>b+=a;</span></code></pre></div>
 <p>The operator <code>-=</code> is also available for operations like <code>b=b-a</code>.</p>
 <p>The operators <code>*=</code> and <code>/=</code> are also available for inplace multiplication or division by a scalar :</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// divide tensor a by 2</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">a/=<span class="dv">2</span>;</a></code></pre></div>
-<h2 id="symmetrization-and-unsymmetrization-of-second-order-tensors"><span class="header-section-number">2.2</span> Symmetrization and unsymmetrization of second order tensors</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// divide tensor a by 2</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>a/=<span class="dv">2</span>;</span></code></pre></div>
+<h2 data-number="2.2" id="symmetrization-and-unsymmetrization-of-second-order-tensors"><span class="header-section-number">2.2</span> Symmetrization and unsymmetrization of second order tensors</h2>
 <p>A non symmetric second order tensor can be symmetrized using the <code>syme</code> function. The result match the <code>StensorConcept</code>.</p>
 <p>A symmetric second order tensor can be unsymmetrized using the <code>unsyme</code> function. The result match the <code>TensorConcept</code>.</p>
-<h2 id="frobenius-inner-product-of-second-order-tensors"><span class="header-section-number">2.3</span> Frobenius inner product of second order tensors</h2>
+<h2 data-number="2.3" id="frobenius-inner-product-of-second-order-tensors"><span class="header-section-number">2.3</span> Frobenius inner product of second order tensors</h2>
 <p>The Frobenius inner product <span class="math inline">\({\underset{\tilde{}}{\mathbf{a}}}\,\colon\,{\underset{\tilde{}}{\mathbf{b}}}\)</span> of two tensors <span class="math inline">\({\underset{\tilde{}}{\mathbf{a}}}\)</span> and <span class="math inline">\({\underset{\tilde{}}{\mathbf{b}}}\)</span> is defined by:</p>
 <p><span class="math display">\[
 {\underset{\tilde{}}{\mathbf{a}}}\,\colon\,{\underset{\tilde{}}{\mathbf{b}}}={\mathrm{tr}{\left({{\underset{\tilde{}}{\mathbf{a}}}^{\mathop{T}}}\,\dot\,{\underset{\tilde{}}{\mathbf{b}}}\right)}}=\sum_{i,j}a_{ij}b_{ij}
 \]</span></p>
 <p>This operation is implemented in <code>TFEL/Math</code> using the <code>^</code> operator, as follows:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> r = a|b;</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> r = a|b;</span></code></pre></div>
 <p>The user must be aware that this operator as a low priority in <code>C++</code>, so one must usually use parenthesis to properly evaluate operations involving those operations.</p>
-<h2 id="diadic-product"><span class="header-section-number">2.4</span> Diadic product</h2>
+<h2 data-number="2.4" id="diadic-product"><span class="header-section-number">2.4</span> Diadic product</h2>
 <p>The diadic product <span class="math inline">\({\underset{\tilde{}}{\mathbf{a}}}\,\otimes\,{\underset{\tilde{}}{\mathbf{b}}}\)</span> of two tensors <span class="math inline">\({\underset{\tilde{}}{\mathbf{a}}}\)</span> and <span class="math inline">\({\underset{\tilde{}}{\mathbf{b}}}\)</span> satisfies, for any tensor <span class="math inline">\({\underset{\tilde{}}{\mathbf{c}}}\)</span>:</p>
 <p><span class="math display">\[
 \left\{
@@ -440,48 +457,48 @@
 \right.
 \]</span></p>
 <p>The diadic product is implemented in <code>TFEL/Math</code> using operator <code>^</code>. The user must be aware that this operator as a low priority in <code>C++</code>, so one must usually use parenthesis to properly evaluate operations involving diadic products.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1">dfeel_ddeel += <span class="fl">2.</span>*mu*theta*dp*iseq*(Stensor4::M()-(n^n));</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dfeel_ddeel += <span class="fl">2.</span>*mu*theta*dp*iseq*(Stensor4::M()-(n^n));</span></code></pre></div>
 <p>The diadic product of two symmetric tensors results in an object matching the <code>ST2toST2Concept</code>.</p>
 <p>The diadic product of two non symmetric tensors results in an object matching the <code>T2toT2Concept</code>.</p>
-<h2 id="polar-decomposition"><span class="header-section-number">2.5</span> Polar decomposition</h2>
+<h2 data-number="2.5" id="polar-decomposition"><span class="header-section-number">2.5</span> Polar decomposition</h2>
 <p>The polar decomposition of a tensor <code>F</code> can be computed as follows in <code>MFront</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1">tensor&lt;N, real&gt; R;</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">stensor&lt;N, strain&gt; U;</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">polar_decomposition(R, U, F);</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tensor&lt;N, real&gt; R;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>stensor&lt;N, strain&gt; U;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>polar_decomposition(R, U, F);</span></code></pre></div>
 <p>where:</p>
 <ul>
 <li><code>N</code> is the space dimension.</li>
 <li><code>real</code> is an alias to the numeric type.</li>
 <li><code>strain</code> is an alias to the numeric type.</li>
 </ul>
-<h2 id="application-of-a-fourth-order-tensor"><span class="header-section-number">2.6</span> Application of a fourth order tensor</h2>
-<h2 id="multiplication-of-second-order-tensors"><span class="header-section-number">2.7</span> Multiplication of second order tensors</h2>
-<h3 id="derivatives"><span class="header-section-number">2.7.1</span> Derivatives</h3>
-<h2 id="symmetric-product-of-two-symmetric-second-order-tensors"><span class="header-section-number">2.8</span> Symmetric product of two symmetric second order tensors</h2>
+<h2 data-number="2.6" id="application-of-a-fourth-order-tensor"><span class="header-section-number">2.6</span> Application of a fourth order tensor</h2>
+<h2 data-number="2.7" id="multiplication-of-second-order-tensors"><span class="header-section-number">2.7</span> Multiplication of second order tensors</h2>
+<h3 data-number="2.7.1" id="derivatives"><span class="header-section-number">2.7.1</span> Derivatives</h3>
+<h2 data-number="2.8" id="symmetric-product-of-two-symmetric-second-order-tensors"><span class="header-section-number">2.8</span> Symmetric product of two symmetric second order tensors</h2>
 <p>The symmetric product of two symmetric second order tensors <span class="math inline">\(\underline{a}\)</span> and <span class="math inline">\(\underline{b}\)</span> can be defined as follows:</p>
 <p><span class="math display">\[
 \underline{a}\,\cdot_{s}\,\underline{b} = {{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{\left(\underline{a}\,\cdot\underline{b}+\underline{b}\,\cdot\underline{a}\right)}
 \]</span></p>
 <p>This can be computed by the <code>symmetric_product</code> function.</p>
-<h3 id="derivative"><span class="header-section-number">2.8.1</span> Derivative</h3>
+<h3 data-number="2.8.1" id="derivative"><span class="header-section-number">2.8.1</span> Derivative</h3>
 <p>The derivative of the symmetric product <span class="math inline">\(\underline{a}\,\cdot_{s}\,\underline{b}\)</span> with respect to <span class="math inline">\(\underline{a}\)</span> can be computed using the <code>st2tost2::stpd</code> static method with takes <span class="math inline">\(\underline{b}\)</span> as argument.</p>
-<h2 id="second-symmetric-product-of-two-symmetric-second-order-tensors-underlineacdotunderlinebcdotunderlinea"><span class="header-section-number">2.9</span> Second symmetric product of two symmetric second order tensors <span class="math inline">\(\underline{a}\,\cdot\,\underline{b}\,\cdot\,\underline{a}\)</span></h2>
+<h2 data-number="2.9" id="second-symmetric-product-of-two-symmetric-second-order-tensors-underlineacdotunderlinebcdotunderlinea"><span class="header-section-number">2.9</span> Second symmetric product of two symmetric second order tensors <span class="math inline">\(\underline{a}\,\cdot\,\underline{b}\,\cdot\,\underline{a}\)</span></h2>
 <p>Another symmetric product of two symmetric second order tensors <span class="math inline">\(\underline{a}\)</span> and <span class="math inline">\(\underline{b}\)</span> can be defined as follows:</p>
 <p><span class="math display">\[
 \underline{a}\,\cdot\,\underline{b}\,\cdot\,\underline{a}
 \]</span></p>
 <p>This can be computed by the <code>symmetric_product_aba</code> function.</p>
-<h3 id="derivative-1"><span class="header-section-number">2.9.1</span> Derivative</h3>
+<h3 data-number="2.9.1" id="derivative-1"><span class="header-section-number">2.9.1</span> Derivative</h3>
 <p>The derivative of <span class="math inline">\(\underline{a}\,\cdot\,\underline{b}\,\cdot\,\underline{a}\)</span> with respect to <span class="math inline">\(\underline{a}\)</span> can be computed using the <code>symmetric_product_derivative_daba_da</code> function.</p>
 <p>The derivative of <span class="math inline">\(\underline{a}\,\cdot\,\underline{b}\,\cdot\,\underline{a}\)</span> with respect to <span class="math inline">\(\underline{b}\)</span> can be computed using the <code>symmetric_product_derivative_daba_db</code> function.</p>
-<h3 id="computation-of-underlineaunderlineoverlineotimesunderlinea"><span class="header-section-number">2.9.2</span> Computation of <span class="math inline">\(\underline{a}\,\underline{\overline{\otimes}}\,\underline{a}\)</span></h3>
+<h3 data-number="2.9.2" id="computation-of-underlineaunderlineoverlineotimesunderlinea"><span class="header-section-number">2.9.2</span> Computation of <span class="math inline">\(\underline{a}\,\underline{\overline{\otimes}}\,\underline{a}\)</span></h3>
 <p>By definition, given a symmetric tensor <span class="math inline">\(\underline{a}\)</span>, the tensor product <span class="math inline">\(\underline{a}\,\underline{\overline{\otimes}}\,\underline{a}\)</span> is the fourth order tensor (of type <code>st2tost2</code>) which satisfies, for any tensor <span class="math inline">\(\underline{b}\)</span>: <span class="math display">\[
 \left(\underline{a}\,\underline{\overline{\otimes}}\,\underline{a}\right)\,\colon\,\underline{b}=
 \underline{a}\,\cdot\,\underline{b}\,\cdot\,\underline{a}
 \]</span></p>
 <p><span class="math inline">\(\underline{a}\,\underline{\overline{\otimes}}\,\underline{a}\)</span> can thus readily be computed using the <code>symmetric_product_derivative_daba_db</code> function.</p>
-<h1 id="special-mathematical-functions"><span class="header-section-number">3</span> Special mathematical functions</h1>
-<h2 id="change-the-basis"><span class="header-section-number">3.1</span> Change the basis</h2>
+<h1 data-number="3" id="special-mathematical-functions"><span class="header-section-number">3</span> Special mathematical functions</h1>
+<h2 data-number="3.1" id="change-the-basis"><span class="header-section-number">3.1</span> Change the basis</h2>
 <p>The <code>change_basis</code> functions can:</p>
 <ul>
 <li>rotate a symmetric tensor</li>
@@ -490,18 +507,18 @@
 <li>rotate a fourth order tensor of type <code>t2tot2</code>.</li>
 </ul>
 <p>Those functions takes two constant arguments: the object to be rotated and the rotation matrix. The rotated object is returned.</p>
-<h3 id="example"><span class="header-section-number">3.1.1</span> Example</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> sr = change_basis(s,r);</a></code></pre></div>
-<h3 id="fourth-order-tensors-standing-for-the-rotation-of-tensors"><span class="header-section-number">3.1.2</span> Fourth order tensors standing for the rotation of tensors</h3>
+<h3 data-number="3.1.1" id="example"><span class="header-section-number">3.1.1</span> Example</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> sr = change_basis(s,r);</span></code></pre></div>
+<h3 data-number="3.1.2" id="fourth-order-tensors-standing-for-the-rotation-of-tensors"><span class="header-section-number">3.1.2</span> Fourth order tensors standing for the rotation of tensors</h3>
 <p>The <code>st2tost2</code> class provide the <code>fromRotationMatrix</code> static method which computes a fourth order tensor which has the same effect on a symmetric tensor than applying a given rotation.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> rt = st2tost2&lt;N,real&gt;::fromRotationMatrix(r);</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> rt = st2tost2&lt;N,real&gt;::fromRotationMatrix(r);</span></code></pre></div>
 <p>The <code>t2tot2</code> class provide the <code>fromRotationMatrix</code> static method which computes a fourth order tensor which has the same effect on a (non-symmetric) tensor than applying a given rotation.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> rt = t2tot2&lt;N,real&gt;::fromRotationMatrix(r);</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> rt = t2tot2&lt;N,real&gt;::fromRotationMatrix(r);</span></code></pre></div>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>In pratice, the <code>fromRotationMatrix</code> static methods can be used to compute the rotation of any second and fourth order tensors (including the ones of the <code>t2tost2</code> and <code>st2tot2</code> types). They are used internally in the implementation of the <code>change_basis</code> functions provided for the fourth order tensors of types <code>st2tost2</code> and <code>t2tot2</code>.</p>
 </blockquote>
-<h2 id="inverses"><span class="header-section-number">3.2</span> Inverses</h2>
+<h2 data-number="3.2" id="inverses"><span class="header-section-number">3.2</span> Inverses</h2>
 <p>The <code>invert</code> functions can compute:</p>
 <ul>
 <li>the inverse of a symmetric tensor.</li>
@@ -509,32 +526,32 @@
 <li>the inverse of a fourth order tensor of type <code>st2tost2</code>.</li>
 </ul>
 <p>Those functions takes the object to be inverted as constant argument and returned the inverse.</p>
-<h2 id="square-of-a-symmetric-tensor"><span class="header-section-number">3.3</span> Square of a symmetric tensor</h2>
+<h2 data-number="3.3" id="square-of-a-symmetric-tensor"><span class="header-section-number">3.3</span> Square of a symmetric tensor</h2>
 <p>The product of two symmetric tensors is a non symmetric tensor. However, the square of a symmetric tensor is a symmetric tensor.</p>
 <p>The square of a symmetric tensor can be computed using the <code>square</code> function, as follows:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> s2 = square(s);</a></code></pre></div>
-<h3 id="derivative-of-the-square-of-a-symmetric-tensor"><span class="header-section-number">3.3.1</span> Derivative of the square of a symmetric tensor</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s2 = square(s);</span></code></pre></div>
+<h3 data-number="3.3.1" id="derivative-of-the-square-of-a-symmetric-tensor"><span class="header-section-number">3.3.1</span> Derivative of the square of a symmetric tensor</h3>
 <p>The derivative of the square of a symmetric tensor is a fourth order tensor mapping a symmetric tensor toward a symmetric tensor. It can be computed using the <code>dsquare</code> function, as follows:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> ds2_ds = st2tost2&lt;N,real&gt;::dsquare(s);</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> ds2_ds = st2tost2&lt;N,real&gt;::dsquare(s);</span></code></pre></div>
 <p>The result of this operation of mostly filled with zero. If <span class="math inline">\(\underline{s}\)</span> is a function of <span class="math inline">\(\underline{\underline{c}}\)</span>, this fact can be used to optimize the computation of the derivative of <span class="math inline">\(\underline{s}^{2}\)</span> with respect to <span class="math inline">\(\underline{c}\)</span>:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> ds2_dc = st2tost2&lt;N,real&gt;::dsquare(s2,ds_dc);</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> ds2_dc = st2tost2&lt;N,real&gt;::dsquare(s2,ds_dc);</span></code></pre></div>
 <p>which is more efficient than:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> ds2_dc = st2tost2&lt;N,real&gt;::dsquare(s2)*ds_dc;</a></code></pre></div>
-<h2 id="positive-and-negative-parts-of-a-symmetric-tensor"><span class="header-section-number">3.4</span> Positive and negative parts of a symmetric tensor</h2>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> ds2_dc = st2tost2&lt;N,real&gt;::dsquare(s2)*ds_dc;</span></code></pre></div>
+<h2 data-number="3.4" id="positive-and-negative-parts-of-a-symmetric-tensor"><span class="header-section-number">3.4</span> Positive and negative parts of a symmetric tensor</h2>
 <p>The Positive and negative parts of a symmetric tensor can be computed respectively by the <code>positive_part</code> and <code>negative_part</code> function.</p>
-<h2 id="sec:transpose"><span class="header-section-number">3.5</span> Transposition</h2>
-<h3 id="transposition-of-a-second-order-tensor"><span class="header-section-number">3.5.1</span> Transposition of a second order tensor</h3>
+<h2 data-number="3.5" id="sec:transpose"><span class="header-section-number">3.5</span> Transposition</h2>
+<h3 data-number="3.5.1" id="transposition-of-a-second-order-tensor"><span class="header-section-number">3.5.1</span> Transposition of a second order tensor</h3>
 <p>A non symmetric second order tensor can be transpose using the <code>transpose</code> function:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> B = transpose(A);</a></code></pre></div>
-<h4 id="derivative-of-the-transpose-of-a-second-order-tensor"><span class="header-section-number">3.5.1.1</span> Derivative of the transpose of a second order tensor</h4>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> B = transpose(A);</span></code></pre></div>
+<h4 data-number="3.5.1.1" id="derivative-of-the-transpose-of-a-second-order-tensor"><span class="header-section-number">3.5.1.1</span> Derivative of the transpose of a second order tensor</h4>
 <p>The linear operation which turns a second order tensor into its transpose can be retrieved using the static method <code>transpose_derivative</code> of the <code>t2tot2</code> class as follows:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> dtA_dA = t2tot2&lt;real,N&gt;::transpose_derivative();</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dtA_dA = t2tot2&lt;real,N&gt;::transpose_derivative();</span></code></pre></div>
 <p>As its name suggests, this linear operation is also the derivative of the transpose of a second order tensor with respect to itself.</p>
-<h3 id="transposition-of-a-fourth-order-tensor"><span class="header-section-number">3.5.2</span> Transposition of a fourth order tensor</h3>
+<h3 data-number="3.5.2" id="transposition-of-a-fourth-order-tensor"><span class="header-section-number">3.5.2</span> Transposition of a fourth order tensor</h3>
 <p>A fourth order tensor matching the <code>ST2toST2Concept</code> (i.e. a linear form mapping a symmetric second order tensor to a symmetric second order tensor) can be transposed using the <code>transpose</code> function:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> B = transpose(A);</a></code></pre></div>
-<h2 id="sec:invariants"><span class="header-section-number">3.6</span> Second order tensor invariants</h2>
-<h3 id="defintion"><span class="header-section-number">3.6.1</span> Defintion</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> B = transpose(A);</span></code></pre></div>
+<h2 data-number="3.6" id="sec:invariants"><span class="header-section-number">3.6</span> Second order tensor invariants</h2>
+<h3 data-number="3.6.1" id="defintion"><span class="header-section-number">3.6.1</span> Defintion</h3>
 <p>The three invariants of a second order tensor are defined by: <span class="math display">\[
 \left\{
 \begin{aligned}
@@ -544,16 +561,16 @@ I_{3} &amp;= \det{\left({\underset{\tilde{}}{\mathbf{a}}}\right)}
 \end{aligned}
 \right.
 \]</span></p>
-<h3 id="computation"><span class="header-section-number">3.6.2</span> Computation</h3>
+<h3 data-number="3.6.2" id="computation"><span class="header-section-number">3.6.2</span> Computation</h3>
 <p><span class="math inline">\(I_{1}\)</span> can be computed thanks to <code>trace</code> function as follows:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> I1 = trace(A);</a></code></pre></div>
-<p>Of course, <span class="math inline">\(I_{1}\)</span> can also be computed directly by accessing the components of the tensor, i.e. :</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> I1 = A(<span class="dv">0</span>)+A(<span class="dv">1</span>)+A(<span class="dv">2</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I1 = trace(A);</span></code></pre></div>
+<p>Of course, <span class="math inline">\(I_{1}\)</span> can also be computed directly by accessing the components of the tensor, i.e. :</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I1 = A(<span class="dv">0</span>)+A(<span class="dv">1</span>)+A(<span class="dv">2</span>);</span></code></pre></div>
 <p><span class="math inline">\(I_{2}\)</span> can be computed by translating its definition as follows:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> I2 = (I1*I1-trace(square(A)))/<span class="dv">2</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I2 = (I1*I1-trace(square(A)))/<span class="dv">2</span>;</span></code></pre></div>
 <p><span class="math inline">\(I_{3}\)</span> can be computed thanks to <code>det</code> function as follows:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> I3 = det(A);</a></code></pre></div>
-<h3 id="sec:invariants:derivatives"><span class="header-section-number">3.6.3</span> Derivatives of the invariants of a tensor</h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I3 = det(A);</span></code></pre></div>
+<h3 data-number="3.6.3" id="sec:invariants:derivatives"><span class="header-section-number">3.6.3</span> Derivatives of the invariants of a tensor</h3>
 <p>The derivative of the invariants are classically given by: <span class="math display">\[
 \left\{
 \begin{aligned}
@@ -574,22 +591,22 @@ I_{3} &amp;= \det{\left({\underset{\tilde{}}{\mathbf{a}}}\right)}
 \]</span></p>
 <p><span class="math inline">\({\displaystyle \frac{\displaystyle \partial I_{1}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{a}}}}}\)</span> and <span class="math inline">\({\displaystyle \frac{\displaystyle \partial I_{2}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{a}}}}}\)</span> are trivial to compute.</p>
 <p><span class="math inline">\({\displaystyle \frac{\displaystyle \partial I_{3}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{a}}}}}\)</span> can be computed using the <code>computeDeterminantDerivative</code> function as follows:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> dI3_dA = computeDeterminantDerivative(A);</a></code></pre></div>
-<h3 id="second-derivatives-of-the-invariants-of-a-tensor"><span class="header-section-number">3.6.4</span> Second derivatives of the invariants of a tensor</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dI3_dA = computeDeterminantDerivative(A);</span></code></pre></div>
+<h3 data-number="3.6.4" id="second-derivatives-of-the-invariants-of-a-tensor"><span class="header-section-number">3.6.4</span> Second derivatives of the invariants of a tensor</h3>
 <p><span class="math inline">\({\displaystyle \frac{\displaystyle \partial^{2} I_{1}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{a}}}^{2}}}\)</span> is null.</p>
 <p><span class="math inline">\({\displaystyle \frac{\displaystyle \partial^{2} I_{2}}{\displaystyle \partial \underline{s}^{2}}}\)</span> can be computed as follows:</p>
 <p><span class="math display">\[
 {\displaystyle \frac{\displaystyle \partial^{2} I_{2}}{\displaystyle \partial \underline{s}^{2}}}=\underline{I}\otimes\underline{I}-{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{a}}}^{T}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{a}}}}}
 \]</span></p>
 <p>The last term, <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{a}}}^{T}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{a}}}}}\)</span> can be computed using the <code>t2tot2::transpose_derivative</code> static method, see Paragraph 3.5 for details.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> id = tensor&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> d2I2_dA2 = (id^id)-t2tot2&lt;N,real&gt;::transpose_derivative();</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> id = tensor&lt;N,real&gt;::Id();</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2I2_dA2 = (id^id)-t2tot2&lt;N,real&gt;::transpose_derivative();</span></code></pre></div>
 <p>For symmetric tensors, this computation is much simplier:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> id = stensor&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> d2I2_dA2 = (id^id)-st2tot2&lt;N,real&gt;::Id();</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> id = stensor&lt;N,real&gt;::Id();</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2I2_dA2 = (id^id)-st2tot2&lt;N,real&gt;::Id();</span></code></pre></div>
 <p>The <span class="math inline">\({\displaystyle \frac{\displaystyle \partial^{2} I_{3}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{a}}}^{2}}}\)</span> term can be computed using the <code>computeDeterminantSecondDerivative</code> function, as follows:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> d2I3_dA2 = computeDeterminantSecondDerivative(A);</a></code></pre></div>
-<h2 id="sec:deviatoric:invariants"><span class="header-section-number">3.7</span> Invariants of the stress deviator tensor <span class="citation" data-cites="wikipedia_invariants_2017">[<a href="#ref-wikipedia_invariants_2017">1</a>]</span></h2>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2I3_dA2 = computeDeterminantSecondDerivative(A);</span></code></pre></div>
+<h2 data-number="3.7" id="sec:deviatoric:invariants"><span class="header-section-number">3.7</span> Invariants of the stress deviator tensor <span class="citation" data-cites="wikipedia_invariants_2017">[<a href="#ref-wikipedia_invariants_2017" role="doc-biblioref">1</a>]</span></h2>
 <p>Let <span class="math inline">\(\underline{\sigma}\)</span> be a stress tensor. Its deviatoric part <span class="math inline">\(\underline{s}\)</span> is: <span class="math display">\[
 \underline{s}=\underline{\sigma}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
 ={\left(\underline{\underline{\mathbf{I}}}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,\underline{I}\,\otimes\,\underline{I}\right)}\,\colon\,\underline{\sigma}
@@ -617,41 +634,41 @@ J_3 &amp;= \det{\left(\underline{s}\right)} \\
 \]</span></p>
 <p>where <span class="math inline">\(I_{1}\)</span>, <span class="math inline">\(I_{2}\)</span> and <span class="math inline">\(I_{3}\)</span> are the invariants of <span class="math inline">\(\underline{\sigma}\)</span> (see Section 3.6).</p>
 <p>The invariants <span class="math inline">\(J_{2}\)</span> and <span class="math inline">\(J_{3}\)</span> of deviatoric part of the stress are the basis of many isotropic yield criteria, some of them being described below.</p>
-<h3 id="first-derivative"><span class="header-section-number">3.7.1</span> First derivative</h3>
+<h3 data-number="3.7.1" id="first-derivative"><span class="header-section-number">3.7.1</span> First derivative</h3>
 <p>This paragraph details the first derivative of <span class="math inline">\(J_{2}\)</span> and <span class="math inline">\(J_{3}\)</span> with respect to <span class="math inline">\(\underline{\sigma}\)</span>.</p>
 <p>The computation of <span class="math inline">\({\displaystyle \frac{\displaystyle \partial J_{2}}{\displaystyle \partial \underline{\sigma}}}\)</span> is straight-forward by chain rule, using the expression of the derivatives of the invariants of a tensor (see Section 3.6.3): <span class="math display">\[
 {\displaystyle \frac{\displaystyle \partial J_{2}}{\displaystyle \partial \underline{\sigma}}}= {\displaystyle \frac{\displaystyle \partial J_{2}}{\displaystyle \partial \underline{s}}}\,\dot\,{\displaystyle \frac{\displaystyle \partial \underline{s}}{\displaystyle \partial \underline{\sigma}}}= \underline{s}
 \]</span></p>
 <p>In pratice, this can be implemented as follows:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> dJ2 = deviator(sig);</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ2 = deviator(sig);</span></code></pre></div>
 <p>For the expression of <span class="math inline">\({\displaystyle \frac{\displaystyle \partial J_{3}}{\displaystyle \partial \underline{\sigma}}}\)</span>, one can derive its expression based of the three invariants of <span class="math inline">\(\underline{\sigma}\)</span>, as follows:</p>
 <p><span class="math display">\[
 \begin{aligned}
 {\displaystyle \frac{\displaystyle \partial J_{3}}{\displaystyle \partial \underline{\sigma}}}
-&amp;={\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial \underline{\sigma}}}{\left({{\displaystyle \frac{\displaystyle 2}{\displaystyle 27}}}\,I_{1}^3 -{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,I_{1}\,I_{2} + I_{3}\right)}\\
+&amp;={\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial \underline{\sigma}}}{\left({{\displaystyle \frac{\displaystyle 2}{\displaystyle 27}}}\,I_{1}^3 - {{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,I_{1}\,I_{2} + I_{3}\right)}\\
 &amp;={{\displaystyle \frac{\displaystyle 2}{\displaystyle 9}}}\,I_{1}^{2}\,\underline{I}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\left[I_{2}\,\underline{I}+I_{1}\,{\displaystyle \frac{\displaystyle \partial I_{2}}{\displaystyle \partial \underline{\sigma}}}\right]+{\displaystyle \frac{\displaystyle \partial I_{3}}{\displaystyle \partial \underline{\sigma}}}\\
 \end{aligned}
 \]</span></p>
 <p>For <code>TFEL</code> versions prior to 3.2, one can implement this formula as follows:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = stensor&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> I1  = trace(sig);</a>
-<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="at">const</span> <span class="kw">auto</span> I2  = (I1*I1-trace(square(sig)))/<span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb29-4" data-line-number="4"><span class="at">const</span> <span class="kw">auto</span> dI2 = I1*id-sig;</a>
-<a class="sourceLine" id="cb29-5" data-line-number="5"><span class="at">const</span> <span class="kw">auto</span> dI3 = computeDeterminantDerivative(sig);</a>
-<a class="sourceLine" id="cb29-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> dJ3 = eval((<span class="dv">2</span>*I1*I1/<span class="dv">9</span>)*id-(I2*id+I1*dI2)/<span class="dv">3</span>+dI3);</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = stensor&lt;N,real&gt;::Id();</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I1  = trace(sig);</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I2  = (I1*I1-trace(square(sig)))/<span class="dv">2</span>;</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dI2 = I1*id-sig;</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dI3 = computeDeterminantDerivative(sig);</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ3 = eval((<span class="dv">2</span>*I1*I1/<span class="dv">9</span>)*id-(I2*id+I1*dI2)/<span class="dv">3</span>+dI3);</span></code></pre></div>
 <p>For <code>TFEL</code> versions greater than <span class="math inline">\(3.2\)</span>, one may want to use the optimised <code>computeDeviatorDeterminantDerivative</code> function, defined in the namespace <code>tfel::math</code>, as follows:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> dJ3 = computeDeviatorDeterminantDerivative(sig);</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ3 = computeDeviatorDeterminantDerivative(sig);</span></code></pre></div>
 <p>The <code>computeJ3Derivative</code>, defined in <code>tfel::material</code> namespace, is a synonym for the <code>computeDeviatorDeterminantDerivative</code> function.</p>
-<h3 id="second-derivative"><span class="header-section-number">3.7.2</span> Second derivative</h3>
+<h3 data-number="3.7.2" id="second-derivative"><span class="header-section-number">3.7.2</span> Second derivative</h3>
 <p>This paragraph details the second derivatives of <span class="math inline">\(J_{2}\)</span> and <span class="math inline">\(J_{3}\)</span> with respect to <span class="math inline">\(\underline{\sigma}\)</span>.</p>
 <p>The second derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial^{2} J_{2}}{\displaystyle \partial \underline{\sigma}^{2}}}\)</span> is straight-forward: <span class="math display">\[
 {\displaystyle \frac{\displaystyle \partial^{2} J_{2}}{\displaystyle \partial \underline{\sigma}^{2}}}=
 \underline{\underline{\mathbf{I}}}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,\underline{I}\,\otimes\,\underline{I}
 \]</span></p>
 <p>It can be readily implemented:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id  = stensor&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="at">const</span> <span class="kw">auto</span> d2J2 = eval(id4-(id^id)/<span class="dv">3</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id  = stensor&lt;N,real&gt;::Id();</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2J2 = eval(id4-(id^id)/<span class="dv">3</span>);</span></code></pre></div>
 <p>The second derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial^{2} J_{3}}{\displaystyle \partial \underline{\sigma}^{2}}}\)</span> is also straight-forward to compute (see also Section 3.6.3): <span class="math display">\[
 {\displaystyle \frac{\displaystyle \partial J_{3}}{\displaystyle \partial \underline{\sigma}}}
 ={{\displaystyle \frac{\displaystyle 4}{\displaystyle 9}}}\,I_{1}\,\underline{I}\,\otimes\,\underline{I}
@@ -659,19 +676,19 @@ J_3 &amp;= \det{\left(\underline{s}\right)} \\
 {\displaystyle \frac{\displaystyle \partial^{2} I_{3}}{\displaystyle \partial \underline{\sigma}^{2}}}
 \]</span></p>
 <p>For <code>TFEL</code> versions prior to 3.2, one can implement this formula as follows:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = stensor&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</a>
-<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="at">const</span> <span class="kw">auto</span> I1   = trace(sig);</a>
-<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="at">const</span> <span class="kw">auto</span> I2   = (I1*I1-trace(square(sig)))/<span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb32-5" data-line-number="5"><span class="at">const</span> <span class="kw">auto</span> dI2  = I1*id-sig;</a>
-<a class="sourceLine" id="cb32-6" data-line-number="6"><span class="at">const</span> <span class="kw">auto</span> d2I2 = (id^id)-id4;</a>
-<a class="sourceLine" id="cb32-7" data-line-number="7"><span class="at">const</span> <span class="kw">auto</span> d2I3 = computeDeterminantSecondDerivative(sig);</a>
-<a class="sourceLine" id="cb32-8" data-line-number="8"><span class="at">const</span> <span class="kw">auto</span> d2J3 = eval((<span class="dv">4</span>*I1/<span class="dv">9</span>)*(id^id)-((id^dI2)+(dI2^id)+i1*d2I2)/<span class="dv">3</span>+d2I3);</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = stensor&lt;N,real&gt;::Id();</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I1   = trace(sig);</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I2   = (I1*I1-trace(square(sig)))/<span class="dv">2</span>;</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dI2  = I1*id-sig;</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2I2 = (id^id)-id4;</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2I3 = computeDeterminantSecondDerivative(sig);</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2J3 = eval((<span class="dv">4</span>*I1/<span class="dv">9</span>)*(id^id)-((id^dI2)+(dI2^id)+i1*d2I2)/<span class="dv">3</span>+d2I3);</span></code></pre></div>
 <p>For <code>TFEL</code> versions greater than <span class="math inline">\(3.2\)</span>, one may want to use the optimised <code>computeDeviatorDeterminantSecondDerivative</code> function, defined in the <code>tfel:math</code> namespace, as follows:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> d2J3 = computeDeviatorDeterminantSecondDerivative(J);</a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2J3 = computeDeviatorDeterminantSecondDerivative(J);</span></code></pre></div>
 <p>The <code>computeJ3SecondDerivative</code>, defined in <code>tfel::material</code> namespace, is a synonym for the <code>computeDeviatorDeterminantSecondDerivative</code> function.</p>
-<h2 id="sec:deviatoric:orthotropic:invariants"><span class="header-section-number">3.8</span> Orthotropic generalization of the invariants of the stress deviator tensor</h2>
-<p>Within the framework of the theory of representation, generalizations to orthotropic conditions of the invariants of the deviatoric stress have been proposed by Cazacu and Barlat (see <span class="citation" data-cites="cazacu_generalization_2001">[<a href="#ref-cazacu_generalization_2001">2</a>]</span>):</p>
+<h2 data-number="3.8" id="sec:deviatoric:orthotropic:invariants"><span class="header-section-number">3.8</span> Orthotropic generalization of the invariants of the stress deviator tensor</h2>
+<p>Within the framework of the theory of representation, generalizations to orthotropic conditions of the invariants of the deviatoric stress have been proposed by Cazacu and Barlat (see <span class="citation" data-cites="cazacu_generalization_2001">[<a href="#ref-cazacu_generalization_2001" role="doc-biblioref">2</a>]</span>):</p>
 <ul>
 <li>The generalization of <span class="math inline">\(J_{2}\)</span> is denoted <span class="math inline">\(J_{2}^{O}\)</span>. It is defined by: <span class="math display">\[
 J_{2}^{O}= a_6\,s_{yz}^2+a_5\,s_{xz}^2+a_4\,s_{xy}^2+\frac{a_2}{6}\,(s_{yy}-s_{zz})^2+\frac{a_3}{6}\,(s_{xx}-s_{zz})^2+\frac{a_1}{6}\,(s_{xx}-s_{yy})^2
@@ -698,10 +715,10 @@ J_{3}^{O}=
 <li><code>computesJ3O</code>, <code>computesJ3ODerivative</code> and <code>computesJ3OSecondDerivative</code>.</li>
 </ul>
 <p>Those functions take the stress tensor as first argument and each orthotropic coefficients. Each of those functions has an overload taking the stress tensor as its firs arguments and a tiny vector (<code>tfel::math::tvector</code>) containing the orthotropic coefficients.</p>
-<h2 id="eigenvalues-eigenvectors-and-eigentensors-of-symmetric-tensors"><span class="header-section-number">3.9</span> Eigenvalues, eigenvectors and eigentensors of symmetric tensors</h2>
-<h3 id="eigenvalue"><span class="header-section-number">3.9.1</span> Eigenvalue</h3>
+<h2 data-number="3.9" id="eigenvalues-eigenvectors-and-eigentensors-of-symmetric-tensors"><span class="header-section-number">3.9</span> Eigenvalues, eigenvectors and eigentensors of symmetric tensors</h2>
+<h3 data-number="3.9.1" id="eigenvalue"><span class="header-section-number">3.9.1</span> Eigenvalue</h3>
 <p>The eigenvalues can be computed by the <code>computeEigenValues</code> method, as follows:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> vp = s.computeEigenValues();</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> vp = s.computeEigenValues();</span></code></pre></div>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>In <code>2D</code>, the last eigenvalue always corresponds to the out-of-plane direction.</p>
@@ -711,16 +728,16 @@ J_{3}^{O}=
 <li><code>ASCENDING</code>: eigenvalues are sorted from the lowest to the greatest.</li>
 <li><code>DESCENDING</code>: eigenvalues are sorted from the greatest to the lowest.</li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> vp = s.computeEigenValues(stensor::ASCENDING);</a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> vp = s.computeEigenValues(stensor::ASCENDING);</span></code></pre></div>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>In <code>1D</code>, the sorting parameter has no effect. In <code>2D</code>, the last eigenvalue always corresponds to the out-of-plane direction.</p>
 </blockquote>
 <p>By default, the eigenvalues are computed using Cardano formula. However, one may use one of the following eigensolver decribed in the next paragraph as follows:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> es = stensor&lt;<span class="dv">3u</span>,real&gt;::FSESQLEIGENSOLVER;</a>
-<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> vp = s.computeEigenValues&lt;es&gt;();</a></code></pre></div>
-<h3 id="sec:eigensolvers"><span class="header-section-number">3.9.2</span> Eigenvectors</h3>
-<p>The default eigen solver for symmetric tensors used in <code>TFEL</code> is based on analitical computations of the eigen values and eigen vectors. Such computations are more efficient but less accurate than the iterative Jacobi algorithm (see <span class="citation" data-cites="kopp_efficient_2008 kopp_numerical_2017">[<a href="#ref-kopp_efficient_2008">3</a>, <a href="#ref-kopp_numerical_2017">4</a>]</span>).</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> es = stensor&lt;<span class="dv">3</span><span class="bu">u</span>,real&gt;::FSESQLEIGENSOLVER;</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> vp = s.computeEigenValues&lt;es&gt;();</span></code></pre></div>
+<h3 data-number="3.9.2" id="sec:eigensolvers"><span class="header-section-number">3.9.2</span> Eigenvectors</h3>
+<p>The default eigen solver for symmetric tensors used in <code>TFEL</code> is based on analitical computations of the eigen values and eigen vectors. Such computations are more efficient but less accurate than the iterative Jacobi algorithm (see <span class="citation" data-cites="kopp_efficient_2008 kopp_numerical_2017">[<a href="#ref-kopp_efficient_2008" role="doc-biblioref">3</a>, <a href="#ref-kopp_numerical_2017" role="doc-biblioref">4</a>]</span>).</p>
 <p>With the courtesy of Joachim Kopp, we have created a <code>C++11</code> compliant version of his routines that we gathered in header-only library called <code>FSES</code> (Fast Symmetric Eigen Solver). This library is included with <code>TFEL</code> and provides the following algorithms:</p>
 <ul>
 <li>Jacobi</li>
@@ -730,7 +747,7 @@ J_{3}^{O}=
 <li>Hybrid</li>
 <li>Householder reduction</li>
 </ul>
-<p>We have also introduced the Jacobi implementation of the <code>Geometric</code> <code>Tools</code> library (see <span class="citation" data-cites="eberly_robust_2016 eberly_geometric_2017">[<a href="#ref-eberly_robust_2016">5</a>, <a href="#ref-eberly_geometric_2017">6</a>]</span>).</p>
+<p>We have also introduced the Jacobi implementation of the <code>Geometric</code> <code>Tools</code> library (see <span class="citation" data-cites="eberly_robust_2016 eberly_geometric_2017">[<a href="#ref-eberly_robust_2016" role="doc-biblioref">5</a>, <a href="#ref-eberly_geometric_2017" role="doc-biblioref">6</a>]</span>).</p>
 <p>Those algorithms are available in 3D. For 2D symmetric tensors, we fall back to some default algorithm as described below.</p>
 <div id="tbl:eigensolvers">
 <table>
@@ -781,11 +798,11 @@ J_{3}^{O}=
 </tbody>
 </table>
 </div>
-<p>The various eigen solvers available are enumerated in Table tbl. 1.</p>
+<p>The various eigen solvers available are enumerated in Table 1.</p>
 <p>The eigen solver is passed as a template argument of the <code>computeEigenValues</code> or the <code>computeEigenVectors</code> methods as illustrated in the code below:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb37-1" data-line-number="1">tmatrix&lt;<span class="dv">3u</span>,<span class="dv">3u</span>,real&gt; m2;</a>
-<a class="sourceLine" id="cb37-2" data-line-number="2">tvector&lt;<span class="dv">3u</span>,real&gt;    vp2;</a>
-<a class="sourceLine" id="cb37-3" data-line-number="3"><span class="bu">std::</span>tie(vp,m)=s.computeEigenVectors&lt;stensor::GTESYMMETRICQREIGENSOLVER&gt;();</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>tmatrix&lt;<span class="dv">3</span><span class="bu">u</span>,<span class="dv">3</span><span class="bu">u</span>,real&gt; m2;</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>tvector&lt;<span class="dv">3</span><span class="bu">u</span>,real&gt;    vp2;</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>tie(vp,m)=s.computeEigenVectors&lt;stensor::GTESYMMETRICQREIGENSOLVER&gt;();</span></code></pre></div>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>In <code>2D</code>, the last eigenvector always corresponds to the out-of-plane direction.</p>
@@ -795,7 +812,7 @@ J_{3}^{O}=
 <p><strong>Note</strong></p>
 <p>In <code>1D</code>, the ordering parameter has no effect. In <code>2D</code>, the last eigenvector always corresponds to the out-of-plane direction.</p>
 </blockquote>
-<h2 id="isotropic-functions-of-a-symmetric-tensor"><span class="header-section-number">3.10</span> Isotropic functions of a symmetric tensor</h2>
+<h2 data-number="3.10" id="isotropic-functions-of-a-symmetric-tensor"><span class="header-section-number">3.10</span> Isotropic functions of a symmetric tensor</h2>
 <p>Given a scalar valuated function <span class="math inline">\(f\)</span>, one can define an associated isotropic function for symmetric tensors as: <span class="math display">\[
 f{\left(\underline{s}\right)}=\sum_{i=1}^{3}f{\left(\lambda_{i}\right)}\underline{n}_{i}
 \]</span></p>
@@ -808,12 +825,12 @@ f{\left(\underline{s}\right)}=\sum_{i=1}^{3}f{\left(\lambda_{i}\right)}\underlin
 <li>return the results by value. This allow a much more readable code if the <em>structured bindings</em> feature of the <code>C++17</code> standard is available.</li>
 </ul>
 <p>To illustrate this new features, assuming that the <em>structured bindings</em> feature of the <code>C++17</code> standard is available, one can now efficiently evaluate the exponential of a symmetric tensor and its derivative as follows:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> [vp,m] = s.computeEigenVectors();</a>
-<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> evp    = map([](<span class="at">const</span> <span class="kw">auto</span> x){<span class="cf">return</span> exp(x)},vp);</a>
-<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="at">const</span> <span class="kw">auto</span> [f,df] = Stensor::computeIsotropicFunctionAndDerivative(evp,evp,vp,m,<span class="dv">1</span>.e<span class="dv">-12</span>);</a></code></pre></div>
-<h1 id="special-operations-for-mechanical-behaviours"><span class="header-section-number">4</span> Special operations for mechanical behaviours</h1>
-<h2 id="yield-criteria"><span class="header-section-number">4.1</span> Yield criteria</h2>
-<h3 id="von-mises-stress-wikipedia_von_mises_2017"><span class="header-section-number">4.1.1</span> von Mises stress <span class="citation" data-cites="wikipedia_von_Mises_2017">[<a href="#ref-wikipedia_von_Mises_2017">7</a>]</span></h3>
+<div class="sourceCode" id="cb38"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> [vp,m] = s.computeEigenVectors();</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> evp    = map([](<span class="at">const</span> <span class="kw">auto</span> x){<span class="cf">return</span> exp(x)},vp);</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> [f,df] = Stensor::computeIsotropicFunctionAndDerivative(evp,evp,vp,m,<span class="fl">1.e-12</span>);</span></code></pre></div>
+<h1 data-number="4" id="special-operations-for-mechanical-behaviours"><span class="header-section-number">4</span> Special operations for mechanical behaviours</h1>
+<h2 data-number="4.1" id="yield-criteria"><span class="header-section-number">4.1</span> Yield criteria</h2>
+<h3 data-number="4.1.1" id="von-mises-stress-wikipedia_von_mises_2017"><span class="header-section-number">4.1.1</span> von Mises stress <span class="citation" data-cites="wikipedia_von_Mises_2017">[<a href="#ref-wikipedia_von_Mises_2017" role="doc-biblioref">7</a>]</span></h3>
 <p>The von Mises stress is defined by: <span class="math display">\[
 \sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,\underline{s}\,\colon\,\underline{s}}=\sqrt{3\,J_{2}}
 \]</span> where:</p>
@@ -830,29 +847,29 @@ f{\left(\underline{s}\right)}=\sum_{i=1}^{3}f{\left(\lambda_{i}\right)}\underlin
 \underline{\underline{\mathbf{M}}}={{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,{\left(\underline{\underline{\mathbf{I}}}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,\underline{I}\,\otimes\,\underline{I}\right)}
 \]</span></p>
 <p>The tensor <span class="math inline">\(\underline{\underline{\mathbf{M}}}\)</span> is accessible through the <code>M</code> <code>constexpr</code> <code>static</code> method of the <code>st2tost2</code> class, as follows:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> M = st2tost2&lt;N,real&gt;::M();</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> M = st2tost2&lt;N,real&gt;::M();</span></code></pre></div>
 <p>In terms of the eigenvalues of the stress, denoted by <span class="math inline">\(\sigma_{1}\)</span>, <span class="math inline">\(\sigma_{2}\)</span> and <span class="math inline">\(\sigma_{3}\)</span>, the von Mises stress can also be defined by: <span class="math display">\[
 \sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{\left({\left|\sigma_{1}-\sigma_{2}\right|}^{2}+{\left|\sigma_{1}-\sigma_{3}\right|}^{2}+{\left|\sigma_{2}-\sigma_{3}\right|}^{2}\right)}}
 \]</span></p>
 <p>The von Mises stress can be computed using the <code>sigmaeq</code> function, as follows:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> seq = sigmaeq(s);</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> seq = sigmaeq(s);</span></code></pre></div>
 <p>The derivative <span class="math inline">\(\underline{n}\)</span> of the von Mises stress with respect to the stress is called the normal and is given by: <span class="math display">\[
 \underline{n}={\displaystyle \frac{\displaystyle \partial \sigma_{\mathrm{eq}}}{\displaystyle \partial \underline{\sigma}}}={{\displaystyle \frac{\displaystyle 3}{\displaystyle 2\,\sigma_{\mathrm{eq}}}}}\,\underline{s}={{\displaystyle \frac{\displaystyle 1}{\displaystyle \sigma_{\mathrm{eq}}}}}\,\underline{M}\,\colon\,\underline{\sigma}
 \]</span></p>
 <p>The normal can be computed by:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> n = eval(<span class="dv">3</span>*deviator(sig)/(<span class="dv">2</span>*seq));</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> n = eval(<span class="dv">3</span>*deviator(sig)/(<span class="dv">2</span>*seq));</span></code></pre></div>
 <blockquote>
 <p><strong>Note</strong> The <code>eval</code> function is used to evaluate the normal. Otherwise, the expression template mechanism used by <code>TFEL</code> would delay its evaluation.</p>
 </blockquote>
 <p>Another way to compute it is to use the <span class="math inline">\(\underline{\underline{\mathbf{M}}}\)</span> tensor, as follows:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> n = eval(M*sig/seq);</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> n = eval(M*sig/seq);</span></code></pre></div>
 <p>The second derivative of the von Mises stress with respect to the von Mises stress is given by:</p>
 <p><span class="math display">\[
 {\displaystyle \frac{\displaystyle \partial^{2} \sigma_{\mathrm{eq}}}{\displaystyle \partial \underline{\sigma}^{2}}}={{\displaystyle \frac{\displaystyle 1}{\displaystyle \sigma_{\mathrm{eq}}}}}{\left(\underline{M}-\underline{n}\otimes\underline{n}\right)}
 \]</span></p>
 <p>This second derivative can be computed as follows:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> dn_ds = eval((M-(n^n))/seq);</a></code></pre></div>
-<h3 id="hill-stress"><span class="header-section-number">4.1.2</span> Hill stress</h3>
+<div class="sourceCode" id="cb43"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dn_ds = eval((M-(n^n))/seq);</span></code></pre></div>
+<h3 data-number="4.1.2" id="hill-stress"><span class="header-section-number">4.1.2</span> Hill stress</h3>
 <p>The Hill tensor <span class="math inline">\(\underline{\underline{\mathbf{H}}}\)</span> is defined by: <span class="math display">\[
 \underline{\underline{\mathbf{H}}}=
 \left(
@@ -902,12 +919,12 @@ F+H &amp; -F  &amp; -H  &amp; 0 &amp; 0 &amp; 0 \\
 <blockquote>
 <p><strong>Note</strong> In <code>MFront</code>, one shall use the <code>@HillTensor</code> to compute the <code>Hill</code> tensor, which takes into account the modelling hypothesis and the orthotropic axis convention.</p>
 </blockquote>
-<h3 id="hosford-stress"><span class="header-section-number">4.1.3</span> Hosford stress</h3>
+<h3 data-number="4.1.3" id="hosford-stress"><span class="header-section-number">4.1.3</span> Hosford stress</h3>
 <figure>
-<img src="img/HosfordStress.svg" title="Comparison of the Hosford stress (a=100,a=8) and the von Mises stress in plane stress" alt="Comparison of the Hosford stress a=100,a=8 and the von Mises stress" style="width:70.0%" /><figcaption>Comparison of the Hosford stress <span class="math inline">\(a=100,a=8\)</span> and the von Mises stress</figcaption>
+<img src="img/HosfordStress.svg" title="Comparison of the Hosford stress (a=100,a=8) and the von Mises stress in plane stress" style="width:70.0%" alt="Comparison of the Hosford stress a=100,a=8 and the von Mises stress" /><figcaption aria-hidden="true">Comparison of the Hosford stress <span class="math inline">\(a=100,a=8\)</span> and the von Mises stress</figcaption>
 </figure>
 <p>The header <code>TFEL/Material/Hosford1972YieldCriterion.hxx</code> introduces three functions which are meant to compute the Hosford equivalent stress and its first and second derivatives. <em>This header is automatically included by <code>MFront</code>.</em></p>
-<p>The Hosford equivalent stress is defined by (see <span class="citation" data-cites="hosford_generalized_1972">[<a href="#ref-hosford_generalized_1972">8</a>]</span>): <span class="math display">\[
+<p>The Hosford equivalent stress is defined by (see <span class="citation" data-cites="hosford_generalized_1972">[<a href="#ref-hosford_generalized_1972" role="doc-biblioref">8</a>]</span>): <span class="math display">\[
 \sigma_{\mathrm{eq}}^{H}=\sqrt[a]{{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{\left({\left|\sigma_{1}-\sigma_{2}\right|}^{a}+{\left|\sigma_{1}-\sigma_{3}\right|}^{a}+{\left|\sigma_{2}-\sigma_{3}\right|}^{a}\right)}}
 \]</span> where <span class="math inline">\(\sigma_{1}\)</span>, <span class="math inline">\(\sigma_{2}\)</span> and <span class="math inline">\(\sigma_{3}\)</span> are the eigenvalues of the stress.</p>
 <p>Therefore, when <span class="math inline">\(a\)</span> goes to infinity, the Hosford stress reduces to the Tresca stress. When <span class="math inline">\(n = 2\)</span> the Hosford stress reduces to the von Mises stress.</p>
@@ -917,14 +934,14 @@ F+H &amp; -F  &amp; -H  &amp; 0 &amp; 0 &amp; 0 \\
 <li><code>computeHosfordStressNormal</code>: return a tuple containg the Hosford equivalent stress and its first derivative (the normal)</li>
 <li><code>computeHosfordStressSecondDerivative</code>: return a tuple containg the Hosford equivalent stress, its first derivative (the normal) and the second derivative.</li>
 </ul>
-<p>The implementation of those functions are greatly inspired by the work of Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">[<a href="#ref-scherzinger_return_2017">9</a>]</span>). In particular, great care is given to avoid overflows in the computations of the Hosford stress.</p>
+<p>The implementation of those functions are greatly inspired by the work of Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">[<a href="#ref-scherzinger_return_2017" role="doc-biblioref">9</a>]</span>). In particular, great care is given to avoid overflows in the computations of the Hosford stress.</p>
 <p>Those functions have two template parameters:</p>
 <ul>
 <li>the type of symmetric tensors used for the stress tensor (automatically deduced, but required if the second parameter is specified).</li>
 <li>the eigen solver to be used (See Section 3.9.2).</li>
 </ul>
-<h3 id="barlat-stress"><span class="header-section-number">4.1.4</span> Barlat stress</h3>
-<p>The Barlat equivalent stress is defined as follows (See <span class="citation" data-cites="barlat_linear_2005">[<a href="#ref-barlat_linear_2005">10</a>]</span>): <span class="math display">\[
+<h3 data-number="4.1.4" id="barlat-stress"><span class="header-section-number">4.1.4</span> Barlat stress</h3>
+<p>The Barlat equivalent stress is defined as follows (See <span class="citation" data-cites="barlat_linear_2005">[<a href="#ref-barlat_linear_2005" role="doc-biblioref">10</a>]</span>): <span class="math display">\[
 \sigma_{\mathrm{eq}}^{B}=
 \sqrt[a]{
   \frac{1}{4}\left(
@@ -980,21 +997,21 @@ F+H &amp; -F  &amp; -H  &amp; 0 &amp; 0 &amp; 0 \\
 <li><code>computeBarlatStressNormal</code>: return a tuple containg the Barlat equivalent stress and its first derivative (the normal).</li>
 <li><code>computeBarlatStressSecondDerivative</code>: return a tuple containg the Barlat equivalent stress, its first derivative (the normal) and the second derivative.</li>
 </ul>
-<p>The implementation of those functions are greatly inspired by the work of Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">[<a href="#ref-scherzinger_return_2017">9</a>]</span>). In particular, great care is given to avoid overflows in the computations of the Barlat stress.</p>
+<p>The implementation of those functions are greatly inspired by the work of Scherzinger (see <span class="citation" data-cites="scherzinger_return_2017">[<a href="#ref-scherzinger_return_2017" role="doc-biblioref">9</a>]</span>). In particular, great care is given to avoid overflows in the computations of the Barlat stress.</p>
 <p>Those functions have two template parameters:</p>
 <ul>
 <li>the type of symmetric tensors used for the stress tensor (automatically deduced, but required if the second parameter is specified).</li>
 <li>the eigen solver to be used (See Section 3.9.2).</li>
 </ul>
-<h4 id="linear-transformations"><span class="header-section-number">4.1.4.1</span> Linear transformations</h4>
+<h4 data-number="4.1.4.1" id="linear-transformations"><span class="header-section-number">4.1.4.1</span> Linear transformations</h4>
 <p>To define the linear transformations, the <code>makeBarlatLinearTransformation</code> function has been introduced. This function takes two template parameter:</p>
 <ul>
 <li>the space dimension (<span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, and <span class="math inline">\(3\)</span>)</li>
 <li>the numeric type used (automatically deduced)</li>
 </ul>
 <p>This functions takes the <span class="math inline">\(9\)</span> coefficients as arguments, as follows:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> l1 = makeBarlatLinearTransformation&lt;<span class="dv">3</span>&gt;(c_12,c_21,c_13,c_31,</a>
-<a class="sourceLine" id="cb44-2" data-line-number="2">                                                  c_23,c_32,c_44,c_55,c_66);</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> l1 = makeBarlatLinearTransformation&lt;<span class="dv">3</span>&gt;(c_12,c_21,c_13,c_31,</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>                                                  c_23,c_32,c_44,c_55,c_66);</span></code></pre></div>
 <blockquote>
 <p><strong>Note</strong> In his paper, Barlat and coworkers seems to use the following convention for storing symmetric tensors:</p>
 <p><span class="math display">\[
@@ -1009,45 +1026,45 @@ xx &amp; yy &amp; zz &amp; xy &amp; xz &amp; yz
 \end{pmatrix}
 \]</span></p>
 <p>Therefore, if one wants to uses coeficients <span class="math inline">\(c^{B}\)</span> given by Barlat, one shall call this function as follows:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> l1 = makeBarlatLinearTransformation&lt;<span class="dv">3</span>&gt;(cB_12,cB_21,cB_13,cB_31,</a>
-<a class="sourceLine" id="cb45-2" data-line-number="2">                                                  cB_23,cB_32,cB_66,cBB_55,cBB_44);</a></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> l1 = makeBarlatLinearTransformation&lt;<span class="dv">3</span>&gt;(cB_12,cB_21,cB_13,cB_31,</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>                                                  cB_23,cB_32,cB_66,cBB_55,cBB_44);</span></code></pre></div>
 </blockquote>
 <p>The <code>TFEL/Material</code> library also provide an overload of the <code>makeBarlatLinearTransformation</code> which template parameters are the modelling hypothesis and the orthotropic axis conventions. The purpose of this overload is to swap appriopriate coefficients to get a consistent definition of the linear transforamtions for all the modelling hypotheses.</p>
-<h1 id="references"><span class="header-section-number">5</span> References</h1>
+<h1 data-number="5" id="references"><span class="header-section-number">5</span> References</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references">
-<div id="ref-wikipedia_invariants_2017">
-<p>1. Invariants of tensors. <em>Wikipedia</em>. 2017. Available from: <a href="https://en.wikipedia.org/w/index.php?title=Invariants_of_tensors&amp;oldid=813063385" class="uri">https://en.wikipedia.org/w/index.php?title=Invariants_of_tensors&amp;oldid=813063385</a>Page Version ID: 813063385</p>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-wikipedia_invariants_2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Invariants of tensors. <em>Wikipedia</em>. 2017. Available from: <a href="https://en.wikipedia.org/w/index.php?title=Invariants_of_tensors&amp;oldid=813063385">https://en.wikipedia.org/w/index.php?title=Invariants_of_tensors&amp;oldid=813063385</a></div><div class="csl-right-inline">Page Version <span>ID</span>: 813063385</div>
 </div>
-<div id="ref-cazacu_generalization_2001">
-<p>2. <span class="smallcaps">Cazacu</span>, Oana and <span class="smallcaps">Barlat</span>, Frédéric. Generalization of drucker’s yield criterion to orthotropy. <em>Mathematics and Mechanics of Solids</em>. 1 December 2001. Vol. 6, no. 6, p. 613–630. DOI <a href="https://doi.org/10.1177/108128650100600603">10.1177/108128650100600603</a>. Available from: <a href="https://doi.org/10.1177/108128650100600603" class="uri">https://doi.org/10.1177/108128650100600603</a></p>
+<div id="ref-cazacu_generalization_2001" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Cazacu</span>, Oana and <span class="smallcaps">Barlat</span>, Frédéric. Generalization of drucker’s yield criterion to orthotropy. <em>Mathematics and Mechanics of Solids</em>. 1 December 2001. Vol. 6, no. 6, p. 613–630. DOI <a href="https://doi.org/10.1177/108128650100600603">10.1177/108128650100600603</a>. Available from: <a href="https://doi.org/10.1177/108128650100600603">https://doi.org/10.1177/108128650100600603</a></div>
 </div>
-<div id="ref-kopp_efficient_2008">
-<p>3. <span class="smallcaps">Kopp</span>, Joachim. Efficient numerical diagonalization of hermitian 3x3 matrices. <em>International Journal of Modern Physics C</em>. March 2008. Vol. 19, no. 3, p. 523–548. DOI <a href="https://doi.org/10.1142/S0129183108012303">10.1142/S0129183108012303</a>. Available from: <a href="http://arxiv.org/abs/physics/0610206" class="uri">http://arxiv.org/abs/physics/0610206</a></p>
+<div id="ref-kopp_efficient_2008" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">Kopp</span>, Joachim. Efficient numerical diagonalization of hermitian 3x3 matrices. <em>International Journal of Modern Physics C</em>. March 2008. Vol. 19, no. 3, p. 523–548. DOI <a href="https://doi.org/10.1142/S0129183108012303">10.1142/S0129183108012303</a>. Available from: <a href="http://arxiv.org/abs/physics/0610206">http://arxiv.org/abs/physics/0610206</a></div>
 </div>
-<div id="ref-kopp_numerical_2017">
-<p>4. <span class="smallcaps">Kopp</span>, Joachim. Numerical diagonalization of 3x3 matrices.. 2017. Available from: <a href="https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/" class="uri">https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/</a></p>
+<div id="ref-kopp_numerical_2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline"><span class="smallcaps">Kopp</span>, Joachim. Numerical diagonalization of 3x3 matrices. 2017. Available from: <a href="https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/">https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/</a></div>
 </div>
-<div id="ref-eberly_robust_2016">
-<p>5. <span class="smallcaps">Eberly</span>, David. A robust eigensolver for 3 × 3 symmetric matrices. September 2016. Available from: <a href="https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf" class="uri">https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf</a></p>
+<div id="ref-eberly_robust_2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline"><span class="smallcaps">Eberly</span>, David. A robust eigensolver for 3 × 3 symmetric matrices. September 2016. Available from: <a href="https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf">https://www.geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf</a></div>
 </div>
-<div id="ref-eberly_geometric_2017">
-<p>6. <span class="smallcaps">Eberly</span>, David. Geometric tools.. 2017. Available from: <a href="http://www.geometrictools.com/" class="uri">http://www.geometrictools.com/</a></p>
+<div id="ref-eberly_geometric_2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline"><span class="smallcaps">Eberly</span>, David. Geometric tools. 2017. Available from: <a href="http://www.geometrictools.com/">http://www.geometrictools.com/</a></div>
 </div>
-<div id="ref-wikipedia_von_Mises_2017">
-<p>7. Von mises yield criterion. <em>Wikipedia</em>. 2017. Available from: <a href="https://en.wikipedia.org/w/index.php?title=Von_Mises_yield_criterion&amp;oldid=812733048" class="uri">https://en.wikipedia.org/w/index.php?title=Von_Mises_yield_criterion&amp;oldid=812733048</a>Page Version ID: 812733048</p>
+<div id="ref-wikipedia_von_Mises_2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Von mises yield criterion. <em>Wikipedia</em>. 2017. Available from: <a href="https://en.wikipedia.org/w/index.php?title=Von_Mises_yield_criterion&amp;oldid=812733048">https://en.wikipedia.org/w/index.php?title=Von_Mises_yield_criterion&amp;oldid=812733048</a></div><div class="csl-right-inline">Page Version <span>ID</span>: 812733048</div>
 </div>
-<div id="ref-hosford_generalized_1972">
-<p>8. <span class="smallcaps">Hosford</span>, W. F. A generalized isotropic yield criterion. <em>Journal of Applied Mechanics</em>. 1972. Vol. 39, no. 2, p. 607–609. </p>
+<div id="ref-hosford_generalized_1972" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline"><span class="smallcaps">Hosford</span>, W. F. A generalized isotropic yield criterion. <em>Journal of Applied Mechanics</em>. 1972. Vol. 39, no. 2, p. 607–609. </div>
 </div>
-<div id="ref-scherzinger_return_2017">
-<p>9. <span class="smallcaps">Scherzinger</span>, W. M. A return mapping algorithm for isotropic and anisotropic plasticity models using a line search method. <em>Computer Methods in Applied Mechanics and Engineering</em>. 15 April 2017. Vol. 317, p. 526–553. DOI <a href="https://doi.org/10.1016/j.cma.2016.11.026">10.1016/j.cma.2016.11.026</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S004578251630370X" class="uri">http://www.sciencedirect.com/science/article/pii/S004578251630370X</a></p>
+<div id="ref-scherzinger_return_2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline"><span class="smallcaps">Scherzinger</span>, W. M. A return mapping algorithm for isotropic and anisotropic plasticity models using a line search method. <em>Computer Methods in Applied Mechanics and Engineering</em>. 15 April 2017. Vol. 317, p. 526–553. DOI <a href="https://doi.org/10.1016/j.cma.2016.11.026">10.1016/j.cma.2016.11.026</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S004578251630370X">http://www.sciencedirect.com/science/article/pii/S004578251630370X</a></div>
 </div>
-<div id="ref-barlat_linear_2005">
-<p>10. <span class="smallcaps">Barlat</span>, F., <span class="smallcaps">Aretz</span>, H., <span class="smallcaps">Yoon</span>, J. W., <span class="smallcaps">Karabin</span>, M. E., <span class="smallcaps">Brem</span>, J. C. and <span class="smallcaps">Dick</span>, R. E. Linear transfomation-based anisotropic yield functions. <em>International Journal of Plasticity</em>. 1 May 2005. Vol. 21, no. 5, p. 1009–1039. DOI <a href="https://doi.org/10.1016/j.ijplas.2004.06.004">10.1016/j.ijplas.2004.06.004</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641904001160" class="uri">http://www.sciencedirect.com/science/article/pii/S0749641904001160</a></p>
+<div id="ref-barlat_linear_2005" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline"><span class="smallcaps">Barlat</span>, F., <span class="smallcaps">Aretz</span>, H., <span class="smallcaps">Yoon</span>, J. W., <span class="smallcaps">Karabin</span>, M. E., <span class="smallcaps">Brem</span>, J. C. and <span class="smallcaps">Dick</span>, R. E. Linear transfomation-based anisotropic yield functions. <em>International Journal of Plasticity</em>. 1 May 2005. Vol. 21, no. 5, p. 1009–1039. DOI <a href="https://doi.org/10.1016/j.ijplas.2004.06.004">10.1016/j.ijplas.2004.06.004</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641904001160">http://www.sciencedirect.com/science/article/pii/S0749641904001160</a></div>
 </div>
 </div>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

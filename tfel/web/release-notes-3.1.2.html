@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -99,64 +98,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -178,6 +194,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -244,35 +261,35 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">Release notes of the 3.1.2 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
-                  <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">2018</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#tickets-fixed">Tickets fixed</a><ul>
-      <li><a href="#ticket-131-plane-stress-support-in-abaqusexplicit-is-broken">Ticket #131: Plane stress support in <code>Abaqus/Explicit</code> is broken</a></li>
-      <li><a href="#ticket-130-the-size-of-arrays-of-parameters-cant-be-declared-using-integer-constants">Ticket #130: The size of arrays of parameters can’t be declared using integer constants</a></li>
-      <li><a href="#ticket-129-arrays-of-parameters-are-not-supported-in-simple-precision">Ticket #129: Arrays of parameters are not supported in simple precision</a></li>
-      <li><a href="#ticket-128-generation-of-mtest-files-throws-an-exception-which-cant-be-caught-by-cast3m-in-case-of-forced-convergence">Ticket #128: Generation of <code>MTest</code> files throws an exception which can’t be caught by <code>Cast3M</code> in case of forced convergence</a></li>
-      <li><a href="#ticket-127-substepping-in-the-cast3m-and-cyrano-interface-may-lead-to-a-invalid-convergence-du-to-integer-overflow">Ticket #127: Substepping in the <code>Cast3M</code> and <code>Cyrano</code> interface may lead to a invalid convergence du to integer overflow</a></li>
-      <li><a href="#ticket-126-jacobian-error-in-ddif2base.ixx">Ticket #126: Jacobian error in <code>DDIF2Base.ixx</code></a></li>
-      <li><a href="#ticket-125-compiling-on-gcc-8.0.1-fedora-28-fails">Ticket #125: Compiling on gcc 8.0.1 (Fedora 28) fails</a></li>
-      <li><a href="#ticket-124-standardelasticity-brick-the-elastic-prediction-is-wrongly-computed-in-plane-stress-if-the-stiffness-tensor-is-computed-computestiffnesstensor-or-given-requirestiffnesstensor">Ticket #124: StandardElasticity brick: the elastic prediction is wrongly computed in plane stress if the stiffness tensor is computed (<code>@ComputeStiffnessTensor</code>) or given (<code>@RequireStiffnessTensor</code>)</a></li>
-      <li><a href="#ticket-123-implementation-mistakes-in-various-behaviours-based-on-implicit-dsl-and-using-a-numerical-jacobian-use-of-perturbated-values-to-update-auxiliary-state-variables">Ticket #123: Implementation mistakes in various behaviours based on Implicit DSL and using a numerical jacobian (use of perturbated values to update auxiliary state variables)</a></li>
-      <li><a href="#ticket-122-missing-file-in-the-distributed-tar-ball-mfront-queryincludecmakelists">Ticket #122: Missing file in the distributed tar ball (<code>mfront-query/include/CMakeLists</code>)</a></li>
-      <li><a href="#ticket-121-modifying-the-reference-values-read-in-a-file-does-not-work-in-mtest">Ticket #121: Modifying the reference values read in a file does not work in MTest</a></li>
-      <li><a href="#ticket-120-direct-call-to-cast3m-umat-behaviours-in-mtest-is-broken">Ticket #120: Direct call to Cast3M’ umat behaviours in <code>MTest</code> is broken</a></li>
-      <li><a href="#ticket-119-material-laws-are-not-declared-in-the-additionalconvergencechecks-code-block">Ticket #119: Material laws are not declared in the <code>@AdditionalConvergenceChecks</code> code block</a></li>
-      <li><a href="#ticket-118-the-behaviourdescriptionarematerialpropertiesdependantonstatevariables-method-always-returns-true">Ticket #118: The <code>BehaviourDescription::areMaterialPropertiesDependantOnStateVariables</code> method always returns <code>true</code></a></li>
-      <li><a href="#ticket-117-generated-source-fails-to-compile-if-one-ask-mtest-file-generation-with-array-of-internal-state-variables">Ticket #117: Generated source fails to compile if one ask MTest file generation with array of internal state variables</a></li>
-      <li><a href="#ticket-115-the-stress-free-expansion-handler-shall-be-a-nullptr-for-true-finite-strain-behaviours">Ticket #115: The stress free expansion handler shall be a <code>nullptr</code> for true finite strain behaviours</a></li>
-      </ul></li>
-      </ul>
-    </div>
-        <p>This is mainly a bug fix version of the <code>3.1</code> series. All tickets solved are described below.</p>
+<div id="header">
+<h1 class="title">Release notes of the 3.1.2 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">2018</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#tickets-fixed">Tickets fixed</a>
+<ul>
+<li><a href="#ticket-131-plane-stress-support-in-abaqusexplicit-is-broken">Ticket #131: Plane stress support in <code>Abaqus/Explicit</code> is broken</a></li>
+<li><a href="#ticket-130-the-size-of-arrays-of-parameters-cant-be-declared-using-integer-constants">Ticket #130: The size of arrays of parameters can’t be declared using integer constants</a></li>
+<li><a href="#ticket-129-arrays-of-parameters-are-not-supported-in-simple-precision">Ticket #129: Arrays of parameters are not supported in simple precision</a></li>
+<li><a href="#ticket-128-generation-of-mtest-files-throws-an-exception-which-cant-be-caught-by-cast3m-in-case-of-forced-convergence">Ticket #128: Generation of <code>MTest</code> files throws an exception which can’t be caught by <code>Cast3M</code> in case of forced convergence</a></li>
+<li><a href="#ticket-127-substepping-in-the-cast3m-and-cyrano-interface-may-lead-to-a-invalid-convergence-du-to-integer-overflow">Ticket #127: Substepping in the <code>Cast3M</code> and <code>Cyrano</code> interface may lead to a invalid convergence du to integer overflow</a></li>
+<li><a href="#ticket-126-jacobian-error-in-ddif2base.ixx">Ticket #126: Jacobian error in <code>DDIF2Base.ixx</code></a></li>
+<li><a href="#ticket-125-compiling-on-gcc-8.0.1-fedora-28-fails">Ticket #125: Compiling on gcc 8.0.1 (Fedora 28) fails</a></li>
+<li><a href="#ticket-124-standardelasticity-brick-the-elastic-prediction-is-wrongly-computed-in-plane-stress-if-the-stiffness-tensor-is-computed-computestiffnesstensor-or-given-requirestiffnesstensor">Ticket #124: StandardElasticity brick: the elastic prediction is wrongly computed in plane stress if the stiffness tensor is computed (<code>@ComputeStiffnessTensor</code>) or given (<code>@RequireStiffnessTensor</code>)</a></li>
+<li><a href="#ticket-123-implementation-mistakes-in-various-behaviours-based-on-implicit-dsl-and-using-a-numerical-jacobian-use-of-perturbated-values-to-update-auxiliary-state-variables">Ticket #123: Implementation mistakes in various behaviours based on Implicit DSL and using a numerical jacobian (use of perturbated values to update auxiliary state variables)</a></li>
+<li><a href="#ticket-122-missing-file-in-the-distributed-tar-ball-mfront-queryincludecmakelists">Ticket #122: Missing file in the distributed tar ball (<code>mfront-query/include/CMakeLists</code>)</a></li>
+<li><a href="#ticket-121-modifying-the-reference-values-read-in-a-file-does-not-work-in-mtest">Ticket #121: Modifying the reference values read in a file does not work in MTest</a></li>
+<li><a href="#ticket-120-direct-call-to-cast3m-umat-behaviours-in-mtest-is-broken">Ticket #120: Direct call to Cast3M’ umat behaviours in <code>MTest</code> is broken</a></li>
+<li><a href="#ticket-119-material-laws-are-not-declared-in-the-additionalconvergencechecks-code-block">Ticket #119: Material laws are not declared in the <code>@AdditionalConvergenceChecks</code> code block</a></li>
+<li><a href="#ticket-118-the-behaviourdescriptionarematerialpropertiesdependantonstatevariables-method-always-returns-true">Ticket #118: The <code>BehaviourDescription::areMaterialPropertiesDependantOnStateVariables</code> method always returns <code>true</code></a></li>
+<li><a href="#ticket-117-generated-source-fails-to-compile-if-one-ask-mtest-file-generation-with-array-of-internal-state-variables">Ticket #117: Generated source fails to compile if one ask MTest file generation with array of internal state variables</a></li>
+<li><a href="#ticket-115-the-stress-free-expansion-handler-shall-be-a-nullptr-for-true-finite-strain-behaviours">Ticket #115: The stress free expansion handler shall be a <code>nullptr</code> for true finite strain behaviours</a></li>
+</ul></li>
+</ul>
+</div>
+<p>This is mainly a bug fix version of the <code>3.1</code> series. All tickets solved are described below.</p>
 <h1 id="tickets-fixed">Tickets fixed</h1>
 <h2 id="ticket-131-plane-stress-support-in-abaqusexplicit-is-broken">Ticket #131: Plane stress support in <code>Abaqus/Explicit</code> is broken</h2>
 <p>The documentation of the <code>vumat</code> interface has been badly understood in plane stress. In some cases (namely using the <code>Native</code> finite strain strategy), the conventions about tensors has not been transcribed appropriately (there have been a confusion with the <code>Abaqus/Standard</code> conventions).</p>
@@ -283,8 +300,8 @@
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/131/" class="uri">https://sourceforge.net/p/tfel/tickets/131/</a></p>
 <h2 id="ticket-130-the-size-of-arrays-of-parameters-cant-be-declared-using-integer-constants">Ticket #130: The size of arrays of parameters can’t be declared using integer constants</h2>
 <p>The following statement would not work in previous versions:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>IntegerConstant Nss = <span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="er">@</span>Parameter tau0[Nss] = {<span class="fl">100e6</span>, <span class="fl">100e6</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IntegerConstant Nss = <span class="dv">2</span>;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter tau0[Nss] = {<span class="fl">100e6</span>, <span class="fl">100e6</span>};</span></code></pre></div>
 <p>To solve this issue, a new method <code>readArrayOfVariablesSize</code> has been introduced in the <code>DSLBase</code> class. This method is now shared by all methods which reads the size of an array of variables.</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/130/" class="uri">https://sourceforge.net/p/tfel/tickets/130/</a></p>
 <h2 id="ticket-129-arrays-of-parameters-are-not-supported-in-simple-precision">Ticket #129: Arrays of parameters are not supported in simple precision</h2>
@@ -326,9 +343,9 @@
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/122/" class="uri">https://sourceforge.net/p/tfel/tickets/122/</a></p>
 <h2 id="ticket-121-modifying-the-reference-values-read-in-a-file-does-not-work-in-mtest">Ticket #121: Modifying the reference values read in a file does not work in MTest</h2>
 <p>In <code>MTest</code>, the following lines was not parsed appropriately:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Test&lt;file&gt; <span class="er">@</span>reference_file<span class="er">@</span> {</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="ch">&#39;SXX&#39;</span> : <span class="ch">&#39;$8*1.e6&#39;</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">} <span class="dv">1</span>.e3;</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test&lt;file&gt; <span class="er">@</span>reference_file<span class="er">@</span> {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="ch">&#39;S</span><span class="er">XX</span><span class="ch">&#39;</span> : <span class="ch">&#39;$</span><span class="er">8*1.e6</span><span class="ch">&#39;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>} <span class="fl">1.e3</span>;</span></code></pre></div>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/122/" class="uri">https://sourceforge.net/p/tfel/tickets/122/</a></p>
 <h2 id="ticket-120-direct-call-to-cast3m-umat-behaviours-in-mtest-is-broken">Ticket #120: Direct call to Cast3M’ umat behaviours in <code>MTest</code> is broken</h2>
 <p>Since <code>TFEL</code> <code>3.1</code>, <code>MTest</code> is able to call raw Cast3M’ umat behaviours (not written using <code>MFront</code>). However, the handling of external state variables was broken.</p>
@@ -349,7 +366,7 @@
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/117/" class="uri">https://sourceforge.net/p/tfel/tickets/117/</a></p>
 <h2 id="ticket-115-the-stress-free-expansion-handler-shall-be-a-nullptr-for-true-finite-strain-behaviours">Ticket #115: The stress free expansion handler shall be a <code>nullptr</code> for true finite strain behaviours</h2>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/115/" class="uri">https://sourceforge.net/p/tfel/tickets/115/</a></p>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

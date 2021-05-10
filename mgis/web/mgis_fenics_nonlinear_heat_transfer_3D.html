@@ -17,28 +17,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -47,9 +46,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -83,7 +82,7 @@
             <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -119,6 +118,8 @@
 		<li><a href="release-notes-1.1.html">Version 1.1</a></li>
 		<li><a href="release-notes-1.1.1.html">Version 1.1.1</a></li>
 		<li><a href="release-notes-1.2.html">Version 1.2</a></li>
+		<li><a href="release-notes-1.2.1.html">Version 1.2.1</a></li>
+		<li><a href="release-notes-1.3.html">Version 1.3</a></li>
 	      </ul>
 	    </li>
 	    <li><a>Specific topics</a>
@@ -145,17 +146,17 @@
       </ul>
     </header>
     <br></br>
-        <div id="header">
-      <h1 class="title">Stationnary non-linear heat transfer using <code>mgis.fenics</code>, 3D problem and performance comparisons</h1>
-                  <h2 class="author">Jérémy Bleyer</h2>
-            <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">2020</h3>
-          </div>
-            <div id="TOC">
-      true
-    </div>
-        <p><img src="img/fuel_rod_solution.png" style="width:50.0%" /></p>
-<p>This example is a direct continuation of the <a href="./mgis_fenics_nonlinear_heat_transfer.html">previous 2D example on non-linear heat transfer</a>. The present computations will use the same behaviour <code>StationaryHeatTransfer.mfront</code> which will be loaded with a <code>&quot;3d&quot;</code> hypothesis (default case).</p>
+<div id="header">
+<h1 class="title">Stationnary non-linear heat transfer using <code>mgis.fenics</code>, 3D problem and performance comparisons</h1>
+<h2 class="author">Jérémy Bleyer</h2>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">2020</h3>
+</div>
+<div id="TOC">
+true
+</div>
+<p><img src="img/fuel_rod_solution.png" style="width:50.0%" /></p>
+<p>This example is a direct continuation of the <a href="./mgis_fenics_nonlinear_heat_transfer.html">previous 2D example on non-linear heat transfer</a>. The present computations will use the same behaviour <code>StationaryHeatTransfer.mfront</code> which will be loaded with a <code>"3d"</code> hypothesis (default case).</p>
 <blockquote>
 <p><strong>Source files:</strong></p>
 <ul>
@@ -174,39 +175,39 @@ F(\widehat{T}) = \int_\Omega \mathbf{j}(T,\nabla T)\cdot\nabla \widehat{T}\,\tex
 F(\widehat{u}) = \sum_i \int_\Omega \boldsymbol{\sigma}_i(u)\cdot \mathbf{g}_i(\widehat{u})\,\text{dx} -L(\widehat{u}) =0 \quad \forall \widehat{u}
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\((\boldsymbol{\sigma}_i,\mathbf{g}_i)\)</span> are pairs of dual flux/gradient and here the external loading form <span class="math inline">\(L\)</span> is given by <span class="math inline">\(-\int_\Omega r \widehat{T} \,\text{dx}\)</span>. Compared to the previous example, we just add this source term using the <code>set_loading</code> method. Here we use a quadratic interpolation for the temperature field and external temperature is imposed on the surface numbered 12. Finally, we also rely on automatic registration of the gradient and external state variables as explained in the previous demo.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="im">from</span> dolfin <span class="im">import</span> <span class="op">*</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="im">import</span> mgis.fenics <span class="im">as</span> mf</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="im">from</span> time <span class="im">import</span> time</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">mesh <span class="op">=</span> Mesh()</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="cf">with</span> XDMFFile(<span class="st">&quot;meshes/fuel_rod_mesh.xdmf&quot;</span>) <span class="im">as</span> infile:</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">    infile.read(mesh)</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">mvc <span class="op">=</span> MeshValueCollection(<span class="st">&quot;size_t&quot;</span>, mesh, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="cf">with</span> XDMFFile(<span class="st">&quot;meshes/fuel_rod_mf.xdmf&quot;</span>) <span class="im">as</span> infile:</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">    infile.read(mvc, <span class="st">&quot;facets&quot;</span>)</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">facets <span class="op">=</span> cpp.mesh.MeshFunctionSizet(mesh, mvc)</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">V <span class="op">=</span> FunctionSpace(mesh, <span class="st">&quot;CG&quot;</span>, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">T <span class="op">=</span> Function(V, name<span class="op">=</span><span class="st">&quot;Temperature&quot;</span>)</a>
-<a class="sourceLine" id="cb1-15" data-line-number="15">T_ <span class="op">=</span> TestFunction(V)</a>
-<a class="sourceLine" id="cb1-16" data-line-number="16">dT <span class="op">=</span> TrialFunction(V)</a>
-<a class="sourceLine" id="cb1-17" data-line-number="17">T0 <span class="op">=</span> Constant(<span class="fl">300.</span>)</a>
-<a class="sourceLine" id="cb1-18" data-line-number="18">T.interpolate(T0)</a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20">Text <span class="op">=</span> Constant(<span class="fl">1e3</span>)</a>
-<a class="sourceLine" id="cb1-21" data-line-number="21">bc <span class="op">=</span> DirichletBC(V, Text, facets, <span class="dv">12</span>)</a>
-<a class="sourceLine" id="cb1-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb1-23" data-line-number="23">r <span class="op">=</span> Constant(<span class="fl">3e8</span>)</a>
-<a class="sourceLine" id="cb1-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb1-25" data-line-number="25">quad_deg <span class="op">=</span> <span class="dv">2</span></a>
-<a class="sourceLine" id="cb1-26" data-line-number="26">material <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;./src/libBehaviour.so&quot;</span>,</a>
-<a class="sourceLine" id="cb1-27" data-line-number="27">                                      <span class="st">&quot;StationaryHeatTransfer&quot;</span>)</a>
-<a class="sourceLine" id="cb1-28" data-line-number="28">problem <span class="op">=</span> mf.MFrontNonlinearProblem(T, material, quadrature_degree<span class="op">=</span>quad_deg, bcs<span class="op">=</span>bc)</a>
-<a class="sourceLine" id="cb1-29" data-line-number="29">problem.set_loading(<span class="op">-</span>r<span class="op">*</span>T<span class="op">*</span>dx)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dolfin <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mgis.fenics <span class="im">as</span> mf</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> time</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>mesh <span class="op">=</span> Mesh()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> XDMFFile(<span class="st">&quot;meshes/fuel_rod_mesh.xdmf&quot;</span>) <span class="im">as</span> infile:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    infile.read(mesh)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>mvc <span class="op">=</span> MeshValueCollection(<span class="st">&quot;size_t&quot;</span>, mesh, <span class="dv">2</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> XDMFFile(<span class="st">&quot;meshes/fuel_rod_mf.xdmf&quot;</span>) <span class="im">as</span> infile:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    infile.read(mvc, <span class="st">&quot;facets&quot;</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>facets <span class="op">=</span> cpp.mesh.MeshFunctionSizet(mesh, mvc)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> FunctionSpace(mesh, <span class="st">&quot;CG&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> Function(V, name<span class="op">=</span><span class="st">&quot;Temperature&quot;</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>T_ <span class="op">=</span> TestFunction(V)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>dT <span class="op">=</span> TrialFunction(V)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>T0 <span class="op">=</span> Constant(<span class="fl">300.</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>T.interpolate(T0)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Text <span class="op">=</span> Constant(<span class="fl">1e3</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>bc <span class="op">=</span> DirichletBC(V, Text, facets, <span class="dv">12</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> Constant(<span class="fl">3e8</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>quad_deg <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>material <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;./src/libBehaviour.so&quot;</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;StationaryHeatTransfer&quot;</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>problem <span class="op">=</span> mf.MFrontNonlinearProblem(T, material, quadrature_degree<span class="op">=</span>quad_deg, bcs<span class="op">=</span>bc)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>problem.set_loading(<span class="op">-</span>r<span class="op">*</span>T<span class="op">*</span>dx)</span></code></pre></div>
 <p>The <code>solve</code> method computing time is monitored:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">tic <span class="op">=</span> time()</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">problem.solve(T.vector())</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&quot;MFront/FEniCS solve time:&quot;</span>, time()<span class="op">-</span>tic)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tic <span class="op">=</span> time()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>problem.solve(T.vector())</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;MFront/FEniCS solve time:&quot;</span>, time()<span class="op">-</span>tic)</span></code></pre></div>
 <pre><code>Automatic registration of &#39;TemperatureGradient&#39; as grad(Temperature).
 
 Automatic registration of &#39;Temperature&#39; as an external state variable.
@@ -214,20 +215,20 @@ Automatic registration of &#39;Temperature&#39; as an external state variable.
 MFront/FEniCS solve time: 53.746278047561646</code></pre>
 <p>The temperature field along a radial direction along the top surface has been compared with computations using <a href="http://www-cast3m.cea.fr/">Cast3M finite-element solver</a>. Both solutions agree perfectly, as shown on Figure 1.</p>
 <figure>
-<img src="img/Temperature_Castem_FEniCS.png" alt="Figure 1: Temperature profile in the mid-pellet plane. Comparison of the results obtained with FEniCS" id="fig:NonLinearHeatTransfer3D:TemperatureProfile" style="width:75.0%" /><figcaption>Figure 1: Temperature profile in the mid-pellet plane. Comparison of the results obtained with <code>FEniCS</code></figcaption>
+<img src="img/Temperature_Castem_FEniCS.png" id="fig:NonLinearHeatTransfer3D:TemperatureProfile" style="width:75.0%" alt="Figure 1: Temperature profile in the mid-pellet plane. Comparison of the results obtained with FEniCS" /><figcaption aria-hidden="true">Figure 1: Temperature profile in the mid-pellet plane. Comparison of the results obtained with <code>FEniCS</code></figcaption>
 </figure>
 <h1 id="performance-comparison">Performance comparison</h1>
 <p>For the purpose of performance comparison, we also implement a direct non-linear variational problem with pure UFL expressions. This is possible in the present case since the non-linear heat constitutive law is very simple. Note that we enforce the use of the same quadrature rule degree. The temperature field is also reinterpolated to its previous initial value for a fair comparison between both solution strategies.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">A <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;A&quot;</span>))</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">B <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;B&quot;</span>))</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">j <span class="op">=</span> <span class="dv">-1</span><span class="op">/</span>(A <span class="op">+</span> B<span class="op">*</span>T)<span class="op">*</span>grad(T)</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">F <span class="op">=</span> (dot(grad(T_), j) <span class="op">+</span> r<span class="op">*</span>T_)<span class="op">*</span>dx(metadata<span class="op">=</span>{<span class="st">&#39;quadrature_degree&#39;</span>: quad_deg})</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">J <span class="op">=</span> derivative(F, T, dT)</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">T.interpolate(T0)</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">tic <span class="op">=</span> time()</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">solve(F <span class="op">==</span> <span class="dv">0</span>, T, bc, J<span class="op">=</span>J)</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;Pure FEniCS solve time:&quot;</span>, time()<span class="op">-</span>tic)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;A&quot;</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;B&quot;</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span>(A <span class="op">+</span> B<span class="op">*</span>T)<span class="op">*</span>grad(T)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>F <span class="op">=</span> (dot(grad(T_), j) <span class="op">+</span> r<span class="op">*</span>T_)<span class="op">*</span>dx(metadata<span class="op">=</span>{<span class="st">&#39;quadrature_degree&#39;</span>: quad_deg})</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>J <span class="op">=</span> derivative(F, T, dT)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>T.interpolate(T0)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>tic <span class="op">=</span> time()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>solve(F <span class="op">==</span> <span class="dv">0</span>, T, bc, J<span class="op">=</span>J)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Pure FEniCS solve time:&quot;</span>, time()<span class="op">-</span>tic)</span></code></pre></div>
 <pre><code>Pure FEniCS solve time: 49.15058135986328</code></pre>
 <div id="tbl:NonLinearHeatTransfer3D:Performances">
 <table>
@@ -272,7 +273,7 @@ MFront/FEniCS solve time: 53.746278047561646</code></pre>
 <p>The difference is slightly larger for large quadrature degrees, however, the difference is moderate when compared to the total computing time for large scale problems.</p>
 <h1 id="on-the-use-of-the-correct-tangent-operator">On the use of the correct tangent operator</h1>
 <p>Most FE software do not take into account the contribution of <span class="math inline">\(\dfrac{\partial \mathbf{j}}{\partial T}\)</span> to the tangent operator. One can easily test this variant by assigning <code>dj_ddT</code> in the MFront behaviour or change the expression of the jacobian in the pure FEniCS implementation by:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1">J <span class="op">=</span> dot(grad(T_), <span class="op">-</span>grad(dT)<span class="op">/</span>(A<span class="op">+</span>B<span class="op">*</span>T))<span class="op">*</span>dx(metadata<span class="op">=</span>{<span class="st">&#39;quadrature_degree&#39;</span>: quad_deg})</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>J <span class="op">=</span> dot(grad(T_), <span class="op">-</span>grad(dT)<span class="op">/</span>(A<span class="op">+</span>B<span class="op">*</span>T))<span class="op">*</span>dx(metadata<span class="op">=</span>{<span class="st">&#39;quadrature_degree&#39;</span>: quad_deg})</span></code></pre></div>
 <p>In the present case, using this partial tangent operator yields a convergence in 4 iterations instead of 3, giving a computational cost increase by roughly 25%.</p>
-      </body>
+</body>
 </html>

@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -99,64 +98,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -178,6 +194,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -244,29 +261,29 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">Support of <code>madnex</code> files in <code>MFront</code></h1>
-                  <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">2020</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#compilation-of-tfel-with-madnex-files-support">Compilation of <code>TFEL</code> with <code>madnex</code> files support</a></li>
-      <li><a href="#mfront-usage"><code>mfront</code> usage</a></li>
-      <li><a href="#mfront-python-module"><code>mfront</code> python module</a></li>
-      <li><a href="#mfront-query-usage"><code>mfront-query</code> usage</a><ul>
-      <li><a href="#options-specific-to-madnex-files">Options specific to <code>madnex</code> files</a></li>
-      <li><a href="#querying-information-about-implementation-options-specific-to-madnex-files">Querying information about implementation, options specific to <code>madnex</code> files</a></li>
-      </ul></li>
-      <li><a href="#storing-an-mfront-file-in-a-madnex-file">Storing an <code>MFront</code> file in a <code>madnex</code> file</a></li>
-      <li><a href="#references">References</a></li>
-      </ul>
-    </div>
-        <p>The <code>madnex</code> file format has been developed by <code>EDF</code> to store their experimental data. It extends the <code>HDF5</code> file format by providing a suitable data model. Internally, <code>EDF</code> uses a closed-source <code>python</code> library to insert, query and extract data from <code>madnex</code> file.</p>
+<div id="header">
+<h1 class="title">Support of <code>madnex</code> files in <code>MFront</code></h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">2020</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#compilation-of-tfel-with-madnex-files-support">Compilation of <code>TFEL</code> with <code>madnex</code> files support</a></li>
+<li><a href="#mfront-usage"><code>mfront</code> usage</a></li>
+<li><a href="#mfront-python-module"><code>mfront</code> python module</a></li>
+<li><a href="#mfront-query-usage"><code>mfront-query</code> usage</a>
+<ul>
+<li><a href="#options-specific-to-madnex-files">Options specific to <code>madnex</code> files</a></li>
+<li><a href="#querying-information-about-implementation-options-specific-to-madnex-files">Querying information about implementation, options specific to <code>madnex</code> files</a></li>
+</ul></li>
+<li><a href="#storing-an-mfront-file-in-a-madnex-file">Storing an <code>MFront</code> file in a <code>madnex</code> file</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<p>The <code>madnex</code> file format has been developed by <code>EDF</code> to store their experimental data. It extends the <code>HDF5</code> file format by providing a suitable data model. Internally, <code>EDF</code> uses a closed-source <code>python</code> library to insert, query and extract data from <code>madnex</code> file.</p>
 <p>The <code>madnex</code> library is an open-source <code>C++</code> library which currently focus on the storage of <code>MFront</code> implementations. This library can be downloaded here:</p>
 <p><a href="https://github.com/thelfer/madnex" class="uri">https://github.com/thelfer/madnex</a></p>
-<p>The website of this library <span class="citation" data-cites="cea_edf_madnex_library_2020">[<a href="#ref-cea_edf_madnex_library_2020">1</a>]</span> details the data model used to store <code>MFront</code> implementations.</p>
+<p>The website of this library <span class="citation" data-cites="cea_edf_madnex_library_2020">[<a href="#ref-cea_edf_madnex_library_2020" role="doc-biblioref">1</a>]</span> details the data model used to store <code>MFront</code> implementations.</p>
 <h1 id="compilation-of-tfel-with-madnex-files-support">Compilation of <code>TFEL</code> with <code>madnex</code> files support</h1>
 <p>By default, support of <code>madnex</code> files is disabled.</p>
 <p>Support for <code>madnex</code> files as inputs of <code>MFront</code> must be explicitly enabled during the compilation of the <code>TFEL</code> project. More precisely, when invoking the <a href="https://cmake.org/"><code>cmake</code></a> build system, the following variables must be set:</p>
@@ -275,17 +292,17 @@
 <li><code>Madnex_DIR</code> must be set to the path where the <code>MadnexConfig.cmake</code> file has been installed. This path is usually given by <code>$MADNEXHOME/share/madnex/cmake/</code> where <code>MADNEXHOME</code> is the installation directory of the <code>madnex</code> library.</li>
 </ol>
 <p>Hence, a typical call <code>cmake</code> to cmake would be similar as:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="fu">cmake</span> -Denable-madnex=ON -DMadnex_DIR=<span class="va">$MADNEXHOME</span>/share/madnex/cmake ...</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">-Denable-madnex</span><span class="op">=</span>ON <span class="at">-DMadnex_DIR</span><span class="op">=</span><span class="va">$MADNEXHOME</span>/share/madnex/cmake ...</span></code></pre></div>
 <p>This call assumes that that the <code>MADNEXHOME</code> environment variable has been set.</p>
 <p>More information about the options that can be passed to <code>cmake</code> are given in the <code>INSTALL-cmake</code> file which is located at the root of the <code>TFEL</code> sources.</p>
 <h1 id="mfront-usage"><code>mfront</code> usage</h1>
 <p>The only thing specific to <code>madnex</code> files is the selection of the implementation to be treated.</p>
 <p>For a behaviour, this selection is done through the <code>--material</code> and <code>--behaviour</code> options. For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=generic --material=<span class="op">&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.madnex</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.madnex</span></code></pre></div>
 <p>Here, <code>behaviour_id</code> can be a regular expression.</p>
 <p>For material properties and models, the <code>--material-property</code> and <code>--model</code> options have a similar role than the <code>--behaviour</code> option for behaviours.</p>
 <p>The <code>--all-material-properties</code>, <code>--all-behaviours</code>, and <code>--all-models</code> options allows to select all the material properties, behaviours and models respectively, as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=generic --material=<span class="op">&lt;</span>material_id<span class="op">&gt;</span> --all-behaviours file.madnex</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --all-behaviours file.madnex</span></code></pre></div>
 <p>The material name <code>&lt;none&gt;</code> has a special meaning here: it allows the selection of implementations that not associated with a material.</p>
 <h1 id="mfront-python-module"><code>mfront</code> python module</h1>
 <p>The <code>mfront</code> python module is fully described here:</p>
@@ -299,23 +316,23 @@
 <li>a regular expression describing the searched models. This argument can be empty. The name of this argument is <code>model</code>.</li>
 </ul>
 <p>This function returns a list of strings where the path of the implementation is encoded.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="im">import</span> mfront</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">paths <span class="op">=</span> mfront.getImplementationPaths(<span class="st">&quot;file.madnex&quot;</span>,</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">                                      material<span class="op">=&lt;</span>material_id<span class="op">&gt;</span>,</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">                                      behaviour<span class="op">=</span>behaviour_id<span class="op">&gt;</span>)</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="cf">if</span> <span class="bu">len</span>(paths) <span class="op">==</span> <span class="dv">0</span>:</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">  <span class="cf">raise</span>(<span class="st">&quot;no matching implementation&quot;</span>)</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">dsl <span class="op">=</span> mfront.getDSL(paths[<span class="dv">0</span>])</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">dsl.analyseFile(paths[<span class="dv">0</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>paths <span class="op">=</span> mfront.getImplementationPaths(<span class="st">&quot;file.madnex&quot;</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                      material<span class="op">=&lt;</span>material_id<span class="op">&gt;</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                                      behaviour<span class="op">=</span>behaviour_id<span class="op">&gt;</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(paths) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">raise</span>(<span class="st">&quot;no matching implementation&quot;</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>dsl <span class="op">=</span> mfront.getDSL(paths[<span class="dv">0</span>])</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>dsl.analyseFile(paths[<span class="dv">0</span>])</span></code></pre></div>
 <h1 id="mfront-query-usage"><code>mfront-query</code> usage</h1>
 <h2 id="options-specific-to-madnex-files">Options specific to <code>madnex</code> files</h2>
 <p>Several options has been added to the <code>mfront-query</code> specifically for <code>madnex</code> files.</p>
 <p>Queries of the file itself (list of materials, behaviours, etc…) are also provided by the <code>madnex-query</code> tool.</p>
 <h3 id="listing-all-material-a-madnex-file">Listing all material a <code>madnex</code> file</h3>
 <p>The <code>--list-materials</code> returns the list of all materials in a <code>MFront</code> file:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1">$ <span class="kw">`</span><span class="ex">mfront-query</span><span class="kw">`</span> <span class="ex">--list-materials</span> file.madnex</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> <span class="kw">`</span><span class="ex">mfront-query</span><span class="kw">`</span> <span class="at">--list-materials</span> file.madnex</span></code></pre></div>
 <h3 id="listing-of-all-material-properties-all-behaviours-or-all-models">Listing of all material properties, all behaviours or all models</h3>
 <p>The following options are available:</p>
 <ul>
@@ -324,35 +341,35 @@
 <li><code>--list-models</code>: list of all models.</li>
 </ul>
 <p>A typical call is as follows:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1">$ <span class="kw">`</span><span class="ex">mfront-query</span><span class="kw">`</span> <span class="ex">--list-behaviours</span> file.madnex</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> <span class="kw">`</span><span class="ex">mfront-query</span><span class="kw">`</span> <span class="at">--list-behaviours</span> file.madnex</span></code></pre></div>
 <p>The previous options are affected by the the definition of a material, as follows:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1">$ <span class="kw">`</span><span class="ex">mfront-query</span><span class="kw">`</span> <span class="ex">--material</span>=<span class="op">&lt;</span>material_id<span class="op">&gt;</span> --list-behaviours file.madnex</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> <span class="kw">`</span><span class="ex">mfront-query</span><span class="kw">`</span> <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --list-behaviours file.madnex</span></code></pre></div>
 <h2 id="querying-information-about-implementation-options-specific-to-madnex-files">Querying information about implementation, options specific to <code>madnex</code> files</h2>
 <p>For a behaviour, the selection of an implementation on which the queries are made is done through the <code>--material</code> and <code>--behaviour</code> options. For example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1">$ <span class="ex">mfront-query</span> --obuild --interface=generic --material=<span class="op">&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.madnex --state-variables</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.madnex <span class="at">--state-variables</span></span></code></pre></div>
 <p>Here, <code>behaviour_id</code> can be a regular expression.</p>
 <p>For material properties and models, the <code>--material-property</code> and <code>--model</code> options have a similar role than the <code>--behaviour</code> option for behaviours.</p>
 <h1 id="storing-an-mfront-file-in-a-madnex-file">Storing an <code>MFront</code> file in a <code>madnex</code> file</h1>
 <p>The easiest way to store an <code>MFront</code> file is to create an instance of the <code>OverridableImplementation</code> class and then call the <code>write</code> function. Here is an example in <code>python</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="im">import</span> mfront</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</span></code></pre></div>
 <p>However, the <code>OverridableImplementation</code> class also allows modifying the medata of a implementation, as follows:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="im">import</span> mfront</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">i.overrideBehaviourName(<span class="st">&quot;Plasticity_SRMA2022&quot;</span>)</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">i.overrideMaterial(<span class="st">&quot;A316LN&quot;</span>)</a>
-<a class="sourceLine" id="cb10-6" data-line-number="6">i.overrideAuthor(<span class="st">&quot;John Mac Enroe&quot;</span>)</a>
-<a class="sourceLine" id="cb10-7" data-line-number="7">mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</a></code></pre></div>
-<h1 id="references" class="unnumbered">References</h1>
-<div id="refs" class="references">
-<div id="ref-cea_edf_madnex_library_2020">
-<p>1. <span class="smallcaps">CEA</span>, EDF. The ‘madnex‘ library.. 2020. Available from: <a href="https://thelfer.github.io/madnex/web/index.html" class="uri">https://thelfer.github.io/madnex/web/index.html</a></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>i.overrideBehaviourName(<span class="st">&quot;Plasticity_SRMA2022&quot;</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>i.overrideMaterial(<span class="st">&quot;A316LN&quot;</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>i.overrideAuthor(<span class="st">&quot;John Mac Enroe&quot;</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</span></code></pre></div>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-cea_edf_madnex_library_2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">CEA</span>, EDF. The ‘MADNEX‘ library. 2020. Available from: <a href="https://thelfer.github.io/madnex/web/index.html">https://thelfer.github.io/madnex/web/index.html</a></div>
 </div>
 </div>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

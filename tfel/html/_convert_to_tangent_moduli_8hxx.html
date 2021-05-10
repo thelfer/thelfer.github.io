@@ -83,38 +83,33 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;type_traits&gt;</code><br />
-<code>#include &quot;<a class="el" href="_implements_8hxx.html">TFEL/Metaprogramming/Implements.hxx</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_base_type_8hxx.html">TFEL/TypeTraits/BaseType.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_basic_operations_8hxx.html">TFEL/Math/General/BasicOperations.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_result_type_8hxx.html">TFEL/Math/General/ResultType.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_const_expr_math_functions_8hxx.html">TFEL/Math/General/ConstExprMathFunctions.hxx</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_tensor_2_tensor_concept_8hxx.html">TFEL/Math/Tensor/TensorConcept.hxx</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_t2to_s_t2_2_t2to_s_t2_concept_8hxx.html">TFEL/Math/T2toST2/T2toST2Concept.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_tensor_concept_8hxx.html">TFEL/Math/Tensor/TensorConcept.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_t2to_s_t2_concept_8hxx.html">TFEL/Math/T2toST2/T2toST2Concept.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="t2tost2_8hxx.html">TFEL/Math/t2tost2.hxx</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:namespacetfel"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel.html">tfel</a></td></tr>
-<tr class="memdesc:namespacetfel"><td class="mdescLeft">&#160;</td><td class="mdescRight">the namespace tfel encloses all the TFEL project. This namespace is empty. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacetfel_1_1math"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1math.html">tfel::math</a></td></tr>
 <tr class="memdesc:namespacetfel_1_1math"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains various classes and functions défining mathematical objects and numerical algorithms. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2e3b2f4ac11a48f7be4dd87e3f6c6294"><td class="memTemplParams" colspan="2"><a id="a2e3b2f4ac11a48f7be4dd87e3f6c6294"></a>
+<tr class="memitem:a060780df969a6b5eed8de96195471ccd"><td class="memTemplParams" colspan="2"><a id="a060780df969a6b5eed8de96195471ccd"></a>
 template&lt;typename T2toST2Type , typename TensorType &gt; </td></tr>
-<tr class="memitem:a2e3b2f4ac11a48f7be4dd87e3f6c6294"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;((T2toST2Traits&lt; T2toST2Type &gt;::dime==1u)&amp;&amp;(TensorTraits&lt; TensorType &gt;::dime==1u)&amp;&amp;tfel::meta::Implements&lt; T2toST2Type, tfel::math::T2toST2Concept &gt;::cond &amp;&amp;tfel::meta::Implements&lt; TensorType, tfel::math::TensorConcept &gt;::cond), st2tost2&lt; 1u, typename ResultType&lt; typename T2toST2Traits&lt; T2toST2Type &gt;::NumType, TensorNumType&lt; TensorType &gt;, OpMult &gt;::type &gt; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::convertToTangentModuli</b> (const T2toST2Type &amp;K, const TensorType &amp;F)</td></tr>
-<tr class="separator:a2e3b2f4ac11a48f7be4dd87e3f6c6294"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91a871d6bfdbe594df459b0441e2f44c"><td class="memTemplParams" colspan="2"><a id="a91a871d6bfdbe594df459b0441e2f44c"></a>
+<tr class="memitem:a060780df969a6b5eed8de96195471ccd"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;((getSpaceDimension&lt; T2toST2Type &gt;)==1u) &amp;&amp;(getSpaceDimension&lt; TensorType &gt;)==1u) &amp;&amp;implementsT2toST2Concept&lt; T2toST2Type &gt;) &amp;&amp;implementsTensorConcept&lt; TensorType &gt;)), st2tost2&lt; 1u, typename ResultType&lt; numeric_type&lt; T2toST2Type &gt;, numeric_type&lt; TensorType &gt;, OpMult &gt;::type &gt; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::convertToTangentModuli</b> (const T2toST2Type &amp;K, const TensorType &amp;F)</td></tr>
+<tr class="separator:a060780df969a6b5eed8de96195471ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e08525d097940cf2b911e9cb10e8c1e"><td class="memTemplParams" colspan="2"><a id="a2e08525d097940cf2b911e9cb10e8c1e"></a>
 template&lt;typename T2toST2Type , typename TensorType &gt; </td></tr>
-<tr class="memitem:a91a871d6bfdbe594df459b0441e2f44c"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;((T2toST2Traits&lt; T2toST2Type &gt;::dime==2u)&amp;&amp;(TensorTraits&lt; TensorType &gt;::dime==2u)&amp;&amp;tfel::meta::Implements&lt; T2toST2Type, tfel::math::T2toST2Concept &gt;::cond &amp;&amp;tfel::meta::Implements&lt; TensorType, tfel::math::TensorConcept &gt;::cond), st2tost2&lt; 2u, typename ResultType&lt; typename T2toST2Traits&lt; T2toST2Type &gt;::NumType, TensorNumType&lt; TensorType &gt;, OpMult &gt;::type &gt; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::convertToTangentModuli</b> (const T2toST2Type &amp;K, const TensorType &amp;F)</td></tr>
-<tr class="separator:a91a871d6bfdbe594df459b0441e2f44c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1417f4652530feb6cf2717788782db18"><td class="memTemplParams" colspan="2"><a id="a1417f4652530feb6cf2717788782db18"></a>
+<tr class="memitem:a2e08525d097940cf2b911e9cb10e8c1e"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;((getSpaceDimension&lt; T2toST2Type &gt;)==2u) &amp;&amp;(getSpaceDimension&lt; TensorType &gt;)==2u) &amp;&amp;implementsT2toST2Concept&lt; T2toST2Type &gt;) &amp;&amp;implementsTensorConcept&lt; TensorType &gt;)), st2tost2&lt; 2u, typename ResultType&lt; numeric_type&lt; T2toST2Type &gt;, numeric_type&lt; TensorType &gt;, OpMult &gt;::type &gt; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::convertToTangentModuli</b> (const T2toST2Type &amp;K, const TensorType &amp;F)</td></tr>
+<tr class="separator:a2e08525d097940cf2b911e9cb10e8c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab27da0c361e57aba29790a8fe0119acc"><td class="memTemplParams" colspan="2"><a id="ab27da0c361e57aba29790a8fe0119acc"></a>
 template&lt;typename T2toST2Type , typename TensorType &gt; </td></tr>
-<tr class="memitem:a1417f4652530feb6cf2717788782db18"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;((T2toST2Traits&lt; T2toST2Type &gt;::dime==3u)&amp;&amp;(TensorTraits&lt; TensorType &gt;::dime==3u)&amp;&amp;tfel::meta::Implements&lt; T2toST2Type, tfel::math::T2toST2Concept &gt;::cond &amp;&amp;tfel::meta::Implements&lt; TensorType, tfel::math::TensorConcept &gt;::cond), st2tost2&lt; 3u, typename ResultType&lt; typename T2toST2Traits&lt; T2toST2Type &gt;::NumType, TensorNumType&lt; TensorType &gt;, OpMult &gt;::type &gt; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::convertToTangentModuli</b> (const T2toST2Type &amp;K, const TensorType &amp;F)</td></tr>
-<tr class="separator:a1417f4652530feb6cf2717788782db18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab27da0c361e57aba29790a8fe0119acc"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;((getSpaceDimension&lt; T2toST2Type &gt;)==3u) &amp;&amp;(getSpaceDimension&lt; TensorType &gt;)==3u) &amp;&amp;implementsT2toST2Concept&lt; T2toST2Type &gt;) &amp;&amp;implementsTensorConcept&lt; TensorType &gt;)), st2tost2&lt; 3u, typename ResultType&lt; numeric_type&lt; T2toST2Type &gt;, numeric_type&lt; TensorType &gt;, OpMult &gt;::type &gt; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::convertToTangentModuli</b> (const T2toST2Type &amp;K, const TensorType &amp;F)</td></tr>
+<tr class="separator:ab27da0c361e57aba29790a8fe0119acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
@@ -129,7 +124,7 @@ template&lt;typename T2toST2Type , typename TensorType &gt; </td></tr>
 </div>
 </div>
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 18 2018 20:54:59 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 3 2021 21:24:42 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

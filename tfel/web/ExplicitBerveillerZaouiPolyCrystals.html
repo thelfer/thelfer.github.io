@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
             
         
         
@@ -102,64 +101,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -181,6 +197,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -247,34 +264,33 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">Explicit integration of the constitutive equations of a polycrystal obtained by the Berveiller-Zaoui homogeneisation scheme</h1>
-                  <h2 class="author">Thomas Helfer, Cécilia Gicquel, Fabien Onimus</h2>
-                  <h3 class="date">2020</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#constitutive-equations">Constitutive equations</a><ul>
-      <li><a href="#notations">Notations</a></li>
-      <li><a href="#the-berveiller-zaoui-homogeneisation-scheme">The Berveiller-Zaoui homogeneisation scheme</a></li>
-      <li><a href="#intra-granular-constitutive-behavior">Intra-granular constitutive behavior</a></li>
-      </ul></li>
-      <li><a href="#sec:mfront:bz:explicit_scheme">Explicit integration scheme</a><ul>
-      <li><a href="#mfront-implementation"><code>MFront</code>’ Implementation</a></li>
-      <li><a href="#sec:mfront:bz:uniaxialtensiletest">Unit testing</a></li>
-      </ul></li>
-      <li><a href="#conclusions">Conclusions</a></li>
-      <li><a href="#references">References</a></li>
-      </ul>
-    </div>
-        
-
+<div id="header">
+<h1 class="title">Explicit integration of the constitutive equations of a polycrystal obtained by the Berveiller-Zaoui homogeneisation scheme</h1>
+<h2 class="author">Thomas Helfer, Cécilia Gicquel, Fabien Onimus</h2>
+<h3 class="date">2020</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#constitutive-equations">Constitutive equations</a>
+<ul>
+<li><a href="#notations">Notations</a></li>
+<li><a href="#the-berveiller-zaoui-homogeneisation-scheme">The Berveiller-Zaoui homogeneisation scheme</a></li>
+<li><a href="#intra-granular-constitutive-behavior">Intra-granular constitutive behavior</a></li>
+</ul></li>
+<li><a href="#sec:mfront:bz:explicit_scheme">Explicit integration scheme</a>
+<ul>
+<li><a href="#mfront-implementation"><code>MFront</code>’ Implementation</a></li>
+<li><a href="#sec:mfront:bz:uniaxialtensiletest">Unit testing</a></li>
+</ul></li>
+<li><a href="#conclusions">Conclusions</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
 <!--
 pandoc --pdf-engine=xelatex  -f markdown+tex_math_single_backslash -F pandoc-crossref -F pandoc-citeproc  --highlight-style=tango ExplicitBerveillerZaouiPolyCrystals.md -o ExplicitBerveillerZaouiPolyCrystals.pdf
 -->
-<p>The aim of this report is to describe briefly the implementation of a simple self-consistent polycrystalline model based on the use of the Berveiller-Zaoui concentration rule <span class="citation" data-cites="berveiller_extension_1978">[<a href="#ref-berveiller_extension_1978">1</a>]</span>. This model provides an explicit relationship between the local stress, inside a crystallographic phase, and the macroscopic applied stress. This model has been developed for microscopically isotropic elastic behaviour and macroscopically isotropic plastic behaviour.</p>
-<p>After a quick recall of the equations involved, an explicit implementation of a polycrystal behaviours based on this homogeneization scheme is presented in Sections 2. This choice is justified by the huge number of state variables involved which is <em>a priori</em> incompatible with an implicit resolution. The main trouble with explicit scheme is the lack of consistent tangent operator which degrades considerably the performance of most mechanical solvers at the structural scale, the <code>Cast3M</code> solver being a noticeable exception du to its specific resolution scheme <span class="citation" data-cites="verpeaux_algorithmes_2014 ramiere_iterative_2015">[<a href="#ref-verpeaux_algorithmes_2014">3</a>, <a href="#ref-ramiere_iterative_2015">4</a>]</span>.</p>
+<p>The aim of this report is to describe briefly the implementation of a simple self-consistent polycrystalline model based on the use of the Berveiller-Zaoui concentration rule <span class="citation" data-cites="berveiller_extension_1978">[<a href="#ref-berveiller_extension_1978" role="doc-biblioref">1</a>]</span>. This model provides an explicit relationship between the local stress, inside a crystallographic phase, and the macroscopic applied stress. This model has been developed for microscopically isotropic elastic behaviour and macroscopically isotropic plastic behaviour.</p>
+<p>After a quick recall of the equations involved, an explicit implementation of a polycrystal behaviours based on this homogeneization scheme is presented in Sections 2. This choice is justified by the huge number of state variables involved which is <em>a priori</em> incompatible with an implicit resolution. The main trouble with explicit scheme is the lack of consistent tangent operator which degrades considerably the performance of most mechanical solvers at the structural scale, the <code>Cast3M</code> solver being a noticeable exception du to its specific resolution scheme <span class="citation" data-cites="verpeaux_algorithmes_2014 ramiere_iterative_2015">[<a href="#ref-verpeaux_algorithmes_2014" role="doc-biblioref">3</a>, <a href="#ref-ramiere_iterative_2015" role="doc-biblioref">4</a>]</span>.</p>
 <p>The implementation described here can be downloaded <a href="downloads/ExplicitBerveillerZaouiPolyCrystals.tar.bz2">here</a>.</p>
 <h1 id="constitutive-equations">Constitutive equations</h1>
 <h2 id="notations">Notations</h2>
@@ -295,13 +311,13 @@ pandoc --pdf-engine=xelatex  -f markdown+tex_math_single_backslash -F pandoc-cro
 <li><span class="math inline">\({\mu}^{(k,i)}\)</span>: orientation tensor of the i<span class="math inline">\(\mbox{}^{\text{th}}\)</span> slip system of the k<span class="math inline">\(\mbox{}^{\text{th}}\)</span> phase.</li>
 </ul>
 <h2 id="the-berveiller-zaoui-homogeneisation-scheme">The Berveiller-Zaoui homogeneisation scheme</h2>
-<p>In the framework of macroscopically isotropic elasto-plastic behaviors, Berveiller and Zaoui have derived a self-consistent polycrystalline model using a secant approximation for the linearization of the non-linear behavior of the material <span class="citation" data-cites="berveiller_extension_1978">[<a href="#ref-berveiller_extension_1978">1</a>]</span>. The grains of the polycrystal have equiaxed shape and the texture of the material is isotropic. The elasticity is assumed homogeneous and istropic In the case of monotonous radial loadings Berveiller and Zaoui have shown that the local stress <span class="math inline">\({\underline{\sigma}}^{(k)}\)</span> applied in a crystallographic phase <span class="math inline">\((i)\)</span> (all the grains with nearly the same orientation) can be expressed explicitly as a function of the local plastic strain <span class="math inline">\({\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\)</span>, the macroscopic stress <span class="math inline">\(\underline{\Sigma}\)</span> and the macroscopic plastic strain <span class="math inline">\(\underline{E}^{\mathrm{vp}}\)</span>.</p>
+<p>In the framework of macroscopically isotropic elasto-plastic behaviors, Berveiller and Zaoui have derived a self-consistent polycrystalline model using a secant approximation for the linearization of the non-linear behavior of the material <span class="citation" data-cites="berveiller_extension_1978">[<a href="#ref-berveiller_extension_1978" role="doc-biblioref">1</a>]</span>. The grains of the polycrystal have equiaxed shape and the texture of the material is isotropic. The elasticity is assumed homogeneous and istropic In the case of monotonous radial loadings Berveiller and Zaoui have shown that the local stress <span class="math inline">\({\underline{\sigma}}^{(k)}\)</span> applied in a crystallographic phase <span class="math inline">\((i)\)</span> (all the grains with nearly the same orientation) can be expressed explicitly as a function of the local plastic strain <span class="math inline">\({\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\)</span>, the macroscopic stress <span class="math inline">\(\underline{\Sigma}\)</span> and the macroscopic plastic strain <span class="math inline">\(\underline{E}^{\mathrm{vp}}\)</span>.</p>
 <p>The macrosopic viscoplastic strain is linked to the microscopic local plastic strain <span class="math inline">\({\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\)</span> by a simple mixing rule:</p>
 <p><span id="eq:mfront:bz:Evp"><span class="math display">\[
 \underline{E}^{\mathrm{vp}}=\sum_{k=1}^{N_{g}} {\phi}^{(k)}\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}
 \qquad(1)\]</span></span></p>
 <p>where <span class="math inline">\({\phi}^{(k)}\)</span> is the volume fraction of the k<span class="math inline">\(\mbox{}^{\text{th}}\)</span> phase.</p>
-<p>The local stress <span class="math inline">\({\underline{\sigma}}^{(k)}\)</span> is given by the following relationship<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:</p>
+<p>The local stress <span class="math inline">\({\underline{\sigma}}^{(k)}\)</span> is given by the following relationship<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
 <p><span id="eq:mfront:bz:sig"><span class="math display">\[
 {\underline{\sigma}}^{(k)}=\underline{\Sigma}+2\,M\alpha{\left(\Sigma_{\mathrm{eq}},P\right)}\,{\left(1-\beta{\left(\nu\right)}\right)}\,{\left(\underline{E}^{\mathrm{vp}}-{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\right)}\quad\text{with}\quad\beta{\left(\nu\right)}=\dfrac{2}{15}\,\dfrac{4-5\,\nu}{1-\nu}
 \qquad(2)\]</span></span></p>
@@ -326,45 +342,45 @@ pandoc --pdf-engine=xelatex  -f markdown+tex_math_single_backslash -F pandoc-cro
 <p><span class="math display">\[
 {\underline{\dot{\varepsilon}}^{\mathrm{vp}}}^{(k)}=\sum_{i=1}^{N_{s}}{\dot{g}}^{(k,i)}\,{\mu}^{(k,i)}\quad\text{with}\quad{\dot{g}}^{(k,i)}=\left\langle\dfrac{{\sigma}^{(k)}\,\colon\,{\mu}^{(k,i)}-R_{0}}{K}\right\rangle^{n}
 \]</span></p>
-<p>This constitutive equation is very simple, but extensions of the proposed integration scheme to more complex ones , such as i.e. the Méric-Cailletaud behaviour <span class="citation" data-cites="meric_single_1991">[<a href="#ref-meric_single_1991">5</a>]</span>, is straightforward using the proposed explicit scheme.</p>
-<p>For the example, we will follow the work of Onimus et al. with sightly modified material coefficients <span class="citation" data-cites="onimus_polycrystalline_2009">[<a href="#ref-onimus_polycrystalline_2009">2</a>]</span>.</p>
+<p>This constitutive equation is very simple, but extensions of the proposed integration scheme to more complex ones , such as i.e. the Méric-Cailletaud behaviour <span class="citation" data-cites="meric_single_1991">[<a href="#ref-meric_single_1991" role="doc-biblioref">6</a>]</span>, is straightforward using the proposed explicit scheme.</p>
+<p>For the example, we will follow the work of Onimus et al. with sightly modified material coefficients <span class="citation" data-cites="onimus_polycrystalline_2009">[<a href="#ref-onimus_polycrystalline_2009" role="doc-biblioref">2</a>]</span>.</p>
 <h1 id="sec:mfront:bz:explicit_scheme">Explicit integration scheme</h1>
-<p>The first explicit implementation of a polycrystal based on the Berveiller and Zaoui homogeneization scheme and the Méric-Cailletaud single crystal behaviour at the grain scale <span class="citation" data-cites="meric_single_1991">[<a href="#ref-meric_single_1991">5</a>]</span> is due to Jean-Michel Proix (EDF) and is available in the sources of <code>MFront</code><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. Other implementations based on more complex local behaviours inspired by results from the Dislocation Dynamics are also available <span class="citation" data-cites="edf_comportements_2013">[<a href="#ref-edf_comportements_2013">6</a>]</span>.</p>
+<p>The first explicit implementation of a polycrystal based on the Berveiller and Zaoui homogeneization scheme and the Méric-Cailletaud single crystal behaviour at the grain scale <span class="citation" data-cites="meric_single_1991">[<a href="#ref-meric_single_1991" role="doc-biblioref">6</a>]</span> is due to Jean-Michel Proix (EDF) and is available in the sources of <code>MFront</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Other implementations based on more complex local behaviours inspired by results from the Dislocation Dynamics are also available <span class="citation" data-cites="edf_comportements_2013">[<a href="#ref-edf_comportements_2013" role="doc-biblioref">7</a>]</span>.</p>
 <p>This section presents the successive steps to implement the polycrystalline model in <code>MFront</code> using an explicit scheme.</p>
 <h2 id="mfront-implementation"><code>MFront</code>’ Implementation</h2>
 <h3 id="choice-of-the-domain-specific-language">Choice of the domain specific language</h3>
 <p>Domain specific languages (DSL) are of the main concept of <code>MFront</code>. It specifies a kind of material knowledge and a kind of numerical scheme . It also introduces a specific syntax for the implementation to be both efficient and explicit.</p>
 <p>For a small strain behaviour integrated using an explicit scheme, the appropriate domain specific language is called <code>RungeKutta</code>. By convention, the declaration of the domain specific language is placed at the beginning of the <code>MFront</code> file:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL RungeKutta;</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL RungeKutta;</span></code></pre></div>
 <h3 id="name-of-the-behaviour">Name of the behaviour</h3>
 <p>The <code>@Behaviour</code> keyword allows defining the name of the behaviour, as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Behaviour PolycrystalHCP_BZ;</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour PolycrystalHCP_BZ;</span></code></pre></div>
 <h3 id="metadata">Metadata</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>Author F. Onimus, C. Gicquel, T. Helfer;</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="er">@</span>Date <span class="bn">05</span>/<span class="dv">2020</span>;</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="er">@</span>Description{</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">  Implementation of a polycrystal of behaviour  <span class="cf">for</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">  zirconium alloys <span class="kw">using</span> the Berveiller-Zaoui</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">  homegeneization scheme. The presented behaviour</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">  is inspired from Onimus <span class="dv">2009</span> which modified</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">  material coefficients.</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">  <span class="st">&quot;Onimus, Fabien and Béchade, Jean-Luc.&quot;</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">  <span class="st">&quot;A polycrystalline modeling of the mechanical behavior of&quot;</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">  <span class="st">&quot;neutron irradiated zirconium alloys.&quot;</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">  <span class="st">&quot;Journal of Nuclear Materials. 15 February 2009.&quot;</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">  <span class="st">&quot;Vol. 384, no. 2, p. 163-174.&quot;</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">}</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author F. Onimus, C. Gicquel, T. Helfer;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="bn">05</span>/<span class="dv">2020</span>;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description{</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  Implementation of a polycrystal of behaviour  <span class="cf">for</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  zirconium alloys <span class="kw">using</span> the Berveiller-Zaoui</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  homegeneization scheme. The presented behaviour</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  is inspired from Onimus <span class="dv">2009</span> which modified</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  material coefficients.</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Onimus, Fabien and Béchade, Jean-Luc.&quot;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;A polycrystalline modeling of the mechanical behavior of&quot;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;neutron irradiated zirconium alloys.&quot;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Journal of Nuclear Materials. 15 February 2009.&quot;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Vol. 384, no. 2, p. 163-174.&quot;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h3 id="symmetry-of-the-material">Symmetry of the material</h3>
 <p>The material considered will be isotropic on the macroscopic scale. However, due to restrictions to the keywords defining slips systems (see Section 2.1.7), the behaviour must be declared orthotropic.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>OrthotropicBehaviour;</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>OrthotropicBehaviour;</span></code></pre></div>
 <h3 id="supported-modelling-hypothesis">Supported modelling hypothesis</h3>
 <p>The class defining the slips systems declares <span class="math inline">\(3D\)</span> orientation tensors (see Section 2.1.7 and 2.1.8). To avoid conversions, we restrict the behaviour to be only valid in <code>3D</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>ModellingHypothesis Tridimensional;</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypothesis Tridimensional;</span></code></pre></div>
 <p>Note that such a restriction, when applicable, notably reduces the compilation times.</p>
 <h3 id="choice-of-the-algorithm">Choice of the algorithm</h3>
 <p>Among the different schemes available the choice is made to use the Runge-Kutta 5/4 algorithm (which is the default):</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="er">@</span>Algorithm rk54;</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm rk54;</span></code></pre></div>
 <h3 id="sec:mfront:bz:slips_systems">Declaration of the slip systems</h3>
 <p>The considered material as an hexagonal close packed crystallographic structure and four families of slip systems:</p>
 <ul>
@@ -374,20 +390,20 @@ pandoc --pdf-engine=xelatex  -f markdown+tex_math_single_backslash -F pandoc-cro
 <li>the fourth slip system corresponds to // systèmes pyramidaux A</li>
 </ul>
 <p>Those slip systems are declared in a straightforward manner using the functionalities provided by the <a href="http://www.numodis.fr"><code>NUMODIS</code> code</a>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>CrystalStructure HCP;</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="er">@</span>SlidingSystems{&lt;<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">-2</span>, <span class="dv">0</span>&gt;{<span class="dv">1</span>, <span class="dv">-1</span>, <span class="dv">0</span>, <span class="dv">0</span>},</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">                &lt;<span class="dv">-2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>&gt;{<span class="dv">1</span>, <span class="dv">-1</span>, <span class="dv">0</span>, <span class="dv">1</span>},</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">                &lt;<span class="dv">-2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>&gt;{<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>},</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">                &lt;<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">-2</span>, <span class="dv">0</span>&gt;{<span class="dv">1</span>, <span class="dv">-1</span>, <span class="dv">0</span>, <span class="dv">1</span>}};</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>CrystalStructure HCP;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>SlidingSystems{&lt;<span class="dv">1</span>, <span class="dv">1</span>, -<span class="dv">2</span>, <span class="dv">0</span>&gt;{<span class="dv">1</span>, -<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>},</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                &lt;-<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>&gt;{<span class="dv">1</span>, -<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>},</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                &lt;-<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>&gt;{<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>},</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="dv">1</span>, <span class="dv">1</span>, -<span class="dv">2</span>, <span class="dv">0</span>&gt;{<span class="dv">1</span>, -<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>}};</span></code></pre></div>
 <p>Those keywords are fully described on this page: <a href="http://tfel.sourceforge.net/singlecrystal.html" class="uri">http://tfel.sourceforge.net/singlecrystal.html</a>.</p>
 <p>They generate a class called <code>PolycrystalHCP_BZSlipSystems</code> which contains the orientation tensors of the all the slip systems.</p>
 <h3 id="sec:mfront:bz:slips_systems2">Handling textures</h3>
 <p>Altough, the <code>PolycrystalHCP_BZSlipSystems</code> class contains all the information for a single crystal, a polycrystaline behaviour must handle the texture of the material, i.e. the orientation and the volume fraction of each phase. It is not relevant to hard-code such information, so we rely on an external text file. For efficiency reasons, the external file must be read and processed only once at the beginning of the computation.</p>
-<p>To do this, we rely on an external class called <code>ExtendedPolyCrystalsSlidingSystems</code> which implements the singleton pattern<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> <span class="citation" data-cites="gamma_design_1994">[<a href="#ref-gamma_design_1994">7</a>]</span>.</p>
+<p>To do this, we rely on an external class called <code>ExtendedPolyCrystalsSlidingSystems</code> which implements the singleton pattern<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> <span class="citation" data-cites="gamma_design_1994">[<a href="#ref-gamma_design_1994" role="doc-biblioref">8</a>]</span>.</p>
 <p>This class is declared in an external header file which is included as follows:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>Includes{</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="pp">#include </span><span class="im">&quot;TFEL/Material/ExtendedPolyCrystalsSlidingSystems.hxx&quot;</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes{</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/ExtendedPolyCrystalsSlidingSystems.hxx&quot;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>The description of the implementation of this class is out of the scope of the present report, so we will only focus on the main points of interest for the rest of this report.</p>
 <p>The <code>ExtendedPolyCrystalsSlidingSystems</code> class has tree template arguments:</p>
 <ul>
@@ -403,151 +419,154 @@ pandoc --pdf-engine=xelatex  -f markdown+tex_math_single_backslash -F pandoc-cro
 </ul>
 <h3 id="sec:mfront:bz:nphases">Number of phases</h3>
 <p>We then need to indicate the number of phases (i.e. groups of grains with identical orientation).</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>IntegerConstant Np  = <span class="dv">240</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IntegerConstant Np  = <span class="dv">240</span>;</span></code></pre></div>
 <p>This number must be consistent with the number of phases read in the external file given as argument to the <code>getPolyCrystalsSlidingSystems</code> method.</p>
 <h3 id="elastic-properties">Elastic properties</h3>
 <p>The material is assumed to be isotropic. The <code>@ComputeStiffnessTensor</code> is used here to compute the stiffness tensor using the macroscopic Young modulus and the macroscopic <code>Poisson</code> ratio:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="er">@</span>ComputeStiffnessTensor {</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="fl">80000.</span>, <span class="fl">0.4</span></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">};</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeStiffnessTensor {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fl">80000.</span>, <span class="fl">0.4</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
 <p>This keywords automatically declares and initializes a fourth order tensor named <span class="math inline">\(\underline{\underline{\mathbf{D}}}\)</span>.</p>
 <h3 id="sec:mfront:bz:parameters">Material coefficients</h3>
 <p>Using the keyword <code>@Parameters</code> one can then define some useful parameters such as the critical resolved shear stresses of the gliding systems or the other coefficients involved in the intra-granular constitutive laws:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">//! Norton exponents per slip system family</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="er">@</span>Parameter real m[<span class="dv">4</span>] = {<span class="fl">10.</span>, <span class="fl">10.</span>, <span class="fl">10.</span>, <span class="fl">10.</span>};</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">//! Norton stress normalisation factor</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="er">@</span>Parameter stress K = <span class="fl">5.0</span>;</a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">//! critical resolved shear stress per slip system family</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="er">@</span>Parameter stress τᶜ[<span class="dv">4</span>] = {<span class="fl">43.0</span>, <span class="fl">135.0</span>, <span class="fl">75.0</span>, <span class="fl">65.0</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! Norton exponents per slip system family</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real m[<span class="dv">4</span>] = {<span class="fl">10.</span>, <span class="fl">10.</span>, <span class="fl">10.</span>, <span class="fl">10.</span>};</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">//! Norton stress normalisation factor</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress K = <span class="fl">5.0</span>;</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">//! critical resolved shear stress per slip system family</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress τᶜ[<span class="dv">4</span>] = {<span class="fl">43.0</span>, <span class="fl">135.0</span>, <span class="fl">75.0</span>, <span class="fl">65.0</span>};</span></code></pre></div>
 <h3 id="declaration-of-internal-variables">Declaration of internal variables</h3>
 <p>We now need to define the internal variables such as macroscopic and microscopic plastic strain and its norm. This is done using the keyword <code>@StateVariable</code>. Those quantities are meant to evolve during the calculation :</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co">//! macroscopic plastic strain</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="er">@</span>StateVariable StrainStensor    epsp;</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co">//! microscopic plastic strain</span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="er">@</span>StateVariable StrainStensor    epsg[Np]; </a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">//! plastic strain’s norm</span></a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="er">@</span>StateVariable real    pg;</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! macroscopic plastic strain</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable StrainStensor    epsp;</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">//! microscopic plastic strain</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable StrainStensor    epsg[Np]; </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">//! plastic strain’s norm</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real    pg;</span></code></pre></div>
 <h3 id="computation-of-the-macroscopic-stress">Computation of the macroscopic stress</h3>
 <p>The macroscopic stress is computed from the macroscopic elastic strain and the macroscopic stiffness tensor as follows:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="er">@</span>ComputeStress{</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">  sig = D * eel;</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeStress{</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  sig = D * eel;</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>This code is used to compute the stress before each evaluation of the rate of the internal state variables and and the end of the time step to compute the final stress.</p>
 <h3 id="equations-of-the-system">Equations of the system</h3>
 <p>Using the <code>@Derivative</code> code block, the evolution of the internal variables can now be implemented.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="er">@</span>Derivative{</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Derivative{</span></code></pre></div>
 <p>As described earlier, the orientation tensors of all the phases is handled by the <code>ExtendedPolyCrystalsSlidingSystems</code>. This class being a template, its use is tedious. For the sake of simplicity, we declare an alias <code>PCSlidingSystems</code> which hides some of the details associated with the use of the <code>ExtendedPolyCrystalsSlidingSystems</code> class:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1">  <span class="kw">using</span> PCSlidingSystems = </a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">    ExtendedPolyCrystalsSlidingSystems&lt;Np, PolycrystalHCP_BZSlipSystems&lt;real&gt;, real&gt;;</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">using</span> PCSlidingSystems = </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    ExtendedPolyCrystalsSlidingSystems&lt;Np, PolycrystalHCP_BZSlipSystems&lt;real&gt;, real&gt;;</span></code></pre></div>
 <p>The following line retrieves the unique instance of the <code>ExtendedPolyCrystalsSlidingSystems</code> class and give the name of the file containing the description of the phases.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span>&amp; gs = PCSlidingSystems::getPolyCrystalsSlidingSystems(<span class="st">&quot;isotrope_240_normalise.csv&quot;</span>);</a></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1">  <span class="co">// macroscopic equivalent stress</span></a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">  <span class="at">const</span> <span class="kw">auto</span> σᵉ = sigmaeq(σ);</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span>&amp; gs = PCSlidingSystems::getPolyCrystalsSlidingSystems(<span class="st">&quot;isotrope_240_normalise.csv&quot;</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// macroscopic equivalent stress</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> σᵉ = sigmaeq(σ);</span></code></pre></div>
 <p>The macroscopic strain rate is then initialised to zero:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1">  <span class="co">// initialisation of the macroscopic strain rate</span></a>
-<a class="sourceLine" id="cb18-2" data-line-number="2">  ∂ₜεᵛᵖ = Stensor(strainrate(<span class="dv">0</span>));</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// initialisation of the macroscopic strain rate</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  ∂ₜεᵛᵖ = Stensor(strainrate(<span class="dv">0</span>));</span></code></pre></div>
 <p>Then, the loop over the phases is started, as follows:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" data-line-number="1">  <span class="co">// loop over the phases</span></a>
-<a class="sourceLine" id="cb19-2" data-line-number="2">  <span class="cf">for</span> (<span class="dt">unsigned</span> <span class="dt">short</span> k = <span class="dv">0</span>; k != Np; ++k) {</a>
-<a class="sourceLine" id="cb19-3" data-line-number="3">    <span class="co">// volume fraction of the phase</span></a>
-<a class="sourceLine" id="cb19-4" data-line-number="4">    <span class="at">const</span> <span class="kw">auto</span> φ = gs.volume_fractions[k];</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// loop over the phases</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="dt">unsigned</span> <span class="dt">short</span> k = <span class="dv">0</span>; k != Np; ++k) {</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// volume fraction of the phase</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> φ = gs.volume_fractions[k];</span></code></pre></div>
 <p>The local stress is computed following the Berveiller-Zaoui scheme (Equation (2)):</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" data-line-number="1">    <span class="co">// local stress following the Berveiller-Zaoui scheme</span></a>
-<a class="sourceLine" id="cb20-2" data-line-number="2">    <span class="kw">auto</span> σᵍ = StressStensor(stress(<span class="dv">0</span>));</a>
-<a class="sourceLine" id="cb20-3" data-line-number="3">    <span class="cf">if</span> (<span class="dv">2</span> ⋅ σᵉ + <span class="dv">3</span> ⋅ Mu ⋅ p &gt; <span class="dv">0</span>) {</a>
-<a class="sourceLine" id="cb20-4" data-line-number="4">      <span class="at">const</span> <span class="kw">auto</span> α = <span class="dv">2</span> ⋅ σᵉ / (<span class="dv">2</span> ⋅ σᵉ + <span class="dv">3</span> ⋅ Mu ⋅ p);</a>
-<a class="sourceLine" id="cb20-5" data-line-number="5">      σᵍ = σ + <span class="dv">2</span> ⋅ (<span class="dv">1</span> - β) ⋅ Mu ⋅ α ⋅ (εᵛᵖ - εᵛᵖᵍ[k]);</a>
-<a class="sourceLine" id="cb20-6" data-line-number="6">    }</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// local stress following the Berveiller-Zaoui scheme</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> σᵍ = StressStensor(stress(<span class="dv">0</span>));</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="dv">2</span> ⋅ σᵉ + <span class="dv">3</span> ⋅ Mu ⋅ p &gt; <span class="dv">0</span>) {</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> α = <span class="dv">2</span> ⋅ σᵉ / (<span class="dv">2</span> ⋅ σᵉ + <span class="dv">3</span> ⋅ Mu ⋅ p);</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>      σᵍ = σ + <span class="dv">2</span> ⋅ (<span class="dv">1</span> - β) ⋅ Mu ⋅ α ⋅ (εᵛᵖ - εᵛᵖᵍ[k]);</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div>
 <p>We then initialise the microscopic strain rate:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb21-1" data-line-number="1">    <span class="co">// initialisation of the microscopic strain rate</span></a>
-<a class="sourceLine" id="cb21-2" data-line-number="2">    ∂ₜεᵛᵖᵍ[k] = Stensor(strainrate(<span class="dv">0</span>));</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// initialisation of the microscopic strain rate</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    ∂ₜεᵛᵖᵍ[k] = Stensor(strainrate(<span class="dv">0</span>));</span></code></pre></div>
 <p>We now start the loop over the slip system of the considered phase and evaluate the contribution to the microscopic strain rate:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb22-1" data-line-number="1">    <span class="cf">for</span> (<span class="dt">unsigned</span> <span class="dt">short</span> i = <span class="dv">0</span>; i != Nss; ++i) {</a>
-<a class="sourceLine" id="cb22-2" data-line-number="2">      <span class="at">const</span> <span class="kw">auto</span> idx = [&amp;i] {</a>
-<a class="sourceLine" id="cb22-3" data-line-number="3">        <span class="cf">if</span> (i &lt;= <span class="dv">2</span>) {</a>
-<a class="sourceLine" id="cb22-4" data-line-number="4">          <span class="cf">return</span> <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb22-5" data-line-number="5">        } <span class="cf">else</span> <span class="cf">if</span> (i &gt;= <span class="dv">3</span> &amp;&amp; i &lt;= <span class="dv">14</span>) {</a>
-<a class="sourceLine" id="cb22-6" data-line-number="6">          <span class="cf">return</span> <span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb22-7" data-line-number="7">        } <span class="cf">else</span> <span class="cf">if</span> (i &gt;= <span class="dv">15</span> &amp;&amp; i &lt;= <span class="dv">17</span>) {</a>
-<a class="sourceLine" id="cb22-8" data-line-number="8">          <span class="cf">return</span> <span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb22-9" data-line-number="9">        }</a>
-<a class="sourceLine" id="cb22-10" data-line-number="10">        <span class="cf">return</span> <span class="dv">3</span>;</a>
-<a class="sourceLine" id="cb22-11" data-line-number="11">      }(); <span class="co">// return the family number </span></a>
-<a class="sourceLine" id="cb22-12" data-line-number="12">      <span class="co">// orientation tensors in the material frame</span></a>
-<a class="sourceLine" id="cb22-13" data-line-number="13">      <span class="at">const</span> <span class="kw">auto</span>&amp; μⁱᵏ = gs.mus[k][i];</a>
-<a class="sourceLine" id="cb22-14" data-line-number="14">      <span class="co">// resolved shear stress</span></a>
-<a class="sourceLine" id="cb22-15" data-line-number="15">      <span class="at">const</span> <span class="kw">auto</span> τ = μⁱᵏ | σᵍ;</a>
-<a class="sourceLine" id="cb22-16" data-line-number="16">      <span class="at">const</span> <span class="kw">auto</span> rτ = (abs(τ) - τᶜ[idx]) / K;</a>
-<a class="sourceLine" id="cb22-17" data-line-number="17">      <span class="cf">if</span> (rτ &gt; <span class="dv">0</span>) {</a>
-<a class="sourceLine" id="cb22-18" data-line-number="18">        <span class="at">const</span> <span class="kw">auto</span> sgn = τ &gt; <span class="dv">0</span> ? <span class="dv">1</span> : <span class="dv">-1</span>;</a>
-<a class="sourceLine" id="cb22-19" data-line-number="19">        <span class="at">const</span> <span class="kw">auto</span> ∂ₜg = sgn ⋅ pow(rτ, m[idx]);</a>
-<a class="sourceLine" id="cb22-20" data-line-number="20">        dεᵛᵖᵍ[k] += ∂ₜg ⋅ μⁱᵏ;</a>
-<a class="sourceLine" id="cb22-21" data-line-number="21">      }</a>
-<a class="sourceLine" id="cb22-22" data-line-number="22">    } <span class="co">// end of the loop over the slip systems</span></a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="dt">unsigned</span> <span class="dt">short</span> i = <span class="dv">0</span>; i != Nss; ++i) {</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> idx = [&amp;i] {</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (i &lt;= <span class="dv">2</span>) {</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>          <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> <span class="cf">if</span> (i &gt;= <span class="dv">3</span> &amp;&amp; i &lt;= <span class="dv">14</span>) {</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>          <span class="cf">return</span> <span class="dv">1</span>;</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> <span class="cf">if</span> (i &gt;= <span class="dv">15</span> &amp;&amp; i &lt;= <span class="dv">17</span>) {</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>          <span class="cf">return</span> <span class="dv">2</span>;</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">3</span>;</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>      }(); <span class="co">// return the family number </span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>      <span class="co">// orientation tensors in the material frame</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span>&amp; μⁱᵏ = gs.mus[k][i];</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>      <span class="co">// resolved shear stress</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> τ = μⁱᵏ | σᵍ;</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> rτ = (abs(τ) - τᶜ[idx]) / K;</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (rτ &gt; <span class="dv">0</span>) {</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">const</span> <span class="kw">auto</span> sgn = τ &gt; <span class="dv">0</span> ? <span class="dv">1</span> : -<span class="dv">1</span>;</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">const</span> <span class="kw">auto</span> ∂ₜg = sgn ⋅ pow(rτ, m[idx]);</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>        dεᵛᵖᵍ[k] += ∂ₜg ⋅ μⁱᵏ;</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    } <span class="co">// end of the loop over the slip systems</span></span></code></pre></div>
 <p>The macroscopic strain rate is then updated by the contribution of the considered phase:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb23-1" data-line-number="1">    ∂ₜεᵛᵖ += ∂ₜεᵛᵖᵍ[k] ⋅ φ;</a>
-<a class="sourceLine" id="cb23-2" data-line-number="2">  } <span class="co">// end of the loop over the phases</span></a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    ∂ₜεᵛᵖ += ∂ₜεᵛᵖᵍ[k] ⋅ φ;</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  } <span class="co">// end of the loop over the phases</span></span></code></pre></div>
 <p>After the loop over the phases, one can update the rate of the macroscopic equivalent plastic strain and the macroscopic elastic strain rate:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb24-1" data-line-number="1">  <span class="co">// rate of the macroscopic equivalent plastic strain</span></a>
-<a class="sourceLine" id="cb24-2" data-line-number="2">  ∂ₜp = sqrt((<span class="dv">2</span> ⋅ (∂ₜεᵛᵖ | ∂ₜεᵛᵖ)) / <span class="dv">3</span>);</a>
-<a class="sourceLine" id="cb24-3" data-line-number="3">  <span class="co">// elastic strain rate</span></a>
-<a class="sourceLine" id="cb24-4" data-line-number="4">  ∂ₜεᵉˡ = ∂ₜεᵗᵒ - ∂ₜεᵛᵖ;</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// rate of the macroscopic equivalent plastic strain</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  ∂ₜp = sqrt((<span class="dv">2</span> ⋅ (∂ₜεᵛᵖ | ∂ₜεᵛᵖ)) / <span class="dv">3</span>);</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// elastic strain rate</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  ∂ₜεᵉˡ = ∂ₜεᵗᵒ - ∂ₜεᵛᵖ;</span></code></pre></div>
 <p>The only tangent operator available is the elastic operator. This leads to this simple implementation of the <code>@TangentOperator</code> code block:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="er">@</span>TangentOperator {</a>
-<a class="sourceLine" id="cb25-2" data-line-number="2">  Dt = D;</a>
-<a class="sourceLine" id="cb25-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator {</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  Dt = D;</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="sec:mfront:bz:uniaxialtensiletest">Unit testing</h2>
 <p>The following <code>MTest</code> file imposes a tensile test with a constant strain rate of <span class="math inline">\(2\,10^{-4}\, s^{-1}\)</span> in the tensile direction:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="er">@</span>AccelerationAlgorithm <span class="ch">&#39;Cast3M&#39;</span>;</a>
-<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="er">@</span>StiffnessMatrixType <span class="ch">&#39;Elastic&#39;</span> ;</a>
-<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="er">@</span>Behaviour <span class="ch">&#39;src/libBehaviour.so&#39;</span> <span class="ch">&#39;PolycrystalHCP_BZ&#39;</span>;</a>
-<a class="sourceLine" id="cb26-4" data-line-number="4"><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;Temperature&#39;</span> <span class="fl">293.15</span>;</a>
-<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="er">@</span>Real <span class="ch">&#39;tmax&#39;</span> <span class="dv">75</span> ;</a>
-<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="er">@</span>ImposedStrain <span class="ch">&#39;EXX&#39;</span> {<span class="fl">0.</span>: <span class="fl">0.</span>, <span class="dv">75</span> : <span class="fl">0.015</span> };</a>
-<a class="sourceLine" id="cb26-7" data-line-number="7"><span class="er">@</span>Times {<span class="fl">0.</span>,<span class="ch">&#39;tmax&#39;</span> in <span class="dv">1000</span>};</a></code></pre></div>
-<p>Note that since the explicit behaviour does not provide a consistent tangent operator, we rely on an elastic search operator. The equilibrium iterations are accelerated using the <code>Cast3M</code> acceleration scheme which mimics the algorithm used by this code <span class="citation" data-cites="verpeaux_algorithmes_2014 ramiere_iterative_2015">[<a href="#ref-verpeaux_algorithmes_2014">3</a>, <a href="#ref-ramiere_iterative_2015">4</a>]</span>.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AccelerationAlgorithm <span class="ch">&#39;C</span><span class="er">ast3M</span><span class="ch">&#39;</span>;</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StiffnessMatrixType <span class="ch">&#39;E</span><span class="er">lastic</span><span class="ch">&#39;</span> ;</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour <span class="ch">&#39;s</span><span class="er">rc/libBehaviour.so</span><span class="ch">&#39;</span> <span class="ch">&#39;P</span><span class="er">olycrystalHCP_BZ</span><span class="ch">&#39;</span>;</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;T</span><span class="er">emperature</span><span class="ch">&#39;</span> <span class="fl">293.15</span>;</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;t</span><span class="er">max</span><span class="ch">&#39;</span> <span class="dv">75</span> ;</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStrain <span class="ch">&#39;E</span><span class="er">XX</span><span class="ch">&#39;</span> {<span class="fl">0.</span>: <span class="fl">0.</span>, <span class="dv">75</span> : <span class="fl">0.015</span> };</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Times {<span class="fl">0.</span>,<span class="ch">&#39;t</span><span class="er">max</span><span class="ch">&#39;</span> in <span class="dv">1000</span>};</span></code></pre></div>
+<p>Note that since the explicit behaviour does not provide a consistent tangent operator, we rely on an elastic search operator. The equilibrium iterations are accelerated using the <code>Cast3M</code> acceleration scheme which mimics the algorithm used by this code <span class="citation" data-cites="verpeaux_algorithmes_2014 ramiere_iterative_2015">[<a href="#ref-verpeaux_algorithmes_2014" role="doc-biblioref">3</a>, <a href="#ref-ramiere_iterative_2015" role="doc-biblioref">4</a>]</span>.</p>
 <p>Specifying the temperature is required, although not used by the behaviour.</p>
 <figure>
-<img src="img/PolycrystalHCP_BZ.svg" alt="Figure 1: Traction curve obtained with the polycrystal behaviour on a simple tensile test" id="fig:mfront:bz:tensile_test" style="width:75.0%" /><figcaption>Figure 1: Traction curve obtained with the polycrystal behaviour on a simple tensile test</figcaption>
+<img src="img/PolycrystalHCP_BZ.svg" id="fig:mfront:bz:tensile_test" style="width:75.0%" alt="Figure 1: Traction curve obtained with the polycrystal behaviour on a simple tensile test" /><figcaption aria-hidden="true">Figure 1: Traction curve obtained with the polycrystal behaviour on a simple tensile test</figcaption>
 </figure>
 <p>The stress-strain curve obtained with the polycrystal behaviour on a simple tensile test is reported in Figure 1.</p>
 <h1 id="conclusions">Conclusions</h1>
 <p>Extensions to the proposed implicit scheme to other well-known homogeneizations schemes are straightforward, including the work of Taylor-Lin, Kröner, Cailletaud-Pilvin (<span class="math inline">\(\beta\)</span>-model) and their extension by Besson et al.</p>
-<h1 id="references" class="unnumbered">References</h1>
-<div id="refs" class="references">
-<div id="ref-berveiller_extension_1978">
-<p>1. <span class="smallcaps">Berveiller</span>, M. and <span class="smallcaps">Zaoui</span>, A. An extension of the self-consistent scheme to plastically-flowing polycrystals. <em>Journal of the Mechanics and Physics of Solids</em>. October 1978. Vol. 26, no. 5–6, p. 325–344. DOI <a href="https://doi.org/10.1016/0022-5096(78)90003-0">10.1016/0022-5096(78)90003-0</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/0022509678900030" class="uri">http://www.sciencedirect.com/science/article/pii/0022509678900030</a></p>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-berveiller_extension_1978" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Berveiller</span>, M. and <span class="smallcaps">Zaoui</span>, A. An extension of the self-consistent scheme to plastically-flowing polycrystals. <em>Journal of the Mechanics and Physics of Solids</em>. October 1978. Vol. 26, no. 5–6, p. 325–344. DOI <a href="https://doi.org/10.1016/0022-5096(78)90003-0">10.1016/0022-5096(78)90003-0</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/0022509678900030">http://www.sciencedirect.com/science/article/pii/0022509678900030</a></div>
 </div>
-<div id="ref-onimus_polycrystalline_2009">
-<p>2. <span class="smallcaps">Onimus</span>, Fabien and <span class="smallcaps">Béchade</span>, Jean-Luc. A polycrystalline modeling of the mechanical behavior of neutron irradiated zirconium alloys. <em>Journal of Nuclear Materials</em>. 15 February 2009. Vol. 384, no. 2, p. 163–174. DOI <a href="https://doi.org/10.1016/j.jnucmat.2008.11.006">10.1016/j.jnucmat.2008.11.006</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0022311508006910" class="uri">http://www.sciencedirect.com/science/article/pii/S0022311508006910</a></p>
+<div id="ref-onimus_polycrystalline_2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Onimus</span>, Fabien and <span class="smallcaps">Béchade</span>, Jean-Luc. A polycrystalline modeling of the mechanical behavior of neutron irradiated zirconium alloys. <em>Journal of Nuclear Materials</em>. 15 February 2009. Vol. 384, no. 2, p. 163–174. DOI <a href="https://doi.org/10.1016/j.jnucmat.2008.11.006">10.1016/j.jnucmat.2008.11.006</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0022311508006910">http://www.sciencedirect.com/science/article/pii/S0022311508006910</a></div>
 </div>
-<div id="ref-verpeaux_algorithmes_2014">
-<p>3. <span class="smallcaps">Verpeaux</span>, Pierre. Algorithmes et méthodes. Support de cours. 2014. Available from: <a href="http://www-cast3m.cea.fr/index.php?xml=supportcours" class="uri">http://www-cast3m.cea.fr/index.php?xml=supportcours</a></p>
+<div id="ref-verpeaux_algorithmes_2014" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">Verpeaux</span>, Pierre. Algorithmes et méthodes. Support de cours. 2014. Available from: <a href="http://www-cast3m.cea.fr/index.php?xml=supportcours">http://www-cast3m.cea.fr/index.php?xml=supportcours</a></div>
 </div>
-<div id="ref-ramiere_iterative_2015">
-<p>4. <span class="smallcaps">Ramière</span>, Isabelle and <span class="smallcaps">Helfer</span>, Thomas. Iterative residual-based vector methods to accelerate fixed point iterations. <em>Computers and Mathematics with Applications</em>. 2015. Under review</p>
+<div id="ref-ramiere_iterative_2015" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline"><span class="smallcaps">Ramière</span>, Isabelle and <span class="smallcaps">Helfer</span>, Thomas. Iterative residual-based vector methods to accelerate fixed point iterations. <em>Computers and Mathematics with Applications</em>. 2015. </div><div class="csl-right-inline">Under review</div>
 </div>
-<div id="ref-meric_single_1991">
-<p>5. <span class="smallcaps">Méric</span>, Laurent and <span class="smallcaps">Cailletaud</span>, Georges. Single crystal modelling for structural calculations. <em>Journal of Engineering Material and Technology</em>. January 1991. Vol. 113, p. 171–182. </p>
+<div id="ref-meric_single_1991" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline"><span class="smallcaps">Méric</span>, L. and <span class="smallcaps">Cailletaud</span>, Georges. Single crystal modelling for structural calculations. <em>Journal of Engineering Material and Technology</em>. January 1991. Vol. 113, p. 171–182. </div>
 </div>
-<div id="ref-edf_comportements_2013">
-<p>6. <span class="smallcaps">EDF</span>. U4.51.11 révision : 10568: Comportements non linéaires. Référence du Code Aster. EDF-R&amp;D/AMA, 2013. Available from: <a href="http://www.code-aster.org" class="uri">http://www.code-aster.org</a></p>
+<div id="ref-meric_single_1991" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline"><span class="smallcaps">Méric</span>, L. and <span class="smallcaps">Cailletaud</span>, Georges. Single crystal modelling for structural calculations. <em>Journal of Engineering Material and Technology</em>. January 1991. Vol. 113, p. 171–182. </div>
 </div>
-<div id="ref-gamma_design_1994">
-<p>7. <span class="smallcaps">Gamma</span>, Erich, <span class="smallcaps">Helm</span>, Richard, <span class="smallcaps">Johnson</span>, Ralph and <span class="smallcaps">Vlissides</span>, John. Design patterns: Elements of reusable object-oriented software. Pearson Education, 1994. ISBN <a href="https://worldcat.org/isbn/978-0-321-70069-8">978-0-321-70069-8</a>. Google-Books-ID: 6oHuKQe3TjQC</p>
+<div id="ref-edf_comportements_2013" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline"><span class="smallcaps">EDF</span>. U4.51.11 révision : 10568: Comportements non linéaires. Référence du Code Aster. EDF-R&amp;D/AMA, 2013. Available from: <a href="http://www.code-aster.org">http://www.code-aster.org</a></div>
+</div>
+<div id="ref-gamma_design_1994" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline"><span class="smallcaps">Gamma</span>, Erich, <span class="smallcaps">Helm</span>, Richard, <span class="smallcaps">Johnson</span>, Ralph and <span class="smallcaps">Vlissides</span>, John. Design patterns: Elements of reusable object-oriented software. Pearson Education, 1994. ISBN <a href="https://worldcat.org/isbn/978-0-321-70069-8">978-0-321-70069-8</a>. </div><div class="csl-right-inline">Google-Books-<span>ID</span>: 6oHuKQe3TjQC</div>
 </div>
 </div>
-<section class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>The <span class="math inline">\(\beta{\left(\nu\right)}\)</span> factor is closed to <span class="math inline">\(\frac{1}{2}\)</span> for a macroscopic Poisson ratio close to <span class="math inline">\(0.3\)</span>. In this case, the Localisation Equation (2) may be simplified as: <span class="math display">\[
+<li id="fn1" role="doc-endnote"><p>The <span class="math inline">\(\beta{\left(\nu\right)}\)</span> factor is closed to <span class="math inline">\(\frac{1}{2}\)</span> for a macroscopic Poisson ratio close to <span class="math inline">\(0.3\)</span>. In this case, the Localisation Equation (2) may be simplified as: <span class="math display">\[
 {\underline{\sigma}}^{(k)}=\underline{\Sigma}+M\alpha{\left(\Sigma_{\mathrm{eq}},P\right)}\,{\left(\underline{E}^{\mathrm{vp}}-{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\right)}
-\]</span><a href="#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p><a href="https://github.com/thelfer/tfel/blob/master/mfront/tests/behaviours/PolyCrystals.mfront" class="uri">https://github.com/thelfer/tfel/blob/master/mfront/tests/behaviours/PolyCrystals.mfront</a><a href="#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>This class is an extension of the <code>PolyCrystalsSlidingSystems</code> that is provided by the <code>TFEL/Material</code> library, hence its name.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+\]</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="https://github.com/thelfer/tfel/blob/master/mfront/tests/behaviours/PolyCrystals.mfront" class="uri">https://github.com/thelfer/tfel/blob/master/mfront/tests/behaviours/PolyCrystals.mfront</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>This class is an extension of the <code>PolyCrystalsSlidingSystems</code> that is provided by the <code>TFEL/Material</code> library, hence its name.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

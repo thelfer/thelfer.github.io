@@ -17,28 +17,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -47,9 +46,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -82,7 +81,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -100,64 +99,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -179,6 +195,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -245,34 +262,27 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">Introduction à MFront</h1>
-                  <h2 class="author">Helfer Thomas</h2>
-            <h2 class="author">Jean-Michel Proix</h2>
-                  <h3 class="date">September 16, 2014</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#comment-écrire-une-loi-de-comportement-la-loi-de-comportement-de-norton">Comment écrire une loi de comportement: la loi de comportement de Norton</a><ul>
-      <li><a href="#discrétisation-implicite-de-loi-de-norton">Discrétisation implicite de loi de Norton</a></li>
-      <li><a href="#première-implantation">Première implantation</a><ul>
-      <li><a href="#description-ligne-par-ligne">Description ligne par ligne</a></li>
-      </ul></li>
-      <li><a href="#premier-test">Premier test</a></li>
-      </ul></li>
-      <li><a href="#références">Références</a></li>
-      </ul>
-    </div>
-        <p>Cette page est extraitre du tutoriel MFront : <a href="documents/tutoriel/tutoriel.pdf">tutoriel.pdf</a>.</p>
-
-
-
-
-
-
-
-
+<div id="header">
+<h1 class="title">Introduction à MFront</h1>
+<h2 class="author">Helfer Thomas</h2>
+<h2 class="author">Jean-Michel Proix</h2>
+<h3 class="date">September 16, 2014</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#comment-écrire-une-loi-de-comportement-la-loi-de-comportement-de-norton">Comment écrire une loi de comportement: la loi de comportement de Norton</a>
+<ul>
+<li><a href="#discrétisation-implicite-de-loi-de-norton">Discrétisation implicite de loi de Norton</a></li>
+<li><a href="#première-implantation">Première implantation</a>
+<ul>
+<li><a href="#description-ligne-par-ligne">Description ligne par ligne</a></li>
+</ul></li>
+<li><a href="#premier-test">Premier test</a></li>
+</ul></li>
+<li><a href="#références">Références</a></li>
+</ul>
+</div>
+<p>Cette page est extraitre du tutoriel MFront : <a href="documents/tutoriel/tutoriel.pdf">tutoriel.pdf</a>.</p>
 <h1 id="comment-écrire-une-loi-de-comportement-la-loi-de-comportement-de-norton">Comment écrire une loi de comportement: la loi de comportement de Norton</h1>
 <p>En guise de préliminaire, prenons par exemple la loi de Norton. Elle est définie par: <span class="math display">\[\left\{
   \begin{aligned}
@@ -306,36 +316,36 @@
 <p>La résolution implicite de ce système est effectuée par une méthode de Newton.</p>
 <h2 id="première-implantation">Première implantation</h2>
 <p>Voici un exemple très simple d’intégration implicite de ce modèle avec <code>MFront</code> :</p>
-<div class="sourceCode" id="UO2YoungModulus"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><a class="sourceLine" id="UO2YoungModulus-1" data-line-number="1"><span class="er">@</span>Parser Implicit;</a>
-<a class="sourceLine" id="UO2YoungModulus-2" data-line-number="2"><span class="er">@</span>Behaviour Norton;</a>
-<a class="sourceLine" id="UO2YoungModulus-3" data-line-number="3"><span class="er">@</span>Algorithm NewtonRaphson_NumericalJacobian ;</a>
-<a class="sourceLine" id="UO2YoungModulus-4" data-line-number="4"></a>
-<a class="sourceLine" id="UO2YoungModulus-5" data-line-number="5"><span class="er">@</span>RequireStiffnessTensor;</a>
-<a class="sourceLine" id="UO2YoungModulus-6" data-line-number="6"></a>
-<a class="sourceLine" id="UO2YoungModulus-7" data-line-number="7"><span class="er">@</span>MaterialProperty real A;</a>
-<a class="sourceLine" id="UO2YoungModulus-8" data-line-number="8"><span class="er">@</span>MaterialProperty real m;</a>
-<a class="sourceLine" id="UO2YoungModulus-9" data-line-number="9"></a>
-<a class="sourceLine" id="UO2YoungModulus-10" data-line-number="10"><span class="er">@</span>StateVariable real p ;</a>
-<a class="sourceLine" id="UO2YoungModulus-11" data-line-number="11"></a>
-<a class="sourceLine" id="UO2YoungModulus-12" data-line-number="12"><span class="er">@</span>ComputeStress{</a>
-<a class="sourceLine" id="UO2YoungModulus-13" data-line-number="13">  sig = D*eel ;</a>
-<a class="sourceLine" id="UO2YoungModulus-14" data-line-number="14">}</a>
-<a class="sourceLine" id="UO2YoungModulus-15" data-line-number="15"></a>
-<a class="sourceLine" id="UO2YoungModulus-16" data-line-number="16"><span class="er">@</span>Integrator{</a>
-<a class="sourceLine" id="UO2YoungModulus-17" data-line-number="17">  real seq = sigmaeq(sig) ;</a>
-<a class="sourceLine" id="UO2YoungModulus-18" data-line-number="18">  Stensor n = Stensor(<span class="fl">0.</span>) ;</a>
-<a class="sourceLine" id="UO2YoungModulus-19" data-line-number="19">  <span class="cf">if</span>(seq &gt; <span class="dv">1</span>.e<span class="dv">-12</span>){</a>
-<a class="sourceLine" id="UO2YoungModulus-20" data-line-number="20">    n = <span class="fl">1.5</span>*deviator(sig)/seq ;</a>
-<a class="sourceLine" id="UO2YoungModulus-21" data-line-number="21">  }</a>
-<a class="sourceLine" id="UO2YoungModulus-22" data-line-number="22">  feel += dp*n-deto ;</a>
-<a class="sourceLine" id="UO2YoungModulus-23" data-line-number="23">  fp -= dt*A*pow(seq,m) ;</a>
-<a class="sourceLine" id="UO2YoungModulus-24" data-line-number="24">} <span class="co">// end of @Integrator</span></a>
-<a class="sourceLine" id="UO2YoungModulus-25" data-line-number="25"></a>
-<a class="sourceLine" id="UO2YoungModulus-26" data-line-number="26"><span class="er">@</span>TangentOperator{</a>
-<a class="sourceLine" id="UO2YoungModulus-27" data-line-number="27">  Stensor4 Je ;</a>
-<a class="sourceLine" id="UO2YoungModulus-28" data-line-number="28">  getPartialJacobianInvert(Je) ;</a>
-<a class="sourceLine" id="UO2YoungModulus-29" data-line-number="29">  Dt = D*Je ;</a>
-<a class="sourceLine" id="UO2YoungModulus-30" data-line-number="30">}</a></code></pre></div>
+<div class="sourceCode" id="UO2YoungModulus"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="UO2YoungModulus-1"><a href="#UO2YoungModulus-1"></a><span class="er">@</span>Parser Implicit;</span>
+<span id="UO2YoungModulus-2"><a href="#UO2YoungModulus-2"></a><span class="er">@</span>Behaviour Norton;</span>
+<span id="UO2YoungModulus-3"><a href="#UO2YoungModulus-3"></a><span class="er">@</span>Algorithm NewtonRaphson_NumericalJacobian ;</span>
+<span id="UO2YoungModulus-4"><a href="#UO2YoungModulus-4"></a></span>
+<span id="UO2YoungModulus-5"><a href="#UO2YoungModulus-5"></a><span class="er">@</span>RequireStiffnessTensor;</span>
+<span id="UO2YoungModulus-6"><a href="#UO2YoungModulus-6"></a></span>
+<span id="UO2YoungModulus-7"><a href="#UO2YoungModulus-7"></a><span class="er">@</span>MaterialProperty real A;</span>
+<span id="UO2YoungModulus-8"><a href="#UO2YoungModulus-8"></a><span class="er">@</span>MaterialProperty real m;</span>
+<span id="UO2YoungModulus-9"><a href="#UO2YoungModulus-9"></a></span>
+<span id="UO2YoungModulus-10"><a href="#UO2YoungModulus-10"></a><span class="er">@</span>StateVariable real p ;</span>
+<span id="UO2YoungModulus-11"><a href="#UO2YoungModulus-11"></a></span>
+<span id="UO2YoungModulus-12"><a href="#UO2YoungModulus-12"></a><span class="er">@</span>ComputeStress{</span>
+<span id="UO2YoungModulus-13"><a href="#UO2YoungModulus-13"></a>  sig = D*eel ;</span>
+<span id="UO2YoungModulus-14"><a href="#UO2YoungModulus-14"></a>}</span>
+<span id="UO2YoungModulus-15"><a href="#UO2YoungModulus-15"></a></span>
+<span id="UO2YoungModulus-16"><a href="#UO2YoungModulus-16"></a><span class="er">@</span>Integrator{</span>
+<span id="UO2YoungModulus-17"><a href="#UO2YoungModulus-17"></a>  real seq = sigmaeq(sig) ;</span>
+<span id="UO2YoungModulus-18"><a href="#UO2YoungModulus-18"></a>  Stensor n = Stensor(<span class="fl">0.</span>) ;</span>
+<span id="UO2YoungModulus-19"><a href="#UO2YoungModulus-19"></a>  <span class="cf">if</span>(seq &gt; <span class="fl">1.e-12</span>){</span>
+<span id="UO2YoungModulus-20"><a href="#UO2YoungModulus-20"></a>    n = <span class="fl">1.5</span>*deviator(sig)/seq ;</span>
+<span id="UO2YoungModulus-21"><a href="#UO2YoungModulus-21"></a>  }</span>
+<span id="UO2YoungModulus-22"><a href="#UO2YoungModulus-22"></a>  feel += dp*n-deto ;</span>
+<span id="UO2YoungModulus-23"><a href="#UO2YoungModulus-23"></a>  fp -= dt*A*pow(seq,m) ;</span>
+<span id="UO2YoungModulus-24"><a href="#UO2YoungModulus-24"></a>} <span class="co">// end of @Integrator</span></span>
+<span id="UO2YoungModulus-25"><a href="#UO2YoungModulus-25"></a></span>
+<span id="UO2YoungModulus-26"><a href="#UO2YoungModulus-26"></a><span class="er">@</span>TangentOperator{</span>
+<span id="UO2YoungModulus-27"><a href="#UO2YoungModulus-27"></a>  Stensor4 Je ;</span>
+<span id="UO2YoungModulus-28"><a href="#UO2YoungModulus-28"></a>  getPartialJacobianInvert(Je) ;</span>
+<span id="UO2YoungModulus-29"><a href="#UO2YoungModulus-29"></a>  Dt = D*Je ;</span>
+<span id="UO2YoungModulus-30"><a href="#UO2YoungModulus-30"></a>}</span></code></pre></div>
 <h3 id="description-ligne-par-ligne">Description ligne par ligne</h3>
 <p>Un fichier commence généralement par une partie déclarative décrivant l’algorithme utilisé pour la résolution, le nom du comportement (ici ),puis la liste des propriétés matériau utilisées. On fournit ensuite le nom des variables internes, et la description des équations du système à résoudre.</p>
 <ul>
@@ -357,22 +367,22 @@
 <p>L’implantation fournit un code beaucoup plus rapide que celle d’un algorithme explicite, mais peut toutefois être optimisée en termes de performances. Pour cela, il suffit d’ajouter les termes de la matrice jacobienne (dérivées des équations par rapport aux inconnues).</p>
 <p>De plus, la matrice tangente en sortie de l’intégration est calculée automatiquement à partir de la matrice jacobienne, ce qui permet d’économiser un temps de développement important et conduit à une matrice tangente cohérente de très bonne qualité (<span class="citation" data-cites="helfer_generateur_2013">[1]</span>). Tout ceci conduit, en très peu de temps, à une intégration robuste, et une convergence très bonne. On voit qu’il est possible de profiter de cette simplicité d’écriture pour effectuer des variantes, des tests de modèles, etc.</p>
 <p>MFront gère la compilation de la loi, il suffit de taper dans un terminal :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=aster norton.mfront</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>aster norton.mfront</span></code></pre></div>
 <p>ou</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=castem norton.mfront</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem norton.mfront</span></code></pre></div>
 <p>suivant le code que l’on souhaite utiliser. Ceci génère deux répertoires : <code>src</code> et <code>include</code>. Selon l’interface, le répertoire <code>src</code> contient en particulier une bibliothèque dynamique nommée <code>libAsterBehaviour.so</code> pour une exécution avec Code-Aster, ou bien <code>libUmatBehaviour.so</code> pour une exécution avec Cast3M.</p>
 <h2 id="premier-test">Premier test</h2>
 <p>De plus, l’outil MTest permet d’effectuer très facilement des simulations sur point matériel, permettant de calculer la réponse à des sollicitations en contraintes ou en déformations.</p>
 <p>MTest, couplé à un logiciel d’optimisation comme , permet de plus d’effectuer le recalage des propriétés matériau. Le fichier de données de MTest (nommé ici <code>norton.mtest</code>) se présente de la façon suivante :</p>
-<div class="sourceCode" id="UO2YoungModulus"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><a class="sourceLine" id="UO2YoungModulus-1" data-line-number="1"><span class="er">@</span>Behaviour&lt;aster&gt; <span class="ch">&#39;./src/libAsterBehaviour.so&#39;</span> <span class="ch">&#39;asternorton&#39;</span> ;</a>
-<a class="sourceLine" id="UO2YoungModulus-2" data-line-number="2"><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;young&#39;</span> <span class="fl">178600.0E6</span> ;</a>
-<a class="sourceLine" id="UO2YoungModulus-3" data-line-number="3"><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;nu&#39;</span> <span class="fl">0.3</span> ;</a>
-<a class="sourceLine" id="UO2YoungModulus-4" data-line-number="4"><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;A&#39;</span> <span class="dv">8</span>.e<span class="dv">-67</span> ;</a>
-<a class="sourceLine" id="UO2YoungModulus-5" data-line-number="5"><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;m&#39;</span> <span class="fl">8.2</span> ;</a>
-<a class="sourceLine" id="UO2YoungModulus-6" data-line-number="6"><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;Temperature&#39;</span> <span class="fl">293.15</span> ;</a>
-<a class="sourceLine" id="UO2YoungModulus-7" data-line-number="7"><span class="er">@</span>ImposedStress <span class="ch">&#39;SXX&#39;</span> { <span class="fl">0.</span> :  <span class="fl">0.</span>, <span class="fl">30.</span> : <span class="dv">40</span>.e6};</a>
-<a class="sourceLine" id="UO2YoungModulus-8" data-line-number="8"><span class="er">@</span>ImposedStress <span class="ch">&#39;SXY&#39;</span> { <span class="fl">0.</span> :  <span class="fl">0.</span>, <span class="fl">30.</span> : <span class="dv">40</span>.e6};</a>
-<a class="sourceLine" id="UO2YoungModulus-9" data-line-number="9"><span class="er">@</span>Times {<span class="fl">0.</span>,<span class="fl">30.</span> in <span class="dv">100</span>};</a></code></pre></div>
+<div class="sourceCode" id="UO2YoungModulus"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="UO2YoungModulus-1"><a href="#UO2YoungModulus-1"></a><span class="er">@</span>Behaviour&lt;aster&gt; <span class="ch">&#39;.</span><span class="er">/src/libAsterBehaviour.so</span><span class="ch">&#39;</span> <span class="ch">&#39;a</span><span class="er">sternorton</span><span class="ch">&#39;</span> ;</span>
+<span id="UO2YoungModulus-2"><a href="#UO2YoungModulus-2"></a><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;y</span><span class="er">oung</span><span class="ch">&#39;</span> <span class="fl">178600.0E6</span> ;</span>
+<span id="UO2YoungModulus-3"><a href="#UO2YoungModulus-3"></a><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;n</span><span class="er">u</span><span class="ch">&#39;</span> <span class="fl">0.3</span> ;</span>
+<span id="UO2YoungModulus-4"><a href="#UO2YoungModulus-4"></a><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;A&#39;</span> <span class="fl">8.e-67</span> ;</span>
+<span id="UO2YoungModulus-5"><a href="#UO2YoungModulus-5"></a><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="ch">&#39;m&#39;</span> <span class="fl">8.2</span> ;</span>
+<span id="UO2YoungModulus-6"><a href="#UO2YoungModulus-6"></a><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;T</span><span class="er">emperature</span><span class="ch">&#39;</span> <span class="fl">293.15</span> ;</span>
+<span id="UO2YoungModulus-7"><a href="#UO2YoungModulus-7"></a><span class="er">@</span>ImposedStress <span class="ch">&#39;S</span><span class="er">XX</span><span class="ch">&#39;</span> { <span class="fl">0.</span> :  <span class="fl">0.</span>, <span class="fl">30.</span> : <span class="fl">40.e6</span>};</span>
+<span id="UO2YoungModulus-8"><a href="#UO2YoungModulus-8"></a><span class="er">@</span>ImposedStress <span class="ch">&#39;S</span><span class="er">XY</span><span class="ch">&#39;</span> { <span class="fl">0.</span> :  <span class="fl">0.</span>, <span class="fl">30.</span> : <span class="fl">40.e6</span>};</span>
+<span id="UO2YoungModulus-9"><a href="#UO2YoungModulus-9"></a><span class="er">@</span>Times {<span class="fl">0.</span>,<span class="fl">30.</span> in <span class="dv">100</span>};</span></code></pre></div>
 <ul>
 <li>la ligne <span class="math inline">\(1\)</span> définit la bibliothèque à utiliser et le nom du comportement ;</li>
 <li>les lignes <span class="math inline">\(2\)</span> à <span class="math inline">\(5\)</span> définissent les valeurs des propriétés matériau de la loi ;</li>
@@ -381,19 +391,19 @@
 <li>la ligne <span class="math inline">\(9\)</span> définit la discrétisation en temps, donc les instants calculés.</li>
 </ul>
 <p>Il suffit alors de lancer le calcul par :</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="ex">mtest</span> norton.mtest</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mtest</span> norton.mtest</span></code></pre></div>
 <p>Ceci produit un fichier résultat <code>norton.res</code> contenant les composantes des tenseurs de déformation, de contrainte, et les variables internes en fonction du temps. La réponse en déformation est représentée ci-dessous:</p>
 <figure>
-<img src="img/tutorielch12-img1.png" alt="Réponse d’une loi de Norton à un essai de fluage en traction-cisaillement" /><figcaption>Réponse d’une loi de Norton à un essai de fluage en traction-cisaillement</figcaption>
+<img src="img/tutorielch12-img1.png" alt="Réponse d’une loi de Norton à un essai de fluage en traction-cisaillement" /><figcaption aria-hidden="true">Réponse d’une loi de Norton à un essai de fluage en traction-cisaillement</figcaption>
 </figure>
 <h1 id="références">Références</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references">
-<div id="ref-helfer_generateur_2013">
-<p>1. <span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Castelier</span>, Étienne, <span class="smallcaps">Blanc</span>, Victor and <span class="smallcaps">Julien</span>, Jérôme. 13-020: Le générateur de code mfront : Écriture de lois de comportement mécanique. Note technique. CEA DEN/DEC/SESC/LSC, 2013. </p>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-helfer_generateur_2013" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Castelier</span>, Étienne, <span class="smallcaps">Blanc</span>, Victor and <span class="smallcaps">Julien</span>, Jérôme. 13-020: Le générateur de code mfront : Écriture de lois de comportement mécanique. Note technique. CEA DEN/DEC/SESC/LSC, 2013. </div>
 </div>
 </div>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

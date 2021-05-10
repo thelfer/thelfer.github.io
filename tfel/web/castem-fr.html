@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -99,64 +98,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -178,6 +194,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -244,22 +261,18 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">Utilisation de MFront dans <a href="http://www-cast3m.cea.fr/">Cast3M</a></h1>
-                  <h2 class="author">Helfer Thomas</h2>
-                  <h3 class="date">August 19, 2014</h3>
-          </div>
-            
-
-
-
-
-
-
-
+<div id="header">
+<h1 class="title">Utilisation de MFront dans <a href="http://www-cast3m.cea.fr/">Cast3M</a></h1>
+<h2 class="author">Helfer Thomas</h2>
+<h3 class="date">August 19, 2014</h3>
+</div>
 <h1 id="lois-de-comportement-mécanique">Lois de comportement mécanique</h1>
 <p>L’utilisation de lois générées par <code>MFront</code> dans <a href="http://www-cast3m.cea.fr/"><code>Cast3M</code></a> se fait via l’interface générique <a href="http://www-cast3m.cea.fr/index.php?page=sources&amp;source=umat"><code>UMAT</code></a>.</p>
+<p><code>MFront</code> propose deux interfaces pour ce solveur:</p>
+<ul>
+<li><code>castem</code> pour les versions strictement antérieures à la version 2021. Pour des raisons historiques, cette interface est un synonyme de l’interface <code>umat</code>.</li>
+<li><code>castem21</code> pour les versions supérieures ou égales à la version 2021.</li>
+</ul>
 <p>Dans la suite de ce document, nous supposons travailler dans un environnement <code>POSIX</code>. Le shell utilisé est <code>bash</code>. Une page dédiée à l’utilisation de <code>MFront</code> sous <code>Windows</code> sera ajoutée à terme.</p>
 <p>Nous utiliserons la loi de Norton décrite dans le <a href="tutorial.html">tutoriel</a>. L’ensemble des fichiers utilisés dans ce document peut être téléchargé <a href="downloads/example-castem2014.tar.bz2">ici</a>.</p>
 <p>Ce document se découpe en trois partie :</p>
@@ -270,159 +283,159 @@
 </ul>
 <h2 id="compilation-de-la-loi">Compilation de la loi</h2>
 <p>MFront gère la compilation de la loi, il suffit de taper dans un terminal :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=castem norton.mfront</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem norton.mfront</span></code></pre></div>
 <p>Ceci génère trois répertoires : <code>src</code>, <code>include</code> et <code>castem</code>.</p>
 <p>Le répertoire <code>src</code> contient en particulier une bibliothèque dynamique nommée <code>libUmatBehaviour.so</code>.</p>
 <p>Le répertoire <code>castem</code> contient un exemple de mise en donnée pour la loi générée pour chacune des hypothèses de modélisation supportée.</p>
 <h2 id="intégration-dans-cast3m">Intégration dans <code>Cast3M</code></h2>
 <p>Il est possible d’utiliser un appel direct à la librairie <code>MFront</code> générée. Pour la version <span class="math inline">\(2014\)</span>, il est nécessaire d’appliquer les <a href="downloads/patchs-Cast3M-2014.tar.bz2">certains patchs</a>. Ce patch n’est plus nécessaire depuis la version 2015.</p>
 <p>Pour utiliser la librairie générée via les appels dynamiques, l’appel à l’opérateur <code>MODELISER</code> se fait ainsi :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">mod1 <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> s1 <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span> <span class="st">&#39;ISOTROPE&#39;</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">   <span class="co">&#39;NON_LINEAIRE&#39;</span> <span class="st">&#39;UTILISATEUR&#39;</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">   <span class="co">&#39;LIB_LOI&#39;</span> <span class="st">&#39;src/libUmatBehaviour.so&#39;</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">   <span class="co">&#39;FCT_LOI&#39;</span> <span class="st">&#39;umatnorton&#39;</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">   <span class="co">&#39;C_MATERIAU&#39;</span> coel2D</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">   <span class="co">&#39;C_VARINTER&#39;</span> stav2D</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">   <span class="co">&#39;PARA_LOI&#39;</span>   para2D</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">   <span class="co">&#39;CONS&#39;</span> M<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> s1 <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span> <span class="st">&#39;ISOTROPE&#39;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;NON_LINEAIRE&#39;</span> <span class="st">&#39;UTILISATEUR&#39;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;LIB_LOI&#39;</span> <span class="st">&#39;src/libUmatBehaviour.so&#39;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;FCT_LOI&#39;</span> <span class="st">&#39;umatnorton&#39;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;C_MATERIAU&#39;</span> coel2D</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;C_VARINTER&#39;</span> stav2D</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;PARA_LOI&#39;</span>   para2D</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;CONS&#39;</span> M<span class="op">;</span></span></code></pre></div>
 <p>Nous avons explicitement indiqué le chemin vers la librairie. En pratique, il est préférable de ne pas le faire et de modifier la variable <code>LD_LIBRARY_PATH</code>.</p>
 <h2 id="test">Test</h2>
 <p>Pour tester notre loi, nous pouvons utiliser le jeu de donnés suivant :</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">&#39;OPTION&#39;</span> <span class="st">&#39;ERREUR&#39;</span> <span class="st">&#39;FATALE&#39;</span> <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">&#39;OPTION&#39;</span> <span class="st">&#39;DIME&#39;</span> <span class="dv">2</span> <span class="st">&#39;ELEM&#39;</span> qua4<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">&#39;OPTION&#39;</span> <span class="st">&#39;MODELISER&#39;</span> <span class="st">&#39;AXISYMETRIE&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">TMAX <span class="op">=</span> <span class="fl">1.</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">NPAS <span class="op">=</span> <span class="dv">50</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">UMAX <span class="op">=</span> <span class="fl">3.5e-2</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">O <span class="op">=</span> <span class="fl">0.</span> <span class="fl">0.</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">A <span class="op">=</span> <span class="fl">1.</span> <span class="fl">0.</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">l1 <span class="op">=</span> <span class="st">&#39;DROIT&#39;</span> <span class="dv">1</span> O A<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">l2 <span class="op">=</span> l1 <span class="st">&#39;PLUS&#39;</span> (<span class="fl">0.</span> <span class="fl">1.</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">s1 <span class="op">=</span> l1 <span class="st">&#39;REGLER&#39;</span> <span class="dv">1</span> l2<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17">coel2D <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span> <span class="st">&#39;YOUN&#39;</span> <span class="st">&#39;NU&#39;</span> <span class="st">&#39;RHO&#39;</span> <span class="st">&#39;ALPH&#39;</span> <span class="st">&#39;A&#39;</span> <span class="st">&#39;E&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18">stav2D <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span> <span class="st">&#39;EERR&#39;</span> <span class="st">&#39;EEZZ&#39;</span> <span class="st">&#39;EETT&#39;</span> <span class="st">&#39;EERZ&#39;</span>  <span class="st">&#39;P&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19">para2D <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span> <span class="st">&#39;T&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb3-21" data-line-number="21">mod1 <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> s1 <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span> <span class="st">&#39;ISOTROPE&#39;</span></a>
-<a class="sourceLine" id="cb3-22" data-line-number="22">   <span class="co">&#39;NON_LINEAIRE&#39;</span> <span class="st">&#39;UTILISATEUR&#39;</span></a>
-<a class="sourceLine" id="cb3-23" data-line-number="23">   <span class="co">&#39;NUME_LOI&#39;</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb3-24" data-line-number="24">   <span class="co">&#39;C_MATERIAU&#39;</span> coel2D</a>
-<a class="sourceLine" id="cb3-25" data-line-number="25">   <span class="co">&#39;C_VARINTER&#39;</span> stav2D</a>
-<a class="sourceLine" id="cb3-26" data-line-number="26">   <span class="co">&#39;PARA_LOI&#39;</span>   para2D</a>
-<a class="sourceLine" id="cb3-27" data-line-number="27">   <span class="co">&#39;CONS&#39;</span> M<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-28" data-line-number="28">   </a>
-<a class="sourceLine" id="cb3-29" data-line-number="29">MAT1 <span class="op">=</span> <span class="st">&#39;MATERIAU&#39;</span> MOD1 <span class="st">&#39;YOUN&#39;</span> <span class="fl">80e9</span> <span class="st">&#39;NU&#39;</span> <span class="fl">0.35</span> <span class="st">&#39;ALPH&#39;</span> <span class="fl">0.</span> <span class="st">&#39;RHO&#39;</span> <span class="fl">0.</span></a>
-<a class="sourceLine" id="cb3-30" data-line-number="30">   <span class="co">&#39;A&#39;</span> (<span class="fl">0.003944e-6</span> <span class="st">&#39;**&#39;</span> <span class="fl">4.39</span>) <span class="st">&#39;E&#39;</span> <span class="fl">4.39</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-31" data-line-number="31"></a>
-<a class="sourceLine" id="cb3-32" data-line-number="32"><span class="op">***</span></a>
-<a class="sourceLine" id="cb3-33" data-line-number="33">LIT1 <span class="op">=</span> PROG <span class="fl">0.</span> PAS (TMAX<span class="op">/</span> NPAS)  TMAX<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-34" data-line-number="34"></a>
-<a class="sourceLine" id="cb3-35" data-line-number="35"><span class="op">***</span> CONDITIONS AUX LIMITES</a>
-<a class="sourceLine" id="cb3-36" data-line-number="36"><span class="op">************************************************</span></a>
-<a class="sourceLine" id="cb3-37" data-line-number="37"><span class="op">*</span> Conditions aux limites éprouvette</a>
-<a class="sourceLine" id="cb3-38" data-line-number="38">CL1 <span class="op">=</span> <span class="st">&#39;BLOQUE&#39;</span> <span class="st">&#39;UZ&#39;</span>  L1 <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-39" data-line-number="39">CL2 <span class="op">=</span> <span class="st">&#39;BLOQUE&#39;</span> <span class="st">&#39;UZ&#39;</span>  L2 <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-40" data-line-number="40">CLE1 <span class="op">=</span> CL1 ET CL2<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-41" data-line-number="41"></a>
-<a class="sourceLine" id="cb3-42" data-line-number="42"><span class="op">*</span> Chargement mécanique et thermique</a>
-<a class="sourceLine" id="cb3-43" data-line-number="43">LI1 <span class="op">=</span> PROG <span class="fl">0.</span> TMAX <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-44" data-line-number="44">LI2 <span class="op">=</span> PROG <span class="fl">0.</span> <span class="fl">1.</span> <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-45" data-line-number="45">EV <span class="op">=</span> EVOL MANU T LI1 F(T) LI2 <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-46" data-line-number="46">DEP1 <span class="op">=</span> DEPI CL2 UMAX<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-47" data-line-number="47">CHA1 <span class="op">=</span> CHAR <span class="st">&#39;DIMP&#39;</span> DEP1 EV <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-48" data-line-number="48"></a>
-<a class="sourceLine" id="cb3-49" data-line-number="49"><span class="op">*</span> Champ de température</a>
-<a class="sourceLine" id="cb3-50" data-line-number="50">TEK <span class="op">=</span> <span class="fl">293.15</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-51" data-line-number="51">THE1 <span class="op">=</span> MANU <span class="st">&#39;CHPO&#39;</span> S1 <span class="dv">1</span> <span class="st">&#39;T&#39;</span> TEK <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-52" data-line-number="52">EV2 <span class="op">=</span> EVOL MANU (prog <span class="fl">0.</span> TMAX) (prog <span class="fl">1.</span> <span class="fl">1.</span>) <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-53" data-line-number="53">CHARTHER <span class="op">=</span> CHAR <span class="st">&#39;T&#39;</span> THE1 EV2 <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-54" data-line-number="54">                             </a>
-<a class="sourceLine" id="cb3-55" data-line-number="55"><span class="op">**</span> CALCUL</a>
-<a class="sourceLine" id="cb3-56" data-line-number="56"><span class="op">*</span> Définition des pas de calcul et de sauvegarde</a>
-<a class="sourceLine" id="cb3-57" data-line-number="57"><span class="op">************************************************************</span></a>
-<a class="sourceLine" id="cb3-58" data-line-number="58"><span class="op">*</span> Définition de la table de la phase de charge</a>
-<a class="sourceLine" id="cb3-59" data-line-number="59">TAB1 <span class="op">=</span> TABLE <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-60" data-line-number="60"><span class="op">*</span>TAB1.<span class="st">&#39;K_SIGMA&#39;</span> <span class="op">=</span>  FAUX<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-61" data-line-number="61">TAB1.<span class="st">&#39;MOVA&#39;</span> <span class="op">=</span> <span class="st">&#39;MOT&#39;</span> <span class="st">&#39;RIEN&#39;</span> <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-62" data-line-number="62">TAB1.<span class="st">&#39;TEMPERATURES&#39;</span> <span class="op">=</span> TABLE <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-63" data-line-number="63">TAB1.<span class="st">&#39;VARIABLES_INTERNES&#39;</span> <span class="op">=</span> TABLE <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-64" data-line-number="64">TAB1.<span class="st">&#39;BLOCAGES_MECANIQUES&#39;</span> <span class="op">=</span> CLE1 <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-65" data-line-number="65">TAB1.<span class="st">&#39;MODELE&#39;</span> <span class="op">=</span> MOD1 <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-66" data-line-number="66">TAB1.<span class="st">&#39;CHARGEMENT&#39;</span> <span class="op">=</span> CHA1 <span class="st">&#39;ET&#39;</span> CHARTHER <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-67" data-line-number="67">TAB1.<span class="st">&#39;TEMPERATURES&#39;</span> . <span class="dv">0</span> <span class="op">=</span> THE1 <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-68" data-line-number="68">TAB1.<span class="st">&#39;CARACTERISTIQUES&#39;</span> <span class="op">=</span> MAT1 <span class="op">;</span>        </a>
-<a class="sourceLine" id="cb3-69" data-line-number="69">TAB1.<span class="st">&#39;TEMPS_CALCULES&#39;</span> <span class="op">=</span> LIT1 <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-70" data-line-number="70">TAB1.<span class="st">&#39;TEMPS_SAUVES&#39;</span> <span class="op">=</span> LIT1 <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-71" data-line-number="71">TAB1.VARIABLES_INTERNES<span class="fl">.0</span> <span class="op">=</span> (ZERO MOD1 <span class="st">&#39;VARINTER&#39;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-72" data-line-number="72">TAB1.<span class="st">&#39;PRECISION&#39;</span> <span class="op">=</span> <span class="dv">1</span>.e<span class="dv">-8</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-73" data-line-number="73"></a>
-<a class="sourceLine" id="cb3-74" data-line-number="74"><span class="op">*</span> Lancement du calcul de la phase de charge </a>
-<a class="sourceLine" id="cb3-75" data-line-number="75">PASAPAS TAB1 <span class="op">;</span></a>
-<a class="sourceLine" id="cb3-76" data-line-number="76"></a>
-<a class="sourceLine" id="cb3-77" data-line-number="77"><span class="co">&#39;REPETER&#39;</span> i (<span class="st">&#39;DIME&#39;</span> tab1.<span class="st">&#39;CONTRAINTES&#39;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-78" data-line-number="78">   idx <span class="op">=</span> <span class="op">&amp;</span>i <span class="st">&#39;-&#39;</span> <span class="dv">1</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-79" data-line-number="79">   s <span class="op">=</span> tab1.<span class="st">&#39;CONTRAINTES&#39;</span> . idx<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-80" data-line-number="80">   d <span class="op">=</span> tab1.<span class="st">&#39;DEPLACEMENTS&#39;</span>. idx<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-81" data-line-number="81">   v <span class="op">=</span> tab1.<span class="st">&#39;VARIABLES_INTERNES&#39;</span>. idx<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-82" data-line-number="82">   <span class="co">&#39;MESSAGE&#39;</span> (<span class="st">&#39;MAXIMUM&#39;</span> (<span class="st">&#39;EXCO&#39;</span> d <span class="st">&#39;UZ&#39;</span>)) <span class="st">&#39; &#39;</span></a>
-<a class="sourceLine" id="cb3-83" data-line-number="83">             (<span class="st">&#39;MINIMUM&#39;</span> (<span class="st">&#39;EXCO&#39;</span> d <span class="st">&#39;UR&#39;</span>)) <span class="st">&#39; &#39;</span></a>
-<a class="sourceLine" id="cb3-84" data-line-number="84">             (<span class="st">&#39;MAXIMUM&#39;</span> (<span class="st">&#39;EXCO&#39;</span> s <span class="st">&#39;SMZZ&#39;</span>)) <span class="st">&#39; &#39;</span></a>
-<a class="sourceLine" id="cb3-85" data-line-number="85">             (<span class="st">&#39;MAXIMUM&#39;</span> (<span class="st">&#39;EXCO&#39;</span> v <span class="st">&#39;P&#39;</span>))<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-86" data-line-number="86"><span class="co">&#39;FIN&#39;</span> i<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-87" data-line-number="87"></a>
-<a class="sourceLine" id="cb3-88" data-line-number="88">nb <span class="op">=</span> (<span class="st">&#39;DIME&#39;</span> tab1.<span class="st">&#39;CONTRAINTES&#39;</span>) <span class="st">&#39;-&#39;</span> <span class="dv">1</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-89" data-line-number="89">psig <span class="op">=</span> <span class="st">&#39;PROG&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-90" data-line-number="90">peto <span class="op">=</span> <span class="st">&#39;PROG&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-91" data-line-number="91"><span class="co">&#39;REPETER&#39;</span> i nb<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-92" data-line-number="92">   s <span class="op">=</span> tab1.<span class="st">&#39;CONTRAINTES&#39;</span> . <span class="op">&amp;</span>i<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-93" data-line-number="93">   d <span class="op">=</span> tab1.<span class="st">&#39;DEPLACEMENTS&#39;</span>. <span class="op">&amp;</span>i<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-94" data-line-number="94">   psig <span class="op">=</span> psig <span class="st">&#39;ET&#39;</span> (<span class="st">&#39;PROG&#39;</span> (<span class="st">&#39;MAXIMUM&#39;</span> (<span class="st">&#39;EXCO&#39;</span> s <span class="st">&#39;SMZZ&#39;</span>)))<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-95" data-line-number="95">   peto <span class="op">=</span> peto <span class="st">&#39;ET&#39;</span> (<span class="st">&#39;PROG&#39;</span> (<span class="st">&#39;MAXIMUM&#39;</span> (<span class="st">&#39;EXCO&#39;</span> d <span class="st">&#39;UZ&#39;</span>)))<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-96" data-line-number="96"><span class="co">&#39;FIN&#39;</span> i<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-97" data-line-number="97"></a>
-<a class="sourceLine" id="cb3-98" data-line-number="98"></a>
-<a class="sourceLine" id="cb3-99" data-line-number="99">EVSIG <span class="op">=</span> <span class="st">&#39;EVOL&#39;</span> <span class="st">&#39;ROUG&#39;</span> <span class="st">&#39;MANU&#39;</span> <span class="st">&#39;EZZ&#39;</span> peto <span class="st">&#39;SMZZ&#39;</span> psig<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-100" data-line-number="100"><span class="co">&#39;LISTE&#39;</span> evsig<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-101" data-line-number="101"><span class="co">&#39;DESSIN&#39;</span> evsig<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-102" data-line-number="102"></a>
-<a class="sourceLine" id="cb3-103" data-line-number="103"><span class="co">&#39;FIN&#39;</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">&#39;OPTION&#39;</span> <span class="st">&#39;ERREUR&#39;</span> <span class="st">&#39;FATALE&#39;</span> <span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="co">&#39;OPTION&#39;</span> <span class="st">&#39;DIME&#39;</span> <span class="dv">2</span> <span class="st">&#39;ELEM&#39;</span> qua4<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">&#39;OPTION&#39;</span> <span class="st">&#39;MODELISER&#39;</span> <span class="st">&#39;AXISYMETRIE&#39;</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a>TMAX <span class="op">=</span> <span class="fl">1.</span><span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>NPAS <span class="op">=</span> <span class="dv">50</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>UMAX <span class="op">=</span> <span class="fl">3.5e-2</span><span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a></span>
+<span id="cb3-9"><a href="#cb3-9"></a>O <span class="op">=</span> <span class="fl">0.</span> <span class="fl">0.</span><span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>A <span class="op">=</span> <span class="fl">1.</span> <span class="fl">0.</span><span class="op">;</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a></span>
+<span id="cb3-12"><a href="#cb3-12"></a>l1 <span class="op">=</span> <span class="st">&#39;DROIT&#39;</span> <span class="dv">1</span> O A<span class="op">;</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>l2 <span class="op">=</span> l1 <span class="st">&#39;PLUS&#39;</span> (<span class="fl">0.</span> <span class="fl">1.</span>)<span class="op">;</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a></span>
+<span id="cb3-15"><a href="#cb3-15"></a>s1 <span class="op">=</span> l1 <span class="st">&#39;REGLER&#39;</span> <span class="dv">1</span> l2<span class="op">;</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a></span>
+<span id="cb3-17"><a href="#cb3-17"></a>coel2D <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span> <span class="st">&#39;YOUN&#39;</span> <span class="st">&#39;NU&#39;</span> <span class="st">&#39;RHO&#39;</span> <span class="st">&#39;ALPH&#39;</span> <span class="st">&#39;A&#39;</span> <span class="st">&#39;E&#39;</span><span class="op">;</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>stav2D <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span> <span class="st">&#39;EERR&#39;</span> <span class="st">&#39;EEZZ&#39;</span> <span class="st">&#39;EETT&#39;</span> <span class="st">&#39;EERZ&#39;</span>  <span class="st">&#39;P&#39;</span><span class="op">;</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a>para2D <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span> <span class="st">&#39;T&#39;</span><span class="op">;</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a></span>
+<span id="cb3-21"><a href="#cb3-21"></a>mod1 <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> s1 <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span> <span class="st">&#39;ISOTROPE&#39;</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a>   <span class="co">&#39;NON_LINEAIRE&#39;</span> <span class="st">&#39;UTILISATEUR&#39;</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a>   <span class="co">&#39;NUME_LOI&#39;</span> <span class="dv">1</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a>   <span class="co">&#39;C_MATERIAU&#39;</span> coel2D</span>
+<span id="cb3-25"><a href="#cb3-25"></a>   <span class="co">&#39;C_VARINTER&#39;</span> stav2D</span>
+<span id="cb3-26"><a href="#cb3-26"></a>   <span class="co">&#39;PARA_LOI&#39;</span>   para2D</span>
+<span id="cb3-27"><a href="#cb3-27"></a>   <span class="co">&#39;CONS&#39;</span> M<span class="op">;</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a>   </span>
+<span id="cb3-29"><a href="#cb3-29"></a>MAT1 <span class="op">=</span> <span class="st">&#39;MATERIAU&#39;</span> MOD1 <span class="st">&#39;YOUN&#39;</span> <span class="fl">80e9</span> <span class="st">&#39;NU&#39;</span> <span class="fl">0.35</span> <span class="st">&#39;ALPH&#39;</span> <span class="fl">0.</span> <span class="st">&#39;RHO&#39;</span> <span class="fl">0.</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a>   <span class="co">&#39;A&#39;</span> (<span class="fl">0.003944e-6</span> <span class="st">&#39;**&#39;</span> <span class="fl">4.39</span>) <span class="st">&#39;E&#39;</span> <span class="fl">4.39</span><span class="op">;</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a></span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="op">***</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a>LIT1 <span class="op">=</span> PROG <span class="fl">0.</span> PAS (TMAX<span class="op">/</span> NPAS)  TMAX<span class="op">;</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="op">***</span> CONDITIONS AUX LIMITES</span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="op">************************************************</span></span>
+<span id="cb3-37"><a href="#cb3-37"></a><span class="op">*</span> Conditions aux limites éprouvette</span>
+<span id="cb3-38"><a href="#cb3-38"></a>CL1 <span class="op">=</span> <span class="st">&#39;BLOQUE&#39;</span> <span class="st">&#39;UZ&#39;</span>  L1 <span class="op">;</span></span>
+<span id="cb3-39"><a href="#cb3-39"></a>CL2 <span class="op">=</span> <span class="st">&#39;BLOQUE&#39;</span> <span class="st">&#39;UZ&#39;</span>  L2 <span class="op">;</span></span>
+<span id="cb3-40"><a href="#cb3-40"></a>CLE1 <span class="op">=</span> CL1 ET CL2<span class="op">;</span></span>
+<span id="cb3-41"><a href="#cb3-41"></a></span>
+<span id="cb3-42"><a href="#cb3-42"></a><span class="op">*</span> Chargement mécanique et thermique</span>
+<span id="cb3-43"><a href="#cb3-43"></a>LI1 <span class="op">=</span> PROG <span class="fl">0.</span> TMAX <span class="op">;</span></span>
+<span id="cb3-44"><a href="#cb3-44"></a>LI2 <span class="op">=</span> PROG <span class="fl">0.</span> <span class="fl">1.</span> <span class="op">;</span></span>
+<span id="cb3-45"><a href="#cb3-45"></a>EV <span class="op">=</span> EVOL MANU T LI1 F(T) LI2 <span class="op">;</span></span>
+<span id="cb3-46"><a href="#cb3-46"></a>DEP1 <span class="op">=</span> DEPI CL2 UMAX<span class="op">;</span></span>
+<span id="cb3-47"><a href="#cb3-47"></a>CHA1 <span class="op">=</span> CHAR <span class="st">&#39;DIMP&#39;</span> DEP1 EV <span class="op">;</span></span>
+<span id="cb3-48"><a href="#cb3-48"></a></span>
+<span id="cb3-49"><a href="#cb3-49"></a><span class="op">*</span> Champ de température</span>
+<span id="cb3-50"><a href="#cb3-50"></a>TEK <span class="op">=</span> <span class="fl">293.15</span><span class="op">;</span></span>
+<span id="cb3-51"><a href="#cb3-51"></a>THE1 <span class="op">=</span> MANU <span class="st">&#39;CHPO&#39;</span> S1 <span class="dv">1</span> <span class="st">&#39;T&#39;</span> TEK <span class="op">;</span></span>
+<span id="cb3-52"><a href="#cb3-52"></a>EV2 <span class="op">=</span> EVOL MANU (prog <span class="fl">0.</span> TMAX) (prog <span class="fl">1.</span> <span class="fl">1.</span>) <span class="op">;</span></span>
+<span id="cb3-53"><a href="#cb3-53"></a>CHARTHER <span class="op">=</span> CHAR <span class="st">&#39;T&#39;</span> THE1 EV2 <span class="op">;</span></span>
+<span id="cb3-54"><a href="#cb3-54"></a>                             </span>
+<span id="cb3-55"><a href="#cb3-55"></a><span class="op">**</span> CALCUL</span>
+<span id="cb3-56"><a href="#cb3-56"></a><span class="op">*</span> Définition des pas de calcul et de sauvegarde</span>
+<span id="cb3-57"><a href="#cb3-57"></a><span class="op">************************************************************</span></span>
+<span id="cb3-58"><a href="#cb3-58"></a><span class="op">*</span> Définition de la table de la phase de charge</span>
+<span id="cb3-59"><a href="#cb3-59"></a>TAB1 <span class="op">=</span> TABLE <span class="op">;</span></span>
+<span id="cb3-60"><a href="#cb3-60"></a><span class="op">*</span>TAB1.<span class="st">&#39;K_SIGMA&#39;</span> <span class="op">=</span>  FAUX<span class="op">;</span></span>
+<span id="cb3-61"><a href="#cb3-61"></a>TAB1.<span class="st">&#39;MOVA&#39;</span> <span class="op">=</span> <span class="st">&#39;MOT&#39;</span> <span class="st">&#39;RIEN&#39;</span> <span class="op">;</span></span>
+<span id="cb3-62"><a href="#cb3-62"></a>TAB1.<span class="st">&#39;TEMPERATURES&#39;</span> <span class="op">=</span> TABLE <span class="op">;</span></span>
+<span id="cb3-63"><a href="#cb3-63"></a>TAB1.<span class="st">&#39;VARIABLES_INTERNES&#39;</span> <span class="op">=</span> TABLE <span class="op">;</span></span>
+<span id="cb3-64"><a href="#cb3-64"></a>TAB1.<span class="st">&#39;BLOCAGES_MECANIQUES&#39;</span> <span class="op">=</span> CLE1 <span class="op">;</span></span>
+<span id="cb3-65"><a href="#cb3-65"></a>TAB1.<span class="st">&#39;MODELE&#39;</span> <span class="op">=</span> MOD1 <span class="op">;</span></span>
+<span id="cb3-66"><a href="#cb3-66"></a>TAB1.<span class="st">&#39;CHARGEMENT&#39;</span> <span class="op">=</span> CHA1 <span class="st">&#39;ET&#39;</span> CHARTHER <span class="op">;</span></span>
+<span id="cb3-67"><a href="#cb3-67"></a>TAB1.<span class="st">&#39;TEMPERATURES&#39;</span> . <span class="dv">0</span> <span class="op">=</span> THE1 <span class="op">;</span></span>
+<span id="cb3-68"><a href="#cb3-68"></a>TAB1.<span class="st">&#39;CARACTERISTIQUES&#39;</span> <span class="op">=</span> MAT1 <span class="op">;</span>        </span>
+<span id="cb3-69"><a href="#cb3-69"></a>TAB1.<span class="st">&#39;TEMPS_CALCULES&#39;</span> <span class="op">=</span> LIT1 <span class="op">;</span></span>
+<span id="cb3-70"><a href="#cb3-70"></a>TAB1.<span class="st">&#39;TEMPS_SAUVES&#39;</span> <span class="op">=</span> LIT1 <span class="op">;</span></span>
+<span id="cb3-71"><a href="#cb3-71"></a>TAB1.VARIABLES_INTERNES<span class="fl">.0</span> <span class="op">=</span> (ZERO MOD1 <span class="st">&#39;VARINTER&#39;</span>)<span class="op">;</span></span>
+<span id="cb3-72"><a href="#cb3-72"></a>TAB1.<span class="st">&#39;PRECISION&#39;</span> <span class="op">=</span> <span class="fl">1.e-8</span><span class="op">;</span></span>
+<span id="cb3-73"><a href="#cb3-73"></a></span>
+<span id="cb3-74"><a href="#cb3-74"></a><span class="op">*</span> Lancement du calcul de la phase de charge </span>
+<span id="cb3-75"><a href="#cb3-75"></a>PASAPAS TAB1 <span class="op">;</span></span>
+<span id="cb3-76"><a href="#cb3-76"></a></span>
+<span id="cb3-77"><a href="#cb3-77"></a><span class="co">&#39;REPETER&#39;</span> i (<span class="st">&#39;DIME&#39;</span> tab1.<span class="st">&#39;CONTRAINTES&#39;</span>)<span class="op">;</span></span>
+<span id="cb3-78"><a href="#cb3-78"></a>   idx <span class="op">=</span> <span class="op">&amp;</span>i <span class="st">&#39;-&#39;</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-79"><a href="#cb3-79"></a>   s <span class="op">=</span> tab1.<span class="st">&#39;CONTRAINTES&#39;</span> . idx<span class="op">;</span></span>
+<span id="cb3-80"><a href="#cb3-80"></a>   d <span class="op">=</span> tab1.<span class="st">&#39;DEPLACEMENTS&#39;</span>. idx<span class="op">;</span></span>
+<span id="cb3-81"><a href="#cb3-81"></a>   v <span class="op">=</span> tab1.<span class="st">&#39;VARIABLES_INTERNES&#39;</span>. idx<span class="op">;</span></span>
+<span id="cb3-82"><a href="#cb3-82"></a>   <span class="co">&#39;MESSAGE&#39;</span> (<span class="st">&#39;MAXIMUM&#39;</span> (<span class="st">&#39;EXCO&#39;</span> d <span class="st">&#39;UZ&#39;</span>)) <span class="st">&#39; &#39;</span></span>
+<span id="cb3-83"><a href="#cb3-83"></a>             (<span class="st">&#39;MINIMUM&#39;</span> (<span class="st">&#39;EXCO&#39;</span> d <span class="st">&#39;UR&#39;</span>)) <span class="st">&#39; &#39;</span></span>
+<span id="cb3-84"><a href="#cb3-84"></a>             (<span class="st">&#39;MAXIMUM&#39;</span> (<span class="st">&#39;EXCO&#39;</span> s <span class="st">&#39;SMZZ&#39;</span>)) <span class="st">&#39; &#39;</span></span>
+<span id="cb3-85"><a href="#cb3-85"></a>             (<span class="st">&#39;MAXIMUM&#39;</span> (<span class="st">&#39;EXCO&#39;</span> v <span class="st">&#39;P&#39;</span>))<span class="op">;</span></span>
+<span id="cb3-86"><a href="#cb3-86"></a><span class="co">&#39;FIN&#39;</span> i<span class="op">;</span></span>
+<span id="cb3-87"><a href="#cb3-87"></a></span>
+<span id="cb3-88"><a href="#cb3-88"></a>nb <span class="op">=</span> (<span class="st">&#39;DIME&#39;</span> tab1.<span class="st">&#39;CONTRAINTES&#39;</span>) <span class="st">&#39;-&#39;</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-89"><a href="#cb3-89"></a>psig <span class="op">=</span> <span class="st">&#39;PROG&#39;</span><span class="op">;</span></span>
+<span id="cb3-90"><a href="#cb3-90"></a>peto <span class="op">=</span> <span class="st">&#39;PROG&#39;</span><span class="op">;</span></span>
+<span id="cb3-91"><a href="#cb3-91"></a><span class="co">&#39;REPETER&#39;</span> i nb<span class="op">;</span></span>
+<span id="cb3-92"><a href="#cb3-92"></a>   s <span class="op">=</span> tab1.<span class="st">&#39;CONTRAINTES&#39;</span> . <span class="op">&amp;</span>i<span class="op">;</span></span>
+<span id="cb3-93"><a href="#cb3-93"></a>   d <span class="op">=</span> tab1.<span class="st">&#39;DEPLACEMENTS&#39;</span>. <span class="op">&amp;</span>i<span class="op">;</span></span>
+<span id="cb3-94"><a href="#cb3-94"></a>   psig <span class="op">=</span> psig <span class="st">&#39;ET&#39;</span> (<span class="st">&#39;PROG&#39;</span> (<span class="st">&#39;MAXIMUM&#39;</span> (<span class="st">&#39;EXCO&#39;</span> s <span class="st">&#39;SMZZ&#39;</span>)))<span class="op">;</span></span>
+<span id="cb3-95"><a href="#cb3-95"></a>   peto <span class="op">=</span> peto <span class="st">&#39;ET&#39;</span> (<span class="st">&#39;PROG&#39;</span> (<span class="st">&#39;MAXIMUM&#39;</span> (<span class="st">&#39;EXCO&#39;</span> d <span class="st">&#39;UZ&#39;</span>)))<span class="op">;</span></span>
+<span id="cb3-96"><a href="#cb3-96"></a><span class="co">&#39;FIN&#39;</span> i<span class="op">;</span></span>
+<span id="cb3-97"><a href="#cb3-97"></a></span>
+<span id="cb3-98"><a href="#cb3-98"></a></span>
+<span id="cb3-99"><a href="#cb3-99"></a>EVSIG <span class="op">=</span> <span class="st">&#39;EVOL&#39;</span> <span class="st">&#39;ROUG&#39;</span> <span class="st">&#39;MANU&#39;</span> <span class="st">&#39;EZZ&#39;</span> peto <span class="st">&#39;SMZZ&#39;</span> psig<span class="op">;</span></span>
+<span id="cb3-100"><a href="#cb3-100"></a><span class="co">&#39;LISTE&#39;</span> evsig<span class="op">;</span></span>
+<span id="cb3-101"><a href="#cb3-101"></a><span class="co">&#39;DESSIN&#39;</span> evsig<span class="op">;</span></span>
+<span id="cb3-102"><a href="#cb3-102"></a></span>
+<span id="cb3-103"><a href="#cb3-103"></a><span class="co">&#39;FIN&#39;</span><span class="op">;</span></span></code></pre></div>
 <p>Le résultat obtenu par <code>Cast3M</code> peut-être comparé à la simulation <code>MTest</code> équivalente sur la figure ci-dessous :</p>
 <figure>
-<img src="img/NortonCreepUniaxialTesting.svg" title="Comparaison des résultats `MTest`/`Cast3M`" alt="Comparaison des résultats MTest/Cast3M" /><figcaption>Comparaison des résultats <code>MTest</code>/<code>Cast3M</code></figcaption>
+<img src="img/NortonCreepUniaxialTesting.svg" title="Comparaison des résultats `MTest`/`Cast3M`" alt="Comparaison des résultats MTest/Cast3M" /><figcaption aria-hidden="true">Comparaison des résultats <code>MTest</code>/<code>Cast3M</code></figcaption>
 </figure>
 <h1 id="propriétés-matériau">Propriétés matériau</h1>
 <h2 id="conductivité-thermique-du-combustible-carbure-upuc">Conductivité thermique du combustible carbure <span class="math inline">\(UPuC\)</span></h2>
 <p>La conductivité thermique d’un combustible carbure <span class="math inline">\(UPuC\)</span> <span class="math inline">\(k\left(T,p,\tau\right)\)</span> est supposée dépendre de la temperature <span class="math inline">\(T\)</span> (Kelvin), de la porosité <span class="math inline">\(p\)</span> et du taux de combustion <span class="math inline">\(\tau\)</span> <span class="math inline">\(at.\%\)</span></p>
 <p>Une implantation possible de cette propriété matériau en <code>MFront</code> est la suivante:</p>
-<div class="sourceCode" id="UPuCThermalConductivity"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><a class="sourceLine" id="UPuCThermalConductivity-1" data-line-number="1"><span class="er">@</span>Parser MaterialLaw;</a>
-<a class="sourceLine" id="UPuCThermalConductivity-2" data-line-number="2"><span class="er">@</span>Law ThermalConductivity;</a>
-<a class="sourceLine" id="UPuCThermalConductivity-3" data-line-number="3"><span class="er">@</span>Material UPuC;</a>
-<a class="sourceLine" id="UPuCThermalConductivity-4" data-line-number="4"><span class="er">@</span>Author Thomas Helfer;</a>
-<a class="sourceLine" id="UPuCThermalConductivity-5" data-line-number="5"><span class="er">@</span>Output k; <span class="co">//&lt; changing the name of output</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-6" data-line-number="6"><span class="er">@</span>Input T,p,Bu; <span class="co">//&lt; inputs of the law</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-7" data-line-number="7">T.setGlossaryName(<span class="st">&quot;Temperature&quot;</span>); <span class="co">//&lt; pleiades name</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-8" data-line-number="8">p.setGlossaryName(<span class="st">&quot;Porosity&quot;</span>); <span class="co">//&lt; pleiades name</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-9" data-line-number="9">Bu.setGlossaryName(<span class="st">&quot;BurnUp&quot;</span>); <span class="co">//&lt; pleiades name</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-10" data-line-number="10"><span class="er">@</span>PhysicalBounds T in [<span class="dv">0</span> :*[; <span class="co">//&lt; temperature physical bounds</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-11" data-line-number="11"><span class="er">@</span>Bounds T in [<span class="dv">0</span> :<span class="fl">2573.15</span>]; <span class="co">//&lt; temperature bounds</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-12" data-line-number="12"><span class="er">@</span>PhysicalBounds p in [<span class="dv">0</span> :<span class="dv">1</span>]; <span class="co">//&lt; porosity physical bounds</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-13" data-line-number="13"><span class="er">@</span>PhysicalBounds Bu in [<span class="dv">0</span> :*[; <span class="co">//&lt; burn-up physicalbounds</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-14" data-line-number="14"><span class="er">@</span>Function{</a>
-<a class="sourceLine" id="UPuCThermalConductivity-15" data-line-number="15">  <span class="cf">if</span> (T&lt;=<span class="fl">773.15</span>){</a>
-<a class="sourceLine" id="UPuCThermalConductivity-16" data-line-number="16">    k = (<span class="fl">8.14e-6</span>*T<span class="fl">-0.010096882</span>)*T<span class="fl">+19.65063040915</span>;</a>
-<a class="sourceLine" id="UPuCThermalConductivity-17" data-line-number="17">  } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="UPuCThermalConductivity-18" data-line-number="18">    k = (<span class="dv">-1</span><span class="fl">.88e-6</span>*T<span class="fl">+0.009737044</span>)*T<span class="fl">+10.2405949657</span>;</a>
-<a class="sourceLine" id="UPuCThermalConductivity-19" data-line-number="19">  }</a>
-<a class="sourceLine" id="UPuCThermalConductivity-20" data-line-number="20">  k *= (<span class="fl">1.</span>-p)/(<span class="fl">1.</span><span class="dv">+2</span>.*p);</a>
-<a class="sourceLine" id="UPuCThermalConductivity-21" data-line-number="21">  k *= <span class="fl">1.</span>-(<span class="fl">0.02</span>*Bu);</a>
-<a class="sourceLine" id="UPuCThermalConductivity-22" data-line-number="22">}</a></code></pre></div>
+<div class="sourceCode" id="UPuCThermalConductivity"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="UPuCThermalConductivity-1"><a href="#UPuCThermalConductivity-1"></a><span class="er">@</span>Parser MaterialLaw;</span>
+<span id="UPuCThermalConductivity-2"><a href="#UPuCThermalConductivity-2"></a><span class="er">@</span>Law ThermalConductivity;</span>
+<span id="UPuCThermalConductivity-3"><a href="#UPuCThermalConductivity-3"></a><span class="er">@</span>Material UPuC;</span>
+<span id="UPuCThermalConductivity-4"><a href="#UPuCThermalConductivity-4"></a><span class="er">@</span>Author Thomas Helfer;</span>
+<span id="UPuCThermalConductivity-5"><a href="#UPuCThermalConductivity-5"></a><span class="er">@</span>Output k; <span class="co">//&lt; changing the name of output</span></span>
+<span id="UPuCThermalConductivity-6"><a href="#UPuCThermalConductivity-6"></a><span class="er">@</span>Input T,p,Bu; <span class="co">//&lt; inputs of the law</span></span>
+<span id="UPuCThermalConductivity-7"><a href="#UPuCThermalConductivity-7"></a>T.setGlossaryName(<span class="st">&quot;Temperature&quot;</span>); <span class="co">//&lt; pleiades name</span></span>
+<span id="UPuCThermalConductivity-8"><a href="#UPuCThermalConductivity-8"></a>p.setGlossaryName(<span class="st">&quot;Porosity&quot;</span>); <span class="co">//&lt; pleiades name</span></span>
+<span id="UPuCThermalConductivity-9"><a href="#UPuCThermalConductivity-9"></a>Bu.setGlossaryName(<span class="st">&quot;BurnUp&quot;</span>); <span class="co">//&lt; pleiades name</span></span>
+<span id="UPuCThermalConductivity-10"><a href="#UPuCThermalConductivity-10"></a><span class="er">@</span>PhysicalBounds T in [<span class="dv">0</span> :*[; <span class="co">//&lt; temperature physical bounds</span></span>
+<span id="UPuCThermalConductivity-11"><a href="#UPuCThermalConductivity-11"></a><span class="er">@</span>Bounds T in [<span class="dv">0</span> :<span class="fl">2573.15</span>]; <span class="co">//&lt; temperature bounds</span></span>
+<span id="UPuCThermalConductivity-12"><a href="#UPuCThermalConductivity-12"></a><span class="er">@</span>PhysicalBounds p in [<span class="dv">0</span> :<span class="dv">1</span>]; <span class="co">//&lt; porosity physical bounds</span></span>
+<span id="UPuCThermalConductivity-13"><a href="#UPuCThermalConductivity-13"></a><span class="er">@</span>PhysicalBounds Bu in [<span class="dv">0</span> :*[; <span class="co">//&lt; burn-up physicalbounds</span></span>
+<span id="UPuCThermalConductivity-14"><a href="#UPuCThermalConductivity-14"></a><span class="er">@</span>Function{</span>
+<span id="UPuCThermalConductivity-15"><a href="#UPuCThermalConductivity-15"></a>  <span class="cf">if</span> (T&lt;=<span class="fl">773.15</span>){</span>
+<span id="UPuCThermalConductivity-16"><a href="#UPuCThermalConductivity-16"></a>    k = (<span class="fl">8.14e-6</span>*T-<span class="fl">0.010096882</span>)*T+<span class="fl">19.65063040915</span>;</span>
+<span id="UPuCThermalConductivity-17"><a href="#UPuCThermalConductivity-17"></a>  } <span class="cf">else</span> {</span>
+<span id="UPuCThermalConductivity-18"><a href="#UPuCThermalConductivity-18"></a>    k = (-<span class="fl">1.88e-6</span>*T+<span class="fl">0.009737044</span>)*T+<span class="fl">10.2405949657</span>;</span>
+<span id="UPuCThermalConductivity-19"><a href="#UPuCThermalConductivity-19"></a>  }</span>
+<span id="UPuCThermalConductivity-20"><a href="#UPuCThermalConductivity-20"></a>  k *= (<span class="fl">1.</span>-p)/(<span class="fl">1.</span>+<span class="fl">2.</span>*p);</span>
+<span id="UPuCThermalConductivity-21"><a href="#UPuCThermalConductivity-21"></a>  k *= <span class="fl">1.</span>-(<span class="fl">0.02</span>*Bu);</span>
+<span id="UPuCThermalConductivity-22"><a href="#UPuCThermalConductivity-22"></a>}</span></code></pre></div>
 <p>Cette implantation peut être compilée en une librairie dynamique appelable depuis <code>Cast3M</code>:</p>
-<div class="sourceCode" id="UPuCThermalConductivity-mfront"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="UPuCThermalConductivity-mfront-1" data-line-number="1">$ <span class="ex">mfront</span> --obuild --interface=castem UPuCThermalConductivity.mfront</a></code></pre></div>
+<div class="sourceCode" id="UPuCThermalConductivity-mfront"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="UPuCThermalConductivity-mfront-1"><a href="#UPuCThermalConductivity-mfront-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem UPuCThermalConductivity.mfront</span></code></pre></div>
 <h1 id="utilisation-dans-cast3m">Utilisation dans <code>Cast3M</code></h1>
 <p>L’appel à des librairies dynamiques depuis l’opérateur <code>MATERIAU</code> nécessite l’application d’un patch~:</p>
 <ul>
@@ -430,24 +443,24 @@
 <li><a href="downloads/patchs-Cast3M-2015.tar.bz2">Cast3M 2015</a></li>
 </ul>
 <p>La directive <code>MATERIAU</code> accepte alors une table comme paramètre:</p>
-<div class="sourceCode" id="UPuCThermalConductivity-castem"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="UPuCThermalConductivity-castem-1" data-line-number="1"><span class="op">*</span> Création d un modèle thermique isotrope</a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-2" data-line-number="2">ModT1 <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> s1 <span class="st">&#39;THERMIQUE&#39;</span> <span class="st">&#39;ISOTROPE&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-3" data-line-number="3"><span class="op">*</span> Création d une table contenant les données relatives</a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-4" data-line-number="4"><span class="op">*</span> à la propriété externe :</a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-5" data-line-number="5"><span class="op">*</span> <span class="op">-</span> <span class="st">&#39;MODELE&#39;</span> contient le nom de la fonction appelée</a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-6" data-line-number="6"><span class="op">*</span> <span class="op">-</span> <span class="st">&#39;LIBRAIRIE&#39;</span> contient le nom de la librairie externe</a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-7" data-line-number="7"><span class="op">*</span> dans laquelle cette fonction est définie</a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-8" data-line-number="8"><span class="op">*</span> <span class="op">-</span> <span class="st">&#39;VARIABLES&#39;</span> contient la liste des paramètres dont dépend</a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-9" data-line-number="9"><span class="op">*</span> la fonction appelée</a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-10" data-line-number="10">Tmat <span class="op">=</span> <span class="st">&#39;TABLE&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-11" data-line-number="11">Tmat. <span class="st">&#39;MODELE&#39;</span> <span class="op">=</span> <span class="st">&#39;UPuC_ThermalConductivity&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-12" data-line-number="12">Tmat. <span class="st">&#39;LIBRAIRIE&#39;</span> <span class="op">=</span> <span class="st">&#39;libUPuCMaterialProperties.so&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-13" data-line-number="13">Tmat. <span class="st">&#39;VARIABLES&#39;</span> <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span> <span class="st">&#39;T&#39;</span> <span class="st">&#39;PORO&#39;</span> <span class="st">&#39;FIMA&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-14" data-line-number="14"><span class="op">*</span> Création du matériau.</a>
-<a class="sourceLine" id="UPuCThermalConductivity-castem-15" data-line-number="15">MatT1 <span class="op">=</span> <span class="st">&#39;MATERIAU&#39;</span> ModT1 <span class="st">&#39;K&#39;</span> Tmat<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="UPuCThermalConductivity-castem"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="UPuCThermalConductivity-castem-1"><a href="#UPuCThermalConductivity-castem-1"></a><span class="op">*</span> Création d un modèle thermique isotrope</span>
+<span id="UPuCThermalConductivity-castem-2"><a href="#UPuCThermalConductivity-castem-2"></a>ModT1 <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> s1 <span class="st">&#39;THERMIQUE&#39;</span> <span class="st">&#39;ISOTROPE&#39;</span><span class="op">;</span></span>
+<span id="UPuCThermalConductivity-castem-3"><a href="#UPuCThermalConductivity-castem-3"></a><span class="op">*</span> Création d une table contenant les données relatives</span>
+<span id="UPuCThermalConductivity-castem-4"><a href="#UPuCThermalConductivity-castem-4"></a><span class="op">*</span> à la propriété externe :</span>
+<span id="UPuCThermalConductivity-castem-5"><a href="#UPuCThermalConductivity-castem-5"></a><span class="op">*</span> <span class="op">-</span> <span class="st">&#39;MODELE&#39;</span> contient le nom de la fonction appelée</span>
+<span id="UPuCThermalConductivity-castem-6"><a href="#UPuCThermalConductivity-castem-6"></a><span class="op">*</span> <span class="op">-</span> <span class="st">&#39;LIBRAIRIE&#39;</span> contient le nom de la librairie externe</span>
+<span id="UPuCThermalConductivity-castem-7"><a href="#UPuCThermalConductivity-castem-7"></a><span class="op">*</span> dans laquelle cette fonction est définie</span>
+<span id="UPuCThermalConductivity-castem-8"><a href="#UPuCThermalConductivity-castem-8"></a><span class="op">*</span> <span class="op">-</span> <span class="st">&#39;VARIABLES&#39;</span> contient la liste des paramètres dont dépend</span>
+<span id="UPuCThermalConductivity-castem-9"><a href="#UPuCThermalConductivity-castem-9"></a><span class="op">*</span> la fonction appelée</span>
+<span id="UPuCThermalConductivity-castem-10"><a href="#UPuCThermalConductivity-castem-10"></a>Tmat <span class="op">=</span> <span class="st">&#39;TABLE&#39;</span><span class="op">;</span></span>
+<span id="UPuCThermalConductivity-castem-11"><a href="#UPuCThermalConductivity-castem-11"></a>Tmat. <span class="st">&#39;MODELE&#39;</span> <span class="op">=</span> <span class="st">&#39;UPuC_ThermalConductivity&#39;</span><span class="op">;</span></span>
+<span id="UPuCThermalConductivity-castem-12"><a href="#UPuCThermalConductivity-castem-12"></a>Tmat. <span class="st">&#39;LIBRAIRIE&#39;</span> <span class="op">=</span> <span class="st">&#39;libUPuCMaterialProperties.so&#39;</span><span class="op">;</span></span>
+<span id="UPuCThermalConductivity-castem-13"><a href="#UPuCThermalConductivity-castem-13"></a>Tmat. <span class="st">&#39;VARIABLES&#39;</span> <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span> <span class="st">&#39;T&#39;</span> <span class="st">&#39;PORO&#39;</span> <span class="st">&#39;FIMA&#39;</span><span class="op">;</span></span>
+<span id="UPuCThermalConductivity-castem-14"><a href="#UPuCThermalConductivity-castem-14"></a><span class="op">*</span> Création du matériau.</span>
+<span id="UPuCThermalConductivity-castem-15"><a href="#UPuCThermalConductivity-castem-15"></a>MatT1 <span class="op">=</span> <span class="st">&#39;MATERIAU&#39;</span> ModT1 <span class="st">&#39;K&#39;</span> Tmat<span class="op">;</span></span></code></pre></div>
 <p>Pour une utilisation dans <code>PASAPAS</code>, deux chargements <code>PORO</code> et <code>FIMA</code> doivent être définis.</p>
 <!-- Local IspellDict: english -->
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

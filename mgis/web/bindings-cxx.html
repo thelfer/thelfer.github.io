@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
             <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -117,6 +116,8 @@
 		<li><a href="release-notes-1.1.html">Version 1.1</a></li>
 		<li><a href="release-notes-1.1.1.html">Version 1.1.1</a></li>
 		<li><a href="release-notes-1.2.html">Version 1.2</a></li>
+		<li><a href="release-notes-1.2.1.html">Version 1.2.1</a></li>
+		<li><a href="release-notes-1.3.html">Version 1.3</a></li>
 	      </ul>
 	    </li>
 	    <li><a>Specific topics</a>
@@ -143,47 +144,54 @@
       </ul>
     </header>
     <br></br>
-        <div id="header">
-      <h1 class="title">A brief introduction to the <code>MGIS</code> <code>C++</code> library for mechanical behaviours</h1>
-                  <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">14/05/2019</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#introduction">Introduction</a></li>
-      <li><a href="#creating-a-mfront-behaviour">Creating a <code>MFront</code> behaviour</a></li>
-      <li><a href="#loading-the-behaviour-the-behaviour-object">Loading the behaviour, the <code>Behaviour</code> object</a><ul>
-      <li><a href="#small-strain-behaviours">Small strain behaviours</a></li>
-      <li><a href="#finite-strain-behaviours">Finite strain behaviours</a></li>
-      <li><a href="#the-behaviour-object">The <code>Behaviour</code> object</a><ul>
-      <li><a href="#material-properties">Material properties</a></li>
-      </ul></li>
-      </ul></li>
-      <li><a href="#state-of-an-integration-point-memory-allocation">State of an integration point, memory allocation</a><ul>
-      <li><a href="#the-behaviourdataview-and-stateview-structures">The <code>BehaviourDataView</code> and <code>StateView</code> structures</a><ul>
-      <li><a href="#description-of-the-initial-values-stored-in-k">Description of the initial values stored in <code>K</code></a></li>
-      <li><a href="#the-stateview-structure">The <code>StateView</code> structure</a></li>
-      <li><a href="#memory-management">Memory management</a></li>
-      </ul></li>
-      <li><a href="#first-case-use-of-the-behaviourdata-data-structure">First case: use of the <code>BehaviourData</code> data structure</a><ul>
-      <li><a href="#creating-a-behaviourdataview-from-a-behaviourdata">Creating a <code>BehaviourDataView</code> from a <code>BehaviourData</code></a></li>
-      <li><a href="#retrieving-the-values-of-a-specific-variable">Retrieving the values of a specific variable</a></li>
-      <li><a href="#updating-the-date-from-one-time-step-to-the-other">Updating the date from one time step to the other</a></li>
-      <li><a href="#restarting-a-time-step">Restarting a time step</a></li>
-      </ul></li>
-      <li><a href="#second-case-use-of-the-materialdatamanager-structure">Second case: use of the <code>MaterialDataManager</code> structure</a><ul>
-      <li><a href="#external-memory-management-and-the-materialdatamanagerinitializer-class">External memory management and the <code>MaterialDataManagerInitializer</code> class</a></li>
-      <li><a href="#updating-the-date-from-one-time-step-to-the-other-1">Updating the date from one time step to the other</a></li>
-      <li><a href="#restarting-a-time-step-1">Restarting a time step</a></li>
-      </ul></li>
-      <li><a href="#third-case-manual-allocation">Third case: manual allocation</a></li>
-      </ul></li>
-      <li><a href="#behaviour-integration">Behaviour integration</a></li>
-      <li><a href="#orthotropic-behaviours">Orthotropic behaviours</a></li>
-      <li><a href="#references">References</a></li>
-      </ul>
-    </div>
-        <h1 id="introduction">Introduction</h1>
+<div id="header">
+<h1 class="title">A brief introduction to the <code>MGIS</code> <code>C++</code> library for mechanical behaviours</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">14/05/2019</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#creating-a-mfront-behaviour">Creating a <code>MFront</code> behaviour</a></li>
+<li><a href="#loading-the-behaviour-the-behaviour-object">Loading the behaviour, the <code>Behaviour</code> object</a>
+<ul>
+<li><a href="#small-strain-behaviours">Small strain behaviours</a></li>
+<li><a href="#finite-strain-behaviours">Finite strain behaviours</a></li>
+<li><a href="#the-behaviour-object">The <code>Behaviour</code> object</a>
+<ul>
+<li><a href="#material-properties">Material properties</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#state-of-an-integration-point-memory-allocation">State of an integration point, memory allocation</a>
+<ul>
+<li><a href="#the-behaviourdataview-and-stateview-structures">The <code>BehaviourDataView</code> and <code>StateView</code> structures</a>
+<ul>
+<li><a href="#description-of-the-initial-values-stored-in-k">Description of the initial values stored in <code>K</code></a></li>
+<li><a href="#the-stateview-structure">The <code>StateView</code> structure</a></li>
+<li><a href="#memory-management">Memory management</a></li>
+</ul></li>
+<li><a href="#first-case-use-of-the-behaviourdata-data-structure">First case: use of the <code>BehaviourData</code> data structure</a>
+<ul>
+<li><a href="#creating-a-behaviourdataview-from-a-behaviourdata">Creating a <code>BehaviourDataView</code> from a <code>BehaviourData</code></a></li>
+<li><a href="#retrieving-the-values-of-a-specific-variable">Retrieving the values of a specific variable</a></li>
+<li><a href="#updating-the-date-from-one-time-step-to-the-other">Updating the date from one time step to the other</a></li>
+<li><a href="#restarting-a-time-step">Restarting a time step</a></li>
+</ul></li>
+<li><a href="#second-case-use-of-the-materialdatamanager-structure">Second case: use of the <code>MaterialDataManager</code> structure</a>
+<ul>
+<li><a href="#external-memory-management-and-the-materialdatamanagerinitializer-class">External memory management and the <code>MaterialDataManagerInitializer</code> class</a></li>
+<li><a href="#updating-the-date-from-one-time-step-to-the-other-1">Updating the date from one time step to the other</a></li>
+<li><a href="#restarting-a-time-step-1">Restarting a time step</a></li>
+</ul></li>
+<li><a href="#third-case-manual-allocation">Third case: manual allocation</a></li>
+</ul></li>
+<li><a href="#behaviour-integration">Behaviour integration</a></li>
+<li><a href="#orthotropic-behaviours">Orthotropic behaviours</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#bibliography">References</a></li>
+</ul>
+</div>
+<h1 id="introduction">Introduction</h1>
 <p>This introduction is meant to enlight how the use the <code>MGIS</code> library in <code>C++</code> to integrate a mechanical behaviour. This document targets solver developers who wish to integrate <code>MGIS</code>.</p>
 <blockquote>
 <p><strong>Note</strong></p>
@@ -198,20 +206,20 @@
 <p>In this document, we will consider two mechanical behaviours:</p>
 <ul>
 <li>a simple small strain viscoplastic behaviour based on the Norton-Hoff Law. This file is available <a href="mfront/Norton.mfront">here</a>.</li>
-<li>a simple finite strain plastic behaviour based on <span class="math inline">\(J_{2}\)</span> plasticity with linear hardening in the logarithmic space (see <span class="citation" data-cites="miehe_anisotropic_2002">Miehe, Apel, and Lambrecht (<a href="#ref-miehe_anisotropic_2002">2002</a>)</span>). This file is available <a href="mfront/Plasticity.mfront">here</a></li>
+<li>a simple finite strain plastic behaviour based on <span class="math inline">\(J_{2}\)</span> plasticity with linear hardening in the logarithmic space (see <span class="citation" data-cites="miehe_anisotropic_2002"><a href="#ref-miehe_anisotropic_2002" role="doc-biblioref">Miehe, Apel, and Lambrecht</a> (<a href="#ref-miehe_anisotropic_2002" role="doc-biblioref">2002</a>)</span>). This file is available <a href="mfront/Plasticity.mfront">here</a></li>
 </ul>
-<p>Those files can be compiled as follows from the command line<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># generate the C++ sources associated</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># with the Norton behaviour</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">$ <span class="ex">mfront</span> --interface=generic Norton.mfront</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># generate the C++ sources associated</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># with the plastic behaviour</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">$ <span class="ex">mfront</span> --interface=generic Plasticity.mfront</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># generate the library</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">$ <span class="ex">mfront</span> --obuild</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="ex">Treating</span> target : all</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="ex">The</span> following library has been built :</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="ex">-</span> libBehaviour.so :  Norton_AxisymmetricalGeneralisedPlaneStrain Norton_Axisymmetrical Norton_PlaneStrain Norton_GeneralisedPlaneStrain Norton_Tridimensional Plasticity_AxisymmetricalGeneralisedPlaneStrain Plasticity_Axisymmetrical Plasticity_PlaneStrain Plasticity_GeneralisedPlaneStrain Plasticity_Tridimensional</a></code></pre></div>
+<p>Those files can be compiled as follows from the command line<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate the C++ sources associated</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># with the Norton behaviour</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--interface</span><span class="op">=</span>generic Norton.mfront</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># generate the C++ sources associated</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># with the plastic behaviour</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--interface</span><span class="op">=</span>generic Plasticity.mfront</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># generate the library</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Treating</span> target : all</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following library has been built :</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> libBehaviour.so :  Norton_AxisymmetricalGeneralisedPlaneStrain Norton_Axisymmetrical Norton_PlaneStrain Norton_GeneralisedPlaneStrain Norton_Tridimensional Plasticity_AxisymmetricalGeneralisedPlaneStrain Plasticity_Axisymmetrical Plasticity_PlaneStrain Plasticity_GeneralisedPlaneStrain Plasticity_Tridimensional</span></code></pre></div>
 <p>The output shows:</p>
 <ul>
 <li>That the compilation process led to the creation of the <code>libBehaviour.so</code> library.</li>
@@ -231,13 +239,13 @@
 <li>the name of the function.</li>
 <li>the modelling hypothesis to be used.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> h = Hypothesis::TRIDIMENSIONAL;</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> b = load(<span class="ch">&#39;src/libBehaviour.so&#39;</span>, <span class="ch">&#39;Norton&#39;</span>, h);</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> h = Hypothesis::TRIDIMENSIONAL;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> b = load(<span class="ch">&#39;s</span><span class="er">rc/libBehaviour.so</span><span class="ch">&#39;</span>, <span class="ch">&#39;N</span><span class="er">orton</span><span class="ch">&#39;</span>, h);</span></code></pre></div>
 <blockquote>
 <p><strong>The <code>mgis::behaviour</code> namespace</strong></p>
 <p>The example given in this document assumes that the functions and objects defined in the <code>mgis::behaviour</code> namespace are available in the current scope.</p>
 <p>In pratice, this means that the following statement was made earlier:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">using</span> <span class="kw">namespace</span> mgis::behaviour;</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> mgis::behaviour;</span></code></pre></div>
 </blockquote>
 <h2 id="finite-strain-behaviours">Finite strain behaviours</h2>
 <p>The second overload of the <code>load</code> function specifically handles finite strain behaviours and takes four parameters:</p>
@@ -259,22 +267,22 @@
 <li><code>DS_DEGL</code>, the derivative of the second Piola-Kirchoff stress with respect to the Green-Lagrange strain.</li>
 <li><code>DPK1_DF</code>, the derivative of the first Piola-Kirchoff stress with respect to the deformation gradient.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> h = Hypothesis::TRIDIMENSIONAL;</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">auto</span> o = FiniteStrainBehaviourOptions{};</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">o.stress_measure = FiniteStrainBehaviourOptions::PK1;</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">o.tangent_operator = FiniteStrainBehaviourOptions::DPK1_DF;</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="at">const</span> <span class="kw">auto</span> b = load(o, <span class="ch">&#39;src/libBehaviour.so&#39;</span>, <span class="ch">&#39;Norton&#39;</span>, h);</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> h = Hypothesis::TRIDIMENSIONAL;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> o = FiniteStrainBehaviourOptions{};</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>o.stress_measure = FiniteStrainBehaviourOptions::PK1;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>o.tangent_operator = FiniteStrainBehaviourOptions::DPK1_DF;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> b = load(o, <span class="ch">&#39;s</span><span class="er">rc/libBehaviour.so</span><span class="ch">&#39;</span>, <span class="ch">&#39;N</span><span class="er">orton</span><span class="ch">&#39;</span>, h);</span></code></pre></div>
 <h2 id="the-behaviour-object">The <code>Behaviour</code> object</h2>
 <p>The <code>Behaviour</code> object contains all the metadata required to interact with the behaviour. A complete description of this object is exceed the scope of this document. Thus, only the analysis of the material properties required by the behaviour is discussed here. Handling external state variables, parameters is made in a very similar manner.</p>
 <h3 id="material-properties">Material properties</h3>
 <p>The list of material properties required by the user is defined in the <code>mps</code> data member as a vector of object of the <code>Variable</code> type.</p>
 <p>The <code>Variable</code> data structure is quite simple:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">struct</span> Variable {</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="co">//! name of the variable</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="bu">std::</span>string name;</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="co">//! type of the variable</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">  <span class="kw">enum</span> Type { SCALAR = <span class="dv">0</span>, VECTOR = <span class="dv">1</span>, STENSOR = <span class="dv">2</span>, TENSOR = <span class="dv">3</span>} type;</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">};  <span class="co">// end of struct Description</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Variable {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">//! name of the variable</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">std::</span>string name;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">//! type of the variable</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">enum</span> Type { SCALAR = <span class="dv">0</span>, VECTOR = <span class="dv">1</span>, STENSOR = <span class="dv">2</span>, TENSOR = <span class="dv">3</span>} type;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>};  <span class="co">// end of struct Description</span></span></code></pre></div>
 <p>It contains two data members:</p>
 <ul>
 <li>the name</li>
@@ -346,7 +354,7 @@
 <p>If one uses the data structure <code>BehaviourData</code> or the <code>MaterialDataManager</code> data structure provided by <code>MGIS</code>, which are described below, this is automatically ensured.</p>
 <h2 id="first-case-use-of-the-behaviourdata-data-structure">First case: use of the <code>BehaviourData</code> data structure</h2>
 <p>Starting from a behaviour, one can allocate all the memory required to treat one integration point:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">auto</span> d = BehaviourData{b};</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> d = BehaviourData{b};</span></code></pre></div>
 <p>The data members of the <code>BehaviourData</code> structure are very close to the one of the <code>BehaviourDataView</code> class. In particular, it contains two data members called <code>s0</code> and <code>s1</code> containing the state of integration point.</p>
 <blockquote>
 <p><strong>Note</strong></p>
@@ -354,11 +362,11 @@
 </blockquote>
 <h3 id="creating-a-behaviourdataview-from-a-behaviourdata">Creating a <code>BehaviourDataView</code> from a <code>BehaviourData</code></h3>
 <p>The <code>make_view</code> function creates a <code>BehaviourDataView</code> from a <code>BehaviourData</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">auto</span> v = make_view(d);</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> v = make_view(d);</span></code></pre></div>
 <h3 id="retrieving-the-values-of-a-specific-variable">Retrieving the values of a specific variable</h3>
 <p>All the internal state variables are stored in a continuous array. If one wish to retrieve the value of a specific state variable, one first have to retrieve the offset of this variable as follows:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> o = getVariableOffset(b.isvs, <span class="st">&quot;EquivalentViscoplasticStrain&quot;</span>,</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">                                 b.hypothesis);</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> o = getVariableOffset(b.isvs, <span class="st">&quot;EquivalentViscoplasticStrain&quot;</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                                 b.hypothesis);</span></code></pre></div>
 <p>The same applies to material properties, external state variables, etc…</p>
 <h3 id="updating-the-date-from-one-time-step-to-the-other">Updating the date from one time step to the other</h3>
 <p>The <code>update</code> function overwrites the <code>s0</code> member, i.e. the state at the beginning of the time step, with <code>s1</code>, i.e. the state at the end of the time step.</p>
@@ -366,7 +374,7 @@
 <p>The <code>revert</code> function overwrites the <code>s1</code> member, i.e. the state at the end of the time step, with <code>s0</code>, i.e. the state at the beginning of the time step.</p>
 <h2 id="second-case-use-of-the-materialdatamanager-structure">Second case: use of the <code>MaterialDataManager</code> structure</h2>
 <p>The <code>MaterialDataManager</code> data structure handle the data of a set of integration points (generally representing a material, hence the name), as follows:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1">MaterialDataManager m{b, n};</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>MaterialDataManager m{b, n};</span></code></pre></div>
 <p>where <code>n</code> is the number of integration points.</p>
 <blockquote>
 <p><strong>Note</strong></p>
@@ -383,28 +391,29 @@
 <h2 id="third-case-manual-allocation">Third case: manual allocation</h2>
 <p>The <code>MGIS</code> library provides a set of functions which allows the developer to properly allocate the memory associated with the data required at each integration point.</p>
 <p>For example, if one wants to known the size of an array able to store all the internal state variables of one integration point, one may use the <code>getArraySize</code> function:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> n = getArraySize(b.isvs, b.hypothesis);</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> n = getArraySize(b.isvs, b.hypothesis);</span></code></pre></div>
 <p>In the case of the plastic behaviour, there are two state variables: the elastic strain, which is a symmetric tensor and the equivalent plastic strain, which is a scalar. Thus, the value of <code>n</code> will be equal to <code>7</code>.</p>
 <h1 id="behaviour-integration">Behaviour integration</h1>
 <p>Three overloads of the <code>integrate</code> function are available:</p>
 <p>The first one has the following interface:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="dt">int</span> integrate(BehaviourDataView&amp;, <span class="at">const</span> Behaviour&amp;);</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> integrate(BehaviourDataView&amp;, <span class="at">const</span> Behaviour&amp;);</span></code></pre></div>
 <p>The user may refer to the <code>IntegrateTest.cxx</code> file to have an example on how this use this version.</p>
 <p>The second one takes a <code>MaterialDataManager</code> and performs the behaviour integration on a range of integration points. The user may refer to the <code>IntegrateTest2.cxx</code> file to have an example on how this use this second overload.</p>
 <p>The third overload is similar to the second one but also takes an argument of the <code>ThreadPool</code> type allowing a parallelization of the behaviour integration. The user may refer to the <code>IntegrateTest2b.cxx</code> file to have an example on how this use this second overload.</p>
 <h1 id="orthotropic-behaviours">Orthotropic behaviours</h1>
 <p>Orthotropic behaviours require to handle the rotations between the global frame and the material frame. This is described in depth <a href="orthotropic-behaviours.html">here</a>.</p>
-<h1 id="references" class="unnumbered">References</h1>
-<div id="refs" class="references">
-<div id="ref-miehe_anisotropic_2002">
-<p>Miehe, C., N. Apel, and M. Lambrecht. 2002. “Anisotropic Additive Plasticity in the Logarithmic Strain Space: Modular Kinematic Formulation and Implementation Based on Incremental Minimization Principles for Standard Materials.” <em>Computer Methods in Applied Mechanics and Engineering</em> 191 (47–48): 5383–5425. <a href="https://doi.org/10.1016/S0045-7825(02)00438-3" class="uri">https://doi.org/10.1016/S0045-7825(02)00438-3</a>.</p>
+<h1 id="references">References</h1>
+<h1 class="unnumbered" id="bibliography">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-miehe_anisotropic_2002" class="csl-entry" role="doc-biblioentry">
+Miehe, C., N. Apel, and M. Lambrecht. 2002. <span>“Anisotropic Additive Plasticity in the Logarithmic Strain Space: Modular Kinematic Formulation and Implementation Based on Incremental Minimization Principles for Standard Materials.”</span> <em>Computer Methods in Applied Mechanics and Engineering</em> 191 (47–48): 5383–5425. <a href="https://doi.org/10.1016/S0045-7825(02)00438-3">https://doi.org/10.1016/S0045-7825(02)00438-3</a>.
 </div>
 </div>
-<section class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>For the example, we used the Bourne-again shell (<code>bash</code>) syntax here.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p>For the example, we used the Bourne-again shell (<code>bash</code>) syntax here.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
-      </body>
+</body>
 </html>

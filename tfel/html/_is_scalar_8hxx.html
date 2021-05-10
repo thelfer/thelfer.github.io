@@ -77,7 +77,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -93,12 +92,6 @@ $(function() {
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1typetraits_1_1_is_scalar.html">tfel::typetraits::IsScalar&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traits class which says if its argument stands for a scalar.  <a href="structtfel_1_1typetraits_1_1_is_scalar.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacetfel"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel.html">tfel</a></td></tr>
-<tr class="memdesc:namespacetfel"><td class="mdescLeft">&#160;</td><td class="mdescRight">the namespace tfel encloses all the TFEL project. This namespace is empty. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -157,11 +150,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a7b21c8625049493585ebb40f4c6d2fbe"><td class="memItemLeft" align="right" valign="top"><a id="a7b21c8625049493585ebb40f4c6d2fbe"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>tfel::typetraits::TFEL_META_IS_SCALAR</b> (<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">tfel::math::Complex</a>&lt; long double &gt;)</td></tr>
 <tr class="separator:a7b21c8625049493585ebb40f4c6d2fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae67d2af16bbc4b2d2b6007d2fd9a37d1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae67d2af16bbc4b2d2b6007d2fd9a37d1"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_is_scalar_8hxx.html#ae67d2af16bbc4b2d2b6007d2fd9a37d1">tfel::typetraits::isScalar</a> ()</td></tr>
+<tr class="memdesc:ae67d2af16bbc4b2d2b6007d2fd9a37d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple helper function  <a href="_is_scalar_8hxx.html#ae67d2af16bbc4b2d2b6007d2fd9a37d1">More...</a><br /></td></tr>
+<tr class="separator:ae67d2af16bbc4b2d2b6007d2fd9a37d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file declares the IsScalar traits class and specialises it for standard numeric types. </p>
 <dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>07 Jun 2006 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>07/07/2006 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2006-2018 CEA/DEN, EDF R&amp;D. All rights reserved. This project is publicly released under either the GNU GPL Licence or the CECILL-A licence. A copy of thoses licences are delivered with the sources of TFEL. CEA or EDF may also distribute this project under specific licensing conditions. </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a58ff4ab2b6101517e727563b3b44ecdf"></a>
@@ -179,10 +176,38 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">                                    \</div><div class="line">    template&lt;&gt;                             \</div><div class="line">    struct IsScalar&lt; X &gt;{                  \                   \</div><div class="line">      static constexpr <span class="keywordtype">bool</span> cond = <span class="keyword">true</span>;       \</div><div class="line">    };                                     \                                    \</div><div class="line">    template&lt;&gt;                             \</div><div class="line">    struct IsScalar&lt;const X &gt;{             \                   \</div><div class="line">      static constexpr <span class="keywordtype">bool</span> cond = <span class="keyword">true</span>;       \</div><div class="line">    }</div></div><!-- fragment -->
+<b>Value:</b><div class="fragment"><div class="line">                                    \</div><div class="line">  template &lt;&gt;                            \</div><div class="line">  struct IsScalar&lt;X&gt; {                   \                                  \</div><div class="line">    static constexpr <span class="keywordtype">bool</span> cond = <span class="keyword">true</span>;   \</div><div class="line">  };                                     \                                    \</div><div class="line">  template &lt;&gt;                            \</div><div class="line">  struct IsScalar&lt;const X&gt; {             \                                  \</div><div class="line">    static constexpr <span class="keywordtype">bool</span> cond = <span class="keyword">true</span>;   \</div><div class="line">  }</div></div><!-- fragment -->
 <p>An helper macro to specialise IsScalar for each standard "real" numeric types. </p>
 <dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>28 jun 2006 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>28/06/2006 </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="file_ae67d2af16bbc4b2d2b6007d2fd9a37d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_ae67d2af16bbc4b2d2b6007d2fd9a37d1">&#9670;&nbsp;</a></span>isScalar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool tfel::typetraits::isScalar </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a simple helper function </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type tested </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -195,7 +220,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 18 2018 20:54:59 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 3 2021 21:24:42 for tfel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

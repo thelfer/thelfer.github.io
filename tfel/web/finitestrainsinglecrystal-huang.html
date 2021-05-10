@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -80,7 +79,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -98,64 +97,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -177,6 +193,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -243,30 +260,30 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">Implementing a simple finite strain single crystal behaviour, comparison with Huang’s implementation</h1>
-                  <h2 class="author">Thomas Helfer, Jürgen Almanstoetter</h2>
-                  <h3 class="date">October 2017</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#constitutive-equations">Constitutive equations</a></li>
-      <li><a href="#mfront-implementation"><code>MFront</code> Implementation</a><ul>
-      <li><a href="#dsl-type"><code>DSL</code> type</a></li>
-      <li><a href="#some-meta-data">Some meta-data</a></li>
-      <li><a href="#default-numerical-parameters">Default numerical parameters</a></li>
-      <li><a href="#the-finitestrainsinglecrystal-brick">The <code>FiniteStrainSingleCrystal</code> brick</a></li>
-      <li><a href="#description-of-the-crystal-structure-and-the-slip-systems">Description of the crystal structure and the slip systems</a></li>
-      <li><a href="#material-properties">Material properties</a></li>
-      <li><a href="#auxiliary-state-variables">Auxiliary state variables</a></li>
-      <li><a href="#integration-of-the-constitutive-equations">Integration of the constitutive equations</a></li>
-      <li><a href="#update-auxiliary-state-variables">Update auxiliary state variables</a></li>
-      </ul></li>
-      <li><a href="#comparison-to-huangs-implementation">Comparison to Huang’s implementation</a></li>
-      </ul>
-    </div>
-        <p>This document describes how to implement a phenomenological crystal plasticity model used in Huang’s UMAT subroutine (See <span class="citation" data-cites="huang_user-material_1991">[1]</span>).</p>
+<div id="header">
+<h1 class="title">Implementing a simple finite strain single crystal behaviour, comparison with Huang’s implementation</h1>
+<h2 class="author">Thomas Helfer, Jürgen Almanstoetter</h2>
+<h3 class="date">October 2017</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#constitutive-equations">Constitutive equations</a></li>
+<li><a href="#mfront-implementation"><code>MFront</code> Implementation</a>
+<ul>
+<li><a href="#dsl-type"><code>DSL</code> type</a></li>
+<li><a href="#some-meta-data">Some meta-data</a></li>
+<li><a href="#default-numerical-parameters">Default numerical parameters</a></li>
+<li><a href="#the-finitestrainsinglecrystal-brick">The <code>FiniteStrainSingleCrystal</code> brick</a></li>
+<li><a href="#description-of-the-crystal-structure-and-the-slip-systems">Description of the crystal structure and the slip systems</a></li>
+<li><a href="#material-properties">Material properties</a></li>
+<li><a href="#auxiliary-state-variables">Auxiliary state variables</a></li>
+<li><a href="#integration-of-the-constitutive-equations">Integration of the constitutive equations</a></li>
+<li><a href="#update-auxiliary-state-variables">Update auxiliary state variables</a></li>
+</ul></li>
+<li><a href="#comparison-to-huangs-implementation">Comparison to Huang’s implementation</a></li>
+</ul>
+</div>
+<p>This document describes how to implement a phenomenological crystal plasticity model used in Huang’s UMAT subroutine (See <span class="citation" data-cites="huang_user-material_1991">[1]</span>).</p>
 <p>Such an example illustrates:</p>
 <ul>
 <li>The usage of <code>FiniteStrainSingleCrystal</code> brick (see <a href="finitestrainsinglecrystal.html">this page</a>).</li>
@@ -296,84 +313,84 @@ g_{c}=\sum_{\alpha=1}^{n} \int_0^t \left|\dot{g}^{\alpha}\right|\, dt
 \]</span></p>
 <h1 id="mfront-implementation"><code>MFront</code> Implementation</h1>
 <h2 id="dsl-type"><code>DSL</code> type</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL ImplicitFiniteStrain;</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL ImplicitFiniteStrain;</span></code></pre></div>
 <h2 id="some-meta-data">Some meta-data</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Behaviour FiniteStrainSingleCrystalBrickHuang;</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="er">@</span>Author    Juergen Almanstoetter, Thomas Helfer;</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="er">@</span>Date      <span class="dv">25</span>/<span class="er">09</span>/<span class="dv">2017</span>;</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="er">@</span>Description{</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="st">&quot;Implementation of the Huang&#39;s model.&quot;</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour FiniteStrainSingleCrystalBrickHuang;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author    Juergen Almanstoetter, Thomas Helfer;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date      <span class="dv">25</span>/<span class="er">09</span>/<span class="dv">2017</span>;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description{</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Implementation of the Huang&#39;s model.&quot;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="default-numerical-parameters">Default numerical parameters</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>Algorithm NewtonRaphson;</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="er">@</span>Theta   <span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="er">@</span>Epsilon <span class="dv">1</span>.e<span class="dv">-11</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta   <span class="dv">1</span>;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-11</span>;</span></code></pre></div>
 <h2 id="the-finitestrainsinglecrystal-brick">The <code>FiniteStrainSingleCrystal</code> brick</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>Brick FiniteStrainSingleCrystal{</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"> shifted_elastic_deformation_gradient : <span class="kw">true</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">};</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick FiniteStrainSingleCrystal{</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> shifted_elastic_deformation_gradient : <span class="kw">true</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
 <h2 id="description-of-the-crystal-structure-and-the-slip-systems">Description of the crystal structure and the slip systems</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>CrystalStructure FCC;</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="er">@</span>SlidingSystem &lt;<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">-1</span>&gt;{<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>};</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>CrystalStructure FCC;</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>SlidingSystem &lt;<span class="dv">0</span>,<span class="dv">1</span>,-<span class="dv">1</span>&gt;{<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>};</span></code></pre></div>
 <h2 id="material-properties">Material properties</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="er">@</span>MaterialProperty stress h0;</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="er">@</span>MaterialProperty stress tau_sat;</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="er">@</span>MaterialProperty stress tau0;</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="er">@</span>MaterialProperty real m;</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="er">@</span>MaterialProperty strainrate da;</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="er">@</span>MaterialProperty real y0;</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="er">@</span>MaterialProperty real r;</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress h0;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress tau_sat;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress tau0;</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real m;</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty strainrate da;</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real y0;</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real r;</span></code></pre></div>
 <h2 id="auxiliary-state-variables">Auxiliary state variables</h2>
 <h3 id="cumulative-shear-strain-on-slip-systems">Cumulative shear strain on slip systems</h3>
 <p>In our implementation, we store the cumulative shear strain <span class="math inline">\(g_{c}\)</span> in an auxiliary state variable.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>AuxiliaryStateVariable real gc;</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable real gc;</span></code></pre></div>
 <p>For convenience, a variable to store the increment of <span class="math inline">\(g_{c}\)</span> over the time step will be needed. This increment is defined as a local variable, to be able to access it from the <code>@Integrator</code> and <code>@UpdateAuxiliaryStateVariables</code> blocks of our implementation.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>LocalVariable real dgc; </a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real dgc; </span></code></pre></div>
 <h3 id="slip-system-strength">Slip system strength</h3>
 <p>In this implementation, we store the strength of each slip system in an array of auxiliary state variables (y).</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>AuxiliaryStateVariable real y[Nss];</a></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="er">@</span>LocalVariable real dy[Nss];</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable real y[Nss];</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real dy[Nss];</span></code></pre></div>
 <h2 id="integration-of-the-constitutive-equations">Integration of the constitutive equations</h2>
 <h3 id="computation-of-deltag_c">Computation of <span class="math inline">\(\Delta\,g_{c}\)</span></h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1">dgc = real{};</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nss;++i){</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">  dgc+=abs(dg[i]);</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dgc = real{};</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nss;++i){</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  dgc+=abs(dg[i]);</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h3 id="computation-of-the-self-hardening">Computation of the self-hardening</h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> hb = h0/power&lt;<span class="dv">2</span>&gt;(<span class="bu">std::</span>cosh((h0*(gc+dgc))/(tau_sat-tau0)));</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> hb = h0/power&lt;<span class="dv">2</span>&gt;(<span class="bu">std::</span>cosh((h0*(gc+dgc))/(tau_sat-tau0)));</span></code></pre></div>
 <h3 id="computation-of-the-hardening-strength-and-the-plastic-slip-rate-of-the-ith-system">Computation of the hardening strength and the plastic slip rate of the <span class="math inline">\(i\)</span>th system</h3>
 <h4 id="hardening-strength">Hardening strength</h4>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1">dy[i] = real{};</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> j=<span class="dv">0</span>;j!=Nss;++j){</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> qab = (ss.areCoplanar(i,j)) ? <span class="dv">1</span> : r;</a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">  dy[i] += qab*hb*abs(dg[j]);</a>
-<a class="sourceLine" id="cb13-5" data-line-number="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dy[i] = real{};</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> j=<span class="dv">0</span>;j!=Nss;++j){</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> qab = (ss.areCoplanar(i,j)) ? <span class="dv">1</span> : r;</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  dy[i] += qab*hb*abs(dg[j]);</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h4 id="plastic-slip-rate">Plastic slip rate</h4>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="at">const</span> <span class="kw">auto</span> tau = ss.mu[i] | M ;</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="cf">if</span> (abs(tau)&gt;<span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="at">const</span> <span class="kw">auto</span> <span class="va">y_</span>   = y0+y[i]+dy[i];</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">  <span class="at">const</span> <span class="kw">auto</span> sgn  = tau/abs(tau);</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">  <span class="at">const</span> <span class="kw">auto</span> hsi  = dt*da*pow(abs(tau/<span class="va">y_</span>),m<span class="dv">-1</span>)/<span class="va">y_</span>;</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">  fg[i] -= hsi*abs(tau)*sgn;</a>
-<a class="sourceLine" id="cb14-7" data-line-number="7">  <span class="at">const</span> <span class="kw">auto</span> Hsi  = hsi*m;</a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">  dfg_ddeel(i)    = -Hsi*(ss.mu[i]|dM_ddeel);</a>
-<a class="sourceLine" id="cb14-9" data-line-number="9">  dfg_ddg(i,i)   -=  m*fg[i]*hb/<span class="va">y_</span>;</a>
-<a class="sourceLine" id="cb14-10" data-line-number="10">}</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> tau = ss.mu[i] | M ;</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (abs(tau)&gt;<span class="dv">0</span>){</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">y_</span>   = y0+y[i]+dy[i];</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sgn  = tau/abs(tau);</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> hsi  = dt*da*pow(abs(tau/<span class="va">y_</span>),m-<span class="dv">1</span>)/<span class="va">y_</span>;</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  fg[i] -= hsi*abs(tau)*sgn;</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Hsi  = hsi*m;</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  dfg_ddeel(i)    = -Hsi*(ss.mu[i]|dM_ddeel);</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  dfg_ddg(i,i)   -=  m*fg[i]*hb/<span class="va">y_</span>;</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="update-auxiliary-state-variables">Update auxiliary state variables</h2>
 <p>If the Newton-Raphson algorithm converges, the evolution of <span class="math inline">\(g\)</span> is known. The only thing left is to update the values of the auxiliary state variables <span class="math inline">\(g_{c}\)</span> and <span class="math inline">\(\Delta\,y\)</span>. Here, for convenience, a litte approximation is made: the values of <span class="math inline">\(\Delta\,g_{c}\)</span> and <span class="math inline">\(\Delta\,y\)</span> as computed at the last iteration of the Newton-Raphson algorithm, are used for that purpose:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="er">@</span>UpdateAuxiliaryStateVariables{</a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">  gc+=dgc;</a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">  y+=dy;</a>
-<a class="sourceLine" id="cb15-4" data-line-number="4">} <span class="co">// end of @UpdateAuxiliaryStateVariables</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UpdateAuxiliaryStateVariables{</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  gc+=dgc;</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  y+=dy;</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @UpdateAuxiliaryStateVariables</span></span></code></pre></div>
 <p>Indeed, a more rigorous approach would be to re-evaluate <span class="math inline">\(\Delta\,g_{c}\)</span> and <span class="math inline">\(\Delta\,y\)</span> using the values of <span class="math inline">\(\Delta\,g\)</span> at convergence.</p>
 <h1 id="comparison-to-huangs-implementation">Comparison to Huang’s implementation</h1>
-<p>The <code>MFront</code> solution is verified using <code>ABAQUS</code> by comparing to results obtained using Huang’s <code>UMAT</code> subroutine. In both cases a single crystal copper bar of 100 mm x 10 mm x 10 mm is subjected to a tensile load of 200 MPa within 1s. The required materials parameters are taken from the reference [1], with elastic moduli <span class="math inline">\(C_{11} = 168400\)</span> MPa, <span class="math inline">\(C_{12} =121400\)</span> MPa, <span class="math inline">\(C_{44} =75400\)</span> MPa, initial flow stress <span class="math inline">\(\tau_0=60.8\)</span> MPa, initial hardening <span class="math inline">\(h_0=541.5\)</span> MPa, rate sensitivity exponent <span class="math inline">\(m=10\)</span>, latent hardening <span class="math inline">\(r=1.0\)</span>, reference strain rate <span class="math inline">\(\dot a=0.001\)</span> and saturation strength <span class="math inline">\(\tau_{sat}=109.8\)</span> MPa. Symmetric boundary conditions are applied in all three directions to allow for uniform deformation. The copper material has an fcc crystal structure with [110])111) slip systems. The grain is oriented using zeros for all Euler angles and represented by a single higher order C3D20R hex element.</p>
-<div id="refs" class="references">
-<div id="ref-huang_user-material_1991">
-<p>1. <span class="smallcaps">Huang</span>, Yonggang. Report Mech-178: A user-material subroutine incorporating single crystal plasticity in the ABAQUS finite element program. Division of Engineering and Applied Science. Cambridge, Massachusett : Division of Engineering; Applied Science, Harvard University, 1991. Available from: <a href="http://www.columbia.edu/~jk2079/fem/umat_documentation.pdf" class="uri">http://www.columbia.edu/~jk2079/fem/umat_documentation.pdf</a></p>
+<p>The <code>MFront</code> solution is verified using <code>ABAQUS</code> by comparing to results obtained using Huang’s <code>UMAT</code> subroutine. In both cases a single crystal copper bar of 100 mm x 10 mm x 10 mm is subjected to a tensile load of 200 MPa within 1s. The required materials parameters are taken from the reference [1], with elastic moduli <span class="math inline">\(C_{11} = 168400\)</span> MPa, <span class="math inline">\(C_{12} =121400\)</span> MPa, <span class="math inline">\(C_{44} =75400\)</span> MPa, initial flow stress <span class="math inline">\(\tau_0=60.8\)</span> MPa, initial hardening <span class="math inline">\(h_0=541.5\)</span> MPa, rate sensitivity exponent <span class="math inline">\(m=10\)</span>, latent hardening <span class="math inline">\(r=1.0\)</span>, reference strain rate <span class="math inline">\(\dot a=0.001\)</span> and saturation strength <span class="math inline">\(\tau_{sat}=109.8\)</span> MPa. Symmetric boundary conditions are applied in all three directions to allow for uniform deformation. The copper material has an fcc crystal structure with [110])) slip systems. The grain is oriented using zeros for all Euler angles and represented by a single higher order C3D20R hex element.</p>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-huang_user-material_1991" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Huang</span>, Yonggang. Report Mech-178: A user-material subroutine incorporating single crystal plasticity in the <span>ABAQUS</span> finite element program. Division of Engineering and Applied Science. Cambridge, Massachusett : Division of Engineering; Applied Science, Harvard University, 1991. Available from: <a href="http://www.columbia.edu/~jk2079/fem/umat_documentation.pdf">http://www.columbia.edu/~jk2079/fem/umat_documentation.pdf</a></div>
 </div>
 </div>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

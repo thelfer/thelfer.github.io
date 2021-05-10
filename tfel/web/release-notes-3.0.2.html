@@ -16,28 +16,27 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -46,9 +45,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -81,7 +80,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -99,64 +98,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -178,6 +194,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -244,56 +261,55 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">Release notes of the 3.0.2 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
-                  <h2 class="author">Thomas Helfer</h2>
-                  <h3 class="date">2017</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#tickets-fixed">Tickets fixed</a><ul>
-      <li><a href="#ticket-93-error-declaring-local-variable">Ticket #93: Error declaring local variable</a></li>
-      <li><a href="#ticket-92-reading-boolean-values-in-dataread_value-is-broken">Ticket #92: Reading boolean values in <code>Data::read_value</code> is broken</a></li>
-      <li><a href="#ticket-91-parts-of-the-implicit-systems-and-jacobian-matrix-blocks-by-the-standardelasticity-brick-shall-be-inserted-at-the-beginning-of-the-integrator-block-not-at-the-end">Ticket #91: Parts of the implicit systems and jacobian matrix blocks by the <code>StandardElasticity</code> brick shall be inserted at the beginning of the <code>@Integrator</code> block, not at the end</a></li>
-      <li><a href="#ticket-90-wrong-test-on-boost_version-version-in-bindingspythonincludetfelpythonsharedptr.hxx">Ticket #90: Wrong test on <code>BOOST_VERSION</code> version in <code>bindings/python/include/TFEL/Python/SharedPtr.hxx</code></a></li>
-      <li><a href="#ticket-89-standardelasticity-bug-when-only-one-the-plane-stress-modelling-hypotheses-is-selected">Ticket #89: StandardElasticity: bug when only one the plane stress modelling hypotheses is selected</a></li>
-      <li><a href="#ticket-88-error-when-treating-axial-growth-the-axis-along-the-growth-is-wrong">Ticket #88: Error when treating axial growth: the axis along the growth is wrong</a></li>
-      <li><a href="#ticket-87-the-correction-of-the-axial-growth-modifies-all-the-stress-free-expansion-treated-so-far">Ticket #87: The correction of the axial growth modifies all the stress free expansion treated so far</a></li>
-      <li><a href="#ticket-86-the-material-laws-are-not-available-in-the-computestress-block-in-the-rungekutta-dsl">Ticket #86: The material laws are not available in the <code>ComputeStress</code> block in the <code>RungeKutta</code> DSL</a></li>
-      <li><a href="#ticket-85-add-support-for-an-in-plane-relocalisation-strain-in-behaviours-laws">Ticket #85 Add support for an in plane “relocalisation strain” in behaviours laws</a></li>
-      <li><a href="#ticket-84-check-the-ntens-value-in-the-abaqus-interface">Ticket #84: Check the <code>NTENS</code> value in the <code>Abaqus</code> interface</a></li>
-      <li><a href="#ticket-82-python-interface-is-broken-if-no-material-name-if-not-defined">Ticket #82: Python interface is broken if no material name if not defined</a></li>
-      <li><a href="#ticket-81-have-two-versions-of-mfront-in-the-same-environment">Ticket #81: Have two versions of MFront in the same environment</a></li>
-      <li><a href="#ticket-80-adding-the-possiblity-to-compile-a-law-using-python-module">Ticket #80: Adding the possiblity to compile a law using python module</a></li>
-      <li><a href="#ticket-79-cyrano-interface-bug-in-cyranobehaviourhandler-class.-missing-test.">Ticket #79: <code>Cyrano</code> interface: bug in <code>CyranoBehaviourHandler</code> class. Missing test.</a></li>
-      <li><a href="#ticket-78-fix-transpose-of-st2tost2-when-using-rvalue-reference">Ticket #78: Fix transpose of <code>st2tost2</code> when using rvalue reference</a></li>
-      <li><a href="#ticket-77-operators-and-are-broken-for-fourth-order-tensors">Ticket #77: operators <code>*=</code> and <code>/=</code> are broken for fourth order tensors</a></li>
-      <li><a href="#ticket-75-support-for-python3-in-the-python-interface">Ticket #75: Support for <code>python3</code> in the python interface</a></li>
-      <li><a href="#ticket-73-abaqusexplicit-wait-for-tasks-termination-when-the-threadpool-threading-model-is-used">Ticket #73 AbaqusExplicit: wait for tasks termination when the <code>ThreadPool</code> threading model is used</a></li>
-      <li><a href="#ticket-72-error-at-compilation-of-documentation">Ticket #72: Error at compilation of documentation</a></li>
-      <li><a href="#ticket-69-profiling-true-error-in-cygwin">Ticket #69: <code>@Profiling</code> true; Error in cygwin</a></li>
-      <li><a href="#ticket-70-plastic-mfront-in-calculix">Ticket #70: <code>PLASTIC</code> + <code>MFRONT</code> in <code>CalculiX</code></a></li>
-      <li><a href="#ticket-67-a-suffix-to-the-material-name-is-required-abaqus-interface">Ticket #67 A suffix to the material name is required (<code>abaqus</code> interface)</a></li>
-      <li><a href="#ticket-64-change-the-library-prefix-to-cyg-under-cygwin">Ticket #64: Change the library prefix to “cyg” under cygwin</a></li>
-      <li><a href="#ticket-63-error-cygwin-make">Ticket #63: Error cygwin (make)</a></li>
-      <li><a href="#ticket-58-fix-initialisation-of-an-array-of-parameters">Ticket #58: Fix initialisation of an array of parameters</a></li>
-      <li><a href="#ticket-57-more-robust-detection-of-python-versions-avoid-mismatch-between-the-python-libraries-the-python-interpreter-and-the-boost-python-library">Ticket #57: More robust detection of python versions: avoid mismatch between the python libraries, the python interpreter and the boost python library</a></li>
-      <li><a href="#ticket-54-bug-in-stensorfromtinyvectorview-standard-assignement-fails">Ticket #54: Bug in StensorFromTinyVectorView: standard assignement fails</a></li>
-      <li><a href="#ticket-53-add-comments-handling-in-parameters-txt-files">Ticket #53: Add comments handling in parameters txt files</a></li>
-      <li><a href="#ticket-52-more-robust-handling-of-parameters-txt-file">Ticket #52: More robust handling of parameters txt file</a></li>
-      <li><a href="#ticket-20-allow-mfront-to-work-under-windows-without-requiring-msys">Ticket #20 Allow <code>MFront</code> to work under <code>Windows</code> without requiring <code>MSYS</code></a></li>
-      <li><a href="#ticket-17-add-physical-constants-from-codata">Ticket #17: Add physical constants from CODATA</a></li>
-      </ul></li>
-      </ul>
-    </div>
-        <p>Version 3.0.2 of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code> has been released on the 25th October, 2017.</p>
+<div id="header">
+<h1 class="title">Release notes of the 3.0.2 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">2017</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#tickets-fixed">Tickets fixed</a>
+<ul>
+<li><a href="#ticket-93-error-declaring-local-variable">Ticket #93: Error declaring local variable</a></li>
+<li><a href="#ticket-92-reading-boolean-values-in-dataread_value-is-broken">Ticket #92: Reading boolean values in <code>Data::read_value</code> is broken</a></li>
+<li><a href="#ticket-91-parts-of-the-implicit-systems-and-jacobian-matrix-blocks-by-the-standardelasticity-brick-shall-be-inserted-at-the-beginning-of-the-integrator-block-not-at-the-end">Ticket #91: Parts of the implicit systems and jacobian matrix blocks by the <code>StandardElasticity</code> brick shall be inserted at the beginning of the <code>@Integrator</code> block, not at the end</a></li>
+<li><a href="#ticket-90-wrong-test-on-boost_version-version-in-bindingspythonincludetfelpythonsharedptr.hxx">Ticket #90: Wrong test on <code>BOOST_VERSION</code> version in <code>bindings/python/include/TFEL/Python/SharedPtr.hxx</code></a></li>
+<li><a href="#ticket-89-standardelasticity-bug-when-only-one-the-plane-stress-modelling-hypotheses-is-selected">Ticket #89: StandardElasticity: bug when only one the plane stress modelling hypotheses is selected</a></li>
+<li><a href="#ticket-88-error-when-treating-axial-growth-the-axis-along-the-growth-is-wrong">Ticket #88: Error when treating axial growth: the axis along the growth is wrong</a></li>
+<li><a href="#ticket-87-the-correction-of-the-axial-growth-modifies-all-the-stress-free-expansion-treated-so-far">Ticket #87: The correction of the axial growth modifies all the stress free expansion treated so far</a></li>
+<li><a href="#ticket-86-the-material-laws-are-not-available-in-the-computestress-block-in-the-rungekutta-dsl">Ticket #86: The material laws are not available in the <code>ComputeStress</code> block in the <code>RungeKutta</code> DSL</a></li>
+<li><a href="#ticket-85-add-support-for-an-in-plane-relocalisation-strain-in-behaviours-laws">Ticket #85 Add support for an in plane “relocalisation strain” in behaviours laws</a></li>
+<li><a href="#ticket-84-check-the-ntens-value-in-the-abaqus-interface">Ticket #84: Check the <code>NTENS</code> value in the <code>Abaqus</code> interface</a></li>
+<li><a href="#ticket-82-python-interface-is-broken-if-no-material-name-if-not-defined">Ticket #82: Python interface is broken if no material name if not defined</a></li>
+<li><a href="#ticket-81-have-two-versions-of-mfront-in-the-same-environment">Ticket #81: Have two versions of MFront in the same environment</a></li>
+<li><a href="#ticket-80-adding-the-possiblity-to-compile-a-law-using-python-module">Ticket #80: Adding the possiblity to compile a law using python module</a></li>
+<li><a href="#ticket-79-cyrano-interface-bug-in-cyranobehaviourhandler-class.-missing-test.">Ticket #79: <code>Cyrano</code> interface: bug in <code>CyranoBehaviourHandler</code> class. Missing test.</a></li>
+<li><a href="#ticket-78-fix-transpose-of-st2tost2-when-using-rvalue-reference">Ticket #78: Fix transpose of <code>st2tost2</code> when using rvalue reference</a></li>
+<li><a href="#ticket-77-operators-and-are-broken-for-fourth-order-tensors">Ticket #77: operators <code>*=</code> and <code>/=</code> are broken for fourth order tensors</a></li>
+<li><a href="#ticket-75-support-for-python3-in-the-python-interface">Ticket #75: Support for <code>python3</code> in the python interface</a></li>
+<li><a href="#ticket-73-abaqusexplicit-wait-for-tasks-termination-when-the-threadpool-threading-model-is-used">Ticket #73 AbaqusExplicit: wait for tasks termination when the <code>ThreadPool</code> threading model is used</a></li>
+<li><a href="#ticket-72-error-at-compilation-of-documentation">Ticket #72: Error at compilation of documentation</a></li>
+<li><a href="#ticket-69-profiling-true-error-in-cygwin">Ticket #69: <code>@Profiling</code> true; Error in cygwin</a></li>
+<li><a href="#ticket-70-plastic-mfront-in-calculix">Ticket #70: <code>PLASTIC</code> + <code>MFRONT</code> in <code>CalculiX</code></a></li>
+<li><a href="#ticket-67-a-suffix-to-the-material-name-is-required-abaqus-interface">Ticket #67 A suffix to the material name is required (<code>abaqus</code> interface)</a></li>
+<li><a href="#ticket-64-change-the-library-prefix-to-cyg-under-cygwin">Ticket #64: Change the library prefix to “cyg” under cygwin</a></li>
+<li><a href="#ticket-63-error-cygwin-make">Ticket #63: Error cygwin (make)</a></li>
+<li><a href="#ticket-58-fix-initialisation-of-an-array-of-parameters">Ticket #58: Fix initialisation of an array of parameters</a></li>
+<li><a href="#ticket-57-more-robust-detection-of-python-versions-avoid-mismatch-between-the-python-libraries-the-python-interpreter-and-the-boost-python-library">Ticket #57: More robust detection of python versions: avoid mismatch between the python libraries, the python interpreter and the boost python library</a></li>
+<li><a href="#ticket-54-bug-in-stensorfromtinyvectorview-standard-assignement-fails">Ticket #54: Bug in StensorFromTinyVectorView: standard assignement fails</a></li>
+<li><a href="#ticket-53-add-comments-handling-in-parameters-txt-files">Ticket #53: Add comments handling in parameters txt files</a></li>
+<li><a href="#ticket-52-more-robust-handling-of-parameters-txt-file">Ticket #52: More robust handling of parameters txt file</a></li>
+<li><a href="#ticket-20-allow-mfront-to-work-under-windows-without-requiring-msys">Ticket #20 Allow <code>MFront</code> to work under <code>Windows</code> without requiring <code>MSYS</code></a></li>
+<li><a href="#ticket-17-add-physical-constants-from-codata">Ticket #17: Add physical constants from CODATA</a></li>
+</ul></li>
+</ul>
+</div>
+<p>Version 3.0.2 of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code> has been released on the 25th October, 2017.</p>
 <p>This is mainly a bug fix version of the <code>3.0</code> series. All tickets solved are described below. There are no known regressions.</p>
-
 <h1 id="tickets-fixed">Tickets fixed</h1>
 <h2 id="ticket-93-error-declaring-local-variable">Ticket #93: Error declaring local variable</h2>
 <p>In certain circumstances, parsing a variable type was not consistent with <code>C++</code> rules. For example, the following statement was not properly parsed:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>LocalVariable tfel::math::tvector&lt;Nss,tfel::math::tensor&lt;<span class="dv">3u</span>,real&gt; &gt;  mu;</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable tfel::math::tvector&lt;Nss,tfel::math::tensor&lt;<span class="dv">3</span><span class="bu">u</span>,real&gt; &gt;  mu;</span></code></pre></div>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/93/" class="uri">https://sourceforge.net/p/tfel/tickets/93/</a></p>
 <h2 id="ticket-92-reading-boolean-values-in-dataread_value-is-broken">Ticket #92: Reading boolean values in <code>Data::read_value</code> is broken</h2>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/92/" class="uri">https://sourceforge.net/p/tfel/tickets/92/</a></p>
@@ -341,12 +357,12 @@
 <p>This additional expansion is such that it does not create any stress in the fuel pellet for an isotropic elastic material with constant material properties.</p>
 <p>The axial axis is the second direction in <span class="math inline">\(1D\)</span> hypotheses and the third direction in <span class="math inline">\(2D\)</span> hypotheses.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="Relocation"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="Relocation-1" data-line-number="1"><span class="co">// relocation defined by an external model</span></a>
-<a class="sourceLine" id="Relocation-2" data-line-number="2"><span class="er">@</span>Relocation <span class="ch">&#39;UO2Relocation.mfront&#39;</span>;</a></code></pre></div>
-<div class="sourceCode" id="Relocation2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="Relocation2-1" data-line-number="1"><span class="co">// relocation defined by an external state variable</span></a>
-<a class="sourceLine" id="Relocation2-2" data-line-number="2"><span class="er">@</span>ExternalStateVariable real r;</a>
-<a class="sourceLine" id="Relocation2-3" data-line-number="3">r.setEntryName(<span class="st">&quot;Relocation&quot;</span>);</a>
-<a class="sourceLine" id="Relocation2-4" data-line-number="4"><span class="er">@</span>Relocation r;</a></code></pre></div>
+<div class="sourceCode" id="Relocation"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="Relocation-1"><a href="#Relocation-1" aria-hidden="true" tabindex="-1"></a><span class="co">// relocation defined by an external model</span></span>
+<span id="Relocation-2"><a href="#Relocation-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Relocation <span class="ch">&#39;U</span><span class="er">O2Relocation.mfront</span><span class="ch">&#39;</span>;</span></code></pre></div>
+<div class="sourceCode" id="Relocation2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="Relocation2-1"><a href="#Relocation2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// relocation defined by an external state variable</span></span>
+<span id="Relocation2-2"><a href="#Relocation2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable real r;</span>
+<span id="Relocation2-3"><a href="#Relocation2-3" aria-hidden="true" tabindex="-1"></a>r.setEntryName(<span class="st">&quot;Relocation&quot;</span>);</span>
+<span id="Relocation2-4"><a href="#Relocation2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Relocation r;</span></code></pre></div>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/85/" class="uri">https://sourceforge.net/p/tfel/tickets/85/</a></p>
 <h2 id="ticket-84-check-the-ntens-value-in-the-abaqus-interface">Ticket #84: Check the <code>NTENS</code> value in the <code>Abaqus</code> interface</h2>
 <p>The value of the <code>NTENS</code> value was not used to check that the function called was consistent with the modelling hypothesis used.</p>
@@ -372,47 +388,47 @@
 <p>This allows multiple executables to be installed in the same directory.</p>
 <h3 id="the-tfel-config-tool">The <code>tfel-config</code> tool</h3>
 <p>The <code>tfel-config</code> tool has been modified to take this option appropriately. For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">tfel-config-3.0.2-dev</span> --includes</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="ex">-I/tmp/install/include/TFEL-3.0.2-dev</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">$ <span class="ex">tfel-config-3.0.2-dev</span> --libs --material</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="ex">-L/tmp/install/lib</span> -lTFELMaterial-3.0.2-dev -lTFELMath-3.0.2-dev -lTFELUtilities-3.0.2-dev -lTFELException-3.0.2-dev</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-config-3.0.2-dev <span class="at">--includes</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-I/tmp/install/include/TFEL-3.0.2-dev</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-config-3.0.2-dev <span class="at">--libs</span> <span class="at">--material</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-L/tmp/install/lib</span> <span class="at">-lTFELMaterial-3.0.2-dev</span> <span class="at">-lTFELMath-3.0.2-dev</span> <span class="at">-lTFELUtilities-3.0.2-dev</span> <span class="at">-lTFELException-3.0.2-dev</span></span></code></pre></div>
 <h3 id="modifications-to-mfront">Modifications to <code>mfront</code></h3>
 <p><code>mfront</code> has been modified to call the appropriate <code>tfel-config</code> executable.</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/81/" class="uri">https://sourceforge.net/p/tfel/tickets/81/</a></p>
 <h3 id="an-helper-function-for-importing-tfel-modules">An helper function for importing <code>TFEL</code> modules</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="im">import</span> os, importlib</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">def</span> python_module_version(v):</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;Return the python module extension from the TFEL version&quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">    <span class="cf">return</span> v.replace(<span class="st">&#39;.&#39;</span>,<span class="st">&#39;_&#39;</span>).replace(<span class="st">&#39;-&#39;</span>,<span class="st">&#39;_&#39;</span>)</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="kw">def</span> import_tfel_module(n,<span class="op">*</span>v):</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="co">&quot;&quot;&quot;Try to import a tfel module, taking into account the TFEL_VERSION environment variable.&quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">    <span class="cf">if</span> <span class="kw">not</span> n:</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">        <span class="pp">ImportError</span>(<span class="st">&#39;Empty module name&#39;</span>)</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">    m   <span class="op">=</span> n.split(<span class="st">&#39;.&#39;</span>)</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">    <span class="cf">if</span> <span class="kw">not</span> v:</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">        env <span class="op">=</span> os.environ<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">        <span class="cf">if</span>(<span class="st">&#39;TFEL_VERSION&#39;</span> <span class="kw">in</span> env):</a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">            v <span class="op">=</span> env.get(<span class="st">&#39;TFEL_VERSION&#39;</span>)</a>
-<a class="sourceLine" id="cb3-16" data-line-number="16">            m[<span class="dv">0</span>] <span class="op">=</span> m[<span class="dv">0</span>]<span class="op">+</span><span class="st">&#39;_&#39;</span><span class="op">+</span>python_module_version(v)</a>
-<a class="sourceLine" id="cb3-17" data-line-number="17">    <span class="cf">elif</span> <span class="bu">len</span>(v)<span class="op">==</span><span class="dv">1</span>:</a>
-<a class="sourceLine" id="cb3-18" data-line-number="18">        m[<span class="dv">0</span>] <span class="op">=</span> m[<span class="dv">0</span>]<span class="op">+</span><span class="st">&#39;_&#39;</span><span class="op">+</span>python_module_version(v[<span class="dv">0</span>])</a>
-<a class="sourceLine" id="cb3-19" data-line-number="19">    <span class="cf">else</span>:</a>
-<a class="sourceLine" id="cb3-20" data-line-number="20">        <span class="pp">ImportError</span>(<span class="st">&#39;Invalid number of arguments&#39;</span>)</a>
-<a class="sourceLine" id="cb3-21" data-line-number="21">    <span class="cf">return</span> importlib.import_module(<span class="st">&#39;.&#39;</span>.join(m))</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, importlib</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> python_module_version(v):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Return the python module extension from the TFEL version&quot;&quot;&quot;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> v.replace(<span class="st">&#39;.&#39;</span>,<span class="st">&#39;_&#39;</span>).replace(<span class="st">&#39;-&#39;</span>,<span class="st">&#39;_&#39;</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> import_tfel_module(n,<span class="op">*</span>v):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Try to import a tfel module, taking into account the TFEL_VERSION environment variable.&quot;&quot;&quot;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> n:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="pp">ImportError</span>(<span class="st">&#39;Empty module name&#39;</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    m   <span class="op">=</span> n.split(<span class="st">&#39;.&#39;</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> v:</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        env <span class="op">=</span> os.environ<span class="op">;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="st">&#39;TFEL_VERSION&#39;</span> <span class="kw">in</span> env):</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            v <span class="op">=</span> env.get(<span class="st">&#39;TFEL_VERSION&#39;</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>            m[<span class="dv">0</span>] <span class="op">=</span> m[<span class="dv">0</span>]<span class="op">+</span><span class="st">&#39;_&#39;</span><span class="op">+</span>python_module_version(v)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="bu">len</span>(v)<span class="op">==</span><span class="dv">1</span>:</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        m[<span class="dv">0</span>] <span class="op">=</span> m[<span class="dv">0</span>]<span class="op">+</span><span class="st">&#39;_&#39;</span><span class="op">+</span>python_module_version(v[<span class="dv">0</span>])</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="pp">ImportError</span>(<span class="st">&#39;Invalid number of arguments&#39;</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> importlib.import_module(<span class="st">&#39;.&#39;</span>.join(m))</span></code></pre></div>
 <h2 id="ticket-80-adding-the-possiblity-to-compile-a-law-using-python-module">Ticket #80: Adding the possiblity to compile a law using python module</h2>
 <p><code>MFront</code> relies on external tools, called generators, for this step (this semantic is the same than the one used by <code>cmake</code>).</p>
 <p>The only available generator is currently the <code>Makefile</code> generator, handled by the <code>MakefileGenerator</code> class. This generator can be used as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="im">import</span> mfront</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">dsl <span class="op">=</span> mfront.getDSL(<span class="st">&quot;Chaboche.mfront&quot;</span>)</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">dsl.setInterfaces([<span class="st">&#39;castem&#39;</span>])</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">dsl.analyseFile(<span class="st">&quot;Chaboche.mfront&quot;</span>)</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">dsl.generateOutputFiles()</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">m <span class="op">=</span> mfront.MakefileGenerator()</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">m.exe(dsl.getTargetsDescription())</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dsl <span class="op">=</span> mfront.getDSL(<span class="st">&quot;Chaboche.mfront&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>dsl.setInterfaces([<span class="st">&#39;castem&#39;</span>])</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>dsl.analyseFile(<span class="st">&quot;Chaboche.mfront&quot;</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>dsl.generateOutputFiles()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> mfront.MakefileGenerator()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>m.exe(dsl.getTargetsDescription())</span></code></pre></div>
 <p>The <code>exe</code> methods provides several overloads and may accept an additional argument of type <code>GeneratorOptions</code> which let the user specifiy the optimisation level to be used.</p>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/80/" class="uri">https://sourceforge.net/p/tfel/tickets/80/</a></p>
 <h2 id="ticket-79-cyrano-interface-bug-in-cyranobehaviourhandler-class.-missing-test.">Ticket #79: <code>Cyrano</code> interface: bug in <code>CyranoBehaviourHandler</code> class. Missing test.</h2>
@@ -448,7 +464,7 @@
 <li>checks related to usage of the behaviour in finite strain analysis (<code>KSTEP</code>)</li>
 </ul>
 <p>All those checks may fail with the <code>ABAQUS</code> and <code>ABAQUSNL</code> interfaces in <code>CalculiX</code> for reasons described in the previous posts. This flag can be set as follows:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="ex">mfront</span> --obuild --interface=abaqus -D MFRONT_ABAQUS_NORUNTIMECHECKS SaintVenantKirchhoffElasticityTotalLagrangian.mfront</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mfront</span> <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>abaqus <span class="at">-D</span> MFRONT_ABAQUS_NORUNTIMECHECKS SaintVenantKirchhoffElasticityTotalLagrangian.mfront</span></code></pre></div>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/70/" class="uri">https://sourceforge.net/p/tfel/tickets/70/</a></p>
 <h2 id="ticket-67-a-suffix-to-the-material-name-is-required-abaqus-interface">Ticket #67 A suffix to the material name is required (<code>abaqus</code> interface)</h2>
 <p>The material name in <code>Abaqus/Standard</code> and <code>Abaqus/Explicit</code> are now expected to have the following form: <code>LIBRARY_FUNCTION_HYPOTHESIS_IDENTIFIER</code>.</p>
@@ -574,14 +590,14 @@
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/17/" class="uri">https://sourceforge.net/p/tfel/tickets/17/</a></p>
 <h3 id="c"><code>C++</code></h3>
 <p>The physical constants are available as constexpr static members of <code>tfel::PhysicalConstants</code> class defined in the <code>TFEL/PhysicalConstants.hxx</code> header.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">using</span> Cste   = tfel::PhysicalConstants&lt;real&gt;;</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="at">const</span> <span class="kw">auto</span> R = Cste::R;</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Cste   = tfel::PhysicalConstants&lt;real&gt;;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> R = Cste::R;</span></code></pre></div>
 <h3 id="python">Python</h3>
 <p>The physical constants are available as members of the <code>tfel.PhysicalConstants</code> class, as follows:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="im">from</span> tfel <span class="im">import</span> PhysicalConstants <span class="im">as</span> Cste</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="bu">print</span>(Cste.Na)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tfel <span class="im">import</span> PhysicalConstants <span class="im">as</span> Cste</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Cste.Na)</span></code></pre></div>
 <!-- Local IspellDict: english -->
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

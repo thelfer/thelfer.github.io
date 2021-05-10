@@ -15,28 +15,27 @@
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-      a.sourceLine:empty { height: 1.2em; position: absolute; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
-      pre.numberSource a.sourceLine
-        { position: relative; }
-      pre.numberSource a.sourceLine:empty
-        { position: absolute; }
-      pre.numberSource a.sourceLine::before
-        { content: attr(data-line-number);
-          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-          border: none; pointer-events: all;
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
           -webkit-touch-callout: none; -webkit-user-select: none;
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
@@ -45,9 +44,9 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { background-color: #f8f8f8; }
+        {  background-color: #f8f8f8; }
       @media screen {
-      a.sourceLine::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -80,7 +79,7 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -98,64 +97,81 @@
 		<li><a href="models.html">Models</a></li>
 	      </ul>
             </li>
-	    <li><a href="interfaces.html">Interfaces</a></li>
-	    <li><a href="mfront-doc.html">mfront-doc</a></li>
-	    <li><a href="mtest.html">mtest</a></li>
-	    <li><a href="mfm.html">mfm</a></li>
-	    <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
-	    <li><a href="tfel-check.html">tfel-check</a></li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
 	  </ul>
 	</li>
 	<li><a>Getting started</a>
 	  <ul>
 	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
 	    <li><a href="release-notes.html">Release notes</a>
-	    <ul>
-            <li><a>Versions 2.0.x</a>
-                <ul>
-                <li><a href="release-notes.html">Versions prior to 2.0.5</a><li>
-	 	       <li><a href="release-notes-2.0.5.html">Version 2.0.5</a><li>
-                </ul>
-            </li>
-            <li><a>Versions 3.0.x</a>
-                <ul>
-                    <li><a href="release-notes-3.0.html">Version 3.0.0</a><li>
-		           <li><a href="release-notes-3.0.1.html">Version 3.0.1</a><li>
-                    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a><li>
-		           <li><a href="release-notes-3.0.3.html">Version 3.0.3</a><li>
-		           <li><a href="release-notes-3.0.4.html">Version 3.0.4</a><li>
-		           <li><a href="release-notes-3.0.5.html">Version 3.0.5</a><li>
-		           <li><a href="release-notes-3.0.6.html">Version 3.0.6</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.1.x</a>
-                <ul>
-		<li><a href="release-notes-3.1.html">Version 3.1.0</a><li>
-		<li><a href="release-notes-3.1.1.html">Version 3.1.1</a><li>
-		<li><a href="release-notes-3.1.2.html">Version 3.1.2</a><li>
-		<li><a href="release-notes-3.1.3.html">Version 3.1.3</a><li>
-		<li><a href="release-notes-3.1.4.html">Version 3.1.4</a><li>
-		<li><a href="release-notes-3.1.5.html">Version 3.1.5</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.2.x</a>
-                <ul>
-		           <li><a href="release-notes-3.2.html">Version 3.2.0</a><li>
-		           <li><a href="release-notes-3.2.1.html">Version 3.2.1</a><li>
-		           <li><a href="release-notes-3.2.2.html">Version 3.2.2</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.3.x</a>
-                <ul>
-		           <li><a href="release-notes-3.3.html">Version 3.3.0</a><li>
-		           <li><a href="release-notes-3.3.1.html">Version 3.3.1</a><li>
-                </ul>
-           </li>
-            <li><a>Versions 3.4.x</a>
-                <ul>
-		           <li><a href="release-notes-3.4.html">Version 3.4.0</a><li>
-                </ul>
-           </li>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
 	      </ul>
 	    </li>
 	    <li><a href="coverity-scan.html">Coverity scan</a></li>
@@ -177,6 +193,7 @@
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
     		    <li><a href="epx.html">EUROPLEXUS</a></li>
@@ -243,30 +260,29 @@
 	</li>
       </ul>
     </header>
-    <br></br>
-        <div id="header">
-      <h1 class="title">How to implement an isotropic viscoplastic behaviour combining isotropic hardening and multiple kinematic hardenings following an Armstrong-Frederic evolution of the back stress</h1>
-                  <h2 class="author">Thomas Helfer, Jérémy Hure</h2>
-                  <h3 class="date">27/01/2017</h3>
-          </div>
-            <div id="TOC">
-      <ul>
-      <li><a href="#description-of-the-behaviour">Description of the behaviour</a><ul>
-      <li><a href="#elastic-behaviour">Elastic behaviour</a></li>
-      <li><a href="#viscoplastic-behaviour">Viscoplastic behaviour</a></li>
-      <li><a href="#evolution-of-the-isotropic-hardening">Evolution of the isotropic hardening</a></li>
-      <li><a href="#evolution-of-the-kinematic-hardenings">Evolution of the kinematic hardenings</a></li>
-      </ul></li>
-      <li><a href="#theta-scheme"><span class="math inline">\(\theta\)</span>-scheme</a><ul>
-      <li><a href="#computation-of-the-jacobian">Computation of the jacobian</a></li>
-      <li><a href="#implementation">Implementation</a></li>
-      <li><a href="#an-easy-optimization">An easy optimization</a></li>
-      </ul></li>
-      <li><a href="#references">References</a></li>
-      </ul>
-    </div>
-        
-
+<div id="header">
+<h1 class="title">How to implement an isotropic viscoplastic behaviour combining isotropic hardening and multiple kinematic hardenings following an Armstrong-Frederic evolution of the back stress</h1>
+<h2 class="author">Thomas Helfer, Jérémy Hure</h2>
+<h3 class="date">27/01/2017</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#description-of-the-behaviour">Description of the behaviour</a>
+<ul>
+<li><a href="#elastic-behaviour">Elastic behaviour</a></li>
+<li><a href="#viscoplastic-behaviour">Viscoplastic behaviour</a></li>
+<li><a href="#evolution-of-the-isotropic-hardening">Evolution of the isotropic hardening</a></li>
+<li><a href="#evolution-of-the-kinematic-hardenings">Evolution of the kinematic hardenings</a></li>
+</ul></li>
+<li><a href="#theta-scheme"><span class="math inline">\(\theta\)</span>-scheme</a>
+<ul>
+<li><a href="#computation-of-the-jacobian">Computation of the jacobian</a></li>
+<li><a href="#implementation">Implementation</a></li>
+<li><a href="#an-easy-optimization">An easy optimization</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
 <p>This article shows how to implement an isotropic viscoplastic behaviour combining isotropic hardening and multiple kinematic hardenings following an Armstrong-Frederic evolution of the back stress.</p>
 <p>Such an example illustrates:</p>
 <ul>
@@ -418,10 +434,10 @@ R{\left(p\right)}=R_{\infty} + {\left(R_{0}-R_{\infty}\right)}\,\exp{\left(-b\,p
 <h2 id="implementation">Implementation</h2>
 <p>The <code>Implicit</code> domain specific language is used to integrate a behaviour using a <span class="math inline">\(\theta\)</span>-scheme:</p>
 <h3 id="choice-of-the-dsl">Choice of the DSL</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="er">@</span>DSL Implicit;</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span></code></pre></div>
 <h3 id="behaviour-name">Behaviour name</h3>
 <p>We then give the name of the behaviour:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="er">@</span>Behaviour IsotropicViscoplasticityAmstrongFredericKinematicHardening;</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour IsotropicViscoplasticityAmstrongFredericKinematicHardening;</span></code></pre></div>
 <h3 id="the-standardelasticity-brick">The <code>StandardElasticity</code> brick</h3>
 <p>To implement this behaviour, we will use the <code>StandardElasticity</code> brick which provides:</p>
 <ul>
@@ -432,44 +448,44 @@ R{\left(p\right)}=R_{\infty} + {\left(R_{0}-R_{\infty}\right)}\,\exp{\left(-b\,p
 </ul>
 <p>This behaviour brick is fully described <a href="BehaviourBricks.html">here</a>.</p>
 <p>The usage of the <code>StandardElasticity</code> is declared as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="er">@</span>Brick StandardElasticity;</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity;</span></code></pre></div>
 <h3 id="default-numerical-parameters">Default numerical parameters</h3>
 <p>A fully implicit integration scheme is choosen as the default:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="er">@</span>Theta <span class="dv">1</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span>;</span></code></pre></div>
 <p>This value can be dynamically changed at runtime by modifying the <code>theta</code> parameter.</p>
 <p>The stopping criterion is chosen low, to ensure the quality of the consistent tangent operator (the default value, <span class="math inline">\(10^{-8}\)</span> is enough to ensure a good estimation of the state variable evolution, but is not enough to have a proper estimation of the consistent tangent operator):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="er">@</span>Epsilon <span class="fl">1e-13</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1e-13</span>;</span></code></pre></div>
 <p>This value can be dynamically changed at runtime by modifying the <code>epsilon</code> parameter.</p>
 <h3 id="definition-of-the-state-variables">Definition of the state variables</h3>
 <p>We first define the equivalent viscoplastic strain:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="er">@</span>StateVariable strain    p;</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">p.setGlossaryName(<span class="st">&quot;EquivalentViscoplasticStrain&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable strain    p;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>p.setGlossaryName(<span class="st">&quot;EquivalentViscoplasticStrain&quot;</span>);</span></code></pre></div>
 <p>We then define the kinematic variables as an array of two state variables:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="er">@</span>StateVariable StrainStensor a[<span class="dv">2</span>];</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">a.setEntryName(<span class="st">&quot;KinematicVariables&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable StrainStensor a[<span class="dv">2</span>];</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>a.setEntryName(<span class="st">&quot;KinematicVariables&quot;</span>);</span></code></pre></div>
 <h3 id="definition-of-the-material-properties">Definition of the material properties</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="er">@</span>MaterialProperty stress young;</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">young.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="er">@</span>MaterialProperty real nu;</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">nu.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="er">@</span>MaterialProperty stress Rinf;</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="er">@</span>MaterialProperty stress R0;</a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="er">@</span>MaterialProperty real b;</a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="er">@</span>MaterialProperty stress C[<span class="dv">2</span>];</a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="er">@</span>MaterialProperty real   g[<span class="dv">2</span>];</a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="er">@</span>MaterialProperty real m;</a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="er">@</span>MaterialProperty real K;</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress young;</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>young.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real nu;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>nu.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress Rinf;</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress R0;</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real b;</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress C[<span class="dv">2</span>];</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real   g[<span class="dv">2</span>];</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real m;</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real K;</span></code></pre></div>
 <h3 id="definition-of-the-local-variable">Definition of the local variable</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="er">@</span>LocalVariable stress mu;</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable stress mu;</span></code></pre></div>
 <h3 id="initialisation-of-the-local-variable">Initialisation of the local variable</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">/* Initialize Lame coefficients */</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="er">@</span>InitializeLocalVariables{</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">  mu = computeMu(young,nu);</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Initialize Lame coefficients */</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitializeLocalVariables{</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  mu = computeMu(young,nu);</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h3 id="definition-of-the-implicit-system">Definition of the implicit system</h3>
 <p>The definition of the implicit system is done in the <code>@Integrator</code> code block:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="er">@</span>Integrator{</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span></code></pre></div>
 <p>To understand this implementation of this code block, one shall bear in mind the following conventions:</p>
 <ul>
 <li>The current estimation of the stress state <span class="math inline">\({\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\)</span> at <span class="math inline">\(t+\theta\,dt\)</span> is computed by the <code>Standardlasticity</code> brick prior the evaluation of the implicit system and is stored in the <code>sig</code> variable.</li>
@@ -477,51 +493,51 @@ R{\left(p\right)}=R_{\infty} + {\left(R_{0}-R_{\infty}\right)}\,\exp{\left(-b\,p
 <li>For two integration variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, the variable <code>fX</code> denotes the equation of the implicit system associated with <span class="math inline">\(X\)</span> and <code>fY</code> the equation associated with <span class="math inline">\(Y\)</span>. The variable <code>dfX_ddY</code> holds the derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f}{\displaystyle \partial \Delta\,Y}}\)</span>.</li>
 </ul>
 <p>First, a few constant values are defined:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" data-line-number="1">  <span class="at">const</span> real two_third     = <span class="dv">2</span>/real(<span class="dv">3</span>);</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="kw">constexpr</span> <span class="at">const</span> real eps = real(<span class="dv">1</span>.e<span class="dv">-12</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> real two_third     = <span class="dv">2</span>/real(<span class="dv">3</span>);</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> real eps = real(<span class="fl">1.e-12</span>);</span></code></pre></div>
 <p>According the previous conventions, we compute the current estimation of <span class="math inline">\({\left.p\right|_{t+\theta\,\Delta\,t}}\)</span>:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span> <span class="va">p_</span> = p +theta*dp ;</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">p_</span> = p +theta*dp ;</span></code></pre></div>
 <p>The computation of the current effective stress and the current estimation of the kinematic variables is straightforward:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" data-line-number="1">  <span class="kw">auto</span> se     = sig ;</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">  StrainStensor <span class="va">a_</span>[<span class="dv">2</span>];</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=<span class="dv">2</span>;++i){</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">     <span class="va">a_</span>[i]  = a[i]+theta*da[i];</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">     se  -= C[i]*<span class="va">a_</span>[i]*two_third;</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">  }</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> se     = sig ;</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  StrainStensor <span class="va">a_</span>[<span class="dv">2</span>];</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=<span class="dv">2</span>;++i){</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>     <span class="va">a_</span>[i]  = a[i]+theta*da[i];</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>     se  -= C[i]*<span class="va">a_</span>[i]*two_third;</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
 <p>The current estimation of the equivalent stress is then:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span> seq = sigmaeq(se);</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> seq = sigmaeq(se);</span></code></pre></div>
 <p>The current estimation of <span class="math inline">\({\left.R\right|_{t+\theta\,\Delta\,t}}\)</span> is then evaluated:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span> Rp  = Rinf + (R0-Rinf)*exp(-b*<span class="va">p_</span>) ;</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Rp  = Rinf + (R0-Rinf)*exp(-b*<span class="va">p_</span>) ;</span></code></pre></div>
 <p><span class="math inline">\({\left.F\right|_{t+\theta\,\Delta\,t}}\)</span> is then evaluated:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" data-line-number="1">  <span class="at">const</span> <span class="kw">auto</span> F   = seq - Rp ;</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> F   = seq - Rp ;</span></code></pre></div>
 <p>If the current estimation of <span class="math inline">\(F\)</span> is positive, we define the implicit system. Otherwise, the default initialization of the implicit equations</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" data-line-number="1">  <span class="cf">if</span>(F &gt; <span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb18-2" data-line-number="2">    <span class="at">const</span> <span class="kw">auto</span> Fexp = pow(F/K,m<span class="dv">-1</span>)/K ;</a>
-<a class="sourceLine" id="cb18-3" data-line-number="3">    <span class="at">const</span> <span class="kw">auto</span> iseq = <span class="dv">1</span>/(max(seq,eps*young));</a>
-<a class="sourceLine" id="cb18-4" data-line-number="4">    <span class="at">const</span> <span class="kw">auto</span> n    = <span class="dv">3</span>*iseq*deviator(se)/<span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb18-5" data-line-number="5">    <span class="at">const</span> <span class="kw">auto</span> vp   = Fexp*F;</a>
-<a class="sourceLine" id="cb18-6" data-line-number="6">    <span class="at">const</span> <span class="kw">auto</span> Jmn = eval(Stensor4::M()-(n^n));</a>
-<a class="sourceLine" id="cb18-7" data-line-number="7">    feel += dp*n;</a>
-<a class="sourceLine" id="cb18-8" data-line-number="8">    fp   -= vp*dt;</a>
-<a class="sourceLine" id="cb18-9" data-line-number="9">    <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=<span class="dv">2</span>;++i){</a>
-<a class="sourceLine" id="cb18-10" data-line-number="10">      fa[i] -= dp*(n-g[i]*<span class="va">a_</span>[i]);</a>
-<a class="sourceLine" id="cb18-11" data-line-number="11">    }</a>
-<a class="sourceLine" id="cb18-12" data-line-number="12">    <span class="co">// computation of the jacobian matrix</span></a>
-<a class="sourceLine" id="cb18-13" data-line-number="13">    dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp*Jmn*iseq ;</a>
-<a class="sourceLine" id="cb18-14" data-line-number="14">    dfeel_ddp    = n;</a>
-<a class="sourceLine" id="cb18-15" data-line-number="15">    dfp_ddeel    = - Fexp*m*dt * <span class="dv">2</span> * mu* theta * n;</a>
-<a class="sourceLine" id="cb18-16" data-line-number="16">    dfp_ddp     += theta* Fexp *m *dt*b*(Rinf-Rp);</a>
-<a class="sourceLine" id="cb18-17" data-line-number="17">    <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=<span class="dv">2</span>;++i){</a>
-<a class="sourceLine" id="cb18-18" data-line-number="18">      dfeel_dda(i)   = -C[i]*dp*theta*iseq*two_third*Jmn ;</a>
-<a class="sourceLine" id="cb18-19" data-line-number="19">      dfp_dda(i)     =  Fexp*m*dt*C[i]*theta*two_third*n;</a>
-<a class="sourceLine" id="cb18-20" data-line-number="20">      dfa_ddeel(i)   = <span class="dv">-2</span>*mu*theta*dp*Jmn *iseq;</a>
-<a class="sourceLine" id="cb18-21" data-line-number="21">      dfa_ddp(i)     = -n + g[i]*<span class="va">a_</span>[i];</a>
-<a class="sourceLine" id="cb18-22" data-line-number="22">      dfa_dda(i,i)   =  (<span class="dv">1</span>+dp*g[i]*theta)*Stensor4::Id()+C[i]*dp*theta*iseq*two_third*Jmn;</a>
-<a class="sourceLine" id="cb18-23" data-line-number="23">    }</a>
-<a class="sourceLine" id="cb18-24" data-line-number="24">    dfa_dda(<span class="dv">0</span>,<span class="dv">1</span>)   =  C[<span class="dv">1</span>]*dp*theta*iseq*two_third*Jmn;</a>
-<a class="sourceLine" id="cb18-25" data-line-number="25">    dfa_dda(<span class="dv">1</span>,<span class="dv">0</span>)   =  C[<span class="dv">0</span>]*dp*theta*iseq*two_third*Jmn;</a>
-<a class="sourceLine" id="cb18-26" data-line-number="26">  }</a>
-<a class="sourceLine" id="cb18-27" data-line-number="27">}</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(F &gt; <span class="dv">0</span>){</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> Fexp = pow(F/K,m-<span class="dv">1</span>)/K ;</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> iseq = <span class="dv">1</span>/(max(seq,eps*young));</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> n    = <span class="dv">3</span>*iseq*deviator(se)/<span class="dv">2</span>;</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> vp   = Fexp*F;</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> Jmn = eval(Stensor4::M()-(n^n));</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    feel += dp*n;</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    fp   -= vp*dt;</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=<span class="dv">2</span>;++i){</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>      fa[i] -= dp*(n-g[i]*<span class="va">a_</span>[i]);</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">// computation of the jacobian matrix</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    dfeel_ddeel += <span class="dv">2</span>*mu*theta*dp*Jmn*iseq ;</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    dfeel_ddp    = n;</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    dfp_ddeel    = - Fexp*m*dt * <span class="dv">2</span> * mu* theta * n;</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    dfp_ddp     += theta* Fexp *m *dt*b*(Rinf-Rp);</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=<span class="dv">2</span>;++i){</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>      dfeel_dda(i)   = -C[i]*dp*theta*iseq*two_third*Jmn ;</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>      dfp_dda(i)     =  Fexp*m*dt*C[i]*theta*two_third*n;</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>      dfa_ddeel(i)   = -<span class="dv">2</span>*mu*theta*dp*Jmn *iseq;</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>      dfa_ddp(i)     = -n + g[i]*<span class="va">a_</span>[i];</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>      dfa_dda(i,i)   =  (<span class="dv">1</span>+dp*g[i]*theta)*Stensor4::Id()+C[i]*dp*theta*iseq*two_third*Jmn;</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    dfa_dda(<span class="dv">0</span>,<span class="dv">1</span>)   =  C[<span class="dv">1</span>]*dp*theta*iseq*two_third*Jmn;</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    dfa_dda(<span class="dv">1</span>,<span class="dv">0</span>)   =  C[<span class="dv">0</span>]*dp*theta*iseq*two_third*Jmn;</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="an-easy-optimization">An easy optimization</h2>
 <p>The last equation can be easily eliminated as <span class="math inline">\(\Delta\,\underline{a}_{i}\)</span> can be expressed as a simple function of <span class="math inline">\(\Delta\,p\)</span> and <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span>:</p>
 <p><span class="math display">\[
@@ -543,12 +559,12 @@ R{\left(p\right)}=R_{\infty} + {\left(R_{0}-R_{\infty}\right)}\,\exp{\left(-b\,p
 </blockquote>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references">
-<div id="ref-chaboche_integration_1996">
-<p>1. <span class="smallcaps">Chaboche</span>, J.L. and <span class="smallcaps">Cailletaud</span>, G. Integration methods for complex plastic constitutive equations. <em>Computer method in applied mechanics and engineering</em>. 1996. Vol. 133, p. 125–155. </p>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-chaboche_integration_1996" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Chaboche</span>, J. L. and <span class="smallcaps">Cailletaud</span>, G. Integration methods for complex plastic constitutive equations. <em>Computer method in applied mechanics and engineering</em>. 1996. Vol. 133, p. 125–155. </div>
 </div>
 </div>
-        <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

@@ -1,0 +1,1520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Extension of the StandardElastoViscoPlasticity brick to porous materials</title>
+        <meta name="author" content="Mohamed Shokeir, Jérémy Hure, Thomas Helfer" />
+            <meta name="date" content="2020-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #c4a000; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #000000; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #000000; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #000000; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+            
+        
+        
+      </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">Extension of the StandardElastoViscoPlasticity brick to porous materials</h1>
+<h2 class="author">Mohamed Shokeir, Jérémy Hure, Thomas Helfer</h2>
+<h3 class="date">2020</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a>
+<ul>
+<li><a href="#outline"><span class="toc-section-number">1.1</span> Outline</a></li>
+</ul></li>
+<li><a href="#sec:mfront:porous_plasticity:overview"><span class="toc-section-number">2</span> General framework</a>
+<ul>
+<li><a href="#Stress_criteria"><span class="toc-section-number">2.1</span> Stress criteria</a></li>
+<li><a href="#nucleation-terms"><span class="toc-section-number">2.2</span> Nucleation terms</a></li>
+</ul></li>
+<li><a href="#sec:mfront:porous_plasticity:implicit_scheme"><span class="toc-section-number">3</span> Implicit schemes</a>
+<ul>
+<li><a href="#standard-implicit-scheme"><span class="toc-section-number">3.1</span> Standard implicit scheme</a></li>
+<li><a href="#sec:mfront:porous_plasticity:staggered_approach"><span class="toc-section-number">3.2</span> A staggered approach</a></li>
+</ul></li>
+<li><a href="#sec:mfront:porous_plasticity:standardelastoviscoplasticitybrick"><span class="toc-section-number">4</span> Design choices</a>
+<ul>
+<li><a href="#enrichment-of-the-stresscriterion-and-inelasticflow-interfaces"><span class="toc-section-number">4.1</span> Enrichment of the <code>StressCriterion</code> and <code>InelasticFlow</code> interfaces</a></li>
+<li><a href="#conditions-for-the-brick-to-contribute-to-the-porosity-evolution"><span class="toc-section-number">4.2</span> Conditions for the brick to contribute to the porosity evolution</a></li>
+<li><a href="#effect-of-the-porosity-on-the-equivalent-strain-definition"><span class="toc-section-number">4.3</span> Effect of the porosity on the equivalent strain definition</a></li>
+<li><a href="#saving-individual-contributions-to-the-porosity-evolutions-in-dedicated-auxiliary-state-variables"><span class="toc-section-number">4.4</span> Saving individual contributions to the porosity evolutions in dedicated auxiliary state variables</a></li>
+<li><a href="#taking-into-account-the-elastic-contribution-in-the-porosity-growth"><span class="toc-section-number">4.5</span> Taking into account the elastic contribution in the porosity growth</a></li>
+</ul></li>
+<li><a href="#sec:mfront:porous_plasticity:verifications"><span class="toc-section-number">5</span> Verifications</a></li>
+<li><a href="#sec:mfront:porous_plasticity:applications"><span class="toc-section-number">6</span> Applications and Finite Element simulations</a>
+<ul>
+<li><a href="#axisymmetric-tensile-tests-simulations"><span class="toc-section-number">6.1</span> Axisymmetric tensile tests simulations</a></li>
+<li><a href="#charpy-test-simulations"><span class="toc-section-number">6.2</span> Charpy test simulations</a></li>
+</ul></li>
+<li><a href="#conclusions"><span class="toc-section-number">7</span> Conclusions</a></li>
+<li><a href="#appendix"><span class="toc-section-number">8</span> Appendix</a>
+<ul>
+<li><a href="#sec:mfront:porous_plasticity:stress_criterion"><span class="toc-section-number">8.1</span> Determination of the stress criterion through a local scalar Newton algorithm</a></li>
+<li><a href="#sec:mfront:porous_plasticity:nucleation_law_derivatives"><span class="toc-section-number">8.2</span> Derivatives of common nucleation law</a></li>
+<li><a href="#sec:mfront:porous_plasticity:stress_criterion_derivatives"><span class="toc-section-number">8.3</span> Derivatives of standard stress criteria</a></li>
+<li><a href="#sec:mfront:porous_plasticity:regul"><span class="toc-section-number">8.4</span> Regularization of the effective porosity</a></li>
+<li><a href="#sec:mfront:porous_plasticity:castem"><span class="toc-section-number">8.5</span> On the use of porous constitutive equations with <code>Cast3M</code></a></li>
+<li><a href="#sec:porosity_evolution_options"><span class="toc-section-number">8.6</span> Options of the <code>porosity_evolution</code> section</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<!--
+pandoc -f markdown+tex_math_single_backslash -F pandoc-crossref --citeproc --highlight-style=tango PorousPlasticity.md -o PorousPlasticity.pdf
+pandoc -f markdown+tex_math_single_backslash --template=/home/th202608/texmf/tex/NT/note_technique_2018.template -F pandoc-crossref --citeproc --highlight-style=tango PorousPlasticity.md -o PorousPlasticity.pdf
+-->
+<h1 data-number="1" id="introduction"><span class="header-section-number">1</span> Introduction</h1>
+<p>Constitutive equations for porous (visco-)plasticity are used to perform ductile fracture simulations, adding the porosity as an internal state variable. Porosity evolution is driven by nucleation laws and growth due to plastic flow.</p>
+<p>While some implementations of these models based on implicit schemes are already available in <code>MFront</code> (Gurson <span class="citation" data-cites="gurson1977">[<a href="#ref-gurson1977" role="doc-biblioref">1</a>]</span>, Gurson-Tvergaard-Needleman <span class="citation" data-cites="tvergaardneedleman1984">[<a href="#ref-tvergaardneedleman1984" role="doc-biblioref">2</a>]</span>, …), their numerical treatment have specific issues:</p>
+<ul>
+<li>Phenomenological laws describing porosity nucleation may have threshold to be activated or inhibited.</li>
+<li>Material failure usually happens when the porosity reaches a critical value corresponding to the collapse of the yield surface. Detection of material failure is awkward when the equations governing the porosity evolution are included in the implicit system to be solved. For example, the estimates of the solution may exceed the critical value during the iterations while the solution of the implicit scheme may be below this critical value.</li>
+</ul>
+<p>Those issues were previously overcome by considering an explicit treatment of the porosity evolution, which requires small time steps.</p>
+<p>The purpose of this work is twofold:</p>
+<ul>
+<li>Propose a robust fully implicit algorithm which can handle thresholds of nucleation laws and material failure.</li>
+<li>Extend the <a href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a> to this class of behaviours, allowing a declarative syntax similar as:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick <span class="st">&quot;StandardElastoViscoPlasticity&quot;</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   stress_potential : <span class="st">&quot;Hooke&quot;</span> {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      young_modulus : <span class="fl">200e9</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      poisson_ratio : <span class="fl">0.3</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   },</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      criterion : <span class="st">&quot;GursonTvergaardNeedleman&quot;</span> {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>         q1 : <span class="fl">1.5</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>         q2 : <span class="fl">1.0</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>         q3 : <span class="fl">2.2</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>         fc : <span class="fl">0.01</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>         fr : <span class="fl">0.1</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      },</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>         R0 : <span class="fl">150e6</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>   },</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>   porosity_evolution : {</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>      nucleation_model : <span class="st">&quot;Chu_Needleman&quot;</span> {</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>         An : <span class="fl">0.01</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>         pn : <span class="fl">0.1</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>         sn : <span class="fl">0.1</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>      },</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>      growth_model : <span class="st">&quot;StandardPlasticModel&quot;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
+<blockquote>
+<p><strong>Note</strong> For backward compatibility, effect of the porosity on plastic flows will not be taken into account if no <code>porosity_evolution</code> section is declared.</p>
+</blockquote>
+<p>This document is meant to be part of the MFront documentation. It will be available on the MFront website and on the ResearchGate page of the project. The authors have carefully checked that no unpublished material data has been used in the examples.</p>
+<h2 data-number="1.1" id="outline"><span class="header-section-number">1.1</span> Outline</h2>
+<p>Section 2 provides a description of several stress criteria of interest for porous (visco-)plasticity and some common nucleation laws.</p>
+<p>Section 3 describes two implicit schemes suitable for the integration of the previous constitutive laws:</p>
+<ul>
+<li>The first one is the standard implicit scheme where the implicit equations associated with all the state variables are solved all at once using a Newton-like algorithm.</li>
+<li>The second one is built on a staggered approach in which the porosity evolution and the evolution of the other state variables are solved independently. Both evolutions are repeated until the implicit equations associated with all the state variables are all satisfied. We show that, if required, an exact consistent tangent operator can be derived.</li>
+</ul>
+<p>Section 4 discusses the design choices made for the extension of <code>MFront</code>’ <a href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a>.</p>
+<p>Section 5 is devoted to unit tests and verifications.</p>
+<p>Section 6 describes early results that proves the robustness of the proposed schemes.</p>
+<p>Appendix 8.1 is dedicated to the computation of the stress criterion which may require solving a non linear equation by Newton algorithm.</p>
+<p>Appendix 8.2 gives the derivatives of some common nucleation laws.</p>
+<p>Appendix 8.3 gives the derivatives of some common porous stress criteria.</p>
+<p>Appendix 8.4 describes a regularization of the effective porosity in the Gurson-Tvergaard-Needleman stress criterion.</p>
+<p>Appendix 8.5 details some numerical tricks to improve the robustness of finite element simulations performed with <code>Cast3M</code> using the constitutive laws from the extended <a href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a>.</p>
+<p>Appendix 8.6 is dedicated to the description of the various options that can be declared in the <code>porosity_evolution</code> section inside the declaration of the <code>StandardElastoViscoPlasticity</code> brick.</p>
+<h1 data-number="2" id="sec:mfront:porous_plasticity:overview"><span class="header-section-number">2</span> General framework</h1>
+<p>In the framework adopted in this report, a porous plastic model is defined by a stress criterion <span class="math inline">\(\sigma_{\star}\)</span> which depends explicitly on the stress tensor <span class="math inline">\(\underline{\sigma}\)</span> and the porosity <span class="math inline">\(f\)</span>:</p>
+<p><span class="math display">\[
+\sigma_{\star}= \phi(\underline{\sigma},f)
+\]</span></p>
+<p>This stress criterion is used to define the yield surface or the intensity of the viscoplastic flow.</p>
+<p>Concerning the flow rule, two main classes of models are classically found in the literature. In the first class of model, the porosity does not change the expression of the flow rule:</p>
+<p><span class="math display">\[
+\underline{\dot{\varepsilon}}^{\mathrm{p}}= \dot{\lambda}\, {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}} = \dot{p}\, {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}
+\]</span></p>
+<p>i.e. the equivalent (visco-)plastic strain <span class="math inline">\(p\)</span> is defined as the macroscopic equivalent (visco-)plastic strain and can still be identified as the plastic multiplier <span class="math inline">\(\lambda\)</span>.</p>
+<p>This class of models encompasses:</p>
+<ul>
+<li>the work of Ponte-Castaneda (see <span class="citation" data-cites="castaneda_effective_1991">[<a href="#ref-castaneda_effective_1991" role="doc-biblioref">3</a>]</span>), which is the theorical basis of several viscoplastic behaviours used in uranium dioxyde fuels <span class="citation" data-cites="monerie_overall_2006 salvo_experimental_2015">[<a href="#ref-monerie_overall_2006" role="doc-biblioref">4</a>, <a href="#ref-salvo_experimental_2015" role="doc-biblioref">5</a>]</span>;</li>
+<li>the work of Rousselier <span class="citation" data-cites="rousselier_1981">[<a href="#ref-rousselier_1981" role="doc-biblioref">6</a>]</span>.</li>
+</ul>
+<p>In the second class, the flow rule is affected by a correction factor <span class="math inline">\(1-f\)</span> (see <span class="citation" data-cites="mealor_2004">[<a href="#ref-mealor_2004" role="doc-biblioref">7</a>]</span>):</p>
+<p><span class="math display">\[
+\underline{\dot{\varepsilon}}^{\mathrm{p}}= \dot{\lambda}\, {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}} = (1 - f)\, \dot{p}\, {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}
+\]</span></p>
+<p>where <span class="math inline">\(f\)</span> is the porosity. Here, <span class="math inline">\(p\)</span> can be identified to the equivalent (visco-)plastic strain in the matrix and it is no more equal to the plastic multiplier <span class="math inline">\(\lambda\)</span>.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The term <span class="math inline">\((1-f)\)</span> comes from the definition of <span class="math inline">\(p\)</span> as the equivalent plastic strain in the matrix through the modelling of hardening:</p>
+<p><span class="math display">\[
+\displaystyle{\underline{\sigma}:\underline{\dot{\varepsilon}}^{\mathrm{p}}=
+\dot{\lambda} \underline{\sigma}\, \colon\,{\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}} =
+\dot{\lambda} \sigma_{\star}= (1 - f)R(p) \dot{p} \Rightarrow \dot{\lambda} =
+(1 - f) \dot{p}
+\]</span></p>
+<p>where <span class="math inline">\(R{\left(p\right)}\)</span> is the radius of the yield surface.</p>
+</blockquote>
+<p>The evolution of porosity is composed of two terms: one due to plastic flow and another one due to nucleation <span class="math inline">\(A_n^i dp\)</span>:</p>
+<p><span class="math display">\[\dot{f} = (1 - f){\mathrm{tr}{\left(\underline{\dot{\varepsilon}}^{\mathrm{p}}\right)}} + \sum_j A_n^j \dot{p}\]</span></p>
+<p>The first term describes the incompressibility of the matrix under the assumption that the change of volume associated with the elastic part of the strain is negligible. This assumption is common, although adding the elastic contribution is fairly easy, see Section 3.1.1.</p>
+<h2 data-number="2.1" id="Stress_criteria"><span class="header-section-number">2.1</span> Stress criteria</h2>
+<p>Different stress criteria implemented in the brick are described below.</p>
+<!--
+- **Green** [@fritzen_computational_2013]
+
+\[\sstar = \sqrt{\sigma_{vM}^{2} + 9 f  \sigma_m^2} \]
+
+where $\displaystyle{\sigma_{vM} = \sqrt{\dfrac{3}{2} \tenseur{s} : \tenseur{s}}}$ is the von Mises equivalent stress, and $\displaystyle{\sigma_m = \dfrac{1}{3}\trace{\tsigma}}$ the mean stress.
+
+> **Note** This model is a particular case of [@fritzen_computational_2013] and is implemented mainly as a simple working example of a porous stress criterion. 
+-->
+<ul>
+<li><strong>Gurson-Tvergaard-Needleman</strong> <span class="citation" data-cites="tvergaardneedleman1984">[<a href="#ref-tvergaardneedleman1984" role="doc-biblioref">2</a>]</span></li>
+</ul>
+<p><span id="eq:mfront:porous_plasticity:GTN:S"><span class="math display">\[
+ S = {\left(\dfrac{\sigma_{vM}}{\sigma_{\star}} \right)}^2 + 2 q_1 f_{\star} \cosh{{\left(\dfrac{3}{2} q_2 \dfrac{\sigma_m}{\sigma_{\star}}    \right)}} - 1 - q_3 f_{\star}^2  = 0
+\qquad(1)\]</span></span></p>
+<p>which defines implicitly <span class="math inline">\(\sigma_{\star}\)</span>, where <span class="math inline">\(\sigma_{vM}\)</span> is the von Mises equivalent stress, and <span class="math inline">\(\sigma_m\)</span> the mean stress. <span class="math inline">\(f_{\star}\)</span> is defined such that :</p>
+<p><span class="math display">\[
+f_{\star} = \left\{
+\begin{array}{ll}
+\delta f &amp; \mbox{if } f &lt; f_c \\
+f_c + \delta (f - f_c)  &amp; \mbox{otherwise}
+\end{array}
+\right. \]</span></p>
+<p>and :</p>
+<p><span class="math display">\[
+\delta = \left\{
+\begin{array}{ll}
+1 &amp; \mbox{if } f &lt; f_c \\
+\dfrac{\dfrac{1}{q_1} - f_c }{f_r - f_c}   &amp; \mbox{otherwise}
+\end{array}
+\right. \]</span></p>
+<p>The parameters of the model are:</p>
+<p><span class="math display">\[\left\{q_1,q_2,q_3,f_c,f_r \right\} \]</span></p>
+<p>For <span class="math inline">\(\left\{q_1,q_2,q_3,f_c,f_r \right\} = \left\{1,1,1,+\infty,-\right\}\)</span>, Gurson-Tvergaard-Needleman model reduces to the Gurson model <span class="citation" data-cites="gurson1977">[<a href="#ref-gurson1977" role="doc-biblioref">1</a>]</span> which has no free parameter.</p>
+<ul>
+<li><strong>Rousselier-Tanguy-Besson</strong> <span class="citation" data-cites="tanguybesson2002">[<a href="#ref-tanguybesson2002" role="doc-biblioref">8</a>]</span></li>
+</ul>
+<p><span id="eq:mfront:porous_plasticity:RTB:S"><span class="math display">\[
+S = \dfrac{\sigma_{vM}}{(1- f )\sigma_{\star}} + \dfrac{2}{3} f D_R \exp{{\left(\dfrac{3}{2} q_R \dfrac{\sigma_m}{(1 - f )\sigma_{\star}}    \right)}} - 1  = 0
+\qquad(2)\]</span></span></p>
+<p>The effective stress <span class="math inline">\(\sigma_{\star}\)</span> which is solution of this equation is:</p>
+<p><span class="math display">\[\sigma_{\star}= \dfrac{q_R \sigma_{vM}}{(1 - f) {\left(q_R - \dfrac{2}{3T}L{\left(q_R D_R f T \exp{{\left(\dfrac{3}{2} q_R T\right)}}\right)}\right)}} \]</span></p>
+<p>where <span class="math inline">\(L\)</span> is the Lambert function, and <span class="math inline">\(T = \sigma_m / \sigma_{vM}\)</span> the stress triaxiality. The parameters of the model are:</p>
+<p><span class="math display">\[\left\{q_R,D_R \right\} \]</span></p>
+<!--
+- **UserDefinedGenericGrowth**
+
+\[  S = A\dfrac{\sigma_1}{\sstar} + B \cosh{\paren{ \dfrac{C \sigma_2}{\sigma^{\star}}    }} + D = 0\] 
+
+which defines implicitly $\sstar$. The parameters $\{A,B,C,D\}$
+are user-defined functions of the porosity. The parameters $\{\sigma_1,\sigma_2\}$ are user-defined functions of the stress tensor.
+
+The parameters of the model are thus:
+
+\[\left\{ \sigma_1, \sigma_2, A,B,C,B,\dfrac{\partial A}{\partial f},\dfrac{\partial B}{\partial f},\dfrac{\partial C}{\partial f},\dfrac{\partial D}{\partial f}, \dfrac{\partial \sigma_1}{\partial \tsigma},\dfrac{\partial \sigma_2}{\partial \tsigma},\dfrac{\partial^2 \sigma_1}{\partial \tsigma^2},\dfrac{\partial^2 \sigma_2}{\partial \tsigma^2} \right\} \]
+
+As $\sstar$ is defined implicitly through $S(\tsigma,\sstar,f) =0$, the first and second order derivatives of the function S are required to compute the first and second order derivatives of $\sstar$:
+
+\[
+\begin{aligned}
+\deriv{S}{\sstar} =& -2A \dfrac{\sigma_1^2}{\sstar^3} - \dfrac{BC\sigma_2}{\sstar^2}\sinh{\paren{C \dfrac{\sigma_2}{\sstar}}} \\
+\dfrac{\partial S}{\partial B} =& \cosh{\paren{C \dfrac{\sigma_2}{\sstar}}} \\
+\dfrac{\partial S}{\partial \sigma_{1}} =& 2A \dfrac{\sigma_1}{\sstar^2}\\
+\dfrac{\partial S}{\partial C} =& \dfrac{B\sigma_{2}}{\sstar}\sinh{\paren{C \dfrac{\sigma_2}{\sstar}}}\\
+\dfrac{\partial S}{\partial \sigma_{2}} =& \dfrac{BC}{\sstar}\sinh{\paren{C \dfrac{\sigma_2}{\sstar}}}\\
+ \dfrac{\partial S}{\partial D} =& 1\\
+ \dfrac{\partial S}{\partial A} =& \dfrac{\sigma_1^2}{\sstar^2}\\
+ \end{aligned}
+ \]
+
+\[
+\begin{aligned}
+\dfrac{\partial^2 S}{\partial \sigma_{1}^2} &=  \dfrac{2A}{\sstar^2} \\
+\dfrac{\partial^2 S}{\partial \sstar \partial A} &= -2\dfrac{\sigma_1^2}{\sstar^3}\\
+\dfrac{\partial^2 S}{\partial \sigma_{2}^2} &= B\paren{\dfrac{C}{\sstar} }^2\cosh{\paren{C \dfrac{\sigma_2}{\sstar}}}\\
+\dfrac{\partial^2 S}{\partial \sstar \partial B} &= - \dfrac{C\sigma_2}{\sstar^2}\sinh{\paren{C \dfrac{\sigma_2}{\sstar}}}\\
+\dfrac{\partial^2 S}{\partial \sigma_{1} \partial A} &= 2 \dfrac{\sigma_1}{\sstar^2}\\
+\dfrac{\partial^2 S}{\partial \sstar \partial C} &= - \dfrac{B\sigma_2}{\sstar^2}\sinh{\paren{C \dfrac{\sigma_2}{\sstar}}} - \dfrac{BC\sigma_2^2}{\sstar^3}\cosh{\paren{C \dfrac{\sigma_2}{\sstar}}}   \\
+\dfrac{\partial^2 S}{\partial \sigma_{1} \partial B} &= 0\\
+\dfrac{\partial^2 S}{\partial \sstar \partial D} &= 0  \\
+\dfrac{\partial^2 S}{\partial \sigma_{1} \partial C} &= 0 \\
+\dfrac{\partial^2 S}{\partial \sstar \partial \sigma_1} &= -\dfrac{4A\sigma_1}{\sstar^3}  \\
+\dfrac{\partial^2 S}{\partial \sigma_{1} \partial D} &= 0\\
+\dfrac{\partial^2 S}{\partial \sstar \partial \sigma_2} &=  -\dfrac{BC}{\sstar^2}\sinh{\paren{C \dfrac{\sigma_2}{\sstar}}} -\dfrac{BC^2 \sigma_2}{\sstar^3}\cosh{\paren{C \dfrac{\sigma_2}{\sstar}}} \\
+\dfrac{\partial^2 S}{\partial \sigma_{2} \partial A} &= 0\\
+\dfrac{\partial^2 S}{\partial \sigma_{2} \partial B} &= \dfrac{C}{\sstar}\sinh{\paren{C \dfrac{\sigma_2}{\sstar}}}\\
+\dfrac{\partial^2 S}{\partial \sigma_{2} \partial C} &= \dfrac{B}{\sstar}\sinh{\paren{C \dfrac{\sigma_2}{\sstar}}} + B \sigma_2  \dfrac{C}{\sstar^2}\cosh{\paren{C \dfrac{\sigma_2}{\sstar}}}\\
+\dfrac{\partial^2 S}{\partial \sigma_{2} \partial D} &= 0\\
+\end{aligned}
+\]
+
+The first and second order derivatives of $\sstar$ are:
+
+\[
+  \begin{aligned}
+      \deriv{\sstar}{\tsigma}  =& -\paren{\deriv{S}{\sstar} }^{-1} \deriv{S}{\tsigma}  =& -\paren{\deriv{S}{\sstar} }^{-1}\left[ \dfrac{\partial S}{\partial \sigma_1} \dfrac{\partial \sigma_1}{\partial \tsigma} + \dfrac{\partial S}{\partial \sigma_2} \dfrac{\partial \sigma_2}{\partial \tsigma} \right] \\
+    \deriv{\sstar}{f} =& -\paren{\deriv{S}{\sstar} }^{-1} \deriv{S}{f}  =& -\paren{\deriv{S}{\sstar} }^{-1}\left[ \dfrac{\partial S}{\partial A} \dfrac{\partial A}{\partial f} + \dfrac{\partial S}{\partial B} \dfrac{\partial B}{\partial f} +  \dfrac{\partial S}{\partial C} \dfrac{\partial C}{\partial f} + \dfrac{\partial S}{\partial D} \dfrac{\partial D}{\partial f}\right] \\
+  \end{aligned}
+\]
+
+\[
+  \begin{aligned}
+    \dfrac{\partial^2 S}{\partial \sigma_1 \partial f } =& \dfrac{\partial}{\partial \sigma_1}\paren{\dfrac{\partial S}{\partial A}\dfrac{\partial A}{\partial f} + \dfrac{\partial S}{\partial B}\dfrac{\partial B}{\partial f} + \dfrac{\partial S}{\partial C}\dfrac{\partial C}{\partial f} + \dfrac{\partial S}{\partial D}\dfrac{\partial D}{\partial f}    } \\
+   =&  \dfrac{\partial^2 S}{\partial A \partial \sigma_1}\dfrac{\partial A}{\partial f} + \dfrac{\partial^2 S}{\partial B \partial \sigma_1}\dfrac{\partial B}{\partial f} + \dfrac{\partial^2 S}{\partial C \partial \sigma_1}\dfrac{\partial C}{\partial f} + \dfrac{\partial^2 S}{\partial D \partial \sigma_1}\dfrac{\partial D}{\partial f} \\ 
+    \dfrac{\partial^2 S}{\partial \sigma_2 \partial f } =& \dfrac{\partial}{\partial \sigma_2}\paren{\dfrac{\partial S}{\partial A}\dfrac{\partial A}{\partial f} + \dfrac{\partial S}{\partial B}\dfrac{\partial B}{\partial f} + \dfrac{\partial S}{\partial C}\dfrac{\partial C}{\partial f} + \dfrac{\partial S}{\partial D}\dfrac{\partial D}{\partial f}    } \\
+   =&  \dfrac{\partial^2 S}{\partial A \partial \sigma_2}\dfrac{\partial A}{\partial f} + \dfrac{\partial^2 S}{\partial B \partial \sigma_2}\dfrac{\partial B}{\partial f} + \dfrac{\partial^2 S}{\partial C \partial \sigma_2}\dfrac{\partial C}{\partial f} + \dfrac{\partial^2 S}{\partial D \partial \sigma_2}\dfrac{\partial D}{\partial f} \\    
+    \dfrac{\partial^2 S}{\partial \sstar \partial f } =& \dfrac{\partial}{\partial \sigma_\star}\paren{\dfrac{\partial S}{\partial A}\dfrac{\partial A}{\partial f} + \dfrac{\partial S}{\partial B}\dfrac{\partial B}{\partial f} + \dfrac{\partial S}{\partial C}\dfrac{\partial C}{\partial f} + \dfrac{\partial S}{\partial D}\dfrac{\partial D}{\partial f}    } \\
+   =&  \dfrac{\partial^2 S}{\partial A \partial \sstar}\dfrac{\partial A}{\partial f} + \dfrac{\partial^2 S}{\partial B \partial \sstar}\dfrac{\partial B}{\partial f} + \dfrac{\partial^2 S}{\partial C \partial \sstar}\dfrac{\partial C}{\partial f} + \dfrac{\partial^2 S}{\partial D \partial \sstar}\dfrac{\partial D}{\partial f} \\
+%   \dfrac{\partial^2 S}{\partial \tsigma \partial f } =& \dfrac{\partial}{\partial f}\paren{\dfrac{\partial S}{\partial \sigma_1}\dfrac{\partial \sigma_1}{\partial \tsigma} +\dfrac{\partial S}{\partial \sigma_2}\dfrac{\partial \sigma_2}{\partial \tsigma}     } = \dfrac{\partial^2 S}{\partial \sigma_1 \partial f}\dfrac{\partial \sigma_1}{\partial \tsigma} +\dfrac{\partial^2 S}{\partial \sigma_2 \partial f}\dfrac{\partial \sigma_2}{\partial \tsigma} \\
+%   =& \dfrac{\partial \sigma_1}{\partial \tsigma}\paren{\dfrac{\partial^2 S}{\partial A \partial \sigma_{1}}\dfrac{\partial A}{\partial f} + \dfrac{\partial^2 S}{\partial B \partial \sigma_{1}}\dfrac{\partial B}{\partial f} + \dfrac{\partial^2 S}{\partial C \partial \sigma_{1}}\dfrac{\partial C}{\partial f} + \dfrac{\partial^2 S}{\partial D \partial \sigma_{1}}\dfrac{\partial D}{\partial f}   } \\
+%    +& \dfrac{\partial \sigma_2}{\partial \tsigma}\paren{\dfrac{\partial^2 S}{\partial A \partial \sigma_{2}}\dfrac{\partial A}{\partial f} + \dfrac{\partial^2 S}{\partial B \partial \sigma_{2}}\dfrac{\partial B}{\partial f} + \dfrac{\partial^2 S}{\partial C \partial \sigma_{2}}\dfrac{\partial C}{\partial f} + \dfrac{\partial^2 S}{\partial D \partial \sigma_{2}}\dfrac{\partial D}{\partial f}   }\\
+        \dfrac{\partial^2 S}{\partial \tsigma \partial \sstar } =& \dfrac{\partial}{\partial \sstar}\paren{\dfrac{\partial S}{\partial \sigma_1}\dfrac{\partial \sigma_1}{\partial \tsigma} +\dfrac{\partial S}{\partial \sigma_2}\dfrac{\partial \sigma_2}{\partial \tsigma}     }  \\
+     =& \dfrac{\partial^2 S}{\partial \sigma_1 \partial \sstar}\dfrac{\partial \sigma_1}{\partial \tsigma} +\dfrac{\partial^2 S}{\partial \sigma_2 \partial \sstar}\dfrac{\partial \sigma_2}{\partial \tsigma}   \\   
+   \end{aligned}
+\]   
+
+\[
+  \begin{aligned}
+    \dfrac{\partial^2 \sstar}{\partial \tsigma \partial f} =& -\paren{\deriv{S}{\sstar} }^{-1}\left[ \dfrac{\partial^2 S}{\partial \sigma_1 \partial f} \dfrac{\partial \sigma_1}{\partial \tsigma} + \dfrac{\partial^2 S}{\partial \sigma_2 \partial f} \dfrac{\partial \sigma_2}{\partial \tsigma} \right] \\
+    +& \dfrac{\partial^2 S}{\partial \sstar \partial f}\paren{\deriv{S}{\sstar} }^{-2}\left[ \dfrac{\partial S}{\partial \sigma_1} \dfrac{\partial \sigma_1}{\partial \tsigma} + \dfrac{\partial S}{\partial \sigma_2} \dfrac{\partial \sigma_2}{\partial \tsigma} \right] \\
+    \dfrac{\partial^2 \sstar}{\partial \tsigma^2} =& -\paren{\deriv{S}{\sstar} }^{-1}\left[ \dfrac{\partial S}{\partial \sigma_1 } \dfrac{\partial^2 \sigma_1}{\partial \tsigma^2} + \dfrac{\partial S}{\partial \sigma_2} \dfrac{\partial^2 \sigma_2}{\partial \tsigma^2} +  \dfrac{\partial^2 S}{\partial \sigma_{1}^2} \paren{\dfrac{\partial \sigma_1}{\partial \tsigma}  }^2 +  \dfrac{\partial^2 S}{\partial \sigma_{2}^2} \paren{\dfrac{\partial \sigma_2}{\partial \tsigma}  }^2       \right] \\
+   +&  \paren{\dfrac{\partial^2 S}{\partial \sstar \partial \sigma_1} \dfrac{\partial \sigma_1}{\partial \tsigma} + \dfrac{\partial^2 S}{\partial \sstar \partial \sigma_2} \dfrac{\partial \sigma_2}{\partial \tsigma}    }\paren{\deriv{S}{\sstar} }^{-2} \left[ \dfrac{\partial S}{\partial \sigma_1 } \dfrac{\partial \sigma_1}{\partial \tsigma} + \dfrac{\partial S}{\partial \sigma_2} \dfrac{\partial \sigma_2}{\partial \tsigma} \right]
+    \end{aligned}
+\]
+
+> **Note** Many models developped for porous materials and accounting for anisotropy and void shape effects can be recasted into such generic form of the stress criterion, such as [@benzergabesson2001], [@madou2012a], [@morin2015], [@paux2018]
+
+-->
+<!--
+- **Thomason**
+
+\[ \sstar = A \sigma_I\]
+
+where $\sigma_I$ is the maximal principal stress. The parameter A is a material parameter that can be linked to the porosity through an auxiliary state variable.
+
+The Thomason model corresponds to:
+
+\[A^{-1} = (1 - \chi^2)\left[0.1\left(\dfrac{\chi^{-1}-1}{W}\right)^2 + 1.2\sqrt{\chi^{-1}}    \right]\ \ \ \ \ \mathrm{with}\ \ \ \ \ \chi = \left(\dfrac{6 f \lambda}{\pi W}\right)^{1/3} \]
+
+The evolutions of the void aspect ratio $W$ and cell aspect ratio $\lambda$ are define by:
+
+\[\dot{W} = \dfrac{9 \lambda}{4 W} \left(1 - \dfrac{2}{\pi \chi^2}   \right) \dot{\varepsilon}^p_{eq} \]
+
+\[\dot{\lambda} = \lambda \dot{\varepsilon}_{I} \]
+-->
+<h2 data-number="2.2" id="nucleation-terms"><span class="header-section-number">2.2</span> Nucleation terms</h2>
+<p>Different nucleation terms are available and are described below. Multiple nucleation terms can be used simultaneously.</p>
+<ul>
+<li><strong>Chu-Needleman strain based</strong> <span class="citation" data-cites="chuneedleman1980">[<a href="#ref-chuneedleman1980" role="doc-biblioref">9</a>]</span></li>
+</ul>
+<p><span id="eq:mfront:porous_plasticity:nucleationmodel:chuneedlemanstrainbase"><span class="math display">\[
+A_n = \dfrac{f_N}{s_N \sqrt{2\pi}} \exp{{\left(-\dfrac{1}{2} {\left(\dfrac{p - \epsilon_N}{s_N} \right)}^2  \right)}     }
+\qquad(3)\]</span></span></p>
+<p>where <span class="math inline">\(\{f_N,s_N,\epsilon_N\}\)</span> are material parameters, and <span class="math inline">\(p\)</span> is the matrix equivalent plastic strain.</p>
+<ul>
+<li><strong>Chu-Needleman stress based</strong> <span class="citation" data-cites="chuneedleman1980">[<a href="#ref-chuneedleman1980" role="doc-biblioref">9</a>]</span></li>
+</ul>
+<p><span class="math display">\[
+A_n = \dfrac{f_N}{s_N \sqrt{2\pi}} \exp{{\left(-\dfrac{1}{2} {\left(\dfrac{\sigma_I - \sigma_N}{s_N} \right)}^2  \right)}     }
+\]</span></p>
+<p>where <span class="math inline">\(\{f_N,s_N,\sigma_N\}\)</span> are material parameters, and <span class="math inline">\(\sigma_I\)</span> is the maximal positive principal stress.</p>
+<ul>
+<li><strong>Power-Law strain based</strong></li>
+</ul>
+<p><span id="eq:mfront:porous_plasticity:nucleationmodel:powerlawstrainbase"><span class="math display">\[
+A_n = f_N \left&lt;\dfrac{p}{\epsilon_N} - 1 \right&gt;^m \quad \mathrm{if}\quad \int A_n dp \leq f_{\mathrm{nuc}}^{max} 
+\qquad(4)\]</span></span></p>
+<p>where <span class="math inline">\(\{f_N,m,\epsilon_N,f_{\mathrm{nuc}}^{max} \}\)</span> are material parameters, <span class="math inline">\(p\)</span> is the matrix equivalent plastic strain. In the previous expression, <span class="math inline">\(\left&lt;.\right&gt;\)</span> denotes the Macaulay bracket, i.e. positive part of a number:</p>
+<p><span class="math display">\[
+\left&lt;x\right&gt; = \max{\left(x,0\right)}
+\]</span></p>
+<ul>
+<li><strong>Power-Law stress based</strong></li>
+</ul>
+<p><span class="math display">\[
+ A_n = f_N \left&lt;\dfrac{\sigma_I}{\sigma_N} - 1 \right&gt;^m  \quad \mathrm{if}\quad \int A_n dp \leq f_{\mathrm{nuc}}^{max} 
+\]</span></p>
+<p>where <span class="math inline">\(\{f_N,m,\sigma_N,f_{\mathrm{nuc}}^{max}\}\)</span> are material parameters, and <span class="math inline">\(\sigma_I\)</span> is the maximal positive principal stress.</p>
+<h1 data-number="3" id="sec:mfront:porous_plasticity:implicit_scheme"><span class="header-section-number">3</span> Implicit schemes</h1>
+<p>This section is devoted to the presentation of two implicit schemes that may be used to integrate the constitutive equations presented in Section 2.</p>
+<h2 data-number="3.1" id="standard-implicit-scheme"><span class="header-section-number">3.1</span> Standard implicit scheme</h2>
+<p>Assuming a single porous stress criterion whose flow is modified by the porosity evolution, the constitutive equations lead to the following system to be solved for an elastoplastic evolution:</p>
+<p><span id="eq:mfront:porous_plasticity:ode"><span class="math display">\[
+\begin{aligned} 
+\underline{\dot{\varepsilon}}^{\mathrm{el}}+ \underline{\dot{\varepsilon}}^{\mathrm{p}}- \underline{\dot{\varepsilon}}^{\mathrm{to}}&amp;= 0 \\
+\sigma_{\star}- R(p) &amp;= 0 \\ 
+\dot{f} - (1 - f){\mathrm{tr}{\left(\underline{\dot{\varepsilon}}^{\mathrm{p}}\right)}} - \sum_j A_n^j \dot{p}  &amp;=0
+\end{aligned}
+\qquad(5)\]</span></span></p>
+<p>This system must be closed by adding the relation between the stress <span class="math inline">\(\underline{\sigma}\)</span> and the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span>. In the report, we assume that the standard Hooke law holds:</p>
+<p><span class="math display">\[
+\underline{\sigma}= \underline{\underline{\mathbf{D}}}\,\underline{\varepsilon}^{\mathrm{el}}
+\]</span></p>
+<p>where <span class="math inline">\(\underline{\underline{\mathbf{D}}}\)</span> is the elastic stiffness tensor.</p>
+<p>A semi-implicit method is used to solve these equations according to the variables <span class="math inline">\(\{\Delta\,\underline{\varepsilon}^{\mathrm{el}}, \Delta\,p, \Delta\,f \}\)</span></p>
+<p><span id="eq:mfront:porous_plasticity:implicit_scheme0"><span class="math display">\[
+\mathcal{R}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{el}}, \Delta\,p, \Delta\,f\right)}=0
+\qquad(6)\]</span></span></p>
+<p>The residual <span class="math inline">\(\mathcal{R}\)</span> can be decomposed by blocks as follows:</p>
+<p><span id="eq:mfront:porous_plasticity:implicit_scheme"><span class="math display">\[
+\begin{aligned}
+\mathcal{R}_{\Delta\,\underline{\varepsilon}^{\mathrm{el}}} = \Delta\,\underline{\varepsilon}^{\mathrm{el}}+ (1 - {\left.f\right|_{t+\theta\,\Delta\,t}}) \Delta\,p \, {\left.{\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}\right|_{t+\theta\,\Delta\,t}} - \Delta\,\underline{\epsilon}_{to} &amp;= 0 \\ 
+\mathcal{R}_{\Delta\,p} = \sigma_{\star}- R({\left.p\right|_{t+\theta\,\Delta\,t}}) &amp;= 0 \\
+\mathcal{R}_{\Delta\,f} =  \Delta\,f - (1 - {\left.f\right|_{t+\theta\,\Delta\,t}})^2 \Delta\,p \, {\mathrm{tr}{\left({\left.{\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}\right|_{t+\theta\,\Delta\,t}}\right)}} - \sum_j  {\left.A_n^j\right|_{t+\theta\,\Delta\,t}}\,\Delta\,p  &amp;=0
+\end{aligned}
+\qquad(7)\]</span></span></p>
+<p>In the previous equation, <span class="math inline">\(\theta\)</span> is a numerical parameter (<span class="math inline">\(\theta\in[0:1]\)</span>).</p>
+<p>Solving this system using a Newton-Raphson algorithm requires computing the Jacobian matrix:</p>
+<p><span id="eq:mfront:porous_plasticity:jacobian_matrix"><span class="math display">\[
+J=
+\begin{pmatrix}
+\begin{array}{lll}
+ {\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}   &amp;   {\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p}}   &amp;   {\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,f}}    \\
+ {\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,p}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}  &amp;   {\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,p}}{\displaystyle \partial \Delta\,p}}  &amp;   {\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,p}}{\displaystyle \partial \Delta\,f}}      \\
+ {\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,f}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}   &amp;   {\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,f}}{\displaystyle \partial \Delta\,p}}  &amp;   {\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,f}}{\displaystyle \partial \Delta\,f}}     \\
+\end{array}
+\end{pmatrix}
+\qquad(8)\]</span></span></p>
+<p>where the different terms can be written as <span class="citation" data-cites="mealor_2004">[<a href="#ref-mealor_2004" role="doc-biblioref">7</a>]</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;=  \underline{\underline{\mathbf{I}}} + \theta \Delta\,p \; \bigg(1 - {\left.f\right|_{t+\theta\,\Delta\,t}}\bigg) {\left.\dfrac{\partial^2 \sigma_{\star}}{\partial \underline{\sigma}^2}\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\left.{\underline{\underline{\mathbf{D}}}}\right|_{t+\theta\,\Delta\,t}} \\
+{\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p}} &amp;= \bigg(1 - {\left.f\right|_{t+\theta\,\Delta\,t}}\bigg) {\left.{\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}\right|_{t+\theta\,\Delta\,t}} \\
+{\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,f}} &amp;= \theta \Delta\,p \; \bigg( \bigg(1 - {\left.f\right|_{t+\theta\,\Delta\,t}}\bigg)\, {\left.\dfrac{\partial^2 \sigma_{\star}}{\partial \underline{\sigma}\partial f}\right|_{t+\theta\,\Delta\,t}} - {\left.{\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}\right|_{t+\theta\,\Delta\,t}} \bigg) \\
+{\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,p}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;= \theta \; {\left.{\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\left.{\underline{\underline{\mathbf{D}}}}\right|_{t+\theta\,\Delta\,t}} \\
+{\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,p}}{\displaystyle \partial \Delta\,p}} &amp;= - \theta \; \dfrac{d R(p)}{d p} \\ 
+{\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,p}}{\displaystyle \partial \Delta\,f}} &amp;= \theta \; {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial f}} |_{t+\theta \Delta\,t} \\
+{\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,f}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;= - \theta \; \Delta\,p \; \bigg(1 - {\left.f\right|_{t+\theta\,\Delta\,t}}\bigg)^2 \; \bigg({\left.\dfrac{\partial^2 \sigma_{\star}}{\partial \underline{\sigma}^2}\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\left.{\underline{\underline{\mathbf{D}}}}\right|_{t+\theta\,\Delta\,t}}\bigg)\,\colon\,\underline{I} - \theta \Delta\,p \sum_j {\left.{\displaystyle \frac{\displaystyle \partial A_n^j}{\displaystyle \partial \underline{\sigma}}}\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\left.{\underline{\underline{\mathbf{D}}}}\right|_{t+\theta\,\Delta\,t}} \\
+{\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,f}}{\displaystyle \partial \Delta\,p}} &amp;= - \bigg(1 - {\left.f\right|_{t+\theta\,\Delta\,t}}\bigg)^2 \; {\left.{\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}\right|_{t+\theta\,\Delta\,t}}\,\colon\,\underline{I} - \theta \Delta\,p \sum_j {\left.{\displaystyle \frac{\displaystyle \partial A_n^j}{\displaystyle \partial p}}\right|_{t+\theta\,\Delta\,t}} - \sum_j {\left.A_n^j\right|_{t+\theta\,\Delta\,t}} \\
+{\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,f}}{\displaystyle \partial \Delta\,f}} &amp;= 1 - \theta \; \Delta\,p \; \bigg(1 - {\left.f\right|_{t+\theta\,\Delta\,t}}\bigg) \bigg(-2 \; {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}} +  \bigg(1 - {\left.f\right|_{t+\theta\,\Delta\,t}}\bigg) \; \dfrac{\partial^2 \sigma_{\star}}{\partial \underline{\sigma}\partial f}   \bigg) \underline{I} - \theta \Delta\,p \sum_j {\left.{\displaystyle \frac{\displaystyle \partial A_n^j}{\displaystyle \partial f}}\right|_{t+\theta\,\Delta\,t}} \\
+\end{aligned}
+\]</span></p>
+<p>Therefore, the definition of a porous model requires to give the following expressions for the stress criterion <span class="math inline">\(\sigma_{\star}\)</span>:</p>
+<p><span class="math display">\[\left\{\sigma_{\star}, {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}, \dfrac{\partial \sigma_{\star}}{\partial  f}, \dfrac{\partial^2 \sigma_{\star}}{\partial \underline{\sigma}^2}, \dfrac{\partial^2 \sigma_{\star}}{\partial \underline{\sigma}\partial f}     \right\} \]</span></p>
+<p>as well as the following expressions for each nucleation mechanism:</p>
+<p><span class="math display">\[
+\left\{A_n^i, {\displaystyle \frac{\displaystyle \partial A_n^i}{\displaystyle \partial \underline{\sigma}}}, {\displaystyle \frac{\displaystyle \partial A_n^i}{\displaystyle \partial p}} , {\displaystyle \frac{\displaystyle \partial A_n^i}{\displaystyle \partial f}}
+\right\}
+\]</span></p>
+<p>These expressions are detailed for the stress criteria and nucleation formulas currently implemented into the brick in Appendixes 8.2 and 8.3.</p>
+<h3 data-number="3.1.1" id="sec:mfront:porous_plasticity:elastic_contribution_to_porosity_growth"><span class="header-section-number">3.1.1</span> Taking the elastic contribution to the porosity growth into account</h3>
+<p>Adding the elastic contribution to the porosity growth is trivially performed by substracting the following term to the implicit equation associated with the porosity evolution:</p>
+<p><span class="math display">\[
+\mathcal{R}_{\Delta\,f} \mathrel{-}= {\left(1 - {\left.f\right|_{t+\theta\,\Delta\,t}}\right)}\,{\mathrm{tr}{\left(\Delta\underline{\varepsilon}^{\mathrm{el}}\right)}}
+\]</span></p>
+<p>The following term must be added to the block <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,f}}{\displaystyle \partial \Delta\,f}}\)</span>:</p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,f}}{\displaystyle \partial \Delta\,f}} \mathrel{+}= \theta\,{\mathrm{tr}{\left(\Delta\underline{\varepsilon}^{\mathrm{el}}\right)}}
+\]</span></p>
+<p>And the following term must be added to the block <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,f}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\)</span>:</p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,f}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} \mathrel{+}= -{\left(1 - {\left.f\right|_{t+\theta\,\Delta\,t}}\right)}\,\underline{I}
+\]</span></p>
+<h3 data-number="3.1.2" id="special-cases-for-the-treatment-of-the-porosity"><span class="header-section-number">3.1.2</span> Special cases for the treatment of the porosity</h3>
+<p>In the absence of nucleation models and without elastic contribution, the evolution of the porosity is given by the following equation:</p>
+<p><span id="eq:mfront:porous_plasticity:porosity_growth"><span class="math display">\[
+\dot{f}={\left(1-f\right)}^{n_{f}}\,\dot{p}\,{\mathrm{tr}{\left(\underline{n}\right)}}
+\qquad(9)\]</span></span></p>
+<p>where <span class="math inline">\(n_{f}\)</span> is equal to:</p>
+<ul>
+<li><span class="math inline">\(2\)</span> if the porosity evolution affects the (visco-)plastic flow</li>
+<li><span class="math inline">\(1\)</span> if this is not the case.</li>
+</ul>
+<h4 data-number="3.1.2.1" id="first-case-n_f1"><span class="header-section-number">3.1.2.1</span> First case (<span class="math inline">\(n_{f}=1\)</span>)</h4>
+<p>Assuming <span class="math inline">\(n_{f}=1\)</span>, Equation (9) can be integrated by parts:</p>
+<p><span class="math display">\[
+\int_{{\left.f\right|_{t}}}^{{\left.f\right|_{t+\Delta\,t}}}\dfrac{\mathrm{d}\,u}{1-u}=\log{\left(\dfrac{1-{\left.f\right|_{t}}}{1-{\left.f\right|_{t+\Delta\,t}}}\right)}=\int_{t}^{t+\Delta\,t}\dot{p}\,{\mathrm{tr}{\left(\underline{n}\right)}}\,\mathrm{d}\,t\approx\Delta\,p\,{\mathrm{tr}{\left({\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\right)}}
+\]</span></p>
+<p>which leads to the following expression of the increment of the porosity:</p>
+<p><span class="math display">\[
+\Delta\,f={\left(1-{\left.f\right|_{t}}\right)}\,{\left(1-\exp{\left(-\Delta\,p\,{\mathrm{tr}{\left({\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\right)}}\right)}\right)}
+\]</span></p>
+<blockquote>
+<p><strong>Taking into account the elastic prediction</strong></p>
+<p>When taking into account the elastic prediction, the increment of the porosity can be known prior any integration:</p>
+<p><span id="eq:mfront:porous_plasticity:porosity_growth:special_case"><span class="math display">\[
+\Delta\,f={\left(1-{\left.f\right|_{t}}\right)}\,{\left(1-\exp{\left({\mathrm{tr}{\left(-\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}}\right)}\right)}
+\qquad(10)\]</span></span></p>
+<p>When applicable, Equation (10), could be very interesting because one can predict the material failure before the material integration. Moreover, removing the evolution of the porosity equation greatly simplifies the resolution of the implicit system.</p>
+<p>However, one drawback of this relation is that it introduces the porosity as an implicit function of the increment of the total strain which:</p>
+<ul>
+<li>is incompatible with the assumptions of the <code>StandardElastoViscoPlasticity</code> brick. It thus won’t be treated further in this report;</li>
+<li>complexifies the computation of the consistent tangent operator. In particular, Equation (18), detailed below, is no more valid. However, recent developments of <code>MFront</code> could simplify the computation of the tangent operator in this case, see <span class="citation" data-cites="helfer_assisted_2020">[<a href="#ref-helfer_assisted_2020" role="doc-biblioref">10</a>]</span> for details.</li>
+</ul>
+<p>Another drawback is that the user would not be able to add its own contribution to the porosity evolution as described in Section 4.2.1.1.</p>
+</blockquote>
+<h4 data-number="3.1.2.2" id="second-case-n_f2"><span class="header-section-number">3.1.2.2</span> Second case (<span class="math inline">\(n_{f}=2\)</span>)</h4>
+<p>Assuming <span class="math inline">\(n_{f}=2\)</span>, Equation (9) can be integrated by parts:</p>
+<p><span class="math display">\[
+\int_{{\left.f\right|_{t}}}^{{\left.f\right|_{t+\Delta\,t}}}\dfrac{\mathrm{d}\,u}{{\left(1-u\right)}^{2}}=\dfrac{1}{1-{\left.f\right|_{t}}}-\dfrac{1}{1-{\left.f\right|_{t+\Delta\,t}}}=\int_{t}^{t+\Delta\,t}\dot{p}\,{\mathrm{tr}{\left(\underline{n}\right)}}\,\mathrm{d}\,t\approx\Delta\,p\,{\mathrm{tr}{\left({\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\right)}}
+\]</span></p>
+<p>which leads to the following expression of the increment of the porosity:</p>
+<p><span class="math display">\[
+\Delta\,f={\left(1-{\left.f\right|_{t}}\right)}^{2}\,\dfrac{ \Delta\,p\,{\mathrm{tr}{\left({\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\right)}} }{
+1+{\left(1-{\left.f\right|_{t}}\right)}\,\Delta\,p\,{\mathrm{tr}{\left({\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\right)}}
+}
+\]</span></p>
+<h3 data-number="3.1.3" id="treatment-of-bounds-on-nucleated-porosity"><span class="header-section-number">3.1.3</span> Treatment of bounds on nucleated porosity</h3>
+<p>Most nucleation models require to set an upper bound <span class="math inline">\(f_{\mathrm{nuc}}^{j,\max}\)</span> on the maximum nucleated porosity predicted by those models. In this case, the effective nucleated porosity increment is defined as:</p>
+<p><span class="math display">\[
+\Delta\,f_{n}^{j} = \min{\left({\left.A_n^j\right|_{t+\theta\,\Delta\,t}} \Delta\,p,\,f_{\mathrm{nuc}}^{j,\max}-{\left.f_{n}^{j}\right|_{t}}\right)}
+\]</span></p>
+<p>This treatment requires that the value of the nucleated porosity at the beginning of the time step is known. Hence it is automatically stored in an auxiliary state variable whatever the value of the <code>save_porosity_increase</code> option passed to the nucleation model.</p>
+<h3 data-number="3.1.4" id="specific-treatment-of-strain-based-nucleation-models"><span class="header-section-number">3.1.4</span> Specific treatment of strain-based nucleation models</h3>
+<p>A strain-based nucleation model only depends on the equivalent plastic strain as follows:</p>
+<p><span id="eq:mfront:porous_plasticiy:strain_base_nucleation_model"><span class="math display">\[
+{\displaystyle \frac{\displaystyle \mathrm{d}f_{n}^{j}}{\displaystyle \mathrm{d}t}}=A^{j}_{n}{\left(p\right)}\,{\displaystyle \frac{\displaystyle \mathrm{d}p}{\displaystyle \mathrm{d}t}}
+\qquad(11)\]</span></span></p>
+<p>See the strain version of the Chu-Needleman nucleation model (Equation (3)) and the strain version of the power-law nucleation model (Equation (4)).</p>
+<p>In Equation (7), the contribution of this nucleation model to the implicit equation was set equal to:</p>
+<p><span class="math display">\[
+\Delta\,f_{n}^{j}\approx A^{j}_{n}{\left({\left.p\right|_{t+\theta\,\Delta\,t}}\right)}\,\Delta\,p
+\]</span></p>
+<p>However, this is only an approximation.</p>
+<p>A more precise estimation can be obtained by integrating Equation (11) by parts, which leads to the following expression of the porosity increment:</p>
+<p><span id="eq:mfront:porous_plasticiy:strain_base_nucleation_model:integral"><span class="math display">\[
+\Delta\,f_{n}^{j} = F^{j}_{n}{\left({\left.p\right|_{t+\Delta\,t}}\right)}-F^{j}_{n}{\left({\left.p\right|_{t}}\right)}
+\qquad(12)\]</span></span></p>
+<p>where <span class="math inline">\(F^{j}_{n}\)</span> is one primitive of <span class="math inline">\(A\)</span>, i.e. <span class="math inline">\(F^{j}_{n}{\left(p\right)}=\displaystyle \int A^{j}_{n}{\left(u\right)}\,\mathrm{d}\,u\)</span>. Such a treatment of the nucleated porosity was only considered in <span class="citation" data-cites="zhang_modelisation_2016">[<a href="#ref-zhang_modelisation_2016" role="doc-biblioref">11</a>]</span>.</p>
+<p>When the function <span class="math inline">\(A\)</span> also depends on some external state variables, (temperature, fluence), we use the value of those external state variables at the middle of the time step to evaluate the increment of the porosity using Equation (12).</p>
+<h3 data-number="3.1.5" id="shortcomings-of-this-implicit-scheme"><span class="header-section-number">3.1.5</span> Shortcomings of this implicit scheme</h3>
+<p>The Newton-Raphson algorithm may fail at finding the solution of the non-linear system of equations, especially when the time step leads to strong increase of the porosity.</p>
+<p>Moreover, the porosity evolution leads to specific issues:</p>
+<ul>
+<li>Phenomenological laws describing porosity nucleation may have thresholds to be activated or inhibited.</li>
+<li>Material failure usually happens when the porosity reaches a critical value corresponding to the collapse of the yield surface. Detection of material failure is awkward when the equations governing the porosity evolution are included in the implicit system to be solved. For example, the estimates of the solution may exceed the critical value during the iterations while the solution of the implicit scheme may be below this critical value.</li>
+</ul>
+<h2 data-number="3.2" id="sec:mfront:porous_plasticity:staggered_approach"><span class="header-section-number">3.2</span> A staggered approach</h2>
+<p>As the main convergence issues of the standard implicit scheme are associated with the porosity evolution, we propose in this section a staggered approach where the porosity evolution and the evolution of the other state variables (i.e. the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and the equivalent plastic strain <span class="math inline">\(p\)</span>) are decoupled. A fixed point algorithm is used to ensure that the increments <span class="math inline">\(\left\{\Delta\,\underline{\varepsilon}^{\mathrm{el}}, \Delta\,p, \Delta\,f\right\}\)</span> satisfies the Implicit System (7).</p>
+<h3 data-number="3.2.1" id="reduced-implicit-system"><span class="header-section-number">3.2.1</span> Reduced implicit system</h3>
+<p>Let <span class="math inline">\(i\)</span> be the current step of the fixed point algorithm. The estimates of the increments of the elastic strain and the equivalent plastic strain at the next iterations, denoted respectively <span class="math inline">\(\Delta \underline{\varepsilon}^{\mathrm{el}}_{(i+1)}\)</span> and <span class="math inline">\(\Delta\,p_{(i+1)}\)</span> satisfies a reduced implicit system:</p>
+<p><span id="eq:mfront:porous_plasticity:reduced_implicit_scheme"><span class="math display">\[
+\begin{aligned}
+\mathcal{R}_{\Delta\,\underline{\varepsilon}^{\mathrm{el}}} = \Delta\,\underline{\varepsilon}^{\mathrm{el}}_{(i+1)} + {\left(1 - f_{(i)}\right)}\,\Delta\,p_{(i+1)}\,{\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}{\left(\underline{\varepsilon}^{\mathrm{el}}_{(i+1)},f_{(i)}\right)} - \Delta\,\underline{\epsilon}^{to} &amp;= 0 \\ 
+\mathcal{R}_{\Delta\,p} = \sigma_{\star}{\left(\underline{\varepsilon}^{\mathrm{el}}_{(i+1)},f_{(i)}\right)} - R(p_{(i+1)}) &amp;= 0 \\
+\end{aligned}
+\qquad(13)\]</span></span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}_{(i+1)}={\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t}}+\theta\,\Delta\,\underline{\varepsilon}^{\mathrm{el}}_{(i+1)}\)</span></li>
+<li><span class="math inline">\(p_{(i+1)}={\left.p\right|_{t}}+\theta\,\Delta\,p_{(i+1)}\)</span></li>
+<li><span class="math inline">\(f_{(i)}={\left.f\right|_{t}}+\theta\,\Delta\,f_{(i)}\)</span></li>
+</ul>
+<p>The Implicit System (13) is solved by a standard Newton-Raphson method with the reduced jacobian matrix:</p>
+<p><span id="eq:mfront:porous_plasticity:reduced_implicit_system_jacobian"><span class="math display">\[
+\left[
+\begin{array}{lll}
+ {\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}   &amp;   {\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p}} \\
+ {\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,p}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}  &amp;   {\displaystyle \frac{\displaystyle \partial \mathcal{R}_{\Delta\,p}}{\displaystyle \partial \Delta\,p}} \\
+\end{array}
+\right]
+\qquad(14)\]</span></span></p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>In practice, for reasons detailed in Section 3.2.10, we still solve the full Implicit System (7), but the implicit equation is modified as follows:</p>
+<p><span class="math display">\[
+\mathcal{R}_{\Delta\,f} =  \Delta\,f - \Delta\,f_{(i)}
+\]</span></p>
+</blockquote>
+<h3 data-number="3.2.2" id="iterative-determination-of-the-porosity-increment"><span class="header-section-number">3.2.2</span> Iterative determination of the porosity increment</h3>
+<p>Letting the constraints on the porosity evolution aside, the porosity is determined iteratively as follows:</p>
+<p><span id="eq:mfront:porous_plasticity:implicit_scheme2"><span class="math display">\[
+\Delta\,f_{(i+1)}^{(uc)} = {\left(1 - f_{(i)}\right)}^2 \Delta\,p_{(i+1)} \, {\mathrm{tr}{\left({\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}{\left(\underline{\varepsilon}^{\mathrm{el}}_{(i+1)},f_{(i)}\right)}\right)}} + \sum_{j}  A_n^{j}{\left(\underline{\varepsilon}^{\mathrm{el}}_{(i+1)}, p_{(i+1)}, f_{(i)}\right)} \Delta\,p_{(i+1)} 
+\qquad(15)\]</span></span></p>
+<p>Here the <span class="math inline">\(\mbox{}^{(uc)}\)</span> superscript means “uncorrected.” Corrections to <span class="math inline">\(\Delta\,f_{(i+1)}^{(uc)}\)</span> will be introduced in the next paragraphs to deal with thresholds in nucleation laws and detection of material failure.</p>
+<h3 data-number="3.2.3" id="treatments-of-thresholds-in-nucleation-laws"><span class="header-section-number">3.2.3</span> Treatments of thresholds in nucleation laws</h3>
+<p>Let:</p>
+<ul>
+<li><span class="math inline">\(\Delta \left.f_{n}^{j, (uc)}\right|_{(i+1)}=A_n^{j}{\left(\underline{\varepsilon}^{\mathrm{el}}_{(i+1)}, p_{(i+1)}, f_{(i)}\right)} \Delta\,p_{(i+1)}\)</span> be the uncorrected contribution of the <span class="math inline">\(j^{\mathrm{th}}\)</span> nucleation law to the porosition evolution.</li>
+<li><span class="math inline">\({\left.f_{n}^{j}\right|_{t}}\)</span> be the value of the nucleated porosity due to this nucleation law at the beginning of the time step.</li>
+<li><span class="math inline">\(f_{n}^{j, \max{}}\)</span> be the threshold of this nucleation law, i.e. the maximal value of the nucleated porosity due to this law.</li>
+</ul>
+<p><span class="math inline">\(f_{n}^{j, \max{}}-{\left.f_{n}^{j}\right|_{t}}\)</span> is the maximum allowed increment of the porosity for this nucleation law.</p>
+<p>We then define the corrected contribution <span class="math inline">\(\Delta \left.f_{n}^{j}\right|_{(i+1)}\)</span> as follows:</p>
+<p><span class="math display">\[
+\Delta \left.f_{n}^{j}\right|_{(i+1)} = \min{\left(\Delta \left.f_{n}^{j, (uc)}\right|_{(i+1)}, f_{n}^{j,\max{}}-{\left.f_{n}^{j}\right|_{t}}\right)}
+\]</span></p>
+<h3 data-number="3.2.4" id="treatment-of-material-failure"><span class="header-section-number">3.2.4</span> Treatment of material failure</h3>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>To avoid the introduction of another notation, we still used <span class="math inline">\(\Delta\,f_{(i+1)}^{(uc)}\)</span> even though corrections related to thresholds in nucleations laws may have been taken into account at this stage.</p>
+</blockquote>
+<p>If <span class="math inline">\({\left.f\right|_{t}}+\Delta\,f_{(i+1)}^{(uc)}\)</span> is greater than the critical porosity denoted <span class="math inline">\(\alpha_{1}\,f_{r}\)</span>, a dichotomic approach is used:</p>
+<p><span class="math display">\[
+\Delta\,f_{(i+1)} = \dfrac{1}{2}{\left(f+\Delta\,f_{(i)} + \alpha_{1}\, f_r\right)} - {\left.f\right|_{t}};
+\]</span></p>
+<p>This approach allows the porosity to approach the critical porosity smoothly.</p>
+<p>The <span class="math inline">\(\alpha_{1}\)</span> factor is a user defined parameter, chosen equal by default to <span class="math inline">\(98.5\,\%\)</span>. The reason for not allowing the porosity be closer to <span class="math inline">\(f_{r}\)</span> is than the Implicit System (13) becomes very difficult to solve as the yield surfaces collapses.</p>
+<h3 data-number="3.2.5" id="stopping-criteria"><span class="header-section-number">3.2.5</span> Stopping criteria</h3>
+<p>The iterations are stopped when the porosity becomes stationnary, i.e. when:</p>
+<p><span id="eq:mfront:porous_plasticity:stopping_criterion"><span class="math display">\[
+\left|\Delta\,f_{(i+1)}^{(uc)}-\Delta\,f_{(i)}\right|&lt;\varepsilon_{f}
+\qquad(16)\]</span></span></p>
+<p>where the value of <span class="math inline">\(\varepsilon_{f}\)</span> is a user defined (by default, a stringent value of <span class="math inline">\(10^{-10}\)</span> is used).</p>
+<h3 data-number="3.2.6" id="acceleration-algorithm"><span class="header-section-number">3.2.6</span> Acceleration algorithm</h3>
+<h4 data-number="3.2.6.1" id="aitken-acceleration-default"><span class="header-section-number">3.2.6.1</span> Aitken acceleration (default)</h4>
+<p>The Iterative Process (15) can be accelerated using the well known Aitken transformation.</p>
+<p>The usage of the Aitken acceleration is enabled by default.</p>
+<h4 data-number="3.2.6.2" id="relaxation"><span class="header-section-number">3.2.6.2</span> Relaxation</h4>
+<p>To avoid spurious oscillations, a relaxation procedure is used:</p>
+<p><span class="math display">\[
+\Delta\,f_{(i+1)}=\omega\,\Delta\,f_{(i)}+(1 - \omega)\,\Delta\,f_{(i+1)}^{(uc)}
+\]</span></p>
+<p>where the relaxation coefficient is chosen equal to <span class="math inline">\(0.5\)</span>.</p>
+<h3 data-number="3.2.7" id="detection-of-the-material-failure-post-processing"><span class="header-section-number">3.2.7</span> Detection of the material failure (post-processing)</h3>
+<p>Once the Stopping Condition (16) is satisfied, material failure is detected when the final porosity is above a given threshold <span class="math inline">\(\alpha_{2}\,f_{r}\)</span>, where <span class="math inline">\(\alpha_{2}\)</span> is a user defined constant chosen equal to <span class="math inline">\(98\,\%\)</span> by default.</p>
+<p>When the material failure is detected, the value of the auxiliary state variable <code>broken</code> is set to one.</p>
+<h3 data-number="3.2.8" id="discussion-on-the-performance-of-the-staggered-approach"><span class="header-section-number">3.2.8</span> Discussion on the performance of the staggered approach</h3>
+<p>From a performance point of view, this staggered approach seems <em>a priori</em> less efficient than the standard implicit scheme because the reduced integration scheme will be solved once per iteration of the fixed point algorithm.</p>
+<p>The staggered approach is however thought to be more robust, although we do not have performed an in-depth comparison of both monolithic and staggered approaches yet.</p>
+<!--
+In `Cast3M`, integration failures are not handled, so the `MFront`'
+`castem` interface allows to perform local sub-stepping which may be
+costly. In `code_aster`, integration failures are handled at the
+structural scale by a reduction of the time step, which is also
+significantly costly.
+-->
+<p>It shall also be noted that the number of iterations of the reduced integration implicit system is not proportional to the number of iterations of the fixed point algorithm. Indeed, the solution of the reduced implicit system obtained at the previous iteration of the fixed point algorithm can be used as the starting point of the current resolution of the reduced implicit system. Numerical experiments shows that this strategy is very effective and that close to convergence of the fixed point algorithm the number of iterations required to solve the reduced implicit system is low, i.e. only 2 or 3 iterations are required.</p>
+<h3 data-number="3.2.9" id="access-to-the-number-of-the-iterations-of-the-staggered-scheme"><span class="header-section-number">3.2.9</span> Access to the number of the iterations of the staggered scheme</h3>
+<p>The variable <code>staggered_scheme_iteration_counter</code> holds the number of iterations of the staggered scheme. One can save this variable in a auxiliary state variable as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! number of iterations of the staggered scheme at convergence</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable real niter;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>niter.setEntryName(<span class="st">&quot;StaggeredSchemeIterationCounter&quot;</span>);</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>....</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UpdateAuxiliaryStateVariables{</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  niter = staggered_scheme_iteration_counter;</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The total number of evaluations of the implicit scheme is a bit trickier to save. It can be done as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! number of iterations of the implicit scheme</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable real neval;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>neval.setEntryName(<span class="st">&quot;NumberOfEvaluationOfTheImplicitScheme&quot;</span>);</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables{</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  neval = <span class="dv">0</span>;</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a> ++neval;</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>If local sub-stepping is allowed, those two numbers will only reflect the number of iterations and number of evaluations of the last step.</p>
+</blockquote>
+<h3 data-number="3.2.10" id="sec:mfront:porous_plasticity:implementation_details"><span class="header-section-number">3.2.10</span> Implementation details and computation of the exact consistent tangent operator</h3>
+<figure>
+<img src="img/PorousPlasticity/ImplicitScheme.svg" id="fig:mfront:porous_plasticity:implicit_scheme" style="width:75.0%" alt="Figure 1: Description of the steps of the implicit scheme. Block in dark grey are automatically defined by the bricks and are not accessible by the user. Blocks in light grey can be completed by the user." /><figcaption aria-hidden="true">Figure 1: Description of the steps of the implicit scheme. Block in dark grey are automatically defined by the bricks and are not accessible by the user. Blocks in light grey can be completed by the user.</figcaption>
+</figure>
+<h4 data-number="3.2.10.1" id="implementation-the-additionalconvergencechecks-code-block"><span class="header-section-number">3.2.10.1</span> Implementation, the <code>@AdditionalConvergenceChecks</code> code block</h4>
+<p>As depicted on Figure 1, each iteration of the implicit algorithm are decomposed in three steps:</p>
+<ul>
+<li>Updating the stress in the <code>@ComputeStress</code> code block. This code block is automatically handled by the brick.</li>
+<li>Building the residual <span class="math inline">\(\mathcal{R}\)</span> and the jacobian matrix <span class="math inline">\(J\)</span> in the <code>@Integrator</code> code block.</li>
+<li>Additional convergence checks in the <code>@AdditionalConvergenceChecks</code> code block. Additional here means that <code>MFront</code> has already checked the convergence of the resolution of implicit scheme using a built-in criterion. This code block may be used to implement a status algorithm which allows activating and/or desactivating some (visco-)plastic flows (see <span class="citation" data-cites="helfer_implementation_2017">[<a href="#ref-helfer_implementation_2017" role="doc-biblioref">12</a>]</span>). Here, it is used to implement the staggered approach described in this section.</li>
+</ul>
+<h4 data-number="3.2.10.2" id="computation-of-the-exact-consistent-tangent-operator"><span class="header-section-number">3.2.10.2</span> Computation of the exact consistent tangent operator</h4>
+<p>As described in <span class="citation" data-cites="helfer_assisted_2020">[<a href="#ref-helfer_assisted_2020" role="doc-biblioref">10</a>]</span>, the consistent tangent operator may be deduced for the jacobian of Implicit System (7) as follows:</p>
+<p><span id="eq:mfront:porous_plasticity:consistent_tangent_operator"><span class="math display">\[
+{\displaystyle \frac{\displaystyle \mathrm{d}\underline{\sigma}}{\displaystyle \mathrm{d}\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}=
+{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\Delta\,t}}\,\cdot\,{\displaystyle \frac{\displaystyle \partial \underline{\varepsilon}^{\mathrm{el}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
+\qquad(17)\]</span></span></p>
+<p>where <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\varepsilon}^{\mathrm{el}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\)</span> can be determined by solving the following systems of linear equations:</p>
+<p><span class="math display">\[
+J\,\cdot\,{\displaystyle \frac{\displaystyle \partial \underline{\varepsilon}^{\mathrm{el}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}=-{\displaystyle \frac{\displaystyle \partial \mathcal{R}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
+\]</span></p>
+<p>where <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \mathcal{R}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\)</span> have this simple matrix form (in <span class="math inline">\(3D\)</span>):</p>
+<p><span id="eq:mfront:porous_plasticity:consistent_tangent_operator2"><span class="math display">\[
+  {\displaystyle \frac{\displaystyle \partial \mathcal{R}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}=-
+  \begin{pmatrix}
+    1&amp; 0 &amp; 0 &amp; 0&amp; 0 &amp;0 \\
+    0&amp; 1&amp; 0 &amp; 0&amp; 0 &amp;0 \\
+    0&amp; 0 &amp; 1 &amp; 0&amp; 0 &amp;0 \\
+    0&amp; 0 &amp; 0 &amp; 1&amp; 0 &amp;0 \\
+    0&amp; 0 &amp; 0 &amp; 0&amp; 1 &amp;0 \\
+    0&amp; 0 &amp; 0 &amp; 0&amp; 0 &amp;1\\
+    0&amp; 0 &amp; 0 &amp; 0&amp; 0 &amp;0 \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
+    0&amp; 0 &amp; 0 &amp; 0&amp; 0 &amp;0 \\
+  \end{pmatrix}
+\qquad(18)\]</span></span></p>
+<p>It would cumbersome to compute the jacobian of the Reduced System (13) during the resolution and then to compute the jacobian of the Full System (7) after convergence for the computation of the consistent tangent operator:</p>
+<ul>
+<li>it would require a significant amount of boiler plate code to define the jacobian matrix for the full implicit system and appropriate views of its blocks (see Equation (8));</li>
+<li>it would require a partial duplication of the code computing the blocks of the jacobian of the reduced implicit system (See Equations (8) and (14)).</li>
+</ul>
+<p>We thus rely on a simple trick. We define a flag which is set to true during the iterations of the fixed point algorithm. If this flag is true, the implicit equation of the Full Implicit System (7) is replaced by:</p>
+<p><span class="math display">\[
+\mathcal{R}_{\Delta\,f} =  \Delta\,f - \Delta\,f_{(i)}
+\]</span></p>
+<p>where <span class="math inline">\(\Delta\,f_{(i)}\)</span> is the current estimation given by the fixed point algorithm.</p>
+<p>This new equation is trivially solved so that the solutions of this modified system do verify the Reduced Implicit System (13). Once the fixed point algorithm has converged, one may simply set the flag to false and build the jacobian matrix (8) of the Full Implicit System (7) by calling the assembly of the implicit scheme once and finally apply Equation (17).</p>
+<p>A few things may be noted:</p>
+<ul>
+<li>the overhead implied by this trick seems <em>a priori</em> limited;</li>
+<li>one can easily recover the standard implicit scheme;</li>
+<li>one can easily choose to treat the porosity explicitly.</li>
+</ul>
+<h1 data-number="4" id="sec:mfront:porous_plasticity:standardelastoviscoplasticitybrick"><span class="header-section-number">4</span> Design choices</h1>
+<h2 data-number="4.1" id="enrichment-of-the-stresscriterion-and-inelasticflow-interfaces"><span class="header-section-number">4.1</span> Enrichment of the <code>StressCriterion</code> and <code>InelasticFlow</code> interfaces</h2>
+<p>The <code>InelasticFlow</code> interface is used by the <code>StandardElastoViscoPlasticity</code> brick to handle inelastic flows. It uses the <code>StressCriterion</code> interface to describe it stress criterion and, for non-associated flows, its flow criterion.</p>
+<p>For the brick to properly treat inelastic flows coupled with porosity, a new method called <code>isCoupledWithPorosity-</code> <code>Evolution</code> has been added to those interface. This method returns a boolean value and does not take any argument.</p>
+<p>For inelastic flows, the default implementation of the <code>isCoupledWithPorosityEvolution</code>, declared in the <code>In-</code> <code>elasticFlowBase</code> class, returns <code>true</code> if its stress criterion or if its flow criterion (if any) declares to be coupled with the porosity evolution.</p>
+<p>The <code>isCoupledWithPorosityEvolution</code> of a stress criterion must return <code>true</code> if and only if the expression of the stress criterion explicitly depends on the porosity.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>Implicitly, the brick expects that a stress criterion coupled with porosity is <strong>not</strong> deviatoric, i.e., that this stress criterion contributes to the porosity growth. The <code>isNormalDeviatoric</code> method of such a stress criterion must return <code>true</code>. This is checked in the <code>InelasticFlowBase</code> class.</p>
+</blockquote>
+<p>As discussed in the introduction, a stress criterion can lead to a correction of the flow rule by a factor <span class="math inline">\(1-f\)</span>. The class <code>StressCriterion</code> now has a method called <code>getPorosityEffectOnEquivalentPlasticStrain</code> which return one of the two following values:</p>
+<ul>
+<li><code>NO_POROSITY_EFFECT_ON_EQUIVALENT_PLASTIC_STRAIN</code></li>
+<li><code>STANDARD_POROSITY_CORRECTION_ON_EQUIVALENT_PLASTIC_STRAIN</code></li>
+</ul>
+<h2 data-number="4.2" id="conditions-for-the-brick-to-contribute-to-the-porosity-evolution"><span class="header-section-number">4.2</span> Conditions for the brick to contribute to the porosity evolution</h2>
+<p>The evolution of the porosity is taken into account:</p>
+<ul>
+<li>if a nucleation model is declared;</li>
+<li>if one stress inelastic flow declares being coupled with the porosity evolution, i.e. that its stress criterion or its flow criterion is coupled with the porosity evolution;</li>
+<li>if the <code>porosity_evolution</code> section is explicitly declared, even if empty.</li>
+</ul>
+<p>For example, this declaration will automatically lead to a porosity growth:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    young_modulus : <span class="fl">150.e3</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    poisson_ratio : <span class="fl">0.3</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Gurson1975&quot;</span> {},</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="st">&quot;0&quot;</span>}</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>It is important to note that, by default (if none of the three above conditions are met), no contribution to the porosity growth will be taken into account, even if the flow direction has an hydrostatic component. For example, the following declaration will not lead to any porosity growth:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    young_modulus : <span class="fl">150.e3</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    poisson_ratio : <span class="fl">0.3</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;MohrCoulomb&quot;</span> {</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      c : <span class="fl">3.e1</span>,      <span class="co">// cohesion</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      phi : <span class="fl">0.523598775598299</span>,    <span class="co">// friction angle angle</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      lodeT : <span class="fl">0.506145483078356</span>,  <span class="co">// transition angle (Abbo and Sloan)</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      a : <span class="fl">1e1</span>       <span class="co">// tension cuff-off parameter</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="st">&quot;0&quot;</span>}</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
+<p>However, this declaration will lead to a porosity growth:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    young_modulus : <span class="fl">150.e3</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    poisson_ratio : <span class="fl">0.3</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;MohrCoulomb&quot;</span> {</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      c : <span class="fl">3.e1</span>,      <span class="co">// cohesion</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      phi : <span class="fl">0.523598775598299</span>,    <span class="co">// friction angle angle</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      lodeT : <span class="fl">0.506145483078356</span>,  <span class="co">// transition angle (Abbo and Sloan)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      a : <span class="fl">1e1</span>       <span class="co">// tension cuff-off parameter</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="st">&quot;0&quot;</span>}</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  porosity_evolution: {}</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
+</blockquote>
+<p>The <code>porosity_evolution</code> section has a significant importance in this document. The various options that can be declared in this section are described in Appendix 8.6.</p>
+<h4 data-number="4.2.0.1" id="sec:mfront:porous_plasticity:porosity_as_state_variable"><span class="header-section-number">4.2.0.1</span> Declaration of the porosity as a state variable (if required)</h4>
+<p>If the evolution of the porosity is taken into account, a state variable called <code>f</code> with the glossary name <code>Porosity</code> is automatically declared if no state variable with this glossary name has been declared. In the latter case, this variable is used (and updated) by the brick.</p>
+<p>This choice allows the user to easily add new nucleation model or to add a new inelastic flow coupled with porosity by adding the appropriate state variables and adding the associated implicit equations in the <code>@Integrator</code> code block.</p>
+<p>For example, assuming that the staggered approach described in Section 3.2 is used, one may add the contribution of the solid swelling as follows:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable real ss;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ss.setGlossaryName(<span class="st">&quot;SolidSwelling&quot;</span>);</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    young_modulus : <span class="fl">150.e3</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    poisson_ratio : <span class="fl">0.3</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Gurson1975&quot;</span> {},</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="st">&quot;0&quot;</span>}</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>};</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// adding the contribution of the solid swelling</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the porosity increase in the implicit equation describing</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the porosity.</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">// This shall only been done after the convergence of the</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">// staggered scheme has converged.</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(compute_standard_system_of_implicit_equations){</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    ff -= ;</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalConvergenceChecks {</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="co">// adding the contribution of the solid swelling</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the porosity increase to the next extimate of the porosity by</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the staggered scheme.</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">// This shall only been done after the convergence of the</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="co">// staggered scheme has converged.</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (converged &amp;&amp; (!compute_standard_system_of_implicit_equations)) {</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    next_estimate_of_the_porosity_increment += ...</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The previous code uses variables that are automatically defined by the <code>StandardElastoViscoPlasticity</code> brick when the staggered approach is used:</p>
+<ul>
+<li><code>compute_standard_system_of_implicit_equations</code> is a boolean value which is false until the staggered scheme converges;</li>
+<li><code>next_estimate_of_the_porosity_increment</code> is a variable only accessible in the <code>@AdditionalCon-</code> <code>vergenceChecks</code> block which must hold the next estimate of the porosity increment. This variable is automatically initialized to zero.</li>
+</ul>
+<p>Other variables automatically defined by the <code>StandardElastoViscoPlasticity</code> brick may be helpful to couple constitutive equations with user defined ones:</p>
+<ul>
+<li><p>in the <code>@InitLocalVariables</code> code block, the <code>upper_bound_of_the_porosity</code> variable may be updated by the user to change the value of the upper bound of the porosity as follows:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>  upper_bound_of_the_porosity = min(upper_bound_of_the_porosity, </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                                    .... <span class="co">// user_defined_bound</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                                    );</span></code></pre></div></li>
+<li><p>in the <code>@AdditionalConvergenceChecks</code> code block, the <code>fixed_point_converged</code> boolean variable might be used add other convergence criteria to the staggered algorithm, as follows:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (converged &amp;&amp; (!compute_standard_system_of_implicit_equations)) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    fixed_point_converged = ....</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div></li>
+</ul>
+<h2 data-number="4.3" id="effect-of-the-porosity-on-the-equivalent-strain-definition"><span class="header-section-number">4.3</span> Effect of the porosity on the equivalent strain definition</h2>
+<p>By default, the value returned by the <code>getPorosityEffectOnEquivalentPlasticStrain</code> method of the stress criterion is used to decipher if the porosity affects definition of the equivalent plastic strain and the flow rule.</p>
+<p>However, this may be changed by specifying the <code>porosity_effect_on_equivalent_plastic_strain</code> option in the definition of the inelastic flow. Valid strings are <code>StandardPorosityEffect</code> (or equivalently " <code>standard_-</code> <code>porosity_effect</code>) or <code>None</code> (or equivalently <code>none</code> or <code>false</code>).</p>
+<h2 data-number="4.4" id="saving-individual-contributions-to-the-porosity-evolutions-in-dedicated-auxiliary-state-variables"><span class="header-section-number">4.4</span> Saving individual contributions to the porosity evolutions in dedicated auxiliary state variables</h2>
+<p>The porosity evolves either due to nucleation or growth. For post-processing reasons, it may be worth to distinguish those contributions in dedicated auxiliary state variables. However, for performance reasons (mostly because additional auxiliary state variables implied a memory overhead), this shall not be the default choice.</p>
+<p>The brick allows the user to specify if those additional variables shall be defined for all mechanisms in the <code>porosity-</code> <code>_evolution</code> section as follows:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  porosity_evolution: {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    save_individual_porosity_increase: <span class="kw">true</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>However, this behaviour can be overloaded in every inelastic flow section and every nucleation model by setting the <code>save_porosity_increase</code> boolean variable.</p>
+<p>For example, one may use the following declaration:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Plasticity&quot;</span> {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Gurson1975&quot;</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="dv">200</span>, Rinf : <span class="dv">100</span>, b : <span class="dv">20</span>},</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    save_porosity_increase : <span class="kw">true</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>Inelastic flows which declare that the flow is deviatoric discard those options and never declare an auxiliary state variable associated with the porosity growth.</p>
+</blockquote>
+<h2 data-number="4.5" id="taking-into-account-the-elastic-contribution-in-the-porosity-growth"><span class="header-section-number">4.5</span> Taking into account the elastic contribution in the porosity growth</h2>
+<p>By default, the elastic contribution in the porosity growth is not taken into account.</p>
+<p>This could be changed by setting the <code>elastic_contribution</code> options to true as follows:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>   porosity_evolution: {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    elastic_contribution: <span class="kw">true</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<h1 data-number="5" id="sec:mfront:porous_plasticity:verifications"><span class="header-section-number">5</span> Verifications</h1>
+<p>The stress criteria implemented are verified by comparing the results obtained through <code>MTest</code> simulations to reference solutions. Axisymmetric loading conditions are considered under small strains settings:</p>
+<p><span class="math display">\[ \underline{\sigma} = \sigma \begin{pmatrix}
+ 1 &amp; 0 &amp; 0 \\
+ 0 &amp; A &amp; 0\\
+ 0 &amp; 0 &amp; A
+\end{pmatrix}
+\]</span></p>
+<p>A typical <code>MTest</code> file used for these simulations is shown below:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypothesis <span class="ch">&#39;T</span><span class="er">ridimensional</span><span class="ch">&#39;</span>;</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour&lt;Generic&gt; <span class="ch">&#39;s</span><span class="er">rc/libBehaviour.so</span><span class="ch">&#39;</span> <span class="ch">&#39;G</span><span class="er">TN</span><span class="ch">&#39;</span>;</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InternalStateVariable <span class="ch">&#39;P</span><span class="er">orosity</span><span class="ch">&#39;</span> <span class="fl">1e-3</span>;</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;T</span><span class="er">emperature</span><span class="ch">&#39;</span> <span class="fl">293.15</span> ;</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;A&#39;</span> <span class="ch">&#39;0</span><span class="er">.4</span><span class="ch">&#39;</span>;</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>NonLinearConstraint&lt;Stress&gt; <span class="ch">&#39;S</span><span class="er">YY - A*SXX</span><span class="ch">&#39;</span>;</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>NonLinearConstraint&lt;Stress&gt; <span class="ch">&#39;S</span><span class="er">ZZ - A*SXX</span><span class="ch">&#39;</span>;</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStrain <span class="ch">&#39;E</span><span class="er">XX</span><span class="ch">&#39;</span> {<span class="dv">0</span> : <span class="dv">0</span>, <span class="dv">1</span> : <span class="fl">0.5</span>};</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Times{<span class="dv">0</span>, <span class="fl">1.</span> in <span class="dv">1000</span>};</span></code></pre></div>
+<p>Without hardening, the differential equations governing the evolutions of internal state variables are, for the GTN model: <span class="math display">\[
+\begin{aligned}
+ \frac{d \varepsilon_{yy}^p}{d \varepsilon_{xx}^p} &amp;= \frac{q_1 q_2 f_{\star}\sinh{{\left(\dfrac{1}{2} q_2 (1+2\alpha) \dfrac{\sigma}{\sigma_0}\right)}} + \dfrac{\sigma}{\sigma_0}(\alpha - 1)}{q_1 q_2 f_{\star}\sinh{{\left(\dfrac{1}{2} q_2 (1+2\alpha) \dfrac{\sigma}{\sigma_0}\right)}} + 2\dfrac{\sigma}{\sigma_0}(1 - \alpha )} \ \ \ \ \ \mathrm{with} \ \ \ \ \ S(\sigma,f) = 0\\
+ \frac{df}{d \varepsilon_{xx}^p} &amp;= (1 - f)\left(1+ 2 \frac{d \varepsilon_{yy}^p}{d \varepsilon_{xx}^p}   \right)
+\end{aligned}
+\]</span> The same equations also hold for the Gurson model with <span class="math inline">\((q_1,q_2,f_{\star}) = (1,1,f)\)</span>. For the Rousselier model, the equations are: <span class="math display">\[
+\begin{aligned}
+ \frac{d \varepsilon_{yy}^p}{d \varepsilon_{xx}^p} &amp;= \frac{D_R q_R  f\exp{{\left(\dfrac{1}{2} \dfrac{q_R}{1-f} (1+2\alpha) \dfrac{\sigma}{\sigma_0}\right)}} - 1.5}{D_R q_R  f\exp{{\left(\dfrac{1}{2} \dfrac{q_R}{1-f} (1+2\alpha) \dfrac{\sigma}{\sigma_0}\right)}} + 3} \ \ \ \ \ \mathrm{with} \ \ \ \ \ S(\sigma,f) = 0\\
+ \frac{df}{d \varepsilon_{xx}^p} &amp;= (1 - f)\left(1+ 2 \frac{d \varepsilon_{yy}^p}{d \varepsilon_{xx}^p}   \right)
+\end{aligned}
+\]</span> These differential equations are solved with respect to <span class="math inline">\(\varepsilon_{xx}^p\)</span> using the <code>ode45</code> function of the <code>Matlab</code> software, and the stress magnitude <span class="math inline">\(\sigma\)</span> is computed by solving the stress criteria. Elastic strains are finally added to the plastic strains using Hooke’s law to obtain total strains. These solutions, that can be obtained for arbitrary precision, are the reference solutions to which the results from <code>MTest</code> simulations are compared.</p>
+<figure>
+<img src="img/PorousPlasticity/Verifications.svg" id="fig:mfront:porous_plasticity:verifications" style="width:95.0%" alt="Figure 2: Comparisons between the reference solutions and the MTest simulations. The parameters used are: q_1 = 2, q_2 = 1, q_3 = 4, f_c = 0.01, f_r = 0.10 for the GTN model, q_R = 1, D_R = 2 for the Rousselier model. A is set to (a,b) 0.4 and (c,d) 0.7273, corresponding to stress triaxialities of 1 and 3, respectively. In all cases, \sigma_0 = 200MPa, E=200GPa, \nu = 0.3 and f_0 = 0.001" /><figcaption aria-hidden="true">Figure 2: Comparisons between the reference solutions and the <code>MTest</code> simulations. The parameters used are: <span class="math inline">\(q_1 = 2\)</span>, <span class="math inline">\(q_2 = 1\)</span>, <span class="math inline">\(q_3 = 4\)</span>, <span class="math inline">\(f_c = 0.01\)</span>, <span class="math inline">\(f_r = 0.10\)</span> for the GTN model, <span class="math inline">\(q_R = 1\)</span>, <span class="math inline">\(D_R = 2\)</span> for the Rousselier model. A is set to (a,b) 0.4 and (c,d) 0.7273, corresponding to stress triaxialities of 1 and 3, respectively. In all cases, <span class="math inline">\(\sigma_0 = 200\)</span>MPa, <span class="math inline">\(E=200\)</span>GPa, <span class="math inline">\(\nu = 0.3\)</span> and <span class="math inline">\(f_0 = 0.001\)</span></figcaption>
+</figure>
+<p>A perfect agreement is obtained between the reference solutions and the <code>MTest</code> results, as depicted on Figure 2, validating the implementation of the equations of these models. Finally, the jacobians of all models have been verified with respect to the numerical jacobian.</p>
+<h1 data-number="6" id="sec:mfront:porous_plasticity:applications"><span class="header-section-number">6</span> Applications and Finite Element simulations</h1>
+<h2 data-number="6.1" id="axisymmetric-tensile-tests-simulations"><span class="header-section-number">6.1</span> Axisymmetric tensile tests simulations</h2>
+<p>In this scope, the <a href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a> is tested using the finite elements software <a href="http://www-cast3m.cea.fr/"><code>Cast3M</code></a>. The Gurson-Tvergaard-Needleman stress criterion is used to model the ductile failure of Notched Tensile (NT) Samples and Simple Tensile (ST) ones. The <span class="math inline">\(2D\)</span> meshes are shown on Figure 3 .</p>
+<figure>
+<img src="img/PorousPlasticity/mesh_ST_NT.png" id="fig:porous_plasticity:mesh_ST_NT" style="width:95.0%" alt="Figure 3: Meshes of the Notched Tensile (NT) Samples and Simple Tensile (ST) ones" /><figcaption aria-hidden="true">Figure 3: Meshes of the Notched Tensile (NT) Samples and Simple Tensile (ST) ones</figcaption>
+</figure>
+<p>The material’s behavior is adapted to aluminum alloys from which the vessel of Fast Neutron Research Reactors are fabricated. The element size is chosen to be <span class="math inline">\(100\,\mu m\)</span> based on metallurgical studies that take into account the importance of the nucleation phase during damage. The nucleation is modeled by a Stress-based law that is implemented as follows <span class="citation" data-cites="PetitBessonRitterColasHelfenMorgeneyer19">[<a href="#ref-PetitBessonRitterColasHelfenMorgeneyer19" role="doc-biblioref">13</a>]</span> :</p>
+<p><span class="math display">\[
+A_n = f_N \left&lt;\frac{\sigma_I}{\sigma_N} - 1 \right&gt;^m   \ \ \ \ \ \mathrm{if}\ \ p \geq p_N, \ \ \mathrm{and}\ \ \int A_n dp \leq f_{\mathrm{nuc}}^{max}
+\]</span></p>
+<p>where <span class="math inline">\(\{f_N, p_N, m,\sigma_N,f_{\mathrm{nuc}}^{max}\}\)</span> are material parameters, and <span class="math inline">\(\sigma_I\)</span> is the maximum positive principal stress.</p>
+<blockquote>
+<p><strong>Material’s Behavior</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a> stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">70e3</span>, poisson_ratio : <span class="fl">0.3</span>},</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a> inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>   criterion : <span class="st">&quot;GursonTvergaardNeedleman1982&quot;</span> {</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>     f_c : <span class="fl">0.04</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>     f_r : <span class="fl">0.056</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>     q_1 : <span class="fl">2.</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>     q_2 : <span class="fl">1.</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>     q_3 : <span class="fl">4.</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>   },</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="dv">274</span>},</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="dv">0</span>, Rinf : <span class="dv">85</span>, b : <span class="dv">17</span>},</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="dv">0</span>, Rinf : <span class="dv">17</span>, b : <span class="dv">262</span>},</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>   nucleation_model : <span class="st">&quot;Power-based&quot;</span> {</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>     An0 : <span class="fl">2.92</span>,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>     s1_n : <span class="dv">500</span>,</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>     p_n : <span class="fl">0.0321</span>,</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>     s1_max : <span class="dv">700</span>,</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>     fg_max : <span class="fl">0.0215</span>,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>     ng : <span class="dv">2</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a> }</span></code></pre></div>
+</blockquote>
+<p>The numerical response of NT specimens (notch radii are noted as : NT10, NT4, and NT2) is shown on Figure 4 and compared to the experimental results.</p>
+<figure>
+<img src="img/PorousPlasticity/NT_FS0_DD0.svg" id="fig:porous_plasticity:NT_FS0_DD0" style="width:95.0%" alt="Figure 4: Numerical response of NT specimens" /><figcaption aria-hidden="true">Figure 4: Numerical response of NT specimens</figcaption>
+</figure>
+<p>One can see that the numerical convergence is rather good at the crack initiation phase where the reaction force decreases suddenly. Some aspects could be improved regarding the plastic flow and the damage parameters to smoothly follow the crack propagation modelled by the sudden force drop. Such improvements depends on the finite element solver used and must not be confused with the robustness of the <a href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a>.</p>
+<p>Moreover, the evolution of the porosity was monitored during the simulation to observe the failure of elements that reached the critical porosity value. This could be seen on Figure 5 where the notch is pictured before the testing (left image), during the testing (middle image), and at failure (right image).</p>
+<figure>
+<img src="img/PorousPlasticity/NT10_porosity.png" id="fig:porous_plasticity:NT10_porosity" style="width:95.0%" alt="Figure 5: Evolution of the porosity for the NT10 specimen" /><figcaption aria-hidden="true">Figure 5: Evolution of the porosity for the NT10 specimen</figcaption>
+</figure>
+<h2 data-number="6.2" id="charpy-test-simulations"><span class="header-section-number">6.2</span> Charpy test simulations</h2>
+<p>The GTN model is used to perform a simulation of a Charpy test. The parameters of the model are taken from <span class="citation" data-cites="tanguy_charpy_2001">[<a href="#ref-tanguy_charpy_2001" role="doc-biblioref">14</a>]</span> and correspond to the mechanical behavior of a Reactor Pressure Vessel steel at <span class="math inline">\(300^{\circ}\)</span>C. The corresponding <code>MFront</code> implementation of the constitutive equations is:</p>
+<blockquote>
+<p><strong>Material’s Behavior</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour GTN;</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UMATUseTimeSubStepping <span class="kw">true</span>;</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UMATMaximumSubStepping <span class="dv">100</span>;</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses{<span class="st">&quot;.+&quot;</span>};</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StrainMeasure Hencky;</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson;</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-12</span>;</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span>;</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a> stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">210e3</span>, poisson_ratio : <span class="fl">0.3</span>},</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a> inelastic_flow : <span class="st">&quot;Norton&quot;</span> {</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>   criterion : <span class="st">&quot;GursonTvergaardNeedleman1982&quot;</span> {</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>     f_c : <span class="fl">0.001</span>,</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>     f_r : <span class="fl">0.33</span>,</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>     q_1 : <span class="fl">1.5</span>,</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>     q_2 : <span class="dv">1</span>,</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>     q_3 : <span class="fl">2.25</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>   },</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>   n : <span class="fl">1.15</span>,</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>   K : <span class="fl">0.185</span>,</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>   A : <span class="dv">1</span>,</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">421.5</span>},</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="dv">0</span>, Rinf : <span class="dv">125</span>, b : <span class="fl">59.6</span>},</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="dv">0</span>, Rinf : <span class="dv">472</span>, b : <span class="fl">1.72</span>}</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a> },</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a> porosity_evolution : {</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>   nucleation_model : <span class="st">&quot;PowerLaw (strain)&quot;</span> {</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>      fn : <span class="fl">0.038</span>, en : <span class="fl">0.5</span>, m : <span class="fl">0.</span>, fmax : <span class="fl">0.023</span>}</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a> }</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</blockquote>
+<p>Simulations are performed with <code>Cast3M</code> finite element code, using second-order reduced-integration elements (user-modified <code>CU20</code> elements). Contact is modelled between the specimen and the striker and anvils accounting for friction (<span class="math inline">\(\mu = 0.1\)</span>). Only one fourth of the system is modelled due to symmetries. The initial porosity is equal to 0.0175%. The displacement of the striker is imposed with a velocity of <span class="math inline">\(5\mathrm{m.s^{-1}}\)</span>. The time-step is adjusted with a target on the maximal increase of local porosity of 0.1% (see Appendix F). Element deletion is activated when at least half of the Gauss points are broken. In addition, Gauss points where the cumulated plastic strain is higher than <span class="math inline">\(200\%\)</span> are considered as broken.</p>
+<figure>
+<img src="img/PorousPlasticity/CharpyResults.svg" id="fig:mfront:porous_plasticity:gra3" style="width:95.0%" alt="Figure 6: (a) Force - displacement curve (b) Cumulated plastic strain field" /><figcaption aria-hidden="true">Figure 6: (a) Force - displacement curve (b) Cumulated plastic strain field</figcaption>
+</figure>
+<p>The evolution of the force as a function of the imposed displacement of the stricker is shown in Figure 6 where the decrease is related to the propagation of the crack. Figure 6 shows also the cumulated plastic strain field on the deformed configuration.</p>
+<h1 data-number="7" id="conclusions"><span class="header-section-number">7</span> Conclusions</h1>
+<p>This report has described the extension of the <code>StandardElastoViscoPlasticity</code> brick to porous plasticity. Various new stress criteria and nucleation models have been implemented and can be used “out of the box.” A particular attention has been paid to ease the addition of new porous stress criteria and nucleation models.</p>
+<p>An original staggered algorithm has been proposed and tested on ductile fracture simulations of notched specimens and Charpy tests. Note that the standard implicit scheme can still be chosen.</p>
+<!--
+The brick is currently being coupled with coalescence laws.
+-->
+<h1 data-number="8" id="appendix"><span class="header-section-number">8</span> Appendix</h1>
+<h2 data-number="8.1" id="sec:mfront:porous_plasticity:stress_criterion"><span class="header-section-number">8.1</span> Determination of the stress criterion through a local scalar Newton algorithm</h2>
+<p>In many cases, the stress criterion <span class="math inline">\(\sigma_{\star}\)</span> is an implicit function of the stress state of the form:</p>
+<p><span id="eq:mfront:porous_plasticity:stress_criterion:S"><span class="math display">\[
+S{\left(\sigma_{\star}, \underline{\sigma}, f\right)}=0
+\qquad(19)\]</span></span></p>
+<p>See Equations (1) and (2) for the case of the Gurson-Tvergaard-Needleman stress criterion and the Rousselier-Tanguy-Besson stress criterion respectively.</p>
+<p>For a given stress state and porosity, Equation (19) may be solved by a scalar Newton algorithm.</p>
+<p>The Newton algorithm is coupled with bisection whenever root-bracketting is possible, which considerably increase its robustness.</p>
+<p>More precisely, if not given by the user, the algorithm tries to determines a interval <span class="math inline">\(\left[\sigma_{\star}^{\min{}};\sigma_{\star}^{\max{}}\right]\)</span> such that:</p>
+<p><span class="math display">\[
+ S{\left(\sigma_{\star}^{\min{}}\right)}\,S{\left(\sigma_{\star}^{\max{}}\right)}&lt;0
+\]</span></p>
+<p>i.e. <span class="math inline">\(S{\left(\sigma_{\star}^{\min{}}\right)}\)</span> and <span class="math inline">\(S{\left(\sigma_{\star}^{\max{}}\right)}\)</span> have opposite signs. If such a pair is found, a simple bissection algorithm, whose convergence is guaranteed, may be used.</p>
+<p>In practice, one checks if the new estimate given by the Newton algorithm lies in <span class="math inline">\(\left[\sigma_{\star}^{\min{}};\sigma_{\star}^{\max{}}\right]\)</span>. If this is the case, this new estimate is used to update the bounds of the interval.</p>
+<p>This implementation handles properly <code>IEEE754</code> exceptional cases (infinite numbers, <code>NaN</code> values), even if advanced compilers options are used (such as <code>-ffast-math</code> under <code>gcc</code>).</p>
+<h2 data-number="8.2" id="sec:mfront:porous_plasticity:nucleation_law_derivatives"><span class="header-section-number">8.2</span> Derivatives of common nucleation law</h2>
+<ul>
+<li><strong>Chu-Needleman strain based</strong> <span class="citation" data-cites="chuneedleman1980">[<a href="#ref-chuneedleman1980" role="doc-biblioref">9</a>]</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+\dfrac{\partial A_n}{\partial \underline{\sigma}} &amp;= \underline{0} \\
+\dfrac{\partial A_n}{\partial p} &amp;=  -\dfrac{f_N}{s_N^2 \sqrt{2\pi}} {\left(\dfrac{p - \epsilon_N}{s_N} \right)} \exp{{\left(-\dfrac{1}{2} {\left(\dfrac{p - \epsilon_N}{s_N} \right)}^2  \right)}     }  \\
+\dfrac{\partial A_n}{\partial f} &amp;= 0 \\
+\end{aligned}
+\]</span></p>
+<ul>
+<li><strong>Chu-Needleman stress based</strong> <span class="citation" data-cites="chuneedleman1980">[<a href="#ref-chuneedleman1980" role="doc-biblioref">9</a>]</span></li>
+</ul>
+<p><span class="math display">\[\dfrac{\partial A_n}{\partial \underline{\sigma}} = -\dfrac{f_N}{s_N^2 \sqrt{2\pi}} {\left(\dfrac{\sigma_I - \sigma_N}{s_N} \right)} \exp{{\left(-\dfrac{1}{2} {\left(\dfrac{\sigma_I - \sigma_N}{s_N} \right)}^2  \right)}     } e_I \otimes e_I \]</span></p>
+<p><span class="math display">\[\dfrac{\partial A_n}{\partial p} = 0  \]</span></p>
+<p><span class="math display">\[\dfrac{\partial A_n}{\partial f} = 0 \]</span></p>
+<ul>
+<li><strong>Power-Law strain based</strong></li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+\dfrac{\partial A_n}{\partial \underline{\sigma}} &amp;= \underline{0} \\
+\dfrac{\partial A_n}{\partial p} &amp;= \dfrac{m f_N}{\epsilon_N} \left&lt;\dfrac{p}{\epsilon_N} - 1 \right&gt;^{m-1} \\
+\dfrac{\partial A_n}{\partial f} &amp;= 0 \\
+\end{aligned}
+\]</span></p>
+<ul>
+<li><strong>Power-Law stress based</strong></li>
+</ul>
+<p><span class="math display">\[\dfrac{\partial A_n}{\partial \underline{\sigma}} = \dfrac{m f_N}{\sigma_N} \left&lt;\dfrac{\sigma_I}{\sigma_N} - 1 \right&gt;^{m-1} e_I \otimes e_I \]</span></p>
+<p><span class="math display">\[\dfrac{\partial A_n}{\partial p} = 0 \]</span></p>
+<p><span class="math display">\[\dfrac{\partial A_n}{\partial f} = 0 \]</span></p>
+<h2 data-number="8.3" id="sec:mfront:porous_plasticity:stress_criterion_derivatives"><span class="header-section-number">8.3</span> Derivatives of standard stress criteria</h2>
+<!--
+### Green stress criterion
+
+\[
+\begin{aligned}
+\deriv{\sstar}{\tsigma} &= \dfrac{3 \tenseur{s} + 6 f \sigma_m \tenseur{I}}{2\sigma^{\star}} \\
+\deriv{\sstar}{f} &= \dfrac{9 \sigma_m^2}{2\sigma^{\star}} \\
+\dfrac{\partial^2 \sstar}{\partial \tsigma^2} &= \dfrac{1}{\sstar} \; \bigg(\tenseur{M} + f \; \tenseur{I} \otimes \tenseur{I}) - \deriv{\sstar}{\tsigma} \otimes \deriv{\sstar}{\tsigma} \bigg)\\
+\dfrac{\partial^2 \sstar}{\partial \tsigma \partial f}    &= \dfrac{1}{\sstar} \;  \; \bigg( 3 \sigma_m \tenseur{I} - \deriv{\sstar}{\tsigma} \deriv{\sstar}{f}\bigg)\\
+\end{aligned}
+\]
+-->
+<h3 data-number="8.3.1" id="sec:mfront:porous_plasticity:stress_criterion_derivatives:GTN"><span class="header-section-number">8.3.1</span> Derivatives of the Gurson-Tvergaard-Needleman stress criterion</h3>
+<p>As <span class="math inline">\(\sigma_{\star}\)</span> is defined implicitly through <span class="math inline">\(S(\underline{\sigma},\sigma_{\star},f) =0\)</span>, the first and second order derivatives of the function S are required to compute the first and second order derivatives of <span class="math inline">\(\sigma_{\star}\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial \sigma_{\star}}} &amp;= -2 \dfrac{\sigma_{vM}^2}{\sigma_{\star}^3} - \dfrac{3 q_1 q_2 f_{\star} \sigma_m}{\sigma_{\star}^2}\sinh{{\left(\dfrac{3}{2} q_2 \dfrac{\sigma_m}{\sigma_{\star}}\right)}} \\
+\dfrac{\partial S}{\partial {\underline{\sigma}}} &amp;= 3 \dfrac{\underline{s}}{\sigma_{\star}^2} + \dfrac{q_1 q_2 f_{\star}}{\sigma_{\star}}\sinh{{\left(\dfrac{3}{2} q_2 \dfrac{\sigma_m}{\sigma_{\star}}\right)}} \underline{I} \\ 
+{\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial f}} &amp;= 2 q_1 \delta \cosh{{\left(\dfrac{3}{2} q_2 \dfrac{\sigma_m}{\sigma_{\star}}\right)}} - 2 q_3 \delta f_{\star}\\
+\dfrac{\partial^2 S}{\partial \underline{\sigma}^2} &amp;= \dfrac{2}{\sigma_{\star}^2} \: {\underline{\underline{\mathbf{M}}}} + \dfrac{ q_1 \: q_2^2 \: f_{\star}}{2 \sigma_{\star}^2} \cosh{{\left(\dfrac{3}{2} q_2 \dfrac{\sigma_m}{\sigma_{\star}}\right)}} \underline{I} \otimes \underline{I}\\
+\dfrac{\partial^2 S}{\partial \underline{\sigma}\partial \sigma_{\star}} &amp;= - \dfrac{6 \underline{s}}{\sigma_{\star}^3} - \dfrac{ q_1 \: q_2 \: f_{\star}}{\sigma_{\star}^2} \sinh{{\left(\dfrac{3}{2} q_2 \dfrac{\sigma_m}{\sigma_{\star}}\right)}} \underline{I}   -  \dfrac{3 \: q_1 \: q_2^2 \: f_{\star} \: \sigma_m}{2 \: \sigma_{\star}^3} \cosh{{\left(\dfrac{3}{2} q_2 \dfrac{\sigma_m}{\sigma_{\star}}\right)}} \underline{I}\\
+\dfrac{\partial^2 S}{\partial \underline{\sigma}\partial f} &amp;= \dfrac{q_1 \: q_2 \: \delta}{\sigma_{\star}} \sinh{{\left(\dfrac{3}{2} q_2 \dfrac{\sigma_m}{\sigma_{\star}}\right)}}  \underline{I} \\
+\dfrac{\partial^2 S}{\partial \sigma_{\star}\partial f} &amp;= - \dfrac{3 \: q_1 \: q_2 \: \delta \: \sigma_m}{\sigma_{\star}^2} \sinh{{\left(\dfrac{3}{2} q_2 \dfrac{\sigma_m}{\sigma_{\star}}\right)}} \\
+\dfrac{\partial^2 S}{\partial \sigma_{\star}^2} &amp;= 6 \dfrac{\sigma_{vM}^2}{\sigma_{\star}^4} + \dfrac{6 q_1 q_2 f_{\star} \sigma_m}{\sigma_{\star}^3}\sinh{{\left(\dfrac{3}{2} q_2 \dfrac{\sigma_m}{\sigma_{\star}}\right)}} + \dfrac{9 q_1 q_2^2 f_{\star} \sigma_m^2}{2\sigma_{\star}^4}\cosh{{\left(\dfrac{3}{2} q_2 \dfrac{\sigma_m}{\sigma_{\star}}\right)}}
+\end{aligned}
+\]</span></p>
+<p>The first and second order derivatives of <span class="math inline">\(\sigma_{\star}\)</span> are:</p>
+<p><span class="math display">\[{\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}} = -{\left({\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial \sigma_{\star}}} \right)}^{-1} \dfrac{\partial S}{\partial {\underline{\sigma}}}\]</span></p>
+<p><span class="math display">\[{\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial f}} = -{\left({\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial \sigma_{\star}}} \right)}^{-1} \dfrac{\partial S}{\partial {f}}\]</span></p>
+<p><span class="math display">\[
+\dfrac{\partial^2 \sigma_{\star}}{\partial \underline{\sigma}^2} = - \bigg({\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial \sigma_{\star}}} \bigg)^{-1} \bigg(\dfrac{\partial^2 S}{\partial \underline{\sigma}^2} + \dfrac{\partial^2 S}{\partial \underline{\sigma}\partial \sigma_{\star}} \otimes  {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}} \bigg) 
+ + \bigg({\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial \sigma_{\star}}} \bigg)^{-2} \bigg({\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial \underline{\sigma}}} \bigg) \otimes \bigg(\dfrac{\partial^2 S}{\partial \underline{\sigma}\partial \sigma_{\star}} + \dfrac{\partial^2 S}{ \partial \sigma_{\star}^2}  {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}  \bigg) 
+\]</span></p>
+<p><span class="math display">\[\dfrac{\partial^2 \sigma_{\star}}{\partial \underline{\sigma}\partial f} = - \bigg(\dfrac{\partial S}{\partial  \sigma_{\star}} \bigg)^{-1} \bigg(\dfrac{\partial^2 S}{\partial \underline{\sigma}\partial f} + \dfrac{\partial^2 S}{\partial f \partial \sigma_{\star}}  {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}} \bigg) + \bigg(\dfrac{\partial S}{\partial  \sigma_{\star}} \bigg)^{-2} \bigg(\dfrac{\partial^2 S}{\partial \underline{\sigma}\partial \sigma_{\star}} +  \dfrac{\partial^2 S}{ \partial \sigma_{\star}^2}  {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}} \bigg) \bigg({\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial f}} \bigg) \]</span></p>
+<h3 data-number="8.3.2" id="derivatives-of-rousselier-tanguy-besson-stress-criterion"><span class="header-section-number">8.3.2</span> Derivatives of Rousselier-Tanguy-Besson stress criterion</h3>
+<p>The first and second order derivatives of <span class="math inline">\(\sigma_{\star}\)</span> are computed using <span class="math inline">\(S(\underline{\sigma},\sigma_{\star},f) =0\)</span>, which requires the first and second order derivatives of the function S:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial \sigma_{\star}}} &amp;= -\dfrac{\sigma_{vM}}{(1- f )\sigma_{\star}^2} - f D_R q_R \dfrac{\sigma_{m}}{(1- f )\sigma_{\star}^2} \exp{{\left(\dfrac{3}{2} q_R \dfrac{\sigma_m}{(1 - f )\sigma_{\star}}    \right)}}\\
+\dfrac{\partial S}{\partial {\underline{\sigma}}} &amp;= \dfrac{3}{2}\dfrac{\underline{s}}{(1- f ) \sigma_{vM} \sigma_{\star}} + \dfrac{f D_R q_R}{3} \dfrac{\underline{I}}{(1- f )\sigma_{\star}} \exp{{\left(\dfrac{3}{2} q_R \dfrac{\sigma_m}{(1 - f )\sigma_{\star}}    \right)}} \\ 
+{\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial f}} &amp;= \dfrac{\sigma_{vM}}{\sigma_{\star}(1-f)^2} + \dfrac{2}{3} D_R \exp{{\left(\dfrac{3}{2} q_R \dfrac{\sigma_m}{(1 - f )\sigma_{\star}}    \right)}} {\left(1 + \dfrac{3 f q_R \sigma_m}{2 \sigma_{\star}(1-f)^2}    \right)} \\
+\dfrac{\partial^2 S}{\partial \underline{\sigma}^2} &amp;= \dfrac{3}{2(1-f)\sigma_{\star}\sigma_{vM} }    {\left( \dfrac{2}{3} {\underline{\underline{\mathbf{M}}}} - \dfrac{3}{2} \dfrac{\underline{s}}{\sigma_{vM}}  \otimes \dfrac{\underline{s}}{\sigma_{vM}} \right)} + \dfrac{f D_R q_R^2 }{6 (1-f)^2 \sigma_{\star}^2} \underline{I} \otimes \underline{I}   \exp{{\left(\dfrac{3}{2} q_R \dfrac{\sigma_m}{(1 - f )\sigma_{\star}}    \right)}}\\
+\dfrac{\partial^2 S}{\partial \underline{\sigma}\partial \sigma_{\star}} &amp;=  - \dfrac{3 \underline{s}}{2 (1-f) \sigma_{vM} \sigma_{\star}^2 }  - {\left(1 + \dfrac{3 q_R \sigma_m}{2 (1- f) \sigma_{\star}}\right)} \dfrac{f D_R q_R}{3 (1-f) \sigma_{\star}^2} \exp{{\left(\dfrac{3}{2} q_R \dfrac{\sigma_m}{(1 - f )\sigma_{\star}}    \right)}} \underline{I}\\
+\dfrac{\partial^2 S}{\partial \underline{\sigma}\partial f} &amp;= \dfrac{3 \underline{s}}{2 (1-f)^2 \sigma_{vM} \sigma_{\star}}  + {\left(1 + \dfrac{3 q_R \sigma_m}{2 (1 - f) \sigma_{\star}} + \dfrac{1-f}{f}\right)} \dfrac{f D_R q_R}{3 (1-f)^2 \sigma_{\star}} \exp{{\left(\dfrac{3}{2} q_R \dfrac{\sigma_m}{(1 - f )\sigma_{\star}}    \right)}} \underline{I} \\
+\dfrac{\partial^2 S}{\partial \sigma_{\star}\partial f} &amp;= -\dfrac{\sigma_{vM}   }{(1-f)^2 \sigma_{\star}^2 }  - {\left(1 + \dfrac{3 q_R \sigma_m}{2 (1 - f) \sigma_{\star}} + \dfrac{1-f}{f}\right)} \dfrac{f D_R q_R \sigma_m}{ (1-f)^2 \sigma_{\star}^2} \exp{{\left(\dfrac{3}{2} q_R \dfrac{\sigma_m}{(1 - f )\sigma_{\star}}    \right)}}  \\
+\dfrac{\partial^2 S}{\partial \sigma_{\star}^2} &amp;= \dfrac{2\sigma_{vM}}{(1-f)\sigma_{\star}^3} + {\left(1 + \dfrac{3 q_R \sigma_m}{4 (1-f) \sigma_{\star}}\right)} \dfrac{2fD_Rq_R \sigma_m}{(1-f)\sigma_{\star}^3} \exp{{\left(\dfrac{3}{2} q_R \dfrac{\sigma_m}{(1 - f )\sigma_{\star}}    \right)}}
+\end{aligned}
+\]</span></p>
+<p>The first and second order derivatives of <span class="math inline">\(\sigma_{\star}\)</span> are:</p>
+<p><span class="math display">\[{\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}} = -{\left({\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial \sigma_{\star}}} \right)}^{-1} \dfrac{\partial S}{\partial {\underline{\sigma}}}\]</span></p>
+<p><span class="math display">\[{\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial f}} = -{\left({\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial \sigma_{\star}}} \right)}^{-1} \dfrac{\partial S}{\partial {f}}\]</span></p>
+<p><span class="math display">\[
+\dfrac{\partial^2 \sigma_{\star}}{\partial \underline{\sigma}^2} = - \bigg({\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial \sigma_{\star}}} \bigg)^{-1} \bigg(\dfrac{\partial^2 S}{\partial \underline{\sigma}^2} + \dfrac{\partial^2 S}{\partial \underline{\sigma}\partial \sigma_{\star}} \otimes  {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}} \bigg) 
+ + \bigg({\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial \sigma_{\star}}} \bigg)^{-2} \bigg({\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial \underline{\sigma}}} \bigg) \otimes \bigg(\dfrac{\partial^2 S}{\partial \underline{\sigma}\partial \sigma_{\star}} + \dfrac{\partial^2 S}{ \partial \sigma_{\star}^2}  {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}}  \bigg) 
+\]</span></p>
+<p><span class="math display">\[\dfrac{\partial^2 \sigma_{\star}}{\partial \underline{\sigma}\partial f} = - \bigg(\dfrac{\partial S}{\partial  \sigma_{\star}} \bigg)^{-1} \bigg(\dfrac{\partial^2 S}{\partial \underline{\sigma}\partial f} + \dfrac{\partial^2 S}{\partial f \partial \sigma_{\star}}  {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}} \bigg) + \bigg(\dfrac{\partial S}{\partial  \sigma_{\star}} \bigg)^{-2} \bigg(\dfrac{\partial^2 S}{\partial \underline{\sigma}\partial \sigma_{\star}} +  \dfrac{\partial^2 S}{ \partial \sigma_{\star}^2}  {\displaystyle \frac{\displaystyle \partial \sigma_{\star}}{\displaystyle \partial \underline{\sigma}}} \bigg) \bigg({\displaystyle \frac{\displaystyle \partial S}{\displaystyle \partial f}} \bigg) \]</span></p>
+<!--
+### Derivatives of the generic Thomason stress criterion
+
+The first and second order derivatives of $\sstar$ are [@bertram2012]:
+
+\[
+\begin{aligned}
+\deriv{\sstar}{\tsigma} &= A e_I \otimes e_I\\
+\deriv{\sstar}{f} &= 0\\
+\dfrac{\partial^2 \sstar}{\partial \tsigma^2} &= A \paren{ \paren{ \sigma_{I} - \sigma_{II}}^{-1}  e_I \otimes e_{II} \otimes e_I \otimes e_{II} +  e_{II} \otimes e_{I} \otimes e_{II} \otimes e_{I}}  \\
+    &+ A \paren{ \paren{ \sigma_{I} - \sigma_{III}}^{-1}  e_I \otimes e_{III} \otimes e_I \otimes e_{III} +  e_{III} \otimes e_{I} \otimes e_{III} \otimes e_{I}}\\
+\dfrac{\partial^2 \sstar}{\partial \tsigma \partial f} &= \tenseur{0} \\
+\end{aligned}
+\]
+
+where $\{e_I, e_{II}, e_{III} \}$ is the eigenvectors associated with the eigenvalues of the stress tensor $\{ \sigma_I, \sigma_{II}, \sigma_{III}  \}$.
+-->
+<h2 data-number="8.4" id="sec:mfront:porous_plasticity:regul"><span class="header-section-number">8.4</span> Regularization of the effective porosity</h2>
+<p>The Gurson-Tvergaard-Needleman stress criterion models the void coalescence by the effective porosity calculated as shown <span id="Stress_criteria"><code>above</code></span>. The transition from the pre-coalescence to the coalescence phase might cause numerical problems if the <span class="math inline">\(\delta\)</span> parameter is high enough. This is due to the inflection point in the bilinear function describing <span class="math inline">\(f_{\star}\)</span> as a function of <span class="math inline">\(f\)</span>. Therefore, the first derivative of the effective porosity with respect to the porosity (<span class="math inline">\(\dfrac{\partial f_{\star}}{\partial f}\)</span>) undergoes a sudden jump that disturbs the Newton-Raphson algorithm.</p>
+<p>A solution is proposed to avoid that derivative jump at the inflection point : to replace the bilinear function of <span class="math inline">\(f_{\star}\)</span> by a polynominal function of 5th degree. Therefore, <span class="math inline">\(f_{\star}\)</span> is defined such that :</p>
+<p><span class="math display">\[
+f_{\star} = \left\{
+\begin{array}{ll}
+\delta f &amp; \mbox{if } f &lt; (f_c - \epsilon) \\
+\delta (a^5 f + b^4 f + c^3 f + d^2 f + e f + g) &amp; \mbox{if } (f_c - \epsilon) \leq f \leq (f_c + \epsilon) \\ 
+f_c + \delta (f - f_c)  &amp; \mbox{otherwise}
+\end{array}
+\right. \]</span></p>
+<p>and :</p>
+<p><span class="math display">\[
+\delta = \left\{
+\begin{array}{ll}
+1 &amp; \mbox{if } f \leq (f_c + \epsilon) \\
+\dfrac{\dfrac{1}{q_1} - f_c }{f_r - f_c}   &amp; \mbox{otherwise}
+\end{array}
+\right. \]</span></p>
+<p>where <span class="math inline">\(\epsilon\)</span> is the linearization coefficient that allows to have a smooth transition on the <span class="math inline">\(\partial f_{\star}\)</span> as function of <span class="math inline">\(f\)</span>. A big <span class="math inline">\(\epsilon\)</span> value will allow a higher contribution of the polynominal function and thus, smoother numerical convergence.</p>
+<p>For numerical efficiency reasons, the polynominal function was implemented using the Horner method to be :</p>
+<p><span class="math display">\[ f (f ( f (f (a f + b) + c) + d) + e) + g\]</span></p>
+<h2 data-number="8.5" id="sec:mfront:porous_plasticity:castem"><span class="header-section-number">8.5</span> On the use of porous constitutive equations with <code>Cast3M</code></h2>
+<p>The staggered approach improves robustness of the numerical integration of the porous constitutive equations, especially if sub-stepping is allowed. However, integration may still fail due to too severe input parameters. As integration failure is not handled in the finite element code <code>Cast3M</code>, additional stategies are required at the structural scale to avoid such problems. An efficient stategy is to adjust the time-step based on the maximal increase of porosity such as: <span class="math display">\[
+\Delta t_{i+1} = \min{\left(   \frac{\Delta f_{max}}{\Delta f_{i}} \Delta t_i , \Delta t_{ref} \right)}
+\]</span> This equation is implemented in two steps. First, the following code is added to the <code>PERSO1</code> user procedure to compute the maximal increase of porosity at the last time-step on unbroken Gauss points.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode f"><code class="sourceCode fortranfixed"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;SI&#39;</span>( (<span class="st">&#39;DIME&#39;</span> TAB1.DEPLACEMENTS) <span class="op">&gt;</span> <span class="dv">1</span>);</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>TMP <span class="kw">=</span>  TAB1.<span class="st">&#39;F_PREC&#39;</span>;</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>TMP2 <span class="kw">=</span> <span class="st">&#39;EXCO&#39;</span> TAB1<span class="op">.ESTIMATION.</span>VARIABLES_INTERNES <span class="st">&#39;F&#39;</span> <span class="st">&#39;SCAL&#39;</span>;</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>TMP3 <span class="kw">=</span> <span class="st">&#39;EXCO&#39;</span> TAB1<span class="op">.ESTIMATION.</span>VARIABLES_INTERNES <span class="st">&#39;BROK&#39;</span> <span class="st">&#39;SCAL&#39;</span>;</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>TMPA <span class="kw">=</span> TMP<span class="kw">*</span>(<span class="dv">1</span> <span class="st">&#39;-&#39;</span> TMP3);</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>TMP2A <span class="kw">=</span> TMP2<span class="kw">*</span>(<span class="dv">1</span> <span class="st">&#39;-&#39;</span> TMP3);</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>DF <span class="kw">=</span> <span class="st">&#39;ABS&#39;</span> ((<span class="st">&#39;MAXIMUM&#39;</span> TMPA) <span class="st">&#39;-&#39;</span> (<span class="st">&#39;MAXIMUM&#39;</span> TMP2A));</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>TAB1.<span class="st">&#39;F_PREC&#39;</span> <span class="kw">=</span> TMP2;</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;SINON&#39;</span>;</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>DF <span class="kw">=</span> <span class="dv">0</span>;</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;FINSI&#39;</span>;</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>TAB1<span class="op">.WTABLE.</span><span class="st">&#39;DF&#39;</span> <span class="kw">=</span> DF;</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>TAB1<span class="op">.WTABLE.</span><span class="st">&#39;DFMAX&#39;</span> <span class="kw">=</span> TAB1.<span class="st">&#39;DFMAX&#39;</span>;</span></code></pre></div>
+<p>Then, the <code>PASAPAS</code> procedure is modified according to:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode f"><code class="sourceCode fortranfixed"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;SI&#39;</span> WTAB.<span class="st">&#39;PAS_AJUSTE&#39;</span>;</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>   DTV <span class="kw">=</span> DT_AVANT;</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>   DF <span class="kw">=</span> WTAB.<span class="st">&#39;DF&#39;</span>;</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>   DFMAX <span class="kw">=</span> WTAB.<span class="st">&#39;DFMAX&#39;</span>;</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>   DDF <span class="kw">=</span> DF <span class="st">&#39;/&#39;</span> DFMAX;</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>   <span class="st">&#39;SI&#39;</span> (<span class="st">&#39;EXISTE&#39;</span> WTAB ISOUSPAS);</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>      ISP <span class="kw">=</span> WTAB.ISOUSPAS;</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>   <span class="st">&#39;SINON&#39;</span>;</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>      ISP <span class="kw">=</span> <span class="dv">0</span>;</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>   <span class="st">&#39;FINSI&#39;</span>;</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>   <span class="st">&#39;SI&#39;</span> WTAB.<span class="st">&#39;CONV&#39;</span>;</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;SI&#39;</span> ((DDF <span class="op">&gt;</span> <span class="dv">1</span>));</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>         DTV <span class="kw">=</span> DTV <span class="st">&#39;/&#39;</span> DDF;</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;FINSI&#39;</span>;</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;SI&#39;</span> ((DDF <span class="op">&lt;</span> <span class="dv">1</span>) <span class="st">&#39;ET&#39;</span> (ISP <span class="st">&#39;EGA&#39;</span> <span class="dv">0</span>));</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;SI&#39;</span> IREREDU;</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;SI&#39;</span> (DDF <span class="op">&gt;</span> <span class="fl">0.5</span>);</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>               DTV <span class="kw">=</span> DTV <span class="st">&#39;/&#39;</span> DDF;</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;SINON&#39;</span>;</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>               DTV <span class="kw">=</span> DTV <span class="st">&#39;/&#39;</span> <span class="fl">0.5</span>;</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;FINSI&#39;</span>;   </span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;FINSI&#39;</span>;</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;FINSI&#39;</span>;</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>      DT_AVANT <span class="kw">=</span> DTV;</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>      IREREDU <span class="kw">=</span> VRAI;</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;SINON&#39;</span>;</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>         DTV<span class="kw">=</span><span class="fl">0.0000000001</span>D0<span class="kw">*</span> DT_AVANT;</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>         DT_AVANT<span class="kw">=</span> DT_AVANT <span class="kw">/</span><span class="fl">2.</span>;</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>         IREREDU<span class="kw">=</span>FAUX;</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;FINSI&#39;</span>;</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>      TTI <span class="kw">=</span> DTV<span class="kw">*</span> <span class="fl">1.0000000001</span> <span class="kw">+</span> TEMP0;</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;SI&#39;</span> ( TTI <span class="st">&#39;&lt;EG&#39;</span> TIV );</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>         TI<span class="kw">=</span>TTI;</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>         PASFINAL<span class="kw">=</span><span class="dv">0</span>;</span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;FINSI&#39;</span>;</span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>   <span class="st">&#39;FINSI&#39;</span>;</span></code></pre></div>
+<p>The time-step is adjusted in order to target a maximal local increase of porosity lower or equal to an user-defined value <code>DFMAX</code>. In addition, increasing the time-step is allowed only if the convergence of the last time-step was achieved without sub-stepping (through <code>CONVERGENCE_FORCEE</code>).</p>
+<p>In addition, global convergence may be difficult to achieve in cases where heavily-distorted elements are present. Element-deletion is detailed below, but a slight modification of the <code>UNPAS</code> procedure can be made to lower the precision of the computation when sub-steps are done, allowing to avoid premature end of the calculation:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode f"><code class="sourceCode fortranfixed"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">*Nombre maximum de sous-pas atteint? si oui, arret de pasapas</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>WTAB.<span class="st">&#39;ISOUSPAS&#39;</span> <span class="kw">=</span> WTAB.<span class="st">&#39;ISOUSPAS&#39;</span> <span class="kw">+</span> <span class="dv">1</span>;</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>ZPREC <span class="kw">=</span> ZPREC <span class="kw">*</span> <span class="dv">2</span>;</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>ZPRECM <span class="kw">=</span> ZPRECM <span class="kw">*</span> <span class="dv">2</span>;</span></code></pre></div>
+<p>Finally, an example of element deletion that can be added to the <code>PERSO1</code> procedure can be added, based on the number of broken Gauss points and cumulated plastic strain:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode f"><code class="sourceCode fortranfixed"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>MO1 <span class="kw">=</span> TAB1<span class="op">.WTABLE.</span><span class="st">&#39;MO_TOT&#39;</span>;</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>MA1 <span class="kw">=</span> TAB1<span class="op">.WTABLE.</span><span class="st">&#39;MA_TOT&#39;</span>;</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>MAIL1 <span class="kw">=</span> <span class="st">&#39;EXTRAIRE&#39;</span> MO1 <span class="st">&#39;MAIL&#39;</span>;</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>TMP1 <span class="kw">=</span> <span class="st">&#39;EXCO&#39;</span> (TAB1<span class="op">.ESTIMATION.</span>VARIABLES_INTERNES) <span class="st">&#39;BROK&#39;</span> <span class="st">&#39;SCAL&#39;</span>;</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>TMP2 <span class="kw">=</span> <span class="st">&#39;EXCO&#39;</span> (TAB1<span class="op">.ESTIMATION.</span>VARIABLES_INTERNES) <span class="st">&#39;P&#39;</span> <span class="st">&#39;SCAL&#39;</span>; </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>TMP2 <span class="kw">=</span> TMP2 <span class="st">&#39;MASQ&#39;</span> SUPE (TAB1.<span class="st">&#39;BROKEN_STRAIN&#39;</span>);</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>TMP1 <span class="kw">=</span> (TMP1 <span class="kw">+</span> TMP2) MASQ SUPE <span class="fl">0.</span>;</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>TMP1 <span class="kw">=</span> <span class="st">&#39;CHANGER&#39;</span> GRAVITE MO1 TMP1 <span class="st">&#39;STRESSES&#39;</span>;</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>TMP1 <span class="kw">=</span> TMP1 <span class="st">&#39;MASQUE&#39;</span> <span class="st">&#39;EGSU&#39;</span> <span class="fl">0.5</span>;</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>MEBR <span class="kw">=</span> TMP1 <span class="st">&#39;ELEM&#39;</span> SUPE <span class="fl">0.</span>;</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>MESO <span class="kw">=</span> <span class="st">&#39;DIFF&#39;</span> MAIL1 MEBR;</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>NBRO <span class="kw">=</span> <span class="st">&#39;NBEL&#39;</span> MEBR;</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>TAB1.<span class="st">&#39;DBRO&#39;</span> <span class="kw">=</span> TAB1.<span class="st">&#39;DBRO&#39;</span> <span class="st">&#39;+&#39;</span> NBRO;</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>TAB1.<span class="st">&#39;NBRO&#39;</span> <span class="kw">=</span> TAB1.<span class="st">&#39;NBRO&#39;</span> <span class="st">&#39;+&#39;</span> NBRO;</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;SI&#39;</span> (<span class="st">&#39;&gt;&#39;</span> NBRO <span class="dv">0</span>);</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>MO2 <span class="kw">=</span> <span class="st">&#39;REDU&#39;</span> MO1 MESO;</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>TAB1<span class="op">.WTABLE.</span><span class="st">&#39;MO_TOT&#39;</span> <span class="kw">=</span> MO2;</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>TAB1<span class="op">.WTABLE.</span><span class="st">&#39;MO_TOTAL&#39;</span> <span class="kw">=</span> MO2;</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>TAB1<span class="op">.WTABLE.</span><span class="st">&#39;MOD_MEC&#39;</span> <span class="kw">=</span> MO2;</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;FINSI&#39;</span>;</span></code></pre></div>
+<h2 data-number="8.6" id="sec:porosity_evolution_options"><span class="header-section-number">8.6</span> Options of the <code>porosity_evolution</code> section</h2>
+<p>This appendix is dedicated to the description of the various options that can be declared in the <code>porosity_evolution</code> section inside the declaration of the <code>StandardElastoViscoPlasticity</code> brick:</p>
+<ul>
+<li><code>save_individual_porosity_increase</code>: a boolean value stating if the each contribution to the porosity increase must be stored in a dedicated state variable or auxiliary state variable. By default, this option is set to <code>false</code>.</li>
+<li><code>elastic_contribution</code>: a boolean value stating if the elastic contribution to the porosity growth must be taken into account. By default, this option is set to <code>false</code>.</li>
+<li><code>nucleation_model</code>: this option introduces a new nucleation model.</li>
+<li><code>algorithm</code>: a string value which allow the selection of the resolution algorithm. Valid values are:
+<ul>
+<li><code>standard implicit scheme</code></li>
+<li><code>standard_implicit_scheme</code></li>
+<li><code>StandardImplicitScheme</code></li>
+<li><code>staggered scheme</code></li>
+<li><code>staggered_scheme</code></li>
+<li><code>StaggeredScheme</code> The <code>algorithm</code> may have suboptions, as described in Section</li>
+</ul></li>
+<li><code>safety_factor_for_the_upper_bound_of_the_porosity</code>: this option allows setting floatting-point value, denoted <span class="math inline">\(\alpha\)</span>, which is used to determine the maximum value of the porosity at the middle of the time step as <span class="math inline">\(\alpha\,f_{r}\)</span>, where <span class="math inline">\(f_{r}\)</span> is the upper bound of the porosity. The upper bound of the porosity is equal the minimum of the coalescence porosity of all selected stress criteria or is equal to <span class="math inline">\(1\)</span> if no stress criterion declares a coalescence porosity. By default, the value of this option is <span class="math inline">\(0.985\)</span>.</li>
+<li><code>safety_factor_for_the_upper_bound_of_the_porosity_for_fracture_detection</code>: this option allows setting floatting-point value, denoted <span class="math inline">\(\alpha\)</span>, which is used by the staggered algorithm to detect the failure of the material. The failure is detected when the porosity converges to a value greater than <span class="math inline">\(\alpha\,f_{r}\)</span> where <span class="math inline">\(f_{r}\)</span> is the upper bound of the porosity. By default, the value of this option is <span class="math inline">\(0.984\)</span>.</li>
+</ul>
+<h3 data-number="8.6.1" id="suboptions-of-the-algorithm-option"><span class="header-section-number">8.6.1</span> Suboptions of the <code>algorithm</code> option</h3>
+<p>When a staggered scheme is used, two numerical parameters can be specified:</p>
+<ul>
+<li><code>convergence_criterion</code>: the value of the convergence criterion of the staggered algorithm. The staggered scheme stops when the difference between two estimates of the porosity is lower than this value. The default value is <span class="math inline">\(1.e-10\)</span>.</li>
+<li><code>maximum_number_of_iterations</code>: the maximum number of iterations allows for the staggered scheme. The default value is <span class="math inline">\(100\)</span>.</li>
+</ul>
+<p>Here is a simple example on how to specify those numerical parameters:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>  porosity_evolution: {</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    algorithm : <span class="st">&quot;staggered_scheme&quot;</span> {</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>      convergence_criterion: <span class="fl">1.e-9</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>      maximum_number_of_iterations: <span class="dv">200</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-gurson1977" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Gurson</span>, A. L. Continuum theory of ductile rupture by void nucleation and growth: <span>P</span>art <span>I</span> - <span>Y</span>ield criteria and flow rules for porous ductile media. <em>J. Eng. Mat. and Tech.</em> 1977. Vol. 99, p. 2–15. </div>
+</div>
+<div id="ref-tvergaardneedleman1984" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Tvergaard</span>, V. and <span class="smallcaps">Needleman</span>, A. Analysis of the cup-cone fracture in a round tensile bar. <em>Acta. Metall.</em> 1984. Vol. 32, p. 157–169. </div>
+</div>
+<div id="ref-castaneda_effective_1991" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">Castañeda</span>, P. Ponte. The effective mechanical properties of nonlinear isotropic composites. <em>Journal of the Mechanics and Physics of Solids</em>. 1 January 1991. Vol. 39, no. 1, p. 45–71. DOI <a href="https://doi.org/10.1016/0022-5096(91)90030-R">10.1016/0022-5096(91)90030-R</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/002250969190030R">http://www.sciencedirect.com/science/article/pii/002250969190030R</a></div>
+</div>
+<div id="ref-monerie_overall_2006" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline"><span class="smallcaps">Monerie</span>, Yann and <span class="smallcaps">Gatt</span>, Jean-Marie. Overall viscoplastic behavior of non-irradiated porous nuclear ceramics. <em>Mechanics of Materials</em>. July 2006. Vol. 38, no. 7, p. 608–619. DOI <a href="https://doi.org/10.1016/j.mechmat.2005.11.004">10.1016/j.mechmat.2005.11.004</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0167663605001882">http://www.sciencedirect.com/science/article/pii/S0167663605001882</a></div>
+</div>
+<div id="ref-salvo_experimental_2015" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline"><span class="smallcaps">Salvo</span>, Maxime, <span class="smallcaps">Sercombe</span>, Jérôme, <span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Sornay</span>, Philippe and <span class="smallcaps">Désoyer</span>, Thierry. Experimental characterization and modeling of <span>UO</span>2 grain boundary cracking at high temperatures and high strain rates. <em>Journal of Nuclear Materials</em>. May 2015. Vol. 460, p. 184–199. DOI <a href="https://doi.org/10.1016/j.jnucmat.2015.02.018">10.1016/j.jnucmat.2015.02.018</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0022311515001130">http://www.sciencedirect.com/science/article/pii/S0022311515001130</a></div>
+</div>
+<div id="ref-rousselier_1981" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline"><span class="smallcaps">Rousselier</span>, G. Finite deformation constitutive relations including ductile fracture damage. In : <em><span>N</span>emat-<span>Nasser</span> (ed.) <span>T</span>hree <span>D</span>imensional <span>C</span>onstitutive <span>R</span>elations and <span>D</span>uctile <span>F</span>racture</em>. North Holland, 1981. p. 331–355. </div>
+</div>
+<div id="ref-mealor_2004" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline"><span class="smallcaps">Berdin</span>, C., <span class="smallcaps">Besson</span>, J., <span class="smallcaps">Bugat</span>, S., <span class="smallcaps">Desmorat</span>, R., <span class="smallcaps">Feyel</span>, F., <span class="smallcaps">Forest</span>, E., S. Lorentz, <span class="smallcaps">Maire</span>, E., <span class="smallcaps">Pardoen</span>, T., <span class="smallcaps">Pineau</span>, A. and <span class="smallcaps">Tanguy</span>, B. Local approach to fracture. Ecole des Mines de Paris, 2004. </div>
+</div>
+<div id="ref-tanguybesson2002" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline"><span class="smallcaps">Tanguy</span>, B. and <span class="smallcaps">Besson</span>, J. An extension of the <span>R</span>ousselier model to viscoplastic temperature dependent materials. <em>Int. J. Fracture</em>. 2002. Vol. 116, p. 81–101. </div>
+</div>
+<div id="ref-chuneedleman1980" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline"><span class="smallcaps">Chu</span>, C. C. and <span class="smallcaps">Needleman</span>, A. Void nucleation effects in biaxially stretched sheets. <em>Journal of Engineering Materials and Technology</em>. 1980. Vol. 102, no. 3, p. 249–256. </div>
+</div>
+<div id="ref-helfer_assisted_2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas. Assisted computation of the consistent tangent operator of behaviours integrated using an implicit scheme. Theory and implementation in <span>MFront</span>. Documentation of mfront. <span>CEA</span>, 2020. Available from: <a href="https://www.researchgate.net/publication/342721072_Assisted_computation_of_the_consistent_tangent_operator_of_behaviours_integrated_using_an_implicit_scheme_Theory_and_implementation_in_MFront">https://www.researchgate.net/publication/342721072_Assisted_computation_of_the_consistent_tangent_operator_of_behaviours_integrated_using_an_implicit_scheme_Theory_and_implementation_in_MFront</a></div>
+</div>
+<div id="ref-zhang_modelisation_2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline"><span class="smallcaps">Zhang</span>, Y. Modélisation et simulation robuste de l’endommagement ductile. PhD thesis. Paris, France : Université de recherche Paris Sciences et Lettres, 2016. </div>
+</div>
+<div id="ref-helfer_implementation_2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">12. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, T. Implementation of a multi-surface, compressible and perfect plastic behaviour using the drucker-prager yield criterion and a cap. <span>TFEL</span>/<span>MFront</span>. 21 November 2017. Available from: <a href="http://tfel.sourceforge.net/drucker-prager-cap.html">http://tfel.sourceforge.net/drucker-prager-cap.html</a></div>
+</div>
+<div id="ref-PetitBessonRitterColasHelfenMorgeneyer19" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">13. </div><div class="csl-right-inline"><span class="smallcaps">Petit</span>, T., <span class="smallcaps">Besson</span>, J., <span class="smallcaps">Ritter</span>, C., <span class="smallcaps">Colas</span>, K., <span class="smallcaps">Helfen</span>, L. and <span class="smallcaps">Morgeneyer</span>, T. F. Effect of hardening on toughness captured by stress-based damage nucleation in 6061 aluminum alloy. <em>Acta Metall.</em> 2019. Vol. <span>180</span>, p. 349–365. DOI <a href="https://doi.org/10.1016/j.actamat.2019.08.055">https://doi.org/10.1016/j.actamat.2019.08.055</a>. </div>
+</div>
+<div id="ref-tanguy_charpy_2001" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">14. </div><div class="csl-right-inline"><span class="smallcaps">Tanguy</span>, B. Modélisation de l’essai charpy par l’approche locale de la rupture: Application au cas de l’acier 16MND5 dans le domaine de la transition. PhD thesis. Ecole Nationale Supérieure des Mines de Paris, 2001. </div>
+</div>
+</div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

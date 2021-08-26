@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>A tutorial introduction to MFEM/MGIS</title>
+        <meta name="author" content="Thomas Helfer, Guillaume Latu" />
+            <meta name="date" content="2020-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #c4a000; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #000000; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #000000; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #000000; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="/home/th202608/codes/mfem-mgis/master/src/mfem-mgis/docs/web/css/main.css" />
+        <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="index.html">Overview</a></li>
+	<li><a>Documentation</a></li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/mfem-mgis/discussions">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/mfem-mgis/issues">Forum</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+        <div id="header">
+      <h1 class="title">A tutorial introduction to <code>MFEM/MGIS</code></h1>
+                  <h2 class="author">Thomas Helfer, Guillaume Latu</h2>
+                  <h3 class="date">2020</h3>
+          </div>
+    <div id="TOC">
+<ul>
+<li><a href="#description-of-the-test-case"><span class="toc-section-number">1</span> Description of the test case</a>
+<ul>
+<li><a href="#sec:mfem_mgis:ssna303:mesh"><span class="toc-section-number">1.1</span> Geometry and mesh</a></li>
+<li><a href="#modelling-hypothesis"><span class="toc-section-number">1.2</span> Modelling hypothesis</a></li>
+<li><a href="#sec:mfem_mgis:ssna303:bc"><span class="toc-section-number">1.3</span> Boundary conditions</a></li>
+<li><a href="#sec:mfem_mgis:ssna303:behaviour"><span class="toc-section-number">1.4</span> Mechanical behaviour</a>
+<ul>
+<li><a href="#description"><span class="toc-section-number">1.4.1</span> Description</a></li>
+<li><a href="#compilation-of-the-mfront-behaviour"><span class="toc-section-number">1.4.2</span> Compilation of the <code>MFront</code> behaviour</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#sec:mfem_mgis:ssna303"><span class="toc-section-number">2</span> Numerical resolution</a>
+<ul>
+<li><a href="#initialization-of-the-resolution"><span class="toc-section-number">2.1</span> Initialization of the resolution</a>
+<ul>
+<li><a href="#constant-variables"><span class="toc-section-number">2.1.1</span> Constant variables</a></li>
+<li><a href="#command-line-options"><span class="toc-section-number">2.1.2</span> Command line options</a></li>
+</ul></li>
+<li><a href="#declaring-the-non-linear-problem"><span class="toc-section-number">2.2</span> Declaring the non linear problem</a></li>
+<li><a href="#names-boundaries-and-materials"><span class="toc-section-number">2.3</span> Names boundaries and materials</a></li>
+<li><a href="#declaring-the-mechanical-behaviour"><span class="toc-section-number">2.4</span> Declaring the mechanical behaviour</a></li>
+<li><a href="#initialisation-of-the-temperature"><span class="toc-section-number">2.5</span> Initialisation of the temperature</a></li>
+<li><a href="#boundary-condition"><span class="toc-section-number">2.6</span> Boundary Condition</a></li>
+<li><a href="#non-linear-solver-parameters."><span class="toc-section-number">2.7</span> Non linear solver parameters.</a></li>
+<li><a href="#selection-of-the-linear-solver"><span class="toc-section-number">2.8</span> Selection of the linear solver</a></li>
+<li><a href="#post-processings"><span class="toc-section-number">2.9</span> Post-processings</a></li>
+<li><a href="#resolution-initialization"><span class="toc-section-number">2.10</span> Resolution initialization</a></li>
+<li><a href="#resolution"><span class="toc-section-number">2.11</span> Resolution</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<p>This tutorial describes how to describe in <code>MFEM/MGIS</code> a tensile test on a notched bar made of an isotropic plastic behaviour with linear hardening in the logarithmic space. This tutorial highlights the key features of this project.</p>
+<p>The full code is available in the <code>mgis-examples</code> repository:</p>
+<p><a href="https://github.com/latug0/mfem-mgis-examples" class="uri">https://github.com/latug0/mfem-mgis-examples</a></p>
+<h1 data-number="1" id="description-of-the-test-case"><span class="header-section-number">1</span> Description of the test case</h1>
+<p>This tutorial considers a tensile test on a notched beam which is modelled by plastic behaviour at finite strain:</p>
+<ul>
+<li>The geometry and the mesh is described in Section 1.1.</li>
+<li>The boundary conditions are described in Section 1.3.</li>
+<li>The mechanical behaviour is described in Section 1.4.</li>
+</ul>
+<h2 data-number="1.1" id="sec:mfem_mgis:ssna303:mesh"><span class="header-section-number">1.1</span> Geometry and mesh</h2>
+<figure>
+<img src="img/ssna303-mesh.png" id="fig:mfem_mgis:ssna303:mesh" style="width:80.0%" alt="Figure 1: Mesh used to described the notched beam" /><figcaption aria-hidden="true">Figure 1: Mesh used to described the notched beam</figcaption>
+</figure>
+<p>We will speak about the objet of the study the <code>beam</code>. With the Figure 1, we can see the form of the beam is a rectangular parallelepiped (l <span class="math inline">\(\times\)</span> L <span class="math inline">\(\times\)</span> h). A circle extrusion has been made with a radius <code>r</code> in x=L and y=<span class="math inline">\(\frac{l}{2}\)</span>.</p>
+<p><span class="math display">\[
+\left\{
+    \begin{array}{l}
+        L,~for~the~length \\
+        l,~for~the~width \\
+        h,~for~the~height \text{(in \(3D\))}
+    \end{array}
+\right.
+\]</span></p>
+<p>The <code>ssna303</code> project has a goal to numerize the behaviour of a notched beam (i.e. Figure 1) with the non linear mechanics hypothesis. Numerically we could make a lot of test without any risk but the numerical test has to respect the mechanicals behaviours to be the most representative of the reality.</p>
+<h2 data-number="1.2" id="modelling-hypothesis"><span class="header-section-number">1.2</span> Modelling hypothesis</h2>
+<p>In <span class="math inline">\(2D\)</span>, the beam is treated in plane strain.</p>
+<h2 data-number="1.3" id="sec:mfem_mgis:ssna303:bc"><span class="header-section-number">1.3</span> Boundary conditions</h2>
+<p>The problem is also affected by Dirichlet boundary conditions.</p>
+<p>The beam is fixed at the origin in y=0 and an displacement <span class="math inline">\(U\)</span> is imposed an the top of the beam, as follows:</p>
+<p><span class="math display">\[
+\left\{
+    \begin{array}{ll}
+        ~0 &amp; for~y~=~0 \\
+        ~U &amp; for~y~=~L
+    \end{array}
+\right.
+\]</span> <code>The symmetry axis on the left is blocked in the</code>x`-direction.</p>
+<h2 data-number="1.4" id="sec:mfem_mgis:ssna303:behaviour"><span class="header-section-number">1.4</span> Mechanical behaviour</h2>
+<h3 data-number="1.4.1" id="description"><span class="header-section-number">1.4.1</span> Description</h3>
+<p>The material of the notched beam is described by a simple isotropic elasto-plastic behaviour with isotropic hardening in the logarithmic space <span class="citation" data-cites="miehe_anisotropic_2002">(<a href="#ref-miehe_anisotropic_2002" role="doc-biblioref"><strong>miehe_anisotropic_2002?</strong></a>)</span>.</p>
+<p>This behaviour is characterized by by four parameters:</p>
+<ul>
+<li>The <code>Young Modulus</code> (<span class="math inline">\(E\)</span>), which is the constant relating tensile stress and strain for an isotropic elastic material.</li>
+<li>The <code>Poisson Ratio</code> (<span class="math inline">\(\nu\)</span>), is the coefficient to characterise the contraction of the material perpendicular at the direction of the force applied.</li>
+<li>The <code>Yield Strength</code> (<span class="math inline">\(\sigma_{0}\)</span>), which defines the point on the stress versus strain curve where the material initially starts to go into plastic strain.</li>
+<li>The <code>Strain Hardening Modulus</code> (H), which defined the slope of the stress versus strain curve after the point of yield of a material.</li>
+</ul>
+<p>For our example the following values are used:</p>
+<p><span class="math display">\[
+\label{size}
+\left\{
+    \begin{array}{lcl}
+        \nu &amp; = &amp; 0.34 \\
+        \epsilon &amp; = &amp; 70.10^{9} MPa \\
+        H &amp; = &amp; 10.10^{9} \\
+        s_0 &amp; = &amp; 300.10^{6}
+    \end{array}
+\right.
+\]</span></p>
+<h3 data-number="1.4.2" id="compilation-of-the-mfront-behaviour"><span class="header-section-number">1.4.2</span> Compilation of the <code>MFront</code> behaviour</h3>
+<p>The <code>MFront</code> implementation is stored in a source file called <code>Plasticity.mfront</code>. This file must be compiled before the execution of our <code>MFEM/MGIS</code> <code>C++</code> example which will be detailled in depth in Section 2 as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront --obuild --interface=generic Plasticity.mfront</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Treating target : all</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>The following library has been built :</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>- libBehaviour.so :  Plasticity_AxisymmetricalGeneralisedPlaneStrain </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  Plasticity_Axisymmetrical Plasticity_PlaneStrain</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  Plasticity_GeneralisedPlaneStrain Plasticity_Tridimensional</span></code></pre></div>
+<h1 data-number="2" id="sec:mfem_mgis:ssna303"><span class="header-section-number">2</span> Numerical resolution</h1>
+<h2 data-number="2.1" id="initialization-of-the-resolution"><span class="header-section-number">2.1</span> Initialization of the resolution</h2>
+<p>The <code>initialize</code> function must be called at the very beginning of the <code>main</code> function to process the command line arguments:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mfem_mgis::initialize(argc, argv);</span></code></pre></div>
+<blockquote>
+<p><strong>The <code>mfem_mgis</code> namespace</strong></p>
+<p>All the classes and funtions of the <code>MFEM/MGIS</code> project are place in the <code>mfem_mgis</code> namespace.</p>
+</blockquote>
+<p>This call is mostly useful in parallel and handle:</p>
+<ul>
+<li>The initialization of interprocess communications handled by the <a href="https://www.mpi-forum.org/docs/"><code>MPI</code> framework</a>.</li>
+<li>The initialization of the <a href="https://www.mcs.anl.gov/petsc/"><code>PETSc</code> scientific toolkit</a>, if supported and requested.</li>
+</ul>
+<h3 data-number="2.1.1" id="constant-variables"><span class="header-section-number">2.1.1</span> Constant variables</h3>
+<p>The code then defines some constant variables defining the path to the mesh file, the path the the <code>MFront</code> shared library, and the name of the behaviour:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="dt">char</span>* mesh_file = <span class="st">&quot;ssna303.msh&quot;</span>;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="dt">char</span>* library = <span class="st">&quot;src/libBehaviour.so&quot;</span>;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="dt">char</span>* behaviour = <span class="st">&quot;Plasticity&quot;</span>;</span></code></pre></div>
+<blockquote>
+<p><strong>Mesh file format</strong></p>
+<p>The mesh is stored using the <code>gmsh</code> format.</p>
+</blockquote>
+<h3 data-number="2.1.2" id="command-line-options"><span class="header-section-number">2.1.2</span> Command line options</h3>
+<p>The resolution can be parametrized using command line options by relying on the <code>MFEM</code> facilities provided by the <code>OptionsParser</code> class.</p>
+<p>The proposed implementation allows the following options:</p>
+<ul>
+<li><code>--order</code> which specifies the finite element order (polynomial degree).</li>
+<li><code>--parallel</code> which specifices if the simulation must be run in parallel.</li>
+<li><code>--use-petsc</code> which speficies that linear and non linear solvers of the <code>PETSc</code> toolkit must be used.</li>
+<li><code>--petsc-configuration-file</code> which specifies a configuration file for the <code>PETSc</code> toolkit.</li>
+</ul>
+<p>The options <code>--use-petsc</code> and <code>--petsc-configuration-file</code> are only available if <code>MFEM</code> is compiled with <code>PETSc</code> support.</p>
+<p>The other options are associated with local variables which are default initialized as follows:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> parallel = <span class="dt">int</span>{<span class="dv">1</span>};</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> order = <span class="dv">1</span>;</span></code></pre></div>
+<p>If left unchanged, those default values select a parallel computation with linear elements.</p>
+<p>In practice, an object of the class <code>mfem::OptionsParser</code> is declared. The expected options are declared and the <code>Parse</code> method is called:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  mfem::OptionsParser args(argc, argv);</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  mfem_mgis::declareDefaultOptions(args);</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  args.AddOption(&amp;parallel, <span class="st">&quot;-p&quot;</span>, <span class="st">&quot;--parallel&quot;</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;Perform parallel computations.&quot;</span>);</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  args.AddOption(&amp;order, <span class="st">&quot;-o&quot;</span>, <span class="st">&quot;--order&quot;</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;Finite element order (polynomial degree).&quot;</span>);</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  args.Parse();</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (!args.Good()) {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    args.PrintUsage(<span class="bu">std::</span>cout);</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> EXIT_FAILURE;</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>The <code>declareDefaultOptions</code> function declares the options the <code>--use-petsc</code> and <code>--petsc-configuration-file</code> if they are relevant.</p>
+<h2 data-number="2.2" id="declaring-the-non-linear-problem"><span class="header-section-number">2.2</span> Declaring the non linear problem</h2>
+<p>The non linear evolution problem is defined as follows:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> mfem_mgis::NonLinearEvolutionProblem problem(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>      {{<span class="st">&quot;MeshFileName&quot;</span>, mesh_file},</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>       {<span class="st">&quot;FiniteElementFamily&quot;</span>, <span class="st">&quot;H1&quot;</span>},</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>       {<span class="st">&quot;FiniteElementOrder&quot;</span>, order},</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>       {<span class="st">&quot;UnknownsSize&quot;</span>, dim},</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>       {<span class="st">&quot;Hypothesis&quot;</span>, <span class="st">&quot;Tridimensional&quot;</span>},</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>       {<span class="st">&quot;Parallel&quot;</span>, parallel}});</span></code></pre></div>
+<p>The constructor of the <code>NonLinearEvolutionProblem</code> class takes an object of <code>Parameters</code> type which is able to store various kind of data in a hierarchical structure. The valid parameters for the construction of a non linear evolution problem are described in the <code>doxygen</code> documentation of the <code>NonLinearEvolutionProblem</code> class.</p>
+<h2 data-number="2.3" id="names-boundaries-and-materials"><span class="header-section-number">2.3</span> Names boundaries and materials</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  problem.setMaterialsNames({{<span class="dv">1</span>, <span class="st">&quot;NotchedBeam&quot;</span>}});</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  problem.setBoundariesNames(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>      {{<span class="dv">3</span>, <span class="st">&quot;LowerBoundary&quot;</span>}, {<span class="dv">4</span>, <span class="st">&quot;SymmetryAxis&quot;</span>}, {<span class="dv">2</span>, <span class="st">&quot;UpperBoundary&quot;</span>}});</span></code></pre></div>
+<h2 data-number="2.4" id="declaring-the-mechanical-behaviour"><span class="header-section-number">2.4</span> Declaring the mechanical behaviour</h2>
+<p>The following line associates a mechanical behaviour to the first material:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>  problem.addBehaviourIntegrator(<span class="st">&quot;Mechanics&quot;</span>, <span class="st">&quot;NotchedBeam&quot;</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;src/libBehaviour.so&quot;</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;Plasticity&quot;</span>);</span></code></pre></div>
+<p>The four arguments are:</p>
+<ul>
+<li>The type of phenomena described.</li>
+<li>The material identifier, as defined in the mesh file.</li>
+<li>The shared library containing the behaviour to be used.</li>
+<li>The name of the behaviour to be used.</li>
+</ul>
+<h2 data-number="2.5" id="initialisation-of-the-temperature"><span class="header-section-number">2.5</span> Initialisation of the temperature</h2>
+<p>The following lines define an uniform temperature on the material at the beginning of the time step and at the end of time step:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span>&amp; m1 = problem.getMaterial(<span class="st">&quot;NotchedBeam&quot;</span>);</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  mgis::behaviour::setExternalStateVariable(m1.s0, <span class="st">&quot;Temperature&quot;</span>, <span class="fl">293.15</span>);</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  mgis::behaviour::setExternalStateVariable(m1.s1, <span class="st">&quot;Temperature&quot;</span>, <span class="fl">293.15</span>);</span></code></pre></div>
+<p>The object returned a by the <code>getMaterial</code> method returns a thin wrapper around the <code>MaterialDataManager</code> provided by the <a href="https://thelfer.github.io/mgis/web/index.html"><code>MGIS</code> project</a> <span class="citation" data-cites="helfer_mfrontgenericinterfacesupport_2020">(<a href="#ref-helfer_mfrontgenericinterfacesupport_2020" role="doc-biblioref">Helfer et al. 2020</a>)</span>.</p>
+<p>In the previous lines, <code>m1.s0</code> and <code>m1.s1</code> denotes respectively the state of the material at the beginning of the time step and at the end of the time step.</p>
+<h2 data-number="2.6" id="boundary-condition"><span class="header-section-number">2.6</span> Boundary Condition</h2>
+<p>The problem is base on condition and more precisely on the boundary conditions which helps to define the behaviour of the material. 4 boundary conditions are defined with the name at the top of the line to add the boundary condition <code>addBoundaryCondition</code>. The <code>MFEM_MGIS</code> program named <code>UniformDirichletBoundaryCondition</code> is called by each boundary conditions, and the first number is to define on which side this conditions are and the second number is for the direction :</p>
+<ul>
+<li>0 for the x.</li>
+<li>1 for the y.</li>
+<li>2 for the z</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  problem.addUniformDirichletBoundaryCondition(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>      {{<span class="st">&quot;Boundary&quot;</span>, <span class="st">&quot;LowerBoundary&quot;</span>}, {<span class="st">&quot;Component&quot;</span>, <span class="dv">1</span>}});</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  problem.addUniformDirichletBoundaryCondition(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>      {{<span class="st">&quot;Boundary&quot;</span>, <span class="st">&quot;SymmetryAxis&quot;</span>}, {<span class="st">&quot;Component&quot;</span>, <span class="dv">0</span>}});</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  problem.addUniformDirichletBoundaryCondition(</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>      {{<span class="st">&quot;Boundary&quot;</span>, <span class="st">&quot;UpperBoundary&quot;</span>},</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>       {<span class="st">&quot;Component&quot;</span>, <span class="dv">1</span>},</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>       {<span class="st">&quot;LoadingEvolution&quot;</span>, [](<span class="at">const</span> <span class="kw">auto</span> t) {</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">const</span> <span class="kw">auto</span> u = <span class="fl">6e-3</span> * t;</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>          <span class="cf">return</span> u;</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        }}});</span></code></pre></div>
+<h2 data-number="2.7" id="non-linear-solver-parameters."><span class="header-section-number">2.7</span> Non linear solver parameters.</h2>
+<p>If <code>PETSc</code> is not used, the following line set the parameters of the Newton-Raphson solver used to find the equilibrium of the whole structure:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (!mfem_mgis::usePETSc()) {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    problem.setSolverParameters({{<span class="st">&quot;VerbosityLevel&quot;</span>, <span class="dv">0</span>},</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                                 {<span class="st">&quot;RelativeTolerance&quot;</span>, <span class="fl">1e-6</span>},</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                                 {<span class="st">&quot;AbsoluteTolerance&quot;</span>, <span class="fl">0.</span>},</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                                 {<span class="st">&quot;MaximumNumberOfIterations&quot;</span>, <span class="dv">10</span>}});</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>Valid parameters for the <code>setSolverParameters</code> are described in the <code>doxygen</code> documentation.</p>
+<h2 data-number="2.8" id="selection-of-the-linear-solver"><span class="header-section-number">2.8</span> Selection of the linear solver</h2>
+<p>If <code>PETSc</code> is not used, the linear solver can be selected using the <code>setLinearSolver</code> method. Here we select <code>MUMPS</code>, in parallel and <code>UMFPack</code> in sequential:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (!mfem_mgis::usePETSc()) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (parallel) {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>      problem.setLinearSolver(<span class="st">&quot;MUMPSSolver&quot;</span>, {});</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>      problem.setLinearSolver(<span class="st">&quot;UMFPackSolver&quot;</span>, {});</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>The second argument is an object of the <code>Parameters</code> type which can be used to fine tune the linear solver and, in the case of iterative solvers, optionnaly define a preconditioner. For direct solvers, no parameters are required.</p>
+<h2 data-number="2.9" id="post-processings"><span class="header-section-number">2.9</span> Post-processings</h2>
+<p>The <code>addPostProcessing</code> method let the user define some built-in postprocessings.</p>
+<p>In this example, we export the displacements for visualization in <a href="https://www.paraview.org/"><code>paraview</code></a> and compute the resultant force on the boundary where the displacement as follows:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  problem.addPostProcessing(<span class="st">&quot;ComputeResultantForceOnBoundary&quot;</span>,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                            {{<span class="st">&quot;Boundary&quot;</span>, <span class="dv">2</span>}, {<span class="st">&quot;OutputFileName&quot;</span>, <span class="st">&quot;force.txt&quot;</span>}});</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  problem.addPostProcessing(<span class="st">&quot;ParaviewExportResults&quot;</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                            {{<span class="st">&quot;OutputFileName&quot;</span>, <span class="st">&quot;ssna303-displacements&quot;</span>}});</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  problem.addPostProcessing(<span class="st">&quot;ParaviewExportIntegrationPointResultsAtNodes&quot;</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                            {{{<span class="st">&quot;Results&quot;</span>, <span class="st">&quot;FirstPiolaKirchhoffStress&quot;</span>},</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                              {<span class="st">&quot;OutputFileName&quot;</span>, <span class="st">&quot;ssna303-stress&quot;</span>}}});</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  problem.addPostProcessing(</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;ParaviewExportIntegrationPointResultsAtNodes&quot;</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      {{{<span class="st">&quot;Results&quot;</span>, <span class="st">&quot;EquivalentPlasticStrain&quot;</span>},</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        {<span class="st">&quot;OutputFileName&quot;</span>, <span class="st">&quot;ssna303-equivalent-plastic-strain&quot;</span>}}});</span></code></pre></div>
+<p>These post-processings are called using the <code>executePostProcessings</code> method during the resolution using the state at the end of time step.</p>
+<p>The user may also provide their own post-processings. In particular, the</p>
+<h2 data-number="2.10" id="resolution-initialization"><span class="header-section-number">2.10</span> Resolution initialization</h2>
+<p>It’s time to make the loop which will execute the test, for that some initialization have to be made:</p>
+<ul>
+<li>the number of steps.</li>
+<li>the step timer.</li>
+<li>the time variable.</li>
+<li>the number of iteration.</li>
+</ul>
+<p>Once all is done, the timer loop can be made with the <code>for</code> condition between the counter <code>i</code> and the <code>nsteps</code>. A print is made to follow the steps.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> nsteps = mfem_mgis::<span class="dt">size_type</span>{<span class="dv">50</span>};</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dt = mfem_mgis::real{<span class="dv">1</span>} / nsteps;</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> t = mfem_mgis::real{<span class="dv">0</span>};</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> iteration = mfem_mgis::<span class="dt">size_type</span>{};</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (mfem_mgis::<span class="dt">size_type</span> i = <span class="dv">0</span>; i != nsteps; ++i) {</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;iteration &quot;</span> &lt;&lt; iteration &lt;&lt; <span class="st">&quot; from &quot;</span> &lt;&lt; t &lt;&lt; <span class="st">&quot; to &quot;</span> &lt;&lt; t + dt</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>              &lt;&lt; <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>;</span></code></pre></div>
+<h2 data-number="2.11" id="resolution"><span class="header-section-number">2.11</span> Resolution</h2>
+<p>The resolution part starts with a copy of the parameters defined above, with this copy the datas can be local and global in the loop.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> ct = t;</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> dt2 = dt;</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> nsteps = mfem_mgis::<span class="dt">size_type</span>{<span class="dv">1</span>};</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> niter  = mfem_mgis::<span class="dt">size_type</span>{<span class="dv">0</span>};</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (nsteps != <span class="dv">0</span>) {</span></code></pre></div>
+<p>The <code>while</code> loop is used to realize all the step of the process. The <code>try</code> indicates a portion of code where an error may occur and after the <code>catch</code> introduces the portion of code that retrieves the object and handles the error. Whether the there is an error the variable <code>converged</code> is defined as <code>false</code>.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>      <span class="kw">auto</span> converged = problem.solve(ct, dt2);</span></code></pre></div>
+<p>Here the tests are made with the <code>converged</code> variable difined earlier. If converged is true the first test is realiaze otherwise the test is made until the <code>niter</code>=10.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (converged) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>        --nsteps;</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        ct += dt2;</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;</span><span class="sc">\n</span><span class="st">substep: &quot;</span> &lt;&lt; niter &lt;&lt; <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>;</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        nsteps *= <span class="dv">2</span>;</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        dt2 /= <span class="dv">2</span>;</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        ++niter;</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>        problem.revert();</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (niter == <span class="dv">10</span>) {</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>          mgis::raise(<span class="st">&quot;maximum number of substeps&quot;</span>);</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div>
+<p>This lines are to execute the postprocessing diffined in the <code>VTK Export</code>, the variables are steped up. The <code>return</code> line to close the <code>ssna303</code> programm.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>      problem.executePostProcessings(t, dt);</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>      problem.update();</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>      t += dt;</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>      ++iteration;</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>      <span class="bu">std::</span>cout &lt;&lt; <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>;</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> EXIT_SUCCESS;</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-helfer_mfrontgenericinterfacesupport_2020" class="csl-entry" role="doc-biblioentry">
+Helfer, Thomas, Jeremy Bleyer, Tero Frondelius, Ivan Yashchuk, Thomas Nagel, and Dmitri Naumov. 2020. <span>“The ‘<span>MFrontGenericInterfaceSupport</span>‘ Project.”</span> <em>Journal of Open Source Software</em> 5 (48): 2003. <a href="https://doi.org/10.21105/joss.02003">https://doi.org/10.21105/joss.02003</a>.
+</div>
+</div>
+</body>
+</html>

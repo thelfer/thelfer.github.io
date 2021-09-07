@@ -69,6 +69,7 @@
 		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
 		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
 		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -102,7 +103,8 @@
 		<li><a>Versions 3.4.x</a>
 		  <ul>
 		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
-		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -206,24 +208,47 @@
 <div id="TOC">
 <ul>
 <li><a href="#known-incompatibilities"><span class="toc-section-number">1</span> Known incompatibilities</a></li>
-<li><a href="#tickets-fixed"><span class="toc-section-number">2</span> Tickets fixed</a></li>
-<li><a href="#changes-to-existing-models"><span class="toc-section-number">3</span> Changes to existing models</a>
+<li><a href="#changes-to-existing-models"><span class="toc-section-number">2</span> Changes to existing models</a>
 <ul>
-<li><a href="#mohr-coulomb-abbo-sloan"><span class="toc-section-number">3.1</span> Mohr Coulomb Abbo Sloan</a></li>
+<li><a href="#mohr-coulomb-abbo-sloan"><span class="toc-section-number">2.1</span> Mohr Coulomb Abbo Sloan</a></li>
 </ul></li>
+<li><a href="#tickets-fixed"><span class="toc-section-number">3</span> Tickets fixed</a>
+<ul>
+<li><a href="#ticket277-material-properties-support-for-quantities"><span class="toc-section-number">3.1</span> Ticket:#277: [material properties] Support for quantities</a></li>
+<li><a href="#ticket-276-support-for-quantities-in-tfelphysicalconstants"><span class="toc-section-number">3.2</span> Ticket #276: Support for quantities in <code>TFEL/PhysicalConstants</code></a></li>
+<li><a href="#ticket-275-material-properties-define-standard-mfront-scalar-types"><span class="toc-section-number">3.3</span> Ticket #275: [material properties] Define standard MFront scalar types</a></li>
+</ul></li>
+<li><a href="#references"><span class="toc-section-number">4</span> References</a></li>
 </ul>
 </div>
 <h1 data-number="1" id="known-incompatibilities"><span class="header-section-number">1</span> Known incompatibilities</h1>
 <ul>
+<li>Material properties now define a list of aliases to scalar types that can conflict with variables declarations. The name of those aliases is thus reserved. See <a href="mfront-types.html">this page</a> for details.</li>
 <li>The <code>TFELPhysicalConstants</code> library has been removed.</li>
 <li>The <code>TFEL_NORETURN</code> macro has been removed.</li>
 </ul>
-<h1 data-number="2" id="tickets-fixed"><span class="header-section-number">2</span> Tickets fixed</h1>
-<h1 data-number="3" id="changes-to-existing-models"><span class="header-section-number">3</span> Changes to existing models</h1>
-<h2 data-number="3.1" id="mohr-coulomb-abbo-sloan"><span class="header-section-number">3.1</span> Mohr Coulomb Abbo Sloan</h2>
+<h1 data-number="2" id="changes-to-existing-models"><span class="header-section-number">2</span> Changes to existing models</h1>
+<h2 data-number="2.1" id="mohr-coulomb-abbo-sloan"><span class="header-section-number">2.1</span> Mohr Coulomb Abbo Sloan</h2>
 <ul>
 <li>The corner smoothing of the Mohr Coulomb surface in the deviatoric plane is changed from the C1-continuous version (Abbo and Sloan, 1995) to the C2-continuous version from Abbo et al., 2011.</li>
 </ul>
+<h1 data-number="3" id="tickets-fixed"><span class="header-section-number">3</span> Tickets fixed</h1>
+<h2 data-number="3.1" id="ticket277-material-properties-support-for-quantities"><span class="header-section-number">3.1</span> Ticket:#277: [material properties] Support for quantities</h2>
+<p>The <code>UseQt</code> keyword now allows to turn on support for quantities in material properties for interfaces that supports it.</p>
+<p>All interfaces delivered by <code>MFront</code> have proper support for quantities.</p>
+<p>For more details, see : <a href="https://sourceforge.net/p/tfel/tickets/277/" class="uri">https://sourceforge.net/p/tfel/tickets/277/</a></p>
+<h2 data-number="3.2" id="ticket-276-support-for-quantities-in-tfelphysicalconstants"><span class="header-section-number">3.2</span> Ticket #276: Support for quantities in <code>TFEL/PhysicalConstants</code></h2>
+<p>The <code>PhysicalConstants</code> class now have an additional boolean template parameter stating if quantities are to be used. For backward compatibility, this boolean value is <code>false</code> by default.</p>
+<p>The inline variables in the <code>tfel::constants</code> now also have a similar template parameter.</p>
+<p>For more details, see : <a href="https://sourceforge.net/p/tfel/tickets/276/" class="uri">https://sourceforge.net/p/tfel/tickets/276/</a></p>
+<h2 data-number="3.3" id="ticket-275-material-properties-define-standard-mfront-scalar-types"><span class="header-section-number">3.3</span> Ticket #275: [material properties] Define standard MFront scalar types</h2>
+<p>For consistency with behaviours, aliases to many scalar types are now automatically defined in material properties, such as:</p>
+<ul>
+<li><code>temperature</code>, <code>strain</code>, etc…</li>
+</ul>
+<p>A complete list of those aliases can be found on <a href="mfront-types.html">this page</a>.</p>
+<p>For more details, see : <a href="https://sourceforge.net/p/tfel/tickets/275/" class="uri">https://sourceforge.net/p/tfel/tickets/275/</a></p>
+<h1 data-number="4" id="references"><span class="header-section-number">4</span> References</h1>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

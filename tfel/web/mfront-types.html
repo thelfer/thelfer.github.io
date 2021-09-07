@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Predefined aliases in MFront</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #c4a000; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #000000; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #000000; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #000000; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">Predefined aliases in <code>MFront</code></h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">17/08/2021</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#variable-declaration">Variable declaration</a>
+<ul>
+<li><a href="#integers-variables-in-template-arguments">Integers variables in template arguments</a>
+<ul>
+<li><a href="#integer-constants">Integer constants</a></li>
+<li><a href="#constexpr-integers-variables-defined-by-behaviours"><code>constexpr</code> integers variables defined by behaviours</a></li>
+</ul></li>
+<li><a href="#tensorial-objects-automatically-imported-from-tfelmath">Tensorial objects automatically imported from <code>TFEL/Math</code></a></li>
+<li><a href="#the-quantity-type">The <code>quantity</code> type</a></li>
+<li><a href="#the-derivative_type-alias">The <code>derivative_type</code> alias</a></li>
+<li><a href="#the-inverse_type-alias">The <code>inverse_type</code> alias</a></li>
+<li><a href="#the-result_type-alias">The <code>result_type</code> alias</a></li>
+</ul></li>
+<li><a href="#sec:mfront_types:type_aliases">Type aliases</a>
+<ul>
+<li><a href="#scalar-types">Scalar types</a></li>
+<li><a href="#vector-types">Vector types</a></li>
+<li><a href="#matrix-types">Matrix types</a></li>
+<li><a href="#symmetric-tensor-types">Symmetric tensor types</a></li>
+<li><a href="#tensor-types">Tensor types</a></li>
+<li><a href="#fourth-order-tensor-types-of-the-st2tost2-type">Fourth order tensor types of the <code>st2tost2</code> type</a></li>
+</ul></li>
+</ul>
+</div>
+<p>This page described:</p>
+<ul>
+<li>How the type of a variable is analysed by <code>MFront</code>.</li>
+<li>The type aliases automatically defined in <code>MFront</code>.</li>
+</ul>
+<h1 id="variable-declaration">Variable declaration</h1>
+<p>The declaration of variables in <code>MFront</code> has the following syntax:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>keyword type variable1, variable2, ...; </span></code></pre></div>
+<p>where:</p>
+<ul>
+<li><code>keyword</code> allows to specify the kind of variables declared. The keywords associated with type declaration may depend on the domain specific language used. For example, most DSLs associated with behaviours, allow the <code>@MaterialProperty</code>, <code>@Parameter</code>, <code>@LocalVariable</code>, <code>@StateVariable</code>, <code>@AuxiliaryStateVariable</code> keywords to introduce a new variable.</li>
+<li><code>type</code> declares the type of the (<code>C++</code>) variable. Any <code>C++</code> type may be used, although there may be limitations specifics to the kind of variables being treated or the interfaces used:
+<ul>
+<li>The type of a local variable barely only has the constraint that variables of this type must be default constructible.</li>
+<li>Most interfaces require material properties and external state variables to be scalars.</li>
+<li>State variables must be scalars or tensors</li>
+<li>etc.</li>
+</ul></li>
+<li>The name of the variables (<code>variable1</code>, <code>variable2</code>, etc…) are restricted to be valid <code>C++</code> variables names, although unicode symbols may be used as described on <a href="unicode.html">this page</a>.</li>
+</ul>
+<p>Concerning the type of a variable, <code>MFront</code> also introduces a few type alias, described in Section 2, and some shorcuts which are now detailled.</p>
+<h2 id="integers-variables-in-template-arguments">Integers variables in template arguments</h2>
+<p>Integer template arguments can be defined using an integer or by a formula that may contains two kind of integer variables: integer constants and <code>constexpr</code> integer variables.</p>
+<h3 id="integer-constants">Integer constants</h3>
+<p>All integer constants, introduced by the <code>@IntegerConstant</code> keyword, can be used as template arguments.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IntegerConstant Nss = <span class="dv">12</span>;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable fsarray&lt;Nss, real&gt; τᶜ;</span></code></pre></div>
+<h3 id="constexpr-integers-variables-defined-by-behaviours"><code>constexpr</code> integers variables defined by behaviours</h3>
+<p>By default, <code>MFront</code> DSLs associated with behaviours automatically defines the following <code>constexpr</code> integers variables:</p>
+<ul>
+<li><code>N</code>: the space dimension</li>
+<li><code>TVectorSize</code>: the natural size of a tiny vector, equal to the space dimension.</li>
+<li><code>StensorSize</code>: the natural size of a symmetric tensor for the space dimension <code>N</code>, i.e.:
+<ul>
+<li>3 in <code>1D</code>.</li>
+<li>4 in <code>2D</code>.</li>
+<li>6 in <code>3D</code>.</li>
+</ul></li>
+<li><code>TensorSize</code>: the natural size of a tensor for the space dimension <code>N</code>, i.e.:
+<ul>
+<li>3 in <code>1D</code>.</li>
+<li>5 in <code>2D</code>.</li>
+<li>9 in <code>3D</code>.</li>
+</ul></li>
+</ul>
+<h2 id="tensorial-objects-automatically-imported-from-tfelmath">Tensorial objects automatically imported from <code>TFEL/Math</code></h2>
+<p>The following types are automatically imported from <code>TFEL/Math</code>:</p>
+<ul>
+<li><code>fsarray</code>: a generic fixed size container.</li>
+<li><code>tvector</code>: a class which represents fixed size vectors.</li>
+<li><code>tmatrix</code>: a class which represents fixed size matrices.</li>
+<li><code>stensor</code>: a class which represents symmetric tensors.</li>
+<li><code>tensor</code>: a class which represents unsymmetric tensors.</li>
+<li><code>st2tost2</code>: a class which represents linear operations between symmetric tensors.</li>
+<li><code>t2tot2</code>: a class which represents linear operations between unsymmetric tensors.</li>
+<li><code>t2tost2</code>: a class which represents linear operations transforming an unsymmetric tensor in a symmetric tensor.</li>
+<li><code>st2tot2</code>: a class which represents linear operations transforming a symmetric tensor in an unsymmetric tensor.</li>
+</ul>
+<p>Those types have template parameters which specifies their size and the numeric type used.</p>
+<p>The latter can be a quantity as discussed in the next paragraph.</p>
+<p>The following declaration:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable tfel::math::stensor&lt;N, strain&gt; evp;</span></code></pre></div>
+<p>is thus equivalent to:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable stensor&lt;N, strain&gt; evp;</span></code></pre></div>
+<p>i.e. the <code>tfel::math</code> namespace can be obmitted.</p>
+<p>As described in Section 2, this declaration is also equivalent to:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable StrainStensor evp;</span></code></pre></div>
+<h2 id="the-quantity-type">The <code>quantity</code> type</h2>
+<p>Quantities are scalars with units. They are supported if the <code>@UseQt</code> keyword has been used with the <code>true</code> argument.</p>
+<p>They are represented by the <code>quantity</code> class which has up to eight template parameters.</p>
+<p>The first template argument shall designate a floatting-point number type. As discussed in Section 2, <code>real</code> is in reality a type alias to the floatting point actually used by the calling solver and which is selected by the solver’ interface.</p>
+<p>The next template arguments are integers which defines the unit associated with the quantity, following the internal system of units. In this system, a unit is decomposed as follows:</p>
+<p><span class="math display">\[
+kg^{i_{1}}\,m^{i_{2}}\,s^{i_{3}}\,A^{i_{4}}\,K^{i_{5}}\,cd^{i_{6}}\,mol^{i_{7}}
+\]</span></p>
+<p>In <code>MFront</code>, units are thus defined by the seven integers <span class="math inline">\(i_{1}, \ldots \,i_{7}\)</span>. If one of this integer is not specified in the definition of a quantity, it is defaulted to <span class="math inline">\(0\)</span>.</p>
+<p>The following declarations are thus equivalent:</p>
+<ul>
+<li><code>@LocalVariable length l;</code> (see Section 2)</li>
+<li><code>@LocalVariable quantity&lt;real,0,1&gt; l;</code></li>
+</ul>
+<p>Note that many aliases, described in Section 2, are provided by <code>MFront</code> to avoid direct usage of the <code>quantity</code> type.</p>
+<h2 id="the-derivative_type-alias">The <code>derivative_type</code> alias</h2>
+<p><code>derivative_type</code> is an alias to the type of derivative a mathematical object with respect to another. For example, the derivative of a symmetric tensor with respect to a tensor can be declared as follows:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">derivative_type</span>&lt;stensor&lt;N,stress&gt;,tensor&lt;N,real&gt;&gt; K;</span></code></pre></div>
+<p>See Section 2 for the meaning of the stress type.</p>
+<p>This declaration is equivalent to:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable t2tost2&lt;N, stress&gt; K;</span></code></pre></div>
+<h2 id="the-inverse_type-alias">The <code>inverse_type</code> alias</h2>
+<p><code>inverse_type</code> is an alias the type of the inverse of its template argument. For example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">inverse_type</span>&lt;time&gt; f;</span></code></pre></div>
+<h2 id="the-result_type-alias">The <code>result_type</code> alias</h2>
+<p><code>result_type</code> is an alias to the result of a binary operation.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">result_type</span>&lt;strain,time,OpDiv&gt; de0;</span></code></pre></div>
+<p>The available operations are <code>OpPlus</code>, <code>OpMinus</code>, <code>OpMult</code>, and <code>OpDiv</code>.</p>
+<h1 id="sec:mfront_types:type_aliases">Type aliases</h1>
+<p>If quantities are not used, all scalar types are a simple alias to the numeric type used. This statement can obviously be generalised to the other mathematical objects.</p>
+<h2 id="scalar-types">Scalar types</h2>
+<ul>
+<li><code>real</code>: the numeric type used.</li>
+<li><code>time</code>: a scalar with the dimension of a time.</li>
+<li><code>frequency</code>: a scalar with the dimension of a frequency.</li>
+<li><code>length</code>: a scalar with the dimension of a lenght.</li>
+<li><code>inv_length</code>: a scalar with the dimension of the inverse of a length.</li>
+<li><code>displacement</code>: a scalar with the dimension of a lenght.</li>
+<li><code>strain</code>: a scalar without dimension.</li>
+<li><code>strainrate</code>: a scalar with the dimension of a frequency.</li>
+<li><code>force</code>: a scalar with the dimension of a force.</li>
+<li><code>stress</code>: a scalar with the dimension of a stress.</li>
+<li><code>stressrate</code>: a scalar with the dimension of a stress divided by a time.</li>
+<li><code>temperature</code>: a scalar with the dimension of a temperature.</li>
+<li><code>thermalexpansion</code>: a scalar representing a thermal expansion coefficient with the dimension of the inverse of a temperature.</li>
+<li><code>massdensity</code>: a scalar with the dimension of a mass divided by a volume.</li>
+<li><code>energydensity</code>: a scalar with the dimension of an energy divided by a volume.</li>
+<li><code>speed</code>: a scalar with the dimension of an length divided by a time.</li>
+<li><code>thermalconductivity</code>: a scalar with the dimension of power divided by a length, a time and a temperature. In the International System of Units, the thermalconductiviy is measured in watts per meter-kelvin (<span class="math inline">\(W/(m\,K)\)</span>).</li>
+</ul>
+<h2 id="vector-types">Vector types</h2>
+<ul>
+<li><code>TVector</code>:</li>
+<li><code>ForceTVector</code>:</li>
+<li><code>DisplacementTVector</code>:</li>
+<li><code>HeatFlux</code>:</li>
+</ul>
+<h2 id="matrix-types">Matrix types</h2>
+<ul>
+<li><code>ThermalConductivityMatrix</code>:</li>
+</ul>
+<h2 id="symmetric-tensor-types">Symmetric tensor types</h2>
+<ul>
+<li><code>Stensor</code>:</li>
+<li><code>FrequencyStensor</code>:</li>
+<li><code>StressStensor</code>:</li>
+<li><code>StressRateStensor</code>:</li>
+<li><code>StrainStensor</code>:</li>
+<li><code>StrainRateStensor</code>:</li>
+<li><code>ThermalExpansionCoefficientTensor</code>:</li>
+</ul>
+<h2 id="tensor-types">Tensor types</h2>
+<ul>
+<li><code>Tensor</code>:</li>
+<li><code>FrequencyTensor</code>:</li>
+<li><code>StressTensor</code>:</li>
+<li><code>DeformationGradientTensor</code>:</li>
+<li><code>DeformationGradientRateTensor</code>:</li>
+</ul>
+<h2 id="fourth-order-tensor-types-of-the-st2tost2-type">Fourth order tensor types of the <code>st2tost2</code> type</h2>
+<ul>
+<li><code>Stensor4</code>:</li>
+<li><code>StiffnessTensor</code>:</li>
+</ul>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

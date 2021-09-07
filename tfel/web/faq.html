@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -11,9 +11,8 @@
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Frequently asked questions</title>
-        <meta name="author" content="Helfer Thomas" />
-            <meta name="date" content="2017-12-18" />
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
@@ -132,6 +131,7 @@
 		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
 		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
 		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -165,7 +165,8 @@
 		<li><a>Versions 3.4.x</a>
 		  <ul>
 		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
-		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -263,8 +264,8 @@
     </header>
 <div id="header">
 <h1 class="title">Frequently asked questions</h1>
-<h2 class="author">Helfer Thomas</h2>
-<h3 class="date">December 18, 2017</h3>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">18/12/2017</h3>
 </div>
 <div id="TOC">
 <ul>
@@ -437,16 +438,23 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 <h3 id="what-are-the-variable-types-available-in-mfront">What are the variable types available in <code>MFront</code></h3>
 <p>For all domain specific languages, <code>MFront</code> defines the real <code>typedef</code> which is used to abstract to floating-point type used by the calling solver. For example, if the calling solver works in double precision, real will be a <code>typedef</code> to <code>double</code>. If the calling solver works in quadruple precision, real will be a <code>typedef</code> to <code>long double</code>.</p>
 <p>Thus, we do recommend not to use the numerical types defined by the <code>C++</code> language directly.</p>
-<p>We now get more specific and <strong>only</strong> deal with <em>mechanical behaviours</em>.</p>
-<p>For scalar values, <code>MFront</code> introduces many different <code>typedef</code> to be able to express the nature of the variable:</p>
-<p><code>real</code>, <code>frequency</code>, <code>stress</code>, <code>length</code>, <code>time</code>, <code>strain</code>, <code>strainrate</code>, <code>temperature</code>, <code>energy_density</code>, <code>thermalexpansion</code>, <code>massdensity</code></p>
+<p>For scalar values, <code>MFront</code> introduces many different aliases to be able to express the nature of the variable:</p>
+<ul>
+<li><code>real</code>, <code>frequency</code>, <code>stress</code>, <code>length</code>, <code>time</code>, <code>strain</code>, <code>strainrate</code>, <code>temperature</code>, <code>energy_density</code>, <code>thermalexpansion</code>, <code>massdensity</code></li>
+</ul>
 <p>For vector values, <code>MFront</code> introduces these <code>typedef</code>:</p>
-<p><code>TVector</code>,<code>DisplacementTVector</code>, <code>ForceTVector</code></p>
+<ul>
+<li><code>TVector</code>,<code>DisplacementTVector</code>, <code>ForceTVector</code></li>
+</ul>
 <p>For symmetric tensor values, <code>MFront</code> also introduces many different <code>typedef</code>:</p>
-<p><code>Stensor</code>, <code>StressStensor</code>, <code>StressRateStensor</code>, <code>StrainStensor</code>, <code>StrainRateStensor</code></p>
+<ul>
+<li><code>Stensor</code>, <code>StressStensor</code>, <code>StressRateStensor</code>, <code>StrainStensor</code>, <code>StrainRateStensor</code></li>
+</ul>
 <p>Finally, for tensor values, <code>MFront</code> introduces these <code>typedef</code>:</p>
-<p><code>Tensor</code>, <code>DeformationGradientTensor</code></p>
-<p>For the moment, distinction between those various types is only informative. We hope to introduce more severe tests in future versions of <code>MFront</code> so that we won’t be able to add a <code>StressStensor</code> and a <code>StrainStensor</code>. The <code>TFEL</code> library already provides the mandatory types to do that.</p>
+<ul>
+<li><code>Tensor</code>, <code>DeformationGradientTensor</code></li>
+</ul>
+<p>An up-to-date list of all aliases automatically defined by <code>MFront</code> is available on the <a href="mfront-types.html">following page</a>.</p>
 <p>You can also directly use to types provided by the <code>TFEL</code> library. The most interesting ones for the end user are:</p>
 <ul>
 <li><code>tvector&lt;N,Type&gt;</code> (fixed sized vector)</li>

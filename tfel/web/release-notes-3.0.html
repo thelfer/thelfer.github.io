@@ -132,6 +132,7 @@
 		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
 		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
 		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -165,7 +166,8 @@
 		<li><a>Versions 3.4.x</a>
 		  <ul>
 		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
-		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -392,7 +394,7 @@
 </tbody>
 </table>
 </div>
-<p>This tests show that, for simple behaviours describing isotropic plasticty, <code>MFront</code> behaviours seems a bit less efficient than Fortran built-in implementations, as reported on Table tbl. 1. However, it shall be stated that the behaviours tested are not strictly equivalent (native behaviours are based on objective stress rates while <code>MFront</code> ones are hyperelastoplastic). <code>MFront</code> computational times can be improved by keeping some intermediate results for one step to the next to the expense of memory usage.</p>
+<p>This tests show that, for simple behaviours describing isotropic plasticty, <code>MFront</code> behaviours seems a bit less efficient than Fortran built-in implementations, as reported on Table 1. However, it shall be stated that the behaviours tested are not strictly equivalent (native behaviours are based on objective stress rates while <code>MFront</code> ones are hyperelastoplastic). <code>MFront</code> computational times can be improved by keeping some intermediate results for one step to the next to the expense of memory usage.</p>
 <p>This interface is fully described here: <a href="http://tfel.sourceforge.net/epx.html" class="uri">http://tfel.sourceforge.net/epx.html</a></p>
 <p><em>Acknowledgements</em> This work was accomplished within the framework of the “dynamique rapide” project, financially supported by the CEA and EDF.</p>
 <h3 id="abaqusstandard-abaqusexplicit-and-calculix"><code>Abaqus/Standard</code>, <code>Abaqus/Explicit</code> and <code>CalculiX</code></h3>
@@ -449,7 +451,7 @@
 </tbody>
 </table>
 </div>
-<p>In <code>Abaqus/Explicit</code>, we found that our implementations are about <span class="math inline">\(20\,\%\)</span> slower than the native ones on the simulation of the punching test depicted on Figure 4 for an isotropic plastic behaviour with linear isotropic hardening. However, our implementations are nearly equivalent to <code>VUMAT</code> implementations described in <span class="citation" data-cites="abaqus_vumat_2016">[22]</span> (see Table tbl. 2). This difference can have several explanations:</p>
+<p>In <code>Abaqus/Explicit</code>, we found that our implementations are about <span class="math inline">\(20\,\%\)</span> slower than the native ones on the simulation of the punching test depicted on Figure 4 for an isotropic plastic behaviour with linear isotropic hardening. However, our implementations are nearly equivalent to <code>VUMAT</code> implementations described in <span class="citation" data-cites="abaqus_vumat_2016">[22]</span> (see Table 2). This difference can have several explanations:</p>
 <ul>
 <li>the <code>VUMAT</code> implementation is based on an update of the stresses whereas the <code>MFront</code> implementation keeps the elastic strain as an internal state variable.</li>
 <li>the <code>VUMAT</code> implementation is compiled using the <code>INTEL</code> compiler and the <code>MFront</code> implementation is compiled with <code>gcc</code>.</li>
@@ -545,7 +547,7 @@
 </tbody>
 </table>
 </div>
-<p>Being very specialized, this extension leads to computational times significantly lower than with general purpose finite element solver (see Table tbl. 3).</p>
+<p>Being very specialized, this extension leads to computational times significantly lower than with general purpose finite element solver (see Table 3).</p>
 <h2 id="new-acceleration-algorithms-in-mtest">New acceleration algorithms in <code>MTest</code></h2>
 <p>The <code>Cast3M</code> finite element solver does not use by default a standard Newton-Raphson algorithm which would require the computation of the consistent tangent operator, but relies on a quasi-Newton algorithm using the elastic stiffness. The displacement is corrected by this fixed point iteration: <span class="math display">\[
 \Delta\,\mathbb{U}^{n+1}=\Delta\,\mathbb{U}^{n}-\mathbb{K}^{-1}_{\mathrm{el}}\,\cdot\,\mathbb{R}\left(\Delta\,\mathbb{U}^{n}\right)

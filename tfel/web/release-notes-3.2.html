@@ -133,6 +133,7 @@
 		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
 		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
 		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -166,7 +167,8 @@
 		<li><a>Versions 3.4.x</a>
 		  <ul>
 		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
-		    <li><a href="release-notes-3.4.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -725,8 +727,8 @@ nstante [C:\Codes\tfel\sources\build-vs-2015\bindings\python\tfel\py_tfel_materi
 
 0 Avertissement(s)
 1 Erreur(s)</code></pre>
-<p>The problem is that <code>constexpr</code> variables are poorly handled by <code>Visual Studio 2015</code>. The <code>TFEL_CONSTEXPR</code> macro was introduced to handle this compiler (it boils down to <code>constexpr</code> for others compilers). The issue can be solved by changing the faulty line as as follows:</p>
-<pre><code>TFEL_CONSTEXPR const auto isqrt6 = isqrt2 * isqrt3;</code></pre>
+<p>The problem is that <code>constexpr</code> variables are poorly handled by <code>Visual Studio 2015</code>. The <code>constexpr</code> macro was introduced to handle this compiler (it boils down to <code>constexpr</code> for others compilers). The issue can be solved by changing the faulty line as as follows:</p>
+<pre><code>constexpr const auto isqrt6 = isqrt2 * isqrt3;</code></pre>
 <p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/137/" class="uri">https://sourceforge.net/p/tfel/tickets/137/</a></p>
 <h2 data-number="5.2" id="ticket-112-mtest-outputs"><span class="header-section-number">5.2</span> Ticket #112: MTEST outputs</h2>
 <p>The <code>@UserDefinedPostProcessing</code> lets the user define is own post-processings.</p>

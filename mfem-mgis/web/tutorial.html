@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>A tutorial introduction to MFEM/MGIS</title>
         <meta name="author" content="Thomas Helfer, Guillaume Latu" />
-            <meta name="date" content="2020-01-01" />
+            <meta name="date" content="2021-01-01" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
@@ -110,7 +110,7 @@
         <div id="header">
       <h1 class="title">A tutorial introduction to <code>MFEM/MGIS</code></h1>
                   <h2 class="author">Thomas Helfer, Guillaume Latu</h2>
-                  <h3 class="date">2020</h3>
+                  <h3 class="date">2021</h3>
           </div>
     <div id="TOC">
 <ul>
@@ -142,11 +142,10 @@
 <li><a href="#post-processings"><span class="toc-section-number">2.9</span> Post-processings</a></li>
 <li><a href="#resolution"><span class="toc-section-number">2.10</span> Resolution</a></li>
 </ul></li>
-<li><a href="#references">References</a></li>
 </ul>
 </div>
 <p>This tutorial describes how to describe in <code>MFEM/MGIS</code> a tensile test on a notched beam made of an isotropic plastic behaviour with linear hardening in the logarithmic space. This tutorial highlights the key features of this project.</p>
-<p>The full code is available in the <code>mgis-examples</code> repository:</p>
+<p>The full code is available in the <code>mfem-mgis-examples</code> repository in <code>ex2</code> directory:</p>
 <p><a href="https://github.com/latug0/mfem-mgis-examples" class="uri">https://github.com/latug0/mfem-mgis-examples</a></p>
 <h1 data-number="1" id="description-of-the-test-case"><span class="header-section-number">1</span> Description of the test case</h1>
 <p>This tutorial considers a tensile test on a notched beam which is modelled by plastic behaviour at finite strain:</p>
@@ -155,32 +154,33 @@
 <li>The boundary conditions are described in Section 1.3.</li>
 <li>The mechanical behaviour is described in Section 1.4.</li>
 </ul>
+<p>This case is a variant of another one available on <code>code-aster</code>web site:</p>
+<p><a href="https://www.code-aster.org/V2/doc/v10/fr/man_v/v6/v6.01.303.pdf" class="uri">https://www.code-aster.org/V2/doc/v10/fr/man_v/v6/v6.01.303.pdf</a></p>
 <h2 data-number="1.1" id="sec:mfem_mgis:ssna303:mesh"><span class="header-section-number">1.1</span> Geometry and mesh</h2>
 <figure>
 <img src="img/ssna303-mesh.png" id="fig:mfem_mgis:ssna303:mesh" style="width:30.0%" alt="Figure 1: Mesh used to described the notched beam" /><figcaption aria-hidden="true">Figure 1: Mesh used to described the notched beam</figcaption>
 </figure>
 <p>For symmetry reasons, only half of the notched beam is represented in Figure 1. The height <span class="math inline">\(h\)</span> of the beam is <span class="math inline">\(30\,mm\)</span>. The half-width <span class="math inline">\(w\)</span> of the beam is <span class="math inline">\(5.4\,mm\)</span>.</p>
 <p>The positions of the points <span class="math inline">\(p1\)</span> <span class="math inline">\(p2\)</span> and <span class="math inline">\(c\)</span> are respectivly <span class="math inline">\(\left(3\,mm, 0\right)\)</span>, <span class="math inline">\(\left(5.4\,mm, 4.8\,mm\right)\)</span> and <span class="math inline">\(\left(9\,mm, 0\right)\)</span>.</p>
-<p>This notched beam has been meshed using <a href="http://www-cast3m.cea.fr/"><code>̀Cast3M</code></a> and exported in the <code>MED</code> file format used in the <a href="https://www.salome-platform.org/">Salomé platform</a>. This file has been converted in the <code>msh</code> file format using <a href="https://gmsh.info/"><code>gmsh</code></a>.</p>
+<p>This notched beam has been meshed using <a href="http://www-cast3m.cea.fr/"><code>̀Cast3M</code></a> and exported in the <code>MED</code> file format proposed and used by <a href="https://www.salome-platform.org/">Salomé platform</a>. This file has been converted in the <code>msh</code> file format using <a href="https://gmsh.info/"><code>gmsh</code></a> tool in order to import it easily in MFEM.</p>
 <blockquote>
 <p><strong>Support of the <code>MED</code> file format</strong></p>
 <p>Direct support of the <code>MED</code> file format is currently under development.</p>
 </blockquote>
 <h2 data-number="1.2" id="modelling-hypothesis"><span class="header-section-number">1.2</span> Modelling hypothesis</h2>
-<p>The beam is treated using the plane strain modelling hypothesis. In finite strain, this assumes that the axial component of the deformation gradient is sete equal to <span class="math inline">\(1\)</span>.</p>
+<p>The beam is treated using the plane strain modelling hypothesis. In finite strain, this assumes that the axial component of the deformation gradient is set equal to <span class="math inline">\(1\)</span>.</p>
 <h2 data-number="1.3" id="sec:mfem_mgis:ssna303:bc"><span class="header-section-number">1.3</span> Boundary conditions</h2>
-<p>The problem is also affected by Dirichlet boundary conditions.</p>
-<p>The beam is fixed along the bottom line (<span class="math inline">\(y=0\)</span>) and an displacement <span class="math inline">\(U_{y}\)</span> is imposed an the top of the beam (<span class="math inline">\(y=h\)</span>).</p>
+<p>Dirichlet boundary conditions force the solution to attain certain a priori prescribed values on some boundaries. The beam is fixed along the bottom line (<span class="math inline">\(y=0\)</span>) and a displacement <span class="math inline">\(U_{y}\)</span> is imposed an the top of the beam (<span class="math inline">\(y=h\)</span>).</p>
 <p>The symmetry axis on the left is blocked in the <code>x</code>-direction.</p>
 <h2 data-number="1.4" id="sec:mfem_mgis:ssna303:behaviour"><span class="header-section-number">1.4</span> Mechanical behaviour</h2>
 <h3 data-number="1.4.1" id="description"><span class="header-section-number">1.4.1</span> Description</h3>
 <p>The material of the notched beam is described by a simple isotropic elasto-plastic behaviour with isotropic hardening in the logarithmic space <span class="citation" data-cites="miehe_anisotropic_2002">(<a href="#ref-miehe_anisotropic_2002" role="doc-biblioref">Miehe, Apel, and Lambrecht 2002</a>)</span> and is implemented using the <a href="http://tfel.sourceforge.net"><code>MFront</code> code generator</a>.</p>
-<p>This behaviour is characterized by by four parameters:</p>
+<p>This behaviour is characterized by four parameters:</p>
 <ul>
-<li>The <code>Young Modulus</code> (<span class="math inline">\(E\)</span>), which is the constant relating tensile stress and strain for an isotropic elastic material.</li>
-<li>The <code>Poisson Ratio</code> (<span class="math inline">\(\nu\)</span>), is the coefficient to characterise the contraction of the material perpendicular at the direction of the force applied.</li>
-<li>The <code>Yield Strength</code> (<span class="math inline">\(\sigma_{0}\)</span>), which defines the point on the stress versus strain curve where the material initially starts to go into plastic strain.</li>
-<li>The <code>Strain Hardening Modulus</code> (H), which defined the slope of the stress versus strain curve after the point of yield of a material.</li>
+<li>The <code>Young Modulus</code> (<span class="math inline">\(E\)</span>) is the slope of the linear part of the stress-strain curve for a material under tension or compression (isotropic elastic material).</li>
+<li>The <code>Poisson Ratio</code> (<span class="math inline">\(\nu\)</span>) is the coefficient to characterize the contraction of the material perpendicular to the direction of the force applied.</li>
+<li>The <code>Yield Strength</code> (<span class="math inline">\(\sigma_{0}\)</span>) defines the point on the stress versus strain curve where the material initially starts to go into plastic strain.</li>
+<li>The <code>Strain Hardening Modulus</code> (H) defines the slope of the stress versus strain curve after the point of yield of a material.</li>
 </ul>
 <p>In our example the following values are used:</p>
 <p><span class="math display">\[
@@ -193,9 +193,8 @@
     \end{array}
 \right.
 \]</span></p>
-<p>Those values are hard-coded in the <code>MFront</code> file.</p>
 <h3 data-number="1.4.2" id="compilation-of-the-mfront-behaviour"><span class="header-section-number">1.4.2</span> Compilation of the <code>MFront</code> behaviour</h3>
-<p>The <code>MFront</code> implementation is stored in a source file called <code>Plasticity.mfront</code>. This file must be compiled before the execution of our <code>MFEM/MGIS</code> <code>C++</code> example which will be detailled in depth in Section 2 as follows:</p>
+<p>The previous values are hard-coded in the <code>MFront</code> file. The <code>MFront</code> implementation is stored in a source file called <code>Plasticity.mfront</code>. This file must be compiled before the execution of our <code>MFEM/MGIS</code> <code>C++</code> example which will be detailed in depth in Section 2. Compilation is performed as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront --obuild --interface=generic Plasticity.mfront</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Treating target : all</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>The following library has been built :</span>
@@ -210,7 +209,7 @@
 <p><strong>The <code>mfem_mgis</code> namespace</strong></p>
 <p>All the classes and funtions of the <code>MFEM/MGIS</code> project are place in the <code>mfem_mgis</code> namespace.</p>
 </blockquote>
-<p>This call is mostly useful in parallel and handle:</p>
+<p>This call is mostly useful in parallel and handles:</p>
 <ul>
 <li>The initialization of interprocess communications handled by the <a href="https://www.mpi-forum.org/docs/"><code>MPI</code> framework</a>.</li>
 <li>The initialization of the <a href="https://www.mcs.anl.gov/petsc/"><code>PETSc</code> scientific toolkit</a>, if supported and requested.</li>
@@ -221,7 +220,7 @@
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="dt">char</span>* library = <span class="st">&quot;src/libBehaviour.so&quot;</span>;</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="dt">char</span>* behaviour = <span class="st">&quot;Plasticity&quot;</span>;</span></code></pre></div>
 <h3 data-number="2.1.2" id="command-line-options"><span class="header-section-number">2.1.2</span> Command line options</h3>
-<p>The resolution can be parametrized using command line options by relying on the <code>MFEM</code> facilities provided by the <code>OptionsParser</code> class.</p>
+<p>The numerical resolution can be parametrized using command line options by relying on the <code>MFEM</code> facilities provided by the <code>OptionsParser</code> class.</p>
 <p>The proposed implementation allows the following options:</p>
 <ul>
 <li><code>--order</code> which specifies the finite element order (polynomial degree).</li>
@@ -267,12 +266,12 @@
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>       {<span class="st">&quot;Parallel&quot;</span>, parallel}});</span></code></pre></div>
 <p>The constructor of the <code>NonLinearEvolutionProblem</code> class takes an object of <code>Parameters</code> type which is able to store various kind of data in a hierarchical structure. The valid parameters for the construction of a non linear evolution problem are described in the <code>doxygen</code> documentation of the <code>NonLinearEvolutionProblem</code> class.</p>
 <p>The <code>NonLinearEvolutionProblem</code> class is the main class manipulated by the end-users of the <code>MFEM/MGIS</code> library. It is meant to handle all the aspects of the non linear resolution.</p>
-<p>Thanks to the <code>Parameters</code> type, which is used almost everywhere in the interface of the <code>NonLinearEvolutionProblem</code> class, the <code>MFEM/MGIS</code> exposes a high level API (Application Programming Interface) which hides (by default) all the details related to parallelization and memory management. For example, the parameter <code>Parallel</code> allows to switch from a parallel computation to a parallel one at runtime.</p>
+<p>Thanks to the <code>Parameters</code> type, which is used at different locations in the interface of the <code>NonLinearEvolutionProblem</code> class, the <code>MFEM/MGIS</code> exposes a high level API (Application Programming Interface) which hides (by default) all the details related to parallelization and memory management. For example, the parameter <code>Parallel</code> allows to switch from a parallel computation to a parallel one at runtime.</p>
 <blockquote>
 <p><strong>Input files and <code>python</code> wrappers</strong></p>
 <p>This high level API can be used to configure a resolution from an input file or to wrap the library in <code>python</code>. Those features are not yet implemented.</p>
 </blockquote>
-<p>Although based on the <code>MFEM</code> library, the standard end-user of the <code>MFEM/MGIS</code> library would barely never used directly the <code>MFEM</code> data-structures. However, the <code>MFEM/MGIS</code> library also has a lower level API which allows to directly use the <code>MFEM</code> data-structures, built-in non linear forms, etc. This lower level API is not described in this tutorial.</p>
+<p>Although based on the <code>MFEM</code> library, the standard end-user of the <code>MFEM/MGIS</code> library would barely never used directly the <code>MFEM</code> data-structures. However, the <code>MFEM/MGIS</code> library does not preclude to directly use the <code>MFEM</code> data-structures, built-in non linear forms, etc. This lower level API is however not described in this tutorial.</p>
 <h2 data-number="2.3" id="names-boundaries-and-materials"><span class="header-section-number">2.3</span> Names boundaries and materials</h2>
 <p><code>MFEM</code> distinguishes elements of the mesh (materials and boundaries) by integers. This may seem unpractical to most users. The <code>MFEM/MGIS</code> allows to associate names to materials and boundaries as follows:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  problem.setMaterialsNames({{<span class="dv">1</span>, <span class="st">&quot;NotchedBeam&quot;</span>}});</span>
@@ -361,7 +360,7 @@
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        {<span class="st">&quot;OutputFileName&quot;</span>, <span class="st">&quot;ssna303-equivalent-plastic-strain&quot;</span>}}});</span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  problem.addPostProcessing(<span class="st">&quot;ComputeResultantForceOnBoundary&quot;</span>,</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                            {{<span class="st">&quot;Boundary&quot;</span>, <span class="dv">2</span>}, {<span class="st">&quot;OutputFileName&quot;</span>, <span class="st">&quot;force.txt&quot;</span>}});</span></code></pre></div>
-<p>These post-processings are called using the <code>executePostProcessings</code> method during the resolution using the state at the end of time step. The user may also plugged in their own post-processings.</p>
+<p>These post-processings are called using the <code>executePostProcessings</code> method during the runtime using the state at the end of time step. The user may also plugged in its own post-processing.</p>
 <h2 data-number="2.10" id="resolution"><span class="header-section-number">2.10</span> Resolution</h2>
 <p>The <code>NonLinearEvolutionProblem</code> class is meant to solve the problem on one time step only. This allows to easily built weakly coupled non linear resolutions (for example, thermo-mechanical resolutions where the heat tranfer and mechanical problems are solved using a staggered scheme) or set-up couplings with external solvers.</p>
 <p>In this tutorial, a local time-substepping scheme is set up to handle resolution failures.</p>
@@ -395,14 +394,13 @@
 <span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>      }</span>
 <span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div>
 <p>Every time a resolution is sucessful, the material state is updated using the <code>update</code> method, the current time is incremented and the number of the remaining substeps is decreased. The loop stops when the remaining number of sub-steps goes to zero.</p>
-<p>If the resolution failed, the local time step is divided by <span class="math inline">\(2\)</span>, the number of remaining substeps is multiplied by <span class="math inline">\(2\)</span> and the state of the material is reverted to the beginning of the time step using the <code>revert</code> method. The resolution stops if more than <span class="math inline">\(10\)</span> substeps are requested.</p>
+<p>If the resolution failed, the local time step is divided by <span class="math inline">\(2\)</span>, the number of remaining substeps is multiplied by <span class="math inline">\(2\)</span> and the state of the material is reverted to the beginning of the time step using the <code>revert</code> method. The resolution stops if more than <span class="math inline">\(10\)</span> nested reverts are generated.</p>
 <p>Once a time step has been successful, the post-processings are executed and the time is incremented.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>      problem.executePostProcessings(t, dt);</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>      t += dt;</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>      ++iteration;</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
-<h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-helfer_licos_2015" class="csl-entry" role="doc-biblioentry">
 Helfer, Thomas, Syriac Bejaoui, and Bruno Michel. 2015. <span>“Licos, a Fuel Performance Code for Innovative Fuel Elements or Experimental Devices Design.”</span> <em>Nuclear Engineering and Design</em> 294 (December): 117–36. <a href="https://doi.org/10.1016/j.nucengdes.2015.07.070">https://doi.org/10.1016/j.nucengdes.2015.07.070</a>.

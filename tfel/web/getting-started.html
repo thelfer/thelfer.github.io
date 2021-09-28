@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -132,6 +132,7 @@
 		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
 		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
 		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.8</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -153,6 +154,8 @@
 		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
 		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
 		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.4</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -160,6 +163,7 @@
 		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
 		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
 		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -250,13 +254,13 @@
 	  <ul>
 	    <li><a href="svn.html">Access to source repositories</a></li>
 	    <li><a href="devel.html">Development guidelines</a></li>
-	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
 	<li><a>Getting Help</a>
 	  <ul>
 	    <li><a href="search.html">Search on this site</a></li>
-	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
 	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
 	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
 	  </ul>
@@ -267,6 +271,23 @@
 <h1 class="title">Getting started with <code>MFront</code></h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">16/06/2017</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#first-step-installation">First step: installation</a></li>
+<li><a href="#second-step-understanding-how-mfront-works">Second step: understanding how <code>MFront</code> works</a></li>
+<li><a href="#third-step-before-starting-to-write-your-first-behaviour">Third step: before starting to write your first behaviour</a>
+<ul>
+<li><a href="#look-if-your-behaviour-can-be-implemented-using-the-standardelastoviscoplasticity-brick">Look if your behaviour can be implemented using the <code>StandardElastoViscoPlasticity</code> brick</a></li>
+<li><a href="#have-a-look-at-the-mfront-gallery">Have a look at the <code>MFront</code> gallery</a></li>
+<li><a href="#write-your-constitutive-equations-as-a-system-of-ordinary-differential-equations-using-tensorial-notations">Write your constitutive equations as a system of ordinary differential equations using tensorial notations</a></li>
+<li><a href="#select-your-integration-algorithm">Select your integration algorithm</a></li>
+<li><a href="#write-your-discretized-equations-by-hand-using-tensorial-notations">Write your discretized equations by hand using tensorial notations</a></li>
+<li><a href="#look-at-the-documentation-of-the-tensor-operations">Look at the documentation of the tensor operations</a></li>
+</ul></li>
+<li><a href="#fourth-step-your-first-implementation">Fourth step: your first implementation</a></li>
+<li><a href="#references">References</a></li>
+</ul>
 </div>
 <p>This document is meant to help new users to find their ways in the existing documentation of <code>MFront</code> and summarize the most important points.</p>
 <blockquote>
@@ -281,13 +302,13 @@
 </ul>
 <p>Before writing your own behaviours, a few advices are helpful:</p>
 <ul>
-<li>You must have some knowledge of this behaviour and of its physical meaning. See <span class="citation" data-cites="doghri_mechanics_2000 besson_non-linear_2009 forest_mecanique_2013">[1–3]</span> for a good introduction. <strong>If you are new to finite strain single crystal plasticity, do not try to directly study the examples found in the <code>MFront</code> tests base.</strong>. It highly recommended to have some basic understanding of the algorithms used to integrate a constitutive equation (see <span class="citation" data-cites="besson_numerical_2004 lemaitre_engineering_2005 besson_non-linear_2009">[2, 4, 6]</span>).</li>
+<li>You must have some knowledge of this behaviour and of its physical meaning. See <span class="citation" data-cites="doghri_mechanics_2000 besson_non-linear_2009 forest_mecanique_2013">[<a href="#ref-doghri_mechanics_2000" role="doc-biblioref">1</a>–<a href="#ref-forest_mecanique_2013" role="doc-biblioref">3</a>]</span> for a good introduction. <strong>If you are new to finite strain single crystal plasticity, do not try to directly study the examples found in the <code>MFront</code> tests base.</strong>. It highly recommended to have some basic understanding of the algorithms used to integrate a constitutive equation (see <span class="citation" data-cites="besson_numerical_2004 lemaitre_engineering_2005 besson_non-linear_2009">[<a href="#ref-besson_non-linear_2009" role="doc-biblioref">2</a>, <a href="#ref-besson_numerical_2004" role="doc-biblioref">4</a>, <a href="#ref-lemaitre_engineering_2005" role="doc-biblioref">6</a>]</span>).</li>
 <li>You must develop your behaviour <em>step by step</em>. Do not neglect unit testing. This is what <a href=".md"><code>MTest</code></a> has been made for.</li>
 <li>You must have some knowledge about your finite element solver, in particular when using “advanced” features (finite strain, non local models).</li>
 </ul>
 <p>The final advice is the more important: as every open-source project, <code>MFront</code> has its community of users. <strong>Do not hesitate to ask questions</strong>:</p>
 <ul>
-<li><a href="https://sourceforge.net/p/tfel/discussion/">on the forum</a>.</li>
+<li><a href="https://github.com/thelfer/tfel/discussions">on the forum</a>.</li>
 <li><a href="https://sourceforge.net/p/tfel/tfel/">on the mailing lists</a>.</li>
 <li><script type="text/javascript">
 <!--
@@ -303,12 +324,12 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#11
 <li><code>MFront</code> is mostly distributed as <code>C++</code> sources that must be compiled. Official releases are available on <a href="https://sourceforge.net/projects/tfel/files/">sourceforge</a>.</li>
 <li>For those wanting to follow the latest developments, a clone of the source repository is available on <a href="https://github.com/thelfer/tfel">GitHub</a>. You obviously need to install <code>git</code> to do this.</li>
 <li>In both cases a more or less recent <code>C++</code> compiler is required. Under <code>Unix</code> systems, this is always the case, each system having some official compiler suite (<code>gcc</code> under <code>Linux</code>, <code>clang</code> under <code>Mac Os</code> and <code>FreeBSD</code>). This is not the case under <code>Windows</code> where you have to install a compiler beforehand.</li>
-<li><em>You must understand how extending your solver works and ensure that you do use a compatible compiler</em>. This is particulary important under the <code>Windows</code> platform: on <code>LinuX</code>, most compilers strives to be binary compatible with <code>gcc</code>. For example, if you use <code>Cast3M</code> under windows, you may want to use the compiler which is package with the <code>Cast3M</code> distribution (see <a href="install-windows-Cast3M2017.html">here</a> for details). For <code>Abaqus</code>, you may need to have the Intel compilers (or at least the Intel fortran compiler).</li>
+<li><em>You must understand how extending your solver works and ensure that you do use a compatible compiler</em>. This is particulary important under the <code>Windows</code> platform: on <code>LinuX</code>, most compilers strives to be binary compatible with <code>gcc</code>. For example, if you use <code>Cast3M</code> under windows, you may want to use the compiler which is packaged with the <code>Cast3M</code> distribution (see <a href="install-windows-Cast3M2017.html">here</a> for details). For <code>Abaqus</code>, you may need to have the Intel compilers (or at least the Intel fortran compiler).</li>
 <li>It is required to have <a href="https://cmake.org/"><code>cmake</code></a> installed to build <code>MFront</code> under <code>Windows</code>. It is strongly recommended under the other platform.</li>
 </ul>
 <h1 id="second-step-understanding-how-mfront-works">Second step: understanding how <code>MFront</code> works</h1>
 <p><code>MFront</code> translate a set of input files into <code>C++</code> sources and compile them. A basic knowledge of the <code>C</code> and <code>C++</code> syntax is then advisable. <code>MFront</code> specific keywords begins with the <code>@</code> letter.</p>
-<p><code>MFront</code> first introduces the notion of <code>Domain Specific Language</code> (<code>DSL</code>), which gives a context about what the input file describes, mainly the type of the material knowledge treated (material property, model, finite strain behaviour, strain based behaviour, cohesive zone moel) and/or the algorithm used to integrate the state variables’ evolution. One highly used <code>DSL</code> is called <code>Implicit</code> and described a strain based behaviour whose integration is based on a generalised mid-point rule (see <span class="citation" data-cites="besson_numerical_2004 lemaitre_engineering_2005 besson_non-linear_2009">[2, 4, 6]</span>).</p>
+<p><code>MFront</code> first introduces the notion of <code>Domain Specific Language</code> (<code>DSL</code>), which gives a context about what the input file describes, mainly the type of the material knowledge treated (material property, model, finite strain behaviour, strain based behaviour, cohesive zone moel) and/or the algorithm used to integrate the state variables’ evolution. One highly used <code>DSL</code> is called <code>Implicit</code> and described a strain based behaviour whose integration is based on a generalised mid-point rule (see <span class="citation" data-cites="besson_numerical_2004 lemaitre_engineering_2005 besson_non-linear_2009">[<a href="#ref-besson_non-linear_2009" role="doc-biblioref">2</a>, <a href="#ref-besson_numerical_2004" role="doc-biblioref">4</a>, <a href="#ref-lemaitre_engineering_2005" role="doc-biblioref">6</a>]</span>).</p>
 <p>Each <code>DSL</code> has its own conventions, keywords and automatically declared variables.</p>
 <blockquote>
 <p><strong>The <code>Implicit</code> DSL</strong></p>
@@ -324,7 +345,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#11
 <p>Otherwise, one may want to look at the tests distributed with <code>MFront</code> in the <code>mfront/tests/behaviours</code> directory (online access on github <a href="https://github.com/thelfer/tfel/tree/master/mfront/tests/behaviours">here</a>).</p>
 <blockquote>
 <p><strong>About the tests cases</strong></p>
-<p>Beware that the tests may not reflect the current best way to implement a specific behaviour (<code>MFront</code> evolves a lot and each version introduces new features): they can be kept outdated to ensure backward compatibility.</p>
+<p>Beware that the tests may not reflect the best way to implement a specific behaviour (<code>MFront</code> evolves a lot and each version introduces new features): they can be kept outdated to ensure backward compatibility.</p>
 </blockquote>
 <blockquote>
 <p><strong>Detailed documentation</strong></p>
@@ -333,12 +354,22 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#11
 <p>However, such detailed documentation is not required for most users. We even consider that beginning with <code>MFront</code> from these documents can be overwhelmingly difficult. Reading the detailed example of the gallery is much easier: <code>Longum iter est per praecepta, breve et efficax per exempla</code> (It’s a long way by the rules, but short and efficient with examples).</p>
 <p>For French users, a detailed tutorial can be found <a href="documents/tutoriel/tutoriel.pdf">here</a></p>
 </blockquote>
-<h1 id="third-step-before-starting-to-write-our-first-behaviour">Third step: before starting to write our first behaviour</h1>
-<h2 id="start-looking-at-the-documentation-of-the-tensor-operations">Start looking at the documentation of the tensor operations</h2>
+<h1 id="third-step-before-starting-to-write-your-first-behaviour">Third step: before starting to write your first behaviour</h1>
+<h2 id="look-if-your-behaviour-can-be-implemented-using-the-standardelastoviscoplasticity-brick">Look if your behaviour can be implemented using the <code>StandardElastoViscoPlasticity</code> brick</h2>
+<p>The <a href="StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a> can be used to implement a large class of strain based elasto-visco-plastic behaviours implementations.</p>
+<p>It is worth to look if your behaviour falls in that category, or a least if part of your behaviour falls in that category:</p>
+<ul>
+<li>In the first case, implementing the behaviour using the <code>StandardElastoViscoPlasticity</code> brick can be straightforward. Even if you do not want to use the <code>StandardElastoViscoPlasticity</code> brick, it is worth to have a reference implementation to which one can compare its own implementation in terms of performance, robustness, etc.</li>
+<li>In the second case, implementing a complex behaviour is only tractable step by step. So it is worth to implement first the part which can be implemented using the <code>StandardElastoViscoPlasticity</code> brick and validate this part.</li>
+</ul>
+<h2 id="have-a-look-at-the-mfront-gallery">Have a look at the <code>MFront</code> gallery</h2>
+<p>The <a href="gallery.html"><code>MFront</code> gallery</a> is meant to document how to describe in depth and step by step the implementation of some behaviours. If one of the described behaviour is close to the one you plan to implement, it is highly recommend to carefully read the associated page and start by modifying the one described in the gallery.</p>
+<h2 id="write-your-constitutive-equations-as-a-system-of-ordinary-differential-equations-using-tensorial-notations">Write your constitutive equations as a system of ordinary differential equations using tensorial notations</h2>
+<p>Constitutive equations can be expressed as a system of ordinary differential equations which allows to determine the evolution of the state variables of the material.</p>
+<h2 id="select-your-integration-algorithm">Select your integration algorithm</h2>
+<h2 id="write-your-discretized-equations-by-hand-using-tensorial-notations">Write your discretized equations by hand using tensorial notations</h2>
+<h2 id="look-at-the-documentation-of-the-tensor-operations">Look at the documentation of the tensor operations</h2>
 <p>Second and fourth orders tensors are the basic mathematical tools used to describe mechanical behaviours. <code>MFront</code> is based on the <code>TFEL/Math</code> library which provides many standards operations and functions to handle them. See <a href="tensors.html">here</a> for an introduction.</p>
-<h2 id="start-looking-in-the-mfront-gallery">Start looking in the <code>MFront</code> gallery</h2>
-<p>The <a href="gallery.html"><code>MFront</code> gallery</a> is meant to document how to describe in depth and step by step the implementation of some chosen behaviours. If one of the described behaviour is close to the one you plan to implement, it is highly recommend to start by modifying the one described in the gallery.</p>
-<h2 id="write-your-discretized-equations-by-hand-in-tensor-notations">Write your discretized equations by hand in tensor notations</h2>
 <h1 id="fourth-step-your-first-implementation">Fourth step: your first implementation</h1>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->

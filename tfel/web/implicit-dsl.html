@@ -133,6 +133,7 @@
 		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
 		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
 		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.8</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -154,6 +155,8 @@
 		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
 		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
 		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.4</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -161,6 +164,7 @@
 		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
 		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
 		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -251,13 +255,13 @@
 	  <ul>
 	    <li><a href="svn.html">Access to source repositories</a></li>
 	    <li><a href="devel.html">Development guidelines</a></li>
-	    <li><a href="http://sourceforge.net/p/tfel/tickets">Report bugs</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
 	<li><a>Getting Help</a>
 	  <ul>
 	    <li><a href="search.html">Search on this site</a></li>
-	    <li><a href="http://sourceforge.net/p/tfel/discussion">Forum</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
 	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
 	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
 	  </ul>
@@ -301,9 +305,6 @@
 </ul></li>
 </ul>
 </div>
-<figure>
-<img src="img/ImplicitDSL.svg" style="width:100.0%" alt="Description of the steps of the implicit scheme and the associated code blocks." /><figcaption aria-hidden="true">Description of the steps of the implicit scheme and the associated code blocks.</figcaption>
-</figure>
 <h1 data-number="1" id="description"><span class="header-section-number">1</span> Description</h1>
 <p>Let <span class="math inline">\(\vec{Y}\)</span> be a vector holding all the integration variables<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The evolution of <span class="math inline">\(\vec{Y}\)</span> is assumed to satisfy the following differential equation:</p>
 <p><span class="math display">\[
@@ -331,6 +332,9 @@ F{\left(\Delta\,\vec{Y},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}=0
 \vec{F}{\left(\Delta\,\vec{Y}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}=0
 \qquad(2)\]</span></span></p>
 <h1 data-number="2" id="available-algorithms"><span class="header-section-number">2</span> Available algorithms</h1>
+<figure>
+<img src="img/ImplicitDSL.svg" id="fig:mfront:implicit-dsl:resolution_steps" style="width:100.0%" alt="Figure 1: Description of the steps of the implicit scheme and the associated code blocks." /><figcaption aria-hidden="true">Figure 1: Description of the steps of the implicit scheme and the associated code blocks.</figcaption>
+</figure>
 <p>The following algorithms are available:</p>
 <ul>
 <li><code>NewtonRaphson</code></li>
@@ -343,6 +347,7 @@ F{\left(\Delta\,\vec{Y},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}=0
 <li><code>LevenbergMarquardt</code></li>
 <li><code>LevenbergMarquardt_NumericalJacobian</code></li>
 </ul>
+<p>Thoses algorithms are described in the documention of the <a href="tfel-math.html"><code>TFEL/Math</code> library</a>. The main steps of those algorithms and the associated code blocks are depicted in Figure 1.</p>
 <h2 data-number="2.1" id="notes-about-updating-auxiliary-state-variable-or-local-variables-in-the-integrator-code-blocks-when-the-numerical-evaluation-of-the-jacobian-is-requested"><span class="header-section-number">2.1</span> Notes about updating auxiliary state variable or local variables in the <code>Integrator</code> code blocks when the numerical evaluation of the jacobian is requested</h2>
 <p>In some cases, it is convenient to update auxiliary state variables in the <code>@Integrator</code> code block, rather than computing them in the <code>@UpdateAuxiliaryStateVariables</code> code block which is only called once the convergence is reached.</p>
 <p>However, if the jacobian matrix is computed numerically (at least partially), such updates could be wrong, because they can be based on the perturbated values of the unknowns.</p>

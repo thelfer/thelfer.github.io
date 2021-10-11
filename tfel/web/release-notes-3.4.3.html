@@ -277,22 +277,22 @@
 <ul>
 <li><a href="#new-features-of-mfront"><span class="toc-section-number">1</span> New features of <code>MFront</code></a>
 <ul>
-<li><a href="#ability-to-implement-point-wise-models-as-a-particular-case-of-generic-behaviours"><span class="toc-section-number">1.1</span> Ability to implement point-wise models as a particular case of generic behaviours</a></li>
-<li><a href="#resolution-of-simple-ordinary-differential-equation"><span class="toc-section-number">1.2</span> Resolution of simple ordinary differential equation</a></li>
+<li><a href="#sec:tfel-3.4.3:mfront:point_wise_models"><span class="toc-section-number">1.1</span> Ability to implement point-wise models as a particular case of generic behaviours</a></li>
 </ul></li>
 <li><a href="#new-features-of-mtest"><span class="toc-section-number">2</span> New features of <code>MTest</code></a>
 <ul>
-<li><a href="#support-for-point-wise-models-i.e.-generic-behaviours-without-gradient-thermodynamic-force-nor-tangent-operator-block"><span class="toc-section-number">2.1</span> Support for point-wise models, i.e. generic behaviours without gradient, thermodynamic force nor tangent operator block</a></li>
+<li><a href="#sec:tfel-3.4.3:mtest:point_wise_models"><span class="toc-section-number">2.1</span> Support for point-wise models, i.e. generic behaviours without gradient, thermodynamic force nor tangent operator block</a></li>
 </ul></li>
 <li><a href="#issues-solved"><span class="toc-section-number">3</span> Issues solved</a>
 <ul>
-<li><a href="#section"><span class="toc-section-number">3.1</span> </a></li>
+<li><a href="#issue-12-mtest-add-support-for-generic-behaviours-with-no-gradients-aka-point-wise-models"><span class="toc-section-number">3.1</span> Issue #12: [mtest] Add support for generic behaviours with no gradients, aka point-wise models</a></li>
+<li><a href="#issue-11-models-implements-point-wise-models-on-top-of-the-default-implicit-and-runge-kutta-dsls-as-a-particular-case-of-generic-behaviours"><span class="toc-section-number">3.2</span> Issue #11: [models] Implements point-wise models on top of the Default, Implicit and Runge-Kutta DSLs as a particular case of generic behaviours</a></li>
 </ul></li>
 </ul>
 </div>
 <p>The page describes the new functionalities of Version 3.4.3 of the <code>TFEL</code> project.</p>
 <h1 data-number="1" id="new-features-of-mfront"><span class="header-section-number">1</span> New features of <code>MFront</code></h1>
-<h2 data-number="1.1" id="ability-to-implement-point-wise-models-as-a-particular-case-of-generic-behaviours"><span class="header-section-number">1.1</span> Ability to implement point-wise models as a particular case of generic behaviours</h2>
+<h2 data-number="1.1" id="sec:tfel-3.4.3:mfront:point_wise_models"><span class="header-section-number">1.1</span> Ability to implement point-wise models as a particular case of generic behaviours</h2>
 <p>Point-wise models computes the evolution of a set of state variables as a function of the evolution of some external state variables. Examples of point-wise models of current usage are phase transitions, swelling models due to irradiations products, etc…</p>
 <p>In previous versions, point-wise models were only handled by a dedicated domain specific language called <code>Model</code>. This DSLs has its own convention, which makes it inhomogeneous with the other DSLs, and is acknowledgly much less powerful than DSLs associated with behaviours.</p>
 <p>Point-wise models mostly differs from behaviours du to the fact that they don’t have no gradients and associated thermodynamic forces and do not compute any consistent tangent operator. This difference was very important in early versions of <code>MFront</code> which only supported small and finite strain behaviours.</p>
@@ -302,11 +302,11 @@
 <li>The fact that they don’t allow the declaration of gradients and thermodynamic forces, nor tangent operator blocks.</li>
 <li>The fact that their name is introduced by the <code>@Model</code> keyword and not <code>@Behaviour</code>.</li>
 </ul>
-<h2 data-number="1.2" id="resolution-of-simple-ordinary-differential-equation"><span class="header-section-number">1.2</span> Resolution of simple ordinary differential equation</h2>
+<h3 data-number="1.1.1" id="sec:tfel-3.4.3:ode_example"><span class="header-section-number">1.1.1</span> Resolution of simple ordinary differential equation</h3>
 <p>Let us consider the following ordinary differential equation:</p>
-<p><span class="math display">\[
+<p><span id="eq:tfel-3.4.3:mfront:ode"><span class="math display">\[
 \dot{x}=-A\,x
-\]</span></p>
+\qquad(1)\]</span></span></p>
 <p>where <span class="math inline">\(A\)</span> is a positive constant. The solution of this ordinary differential equation is an exponential decay of <span class="math inline">\(x\)</span>:</p>
 <p><span class="math display">\[
 x\left(t\right)=x_{0}\exp\left(-A\,x\right)
@@ -325,22 +325,38 @@ x\left(t\right)=x_{0}\exp\left(-A\,x\right)
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Derivative {</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  dx = -A * x;</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Three examples are available in the <code>mfront/tests/behaviours</code> directory:</p>
+<ul>
+<li><code>ode_rk54</code>, which contains the previous implementation.</li>
+<li><code>ode_implicit</code>, which shows how to solve the Ordinary Differential Equation (1) using an implicit scheme.</li>
+<li><code>ode_default</code>, which shows how to solve the Ordinary Differential Equation (1) using the Default DSL.</li>
+</ul>
 <h1 data-number="2" id="new-features-of-mtest"><span class="header-section-number">2</span> New features of <code>MTest</code></h1>
-<h2 data-number="2.1" id="support-for-point-wise-models-i.e.-generic-behaviours-without-gradient-thermodynamic-force-nor-tangent-operator-block"><span class="header-section-number">2.1</span> Support for point-wise models, i.e. generic behaviours without gradient, thermodynamic force nor tangent operator block</h2>
+<h2 data-number="2.1" id="sec:tfel-3.4.3:mtest:point_wise_models"><span class="header-section-number">2.1</span> Support for point-wise models, i.e. generic behaviours without gradient, thermodynamic force nor tangent operator block</h2>
+<p>Following Section 1.1, <code>MTest</code> now supports point-wise models, i.e. generic behaviours without gradient, thermodynamic force nor tangent operator block.</p>
+<p>The <code>@Model</code> can be used in place of <code>@Behaviour</code> to declare the point-wise model. This only difference with <code>@Behaviour</code> is that <code>MTest</code> checks that no gradient, thermodynamic force nor tangent operator block is declared.</p>
+<h3 data-number="2.1.1" id="example"><span class="header-section-number">2.1.1</span> Example</h3>
+<p>The following example can be used to integrate the odinary differential equation presented in Section 1.1.1:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date   <span class="dv">21</span>/<span class="er">09</span>/<span class="dv">2021</span>;</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypothesis <span class="st">&quot;Tridimensional&quot;</span>;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour&lt;generic&gt; <span class="st">&quot;src/libBehaviour.so&quot;</span> <span class="st">&quot;ode_rk54&quot;</span>;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Model&lt;generic&gt; <span class="st">&quot;src/libBehaviour.so&quot;</span> <span class="st">&quot;ode_rk54&quot;</span>;</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">// internal state variable initialisations</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InternalStateVariable <span class="st">&quot;x&quot;</span> <span class="dv">1</span>;</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">// external state variable</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="st">&quot;Temperature&quot;</span> <span class="fl">293.15</span>;</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Times {<span class="dv">0</span>, <span class="dv">1</span> in <span class="dv">10</span>};</span></code></pre></div>
 <figure>
-<img src="img/ModelDSLs.svg" style="width:75.0%" alt="Results of resolution of a ordinary differential equation with DSLs dedicated to point wise models" /><figcaption aria-hidden="true">Results of resolution of a ordinary differential equation with DSLs dedicated to point wise models</figcaption>
+<img src="img/ModelDSLs.svg" id="fig:tfel-3.4.3:ode_results" style="width:75.0%" alt="Figure 1: Results of resolution of a ordinary differential equation with DSLs dedicated to point wise models" /><figcaption aria-hidden="true">Figure 1: Results of resolution of a ordinary differential equation with DSLs dedicated to point wise models</figcaption>
 </figure>
+<p>The Figure 1 compares the results obtained with the implementation of the model presented in Section 1.1.1 with all the DSLs dedicated to piont-wise models.</p>
 <h1 data-number="3" id="issues-solved"><span class="header-section-number">3</span> Issues solved</h1>
-<h2 data-number="3.1" id="section"><span class="header-section-number">3.1</span> </h2>
+<h2 data-number="3.1" id="issue-12-mtest-add-support-for-generic-behaviours-with-no-gradients-aka-point-wise-models"><span class="header-section-number">3.1</span> Issue #12: [mtest] Add support for generic behaviours with no gradients, aka point-wise models</h2>
+<p>The developments associated with this Issue are documented in Section 2.1.</p>
+<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/12" class="uri">https://github.com/thelfer/tfel/issues/12</a>.</p>
+<h2 data-number="3.2" id="issue-11-models-implements-point-wise-models-on-top-of-the-default-implicit-and-runge-kutta-dsls-as-a-particular-case-of-generic-behaviours"><span class="header-section-number">3.2</span> Issue #11: [models] Implements point-wise models on top of the Default, Implicit and Runge-Kutta DSLs as a particular case of generic behaviours</h2>
+<p>The developments associated with this Issue are documented in Section 1.1.</p>
+<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/11" class="uri">https://github.com/thelfer/tfel/issues/11</a>.</p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

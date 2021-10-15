@@ -280,7 +280,7 @@
 <ul>
 <li><a href="#changes-to-existing-models"><span class="toc-section-number">1.1</span> Changes to existing models</a></li>
 </ul></li>
-<li><a href="#rejuvenation-of-the-tfelmath-library-in-tfel-4.0"><span class="toc-section-number">2</span> Rejuvenation of the <code>TFEL/Math</code> library in <code>TFEL-4.0</code></a>
+<li><a href="#rejuvenation-of-the-tfelmath-library"><span class="toc-section-number">2</span> Rejuvenation of the <code>TFEL/Math</code> library</a>
 <ul>
 <li><a href="#description-of-some-shortcomings-of-previous-versions"><span class="toc-section-number">2.1</span> Description of some shortcomings of previous versions</a></li>
 <li><a href="#overview-of-the-new-design-of-the-tfelmath-library"><span class="toc-section-number">2.2</span> Overview of the new design of the TFEL/Math library</a></li>
@@ -311,7 +311,7 @@
 <ul>
 <li>The corner smoothing of the Mohr Coulomb surface in the deviatoric plane is changed from the C1-continuous version (Abbo and Sloan, 1995) to the C2-continuous version from Abbo et al., 2011.</li>
 </ul>
-<h1 data-number="2" id="rejuvenation-of-the-tfelmath-library-in-tfel-4.0"><span class="header-section-number">2</span> Rejuvenation of the <code>TFEL/Math</code> library in <code>TFEL-4.0</code></h1>
+<h1 data-number="2" id="rejuvenation-of-the-tfelmath-library"><span class="header-section-number">2</span> Rejuvenation of the <code>TFEL/Math</code> library</h1>
 <h2 data-number="2.1" id="description-of-some-shortcomings-of-previous-versions"><span class="header-section-number">2.1</span> Description of some shortcomings of previous versions</h2>
 <h3 data-number="2.1.1" id="template-metaprogramming"><span class="header-section-number">2.1.1</span> Template metaprogramming</h3>
 <p>The first versions of <code>TFEL</code> were based on <code>C++-98</code> standard which had limited support for template metaprogramming and no support for concept based requirements.</p>
@@ -627,7 +627,7 @@ where <code>other_type</code> denotes for each operator a type for which the con
 </ul>
 <h5 data-number="2.2.1.3.1" id="an-example-of-indexing-policy"><span class="header-section-number">2.2.1.3.1</span> An example of indexing policy</h5>
 <figure>
-<img src="img/matrix_row_major.svg" id="fig:tfel_math:matrix_row_major" style="width:90.0%" alt="Figure 1: Storage of the elements of a matrix using the row-major format" /><figcaption aria-hidden="true">Figure 1: Storage of the elements of a matrix using the row-major format</figcaption>
+<img src="img/tfel-math/matrix_row_major.svg" id="fig:tfel_math:matrix_row_major" style="width:90.0%" alt="Figure 1: Storage of the elements of a matrix using the row-major format" /><figcaption aria-hidden="true">Figure 1: Storage of the elements of a matrix using the row-major format</figcaption>
 </figure>
 <p>Let us consider an <span class="math inline">\(N\,\times\,M\)</span> matrix stored in a contiguous memory location using the row major format, i.e. all elements of the same row are stored continuously as depicted on Figure 1. The position of <span class="math inline">\(i,j\)</span> element from the start of the memory area is given by <span class="math inline">\(i \, M + j\)</span>.</p>
 <p>Let us now consider a view on a <span class="math inline">\(L\,\times\,K\)</span> submatrix in a which starts at row <span class="math inline">\(i0\)</span> and column <span class="math inline">\(j0\)</span>. The position of the <span class="math inline">\(i,j\)</span> element of the submatrix in the matrix is also given by <span class="math inline">\(i \, M + j\)</span> if we start from the first element of the submatrix.</p>
@@ -713,7 +713,7 @@ p_{1}{\left(i_{0},\ldots,i_{a_{1}-1}\right)}\,s_{2}+p_{2}{\left(j_{0},\ldots,j_{
 <div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>d = a + b + c;</span></code></pre></div>
 <p>The addition of the vectors <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span> produces an intermediate object <span class="math inline">\(\vec{e1}\)</span> of type <code>Expr1</code> which keeps a reference to those two vectors. Similarly, the addition of those three vectors defines another object <span class="math inline">\(\vec{e2}\)</span> of type <code>Expr2</code> which stands for the addition of <span class="math inline">\(\vec{e1}\)</span> and the vector <span class="math inline">\(\vec{c}\)</span>.</p>
 <figure>
-<img src="img/expression_templates.svg" id="fig:tfel_math:expression_templates" style="width:50.0%" alt="Figure 2: Application of the expression templates technique to the addition of three vectors." /><figcaption aria-hidden="true">Figure 2: Application of the expression templates technique to the addition of three vectors.</figcaption>
+<img src="img/tfel-math/expression_templates.svg" id="fig:tfel_math:expression_templates" style="width:50.0%" alt="Figure 2: Application of the expression templates technique to the addition of three vectors." /><figcaption aria-hidden="true">Figure 2: Application of the expression templates technique to the addition of three vectors.</figcaption>
 </figure>
 <p>Figure 2 shows how the access operator of <code>e2</code> is implemented. The assignment of an object of type <code>Expr2</code> to a vector <code>d</code> is implemented as a standard <code>for</code> loop:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(<span class="dt">size_type</span> i=<span class="dv">0</span>;i!=d.size();++i){</span>
@@ -790,7 +790,7 @@ J = {\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span>&amp; p = Y[<span class="dv">6</span>];</span></code></pre></div>
 </div>
 <figure>
-<img src="img/view.svg" id="fig:tfel_4.0:view" style="width:75.0%" alt="Figure 3: “Exemple of decomposition by blocks of a memory area using views”" /><figcaption aria-hidden="true">Figure 3: “Exemple of decomposition by blocks of a memory area using views”</figcaption>
+<img src="img/tfel-math/view.svg" id="fig:tfel_4.0:view" style="width:75.0%" alt="Figure 3: “Exemple of decomposition by blocks of a memory area using views”" /><figcaption aria-hidden="true">Figure 3: “Exemple of decomposition by blocks of a memory area using views”</figcaption>
 </figure>
 <p>The <code>map</code> function allows to define offset at compile-time: this allows to checks at compile-time that the memory area is large enough to store the mapped object when mapping a fixed size object (i.e. an object whose size is known at compile-time) from a memory area hold by a tiny vector.</p>
 <h5 data-number="2.2.1.7.2" id="the-map_array-function"><span class="header-section-number">2.2.1.7.2</span> The <code>map_array</code> function</h5>
@@ -899,7 +899,7 @@ J = {\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta
 <p>This method is called internally by the <code>solveNonLinearSystem</code> method. It could be called directly if the required initialization are performed beforehand.</p>
 <p>The algorithm implemented by <code>solveNonLinearSystem2</code> method is depicted in Figure 4.</p>
 <figure>
-<img src="img/solveNonLinearSystem2.svg" id="fig:tfel_math:TinyNonLinearSolverBase:solveNonLinearSystem2" alt="Figure 4: “Flowchart for the resolution of non linear systems proposed by the solveNonLinearSystem2 of the TinyNonLinearSolverBase class”" /><figcaption aria-hidden="true">Figure 4: “Flowchart for the resolution of non linear systems proposed by the <code>solveNonLinearSystem2</code> of the <code>TinyNonLinearSolverBase</code> class”</figcaption>
+<img src="img/tfel-math/solveNonLinearSystem2.svg" id="fig:tfel_math:TinyNonLinearSolverBase:solveNonLinearSystem2" style="width:100.0%" alt="Figure 4: “Flowchart for the resolution of non linear systems proposed by the solveNonLinearSystem2 of the TinyNonLinearSolverBase class”" /><figcaption aria-hidden="true">Figure 4: “Flowchart for the resolution of non linear systems proposed by the <code>solveNonLinearSystem2</code> of the <code>TinyNonLinearSolverBase</code> class”</figcaption>
 </figure>
 <p>The <code>computeNewCorrection</code> is the only method that must be implemented in the derived class. It totally defines the resolution algorithm. This method thus has no default implementation.</p>
 <p>This flowchart also shows that the <code>solveNonLinearSystem</code> method has many customization points which either defines the underlying algorithm and or that can be use to enhance directly affects the performance and the robustness of the algorithm:</p>
@@ -941,7 +941,7 @@ J = {\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta
 <p>As highlighted by Figure 4, the <code>solveNonLinearSystem2</code> methods may fail for many reasons. A very common one is that the current estimate of the unknowns are unphysical, leading to a failure in the evaluation of the residual.</p>
 <p>The <code>solveNonLinearSystem</code> method implements a simple algorithm which can be seen as a hand crafted line search method which greatly improve the robustness of the non linear solvers. When used correctly, this method may also be used to increase the performances of the non linear solvers (i.e. reduce the total number of iterations).</p>
 <figure>
-<img src="img/solveNonLinearSystem.svg" alt="“Flowchart for the resolution of non linear systems proposed by the solveNonLinearSystem of the TinyNonLinearSolverBase class”" /><figcaption aria-hidden="true">“Flowchart for the resolution of non linear systems proposed by the <code>solveNonLinearSystem</code> of the <code>TinyNonLinearSolverBase</code> class”</figcaption>
+<img src="img/tfel-math/solveNonLinearSystem.svg" style="width:100.0%" alt="“Flowchart for the resolution of non linear systems proposed by the solveNonLinearSystem of the TinyNonLinearSolverBase class”" /><figcaption aria-hidden="true">“Flowchart for the resolution of non linear systems proposed by the <code>solveNonLinearSystem</code> of the <code>TinyNonLinearSolverBase</code> class”</figcaption>
 </figure>
 <p>The idea of this hand-crafted linesearch is simply to take the last correction to the unknowns and divide it by two and restart the core algorithm. In other words, the search direction is leaved unchanged, but the norm of the correction is reduced. This operation can be repeated several times to find a suitable estimate of the unknowns.</p>
 <p>Of course, this only works a correction is known, i.e. if the <code>has_delta_zeros</code> flag is <code>true</code>. Otherwise, this means that the initial guess of the unknowns is incorrect. In this case, we just divide this initial guess by zero. This choice may seem arbitrary but does makes sense in most cases of <code>MFront</code> implicit schemes where the unknowns are almost always the increment of the state variables: if we divide the increments of the state variables, their estimates at the middle of the time step tends to theirs values at the beginning of the time step, which is generally physically acceptable<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>

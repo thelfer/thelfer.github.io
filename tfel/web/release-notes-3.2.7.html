@@ -3,17 +3,16 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Release notes of the 3.0.5 version of TFEL, MFront and MTest</title>
+    <title>Release notes of the 3.2.7 version of TFEL, MFront and MTest</title>
         <meta name="author" content="Thomas Helfer" />
-            <meta name="date" content="2019-01-01" />
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
@@ -212,52 +211,11 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Release notes of the 3.0.5 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h1 class="title">Release notes of the 3.2.7 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
 <h2 class="author">Thomas Helfer</h2>
-<h3 class="date">2019</h3>
+<h3 class="date">21/09/2021</h3>
 </div>
-<div id="TOC">
-<ul>
-<li><a href="#tickets-fixed">Tickets fixed</a>
-<ul>
-<li><a href="#ticket-193-error-in-the-computation-of-the-consistent-tangent-operator-in-the-orthotropicelastic5.mfront-and-orthotropicelastic6.mfront-example">Ticket #193: Error in the computation of the consistent tangent operator in the <code>OrthotropicElastic5.mfront</code> and <code>OrthotropicElastic6.mfront</code> example</a></li>
-<li><a href="#ticket-188-default-constructor-of-the-qt-class-is-ill-formed-noexcept-specifier-is-not-correcty-defined">Ticket #188: Default constructor of the <code>qt</code> class is ill formed: noexcept specifier is not correcty defined</a></li>
-<li><a href="#ticket-185-problem-on-transposition-of-fourth-order-tensor">Ticket #185: Problem on transposition of fourth order tensor</a></li>
-<li><a href="#ticket-181-runge-kutta-dsl-does-not-handle-nan-values">Ticket #181: Runge-Kutta DSL does not handle <code>NaN</code> values</a></li>
-<li><a href="#ticket-180-return-false-doesnt-work-with-some-runge-kutta-integrators">Ticket #180: “return false” doesn’t work with some Runge-Kutta integrators</a></li>
-<li><a href="#ticket-178-name-of-the-python-module-is-wrong-under-mac-os">Ticket #178: Name of the python module is wrong under <code>Mac OS</code></a></li>
-<li><a href="#ticket-175-add-rpathto-the-tfel-libraries-when-generating-the-library-on-mac-os">Ticket #175: Add <code>rpath</code>to the <code>TFEL</code> libraries when generating the library on <code>Mac Os</code></a></li>
-<li><a href="#ticket-170-default-parameters-values-precision">Ticket #170: Default parameters’ values precision</a></li>
-</ul></li>
-<li><a href="#ticket-133-equation-giving-dn_ddai-page-20-in-the-tutorial-is-wrong">Ticket #133: Equation giving dn_ddai page 20 in the tutorial is wrong</a></li>
-</ul>
-</div>
-<p>This is mainly a bug fix version of the <code>3.0</code> series. All tickets solved are described below.</p>
-<h1 id="tickets-fixed">Tickets fixed</h1>
-<h2 id="ticket-193-error-in-the-computation-of-the-consistent-tangent-operator-in-the-orthotropicelastic5.mfront-and-orthotropicelastic6.mfront-example">Ticket #193: Error in the computation of the consistent tangent operator in the <code>OrthotropicElastic5.mfront</code> and <code>OrthotropicElastic6.mfront</code> example</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/193/" class="uri">https://sourceforge.net/p/tfel/tickets/193/</a></p>
-<h2 id="ticket-188-default-constructor-of-the-qt-class-is-ill-formed-noexcept-specifier-is-not-correcty-defined">Ticket #188: Default constructor of the <code>qt</code> class is ill formed: noexcept specifier is not correcty defined</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/188/" class="uri">https://sourceforge.net/p/tfel/tickets/188/</a></p>
-<h2 id="ticket-185-problem-on-transposition-of-fourth-order-tensor">Ticket #185: Problem on transposition of fourth order tensor</h2>
-<p>The <code>ST2toST2TransposeExpr&lt;A&gt;</code> class expected that class <code>A</code> defines the <code>IndexType</code> <code>typedef</code>, but this is not a requirement of the <code>ST2toST2Concept</code> concept. Thus the <code>transpose</code> operation did not work for all classes matching this concept. In particular, the following code used to fail:</p>
-<pre><code>const auto tM2 = transpose(Stensor4::Id() * Stensor4::Id());</code></pre>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/184/" class="uri">https://sourceforge.net/p/tfel/tickets/184/</a></p>
-<h2 id="ticket-181-runge-kutta-dsl-does-not-handle-nan-values">Ticket #181: Runge-Kutta DSL does not handle <code>NaN</code> values</h2>
-<p>For most algorithms with correction-prediction, the Runge-Kutta DSL has two strategies to evaluate the error. The first one (the default) is the euclidian norm and the second one the based on the absolute norm. The DSL switches from one strategy to the other depending on the size of unknowns.</p>
-<p>The trouble only concerns the second strategy.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/181/" class="uri">https://sourceforge.net/p/tfel/tickets/181/</a></p>
-<h2 id="ticket-180-return-false-doesnt-work-with-some-runge-kutta-integrators">Ticket #180: “return false” doesn’t work with some Runge-Kutta integrators</h2>
-<p>The issue concerns all the rk algorithms without local time-step control (<code>euler</code>, <code>rk2</code>, <code>rk4</code>) which are not used in practice.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/180/" class="uri">https://sourceforge.net/p/tfel/tickets/180/</a></p>
-<h2 id="ticket-178-name-of-the-python-module-is-wrong-under-mac-os">Ticket #178: Name of the python module is wrong under <code>Mac OS</code></h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/178/" class="uri">https://sourceforge.net/p/tfel/tickets/178/</a></p>
-<h2 id="ticket-175-add-rpathto-the-tfel-libraries-when-generating-the-library-on-mac-os">Ticket #175: Add <code>rpath</code>to the <code>TFEL</code> libraries when generating the library on <code>Mac Os</code></h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/175/" class="uri">https://sourceforge.net/p/tfel/tickets/175/</a></p>
-<h2 id="ticket-170-default-parameters-values-precision">Ticket #170: Default parameters’ values precision</h2>
-<p>The default parameters’ values were truncated to 6 significant digits (default number of digits of the <code>std::ostream</code> class).</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/170/" class="uri">https://sourceforge.net/p/tfel/tickets/170/</a></p>
-<h1 id="ticket-133-equation-giving-dn_ddai-page-20-in-the-tutorial-is-wrong">Ticket #133: Equation giving dn_ddai page 20 in the tutorial is wrong</h1>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/133/" class="uri">https://sourceforge.net/p/tfel/tickets/133/</a></p>
+<p>This version was released on October 26, 2021 along with <code>TFEL-3.0.10</code> and <code>TFEL-3.1.10</code> and inherits from the issues fixed in those releases.</p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

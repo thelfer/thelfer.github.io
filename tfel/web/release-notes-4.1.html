@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Release notes of the 4.1 version of TFEL, MFront and MTest</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2022-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #c4a000; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #000000; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #000000; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #000000; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://sourceforge.net/projects/tfel/files">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.9</a></li>
+		    <li><a href="release-notes-3.0.10.html">Version 3.0.10</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		    <li><a href="release-notes-3.1.8.html">Version 3.1.8</a></li>
+		    <li><a href="release-notes-3.1.9.html">Version 3.1.9</a></li>
+		    <li><a href="release-notes-3.1.10.html">Version 3.1.10</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.5</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.6</a></li>
+		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
+		    <li><a href="release-notes-3.4.3.html">Version 3.4.3</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.1.html">Version 4.1.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="tfel-math.html">TFEL/Math</a></li>
+		<li><a href="tfel-material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">Release notes of the 4.1 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">2022</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#mtest-improvements"><span class="toc-section-number">1</span> <code>MTest</code> improvements</a>
+<ul>
+<li><a href="#sec:tfel_4.1:mtest:small_strain_tridimensional_behaviour_wrapper"><span class="toc-section-number">1.1</span> Wrappers around <code>3D</code> behaviours</a></li>
+</ul></li>
+<li><a href="#improvements-to-the-mtest-python-module"><span class="toc-section-number">2</span> Improvements to the <code>mtest</code> <code>python</code> module</a>
+<ul>
+<li><a href="#sec:tfel_4.1:pymtest:behaviour_constructor"><span class="toc-section-number">2.1</span> Support of named arguments in the constructor of the <code>Behaviour</code> class</a></li>
+</ul></li>
+<li><a href="#issues-fixed"><span class="toc-section-number">3</span> Issues fixed</a>
+<ul>
+<li><a href="#issue-20-declaration-of-a-behaviour-wrapper-in-python-module"><span class="toc-section-number">3.1</span> Issue #20: Declaration of a behaviour wrapper in python module</a></li>
+<li><a href="#issue-18-usage-of-a-3d-behaviour-in-ptest"><span class="toc-section-number">3.2</span> Issue #18: Usage of a <code>3D</code> behaviour in <code>ptest</code></a></li>
+</ul></li>
+<li><a href="#references"><span class="toc-section-number">4</span> References</a></li>
+</ul>
+</div>
+<p>The page describes the new functionalities of Version 4.1 of the <code>TFEL</code> project.</p>
+<h1 data-number="1" id="mtest-improvements"><span class="header-section-number">1</span> <code>MTest</code> improvements</h1>
+<h2 data-number="1.1" id="sec:tfel_4.1:mtest:small_strain_tridimensional_behaviour_wrapper"><span class="header-section-number">1.1</span> Wrappers around <code>3D</code> behaviours</h2>
+<p>The <code>SmallStrainTridimensionalBehaviourWrapper</code> class allows to wrap a tridimensional behaviour into a behaviour usable in one of the following modelling hypotheses:</p>
+<ul>
+<li>axisymmetrical generalised plane strain,</li>
+<li>generalised plane strain,</li>
+<li>plane strain.</li>
+</ul>
+<p>Shear components of the strain tensor which are not meaningful for the targeted modelling hypothesis are set to zero.</p>
+<p>After the behaviour integration, only the meaningful components of the stress tensor and stiffness matrix are retained.</p>
+<h3 data-number="1.1.1" id="treatment-of-the-internal-state-variables"><span class="header-section-number">1.1.1</span> Treatment of the internal state variables</h3>
+<p>The internal state variables are all declared as scalars.</p>
+<p>For instance, let us assume that the <code>3D</code> behaviour declares an internal state variable called <code>s</code>. In this case, the wrapped behaviour will then declared <code>6</code> internal state variables associated with <code>s</code> named respectively <code>sXX</code>, <code>sYY</code>, <code>sZZ</code>, <code>sXY</code>, <code>sXZ</code>, <code>sYZ</code>.</p>
+<h3 data-number="1.1.2" id="usage-in-mtest"><span class="header-section-number">1.1.2</span> Usage in <code>MTest</code></h3>
+<p>The following code shows how to wrap a tridimensional behaviour to be used under the axisymmetrical plane strain modelling hypothesis:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Choice of the modelling hypothesis</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypothesis <span class="st">&quot;AxisymmetricalGeneralisedPlaneStrain&quot;</span>;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Declaration of the behaviour</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour&lt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    generic,                                   <span class="co">// interface name</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    SmallStrainTridimensionalBehaviourWrapper&gt; <span class="co">// wrapper</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;src/libBehaviour.so&quot;</span> <span class="st">&quot;ImplicitNorton&quot;</span>;</span></code></pre></div>
+<h3 data-number="1.1.3" id="usage-in-the-mtest-python-module"><span class="header-section-number">1.1.3</span> Usage in the <code>mtest</code> <code>python</code> module</h3>
+<p>The following code shows how to load a tridimensional behaviour and how to wrap this behaviour to be used in plane strain:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mtest</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.material</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> tfel.material.ModellingHypothesis.TRIDIMENSIONAL</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>b1 <span class="op">=</span> mtest.Behaviour(<span class="st">&#39;generic&#39;</span>, <span class="st">&#39;src/libBehaviour.so&#39;</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&#39;ImplicitNorton&#39;</span>, h)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [&#39;ElasticStrain&#39;, &#39;p&#39;]</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b1.getInternalStateVariablesNames())</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>b2 <span class="op">=</span> mtest.Behaviour(wrapper <span class="op">=</span> <span class="st">&#39;SmallStrainTridimensionalBehaviourWrapper&#39;</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                     library <span class="op">=</span> <span class="st">&#39;src/libBehaviour.so&#39;</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                     function <span class="op">=</span> <span class="st">&#39;ImplicitNorton&#39;</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                     hypothesis <span class="op">=</span> <span class="st">&#39;PlaneStrain&#39;</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [&#39;ElasticStrainXX&#39;, &#39;ElasticStrainYY&#39;, &#39;ElasticStrainZZ&#39;,</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  &#39;ElasticStrainXY&#39;, &#39;ElasticStrainXZ&#39;, &#39;ElasticStrainYZ&#39;, &#39;p&#39;]</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b2.getInternalStateVariablesNames())</span></code></pre></div>
+<h1 data-number="2" id="improvements-to-the-mtest-python-module"><span class="header-section-number">2</span> Improvements to the <code>mtest</code> <code>python</code> module</h1>
+<h2 data-number="2.1" id="sec:tfel_4.1:pymtest:behaviour_constructor"><span class="header-section-number">2.1</span> Support of named arguments in the constructor of the <code>Behaviour</code> class</h2>
+<p>Named arguments are now supported in the <code>Behaviour</code> constructor. The following arguments can be specified:</p>
+<ul>
+<li><code>interface</code>: name of the interface to be used (optional).</li>
+<li><code>library</code>: name of the shared library to be loaded.</li>
+<li><code>function</code>: name of the function implementing the behaviour.</li>
+<li><code>hypothesis</code>: hypothesis to be used.</li>
+<li><code>wrapper</code>: name of the behaviour wrapper to be used (optional).</li>
+</ul>
+<h3 data-number="2.1.1" id="example-of-usage"><span class="header-section-number">2.1.1</span> Example of usage</h3>
+<p>The following piece of code loads a behaviour implemented in the <code>src/libBehaviour.so</code> shared library by the <code>ImplicitNorton</code> function for the <code>PlaneStrain</code> modelling hypothesis:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> mtest.Behaviour(library <span class="op">=</span> <span class="st">&#39;src/libBehaviour.so&#39;</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                    function <span class="op">=</span> <span class="st">&#39;ImplicitNorton&#39;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                    hypothesis <span class="op">=</span> <span class="st">&#39;PlaneStrain&#39;</span>)</span></code></pre></div>
+<h1 data-number="3" id="issues-fixed"><span class="header-section-number">3</span> Issues fixed</h1>
+<h2 data-number="3.1" id="issue-20-declaration-of-a-behaviour-wrapper-in-python-module"><span class="header-section-number">3.1</span> Issue #20: Declaration of a behaviour wrapper in python module</h2>
+<p>As described in Section 2.1, named parameters are now supported in the constructor of the <code>Behaviour</code> class. The (optional) <code>wrapper</code> argument can now be used to specify a behaviour wrapper.</p>
+<p>Currently, two behaviours wrappers are available:</p>
+<ul>
+<li><code>LogarithmicStrain1D</code>: which turns a small strain behaviour in axisymmetrical generalised plane strain into a finite strain behaviour in the logarithmic strain framework following the ETO-PK1 kinematic assumption used by the <code>MTest</code></li>
+<li><code>SmallStrainTridimensionalBehaviourWrapper</code> which allows to use a small strain tridimensional behaviour under the following modelling hypotheses: axisymmetrical generalised plane strain, plane strain, axisymmetry</li>
+</ul>
+<p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/20" class="uri">https://github.com/thelfer/tfel/issues/20</a></p>
+<h2 data-number="3.2" id="issue-18-usage-of-a-3d-behaviour-in-ptest"><span class="header-section-number">3.2</span> Issue #18: Usage of a <code>3D</code> behaviour in <code>ptest</code></h2>
+<p>Thanks the <code>SmallStrainTridimensionalBehaviourWrapper</code> class detailled in Section 1.1, tridimensional behaviours can be used under the following modelling hypotheses: generalised plane strain, plane strain, axisymmetrical generalised plane strain.</p>
+<p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/18" class="uri">https://github.com/thelfer/tfel/issues/18</a></p>
+<h1 data-number="4" id="references"><span class="header-section-number">4</span> References</h1>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

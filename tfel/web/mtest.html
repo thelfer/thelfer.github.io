@@ -153,6 +153,7 @@
 		    <li><a href="release-notes-3.1.8.html">Version 3.1.8</a></li>
 		    <li><a href="release-notes-3.1.9.html">Version 3.1.9</a></li>
 		    <li><a href="release-notes-3.1.10.html">Version 3.1.10</a></li>
+		    <li><a href="release-notes-3.1.11.html">Version 3.1.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.2.x</a>
@@ -373,6 +374,23 @@ V = \pi \, {\left.R\right|_{t+\Delta\,t}}^{2} \, {\left(1 + {\left.\varepsilon_{
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;a&#39;</span> <span class="ch">&#39;0</span><span class="er">.8</span><span class="ch">&#39;</span>;</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>GasEquationOfState <span class="ch">&#39;P</span><span class="er">*a*V-n*R*T</span><span class="ch">&#39;</span>;</span></code></pre></div>
 <h2 id="axial-loadings">Axial loadings</h2>
+<h2 id="modelling-a-non-deformable-mandrel-inside">Modelling a non-deformable mandrel inside</h2>
+<p>The effect of a mandrel located inside the pipe can be modelled by defining the evolution of its radius <span class="math inline">\(R_{m}\)</span> using the <code>@MandrelRadiusEvolution</code> keyword. The inner radius <span class="math inline">\(R_{i}\)</span> will then satisfy the following unilateral boundary condition:</p>
+<p><span class="math display">\[
+R_{i} - R_{m} \geq 0
+\]</span></p>
+<p>This boundary condition is imposed by using a Lagrange multiplier. Its value is given by the contact pressure in the output file. The total pressure applied to the inner surface of the pipe is given by the sum of the imposed pressure (if any) and the contact pressure. Only the imposed inner pressure is used to compute the end cap effect.</p>
+<p>This boundary condition is not compatible with:</p>
+<ul>
+<li>boundary conditions imposing the evolution of the inner radius of the pipe or the outer radius of the pipe.</li>
+<li>the modelling of a tight pipe.</li>
+</ul>
+<h3 id="axial-binding">Axial binding</h3>
+<p>If the evolution of the axial growth of the mandrel is defined using the <code>@MandrelAxialGrowthEvolution</code> keyword, an axial binding between the mandrel and the pipe is assumed, i.e. the difference between the axial growth of the pipe <span class="math inline">\(\varepsilon^{p}_{zz}\)</span> and the axial growth of the mandrel <span class="math inline">\(\varepsilon^{p}_{zz}\)</span> is assumed to be constant to its value when the contact between the mandrel and the pipe is detected:</p>
+<p><span class="math display">\[
+\varepsilon^{p}_{zz}-\varepsilon^{m}_{zz}=\textrm{Cste}
+\]</span></p>
+<p>This axial boundary condition is not compatible with the boundary condition imposing the evolution of the axial growth of the pipe.</p>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">

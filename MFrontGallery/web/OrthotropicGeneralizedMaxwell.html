@@ -3,15 +3,14 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Description of the orthotropic generalized Maxwell viscoelastic behaviour</title>
-        <meta name="author" content="Lorenzo Riparbelli" />
+    <title>OrthotropicGeneralizedMaxwell</title>
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
@@ -25,33 +24,148 @@
         <header>
       <ul id="nav">
 	    <li><a href="index.html">Overview</a></li>
-        <li><a>Documentation</a></lib>
-        <li><a>Contributing</a></lib>
+        <li><a>Documentation</a>
+      	  <ul>
+	        <li><a href="install.html">Installation guide</a></li>
+	        <li><a href="cmake-infrastructure.html">CMake infrastructure</a></li>
+	      </ul>
+        </li>
+        <li><a>Contributing</a></li>
         <li><a>Getting Help</a>
       	  <ul>
-	      <li><a href="https://github.com/thelfer/MFrontGallery/discussions">Forum</a></li>
-	      <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
-	    </ul>
+	        <li><a href="https://github.com/thelfer/MFrontGallery/discussions">Forum</a></li>
+	        <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	      </ul>
        </li>
-      </ul>
+      </ul><br>
     </header>
 
-<div id="header">
-<h1 class="title">Description of the orthotropic generalized Maxwell viscoelastic behaviour</h1>
-<h2 class="author">Lorenzo Riparbelli</h2>
-<h3 class="date">20/12/2021</h3>
+<div id="TOC">
+<ul>
+<li><a href="#orthotropicgeneralizedmaxwell-behaviour-description">OrthotropicGeneralizedMaxwell behaviour description</a>
+<ul>
+<li><a href="#list-of-supported-hypotheses">List of supported Hypotheses</a></li>
+<li><a href="#variables">Variables</a>
+<ul>
+<li><a href="#material-properties">Material properties</a></li>
+<li><a href="#state-variables">State variables</a></li>
+<li><a href="#external-state-variables">External state variables</a></li>
+<li><a href="#parameters">Parameters</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </div>
-<p>This document closely follows the work of Froidevaux et al <span class="citation" data-cites="froidevaux_3d_2010">[<a href="#ref-froidevaux_3d_2010" role="doc-biblioref">1</a>]</span>.</p>
-<h1 id="constitutive-equations">Constitutive equations</h1>
-<h2 id="elastic-behaviour">Elastic behaviour</h2>
-<h2 id="viscous-behaviour">Viscous behaviour</h2>
-<h1 id="numerical-resolution">Numerical resolution</h1>
-<h1 class="unnumbered" id="references">References</h1>
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-froidevaux_3d_2010" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Froidevaux</span>, Julien, <span class="smallcaps">Müller</span>, Martina, <span class="smallcaps">Kuhnen</span>, Renate, <span class="smallcaps">Fioravanti</span>, Marco, <span class="smallcaps">Uzielli</span>, Luca, <span class="smallcaps">Gril</span>, Joseph and <span class="smallcaps">Navi</span>, Parviz. 3D modeling of hydral deformation of panel paintings and its confirmation by the experiments. In : <em>4th international conference of <span>COST</span> action <span>IE</span>0601 ’interaction between wood science and conservation of cultural heritage’</em>. Izmir, Turkey, October 2010. p. 6p. Available from: <a href="https://hal.archives-ouvertes.fr/hal-00796405">https://hal.archives-ouvertes.fr/hal-00796405</a></div>
-</div>
-</div>
+<h1 id="orthotropicgeneralizedmaxwell-behaviour-description">OrthotropicGeneralizedMaxwell behaviour description</h1>
+<ul>
+<li>file : /home/th202608/codes/MFrontGallery/master/src/MFrontGallery/generic-behaviours/viscoelasticity/OrthotropicGeneralizedMaxwell.mfront</li>
+<li>author : Thomas Helfer and Lorenzo Riparbelli</li>
+<li>date : 8 / 10 / 2014</li>
+</ul>
+<p>Orthotropic Maxwell behvaviour</p>
+<h3 id="list-of-supported-hypotheses">List of supported Hypotheses</h3>
+<ul>
+<li>AxisymmetricalGeneralisedPlaneStrain</li>
+<li>Axisymmetrical</li>
+<li>PlaneStrain</li>
+<li>GeneralisedPlaneStrain</li>
+<li>Tridimensional</li>
+</ul>
+<h2 id="variables">Variables</h2>
+<h3 id="material-properties">Material properties</h3>
+<ul>
+<li>ViscoelasticYoungModulus1:
+<ul>
+<li>variable name: Ev1</li>
+<li>variable type: stress</li>
+<li>array size: 3</li>
+</ul></li>
+<li>ViscoelasticYoungModulus2:
+<ul>
+<li>variable name: Ev2</li>
+<li>variable type: stress</li>
+<li>array size: 3</li>
+</ul></li>
+<li>ViscoelasticYoungModulus3:
+<ul>
+<li>variable name: Ev3</li>
+<li>variable type: stress</li>
+<li>array size: 3</li>
+</ul></li>
+<li>ViscoelasticPoissonRatio12:
+<ul>
+<li>variable name: nuv12</li>
+<li>variable type: real</li>
+<li>array size: 3</li>
+</ul></li>
+<li>ViscoelasticPoissonRatio23:
+<ul>
+<li>variable name: nuv23</li>
+<li>variable type: real</li>
+<li>array size: 3</li>
+</ul></li>
+<li>ViscoelasticPoissonRatio13:
+<ul>
+<li>variable name: nuv13</li>
+<li>variable type: real</li>
+<li>array size: 3</li>
+</ul></li>
+<li>ViscoelasticShearModulus12:
+<ul>
+<li>variable name: Gv12</li>
+<li>variable type: stress</li>
+<li>array size: 3</li>
+</ul></li>
+<li>ViscoelasticShearModulus23:
+<ul>
+<li>variable name: Gv23</li>
+<li>variable type: stress</li>
+<li>array size: 3</li>
+</ul></li>
+<li>ViscoelasticShearModulus13:
+<ul>
+<li>variable name: Gv13</li>
+<li>variable type: stress</li>
+<li>array size: 3</li>
+</ul></li>
+<li>CharacteristicTime:
+<ul>
+<li>variable name: tau</li>
+<li>variable type: time</li>
+<li>array size: 3</li>
+</ul></li>
+</ul>
+<h3 id="state-variables">State variables</h3>
+<ul>
+<li>h:
+<ul>
+<li>variable type: StrainStensor</li>
+<li>array size: 3</li>
+</ul></li>
+</ul>
+<h3 id="external-state-variables">External state variables</h3>
+<ul>
+<li>Temperature:
+<ul>
+<li>variable name: T</li>
+<li>variable type: temperature</li>
+<li>description: The temperature</li>
+</ul></li>
+</ul>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>minimal_time_step_scaling_factor:
+<ul>
+<li>variable type: time</li>
+<li>description: minimal value for the time step scaling factor</li>
+<li>default value: 0.1</li>
+</ul></li>
+<li>maximal_time_step_scaling_factor:
+<ul>
+<li>variable type: time</li>
+<li>description: maximal value for the time step scaling factor</li>
+<li>default value: 1.79769e+308</li>
+</ul></li>
+</ul>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

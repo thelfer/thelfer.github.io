@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>CMake infrastructure</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #c4a000; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #000000; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #000000; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #000000; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	    <li><a href="index.html">Overview</a></li>
+        <li><a>Documentation</a>
+      	  <ul>
+	        <li><a href="install.html">Installation guide</a></li>
+	        <li><a href="cmake-infrastructure.html">CMake infrastructure</a></li>
+	      </ul>
+        </li>
+        <li><a href="contributing.html">Contributing</a></li>
+        <li><a>Getting Help</a>
+      	  <ul>
+	        <li><a href="https://github.com/thelfer/MFrontGallery/discussions">Forum</a></li>
+	        <li><a href="faq.html">FAQ</a></li>
+	        <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	      </ul>
+       </li>
+      </ul><br>
+    </header>
+
+<div id="header">
+<h1 class="title">CMake infrastructure</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">18/12/2021</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#sec:mfm:cmake:main_functions">Main functions</a>
+<ul>
+<li><a href="#the-mfront_properties_library-function">The <code>mfront_properties_library</code> function</a>
+<ul>
+<li><a href="#usage">Usage</a></li>
+</ul></li>
+<li><a href="#the-mfront_behaviours_library-function">The <code>mfront_behaviours_library</code> function</a>
+<ul>
+<li><a href="#treatment-of-the-sources">Treatment of the sources</a></li>
+<li><a href="#usage-1">Usage</a></li>
+</ul></li>
+<li><a href="#sec:mfm:cmake:parse_mfront_library_sources">The <code>parse_mfront_library_sources</code> function</a></li>
+<li><a href="#functions-related-to-tests-based-on-mtest">Functions related to tests based on <code>MTest</code></a></li>
+<li><a href="#the-pandoc_html-function">The <code>pandoc_html</code> function</a></li>
+</ul></li>
+<li><a href="#sec:mfm:cmake:usage">Building an new material management project</a></li>
+<li><a href="#sec:mfm:cmake:cmake_modules">The <code>cmake/modules</code> directory</a>
+<ul>
+<li><a href="#main-files">Main files</a>
+<ul>
+<li><a href="#the-tfel.cmake-file">The <code>tfel.cmake</code> file</a></li>
+<li><a href="#files-related-to-mfront-interfaces">Files related to <code>MFront</code> interfaces</a></li>
+<li><a href="#files-related-to-compiler-support">Files related to compiler support</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<p>This document gives an overview of the <a href="https://cmake.org"><code>CMake</code></a> infrastructure of the <code>MFrontGallery</code> and <code>MFrontMaterials</code> projects.</p>
+<p>This infrastructure is fully contained in the <code>cmake/modules</code> directory, the file <code>cmake/modules/mfm.cmake</code> being the main entry point.</p>
+<p>Section 1 describes the main <code>cmake</code> functions provided by this infrastructure from the point of view of the maintainer and developper of a material knowledge management project. It mostly convers:</p>
+<ul>
+<li>functions used to compile <code>MFront</code> files related to material properties, behaviours and models.</li>
+<li>functions related to documentation and website generation.</li>
+</ul>
+<p>Section 2 describes how to setup a new project based on the cmake infrastructure of the <code>MFrontGallery</code> and <code>MFrontMaterials</code> projects.</p>
+<p>Section 3 describes the contents of the <code>cmake/modules</code> directory.</p>
+<h1 id="sec:mfm:cmake:main_functions">Main functions</h1>
+<h2 id="the-mfront_properties_library-function">The <code>mfront_properties_library</code> function</h2>
+<h3 id="usage">Usage</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mfront_properties_library</span>(VanadiumAlloy</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  VanadiumAlloy_YoungModulus_SRMA)</span></code></pre></div>
+<h2 id="the-mfront_behaviours_library-function">The <code>mfront_behaviours_library</code> function</h2>
+<p>The <code>mfront_behaviours_library</code> function adds shared libraries to the project related to <code>MFront</code>’ behaviours. The number of added shared libraries depends on the number of (behaviour) interfaces selected when the project is configured (see the <a href="install.html%60"><code>install</code> page for details</a>).</p>
+<p>The <code>mfront_behaviours_library</code> function forward is arguments to the <code>parse_mfront_library_sources</code> function and use its results to add the shared libraries properly. See Section 1.3 for the available options.</p>
+<h3 id="treatment-of-the-sources">Treatment of the sources</h3>
+<p>For each shared library to be added, each source returned in the <code>mfront_sources</code> variable by the <code>parse_mfront_library_sources</code> is treated as follows:</p>
+<ul>
+<li>If the file <code>@source@.mfront</code> (where <code>@source@</code> is the name of the considered source) exists in the current source directory, then it is treated as an <code>MFront</code> source file.</li>
+<li>If the file <code>@source@.mfront.in</code> (where <code>@source@</code> is the name of the considered source) exists in the current source directory, then it is automatically configured using <code>̀CMake</code>’ <code>configure_file</code> command and the resulting file is treated as an <code>MFront</code> source file.</li>
+<li>If neither the <code>@source@.mfront</code> nor <code>@source@.mfront.in</code> exist in the current directory, the file <code>@source@</code> is added in the list of sources for the treated shared library. This file can be given by its full path, and is searched in the current source directory or the the current binary directory.</li>
+</ul>
+<p><code>MFront</code> source files are treated by:</p>
+<ul>
+<li>the <code>generate_mfront_doc</code> function which will generate a web page for this source file using the <code>mfront-doc</code> utility if the <code>enable-website</code> option has been choosen at the <code>CMake</code> configuration stage (see the <a href="install.html%60"><code>install</code> page for details</a>).</li>
+</ul>
+<h3 id="usage-1">Usage</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mfront_behaviours_library</span>(Plasticity</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  GreenPerfectPlasticity)</span></code></pre></div>
+<h2 id="sec:mfm:cmake:parse_mfront_library_sources">The <code>parse_mfront_library_sources</code> function</h2>
+<p>The <code>parse_mfront_library_sources</code> function set the following variables on output:</p>
+<ul>
+<li><code>mfront_sources</code>: list of sources to be processed. In practice, this is the list of arguments which are not specifically treated.</li>
+<li><code>mfront_search_paths</code>: list of search paths, i.e. list of directories where <code>MFront</code> shall search for auxiliary files (imported files, external material properties, external models.).</li>
+<li><code>mfront_include_directories</code>: list of include directories. The include directories are added the compiler include directories.</li>
+<li><code>mfront_link_libraries</code>: list of link libraries. Those link libraries are meant to be linked to the generated shared libraries.</li>
+</ul>
+<p>The <code>parse_mfront_library_sources</code> function allows the following options:</p>
+<ul>
+<li><code>SOURCES</code> (the default): this option introduces new sources for the generated libraries. All subsequent arguments are treated as sources, up to the next option.</li>
+<li><code>LINK_LIBRARY</code>: this option allows to define one link library by the next argument passed to the <code>parse_mfront_library_sources</code> function.</li>
+<li><code>LINK_LIBRARIES</code>: all subsequent arguments are treated as link libraries, up to the next option.</li>
+<li><code>SEARCH_PATH</code>: the next argument passed to the <code>parse_mfront_library_sources</code> function is added to the list of search paths.</li>
+<li><code>SEARCH_PATHS</code>: all subsequent arguments are treated as <code>MFront</code> search path, up to the next option.</li>
+<li><code>INCLUDE_DIRECTORY</code>: the next argument passed to the <code>parse_mfront_library_sources</code> function is added to the list of include directories.</li>
+<li><code>INCLUDE_DIRECTORIES</code>: the next argument passed to the <code>parse_mfront_library_sources</code> function is added to the list of include directories.</li>
+</ul>
+<h2 id="functions-related-to-tests-based-on-mtest">Functions related to tests based on <code>MTest</code></h2>
+<h2 id="the-pandoc_html-function">The <code>pandoc_html</code> function</h2>
+<h1 id="sec:mfm:cmake:usage">Building an new material management project</h1>
+<p>To create a material management project derived from <code>MFrontGallery</code>, just copy the contents of the <code>cmake/modules</code> project.</p>
+<p>If you intent to use <code>git</code> for version control, one easy way it to add the <code>MFrontGallery</code> as a remote ressource and check out the <code>cmake</code> repository from it as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote add MFrontGallery https://github.com/thelfer/MFrontGallery</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git fetch MFrontGallery </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout MFrontGallery/master <span class="at">--</span> cmake </span></code></pre></div>
+<p>The next step consist in creating a top level <code>CMakeLists.txt</code> file. Here is a minimal example:</p>
+<pre class="{cmake}"><code>project(NewMaterialManagementProject)
+set(PACKAGE new-material-management-project)
+cmake_minimum_required(VERSION 3.0.2)
+
+include(cmake/modules/mfm.cmake)
+
+# testing
+set(CTEST_CONFIGURATION_TYPE &quot;${JOB_BUILD_CONFIGURATION}&quot;)
+enable_testing()
+
+# add subdirectories here
+# For example, you may create a subdirectory named materials:
+# add_subdirectory(materials)</code></pre>
+<p>Now you are ready to create subdirectory containing your <code>MFront</code> files.</p>
+<h1 id="sec:mfm:cmake:cmake_modules">The <code>cmake/modules</code> directory</h1>
+<h2 id="main-files">Main files</h2>
+<h3 id="the-tfel.cmake-file">The <code>tfel.cmake</code> file</h3>
+<h3 id="files-related-to-mfront-interfaces">Files related to <code>MFront</code> interfaces</h3>
+<h3 id="files-related-to-compiler-support">Files related to compiler support</h3>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

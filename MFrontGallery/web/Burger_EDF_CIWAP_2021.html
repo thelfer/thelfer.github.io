@@ -1,0 +1,1214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>The Burger_EDF_CIWAP_2021 constitutive law for concrete creep and shrinkage</title>
+        <meta name="author" content="Jean-Luc Adia, Laurent Charpin, Thomas Helfer" />
+            <meta name="date" content="2021-04-03" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #c4a000; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #000000; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #000000; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #000000; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	    <li><a href="index.html">Overview</a></li>
+        <li><a>Documentation</a>
+      	  <ul>
+	        <li><a href="install.html">Installation guide</a></li>
+	        <li><a href="cmake-infrastructure.html">CMake infrastructure</a></li>
+	      </ul>
+        </li>
+        <li><a>Materials</a>
+          <ul>
+             <li><a>Concrete</a>
+                <ul>
+                   <li><a>Behaviours</a>
+                     <ul>
+                       <li><a href="Burger_EDF_CIWAP_2021.html">Burger_EDF_CIWAP_2021</a></li>
+                     </ul>
+                   </li>
+                </ul>
+             </li>
+             <li><a>Crushed Salt</a>
+                <ul>
+                   <li><a>Behaviours</a>
+                     <ul>
+                       <li><a href="CrushedSaltKorthausBehaviour.html">Korthaus' behaviour</a></li>
+                     </ul>
+                   </li>
+                </ul>
+             </li>
+          </ul>
+        </li>
+        <li><a href="contributing.html">Contributing</a></li>
+        <li><a>Getting Help</a>
+      	  <ul>
+	        <li><a href="https://github.com/thelfer/MFrontGallery/discussions">Forum</a></li>
+	        <li><a href="faq.html">FAQ</a></li>
+	        <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	      </ul>
+       </li>
+        <li><a>About</a>
+      	  <ul>
+	        <li><a href="contributors.html">Contributors</a></li>
+	      </ul>
+       </li>
+      </ul><br>
+    </header>
+
+<div id="header">
+<h1 class="title">The <code>Burger_EDF_CIWAP_2021</code> constitutive law for concrete creep and shrinkage</h1>
+<h2 class="author">Jean-Luc Adia, Laurent Charpin, Thomas Helfer</h2>
+<h3 class="date">04/03/2021</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#description-of-the-behaviour">Description of the behaviour</a>
+<ul>
+<li><a href="#strain-decomposition">Strain decomposition</a></li>
+<li><a href="#drying-shrinkage">Drying shrinkage</a></li>
+<li><a href="#elastic-and-basic-creep-strain">Elastic and basic creep strain</a></li>
+<li><a href="#drying-creep-strain">Drying creep strain</a></li>
+</ul></li>
+<li><a href="#sec:burger_full:implicit_algorithm">Description of the implicit algorithm</a>
+<ul>
+<li><a href="#sec:burger_full:isvs">Choice of the state variables and auxilary state variables</a></li>
+<li><a href="#computation-of-the-stress">Computation of the stress</a></li>
+<li><a href="#sec:burger_full:implicit:basic_creep">Implicit equation associated with basic creep</a></li>
+<li><a href="#implicit-equation-associated-with-the-evolution-of-the-drying-creep-strain">Implicit equation associated with the evolution of the drying creep strain</a></li>
+<li><a href="#implicit-equation-associated-with-the-elastic-strain">Implicit equation associated with the elastic strain</a></li>
+</ul></li>
+<li><a href="#description-of-the-mfront-implementations">Description of the <code>MFront</code> implementations</a>
+<ul>
+<li><a href="#choice-of-the-domain-specific-language-and-the-standardelasticity-brick">Choice of the domain specific language and the <code>StandardElasticity</code> brick</a></li>
+<li><a href="#name-of-the-behaviour">Name of the behaviour</a></li>
+<li><a href="#material">Material</a></li>
+<li><a href="#metadata">Metadata</a></li>
+<li><a href="#choice-of-the-algorithm-and-numerical-parameters">Choice of the algorithm and numerical parameters</a></li>
+<li><a href="#external-headers">External headers</a></li>
+<li><a href="#variables-declarations">Variables declarations</a></li>
+<li><a href="#initialisation-of-the-local-variables">Initialisation of the local variables</a></li>
+<li><a href="#implicit-system">Implicit system</a></li>
+<li><a href="#update-of-the-auxiliary-state-variables">Update of the auxiliary state variables</a></li>
+</ul></li>
+<li><a href="#test-cases">Test cases</a>
+<ul>
+<li><a href="#mtest-non-regression-test-cases"><code>MTest</code> non regression test cases</a></li>
+<li><a href="#code_aster-test-cases"><code>code_aster</code> test cases:</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<h1 class="unnumbered" id="introduction">Introduction</h1>
+<p>This document introduces the <code>Burger_EDF_CIWAP_2021</code> which aims at modelling the following phenomena in concrete:</p>
+<ul>
+<li>Elasticity</li>
+<li>Drying shrinkage</li>
+<li>Basic creep</li>
+<li>Drying creep</li>
+</ul>
+<p>It is an isotropic constitutive law for all phenomena.</p>
+<p>Two variants, described in this document, of the implementation of this behaviour are available in the <a href="https://github.com/thelfer/MFrontGallery"><code>MFrontGallery</code> project</a>:</p>
+<ul>
+<li><a href="https://github.com/thelfer/MFrontGallery/blob/master/materials/Concrete/behaviours/ConcreteBurger_EDF_CIWAP_2021.mfront">ConcreteBurger_EDF_CIWAP_2021.mfront</a></li>
+<li><a href="https://github.com/thelfer/MFrontGallery/blob/master/materials/Concrete/behaviours/ConcreteBurger_EDF_CIWAP_2021_v2.mfront">ConcreteBurger_EDF_CIWAP_2021_v2.mfront</a></li>
+</ul>
+<blockquote>
+<p><strong>The ACES project and the VERCORS benchmark</strong></p>
+<p>The <code>Burger_EDF_CIWAP_2021</code> is shared on the MFront gallery in the framework of the <a href="http://aces-h2020.eu/domains/aces-h2020.eu/">European project ACES</a> <span class="citation" data-cites="aces linkedin_aces_2021">[<a href="#ref-aces" role="doc-biblioref">1</a>, <a href="#ref-linkedin_aces_2021" role="doc-biblioref">2</a>]</span>, in order to give acces to the <a href="https://www.rilem.net/news/invitation-to-participate-in-edf-vercors-3rd-benchmark-405">VERCORS benchmark 3rd participants</a> <span class="citation" data-cites="charpin_ageing_2021">[<a href="#ref-charpin_ageing_2021" role="doc-biblioref">3</a>]</span>.</p>
+</blockquote>
+<h1 id="description-of-the-behaviour">Description of the behaviour</h1>
+<p>The <code>Burger</code> mechanical model was originally developed for EDF R&amp;D by <span class="citation" data-cites="benboudjema:tel-00006945 benboudjema_interaction_2005 edf_relation_2020">[<a href="#ref-benboudjema:tel-00006945" role="doc-biblioref">4</a>–<a href="#ref-edf_relation_2020" role="doc-biblioref">6</a>]</span>. It was then modified in order to better represent long term basic creep according to <span class="citation" data-cites="doi:10.1080/19648189.2009.9693184">[<a href="#ref-doi:10.1080/19648189.2009.9693184" role="doc-biblioref">7</a>]</span>, and implemented as a <code>code_aster</code> law and then in <code>MFront</code>.</p>
+<p>The version of the law described in the present document and named <code>Burger_EDF_CIWAP_2021</code> is different from the one implemented in <code>code_aster</code>, which is described in <span class="citation" data-cites="edf_relation_2020">[<a href="#ref-edf_relation_2020" role="doc-biblioref">6</a>]</span>, on two points:</p>
+<ul>
+<li>It incorporates drying creep.</li>
+<li>It incorporates a modification of the desiccation creep law proposed by <span class="citation" data-cites="bouch2016">[<a href="#ref-bouch2016" role="doc-biblioref">8</a>]</span>.</li>
+</ul>
+<h2 id="strain-decomposition">Strain decomposition</h2>
+<p>The total strain is the sum of 4 components:</p>
+<p><span id="eq:burger_full:split_strain"><span class="math display">\[
+\underline{\varepsilon}^{\mathrm{to}}= \underline{\varepsilon}^{\mathrm{el}}+ \underline{\varepsilon}^{\text{shr}}  + \underline{\varepsilon}^{\text{bc}} + \underline{\varepsilon}^{\text{dc}}
+\qquad(1)\]</span></span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> is the total strain</li>
+<li><span class="math inline">\(\underline{\varepsilon}^{\text{shr}}\)</span> is the drying shrinkage strain</li>
+<li><span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> is the elastic strain</li>
+<li><span class="math inline">\(\underline{\varepsilon}^{\text{bc}}\)</span> is the basic creep strain</li>
+<li><span class="math inline">\(\underline{\varepsilon}^{\text{dc}}\)</span> is the drying creep strain</li>
+</ul>
+<h2 id="drying-shrinkage">Drying shrinkage</h2>
+<p>The variation of drying shrinkage <span class="math inline">\({\dot{\underline{\varepsilon}}}^{\text{shr}}\)</span> is considered proportional to the variation of relative humidity <span class="math inline">\(\dot{h}\)</span>:</p>
+<p><span id="eq:burger_full:shrinkage"><span class="math display">\[
+\dot{\underline{\varepsilon}}^{\text{shr}} = \dot{\underline{\varepsilon}}^{\text{shr}}\,\underline{I} = k^{\text{shr}}\dot{h}\,\underline{I}
+\qquad(2)\]</span></span></p>
+<h2 id="elastic-and-basic-creep-strain">Elastic and basic creep strain</h2>
+<p>The combination of elastic and basic creep strains is known as a Burger rheological model. Elasticity and basic creep are isotropic and hence, the Burger model is duplicated in deviatoric and spherical chains (“d” relates to deviatoric while “s” relates to spherical).</p>
+<p>For each chain the strain is composed of elastic strain (<span class="math inline">\(\varepsilon_{s}^{\text{el}}\)</span> and <span class="math inline">\(\underline{\varepsilon}_{d}^{\text{el}}\)</span>), reversible basic creep modeled by the Kelvin-Voigt element (<span class="math inline">\(\varepsilon_{s}^{\text{rbc}}\)</span> and <span class="math inline">\(\underline{\varepsilon}_{d}^{\text{rbc}}\)</span>) and irreversible basic creep modeled by the Maxwell element by using a viscosity which is not constant in time and dependent on the current state of strain (<span class="math inline">\(\varepsilon_{s}^{\text{ibc}}\)</span> and <span class="math inline">\(\underline{\varepsilon}_{d}^{\text{ibc}}\)</span>):</p>
+<p><span class="math display">\[
+\underline{\varepsilon}^{\text{bc}}=\underline{\varepsilon}^{\text{rbc}}+\underline{\varepsilon}^{\text{ibc}}=
+\varepsilon_{s}^{\text{rbc}}\,\underline{I}+\underline{\varepsilon}_{d}^{\text{rbc}}+
+\varepsilon_{s}^{\text{ibc}}\,\underline{I}+\underline{\varepsilon}_{d}^{\text{ibc}}
+\]</span></p>
+<p>The equations related to this Burger model are now recalled for the spherical chain (the deviatoric can be obtained by replacing “s” by “d” and using tensors instead of scalars).</p>
+<p>The elastic strain is simply proportional to the stress (here written using the elastic bulk modulus <span class="math inline">\(k^{\text{el}}\)</span> and shear coefficient <span class="math inline">\(\mu^{\text{el}}\)</span> :</p>
+<p><span id="eq:burger_full:elasticity"><span class="math display">\[
+\left\{
+\begin{aligned}
+\varepsilon_{s}^{\text{el}} &amp;= \frac{1}{3\,k^{\text{el}}}\,p\\
+\underline{\varepsilon}_{d}^{\text{el}} &amp;= \frac{1}{2\,\mu^{\text{el}}}\,\underline{\sigma}_{d}
+\end{aligned}
+\right.
+\qquad(3)\]</span></span></p>
+<p>The basic creep strains are assumed proportional to the relative humidity. The reversible basic creep is governed by the equation:</p>
+<p><span id="eq:burger_full:reversible_basic_creep"><span class="math display">\[
+h\,p = k^{\text{rs}}\,\varepsilon_{s}^{\text{rbc}} + \eta^{\text{rs}}\,{\dot{\varepsilon}}_{s}^{\text{rbc}}
+\qquad(4)\]</span></span></p>
+<p>while the irreversible basic creep follows the equation:</p>
+<p><span id="eq:burger_full:irreversible_basic_creep"><span class="math display">\[
+h\,p = \eta^{\text{is}}{\dot{\varepsilon}}_{s}^{\text{ibc}}
+\qquad(5)\]</span></span></p>
+<p>The viscosity of the irreversible contribution is assumed to be dependent on the current state of irreversible strains following the equation:</p>
+<p><span class="math display">\[\eta^{\text{is}} = \eta_{0}^{\text{is}}\exp{\left( \frac{\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|}{\kappa} \right)}\]</span></p>
+<p>where <span class="math inline">\(\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|= \max_{\tau\in[0,t]}\sqrt{\underline{\varepsilon}^{\text{ibc}}{\left(\tau\right)}\,\colon\,\underline{\varepsilon}^{\text{ibc}}{\left(\tau\right)}}\)</span>.</p>
+<p>This feature induces non-linearity in the creep model. The treatment of this non-linearity is one of the most involved aspect of the proposed implementation and will be detailed in Section 2.3.</p>
+<p>The model is also thermo-activated by adding a temperature dependence to the parameters of the previous equations. Parameters <span class="math inline">\(k^{\text{rs}}\)</span>, <span class="math inline">\(k^{\text{rd}}\)</span>, <span class="math inline">\(\eta^{\text{rs}}\)</span>, <span class="math inline">\(\eta^{\text{rd}}\)</span>, <span class="math inline">\(\eta^{\text{is}}\)</span> and <span class="math inline">\(\eta^{\text{id}}\)</span> have the following temperature dependence exemplified on <span class="math inline">\(k^{\text{rs}}\)</span>:</p>
+<p><span id="eq:burger_full:temperature_dependence"><span class="math display">\[
+k^{\text{rs}}{\left( T \right)} = k_{0}^{\text{rs}}\exp{\left( \frac{Q}{R}{\left( \frac{1}{T} - \frac{1}{T_{0}} \right)} \right)}
+\qquad(6)\]</span></span></p>
+<p>Also,</p>
+<p><span id="eq:burger_full:temperature_dependence2"><span class="math display">\[
+\kappa = {{\displaystyle \frac{\displaystyle \kappa_{0}}{\displaystyle \exp{\left( \frac{Q}{R}{\left( \frac{1}{T} - \frac{1}{T_{0}} \right)} \right)}}}}
+\qquad(7)\]</span></span></p>
+<p>where <span class="math inline">\(Q\)</span> is the activation energy for creep.</p>
+<h2 id="drying-creep-strain">Drying creep strain</h2>
+<p>Finally, the desiccation creep is computed according to a modified version of a law called Bažant’s law, relating the excess of strain rate during drying to the rate of change of the water concentration <span class="citation" data-cites="Bazant1985">[<a href="#ref-Bazant1985" role="doc-biblioref">9</a>]</span>. It is supposed in this version of the model that desiccation creep occurs with a zero Poisson’s ratio and that its rate is proportional to the absolute value of the relative humidity rate. Also, following a proposition by Boucher <span class="citation" data-cites="bouch2016 bouhjiti_accounting_2018">[<a href="#ref-bouch2016" role="doc-biblioref">8</a>, <a href="#ref-bouhjiti_accounting_2018" role="doc-biblioref">10</a>]</span> taking inspiration in Benboudjema <span class="citation" data-cites="benboudjema:tel-00006945">[<a href="#ref-benboudjema:tel-00006945" role="doc-biblioref">4</a>]</span> who noted that the behavior is not symmetric between drying and imbibition. Here the imbibition desiccation strain is considered negligible. Also, the desiccation creep occurs only during first drying down to a given relative humidity.</p>
+<p><span id="eq:burger_full:drying_creep"><span class="math display">\[
+\dot{\underline{\varepsilon}}^{\text{dc}} = \frac{1}{\eta_{\text{fd}}}\underline{\sigma}\left\langle \dot{h} \right\rangle
+\qquad(8)\]</span></span></p>
+<p>where:</p>
+<p><span class="math display">\[
+\langle\dot{h}\rangle =
+\left\{
+\begin{aligned}
+\dot{h} &amp;\quad\text{if}\quad \dot{h} &lt; 0 \quad\text{and}\quad h{\left(t\right)} &lt; \min_{\tau\in [0,t]} h{\left(\tau\right)}\\
+0            &amp;\quad\text{otherwise}
+\end{aligned}
+\right.
+\]</span></p>
+<h1 id="sec:burger_full:implicit_algorithm">Description of the implicit algorithm</h1>
+<p>To integrate this behaviour, we use an implicit scheme described in <a href="implicit-dsl.html">this page</a> <span class="citation" data-cites="ceaedf_implicit_2021">[<a href="#ref-ceaedf_implicit_2021" role="doc-biblioref">11</a>]</span>. This scheme turns the constitutive equations, which forms a system of ordinary differential equations, into a system of non linear equations.</p>
+<p>Such scheme is usually more efficient than explicit integration schemes based on (explicit) Runge-Kutta methods and allows deriving the consistent tangent operator which can lead to a quadratic convergence of the equilibrium at the global scale.</p>
+<p>A standard Newton-Raphson algorithm will be used to find the solution of the implici system, which requires to compute the jacobian of the implicit system.</p>
+<h2 id="sec:burger_full:isvs">Choice of the state variables and auxilary state variables</h2>
+<p>The role of the implicit scheme is to determine the following increments:</p>
+<p><span class="math display">\[
+\Delta\,\underline{\varepsilon}^{\mathrm{el}},\,\Delta\,\underline{\varepsilon}^{\text{shr}},\,
+\Delta\,\underline{\varepsilon}^{\text{bc}},\,\Delta\,\underline{\varepsilon}^{\text{dc}},\,\Delta\,\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|
+\]</span></p>
+<p>For convenience, the basic creep contribution <span class="math inline">\(\underline{\varepsilon}^{\text{bc}}\)</span> is explicitly slitted into its reverible <span class="math inline">\(\underline{\varepsilon}^{\text{rbc}}\)</span> and irreversible part <span class="math inline">\(\underline{\varepsilon}^{\text{ibc}}\)</span>. The set of increments to be determined is then:</p>
+<p><span class="math display">\[
+\Delta\,\underline{\varepsilon}^{\mathrm{el}},\,\Delta\,\underline{\varepsilon}^{\text{shr}},
+\,\Delta\,\underline{\varepsilon}^{\text{rbc}},
+\,\Delta\,\underline{\varepsilon}^{\text{ibc}},\,\Delta\,\underline{\varepsilon}^{\text{dc}},\,\Delta\,\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|
+\]</span></p>
+<p>For one of those increments, one can either, as shown below:</p>
+<ol type="1">
+<li>Find an implicit equation associated with this increment. In this case, the associated variable is said to be a <em>state variable</em>.</li>
+<li>Express this increment as a function of the other increments. In this case, the associated variable is said to be an <em>auxiliary state variable</em>. One obvious auxiliary state variable is the shrinkage strain <span class="math inline">\(\underline{\varepsilon}^{\text{shr}}\)</span> which only depends on the variation of the relative humidity. Note that <code>MFront</code> does not automatically defines the increment associated with an auxiliary state variable.</li>
+</ol>
+<p>From an numerical point of view, using an auxiliary state variable rather than a state variable is interesting as it reduces the size of the implicit system to be solved. However, it generally leads to more complex implementations.</p>
+<p>For reasons that will become clearer later when we will examine each contributions, we choose the following set of state variables:</p>
+<p><span class="math display">\[
+\underline{\varepsilon}^{\mathrm{el}}, \underline{\varepsilon}^{\text{ibc}}, \left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|
+\]</span></p>
+<p>and the following set of auxiliary state variables:</p>
+<p><span class="math display">\[
+\underline{\varepsilon}^{\text{shr}}, \underline{\varepsilon}^{\text{rbc}}, \underline{\varepsilon}^{\text{dc}}
+\]</span></p>
+<h3 id="split-of-the-strain-in-spherical-and-deviatoric-parts">Split of the strain in spherical and deviatoric parts</h3>
+<p>In the proposed implementation, each inelastic strain will be split into its spherical and deviatoric part for the sake of clarity. With this choice, the final set of state variables is:</p>
+<p><span class="math display">\[
+\underline{\varepsilon}^{\mathrm{el}}, \varepsilon_{s}^{\text{ibc}},  \underline{\varepsilon}_{d}^{\text{ibc}}, \left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|
+\]</span></p>
+<p>and the following set of auxiliary state variables:</p>
+<p><span class="math display">\[
+\underline{\varepsilon}^{\text{shr}}, \varepsilon_{s}^{\text{rbc}}, \underline{\varepsilon}_{d}^{\text{rbc}}, \underline{\varepsilon}^{\text{dc}}
+\]</span></p>
+<p>Drawbacks of this choice are an increase the size of the implicit system and a higher memory consumption (i.e. the number of values saved from one time step to the other).</p>
+<p>This choice can easily be reverted, leading to a more compact and efficient implementation, while a bit less readable.</p>
+<h3 id="update-of-state-variables-and-auxiliary-state-variables">Update of state variables and auxiliary state variables</h3>
+<p>State variables are automatically updated when the solutions (the increment of the state variables) of the implicit equations are found. Auxiliary state variables are generally updated in a dedicated code block called <code>@UpdateAuxiliaryStateVariables</code>.</p>
+<h3 id="reducing-the-memory-consumption">Reducing the memory consumption</h3>
+<p>For this behaviour, declaring the auxiliary state variables is convenient for post-processing, i.e. the behaviour integration only requires to determine their increments during the time step and does not require to know their values at the beginning of the time step. If such post-processing does not matter, a significant amount of memory can be saved by removing their declaration as auxiliary state variables and their update in the <code>@UpdateAuxiliaryStateVariable</code> code block.</p>
+<h2 id="computation-of-the-stress">Computation of the stress</h2>
+<p>The stress tensor is a function of the increment of the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span>. Its value at the middle of the time step (at <span class="math inline">\(t+\theta\,\Delta\,t\)</span>) is given by:</p>
+<p><span id="eq:burger_full:stress_mts"><span class="math display">\[
+\left\{
+\begin{aligned}
+{\left.p\right|_{t+\theta\,\Delta\,t}} &amp;= {\left(3\,{\left.\lambda^{\text{el}}\right|_{t+\theta\,\Delta\,t}}+2\,{\left.\mu^{\text{el}}\right|_{t+\theta\,\Delta\,t}}\right)}\,{\left.\varepsilon^{\text{el}}_{s}\right|_{t+\theta\,\Delta\,t}} &amp;= 3\,{\left.k^{\text{el}}\right|_{t+\theta\,\Delta\,t}}\,{\left.\varepsilon^{\text{el}}_{s}\right|_{t+\theta\,\Delta\,t}} \\
+{\left.\underline{\sigma}_d\right|_{t+\theta\,\Delta\,t}} &amp;= 2\,{\left.\mu^{\text{el}}\right|_{t+\theta\,\Delta\,t}}\,{\left.\underline{\varepsilon}^{\mathrm{el}}_{d}\right|_{t+\theta\,\Delta\,t}}
+\end{aligned}
+\right.
+\qquad(9)\]</span></span></p>
+<p>The derivatives of the pressure and the deviatoric stress with regard to the elastic strain increment are thus:</p>
+<p><span id="eq:burger_full:stress_derivatives"><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial {\left.p\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} =  3\,\theta\,{\left.k^{\text{el}}\right|_{t+\theta\,\Delta\,t}}\,\underline{I}
+\quad\text{and}\quad
+{\displaystyle \frac{\displaystyle \partial {\left.\underline{\sigma}_d\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} = 2\,\theta\,{\left.\mu^{\text{el}}\right|_{t+\theta\,\Delta\,t}}\,\underline{\underline{\mathbf{K}}}
+\qquad(10)\]</span></span></p>
+<h2 id="sec:burger_full:implicit:basic_creep">Implicit equation associated with basic creep</h2>
+<h3 id="reversible-part-discretization-of-equation-eqburger_fullreversible_basic_creep">Reversible part: discretization of Equation (4)</h3>
+<p>Equation (4) can be discretized as follows:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;&amp;k^{\text{rs}}\,{\left.\varepsilon_{s}^{\text{rbc}}\right|_{t+\theta\,\Delta\,t}} + \eta^{\text{rs}}\,{{\displaystyle \frac{\displaystyle \Delta\,\varepsilon_{s}^{\text{rbc}}}{\displaystyle \Delta\,t}}}&amp;={\left.h\right|_{t+\theta\,\Delta\,t}}\,{\left.p\right|_{t+\theta\,\Delta\,t}}\\
+&amp;\Rightarrow&amp;{\left(\eta^{\text{rs}}+\theta\,\Delta\,t\,k^{\text{rs}}\right)}\,\Delta\,\varepsilon_{s}^{\text{rbc}}&amp;=\Delta\,t\,{\left.h\right|_{t+\theta\,\Delta\,t}}\,{\left.p\right|_{t+\theta\,\Delta\,t}}-\Delta\,t\,k^{\text{rs}}\,{\left.\varepsilon_{s}^{\text{rbc}}\right|_{t}}
+\end{aligned}
+\]</span></p>
+<p>Finally, the expression of the increment of the reversible part of the basic creep is:</p>
+<p><span id="eq:burger_full:delta_e_rbc"><span class="math display">\[
+\Delta\,\varepsilon_{s}^{\text{rbc}} = 
+\Delta\,t\,{{\displaystyle \frac{\displaystyle {\left.h\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \eta^{\text{rs}}+\theta\,\Delta\,t\,k^{\text{rs}}}}}\,{\left.p\right|_{t+\theta\,\Delta\,t}}-
+\Delta\,t\,{{\displaystyle \frac{\displaystyle k^{\text{rs}}}{\displaystyle \eta^{\text{rs}}+\theta\,\Delta\,t\,k^{\text{rs}}}}}\,{\left.\varepsilon_{s}^{\text{rbc}}\right|_{t}}
+\qquad(11)\]</span></span></p>
+<p>This equation shows that <span class="math inline">\(\Delta\,\varepsilon_{s}^{\text{rbc}}\)</span> is a simple linear function of the pressure, i.e. a simple function of the elastic strain increment.</p>
+<p>The derivative of <span class="math inline">\(\Delta\,\varepsilon_{s}^{\text{rbc}}\)</span> with respect to the elastic strain increment is simply:</p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial \Delta\,\varepsilon_{s}^{\text{rbc}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}=
+\Delta\,t\,{{\displaystyle \frac{\displaystyle {\left.h\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \eta^{\text{rs}}+\theta\,\Delta\,t\,k^{\text{rs}}}}}\,{\displaystyle \frac{\displaystyle \partial {\left.p\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+\]</span></p>
+<p>where the derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\left.p\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\)</span> is given by Equation (10).</p>
+<h3 id="irreversible-part-discretization-of-equation-eqburger_fullirreversible_basic_creep">Irreversible part: discretization of Equation (5)</h3>
+<p>Equation (5) can be discretized as follows:</p>
+<p><span class="math display">\[
+\Delta\,\varepsilon_{s}^{\text{ibc}} = \Delta\,t\,{{\displaystyle \frac{\displaystyle {\left.h\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \eta^{\text{is}}{\left({\left.\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|\right|_{t+\theta\,\Delta\,t}}\right)}}}}\,{\left.p\right|_{t+\theta\,\Delta\,t}}
+\]</span></p>
+<p>The implicit equation <span class="math inline">\(f_{\Delta\,\varepsilon_{s}^{\text{ibc}}}\)</span> associated with <span class="math inline">\(\Delta\,\varepsilon_{s}^{\text{ibc}}\)</span> is thus:</p>
+<p><span class="math display">\[
+f_{\Delta\,\varepsilon_{s}^{\text{ibc}}} =
+\Delta\,\varepsilon_{s}^{\text{ibc}}-
+\Delta\,t\,{{\displaystyle \frac{\displaystyle {\left.h\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \eta^{\text{is}}{\left({\left.\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|\right|_{t+\theta\,\Delta\,t}}\right)}}}}\,{\left.p\right|_{t+\theta\,\Delta\,t}}
+\]</span></p>
+<p>The following derivatives will be useful:</p>
+<p><span class="math display">\[
+\left\{
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial f_{\Delta\,\varepsilon_{s}^{\text{ibc}}}}{\displaystyle \partial \Delta\,\varepsilon_{s}^{\text{ibc}}}} &amp;= 1 \\
+{\displaystyle \frac{\displaystyle \partial f_{\Delta\,\varepsilon_{s}^{\text{ibc}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;= 
+- \Delta\,t\,{{\displaystyle \frac{\displaystyle {\left.h\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \eta^{\text{is}}{\left({\left.\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|\right|_{t+\theta\,\Delta\,t}}\right)}}}}\,{\displaystyle \frac{\displaystyle \partial {\left.p\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \underline{\varepsilon}^{\mathrm{el}}}} \\
+{\displaystyle \frac{\displaystyle \partial f_{\Delta\,\varepsilon_{s}^{\text{ibc}}}}{\displaystyle \partial \Delta\,{\left.\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|\right|_{t+\theta\,\Delta\,t}}}} &amp;= 
+\Delta\,t\,{{\displaystyle \frac{\displaystyle {\left.h\right|_{t+\theta\,\Delta\,t}}}{\displaystyle {\left(\eta^{\text{is}}{\left({\left.\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|\right|_{t+\theta\,\Delta\,t}}\right)}\right)}^{2}}}}\,{\left.p\right|_{t+\theta\,\Delta\,t}}\,
+{\displaystyle \frac{\displaystyle \partial \eta^{\text{is}}}{\displaystyle \partial \Delta\,\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|}} \\
+\end{aligned}
+\right.
+\]</span></p>
+<h3 id="implicit-equation-associated-with-the-maximum-value-of-the-norm-of-the-irreversible-part-of-the-basic-creep">Implicit equation associated with the maximum value of the norm of the irreversible part of the basic creep</h3>
+<p>In this document, we choose the following implicit equation to determine <span class="math inline">\(\Delta\,\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|\)</span>:</p>
+<p><span id="eq:burger_full:feibcm"><span class="math display">\[
+f_{\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|}=
+\left\{
+\begin{aligned}
+{\left.\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|\right|_{t}}+\Delta\,\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|- \sqrt{{\left.\underline{\varepsilon}^{\text{ibc}}\right|_{t+\Delta\,t}}\,\colon\,{\left.\underline{\varepsilon}^{\text{ibc}}\right|_{t+\Delta\,t}}} &amp;\quad\text{if}\quad \sqrt{{\left.\underline{\varepsilon}^{\text{ibc}}\right|_{t+\Delta\,t}}\,\colon\,{\left.\underline{\varepsilon}^{\text{ibc}}\right|_{t+\Delta\,t}}}&gt;{\left.\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|\right|_{t}}&amp;\\
+\Delta\,\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|&amp;\quad\text{otherwise}&amp;
+\end{aligned}
+\right.
+\qquad(12)\]</span></span></p>
+<p>The derivatives of this equation are:</p>
+<p><span class="math display">\[
+\left\{
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial f_{\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|}}{\displaystyle \partial \Delta\,\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|}} &amp;= 1\\
+{\displaystyle \frac{\displaystyle \partial f_{\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\text{ibc}}}} &amp;= 
+-{{\displaystyle \frac{\displaystyle \Delta\,\underline{\varepsilon}^{\text{ibc}}}{\displaystyle \sqrt{{\left.\underline{\varepsilon}^{\text{ibc}}\right|_{t+\Delta\,t}}\,\colon\,{\left.\underline{\varepsilon}^{\text{ibc}}\right|_{t+\Delta\,t}}}}}}\quad\text{if}\quad \sqrt{{\left.\underline{\varepsilon}^{\text{ibc}}\right|_{t+\Delta\,t}}\,\colon\,{\left.\underline{\varepsilon}^{\text{ibc}}\right|_{t+\Delta\,t}}}&gt;{\left.\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|\right|_{t}}\\
+\end{aligned}
+\right.
+\]</span></p>
+<h3 id="sec:burger_full:fisherburmeister">An alternative implicit equation to determine the maximum value of the norm of the irreversible part of the basic creep</h3>
+<p>Using Implicit Equation (12) may lead to spurious oscillations of the Newton algorithm, <strong>although this is not observered in the test cases below</strong>.</p>
+<p>This is due to the fact that the derivatives of this equation are not continuous.</p>
+<p>A standard way to overcome this issue is to use a status method which can be implemented in <code>MFront</code> <span class="citation" data-cites="ceaedf_implementation_drucker_prager_cap_2021">[<a href="#ref-ceaedf_implementation_drucker_prager_cap_2021" role="doc-biblioref">12</a>]</span>.</p>
+<p>In this paragraph, we introduce an alternative treatment of this equation based on the regularised Fisher-Burmeister complementary function <span class="math inline">\(\Phi_{\varepsilon_{\text{FB}}}\)</span>, introduced in <span class="citation" data-cites="liao-mcpherson_regularized_2019">[<a href="#ref-liao-mcpherson_regularized_2019" role="doc-biblioref">13</a>]</span> and whose application to plasticity is described on a <a href="FisherBurmeister.html">dedicated web page</a> <span class="citation" data-cites="ceaedf_fisher-burmeister_2021">[<a href="#ref-ceaedf_fisher-burmeister_2021" role="doc-biblioref">14</a>]</span>:</p>
+<p><span class="math display">\[
+\Phi_{\varepsilon}{\left(x,y\right)}=x+y-\sqrt{x^{2}+y^{2}+\varepsilon_{\text{FB}}^{2}}
+\]</span></p>
+<p>where <span class="math inline">\(\varepsilon_{\text{FB}}\)</span> denotes a small numerical parameter.</p>
+<p><span class="math inline">\(\Phi_{\varepsilon}{\left(x,y\right)}\)</span> has the following property:</p>
+<p><span id="eq:burger_full:FBe"><span class="math display">\[
+\Phi_{\varepsilon}{\left(x,y\right)}=0
+\quad\Leftrightarrow\quad
+\left\{
+\begin{aligned}
+x&amp;\geq 0\\
+y&amp;\geq 0\\
+2\,x\,y&amp;=\varepsilon^{2}
+\end{aligned}
+\right.
+\qquad(13)\]</span></span></p>
+<p>Based on Property (13), the Implicit Equation (12) can be replaced by the following equation:</p>
+<p><span id="eq:burger_full:feibcm2"><span class="math display">\[
+f_{\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|}=\Phi_{\varepsilon_{\text{FB}}}{\left(\Delta\,\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|, {\left.\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|\right|_{t}}+\Delta\,\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|- \sqrt{{\left.\underline{\varepsilon}^{\text{ibc}}\right|_{t+\Delta\,t}}\,\colon\,{\left.\underline{\varepsilon}^{\text{ibc}}\right|_{t+\Delta\,t}}}\right)}
+\qquad(14)\]</span></span></p>
+<p>Implicit Equation (14) has continuous derivatives.</p>
+<p><span class="math inline">\(\Phi_{\varepsilon}\)</span> and its derivatives are implemented in the <code>TFEL/Math</code> library in <a href="">Version 3.2</a> but their usage requires to include the <a href="https://github.com/thelfer/tfel/blob/master/include/TFEL/Math/FischerBurmeister.hxx"><code>TFEL/Math/FischerBurmeister.hxx</code></a> header:</p>
+<ul>
+<li>The <code>regularisedFischerBurmeisterFunction</code> function implements the computation of <span class="math inline">\(\Phi_{\varepsilon}\)</span>.</li>
+<li>The <code>regularisedFischerBurmeisterFunctionFirstDerivatives</code> function implements the computation of the derivatives of <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \Phi_{\varepsilon}}{\displaystyle \partial x}}\)</span> and <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \Phi_{\varepsilon}}{\displaystyle \partial y}}\)</span>.</li>
+</ul>
+<h2 id="implicit-equation-associated-with-the-evolution-of-the-drying-creep-strain">Implicit equation associated with the evolution of the drying creep strain</h2>
+<p>Equation (8) can be discretized as follows:</p>
+<p><span class="math display">\[
+\Delta\,\underline{\varepsilon}^{\text{dc}} = \frac{\Delta\,t}{\eta_{\text{fd}}}\left\langle \dot{h} \right\rangle\,{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}
+\]</span></p>
+<p><span class="math inline">\(\Delta\,\underline{\varepsilon}^{\text{dc}}\)</span> is thus a simple function of the elastic strain increment <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span>.</p>
+<p>Its derivative with respect to the elastic strain increment is:</p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\text{dc}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+=\frac{\Delta\,t}{\eta_{\text{fd}}}\left\langle \dot{h} \right\rangle\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+=\frac{\Delta\,t}{\eta_{\text{fd}}}\left\langle \dot{h} \right\rangle\,
+{\left(\underline{I}\,\otimes\,{\displaystyle \frac{\displaystyle \partial {\left.p\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}+
+       {\displaystyle \frac{\displaystyle \partial {\left.\underline{\sigma}_{d}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\right)}
+\]</span></p>
+<h2 id="implicit-equation-associated-with-the-elastic-strain">Implicit equation associated with the elastic strain</h2>
+<p>The implicit equation <span class="math inline">\(f_{\underline{\varepsilon}^{\mathrm{el}}}\)</span> associated with the elastic strain increment is given by the split of the strain (1) written in incremental form:</p>
+<p><span id="eq:burger_full:feel"><span class="math display">\[
+f_{\underline{\varepsilon}^{\mathrm{el}}}=\Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}
++\Delta\,\underline{\varepsilon}^{\text{shr}}
++\Delta\,\underline{\varepsilon}^{\text{bc}}
++\Delta\,\underline{\varepsilon}^{\text{dc}}
+\qquad(15)\]</span></span></p>
+<h1 id="description-of-the-mfront-implementations">Description of the <code>MFront</code> implementations</h1>
+<!--
+|                      |                      | $\left\              |
+|                      |                      | | \tepsilon_{m}^{\   |
+|                      |                      | text{ibc}} \right\|$ |
+-->
+<h2 id="choice-of-the-domain-specific-language-and-the-standardelasticity-brick">Choice of the domain specific language and the <code>StandardElasticity</code> brick</h2>
+<p>The domain specific language (DSL) suitable for implementing an implicit scheme based on standard strain-based beahviour is called <a href="implicit-dsl.html"><code>Implicit</code></a> <span class="citation" data-cites="ceaedf_implicit_2021">[<a href="#ref-ceaedf_implicit_2021" role="doc-biblioref">11</a>]</span>. The <code>@DSL</code> keyword allows specifying the domain specific language to be used:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span></code></pre></div>
+<p>The <a href="BehaviourBricks.html">standard elasticity brick</a> <span class="citation" data-cites="ceaedf_behaviour_bricks_2020">[<a href="#ref-ceaedf_behaviour_bricks_2020" role="doc-biblioref">15</a>]</span> is appropriate for this behaviour which provides additional functionnalities such as:</p>
+<ul>
+<li>Automatic computation of the stress tensor at various stages of the behaviour integration.</li>
+<li>Automatic computation of the consistent tangent operator.</li>
+<li>Automatic support for plane stress and generalized plane stress modelling hypotheses (The axial strain is defined as an additional state variable and the associated equation in the implicit system is added to enforce the plane stess condition).</li>
+<li>Automatic addition of the standard terms associated with the elastic strain state variable.</li>
+</ul>
+<p>The usage of the <code>StandardElasticity</code> is introduced as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity;</span></code></pre></div>
+<blockquote>
+<p><strong>Automic declaration of the elastic strain</strong></p>
+<p>The <code>Implicit</code> DSL automatically defines the elastic strain as the first state variable.</p>
+</blockquote>
+<figure>
+<img src="img/ImplicitDSL.svg" id="fig:burger_full:implicit_dsl" style="width:75.0%" alt="Figure 1: Description of the steps of the implicit scheme and the associated code blocks." /><figcaption aria-hidden="true">Figure 1: Description of the steps of the implicit scheme and the associated code blocks.</figcaption>
+</figure>
+<p>The main steps of the behaviour integration used by the <code>Implicit</code> DSL are reported on Figure 1:</p>
+<ul>
+<li>the <code>@InitLocalVariables</code> code block is called once before the beginning of the Newton-Raphson algorithm.</li>
+<li>The Newton-Raphson algorithm is based on three main steps:
+<ul>
+<li><code>@ComputeStress</code> which is meant to update the estimate of the stress at the middle of the time step <span class="math inline">\({\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\)</span>. This code block is automatically added by the <code>StandardElasticity</code> brick.</li>
+<li><code>@Integrator</code> is meant to built the implicit equations and its derivatives.</li>
+<li><code>@AdditionalConvergenceChecks</code> is meant to add additional convergence checks. This code block is not considered in this document.</li>
+</ul></li>
+<li>After the convergence of the Newton-Raphson algorithm, the state variables are updated and the following code blocks are called:
+<ul>
+<li><code>ComputeFinalStress</code> which computes the stress at the end of the time step. This code block is automatically added by the <code>StandardElasticity</code> brick.</li>
+<li><code>@UpdateAuxiliaryStateVariables</code> which is meant to update the auxiliary state variables.</li>
+<li><code>@TangentOperator</code> which is meant to compute the tangent operators. This code block is automatically added by the <code>StandardElasticity</code> brick.</li>
+</ul></li>
+</ul>
+<h2 id="name-of-the-behaviour">Name of the behaviour</h2>
+<p>The <code>@Behaviour</code> keyword is required to name the behaviour, as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour Burger_EDF_CIWAP_2021;</span></code></pre></div>
+<h2 id="material">Material</h2>
+<p>The <code>@Material</code> keyword allows to associate the behaviour to material:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Material Concrete;</span></code></pre></div>
+<h2 id="metadata">Metadata</h2>
+<p>The <code>@Author</code> keyword gives the name of the person who implemented the behaviour:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author François Hamon (EDF R&amp;D ERMES - T65),</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        Jean - Luc Adia (EDF R&amp;D MMC - T25),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        Thomas Helfer (CEA IRESNE/DES/DEC/SESC);</span></code></pre></div>
+<p>The <code>@Description</code> keyword allows to introduce a small description of the implementation:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">`</span>Burger_EDF_CIWAP_2021<span class="er">`</span> model <span class="cf">for</span> concrete creep;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Compater to <span class="er">`</span>code_aster<span class="er">`</span><span class="ch">&#39; </span><span class="er">`BETON_BURGER` constitutive equations, this behaviour</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>takes into account two points: </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>-adding of shrinkage depending to relative humidity;</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>-drying creep depending to the positive part of derivative of relative humidity;</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 id="choice-of-the-algorithm-and-numerical-parameters">Choice of the algorithm and numerical parameters</h2>
+<p>For this implementation, we will use the standard Newton-Raphson:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson;</span></code></pre></div>
+<p>The <code>@Epsilon</code> keyword allows to specify the default value of the stopping criteria:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1e-14</span>;</span></code></pre></div>
+<p>This default value can be changed at runtime using the <code>epsilon</code> parameter.</p>
+<p>The <code>@Theta</code> keyword allows the specify the default value of the <span class="math inline">\(\theta\)</span> parameter of the implicit scheme:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span>;</span></code></pre></div>
+<p>This default value can be changed at runtime using the <code>theta</code> parameter.</p>
+<h2 id="external-headers">External headers</h2>
+<p>If we want to use the alternative implicit equation for <span class="math inline">\(\Delta\,\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|\)</span>, discussed in Section 2.3.4, we need to include the following header file using the <code>@Includes</code> keyword:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes{</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Math/FischerBurmeister.hxx&quot;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 id="variables-declarations">Variables declarations</h2>
+<h3 id="material-properties">Material properties</h3>
+<p>Material properties are a classical way to create behaviours that can be used to describe a wide range of materials. Material properties are provided by the calling solver and are generally read in the input file.</p>
+<div id="tbl:burger_full:mps">
+<table>
+<caption>Table 1: Name of the material properties and descriptions</caption>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><code>MFront</code> variable</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>young</code></td>
+<td style="text-align: left;">Young modulus <span class="math inline">\(E^{\text{el}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>nu</code></td>
+<td style="text-align: left;">Poisson ratio <span class="math inline">\(\nu^{\text{el}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>K_SH</code></td>
+<td style="text-align: left;">Shrinkage coefficient <span class="math inline">\(k^{\text{shr}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>K_RS</code></td>
+<td style="text-align: left;">Spherical reversible basic creep stiffness <span class="math inline">\(k_{0}^{\text{rs}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>ETA_RS</code></td>
+<td style="text-align: left;">Spherical reversible basic creep viscosity <span class="math inline">\(\eta_{0}^{\text{rs}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>KAPPA</code></td>
+<td style="text-align: left;">Reference strain for evolution of irreversible creep viscosity <span class="math inline">\(\kappa_{0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>ETA_IS</code></td>
+<td style="text-align: left;">Spherical irreversible creep viscosity <span class="math inline">\(\eta_{0}^{\text{is}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>K_RD</code></td>
+<td style="text-align: left;">Deviatoric reversible basic creep stiffness <span class="math inline">\(k_{0}^{\text{rd}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>ETA_RD</code></td>
+<td style="text-align: left;">Deviatoric reversible basic creep viscosity <span class="math inline">\(\eta_{0}^{\text{rd}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>ETA_ID</code></td>
+<td style="text-align: left;">Deviatoric irreversible creep viscosity <span class="math inline">\(\eta_{0}^{\text{id}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>QSR_K</code></td>
+<td style="text-align: left;">Activation energy <span class="math inline">\(\frac{Q}{R}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>TEMP_0_C</code></td>
+<td style="text-align: left;">Reference temperature <span class="math inline">\(T_{0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>ETA_FD</code></td>
+<td style="text-align: left;">Drying creep coefficient <span class="math inline">\(\eta_{\text{fd}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The material properties required by the <code>Burger_EDF_CIWAP_2021</code> behaviour are listed in Table 1.</p>
+<p>Material properties are declared using the <code>@MaterialProperty</code> keyword, as follows:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! Elastic Young Modulus</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress young;</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>young.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">//! Elastic Poisson Ratio</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real nu;</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>nu.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">//! Shrinkage coefficient</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real K_SH;</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>K_SH.setEntryName(<span class="st">&quot;ShrinkageFactor&quot;</span>);</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">//! Spherical reversible basic creep stiffness</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real K_RS;</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>K_RS.setEntryName(<span class="st">&quot;SphericReversibleStiffness&quot;</span>);</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">//! Spherical reversible basic creep viscosity</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real ETA_RS;</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>ETA_RS.setEntryName(<span class="st">&quot;SphericReversibleViscosity&quot;</span>);</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">//! Reference strain for evolution of irreversible creep viscosity</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real KAPPA;</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>KAPPA.setEntryName(<span class="st">&quot;IrreversibleCreepViscosityReferenceStrain&quot;</span>);</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co">//! Spherical irreversible creep viscosity</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real ETA_IS;</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>ETA_IS.setEntryName(<span class="st">&quot;SphericIrreversibleCreepViscosity&quot;</span>);</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co">//! Deviatoric reversible basic creep stiffness</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real K_RD;</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>K_RD.setEntryName(<span class="st">&quot;DeviatoricReversibleStiffness&quot;</span>);</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="co">//! Deviatoric reversible basic creep viscosity</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real ETA_RD;</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>ETA_RD.setEntryName(<span class="st">&quot;DeviatoricReversibleViscosity&quot;</span>);</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="co">//! Deviatoric irreversible creep viscosity</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real ETA_ID;</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>ETA_ID.setEntryName(<span class="st">&quot;DeviatoricIrreversibleViscosity&quot;</span>);</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="co">//! Activation energy of basic creep parameter</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real QSR_K;</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>QSR_K.setEntryName(<span class="st">&quot;ActivationEnergy&quot;</span>);</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="co">//! Reference temperature for temperature activation of basic creep</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real TEMP_0_C;</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>TEMP_0_C.setEntryName(<span class="st">&quot;ReferenceTemperature&quot;</span>);</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="co">//! Drying creep viscosity</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real ETA_FD;</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>ETA_FD.setEntryName(<span class="st">&quot;DryingCreepVicosity&quot;</span>);</span></code></pre></div>
+<p>Note that we associated to each material property an external name (either a glossary name or a so-called entry name) using the <code>setGlossaryName</code> or <code>setEntryName</code> methods. The external name is the name of this variable as seen by the calling solver and its user when this solver supports deep integration of <code>MFront</code> behaviours.</p>
+<p>Glossary names are a restricted list of names described on a <a href="glossary.html">dedicated page</a> <span class="citation" data-cites="ceaedf_glossary_2020">[<a href="#ref-ceaedf_glossary_2020" role="doc-biblioref">16</a>]</span>. The <code>setGlossaryName</code> fails if the given name is not in this list, avoiding typing errors.</p>
+<blockquote>
+<p><strong>Material properties vs parameters</strong></p>
+<p>In most MFront tutorials, we usually prefer to use parameters, which are declared using the <code>@Parameter</code> keyword.</p>
+<p>Contrary to material properties, parameters have default values. Parameters are thus useful to build behaviours specific to one particular material. Such behaviours are self-contained, which considerably eases building a strict material knowledge management policy.</p>
+<p>Parameters are also stored in a global structure. This means that parameters are uniform. In some codes, material properties may be defined on a per integration point basis.</p>
+</blockquote>
+<h3 id="state-variables">State variables</h3>
+<div id="tbl:burger_full:isps">
+<table>
+<caption>Table 2: Name of the state variables and descriptions</caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><code>MFront</code> variable</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>ELIM</code></td>
+<td style="text-align: left;">Limit strain for the irreversible creep model</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>ESPHI</code></td>
+<td style="text-align: left;">Spherical irreversible basic reep strain <span class="math inline">\(\varepsilon_{s}^{\text{ibc}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>EDEVI</code></td>
+<td style="text-align: left;">Deviatoric irreversible basic creep strain <span class="math inline">\(\varepsilon_{d}^{\text{ibc}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Following Section 2.1, the state variables required by the <code>Burger_EDF_CIWAP_2021</code> behaviour are listed in Table 2.</p>
+<p>The state variables are introduced by the <code>@StateVariable</code> as follows:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable strain ELIM;</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ELIM.setEntryName(<span class="st">&quot;MaximumValueOfTheIrreversibleStrain&quot;</span>);</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">//! Spherical irreversible basic creep strain</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable strain ESPHI;</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>ESPHI.setEntryName(<span class="st">&quot;SphericIrreversibleStrain&quot;</span>);</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">//! Deviatoric irreversible basic creep strain</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable StrainStensor EDEVI;</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>EDEVI.setEntryName(<span class="st">&quot;DeviatoricIrreversibleStrain&quot;</span>);</span></code></pre></div>
+<h3 id="auxiliary-state-variables">Auxiliary state variables</h3>
+<div id="tbl:burger_full:aisps">
+<table>
+<caption>Table 3: Name of the auxiliary state variables and descriptions</caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><code>MFront</code> variable</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>ESH</code></td>
+<td style="text-align: left;">Shrinkage strain <span class="math inline">\(\varepsilon^{\text{shr}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>ESPHR</code></td>
+<td style="text-align: left;">Spherical reversible basic creep strain <span class="math inline">\(\varepsilon_{s}^{\text{rbc}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>EDEVR</code></td>
+<td style="text-align: left;">Deviatoric reversible basic creep strain <span class="math inline">\(\varepsilon_{d}^{\text{rbc}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>Edess</code></td>
+<td style="text-align: left;">Drying creep strain <span class="math inline">\(\varepsilon^{\text{dc}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>rHmin</code></td>
+<td style="text-align: left;">Historical min value of relative humidity</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>EF</code></td>
+<td style="text-align: left;">Basic creep strain tensor</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Following Section 2.1, the auxiliary state variables required by the <code>Burger_EDF_CIWAP_2021</code> behaviour are listed in Table 3.</p>
+<p>The auxiliary state variables are introduced by the <code>@AuxiliaryStateVariable</code> as follows:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! Spherical Reversible basic creep strain</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable strain ESPHR;</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>ESPHR.setEntryName(<span class="st">&quot;SphericReversibleStrain&quot;</span>);</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">//! Deviatoric Reversible basic creep strain</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable StrainStensor EDEVR;</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>EDEVR.setEntryName(<span class="st">&quot;DeviatoricReversibleStrain&quot;</span>);</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">//! Shrinkage strain</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable strain ESH;</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>ESH.setEntryName(<span class="st">&quot;ShrinkageStrain&quot;</span>);</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">//! Drying creep strain</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable StrainStensor Edess;</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>Edess.setEntryName(<span class="st">&quot;DryingCreepStrain&quot;</span>);</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">/*!</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"> * Shifted value of the historical minimale of relative humidity </span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co"> * This value has been shifted (value + 1) so the implicit initialization</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"> * to zero of this variable in most finite element solvers is meaningfull.</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co"> * So for initialization at value different to 1, please don&#39;t forget to</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co"> * take into account this shift.</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable strain rHmin;</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>rHmin.setEntryName(<span class="st">&quot;ShiftedHistoricalMinimumRelativeHumidity&quot;</span>);</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="co">//! Basic creep strain tensor</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable StrainStensor EF;</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>EF.setEntryName(<span class="st">&quot;BasicCreepStrain&quot;</span>);</span></code></pre></div>
+<h3 id="external-state-variables">External state variables</h3>
+<div id="tbl:beton_burger:external_state_variables">
+<table>
+<caption>Table 4: Name of the external state variables and descriptions</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><code>MFront</code> variable</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>T</code></td>
+<td style="text-align: left;">Temperature</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>rH</code></td>
+<td style="text-align: left;">Relative humidity</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The external state variables required by the behaviour are listed on Table 4.</p>
+<p>The temperature is automatically defined by <code>MFront</code>, hence only the relative humidity must be declared:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable real rH;</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>rH.setEntryName(<span class="st">&quot;RelativeHumidity&quot;</span>);</span></code></pre></div>
+<blockquote>
+<p><strong>Note for <code>code_aster</code> users</strong></p>
+</blockquote>
+<blockquote>
+<p>Due to the specific way used by <code>code_aster</code> to handle external state variables, the external name of the relative humidity must be changed to <code>SECH</code> as follows:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>rH.setEntryName(<span class="st">&quot;SECH&quot;</span>);</span></code></pre></div>
+</blockquote>
+<h3 id="local-variables">Local variables</h3>
+<p>Local variables are a powerfull feature of <code>MFront</code> which allows to define variables which will be accessible in each code blocks.</p>
+<p>In this implementation, we will need local variables for two distinct purposes:</p>
+<ol type="1">
+<li>Precompute some quantities before the resolution of the implicit system.</li>
+<li>Save the increment of auxiliary state variables for their update after the resolution of the implicit system.</li>
+</ol>
+<h4 id="local-variables-to-optimize-computation-times">Local variables to optimize computation times</h4>
+<p>A few variables can be computed before the resolution of the implicit system in the <code>@InitLocalVariables</code> code block. The most important ones are coefficients of creep mechanisms whose computations involves exponentials of the temperature following the Arrhenius law (see Equations (6) and (7)).</p>
+<p>Those local variables are declared as follows:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! first Lamé coeffient</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real lambda;</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">//! second Lamé coeffient</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real mu;</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">//! variable to compute effect of relative on drying creep</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real VrH;</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">//! inverse of drying strain viscosity</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real inv_ETA_FD;</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">/* variables for impact of temperature on basic creep */</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real KRS_T;</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real KRD_T;</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real NRS_T;</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real NRD_T;</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real NIS_T;</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real NID_T;</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real KAPPA_T;</span></code></pre></div>
+<h4 id="local-variables-saving-the-increments-of-the-auxiliary-state-variables">Local variables saving the increments of the auxiliary state variables</h4>
+<p>As discussed in Section 2, the increment of auxiliary state variables can be expressed as a function of the increments of the state variables. Those increments must be evaluated during the evaluation of the implicit system in the <code>@Integrator</code> code block for each new estimates of the increments of the state variables.</p>
+<p>Using local variables allows to save the last estimates of the increment of the auxiliary state variables to update those variables in the <code>@UpdateAuxiliaryStateVariables</code> code blocks.</p>
+<p>Those local variables are declared as follows:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! increment of spherical reversible strain</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable strain dESPHR;</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">//! increment of deviatoric reversible strain</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable StrainStensor dEDEVR;</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">//! increment of shrinkage strain</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable strain dESH;</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">//! increment of drying creep strain</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable StrainStensor dEdess;</span></code></pre></div>
+<h2 id="initialisation-of-the-local-variables">Initialisation of the local variables</h2>
+<p>The <code>@InitLocalVariables</code> code block is now described.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables {</span></code></pre></div>
+<p>First we explicitly compute the Lamé coefficients using the built-in <code>computeLambda</code> and <code>computeMu</code> functions:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>  lambda = computeLambda(young, nu);</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  mu = computeMu(young, nu);</span></code></pre></div>
+<p>Then, we compute the effective creep properties for the temperature at the middle of the time step:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Tm = T + dT / <span class="dv">2</span>;</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> iT = <span class="dv">1</span> / (<span class="dv">273</span> + Tm) - <span class="dv">1</span> / (<span class="dv">273</span> + TEMP_0_C);</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> e = exp(QSR_K * iT);</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  KRS_T = K_RS * e;</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  KRD_T = K_RD * e;</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  NRS_T = ETA_RS * e;</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  NRD_T = ETA_RD * e;</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  NIS_T = ETA_IS * e;</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  NID_T = ETA_ID * e;</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  KAPPA_T = KAPPA / e;</span></code></pre></div>
+<p>Then we compute the value of the shrinkage strain increment <span class="math inline">\(\Delta\,\epsilon^{\text{shr}}\)</span>:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>  dESH = K_SH * drH;</span></code></pre></div>
+<p>Finally, we compute the quantities relative the the drying strain:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> ((drH &lt;= <span class="dv">0</span>) &amp;&amp; (rH &lt;= rHmin + <span class="dv">1</span>)) {</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    VrH = fabs(drH);</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    rHmin = rH - <span class="dv">1</span>;</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    VrH = <span class="dv">0</span>;</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (ETA_FD &gt; real(<span class="dv">0</span>)) {</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    inv_ETA_FD = <span class="dv">1</span> / ETA_FD;</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    inv_ETA_FD = real(<span class="dv">0</span>);</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Note that this implementation uses a little trick to activate the drying strain base on the value of <span class="math inline">\(\eta_{\text{fd}}\)</span>. In the latter is negative or null, drying creep is desactivated.</p>
+<h2 id="implicit-system">Implicit system</h2>
+<p>The <code>@Integrator</code> code block defines the values of residuals and their derivatives with respect to the state variables.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span></code></pre></div>
+<p>We start this implementation by defining the current estimates of the pressure and deviatoric stress at the middle of the time steps and their derivatives with respect to the elastic strain increment:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> eeps = strain(<span class="fl">1e-14</span>);</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> id = Stensor::Id();</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> pr = trace(sig) / <span class="dv">3</span>;</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> s = deviator(sig);</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dpr_ddeel = (lambda + <span class="dv">2</span> * mu / <span class="dv">3</span>) * theta * id;</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ds_ddeel = <span class="dv">2</span> * mu * theta * Stensor4::K();</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dsig_ddeel = ds_ddeel + (dpr_ddeel ^ id);</span></code></pre></div>
+<p>The following line computes the relative humidity at the middle of the time step:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> rH_mts = rH + theta * drH;</span></code></pre></div>
+<p>The computation of the increment of the spherical and deviatoric parts of the basic creep given by Equation (11) is implemented as follows:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> a_rs = theta * KRS_T * dt / NRS_T;</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  dESPHR = (rH_mts * pr - KRS_T * ESPHR) * dt / (NRS_T * (<span class="dv">1</span> + a_rs));</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ddESPHR_dpr = rH_mts * dt / (NRS_T * (<span class="dv">1</span> + a_rs));</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> a_rd = theta * KRD_T * dt / NRD_T;</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  dEDEVR = (rH_mts * s - KRD_T * EDEVR) * dt / (NRD_T * (<span class="dv">1</span> + a_rd));</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ddEDEVR_dds = rH_mts * dt / (NRD_T * (<span class="dv">1</span> + a_rd));</span></code></pre></div>
+<p>The implementation of Implicit Equation (12) is straightforward:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> e = (ESPHI + dESPHI) * id + EDEVI + dEDEVI;</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ne = sqrt(e | e);</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (ne &gt; ELIM) {</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    fELIM += ELIM - ne;</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> ine = <span class="dv">1</span> / max(ne, strain(<span class="fl">1.e-14</span>));</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    dfELIM_ddESPHI = -trace(e) * ine;</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    dfELIM_ddEDEVI = -e * ine;</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<blockquote>
+<p><strong>Implementation of Implicit Equation (14)</strong></p>
+<p>As discussed in Section 2.3.4, an alternative implementation based on the Fisher-Burmeister complementary function may is possible. This implementation is as follows:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> e = (ESPHI + dESPHI) * id + EDEVI + dEDEVI;</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ne = sqrt(e | e);</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ine = <span class="dv">1</span> / max(ne, eeps);</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dne_ddESPHI = trace(e) * ine;</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dne_ddEDEVI = e * ine;</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> myield_ELIM = ELIM + dELIM - ne;</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  fELIM = regularisedFischerBurmeisterFunction(dELIM, myield_ELIM, eeps);</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> [dfELIM_dx, dfELIM_dy] =</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>      regularisedFischerBurmeisterFunctionFirstDerivatives(dELIM, myield_ELIM,</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>                                                           eeps);</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  dfELIM_ddELIM = dfELIM_dx + dfELIM_dy;</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  dfELIM_ddESPHI = -dfELIM_dy * dne_ddESPHI;</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  dfELIM_ddEDEVI = -dfELIM_dy * dne_ddEDEVI;</span></code></pre></div>
+</blockquote>
+<p>We know implement the implicit equations associated with the spherical and deviatoric parts of the irreversible part of the basic creep:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>  elim = (ELIM + theta * dELIM) / KAPPA_T;</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> delim_ddELIM = theta / KAPPA_T;</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (abs(elim) &gt; <span class="dv">200</span>) {</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    elim = (elim / abs(elim)) * <span class="dv">200</span>;</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    delim_ddELIM = <span class="dv">0</span>;</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> eexp = exp(-elim);</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> deexp_ddELIM = -eexp * delim_ddELIM;</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  fESPHI -= (rH_mts * eexp * dt / NIS_T) * pr;</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  dfESPHI_ddeel = -(rH_mts * eexp * dt / NIS_T) * dpr_ddeel;</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  dfESPHI_ddELIM = -(rH_mts * deexp_ddELIM * dt / NIS_T) * pr;</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  fEDEVI -= (rH_mts * eexp * dt / NID_T) * s;</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  dfEDEVI_ddeel = -(rH_mts * eexp * dt / NID_T) * ds_ddeel;</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  dfEDEVI_ddELIM = -(rH_mts * deexp_ddELIM * dt / NID_T) * s;</span></code></pre></div>
+<p>The computation of the increment of the drying creep strain and its derivative with respect to the elastic strain increment is straightforward:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>  dEdess = inv_ETA_FD * VrH * sig;</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dEdess_ddeel = inv_ETA_FD * VrH * dsig_ddeel;</span></code></pre></div>
+<p>Finally, the residual <span class="math inline">\(f_{\underline{\varepsilon}^{\mathrm{el}}}\)</span> associated with the elastic strain is given by Equation (15) which can be implemented in a straightforward manner:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>  feel += dEDEVR + dEDEVI + dEdess + (dESPHR + dESPHI + dESH) * id;</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  dfeel_ddeel += ddEDEVR_dds * ds_ddeel + dEdess_ddeel +  <span class="co">//</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                 (id ^ (ddESPHR_dpr * dpr_ddeel));</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  dfeel_ddEDEVI = Stensor4::Id();</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  dfeel_ddESPHI = id;</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 id="update-of-the-auxiliary-state-variables">Update of the auxiliary state variables</h2>
+<p>Following Section 2.1, the <code>@UpdateAuxiliaryStateVariables</code> code block is used to update the auxiliary state variables:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UpdateAuxiliaryStateVariables {</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  ESH += dESH;</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  Edess += dEdess;</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  ESPHR += dESPHR;</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  EDEVR += dEDEVR;</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">//</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> id = Stensor::Id();</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  EF += dEDEVR + dEDEVI + (dESPHR + dESPHI) * id;</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<!--
+
+## Compatibility with `code_aster`
+
+In this section, we specifically dicu
+
++---------------------------+--------------+
+| Modelling hypotheses      | `3D`         |
+|                           | `AXIS`       |
+|                           | `D_PLAN`     |
++---------------------------+--------------+
+| Déformations              | `PETIT`      |
+| (specific for             | `PETIT_REAC` |
+|  `code_aster`)            | `GDEF_LOG`   |
++---------------------------+--------------+
+
+-->
+<h1 id="test-cases">Test cases</h1>
+<h2 id="mtest-non-regression-test-cases"><code>MTest</code> non regression test cases</h2>
+<p><code>5</code> <code>MTest</code>’ unit tests associated with the <code>Burger_EDF_CIWAP_2021</code> behaviour have been introduced in the <code>MFrontGallery</code> project. Thoses tests are automatically executed when <code>MFront</code> evolves as part of the its continuous integration strategy.</p>
+<p>This ensures that the implementations of the <code>Burger_EDF_CIWAP_2021</code> behaviour compiles despite <code>MFront</code>’ evolutions and that the <code>MTest</code>’ tests gives the same results.</p>
+<p>It is also worth mentionning that each test is executed <span class="math inline">\(5\)</span> times which differents roundings modes (including a so-called random rounding mode where the rounding mode is changed a various predefined steps by <code>MTest</code>), providing a basic and naive check of the numerical stability of the results.</p>
+<p>In the following test cases, the material properties given in the table below are used.</p>
+<table>
+<caption>Values of the material properties used for the unit tests.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Material Properties</th>
+<th style="text-align: left;">Values</th>
+<th style="text-align: left;">Units</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Young Modulus <span class="math inline">\(E^{\text{el}}\)</span></td>
+<td style="text-align: left;">24.2e9</td>
+<td style="text-align: left;">Pa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Poisson ratio <span class="math inline">\(\nu^{\text{el}}\)</span></td>
+<td style="text-align: left;">0.2</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Shrinkage coefficient <span class="math inline">\(k^{\text{shr}}\)</span></td>
+<td style="text-align: left;">0.00951974 (and 0 for cases 4 and 5)</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Spherical reversible basic creep stiffness <span class="math inline">\(k_{0}^{\text{rs}}\)</span></td>
+<td style="text-align: left;">3.9e10</td>
+<td style="text-align: left;">Pa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Spherical reversible basic creep viscosity <span class="math inline">\(\eta_{0}^{\text{rs}}\)</span></td>
+<td style="text-align: left;">4.6e17</td>
+<td style="text-align: left;">Pa.s</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reference strain for evolution of irreversible creep viscosity <span class="math inline">\(\kappa_{0}\)</span></td>
+<td style="text-align: left;">1.20e-4</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Spherical irreversible creep viscosity <span class="math inline">\(\eta_{0}^{\text{is}}\)</span></td>
+<td style="text-align: left;">2.6e18</td>
+<td style="text-align: left;">Pa.s</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Deviatoric reversible basic creep stiffness <span class="math inline">\(k_{0}^{\text{rd}}\)</span></td>
+<td style="text-align: left;">1.95e10</td>
+<td style="text-align: left;">Pa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Deviatoric reversible basic creep viscosity <span class="math inline">\(\eta_{0}^{\text{rd}}\)</span></td>
+<td style="text-align: left;">2.30e17</td>
+<td style="text-align: left;">Pa.s</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Deviatoric irreversible creep viscosity <span class="math inline">\(\eta_{0}^{\text{id}}\)</span></td>
+<td style="text-align: left;">1.30e18</td>
+<td style="text-align: left;">Pa.s</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Activation energy <span class="math inline">\(\frac{Q}{R}\)</span></td>
+<td style="text-align: left;">7677.42</td>
+<td style="text-align: left;">K</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reference temperature <span class="math inline">\(T_{0}\)</span></td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">°C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Drying creep coefficient <span class="math inline">\(\eta_{\text{fd}}\)</span></td>
+<td style="text-align: left;">6.2e9</td>
+<td style="text-align: left;">Pa.s</td>
+</tr>
+</tbody>
+</table>
+<h3 id="case-1-basic-creep-at-20c">Case 1: basic creep at 20°C</h3>
+<p>This test is available <a href="https://github.com/thelfer/MFrontGallery/blob/master/materials/Concrete/behaviours/ConcreteBurger_EDF_CIWAP_2021-test1.mtest">here</a>.</p>
+<p>The T-H-M loading is as follow:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="st">&quot;Temperature&quot;</span> <span class="fl">20.</span>;</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStress <span class="st">&quot;SXX&quot;</span> {<span class="fl">0.0</span>: <span class="fl">12e6</span>, <span class="fl">8.64000000e+08</span>: <span class="fl">12e6</span>};</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="st">&quot;SECH&quot;</span> {<span class="fl">0.0</span>: <span class="fl">1.0</span>, <span class="fl">8.64000000e+08</span>: <span class="fl">1.</span>};</span></code></pre></div>
+<figure>
+<img src="img/Burger_EDF_CIWAP_2021/test2.png" style="width:75.0%" alt="Results of the second test" /><figcaption aria-hidden="true">Results of the second test</figcaption>
+</figure>
+<h3 id="case-2-basic-creep-at-40c">Case 2: basic creep at 40°C</h3>
+<p>This test is available <a href="https://github.com/thelfer/MFrontGallery/blob/master/materials/Concrete/behaviours/ConcreteBurger_EDF_CIWAP_2021-test2.mtest">here</a>.</p>
+<p>The T-H-M loading is as follow:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;T</span><span class="er">emperature</span><span class="ch">&#39;</span> {<span class="fl">0.0</span>: <span class="fl">40.0</span>, <span class="fl">8.64000000e+08</span>: <span class="fl">40.0</span>};</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStress <span class="st">&quot;SXX&quot;</span> {<span class="fl">0.0</span>: <span class="fl">12e6</span>, <span class="fl">8.64000000e+08</span>: <span class="fl">12e6</span>};</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="st">&quot;SECH&quot;</span> {<span class="fl">0.0</span>: <span class="fl">1.0</span>, <span class="fl">8.64000000e+08</span>: <span class="fl">1.</span>};</span></code></pre></div>
+<figure>
+<img src="img/Burger_EDF_CIWAP_2021/test3.png" style="width:75.0%" alt="Results of the third test" /><figcaption aria-hidden="true">Results of the third test</figcaption>
+</figure>
+<h3 id="case-3-drying-creep-at-20c-and-75rh">Case 3: drying creep at 20°C and 75%RH</h3>
+<p>This test is available <a href="https://github.com/thelfer/MFrontGallery/blob/master/materials/Concrete/behaviours/ConcreteBurger_EDF_CIWAP_2021-test3.mtest">here</a>.</p>
+<p>The T-H-M loading is as follow:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="st">&quot;Temperature&quot;</span> <span class="fl">20.</span>;</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStress <span class="st">&quot;SXX&quot;</span> {<span class="fl">0.0</span>: <span class="fl">12e6</span>, <span class="fl">8.64000000e+08</span>: <span class="fl">12e6</span>};</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="st">&quot;SECH&quot;</span> {<span class="fl">0.0</span>: <span class="fl">1.0</span>, <span class="fl">8.64000000e+08</span>:<span class="fl">0.5</span>};</span></code></pre></div>
+<figure>
+<img src="img/Burger_EDF_CIWAP_2021/test4.png" style="width:75.0%" alt="Results of the fourth test" /><figcaption aria-hidden="true">Results of the fourth test</figcaption>
+</figure>
+<h3 id="case-4-drying-humidification-creep-at-20c-and-50rh">Case 4: drying-humidification creep at 20°C and 50%RH</h3>
+<p>This test is available <a href="https://github.com/thelfer/MFrontGallery/blob/master/materials/Concrete/behaviours/ConcreteBurger_EDF_CIWAP_2021-test4.mtest">here</a>.</p>
+<p>The T-H-M loading is as follow:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="st">&quot;Temperature&quot;</span> <span class="fl">20.</span>;</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStress <span class="st">&quot;SXX&quot;</span> {<span class="fl">0.0</span>: <span class="fl">12e6</span>, <span class="fl">8.64000000e+08</span>: <span class="fl">12e6</span>};</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="st">&quot;SECH&quot;</span> {<span class="fl">0.0</span>: <span class="fl">0.5</span>, <span class="fl">8.64000000e+04</span>: <span class="fl">0.5</span>,</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fl">9.60000000e+07</span>: <span class="fl">0.5</span>,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fl">9.60864000e+07</span>:<span class="fl">0.8</span>, <span class="fl">1.92000000e+08</span>:<span class="fl">0.8</span>, <span class="fl">1.92086400e+08</span>:<span class="fl">0.5</span>,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="fl">2.88000000e+08</span>:<span class="fl">0.5</span>, <span class="fl">2.88086400e+08</span>:<span class="fl">0.8</span>, <span class="fl">3.84000000e+08</span>:<span class="fl">0.8</span>,</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fl">3.84086400e+08</span>:<span class="fl">0.5</span>, <span class="fl">4.80000000e+08</span>:<span class="fl">0.5</span>, <span class="fl">4.80086400e+08</span>:<span class="fl">0.8</span>,</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fl">5.76000000e+08</span>:<span class="fl">0.8</span>, <span class="fl">5.76086400e+08</span>:<span class="fl">0.5</span>, <span class="fl">6.72000000e+08</span>:<span class="fl">0.5</span>,</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="fl">6.72086400e+08</span>:<span class="fl">0.8</span>, <span class="fl">7.68000000e+08</span>:<span class="fl">0.8</span>, <span class="fl">7.68086400e+08</span>:<span class="fl">0.5</span>,</span></code></pre></div>
+<figure>
+<img src="img/Burger_EDF_CIWAP_2021/test5.png" style="width:75.0%" alt="Results of the fourth test" /><figcaption aria-hidden="true">Results of the fourth test</figcaption>
+</figure>
+<h3 id="case-5-shrinkage-at-20c">Case 5: Shrinkage at 20°C</h3>
+<p>This test is available <a href="https://github.com/thelfer/MFrontGallery/blob/master/materials/Concrete/behaviours/ConcreteBurger_EDF_CIWAP_2021-test5.mtest">here</a>.</p>
+<p>The T-H-M loading is as follow:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="st">&quot;Temperature&quot;</span> <span class="fl">20.</span>;</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStress <span class="st">&quot;SXX&quot;</span> {<span class="fl">0.0</span>: <span class="dv">0</span>, <span class="fl">8.64000000e+08</span>: <span class="dv">0</span>};</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="st">&quot;SECH&quot;</span> {<span class="fl">0.0</span>: <span class="fl">1.0</span>, <span class="fl">8.64000000e+08</span>: <span class="fl">0.5</span>};</span></code></pre></div>
+<figure>
+<img src="img/Burger_EDF_CIWAP_2021/test1.png" style="width:75.0%" alt="Results of the first test" /><figcaption aria-hidden="true">Results of the first test</figcaption>
+</figure>
+<h2 id="code_aster-test-cases"><code>code_aster</code> test cases:</h2>
+<p>The same material properties as previously are used. For test cases with drying, the <code>GRANGER</code> model with the parameters below is use to simulate drying before mechanical modelling with the <code>Burger_EDF_CIWAP_2021</code> constitutive law.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">GRANGER material Properties</th>
+<th style="text-align: left;">Values</th>
+<th style="text-align: left;">Units</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: left;">4.3e-13</td>
+<td style="text-align: left;">m<sup>2</sup>/s</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: left;">0.07</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\frac{Q}{R}\)</span></td>
+<td style="text-align: left;">4679</td>
+<td style="text-align: left;">K</td>
+</tr>
+</tbody>
+</table>
+<p>A desorption isotherm model is use to pass from humidity to water content and inversely. This desorption isotherm is not described here but is in the computation files. Firstly, the drying problem is solved in term of water content. Then, this water content evolution is converted into a relative humidity field by using desorption isotherm model.</p>
+<figure>
+<img src="img/Burger_EDF_CIWAP_2021/test6-boundary-conditions.png" style="width:75.0%" alt="Profile of water concentration (left). Profile of relative humidity (right)." /><figcaption aria-hidden="true">Profile of water concentration (left). Profile of relative humidity (right).</figcaption>
+</figure>
+<p>The water content of the three test cases below is presented here.</p>
+<figure>
+<img src="img/Burger_EDF_CIWAP_2021/test6-water-content-evolution.png" alt="Evolution of the water content" /><figcaption aria-hidden="true">Evolution of the water content</figcaption>
+</figure>
+<h3 id="case-1-basic-creep-at-20c-1">Case 1: Basic creep at 20°C</h3>
+<p>This test case concerns the modelling of uniaxial basic creep test on 16X100 cm specimen with 12 MPa of compression as proposed in <span class="citation" data-cites="bouch2016">[<a href="#ref-bouch2016" role="doc-biblioref">8</a>]</span>. A comparison between <code>BETON_BURGER</code> and <code>Burger_EDF_CIWAP_2021</code> is shown below.</p>
+<figure>
+<img src="img/Burger_EDF_CIWAP_2021/test6a.png" style="width:75.0%" alt="Result of the first code_aster test" /><figcaption aria-hidden="true">Result of the first <code>code_aster</code> test</figcaption>
+</figure>
+<h3 id="case-1-drying-creep-at-20c-and-60rh">Case 1: Drying creep at 20°C and 60%RH</h3>
+<p>This test case concerns the modelling of uniaxial drying creep test on 16X100 cm specimen with 12 MPa of compression as proposed in <span class="citation" data-cites="bouch2016">[<a href="#ref-bouch2016" role="doc-biblioref">8</a>]</span>. A comparison between <code>BETON_BURGER</code> and <code>Burger_EDF_CIWAP_2021</code> is shown below.</p>
+<figure>
+<img src="img/Burger_EDF_CIWAP_2021/test6b.png" style="width:75.0%" alt="Result of the second code_aster test" /><figcaption aria-hidden="true">Result of the second <code>code_aster</code> test</figcaption>
+</figure>
+<h3 id="case-1-drying-creep-at-20c-in-sinusoidal-relative-humidity-condition">Case 1: Drying creep at 20°C in sinusoidal relative humidity condition</h3>
+<p>This test case concerns the modelling of uniaxial drying creep test on 16X100 cm specimen with 12 MPa of compression as proposed in <span class="citation" data-cites="bouch2016">[<a href="#ref-bouch2016" role="doc-biblioref">8</a>]</span> in case of drying-humidification cycle condition. A comparison between <code>BETON_BURGER</code> and <code>Burger_EDF_CIWAP_2021</code> is shown below.</p>
+<figure>
+<img src="img/Burger_EDF_CIWAP_2021/test6c.png" style="width:75.0%" alt="Result of the third code_aster test" /><figcaption aria-hidden="true">Result of the third <code>code_aster</code> test</figcaption>
+</figure>
+<h1 id="references">References</h1>
+<!--
+pandoc -fmarkdown+tex_math_single_backslash -F pandoc-crossref --citeproc --highlight-style=tango BURGER_doc_for_MFront_gallery.md -o BURGER_doc_for_MFront_gallery.pdf
+
+-->
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-aces" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span>ACES</span>. Available from: <a href="http://aces-h2020.eu/domains/aces-h2020.eu/">http://aces-h2020.eu/domains/aces-h2020.eu/</a></div>
+</div>
+<div id="ref-linkedin_aces_2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span>ACES</span> H2020, <span>LinkedIn</span> showcase. Available from: <a href="https://www.linkedin.com/showcase/aces-h2020/">https://www.linkedin.com/showcase/aces-h2020/</a></div>
+</div>
+<div id="ref-charpin_ageing_2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">Charpin</span>, Laurent, <span class="smallcaps">Niepceron</span>, Julien, <span class="smallcaps">Corbin</span>, Manuel, <span class="smallcaps">Masson</span>, Benoît, <span class="smallcaps">Mathieu</span>, Jean-Philippe, <span class="smallcaps">Haelewyn</span>, Jessica, <span class="smallcaps">Hamon</span>, François, <span class="smallcaps">Åhs</span>, Magnus, <span class="smallcaps">Aparicio</span>, Sofía, <span class="smallcaps">Asali</span>, Mehdi, <span class="smallcaps">Capra</span>, Bruno, <span class="smallcaps">Azenha</span>, Miguel, <span class="smallcaps">Bouhjiti</span>, David E. -M., <span class="smallcaps">Calonius</span>, Kim, <span class="smallcaps">Chu</span>, Meng, <span class="smallcaps">Herrman</span>, Nico, <span class="smallcaps">Huang</span>, Xu, <span class="smallcaps">Jiménez</span>, Sergio, <span class="smallcaps">Mazars</span>, Jacky, <span class="smallcaps">Mosayan</span>, Mahsa, <span class="smallcaps">Nahas</span>, Georges, <span class="smallcaps">Stepan</span>, Jan, <span class="smallcaps">Thenint</span>, Thibaud and <span class="smallcaps">Torrenti</span>, Jean-Michel. Ageing and air leakage assessment of a nuclear reactor containment mock-up: <span>VERCORS</span> 2nd benchmark. <em>Nuclear Engineering and Design</em>. 1 June 2021. Vol. 377, p. 111136. DOI <a href="https://doi.org/10.1016/j.nucengdes.2021.111136">10.1016/j.nucengdes.2021.111136</a>. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S0029549321000881">https://www.sciencedirect.com/science/article/pii/S0029549321000881</a></div>
+</div>
+<div id="ref-benboudjema:tel-00006945" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline"><span class="smallcaps">Benboudjema</span>, Farid. Modélisation des déformations différées du béton sous sollicitations biaxiales. Application aux enceintes de confinement de bâtiments réacteurs des centrales nucléaires. Theses. <span>Universit<span>é</span> de Marne la Vall<span>é</span>e</span>, 2002. Available from: <a href="https://tel.archives-ouvertes.fr/tel-00006945">https://tel.archives-ouvertes.fr/tel-00006945</a></div>
+</div>
+<div id="ref-benboudjema_interaction_2005" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline"><span class="smallcaps">Benboudjema</span>, F., <span class="smallcaps">Meftah</span>, F. and <span class="smallcaps">Torrenti</span>, J. M. Interaction between drying, shrinkage, creep and cracking phenomena in concrete. <em>Engineering Structures</em>. 1 January 2005. Vol. 27, no. 2, p. 239–250. DOI <a href="https://doi.org/10.1016/j.engstruct.2004.09.012">10.1016/j.engstruct.2004.09.012</a>. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S0141029604003359">https://www.sciencedirect.com/science/article/pii/S0141029604003359</a></div>
+</div>
+<div id="ref-edf_relation_2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline"><span class="smallcaps">EDF</span>. Relation de comportement <span>BETON</span>_BURGER_FP pour le fluage du béton. code_aster website. March 2020. Available from: <a href="https://www.code-aster.org/V2/doc/v12/fr/man_r/r7/r7.01.35.pdf">https://www.code-aster.org/V2/doc/v12/fr/man_r/r7/r7.01.35.pdf</a></div>
+</div>
+<div id="ref-doi:10.1080/19648189.2009.9693184" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline"><span class="smallcaps">Sellier</span>, Alain and <span class="smallcaps">Buffo-Lacarrière</span>, Laurie. Vers une modélisation simple et unifiée du fluage propre, du retrait et du fluage en dessiccation du béton. <em>European Journal of Environmental and Civil Engineering</em>. 2009. Vol. 13, no. 10, p. 1161–1182. DOI <a href="https://doi.org/10.1080/19648189.2009.9693184">10.1080/19648189.2009.9693184</a>. Available from: <a href="https://doi.org/10.1080/19648189.2009.9693184">https://doi.org/10.1080/19648189.2009.9693184</a></div>
+</div>
+<div id="ref-bouch2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline"><span class="smallcaps">Boucher</span>, Maxime. Analyse de la corrélation spatio-temporelle des déformations entre le coeur d’un ouvrage épais et son parement : Application aux enceintes de confinement. PhD thesis. 2016. Available from: <a href="http://www.theses.fr/2016GREAI067">http://www.theses.fr/2016GREAI067</a></div>
+</div>
+<div id="ref-Bazant1985" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline"><span class="smallcaps">Bazant</span>, Z. P. and <span class="smallcaps">Chern</span>, J. C. Concrete creep at variable humidity: Constitutive law and mechanism. <em>Materials and Structures</em>. 1 January 1985. Vol. 18, no. 1, p. 1. DOI <a href="https://doi.org/10.1007/BF02473360">10.1007/BF02473360</a>. Available from: <a href="https://doi.org/10.1007/BF02473360">https://doi.org/10.1007/BF02473360</a></div>
+</div>
+<div id="ref-bouhjiti_accounting_2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline"><span class="smallcaps">Bouhjiti</span>, D. E. -M., <span class="smallcaps">Boucher</span>, M., <span class="smallcaps">Briffaut</span>, M., <span class="smallcaps">Dufour</span>, F., <span class="smallcaps">Baroth</span>, J. and <span class="smallcaps">Masson</span>, B. Accounting for realistic thermo-hydro-mechanical boundary conditions whilst modeling the ageing of concrete in nuclear containment buildings: Model validation and sensitivity analysis. <em>Engineering Structures</em>. 1 July 2018. Vol. 166, p. 314–338. DOI <a href="https://doi.org/10.1016/j.engstruct.2018.03.015">10.1016/j.engstruct.2018.03.015</a>. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S0141029617316954">https://www.sciencedirect.com/science/article/pii/S0141029617316954</a></div>
+</div>
+<div id="ref-ceaedf_implicit_2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline"><span class="smallcaps">CEA/EDF</span>. The implicit domain specific language. 17 March 2021. Available from: <a href="http://tfel.sourceforge.net/implicit-dsl.html">http://tfel.sourceforge.net/implicit-dsl.html</a></div>
+</div>
+<div id="ref-ceaedf_implementation_drucker_prager_cap_2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">12. </div><div class="csl-right-inline"><span class="smallcaps">CEA/EDF</span>. Implementation of a multi-surface, compressible and perfect plastic behaviour using the drucker-prager yield criterion and a cap. March 2021. Available from: <a href="http://tfel.sourceforge.net/drucker-prager-cap.html">http://tfel.sourceforge.net/drucker-prager-cap.html</a></div>
+</div>
+<div id="ref-liao-mcpherson_regularized_2019" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">13. </div><div class="csl-right-inline"><span class="smallcaps">Liao-McPherson</span>, Dominic, <span class="smallcaps">Huang</span>, Mike and <span class="smallcaps">Kolmanovsky</span>, Ilya. A regularized and smoothed fischer–burmeister method for quadratic programming with applications to model predictive control. <em><span>IEEE</span> Transactions on Automatic Control</em>. July 2019. Vol. 64, no. 7, p. 2937–2944. DOI <a href="https://doi.org/10.1109/TAC.2018.2872201">10.1109/TAC.2018.2872201</a>. </div>
+</div>
+<div id="ref-ceaedf_fisher-burmeister_2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">14. </div><div class="csl-right-inline"><span class="smallcaps">CEA/EDF</span>. On the fisher-burmeister complementary function and its applications to multi-surface plasticity. March 2021. Available from: <a href="http://tfel.sourceforge.net/implicit-dsl.html">http://tfel.sourceforge.net/implicit-dsl.html</a></div>
+</div>
+<div id="ref-ceaedf_behaviour_bricks_2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">15. </div><div class="csl-right-inline"><span class="smallcaps">CEA/EDF</span>. Behaviour bricks. March 2020. Available from: <a href="http://tfel.sourceforge.net/BehaviourBricks.html">http://tfel.sourceforge.net/BehaviourBricks.html</a></div>
+</div>
+<div id="ref-ceaedf_glossary_2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">16. </div><div class="csl-right-inline"><span class="smallcaps">CEA/EDF</span>. TFEL glossary description. March 2020. Available from: <a href="http://tfel.sourceforge.net/glossary.html">http://tfel.sourceforge.net/glossary.html</a></div>
+</div>
+</div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

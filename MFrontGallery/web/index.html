@@ -93,6 +93,7 @@
 	        <li><a href="install.html">Installation guide</a></li>
 	        <li><a href="creating-derived-project.html">Creating derived project</a></li>
 	        <li><a href="cmake-infrastructure.html">CMake infrastructure</a></li>
+	        <li><a href="best-practices.html">Best practices</a></li>
 	      </ul>
         </li>
         <li><a>Materials</a>
@@ -138,8 +139,41 @@
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">18/12/2021</h3>
 </div>
-<p>This page introduces the <code>MFrontGallery</code> project available at: <a href="https://github.com/thelfer/MFrontGallery" class="uri">https://github.com/thelfer/MFrontGallery</a></p>
-<p>This project aims at showing an example of how to set up a high quality material knowledge management project based on <a href="https://thelfer.github.io/tfel/web/index.html"><code>MFront</code></a>, able to meet the requirements of critical safety studies as discussed in Section 1.</p>
+<div id="TOC">
+<ul>
+<li><a href="#sec:mfm:introduction:statement_of_need"><span class="toc-section-number">1</span> Statemement of need: material knowledge management for safety criticial studies</a>
+<ul>
+<li><a href="#role-of-material-knowledge-in-numerical-simulations-of-solids"><span class="toc-section-number">1.1</span> Role of material knowledge in numerical simulations of solids</a></li>
+<li><a href="#sec:mfm:introduction:safety_critical_studies"><span class="toc-section-number">1.2</span> Requirements related to safety critical studies</a></li>
+<li><a href="#sec:mfm:introduction:implementations"><span class="toc-section-number">1.3</span> Implementations and classification</a></li>
+<li><a href="#discussion"><span class="toc-section-number">1.4</span> Discussion</a></li>
+<li><a href="#solutions-provided-by-the-mfrontgallery-project"><span class="toc-section-number">1.5</span> Solutions provided by the <code>MFrontGallery</code> project</a></li>
+</ul></li>
+<li><a href="#sec:mfm:introduction:files"><span class="toc-section-number">2</span> Files organization</a>
+<ul>
+<li><a href="#storage-of-self-contained-implementations"><span class="toc-section-number">2.1</span> Storage of self-contained implementations</a></li>
+<li><a href="#storage-of-generic-behaviours"><span class="toc-section-number">2.2</span> Storage of generic behaviours</a></li>
+</ul></li>
+<li><a href="#sec:mfm:introduction:usage"><span class="toc-section-number">3</span> Typical usage</a>
+<ul>
+<li><a href="#configuration"><span class="toc-section-number">3.1</span> Configuration</a></li>
+<li><a href="#compilation"><span class="toc-section-number">3.2</span> Compilation</a></li>
+<li><a href="#unit-tests"><span class="toc-section-number">3.3</span> Unit tests</a></li>
+<li><a href="#installation"><span class="toc-section-number">3.4</span> Installation</a></li>
+</ul></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<p>This page introduces the <code>MFrontGallery</code> project whose latest version is available at: <a href="https://github.com/thelfer/MFrontGallery" class="uri">https://github.com/thelfer/MFrontGallery</a></p>
+<p>This project has two main almost orthogonal goals:</p>
+<ol type="1">
+<li>The first one is to show how solver developers may provide to their user a set of ready-to-use (mechanical) behaviours which can be parametrized by their user to match their needs.</li>
+<li>The second one is to show how to set up a high quality material knowledge management project based on <a href="https://thelfer.github.io/tfel/web/index.html"><code>MFront</code></a>, able to meet the requirements of critical safety studies as discussed in Section 1.2.</li>
+</ol>
+<p>This distinction between those two approaches is profound and discussed in depth in Section 1.</p>
+<p>While the first goal is common to all (mechanical) solvers, one originality of the <code>MFrontGallery</code> project is to address the second goal.</p>
+<p>The <code>MFrontGallery</code> project also contains various high-quality <code>MFront</code> implementations. Those implementations may originate from the <code>MFront</code> tutorials, i.e. the <a href="https://thelfer.github.io/tfel/web/gallery.html"><code>MFront gallery</code> page</a> (hence the name of the project). This project is also meant to store various contributions of academic or industrial users of <code>MFront</code> willing to share their material knowledge and also benefit from the continuous integration process to garantee that no regression would happen as <code>MFront</code> evolves.</p>
 <blockquote>
 <p><strong>The <code>MFrontGallery</code> and <code>MFrontMaterials</code> projects</strong></p>
 <p>The <code>MFrontGallery</code> project is the open-source counterpart of the <code>MFrontMaterials</code> project (called internally <code>mfm</code>). <code>MFrontMaterials</code> is used for material knowledge management by the fuel performance codes developped on top of the <code>PLEAIDES</code> platform <span class="citation" data-cites="plancq_pleiades_2004 marelle_new_2016">[<a href="#ref-plancq_pleiades_2004" role="doc-biblioref">1</a>, <a href="#ref-marelle_new_2016" role="doc-biblioref">2</a>]</span> and results from a common effort of CEA and its industrial partners EDF and Framatome. See the <a href="faq.html">faq</a> for details about the relation between those two projects.</p>
@@ -155,19 +189,21 @@
 </ul>
 <a href="creating-derived-project.html">This page</a> describes how to create a derived project based on the same infrastructure.</li>
 <li>a documentation of best practices to handle material knowledge implemented using <code>MFront</code> implementations</li>
-<li>a set of high-quality <code>MFront</code> implementations, as described in Section 2.</li>
+<li>a set of high-quality <code>MFront</code> implementations.</li>
 </ul>
+<p>Section 1 discusses why a new approach to material knowledge management is needed in the context of safety criticial studies.</p>
+<p>Section 2 discusses how <code>MFront</code> implementations are stored in the project.</p>
 <p>Section 3 provides a short overview of the usage of the project.</p>
-<h1 data-number="1" id="sec:mfm:introduction:safety_critical_studies"><span class="header-section-number">1</span> Material knowledge management for safety criticial studies</h1>
-<p>From a general point of view, safety criticial studies are based on the description of the evolution of the thermodynamical state of the materials of interest. In the context of the <code>MFrontGallery</code> project, this thermodynamical state is described at each point of space by a set of internal state variables which can evolve with time du to various physical phenomena (plasticity, viscoplaticity, damage, phase change, swelling due to dessication, etc.).</p>
+<h1 data-number="1" id="sec:mfm:introduction:statement_of_need"><span class="header-section-number">1</span> Statemement of need: material knowledge management for safety criticial studies</h1>
+<h2 data-number="1.1" id="role-of-material-knowledge-in-numerical-simulations-of-solids"><span class="header-section-number">1.1</span> Role of material knowledge in numerical simulations of solids</h2>
+<p>Numerical simulations of solids are based on the description of the evolution of the thermodynamical state of the materials of interest. In the context of the <code>MFrontGallery</code> project, this thermodynamical state is described at each point of space by a set of internal state variables which can evolve with time du to various physical phenomena (plasticity, viscoplaticity, damage, phase change, swelling due to dessication, etc.).</p>
 <p>The knowledge that one may have about a given material can be categorized as follows:</p>
 <ul>
 <li><strong>Material properties</strong> are defined here as functions of the current state of the material.</li>
 <li><strong>Behaviours</strong> describes how a material evolves and reacts locally due to gradients inside the material. Here, the material reaction is associated with fluxes (or forces) thermodynamically conjugated with the gradients.</li>
 <li><strong>Point-wise models</strong> describes the evolution of some internal state variables with the evolution of other state variables. Point-wise models may be seen as behaviours without gradients.</li>
 </ul>
-<p>The <code>MFrontGallery</code> is based on the assumption that the solvers of interest can be use shared libraries generated by the <code>MFront</code> code generator <span class="citation" data-cites="Helfer2015 cea_edf_mfront_2021">[<a href="#ref-Helfer2015" role="doc-biblioref">3</a>, <a href="#ref-cea_edf_mfront_2021" role="doc-biblioref">4</a>]</span>.</p>
-<p>This assumption allows to <strong>decouple the material knowledge management from the development (source code) of the solver</strong>.</p>
+<h2 data-number="1.2" id="sec:mfm:introduction:safety_critical_studies"><span class="header-section-number">1.2</span> Requirements related to safety critical studies</h2>
 <p>The <code>MFrontGallery</code> project has been developped to address various issues related to material knowledge management for safety criticial studies:</p>
 <ul>
 <li><strong>Portability</strong>: Safety critical studies may involve several partners which use different solvers. From the same <code>MFront</code> source file, the <code>MFrontGallery</code> can generate shared libraries for all the solvers of interest.</li>
@@ -175,10 +211,77 @@
 <li><strong>Continuous integration and unit testing</strong>: Each implementation has associated unit tests with can check no-regression during the development of <code>MFront</code>.</li>
 <li><strong>Documentation</strong>: the project can generate the documentation associated with the various implementations.</li>
 </ul>
-<h1 data-number="2" id="sec:mfm:introduction:implementations"><span class="header-section-number">2</span> Implementations available</h1>
-<p>The <code>MFrontGallery</code> project contains various high-quality <code>MFront</code> implementations.</p>
-<p>Those implementations may originate from the <code>MFront</code> tutorials, i.e. the <a href="https://thelfer.github.io/tfel/web/gallery.html"><code>MFront gallery</code> page</a> (hence the name of the project).</p>
-<p>This project is also maint to store various contributions of academic or industrial users of <code>MFront</code> willing to share their material knowledge and also benefit from the continuous integration process to garantee that no regression would happen as <code>MFront</code> evolves.</p>
+<h2 data-number="1.3" id="sec:mfm:introduction:implementations"><span class="header-section-number">1.3</span> Implementations and classification</h2>
+<p><code>MFront</code> implementations can be classified in two main categories:</p>
+<ul>
+<li><strong>self-contained</strong>, which denotes implementations that contain all the physical information.</li>
+<li><strong>generic</strong>, which denotes implementations that the solver provides physical information to the material treated. Those “generic” implementations are usually shipped with solvers as ready-to-use behaviours.</li>
+</ul>
+<p>An alternative way of expression the disctinction between self-contained and generic implementations is to consider that generic implementations only describes a set of constitutive equations while self-contained implementations describes a set of constitutive equations <strong>and</strong> the material coefficients identified on a well defined set of experiments for a particular material.</p>
+<p>In practice, the physical information contained in self-contained implementations may be more complex than a set of material coefficients. For example, the Young modulus of a material may be defined by an analytical formula and can’t thus be reduced to a set of constants. This analytical formula shall be port of a self-contained mechanical behaviour implementation. Of course, this analytical formula could be included in the set of constitutive equations and parametrized to retrieve a bit of genericity. In our experience, such hybrid approach is fragile and and cumbersome. Moreover it does not adress the main issue of generic behaviours which is the management of the physical information.</p>
+<h2 data-number="1.4" id="discussion"><span class="header-section-number">1.4</span> Discussion</h2>
+<p>Introducing generic implementations in solvers can be very useful for rapid prototyping by the end-users. However, such generic implementations raises the issues of how to manage the physical information used in engineering studies.</p>
+<p>For the sake of simplicity, we will first consider that the solver provide all the generic implementations required by the users and discuss in a second case the case of external implementations (such as <code>UMAT</code> behaviours in <code>Abaqus</code>).</p>
+<h3 data-number="1.4.1" id="a-basic-standard-solution-using-input-files-of-the-solver-to-define-materials"><span class="header-section-number">1.4.1</span> A basic standard solution: using input files of the solver to define materials</h3>
+<p>Most of the time, this physical information will be in the input file of the considered solver, generally in a section dedicated to the definition of the materials.</p>
+<p>But the input files not only contains those physical information but also the boundary conditions, the loadings, numerical parameters, etc.. for the simulation it is meant to describe.</p>
+<p>When a new simulation is considered, physical information, i.e. the material definition section, is barely copy/pasted to a new input file.</p>
+<p>Such input files are also generally shared by engineers which will modify them to their own needs.</p>
+<p>Things are even getting worse if this physical information must be shared with another team which uses a different solver. In general, the physical information are adapted to input file format of the new solver, an operation which is error-prone.</p>
+<p>In the end, our experience shows that is merely impossible to track physical information this way, particularly if the knowledge of the materials evolves over time.</p>
+<h3 data-number="1.4.2" id="a-more-elaborate-solution"><span class="header-section-number">1.4.2</span> A more elaborate solution</h3>
+<p>A more elaborate solution consists in splitting the input file in multiple ones and separating the material declarations from the rest. One can thus maintain a database of ready-to-use material definitions.</p>
+<p>A variant of this approach is to have specific keywords allowing to request specific material definitions.</p>
+<p>In each case, the physical information is associated to a label. If this information evolves, one may just have to create a new label.</p>
+<p>The solution is elegant and the physical information is no more duplicated.</p>
+<p>However, this approach may have drawbacks:</p>
+<ul>
+<li>When the database is maintened by the developper of the code, new material definition can only be available when a new release of the solver is made.</li>
+<li>It may be limited to the solver’ built-in generic implementation and is thus not extensible.</li>
+<li>It does not solve the issue regarding the portability of the physical information to another solver.</li>
+</ul>
+<h3 data-number="1.4.3" id="solution-based-on-user-defined-subroutines"><span class="header-section-number">1.4.3</span> Solution based on user defined subroutines</h3>
+<h3 data-number="1.4.4" id="conclusions"><span class="header-section-number">1.4.4</span> Conclusions</h3>
+<p>According to the experience of the authors, a rigorous material knowledge management suitable for safety critical studies is only possible if self-contained implementations are considered.</p>
+<h2 data-number="1.5" id="solutions-provided-by-the-mfrontgallery-project"><span class="header-section-number">1.5</span> Solutions provided by the <code>MFrontGallery</code> project</h2>
+<p>The <code>MFrontGallery</code> is based on the assumption that the solvers of interest (note the plural) can be use shared libraries generated by the <code>MFront</code> code generator <span class="citation" data-cites="Helfer2015 cea_edf_mfront_2021">[<a href="#ref-Helfer2015" role="doc-biblioref">3</a>, <a href="#ref-cea_edf_mfront_2021" role="doc-biblioref">4</a>]</span>.</p>
+<p>This assumption allows to <strong>decouple the material knowledge management from the development (source code) of the solvers of interest</strong>.</p>
+<h3 data-number="1.5.1" id="code-re-use-and-self-contained-implementations"><span class="header-section-number">1.5.1</span> Code re-use and “self-contained” implementations</h3>
+<p>However, a important argument in favor of generic implementation is <strong>code-reuse</strong>. <code>MFront</code> provides several techniques to facilitate code factorisation between implementations as described in the <a href="best-practices.html">“Best practices” page</a></p>
+<h1 data-number="2" id="sec:mfm:introduction:files"><span class="header-section-number">2</span> Files organization</h1>
+<h2 data-number="2.1" id="storage-of-self-contained-implementations"><span class="header-section-number">2.1</span> Storage of self-contained implementations</h2>
+<p>Self-contained implementations are stored in the <code>materials</code> directory. Under this directory, implementations are stored by material and by kind (material property, behaviour or model), as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">materials/</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Bentonite</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── behaviours</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>       └── include</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Concrete</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── behaviours</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> CrushedSalt</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── behaviours</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> VanadiumAlloy</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── behaviours</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── properties</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> Wood</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">└──</span> behaviours</span></code></pre></div>
+<h2 data-number="2.2" id="storage-of-generic-behaviours"><span class="header-section-number">2.2</span> Storage of generic behaviours</h2>
+<p>Generic implementations are stored in the <code>generic-behaviours</code> directory. Under this directory, the implementations are more or less arbitraly classified by the main phenomon described, as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">generic-behaviours/</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> damage</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> damage_viscoplasticity</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> finitestrainsinglecrystal</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> heattransfer</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> hyperelasticity</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> hyperviscoelasticity</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> nonlinearelasticity</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> plasticity</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> viscoelasticity</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> viscoplasticity</span></code></pre></div>
+<p>Those generic implementations have been introduced in the <code>MFrontGallery</code> project to:</p>
+<ul>
+<li>tests if those implementations still compile and run as <code>̀MFront</code> evolve.</li>
+<li>show to solver developers how they could provide to their users a set of ready to use behaviours.</li>
+</ul>
 <h1 data-number="3" id="sec:mfm:introduction:usage"><span class="header-section-number">3</span> Typical usage</h1>
 <p>After downloading or cloning the sources of the <code>MFrontGallery</code> project, a typical usage of the project is divided in four steps (common to most <code>cmake</code> projects):</p>
 <ul>
@@ -190,15 +293,15 @@
 <blockquote>
 <p>** Cloning the <code>master</code> branch of the <code>MFrontGallery</code> project**</p>
 <p>The <code>master</code> branch of the <code>MFrontGallery</code> project can be cloned as follows:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone https://github.com/thelfer/MFrontGallery</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone https://github.com/thelfer/MFrontGallery</span></code></pre></div>
 </blockquote>
 <h2 data-number="3.1" id="configuration"><span class="header-section-number">3.1</span> Configuration</h2>
 <p>The sources are assumed to be in the <code>MFrontGallery</code> directory. While not strictly required, it is convienient to create a <code>build</code> directory:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir build</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd build</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir build</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd build</span></code></pre></div>
 <p>The configuration step is triggered by calling <code>cmake</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake  ../MFrontGallery/ <span class="at">-DCMAKE_BUILD_TYPE</span><span class="op">=</span>Release     <span class="dt">\</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">-Denable-generic-behaviours</span><span class="op">=</span>ON <span class="at">-Denable-ansys</span><span class="op">=</span>ON</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake  ../MFrontGallery/ <span class="at">-DCMAKE_BUILD_TYPE</span><span class="op">=</span>Release     <span class="dt">\</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">-Denable-generic-behaviours</span><span class="op">=</span>ON <span class="at">-Denable-ansys</span><span class="op">=</span>ON</span></code></pre></div>
 <p>The interfaces are selected by a set of <code>cmake</code> flags prefixed by <code>enable</code>. In the previous command, we only selected the <code>generic</code> and <code>ansys</code> interfaces.</p>
 <blockquote>
 <p><strong><code>TFEL</code> executables</strong></p>
@@ -206,45 +309,45 @@
 </blockquote>
 <p>The complete set of available flags are described in the <a href="install.html">installation guide</a>.</p>
 <p>The outputs of the previous command shows the generated libraries and their contents:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : HeatTransferBehaviours-generic <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/StationaryLinearHeatTransfer-generic.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/StationaryLinearHeatTransfer.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/StationaryNonLinearHeatTransfer-generic.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/StationaryNonLinearHeatTransfer.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/TransientLinearHeatTransfer-generic.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/TransientLinearHeatTransfer.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/TransientNonLinearHeatTransfer-generic.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/TransientNonLinearHeatTransfer.cxx</span><span class="kw">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : HeatTransferBehaviours-generic <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/StationaryLinearHeatTransfer-generic.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/StationaryLinearHeatTransfer.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/StationaryNonLinearHeatTransfer-generic.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/StationaryNonLinearHeatTransfer.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/TransientLinearHeatTransfer-generic.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/TransientLinearHeatTransfer.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/TransientNonLinearHeatTransfer-generic.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build3/generic-behaviours/heattransfer/generic/src/TransientNonLinearHeatTransfer.cxx</span><span class="kw">)</span></span></code></pre></div>
 <p>Some <code>MFront</code> files are not compatible with the selected interface. For example, the <code>ansys</code> interface only supports small and finite strain behaviours. Generalized behaviours are then discarded as shown by the following ouptut:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> StationaryLinearHeatTransfer has been discarded for interface ansys <span class="er">(</span><span class="ex">unsupported</span> behaviour type<span class="kw">)</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> StationaryNonLinearHeatTransfer has been discarded for interface ansys <span class="er">(</span><span class="ex">unsupported</span> behaviour type<span class="kw">)</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> TransientLinearHeatTransfer has been discarded for interface ansys <span class="er">(</span><span class="ex">unsupported</span> behaviour type<span class="kw">)</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> TransientNonLinearHeatTransfer has been discarded for interface ansys <span class="er">(</span><span class="ex">unsupported</span> behaviour type<span class="kw">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> StationaryLinearHeatTransfer has been discarded for interface ansys <span class="er">(</span><span class="ex">unsupported</span> behaviour type<span class="kw">)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> StationaryNonLinearHeatTransfer has been discarded for interface ansys <span class="er">(</span><span class="ex">unsupported</span> behaviour type<span class="kw">)</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> TransientLinearHeatTransfer has been discarded for interface ansys <span class="er">(</span><span class="ex">unsupported</span> behaviour type<span class="kw">)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> TransientNonLinearHeatTransfer has been discarded for interface ansys <span class="er">(</span><span class="ex">unsupported</span> behaviour type<span class="kw">)</span></span></code></pre></div>
 <h2 data-number="3.2" id="compilation"><span class="header-section-number">3.2</span> Compilation</h2>
 <p>The selected libraries can be built as follows:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--build</span> . <span class="at">--target</span> all</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--build</span> . <span class="at">--target</span> all</span></code></pre></div>
 <p>Various targets are avaiable.</p>
 <h2 data-number="3.3" id="unit-tests"><span class="header-section-number">3.3</span> Unit tests</h2>
 <p>Unit tests can be executed as follows:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--build</span> . <span class="at">--target</span> check</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--build</span> . <span class="at">--target</span> check</span></code></pre></div>
 <p>A summary of the executed tests and their status is displayed, as follows:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Test</span> project /home/th202608/codes/MFrontGallery/master/src/build3</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 1: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_UpWard_mtest</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">1/8</span> Test <span class="co">#1: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_UpWard_mtest .........   Passed    0.02 sec</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 2: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_DownWard_mtest</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">2/8</span> Test <span class="co">#2: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_DownWard_mtest .......   Passed    0.02 sec</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 3: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_ToNearest_mtest</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ex">3/8</span> Test <span class="co">#3: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_ToNearest_mtest ......   Passed    0.02 sec</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 4: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_TowardZero_mtest</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="ex">4/8</span> Test <span class="co">#4: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_TowardZero_mtest .....   Passed    0.02 sec</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 5: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_UpWard_mtest</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="ex">5/8</span> Test <span class="co">#5: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_UpWard_mtest .......   Passed    0.02 sec</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 6: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_DownWard_mtest</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="ex">6/8</span> Test <span class="co">#6: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_DownWard_mtest .....   Passed    0.02 sec</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 7: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_ToNearest_mtest</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="ex">7/8</span> Test <span class="co">#7: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_ToNearest_mtest ....   Passed    0.02 sec</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 8: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_TowardZero_mtest</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="ex">8/8</span> Test <span class="co">#8: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_TowardZero_mtest ...   Passed    0.02 sec</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 8</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="ex">Total</span> Test time <span class="er">(</span><span class="ex">real</span><span class="kw">)</span> <span class="ex">=</span>   0.13 sec</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="ex">Built</span> target check</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Test</span> project /home/th202608/codes/MFrontGallery/master/src/build3</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 1: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_UpWard_mtest</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">1/8</span> Test <span class="co">#1: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_UpWard_mtest .........   Passed    0.02 sec</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 2: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_DownWard_mtest</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ex">2/8</span> Test <span class="co">#2: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_DownWard_mtest .......   Passed    0.02 sec</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 3: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_ToNearest_mtest</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="ex">3/8</span> Test <span class="co">#3: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_ToNearest_mtest ......   Passed    0.02 sec</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 4: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_TowardZero_mtest</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="ex">4/8</span> Test <span class="co">#4: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_ansys_TowardZero_mtest .....   Passed    0.02 sec</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 5: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_UpWard_mtest</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="ex">5/8</span> Test <span class="co">#5: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_UpWard_mtest .......   Passed    0.02 sec</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 6: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_DownWard_mtest</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="ex">6/8</span> Test <span class="co">#6: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_DownWard_mtest .....   Passed    0.02 sec</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 7: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_ToNearest_mtest</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="ex">7/8</span> Test <span class="co">#7: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_ToNearest_mtest ....   Passed    0.02 sec</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 8: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_TowardZero_mtest</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="ex">8/8</span> Test <span class="co">#8: SemiImplicitModifiedCamClay_OpenGeoSys2020_Triax_generic_TowardZero_mtest ...   Passed    0.02 sec</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 8</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="ex">Total</span> Test time <span class="er">(</span><span class="ex">real</span><span class="kw">)</span> <span class="ex">=</span>   0.13 sec</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="ex">Built</span> target check</span></code></pre></div>
 <h2 data-number="3.4" id="installation"><span class="header-section-number">3.4</span> Installation</h2>
 <p>The built shared libraries can be installed as follows:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--build</span> . <span class="at">--target</span> install</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--build</span> . <span class="at">--target</span> install</span></code></pre></div>
 <h1 class="unnumbered" id="acknowledgements">Acknowledgements</h1>
 <p>The <code>MFrontGallery</code> project has been developped by CEA, EDF and Framatome as part of a common effort to build a common, robust and material knowledge management strategy to back safety critical studies which meet the quality requirements imposed by the French Safety Authority (ANS).</p>
 <h1 class="unnumbered" id="references">References</h1>

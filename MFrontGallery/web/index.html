@@ -144,7 +144,7 @@
 <li><a href="#sec:mfm:introduction:statement_of_need"><span class="toc-section-number">1</span> Statemement of need: material knowledge management for safety criticial studies</a>
 <ul>
 <li><a href="#role-of-material-knowledge-in-numerical-simulations-of-solids"><span class="toc-section-number">1.1</span> Role of material knowledge in numerical simulations of solids</a></li>
-<li><a href="#sec:mfm:introduction:safety_critical_studies"><span class="toc-section-number">1.2</span> Requirements related to safety critical studies</a></li>
+<li><a href="#sec:mfm:introduction:safety_critical_studies"><span class="toc-section-number">1.2</span> Requirements related to safety-critical studies</a></li>
 <li><a href="#sec:mfm:introduction:implementations"><span class="toc-section-number">1.3</span> Implementations and classification</a></li>
 <li><a href="#discussion"><span class="toc-section-number">1.4</span> Discussion</a></li>
 <li><a href="#solutions-provided-by-the-mfrontgallery-project"><span class="toc-section-number">1.5</span> Solutions provided by the <code>MFrontGallery</code> project</a></li>
@@ -168,26 +168,26 @@
 <p>This page introduces the <code>MFrontGallery</code> project whose latest version is available at: <a href="https://github.com/thelfer/MFrontGallery" class="uri">https://github.com/thelfer/MFrontGallery</a></p>
 <p>This project has two main almost orthogonal goals:</p>
 <ol type="1">
-<li>The first one is to show how solver developers may provide to their user a set of ready-to-use (mechanical) behaviours which can be parametrized by their user to match their needs.</li>
-<li>The second one is to show how to set up a high quality material knowledge management project based on <a href="https://thelfer.github.io/tfel/web/index.html"><code>MFront</code></a>, able to meet the requirements of critical safety studies as discussed in Section 1.2.</li>
+<li>The first one is to show how solver developers may provide to their users a set of ready-to-use (mechanical) behaviours which can be parametrized by their users to match their needs.</li>
+<li>The second one is to show how to set up a high-quality material knowledge management project based on <a href="https://thelfer.github.io/tfel/web/index.html"><code>MFront</code></a>, able to meet the requirements of safety-critical studies as discussed in Section 1.2.</li>
 </ol>
-<p>This distinction between those two approaches is profound and discussed in depth in Section 1.</p>
+<p>The distinction between those two approaches is profound and discussed in depth in Section 1.</p>
 <p>While the first goal is common to all (mechanical) solvers, one originality of the <code>MFrontGallery</code> project is to address the second goal.</p>
-<p>The <code>MFrontGallery</code> project also contains various high-quality <code>MFront</code> implementations. Those implementations may originate from the <code>MFront</code> tutorials, i.e. the <a href="https://thelfer.github.io/tfel/web/gallery.html"><code>MFront gallery</code> page</a> (hence the name of the project). This project is also meant to store various contributions of academic or industrial users of <code>MFront</code> willing to share their material knowledge and also benefit from the continuous integration process to garantee that no regression would happen as <code>MFront</code> evolves.</p>
+<p>The <code>MFrontGallery</code> project also contains various high-quality <code>MFront</code> implementations. Those implementations may originate from the <code>MFront</code> tutorials, i.e. the <a href="https://thelfer.github.io/tfel/web/gallery.html"><code>MFront gallery</code> page</a> (hence the name of the project). This project is also meant to store various contributions of academic or industrial users of <code>MFront</code> willing to share their material knowledge and also benefit from the continuous integration process to guarantee that no regression would happen as <code>MFront</code> evolves.</p>
 <blockquote>
 <p><strong>The <code>MFrontGallery</code> and <code>MFrontMaterials</code> projects</strong></p>
 <p>The <code>MFrontGallery</code> project is the open-source counterpart of the <code>MFrontMaterials</code> project (called internally <code>mfm</code>). <code>MFrontMaterials</code> is used for material knowledge management by the fuel performance codes developped on top of the <code>PLEAIDES</code> platform <span class="citation" data-cites="plancq_pleiades_2004 marelle_new_2016">[<a href="#ref-plancq_pleiades_2004" role="doc-biblioref">1</a>, <a href="#ref-marelle_new_2016" role="doc-biblioref">2</a>]</span> and results from a common effort of CEA and its industrial partners EDF and Framatome. See the <a href="faq.html">faq</a> for details about the relation between those two projects.</p>
-<p>As both projects shares the same <a href="cmake-infrastructure.html"><code>cmake</code> infrastructure</a>, the name <code>mfm</code> or references to the <code>MFrontMaterials</code> project may appear in function names, documentation, examples, etc..</p>
+<p>As both projects shares the same <a href="cmake-infrastructure.html"><code>cmake</code> infrastructure</a>, the name <code>mfm</code> or references to the <code>MFrontMaterials</code> project may appear in function names, documentation, examples, etc.</p>
 </blockquote>
 <p>In particular, the project provides:</p>
 <ul>
-<li>a <a href="https://cmake.org"><code>cmake</code></a> infrastructure that can be duplicated in child (academic or industrial) projects. This infrastructure allows:
+<li>a <a href="https://cmake.org"><code>cmake</code></a> infrastructure that can be duplicated in (academic or industrial) derived projects. This infrastructure allows:
 <ul>
-<li>to compile <code>MFront</code> sources using all supported interfaces supported by <code>MFront</code>. For example, concerning behaviours, the behaviours can be compiled for the following solvers: <a href="http://www-cast3m.cea.fr/"><code>Cast3M</code></a>, <a href="https://code-aster.org"><code>code_aster</code></a>, <a href="https://europlexus.jrc.ec.europa.eu/"><code>Europlexus</code></a>, <code>Abaqus/Standard</code>, <code>Abaqus/Explicit</code>, <code>Ansys</code>, <code>AMITEX_FFTP</code>, <a href="http://www.calculix.de/"><code>CalculiX</code></a>, <a href="http://www.zset-software.com/"><code>ZSet</code></a>, <a href="https://dianafea.com/"><code>DIANA   FEA</code></a>. Thanks to the <code>generic</code> interface, those behaviours are also available in all solvers using the <a href="https://thelfer.github.io/mgis/web/index.html"><code>MFrontGenericInterfaceSupport</code> projet</a> (MGIS), including: <a href="https://www.opengeosys.org/"><code>OpenGeoSys</code></a>, <a href="https://thelfer.github.io/mfem-mgis/web/index.html"><code>MFEM-MGIS</code></a>, <code>MANTA</code>, <a href="https://thelfer.github.io/mgis/web/mgis_fenics.html"><code>mgis.fenics</code></a>, <a href="http://mofem.eng.gla.ac.uk/mofem/html"><code>MoFEM</code></a>, XPER, etc.</li>
-<li>to execute unit tests based on <code>MTest</code>. Those unit tests generate <code>XML</code> results files conforming to the <code>JUnit</code> standard that can readibily be used by continuous integration plateforms such as <a href="https://www.jenkins.io/">jenkins</a>.</li>
+<li>to compile <code>MFront</code> sources using all interfaces supported by <code>MFront</code>. For example, concerning behaviours, the behaviours can be compiled for the following solvers: <a href="http://www-cast3m.cea.fr/"><code>Cast3M</code></a>, <a href="https://code-aster.org"><code>code_aster</code></a>, <a href="https://europlexus.jrc.ec.europa.eu/"><code>Europlexus</code></a>, <code>Abaqus/Standard</code>, <code>Abaqus/Explicit</code>, <code>Ansys</code>, <code>AMITEX_FFTP</code>, <a href="http://www.calculix.de/"><code>CalculiX</code></a>, <a href="http://www.zset-software.com/"><code>ZSet</code></a>, <a href="https://dianafea.com/"><code>DIANA   FEA</code></a>. Thanks to the <code>generic</code> interface, those behaviours are also available in all solvers using the <a href="https://thelfer.github.io/mgis/web/index.html"><code>MFrontGenericInterfaceSupport</code> projet</a> (MGIS), including: <a href="https://www.opengeosys.org/"><code>OpenGeoSys</code></a>, <a href="https://thelfer.github.io/mfem-mgis/web/index.html"><code>MFEM-MGIS</code></a>, <code>MANTA</code>, <a href="https://thelfer.github.io/mgis/web/mgis_fenics.html"><code>mgis.fenics</code></a>, <a href="http://mofem.eng.gla.ac.uk/mofem/html"><code>MoFEM</code></a>, XPER, etc.</li>
+<li>to execute unit tests based on <code>MTest</code>. Those unit tests generate <code>XML</code> result files conforming to the <code>JUnit</code> standard that can readily be used by continuous integration platforms such as <a href="https://www.jenkins.io/">jenkins</a>.</li>
 <li>generate the documentation associated with the stored implementations.</li>
 </ul>
-<a href="creating-derived-project.html">This page</a> describes how to create a derived project based on the same infrastructure.</li>
+<a href="creating-derived-project.html">This page</a> describes how to create a derived project based on the same infrastructure as the <code>MFrontGallery</code>.</li>
 <li>a documentation of best practices to handle material knowledge implemented using <code>MFront</code> implementations</li>
 <li>a set of high-quality <code>MFront</code> implementations.</li>
 </ul>
@@ -196,58 +196,65 @@
 <p>Section 3 provides a short overview of the usage of the project.</p>
 <h1 data-number="1" id="sec:mfm:introduction:statement_of_need"><span class="header-section-number">1</span> Statemement of need: material knowledge management for safety criticial studies</h1>
 <h2 data-number="1.1" id="role-of-material-knowledge-in-numerical-simulations-of-solids"><span class="header-section-number">1.1</span> Role of material knowledge in numerical simulations of solids</h2>
-<p>Numerical simulations of solids are based on the description of the evolution of the thermodynamical state of the materials of interest. In the context of the <code>MFrontGallery</code> project, this thermodynamical state is described at each point of space by a set of internal state variables which can evolve with time du to various physical phenomena (plasticity, viscoplaticity, damage, phase change, swelling due to dessication, etc.).</p>
-<p>The knowledge that one may have about a given material can be categorized as follows:</p>
+<p>Numerical simulations of solids are based on the description of the evolution of the thermodynamical state of the materials of interest. In the context of the <code>MFrontGallery</code> project, this thermodynamical state is described at each point of space by a set of internal state variables which can evolve with time due to various physical phenomena (plasticity, viscoplaticity, damage, phase change, swelling due to dessication, etc.).</p>
+<p>The knowledge that one may have about a given material can be represented in different forms. Here, the following categorization is employed:</p>
 <ul>
 <li><strong>Material properties</strong> are defined here as functions of the current state of the material.</li>
-<li><strong>Behaviours</strong> describes how a material evolves and reacts locally due to gradients inside the material. Here, the material reaction is associated with fluxes (or forces) thermodynamically conjugated with the gradients.</li>
-<li><strong>Point-wise models</strong> describes the evolution of some internal state variables with the evolution of other state variables. Point-wise models may be seen as behaviours without gradients.</li>
+<li><strong>Behaviours</strong> describe how a material evolves and reacts locally due to gradients inside the material. Here, the material reaction is associated with fluxes (or forces) thermodynamically conjugated with the gradients.</li>
+<li><strong>Point-wise models</strong> describe the evolution of some internal state variables with the evolution of other state variables. Point-wise models may be seen as behaviours without gradients.</li>
 </ul>
-<h2 data-number="1.2" id="sec:mfm:introduction:safety_critical_studies"><span class="header-section-number">1.2</span> Requirements related to safety critical studies</h2>
-<p>The <code>MFrontGallery</code> project has been developped to address various issues related to material knowledge management for safety criticial studies:</p>
+<h2 data-number="1.2" id="sec:mfm:introduction:safety_critical_studies"><span class="header-section-number">1.2</span> Requirements related to safety-critical studies</h2>
+<p>The <code>MFrontGallery</code> project has been developed to address various issues related to material knowledge management for safety-critical studies:</p>
 <ul>
-<li><strong>Portability</strong>: Safety critical studies may involve several partners which use different solvers. From the same <code>MFront</code> source file, the <code>MFrontGallery</code> can generate shared libraries for all the solvers of interest.</li>
-<li><strong>Maintainability over decades</strong>: Some safety critical studies can be used to desing buildings, plants, systems for decades. Over such periods of time, both the solvers and the material knowledge may evolve.</li>
+<li><strong>Portability</strong>: safety-critical studies may involve several partners which use different solvers for independent assessment and review. From the same <code>MFront</code> source file, the <code>MFrontGallery</code> can generate shared libraries for all the solvers of interest.</li>
+<li><strong>Maintainability over decades</strong>: Some safety-critical studies can be used to design buildings, plants, or technological systems for operation periods of decades or more. Over such periods of time, both the solvers and the material knowledge will evolve. The safety-critical studies, however, on which design choices or decisions were based, need to remain accessible or reproducible.</li>
 <li><strong>Continuous integration and unit testing</strong>: Each implementation has associated unit tests with can check no-regression during the development of <code>MFront</code>.</li>
-<li><strong>Documentation</strong>: the project can generate the documentation associated with the various implementations.</li>
+<li><strong>Documentation</strong>: the project can generate the documentation associated with the various implementations in an automated manner.</li>
 </ul>
 <h2 data-number="1.3" id="sec:mfm:introduction:implementations"><span class="header-section-number">1.3</span> Implementations and classification</h2>
 <p><code>MFront</code> implementations can be classified in two main categories:</p>
 <ul>
-<li><strong>self-contained</strong>, which denotes implementations that contain all the physical information.</li>
-<li><strong>generic</strong>, which denotes implementations that the solver provides physical information to the material treated. Those “generic” implementations are usually shipped with solvers as ready-to-use behaviours.</li>
+<li><strong>self-contained</strong>, which denotes implementations that contain all the physical information (e.g., model equations and parameters).</li>
+<li><strong>generic</strong>, which denotes implementations for which the solver is required to provide additional physical information to the material treated, e.g. the values of certain parameters. Those “generic” implementations are usually shipped with solvers as ready-to-use behaviours.</li>
 </ul>
-<p>An alternative way of expression the disctinction between self-contained and generic implementations is to consider that generic implementations only describes a set of constitutive equations while self-contained implementations describes a set of constitutive equations <strong>and</strong> the material coefficients identified on a well defined set of experiments for a particular material.</p>
-<p>In practice, the physical information contained in self-contained implementations may be more complex than a set of material coefficients. For example, the Young modulus of a material may be defined by an analytical formula and can’t thus be reduced to a set of constants. This analytical formula shall be port of a self-contained mechanical behaviour implementation. Of course, this analytical formula could be included in the set of constitutive equations and parametrized to retrieve a bit of genericity. In our experience, such hybrid approach is fragile and and cumbersome. Moreover it does not adress the main issue of generic behaviours which is the management of the physical information.</p>
+<p>An alternative way of expressing the disctinction between self-contained and generic implementations is to consider that generic implementations only describe a set of constitutive equations while self-contained implementations describes a set of constitutive equations <strong>and</strong> the material coefficients identified on a well-defined set of experiments for a particular material.</p>
+<p>In practice, the physical information contained in self-contained implementations may be more complex than a set of material coefficients. For example, the Young modulus of a material may be defined by an analytical formula and can’t thus be reduced to a set of constants. This analytical formula shall be part of a self-contained mechanical behaviour implementation. Of course, this analytical formula could be included in the set of constitutive equations and parametrized to retrieve a bit of genericity. In our experience, such a hybrid approach is fragile, less readable and and cumbersome. Moreover it does not address the main issue of generic behaviours which is the management of the physical information in a reliable and robust way.</p>
 <h2 data-number="1.4" id="discussion"><span class="header-section-number">1.4</span> Discussion</h2>
-<p>Introducing generic implementations in solvers can be very useful for rapid prototyping by the end-users. However, such generic implementations raises the issues of how to manage the physical information used in engineering studies.</p>
-<p>For the sake of simplicity, we will first consider that the solver provide all the generic implementations required by the users and discuss in a second case the case of external implementations (such as <code>UMAT</code> behaviours in <code>Abaqus</code>).</p>
+<p>Introducing generic implementations in solvers can be very useful for rapid prototyping by the end-users. They can also be useful for behaviours with little specificity (e.g. linear elasticity, von Mises plasticity) often used in general analyses relying on a more frequent and ad-hoc re-parameterization. However, such generic implementations raise the issue of how to manage the physical information used in engineering studies, particularly safety-critical ones.</p>
+<p>For the sake of simplicity, we will first consider the case where the solver provide all the generic implementations required by the users and discuss in a second case the situation of external implementations (such as <code>UMAT</code> behaviours in <code>Abaqus</code>).</p>
 <h3 data-number="1.4.1" id="a-basic-standard-solution-using-input-files-of-the-solver-to-define-materials"><span class="header-section-number">1.4.1</span> A basic standard solution: using input files of the solver to define materials</h3>
-<p>Most of the time, this physical information will be in the input file of the considered solver, generally in a section dedicated to the definition of the materials.</p>
-<p>But the input files not only contains those physical information but also the boundary conditions, the loadings, numerical parameters, etc.. for the simulation it is meant to describe.</p>
-<p>When a new simulation is considered, physical information, i.e. the material definition section, is barely copy/pasted to a new input file.</p>
+<p>Most commonly, the physical information will be in the input file of the considered solver, generally in a section dedicated to the definition of the materials.</p>
+<p>But the input files not only contain that physical information but also the boundary conditions, load step information, numerical parameters, discretization information, etc. for the simulation it is meant to describe.</p>
+<p>When a new simulation is considered, physical information, i.e. the material definition section, is often copy-pasted to a new input file.</p>
 <p>Such input files are also generally shared by engineers which will modify them to their own needs.</p>
-<p>Things are even getting worse if this physical information must be shared with another team which uses a different solver. In general, the physical information are adapted to input file format of the new solver, an operation which is error-prone.</p>
-<p>In the end, our experience shows that is merely impossible to track physical information this way, particularly if the knowledge of the materials evolves over time.</p>
+<p>Things get even worse if this physical information must be shared with another team which uses a different solver. In general, the physical information is manually adapted to input file format of the new solver, an operation which is error-prone for a large number of reasons, including non-consistent parameter definitions, unit conversions, or plain-and-simple copy errors.</p>
+<p>In the end, our experience shows that it is practically impossible to track physical information reliably in this way, particularly if the knowledge of the materials evolves over time.</p>
 <h3 data-number="1.4.2" id="a-more-elaborate-solution"><span class="header-section-number">1.4.2</span> A more elaborate solution</h3>
 <p>A more elaborate solution consists in splitting the input file in multiple ones and separating the material declarations from the rest. One can thus maintain a database of ready-to-use material definitions.</p>
 <p>A variant of this approach is to have specific keywords allowing to request specific material definitions.</p>
 <p>In each case, the physical information is associated to a label. If this information evolves, one may just have to create a new label.</p>
-<p>The solution is elegant and the physical information is no more duplicated.</p>
-<p>However, this approach may have drawbacks:</p>
+<p>The solution is elegant and the physical information is no longer duplicated with every change of geometry or boundary conditions.</p>
+<p>However, this approach still has severe drawbacks:</p>
 <ul>
-<li>When the database is maintened by the developper of the code, new material definition can only be available when a new release of the solver is made.</li>
-<li>It may be limited to the solver’ built-in generic implementation and is thus not extensible.</li>
+<li>When the database is maintened by the developer of the code, new material definitions can only be available when a new release of the solver is made.</li>
+<li>It may be limited to the solver’s built-in generic implementation and is thus not extensible.</li>
 <li>It does not solve the issue regarding the portability of the physical information to another solver.</li>
 </ul>
-<h3 data-number="1.4.3" id="solution-based-on-user-defined-subroutines"><span class="header-section-number">1.4.3</span> Solution based on user defined subroutines</h3>
+<h3 data-number="1.4.3" id="solution-based-on-user-defined-subroutines"><span class="header-section-number">1.4.3</span> Solution based on user-defined subroutines</h3>
+<ul>
+<li>can be either generic or self-contained in the above sense</li>
+<li>often outdated interfaces or languages, very solver-specific</li>
+<li>information transfer limited by what the interface provides</li>
+<li>version compatibility issues (solver release that changed an interface, compilers)</li>
+<li>use of the model in another solver typically requires re-implementation (Hypela2, …)</li>
+</ul>
 <h3 data-number="1.4.4" id="conclusions"><span class="header-section-number">1.4.4</span> Conclusions</h3>
-<p>According to the experience of the authors, a rigorous material knowledge management suitable for safety critical studies is only possible if self-contained implementations are considered.</p>
+<p>According to the experience of the authors, a rigorous material knowledge management suitable for safety-critical studies is only possible if self-contained implementations are considered.</p>
 <h2 data-number="1.5" id="solutions-provided-by-the-mfrontgallery-project"><span class="header-section-number">1.5</span> Solutions provided by the <code>MFrontGallery</code> project</h2>
-<p>The <code>MFrontGallery</code> is based on the assumption that the solvers of interest (note the plural) can be use shared libraries generated by the <code>MFront</code> code generator <span class="citation" data-cites="Helfer2015 cea_edf_mfront_2021">[<a href="#ref-Helfer2015" role="doc-biblioref">3</a>, <a href="#ref-cea_edf_mfront_2021" role="doc-biblioref">4</a>]</span>.</p>
+<p>The <code>MFrontGallery</code> is based on the assumption that the solvers of interest (note the plural) can use shared libraries generated by the <code>MFront</code> code generator <span class="citation" data-cites="Helfer2015 cea_edf_mfront_2021">[<a href="#ref-Helfer2015" role="doc-biblioref">3</a>, <a href="#ref-cea_edf_mfront_2021" role="doc-biblioref">4</a>]</span>.</p>
 <p>This assumption allows to <strong>decouple the material knowledge management from the development (source code) of the solvers of interest</strong>.</p>
 <h3 data-number="1.5.1" id="code-re-use-and-self-contained-implementations"><span class="header-section-number">1.5.1</span> Code re-use and “self-contained” implementations</h3>
-<p>However, a important argument in favor of generic implementation is <strong>code-reuse</strong>. <code>MFront</code> provides several techniques to facilitate code factorisation between implementations as described in the <a href="best-practices.html">“Best practices” page</a></p>
+<p>However, an important argument in favor of generic implementation is <strong>code-reuse</strong>. <code>MFront</code> provides several techniques to facilitate code factorisation between implementations as described in the <a href="best-practices.html">“Best practices” page</a></p>
 <h1 data-number="2" id="sec:mfm:introduction:files"><span class="header-section-number">2</span> Files organization</h1>
 <h2 data-number="2.1" id="storage-of-self-contained-implementations"><span class="header-section-number">2.1</span> Storage of self-contained implementations</h2>
 <p>Self-contained implementations are stored in the <code>materials</code> directory. Under this directory, implementations are stored by material and by kind (material property, behaviour or model), as follows:</p>
@@ -265,7 +272,7 @@
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> Wood</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">└──</span> behaviours</span></code></pre></div>
 <h2 data-number="2.2" id="storage-of-generic-behaviours"><span class="header-section-number">2.2</span> Storage of generic behaviours</h2>
-<p>Generic implementations are stored in the <code>generic-behaviours</code> directory. Under this directory, the implementations are more or less arbitraly classified by the main phenomon described, as follows:</p>
+<p>Generic implementations are stored in the <code>generic-behaviours</code> directory. Under this directory, the implementations are more or less arbitraly classified by the main phenomenon described, as follows:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">generic-behaviours/</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> damage</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> damage_viscoplasticity</span>
@@ -277,18 +284,18 @@
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> plasticity</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> viscoelasticity</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> viscoplasticity</span></code></pre></div>
-<p>Those generic implementations have been introduced in the <code>MFrontGallery</code> project to:</p>
+<p>These generic implementations have been introduced in the <code>MFrontGallery</code> project to:</p>
 <ul>
-<li>tests if those implementations still compile and run as <code>̀MFront</code> evolve.</li>
-<li>show to solver developers how they could provide to their users a set of ready to use behaviours.</li>
+<li>test if those implementations still compile and run as <code>̀MFront</code> evolves.</li>
+<li>show to solver developers how they could provide to their users a set of ready-to-use behaviours.</li>
 </ul>
 <h1 data-number="3" id="sec:mfm:introduction:usage"><span class="header-section-number">3</span> Typical usage</h1>
 <p>After downloading or cloning the sources of the <code>MFrontGallery</code> project, a typical usage of the project is divided in four steps (common to most <code>cmake</code> projects):</p>
 <ul>
 <li><strong>Configuration</strong>, which allows to select the interfaces to be used.</li>
-<li><strong>Compilation</strong>, which builds the shared libraries associated wit the selected interfaces.</li>
-<li><strong>Unit testing</strong>, which allows to verify that no regression occured.</li>
-<li><strong>Installation</strong>, which can deploy the build shared libraries.</li>
+<li><strong>Compilation</strong>, which builds the shared libraries associated with the selected interfaces.</li>
+<li><strong>Unit testing</strong>, which allows to verify that no regression has occured.</li>
+<li><strong>Installation</strong>, which can deploy the built shared libraries.</li>
 </ul>
 <blockquote>
 <p>** Cloning the <code>master</code> branch of the <code>MFrontGallery</code> project**</p>
@@ -296,10 +303,10 @@
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone https://github.com/thelfer/MFrontGallery</span></code></pre></div>
 </blockquote>
 <h2 data-number="3.1" id="configuration"><span class="header-section-number">3.1</span> Configuration</h2>
-<p>The sources are assumed to be in the <code>MFrontGallery</code> directory. While not strictly required, it is convienient to create a <code>build</code> directory:</p>
+<p>The sources are assumed to be in the <code>MFrontGallery</code> directory. While not strictly required, it is convienient to create a <code>build</code> directory (here, at the same level as the <code>MFrontGallery</code> directory):</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir build</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd build</span></code></pre></div>
-<p>The configuration step is triggered by calling <code>cmake</code>:</p>
+<p>The configuration step is triggered by calling <code>cmake</code>, e.g.:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake  ../MFrontGallery/ <span class="at">-DCMAKE_BUILD_TYPE</span><span class="op">=</span>Release     <span class="dt">\</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">-Denable-generic-behaviours</span><span class="op">=</span>ON <span class="at">-Denable-ansys</span><span class="op">=</span>ON</span></code></pre></div>
 <p>The interfaces are selected by a set of <code>cmake</code> flags prefixed by <code>enable</code>. In the previous command, we only selected the <code>generic</code> and <code>ansys</code> interfaces.</p>
@@ -349,7 +356,7 @@
 <p>The built shared libraries can be installed as follows:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--build</span> . <span class="at">--target</span> install</span></code></pre></div>
 <h1 class="unnumbered" id="acknowledgements">Acknowledgements</h1>
-<p>The <code>MFrontGallery</code> project has been developped by CEA, EDF and Framatome as part of a common effort to build a common, robust and material knowledge management strategy to back safety critical studies which meet the quality requirements imposed by the French Safety Authority (ANS).</p>
+<p>The <code>MFrontGallery</code> project has been developed by CEA, EDF and Framatome as part of a common effort to build a common and robust material knowledge management strategy to back safety-critical studies which meet the quality requirements imposed by the French Safety Authority (ANS).</p>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-plancq_pleiades_2004" class="csl-entry" role="doc-biblioentry">

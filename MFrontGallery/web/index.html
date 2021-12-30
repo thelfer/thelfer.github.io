@@ -94,7 +94,6 @@
 	        <li><a href="creating-derived-project.html">Creating derived project</a></li>
 	        <li><a href="cmake-infrastructure.html">CMake infrastructure</a></li>
 	        <li><a href="best-practices.html">Best practices</a></li>
-            <li><a href="contributing.html">Contributing</a></li>
 	      </ul>
         </li>
         <li><a>Materials</a>
@@ -119,15 +118,7 @@
              </li>
           </ul>
         </li>
-        <li><a>Behaviours</a>
-          <ul>
-             <li><a>Plasticity</a>
-                <ul>
-                  <li><a href="SemiImplicitModifiedCamClay_OpenGeoSys2020.html">SemiImplicitModifiedCamClay_OpenGeoSys2020</a></li>
-                </ul>
-             </li>
-          </ul>
-        </li>
+        <li><a href="contributing.html">Contributing</a></li>
         <li><a>Getting Help</a>
       	  <ul>
 	        <li><a href="https://github.com/thelfer/MFrontGallery/discussions">Forum</a></li>
@@ -158,17 +149,22 @@
 <li><a href="#discussion"><span class="toc-section-number">1.4</span> Discussion</a></li>
 <li><a href="#solutions-provided-by-the-mfrontgallery-project"><span class="toc-section-number">1.5</span> Solutions provided by the <code>MFrontGallery</code> project</a></li>
 </ul></li>
-<li><a href="#sec:mfm:introduction:files"><span class="toc-section-number">2</span> Files organization</a>
+<li><a href="#sec:mfm:introduction:typical_use_case"><span class="toc-section-number">2</span> Typical use case of projects derived from <code>MFrontGallery</code></a>
 <ul>
-<li><a href="#storage-of-self-contained-implementations"><span class="toc-section-number">2.1</span> Storage of self-contained implementations</a></li>
-<li><a href="#storage-of-generic-behaviours"><span class="toc-section-number">2.2</span> Storage of generic behaviours</a></li>
+<li><a href="#generic-behaviours-delivered-along-with-a-general-purpose-solver"><span class="toc-section-number">2.1</span> Generic behaviours delivered along with a general purpose solver</a></li>
+<li><a href="#domain-specific-tools-built-in-on-top-of-general-purpose-solver"><span class="toc-section-number">2.2</span> Domain-specific tools built-in on top of general purpose solver</a></li>
 </ul></li>
-<li><a href="#sec:mfm:introduction:usage"><span class="toc-section-number">3</span> Typical usage</a>
+<li><a href="#sec:mfm:introduction:files"><span class="toc-section-number">3</span> Files organization</a>
 <ul>
-<li><a href="#configuration"><span class="toc-section-number">3.1</span> Configuration</a></li>
-<li><a href="#compilation"><span class="toc-section-number">3.2</span> Compilation</a></li>
-<li><a href="#unit-tests"><span class="toc-section-number">3.3</span> Unit tests</a></li>
-<li><a href="#installation"><span class="toc-section-number">3.4</span> Installation</a></li>
+<li><a href="#storage-of-self-contained-implementations"><span class="toc-section-number">3.1</span> Storage of self-contained implementations</a></li>
+<li><a href="#storage-of-generic-behaviours"><span class="toc-section-number">3.2</span> Storage of generic behaviours</a></li>
+</ul></li>
+<li><a href="#sec:mfm:introduction:usage"><span class="toc-section-number">4</span> Typical usage</a>
+<ul>
+<li><a href="#configuration"><span class="toc-section-number">4.1</span> Configuration</a></li>
+<li><a href="#compilation"><span class="toc-section-number">4.2</span> Compilation</a></li>
+<li><a href="#unit-tests"><span class="toc-section-number">4.3</span> Unit tests</a></li>
+<li><a href="#installation"><span class="toc-section-number">4.4</span> Installation</a></li>
 </ul></li>
 <li><a href="#acknowledgements">Acknowledgements</a></li>
 <li><a href="#references">References</a></li>
@@ -180,7 +176,7 @@
 <li>The first one is to show how solver developers may provide to their users a set of ready-to-use (mechanical) behaviours which can be parametrized by their users to match their needs.</li>
 <li>The second one is to show how to set up a high-quality material knowledge management project based on <a href="https://thelfer.github.io/tfel/web/index.html"><code>MFront</code></a>, able to meet the requirements of safety-critical studies as discussed in Section 1.2.</li>
 </ol>
-<p>The distinction between those two approaches is profound and discussed in depth in Section 1.</p>
+<p>The distinction between those two approaches is profound and discussed in depth in Sections 1 and 2.</p>
 <p>While the first goal is common to all (mechanical) solvers, one originality of the <code>MFrontGallery</code> project is to address the second goal.</p>
 <p>The <code>MFrontGallery</code> project also contains various high-quality <code>MFront</code> implementations. Those implementations may originate from the <code>MFront</code> tutorials, i.e. the <a href="https://thelfer.github.io/tfel/web/gallery.html"><code>MFront gallery</code> page</a> (hence the name of the project). This project is also meant to store various contributions of academic or industrial users of <code>MFront</code> willing to share their material knowledge and also benefit from the continuous integration process to guarantee that no regression would happen as <code>MFront</code> evolves.</p>
 <blockquote>
@@ -201,8 +197,9 @@
 <li>a set of high-quality <code>MFront</code> implementations.</li>
 </ul>
 <p>Section 1 discusses why a new approach to material knowledge management is needed in the context of safety criticial studies.</p>
-<p>Section 2 discusses how <code>MFront</code> implementations are stored in the project.</p>
-<p>Section 3 provides a short overview of the usage of the project.</p>
+<p>Section 2 describes some typical use case of projects derived from <code>MFrontGallery</code>.</p>
+<p>Section 3 discusses how <code>MFront</code> implementations are stored in the project.</p>
+<p>Section 4 provides a short overview of the usage of the project.</p>
 <h1 data-number="1" id="sec:mfm:introduction:statement_of_need"><span class="header-section-number">1</span> Statemement of need: material knowledge management for safety criticial studies</h1>
 <h2 data-number="1.1" id="role-of-material-knowledge-in-numerical-simulations-of-solids"><span class="header-section-number">1.1</span> Role of material knowledge in numerical simulations of solids</h2>
 <p>Numerical simulations of solids are based on the description of the evolution of the thermodynamical state of the materials of interest. In the context of the <code>MFrontGallery</code> project, this thermodynamical state is described at each point of space by a set of internal state variables which can evolve with time due to various physical phenomena (plasticity, viscoplaticity, damage, phase change, swelling due to dessication, etc.).</p>
@@ -215,6 +212,7 @@
 <h2 data-number="1.2" id="sec:mfm:introduction:safety_critical_studies"><span class="header-section-number">1.2</span> Requirements related to safety-critical studies</h2>
 <p>The <code>MFrontGallery</code> project has been developed to address various issues related to material knowledge management for safety-critical studies:</p>
 <ul>
+<li><strong>Intellectual property</strong>: Material knowledge reflects the know-how of industrials and shall be kept private for various reasons. For example, some mechanical behaviours result from years of experimental testing in dedicated facilities and are thus highly valuable. In some cases, material knowledge can be a competitive advantage.</li>
 <li><strong>Portability</strong>: safety-critical studies may involve several partners which use different solvers for independent assessment and review. From the same <code>MFront</code> source file, the <code>MFrontGallery</code> can generate shared libraries for all the solvers of interest.</li>
 <li><strong>Maintainability over decades</strong>: Some safety-critical studies can be used to design buildings, plants, or technological systems for operation periods of decades or more. Over such periods of time, both the solvers and the material knowledge will evolve. The safety-critical studies, however, on which design choices or decisions were based, need to remain accessible or reproducible.</li>
 <li><strong>Continuous integration and unit testing</strong>: Each implementation has associated unit tests with can check no-regression during the development of <code>MFront</code>.</li>
@@ -264,8 +262,11 @@
 <p>This assumption allows to <strong>decouple the material knowledge management from the development (source code) of the solvers of interest</strong>.</p>
 <h3 data-number="1.5.1" id="code-re-use-and-self-contained-implementations"><span class="header-section-number">1.5.1</span> Code re-use and “self-contained” implementations</h3>
 <p>However, an important argument in favor of generic implementation is <strong>code-reuse</strong>. <code>MFront</code> provides several techniques to facilitate code factorisation between implementations as described in the <a href="best-practices.html">“Best practices” page</a></p>
-<h1 data-number="2" id="sec:mfm:introduction:files"><span class="header-section-number">2</span> Files organization</h1>
-<h2 data-number="2.1" id="storage-of-self-contained-implementations"><span class="header-section-number">2.1</span> Storage of self-contained implementations</h2>
+<h1 data-number="2" id="sec:mfm:introduction:typical_use_case"><span class="header-section-number">2</span> Typical use case of projects derived from <code>MFrontGallery</code></h1>
+<h2 data-number="2.1" id="generic-behaviours-delivered-along-with-a-general-purpose-solver"><span class="header-section-number">2.1</span> Generic behaviours delivered along with a general purpose solver</h2>
+<h2 data-number="2.2" id="domain-specific-tools-built-in-on-top-of-general-purpose-solver"><span class="header-section-number">2.2</span> Domain-specific tools built-in on top of general purpose solver</h2>
+<h1 data-number="3" id="sec:mfm:introduction:files"><span class="header-section-number">3</span> Files organization</h1>
+<h2 data-number="3.1" id="storage-of-self-contained-implementations"><span class="header-section-number">3.1</span> Storage of self-contained implementations</h2>
 <p>Self-contained implementations are stored in the <code>materials</code> directory. Under this directory, implementations are stored by material and by kind (material property, behaviour or model), as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">materials/</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Bentonite</span>
@@ -280,7 +281,7 @@
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── properties</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> Wood</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">└──</span> behaviours</span></code></pre></div>
-<h2 data-number="2.2" id="storage-of-generic-behaviours"><span class="header-section-number">2.2</span> Storage of generic behaviours</h2>
+<h2 data-number="3.2" id="storage-of-generic-behaviours"><span class="header-section-number">3.2</span> Storage of generic behaviours</h2>
 <p>Generic implementations are stored in the <code>generic-behaviours</code> directory. Under this directory, the implementations are more or less arbitraly classified by the main phenomenon described, as follows:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">generic-behaviours/</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> damage</span>
@@ -298,7 +299,7 @@
 <li>test if those implementations still compile and run as <code>̀MFront</code> evolves.</li>
 <li>show to solver developers how they could provide to their users a set of ready-to-use behaviours.</li>
 </ul>
-<h1 data-number="3" id="sec:mfm:introduction:usage"><span class="header-section-number">3</span> Typical usage</h1>
+<h1 data-number="4" id="sec:mfm:introduction:usage"><span class="header-section-number">4</span> Typical usage</h1>
 <p>After downloading or cloning the sources of the <code>MFrontGallery</code> project, a typical usage of the project is divided in four steps (common to most <code>cmake</code> projects):</p>
 <ul>
 <li><strong>Configuration</strong>, which allows to select the interfaces to be used.</li>
@@ -311,7 +312,7 @@
 <p>The <code>master</code> branch of the <code>MFrontGallery</code> project can be cloned as follows:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone https://github.com/thelfer/MFrontGallery</span></code></pre></div>
 </blockquote>
-<h2 data-number="3.1" id="configuration"><span class="header-section-number">3.1</span> Configuration</h2>
+<h2 data-number="4.1" id="configuration"><span class="header-section-number">4.1</span> Configuration</h2>
 <p>The sources are assumed to be in the <code>MFrontGallery</code> directory. While not strictly required, it is convienient to create a <code>build</code> directory (here, at the same level as the <code>MFrontGallery</code> directory):</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir build</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd build</span></code></pre></div>
@@ -331,11 +332,11 @@
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> StationaryNonLinearHeatTransfer has been discarded for interface ansys <span class="er">(</span><span class="ex">unsupported</span> behaviour type<span class="kw">)</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> TransientLinearHeatTransfer has been discarded for interface ansys <span class="er">(</span><span class="ex">unsupported</span> behaviour type<span class="kw">)</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> TransientNonLinearHeatTransfer has been discarded for interface ansys <span class="er">(</span><span class="ex">unsupported</span> behaviour type<span class="kw">)</span></span></code></pre></div>
-<h2 data-number="3.2" id="compilation"><span class="header-section-number">3.2</span> Compilation</h2>
+<h2 data-number="4.2" id="compilation"><span class="header-section-number">4.2</span> Compilation</h2>
 <p>The selected libraries can be built as follows:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--build</span> . <span class="at">--target</span> all</span></code></pre></div>
 <p>Various targets are avaiable.</p>
-<h2 data-number="3.3" id="unit-tests"><span class="header-section-number">3.3</span> Unit tests</h2>
+<h2 data-number="4.3" id="unit-tests"><span class="header-section-number">4.3</span> Unit tests</h2>
 <p>Unit tests can be executed as follows:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--build</span> . <span class="at">--target</span> check</span></code></pre></div>
 <p>A summary of the executed tests and their status is displayed, as follows:</p>
@@ -361,7 +362,7 @@
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="ex">Total</span> Test time <span class="er">(</span><span class="ex">real</span><span class="kw">)</span> <span class="ex">=</span>   0.13 sec</span>
 <span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="ex">Built</span> target check</span></code></pre></div>
-<h2 data-number="3.4" id="installation"><span class="header-section-number">3.4</span> Installation</h2>
+<h2 data-number="4.4" id="installation"><span class="header-section-number">4.4</span> Installation</h2>
 <p>The built shared libraries can be installed as follows:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--build</span> . <span class="at">--target</span> install</span></code></pre></div>
 <h1 class="unnumbered" id="acknowledgements">Acknowledgements</h1>

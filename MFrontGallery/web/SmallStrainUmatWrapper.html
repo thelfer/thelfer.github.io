@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Introducing legacy Abaqus/UMAT implementations in MFrontGallery</title>
+        <meta name="author" content="Thomas Helfer, Éric Simo" />
+            <meta name="date" content="2020-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #c4a000; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #000000; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #000000; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #000000; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	    <li><a href="index.html">Overview</a></li>
+        <li><a>Documentation</a>
+      	  <ul>
+	        <li><a href="install.html">Installation guide</a></li>
+	        <li><a href="creating-derived-project.html">Creating derived project</a></li>
+	        <li><a href="cmake-infrastructure.html">CMake infrastructure</a></li>
+	        <li><a href="best-practices.html">Best practices</a></li>
+	      </ul>
+        </li>
+        <li><a>Materials</a>
+          <ul>
+             <li><a>Concrete</a>
+                <ul>
+                   <li><a>Behaviours</a>
+                     <ul>
+                       <li><a href="Burger_EDF_CIWAP_2021.html">Burger_EDF_CIWAP_2021</a></li>
+                     </ul>
+                   </li>
+                </ul>
+             </li>
+             <li><a>Crushed Salt</a>
+                <ul>
+                   <li><a>Behaviours</a>
+                     <ul>
+                       <li><a href="CrushedSaltKorthausBehaviour.html">Korthaus' behaviour</a></li>
+                     </ul>
+                   </li>
+                </ul>
+             </li>
+          </ul>
+        </li>
+        <li><a href="contributing.html">Contributing</a></li>
+        <li><a>Getting Help</a>
+      	  <ul>
+	        <li><a href="https://github.com/thelfer/MFrontGallery/discussions">Forum</a></li>
+	        <li><a href="faq.html">FAQ</a></li>
+	        <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	      </ul>
+       </li>
+        <li><a>About</a>
+      	  <ul>
+	        <li><a href="contributors.html">Contributors</a></li>
+	      </ul>
+       </li>
+      </ul><br>
+    </header>
+
+<div id="header">
+<h1 class="title">Introducing legacy <code>Abaqus/UMAT</code> implementations in <code>MFrontGallery</code></h1>
+<h2 class="author">Thomas Helfer, Éric Simo</h2>
+<h3 class="date">2020</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#description-of-the-wrapped-umat-implementation-and-role-of-the-wrapper"><span class="toc-section-number">1</span> Description of the wrapped <code>UMAT</code> implementation and role of the wrapper</a></li>
+<li><a href="#sec:umat_wrapper:MFrontUmatWrapper"><span class="toc-section-number">2</span> Description of the <code>MFrontUmatWrapper.hxx</code> header file</a></li>
+<li><a href="#sec:umat_wrapper:material_properties"><span class="toc-section-number">3</span> Treatment of the material properties</a></li>
+<li><a href="#developping-the-wrapper-outside-the-mfrontgallery"><span class="toc-section-number">4</span> Developping the wrapper outside the <code>MFrontGallery</code></a>
+<ul>
+<li><a href="#compiling-the-umat.f-file"><span class="toc-section-number">4.1</span> Compiling the <code>umat.f</code> file</a></li>
+<li><a href="#compiling-the-mfront-wrapper"><span class="toc-section-number">4.2</span> Compiling the <code>MFront</code> wrapper</a></li>
+<li><a href="#running-a-simple-test-with-mtest"><span class="toc-section-number">4.3</span> Running a simple test with <code>MTest</code></a></li>
+</ul></li>
+<li><a href="#introducing-the-wrapped-implementation-in-mfrontgallery"><span class="toc-section-number">5</span> Introducing the wrapped implementation in <code>MFrontGallery</code></a></li>
+<li><a href="#sec:umat_wrapper:fortran2003"><span class="toc-section-number">6</span> Solving the portability issue using the intrinsic <code>iso_c_bindings</code> module of <code>Fortran 2003</code></a></li>
+<li><a href="#appendix"><span class="toc-section-number">7</span> Appendix</a>
+<ul>
+<li><a href="#sec:umat_wrapper:umat_source_code"><span class="toc-section-number">7.1</span> Source code of the <code>UMAT</code> subroutine</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<p>Implementing a constitutive model is a long tedious and error-prone process, in particular for soils where a wide variety of phenomena must be taken into account. Moreover, the implementation must satisfy the interface requirements of the targeted solver.</p>
+<p>While <code>MFront</code> greatly reduces the amount of work required to implement a new behaviour, existing legacy implementations are highly valuable and their re-implementation in <code>MFront</code> should only be considered with caution considering the trade-offs. In our experience, such a re-implementation increases the maintainability and portability, and generally the numerical performances, but requires significant development efforts.</p>
+<p>In this work, we developed an alternative approach, which consists in using <code>MFront</code> as a wrapper to the legacy implementations written using the <code>UMAT</code> interface introduced by the <code>Abaqus/Standard</code> finite element solver.</p>
+<figure>
+<img src="img/SmallStrainUmatWrapper/mfront-wrapper.svg" id="fig:umat_wrapper:workflow" style="width:90.0%" alt="Figure 1: Workflow for wrapping legacy model implementations in MFront" /><figcaption aria-hidden="true">Figure 1: Workflow for wrapping legacy model implementations in <code>MFront</code></figcaption>
+</figure>
+<p>The <code>MFront</code> wrapper manages:</p>
+<ul>
+<li>handles the transfer of the data from solver to the legacy implementation on input and output as illustrated in Figure 1.</li>
+<li>the definition of appropriate metadata which considerably simplifies the behaviour integration in the solver, in particular if the <a href="https://thelfer.github.io/mgis/web/index.html"><code>MFrontGenericInterfaceSupport</code> library</a> (<code>MGIS</code>) is used by the targeted solver <span class="citation" data-cites="Helfer2020 cea_mgis_2021">[<a href="#ref-Helfer2020" role="doc-biblioref">1</a>, <a href="#ref-cea_mgis_2021" role="doc-biblioref">2</a>]</span>.</li>
+</ul>
+<h1 data-number="1" id="description-of-the-wrapped-umat-implementation-and-role-of-the-wrapper"><span class="header-section-number">1</span> Description of the wrapped <code>UMAT</code> implementation and role of the wrapper</h1>
+<p>In this tutorial, we use a sightly modified version of the <code>umat.f</code> file delivered with the <code>CalculiX</code> finite element solver which implements an isotropic elastic behaviour in <code>3D</code>. This implementation is reported in Listing lst. 2 of Appendix 7.1.</p>
+<p>This implementation is written in <code>Fortran 77</code> which may lead to a portability issue as the name of the resulting function is implementation defined. We will discard this issue for the moment and come by to it later by rewritting this function in <code>Fortran 2003</code> using the intrinsic <code>iso_c_bindings</code> module in Section 6.</p>
+<p>This implementation has no state variables and requires two material properties: the Young’ modulus and the Poisson’ ratio.</p>
+<p>The number of arguments effectively used by the subroutine is here very small compared to the total number of arguments:</p>
+<ul>
+<li><code>stress</code>: an array containing the values of the stress at the beginning of the time step on input and the values of the stress at the end of the time step on output.</li>
+<li><code>ddsdde</code>: an array containing the values of the consistent tangent operator on output. As the behaviour is linear elastic, the consistent tangent operator is simply the stiffness matrix.</li>
+<li><code>stran</code>: an array containing the values of the strain at the beginning of the time step.</li>
+<li><code>dstran</code>: an array containing the values of the strain increment during the time step.</li>
+<li><code>props</code>: an array containing the material properties.</li>
+</ul>
+<p>It is important to note that this implementation does not make any check of its arguments. For example, the user may pass any number of material properties, which may lead segmentation faults at best or to spurious results difficult to debug at worse. It is interesting to note that <code>MFront</code> will ensure the correct usage of the wrapped behaviour and automatically generate the correct checks.</p>
+<p>The <code>UMAT</code> interface uses the so-called Voigt conventions to store symmetric tensors as vectors. <code>MFront</code> uses a different convention, as described in <a href="https://thelfer.github.io/tfel/web/tensors.html">its documentation</a> <span class="citation" data-cites="cea_edf_tfel_tensors_2021">[<a href="#ref-cea_edf_tfel_tensors_2021" role="doc-biblioref">3</a>]</span>. Conversion functions are thus required on input and output of the <code>UMAT</code> implementation.</p>
+<p>Special care must also be taken regarding the consistent tangent operator. Not only shall the difference of conventions be taken into account, but also the fact that <code>fortran</code> uses a column-major convention to store matrices while the <code>TFEL/Math</code> library uses a row-major convention. Basically, this means that the consistent tangent operator must transposed. In the case of linear elasticity, the stiffness matrix is obviously symmetric, but this is not the general case.</p>
+<p>In this case, the wrapper shall:</p>
+<ol type="1">
+<li>convert the strain, the strain increment and stress tensors on input</li>
+<li>pass the material properties on input.</li>
+<li>convert the stress tensor and the stiffness matrix on output.</li>
+</ol>
+<p>The conversion functions required by Steps 1 and 3 will be the same for all wrappers of <code>UMAT</code> implementations. Moreover, the same conversion functions could also be used when wrapping <code>VUMAT</code> behaviours used by <code>Abaqus/Explicit</code>. It is then convenient to implement them in a dedicated header file, called <code>MFrontUmatWrapper.hxx</code> in the following, using <code>C++</code> template functions. This header is described in Section 2.</p>
+<p>Step 2 is a bit more interesting to discuss as it exposes important design choices, as discussed in Section 3.</p>
+<h1 data-number="2" id="sec:umat_wrapper:MFrontUmatWrapper"><span class="header-section-number">2</span> Description of the <code>MFrontUmatWrapper.hxx</code> header file</h1>
+<p>The <code>MFrontUmatWrapper.hxx</code> header file defines conversion functions that can be used by any <code>UMAT</code> and <code>VUMAT</code> wrappers to convert stress, strain and consistent tangent operators.</p>
+<ul>
+<li><code>convertStrainToAbaqus</code>, which computes the strain tensor using <code>̀UMAT</code> conventions from the <code>MFront</code> strain tensor. This function can also be used for the strain increment tensor.</li>
+<li><code>convertStressToAbaqus</code>, which computes the stress tensor using <code>̀UMAT</code> conventions from the <code>MFront</code> stress tensor.</li>
+<li><code>convertStressFromAbaqus</code>, which computes the <code>MFront</code> stress tensor from the <code>UMAT</code> result.</li>
+<li><code>convertStiffnessMatrixFromAbaqus</code>, which computes the <code>MFront</code> stiffness matrix for the <code>UMAT</code> result.</li>
+</ul>
+<p>To avoid runtime checks, those functions use a the modelling hypothesis as a first template parameter. We use here the fact that <code>MFront</code>’ behaviours are also templated by the modelling hypothesis, which is then known at compile-time.</p>
+<p>Since <code>Abaqus/Explicit</code> handles computations in simple and double precision, the conversion function takes the numeric type as a second template parameter.</p>
+<p>All the convertion functions are declared in the <code>mfront_umat_wrapper</code> namespace.</p>
+<p>Listing lst. 1 provide an implementation, limited to the tridimensional case, of the <code>convertStrainToAbaqus</code> function.</p>
+<div id="lst:umat_wrapper:convertStrainToAbaqus" class="listing cxx">
+<p>Listing 1: Source code of the `convertStrainToAbaqus` function</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">template</span> &lt;Hypothesis H, <span class="kw">typename</span> NumType&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> convertStrainToAbaqus(AbaqusRealType *<span class="at">const</span> e,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">const</span> NumType *<span class="at">const</span> strain) {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">constexpr</span> (H == Hypothesis::TRIDIMENSIONAL) {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="kw">constexpr</span> <span class="kw">auto</span> cste = tfel::math::Cste&lt;NumType&gt;::sqrt2;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      e[<span class="dv">0</span>] = strain[<span class="dv">0</span>];</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      e[<span class="dv">1</span>] = strain[<span class="dv">1</span>];</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      e[<span class="dv">2</span>] = strain[<span class="dv">2</span>];</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      e[<span class="dv">3</span>] = strain[<span class="dv">3</span>] * cste;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      e[<span class="dv">4</span>] = strain[<span class="dv">4</span>] * cste;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      e[<span class="dv">5</span>] = strain[<span class="dv">5</span>] * cste;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      tfel::raise(<span class="st">&quot;Unsupported hypothesis&quot;</span>);</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  }  <span class="co">// end of convertStrainToAbaqus</span></span></code></pre></div>
+</div>
+<h1 data-number="3" id="sec:umat_wrapper:material_properties"><span class="header-section-number">3</span> Treatment of the material properties</h1>
+<h1 data-number="4" id="developping-the-wrapper-outside-the-mfrontgallery"><span class="header-section-number">4</span> Developping the wrapper outside the <code>MFrontGallery</code></h1>
+<h2 data-number="4.1" id="compiling-the-umat.f-file"><span class="header-section-number">4.1</span> Compiling the <code>umat.f</code> file</h2>
+<p>In this tutorial, we compile the <code>umat.f</code> file as a shared library:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> gfortran <span class="at">-O2</span> <span class="at">--shared</span> <span class="at">-fPIC</span> <span class="at">-DPIC</span> umat.f <span class="at">-o</span> libUmat.so</span></code></pre></div>
+<p>Here, we use the <code>umat.f</code> file delivered with the <code>CalculiX</code> finite element solver. This file implements an isotropic elastic behaviour in <code>3D</code>.</p>
+<h2 data-number="4.2" id="compiling-the-mfront-wrapper"><span class="header-section-number">4.2</span> Compiling the <code>MFront</code> wrapper</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">-I</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span> <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic SmallStrainUmatWrapper.mfront <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--@Link</span><span class="op">=</span><span class="st">&#39;{&quot;-L ../ -lUmat&quot;}&#39;</span></span></code></pre></div>
+<h2 data-number="4.3" id="running-a-simple-test-with-mtest"><span class="header-section-number">4.3</span> Running a simple test with <code>MTest</code></h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export LD_LIBRARY_PATH=<span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:<span class="va">$LD_LIBRARY_PATH</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mtest SmallStrainUmatWrapper.mtest</span></code></pre></div>
+<h1 data-number="5" id="introducing-the-wrapped-implementation-in-mfrontgallery"><span class="header-section-number">5</span> Introducing the wrapped implementation in <code>MFrontGallery</code></h1>
+<h1 data-number="6" id="sec:umat_wrapper:fortran2003"><span class="header-section-number">6</span> Solving the portability issue using the intrinsic <code>iso_c_bindings</code> module of <code>Fortran 2003</code></h1>
+<h1 data-number="7" id="appendix"><span class="header-section-number">7</span> Appendix</h1>
+<h2 data-number="7.1" id="sec:umat_wrapper:umat_source_code"><span class="header-section-number">7.1</span> Source code of the <code>UMAT</code> subroutine</h2>
+<div id="lst:umat_wrapper:umat_source_code" class="listing fortran">
+<p>Listing 2: Source code of the `UMAT` subroutine</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">     s</span>ubroutine umat(stress,statev,ddsdde,sse,spd,scd,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  rpl,ddsddt,drplde,drpldt,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran,dstran,time,dtime,temp,dtemp,predef,dpred,cmname,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ndi,nshr,ntens,nstatv,props,nprops,coords,drot,pnewdt,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  celent,dfgrd0,dfgrd1,noel,npt,layer,kspt,kstep,kinc)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">character*80</span> cmname</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> ndi,nshr,ntens,nstatv,nprops,noel,npt,layer,kspt,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  kstep,kinc</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> stress(ntens),statev(nstatv),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ddsdde(ntens,ntens),ddsddt(ntens),drplde(ntens),</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran(ntens),dstran(ntens),time(<span class="dv">2</span>),celent,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  props(nprops),coords(<span class="dv">3</span>),drot(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd0(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd1(<span class="dv">3</span>,<span class="dv">3</span>),</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  sse,spd,scd,rpl,drpldt,dtime,temp,dtemp,predef,dpred,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  pnewdt</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> i,j</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> e,un,al,um,am1,am2</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>      e<span class="kw">=</span>props(<span class="dv">1</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>      un<span class="kw">=</span>props(<span class="dv">2</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>      al<span class="kw">=</span>un<span class="kw">*</span>e<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">-</span><span class="fl">2.d0</span><span class="kw">*</span>un)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>      um<span class="kw">=</span>e<span class="kw">/</span><span class="fl">2.d0</span><span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>      am1<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>      am2<span class="kw">=</span>um</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">!     stress</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">!      </span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">1</span>)<span class="kw">=</span>stress(<span class="dv">1</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">1</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">2</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">2</span>)<span class="kw">=</span>stress(<span class="dv">2</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">2</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">3</span>)<span class="kw">=</span>stress(<span class="dv">3</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">3</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">2</span>))</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">4</span>)<span class="kw">=</span>stress(<span class="dv">4</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">4</span>)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">5</span>)<span class="kw">=</span>stress(<span class="dv">5</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">5</span>)</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">6</span>)<span class="kw">=</span>stress(<span class="dv">6</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">6</span>)</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="co">!     stiffness</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>      <span class="kw">do</span> i<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>         <span class="kw">do</span> j<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>            ddsdde(i,j)<span class="kw">=</span><span class="fl">0.d0</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>         <span class="kw">enddo</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>      <span class="kw">enddo</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">1</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">2</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">3</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">4</span>,<span class="dv">4</span>)<span class="kw">=</span>um</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">5</span>,<span class="dv">5</span>)<span class="kw">=</span>um</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">6</span>,<span class="dv">6</span>)<span class="kw">=</span>um</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="co">!     </span><span class="re">END</span><span class="co"> EXAMPLE LINEAR ELASTIC MATERIAL</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>      <span class="kw">end</span></span></code></pre></div>
+</div>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-Helfer2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Bleyer</span>, Jeremy, <span class="smallcaps">Frondelius</span>, Tero, <span class="smallcaps">Yashchuk</span>, Ivan, <span class="smallcaps">Nagel</span>, Thomas and <span class="smallcaps">Naumov</span>, Dmitri. <span class="nocase">The MFrontGenericInterfaceSupport project</span>. <em>Journal of Open Source Software</em>. April 2020. Vol. 5, no. 48, p. 2003. DOI <a href="https://doi.org/10.21105/joss.02003">10.21105/joss.02003</a>. Available from: <a href="https://joss.theoj.org/papers/10.21105/joss.02003">https://joss.theoj.org/papers/10.21105/joss.02003</a></div>
+</div>
+<div id="ref-cea_mgis_2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">CEA</span>. <span class="nocase">MGIS website</span>. 2021. Available from: <a href="https://thelfer.github.io/mgis/web/index.html">https://thelfer.github.io/mgis/web/index.html</a></div>
+</div>
+<div id="ref-cea_edf_tfel_tensors_2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">CEA, EDF</span>. Second and fourth-order tensor objects in <span>TFEL/Math</span>. 2021. Available from: <a href="https://thelfer.github.io/tfel/web/tensors.html">https://thelfer.github.io/tfel/web/tensors.html</a></div>
+</div>
+</div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

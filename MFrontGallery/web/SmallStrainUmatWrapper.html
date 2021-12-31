@@ -359,10 +359,56 @@
 <p>The <code>@ModellingHypothesis</code> keyword allows to only generate the tridimensional version of this behaviour:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypothesis Tridimensional;</span></code></pre></div>
 <h2 data-number="4.5" id="including-the-mfrontumatwrapper-file"><span class="header-section-number">4.5</span> Including the <code>MFrontUmatWrapper</code> file</h2>
-<p>The <code>MFrontUmatWrapper</code> is included inside an <code>@Includes</code> code block:</p>
+<p>The <code>@Includes</code> code block can be use to include the <code>MFrontUmatWrapper.hxx</code> header and declare the <code>umat_</code> function as follows:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes {</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;MFrontUmatWrapper.hxx&quot;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">extern</span> <span class="st">&quot;C&quot;</span> {</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="va">umat_</span>(</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* STRESS */</span>, <span class="co">/* stress                   */</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* STATEV */</span>, <span class="co">/* internal state variables */</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* DDSDDE */</span>, <span class="co">/* tangent operator         */</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* SSE */</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* SPD */</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* SCD */</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* RPL */</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* DDSDDT */</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* DRPLDE */</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* DRPLDT */</span>,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* STRAN */</span>,  <span class="co">/* strain tensor    */</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DSTRAN */</span>, <span class="co">/* strain increment */</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* TIME */</span>,</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DTIME */</span>,  <span class="co">/* time increment   */</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* TEMP */</span>,   <span class="co">/* temperature      */</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DTEMP */</span>,  <span class="co">/* temperature increment    */</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* PREDEF */</span>, <span class="co">/* external state variables */</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DPRED */</span>, <span class="co">/* external state variables increments   */</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">char</span> *<span class="at">const</span> <span class="co">/* CMNAME */</span>,</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NDI */</span>,</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NSHR */</span>,</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NTENS */</span>, <span class="co">/* number of components of tensors */</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NSTATV */</span>, <span class="co">/* number of internal state variables */</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* PROPS */</span>, <span class="co">/* material properties */</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NPROPS */</span>, <span class="co">/* number of material properties */</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* COORDS */</span>,</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DROT, incremental rotation matrix */</span>,</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* PNEWDT, estimation of the next time increment */</span>,</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* CELENT */</span>,</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DFGRD0 */</span>,</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DFGRD1 */</span>,</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NOEL */</span>,</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NPT */</span>,</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* LAYER */</span>,</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* KSPT */</span>,</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* KSTEP */</span>,</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>    AbaqusIntegerType *<span class="at">const</span> <span class="co">/* KINC */</span>,</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> <span class="co">/* hidden fortran parameter */</span>);</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of extern &quot;C&quot;</span></span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>In the <code>umat_</code> function declaration, we used to type aliases, <code>AbaqusIntegerType</code> and <code>AbaqusRealType</code>, which is usually a good practice. Here, we recognize that this is a bit overkill, if not pedantic.</p>
 <h2 data-number="4.6" id="elastic-properties"><span class="header-section-number">4.6</span> Elastic properties</h2>
 <p>Following the discussion of Section 3, we choose here to declare two distincts material properties:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress E;</span>

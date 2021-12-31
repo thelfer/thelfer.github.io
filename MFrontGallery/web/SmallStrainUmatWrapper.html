@@ -144,18 +144,34 @@
 <ul>
 <li><a href="#description-of-the-wrapped-umat-implementation-and-role-of-the-wrapper"><span class="toc-section-number">1</span> Description of the wrapped <code>UMAT</code> implementation and role of the wrapper</a></li>
 <li><a href="#sec:umat_wrapper:MFrontUmatWrapper"><span class="toc-section-number">2</span> Description of the <code>MFrontUmatWrapper.hxx</code> header file</a></li>
-<li><a href="#sec:umat_wrapper:material_properties"><span class="toc-section-number">3</span> Treatment of the material properties</a></li>
-<li><a href="#developping-the-wrapper-outside-the-mfrontgallery"><span class="toc-section-number">4</span> Developping the wrapper outside the <code>MFrontGallery</code></a>
+<li><a href="#sec:umat_wrapper:material_properties"><span class="toc-section-number">3</span> Treatment of the material properties</a>
 <ul>
-<li><a href="#compiling-the-umat.f-file"><span class="toc-section-number">4.1</span> Compiling the <code>umat.f</code> file</a></li>
-<li><a href="#compiling-the-mfront-wrapper"><span class="toc-section-number">4.2</span> Compiling the <code>MFront</code> wrapper</a></li>
-<li><a href="#running-a-simple-test-with-mtest"><span class="toc-section-number">4.3</span> Running a simple test with <code>MTest</code></a></li>
+<li><a href="#the-generic-behaviour-case"><span class="toc-section-number">3.1</span> The generic behaviour case</a></li>
+<li><a href="#the-self-contained-case"><span class="toc-section-number">3.2</span> The self-contained case</a></li>
 </ul></li>
-<li><a href="#introducing-the-wrapped-implementation-in-mfrontgallery"><span class="toc-section-number">5</span> Introducing the wrapped implementation in <code>MFrontGallery</code></a></li>
-<li><a href="#sec:umat_wrapper:fortran2003"><span class="toc-section-number">6</span> Solving the portability issue using the intrinsic <code>iso_c_bindings</code> module of <code>Fortran 2003</code></a></li>
-<li><a href="#appendix"><span class="toc-section-number">7</span> Appendix</a>
+<li><a href="#implementation-of-the-umat-wrapper-in-mfront"><span class="toc-section-number">4</span> Implementation of the <code>UMAT</code> wrapper in <code>MFront</code></a>
 <ul>
-<li><a href="#sec:umat_wrapper:umat_source_code"><span class="toc-section-number">7.1</span> Source code of the <code>UMAT</code> subroutine</a></li>
+<li><a href="#a-quick-overview-of-fortran-77c-interoperability"><span class="toc-section-number">4.1</span> A quick overview of <code>fortran 77</code>/<code>C++</code> interoperability</a></li>
+<li><a href="#choice-of-the-domain-specific-languagemfront"><span class="toc-section-number">4.2</span> Choice of the domain specific language<code>MFront</code></a></li>
+<li><a href="#some-metadata"><span class="toc-section-number">4.3</span> Some metadata</a></li>
+<li><a href="#restricting-the-allowed-modelling-hypothesis"><span class="toc-section-number">4.4</span> Restricting the allowed modelling hypothesis</a></li>
+<li><a href="#including-the-mfrontumatwrapper-file"><span class="toc-section-number">4.5</span> Including the <code>MFrontUmatWrapper</code> file</a></li>
+<li><a href="#elastic-properties"><span class="toc-section-number">4.6</span> Elastic properties</a></li>
+<li><a href="#local-variable"><span class="toc-section-number">4.7</span> Local variable</a></li>
+<li><a href="#implementation-of-the-behaviour-integration"><span class="toc-section-number">4.8</span> Implementation of the behaviour integration</a></li>
+<li><a href="#sec:umat_wrapper:tangent_operator"><span class="toc-section-number">4.9</span> Conversion of the tangent operator</a></li>
+</ul></li>
+<li><a href="#compiling-the-wrapper-outside-the-mfrontgallery"><span class="toc-section-number">5</span> Compiling the wrapper outside the <code>MFrontGallery</code></a>
+<ul>
+<li><a href="#compiling-the-umat.f-file"><span class="toc-section-number">5.1</span> Compiling the <code>umat.f</code> file</a></li>
+<li><a href="#compiling-the-mfront-wrapper"><span class="toc-section-number">5.2</span> Compiling the <code>MFront</code> wrapper</a></li>
+<li><a href="#running-a-simple-test-with-mtest"><span class="toc-section-number">5.3</span> Running a simple test with <code>MTest</code></a></li>
+</ul></li>
+<li><a href="#sec:umat_wrapper:fortran2003"><span class="toc-section-number">6</span> Solving the portability issue using the intrinsic <code>iso_c_bindings</code> module of <code>Fortran 2003</code></a></li>
+<li><a href="#introducing-the-wrapped-implementation-in-mfrontgallery"><span class="toc-section-number">7</span> Introducing the wrapped implementation in <code>MFrontGallery</code></a></li>
+<li><a href="#appendix"><span class="toc-section-number">8</span> Appendix</a>
+<ul>
+<li><a href="#sec:umat_wrapper:umat_source_code"><span class="toc-section-number">8.1</span> Source code of the <code>UMAT</code> subroutine</a></li>
 </ul></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -172,7 +188,7 @@
 <li>the definition of appropriate metadata which considerably simplifies the behaviour integration in the solver, in particular if the <a href="https://thelfer.github.io/mgis/web/index.html"><code>MFrontGenericInterfaceSupport</code> library</a> (<code>MGIS</code>) is used by the targeted solver <span class="citation" data-cites="Helfer2020 cea_mgis_2021">[<a href="#ref-Helfer2020" role="doc-biblioref">1</a>, <a href="#ref-cea_mgis_2021" role="doc-biblioref">2</a>]</span>.</li>
 </ul>
 <h1 data-number="1" id="description-of-the-wrapped-umat-implementation-and-role-of-the-wrapper"><span class="header-section-number">1</span> Description of the wrapped <code>UMAT</code> implementation and role of the wrapper</h1>
-<p>In this tutorial, we use a sightly modified version of the <code>umat.f</code> file delivered with the <code>CalculiX</code> finite element solver which implements an isotropic elastic behaviour in <code>3D</code>. This implementation is reported in Listing lst. 2 of Appendix 7.1.</p>
+<p>In this tutorial, we use a sightly modified version of the <code>umat.f</code> file delivered with the <code>CalculiX</code> finite element solver which implements an isotropic elastic behaviour in <code>3D</code>. This implementation is reported in Listing lst. 2 of Appendix 8.1.</p>
 <p>This implementation is written in <code>Fortran 77</code> which may lead to a portability issue as the name of the resulting function is implementation defined. We will discard this issue for the moment and come by to it later by rewritting this function in <code>Fortran 2003</code> using the intrinsic <code>iso_c_bindings</code> module in Section 6.</p>
 <p>This implementation has no state variables and requires two material properties: the Young’ modulus and the Poisson’ ratio.</p>
 <p>The number of arguments effectively used by the subroutine is here very small compared to the total number of arguments:</p>
@@ -225,86 +241,332 @@
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  }  <span class="co">// end of convertStrainToAbaqus</span></span></code></pre></div>
 </div>
 <h1 data-number="3" id="sec:umat_wrapper:material_properties"><span class="header-section-number">3</span> Treatment of the material properties</h1>
-<h1 data-number="4" id="developping-the-wrapper-outside-the-mfrontgallery"><span class="header-section-number">4</span> Developping the wrapper outside the <code>MFrontGallery</code></h1>
-<h2 data-number="4.1" id="compiling-the-umat.f-file"><span class="header-section-number">4.1</span> Compiling the <code>umat.f</code> file</h2>
-<p>In this tutorial, we compile the <code>umat.f</code> file as a shared library:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> gfortran <span class="at">-O2</span> <span class="at">--shared</span> <span class="at">-fPIC</span> <span class="at">-DPIC</span> umat.f <span class="at">-o</span> libUmat.so</span></code></pre></div>
-<p>Here, we use the <code>umat.f</code> file delivered with the <code>CalculiX</code> finite element solver. This file implements an isotropic elastic behaviour in <code>3D</code>.</p>
-<h2 data-number="4.2" id="compiling-the-mfront-wrapper"><span class="header-section-number">4.2</span> Compiling the <code>MFront</code> wrapper</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">-I</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span> <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic SmallStrainUmatWrapper.mfront <span class="dt">\</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--@Link</span><span class="op">=</span><span class="st">&#39;{&quot;-L ../ -lUmat&quot;}&#39;</span></span></code></pre></div>
-<h2 data-number="4.3" id="running-a-simple-test-with-mtest"><span class="header-section-number">4.3</span> Running a simple test with <code>MTest</code></h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export LD_LIBRARY_PATH=<span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:<span class="va">$LD_LIBRARY_PATH</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mtest SmallStrainUmatWrapper.mtest</span></code></pre></div>
-<h1 data-number="5" id="introducing-the-wrapped-implementation-in-mfrontgallery"><span class="header-section-number">5</span> Introducing the wrapped implementation in <code>MFrontGallery</code></h1>
+<p>The treatment of the material properties deserves a special discussion.</p>
+<p>The first choice that one has to make is wheter the final behaviour shall be specific to a given material and self-contained or be generic. You may refer to the <a href="index.html">front page</a> of the project for a detailled discussion about those concepts.</p>
+<p>Of course, in the case of the simple example treated in this document, this kind of considerations seems largely overkill. For the sake of the discussion, let us however pretend that we are considering an non trivial <code>UMAT</code> behaviour.</p>
+<h2 data-number="3.1" id="the-generic-behaviour-case"><span class="header-section-number">3.1</span> The generic behaviour case</h2>
+<p>Material properties, introduced by the <code>@MaterialProperty</code> keyword, imposes that the solver provides the required material coefficients.</p>
+<p>For the sake of simplicity, we choose that the <code>MFront</code> behaviour require the same material properties than the <code>UMAT</code> implementation, i.e. the Young’ modulus and the Poisson’ ratio. But other choices could have been discussed and we could have chosen another pair of elastic properties, for example the Lamé’ coefficients: with such a choice, the wrapper then would need to compute the Young’ modulus and the Poisson’ ratio before calling the <code>UMAT</code> behaviour.</p>
+<p>Another choice now have to be made: shall we declare an array of material properties or shall we declare two distinct material properties ? As usual, each solution have drawbacks and avantages, as now discussed.</p>
+<h3 data-number="3.1.1" id="declaring-an-array-of-material-properties"><span class="header-section-number">3.1.1</span> Declaring an array of material properties</h3>
+<p>Declaring an array of material properties has one pratical advantage as it already meets the requriments that the material properties shall be stored in a continuous array.</p>
+<p>This array of material properties could be declared as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! elastic material properties</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real emps[<span class="dv">2</span>];</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>emps.setEntryName(<span class="st">&quot;ElasticProperties&quot;</span>);</span></code></pre></div>
+<p>Before calling the <code>UMAT</code> implementation, a pointer to the beginning of the array can be retrieved as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span>* <span class="at">const</span> props = emps.data();</span></code></pre></div>
+<p>From the point of view of the developper of the <code>MFront</code> wrapper, this may seem very convenient and straightforward.</p>
+<p>However, from the end-user point of view, this solution may seem less attractive. In particular, if the solver that he uses relies on the metadata exported by <code>MFront</code>, it will require the end-user to define two material properties named respectively <code>ElasticProperties[0]</code> and <code>ElasticProperties[1]</code>. One may agree that those names are not very explicit.</p>
+<p>Of course, this seems articifial when considering only two material properties, but this may not be as evident for complex behaviours requiring several dozen of material properties as the amount of work required to develop the wrapper increases. This remark can be directly transposed to internal state variables, if any.</p>
+<h3 data-number="3.1.2" id="declaring-two-distinct-material-properties"><span class="header-section-number">3.1.2</span> Declaring two distinct material properties</h3>
+<p>The Young’ modulus and the Poisson’ ratio can be declared as follows:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress E;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>E.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real nu;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>nu.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</span></code></pre></div>
+<p>This is more explicit and potentially more attractive for the end-user if the solver that he uses relies on the metadata exported by <code>MFront</code>.</p>
+<p>Before calling the <code>UMAT</code> implementation, one shall create an array of floatting-point values and initialize its values as follows:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> real props[<span class="dv">2</span>] = {E,nu};</span></code></pre></div>
+<p>Again, this is straightforward when only two material properties are considered, but the effort grows significantly as the number of material properties increases.</p>
+<blockquote>
+<p><strong>About the usage of quantities</strong></p>
+<p>One may notice that we have declared the Young’ modulus as a variable of type <code>stress</code>. This is only informative as long as support for quantities has not been enabled (using the <code>@UseQt</code> keyword).</p>
+<p>It is highly discouraged to enable support for quantities when creating a wrapper as it generates an extra layer of complexity for an <em>a priori</em> doubtful gain.</p>
+</blockquote>
+<h2 data-number="3.2" id="the-self-contained-case"><span class="header-section-number">3.2</span> The self-contained case</h2>
+<p>Various approaches may be followed to implement a self-contained behaviour. The most standard is to use parameters. Again, one have the choice between using an array of parameters or two distinct parameters with similar advantages and drawbacks.</p>
+<h1 data-number="4" id="implementation-of-the-umat-wrapper-in-mfront"><span class="header-section-number">4</span> Implementation of the <code>UMAT</code> wrapper in <code>MFront</code></h1>
+<h2 data-number="4.1" id="a-quick-overview-of-fortran-77c-interoperability"><span class="header-section-number">4.1</span> A quick overview of <code>fortran 77</code>/<code>C++</code> interoperability</h2>
+<p>The <code>umat</code> function has the following prototype in <code>fortran</code> (see Appendix 8.1):</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">     s</span>ubroutine umat(stress,statev,ddsdde,sse,spd,scd,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  rpl,ddsddt,drplde,drpldt,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran,dstran,time,dtime,temp,dtemp,predef,dpred,cmname,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ndi,nshr,ntens,nstatv,props,nprops,coords,drot,pnewdt,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  celent,dfgrd0,dfgrd1,noel,npt,layer,kspt,kstep,kinc)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">character*80</span> cmname</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> ndi,nshr,ntens,nstatv,nprops,noel,npt,layer,kspt,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  kstep,kinc</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> stress(ntens),statev(nstatv),</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ddsdde(ntens,ntens),ddsddt(ntens),drplde(ntens),</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran(ntens),dstran(ntens),time(<span class="dv">2</span>),celent,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  props(nprops),coords(<span class="dv">3</span>),drot(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd0(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd1(<span class="dv">3</span>,<span class="dv">3</span>),</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  sse,spd,scd,rpl,drpldt,dtime,temp,dtemp,predef,dpred,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  pnewdt</span></code></pre></div>
+<p>This prototype is equivalent to the following <code>C</code> declaration:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="va">umat_</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> *<span class="at">const</span>,       <span class="co">/*&lt; STRESS, stress                   */</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> *<span class="at">const</span>,       <span class="co">/*&lt; STATEV, internal state variables */</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> *<span class="at">const</span>,       <span class="co">/*&lt; DDSDDE, tangent operator         */</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> *<span class="at">const</span>,       <span class="co">/*&lt; SSE */</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> *<span class="at">const</span>,       <span class="co">/*&lt; SPD */</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> *<span class="at">const</span>,       <span class="co">/*&lt; SCD */</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> *<span class="at">const</span>,       <span class="co">/*&lt; RPL */</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> *<span class="at">const</span>,       <span class="co">/*&lt; DDSDDT */</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> *<span class="at">const</span>,       <span class="co">/*&lt; DRPLDE */</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> *<span class="at">const</span>,       <span class="co">/*&lt; DRPLDT */</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; STRAN, strain tensor    */</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; DSTRAN, strain increment */</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; TIME */</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; DTIME, time increment   */</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; TEMP, temperature      */</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; DTEMP, temperature increment    */</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; PREDEF, external state variables */</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; DPRED, external state variables increments   */</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">char</span> *<span class="at">const</span>,   <span class="co">/*&lt; CMNAME */</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> *<span class="at">const</span>,    <span class="co">/*&lt; NDI */</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> *<span class="at">const</span>,    <span class="co">/*&lt; NSHR */</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> *<span class="at">const</span>,    <span class="co">/*&lt; NTENS, number of components of tensors */</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> *<span class="at">const</span>,    <span class="co">/*&lt; NSTATV, number of internal state variables */</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; PROPS, material properties */</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> *<span class="at">const</span>,    <span class="co">/*&lt; NPROPS, number of material properties */</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; COORDS */</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; DROT, incremental rotation matrix */</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; PNEWDT, estimation of the next time increment */</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; CELENT */</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; DFGRD0 */</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">double</span> *<span class="at">const</span>, <span class="co">/*&lt; DFGRD1 */</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> *<span class="at">const</span>,    <span class="co">/*&lt; NOEL */</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> *<span class="at">const</span>,    <span class="co">/*&lt; NPT */</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> *<span class="at">const</span>,    <span class="co">/*&lt; LAYER */</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> *<span class="at">const</span>,    <span class="co">/*&lt; KSPT */</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> *<span class="at">const</span>,    <span class="co">/*&lt; KSTEP */</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> *<span class="at">const</span>,          <span class="co">/*&lt; KINC */</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> <span class="co">/* hidden fortran parameter */</span>);</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Note that the name chosen for this function follows <code>gfortan</code>’ mangling scheme for fortran functions, i.e. the <code>fortran</code> <code>umat</code> function is exported as <code>umat_</code>. This is not portable. So is the type of the hidden parameter holding the size of the <code>CMNAME</code> parameter.</p>
+<p>For real world use, we strongly advice to either:</p>
+<ul>
+<li>modify the wrapped function and rewrite it in <code>Fortran 2003</code>.</li>
+<li>create an intermediate <code>fortran</code> function with proper <code>C</code> bindings.</li>
+</ul>
+<p>In both cases, we also stronly advice to remove useless parameters.</p>
+<p>We do not do this in this tutorial at this stage for the sake of generality and will show a more satisfying solution in Section 6.</p>
+<p>One shall not that all parameters are passed as pointers, except the hidden fortran parameter.</p>
+<h2 data-number="4.2" id="choice-of-the-domain-specific-languagemfront"><span class="header-section-number">4.2</span> Choice of the domain specific language<code>MFront</code></h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Default;</span></code></pre></div>
+<h2 data-number="4.3" id="some-metadata"><span class="header-section-number">4.3</span> Some metadata</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour SmallStrainUmatWrapper;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">11</span> / <span class="bn">02</span> / <span class="dv">2021</span>;</span></code></pre></div>
+<h2 data-number="4.4" id="restricting-the-allowed-modelling-hypothesis"><span class="header-section-number">4.4</span> Restricting the allowed modelling hypothesis</h2>
+<p>The conversion functions are limited to the tridimensional modelling hypothesis. Trying to use them with another modelling hypothesis would result in a compile-time error.</p>
+<p>The <code>@ModellingHypothesis</code> keyword allows to only generate the tridimensional version of this behaviour:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypothesis Tridimensional;</span></code></pre></div>
+<h2 data-number="4.5" id="including-the-mfrontumatwrapper-file"><span class="header-section-number">4.5</span> Including the <code>MFrontUmatWrapper</code> file</h2>
+<p>The <code>MFrontUmatWrapper</code> is included inside an <code>@Includes</code> code block:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;MFrontUmatWrapper.hxx&quot;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 data-number="4.6" id="elastic-properties"><span class="header-section-number">4.6</span> Elastic properties</h2>
+<p>Following the discussion of Section 3, we choose here to declare two distincts material properties:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress E;</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>E.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real nu;</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>nu.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</span></code></pre></div>
+<h2 data-number="4.7" id="local-variable"><span class="header-section-number">4.7</span> Local variable</h2>
+<p>In our implementation, it will be usefull to store the values of the consistent tangent operator computed by the <code>UMAT</code> implementation in a local variable, as discussed in Section 4.9.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable StiffnessTensor K;</span></code></pre></div>
+<h2 data-number="4.8" id="implementation-of-the-behaviour-integration"><span class="header-section-number">4.8</span> Implementation of the behaviour integration</h2>
+<p>The behaviour integration is performed in the <code>@Integrator</code> code block.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span></code></pre></div>
+<p>We first define the <code>̀KINC</code> integer which will hold the returned value of the <code>UMAT</code> implementation. It is initialized to <code>1</code> and is only modified by the <code>UMAT</code> implementation in case of integration failure.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  AbaqusIntegerType KINC = <span class="dv">1</span>;</span></code></pre></div>
+<p>We then define a lot of variables which are part of the <code>UMAT</code> interface but unused by the implementation that we are interfacing in this tuturial:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// unused variables</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> AbaqusRealType dfgrd0[<span class="dv">9</span>] = {<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  <span class="co">//</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>,  <span class="co">//</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>};</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> AbaqusRealType dfgrd1[<span class="dv">9</span>] = {<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  <span class="co">//</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>,  <span class="co">//</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>};</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> AbaqusRealType drot[<span class="dv">9</span>] = {<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>,  <span class="co">//</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>,  <span class="co">//</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>};</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> AbaqusIntegerType KSTEP[<span class="dv">3</span><span class="bu">u</span>] = {<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>};</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType sse, spd, scd, rpl;</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType ddsddt[<span class="dv">6</span>];</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType drplde[<span class="dv">6</span>];</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType drpldt;</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType time[<span class="dv">2</span>];</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType pred[<span class="dv">1</span>];</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType dpred[<span class="dv">1</span>];</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType isvs[<span class="dv">1</span>];</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType coords[<span class="dv">3</span>] = {<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>};</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType celent;</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType rdt;</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="dt">char</span> name[<span class="dv">81</span>] =</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Elasticity                              &quot;</span>  <span class="co">//</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;                                        &quot;</span>;</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>  AbaqusIntegerType layer;</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>  AbaqusIntegerType kspt;</span></code></pre></div>
+<p>As those variables are passed by pointers, we could directly pass the null pointers to the <code>UMAT</code> implementation, i.e. the <code>nullptr</code> value. We define those unused variables to facilitate the extension to more complex <code>UMAT</code> implementations.</p>
+<p>Note that we define the <code>name</code> variable as an array of 81 characters to take into account the <code>C</code> terminating characters ‘\0.’</p>
+<p>The material properties are stored in a temporary array, as follows:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> AbaqusRealType props[<span class="dv">2</span>] = {E,nu};</span></code></pre></div>
+<p>The next step is to convert the strain, strain increment and stress. We first define the array that will hold the converted values and call the conversion functions.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType e[<span class="dv">6</span>];</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType de[<span class="dv">6</span>];</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType s[<span class="dv">6</span>];</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  mfront_umat_wrapper::convertStrainToAbaqus&lt;hypothesis&gt;(e, &amp;eto[<span class="dv">0</span>]);</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  mfront_umat_wrapper::convertStrainToAbaqus&lt;hypothesis&gt;(de, &amp;deto[<span class="dv">0</span>]);</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  mfront_umat_wrapper::convertStressToAbaqus&lt;hypothesis&gt;(s, &amp;sig[<span class="dv">0</span>]);</span></code></pre></div>
+<p>We then define the various integer constants required by the <code>UMAT</code> interface:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> nprops = <span class="kw">static_cast</span>&lt;AbaqusIntegerType&gt;(<span class="dv">2</span>);</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> nstatv = <span class="kw">static_cast</span>&lt;AbaqusIntegerType&gt;(<span class="dv">0</span>);</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ntens = <span class="kw">static_cast</span>&lt;AbaqusIntegerType&gt;(<span class="dv">6</span>);</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ndi = <span class="kw">static_cast</span>&lt;AbaqusIntegerType&gt;(<span class="dv">3</span>);</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> nshr = <span class="kw">static_cast</span>&lt;AbaqusIntegerType&gt;(<span class="dv">3</span>);</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> noel = <span class="kw">static_cast</span>&lt;AbaqusIntegerType&gt;(<span class="dv">0</span>);</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> npt = <span class="kw">static_cast</span>&lt;AbaqusIntegerType&gt;(<span class="dv">0</span>);</span></code></pre></div>
+<p>Note that the values of <code>ntens</code> (number of components of the stress tensor), <code>ndi</code> (number of diagonal components of the stress tensor) and <code>nshr</code> (number of shear components of the stress tensor) shall be modified if other modelling hypothesis has to be supported.</p>
+<p>Finally, we can now call the <code>UMAT</code> implementation as follows:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>  <span class="va">umat_</span>(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>      s,        <span class="co">/* stress                   */</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>      &amp;isvs[<span class="dv">0</span>], <span class="co">/* &amp;isvs[0], internal state variables */</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>      &amp;K(<span class="dv">0</span>, <span class="dv">0</span>), <span class="co">/* tangent operator         */</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>      &amp;sse, &amp;spd, &amp;scd, &amp;rpl, ddsddt, drplde, &amp;drpldt,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>      e,                         <span class="co">/* strain tensor    */</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>      de,                        <span class="co">/* strain increment */</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>      time,                      <span class="co">//</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>      &amp;dt,                       <span class="co">/* time increment   */</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>      &amp;T,                        <span class="co">/* temperature      */</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>      &amp;dT,                       <span class="co">/* temperature increment    */</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>      pred,                      <span class="co">/* &amp;esvs[0], external state variables */</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>      dpred,                     <span class="co">/* &amp;desvs[0], external state variables */</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>      name, &amp;ndi, &amp;nshr, &amp;ntens, <span class="co">/* number of components of tensors */</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>      &amp;nstatv,                   <span class="co">/* number of internal state variables */</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>      &amp;mps[<span class="dv">0</span>],                   <span class="co">/* material properties                   */</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>      &amp;nprops,                   <span class="co">/* number of material properties */</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>      coords, drot,              <span class="co">/* rotation matrix                       */</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>      &amp;rdt,                      <span class="co">/* estimation of the next time increment */</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>      &amp;celent, dfgrd0, dfgrd1, &amp;noel, &amp;npt, &amp;layer, &amp;kspt, KSTEP,</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>      &amp;KINC, <span class="dv">80</span>);</span></code></pre></div>
+<p>After the call, one checks that the behaviour integration succeeded by testing the value of the <code>KINC</code> variable:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(KINC != <span class="dv">1</span>){</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> FAILURE;</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>If can of success, one converts the stress back to the <code>MFront</code> tensor:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>  mfront_umat_wrapper::convertStressFromAbaqus&lt;hypothesis&gt;(&amp;sig[<span class="dv">0</span>], s);</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 data-number="4.9" id="sec:umat_wrapper:tangent_operator"><span class="header-section-number">4.9</span> Conversion of the tangent operator</h2>
+<p>The <code>@TangentOperator</code> is only called, after the behaviour integration, if the consistent tangent operator has been requested by the solver. We can use this code block for the conversion of the consistent tangent operator as follows:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator {</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">static_cast</span>&lt;<span class="dt">void</span>&gt;(smt);</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  mfront_umat_wrapper::convertStiffnessMatrixFromAbaqus&lt;hypothesis&gt;(&amp;Dt(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                                                                    &amp;K(<span class="dv">0</span>, <span class="dv">0</span>));</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>This optional conversion of the consistent tangent operator in a separate code block is the main reason why we stored the values of the consistennt tangent operator in the local variable <code>K</code>.</p>
+<h1 data-number="5" id="compiling-the-wrapper-outside-the-mfrontgallery"><span class="header-section-number">5</span> Compiling the wrapper outside the <code>MFrontGallery</code></h1>
+<p>Firt this first test, we will compile the <code>umat</code> file in a seperate shared library that will be linked to the shared library generated by <code>MFront</code>. This is convenient as it does not require the user to handle the complexity of generating shared libraries built with different languages (<code>C++</code> and <code>fortran</code>) and barely relies on the standard compilation process provided by <code>MFront</code>.</p>
+<h2 data-number="5.1" id="compiling-the-umat.f-file"><span class="header-section-number">5.1</span> Compiling the <code>umat.f</code> file</h2>
+<p>In this tutorial, we compile the <code>umat.f</code> file as a shared library as follows:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> gfortran <span class="at">-O2</span> <span class="at">--shared</span> <span class="at">-fPIC</span> <span class="at">-DPIC</span> umat.f <span class="at">-o</span> libUmat.so</span></code></pre></div>
+<h2 data-number="5.2" id="compiling-the-mfront-wrapper"><span class="header-section-number">5.2</span> Compiling the <code>MFront</code> wrapper</h2>
+<p>The compilation of the <code>MFront</code> wrapper is almost standard:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">-I</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span> <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic SmallStrainUmatWrapper.mfront <span class="dt">\</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--@Link</span><span class="op">=</span><span class="st">&#39;{&quot;-L ../ -lUmat&quot;}&#39;</span></span></code></pre></div>
+<p>Two things must be noted about this command:</p>
+<ul>
+<li>We use the <code>-I</code> flag to add the current directory to the compiler’ header paths. This allows the compiler to find the <code>MFrontUmatWrapper.hxx</code> header.</li>
+<li>We added additional link directives using the <code>@Link</code> keyword to link the generated shared library with the <code>libUmat.so</code> library. As the generated shared library is built in the <code>src</code> subdirectory, we must add the parent directory to the linker’ paths using the flag <code>-L ../</code>. We could have added this keyword in the <code>MFront</code> file but, as a matter of taste, we don’t like having relative paths inside an <code>MFront</code> file.</li>
+</ul>
+<h2 data-number="5.3" id="running-a-simple-test-with-mtest"><span class="header-section-number">5.3</span> Running a simple test with <code>MTest</code></h2>
+<p>At this stage, we are able to test our wrapper in <code>MTest</code> using this simple uniaxial test:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypothesis <span class="st">&quot;Tridimensional&quot;</span>;</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour&lt;generic&gt; <span class="st">&quot;src/libBehaviour.so&quot;</span> <span class="st">&quot;SmallStrainUmatWrapper&quot;</span>;</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">// material properties</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="st">&quot;YoungModulus&quot;</span> <span class="fl">150e9</span>;</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty&lt;constant&gt; <span class="st">&quot;PoissonRatio&quot;</span> <span class="fl">0.3</span>;</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">// external state variable</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="st">&quot;Temperature&quot;</span> <span class="fl">293.15</span>;</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStrain <span class="st">&quot;EXX&quot;</span> {<span class="dv">0</span> : <span class="dv">0</span>, <span class="dv">1</span>: -<span class="fl">1.e-2</span>};</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Times{<span class="dv">0</span>, <span class="dv">1</span> in <span class="dv">10</span>};</span></code></pre></div>
+<p>This script can be executed as follows:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mtest SmallStrainUmatWrapper.mtest</span></code></pre></div>
+<blockquote>
+<p><strong>Updating <code>LD_LIBRARY_PATH</code> </strong></p>
+<p>Note that On some system, one shall add the current directory to the <code>LD_LIBRARY_PATH</code> environment variable before calling <code>mtest</code> to find the <code>libUmat.so</code> library, as follows:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export LD_LIBRARY_PATH=<span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:<span class="va">$LD_LIBRARY_PATH</span></span></code></pre></div>
+</blockquote>
 <h1 data-number="6" id="sec:umat_wrapper:fortran2003"><span class="header-section-number">6</span> Solving the portability issue using the intrinsic <code>iso_c_bindings</code> module of <code>Fortran 2003</code></h1>
-<h1 data-number="7" id="appendix"><span class="header-section-number">7</span> Appendix</h1>
-<h2 data-number="7.1" id="sec:umat_wrapper:umat_source_code"><span class="header-section-number">7.1</span> Source code of the <code>UMAT</code> subroutine</h2>
+<h1 data-number="7" id="introducing-the-wrapped-implementation-in-mfrontgallery"><span class="header-section-number">7</span> Introducing the wrapped implementation in <code>MFrontGallery</code></h1>
+<h1 data-number="8" id="appendix"><span class="header-section-number">8</span> Appendix</h1>
+<h2 data-number="8.1" id="sec:umat_wrapper:umat_source_code"><span class="header-section-number">8.1</span> Source code of the <code>UMAT</code> subroutine</h2>
 <div id="lst:umat_wrapper:umat_source_code" class="listing fortran">
 <p>Listing 2: Source code of the `UMAT` subroutine</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">     s</span>ubroutine umat(stress,statev,ddsdde,sse,spd,scd,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  rpl,ddsddt,drplde,drpldt,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran,dstran,time,dtime,temp,dtemp,predef,dpred,cmname,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ndi,nshr,ntens,nstatv,props,nprops,coords,drot,pnewdt,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  celent,dfgrd0,dfgrd1,noel,npt,layer,kspt,kstep,kinc)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">implicit</span> <span class="kw">none</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">character*80</span> cmname</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> ndi,nshr,ntens,nstatv,nprops,noel,npt,layer,kspt,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  kstep,kinc</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> stress(ntens),statev(nstatv),</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ddsdde(ntens,ntens),ddsddt(ntens),drplde(ntens),</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran(ntens),dstran(ntens),time(<span class="dv">2</span>),celent,</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  props(nprops),coords(<span class="dv">3</span>),drot(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd0(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd1(<span class="dv">3</span>,<span class="dv">3</span>),</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  sse,spd,scd,rpl,drpldt,dtime,temp,dtemp,predef,dpred,</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  pnewdt</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> i,j</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> e,un,al,um,am1,am2</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>      e<span class="kw">=</span>props(<span class="dv">1</span>)</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>      un<span class="kw">=</span>props(<span class="dv">2</span>)</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>      al<span class="kw">=</span>un<span class="kw">*</span>e<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">-</span><span class="fl">2.d0</span><span class="kw">*</span>un)</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>      um<span class="kw">=</span>e<span class="kw">/</span><span class="fl">2.d0</span><span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>      am1<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>      am2<span class="kw">=</span>um</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">!     stress</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">!      </span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">1</span>)<span class="kw">=</span>stress(<span class="dv">1</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">1</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">2</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">2</span>)<span class="kw">=</span>stress(<span class="dv">2</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">2</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">3</span>)<span class="kw">=</span>stress(<span class="dv">3</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">3</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">2</span>))</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">4</span>)<span class="kw">=</span>stress(<span class="dv">4</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">4</span>)</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">5</span>)<span class="kw">=</span>stress(<span class="dv">5</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">5</span>)</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">6</span>)<span class="kw">=</span>stress(<span class="dv">6</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">6</span>)</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="co">!     stiffness</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>      <span class="kw">do</span> i<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>         <span class="kw">do</span> j<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>            ddsdde(i,j)<span class="kw">=</span><span class="fl">0.d0</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>         <span class="kw">enddo</span></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>      <span class="kw">enddo</span></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">1</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">2</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">3</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">4</span>,<span class="dv">4</span>)<span class="kw">=</span>um</span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">5</span>,<span class="dv">5</span>)<span class="kw">=</span>um</span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">6</span>,<span class="dv">6</span>)<span class="kw">=</span>um</span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="co">!     </span><span class="re">END</span><span class="co"> EXAMPLE LINEAR ELASTIC MATERIAL</span></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span></span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>      <span class="kw">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">     s</span>ubroutine umat(stress,statev,ddsdde,sse,spd,scd,</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  rpl,ddsddt,drplde,drpldt,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran,dstran,time,dtime,temp,dtemp,predef,dpred,cmname,</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ndi,nshr,ntens,nstatv,props,nprops,coords,drot,pnewdt,</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  celent,dfgrd0,dfgrd1,noel,npt,layer,kspt,kstep,kinc)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">character*80</span> cmname</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> ndi,nshr,ntens,nstatv,nprops,noel,npt,layer,kspt,</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  kstep,kinc</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> stress(ntens),statev(nstatv),</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ddsdde(ntens,ntens),ddsddt(ntens),drplde(ntens),</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran(ntens),dstran(ntens),time(<span class="dv">2</span>),celent,</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  props(nprops),coords(<span class="dv">3</span>),drot(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd0(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd1(<span class="dv">3</span>,<span class="dv">3</span>),</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  sse,spd,scd,rpl,drpldt,dtime,temp,dtemp,predef,dpred,</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  pnewdt</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> i,j</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> e,un,al,um,am1,am2</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>      e<span class="kw">=</span>props(<span class="dv">1</span>)</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>      un<span class="kw">=</span>props(<span class="dv">2</span>)</span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>      al<span class="kw">=</span>un<span class="kw">*</span>e<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">-</span><span class="fl">2.d0</span><span class="kw">*</span>un)</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>      um<span class="kw">=</span>e<span class="kw">/</span><span class="fl">2.d0</span><span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>      am1<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>      am2<span class="kw">=</span>um</span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a><span class="co">!     stress</span></span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="co">!      </span></span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">1</span>)<span class="kw">=</span>stress(<span class="dv">1</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">1</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">2</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">2</span>)<span class="kw">=</span>stress(<span class="dv">2</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">2</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">3</span>)<span class="kw">=</span>stress(<span class="dv">3</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">3</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">2</span>))</span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">4</span>)<span class="kw">=</span>stress(<span class="dv">4</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">4</span>)</span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">5</span>)<span class="kw">=</span>stress(<span class="dv">5</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">5</span>)</span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">6</span>)<span class="kw">=</span>stress(<span class="dv">6</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">6</span>)</span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a><span class="co">!     stiffness</span></span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>      <span class="kw">do</span> i<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>         <span class="kw">do</span> j<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>            ddsdde(i,j)<span class="kw">=</span><span class="fl">0.d0</span></span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>         <span class="kw">enddo</span></span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>      <span class="kw">enddo</span></span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">1</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">2</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
+<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">3</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">4</span>,<span class="dv">4</span>)<span class="kw">=</span>um</span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">5</span>,<span class="dv">5</span>)<span class="kw">=</span>um</span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">6</span>,<span class="dv">6</span>)<span class="kw">=</span>um</span>
+<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a><span class="co">!     </span><span class="re">END</span><span class="co"> EXAMPLE LINEAR ELASTIC MATERIAL</span></span>
+<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span></span>
+<span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a>      <span class="kw">end</span></span></code></pre></div>
 </div>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">

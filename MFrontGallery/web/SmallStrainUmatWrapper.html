@@ -167,11 +167,16 @@
 <li><a href="#compiling-the-mfront-wrapper"><span class="toc-section-number">5.2</span> Compiling the <code>MFront</code> wrapper</a></li>
 <li><a href="#running-a-simple-test-with-mtest"><span class="toc-section-number">5.3</span> Running a simple test with <code>MTest</code></a></li>
 </ul></li>
-<li><a href="#sec:umat_wrapper:fortran2003"><span class="toc-section-number">6</span> Solving the portability issue using the intrinsic <code>iso_c_bindings</code> module of <code>Fortran 2003</code></a></li>
+<li><a href="#sec:umat_wrapper:fortran95"><span class="toc-section-number">6</span> A better solution</a>
+<ul>
+<li><a href="#modification-of-the-fortran-sources"><span class="toc-section-number">6.1</span> Modification of the <code>fortran</code> sources</a></li>
+<li><a href="#modification-of-the-mfront-wrapper"><span class="toc-section-number">6.2</span> Modification of the <code>MFront</code> wrapper</a></li>
+</ul></li>
 <li><a href="#introducing-the-wrapped-implementation-in-mfrontgallery"><span class="toc-section-number">7</span> Introducing the wrapped implementation in <code>MFrontGallery</code></a></li>
 <li><a href="#appendix"><span class="toc-section-number">8</span> Appendix</a>
 <ul>
 <li><a href="#sec:umat_wrapper:umat_source_code"><span class="toc-section-number">8.1</span> Source code of the <code>UMAT</code> subroutine</a></li>
+<li><a href="#sec:umat_wrapper:umat2_source_code"><span class="toc-section-number">8.2</span> Source code of the <code>umat2</code> subroutine in <code>Fortran 2003</code></a></li>
 </ul></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -189,7 +194,7 @@
 </ul>
 <h1 data-number="1" id="description-of-the-wrapped-umat-implementation-and-role-of-the-wrapper"><span class="header-section-number">1</span> Description of the wrapped <code>UMAT</code> implementation and role of the wrapper</h1>
 <p>In this tutorial, we use a sightly modified version of the <code>umat.f</code> file delivered with the <code>CalculiX</code> finite element solver which implements an isotropic elastic behaviour in <code>3D</code>. This implementation is reported in Listing lst. 2 of Appendix 8.1.</p>
-<p>This implementation is written in <code>Fortran 77</code> which may lead to a portability issue as the name of the resulting function is implementation defined. We will discard this issue for the moment and come by to it later by rewritting this function in <code>Fortran 2003</code> using the intrinsic <code>iso_c_bindings</code> module in Section 6.</p>
+<p>This implementation is written in <code>Fortran 77</code> which may lead to a portability issue as the name of the resulting function is implementation defined. We will discard this issue for the moment and come by to it later by rewritting this function in <code>Fortran 95</code> using the <code>BIND(C)</code> attribute in Section 6.</p>
 <p>This implementation has no state variables and requires two material properties: the Young’ modulus and the Poisson’ ratio.</p>
 <p>The number of arguments effectively used by the subroutine is here very small compared to the total number of arguments:</p>
 <ul>
@@ -544,75 +549,175 @@
 <p>Note that On some system, one shall add the current directory to the <code>LD_LIBRARY_PATH</code> environment variable before calling <code>mtest</code> to find the <code>libUmat.so</code> library, as follows:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export LD_LIBRARY_PATH=<span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:<span class="va">$LD_LIBRARY_PATH</span></span></code></pre></div>
 </blockquote>
-<h1 data-number="6" id="sec:umat_wrapper:fortran2003"><span class="header-section-number">6</span> Solving the portability issue using the intrinsic <code>iso_c_bindings</code> module of <code>Fortran 2003</code></h1>
+<h1 data-number="6" id="sec:umat_wrapper:fortran95"><span class="header-section-number">6</span> A better solution</h1>
+<ul>
+<li>Reducing the number of parameters to the minimum.</li>
+<li>Solving the portability issue using the <code>BIND(C)</code> attribute.</li>
+</ul>
+<h2 data-number="6.1" id="modification-of-the-fortran-sources"><span class="header-section-number">6.1</span> Modification of the <code>fortran</code> sources</h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">subroutine</span> umat2(stress, ddsdde, stran, dstran, ntens, props, nprops) <span class="kw">&amp;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  BIND(C,NAME<span class="kw">=</span><span class="st">&quot;umat2&quot;</span>)</span></code></pre></div>
+<h2 data-number="6.2" id="modification-of-the-mfront-wrapper"><span class="header-section-number">6.2</span> Modification of the <code>MFront</code> wrapper</h2>
+<h3 data-number="6.2.1" id="modifying-the-includes-code-block"><span class="header-section-number">6.2.1</span> Modifying the <code>@Includes</code> code block</h3>
+<div class="sourceCode" id="cb30"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes {</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;MFrontUmatWrapper.hxx&quot;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="at">extern</span> <span class="st">&quot;C&quot;</span> {</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> umat2(</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span>,          <span class="co">/* STRESS,  stress                   */</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span>,          <span class="co">/* DDSDDE,  tangent operator         */</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span>,    <span class="co">/* STRAN, strain tensor    */</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span>,    <span class="co">/* DSTRAN,  strain increment */</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span>, <span class="co">/* NTENS, number of components of tensors */</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span>,    <span class="co">/* PROPS, material properties */</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span>  <span class="co">/* NPROPS, number of material properties*/</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of extern &quot;C&quot;</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Includes</span></span></code></pre></div>
+<h3 data-number="6.2.2" id="modifying-the-integrator-code-block"><span class="header-section-number">6.2.2</span> Modifying the <code>@Integrator</code> code block</h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">//</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> AbaqusRealType props[<span class="dv">2</span>] = {E, nu};</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">//</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType e[<span class="dv">6</span>];</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType de[<span class="dv">6</span>];</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  AbaqusRealType s[<span class="dv">6</span>];</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">//</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  mfront_umat_wrapper::convertStrainToAbaqus&lt;hypothesis&gt;(e, &amp;eto[<span class="dv">0</span>]);</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  mfront_umat_wrapper::convertStrainToAbaqus&lt;hypothesis&gt;(de, &amp;deto[<span class="dv">0</span>]);</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  mfront_umat_wrapper::convertStressToAbaqus&lt;hypothesis&gt;(s, &amp;sig[<span class="dv">0</span>]);</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">//</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> nprops = <span class="kw">static_cast</span>&lt;AbaqusIntegerType&gt;(<span class="dv">2</span>);</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ntens = <span class="kw">static_cast</span>&lt;AbaqusIntegerType&gt;(<span class="dv">6</span>);</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">//</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>  umat2(s,         <span class="co">/* stress              */</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>        &amp;K(<span class="dv">0</span>, <span class="dv">0</span>),  <span class="co">/* tangent operator    */</span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>        e,         <span class="co">/* strain tensor       */</span></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>        de,        <span class="co">/* strain increment    */</span></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>        &amp;ntens,    <span class="co">/* number of components of the stress tensor*/</span></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>        &amp;props[<span class="dv">0</span>], <span class="co">/* material properties */</span></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>        &amp;nprops    <span class="co">/* number of material properties*/</span></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>  );</span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>  <span class="co">//</span></span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>  mfront_umat_wrapper::convertStressFromAbaqus&lt;hypothesis&gt;(&amp;sig[<span class="dv">0</span>], s);</span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h1 data-number="7" id="introducing-the-wrapped-implementation-in-mfrontgallery"><span class="header-section-number">7</span> Introducing the wrapped implementation in <code>MFrontGallery</code></h1>
 <h1 data-number="8" id="appendix"><span class="header-section-number">8</span> Appendix</h1>
 <h2 data-number="8.1" id="sec:umat_wrapper:umat_source_code"><span class="header-section-number">8.1</span> Source code of the <code>UMAT</code> subroutine</h2>
 <div id="lst:umat_wrapper:umat_source_code" class="listing fortran">
 <p>Listing 2: Source code of the `UMAT` subroutine</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">     s</span>ubroutine umat(stress,statev,ddsdde,sse,spd,scd,</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  rpl,ddsddt,drplde,drpldt,</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran,dstran,time,dtime,temp,dtemp,predef,dpred,cmname,</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ndi,nshr,ntens,nstatv,props,nprops,coords,drot,pnewdt,</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  celent,dfgrd0,dfgrd1,noel,npt,layer,kspt,kstep,kinc)</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">implicit</span> <span class="kw">none</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">character*80</span> cmname</span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> ndi,nshr,ntens,nstatv,nprops,noel,npt,layer,kspt,</span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  kstep,kinc</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> stress(ntens),statev(nstatv),</span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ddsdde(ntens,ntens),ddsddt(ntens),drplde(ntens),</span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran(ntens),dstran(ntens),time(<span class="dv">2</span>),celent,</span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  props(nprops),coords(<span class="dv">3</span>),drot(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd0(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd1(<span class="dv">3</span>,<span class="dv">3</span>),</span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  sse,spd,scd,rpl,drpldt,dtime,temp,dtemp,predef,dpred,</span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  pnewdt</span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> i,j</span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> e,un,al,um,am1,am2</span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>      e<span class="kw">=</span>props(<span class="dv">1</span>)</span>
-<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>      un<span class="kw">=</span>props(<span class="dv">2</span>)</span>
-<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>      al<span class="kw">=</span>un<span class="kw">*</span>e<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">-</span><span class="fl">2.d0</span><span class="kw">*</span>un)</span>
-<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>      um<span class="kw">=</span>e<span class="kw">/</span><span class="fl">2.d0</span><span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)</span>
-<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>      am1<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>      am2<span class="kw">=</span>um</span>
-<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a><span class="co">!     stress</span></span>
-<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="co">!      </span></span>
-<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">1</span>)<span class="kw">=</span>stress(<span class="dv">1</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">1</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">2</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
-<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">2</span>)<span class="kw">=</span>stress(<span class="dv">2</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">2</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
-<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">3</span>)<span class="kw">=</span>stress(<span class="dv">3</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">3</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">2</span>))</span>
-<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">4</span>)<span class="kw">=</span>stress(<span class="dv">4</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">4</span>)</span>
-<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">5</span>)<span class="kw">=</span>stress(<span class="dv">5</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">5</span>)</span>
-<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">6</span>)<span class="kw">=</span>stress(<span class="dv">6</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">6</span>)</span>
-<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a><span class="co">!     stiffness</span></span>
-<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>      <span class="kw">do</span> i<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
-<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>         <span class="kw">do</span> j<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
-<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>            ddsdde(i,j)<span class="kw">=</span><span class="fl">0.d0</span></span>
-<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>         <span class="kw">enddo</span></span>
-<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>      <span class="kw">enddo</span></span>
-<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">1</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
-<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
-<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">2</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
-<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
-<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
-<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
-<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">3</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">4</span>,<span class="dv">4</span>)<span class="kw">=</span>um</span>
-<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">5</span>,<span class="dv">5</span>)<span class="kw">=</span>um</span>
-<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">6</span>,<span class="dv">6</span>)<span class="kw">=</span>um</span>
-<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a><span class="co">!     </span><span class="re">END</span><span class="co"> EXAMPLE LINEAR ELASTIC MATERIAL</span></span>
-<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span></span>
-<span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a>      <span class="kw">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">     s</span>ubroutine umat(stress,statev,ddsdde,sse,spd,scd,</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  rpl,ddsddt,drplde,drpldt,</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran,dstran,time,dtime,temp,dtemp,predef,dpred,cmname,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ndi,nshr,ntens,nstatv,props,nprops,coords,drot,pnewdt,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  celent,dfgrd0,dfgrd1,noel,npt,layer,kspt,kstep,kinc)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">character*80</span> cmname</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> ndi,nshr,ntens,nstatv,nprops,noel,npt,layer,kspt,</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  kstep,kinc</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> stress(ntens),statev(nstatv),</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ddsdde(ntens,ntens),ddsddt(ntens),drplde(ntens),</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran(ntens),dstran(ntens),time(<span class="dv">2</span>),celent,</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  props(nprops),coords(<span class="dv">3</span>),drot(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd0(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd1(<span class="dv">3</span>,<span class="dv">3</span>),</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  sse,spd,scd,rpl,drpldt,dtime,temp,dtemp,predef,dpred,</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  pnewdt</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> i,j</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> e,un,al,um,am1,am2</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>      e<span class="kw">=</span>props(<span class="dv">1</span>)</span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>      un<span class="kw">=</span>props(<span class="dv">2</span>)</span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>      al<span class="kw">=</span>un<span class="kw">*</span>e<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">-</span><span class="fl">2.d0</span><span class="kw">*</span>un)</span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>      um<span class="kw">=</span>e<span class="kw">/</span><span class="fl">2.d0</span><span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)</span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>      am1<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>      am2<span class="kw">=</span>um</span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a><span class="co">!     stress</span></span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a><span class="co">!      </span></span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">1</span>)<span class="kw">=</span>stress(<span class="dv">1</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">1</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">2</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">2</span>)<span class="kw">=</span>stress(<span class="dv">2</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">2</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">3</span>)<span class="kw">=</span>stress(<span class="dv">3</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">3</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">2</span>))</span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">4</span>)<span class="kw">=</span>stress(<span class="dv">4</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">4</span>)</span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">5</span>)<span class="kw">=</span>stress(<span class="dv">5</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">5</span>)</span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">6</span>)<span class="kw">=</span>stress(<span class="dv">6</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">6</span>)</span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a><span class="co">!     stiffness</span></span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a>      <span class="kw">do</span> i<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
+<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>         <span class="kw">do</span> j<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
+<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a>            ddsdde(i,j)<span class="kw">=</span><span class="fl">0.d0</span></span>
+<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a>         <span class="kw">enddo</span></span>
+<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a>      <span class="kw">enddo</span></span>
+<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">1</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
+<span id="cb32-49"><a href="#cb32-49" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
+<span id="cb32-50"><a href="#cb32-50" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">2</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb32-51"><a href="#cb32-51" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
+<span id="cb32-52"><a href="#cb32-52" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
+<span id="cb32-53"><a href="#cb32-53" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
+<span id="cb32-54"><a href="#cb32-54" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
+<span id="cb32-55"><a href="#cb32-55" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">3</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb32-56"><a href="#cb32-56" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">4</span>,<span class="dv">4</span>)<span class="kw">=</span>um</span>
+<span id="cb32-57"><a href="#cb32-57" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">5</span>,<span class="dv">5</span>)<span class="kw">=</span>um</span>
+<span id="cb32-58"><a href="#cb32-58" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">6</span>,<span class="dv">6</span>)<span class="kw">=</span>um</span>
+<span id="cb32-59"><a href="#cb32-59" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb32-60"><a href="#cb32-60" aria-hidden="true" tabindex="-1"></a><span class="co">!     </span><span class="re">END</span><span class="co"> EXAMPLE LINEAR ELASTIC MATERIAL</span></span>
+<span id="cb32-61"><a href="#cb32-61" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb32-62"><a href="#cb32-62" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span></span>
+<span id="cb32-63"><a href="#cb32-63" aria-hidden="true" tabindex="-1"></a>      <span class="kw">end</span></span></code></pre></div>
+</div>
+<h2 data-number="8.2" id="sec:umat_wrapper:umat2_source_code"><span class="header-section-number">8.2</span> Source code of the <code>umat2</code> subroutine in <code>Fortran 2003</code></h2>
+<div id="lst:umat_wrapper:umat2_source_code" class="listing fortran">
+<p>Listing 3: Source code of the `umat2` subroutine</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">subroutine</span> umat2(stress, ddsdde, stran, dstran, ntens, props, nprops) BIND(C,NAME<span class="kw">=</span><span class="st">&quot;umat2&quot;</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="dt">integer</span> ntens,nprops</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="dt">real*8</span> stress(ntens), ddsdde(ntens,ntens),stran(ntens), dstran(ntens), props(nprops)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="dt">integer</span> i,j</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="dt">real*8</span> e,un,al,um,am1,am2</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>e<span class="kw">=</span>props(<span class="dv">1</span>)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>un<span class="kw">=</span>props(<span class="dv">2</span>)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>al<span class="kw">=</span>un<span class="kw">*</span>e<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">-</span><span class="fl">2.d0</span><span class="kw">*</span>un)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>um<span class="kw">=</span>e<span class="kw">/</span><span class="fl">2.d0</span><span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>am1<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>am2<span class="kw">=</span>um</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="co">!      </span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">1</span>)<span class="kw">=</span>stress(<span class="dv">1</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">1</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">2</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">2</span>)<span class="kw">=</span>stress(<span class="dv">2</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">2</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">3</span>)<span class="kw">=</span>stress(<span class="dv">3</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">3</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">2</span>))</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">4</span>)<span class="kw">=</span>stress(<span class="dv">4</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">4</span>)</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">5</span>)<span class="kw">=</span>stress(<span class="dv">5</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">5</span>)</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">6</span>)<span class="kw">=</span>stress(<span class="dv">6</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">6</span>)</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="kw">do</span> i<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>   <span class="kw">do</span> j<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>      ddsdde(i,j)<span class="kw">=</span><span class="fl">0.d0</span></span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>   <span class="kw">enddo</span></span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a><span class="kw">enddo</span></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">1</span>,<span class="dv">1</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">1</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">2</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">2</span>,<span class="dv">2</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">1</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">3</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">2</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">3</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
+<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">3</span>,<span class="dv">3</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">4</span>,<span class="dv">4</span>)<span class="kw">=</span>um</span>
+<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">5</span>,<span class="dv">5</span>)<span class="kw">=</span>um</span>
+<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">6</span>,<span class="dv">6</span>)<span class="kw">=</span>um</span>
+<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a><span class="kw">return</span></span>
+<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a><span class="kw">end subroutine</span> umat2</span></code></pre></div>
 </div>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">

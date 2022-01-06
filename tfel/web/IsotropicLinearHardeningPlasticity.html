@@ -302,7 +302,16 @@
 <li><a href="#expression-of-the-elastic-strain-increment">Expression of the elastic strain increment</a></li>
 <li><a href="#expression-of-the-consistent-tangent-operator">Expression of the consistent tangent operator</a></li>
 </ul></li>
-<li><a href="#implementation">Implementation</a></li>
+<li><a href="#fully-implicit-implementation">Fully implicit implementation</a>
+<ul>
+<li><a href="#choice-of-the-domain-specific-language">Choice of the domain specific language</a></li>
+<li><a href="#name-of-the-behaviour">Name of the behaviour</a></li>
+<li><a href="#metadata">Metadata</a></li>
+<li><a href="#declaration-of-state-parameters">Declaration of state parameters</a></li>
+<li><a href="#declaration-of-parameters">Declaration of parameters</a></li>
+<li><a href="#computation-of-the-prediction-operator">Computation of the prediction operator</a></li>
+<li><a href="#behaviour-integration">Behaviour integration</a></li>
+</ul></li>
 </ul>
 </div>
 <p>This article shows how to implement an orthotropic plastic behaviour with isotropic linear hardening in <code>MFront</code>.</p>
@@ -484,7 +493,7 @@ f{\left(\sigma_{\mathrm{eq}},p\right)} = \sigma_{\mathrm{eq}}-\sigma_{0}-R\,p
 \end{aligned}
 \]</span></p>
 <p>and finaly,</p>
-<p><span class="math display">\[
+<p><span id="eq:isotropic_linear_harderning:consistent_tangent_operator"><span class="math display">\[
 \begin{aligned}
 {\displaystyle \frac{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
 ={\left.\underline{\underline{\mathbf{D}}}\right|_{t+\Delta\,t}}
@@ -493,80 +502,135 @@ f{\left(\sigma_{\mathrm{eq}},p\right)} = \sigma_{\mathrm{eq}}-\sigma_{0}-R\,p
 {{\displaystyle \frac{\displaystyle 1}{\displaystyle 3\,{\left.\mu\right|_{t+\theta\,\Delta\,t}}\, + R}}}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}} \otimes\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}+\right.\\
 &amp;\left.{{\displaystyle \frac{\displaystyle \theta\Delta\,p}{\displaystyle {\left.\sigma_{\mathrm{eq}}^{\mathrm{tr}}\right|_{t+\theta\,\Delta\,t}}}}}\,{\left(\underline{\underline{\mathbf{M}}}-{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\otimes\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\right)}\right)\\
 \end{aligned}
-\]</span></p>
-<h1 id="implementation">Implementation</h1>
-<p>We now assume that <span class="math inline">\(\theta=1\)</span>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultDSL;</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour IsotropicLinearHardeningPlasticity;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date   <span class="dv">14</span>/<span class="dv">10</span>/<span class="dv">2016</span>;</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description{</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  An implicit implementation of a simple</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  isotropic plasticity behaviour with</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  isotropic linear hardening.</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  The yield surface is defined by:</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="er">\[</span><span class="st">&quot;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;  f(</span><span class="er">\s</span><span class="st">igmaeq,p) = </span><span class="er">\s</span><span class="st">igmaeq-s_</span><span class="sc">{0}</span><span class="st">-H</span><span class="er">\,</span><span class="st">p&quot;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="er">\]</span><span class="st">&quot;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable StrainStensor eel;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>eel.setGlossaryName(<span class="st">&quot;ElasticStrain&quot;</span>);</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable strain p;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter young =  <span class="fl">70.e9</span>;</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>young.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter nu    =   <span class="fl">0.34</span>;</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>nu.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter H     =  <span class="fl">10.e9</span>;</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>H.setEntryName(<span class="st">&quot;HardeningSlope&quot;</span>);</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter s0    =  <span class="fl">300.e6</span>;</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>s0.setGlossaryName(<span class="st">&quot;YieldStress&quot;</span>);</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*!</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * computation of the prediction operator: we only provide the elastic</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"> * operator.</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"> * We could also provide a tangent operator, but this would mean</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"> * saving an auxiliary state variable stating if a plastic loading</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"> * occured at the previous time step.</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>PredictionOperator{</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> lambda = computeLambda(young,nu);</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> mu     = computeMu(young,nu);</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  Dt = lambda*Stensor4::IxI()+<span class="dv">2</span>*mu*Stensor4::Id();</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*!</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * behaviour integration using a fully implicit Euler-backwark scheme.</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ProvidesSymmetricTangentOperator;</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> lambda = computeLambda(young,nu);</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> mu     = computeMu(young,nu);</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  eel += deto;</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> se     = <span class="dv">2</span>*mu*deviator(eel);</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> seq_e  = sigmaeq(se);</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> b      = seq_e-s0-H*p&gt;stress{<span class="dv">0</span>};</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(b){</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> iseq_e = <span class="dv">1</span>/seq_e;</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> n      = eval(<span class="dv">3</span>*se/(<span class="dv">2</span>*seq_e));</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> cste   = <span class="dv">1</span>/(H+<span class="dv">3</span>*mu);</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    dp   = (seq_e-s0-H*p)*cste;</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    eel -= dp*n;</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="va">computeTangentOperator_</span>){</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(smt==CONSISTENTTANGENTOPERATOR){</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        Dt = (lambda*Stensor4::IxI()+<span class="dv">2</span>*mu*Stensor4::Id()</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>             -<span class="dv">4</span>*mu*mu*(dp*iseq_e*(Stensor4::M()-(n^n))+cste*(n^n)));</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        Dt = lambda*Stensor4::IxI()+<span class="dv">2</span>*mu*Stensor4::Id();</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="va">computeTangentOperator_</span>){</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>      Dt = lambda*Stensor4::IxI()+<span class="dv">2</span>*mu*Stensor4::Id();</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  sig = lambda*trace(eel)*Stensor::Id()+<span class="dv">2</span>*mu*eel;</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+\qquad(13)\]</span></span></p>
+<h1 id="fully-implicit-implementation">Fully implicit implementation</h1>
+<p>We now describe how to make a fully implicit implementation, i.e. we fix the <span class="math inline">\(\theta\)</span> parameter to <span class="math inline">\(1\)</span>.</p>
+<h2 id="choice-of-the-domain-specific-language">Choice of the domain specific language</h2>
+<p>The behaviour integration is trivial as all the computated quantities can be obtained thanks in closed form:</p>
+<ul>
+<li>The values of the state variables <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span>, ), stress <span class="math inline">\(\underline{\sigma}\)</span> at the end of the time step.</li>
+<li>The consistent tangent operator <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\)</span>.</li>
+</ul>
+<p>In this case, an appropriate domain specific language is the <code>DefaultDSL</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultDSL;</span></code></pre></div>
+<p>Contrary to other DSLs, the <code>DefaultDSL</code> does not provide a built-in support for a given integration scheme.</p>
+<h2 id="name-of-the-behaviour">Name of the behaviour</h2>
+<p>The name of the behaviour is introduced by the <code>@Behaviour</code> keyword:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour IsotropicLinearHardeningPlasticity;</span></code></pre></div>
+<h2 id="metadata">Metadata</h2>
+<p>The following lines defines the author of the implementation, the date and provides a small description:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date   <span class="dv">14</span>/<span class="dv">10</span>/<span class="dv">2016</span>;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description{</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  An implicit implementation of a simple</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  isotropic plasticity behaviour with</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  isotropic linear hardening.</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  The yield surface is defined by:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="er">\[</span><span class="st">&quot;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;  f(</span><span class="er">\s</span><span class="st">igmaeq,p) = </span><span class="er">\s</span><span class="st">igmaeq-s_</span><span class="sc">{0}</span><span class="st">-H</span><span class="er">\,</span><span class="st">p&quot;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="er">\]</span><span class="st">&quot;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 id="declaration-of-state-parameters">Declaration of state parameters</h2>
+<p>The behaviour used two state variables, the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and the equivalent plastic strain <span class="math inline">\(p\)</span>.</p>
+<p>Those state variables are declared as follows:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable StrainStensor eel;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>eel.setGlossaryName(<span class="st">&quot;ElasticStrain&quot;</span>);</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable strain p;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</span></code></pre></div>
+<p>The state variables have been associated to <a href="glossary.html">glossary names</a> which are meant to:</p>
+<ul>
+<li>automatically declare the external name of the variable (i.e. the name as seen from the calling solver if this solver uses the metadata exported by <code>MFront</code>).</li>
+<li>automatically document the variable.</li>
+</ul>
+<blockquote>
+<p><strong>Increments of the state variables</strong></p>
+<p>The <code>DefaultDSL</code> automatically declares the increments of those variables, called respectively <code>deel</code> and <code>dp</code>. The user is free to use those increments or to directly update the values of the state variables.</p>
+<p>If the increment of a state variable is defined, it is added to the state variable <strong>after</strong> the <code>@Integrator</code> code block.</p>
+<p>In our implementation, we will directly update the elastic strain and use the plastic strain increment.</p>
+</blockquote>
+<h2 id="declaration-of-parameters">Declaration of parameters</h2>
+<p>In this implementation, we choose to use parameters associated respectively with the Young’ modulus, Poisson’ ratio, hardening slope and yield stress, as follows:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress young =  <span class="fl">70.e9</span>;</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>young.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real nu =   <span class="fl">0.34</span>;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>nu.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress H =  <span class="fl">10.e9</span>;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>H.setEntryName(<span class="st">&quot;HardeningSlope&quot;</span>);</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress s0 =  <span class="fl">300.e6</span>;</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>s0.setGlossaryName(<span class="st">&quot;YieldStress&quot;</span>);</span></code></pre></div>
+<blockquote>
+<p><strong>Using material properties</strong></p>
+<p>The use of parameters could be replaced by the use of material properties as follows:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress young;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>young.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real nu;</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>nu.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress H;</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>H.setEntryName(<span class="st">&quot;HardeningSlope&quot;</span>);</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress s0;</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>s0.setGlossaryName(<span class="st">&quot;YieldStress&quot;</span>);</span></code></pre></div>
+<p>Contrary to parameters, material properties does not have default values and must be provided by the calling solvers, which generally uses values provided by the user in its input file.</p>
+</blockquote>
+<h2 id="computation-of-the-prediction-operator">Computation of the prediction operator</h2>
+<p>The current implementation only provides the elastic operator:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>PredictionOperator{</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> lambda = computeLambda(young, nu);</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> mu     = computeMu(young, nu);</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  Dt = lambda * Stensor4::IxI() + <span class="dv">2</span> * mu * Stensor4::Id();</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>We could also provide a tangent operator, but this would mean saving an auxiliary state variable stating if a plastic loading occured at the previous time step.</p>
+<h2 id="behaviour-integration">Behaviour integration</h2>
+<p>The behaviour integration is implemented in the <code>@Integrator</code> code block.</p>
+<h3 id="computation-of-the-consistent-tangent-operator">Computation of the consistent tangent operator</h3>
+<p>The <code>DefaultDSL</code> DSL allows to compute the consistent tangent operator inside the <code>@Integrator</code> code block or in a dedicated code block name <code>@TangentOperator</code>.</p>
+<p>The first choice is simplier and more efficient for the considered implementation, but this requires to explicitely state that the consistent tangent operator is defined in the <code>@Integrator</code> code block using the <code>@ProvidesSymmetricTangentOperator</code> keyword, as follows:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ProvidesSymmetricTangentOperator;</span></code></pre></div>
+<p>The consistent tangent operator may or may not be requested by the calling solver at runtime.</p>
+<h3 id="computation-of-the-lamé-coefficients">Computation of the Lamé’ coefficients</h3>
+<p>The <code>@Integrator</code> code blocks begins by computing the Lamé’ coefficients as follows:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> lambda = computeLambda(young, nu);</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> mu     = computeMu(young, nu);</span></code></pre></div>
+<h3 id="elastic-laoding">Elastic laoding</h3>
+<p>The next lines assume a purely elastic loading and:</p>
+<ul>
+<li>Updates the value of the elastic strain with the increment of the total strain.</li>
+<li>Initializes the value of the consistent tangent operator to the elastic stiffness matrix.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  eel += deto;</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="va">computeTangentOperator_</span>){</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    Dt = lambda * Stensor4::IxI() + <span class="dv">2</span> * mu * Stensor4::Id();</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>If required, a plastic correction will be applied to the elastic strain and the consistent tangent operator in the next part of the code.</p>
+<h3 id="computation-of-the-trial-stress">Computation of the trial stress</h3>
+<p>To check of if a plastic correction must be applied, we first compute the deviator of the trial stress, the equivalent trial stress and checks if its value is outside the elastic domain at the beginning of the time step.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> se     = <span class="dv">2</span> * mu * deviator(eel);</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> seq_e  = sigmaeq(se);</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> plastic_loading = seq_e &gt; s0 + H * p;</span></code></pre></div>
+<p>The <code>plastic_loading</code> boolean value is thus <code>true</code> if a plastic correction must be applied, <code>false</code> otherwise.</p>
+<h3 id="plastic-loading">Plastic loading</h3>
+<h4 id="computation-of-the-normal">Computation of the normal</h4>
+<p>If a plastic correction must be applied, we first compute the normal using Equation (7):</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(plastic_loading){</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> iseq_e = <span class="dv">1</span> / seq_e;</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> n      = eval(<span class="dv">3</span> * se / (<span class="dv">2</span> * seq_e));</span></code></pre></div>
+<h4 id="update-of-the-state-variables">Update of the state variables</h4>
+<p>The increment of the equivalent plastic strain is computed using Equation (9):</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    dp   = (seq_e - s0 - H * p) * cste;</span></code></pre></div>
+<p>The value of the equivalent plastic strain will be updated automatically after the <code>@Integrator</code> code block.</p>
+<p>Once the equivalent plastic strain is known, the elastic strain can be correction using the split of the strain (Equation (1)):</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>    eel -= dp * n;</span></code></pre></div>
+<h4 id="update-of-the-consistent-tangent-operator">Update of the consistent tangent operator</h4>
+<p>The consistent tangent operator can be correction using Equation (13):</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>((<span class="va">computeTangentOperator_</span>) &amp;&amp; (smt==CONSISTENTTANGENTOPERATOR)){</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>      Dt -= -<span class="dv">4</span> * mu * mu * (dp * iseq_e * (Stensor4::M()-(n ^ n)) + cste * (n ^ n));</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  } <span class="co">// end of if(plastic_loading)</span></span></code></pre></div>
+<h4 id="computation-of-the-stress-at-the-end-of-the-time-step">Computation of the stress at the end of the time step</h4>
+<p>At this stage, the elastic strain have been updated and hols its value at the end of the time step. The last step of the implementation is to use it to compute the stress at the end of the time step:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>  sig = lambda*trace(eel)*Stensor::Id()+<span class="dv">2</span>*mu*eel;</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Integrator</span></span></code></pre></div>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

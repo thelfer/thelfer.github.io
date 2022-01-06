@@ -505,6 +505,8 @@ f{\left(\sigma_{\mathrm{eq}},p\right)} = \sigma_{\mathrm{eq}}-\sigma_{0}-R\,p
 \qquad(13)\]</span></span></p>
 <h1 id="fully-implicit-implementation">Fully implicit implementation</h1>
 <p>We now describe how to make a fully implicit implementation, i.e. we fix the <span class="math inline">\(\theta\)</span> parameter to <span class="math inline">\(1\)</span>.</p>
+<p>This choice is consistent with the description of a plastic flow as it imposes that the material lies on the yield surface at the end of the time step if a plastic loading occurs.</p>
+<p>With other choices, the material may be outside the yield surface at the end of the time step and spurious oscillations in the stress in time can be observed, for example during a simple uniaxial tensile test test.</p>
 <h2 id="choice-of-the-domain-specific-language">Choice of the domain specific language</h2>
 <p>The behaviour integration is trivial as all the computated quantities can be obtained thanks in closed form:</p>
 <ul>

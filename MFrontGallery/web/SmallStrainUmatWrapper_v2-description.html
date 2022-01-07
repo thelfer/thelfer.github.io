@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Description of behaviour ImplicitNorton</title>
+    <title>Description of behaviour SmallStrainUmatWrapper_v2</title>
         <meta name="author" content="Thomas Helfer" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
@@ -81,9 +81,9 @@
     </header>
 
 <div id="header">
-<h1 class="title">Description of behaviour ImplicitNorton</h1>
+<h1 class="title">Description of behaviour SmallStrainUmatWrapper_v2</h1>
 <h2 class="author">Thomas Helfer</h2>
-<h3 class="date">24 / 11 / 2016</h3>
+<h3 class="date">11 / 02 / 2021</h3>
 </div>
 <div id="TOC">
 <ul>
@@ -91,39 +91,23 @@
 <li><a href="#variables">Variables</a>
 <ul>
 <li><a href="#material-properties">Material properties</a></li>
-<li><a href="#state-variables">State variables</a></li>
 <li><a href="#external-state-variables">External state variables</a></li>
 <li><a href="#parameters">Parameters</a></li>
 <li><a href="#local-variables">Local variables</a></li>
 </ul></li>
 </ul>
 </div>
-<p>This file implements the Norton law , described as : <span class="math display">\[ 
-\left\{ 
-  \begin{aligned} 
-    \underline{\epsilon}^{\mathrm{to}}&amp;= \underline{\epsilon}^{\mathrm{el}}+\underline{\epsilon}^{\mathrm{vis}}\\ 
-    \underline{\sigma}&amp;= \tenseurq{D}\,:\,\underline{\epsilon}^{\mathrm{el}}\\ 
-    \underline{\dot{\epsilon}}^{\mathrm{vis}}&amp;= \dot{p}\,\tenseur{n} \\ 
-    \dot{p}       &amp;= A\,\sigma_{\mathrm{eq}}^{m} 
-  \end{aligned} 
-\right. 
-\]</span></p>
+<p>No description specified</p>
 <h2 id="list-of-supported-hypotheses">List of supported Hypotheses</h2>
 <ul>
-<li>AxisymmetricalGeneralisedPlaneStrain</li>
-<li>AxisymmetricalGeneralisedPlaneStress, specialised</li>
-<li>Axisymmetrical</li>
-<li>PlaneStress, specialised</li>
-<li>PlaneStrain</li>
-<li>GeneralisedPlaneStrain</li>
-<li>Tridimensional</li>
+<li>Tridimensional, specialised</li>
 </ul>
 <h1 id="variables">Variables</h1>
 <h2 id="material-properties">Material properties</h2>
 <ul>
 <li>YoungModulus:
 <ul>
-<li>variable name: young</li>
+<li>variable name: E</li>
 <li>variable type: stress</li>
 <li>description: The Young modulus of an isotropic material</li>
 </ul></li>
@@ -132,38 +116,6 @@
 <li>variable name: nu</li>
 <li>variable type: real</li>
 <li>description: The Poisson ratio of an isotropic material</li>
-</ul></li>
-<li>NortonCoefficient:
-<ul>
-<li>variable name: A</li>
-<li>variable type: real</li>
-</ul></li>
-<li>NortonExponent:
-<ul>
-<li>variable name: E</li>
-<li>variable type: real</li>
-</ul></li>
-</ul>
-<h2 id="state-variables">State variables</h2>
-<ul>
-<li>ElasticStrain:
-<ul>
-<li>variable name: eel</li>
-<li>variable type: StrainStensor</li>
-<li>description: The elastic strain elastic strain</li>
-</ul></li>
-<li>EquivalentViscoplasticStrain:
-<ul>
-<li>variable name: p</li>
-<li>variable type: strain</li>
-<li>description: The equivalent viscoplastic strain</li>
-</ul></li>
-<li>AxialStrain:
-<ul>
-<li>variable name: etozz</li>
-<li>variable type: strain</li>
-<li>defined for AxisymmetricalGeneralisedPlaneStress, PlaneStress</li>
-<li>description: la déformation axiale (cette grandeur n’a de sens que pour les calculs en contraintes planes) axial strain</li>
 </ul></li>
 </ul>
 <h2 id="external-state-variables">External state variables</h2>
@@ -174,83 +126,27 @@
 <li>variable type: temperature</li>
 <li>description: The temperature</li>
 </ul></li>
-<li>AxialStress:
-<ul>
-<li>variable name: sigzz</li>
-<li>variable type: strain</li>
-<li>defined for AxisymmetricalGeneralisedPlaneStress</li>
-<li>description: la contrainte axiale axial stress</li>
-</ul></li>
 </ul>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li>epsilon:
-<ul>
-<li>variable type: NumericType</li>
-<li>description: value used to stop the iteration of the implicit algorithm</li>
-<li>default value for AxisymmetricalGeneralisedPlaneStress: 1e-16</li>
-<li>default value for PlaneStress: 1e-16</li>
-<li>default value: 1e-16</li>
-</ul></li>
-<li>RelativeValueForTheEquivalentStressLowerBoundDefinition:
-<ul>
-<li>variable name: relative_value_for_the_equivalent_stress_lower_bound</li>
-<li>variable type: real</li>
-<li>description: Relative value used to define a lower bound for the equivalent stress. For isotropic parameters, this lower bound will be equal to this value multiplied by the Young modulus. For orthotropic materials, this lower bound will be this value multiplied by the first component of the stiffness tensor.</li>
-<li>default value for AxisymmetricalGeneralisedPlaneStress: 1e-12</li>
-<li>default value for PlaneStress: 1e-12</li>
-<li>default value: 1e-12</li>
-</ul></li>
 <li>minimal_time_step_scaling_factor:
 <ul>
 <li>variable type: time</li>
 <li>description: minimal value for the time step scaling factor</li>
-<li>default value for AxisymmetricalGeneralisedPlaneStress: 0.1</li>
-<li>default value for PlaneStress: 0.1</li>
-<li>default value: 0.1</li>
+<li>default value for Tridimensional: 0.1</li>
 </ul></li>
 <li>maximal_time_step_scaling_factor:
 <ul>
 <li>variable type: time</li>
 <li>description: maximal value for the time step scaling factor</li>
-<li>default value for AxisymmetricalGeneralisedPlaneStress: 1.79769e+308</li>
-<li>default value for PlaneStress: 1.79769e+308</li>
-<li>default value: 1.79769e+308</li>
-</ul></li>
-<li>theta:
-<ul>
-<li>variable type: NumericType</li>
-<li>description: theta value used by the implicit scheme</li>
-<li>default value for AxisymmetricalGeneralisedPlaneStress: 0.5</li>
-<li>default value for PlaneStress: 0.5</li>
-<li>default value: 0.5</li>
-</ul></li>
-<li>numerical_jacobian_epsilon:
-<ul>
-<li>variable type: NumericType</li>
-<li>description: perturbation value used to compute a numerical approximation of the jacobian</li>
-<li>default value for AxisymmetricalGeneralisedPlaneStress: 1e-17</li>
-<li>default value for PlaneStress: 1e-17</li>
-<li>default value: 1e-17</li>
-</ul></li>
-<li>iterMax:
-<ul>
-<li>variable type: ushort</li>
-<li>description: maximum number of iterations allowed</li>
-<li>default value for AxisymmetricalGeneralisedPlaneStress: 100</li>
-<li>default value for PlaneStress: 100</li>
-<li>default value: 100</li>
+<li>default value for Tridimensional: 1.79769e+308</li>
 </ul></li>
 </ul>
 <h2 id="local-variables">Local variables</h2>
 <ul>
-<li>mu:
+<li>K:
 <ul>
-<li>variable type: stress</li>
-</ul></li>
-<li>sebdata:
-<ul>
-<li>variable type: struct{ stress lambda; stress mu; stress szz; }</li>
+<li>variable type: StiffnessTensor</li>
 </ul></li>
 </ul>
     <script>

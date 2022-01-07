@@ -95,6 +95,7 @@
 	        <li><a href="creating-derived-project.html">Creating derived project</a></li>
 	        <li><a href="cmake-infrastructure.html">CMake infrastructure</a></li>
 	        <li><a href="best-practices.html">Best practices</a></li>
+            <li><a href="contributing.html">Contributing</a></li>
 	      </ul>
         </li>
         <li><a>Materials</a>
@@ -119,7 +120,15 @@
              </li>
           </ul>
         </li>
-        <li><a href="contributing.html">Contributing</a></li>
+        <li><a>Behaviours</a>
+          <ul>
+             <li><a>Plasticity</a>
+                <ul>
+                  <li><a href="SemiImplicitModifiedCamClay_OpenGeoSys2020.html">SemiImplicitModifiedCamClay_OpenGeoSys2020</a></li>
+                </ul>
+             </li>
+          </ul>
+        </li>
         <li><a>Getting Help</a>
       	  <ul>
 	        <li><a href="https://github.com/thelfer/MFrontGallery/discussions">Forum</a></li>
@@ -172,7 +181,11 @@
 <li><a href="#modification-of-the-fortran-sources"><span class="toc-section-number">6.1</span> Modification of the <code>fortran</code> sources</a></li>
 <li><a href="#modification-of-the-mfront-wrapper"><span class="toc-section-number">6.2</span> Modification of the <code>MFront</code> wrapper</a></li>
 </ul></li>
-<li><a href="#introducing-the-wrapped-implementation-in-mfrontgallery"><span class="toc-section-number">7</span> Introducing the wrapped implementation in <code>MFrontGallery</code></a></li>
+<li><a href="#introducing-the-wrapped-implementation-in-mfrontgallery"><span class="toc-section-number">7</span> Introducing the wrapped implementation in <code>MFrontGallery</code></a>
+<ul>
+<li><a href="#the-mfrontuserwrapper.hxx-header"><span class="toc-section-number">7.1</span> The <code>MFrontUserWrapper.hxx</code> header</a></li>
+<li><a href="#building-the-libraries"><span class="toc-section-number">7.2</span> Building the libraries</a></li>
+</ul></li>
 <li><a href="#appendix"><span class="toc-section-number">8</span> Appendix</a>
 <ul>
 <li><a href="#sec:umat_wrapper:umat_source_code"><span class="toc-section-number">8.1</span> Source code of the <code>UMAT</code> subroutine</a></li>
@@ -368,51 +381,53 @@
 <div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes {</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;MFrontUmatWrapper.hxx&quot;</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">extern</span> <span class="st">&quot;C&quot;</span> {</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="va">umat_</span>(</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* STRESS */</span>, <span class="co">/* stress                   */</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* STATEV */</span>, <span class="co">/* internal state variables */</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* DDSDDE */</span>, <span class="co">/* tangent operator         */</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* SSE */</span>,</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* SPD */</span>,</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* SCD */</span>,</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* RPL */</span>,</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* DDSDDT */</span>,</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* DRPLDE */</span>,</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* DRPLDT */</span>,</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* STRAN */</span>,  <span class="co">/* strain tensor    */</span></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DSTRAN */</span>, <span class="co">/* strain increment */</span></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* TIME */</span>,</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DTIME */</span>,  <span class="co">/* time increment   */</span></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* TEMP */</span>,   <span class="co">/* temperature      */</span></span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DTEMP */</span>,  <span class="co">/* temperature increment    */</span></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* PREDEF */</span>, <span class="co">/* external state variables */</span></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DPRED */</span>, <span class="co">/* external state variables increments   */</span></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">char</span> *<span class="at">const</span> <span class="co">/* CMNAME */</span>,</span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NDI */</span>,</span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NSHR */</span>,</span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NTENS */</span>, <span class="co">/* number of components of tensors */</span></span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NSTATV */</span>, <span class="co">/* number of internal state variables */</span></span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* PROPS */</span>, <span class="co">/* material properties */</span></span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NPROPS */</span>, <span class="co">/* number of material properties */</span></span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* COORDS */</span>,</span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DROT, incremental rotation matrix */</span>,</span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* PNEWDT, estimation of the next time increment */</span>,</span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* CELENT */</span>,</span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DFGRD0 */</span>,</span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DFGRD1 */</span>,</span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NOEL */</span>,</span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NPT */</span>,</span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* LAYER */</span>,</span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* KSPT */</span>,</span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* KSTEP */</span>,</span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>    AbaqusIntegerType *<span class="at">const</span> <span class="co">/* KINC */</span>,</span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> <span class="co">/* hidden fortran parameter */</span>);</span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of extern &quot;C&quot;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifndef MFRONT_UMAT_FUNCTION_DECLARATION</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#define MFRONT_UMAT_FUNCTION_DECLARATION </span><span class="dv">1</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="at">extern</span> <span class="st">&quot;C&quot;</span> {</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="va">umat_</span>(</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* STRESS */</span>, <span class="co">/* stress                   */</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* STATEV */</span>, <span class="co">/* internal state variables */</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* DDSDDE */</span>, <span class="co">/* tangent operator         */</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* SSE */</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* SPD */</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* SCD */</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* RPL */</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* DDSDDT */</span>,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* DRPLDE */</span>,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span> <span class="co">/* DRPLDT */</span>,</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* STRAN */</span>,  <span class="co">/* strain tensor    */</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DSTRAN */</span>, <span class="co">/* strain increment */</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* TIME */</span>,</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DTIME */</span>,  <span class="co">/* time increment   */</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* TEMP */</span>,   <span class="co">/* temperature      */</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DTEMP */</span>,  <span class="co">/* temperature increment    */</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* PREDEF */</span>, <span class="co">/* external state variables */</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DPRED */</span>, <span class="co">/* external state variables increments   */</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">char</span> *<span class="at">const</span> <span class="co">/* CMNAME */</span>,</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NDI */</span>,</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NSHR */</span>,</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NTENS */</span>, <span class="co">/* number of components of tensors */</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NSTATV */</span>, <span class="co">/* number of internal state variables */</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* PROPS */</span>, <span class="co">/* material properties */</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NPROPS */</span>, <span class="co">/* number of material properties */</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* COORDS */</span>,</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DROT, incremental rotation matrix */</span>,</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* PNEWDT, estimation of the next time increment */</span>,</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* CELENT */</span>,</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DFGRD0 */</span>,</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span> <span class="co">/* DFGRD1 */</span>,</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NOEL */</span>,</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* NPT */</span>,</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* LAYER */</span>,</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* KSPT */</span>,</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span> <span class="co">/* KSTEP */</span>,</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>    AbaqusIntegerType *<span class="at">const</span> <span class="co">/* KINC */</span>,</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">int</span> <span class="co">/* hidden fortran parameter */</span>);</span>
 <span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of extern &quot;C&quot;</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif </span><span class="er">MFRONT_UMAT_FUNCTION_DECLARATION 1</span></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>In the <code>umat_</code> function declaration, we used to type aliases, <code>AbaqusIntegerType</code> and <code>AbaqusRealType</code>, which is usually a good practice. Here, we recognize that this is a bit overkill, if not pedantic.</p>
 <h2 data-number="4.6" id="elastic-properties"><span class="header-section-number">4.6</span> Elastic properties</h2>
 <p>Following the discussion of Section 3, we choose here to declare two distincts material properties:</p>
@@ -550,34 +565,51 @@
 <div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export LD_LIBRARY_PATH=<span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:<span class="va">$LD_LIBRARY_PATH</span></span></code></pre></div>
 </blockquote>
 <h1 data-number="6" id="sec:umat_wrapper:fortran95"><span class="header-section-number">6</span> A better solution</h1>
+<p>The previous implementation can be improved in several ways. In this section, we propose a new implementations which:</p>
 <ul>
-<li>Reducing the number of parameters to the minimum.</li>
-<li>Solving the portability issue using the <code>BIND(C)</code> attribute.</li>
+<li>Reduces the number of parameters to the minimum, as the <code>UMAT</code> implementation effectively uses only a very limited subset of the arguments required by the <code>UMAT</code> interface.</li>
+<li>Solves the portability issue using the <code>BIND(C)</code> attribute.</li>
 </ul>
 <h2 data-number="6.1" id="modification-of-the-fortran-sources"><span class="header-section-number">6.1</span> Modification of the <code>fortran</code> sources</h2>
+<p>The first thing to do is to rename the file <code>umat.f</code> in <code>umat.f90</code> which is a more or less standard file extension for free-form fortran source greater than <code>Fortran 90</code> (extension like <code>f95</code> and <code>f03</code> does not seem to be supported by build systems and text editors, as explained <a href="https://fortranwiki.org/fortran/show/File+extensions">here</a>).</p>
+<p>After converting the code to free form and removing the unsued variables, the <code>umat2</code> subroutine has the following declaration:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">subroutine</span> umat2(stress, ddsdde, stran, dstran, ntens, props, nprops) <span class="kw">&amp;</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  BIND(C,NAME<span class="kw">=</span><span class="st">&quot;umat2&quot;</span>)</span></code></pre></div>
+<p>See Listing lst. 3 in Appendix 8.2 for the full code of the <code>umat2</code> subroutine.</p>
+<p>The <code>NAME</code> option specifies the name of the exported symbol. This is the name of the function on the <code>C++</code> side. This name is now perfectly portable across implementations.</p>
 <h2 data-number="6.2" id="modification-of-the-mfront-wrapper"><span class="header-section-number">6.2</span> Modification of the <code>MFront</code> wrapper</h2>
+<p>Two code blocks of the <code>MFront</code> wrapper must be changed:</p>
+<ul>
+<li>The <code>@Includes</code> code block to change the declaration of the <code>umat</code> function.</li>
+<li>The <code>@Integrator</code> code block to change the call of the <code>umat</code> function.</li>
+</ul>
 <h3 data-number="6.2.1" id="modifying-the-includes-code-block"><span class="header-section-number">6.2.1</span> Modifying the <code>@Includes</code> code block</h3>
+<p>The <code>@Includes</code> code block is now much shorter, as follows:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes {</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;MFrontUmatWrapper.hxx&quot;</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="at">extern</span> <span class="st">&quot;C&quot;</span> {</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> umat2(</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span>,          <span class="co">/* STRESS,  stress                   */</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span>,          <span class="co">/* DDSDDE,  tangent operator         */</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span>,    <span class="co">/* STRAN, strain tensor    */</span></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span>,    <span class="co">/* DSTRAN,  strain increment */</span></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span>, <span class="co">/* NTENS, number of components of tensors */</span></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span>,    <span class="co">/* PROPS, material properties */</span></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span>  <span class="co">/* NPROPS, number of material properties*/</span></span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>);</span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of extern &quot;C&quot;</span></span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Includes</span></span></code></pre></div>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifndef MFRONT_UMAT2_FUNCTION_DECLARATION</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#define MFRONT_UMAT2_FUNCTION_DECLARATION </span><span class="dv">1</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="at">extern</span> <span class="st">&quot;C&quot;</span> {</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> umat2(</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span>,          <span class="co">/* STRESS,  stress                   */</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    AbaqusRealType *<span class="at">const</span>,          <span class="co">/* DDSDDE,  tangent operator         */</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span>,    <span class="co">/* STRAN, strain tensor    */</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span>,    <span class="co">/* DSTRAN,  strain increment */</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span>, <span class="co">/* NTENS, number of components of tensors */</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusRealType *<span class="at">const</span>,    <span class="co">/* PROPS, material properties */</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> AbaqusIntegerType *<span class="at">const</span>  <span class="co">/* NPROPS, number of material properties*/</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of extern &quot;C&quot;</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif </span><span class="er">MFRONT_UMAT2_FUNCTION_DECLARATION 1</span></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Includes</span></span></code></pre></div>
 <h3 data-number="6.2.2" id="modifying-the-integrator-code-block"><span class="header-section-number">6.2.2</span> Modifying the <code>@Integrator</code> code block</h3>
+<p>Once useless variables are removed, the source code of the <code>@Integrator</code> code block is also much shorter:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">//</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> AbaqusRealType props[<span class="dv">2</span>] = {E, nu};</span>
@@ -604,120 +636,191 @@
 <span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>  <span class="co">//</span></span>
 <span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>  mfront_umat_wrapper::convertStressFromAbaqus&lt;hypothesis&gt;(&amp;sig[<span class="dv">0</span>], s);</span>
 <span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>As a rule of thumb, reducing the number of arguments passed from <code>C++</code> to <code>fortran</code> to the bare minimum is highly recommended as there is no way for the compiler of the linker to check the consistency of those arguments. It is the responsability of the developper to make the <code>C++</code> call match the <code>fortran</code> declaration. This is the source of hours of painful debugging.</p>
 <h1 data-number="7" id="introducing-the-wrapped-implementation-in-mfrontgallery"><span class="header-section-number">7</span> Introducing the wrapped implementation in <code>MFrontGallery</code></h1>
+<h2 data-number="7.1" id="the-mfrontuserwrapper.hxx-header"><span class="header-section-number">7.1</span> The <code>MFrontUserWrapper.hxx</code> header</h2>
+<p>The <code>MFrontUserWrapper.hxx</code> header may be shared between several wrappers. Such headers may be rightfully be placed in the <code>include</code> directory at the root of the <code>MFrontGallery</code> project.</p>
+<p>If it exists, this directory is automatically added to the compiler’ include path by the <a href="cmake-infrastructure.html"><code>cmake</code> infrastructure</a>.</p>
+<p>However, as the project grows, such shared utility headers may multiply, with the risk of a cluttering of the <code>include</code> directory.</p>
+<p>To sort things out, we choose to create an <code>MFront/Wrappers</code> subdirectory. We also choose to rename the file <code>UmatWrapper.hxx</code> to avoid a redundant <code>MFront</code>.</p>
+<h2 data-number="7.2" id="building-the-libraries"><span class="header-section-number">7.2</span> Building the libraries</h2>
+<p>We choose to create two libraries <code>v1</code> and <code>v1</code> for each versions of the wrapped behaviour. Those directories are placed in the <code>mfront-wrappers/fortran/umat/</code> directory.</p>
+<blockquote>
+<p><strong>The <code>enable-fortran-behaviours-wrappers</code> options</strong></p>
+<p>The subdirectories of the <code>mfront-wrappers/fortran</code> directory are only treated if the <code>enable-fortran-behaviours-wrappers</code> has been set to <code>ON</code> at the <code>cmake</code> configuration stage (see the <a href="install.html">install page</a> for details).</p>
+<p>This options ensures that proper support of <code>Fortran</code> language has been set up.</p>
+</blockquote>
+<p>The content of those directories is the following:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mfront-wrappers/fortran/umat</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> mfront-wrappers/fortran/umat/v1</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── mfront-wrappers/fortran/umat/v1/CMakeLists.txt</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── mfront-wrappers/fortran/umat/v1/SmallStrainUmatWrapper_v1.mfront</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── mfront-wrappers/fortran/umat/v1/umat.f</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> mfront-wrappers/fortran/umat/v2</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> mfront-wrappers/fortran/umat/v2/CMakeLists.txt</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> mfront-wrappers/fortran/umat/v2/SmallStrainUmatWrapper_v2.mfront</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">└──</span> mfront-wrappers/fortran/umat/v2/umat2.f90</span></code></pre></div>
+<p>For the sake of clarity, the <code>MFront</code> implementations have been renamed and the name of the generated behaviours changes accordingly.</p>
+<h3 data-number="7.2.1" id="second-version-of-the-wrapper"><span class="header-section-number">7.2.1</span> Second version of the wrapper</h3>
+<p>The contents of the <code>CMakeLists.txt</code> are very simple for the second version, as shown by the following listing:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mfront_behaviours_library</span>(UmatWrapperV2</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  SmallStrainUmatWrapperV2</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  umat2.f90)</span></code></pre></div>
+<p>The <code>mfront_behaviour_library</code> function is described in the documentation of the <a href="cmake-infrastructure.html">cmake infrastructure</a> of the project.</p>
+<p>This call to the <code>mfront_behaviour_library</code> function generates the following output:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UMATWRAPPERV2CALCULIXBEHAVIOURS <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/calculix/src/calculixSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/calculix/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UMATWRAPPERV2ANSYSBEHAVIOURS <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/ansys/src/ansysSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/ansys/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UMATWRAPPERV2ABAQUSBEHAVIOURS <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/abaqus/src/abaqusSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/abaqus/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> SmallStrainUmatWrapper_v2 has been discarded for interface cyrano <span class="er">(</span><span class="ex">behaviour</span> does not support any of the  <span class="st">&#39;AxisymmetricalGeneralisedPlaneStrain&#39;</span> or  <span class="st">&#39;AxisymmetricalGeneralisedPlaneStress modelling&#39;</span> hypothesis<span class="kw">)</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Only external sources provided for library UmatWrapperV2Behaviours-cyrano for interface cyrano. The generation of this library is disabled by default. It can be enabled by passing the GENERATE_WITHOUT_MFRONT_SOURCES</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> SmallStrainUmatWrapper_v2 has been discarded for interface epx <span class="er">(</span><span class="ex">small</span> strain behaviours are not supported<span class="kw">)</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Only external sources provided for library UmatWrapperV2Behaviours-epx for interface epx. The generation of this library is disabled by default. It can be enabled by passing the GENERATE_WITHOUT_MFRONT_SOURCES</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UmatWrapperV2DianaFEABehaviours <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/dianafea/src/DianaFEASmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/dianafea/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UmatWrapperV2Behaviours-aster <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/aster/src/asterSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/aster/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UmatWrapperV2Behaviours <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/castem/src/umatSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/castem/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UmatWrapperV2Behaviours-generic <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/generic/src/SmallStrainUmatWrapper_v2-generic.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/generic/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span></code></pre></div>
+<p>This output shows that:</p>
+<ul>
+<li>The wrapped behaviour is not compatible with some interfaces (<code>cyrano</code>, <code>europlexus</code> for instance) for reasons explicitely stated in the previous output.</li>
+<li>No library is generated by default if no <code>MFront</code> sources are compatible with the given interface. This could be changed by passing the <code>GENERATE_WITHOUT_MFRONT_SOURCES</code> option to the <code>mfront_behaviour_library</code> function.</li>
+</ul>
+<blockquote>
+<p><strong>Compiling the <code>fortran</code> sources in a separate shared library</strong></p>
+<p>Contrary to the standalone example, the <code>fortran</code> sources are compiled in the same shared library than the <code>MFront</code> file. Note that the <code>fortran</code> sources are compiled once for each interfaces.</p>
+<p>Another strategy would be to compile the <code>fortran</code> file in a separate shared library and link the <code>MFront</code> shared libraries to this shared library. This can be done as follows:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">add_library</span>(UmatImplementations <span class="ot">SHARED</span> umat2.f90)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mfm_install_library</span>(UmatImplementations)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mfront_behaviours_library</span>(UmatWrapperV2</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a> SmallStrainUmatWrapper_v2</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a> <span class="dv">LINK_LIBRARIES</span> UmatImplementations)</span></code></pre></div>
+</blockquote>
+<h3 data-number="7.2.2" id="first-version-of-the-wrapper"><span class="header-section-number">7.2.2</span> First version of the wrapper</h3>
+<p>The <code>CMakeLists.txt</code> file for the first version of the wrapper is a bit more involved as we try to avoid the portability issue by compiling the <code>UmatWrapper_v2</code> only if:</p>
+<ul>
+<li>the <code>fortran</code> compiler is <code>gfortran</code>.</li>
+<li>the targeted system is <code>Linux</code>.</li>
+</ul>
+<p>This is illustrated by the following script:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(GNU_FORTRAN_COMPILER AND (<span class="er">$</span>{CMAKE_SYSTEM_NAME} STREQUAL <span class="st">&quot;Linux&quot;</span>))</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  mfront_behaviours_library(UmatWrapperV1</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    SmallStrainUmatWrapper_v1</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    umat.f)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>endif()</span></code></pre></div>
+<p>The <code>GNU_FORTRAN_COMPILER</code> variable is automatically defined by the <code>cmake</code> infrastructure of the project.</p>
 <h1 data-number="8" id="appendix"><span class="header-section-number">8</span> Appendix</h1>
 <h2 data-number="8.1" id="sec:umat_wrapper:umat_source_code"><span class="header-section-number">8.1</span> Source code of the <code>UMAT</code> subroutine</h2>
 <div id="lst:umat_wrapper:umat_source_code" class="listing fortran">
 <p>Listing 2: Source code of the `UMAT` subroutine</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">     s</span>ubroutine umat(stress,statev,ddsdde,sse,spd,scd,</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  rpl,ddsddt,drplde,drpldt,</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran,dstran,time,dtime,temp,dtemp,predef,dpred,cmname,</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ndi,nshr,ntens,nstatv,props,nprops,coords,drot,pnewdt,</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  celent,dfgrd0,dfgrd1,noel,npt,layer,kspt,kstep,kinc)</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">implicit</span> <span class="kw">none</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">character*80</span> cmname</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> ndi,nshr,ntens,nstatv,nprops,noel,npt,layer,kspt,</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  kstep,kinc</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> stress(ntens),statev(nstatv),</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ddsdde(ntens,ntens),ddsddt(ntens),drplde(ntens),</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran(ntens),dstran(ntens),time(<span class="dv">2</span>),celent,</span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  props(nprops),coords(<span class="dv">3</span>),drot(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd0(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd1(<span class="dv">3</span>,<span class="dv">3</span>),</span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  sse,spd,scd,rpl,drpldt,dtime,temp,dtemp,predef,dpred,</span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  pnewdt</span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> i,j</span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> e,un,al,um,am1,am2</span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>      e<span class="kw">=</span>props(<span class="dv">1</span>)</span>
-<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>      un<span class="kw">=</span>props(<span class="dv">2</span>)</span>
-<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>      al<span class="kw">=</span>un<span class="kw">*</span>e<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">-</span><span class="fl">2.d0</span><span class="kw">*</span>un)</span>
-<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>      um<span class="kw">=</span>e<span class="kw">/</span><span class="fl">2.d0</span><span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)</span>
-<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>      am1<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>      am2<span class="kw">=</span>um</span>
-<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a><span class="co">!     stress</span></span>
-<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a><span class="co">!      </span></span>
-<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">1</span>)<span class="kw">=</span>stress(<span class="dv">1</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">1</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">2</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
-<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">2</span>)<span class="kw">=</span>stress(<span class="dv">2</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">2</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
-<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">3</span>)<span class="kw">=</span>stress(<span class="dv">3</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">3</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">2</span>))</span>
-<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">4</span>)<span class="kw">=</span>stress(<span class="dv">4</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">4</span>)</span>
-<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">5</span>)<span class="kw">=</span>stress(<span class="dv">5</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">5</span>)</span>
-<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">6</span>)<span class="kw">=</span>stress(<span class="dv">6</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">6</span>)</span>
-<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a><span class="co">!     stiffness</span></span>
-<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a>      <span class="kw">do</span> i<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
-<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>         <span class="kw">do</span> j<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
-<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a>            ddsdde(i,j)<span class="kw">=</span><span class="fl">0.d0</span></span>
-<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a>         <span class="kw">enddo</span></span>
-<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a>      <span class="kw">enddo</span></span>
-<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">1</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
-<span id="cb32-49"><a href="#cb32-49" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
-<span id="cb32-50"><a href="#cb32-50" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">2</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb32-51"><a href="#cb32-51" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
-<span id="cb32-52"><a href="#cb32-52" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
-<span id="cb32-53"><a href="#cb32-53" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
-<span id="cb32-54"><a href="#cb32-54" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
-<span id="cb32-55"><a href="#cb32-55" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">3</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb32-56"><a href="#cb32-56" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">4</span>,<span class="dv">4</span>)<span class="kw">=</span>um</span>
-<span id="cb32-57"><a href="#cb32-57" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">5</span>,<span class="dv">5</span>)<span class="kw">=</span>um</span>
-<span id="cb32-58"><a href="#cb32-58" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">6</span>,<span class="dv">6</span>)<span class="kw">=</span>um</span>
-<span id="cb32-59"><a href="#cb32-59" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb32-60"><a href="#cb32-60" aria-hidden="true" tabindex="-1"></a><span class="co">!     </span><span class="re">END</span><span class="co"> EXAMPLE LINEAR ELASTIC MATERIAL</span></span>
-<span id="cb32-61"><a href="#cb32-61" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb32-62"><a href="#cb32-62" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span></span>
-<span id="cb32-63"><a href="#cb32-63" aria-hidden="true" tabindex="-1"></a>      <span class="kw">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">     s</span>ubroutine umat(stress,statev,ddsdde,sse,spd,scd,</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  rpl,ddsddt,drplde,drpldt,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran,dstran,time,dtime,temp,dtemp,predef,dpred,cmname,</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ndi,nshr,ntens,nstatv,props,nprops,coords,drot,pnewdt,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  celent,dfgrd0,dfgrd1,noel,npt,layer,kspt,kstep,kinc)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">character*80</span> cmname</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> ndi,nshr,ntens,nstatv,nprops,noel,npt,layer,kspt,</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  kstep,kinc</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> stress(ntens),statev(nstatv),</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  ddsdde(ntens,ntens),ddsddt(ntens),drplde(ntens),</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  stran(ntens),dstran(ntens),time(<span class="dv">2</span>),celent,</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  props(nprops),coords(<span class="dv">3</span>),drot(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd0(<span class="dv">3</span>,<span class="dv">3</span>),dfgrd1(<span class="dv">3</span>,<span class="dv">3</span>),</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  sse,spd,scd,rpl,drpldt,dtime,temp,dtemp,predef,dpred,</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a><span class="bu">     &amp;</span>  pnewdt</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>      <span class="dt">integer</span> i,j</span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>      <span class="dt">real*8</span> e,un,al,um,am1,am2</span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>      e<span class="kw">=</span>props(<span class="dv">1</span>)</span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>      un<span class="kw">=</span>props(<span class="dv">2</span>)</span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>      al<span class="kw">=</span>un<span class="kw">*</span>e<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">-</span><span class="fl">2.d0</span><span class="kw">*</span>un)</span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>      um<span class="kw">=</span>e<span class="kw">/</span><span class="fl">2.d0</span><span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)</span>
+<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a>      am1<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>      am2<span class="kw">=</span>um</span>
+<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a><span class="co">!     stress</span></span>
+<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a><span class="co">!      </span></span>
+<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">1</span>)<span class="kw">=</span>stress(<span class="dv">1</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">1</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">2</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
+<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">2</span>)<span class="kw">=</span>stress(<span class="dv">2</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">2</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
+<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">3</span>)<span class="kw">=</span>stress(<span class="dv">3</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">3</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">2</span>))</span>
+<span id="cb37-36"><a href="#cb37-36" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">4</span>)<span class="kw">=</span>stress(<span class="dv">4</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">4</span>)</span>
+<span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">5</span>)<span class="kw">=</span>stress(<span class="dv">5</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">5</span>)</span>
+<span id="cb37-38"><a href="#cb37-38" aria-hidden="true" tabindex="-1"></a>      stress(<span class="dv">6</span>)<span class="kw">=</span>stress(<span class="dv">6</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">6</span>)</span>
+<span id="cb37-39"><a href="#cb37-39" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb37-40"><a href="#cb37-40" aria-hidden="true" tabindex="-1"></a><span class="co">!     stiffness</span></span>
+<span id="cb37-41"><a href="#cb37-41" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb37-42"><a href="#cb37-42" aria-hidden="true" tabindex="-1"></a>      <span class="kw">do</span> i<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
+<span id="cb37-43"><a href="#cb37-43" aria-hidden="true" tabindex="-1"></a>         <span class="kw">do</span> j<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
+<span id="cb37-44"><a href="#cb37-44" aria-hidden="true" tabindex="-1"></a>            ddsdde(i,j)<span class="kw">=</span><span class="fl">0.d0</span></span>
+<span id="cb37-45"><a href="#cb37-45" aria-hidden="true" tabindex="-1"></a>         <span class="kw">enddo</span></span>
+<span id="cb37-46"><a href="#cb37-46" aria-hidden="true" tabindex="-1"></a>      <span class="kw">enddo</span></span>
+<span id="cb37-47"><a href="#cb37-47" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">1</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb37-48"><a href="#cb37-48" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
+<span id="cb37-49"><a href="#cb37-49" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
+<span id="cb37-50"><a href="#cb37-50" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">2</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb37-51"><a href="#cb37-51" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">1</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
+<span id="cb37-52"><a href="#cb37-52" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
+<span id="cb37-53"><a href="#cb37-53" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">2</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
+<span id="cb37-54"><a href="#cb37-54" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
+<span id="cb37-55"><a href="#cb37-55" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">3</span>,<span class="dv">3</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb37-56"><a href="#cb37-56" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">4</span>,<span class="dv">4</span>)<span class="kw">=</span>um</span>
+<span id="cb37-57"><a href="#cb37-57" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">5</span>,<span class="dv">5</span>)<span class="kw">=</span>um</span>
+<span id="cb37-58"><a href="#cb37-58" aria-hidden="true" tabindex="-1"></a>      ddsdde(<span class="dv">6</span>,<span class="dv">6</span>)<span class="kw">=</span>um</span>
+<span id="cb37-59"><a href="#cb37-59" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb37-60"><a href="#cb37-60" aria-hidden="true" tabindex="-1"></a><span class="co">!     </span><span class="re">END</span><span class="co"> EXAMPLE LINEAR ELASTIC MATERIAL</span></span>
+<span id="cb37-61"><a href="#cb37-61" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb37-62"><a href="#cb37-62" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span></span>
+<span id="cb37-63"><a href="#cb37-63" aria-hidden="true" tabindex="-1"></a>      <span class="kw">end</span></span></code></pre></div>
 </div>
 <h2 data-number="8.2" id="sec:umat_wrapper:umat2_source_code"><span class="header-section-number">8.2</span> Source code of the <code>umat2</code> subroutine in <code>Fortran 2003</code></h2>
 <div id="lst:umat_wrapper:umat2_source_code" class="listing fortran">
 <p>Listing 3: Source code of the `umat2` subroutine</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">subroutine</span> umat2(stress, ddsdde, stran, dstran, ntens, props, nprops) BIND(C,NAME<span class="kw">=</span><span class="st">&quot;umat2&quot;</span>)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="kw">implicit</span> <span class="kw">none</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="dt">integer</span> ntens,nprops</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="dt">real*8</span> stress(ntens), ddsdde(ntens,ntens),stran(ntens), dstran(ntens), props(nprops)</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="dt">integer</span> i,j</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="dt">real*8</span> e,un,al,um,am1,am2</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>e<span class="kw">=</span>props(<span class="dv">1</span>)</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>un<span class="kw">=</span>props(<span class="dv">2</span>)</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>al<span class="kw">=</span>un<span class="kw">*</span>e<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">-</span><span class="fl">2.d0</span><span class="kw">*</span>un)</span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>um<span class="kw">=</span>e<span class="kw">/</span><span class="fl">2.d0</span><span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>am1<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>am2<span class="kw">=</span>um</span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="co">!      </span></span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">1</span>)<span class="kw">=</span>stress(<span class="dv">1</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">1</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">2</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
-<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">2</span>)<span class="kw">=</span>stress(<span class="dv">2</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">2</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">3</span>)<span class="kw">=</span>stress(<span class="dv">3</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">3</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">2</span>))</span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">4</span>)<span class="kw">=</span>stress(<span class="dv">4</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">4</span>)</span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">5</span>)<span class="kw">=</span>stress(<span class="dv">5</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">5</span>)</span>
-<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">6</span>)<span class="kw">=</span>stress(<span class="dv">6</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">6</span>)</span>
-<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
-<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="kw">do</span> i<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
-<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>   <span class="kw">do</span> j<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
-<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>      ddsdde(i,j)<span class="kw">=</span><span class="fl">0.d0</span></span>
-<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>   <span class="kw">enddo</span></span>
-<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a><span class="kw">enddo</span></span>
-<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">1</span>,<span class="dv">1</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">1</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
-<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">2</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
-<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">2</span>,<span class="dv">2</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">1</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
-<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">3</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
-<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">2</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
-<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">3</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
-<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">3</span>,<span class="dv">3</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
-<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">4</span>,<span class="dv">4</span>)<span class="kw">=</span>um</span>
-<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">5</span>,<span class="dv">5</span>)<span class="kw">=</span>um</span>
-<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">6</span>,<span class="dv">6</span>)<span class="kw">=</span>um</span>
-<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a><span class="kw">return</span></span>
-<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a><span class="kw">end subroutine</span> umat2</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">subroutine</span> umat2(stress, ddsdde, stran, dstran, ntens, props, nprops) BIND(C,NAME<span class="kw">=</span><span class="st">&quot;umat2&quot;</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="dt">integer</span> ntens,nprops</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="dt">real*8</span> stress(ntens), ddsdde(ntens,ntens),stran(ntens), dstran(ntens), props(nprops)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="dt">integer</span> i,j</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="dt">real*8</span> e,un,al,um,am1,am2</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>e<span class="kw">=</span>props(<span class="dv">1</span>)</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>un<span class="kw">=</span>props(<span class="dv">2</span>)</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>al<span class="kw">=</span>un<span class="kw">*</span>e<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)<span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">-</span><span class="fl">2.d0</span><span class="kw">*</span>un)</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>um<span class="kw">=</span>e<span class="kw">/</span><span class="fl">2.d0</span><span class="kw">/</span>(<span class="fl">1.d0</span><span class="kw">+</span>un)</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>am1<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>am2<span class="kw">=</span>um</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a><span class="co">!      </span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">1</span>)<span class="kw">=</span>stress(<span class="dv">1</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">1</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">2</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">2</span>)<span class="kw">=</span>stress(<span class="dv">2</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">2</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">3</span>))</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">3</span>)<span class="kw">=</span>stress(<span class="dv">3</span>)<span class="kw">+</span>am1<span class="kw">*</span>dstran(<span class="dv">3</span>)<span class="kw">+</span>al<span class="kw">*</span>(dstran(<span class="dv">1</span>)<span class="kw">+</span>dstran(<span class="dv">2</span>))</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">4</span>)<span class="kw">=</span>stress(<span class="dv">4</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">4</span>)</span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">5</span>)<span class="kw">=</span>stress(<span class="dv">5</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">5</span>)</span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>stress(<span class="dv">6</span>)<span class="kw">=</span>stress(<span class="dv">6</span>)<span class="kw">+</span>am2<span class="kw">*</span>dstran(<span class="dv">6</span>)</span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a><span class="co">!</span></span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a><span class="kw">do</span> i<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>   <span class="kw">do</span> j<span class="kw">=</span><span class="dv">1</span>,<span class="dv">6</span></span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a>      ddsdde(i,j)<span class="kw">=</span><span class="fl">0.d0</span></span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a>   <span class="kw">enddo</span></span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a><span class="kw">enddo</span></span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">1</span>,<span class="dv">1</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">1</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
+<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">2</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
+<span id="cb38-32"><a href="#cb38-32" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">2</span>,<span class="dv">2</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb38-33"><a href="#cb38-33" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">1</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
+<span id="cb38-34"><a href="#cb38-34" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">3</span>,<span class="dv">1</span>)<span class="kw">=</span>al</span>
+<span id="cb38-35"><a href="#cb38-35" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">2</span>,<span class="dv">3</span>)<span class="kw">=</span>al</span>
+<span id="cb38-36"><a href="#cb38-36" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">3</span>,<span class="dv">2</span>)<span class="kw">=</span>al</span>
+<span id="cb38-37"><a href="#cb38-37" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">3</span>,<span class="dv">3</span>)<span class="kw">=</span>al<span class="kw">+</span><span class="fl">2.d0</span><span class="kw">*</span>um</span>
+<span id="cb38-38"><a href="#cb38-38" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">4</span>,<span class="dv">4</span>)<span class="kw">=</span>um</span>
+<span id="cb38-39"><a href="#cb38-39" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">5</span>,<span class="dv">5</span>)<span class="kw">=</span>um</span>
+<span id="cb38-40"><a href="#cb38-40" aria-hidden="true" tabindex="-1"></a>ddsdde(<span class="dv">6</span>,<span class="dv">6</span>)<span class="kw">=</span>um</span>
+<span id="cb38-41"><a href="#cb38-41" aria-hidden="true" tabindex="-1"></a><span class="kw">return</span></span>
+<span id="cb38-42"><a href="#cb38-42" aria-hidden="true" tabindex="-1"></a><span class="kw">end subroutine</span> umat2</span></code></pre></div>
 </div>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">

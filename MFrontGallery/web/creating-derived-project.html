@@ -94,6 +94,7 @@
 	        <li><a href="creating-derived-project.html">Creating derived project</a></li>
 	        <li><a href="cmake-infrastructure.html">CMake infrastructure</a></li>
 	        <li><a href="best-practices.html">Best practices</a></li>
+            <li><a href="contributing.html">Contributing</a></li>
 	      </ul>
         </li>
         <li><a>Materials</a>
@@ -118,7 +119,15 @@
              </li>
           </ul>
         </li>
-        <li><a href="contributing.html">Contributing</a></li>
+        <li><a>Behaviours</a>
+          <ul>
+             <li><a>Plasticity</a>
+                <ul>
+                  <li><a href="SemiImplicitModifiedCamClay_OpenGeoSys2020.html">SemiImplicitModifiedCamClay_OpenGeoSys2020</a></li>
+                </ul>
+             </li>
+          </ul>
+        </li>
         <li><a>Getting Help</a>
       	  <ul>
 	        <li><a href="https://github.com/thelfer/MFrontGallery/discussions">Forum</a></li>
@@ -144,6 +153,7 @@
 <li><a href="#fetching-cmakemodules-directory">Fetching <code>cmake/modules</code> directory</a></li>
 <li><a href="#top-level-cmakelists.txt-file">Top-level <code>CMakeLists.txt</code> file</a></li>
 <li><a href="#sources-organization">Sources organization</a></li>
+<li><a href="#synchronizing-the-cmakemodules-directory">Synchronizing the <code>cmake/modules</code> directory</a></li>
 </ul>
 </div>
 <p>This document describes how to setup a new project based on the <a href="cmake-infrastructure.html">cmake infrastructure</a> of the <code>MFrontGallery</code> and <code>MFrontMaterials</code> projects.</p>
@@ -151,7 +161,7 @@
 <p>To create a material management project derived from <code>MFrontGallery</code>, just copy the contents of the <code>cmake/modules</code> directory in your local directory.</p>
 <p>If you intent to use <code>git</code> for version control, one easy way it to add the <code>MFrontGallery</code> as a remote ressource and check out the <code>cmake</code> repository from it as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote add MFrontGallery https://github.com/thelfer/MFrontGallery</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git fetch MFrontGallery </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git fetch MFrontGallery master</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout MFrontGallery/master <span class="at">--</span> cmake </span></code></pre></div>
 <h1 id="top-level-cmakelists.txt-file">Top-level <code>CMakeLists.txt</code> file</h1>
 <p>The next step consist of creating a top level <code>CMakeLists.txt</code> file. Here is a minimal example:</p>
@@ -182,6 +192,10 @@
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── properties</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> ...</span></code></pre></div>
 <p>This structure is used to automatically declare <code>MFront</code> search paths by the <code>mfront_properties_library</code> and <code>mfront_behaviours_library</code>.</p>
+<h1 id="synchronizing-the-cmakemodules-directory">Synchronizing the <code>cmake/modules</code> directory</h1>
+<p>The lastest version of <code>cmake/modules</code> directory can be retrieved as follows:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git fetch MFrontGallery master</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout MFrontGallery/master cmake</span></code></pre></div>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

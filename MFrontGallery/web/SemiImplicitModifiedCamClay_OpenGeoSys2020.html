@@ -197,7 +197,7 @@
   \underline{\varepsilon }= \underline{\varepsilon}_\text{e}+ \underline{\varepsilon}_\text{p}\ .
 \]</span></p>
 <p>The generalized Hooke’s law relates elastic strains with stresses as <span class="math display">\[
-  \underline{\sigma }= \underline{D}\,\colon\,\underline{\varepsilon}_\text{e}\ .
+  \underline{\sigma }= \underline{\underline{D}}\,\colon\,\underline{\varepsilon}_\text{e}\ .
 \]</span></p>
 <p>Splitting the stress tensor with respect to deviatoric and volumetric parts yields</p>
 <p><span class="math display">\[
@@ -209,8 +209,8 @@
 \]</span> Dealing with porous media there is a kinematic relation between porosity and volumetric strain. Let the total volume of an REV be divided into a pore volume and the solid volume: <span class="math display">\[
   V = V_{\text{S}} + V_{\text{P}} \ .
 \]</span> Now, the porosity is defined as the pore volume fraction, i.,e. <span class="math inline">\(\phi=V_{\text{P}}/V\)</span>. Evaluating the mass balance equation of the porous solid yields the porosity evolution in the form <span class="math display">\[\label{eq:porEvolution}
-  \dot{\phi} - \phi\mathrm{div}(\dot{\vec{u}}) = \mathrm{trace}(\dot{\underline{\varepsilon}}) \ .
-\]</span> Exploiting <span class="math inline">\(\mathrm{div}(\dot{\vec{u}})\equiv \mathrm{trace}(\dot{\underline{\varepsilon}})\)</span> and separating the variables, this differential equation can be solved in a straightforward manner (cf. App.).</p>
+  \dot{\phi} - \phi\mathrm{div}(\dot{\vec{u}}) = \mathrm{tr}(\dot{\underline{\varepsilon}}) \ .
+\]</span> Exploiting <span class="math inline">\(\mathrm{div}(\dot{\vec{u}})\equiv \mathrm{tr}(\dot{\underline{\varepsilon}})\)</span> and separating the variables, this differential equation can be solved in a straightforward manner (cf. App.).</p>
 <p>If the elastic volume changes are small compared to the plastic ones, the porosity (evolution) can be calculated from <span class="math inline">\(\varepsilon^\text{V}_\text{p}\)</span> only. Instead of the porosity <span class="math inline">\(\phi\)</span>, the pore number <span class="math inline">\(e=V_{\text{P}} / V_{\text{S}}\)</span> can equally be used with the relations</p>
 <p><span class="math display">\[\label{eq:e-phiRelation}
   e = \frac{\phi}{1-\phi} \quad\text{with}\quad 1+e = (1-\phi)^{-1}\ .
@@ -218,7 +218,7 @@
 <h2 data-number="2.2" id="system-of-equations"><span class="header-section-number">2.2</span> System of equations</h2>
 <p>The following set of equations fully describes the basic modified Cam clay model. Elasticity is</p>
 <p><span class="math display">\[\label{eq:linearElasticity}
-  \underline{\sigma }= \underline{D}\,\colon\,\left(\underline{\varepsilon }- \underline{\varepsilon}_\text{p}\right) \ .
+  \underline{\sigma }= \underline{\underline{D}}\,\colon\,\left(\underline{\varepsilon }- \underline{\varepsilon}_\text{p}\right) \ .
 \]</span></p>
 <p>Then, the  Cam clay yield function with the parameters <span class="math inline">\(M\)</span> and <span class="math inline">\(p_\text{c}(e)\)</span> is given by</p>
 <p><span class="math display">\[
@@ -230,7 +230,7 @@
 \]</span></p>
 <p>where <span class="math inline">\(\dot{\varLambda}_\text{p}\)</span> denotes the plastic multiplier such that <span class="math inline">\(\text{d}{\varLambda}_\text{p}\)</span> is the plastic increment and <span class="math inline">\(\underline{n}\)</span> gives the direction of the plastic flow. The plastic volume change rate is obtained from:</p>
 <p><span class="math display">\[
-  \dot{\varepsilon}_\text{p}^\text{V} = \mathrm{trace}(\dot{\underline{\varepsilon}}_\text{p}) = \dot{\varLambda}_\text{p}\,\mathrm{trace}(\underline{n})\ . %\tensor{I}\ppkt\tensor{n}
+  \dot{\varepsilon}_\text{p}^\text{V} = \mathrm{tr}(\dot{\underline{\varepsilon}}_\text{p}) = \dot{\varLambda}_\text{p}\,\mathrm{tr}(\underline{n})\ . %\tensor{I}\ppkt\tensor{n}
 \]</span></p>
 <p>The so-called pre-consolidation pressure <span class="math inline">\(p_\text{c}\)</span> represents the yield stress under isotropic compression and evolves as:</p>
 <p><span class="math display">\[\label{eq:evolutionPc}
@@ -268,7 +268,7 @@
 <p>The discretized incremental evolution equation now read <span class="math display">\[
 \begin{align}
   \varDelta\underline{\varepsilon}_\text{p}&amp;= \varDelta{\varLambda}_\text{p}\ \underline{n}\ , \\
-  \varDelta{\varepsilon}_\text{p}^\text{V} &amp;= \varDelta{\varLambda}_\text{p}\,\mathrm{trace}(\underline{n})\ , \\  
+  \varDelta{\varepsilon}_\text{p}^\text{V} &amp;= \varDelta{\varLambda}_\text{p}\,\mathrm{tr}(\underline{n})\ , \\  
   \varDelta{p}_\text{c}&amp;= -\varDelta{\varepsilon}_\text{p}^\text{V} \vartheta(e)\ p_\text{c}\ , \\
   \varDelta\phi &amp;= (1-\phi) \varDelta\varepsilon^\text{V} \ .
 \end{align}
@@ -276,7 +276,7 @@
 <p>With this, the discretized set of equations has the form</p>
 <p><span class="math display">\[\label{eq:incrementalSystem}
 \begin{align}
-  \underline{D}_{\!\varepsilon_\text{e}} &amp;= \varDelta\underline{\varepsilon}_\text{e}+ \varDelta\varLambda_p\ \underline{n} - \varDelta\underline{\varepsilon }= \underline{0} \ ,\\
+  \underline{f}_{\!\varepsilon_\text{e}} &amp;= \varDelta\underline{\varepsilon}_\text{e}+ \varDelta\varLambda_p\ \underline{n} - \varDelta\underline{\varepsilon }= \underline{0} \ ,\\
   f_{\!\varLambda_p} &amp;= q^2 + M^2(p^2 - p\,p_\text{c}) = 0 \ , \label{eq:flp}\\ %\dfrac{1}{E^2}
   f_{p_\text{c}} &amp;= \varDelta p_\text{c}+ \varDelta\varepsilon_\text{p}^\text{V} \vartheta(\phi)\ p_\text{c}= 0 \ , \label{eq:fpc} \\
   f_{\phi} &amp;= \varDelta\phi - (1-\phi) \varDelta\varepsilon^\text{V} = 0 \ , \label{eq:fphi}
@@ -285,7 +285,7 @@
 <p>where the total values are the values at the next instant of time, meaning <span class="math inline">\(q={}^{k+1}q, p={}^{k+1}p\)</span>. For the partial derivatives the functional dependencies are required. They read</p>
 <p><span class="math display">\[\label{eq:functionalDependence}
 \begin{align}
-  \underline{D}_{\!\varepsilon_\text{e}} &amp;= \underline{D}_{\!\varepsilon_\text{e}}(\varDelta\underline{\varepsilon}_\text{e}, \varDelta\varLambda_p, \varDelta p_\text{c}) \ ,\\
+  \underline{f}_{\!\varepsilon_\text{e}} &amp;= \underline{\underline{D}}_{\!\varepsilon_\text{e}}(\varDelta\underline{\varepsilon}_\text{e}, \varDelta\varLambda_p, \varDelta p_\text{c}) \ ,\\
   f_{\!\varLambda_p} &amp;= f_{\varLambda_p}(\varDelta\underline{\varepsilon}_\text{e}, \varDelta p_\text{c}) \ , \\
   f_{p_\text{c}} &amp;= f_{p_\text{c}}(\varDelta\underline{\varepsilon}_\text{e}, \varDelta\varLambda_p, \varDelta p_\text{c}, \varDelta\phi)\ , \\
   f_{\phi} &amp;= f_{\phi}(\varDelta\phi) \ ,
@@ -295,20 +295,20 @@
 <p>For the solution of the incremental set of equations  with the Newton-Raphson method the partial derivatives with respect to the increments of the unknowns are required. They read</p>
 <p><span class="math display">\[\label{eqset:partialDerivatives}
 \begin{align}
-  \frac{\partial\underline{D}_{\!\varepsilon_\text{e}}}{\partial\varDelta\underline{\varepsilon}_\text{e}} &amp;= \underline{\underline{I}} + \varDelta\varLambda_p\frac{\partial\underline{n}}{\partial\varDelta\underline{\varepsilon}_\text{e}} \quad\text{with}\quad \underline{\underline{I}}=\vec{e}_a\,\otimes\,\vec{e}_b\,\otimes\,\vec{e}_a\,\otimes\,\vec{e}_b \ ,
+  \frac{\partial\underline{f}_{\!\varepsilon_\text{e}}}{\partial\varDelta\underline{\varepsilon}_\text{e}} &amp;= \underline{\underline{I}} + \varDelta\varLambda_p\frac{\partial\underline{n}}{\partial\varDelta\underline{\varepsilon}_\text{e}} \quad\text{with}\quad \underline{\underline{I}}=\vec{e}_a\,\otimes\,\vec{e}_b\,\otimes\,\vec{e}_a\,\otimes\,\vec{e}_b \ ,
   \\
-  \frac{\partial\underline{D}_{\!\varepsilon_\text{e}}}{\partial\varDelta\varLambda_p} &amp;= \underline{n}\ ,
+  \frac{\partial\underline{f}_{\!\varepsilon_\text{e}}}{\partial\varDelta\varLambda_p} &amp;= \underline{n}\ ,
   \\
-  \frac{\partial\underline{D}_{\!\varepsilon_\text{e}}}{\partial\varDelta p_\text{c}} &amp;= \varDelta\varLambda_p \ \frac{\partial\underline{n}}{\partial\varDelta p_\text{c}} ,
+  \frac{\partial\underline{f}_{\!\varepsilon_\text{e}}}{\partial\varDelta p_\text{c}} &amp;= \varDelta\varLambda_p \ \frac{\partial\underline{n}}{\partial\varDelta p_\text{c}} ,
   \\[2mm]
-  \frac{\partial f_{\!\varLambda_p}}{\partial\varDelta\underline{\varepsilon}_\text{e}} &amp;= \frac{\partial f_{\!\varLambda_p}}{\partial \underline{\sigma}} : \frac{\partial \underline{\sigma}}{\partial \underline{\varepsilon}_\text{e}} : \frac{\partial\underline{\varepsilon}_\text{e}}{\partial\varDelta\underline{\varepsilon}_\text{e}} = \underline{m} : \underline{D}\ \theta\ , %: \theta\tensorf{I}
+  \frac{\partial f_{\!\varLambda_p}}{\partial\varDelta\underline{\varepsilon}_\text{e}} &amp;= \frac{\partial f_{\!\varLambda_p}}{\partial \underline{\sigma}} : \frac{\partial \underline{\sigma}}{\partial \underline{\varepsilon}_\text{e}} : \frac{\partial\underline{\varepsilon}_\text{e}}{\partial\varDelta\underline{\varepsilon}_\text{e}} = \underline{m} : \underline{\underline{D}}\ \theta\ , %: \theta\tensorf{I}
   \\
   \frac{\partial f_{\!\varLambda_p}}{\partial\varDelta p_\text{c}} &amp;= \frac{f_{\!\varLambda_p}}{\partial p_\text{c}}\ \frac{\partial p_\text{c}}{\partial \varDelta p_\text{c}}
                                                               = -p M^2\, \theta\ , 
   \\[2mm]
   \frac{\partial f_{p_\text{c}}}{\partial\varDelta\underline{\varepsilon}_\text{e}} &amp;= \frac{\partial f_{p_\text{c}}}{\partial\underline{n}} : \frac{\partial\underline{n}}{\partial\varDelta\underline{\varepsilon}_\text{e}}\ , 
   \\
-  \frac{\partial f_{p_\text{c}}}{\partial\varDelta\varLambda_p} &amp;= \frac{\partial f_{p_\text{c}}}{\partial\varDelta\varepsilon_\text{p}^\text{V}}\ \frac{\partial\varDelta\varepsilon_\text{p}^\text{V}}{\partial\varLambda_p} = \vartheta p_\text{c}\,\mathrm{trace}(\underline{n})\ ,
+  \frac{\partial f_{p_\text{c}}}{\partial\varDelta\varLambda_p} &amp;= \frac{\partial f_{p_\text{c}}}{\partial\varDelta\varepsilon_\text{p}^\text{V}}\ \frac{\partial\varDelta\varepsilon_\text{p}^\text{V}}{\partial\varLambda_p} = \vartheta p_\text{c}\,\mathrm{tr}(\underline{n})\ ,
   \\
   \frac{\partial f_{p_\text{c}}}{\partial\varDelta p_\text{c}} &amp;= 1 + \vartheta\varDelta\varepsilon_\text{p}^\text{V}\theta + \frac{\partial f_{p_\text{c}}}{\partial\underline{n}} : \frac{\partial\underline{n}}{\partial\varDelta p_\text{c}}\ ,
   \\
@@ -334,12 +334,12 @@
   \frac{\partial\underline{m}}{\partial\underline{\varepsilon}_\text{e}} &amp;= \left\{ \frac{\partial\underline{m}}{\partial q}\,\frac{\partial q}{\partial \underline{\sigma}} 
                                                               + \frac{\partial\underline{m}}{\partial p}\,\frac{\partial p}{\partial \underline{\sigma}} \right\}
                                                               : \frac{\partial \underline{\sigma}}{\partial \underline{\varepsilon}_\text{e}} 
-                                                      = \left\{ 3\underline{\underline{P}} + \dfrac{2}{9} M^2 \underline{I}\,\otimes\,\underline{I} \right\} : \underline{D} \ , 
+                                                      = \left\{ 3\underline{\underline{P}} + \dfrac{2}{9} M^2 \underline{I}\,\otimes\,\underline{I} \right\} : \underline{\underline{D}} \ , 
   \\
   \frac{\partial m^2}{\partial\underline{\varepsilon}_\text{e}} &amp;= \left\{ \frac{\partial m^2}{\partial q}\,\frac{\partial q}{\partial \underline{\sigma}} 
                                                                       +\frac{\partial m^2}{\partial p}\,\frac{\partial p}{\partial \underline{\sigma}} \right\}
                                                                       : \frac{\partial \underline{\sigma}}{\partial \underline{\varepsilon}_\text{e}} 
-  = \left\{ 18\underline{\sigma}^\text{D}- \dfrac{4}{9} M^4 (2p-p_\text{c})\underline{I} \right\} : \underline{D} \ , 
+  = \left\{ 18\underline{\sigma}^\text{D}- \dfrac{4}{9} M^4 (2p-p_\text{c})\underline{I} \right\} : \underline{\underline{D}} \ , 
   \\
   \frac{\partial\underline{n}}{\partial\varDelta\underline{\varepsilon}_\text{e}} &amp;= 
   \frac{1}{m}\left\{\frac{\partial\underline{m}}{\partial\underline{\varepsilon}_\text{e}} - \frac{1}{2}\,\underline{n}\,\otimes\,\frac{1}{m}\frac{\partial m^2}{\partial\underline{\varepsilon}_\text{e}} \right\} :  
@@ -699,9 +699,9 @@
 <h2 data-number="7.3" id="analytical-expressions-for-porosity-and-pre-consolidation-pressure-evolution"><span class="header-section-number">7.3</span> Analytical expressions for porosity and pre-consolidation pressure evolution</h2>
 <p>Given is the evolution equation for the porosity:</p>
 <p><span class="math display">\[
-  \dot{\phi} - \phi\mathrm{div}(\dot{\vec{u}}) = \mathrm{trace}(\dot{\underline{\varepsilon}}) \quad\text{with}\quad \varepsilon^\text{V} = \mathrm{trace}({\underline{\varepsilon}}) \ .
+  \dot{\phi} - \phi\mathrm{div}(\dot{\vec{u}}) = \mathrm{tr}(\dot{\underline{\varepsilon}}) \quad\text{with}\quad \varepsilon^\text{V} = \mathrm{tr}({\underline{\varepsilon}}) \ .
 \]</span></p>
-<p>Exploiting <span class="math inline">\(\mathrm{div}(\dot{\vec{u}})\equiv \mathrm{trace}(\dot{\underline{\varepsilon}})\)</span> and separating the variables yields the form <span class="math display">\[
+<p>Exploiting <span class="math inline">\(\mathrm{div}(\dot{\vec{u}})\equiv \mathrm{tr}(\dot{\underline{\varepsilon}})\)</span> and separating the variables yields the form <span class="math display">\[
   \frac{\text{d}\phi}{1-\phi} = \text{d}\varepsilon^\text{V} \ .
 \]</span> Integration over some time increment <span class="math inline">\(\varDelta t\)</span> with <span class="math inline">\(\phi(t)={}^{k\!}\phi\)</span> and <span class="math inline">\(\phi(t+\varDelta t)={}^{k+1\!}\phi\)</span> as well as <span class="math inline">\(\Delta\varepsilon^\text{V}={}^{k+1\!}\varepsilon^\text{V}-{}^{k\!}\varepsilon^\text{V}\)</span> as the volumetric strain increment, i.,e. <span class="math display">\[
   \int\limits_{{}^{k\!}\phi}^{{}^{k+1\!}\phi} \frac{\text{d}\phi}{1-\phi} = \int\limits_{{}^{k\!}\varepsilon^\text{V}}^{{}^{k+1\!}\varepsilon^\text{V}} \text{d}\varepsilon^\text{V} \ .

@@ -297,6 +297,7 @@
 <li><a href="#sec:tfel_4.1:mtest:mandrel"><span class="toc-section-number">1.1</span> Support for a boundary condition modelling the effet of a mandrel in pipe modelling</a></li>
 <li><a href="#sec:tfel_4.1:mtest:small_strain_tridimensional_behaviour_wrapper"><span class="toc-section-number">1.2</span> Wrappers around <code>3D</code> behaviours</a></li>
 <li><a href="#sec:tfel_4.1:mtest:rotation_matrix"><span class="toc-section-number">1.3</span> A more flexible declaration of the rotation matrix</a></li>
+<li><a href="#sec:tfel_4.1:mtest:aster_logarithmic_strain_wrapper"><span class="toc-section-number">1.4</span> Wrapper around behaviours written in the logarithmic strain framework generated with the <code>aster</code> interface</a></li>
 </ul></li>
 <li><a href="#improvements-to-the-mtest-python-module"><span class="toc-section-number">2</span> Improvements to the <code>mtest</code> <code>python</code> module</a>
 <ul>
@@ -304,18 +305,19 @@
 </ul></li>
 <li><a href="#issues-fixed"><span class="toc-section-number">3</span> Issues fixed</a>
 <ul>
-<li><a href="#issue-57-gallery-mistakes-in-the-drucker-prager-cap-model-of-the-gallery"><span class="toc-section-number">3.1</span> Issue #57: [gallery] Mistakes in the Drucker Prager Cap model of the gallery</a></li>
-<li><a href="#issue-44-mtest-add-support-for-a-boundary-condition-modelling-the-effet-of-a-mandrel-in-pipe-modelling"><span class="toc-section-number">3.2</span> Issue #44: [mtest] Add support for a boundary condition modelling the effet of a mandrel in pipe modelling</a></li>
-<li><a href="#issue-39-tfel-config-add-query-associated-with-python-bindings-support"><span class="toc-section-number">3.3</span> Issue #39: [tfel-config] Add query associated with python bindings support</a></li>
-<li><a href="#issue-38-tfel-config-add-query-associated-with-madnex-support"><span class="toc-section-number">3.4</span> Issue #38: [tfel-config] Add query associated with MADNEX support</a></li>
-<li><a href="#issue-36-mfront-improved-support-for-mtest-file-generation-all-kind-of-state-variables"><span class="toc-section-number">3.5</span> Issue #36: [mfront] Improved support for <code>MTest</code> file generation (all kind of state variables)</a></li>
-<li><a href="#issue-28-mtest-support-of-tensorial-external-state-variables"><span class="toc-section-number">3.6</span> Issue #28: [mtest] Support of tensorial external state variables</a></li>
-<li><a href="#issue-28-mtest-support-of-tensorial-external-state-variables-1"><span class="toc-section-number">3.7</span> Issue #28: [mtest] Support of tensorial external state variables</a></li>
-<li><a href="#issue-27-mfront-better-support-of-tensorial-external-state-variables"><span class="toc-section-number">3.8</span> Issue #27: [mfront] Better support of tensorial external state variables</a></li>
-<li><a href="#issue-26-dont-use-explicit-instanciation-for-static-variables"><span class="toc-section-number">3.9</span> Issue #26: Don’t use explicit instanciation for static variables</a></li>
-<li><a href="#issue-20-mtest-declaration-of-a-behaviour-wrapper-in-python-module"><span class="toc-section-number">3.10</span> Issue #20: [mtest] Declaration of a behaviour wrapper in python module</a></li>
-<li><a href="#issue-18-mtest-usage-of-a-3d-behaviour-in-ptest"><span class="toc-section-number">3.11</span> Issue #18: [mtest] Usage of a <code>3D</code> behaviour in <code>ptest</code></a></li>
-<li><a href="#issue-15-mtest-new-option-for-the-declaration-of-the-rotation-matrix-in-mtest"><span class="toc-section-number">3.12</span> Issue #15: [mtest] New option for the declaration of the rotation matrix in <code>MTest</code></a></li>
+<li><a href="#issue-55-mtest-creation-of-a-wrapper-around-behaviours-written-in-the-logarithmic-strain-framework-generated-with-the-aster-interface"><span class="toc-section-number">3.1</span> Issue #55: [mtest] Creation of a wrapper around behaviours written in the logarithmic strain framework generated with the <code>aster</code> interface</a></li>
+<li><a href="#issue-57-gallery-mistakes-in-the-drucker-prager-cap-model-of-the-gallery"><span class="toc-section-number">3.2</span> Issue #57: [gallery] Mistakes in the Drucker Prager Cap model of the gallery</a></li>
+<li><a href="#issue-44-mtest-add-support-for-a-boundary-condition-modelling-the-effet-of-a-mandrel-in-pipe-modelling"><span class="toc-section-number">3.3</span> Issue #44: [mtest] Add support for a boundary condition modelling the effet of a mandrel in pipe modelling</a></li>
+<li><a href="#issue-39-tfel-config-add-query-associated-with-python-bindings-support"><span class="toc-section-number">3.4</span> Issue #39: [tfel-config] Add query associated with python bindings support</a></li>
+<li><a href="#issue-38-tfel-config-add-query-associated-with-madnex-support"><span class="toc-section-number">3.5</span> Issue #38: [tfel-config] Add query associated with MADNEX support</a></li>
+<li><a href="#issue-36-mfront-improved-support-for-mtest-file-generation-all-kind-of-state-variables"><span class="toc-section-number">3.6</span> Issue #36: [mfront] Improved support for <code>MTest</code> file generation (all kind of state variables)</a></li>
+<li><a href="#issue-28-mtest-support-of-tensorial-external-state-variables"><span class="toc-section-number">3.7</span> Issue #28: [mtest] Support of tensorial external state variables</a></li>
+<li><a href="#issue-28-mtest-support-of-tensorial-external-state-variables-1"><span class="toc-section-number">3.8</span> Issue #28: [mtest] Support of tensorial external state variables</a></li>
+<li><a href="#issue-27-mfront-better-support-of-tensorial-external-state-variables"><span class="toc-section-number">3.9</span> Issue #27: [mfront] Better support of tensorial external state variables</a></li>
+<li><a href="#issue-26-dont-use-explicit-instanciation-for-static-variables"><span class="toc-section-number">3.10</span> Issue #26: Don’t use explicit instanciation for static variables</a></li>
+<li><a href="#issue-20-mtest-declaration-of-a-behaviour-wrapper-in-python-module"><span class="toc-section-number">3.11</span> Issue #20: [mtest] Declaration of a behaviour wrapper in python module</a></li>
+<li><a href="#issue-18-mtest-usage-of-a-3d-behaviour-in-ptest"><span class="toc-section-number">3.12</span> Issue #18: [mtest] Usage of a <code>3D</code> behaviour in <code>ptest</code></a></li>
+<li><a href="#issue-15-mtest-new-option-for-the-declaration-of-the-rotation-matrix-in-mtest"><span class="toc-section-number">3.13</span> Issue #15: [mtest] New option for the declaration of the rotation matrix in <code>MTest</code></a></li>
 </ul></li>
 </ul>
 </div>
@@ -387,6 +389,10 @@ R_{i} - R_{m} \geq 0
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RotationMatrix&lt;Direction&gt; {<span class="dv">0</span>,<span class="dv">1</span>};</span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// using directions in 3D</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RotationMatrix&lt;Direction&gt; {{<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>},{<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>}};</span></code></pre></div>
+<h2 data-number="1.4" id="sec:tfel_4.1:mtest:aster_logarithmic_strain_wrapper"><span class="header-section-number">1.4</span> Wrapper around behaviours written in the logarithmic strain framework generated with the <code>aster</code> interface</h2>
+<p>Behaviours written in the logarithmic strain framework and generated with the <code>aster</code> interface were not handled by <code>MTest</code> because the logarithmic strain framework is treated by <code>code_aster</code> and not by the <code>aster</code> interface.</p>
+<p>However, this is an issue for users using <code>MTest</code> for the identification of the behaviour, as described in <a href="https://github.com/thelfer/tfel/issues/55">Issue #55</a>.</p>
+<p><code>MTest</code> now automatically wraps the behaviour to handle those behaviours. The wrapper handles the pre and post-processing steps around the behaviour integration.</p>
 <h1 data-number="2" id="improvements-to-the-mtest-python-module"><span class="header-section-number">2</span> Improvements to the <code>mtest</code> <code>python</code> module</h1>
 <h2 data-number="2.1" id="sec:tfel_4.1:pymtest:behaviour_constructor"><span class="header-section-number">2.1</span> Support of named arguments in the constructor of the <code>Behaviour</code> class</h2>
 <p>Named arguments are now supported in the <code>Behaviour</code> constructor. The following arguments can be specified:</p>
@@ -403,22 +409,25 @@ R_{i} - R_{m} \geq 0
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                    function <span class="op">=</span> <span class="st">&#39;ImplicitNorton&#39;</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                    hypothesis <span class="op">=</span> <span class="st">&#39;PlaneStrain&#39;</span>)</span></code></pre></div>
 <h1 data-number="3" id="issues-fixed"><span class="header-section-number">3</span> Issues fixed</h1>
-<h2 data-number="3.1" id="issue-57-gallery-mistakes-in-the-drucker-prager-cap-model-of-the-gallery"><span class="header-section-number">3.1</span> Issue #57: [gallery] Mistakes in the Drucker Prager Cap model of the gallery</h2>
+<h2 data-number="3.1" id="issue-55-mtest-creation-of-a-wrapper-around-behaviours-written-in-the-logarithmic-strain-framework-generated-with-the-aster-interface"><span class="header-section-number">3.1</span> Issue #55: [mtest] Creation of a wrapper around behaviours written in the logarithmic strain framework generated with the <code>aster</code> interface</h2>
+<p>The wrapper is described in Section 1.4.</p>
+<p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/55" class="uri">https://github.com/thelfer/tfel/issues/55</a></p>
+<h2 data-number="3.2" id="issue-57-gallery-mistakes-in-the-drucker-prager-cap-model-of-the-gallery"><span class="header-section-number">3.2</span> Issue #57: [gallery] Mistakes in the Drucker Prager Cap model of the gallery</h2>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/57" class="uri">https://github.com/thelfer/tfel/issues/57</a></p>
-<h2 data-number="3.2" id="issue-44-mtest-add-support-for-a-boundary-condition-modelling-the-effet-of-a-mandrel-in-pipe-modelling"><span class="header-section-number">3.2</span> Issue #44: [mtest] Add support for a boundary condition modelling the effet of a mandrel in pipe modelling</h2>
+<h2 data-number="3.3" id="issue-44-mtest-add-support-for-a-boundary-condition-modelling-the-effet-of-a-mandrel-in-pipe-modelling"><span class="header-section-number">3.3</span> Issue #44: [mtest] Add support for a boundary condition modelling the effet of a mandrel in pipe modelling</h2>
 <p>The feature is described in Section 1.1.</p>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/38" class="uri">https://github.com/thelfer/tfel/issues/38</a></p>
-<h2 data-number="3.3" id="issue-39-tfel-config-add-query-associated-with-python-bindings-support"><span class="header-section-number">3.3</span> Issue #39: [tfel-config] Add query associated with python bindings support</h2>
+<h2 data-number="3.4" id="issue-39-tfel-config-add-query-associated-with-python-bindings-support"><span class="header-section-number">3.4</span> Issue #39: [tfel-config] Add query associated with python bindings support</h2>
 <p><code>tfel-config</code> now supports an command line option named <code>--python-bindings-support</code> which displays true if <code>python</code> bindings are available, <code>false</code> otherwise.</p>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/38" class="uri">https://github.com/thelfer/tfel/issues/38</a></p>
-<h2 data-number="3.4" id="issue-38-tfel-config-add-query-associated-with-madnex-support"><span class="header-section-number">3.4</span> Issue #38: [tfel-config] Add query associated with MADNEX support</h2>
+<h2 data-number="3.5" id="issue-38-tfel-config-add-query-associated-with-madnex-support"><span class="header-section-number">3.5</span> Issue #38: [tfel-config] Add query associated with MADNEX support</h2>
 <p><code>tfel-config</code> now supports an command line option named <code>--madnex-support</code> which displays true if <code>madnex</code> files are supported, <code>false</code> otherwise.</p>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/38" class="uri">https://github.com/thelfer/tfel/issues/38</a></p>
-<h2 data-number="3.5" id="issue-36-mfront-improved-support-for-mtest-file-generation-all-kind-of-state-variables"><span class="header-section-number">3.5</span> Issue #36: [mfront] Improved support for <code>MTest</code> file generation (all kind of state variables)</h2>
+<h2 data-number="3.6" id="issue-36-mfront-improved-support-for-mtest-file-generation-all-kind-of-state-variables"><span class="header-section-number">3.6</span> Issue #36: [mfront] Improved support for <code>MTest</code> file generation (all kind of state variables)</h2>
 <p>In previous versions, only scalar and symmetric tensors state variables were supported when generation <code>MTest</code> file on integration failure.</p>
 <p>All kind of state variables are now supported.</p>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/36" class="uri">https://github.com/thelfer/tfel/issues/36</a></p>
-<h2 data-number="3.6" id="issue-28-mtest-support-of-tensorial-external-state-variables"><span class="header-section-number">3.6</span> Issue #28: [mtest] Support of tensorial external state variables</h2>
+<h2 data-number="3.7" id="issue-28-mtest-support-of-tensorial-external-state-variables"><span class="header-section-number">3.7</span> Issue #28: [mtest] Support of tensorial external state variables</h2>
 <p>The <code>Behaviour</code> class has new methods:</p>
 <ul>
 <li><code>expandExternalStateVariablesNames</code> (wrapped in python)</li>
@@ -436,9 +445,9 @@ R_{i} - R_{m} \geq 0
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable&lt;function&gt; <span class="st">&quot;g2XZ&quot;</span>  <span class="st">&quot;4&quot;</span>;</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable&lt;function&gt; <span class="st">&quot;g2YZ&quot;</span>  <span class="st">&quot;5*t&quot;</span>;</span></code></pre></div>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/28" class="uri">https://github.com/thelfer/tfel/issues/28</a></p>
-<h2 data-number="3.7" id="issue-28-mtest-support-of-tensorial-external-state-variables-1"><span class="header-section-number">3.7</span> Issue #28: [mtest] Support of tensorial external state variables</h2>
+<h2 data-number="3.8" id="issue-28-mtest-support-of-tensorial-external-state-variables-1"><span class="header-section-number">3.8</span> Issue #28: [mtest] Support of tensorial external state variables</h2>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/28" class="uri">https://github.com/thelfer/tfel/issues/28</a></p>
-<h2 data-number="3.8" id="issue-27-mfront-better-support-of-tensorial-external-state-variables"><span class="header-section-number">3.8</span> Issue #27: [mfront] Better support of tensorial external state variables</h2>
+<h2 data-number="3.9" id="issue-27-mfront-better-support-of-tensorial-external-state-variables"><span class="header-section-number">3.9</span> Issue #27: [mfront] Better support of tensorial external state variables</h2>
 <p>The type of the external state variables are now exported.</p>
 <ul>
 <li><code>ExternalLibraryManager</code> has a new method called <code>getUMATExternalStateVariablesTypes</code> (wrapped in <code>python</code>)</li>
@@ -446,9 +455,9 @@ R_{i} - R_{m} \geq 0
 </ul>
 <p>Generation of <code>MTest</code> file also supports tensor external state variables.</p>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/27" class="uri">https://github.com/thelfer/tfel/issues/27</a></p>
-<h2 data-number="3.9" id="issue-26-dont-use-explicit-instanciation-for-static-variables"><span class="header-section-number">3.9</span> Issue #26: Don’t use explicit instanciation for static variables</h2>
+<h2 data-number="3.10" id="issue-26-dont-use-explicit-instanciation-for-static-variables"><span class="header-section-number">3.10</span> Issue #26: Don’t use explicit instanciation for static variables</h2>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/26" class="uri">https://github.com/thelfer/tfel/issues/26</a></p>
-<h2 data-number="3.10" id="issue-20-mtest-declaration-of-a-behaviour-wrapper-in-python-module"><span class="header-section-number">3.10</span> Issue #20: [mtest] Declaration of a behaviour wrapper in python module</h2>
+<h2 data-number="3.11" id="issue-20-mtest-declaration-of-a-behaviour-wrapper-in-python-module"><span class="header-section-number">3.11</span> Issue #20: [mtest] Declaration of a behaviour wrapper in python module</h2>
 <p>As described in Section 2.1, named parameters are now supported in the constructor of the <code>Behaviour</code> class. The (optional) <code>wrapper</code> argument can now be used to specify a behaviour wrapper.</p>
 <p>Currently, two behaviours wrappers are available:</p>
 <ul>
@@ -456,10 +465,10 @@ R_{i} - R_{m} \geq 0
 <li><code>SmallStrainTridimensionalBehaviourWrapper</code> which allows to use a small strain tridimensional behaviour under the following modelling hypotheses: axisymmetrical generalised plane strain, plane strain, axisymmetry.</li>
 </ul>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/20" class="uri">https://github.com/thelfer/tfel/issues/20</a></p>
-<h2 data-number="3.11" id="issue-18-mtest-usage-of-a-3d-behaviour-in-ptest"><span class="header-section-number">3.11</span> Issue #18: [mtest] Usage of a <code>3D</code> behaviour in <code>ptest</code></h2>
+<h2 data-number="3.12" id="issue-18-mtest-usage-of-a-3d-behaviour-in-ptest"><span class="header-section-number">3.12</span> Issue #18: [mtest] Usage of a <code>3D</code> behaviour in <code>ptest</code></h2>
 <p>Thanks the <code>SmallStrainTridimensionalBehaviourWrapper</code> class detailled in Section 1.2, tridimensional behaviours can be used under the following modelling hypotheses: generalised plane strain, plane strain, axisymmetrical generalised plane strain.</p>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/18" class="uri">https://github.com/thelfer/tfel/issues/18</a></p>
-<h2 data-number="3.12" id="issue-15-mtest-new-option-for-the-declaration-of-the-rotation-matrix-in-mtest"><span class="header-section-number">3.12</span> Issue #15: [mtest] New option for the declaration of the rotation matrix in <code>MTest</code></h2>
+<h2 data-number="3.13" id="issue-15-mtest-new-option-for-the-declaration-of-the-rotation-matrix-in-mtest"><span class="header-section-number">3.13</span> Issue #15: [mtest] New option for the declaration of the rotation matrix in <code>MTest</code></h2>
 <p>This option is described in depth in Section 1.3.</p>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/15" class="uri">https://github.com/thelfer/tfel/issues/15</a></p>
 <!--

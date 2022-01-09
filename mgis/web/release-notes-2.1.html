@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>MFrontGenericInterfaceSupport Version 2.0</title>
+    <title>MFrontGenericInterfaceSupport Version 2.1</title>
         <meta name="author" content="Thomas Helfer" />
             <meta name="date" content="2020-01-01" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -97,18 +97,51 @@
     </header>
     <br></br>
 <div id="header">
-<h1 class="title">MFrontGenericInterfaceSupport Version 2.0</h1>
+<h1 class="title">MFrontGenericInterfaceSupport Version 2.1</h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">2020</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#known-incompatibilities">Known incompatibilities</a></li>
+<li><a href="#known-incompatibilities">Known incompatibilities</a>
+<ul>
+<li><a href="#removed-function-in-c">Removed function in <code>C++</code></a></li>
+<li><a href="#removed-function-in-c-1">Removed function in <code>C</code></a></li>
+<li><a href="#removed-function-in-fortran">Removed function in <code>fortran</code></a></li>
+</ul></li>
+<li><a href="#issues-solved">Issues solved</a>
+<ul>
+<li><a href="#issue-74-support-for-tensorial-external-state-variables">Issue #74: Support for tensorial external state variables</a></li>
+</ul></li>
 </ul>
 </div>
-<p>Version 2.0 of <code>MFrontGenericInterfaceSupport</code> is compatible with the Version 4.0 of <code>TFEL/MFront</code>.</p>
-<p>It has been released along with Version 1.2.3 on October, 28 2021 and inherits from the evolutions and bug fixes of this version.</p>
 <h1 id="known-incompatibilities">Known incompatibilities</h1>
-<p>The deformation gradients are automatically initialized to identity by the <code>MaterialStateManager</code> classes unless the gradients are initialized using an externally allocated memory.</p>
+<h2 id="removed-function-in-c">Removed function in <code>C++</code></h2>
+<p>The following functions were removed:</p>
+<ul>
+<li><code>getUniformMaterialProperty</code></li>
+<li><code>getNonUniformMaterialProperty</code></li>
+<li><code>getUniformExternalStateVariable</code></li>
+<li><code>getNonUniformExternalStateVariable</code></li>
+</ul>
+<h2 id="removed-function-in-c-1">Removed function in <code>C</code></h2>
+<p>The following functions were removed:</p>
+<ul>
+<li><code>mgis_bv_material_state_manager_get_uniform_material_property</code></li>
+<li><code>mgis_bv_material_state_manager_get_non_uniform_material_property</code></li>
+<li><code>mgis_bv_material_state_manager_get_uniform_external_state_variable</code></li>
+<li><code>mgis_bv_material_state_manager_get_non_uniform_external_state_variable</code></li>
+</ul>
+<h2 id="removed-function-in-fortran">Removed function in <code>fortran</code></h2>
+<p>The following functions were removed from the <code>mgis_behaviour</code> module:</p>
+<ul>
+<li><code>material_state_manager_get_uniform_material_property</code></li>
+<li><code>material_state_manager_get_non_uniform_material_property</code></li>
+<li><code>material_state_manager_get_uniform_external_state_variable</code></li>
+<li><code>material_state_manager_get_non_uniform_external_state_variable</code></li>
+</ul>
+<h1 id="issues-solved">Issues solved</h1>
+<h2 id="issue-74-support-for-tensorial-external-state-variables">Issue #74: Support for tensorial external state variables</h2>
+<p>For more details, see <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/74" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/74</a>.</p>
 </body>
 </html>

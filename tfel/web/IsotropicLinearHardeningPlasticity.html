@@ -513,9 +513,9 @@ f{\left(\sigma_{\mathrm{eq}},p\right)} = \sigma_{\mathrm{eq}}-\sigma_{0}-R\,p
 <li>The values of the state variables <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span>, <span class="math inline">\(p\)</span> and the value of the stress <span class="math inline">\(\underline{\sigma}\)</span> at the end of the time step.</li>
 <li>The consistent tangent operator <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\)</span>.</li>
 </ul>
-<p>In this case, an appropriate domain specific language is the <code>DefaultDSL</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultDSL;</span></code></pre></div>
-<p>Contrary to other DSLs, the <code>DefaultDSL</code> does not provide a built-in support for a given integration scheme.</p>
+<p>In this case, an appropriate domain specific language is the <code>Default</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Default;</span></code></pre></div>
+<p>Contrary to other DSLs, the <code>Default</code> does not provide a built-in support for a given integration scheme.</p>
 <h2 id="name-of-the-behaviour">Name of the behaviour</h2>
 <p>The name of the behaviour is introduced by the <code>@Behaviour</code> keyword:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour IsotropicLinearHardeningPlasticity;</span></code></pre></div>
@@ -547,7 +547,7 @@ f{\left(\sigma_{\mathrm{eq}},p\right)} = \sigma_{\mathrm{eq}}-\sigma_{0}-R\,p
 </ul>
 <blockquote>
 <p><strong>Increments of the state variables</strong></p>
-<p>The <code>DefaultDSL</code> automatically declares the increments of those variables, called respectively <code>deel</code> and <code>dp</code>. The user is free to use those increments or to directly update the values of the state variables.</p>
+<p>The <code>Default</code> automatically declares the increments of those variables, called respectively <code>deel</code> and <code>dp</code>. The user is free to use those increments or to directly update the values of the state variables.</p>
 <p>If the increment of a state variable is defined, it is added to the state variable <strong>after</strong> the <code>@Integrator</code> code block.</p>
 <p>In our implementation, we will directly update the elastic strain and use the plastic strain increment.</p>
 </blockquote>
@@ -585,7 +585,7 @@ f{\left(\sigma_{\mathrm{eq}},p\right)} = \sigma_{\mathrm{eq}}-\sigma_{0}-R\,p
 <h2 id="behaviour-integration">Behaviour integration</h2>
 <p>The behaviour integration is implemented in the <code>@Integrator</code> code block.</p>
 <h3 id="computation-of-the-consistent-tangent-operator">Computation of the consistent tangent operator</h3>
-<p>The <code>DefaultDSL</code> DSL allows to compute the consistent tangent operator inside the <code>@Integrator</code> code block or in a dedicated code block name <code>@TangentOperator</code>.</p>
+<p>The <code>Default</code> DSL allows to compute the consistent tangent operator either inside the <code>@Integrator</code> code block or in a dedicated code block name <code>@TangentOperator</code>.</p>
 <p>The first choice is simplier and more efficient for the considered implementation, but this requires to explicitely state that the consistent tangent operator is defined in the <code>@Integrator</code> code block using the <code>@ProvidesSymmetricTangentOperator</code> keyword, as follows:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ProvidesSymmetricTangentOperator;</span></code></pre></div>
 <p>The consistent tangent operator may or may not be requested by the calling solver at runtime.</p>

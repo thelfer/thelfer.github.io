@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -11,9 +11,8 @@
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Mechanical behaviours in MFront</title>
-        <meta name="author" content="Helfer Thomas" />
-            <meta name="date" content="2014-10-15" />
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <meta name="author" content="Thomas Helfer, Jérémy Hure, Mohamed Shokeir" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
@@ -210,7 +209,7 @@
 	    <li><a>Behaviours</a>
 	      <ul>
 		<li><a href="tutorial.html">Tutorial</a></li>
-		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="implicit-dsl.html">The Implicit DSL</a></li>
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
@@ -287,19 +286,19 @@
     </header>
 <div id="header">
 <h1 class="title">Mechanical behaviours in MFront</h1>
-<h2 class="author">Helfer Thomas</h2>
-<h3 class="date">October 15, 2014</h3>
+<h2 class="author">Thomas Helfer, Jérémy Hure, Mohamed Shokeir</h2>
+<h3 class="date">15/10/2014</h3>
 </div>
 <h1 id="overview">Overview</h1>
 <p>Versatility of general purpose mechanical solver mainly relies on its ability to let the user define the material behaviour. <code>MFront</code> provides a high level language to write mechanical behaviours.</p>
-<p>It can be compared to the <code>ZebFront</code> tool developped by the Centre des Matériaux de Mines ParisTech as part of the Zset software <span class="citation" data-cites="foerch_polymorphic_1997 besson_object-oriented_1998-1 northwest_numerics_and_modeling_inc._zebfront_2014">[see 1, 2, 3]</span>. One major difference between <code>ZebFront</code> and <code>MFront</code> is the programming techniques used: <code>ZebFront</code> mostly relies on object oriented techniques where <code>MFront</code> relies on generic programming leading to almost orthogonal design choices.</p>
+<p>It can be compared to the <code>ZebFront</code> tool developped by the Centre des Matériaux de Mines ParisTech as part of the Zset software <span class="citation" data-cites="foerch_polymorphic_1997 besson_object-oriented_1998-1 northwest_numerics_and_modeling_inc._zebfront_2014">[see <a href="#ref-foerch_polymorphic_1997" role="doc-biblioref">1</a>, <a href="#ref-besson_object-oriented_1998-1" role="doc-biblioref">2</a>, <a href="#ref-northwest_numerics_and_modeling_inc._zebfront_2014" role="doc-biblioref">3</a>]</span>. One major difference between <code>ZebFront</code> and <code>MFront</code> is the programming techniques used: <code>ZebFront</code> mostly relies on object oriented techniques where <code>MFront</code> relies on generic programming leading to almost orthogonal design choices.</p>
 <p>Three kind of mechanical behaviours are currently considered with <code>MFront</code>: small and finite strain behaviours and cohesive zone models.</p>
 <h2 id="mechanical-behaviour-role">Mechanical behaviour role</h2>
-<p>We now precise the role of the mechanical behaviours in standard displacement-based finite element solver <span class="citation" data-cites="zienkiewicz_finite_1977 besson_mecanique_2001 edf_algorithme_2013">[see 4, 5, 6]</span>. For the sake of simplicity, we only treat the case of small strain behaviours for the rest of this document.</p>
+<p>We now precise the role of the mechanical behaviours in standard displacement-based finite element solver <span class="citation" data-cites="zienkiewicz_finite_1977 besson_mecanique_2001 edf_algorithme_2013">[see <a href="#ref-zienkiewicz_finite_1977" role="doc-biblioref">4</a>, <a href="#ref-besson_mecanique_2001" role="doc-biblioref">5</a>, <a href="#ref-edf_algorithme_2013" role="doc-biblioref">6</a>]</span>. For the sake of simplicity, we only treat the case of small strain behaviours for the rest of this document.</p>
 <p>At each time step, the following resolution procedure is used:</p>
 <ol type="1">
 <li>a prediction of the displacement is made. Such a prediction may use the derivate of the stress tensor with respect of the strain tensor <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{\sigma}}{\displaystyle \partial \underline{\epsilon}^{\mathrm{to}}}}\)</span> or an approximation of it. This prediction step will not be discussed in this article but can also be handled by behaviour implementations made with <code>MFront</code>;</li>
-<li>an iterative process similar to the Newton-Raphson algorithm used to find a displacement that will satisfy the mechanical equilibrium. Given an estimation of the displacement at the end the time step, one computes at each integration point an estimation of the increment of the deformation tensor <span class="math inline">\(\Delta\,\underline{\epsilon}^{\mathrm{to}}\)</span>. The mechanical behaviour is then called and provides an associated estimation of the stress tensor <span class="math inline">\(\underline{\sigma}\)</span> and the values of some internal state variables <span class="math inline">\(Y_{i}\)</span>. In the solver requires it, the mechanical behaviour may also provide an estimation of the tangent consistant operator <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \Delta\,\underline{\sigma}}{\displaystyle \partial \Delta\,\underline{\epsilon}^{\mathrm{to}}}}\)</span> (see <span class="citation" data-cites="simo_consistent_1985">[7]</span>) which is used to estimate a more accurate displacement field.</li>
+<li>an iterative process similar to the Newton-Raphson algorithm used to find a displacement that will satisfy the mechanical equilibrium. Given an estimation of the displacement at the end the time step, one computes at each integration point an estimation of the increment of the deformation tensor <span class="math inline">\(\Delta\,\underline{\epsilon}^{\mathrm{to}}\)</span>. The mechanical behaviour is then called and provides an associated estimation of the stress tensor <span class="math inline">\(\underline{\sigma}\)</span> and the values of some internal state variables <span class="math inline">\(Y_{i}\)</span>. In the solver requires it, the mechanical behaviour may also provide an estimation of the tangent consistant operator <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \Delta\,\underline{\sigma}}{\displaystyle \partial \Delta\,\underline{\epsilon}^{\mathrm{to}}}}\)</span> (see <span class="citation" data-cites="simo_consistent_1985">[<a href="#ref-simo_consistent_1985" role="doc-biblioref">7</a>]</span>) which is used to estimate a more accurate displacement field.</li>
 </ol>
 <p>A mechanical behaviour can thus be viewed as functional:</p>
 <p><span class="math display">\[
@@ -308,7 +307,7 @@
 \]</span></p>
 <p>The dots <span class="math inline">\(\ldots\)</span> means that the behaviour may also depend of external state variables evolutions with time, namely the temperature, the irradiation damage, and so on.</p>
 <h2 id="isotropic-j_2-plasticviscoplastic-behaviours.-example-of-finite-strain-pre--and-post-processing">Isotropic <span class="math inline">\(J_{2}\)</span> plastic/viscoplastic behaviours. Example of finite strain pre- and post-processing</h2>
-<p><span class="math inline">\(4\)</span> domain specific languages address the case of small strain isotropic <span class="math inline">\(J_{2}\)</span> plastic and/or viscoplastic behaviours which are of common use and for which efficient implicit scalar radial return mapping algorithms exist (see <span class="citation" data-cites="simo_computational_1998">[8]</span>).</p>
+<p><span class="math inline">\(4\)</span> domain specific languages address the case of small strain isotropic <span class="math inline">\(J_{2}\)</span> plastic and/or viscoplastic behaviours which are of common use and for which efficient implicit scalar radial return mapping algorithms exist (see <span class="citation" data-cites="simo_computational_1998">[<a href="#ref-simo_computational_1998" role="doc-biblioref">8</a>]</span>).</p>
 <p>The following listing shows how a simple plastic behaviour can be implemented:</p>
 <div class="sourceCode" id="Plasticity"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Plasticity-1"><a href="#Plasticity-1"></a><span class="er">@</span>DSL IsotropicPlasticMisesFlow; <span class="co">//&lt; domain specific language</span></span>
 <span id="Plasticity-2"><a href="#Plasticity-2"></a><span class="er">@</span>Behaviour Plasticity;             <span class="co">//&lt; name of the behaviour</span></span>
@@ -319,14 +318,16 @@
 <span id="Plasticity-7"><a href="#Plasticity-7"></a>  df_dseq = <span class="dv">1</span>;</span>
 <span id="Plasticity-8"><a href="#Plasticity-8"></a>  df_dp   = -H;</span>
 <span id="Plasticity-9"><a href="#Plasticity-9"></a>}</span></code></pre></div>
-<p>The plastic behaviour is governed by the following yield surface (see <span class="citation" data-cites="besson_mecanique_2001">[5]</span>;<span class="citation" data-cites="chaboche_mecanique_2009">[9]</span>): <span class="math display">\[
+<p>The plastic behaviour is governed by the following yield surface (see <span class="citation" data-cites="besson_mecanique_2001">[<a href="#ref-besson_mecanique_2001" role="doc-biblioref">5</a>]</span>;<span class="citation" data-cites="chaboche_mecanique_2009">[<a href="#ref-chaboche_mecanique_2009" role="doc-biblioref">9</a>]</span>):</p>
+<p><span class="math display">\[
 f\left(\sigma_{\mathrm{eq}},p\right)=\sigma_{\mathrm{eq}}-H\,p-\sigma_{0} \leq 0
-\]</span> where <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> is the Von Mises stress, <span class="math inline">\(p\)</span> the equivalent plastic strain, <span class="math inline">\(R\)</span> the isotropic hardening slope and <span class="math inline">\(\sigma_{0}\)</span> the initial elasticity limit.</p>
+\]</span></p>
+<p>where <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> is the Von Mises stress, <span class="math inline">\(p\)</span> the equivalent plastic strain, <span class="math inline">\(R\)</span> the isotropic hardening slope and <span class="math inline">\(\sigma_{0}\)</span> the initial elasticity limit.</p>
 <p>The generated code represent a total amount of <span class="math inline">\(1\,512\)</span> lines of <code>̀C++</code> code and provides:</p>
 <ol type="1">
-<li>optimised implementations of the behaviour for various modelling hypotheses (axisymmetrical generalised plane strain, plane strain, plane stress, generalised plane strain, axisymmetry, tridimensional) thanks to template metaprogramming and template specialisations. An small overview of the programming techniques used can be found in~.</li>
+<li>optimised implementations of the behaviour for various modelling hypotheses (axisymmetrical generalised plane strain, plane strain, plane stress, generalised plane strain, axisymmetry, tridimensional) thanks to template metaprogramming and template specialisations. An small overview of the programming techniques used can be found in the description of the <a href="tfel-math.html">TFEL/Math library</a>.</li>
 <li>the computation of the prediction operator;</li>
-<li>meta-data about the required material properties, the number of states variables, etc… that can be retrieved dynamically (For the sake of simplicity, no glossary name was specified in this example). This mechanism is used by  applications to appropriately call the behaviour;</li>
+<li>meta-data about the required material properties, the number of states variables, etc… that can be retrieved dynamically (For the sake of simplicity, no glossary name was specified in this example). This mechanism is typically used by solvers based on the <a href="https://thelfer.github.io/mgis/web/index.html"><code>MGIS</code> libray</a> appropriately call the behaviour;</li>
 <li>the computation of a tangent matrix operator (various choice are possible: elastic, secant, consistent);</li>
 <li>dynamically loadable functions allowing the user to change various parameters of the behaviour (the convergence criterion of the implicit algorithm, the <span class="math inline">\(\theta\)</span> parameter of the implicit algorithm, the hardening slope <span class="math inline">\(H\)</span> and the initial elasticity limit <span class="math inline">\(\sigma_{0}\)</span>, etc.). Those functions by-pass the standard behaviour call and are an extremely light-weight manner to dynamically modify a behaviour (almost no runtime cost).</li>
 </ol>
@@ -335,8 +336,8 @@ f\left(\sigma_{\mathrm{eq}},p\right)=\sigma_{\mathrm{eq}}-H\,p-\sigma_{0} \leq 0
 <h3 id="finite-strain-strategies">Finite strain strategies</h3>
 <p>If not handled directly by the calling code, appropriate pre- and post-processings allowing the use of small strain behaviours in finite strain computations can be generated. Two lagrangian finite strain strategies are currently available:</p>
 <ol type="1">
-<li>finite rotations, small strains. This method allows the re-use a behaviour whose material parameters <span class="math inline">\(H\)</span> and <span class="math inline">\(\sigma_{0}\)</span> were identified through small strain computations in the context of finite rotations without any re-identification. The physical meaning of the pre- and post-processing stages are discussed by Doghri (see <span class="citation" data-cites="doghri_mechanics_2000">[10]</span>);</li>
-<li>lagrangian logarithmic strains as proposed by Miehe, Apel and Lambrecht (see <span class="citation" data-cites="miehe_anisotropic_2002">[11]</span>;edf_modeles_2013). The use of the logarithmic strains has several advantages:
+<li>finite rotations, small strains. This method allows the re-use a behaviour whose material parameters <span class="math inline">\(H\)</span> and <span class="math inline">\(\sigma_{0}\)</span> were identified through small strain computations in the context of finite rotations without any re-identification. The physical meaning of the pre- and post-processing stages are discussed by Doghri (see <span class="citation" data-cites="doghri_mechanics_2000">[<a href="#ref-doghri_mechanics_2000" role="doc-biblioref">10</a>]</span>);</li>
+<li>lagrangian logarithmic strains as proposed by Miehe, Apel and Lambrecht (see <span class="citation" data-cites="miehe_anisotropic_2002">[<a href="#ref-miehe_anisotropic_2002" role="doc-biblioref">11</a>]</span>;edf_modeles_2013). The use of the logarithmic strains has several advantages:
 <ol type="i">
 <li>it preserves the small-strain classical meaning of the variables, which is truly appreciated by engineers;</li>
 <li>it may can also be used for arbitrary complex models (kinematic hardening, initial or induced anisotropy, etc.).</li>
@@ -346,11 +347,11 @@ f\left(\sigma_{\mathrm{eq}},p\right)=\sigma_{\mathrm{eq}}-H\,p-\sigma_{0} \leq 0
 <figure>
 <img src="img/LogarithmicStrainPlasticity-ssna303.svg" title="Von Mises stress" alt="Von Mises stress" /><figcaption aria-hidden="true">Von Mises stress</figcaption>
 </figure>
-<p>In this case, the material parameters <span class="math inline">\(H\)</span> and <span class="math inline">\(\sigma_{0}\)</span> of the behaviour must be identified on tests implying finite strains. As an additional remark, the results found using logarithmic strains were remarkably closed to those obtained by the classical formulation based on an <span class="math inline">\(F_{e}\,F_{p}\)</span> decomposition proposed by Simo and Miehe (see <span class="citation" data-cites="simo_associative_1992">[12]</span>) (that was also implemented using <code>MFront</code>).</p>
+<p>In this case, the material parameters <span class="math inline">\(H\)</span> and <span class="math inline">\(\sigma_{0}\)</span> of the behaviour must be identified on tests implying finite strains. As an additional remark, the results found using logarithmic strains were remarkably closed to those obtained by the classical formulation based on an <span class="math inline">\(F_{e}\,F_{p}\)</span> decomposition proposed by Simo and Miehe (see <span class="citation" data-cites="simo_associative_1992">[<a href="#ref-simo_associative_1992" role="doc-biblioref">12</a>]</span>) (that was also implemented using <code>MFront</code>).</p>
 <h2 id="generic-domain-specific-languages">Generic domain specific languages</h2>
 <p>Apart from the domain specific languages dealing with isotropic <span class="math inline">\(J_{2}\)</span> plastic and viscoplastic behaviours presented in the previous paragraph, <code>MFront</code> also provides several general-purpose domain specific languages:</p>
 <ol type="1">
-<li>the <code>Default</code> domain specific language allows the user the write its own integration algorithm. This is very useful for explicit behaviours such as the classical  cohesive zone model <span class="citation" data-cites="tvergaard_effect_1990">[see 13]</span>.</li>
+<li>the <code>Default</code> domain specific language allows the user the write its own integration algorithm. This is very useful for explicit behaviours such as the classical  cohesive zone model <span class="citation" data-cites="tvergaard_effect_1990">[see <a href="#ref-tvergaard_effect_1990" role="doc-biblioref">13</a>]</span>.</li>
 <li>the <code>Runge-Kutta</code> domain specific language allows the user to write the constitutive equations given as a system of ordinary time differential equations. Using those algorithms is generally less efficient than using implicit integration to be described. Various algorithms are however available.</li>
 <li>the <code>Implicit</code> domain specific language allows the user to perform the local integration using an implicit algorithm. An introduction to those algorithms is given in the next paragraph.</li>
 </ol>
@@ -406,6 +407,7 @@ f\left(\sigma_{\mathrm{eq}},p\right)=\sigma_{\mathrm{eq}}-H\,p-\sigma_{0} \leq 0
 <span id="OrthotropicCreep-24"><a href="#OrthotropicCreep-24"></a>}</span></code></pre></div>
 <p>Integration is performed in the material referential. The elastic strain state variable <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> is automatically declared. For each state variable <code>Y</code>, its time derivative <code>dY</code> is automatically declared.</p>
 <h2 id="implicit-integration">Implicit integration</h2>
+<p>This section provides a very coarse overview of the <code>Implicit</code> domain specific language. The reader can refer to <a href="implicit-dsl.html">this page</a> for a comprehensive description.</p>
 <p>If the evolution of the state variables, grouped into a single vector <span class="math inline">\(Y\)</span> whose components <span class="math inline">\(Y_{i}\)</span> may be scalars or symmetric tensors, is given by the following system of differential equations: <span class="math display">\[
 \dot{Y}=G\left(Y,t\right) \quad\quad \Leftrightarrow\quad\quad
 \left\{
@@ -419,7 +421,7 @@ f\left(\sigma_{\mathrm{eq}},p\right)=\sigma_{\mathrm{eq}}-H\,p-\sigma_{0} \leq 0
 \right.
 \]</span></p>
 <p>where the dependency with respect to time stands for the evolution of some external state variables and the evolution of strains (for small strain behaviours) which are supposed to evolve <em>linearly</em> during the time step.</p>
-<p>The integration of this ordinary differential equation over a time step <span class="math inline">\(\Delta\,t\)</span> using an implicit algorithm leads to the (generally non-linear) system of equations <span class="citation" data-cites="besson_numerical_2004">[see 14]</span>: <span class="math display">\[
+<p>The integration of this ordinary differential equation over a time step <span class="math inline">\(\Delta\,t\)</span> using an implicit algorithm leads to the (generally non-linear) system of equations <span class="citation" data-cites="besson_numerical_2004">[see <a href="#ref-besson_numerical_2004" role="doc-biblioref">14</a>]</span>: <span class="math display">\[
 F\left(\Delta\,Y\right)=0\quad \Leftrightarrow\quad
 \left\{
 \begin{aligned}
@@ -434,7 +436,7 @@ f_{Y_{N}}&amp;=\Delta\,Y_{N}-\Delta\,t\,g_{y_{N}}\left(\left.Y\right|_{t+\theta\
 <p>where the unknowns are the state variables increments <span class="math inline">\(\Delta\,Y_{i}\)</span>, and we introduced the following notation: <span class="math display">\[
   \left.Y\right|_{t+\theta\,\Delta\,t}=Y+\theta\,\Delta\,Y
 \]</span></p>
-<p>Algorithms used to solve this system of equations may require the jacobian matrix <span class="math inline">\(J\)</span> of <span class="math inline">\(F\)</span> which can be computed by blocks <span class="citation" data-cites="besson_mecanique_2001">[see 5]</span>: <span class="math display">\[
+<p>Algorithms used to solve this system of equations may require the jacobian matrix <span class="math inline">\(J\)</span> of <span class="math inline">\(F\)</span> which can be computed by blocks <span class="citation" data-cites="besson_mecanique_2001">[see <a href="#ref-besson_mecanique_2001" role="doc-biblioref">5</a>]</span>: <span class="math display">\[
   J={\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\,Y}}=
   \begin{pmatrix}
     {\displaystyle \frac{\displaystyle \partial f_{y_{1}}}{\displaystyle \partial \Delta\,y_{1}}} &amp; \ldots &amp; \ldots &amp; \ldots &amp; \ldots \\
@@ -449,12 +451,12 @@ f_{Y_{N}}&amp;=\Delta\,Y_{N}-\Delta\,t\,g_{y_{N}}\left(\left.Y\right|_{t+\theta\
 <h3 id="available-algorithms">Available algorithms</h3>
 <p>Several algorithms are available to solve the previous implicit system:</p>
 <ul>
-<li><code>NewtonRaphson</code> is the standard Newton--Raph-son algorithm: <span class="math display">\[
+<li><code>NewtonRaphson</code> is the standard Newton-Raphson algorithm: <span class="math display">\[
 \Delta\,Y^{\left(n+1\right)}=\Delta\,Y^{\left(n\right)}-J^{-1}\,.\,F\left(\Delta\,Y^{\left(n\right)}\right)
 \]</span> The user must explicitly compute the jacobian matrix, which constitutes the main difficulty of this method. For debugging purposes, <code>MFront</code> may generate the comparison of each block of the jacobian matrix with a numerical approximation.</li>
-<li><code>NewtonRaphson_NumericalJacobian</code> is a variation of the standard  algorithm using a jacobian matrix computed by a second order finite difference. Writing behaviour implementations using this algorithm is as easy as using the  domain specific languages. It can be considered as a first step toward an implicit implementation with an analytical jacobian matrix.</li>
-<li><code>Broyden</code> algorithms which do not require to computation of the jacobian matrix: these algorithms update an approximation of the jacobian matrix (first Broyden algorithm) or its inverse (second Broyden algorithm) at each iteration. The first Broyden algorithm can sometimes be interesting as one may compute analitically some part of the jacobian matrix and let the algorithm compute the other parts. If the computation of those other parts takes a significant amount of CPU time, this algorithm can in same cases outperfom the {} algorithm.</li>
-<li><code>PowellDogLeg_XX}</code> algorithm, where <code>XX</code> is one of the previous algorithm. Those trust-region algorithms implements the classical Powell dogleg method <span class="citation" data-cites="chen_modification_1981">[see 15]</span> to improve the robustness of the resolution.</li>
+<li><code>NewtonRaphson_NumericalJacobian</code> is a variation of the standard Newton-Raphson algorithm using a jacobian matrix computed by a second order finite difference. Writing behaviour implementations using this algorithm is as easy as using the domain specific languages based on <code>RungeKutta</code> algorithm. It can be considered as a first step toward an implicit implementation with an analytical jacobian matrix.</li>
+<li><code>Broyden</code> algorithms which do not require to computation of the jacobian matrix: these algorithms update an approximation of the jacobian matrix (first Broyden algorithm) or its inverse (second Broyden algorithm) at each iteration. The first Broyden algorithm can sometimes be interesting as one may compute analitically some part of the jacobian matrix and let the algorithm compute the other parts. If the computation of those other parts takes a significant amount of CPU time, this algorithm can in same cases outperfom the Newton-Raphson algorithm.</li>
+<li><code>PowellDogLeg_XX</code> algorithm, where <code>XX</code> is one of the previous algorithm. Those trust-region algorithms implements the classical Powell dogleg method <span class="citation" data-cites="chen_modification_1981">[see <a href="#ref-chen_modification_1981" role="doc-biblioref">15</a>]</span> to improve the robustness of the resolution.</li>
 </ul>
 <h3 id="consistent-tangent-operator">Consistent tangent operator</h3>
 <p>For most small strain behaviours, algorithms providing the jacobian matrix <span class="math inline">\(J\)</span> of the implicit system have a significant advantage: the consistent tangent operator <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \Delta\,\sigma}{\displaystyle \partial \Delta\,\underline{\epsilon}^{\mathrm{to}}}}\)</span> can be computed almost automatically with only a small numerical cost.</p>

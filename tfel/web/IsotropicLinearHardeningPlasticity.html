@@ -209,7 +209,7 @@
 	    <li><a>Behaviours</a>
 	      <ul>
 		<li><a href="tutorial.html">Tutorial</a></li>
-		<li><a href="implicit-dsl.html">The implicit DSL</a></li>
+		<li><a href="implicit-dsl.html">The Implicit DSL</a></li>
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
@@ -594,7 +594,7 @@ f{\left(\sigma_{\mathrm{eq}},p\right)} = \sigma_{\mathrm{eq}}-\sigma_{0}-R\,p
 <div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> lambda = computeLambda(young, nu);</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> mu     = computeMu(young, nu);</span></code></pre></div>
-<h3 id="elastic-laoding">Elastic laoding</h3>
+<h3 id="elastic-loading">Elastic loading</h3>
 <p>The next lines assume a purely elastic loading and:</p>
 <ul>
 <li>Updates the value of the elastic strain with the increment of the total strain.</li>
@@ -617,14 +617,20 @@ f{\left(\sigma_{\mathrm{eq}},p\right)} = \sigma_{\mathrm{eq}}-\sigma_{0}-R\,p
 <div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(plastic_loading){</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> iseq_e = <span class="dv">1</span> / seq_e;</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> n      = eval(<span class="dv">3</span> * se / (<span class="dv">2</span> * seq_e));</span></code></pre></div>
+<blockquote>
+<p><strong>The <code>eval</code> function</strong></p>
+<p><code>TFEL/Math</code> uses expression templates to perform lazy evaluations of most tensorial operations. See <a href="tfel-math.html">its documentation</a> for details.</p>
+<p>The eval function evaluates an expression to get its results. We could have removed it here, but the normal is used multiple times, so we choose to evaluate it once.</p>
+</blockquote>
 <h4 id="update-of-the-state-variables">Update of the state variables</h4>
 <p>The increment of the equivalent plastic strain is computed using Equation (9):</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    dp   = (seq_e - s0 - H * p) * cste;</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> cste   = <span class="dv">1</span> / (H + <span class="dv">3</span> * mu);</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    dp   = (seq_e - s0 - H * p) * cste;</span></code></pre></div>
 <p>The value of the equivalent plastic strain will be updated automatically after the <code>@Integrator</code> code block.</p>
-<p>Once the equivalent plastic strain is known, the elastic strain can be correction using the split of the strain (Equation (1)):</p>
+<p>Once the equivalent plastic strain is known, the elastic strain can be corrected using the split of the strain (Equation (1)):</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>    eel -= dp * n;</span></code></pre></div>
 <h4 id="update-of-the-consistent-tangent-operator">Update of the consistent tangent operator</h4>
-<p>The consistent tangent operator can be correction using Equation (13):</p>
+<p>The consistent tangent operator can be corrected using Equation (13):</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>((<span class="va">computeTangentOperator_</span>) &amp;&amp; (smt==CONSISTENTTANGENTOPERATOR)){</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>      Dt -= -<span class="dv">4</span> * mu * mu * (dp * iseq_e * (Stensor4::M()-(n ^ n)) + cste * (n ^ n));</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    }</span>

@@ -3,17 +3,16 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Installing TFEL/MFront on Windows with MingGW</title>
-        <meta name="author" content="Helfer Thomas" />
-            <meta name="date" content="2014-11-03" />
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <title>Installing TFEL/MFront on Windows in the MSYS2 environment</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
@@ -286,71 +285,26 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Installing TFEL/MFront on <a href="http://windows.microsoft.com">Windows</a> with <a href="http://www.mingw.org/">MingGW</a></h1>
-<h2 class="author">Helfer Thomas</h2>
-<h3 class="date">November 3, 2014</h3>
+<h1 class="title">Installing TFEL/MFront on <a href="http://windows.microsoft.com">Windows</a> in the <a href="https://www.msys2.org/"><code>MSYS2</code></a> environment</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">13/01/2022</h3>
 </div>
-<p>This document describes how to install <code>TFEL/MFront</code> on <a href="http://windows.microsoft.com">Windows plateform</a> using <a href="http://www.mingw.org/">MingGW</a> and <a href="http://www.cmake.org/"><code>cmake</code></a>.</p>
-<p>The main difficulty associated with building <code>TFEL/MFront</code> on <a href="http://windows.microsoft.com">Windows plateform</a> is the lack of an unified build environment which must be set up by the user. We suppose that you want to build <code>TFEL/MFront</code> on top of the <code>Cast3M</code> finite element solver which comes with its own software environment based on <code>MinGW</code>.</p>
-<h1 id="installing-the-mandatory-prerequisites">Installing the mandatory prerequisites</h1>
-<h2 id="installing-msys">Installing <a href="http://www.mingw.org/wiki/MSYS">MSYS</a></h2>
-<p><a href="http://www.mingw.org/wiki/MSYS">MSYS</a> is a collection of GNU utilities, in particular <code>make</code> which is used by <code>MFront</code>. It also provides a convenient shell which is far more easier to use than the <code>DOS</code> terminal provided by the <code>cmd</code> command.</p>
-<p>We will use the <code>mingw-get-setup.exe</code> program that can be grabbed <a href="http://sourceforge.net/projects/mingw/files/Installer">here</a>.</p>
-<p>Installing <a href="http://www.mingw.org/wiki/MSYS">MSYS</a> is a <span class="math inline">\(3\)</span> steps process depicted on the following figures:</p>
-<figure>
-<img src="img/mingw-get1.png" title="Splash Screen (Click on `Continue`)" alt="Splash Screen (Click on Continue)" /><figcaption aria-hidden="true">Splash Screen (Click on <code>Continue</code>)</figcaption>
-</figure>
-<p>This first step allows you to choose the installation directory of <a href="http://www.mingw.org/wiki/MSYS">MSYS</a>. The default installation path is <code>C:\MinGW</code>.</p>
-<figure>
-<img src="img/mingw-get2.png" title="Downloading the latest list of packages (Click on `Continue` once finished)" alt="Downloading the latest list of packages" /><figcaption aria-hidden="true">Downloading the latest list of packages</figcaption>
-</figure>
-<p>The second windows appears while <code>mingw-get-setup.exe</code> downloads the latest list of packages. Just click on <code>Continue</code> once finished.</p>
-<figure>
-<img src="img/mingw-get3.png" title="Selecting the components to be installed" alt="Selecting the components to be installed (Select msys-base)" /><figcaption aria-hidden="true">Selecting the components to be installed (Select <code>msys-base</code>)</figcaption>
-</figure>
-<p>The third windows allows you to select the components to be installed. <strong>The only one required for <code>MFront</code> is the <code>msys-base</code> package.</strong></p>
-<p>Once the components are selected, choose <code>Apply Changes</code> in the <code>Installation</code> menu and click on <code>OK</code> to launch the components installation.</p>
-<h3 id="user-directory-location">User directory location</h3>
-<p>Once done, the <code>msys.bat</code> script launches a shell which is very similar to standard UNiX shells.</p>
-<p>Assuming that <code>MSYS</code> has been installed in <code>C:\MinGW</code>, the user directory is located here:</p>
-<div class="sourceCode" id="home"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="home-1"><a href="#home-1" aria-hidden="true" tabindex="-1"></a><span class="ex">C:\MinGW\msys\1.0\home\[user</span> name]</span></code></pre></div>
-<p>This allows easy exchange of file between the <a href="http://windows.microsoft.com">Windows</a> world and the<code>MSYS</code> one.</p>
-<p>Inside <code>MSYS</code>, one can access most <a href="http://windows.microsoft.com">Windows</a> files through the <code>/c/</code> path:</p>
-<div class="sourceCode" id="c"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="c-1"><a href="#c-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls /c/</span>
-<span id="c-2"><a href="#c-2" aria-hidden="true" tabindex="-1"></a><span class="ex">MinGW</span> Program Files users windows</span></code></pre></div>
-<h2 id="installing-cmake">Installing <code>cmake</code></h2>
-<p>The <code>cmake</code> project provides a graphical installer on its <a href="http://www.cmake.org">website</a>.</p>
-<h2 id="installing-nsis">Installing <code>NSIS</code></h2>
-<p>At the end of the compilation process, we will create a graphical installer based on <code>NSIS</code> which can be grabbed <a href="http://nsis.sourceforge.net/">here</a>.</p>
+<p>This document describes how to install <code>TFEL/MFront</code> on <a href="http://windows.microsoft.com">Windows plateform</a> in the <a href="https://www.msys2.org/"><code>MSYS2</code></a> environment.</p>
+<h1 id="installing-msys2-and-the-mandatory-prerequisites">Installing <a href="https://www.msys2.org/"><code>MSYS2</code></a> and the mandatory prerequisites</h1>
+<h2 id="installing-msys2">Installing <a href="https://www.msys2.org/"><code>MSYS2</code></a></h2>
+<p><a href="https://www.msys2.org/"><code>MSYS2</code></a> is a collection of GNU utilities, in particular <code>make</code> which is used by <code>MFront</code>. It also provides a convenient shell which is far more easier to use than the <code>DOS</code> terminal provided by the <code>cmd</code> command.</p>
+<h2 id="installing-a-minimal-build-environment">Installing a minimal build environment</h2>
+<p>To build <code>TFEL</code>, one may need to install the following tools:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pacman <span class="at">-S</span> base-devel gcc git cmake</span></code></pre></div>
+<p><code>git</code> may be required if you want to work on the development branch:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pacman <span class="at">-S</span> git</span></code></pre></div>
 <h1 id="compiling-tfel">Compiling <code>TFEL</code></h1>
-<p>Compiling <code>TFEL</code> is merely a simple as opening a new <code>MSYS</code> session and following the instructions given on the <a href="install.html">main installation page</a>.</p>
-<p>The main differences are that one must:</p>
-<ul>
-<li>add to the <code>PATH</code> environment variable, the path to were <code>Cast3M</code> has installed the <code>MinGW</code> compilers.</li>
-<li>pass an appropriate flag to <code>cmake</code> to generate appropriate <code>Makefiles</code> for the `NSIS``build environment.</li>
-</ul>
-<div class="sourceCode" id="compiling"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="compiling-1"><a href="#compiling-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export PATH=/c/Cast3M/PCW_14/MinGW/x32-4.6.3-posix-dwarf-rev2/mingw/bin/:<span class="va">$PATH</span></span>
-<span id="compiling-2"><a href="#compiling-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">-G</span> <span class="st">&quot;MSYS Makefiles&quot;</span> [path to TFEL sources] [options]</span>
-<span id="compiling-3"><a href="#compiling-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make</span>
-<span id="compiling-4"><a href="#compiling-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cpack <span class="at">-G</span> <span class="st">&quot;NSIS&quot;</span></span></code></pre></div>
-<h1 id="installation">Installation</h1>
-<p>An executable called <code>tfel-..</code> has been build and can be executed to install <code>TFEL</code>.</p>
-<p>This executable is a standard graphical installer which allows you to choose which components of <code>TFEL</code> you wish to install:</p>
-<ul>
-<li><code>core</code> contains the <code>TFEL</code> library.</li>
-<li><code>mfront</code> et <code>mtest</code> contain the <code>MFront</code> code generator and <code>MTest</code> respectively.</li>
-<li><code>docs</code> contains the documentation in <code>pdf</code> format.</li>
-<li><code>website</code> contains the <code>TFEL</code> website.</li>
-</ul>
-<p>The installer also allows you to choose where <code>TFEL</code> shall be installed: <strong><code>TFEL</code> must be installed in a path without blanks</strong>, for example in the directory <code>C:TFEL</code>.</p>
-<p>We strongly advice the user to create or modify its <code>.profile</code> file in its home directory in the <code>MSYS</code> environment to get the <code>MinGW</code> compilers provided by <code>Cast3M</code> in the path by appending the following lines:</p>
-<pre id="home" class="profile"><code>export PATH=/c/Cast3M/PCW_14/MinGW/x32-4.6.3-posix-dwarf-rev2/mingw/bin/:$PATH
-export PATH:/c/Cast3M/PCW_14/bin/:$PATH
-alias castem=&#39;cmd //c castem14.bat&#39;</code></pre>
-<p>Assuming a standard <code>MSYS</code> environment, the file is located here:</p>
-<div class="sourceCode" id="home"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="home-1"><a href="#home-1" aria-hidden="true" tabindex="-1"></a><span class="ex">C:\MinGW\msys\1.0\home\[user</span> name]<span class="dt">\.</span>profile</span></code></pre></div>
+<p>Compiling <code>TFEL</code> is merely a simple as opening a new <code>MSYS2</code> session and following the instructions given on the <a href="install.html">main installation page</a>.</p>
+<p>For example:</p>
+<div class="sourceCode" id="compiling"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="compiling-1"><a href="#compiling-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake [path to TFEL sources] [options]</span>
+<span id="compiling-2"><a href="#compiling-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make</span></code></pre></div>
 <h1 id="usage">Usage</h1>
-<p>Once done, mfront can be used as “usual” (like in Posix environments) in <a href="http://www.mingw.org/wiki/MSYS">MSYS</a>.</p>
+<p>Once done, mfront can be used as “usual” (like in Posix environments) in <a href="https://www.msys2.org/"><code>MSYS2</code></a>.</p>
 <!-- Local IspellDict: english -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

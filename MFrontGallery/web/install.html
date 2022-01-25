@@ -95,6 +95,11 @@
 	        <li><a href="cmake-infrastructure.html">CMake infrastructure</a></li>
 	        <li><a href="best-practices.html">Best practices</a></li>
             <li><a href="contributing.html">Contributing</a></li>
+            <li><a>Tutorials</a>
+                <ul>
+                <li><a href="SmallStrainUmatWrapper.html">Small-strain UMAT wrapper</a></li>
+                </ul>
+            </li>
 	      </ul>
         </li>
         <li><a>Materials</a>
@@ -156,13 +161,14 @@
 <li><a href="#available-options">Available options</a>
 <ul>
 <li><a href="#standard-cmake-variables">Standard <code>cmake</code> variables</a></li>
-<li><a href="#compilers-and-compile-flag-selections">Compilers and compile flag selections</a></li>
+<li><a href="#variables-affecting-the-compilation-of-mfront-files">Variables affecting the compilation of <code>MFront</code> files</a></li>
 <li><a href="#interface-selection">Interface selection</a></li>
 <li><a href="#generation-of-the-website">Generation of the website</a></li>
 <li><a href="#additional-behaviours">Additional behaviours</a></li>
 <li><a href="#automatic-documentation-generation-using-mfront-doc">Automatic documentation generation using <code>mfront-doc</code></a></li>
 <li><a href="#options-related-to-tests">Options related to tests</a></li>
 <li><a href="#options-related-to-compilation">Options related to compilation</a></li>
+<li><a href="#compilers-and-compile-flag-selections">Compilers and compile flag selections</a></li>
 </ul></li>
 <li><a href="#tfel-executables"><code>TFEL</code> executables</a></li>
 </ul></li>
@@ -195,52 +201,54 @@
 <li><code>CMAKE_INSTALL_PREFIX</code>: specify where the project shall be installed.</li>
 <li><code>CMAKE_TOOLCHAIN_FILE</code>: specify a tool chain file (for cross-compilation).</li>
 </ul>
-<h3 id="compilers-and-compile-flag-selections">Compilers and compile flag selections</h3>
-<p>The <code>CC</code> and <code>CC</code> environment variables are used respectively to</p>
-<p>If the boolean variable <code>USE_EXTERNAL_COMPILER_FLAGS</code> is set to true (i.e. to the <code>ON</code> value following <code>cmake</code> conventions), the <code>CFLAGS</code> and <code>CXXFLAGS</code> environment variables are used to define the compile flags used to compile <code>C</code> and <code>C++</code> sources respectively.</p>
+<h3 id="variables-affecting-the-compilation-of-mfront-files">Variables affecting the compilation of <code>MFront</code> files</h3>
+<ul>
+<li><code>MFM_BUILD_IDENTIFIER</code>: string variable specifying a build identifier. Defining this variable is only supported when using a version of <code>TFEL</code> greater than <code>4.1</code>.</li>
+<li><code>MFM_TREAT_PARAMETERS_AS_STATIC_VARIABLES</code>: boolean variables stating if parameters shall be treated as static variables. Defining this variable is only supported when using a version of <code>TFEL</code> greater than <code>4.1</code>.</li>
+</ul>
 <h3 id="interface-selection">Interface selection</h3>
 <h4 id="interface-to-material-properties">Interface to material properties</h4>
 <ul>
-<li><code>enable-c</code>:</li>
-<li><code>enable-c++</code>:</li>
-<li><code>enable-excel</code>:</li>
-<li><code>enable-fortran</code>:</li>
+<li><code>enable-c</code>: enable compilation of material properties using the <code>c</code> interface.</li>
+<li><code>enable-c++</code>: enable compilation of material properties using the <code>C++</code> interface.</li>
+<li><code>enable-excel</code>: enable compilation of material properties using the <code>excel</code> interface.</li>
+<li><code>enable-fortran</code>: enable compilation of material properties using the <code>fortran</code> interface.</li>
 <li><code>enable-python</code>: Enable the generation of <code>python</code> modules. Note that the <code>Python_ADDITIONAL_VERSIONS</code> selects the <code>python</code> version to use. Only the major and minor version of python shall be passed, not the revision version (otherwise the detection fails).</li>
-<li><code>enable-java</code>:</li>
-<li><code>enable-octave</code>:</li>
+<li><code>enable-java</code>: enable compilation of material properties using the <code>java</code> interface.</li>
+<li><code>enable-octave</code>: enable compilation of material properties using the <code>octave</code> interface.</li>
 </ul>
 <p>See also the <code>enable-castem-material-properties</code> and <code>enable-cyrano-material-properties</code> options below.</p>
 <h4 id="interface-to-behaviours">Interface to behaviours</h4>
 <ul>
-<li><code>enable-generic-behaviours</code>:</li>
-<li><code>enable-aster</code>:</li>
-<li><code>enable-diana-fea</code>:</li>
-<li><code>enable-europlexus</code>:</li>
-<li><code>enable-abaqus</code>:</li>
-<li><code>enable-abaqus-explicit</code>:</li>
-<li><code>enable-ansys</code>:</li>
-<li><code>enable-calculix</code>:</li>
-<li><code>enable-zmat</code>:</li>
+<li><code>enable-generic-behaviours</code>: enable compilation of behaviours using the <code>generic</code> interface.</li>
+<li><code>enable-aster</code>: enable compilation of behaviours using the <code>aster</code> interface.</li>
+<li><code>enable-diana-fea</code>: enable compilation of behaviours using the <code>diana-fea</code> interface.</li>
+<li><code>enable-europlexus</code>: enable compilation of behaviours using the <code>europlexus</code> interface.</li>
+<li><code>enable-abaqus</code>: enable compilation of behaviours using the <code>abaqus</code> interface.</li>
+<li><code>enable-abaqus-explicit</code>: enable compilation of behaviours using the <code>abaqus-explicit</code> interface.</li>
+<li><code>enable-ansys</code>: enable compilation of behaviours using the <code>ansys</code> interface.</li>
+<li><code>enable-calculix</code>: enable compilation of behaviours using the <code>calculix</code> interface.</li>
+<li><code>enable-zmat</code>: enable compilation of behaviours using the <code>zmat</code> interface.</li>
 </ul>
 <p>See also the <code>enable-castem-behaviours</code> and <code>enable-cyrano-behaviours</code> below.</p>
 <h4 id="options-related-to-the-cast3m-solver">Options related to the <code>Cast3M</code> solver</h4>
 <ul>
-<li><code>enable-castem</code>:</li>
-<li><code>enable-castem-material-properties</code>:</li>
-<li><code>enable-castem-behaviours</code>:</li>
-<li><code>enable-castem-pleiades</code>:</li>
+<li><code>enable-castem</code>: enable the compilation of material properties and behaviours using the <code>castem</code> interface. This option is equivalent to using enabling both options <code>enable-castem-material-properties</code> and <code>enable-castem-behaviours</code>.</li>
+<li><code>enable-castem-material-properties</code>: enable compilation of material properties using the <code>castem</code> interface.</li>
+<li><code>enable-castem-behaviours</code>: enable compilation of behaviours using the <code>castem</code> interface.</li>
+<li><code>enable-castem-pleiades</code>: option specifying if the <code>PLEIADES</code> version of the <code>Cast3M</code> finite element solver is used.</li>
 </ul>
 <h4 id="options-related-to-the-cyrano-solver">Options related to the <code>Cyrano</code> solver</h4>
 <ul>
-<li><code>enable-cyrano</code>:</li>
-<li><code>enable-cyrano-material-properties</code>:</li>
-<li><code>enable-cyrano-behaviours</code>:</li>
+<li><code>enable-cyrano</code>: enable the compilation of material properties and behaviours using the <code>cyrano</code> interface. This option is equivalent to using enabling both options <code>enable-castem-material-properties</code> and <code>enable-castem-behaviours</code>.</li>
+<li><code>enable-cyrano-material-properties</code>: enable compilation of material properties using the <code>cyrano</code> interface.</li>
+<li><code>enable-cyrano-behaviours</code>: enable compilation of behaviours using the <code>cyrano</code> interface.</li>
 </ul>
 <h3 id="generation-of-the-website">Generation of the website</h3>
 <p>The <code>enable-website</code> option selects if the website of the project shall be generated. This requires <code>pandoc</code> (mandatory) and <code>pandoc-crossref</code> (optional) to be available.</p>
 <h3 id="additional-behaviours">Additional behaviours</h3>
 <ul>
-<li><code>enable-fortran-behaviours-wrappers</code>:</li>
+<li><code>enable-fortran-behaviours-wrappers</code>: This option enables the compilation of behaviours based at least partially on the <code>fortran</code> language.</li>
 </ul>
 <h3 id="automatic-documentation-generation-using-mfront-doc">Automatic documentation generation using <code>mfront-doc</code></h3>
 <ul>
@@ -257,6 +265,9 @@
 <li><code>enable-sanitize-options</code>:</li>
 <li><code>enable-developer-warnings</code>:</li>
 </ul>
+<h3 id="compilers-and-compile-flag-selections">Compilers and compile flag selections</h3>
+<p>The <code>CC</code> and <code>CC</code> environment variables are used respectively to</p>
+<p>If the boolean variable <code>USE_EXTERNAL_COMPILER_FLAGS</code> is set to true (i.e. to the <code>ON</code> value following <code>cmake</code> conventions), the <code>CFLAGS</code> and <code>CXXFLAGS</code> environment variables are used to define the compile flags used to compile <code>C</code> and <code>C++</code> sources respectively.</p>
 <h4 id="option-specific-to-gcc">Option specific to <code>gcc</code></h4>
 <ul>
 <li><code>enable-glibcxx-debug</code>:</li>

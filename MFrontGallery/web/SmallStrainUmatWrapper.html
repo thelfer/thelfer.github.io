@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Introducing legacy Abaqus/UMAT implementations in MFrontGallery</title>
+    <title>Introducing small strain legacy Abaqus/UMAT implementations in MFrontGallery</title>
         <meta name="author" content="Thomas Helfer, Éric Simo" />
             <meta name="date" content="2020-01-01" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -96,6 +96,11 @@
 	        <li><a href="cmake-infrastructure.html">CMake infrastructure</a></li>
 	        <li><a href="best-practices.html">Best practices</a></li>
             <li><a href="contributing.html">Contributing</a></li>
+            <li><a>Tutorials</a>
+                <ul>
+                <li><a href="SmallStrainUmatWrapper.html">Small-strain UMAT wrapper</a></li>
+                </ul>
+            </li>
 	      </ul>
         </li>
         <li><a>Materials</a>
@@ -145,7 +150,7 @@
     </header>
 
 <div id="header">
-<h1 class="title">Introducing legacy <code>Abaqus/UMAT</code> implementations in <code>MFrontGallery</code></h1>
+<h1 class="title">Introducing small strain legacy <code>Abaqus/UMAT</code> implementations in <code>MFrontGallery</code></h1>
 <h2 class="author">Thomas Helfer, Éric Simo</h2>
 <h3 class="date">2020</h3>
 </div>
@@ -644,7 +649,7 @@
 <p>However, as the project grows, such shared utility headers may multiply, with the risk of a cluttering of the <code>include</code> directory.</p>
 <p>To sort things out, we choose to create an <code>MFront/Wrappers</code> subdirectory. We also choose to rename the file <code>UmatWrapper.hxx</code> to avoid a redundant <code>MFront</code>.</p>
 <h2 data-number="7.2" id="building-the-libraries"><span class="header-section-number">7.2</span> Building the libraries</h2>
-<p>We choose to create two libraries <code>v1</code> and <code>v1</code> for each versions of the wrapped behaviour. Those directories are placed in the <code>mfront-wrappers/fortran/umat/</code> directory.</p>
+<p>We choose to create two libraries <code>v1</code> and <code>v1</code> for each versions of the wrapped behaviour. Those directories are placed in the <code>unit-tests/mfront-wrappers/fortran/umat/</code> directory.</p>
 <blockquote>
 <p><strong>The <code>enable-fortran-behaviours-wrappers</code> options</strong></p>
 <p>The subdirectories of the <code>mfront-wrappers/fortran</code> directory are only treated if the <code>enable-fortran-behaviours-wrappers</code> has been set to <code>ON</code> at the <code>cmake</code> configuration stage (see the <a href="install.html">install page</a> for details).</p>

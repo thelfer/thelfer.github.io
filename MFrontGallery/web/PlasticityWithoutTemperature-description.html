@@ -10,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Main contributors to the MFrontGallery project</title>
-        <meta name="author" content="Thomas Helfer" />
+    <title>Description of behaviour PlasticityWithoutTemperature</title>
+        <meta name="author" content="Helfer Thomas" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
@@ -86,15 +86,154 @@
     </header>
 
 <div id="header">
-<h1 class="title">Main contributors to the MFrontGallery project</h1>
-<h2 class="author">Thomas Helfer</h2>
-<h3 class="date">18/12/2021</h3>
+<h1 class="title">Description of behaviour PlasticityWithoutTemperature</h1>
+<h2 class="author">Helfer Thomas</h2>
+<h3 class="date">23 / 11 / 06</h3>
 </div>
+<div id="TOC">
 <ul>
-<li>Thomas Helfer</li>
-<li>Thomas Nagel</li>
-<li>Éric Simo</li>
-<li>Lorenzo Riparbelli</li>
+<li><a href="#list-of-supported-hypotheses">List of supported Hypotheses</a></li>
+<li><a href="#variables">Variables</a>
+<ul>
+<li><a href="#material-properties">Material properties</a></li>
+<li><a href="#state-variables">State variables</a></li>
+<li><a href="#parameters">Parameters</a></li>
+<li><a href="#local-variables">Local variables</a></li>
+</ul></li>
+</ul>
+</div>
+<p>No description specified</p>
+<h2 id="list-of-supported-hypotheses">List of supported Hypotheses</h2>
+<ul>
+<li>AxisymmetricalGeneralisedPlaneStrain</li>
+<li>Axisymmetrical</li>
+<li>PlaneStrain</li>
+<li>GeneralisedPlaneStrain</li>
+<li>Tridimensional</li>
+</ul>
+<h1 id="variables">Variables</h1>
+<h2 id="material-properties">Material properties</h2>
+<ul>
+<li>H:
+<ul>
+<li>variable type: stress</li>
+</ul></li>
+<li>s0:
+<ul>
+<li>variable type: stress</li>
+</ul></li>
+<li>YoungModulus:
+<ul>
+<li>variable name: young</li>
+<li>variable type: stress</li>
+<li>description: The Young modulus of an isotropic material</li>
+</ul></li>
+<li>PoissonRatio:
+<ul>
+<li>variable name: nu</li>
+<li>variable type: real</li>
+<li>description: The Poisson ratio of an isotropic material</li>
+</ul></li>
+</ul>
+<h2 id="state-variables">State variables</h2>
+<ul>
+<li>ElasticStrain:
+<ul>
+<li>variable name: eel</li>
+<li>variable type: StrainStensor</li>
+<li>description: The elastic strain</li>
+</ul></li>
+<li>EquivalentPlasticStrain:
+<ul>
+<li>variable name: p</li>
+<li>variable type: strain</li>
+<li>description: The equivalent plastic strain</li>
+</ul></li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>epsilon:
+<ul>
+<li>variable type: real</li>
+<li>default value: 1e-14</li>
+</ul></li>
+<li>minimal_time_step_scaling_factor:
+<ul>
+<li>variable type: time</li>
+<li>description: minimal value for the time step scaling factor</li>
+<li>default value: 0.1</li>
+</ul></li>
+<li>maximal_time_step_scaling_factor:
+<ul>
+<li>variable type: time</li>
+<li>description: maximal value for the time step scaling factor</li>
+<li>default value: 1.79769e+308</li>
+</ul></li>
+<li>theta:
+<ul>
+<li>variable type: real</li>
+<li>default value: 1</li>
+</ul></li>
+<li>iterMax:
+<ul>
+<li>variable type: ushort</li>
+<li>default value: 100</li>
+</ul></li>
+</ul>
+<h2 id="local-variables">Local variables</h2>
+<ul>
+<li>f:
+<ul>
+<li>variable type: stress</li>
+</ul></li>
+<li>df_dseq:
+<ul>
+<li>variable type: real</li>
+</ul></li>
+<li>df_dp:
+<ul>
+<li>variable type: stress</li>
+</ul></li>
+<li>se:
+<ul>
+<li>variable type: StressStensor</li>
+</ul></li>
+<li>seq:
+<ul>
+<li>variable type: stress</li>
+</ul></li>
+<li>seq_e:
+<ul>
+<li>variable type: stress</li>
+</ul></li>
+<li>n:
+<ul>
+<li>variable type: StrainStensor</li>
+</ul></li>
+<li>p_:
+<ul>
+<li>variable type: strain</li>
+</ul></li>
+<li>lambda:
+<ul>
+<li>variable type: stress</li>
+<li>description: first Lamé coefficient at t+theta*dt</li>
+</ul></li>
+<li>mu:
+<ul>
+<li>variable type: stress</li>
+<li>description: shear modulus at t+theta*dt</li>
+</ul></li>
+<li>lambda_tdt:
+<ul>
+<li>variable type: stress</li>
+<li>description: first Lamé coefficient at t+dt</li>
+</ul></li>
+<li>mu_tdt:
+<ul>
+<li>variable type: stress</li>
+<li>description: shear modulus at t+dt</li>
+</ul></li>
 </ul>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

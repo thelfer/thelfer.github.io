@@ -173,6 +173,7 @@
 		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
 		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -295,14 +296,19 @@
 <p><a href="https://www.msys2.org/"><code>MSYS2</code></a> is a collection of GNU utilities, in particular <code>make</code> which is used by <code>MFront</code>. It also provides a convenient shell which is far more easier to use than the <code>DOS</code> terminal provided by the <code>cmd</code> command.</p>
 <h2 id="installing-a-minimal-build-environment">Installing a minimal build environment</h2>
 <p>To build <code>TFEL</code>, one may need to install the following tools:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pacman <span class="at">-S</span> base-devel gcc git cmake</span></code></pre></div>
-<p><code>git</code> may be required if you want to work on the development branch:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pacman <span class="at">-S</span> git</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pacman <span class="at">-S</span> base-devel gcc cmake</span></code></pre></div>
+<h1 id="installing-the-official-package">Installing the official package</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pacman <span class="at">-S</span> mingw-w64-x86_64-tfel</span></code></pre></div>
 <h1 id="compiling-tfel">Compiling <code>TFEL</code></h1>
+<p><code>git</code> may be required if you want to work on the development branch:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pacman <span class="at">-S</span> git</span></code></pre></div>
 <p>Compiling <code>TFEL</code> is merely a simple as opening a new <code>MSYS2</code> session and following the instructions given on the <a href="install.html">main installation page</a>.</p>
 <p>For example:</p>
 <div class="sourceCode" id="compiling"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="compiling-1"><a href="#compiling-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake [path to TFEL sources] [options]</span>
 <span id="compiling-2"><a href="#compiling-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make</span></code></pre></div>
+<h2 id="running-the-tests">Running the tests</h2>
+<div class="sourceCode" id="testing"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="testing-1"><a href="#testing-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> source env.sh</span>
+<span id="testing-2"><a href="#testing-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make check</span></code></pre></div>
 <h1 id="usage">Usage</h1>
 <p>Once done, mfront can be used as “usual” (like in Posix environments) in <a href="https://www.msys2.org/"><code>MSYS2</code></a>.</p>
 <!-- Local IspellDict: english -->

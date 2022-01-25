@@ -175,6 +175,7 @@
 		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
 		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -520,7 +521,7 @@
 <h2 data-number="2.4" id="sec:build_identifiers"><span class="header-section-number">2.4</span> Specifying a build identifier</h2>
 <p>As defined by Wikipedia, Quality assurance (QA) is a way of preventing mistakes and defects in manufactured products and avoiding problems when delivering products.</p>
 <p>Fuel performance codes are developed under stringent Quality Assurance requirements that make their developers reluctant to rely on shared libraries to deliver material knowledge they are responsible for. A risk that must be mitigated as much as possible is the replacement of a shared library by another one, either intentionally to modify the results of the code or by accident (conflict with a previous version for example).</p>
-<p>Specifying a build identifier proposes a solution for this issue. During building the shared libraries, developers may now specify a build identifier using the TFEL_BUILD_ID environment variable. This identifier is meant to be only known by the developers of the code and is hidden to end users. At runtime, when calling a shared library, the code can retrieve its build identifier, if any, and can check if it matches the identifier defined by the developers. If not, it may indicate a conflict exists with a previous versions of the shared library or that the end user wants to test a new material property or a new mechanical behaviour. In both cases, the code will report that results are unreliable and not coverered by the code specifications.</p>
+<p>Specifying a build identifier proposes a solution for this issue. During building the shared libraries, developers may now specify a build identifier using the <code>TFEL_BUILD_ID</code> environment variable. This identifier is meant to be only known by the developers of the code and is hidden to end users. At runtime, when calling a shared library, the code can retrieve its build identifier, if any, and can check if it matches the identifier defined by the developers. If not, it may indicate a conflict exists with a previous versions of the shared library or that the end user wants to test a new material property or a new mechanical behaviour. In both cases, the code will report that results are unreliable and not coverered by the code specifications.</p>
 <h2 data-number="2.5" id="parameters-can-now-be-declared-with-a-type"><span class="header-section-number">2.5</span> Parameters can now be declared with a type</h2>
 <p>In previous versions, parameters had the implicit type <code>real</code>. The user can now specify any scalar type. This makes the declaration of parameters consistent with the declaration of the other variables.</p>
 <pre><code>@Parameter strainrate de0 = 1e-4;</code></pre>

@@ -173,6 +173,7 @@
 		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
 		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -297,19 +298,26 @@
 </ul></li>
 <li><a href="#new-features-of-mfront-query"><span class="toc-section-number">2</span> New features of <code>mfront-query</code></a>
 <ul>
-<li><a href="#sec:tfel-3.4.4:mfront-query:generated_sources"><span class="toc-section-number">2.1</span> Better <code>--generated-sources</code> query</a></li>
-<li><a href="#sec:tfel-3.4.4:mfront-query:specific_target_generated_sources"><span class="toc-section-number">2.2</span> Retrieve the sources associated with specific targets</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront-query:list_materials"><span class="toc-section-number">2.1</span> New <code>--list-materials</code> query</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront-query:list_materials_properties"><span class="toc-section-number">2.2</span> Better <code>--list-material-properties</code> query</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront-query:list_behaviours"><span class="toc-section-number">2.3</span> Better <code>--list-behaviours</code> query</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront-query:list_models"><span class="toc-section-number">2.4</span> Better <code>--list-models</code> query</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront-query:generated_sources"><span class="toc-section-number">2.5</span> Better <code>--generated-sources</code> query</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront-query:specific_target_generated_sources"><span class="toc-section-number">2.6</span> Retrieve the sources associated with specific targets</a></li>
 </ul></li>
 <li><a href="#issues-solved"><span class="toc-section-number">3</span> Issues solved</a>
 <ul>
-<li><a href="#issue-68-mfront-query-add-a---dsl-target-option"><span class="toc-section-number">3.1</span> Issue #68: [mfront-query] Add a <code>--dsl-target</code> option</a></li>
-<li><a href="#issue-67-mfront-query-add-a---has-model-query-option-enhancement"><span class="toc-section-number">3.2</span> Issue #67: [mfront-query] Add a <code>--has-model-query</code> option enhancement</a></li>
-<li><a href="#issue-64-mfront-query-add-a-query-for-the-class-name"><span class="toc-section-number">3.3</span> Issue #64: [mfront-query] Add a query for the class name</a></li>
-<li><a href="#issue-63-mfront-query-add-a-query-for-the-behaviour-name"><span class="toc-section-number">3.4</span> Issue #63: [mfront-query] Add a query for the behaviour name</a></li>
-<li><a href="#issue-62-tfel-config-add-a---quiet-failure-option"><span class="toc-section-number">3.5</span> Issue #62: [tfel-config] add a <code>--quiet-failure</code> option</a></li>
-<li><a href="#issue-59-mfront-doc-add-a-standalone-option"><span class="toc-section-number">3.6</span> Issue #59: [mfront-doc] add a standalone option</a></li>
-<li><a href="#issue-49-mfront-query-query-sources-related-to-specific-targets"><span class="toc-section-number">3.7</span> Issue #49: [mfront-query] query sources related to specific targets</a></li>
-<li><a href="#issue-40-mfront-query-return-all-the-generated-sources-not-sorted-by-library"><span class="toc-section-number">3.8</span> Issue #40: [mfront-query] return all the generated sources (not sorted by library)</a></li>
+<li><a href="#issue-87-better---list-material-properties---list-behaviours-and---list-models-queries"><span class="toc-section-number">3.1</span> Issue #87: Better <code>--list-material-properties</code>, <code>--list-behaviours</code> and <code>--list-models queries</code></a></li>
+<li><a href="#issue-86-mfront-query-new---list-materials-query"><span class="toc-section-number">3.2</span> Issue #86: [mfront-query] new <code>--list-materials</code> query</a></li>
+<li><a href="#issue-85-mfront-support-for-the-.mdnx-file-extension-for-madnex-files"><span class="toc-section-number">3.3</span> Issue #85: [mfront] Support for the <code>.mdnx</code> file extension for <code>madnex</code> files</a></li>
+<li><a href="#issue-68-mfront-query-add-a---dsl-target-option"><span class="toc-section-number">3.4</span> Issue #68: [mfront-query] Add a <code>--dsl-target</code> option</a></li>
+<li><a href="#issue-67-mfront-query-add-a---has-model-query-option-enhancement"><span class="toc-section-number">3.5</span> Issue #67: [mfront-query] Add a <code>--has-model-query</code> option enhancement</a></li>
+<li><a href="#issue-64-mfront-query-add-a-query-for-the-class-name"><span class="toc-section-number">3.6</span> Issue #64: [mfront-query] Add a query for the class name</a></li>
+<li><a href="#issue-63-mfront-query-add-a-query-for-the-behaviour-name"><span class="toc-section-number">3.7</span> Issue #63: [mfront-query] Add a query for the behaviour name</a></li>
+<li><a href="#issue-62-tfel-config-add-a---quiet-failure-option"><span class="toc-section-number">3.8</span> Issue #62: [tfel-config] add a <code>--quiet-failure</code> option</a></li>
+<li><a href="#issue-59-mfront-doc-add-a-standalone-option"><span class="toc-section-number">3.9</span> Issue #59: [mfront-doc] add a standalone option</a></li>
+<li><a href="#issue-49-mfront-query-query-sources-related-to-specific-targets"><span class="toc-section-number">3.10</span> Issue #49: [mfront-query] query sources related to specific targets</a></li>
+<li><a href="#issue-40-mfront-query-return-all-the-generated-sources-not-sorted-by-library"><span class="toc-section-number">3.11</span> Issue #40: [mfront-query] return all the generated sources (not sorted by library)</a></li>
 </ul></li>
 </ul>
 </div>
@@ -322,14 +330,35 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RadialLoading <span class="ch">&#39;I</span><span class="er">mposedInnerRadius</span><span class="ch">&#39;</span>;</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InnerRadiusEvolution{<span class="dv">0</span> : <span class="fl">4.2e-3</span>, <span class="dv">1</span> : <span class="fl">4.3e-3</span>};</span></code></pre></div>
 <h1 data-number="2" id="new-features-of-mfront-query"><span class="header-section-number">2</span> New features of <code>mfront-query</code></h1>
-<h2 data-number="2.1" id="sec:tfel-3.4.4:mfront-query:generated_sources"><span class="header-section-number">2.1</span> Better <code>--generated-sources</code> query</h2>
+<h2 data-number="2.1" id="sec:tfel-3.4.4:mfront-query:list_materials"><span class="header-section-number">2.1</span> New <code>--list-materials</code> query</h2>
+<p>The <code>--list-materials</code> returns the list of materials for which material knowledge is defined inside a <a href="madnex.html"><code>madnex file</code></a>.</p>
+<p>If a material knowledge is not associated to a material, the special identifier <code>&lt;none&gt;</code> is returned.</p>
+<h2 data-number="2.2" id="sec:tfel-3.4.4:mfront-query:list_materials_properties"><span class="header-section-number">2.2</span> Better <code>--list-material-properties</code> query</h2>
+<p>The <code>--list-material-properties</code> query can now have an option:</p>
+<ul>
+<li><code>sorted-by-materials</code> (default): which returns the material properties sorted by materials</li>
+<li><code>unsorted</code>: which returns all the material properties to be generated</li>
+</ul>
+<h2 data-number="2.3" id="sec:tfel-3.4.4:mfront-query:list_behaviours"><span class="header-section-number">2.3</span> Better <code>--list-behaviours</code> query</h2>
+<p>The <code>--list-behaviours</code> query can now have an option:</p>
+<ul>
+<li><code>sorted-by-materials</code> (default): which returns the behaviours sorted by materials</li>
+<li><code>unsorted</code>: which returns all the behaviours to be generated</li>
+</ul>
+<h2 data-number="2.4" id="sec:tfel-3.4.4:mfront-query:list_models"><span class="header-section-number">2.4</span> Better <code>--list-models</code> query</h2>
+<p>The <code>--list-models</code> query can now have an option:</p>
+<ul>
+<li><code>sorted-by-materials</code> (default): which returns the models sorted by materials</li>
+<li><code>unsorted</code>: which returns all the models to be generated</li>
+</ul>
+<h2 data-number="2.5" id="sec:tfel-3.4.4:mfront-query:generated_sources"><span class="header-section-number">2.5</span> Better <code>--generated-sources</code> query</h2>
 <p>The <code>--generated-sources</code> query can now have an option:</p>
 <ul>
 <li><code>sorted-by-libraries</code> (default): which returns the sources to be generated associated with each library</li>
 <li><code>unsorted</code>: which returns all the sources to be generated</li>
 </ul>
 <p>This option may be used in conjunction with the <code>--nomelt</code> option.</p>
-<h2 data-number="2.2" id="sec:tfel-3.4.4:mfront-query:specific_target_generated_sources"><span class="header-section-number">2.2</span> Retrieve the sources associated with specific targets</h2>
+<h2 data-number="2.6" id="sec:tfel-3.4.4:mfront-query:specific_target_generated_sources"><span class="header-section-number">2.6</span> Retrieve the sources associated with specific targets</h2>
 <p><code>mfront-query</code> now have two new queries:</p>
 <ul>
 <li><code>--specific-target-generated-sources</code> which allows to retrieve the sources generated by a specific target</li>
@@ -337,10 +366,18 @@
 </ul>
 <p>By default, all sources associated with libraries dependencies of the specific targets are also displayed, unless the <code>--nomelt</code> command line argument is used.</p>
 <h1 data-number="3" id="issues-solved"><span class="header-section-number">3</span> Issues solved</h1>
-<h2 data-number="3.1" id="issue-68-mfront-query-add-a---dsl-target-option"><span class="header-section-number">3.1</span> Issue #68: [mfront-query] Add a <code>--dsl-target</code> option</h2>
+<h2 data-number="3.1" id="issue-87-better---list-material-properties---list-behaviours-and---list-models-queries"><span class="header-section-number">3.1</span> Issue #87: Better <code>--list-material-properties</code>, <code>--list-behaviours</code> and <code>--list-models queries</code></h2>
+<p>Theses features are described in Sections 2.2, 2.3 and 2.4.</p>
+<p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/87" class="uri">https://github.com/thelfer/tfel/issues/87</a></p>
+<h2 data-number="3.2" id="issue-86-mfront-query-new---list-materials-query"><span class="header-section-number">3.2</span> Issue #86: [mfront-query] new <code>--list-materials</code> query</h2>
+<p>This feature is described in Section 2.1.</p>
+<p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/86" class="uri">https://github.com/thelfer/tfel/issues/86</a></p>
+<h2 data-number="3.3" id="issue-85-mfront-support-for-the-.mdnx-file-extension-for-madnex-files"><span class="header-section-number">3.3</span> Issue #85: [mfront] Support for the <code>.mdnx</code> file extension for <code>madnex</code> files</h2>
+<p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/85" class="uri">https://github.com/thelfer/tfel/issues/85</a></p>
+<h2 data-number="3.4" id="issue-68-mfront-query-add-a---dsl-target-option"><span class="header-section-number">3.4</span> Issue #68: [mfront-query] Add a <code>--dsl-target</code> option</h2>
 <p><code>mfront-query</code> now have <code>--dsl-target</code> option which returns the kind of material knowledge described by a file (material property, behaviour, or model).</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/68" class="uri">https://github.com/thelfer/tfel/issues/68</a>.</p>
-<h2 data-number="3.2" id="issue-67-mfront-query-add-a---has-model-query-option-enhancement"><span class="header-section-number">3.2</span> Issue #67: [mfront-query] Add a <code>--has-model-query</code> option enhancement</h2>
+<h2 data-number="3.5" id="issue-67-mfront-query-add-a---has-model-query-option-enhancement"><span class="header-section-number">3.5</span> Issue #67: [mfront-query] Add a <code>--has-model-query</code> option enhancement</h2>
 <p><code>mfront-query</code> now have <code>--has-model-query</code> option that can be used as follows:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--has-model-query</span><span class="op">=</span>class-name</span></code></pre></div>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/67" class="uri">https://github.com/thelfer/tfel/issues/67</a>.</p>
@@ -352,10 +389,10 @@
 <p><code>mfront-query</code> now have <code>--has-behaviour-query</code> option that can be used as follows:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--has-behaviour-query</span><span class="op">=</span>class-name</span></code></pre></div>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/65" class="uri">https://github.com/thelfer/tfel/issues/65</a>.</p>
-<h2 data-number="3.3" id="issue-64-mfront-query-add-a-query-for-the-class-name"><span class="header-section-number">3.3</span> Issue #64: [mfront-query] Add a query for the class name</h2>
+<h2 data-number="3.6" id="issue-64-mfront-query-add-a-query-for-the-class-name"><span class="header-section-number">3.6</span> Issue #64: [mfront-query] Add a query for the class name</h2>
 <p><code>mfront-query</code> now has a <code>--class-name</code> query which works for material properties, behaviours and models.</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/64" class="uri">https://github.com/thelfer/tfel/issues/64</a>.</p>
-<h2 data-number="3.4" id="issue-63-mfront-query-add-a-query-for-the-behaviour-name"><span class="header-section-number">3.4</span> Issue #63: [mfront-query] Add a query for the behaviour name</h2>
+<h2 data-number="3.7" id="issue-63-mfront-query-add-a-query-for-the-behaviour-name"><span class="header-section-number">3.7</span> Issue #63: [mfront-query] Add a query for the behaviour name</h2>
 <p><code>mfront-query</code> now has:</p>
 <ul>
 <li>a <code>--law-name</code> query for material properties.</li>
@@ -363,17 +400,17 @@
 <li>a <code>--model-name</code> query for models.</li>
 </ul>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/63" class="uri">https://github.com/thelfer/tfel/issues/63</a>.</p>
-<h2 data-number="3.5" id="issue-62-tfel-config-add-a---quiet-failure-option"><span class="header-section-number">3.5</span> Issue #62: [tfel-config] add a <code>--quiet-failure</code> option</h2>
+<h2 data-number="3.8" id="issue-62-tfel-config-add-a---quiet-failure-option"><span class="header-section-number">3.8</span> Issue #62: [tfel-config] add a <code>--quiet-failure</code> option</h2>
 <p>In case of errors, <code>tfel-config</code> with the the <code>--quiet-failure</code> option just fails without displaying all the available options nor error message.</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/62" class="uri">https://github.com/thelfer/tfel/issues/62</a>.</p>
-<h2 data-number="3.6" id="issue-59-mfront-doc-add-a-standalone-option"><span class="header-section-number">3.6</span> Issue #59: [mfront-doc] add a standalone option</h2>
+<h2 data-number="3.9" id="issue-59-mfront-doc-add-a-standalone-option"><span class="header-section-number">3.9</span> Issue #59: [mfront-doc] add a standalone option</h2>
 <p>By default, the generated markdown uses a section to describe a behaviour. Using the <code>--standalone</code> option, <code>mfront-doc</code> generates a standalone document.</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/59" class="uri">https://github.com/thelfer/tfel/issues/59</a>.</p>
-<h2 data-number="3.7" id="issue-49-mfront-query-query-sources-related-to-specific-targets"><span class="header-section-number">3.7</span> Issue #49: [mfront-query] query sources related to specific targets</h2>
-<p>See Section 2.2 for a description of the <code>--specific-target-generated-sources</code> and <code>--all-specific-targets-generated-source</code> queries.</p>
+<h2 data-number="3.10" id="issue-49-mfront-query-query-sources-related-to-specific-targets"><span class="header-section-number">3.10</span> Issue #49: [mfront-query] query sources related to specific targets</h2>
+<p>See Section 2.6 for a description of the <code>--specific-target-generated-sources</code> and <code>--all-specific-targets-generated-source</code> queries.</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/40" class="uri">https://github.com/thelfer/tfel/issues/40</a>.</p>
-<h2 data-number="3.8" id="issue-40-mfront-query-return-all-the-generated-sources-not-sorted-by-library"><span class="header-section-number">3.8</span> Issue #40: [mfront-query] return all the generated sources (not sorted by library)</h2>
-<p>See Section 2.1 for a description of the new features of the <code>--generated-sources</code> query.</p>
+<h2 data-number="3.11" id="issue-40-mfront-query-return-all-the-generated-sources-not-sorted-by-library"><span class="header-section-number">3.11</span> Issue #40: [mfront-query] return all the generated sources (not sorted by library)</h2>
+<p>See Section 2.5 for a description of the new features of the <code>--generated-sources</code> query.</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/40" class="uri">https://github.com/thelfer/tfel/issues/40</a>.</p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

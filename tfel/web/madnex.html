@@ -294,7 +294,10 @@
 <div id="TOC">
 <ul>
 <li><a href="#compilation-of-tfel-with-madnex-files-support">Compilation of <code>TFEL</code> with <code>madnex</code> files support</a></li>
-<li><a href="#mfront-usage"><code>mfront</code> usage</a></li>
+<li><a href="#mfront-usage"><code>mfront</code> usage</a>
+<ul>
+<li><a href="#sec:tfel-3.4.4:mfront:mandex_full_path">Alternative way to select a single material knowledge (material property, behaviour, model) in a <code>madnex</code> file</a></li>
+</ul></li>
 <li><a href="#mfront-python-module"><code>mfront</code> python module</a></li>
 <li><a href="#mfront-query-usage"><code>mfront-query</code> usage</a>
 <ul>
@@ -329,6 +332,20 @@
 <p>The <code>--all-material-properties</code>, <code>--all-behaviours</code>, and <code>--all-models</code> options allows to select all the material properties, behaviours and models respectively, as follows:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --all-behaviours file.madnex</span></code></pre></div>
 <p>The material name <code>&lt;none&gt;</code> has a special meaning here: it allows the selection of implementations that not associated with a material.</p>
+<h2 id="sec:tfel-3.4.4:mfront:mandex_full_path">Alternative way to select a single material knowledge (material property, behaviour, model) in a <code>madnex</code> file</h2>
+<p><code>mfront</code>, <code>mfront-query</code> and <code>mfront-doc</code> now allow to select a specific material knowledge inside a <code>madnex</code> file using the following syntax:</p>
+<pre><code>madnex:&lt;file&gt;:&lt;type&gt;:&lt;material&gt;:&lt;name&gt;</code></pre>
+<p>where:</p>
+<ul>
+<li><code>&lt;file&gt;</code> is the path to the <code>madnex</code> file.</li>
+<li><code>&lt;type&gt;</code> is the type of the material knowledge (<code>material_property</code>, <code>behaviour</code> or <code>model</code>).</li>
+<li><code>&lt;material&gt;</code> is the name of the material considered. This name can be empty or <code>&lt;none&gt;</code> if the considered material knowledge is not associated to a material.</li>
+<li><code>&lt;name&gt;</code> is the name of theconsidered material knowledge.</li>
+</ul>
+<h3 id="example-of-usage">Example of usage</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic madnex:Plasticity.mdnx:behaviour::Plasticity</span></code></pre></div>
+<p>or, equivalently:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic madnex:Plasticity.mdnx:behaviour:<span class="st">&quot;&lt;none&gt;&quot;</span>:Plasticity</span></code></pre></div>
 <h1 id="mfront-python-module"><code>mfront</code> python module</h1>
 <p>The <code>mfront</code> python module is fully described here:</p>
 <p><a href="http://tfel.sourceforge.net/mfront-python.html" class="uri">http://tfel.sourceforge.net/mfront-python.html</a></p>
@@ -341,23 +358,23 @@
 <li>a regular expression describing the searched models. This argument can be empty. The name of this argument is <code>model</code>.</li>
 </ul>
 <p>This function returns a list of strings where the path of the implementation is encoded.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>paths <span class="op">=</span> mfront.getImplementationPaths(<span class="st">&quot;file.madnex&quot;</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                      material<span class="op">=&lt;</span>material_id<span class="op">&gt;</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                                      behaviour<span class="op">=</span>behaviour_id<span class="op">&gt;</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(paths) <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">raise</span>(<span class="st">&quot;no matching implementation&quot;</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>dsl <span class="op">=</span> mfront.getDSL(paths[<span class="dv">0</span>])</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>dsl.analyseFile(paths[<span class="dv">0</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>paths <span class="op">=</span> mfront.getImplementationPaths(<span class="st">&quot;file.madnex&quot;</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                      material<span class="op">=&lt;</span>material_id<span class="op">&gt;</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                                      behaviour<span class="op">=</span>behaviour_id<span class="op">&gt;</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(paths) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">raise</span>(<span class="st">&quot;no matching implementation&quot;</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>dsl <span class="op">=</span> mfront.getDSL(paths[<span class="dv">0</span>])</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>dsl.analyseFile(paths[<span class="dv">0</span>])</span></code></pre></div>
 <h1 id="mfront-query-usage"><code>mfront-query</code> usage</h1>
 <h2 id="options-specific-to-madnex-files">Options specific to <code>madnex</code> files</h2>
 <p>Several options has been added to the <code>mfront-query</code> specifically for <code>madnex</code> files.</p>
 <p>Queries of the file itself (list of materials, behaviours, etc…) are also provided by the <code>madnex-query</code> tool.</p>
 <h3 id="listing-all-material-a-madnex-file">Listing all material a <code>madnex</code> file</h3>
 <p>The <code>--list-materials</code> returns the list of all materials in a <code>MFront</code> file:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-materials</span> file.madnex</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-materials</span> file.madnex</span></code></pre></div>
 <h3 id="listing-of-all-material-properties-all-behaviours-or-all-models">Listing of all material properties, all behaviours or all models</h3>
 <p>The following options are available:</p>
 <ul>
@@ -366,28 +383,28 @@
 <li><code>--list-models</code>: list of all models.</li>
 </ul>
 <p>A typical call is as follows:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> <span class="kw">`</span><span class="ex">mfront-query</span><span class="kw">`</span> <span class="at">--list-behaviours</span> file.madnex</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> <span class="kw">`</span><span class="ex">mfront-query</span><span class="kw">`</span> <span class="at">--list-behaviours</span> file.madnex</span></code></pre></div>
 <p>The previous options are affected by the the definition of a material, as follows:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> <span class="kw">`</span><span class="ex">mfront-query</span><span class="kw">`</span> <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --list-behaviours file.madnex</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> <span class="kw">`</span><span class="ex">mfront-query</span><span class="kw">`</span> <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --list-behaviours file.madnex</span></code></pre></div>
 <h2 id="querying-information-about-implementation-options-specific-to-madnex-files">Querying information about implementation, options specific to <code>madnex</code> files</h2>
 <p>For a behaviour, the selection of an implementation on which the queries are made is done through the <code>--material</code> and <code>--behaviour</code> options. For example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.madnex <span class="at">--state-variables</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.madnex <span class="at">--state-variables</span></span></code></pre></div>
 <p>Here, <code>behaviour_id</code> can be a regular expression.</p>
 <p>For material properties and models, the <code>--material-property</code> and <code>--model</code> options have a similar role than the <code>--behaviour</code> option for behaviours.</p>
 <h1 id="storing-an-mfront-file-in-a-madnex-file">Storing an <code>MFront</code> file in a <code>madnex</code> file</h1>
 <p>The easiest way to store an <code>MFront</code> file is to create an instance of the <code>OverridableImplementation</code> class and then call the <code>write</code> function. Here is an example in <code>python</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</span></code></pre></div>
 <p>However, the <code>OverridableImplementation</code> class also allows modifying the medata of a implementation, as follows:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>i.overrideBehaviourName(<span class="st">&quot;Plasticity_SRMA2022&quot;</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>i.overrideMaterial(<span class="st">&quot;A316LN&quot;</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>i.overrideAuthor(<span class="st">&quot;John Mac Enroe&quot;</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>i.overrideBehaviourName(<span class="st">&quot;Plasticity_SRMA2022&quot;</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>i.overrideMaterial(<span class="st">&quot;A316LN&quot;</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>i.overrideAuthor(<span class="st">&quot;John Mac Enroe&quot;</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</span></code></pre></div>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-cea_edf_madnex_library_2020" class="csl-entry" role="doc-biblioentry">

@@ -314,6 +314,13 @@
 <li><a href="#tensor-types">Tensor types</a></li>
 <li><a href="#fourth-order-tensor-types-of-the-st2tost2-type">Fourth order tensor types of the <code>st2tost2</code> type</a></li>
 </ul></li>
+<li><a href="#encoding-types-of-variables-in-exported-metadata">Encoding types of variables in exported metadata</a>
+<ul>
+<li><a href="#example">Example</a></li>
+<li><a href="#special-case-of-higher-order-tensors">Special case of higher order tensors</a></li>
+<li><a href="#special-case-for-tiny-vectors">Special case for tiny vectors</a></li>
+<li><a href="#special-case-of-tiny-matrices">Special case of tiny matrices</a></li>
+</ul></li>
 </ul>
 </div>
 <p>This page described:</p>
@@ -465,8 +472,53 @@ kg^{i_{1}}\,m^{i_{2}}\,s^{i_{3}}\,A^{i_{4}}\,K^{i_{5}}\,cd^{i_{6}}\,mol^{i_{7}}
 </ul>
 <h2 id="fourth-order-tensor-types-of-the-st2tost2-type">Fourth order tensor types of the <code>st2tost2</code> type</h2>
 <ul>
-<li><code>Stensor4</code>:</li>
-<li><code>StiffnessTensor</code>:</li>
+<li><code>Stensor4</code>: fourth order tensor type for the current modelling hypothesis holding the current numeric type (no unit).</li>
+<li><code>StiffnessTensor</code>: fourth order tensor type for the current modelling hypothesis holding stress values.</li>
+</ul>
+<h1 id="encoding-types-of-variables-in-exported-metadata">Encoding types of variables in exported metadata</h1>
+<p>For most interfaces, <code>MFront</code> exports metadata describing the types of the tensorial variables used by a behaviour, notably for behaviours.</p>
+<p>Those metadata can be retrieved by various methods of the <code>ExternalLibraryManager</code> class, such as: <code>getGenericBehaviourInitializeFunctionInputsTypes</code>, <code>getGenericBehaviourPostProcessingFunctionOutputsTypes</code>, <code>getUMATGradientsTypes</code>, <code>getUMATThermodynamicForcesTypes</code>, etc.</p>
+<p>The types of those variables are encoded as integers.</p>
+<p>Those integers shall be intepreted as follows:</p>
+<ul>
+<li>the three first bits, converted in an integer, gives the type of variable:
+<ul>
+<li><code>0</code> denotes a scalar</li>
+<li><code>1</code> denotes a symmetric tensor</li>
+<li><code>2</code> denotes a vector</li>
+<li><code>3</code> denotes an unsymmetric tensor</li>
+<li><code>4</code> denotes a derivative function</li>
+<li><code>5</code> denotes an array of objects</li>
+</ul></li>
+<li>For tensorial objects, the two next bits, converted in an integer, gives the space dimension of the variable:
+<ul>
+<li><code>0</code> indicates that the space dimension depends on the modelling hypothesis considered.</li>
+<li><code>1</code> indicates that the object has a space dimension of <code>1</code>, indepently of the modelling hypothesis considered.</li>
+<li><code>2</code> indicates that the object has a space dimension of <code>2</code>, indepently of the modelling hypothesis considered.</li>
+<li><code>3</code> indicates that the object has a space dimension of <code>3</code>, indepently of the modelling hypothesis considered.</li>
+</ul></li>
+<li>Concerning a derivative function, the next bits encodes the type of function and the bits after the type of the variables with respect to which the function is derivated.</li>
+<li>Concerning an array of object, the next three bits encode the arity of the array (number of dimensions) and then the sizes of array along each dimension, each size being encoding in seven bits. The next bits the type of the object hold.</li>
+</ul>
+<h2 id="example">Example</h2>
+<ul>
+<li><code>0</code> denotes a scalar</li>
+<li><code>17</code> denotes a two-dimensional symmetric tensor</li>
+</ul>
+<h2 id="special-case-of-higher-order-tensors">Special case of higher order tensors</h2>
+<p>Higher order tensors are defined as derivative of lower order tensors.</p>
+<p>For example, the fourth order tensor of type <code>t2tost2&lt;N,real&gt;</code> (derivative of a symmetric tensor with respect to an unsymmetric tensor) is associated with identifier <code>780</code> as <code>780 = 4 + (1 &lt;&lt; 3) + (3 &lt;&lt; 8)</code>.</p>
+<h2 id="special-case-for-tiny-vectors">Special case for tiny vectors</h2>
+<p>Tiny vectors defined by <code>tvector&lt;D, value_type&gt;</code> are encoded as:</p>
+<ul>
+<li>a tensorial object, if <code>D</code> is compatible with the size of a tensorial object (i.e. <code>D</code> has the value <code>N</code> or if <code>D</code> has an integer value in the range <code>[1;3]</code>) and if <code>value_type</code> is a scalar type.</li>
+<li>an array otherwise.</li>
+</ul>
+<h2 id="special-case-of-tiny-matrices">Special case of tiny matrices</h2>
+<p>Tiny matrices defined by <code>tmatrix&lt;N, M, value_type&gt;</code> are encoded as:</p>
+<ul>
+<li>derivative of two tiny vectors, if <code>N</code> and <code>M</code> can represent the size of a tensorial object and if <code>value_type</code> is a scalar type.</li>
+<li>an bi-dimensional array otherwise.</li>
 </ul>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

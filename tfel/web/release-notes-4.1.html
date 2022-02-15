@@ -454,11 +454,11 @@
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> s = deviator(sig);</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  eel = eval((pr / K) * Stensor::Id() + s / mu);</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<h3 data-number="3.2.2" id="about-post-processing-variables"><span class="header-section-number">3.2.2</span> About post-processing variables</h3>
-<p>Post-processing variables are introduced by the <code>@InitializeFunctionVariable</code> keyword.</p>
-<p>Post-processing variables are only defined in post-processings, and can’t be used in the other code blocks.</p>
-<p>Contrary most variables (internal state variables, external state variables, etc.), post-processing variables can be defined after the first code block. However, care must be taken to declare post-processing variables <strong>before</strong> their use in a post-processing.</p>
-<p>Note that a post-processing variable can be used in differents post-processings. Typically, one may compute the principal strains in a dedicated post-processing and in a post-processing computing the principal strains and the strain eigen vectors.</p>
+<h3 data-number="3.2.2" id="about-initialize-function-variables"><span class="header-section-number">3.2.2</span> About initialize function variables</h3>
+<p>Initialize function variables are introduced by the <code>@InitializeFunctionVariable</code> keyword.</p>
+<p>Initialize function variables are only defined in initialize functions, and can’t be used in the other code blocks.</p>
+<p>Contrary most variables (internal state variables, external state variables, etc.), initialize function variables can be defined after the first code block. However, care must be taken to declare initialize function variables <strong>before</strong> their use in an initialize function.</p>
+<p>Note that an initialize function variable can be used in differents initialize function.</p>
 <h2 data-number="3.3" id="sec:tfel_4.1:mfront:postprocessings"><span class="header-section-number">3.3</span> Post-processings of behaviours</h2>
 <p>The <code>@PostProcessing</code> keyword introduces a code block that can be used to perform computations independently of the behaviour integration. The outputs of post-processings are stored in so-called <em>post-processing variables</em>.</p>
 <p>Post-processings are typically meant to be called at the end of a time step, when the equilibrium has been reached.</p>
@@ -484,7 +484,7 @@
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>PostProcessing PrincipalStrain {</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  εᵖ = eto.computeEigenValues();</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<h3 data-number="3.3.2" id="about-post-processing-variables-1"><span class="header-section-number">3.3.2</span> About post-processing variables</h3>
+<h3 data-number="3.3.2" id="about-post-processing-variables"><span class="header-section-number">3.3.2</span> About post-processing variables</h3>
 <p>Post-processing variables are introduced by the <code>@PostProcessingVariable</code> keyword.</p>
 <p>Post-processing variables are only defined in post-processings, and can’t be used in the other code blocks.</p>
 <p>Contrary most variables (internal state variables, external state variables, etc.), post-processing variables can be defined after the first code block. However, care must be taken to declare post-processing variables <strong>before</strong> their use in a post-processing.</p>

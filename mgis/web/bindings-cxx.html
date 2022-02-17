@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -12,7 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>A brief introduction to the MGIS C++ library for mechanical behaviours</title>
         <meta name="author" content="Thomas Helfer" />
-            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+            <meta name="date" content="2020-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
@@ -161,7 +162,7 @@
 <div id="header">
 <h1 class="title">A brief introduction to the <code>MGIS</code> <code>C++</code> library for mechanical behaviours</h1>
 <h2 class="author">Thomas Helfer</h2>
-<h3 class="date">14/05/2019</h3>
+<h3 class="date">2020</h3>
 </div>
 <div id="TOC">
 <ul>
@@ -200,6 +201,8 @@
 <li><a href="#third-case-manual-allocation">Third case: manual allocation</a></li>
 </ul></li>
 <li><a href="#behaviour-integration">Behaviour integration</a></li>
+<li><a href="#sec:mgis:2.1:initialize_functions">Support for behaviours’ initialize functions</a></li>
+<li><a href="#sec:mgis:2.1:postprocessings">Support for behaviours’ post-processings</a></li>
 <li><a href="#orthotropic-behaviours">Orthotropic behaviours</a></li>
 <li><a href="#references">References</a></li>
 <li><a href="#bibliography">References</a></li>
@@ -414,6 +417,30 @@
 <p>The user may refer to the <code>IntegrateTest.cxx</code> file to have an example on how this use this version.</p>
 <p>The second one takes a <code>MaterialDataManager</code> and performs the behaviour integration on a range of integration points. The user may refer to the <code>IntegrateTest2.cxx</code> file to have an example on how this use this second overload.</p>
 <p>The third overload is similar to the second one but also takes an argument of the <code>ThreadPool</code> type allowing a parallelization of the behaviour integration. The user may refer to the <code>IntegrateTest2b.cxx</code> file to have an example on how this use this second overload.</p>
+<h1 id="sec:mgis:2.1:initialize_functions">Support for behaviours’ initialize functions</h1>
+<p>Since version 4.1, <code>MFront</code> behaviours can declare initialize functions which are meant to initialize the state of the material.</p>
+<p>The available initialize functions are described by the <code>initialize_functions</code> member of the <code>Behaviour</code> class which associates the name of the initialize function and a small data structure containing:</p>
+<ul>
+<li>the pointer to the initialize function,</li>
+<li>the list of inputs of the initialize function, if any.</li>
+</ul>
+<p>The <code>getInitializeFunctionVariablesArraySize</code> function returns the size of an array able to contain the inputs an initialize function for an integration point.</p>
+<p>The <code>allocateInitializeFunctionVariables</code> functions return an array able to store the inputs of an initialize function for a given integration point or a set of integrations points.</p>
+<p>The <code>executeInitializeFunction</code> functions execute an initialization function on a unique integration point or a set of integration points.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The <code>BehaviourDataView</code> class imposes that the initial state is immutable. Thus, initialize functions can thus only initialize the state of the material at the end of the time step. In most case, the call to the selected initialize functions shall be follow to a call to the <code>update</code> function.</p>
+</blockquote>
+<h1 id="sec:mgis:2.1:postprocessings">Support for behaviours’ post-processings</h1>
+<p>Since version 4.1, <code>MFront</code> behaviours can declare postprocessings which are meant to process the state of the material after the behaviour integration.</p>
+<p>The available postprocessings are described by the <code>postprocessings</code> member of the <code>Behaviour</code> class which associates the name of the postprocessing and a small data structure containing:</p>
+<ul>
+<li>the pointer to the postprocessing,</li>
+<li>the list of outputs of the postprocessing.</li>
+</ul>
+<p>The <code>getPostProcessingVariablesArraySize</code> function returns the size of an array able to contain the outputs an postprocessing for an integration point.</p>
+<p>The <code>allocatePostProcessingVariables</code> functions return an array able to store the outputs of a postprocessing for a given integration point or a set of integrations points.</p>
+<p>The <code>executePostProcessing</code> functions execute a postprocessing on a unique integration point or a set of integration points.</p>
 <h1 id="orthotropic-behaviours">Orthotropic behaviours</h1>
 <p>Orthotropic behaviours require to handle the rotations between the global frame and the material frame. This is described in depth <a href="orthotropic-behaviours.html">here</a>.</p>
 <h1 id="references">References</h1>

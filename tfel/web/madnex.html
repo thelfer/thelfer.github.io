@@ -299,12 +299,23 @@
 <li><a href="#sec:tfel-3.4.4:mfront:mandex_full_path">Alternative way to select a single material knowledge (material property, behaviour, model) in a <code>madnex</code> file</a></li>
 </ul></li>
 <li><a href="#mfront-python-module"><code>mfront</code> python module</a></li>
+<li><a href="#mtest-usage"><code>mtest</code> usage</a>
+<ul>
+<li><a href="#executing-a-test-stored-in-a-madnex-file">Executing a test stored in a <code>madnex</code> file</a></li>
+<li><a href="#execution-all-tests-associated-with-a-behaviour-stored-in-a-madnex-file">Execution all tests associated with a behaviour stored in a <code>madnex</code> file</a></li>
+</ul></li>
 <li><a href="#mfront-query-usage"><code>mfront-query</code> usage</a>
 <ul>
 <li><a href="#options-specific-to-madnex-files">Options specific to <code>madnex</code> files</a></li>
 <li><a href="#querying-information-about-implementation-options-specific-to-madnex-files">Querying information about implementation, options specific to <code>madnex</code> files</a></li>
 </ul></li>
 <li><a href="#storing-an-mfront-file-in-a-madnex-file">Storing an <code>MFront</code> file in a <code>madnex</code> file</a></li>
+<li><a href="#storing-an-mtest-file-in-a-madnex-file">Storing an <code>MTest</code> file in a <code>madnex</code> file</a>
+<ul>
+<li><a href="#c-application-programming-interface-api"><code>C++</code> Application Programming Interface (API)</a></li>
+<li><a href="#python-application-programming-interface-api"><code>Python</code> Application Programming Interface (API)</a></li>
+<li><a href="#best-practices">Best practices</a></li>
+</ul></li>
 <li><a href="#references">References</a></li>
 </ul>
 </div>
@@ -368,13 +379,36 @@
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>dsl <span class="op">=</span> mfront.getDSL(paths[<span class="dv">0</span>])</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>dsl.analyseFile(paths[<span class="dv">0</span>])</span></code></pre></div>
+<h1 id="mtest-usage"><code>mtest</code> usage</h1>
+<h2 id="executing-a-test-stored-in-a-madnex-file">Executing a test stored in a <code>madnex</code> file</h2>
+<p>To execute a test stored in a <code>madnex</code> file, the user must specify:</p>
+<ul>
+<li>the name of the <code>madnex</code> file</li>
+<li>the name of the test using the <code>--test</code> (or <code>-t</code>) command line argument.</li>
+<li>the name of the behaviour to which the test is associated using the <code>--behaviour</code> (or <code>-b</code>) command line argument.</li>
+<li>the name of the material is the behaviour to which the test is associated is associated with a material using the <code>--material</code> (or <code>-m</code>) command line argument. If the material is not specified, or if the special material name <code>&lt;none&gt;</code> is used, the behaviour associated with the test is assumed not associated with any material.</li>
+</ul>
+<p>Note that the <code>--test</code> (or <code>-t</code>) command line argument can accept regular expressions to select as set of tests.</p>
+<h3 id="example-of-usage-1">Example of usage</h3>
+<p>The following example executes the UniaxialTensileTest<code>test  associated with the</code>Plasticity<code>behaviour (and not attached to any material) using the behaviour</code>cyranoplasticity<code>compiled with the</code>cyrano<code>interface in a shared library</code>libCyranoBehaviours.so<code>located in the</code>src<code>subdirectory and stored in the</code>Plasticity.mdnx` file:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mtest  <span class="at">--behaviour</span><span class="op">=</span>Plasticity <span class="at">--test</span><span class="op">=</span>UniaxialTensileTest        <span class="dt">\</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">--@interface@</span><span class="op">=</span>cyrano <span class="at">--@behaviour@</span><span class="op">=</span><span class="st">&quot;&#39;cyranoplasticity&#39;&quot;</span>  <span class="dt">\</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">--@library@</span><span class="op">=</span><span class="st">&quot;&#39;src/libCyranoBehaviours.so&#39;&quot;</span>               <span class="dt">\</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>         Plasticity.mdnx</span></code></pre></div>
+<h2 id="execution-all-tests-associated-with-a-behaviour-stored-in-a-madnex-file">Execution all tests associated with a behaviour stored in a <code>madnex</code> file</h2>
+<p>The user can execute all tests associated with a behaviour using the <code>--all-tests</code> command line arguments. The user must specify the name of the behaviour (using the <code>--behaviour</code> (or <code>-b</code>) command line argument) and optionally the name of the material (using the <code>--material</code> (or <code>-m</code>) command line argument).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mtest  <span class="at">--behaviour</span><span class="op">=</span>Plasticity <span class="at">--@interface@</span><span class="op">=</span>cyrano <span class="dt">\</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">--@behaviour@</span><span class="op">=</span><span class="st">&quot;&#39;cyranoplasticity&#39;&quot;</span>          <span class="dt">\</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">--@library@</span><span class="op">=</span><span class="st">&quot;&#39;src/libCyranoBehaviours.so&#39;&quot;</span>  <span class="dt">\ </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="ex">--all-tests</span> Plasticity.mdnx                 <span class="dt">\</span></span></code></pre></div>
+<p>The <code>--all-tests</code> command line argument is equivalent to <code>--test=".+"</code>.</p>
 <h1 id="mfront-query-usage"><code>mfront-query</code> usage</h1>
 <h2 id="options-specific-to-madnex-files">Options specific to <code>madnex</code> files</h2>
 <p>Several options has been added to the <code>mfront-query</code> specifically for <code>madnex</code> files.</p>
 <p>Queries of the file itself (list of materials, behaviours, etc…) are also provided by the <code>madnex-query</code> tool.</p>
 <h3 id="listing-all-material-a-madnex-file">Listing all material a <code>madnex</code> file</h3>
 <p>The <code>--list-materials</code> returns the list of all materials in a <code>MFront</code> file:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-materials</span> file.madnex</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-materials</span> file.madnex</span></code></pre></div>
 <h3 id="listing-of-all-material-properties-all-behaviours-or-all-models">Listing of all material properties, all behaviours or all models</h3>
 <p>The following options are available:</p>
 <ul>
@@ -383,28 +417,78 @@
 <li><code>--list-models</code>: list of all models.</li>
 </ul>
 <p>A typical call is as follows:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> <span class="kw">`</span><span class="ex">mfront-query</span><span class="kw">`</span> <span class="at">--list-behaviours</span> file.madnex</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-behaviours</span> file.madnex</span></code></pre></div>
 <p>The previous options are affected by the the definition of a material, as follows:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> <span class="kw">`</span><span class="ex">mfront-query</span><span class="kw">`</span> <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --list-behaviours file.madnex</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --list-behaviours file.madnex</span></code></pre></div>
 <h2 id="querying-information-about-implementation-options-specific-to-madnex-files">Querying information about implementation, options specific to <code>madnex</code> files</h2>
 <p>For a behaviour, the selection of an implementation on which the queries are made is done through the <code>--material</code> and <code>--behaviour</code> options. For example:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.madnex <span class="at">--state-variables</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.madnex <span class="at">--state-variables</span></span></code></pre></div>
 <p>Here, <code>behaviour_id</code> can be a regular expression.</p>
 <p>For material properties and models, the <code>--material-property</code> and <code>--model</code> options have a similar role than the <code>--behaviour</code> option for behaviours.</p>
+<h3 id="list-of-mtest-tests-associated-with-a-behaviour-in-a-madnex-file">List of <code>MTest</code> tests associated with a behaviour in a <code>madnex</code> file</h3>
+<p>The <code>--list-behaviour-mtest-tests</code> command line argument can be used to display the list of tests associated with a behaviour in a <code>madnex</code> file.</p>
+<p>Optionnally, this command line argument accept the options <code>sorted-by-behaviours</code> or <code>unsorted</code> (see the examples below).</p>
+<h4 id="examples-of-usage">Examples of usage</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query --list-behaviour-mtest-tests --test=<span class="st">&quot;.+Tensile.+&quot;</span> Plasticity.mdnx</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>- tests associated with behaviour Plasticity</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    - UniaxialTensileTest</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query --list-behaviour-mtest-tests=unsorted --test=<span class="st">&quot;.+Tensile.+&quot;</span> Plasticity.mdnx</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>UniaxialTensileTest</span></code></pre></div>
 <h1 id="storing-an-mfront-file-in-a-madnex-file">Storing an <code>MFront</code> file in a <code>madnex</code> file</h1>
 <p>The easiest way to store an <code>MFront</code> file is to create an instance of the <code>OverridableImplementation</code> class and then call the <code>write</code> function. Here is an example in <code>python</code>:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</span></code></pre></div>
 <p>However, the <code>OverridableImplementation</code> class also allows modifying the medata of a implementation, as follows:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>i.overrideBehaviourName(<span class="st">&quot;Plasticity_SRMA2022&quot;</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>i.overrideMaterial(<span class="st">&quot;A316LN&quot;</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>i.overrideAuthor(<span class="st">&quot;John Mac Enroe&quot;</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>i.overrideBehaviourName(<span class="st">&quot;Plasticity_SRMA2022&quot;</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>i.overrideMaterial(<span class="st">&quot;A316LN&quot;</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>i.overrideAuthor(<span class="st">&quot;John Mac Enroe&quot;</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</span></code></pre></div>
+<h1 id="storing-an-mtest-file-in-a-madnex-file">Storing an <code>MTest</code> file in a <code>madnex</code> file</h1>
+<h2 id="c-application-programming-interface-api"><code>C++</code> Application Programming Interface (API)</h2>
+<p>The <code>TFELMTest</code> library exposes a data structure named <code>TestDescription</code> which describes an <code>MTest</code> file and two functions called respectively <code>loadMTestFileContent</code> and <code>write</code>.</p>
+<h3 id="the-testdescription-data-structure">The <code>TestDescription</code> data structure</h3>
+<p>The <code>TestDescription</code> data structure exposes the following data members:</p>
+<ul>
+<li><code>author</code>, which describes the author of the test.</li>
+<li><code>date</code>, which describes the date at which the test has been created.</li>
+<li><code>description</code>, which describes a description of the test.</li>
+<li><code>behaviour</code>, name of the behaviour to which the test is associated. This data member is required to export the file in the <code>madnex</code> file format.</li>
+<li><code>material</code>, name of the material to which the test is associated. This data member can be empty.</li>
+<li><code>content</code>, content of the <code>MTest</code> file. This content can be filled from an existing <code>MTest</code> file using the <code>loadMTestFileContent</code> function.</li>
+</ul>
+<h3 id="the-loadmtestfilecontent-function">The <code>loadMTestFileContent</code> function</h3>
+<p>The <code>loadMTestFileContent</code> function loads the content of an <code>MTest</code> file and stores it in the <code>content</code> data member of a <code>TestDescription</code> data structure.</p>
+<h3 id="the-write-function">The <code>write</code> function</h3>
+<p>The <code>write</code> function exports an <code>MTest</code> test, described by a <code>TestDescription</code> data structure, to a file.</p>
+<p>The file format is deduced from the extension of the file.</p>
+<p>Currently, only extensions associated with the <a href="https://github.com/thelfer/madnex"><code>madnex</code> file format</a> are supported if <code>TFEL</code> is compiled with support of this file format. Those extensions are: <code>mdnx</code>, <code>madnex</code> (deprecated) or <code>edf</code> (experimental data file, deprecated). Note that the behaviour member of the metadata must be specified for export in the <code>madnex</code> file format.</p>
+<h2 id="python-application-programming-interface-api"><code>Python</code> Application Programming Interface (API)</h2>
+<p>The <code>mtest</code> <code>python</code> module reflects the <code>C++</code> API and exposes the <code>TestDescription</code> data structure and the <code>loadMTestFileContent</code> and <code>write</code> functions.</p>
+<h3 id="example-of-usage-2">Example of usage</h3>
+<p>The following example shows how to store an existing <code>MTest</code> file to a <code>madnex</code> file:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mtest</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> mtest.TestDescription()</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>d.author <span class="op">=</span> <span class="st">&#39;John Doe&#39;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>d.date <span class="op">=</span> <span class="st">&#39;01/03/2022&#39;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>d.name <span class="op">=</span> <span class="st">&#39;UniaxialTensileTest&#39;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>d.scheme <span class="op">=</span> <span class="st">&#39;mtest&#39;</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>d.behaviour <span class="op">=</span> <span class="st">&#39;Plasticity&#39;</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>mtest.loadMTestFileContent(d, <span class="st">&#39;Plasticity.mtest&#39;</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>mtest.write(d,<span class="st">&#39;Plasticity.mdnx&#39;</span>)</span></code></pre></div>
+<h2 id="best-practices">Best practices</h2>
+<p>We highly recommend to use the following substitution variables when defining the test:</p>
+<ul>
+<li><code>@interface@</code>, which is meant to be replaced by the interface to be used. This is very handy if the test can be run for different interfaces</li>
+<li><code>@library@</code>, which is meant to be replaced by the path to the shared library containing the tested behaviour.</li>
+<li><code>@behaviour@</code>, which contains the name of the function implementing the behaviour for the considered interface.</li>
+</ul>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-cea_edf_madnex_library_2020" class="csl-entry" role="doc-biblioentry">

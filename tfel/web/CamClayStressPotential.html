@@ -309,7 +309,12 @@
 </ul></li>
 </ul>
 </div>
-<p>This document describes the <code>CamClay</code> stress potential based on the <code>Cam-Clay</code> non linear elastic behaviours.</p>
+<p>This document describes the <code>CamClay</code> stress potential based on the <code>Cam-Clay</code> non linear elastic behaviours. The <code>CamClay</code> stress potential is the basis of the <code>CamClayElasticity</code> brick.</p>
+<p>The <code>CamClay</code> stress potential provides:</p>
+<ul>
+<li>automatic computation of the consistent tangent operator.</li>
+<li>a method called <code>computeElasticPrediction</code>.</li>
+</ul>
 <h1 data-number="1" id="description"><span class="header-section-number">1</span> Description</h1>
 <h2 data-number="1.1" id="hydrostatic-pressure"><span class="header-section-number">1.1</span> Hydrostatic pressure</h2>
 <p>The hydrostatic pressure <span class="math inline">\(p\)</span> is defined in this document using the conventions of geomechanics, as:</p>
@@ -320,7 +325,7 @@
 \qquad(1)\]</span></span> with <span class="math inline">\(e={\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\)</span></p>
 <p>The bulk modulus <span class="math inline">\(K\)</span> is assumed dependant of the hydrostatic pressure as follows: <span id="eq:mfront:camclay:bulk_modulus"><span class="math display">\[
 K{\left(p\right)} = {{\displaystyle \frac{\displaystyle 1+e_{0}}{\displaystyle \kappa}}}\,p
-\qquad(2)\]</span></span> where the hydrostatic is assumed strictly positive.</p>
+\qquad(2)\]</span></span> where the hydrostatic pressure is assumed strictly positive and where <span class="math inline">\(e_{0}\)</span> and <span class="math inline">\(\kappa\)</span> denotes repectively the initial void ratio and the unloading/reloading slope of the material.</p>
 <h2 data-number="1.3" id="hydrostatic-pressure-threshold"><span class="header-section-number">1.3</span> Hydrostatic pressure threshold</h2>
 <p>Equation (2) is only valid if the the hydrostatic is strictly positive. To ensure this, a threshold <span class="math inline">\(p_{\min}\)</span> is introduced.</p>
 <p>Below this threshold, the behaviour is assumed linear, as follows: <span id="eq:mfront:camclay:dp_de:2"><span class="math display">\[
@@ -351,7 +356,7 @@ p = -{\displaystyle \frac{\displaystyle \partial \phi^{p}}{\displaystyle \partia
 <ul>
 <li><strong>Case 1</strong>: <span class="math inline">\(\mu\)</span> is assumed independant of the stress state and can thus be identifier to the shear modulus of the Hooke law.</li>
 <li><strong>Case 2</strong>: <span class="math inline">\(\mu\)</span> is assumed to be related to a poisson ratio <span class="math inline">\(\nu\)</span> and the bulk modulus <span class="math inline">\(K\)</span> using the classical relationship of linear elasticity: <span id="eq:mfront:camclay:mu_K_nu"><span class="math display">\[
-\mu = {{\displaystyle \frac{\displaystyle 3\,{\left(1 - 2 \, \nu\right)}}{\displaystyle 2\,{\left(1 + \nu\right)}}}}\,K
+\mu = {{\displaystyle \frac{\displaystyle 3\,{\left(1 - 2 \, \nu\right)}}{\displaystyle 2\,{\left(1 + \`nu\right)}}}}\,K
 \qquad(8)\]</span></span></li>
 </ul>
 <h3 data-number="1.5.1" id="case-1"><span class="header-section-number">1.5.1</span> Case 1</h3>

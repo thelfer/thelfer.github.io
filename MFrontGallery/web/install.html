@@ -202,10 +202,21 @@
 <li><code>CMAKE_TOOLCHAIN_FILE</code>: specify a tool chain file (for cross-compilation).</li>
 </ul>
 <h3 id="variables-affecting-the-compilation-of-mfront-files">Variables affecting the compilation of <code>MFront</code> files</h3>
+<h4 id="option-passed-to-domain-specific-languages">Option passed to domain specific languages</h4>
+<p>The following variables can be used to define options passed to domain specific languages:</p>
 <ul>
-<li><code>MFM_BUILD_IDENTIFIER</code>: string variable specifying a build identifier. Defining this variable is only supported when using a version of <code>TFEL</code> greater than <code>4.1</code>.</li>
-<li><code>MFM_TREAT_PARAMETERS_AS_STATIC_VARIABLES</code>: boolean variables stating if parameters shall be treated as static variables. Defining this variable is only supported when using a version of <code>TFEL</code> greater than <code>4.1</code>.</li>
+<li><code>MFM_BUILD_IDENTIFIER</code>: string variable specifying a build identifier. By default, the build identifier exported by <code>MFront</code> will be empty. Defining this variable is only supported when using a version of <code>TFEL</code> greater than <code>4.1</code>.</li>
+<li><code>MFM_TREAT_PARAMETERS_AS_STATIC_VARIABLES</code>: boolean variable stating if the parameters shall be treated as static variables. By default, parameters are not defined as static variables by <code>MFront</code> allowing their modifications at runtime. The way of modifying parameters depends on the interface considered. Defining this variable is only supported when using a version of <code>TFEL</code> greater than <code>4.1</code>.</li>
+<li><code>MFM_ALLOW_PARAMETERS_INITIALIZATION_FROM_FILE</code>: boolean variable stating if <code>MFront</code> shall generate code for reading parameters from an external text file located in the current directory at runtime, a feature supported by most interfaces. By default, <code>MFront</code> does generate this code. Defining this variable is only supported when using a version of <code>TFEL</code> greater than <code>4.1</code>.</li>
 </ul>
+<p><code>MFrontGallery</code> may use more refined variables to define the options passed to <code>MFront</code>’ domain specific languages. The name of those variables depends on the name of the considered interface and the type of the material knowledge considered.</p>
+<p>Assuming that the <code>castem</code> interface as been enabled for behaviours, the build identifier passed to the domain specific languages of <code>MFront</code>’ files compiled with this interface is defined by one of the following variables:</p>
+<ul>
+<li><code>MFM_CASTEM_BEHAVIOURS_BUILD_IDENTIFIER</code></li>
+<li><code>MFM_CASTEM_BUILD_IDENTIFIER</code></li>
+<li><code>MFM_BUILD_IDENTIFIER</code></li>
+</ul>
+<p>The definition of all those variables is optional.</p>
 <h3 id="interface-selection">Interface selection</h3>
 <h4 id="interface-to-material-properties">Interface to material properties</h4>
 <ul>

@@ -191,9 +191,14 @@
 <ul>
 <li><a href="#example-of-usage-1">Example of usage</a></li>
 </ul></li>
+<li><a href="#sec:mgis:2.1:extractInternalStateVariable">Utility function to extract the value of an internal state variable</a>
+<ul>
+<li><a href="#example-of-usage-2">Example of usage</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#issues-solved">Issues solved</a>
 <ul>
+<li><a href="#issue-95-add-an-utility-function-to-extract-the-value-of-an-internal-state-variable">Issue #95: Add an utility function to extract the value of an internal state variable</a></li>
 <li><a href="#issue-83-add-support-for-extended-variable-types">Issue #83: Add support for extended variable types</a></li>
 <li><a href="#issue-82-add-support-for-behaviour-post-processings">Issue #82: Add support for behaviour post-processings</a></li>
 <li><a href="#issue-78-add-support-for-behaviours-which-does-not-declare-the-temperature-as-the-first-external-state-variable">Issue #78: Add support for behaviours which does not declare the temperature as the first external state variable</a></li>
@@ -290,7 +295,17 @@
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">// execute the post-processing</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> outputs = allocatePostProcessingVariables(m, <span class="st">&quot;PrincipalStrain&quot;</span>);</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>executePostProcessing(outputs, m, <span class="st">&quot;PrincipalStrain&quot;</span>);</span></code></pre></div>
+<h2 id="sec:mgis:2.1:extractInternalStateVariable">Utility function to extract the value of an internal state variable</h2>
+<p>The <code>extractInternalStateVariable</code> function can now be used to extract the value of an internal state variable in a pre-allocated buffer.</p>
+<h3 id="example-of-usage-2">Example of usage</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> m = MaterialDataManager{b, <span class="dv">2</span><span class="bu">u</span>};</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> pr = <span class="bu">std::</span>vector&lt;real&gt;(<span class="dv">2</span><span class="bu">u</span>);</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>extractInternalStateVariable(pr, m.s1, <span class="st">&quot;HydrostaticPressure&quot;</span>);</span></code></pre></div>
 <h1 id="issues-solved">Issues solved</h1>
+<h2 id="issue-95-add-an-utility-function-to-extract-the-value-of-an-internal-state-variable">Issue #95: Add an utility function to extract the value of an internal state variable</h2>
+<p>This feature is described in Section 2.4.</p>
+<p>For more details, see <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/95" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/95</a>.</p>
 <h2 id="issue-83-add-support-for-extended-variable-types">Issue #83: Add support for extended variable types</h2>
 <p>This feature is described in depth in Section <strong>¿sec:mgis:2.1:extended_types?</strong>.</p>
 <p>For more details, see <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/83" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/83</a>.</p>

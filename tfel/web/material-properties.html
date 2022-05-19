@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Implementation material properties</title>
+    <title>Material properties in MFront</title>
         <meta name="author" content="Thomas Helfer" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
@@ -286,46 +286,220 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Implementation material properties</h1>
+<h1 class="title">Material properties in <code>MFront</code></h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">19/08/2021</h3>
 </div>
+<div id="TOC">
+<ul>
+<li><a href="#first-implementation-and-first-tests-in-python">First implementation and first tests in <code>Python</code></a>
+<ul>
+<li><a href="#creating-a-first-mfront-file.">Creating a first <code>MFront</code> file.</a></li>
+<li><a href="#description-of-the-mfront-implementation">Description of the <code>MFront</code> implementation</a>
+<ul>
+<li><a href="#the-dsl-keyword">The <code>@DSL</code> keyword</a></li>
+<li><a href="#the-law-keyword">The <code>@Law</code> keyword</a></li>
+<li><a href="#the-input-keyword">The <code>@Input</code> keyword</a></li>
+</ul></li>
+<li><a href="#the-function-keyword">The <code>@Function</code> keyword</a></li>
+<li><a href="#compilation-of-the-mfront-file-as-a-python-module">Compilation of the <code>MFront</code> file as a <code>python</code> module</a></li>
+<li><a href="#testing">Testing</a></li>
+</ul></li>
+<li><a href="#improvements">Improvements</a>
+<ul>
+<li><a href="#changing-the-name-of-the-output">Changing the name of the output</a></li>
+<li><a href="#physical-bounds">Physical bounds</a>
+<ul>
+<li><a href="#testing-in-python">Testing in <code>python</code></a></li>
+</ul></li>
+<li><a href="#standard-bounds">Standard bounds</a></li>
+<li><a href="#about-the-meaning-input-and-output-variables.">About the meaning input and output variables.</a>
+<ul>
+<li><a href="#changing-the-name-of-the-output-1">Changing the name of the output</a></li>
+<li><a href="#documenting-the-variables-for-the-calling-solvers">Documenting the variables for the calling solvers</a></li>
+</ul></li>
+<li><a href="#add-other-metadata-for-assurance-quality">Add other metadata for assurance quality</a></li>
+<li><a href="#add-parameters">Add parameters</a></li>
+<li><a href="#explicit-coding-add-types-and-quantity-support.">Explicit coding: add types and quantity support.</a>
+<ul>
+<li><a href="#the-real-type-alias">The <code>real</code> type alias</a></li>
+<li><a href="#default-variable-type-in-the-materiallaw-dsl">Default variable type in the <code>MaterialLaw</code> DSL</a></li>
+<li><a href="#explicit-type-aliases">Explicit type aliases</a></li>
+<li><a href="#using-quantities">Using quantities</a></li>
+</ul></li>
+<li><a href="#add-unicode-symbols">Add unicode symbols</a></li>
+</ul></li>
+</ul>
+</div>
 <p>Material properties generally depend on some state variables which describes the current thermodynamical state of the material.</p>
-<h1 id="a-first-example-young-modulus-of-uranium-dioxide">A first example: Young modulus of uranium dioxide</h1>
-<p>The Young modulus of uranium dioxide is generally expressed as a function of the porosity of the material and its temperature as follows:</p>
-<p><span class="math display">\[
+<p>Compared to behaviours, which often needs to solve a system of ordinary differential equations, material properties are conceptually much simplier. However, their implementations, while straightforward, allow to introduce some key concepts in <code>MFront</code>, making a perfect introduction for beginners.</p>
+<p>This tutorial consider the example of the Young’ modulus of uranium dioxide, which can be represented, following <span class="citation" data-cites="martin_elastic_1989">[<a href="#ref-martin_elastic_1989" role="doc-biblioref">1</a>]</span>, by the following expression: <span id="eq:mfront:material_properties:UO2_YoungModulus"><span class="math display">\[
 E(T,f)=2.2693\,10^{11}\,(1-2.5\,f)\,(1-6.786\,10^{-5}\,T-4.23\,10^{-8}\,T^{2})
-\]</span></p>
-<p>A possible implementation of the Young modulus of uranium dioxide is:</p>
-<div class="sourceCode" id="UO2YoungModulus"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="UO2YoungModulus-1"><a href="#UO2YoungModulus-1"></a><span class="er">@</span>DSL MaterialLaw;          <span class="co">// treating a material property</span></span>
-<span id="UO2YoungModulus-2"><a href="#UO2YoungModulus-2"></a><span class="er">@</span>Material UO2;                <span class="co">// material name</span></span>
-<span id="UO2YoungModulus-3"><a href="#UO2YoungModulus-3"></a><span class="er">@</span>Law YoungModulus_Martin1989; <span class="co">// name of the material property </span></span>
-<span id="UO2YoungModulus-4"><a href="#UO2YoungModulus-4"></a><span class="er">@</span>Author   T. Helfer;  <span class="co">// author name</span></span>
-<span id="UO2YoungModulus-5"><a href="#UO2YoungModulus-5"></a><span class="er">@</span>Date     <span class="bn">04</span>/<span class="bn">04</span>/<span class="dv">2014</span>; <span class="co">// implentation date</span></span>
-<span id="UO2YoungModulus-6"><a href="#UO2YoungModulus-6"></a><span class="er">@</span>Description          <span class="co">// detailled description</span></span>
-<span id="UO2YoungModulus-7"><a href="#UO2YoungModulus-7"></a>{</span>
-<span id="UO2YoungModulus-8"><a href="#UO2YoungModulus-8"></a>  The elastic constants of polycrystalline UO2 <span class="kw">and</span></span>
-<span id="UO2YoungModulus-9"><a href="#UO2YoungModulus-9"></a>  (U, Pu) mixed oxides: a review <span class="kw">and</span> recommendations</span>
-<span id="UO2YoungModulus-10"><a href="#UO2YoungModulus-10"></a>  Martin, DG</span>
-<span id="UO2YoungModulus-11"><a href="#UO2YoungModulus-11"></a>  High Temperatures. High Pressures, <span class="dv">1989</span></span>
-<span id="UO2YoungModulus-12"><a href="#UO2YoungModulus-12"></a>}</span>
-<span id="UO2YoungModulus-13"><a href="#UO2YoungModulus-13"></a></span>
-<span id="UO2YoungModulus-14"><a href="#UO2YoungModulus-14"></a><span class="er">@</span>Output E;                    <span class="co">// output of the material property</span></span>
-<span id="UO2YoungModulus-15"><a href="#UO2YoungModulus-15"></a>E.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
-<span id="UO2YoungModulus-16"><a href="#UO2YoungModulus-16"></a><span class="er">@</span>Input T,f;                   <span class="co">// inputs of the material property</span></span>
-<span id="UO2YoungModulus-17"><a href="#UO2YoungModulus-17"></a>T.setGlossaryName(<span class="st">&quot;Temperature&quot;</span>);</span>
-<span id="UO2YoungModulus-18"><a href="#UO2YoungModulus-18"></a>f.setGlossaryName(<span class="st">&quot;Porosity&quot;</span>);</span>
-<span id="UO2YoungModulus-19"><a href="#UO2YoungModulus-19"></a></span>
-<span id="UO2YoungModulus-20"><a href="#UO2YoungModulus-20"></a><span class="er">@</span>PhysicalBounds T in [<span class="dv">0</span>:*[;    <span class="co">// Temperature is positive</span></span>
-<span id="UO2YoungModulus-21"><a href="#UO2YoungModulus-21"></a><span class="er">@</span>PhysicalBounds f in [<span class="dv">0</span>:<span class="fl">1.</span>];   <span class="co">// Porosity is positive and lower than one</span></span>
-<span id="UO2YoungModulus-22"><a href="#UO2YoungModulus-22"></a><span class="er">@</span>Bounds T in [<span class="fl">273.15</span>:<span class="fl">2610.15</span>]; <span class="co">// Validity range</span></span>
-<span id="UO2YoungModulus-23"><a href="#UO2YoungModulus-23"></a></span>
-<span id="UO2YoungModulus-24"><a href="#UO2YoungModulus-24"></a><span class="er">@</span>Function                     <span class="co">// implementation body</span></span>
-<span id="UO2YoungModulus-25"><a href="#UO2YoungModulus-25"></a>{</span>
-<span id="UO2YoungModulus-26"><a href="#UO2YoungModulus-26"></a>  E = <span class="fl">2.2693e11</span>*(<span class="fl">1.</span>-<span class="fl">2.5</span>*f)*(<span class="dv">1</span>-<span class="fl">6.786e-05</span>*T-<span class="fl">4.23e-08</span>*T*T);</span>
-<span id="UO2YoungModulus-27"><a href="#UO2YoungModulus-27"></a>}</span></code></pre></div>
-<p>The code computing the Young modulus, introduced by the <code>@Function</code> keyword on line 24, is reasonably closed to the mathematical expression of the material property.</p>
+\qquad(1)\]</span></span></p>
+<p>where <span class="math inline">\(T\)</span> is the temperature (Kelvin) and <span class="math inline">\(f\)</span> is the porosity. This expression is assumed valid for a temperature in the range <span class="math inline">\([273.15:2610.15]\)</span>.</p>
+<h1 id="first-implementation-and-first-tests-in-python">First implementation and first tests in <code>Python</code></h1>
+<h2 id="creating-a-first-mfront-file.">Creating a first <code>MFront</code> file.</h2>
+<p>Expression (1) can be implemented by the following code:</p>
+<div id="lst:mfront:material_properties:UO2YoungModulus-v0" class="listing cpp">
+<p>Listing 1: First implementation of the Young' modulus of uranium dioxide</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL MaterialLaw;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Law YoungModulus;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input T, f;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Function {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  res = <span class="fl">2.2693e11</span> * (<span class="dv">1</span> - <span class="fl">2.5</span> * f) * (<span class="dv">1</span> - <span class="fl">6.786e-05</span> * T - <span class="fl">4.23e-08</span> * T * T);</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<p>This code is assumed to be in a standard text file called <code>YoungModulus.mfront</code> which can be edited using any text editor.</p>
+<blockquote>
+<p><strong>About editing <code>MFront</code> files</strong></p>
+<p>Most text editors have special modes for <code>C++</code> highlighting and we strongly to associate file with the extension <code>.mfront</code> with <code>C++</code> mode.</p>
+<p>Note that an experimental text editor called <code>tfel-editor</code> with specific support for <code>MFront</code> is also available here: <a href="https://github.com/thelfer/tfel-editor" class="uri">https://github.com/thelfer/tfel-editor</a></p>
+</blockquote>
+<h2 id="description-of-the-mfront-implementation">Description of the <code>MFront</code> implementation</h2>
+<p>Listing 1 shows that an <code>MFront</code> file contains special keywords starting with the at sign <code>@</code>.</p>
+<h3 id="the-dsl-keyword">The <code>@DSL</code> keyword</h3>
+<p>The first line, staring with the <code>@DSL</code> keyword, defines the domain specific language used by <code>MFront</code> to interpret the file. Domain specific languages defines the kind of material knowledge treated by the file (material property, behaviour, model) and also, for behaviours, a class of numerical algorithms used to integrate the constitutive equations over a time step. Each DSL has its own conventions and defines its own keywords (however, many keywords are common to several DSLs).</p>
+<blockquote>
+<p><strong>About domain specific languages and getting help</strong></p>
+<p>The list of DSLs, as well as a small description of each DSL, can be retrieved as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-dsl</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">available</span> dsl: </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> DefaultCZMDSL                 : this parser is the most generic one as it</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">does</span> not make any restriction on the behaviour or the integration method that</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">may</span> be used.</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">....</span> </span></code></pre></div>
+<p>The list of keywords associated with a DSL can be requested as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-keywords</span><span class="op">=&lt;</span>DSLName<span class="op">&gt;</span></span></code></pre></div>
+<p>where <code>DSLName</code> is the name of the DSL. For example, the list of keywords defined by the <code>MaterialLaw</code> DSL using in this tutorial is given by:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--help-keywords-list</span><span class="op">=</span>MaterialLaw</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> @Author         <span class="er">(</span><span class="ex">documented</span><span class="kw">)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> @Bounds         <span class="er">(</span><span class="ex">documented</span><span class="kw">)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> @Constant       <span class="er">(</span><span class="ex">documented</span><span class="kw">)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> @DSL            <span class="er">(</span><span class="ex">documented</span><span class="kw">)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> ...</span></code></pre></div>
+<p>Finally, the documentation of a keyword can be displayed by:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--help-keyword</span><span class="op">=</span>MaterialLaw:@Input</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> <span class="kw">`</span><span class="ex">@Input</span><span class="kw">`</span> keyword specifies one or several inputs of a material</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">law.</span> This keyword is followed by the names of the inputs, separated by</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">commas.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">....</span></span></code></pre></div>
+</blockquote>
+<h3 id="the-law-keyword">The <code>@Law</code> keyword</h3>
+<p>The second line defines the name of the material property. For this first implementation, the very generic and unspecific name <code>YoungModulus</code> is used. This named will be replaced by a more explicit name latter in this tutorial.</p>
+<p>Some restrictions apply to the name of the law, see the documentation of the <code>@Law</code> keyword for details.</p>
+<h3 id="the-input-keyword">The <code>@Input</code> keyword</h3>
+<p>The third line defines the two input variables of the material property, named respectively <code>T</code> and <code>f</code>.</p>
+<h2 id="the-function-keyword">The <code>@Function</code> keyword</h2>
+<p>The implementation of Expression (1) is done in a code block introduced by the <code>@Function</code> keyword. By default, this code block must store the result of the material property in a variable called <code>res</code>.</p>
+<p>Its is worth emphasing that this implementation is here reasonably closed to (1).</p>
+<h2 id="compilation-of-the-mfront-file-as-a-python-module">Compilation of the <code>MFront</code> file as a <code>python</code> module</h2>
+<p>Assuming that <code>MFront</code> was compiled with support for the <code>python</code> interface, the <code>YoungModulus.mfront</code> can now be used to generate a <code>python</code> module in two steps:</p>
+<ol type="1">
+<li><p>Generate sources files from the <code>MFront</code> file. This is done by the following call to the <code>mfront</code> executable:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--interface</span><span class="op">=</span>python YoungModulus.mfront</span></code></pre></div>
+<p><code>MFront</code> will generally generate two sub-directory named respectively <code>include</code> and <code>src</code>.</p></li>
+<li><p>Compile the generated sources in shared libraries (here a single <code>python</code> module):</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Treating</span> target : all</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following library has been built :</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> materiallaw.so :  YoungModulus</span></code></pre></div>
+<p>Note that the <code>materiallaw</code> shared library is compiled in the <code>src</code> directory. Its name may differ depending on the operating system considered (typically <code>Mac Os</code>, <code>LiNuX</code> or <code>Windows</code>).</p></li>
+</ol>
+<p>Those two steps can be done with this single instruction:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>python YoungModulus.mfront</span></code></pre></div>
+<h2 id="testing">Testing</h2>
+<p>At this stage, a shared library called <code>materiallaw.so</code> shall have been generated by <code>MFront</code> in the <code>src</code> directory. This shared library is a module directly usable in <code>python</code> as follows:</p>
+<pre class="{python}"><code>import materiallaw
+import numpy as np 
+from matplotlib import pyplot as plt 
+
+x = np.linspace(400, 1600) 
+y = np.array(map(materiallaw.YoungModulus, x))
+plt.xlabel(&quot;Temperature (K)&quot;) 
+plt.ylabel(&quot;Young&#39; modulus (Pa)&quot;) 
+plt.plot(x,y) 
+plt.show()</code></pre>
+<h1 id="improvements">Improvements</h1>
+<h2 id="changing-the-name-of-the-output">Changing the name of the output</h2>
+<p><code>res</code> is a poor name for the ouput variable. It can be changed using</p>
+<h2 id="physical-bounds">Physical bounds</h2>
+<p>At this stage, the function barely works, but can be used very inappropriately. For example, one may request the value of the Young modulus for a negative temperature, something which in our opinion shall lead to an error to indicate to the user that something very wrong is happening their code.</p>
+<p>Indeed, many quantities are intrinsically bounded. In our example, the temperature (in Kelvin) can’t be negative and the porosity shall be bounded in the range <span class="math inline">\([0:1]\)</span>. Those bounds are depicted as <em>physical bounds</em> in <code>MFront</code>.</p>
+<p>Such bounds can be introduced using the <code>@PhysicalBounds</code> keyword as follows:</p>
+<pre class="{cxx}"><code>@PhysicalBounds T in [0:*[;
+@PhysicalBounds f in [0:1];</code></pre>
+<p>where the <code>*</code> characters means infinity (and is followed by an open-bracket).</p>
+<h3 id="testing-in-python">Testing in <code>python</code></h3>
+<p>After specifying the physical bounds of our variables, the implementation is as follows:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"></code></pre></div>
+<h2 id="standard-bounds">Standard bounds</h2>
+<h2 id="about-the-meaning-input-and-output-variables.">About the meaning input and output variables.</h2>
+<h3 id="changing-the-name-of-the-output-1">Changing the name of the output</h3>
+<h3 id="documenting-the-variables-for-the-calling-solvers">Documenting the variables for the calling solvers</h3>
+<p>The names of the inputs variables are very generic and not self-explanatory. For example, nothing indicates to the reader that <code>f</code> stands for the porosity of the material. More precisely, <code>MFront</code> exports information about the material property that can be used by the calling solver. Among others, these information include the name of the inputs and the name of the output, as well as description of those variables.</p>
+<p>To emphasize this point, let us consider an handy tool called <a href="mfront-query.html"><code>mfront-query</code></a> which can be used to request all kind of information about an <code>MFront</code> file from the command line. Using <code>mfront-query</code> to list the inputs of this implementation leads to this disappointing and unuseful result:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--inputs</span> YoungModulus.mfront </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> T</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> f</span></code></pre></div>
+<p>While <code>MFront</code>’ users hardly ever use <code>mfront-query</code> directly, its mention here is meant to highlight the fact that and <code>MFront</code> file (or the shared library generated thanks to this <code>MFront</code> file, see below) generally must be self-descriptive and provide meaningful information to the solver that will use it.</p>
+<h4 id="variable-name-and-external-name">Variable name and external name</h4>
+<p>A first idea to solve this issue would be to used explicit variable names such as <code>Temperature</code> or <code>Porosity</code>, instead of <code>T</code> and <code>p</code> respectively. However, this solution rapidely becomes cumbersome in practice.</p>
+<p>To overcome this issue, <code>MFront</code> allows to associate an external name to a variable. By default, the external name is the same as the variable name. We will see in the following that this can be done using either the <code>setEntryName</code> method or the <code>setGlossaryName</code> method</p>
+<h4 id="about-standard-c-comments">About standard C++ comments</h4>
+<p>Another idea would be to highlight the meaning of those variables using <code>C++</code> comments has follows:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// T stands for the temperature</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input T;</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">// p stands for the porosity</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input p;</span></code></pre></div>
+<p>However, those comments are not associated to the variables by <code>MFront</code>, so the output of <code>mfront-query</code> is unchanged.</p>
+<h4 id="doxgen-like-comments"><code>doxgen</code>-like comments</h4>
+<p><code>MFront</code> support <a href="https://www.doxygen.nl/index.html"><code>doxygen</code>-like</a> comments to document variables, as follows:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! T stands for the temperature</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input T;</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">//! p stands for the porosity</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input p;</span></code></pre></div>
+<p>In this case, the output of <code>mfront-query</code> is a bit more informative:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--inputs</span> YoungModulus.mfront </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> T: T stands for the temperature</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> p: p stands for the porosity</span></code></pre></div>
+<h4 id="the-tfel-glossary-and-the-setglossaryname-method">The <code>TFEL</code> glossary and the <code>setGlossaryName</code> method</h4>
+<p>Still, all the previous solutions lack standardisation: all implementations using the temperature shall state explicitly and unambiguously that they are using this quantity.</p>
+<p>The <a href="glossary.html"><code>TFEL</code> glossary</a> defines a set of uniquely defined names that can be used to qualify a variable. A variable can be associated with a glossary name using the <code>setGlossaryName</code> as follows:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input T;</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>T.setGlossaryName(<span class="st">&quot;Temperature&quot;</span>);</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input f;</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>f.setGlossaryName(<span class="st">&quot;Porosity&quot;</span>);</span></code></pre></div>
+<p>The glossary name automatically defines the external name of the variable and automatically adds an approriate documentation. The output of <code>mfront-query</code> is now:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query --inputs YoungModulus.mfront </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>- Temperature (T): The temperature</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>- Porosity (f): Porosity of the material</span></code></pre></div>
+<h4 id="variables-not-covered-by-the-tfel-glossary-and-the-setentryname-method">Variables not covered by the <code>TFEL</code> glossary and the <code>setEntryName</code> method</h4>
+<p>The <code>TFEL</code> glossary is finite. If a variable is not described by a glossary entry, we highly recommend to give it an explicit external name using the <code>setEntryName</code> and to document it using <code>doxygen</code>-like comments.</p>
+<h2 id="add-other-metadata-for-assurance-quality">Add other metadata for assurance quality</h2>
+<h2 id="add-parameters">Add parameters</h2>
+<h2 id="explicit-coding-add-types-and-quantity-support.">Explicit coding: add types and quantity support.</h2>
+<h3 id="the-real-type-alias">The <code>real</code> type alias</h3>
+<p>By default, the input variables and the output variable will be defined as standard floating-point values with single precision (i.e. the <code>float</code> type in <code>C++</code>), double precision (<code>double</code> type in <code>C++</code>) or extended precision (<code>long double</code> type in <code>C++</code>) depending on the interface selected.</p>
+<p><code>MFront</code> always defines a type alias named <code>real</code> which corresponds to the floating point type effectively used.</p>
+<p>We strongly encourage <code>MFront</code> users to never use directly any of the <code>C++</code> standard types and use the <code>real</code> type alias instead.</p>
+<h3 id="default-variable-type-in-the-materiallaw-dsl">Default variable type in the <code>MaterialLaw</code> DSL</h3>
+<p>By default, variables in the <code>MaterialLaw</code> DSL have the <code>real</code> type. Hence the declaration</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input f;</span></code></pre></div>
+<p>is equivalent to:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input real f;</span></code></pre></div>
+<h3 id="explicit-type-aliases">Explicit type aliases</h3>
+<p><code>MFront</code> defines a set of type aliases, listed on <a href="mfront-types.html">this page</a>, such as <code>temperature</code>, <code>strain</code>, <code>stress</code>, etc.</p>
+<p>Hence, the temperature could be defined as follows:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input temperature f;</span></code></pre></div>
+<p>By default, <code>temperature</code>, <code>strain</code>, <code>stress</code> are defined as type aliases to floating point number type used by the interface.</p>
+<h3 id="using-quantities">Using quantities</h3>
+<h2 id="add-unicode-symbols">Add unicode symbols</h2>
 <!-- Local IspellDict: english -->
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-martin_elastic_1989" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Martin</span>, DG. The elastic constants of polycrystalline <span>UO</span>2 and (<span>U</span>,<span>Pu</span>) mixed oxides: A review and recommendations. <em>High Temperatures. High Pressures</em>. 1989. Vol. 21, no. 1, p. 13–24. </div>
+</div>
+</div>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

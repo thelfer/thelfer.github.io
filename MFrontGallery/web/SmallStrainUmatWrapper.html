@@ -11,8 +11,8 @@
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Introducing small strain legacy Abaqus/UMAT implementations in MFrontGallery</title>
-        <meta name="author" content="Thomas Helfer, Éric Simo" />
-            <meta name="date" content="2020-01-01" />
+        <meta name="author" content="Thomas Helfer, Eric Simo" />
+            <meta name="date" content="2022-09-03" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
@@ -151,8 +151,8 @@
 
 <div id="header">
 <h1 class="title">Introducing small strain legacy <code>Abaqus/UMAT</code> implementations in <code>MFrontGallery</code></h1>
-<h2 class="author">Thomas Helfer, Éric Simo</h2>
-<h3 class="date">2020</h3>
+<h2 class="author">Thomas Helfer, Eric Simo</h2>
+<h3 class="date">09/03/2022</h3>
 </div>
 <div id="TOC">
 <ul>
@@ -201,6 +201,8 @@
 </div>
 <!--
 pandoc --pdf-engine=xelatex -f markdown --csl=iso690-numeric-en.csl  --bibliography=bibliography.bib --filter pandoc-crossref --citeproc -V geometry:a4paper,margin=2cm --highlight-style=tango --number-sections --variable urlcolor=blue --toc SmallStrainUmatWrapper.md -o SmallStrainUmatWrapper.pdf
+
+# Introduction
 -->
 <p>Implementing a constitutive model is a long tedious and error-prone process, in particular for soils where a wide variety of phenomena must be taken into account. Moreover, the implementation must satisfy the interface requirements of the targeted solver.</p>
 <p>While <code>MFront</code> greatly reduces the amount of work required to implement a new behaviour, existing legacy implementations are highly valuable and their re-implementation in <code>MFront</code> should only be considered with caution considering the trade-offs. In our experience, such a re-implementation increases the maintainability and portability, and generally the numerical performances, but requires significant development efforts.</p>
@@ -213,6 +215,10 @@ pandoc --pdf-engine=xelatex -f markdown --csl=iso690-numeric-en.csl  --bibliogra
 <li>handles the transfer of the data from solver to the legacy implementation on input and output as illustrated in Figure 1.</li>
 <li>the definition of appropriate metadata which considerably simplifies the behaviour integration in the solver, in particular if the <a href="https://thelfer.github.io/mgis/web/index.html"><code>MFrontGenericInterfaceSupport</code> library</a> (<code>MGIS</code>) is used by the targeted solver <span class="citation" data-cites="Helfer2020 cea_mgis_2021">[<a href="#ref-Helfer2020" role="doc-biblioref">1</a>, <a href="#ref-cea_mgis_2021" role="doc-biblioref">2</a>]</span>.</li>
 </ul>
+<!--
+The latest version of this document can be found here:
+<https://thelfer.github.io/MFrontGallery/web/SmallStrainUmatWrapper.html>.
+-->
 <h1 data-number="1" id="description-of-the-wrapped-umat-implementation-and-role-of-the-wrapper"><span class="header-section-number">1</span> Description of the wrapped <code>UMAT</code> implementation and role of the wrapper</h1>
 <p>In this tutorial, we use a sightly modified version of the <code>umat.f</code> file delivered with the <code>CalculiX</code> finite element solver which implements an isotropic elastic behaviour in <code>3D</code>. This implementation is reported in Listing 2 of Appendix 8.1.</p>
 <p>This implementation is written in <code>Fortran 77</code> which may lead to a portability issue as the name of the resulting function is implementation defined. We will discard this issue for the moment and come by to it later by rewritting this function in <code>Fortran 95</code> using the <code>BIND(C)</code> attribute in Section 6.</p>
@@ -740,10 +746,16 @@ pandoc --pdf-engine=xelatex -f markdown --csl=iso690-numeric-en.csl  --bibliogra
 <!--
 # Acknowledgements
 
-This research was conducted in the framework of the `PLEIADES` project,
-which is supported financially by the French Alternative Energies and
-Atomic Energy Commission (CEA), Électricité de France (EDF) and
-Framatome.
+The development of TFEL/MFront is conducted in the framework of the
+`PLEIADES` project, which is supported financially by the French
+Alternative Energies and Atomic Energy Commission (CEA), Électricité de
+France (EDF) and Framatome.
+
+We also acknowledge contributions from Thomas Nagel and David Mašín
+during the genesis of this project. The funding by BGE mbH, the German
+federal company for radioactive waste is greatly acknowledged.
+
+\appendix
 -->
 <h1 data-number="8" id="appendix"><span class="header-section-number">8</span> Appendix</h1>
 <h2 data-number="8.1" id="sec:umat_wrapper:umat_source_code"><span class="header-section-number">8.1</span> Source code of the <code>UMAT</code> subroutine</h2>

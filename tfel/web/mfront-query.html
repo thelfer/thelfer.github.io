@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>mfront-query</title>
+    <title>Description of mfront-query</title>
         <meta name="author" content="Thomas Helfer" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
@@ -286,13 +286,17 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">mfront-query</h1>
+<h1 class="title">Description of <code>mfront-query</code></h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">15/03/2022</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#general-queries">General queries</a>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#usage">Usage</a></li>
+</ul></li>
+<li><a href="#sec:mfront_query:general_queries">General queries</a>
 <ul>
 <li><a href="#list-of-dependencies-of-an-mfront-file">List of dependencies of an <code>MFront</code> file</a></li>
 <li><a href="#querying-information-about-parameters-in-mfront-query">Querying information about parameters in <code>mfront-query</code></a></li>
@@ -301,7 +305,7 @@
 <li><a href="#retrieve-the-sources-associated-with-specific-targets">Retrieve the sources associated with specific targets</a></li>
 <li><a href="#the---list-implementation-paths-query">The <code>--list-implementation-paths</code> query</a></li>
 </ul></li>
-<li><a href="#behaviour-queries">Behaviour queries</a>
+<li><a href="#sec:mfront_query:behaviour_queries">Behaviour queries</a>
 <ul>
 <li><a href="#list-of-initialize-functions">List of initialize functions</a></li>
 <li><a href="#list-of-initialize-function-variables">List of initialize function variables</a></li>
@@ -310,45 +314,66 @@
 <li><a href="#list-of-mtest-tests-associated-with-a-behaviour-in-a-madnex-file">List of <code>MTest</code> tests associated with a behaviour in a <code>madnex</code> file</a></li>
 <li><a href="#list-of-mfm-test-generator-tests-associated-with-a-behaviour-in-a-madnex-file">List of <code>mfm-test-generator</code> tests associated with a behaviour in a <code>madnex</code> file</a></li>
 </ul></li>
+<li><a href="#sec:mfront_query:madnex_support"><code>madnex</code> files support</a>
+<ul>
+<li><a href="#options-specific-to-madnex-files">Options specific to <code>madnex</code> files</a></li>
+<li><a href="#querying-information-about-implementation-options-specific-to-madnex-files">Querying information about implementation, options specific to <code>madnex</code> files</a></li>
+</ul></li>
 </ul>
 </div>
-<h1 id="general-queries">General queries</h1>
+<h1 id="introduction">Introduction</h1>
+<p><code>mfront-query</code> is a command line tool used to retrieve information from an <code>MFront</code> file.</p>
+<h2 id="usage">Usage</h2>
+<p><code>mfront-query</code> can be used as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query [queries] [input-files]</span></code></pre></div>
+<blockquote>
+<p><code>madnex</code> files</p>
+<p>The support of madnex files is treated in depth in Section <span class="citation" data-cites="msec:mfront_query:madnex_support">[<a href="#ref-msec:mfront_query:madnex_support" role="doc-biblioref"><strong>msec:mfront_query:madnex_support?</strong></a>]</span>.</p>
+</blockquote>
+<p>The list of available queries depends on the kind of material knowledge described by the input files. The list of available queries can be displayed using one the following command line arguments:</p>
+<ul>
+<li><code>--help-material-property-queries-list</code>: lists the queries associated with material properties.</li>
+<li><code>--help-behaviour-queries-list</code>: list all queries avaiable for mfront behaviour files. Section 3 describes some of those queries in depth.</li>
+<li><code>--help-model-queries-list</code>: list all queries avaiable for mfront model files.</li>
+</ul>
+<p>Section 2 describes queries valid for all <code>MFront</code> files.</p>
+<h1 id="sec:mfront_query:general_queries">General queries</h1>
 <h2 id="list-of-dependencies-of-an-mfront-file">List of dependencies of an <code>MFront</code> file</h2>
 <p>The <code>--list-dependencies</code> query lists all the dependencies of an <code>MFront</code> file.</p>
 <p>If a dependency is encoded in a <code>madnex</code> file, an internal representation of the path to this dependency is returned (see example below).</p>
 <h3 id="example-of-usage">Example of usage</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-dependencies</span> <span class="at">--search-path</span><span class="op">=</span>generate   <span class="dt">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">--madnex-search-path</span><span class="op">=</span>MaterialProperties.mdnx <span class="dt">\</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               Test.mfront </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">madnex:generate/MaterialProperties.mdnx:MaterialProperty::YoungModulusTest</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-dependencies</span> <span class="at">--search-path</span><span class="op">=</span>generate   <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">--madnex-search-path</span><span class="op">=</span>MaterialProperties.mdnx <span class="dt">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               Test.mfront </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">madnex:generate/MaterialProperties.mdnx:MaterialProperty::YoungModulusTest</span></span></code></pre></div>
 <h2 id="querying-information-about-parameters-in-mfront-query">Querying information about parameters in <code>mfront-query</code></h2>
 <h3 id="list-of-parameters">List of parameters</h3>
 <p>The list of parameters in an <code>mfront</code> file can be retrieved as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> Rousselier.mfront</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> safety_factor_for_the_upper_bound_of_the_porosity: a safety factor for the porosity upper bound</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> safety_factor_for_the_upper_bound_of_the_porosity_for_fracture_detection: a safety factor for the porosity upper bound</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> staggered_scheme_porosity_criterion: stopping criterion value of the staggered scheme</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> staggered_scheme_maximum_number_of_iterations: maximum number of iterations of the staggered scheme allowed</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> minimal_time_step_scaling_factor: minimal value for the time step scaling factor</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> maximal_time_step_scaling_factor: maximal value for the time step scaling factor</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> numerical_jacobian_epsilon: perturbation value used to compute a numerical approximation of the jacobian</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> iterMax: maximum number of iterations allowed</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> Rousselier.mfront</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> safety_factor_for_the_upper_bound_of_the_porosity: a safety factor for the porosity upper bound</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> safety_factor_for_the_upper_bound_of_the_porosity_for_fracture_detection: a safety factor for the porosity upper bound</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> staggered_scheme_porosity_criterion: stopping criterion value of the staggered scheme</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> staggered_scheme_maximum_number_of_iterations: maximum number of iterations of the staggered scheme allowed</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> minimal_time_step_scaling_factor: minimal value for the time step scaling factor</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> maximal_time_step_scaling_factor: maximal value for the time step scaling factor</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> numerical_jacobian_epsilon: perturbation value used to compute a numerical approximation of the jacobian</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> iterMax: maximum number of iterations allowed</span></code></pre></div>
 <h3 id="querying-the-default-value-of-a-parameter">Querying the default value of a parameter</h3>
 <p>The default value of a parameter can be retrieved using the <code>--parameter-default-value</code> query, as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameter-default-value</span><span class="op">=</span>epsilon Rousselier.mfront </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">1.e-14</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameter-default-value</span><span class="op">=</span>iterMax Rousselier.mfront</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameter-default-value</span><span class="op">=</span>epsilon Rousselier.mfront </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">1.e-14</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameter-default-value</span><span class="op">=</span>iterMax Rousselier.mfront</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">100</span></span></code></pre></div>
 <h3 id="querying-the-type-of-a-parameter">Querying the type of a parameter</h3>
 <p>The type of a parameter can be retrieved through the <code>--parameter-type</code> query, as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameter-type</span><span class="op">=</span>iterMax Rousselier.mfront</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ushort</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameter-type</span><span class="op">=</span>iterMax Rousselier.mfront</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ushort</span></span></code></pre></div>
 <p>Here <code>ushort</code> means that the <code>iterMax</code> parameter is stored as unsigned short integer.</p>
 <h2 id="querying-the-name-of-the-parameters-file-through-mfront-query">Querying the name of the parameters’ file through <code>mfront-query</code></h2>
 <p>The name of the file which can be used to modify the parameters’ values (see Section <strong>¿sec:mfront:parameters:parameters_file?</strong>) can be retrieved with the <code>--parameters-file</code> query:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters-file</span> Rousselier.mfront </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rousseliertest-parameters.txt</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters-file</span> Rousselier.mfront </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rousseliertest-parameters.txt</span></span></code></pre></div>
 <h2 id="the---generated-sources-query">The <code>--generated-sources</code> query</h2>
 <p>The <code>--generated-sources</code> query can now have an option:</p>
 <ul>
@@ -369,39 +394,74 @@
 <li><code>sorted-by-files</code> (default): the implementations paths are preceded by the <code>madnex</code> file name.</li>
 <li><code>unsorted</code>: the implementations paths are not preceded by the <code>madnex</code> file name.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-implementation-paths</span><span class="op">=</span>unsorted <span class="at">--all-behaviours</span> Plasticity.mdnx</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">madnex:Plasticity.mdnx:behaviour::Plasticity</span></span></code></pre></div>
-<h1 id="behaviour-queries">Behaviour queries</h1>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-implementation-paths</span><span class="op">=</span>unsorted <span class="at">--all-behaviours</span> Plasticity.mdnx</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">madnex:Plasticity.mdnx:behaviour::Plasticity</span></span></code></pre></div>
+<h1 id="sec:mfront_query:behaviour_queries">Behaviour queries</h1>
 <h2 id="list-of-initialize-functions">List of initialize functions</h2>
 <p>The list of initialize functions defined by a behaviour can be retrieved using the <code>--initialize functions</code> query, as follows:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">mfront-query</span> <span class="at">--initialize-functions</span> Plasticity.mfront </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> ElasticStrainFromInitialStress: no description available.</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">mfront-query</span> <span class="at">--initialize-functions</span> Plasticity.mfront </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> ElasticStrainFromInitialStress: no description available.</span></code></pre></div>
 <h2 id="list-of-initialize-function-variables">List of initialize function variables</h2>
 <p>The list of initialize function’ variables defined by a behaviour can be retrieved using the <code>--initialize function-variables</code> query.</p>
 <h2 id="list-of-post-processings">List of post-processings</h2>
 <p>The list of post-processings defined by a behaviour can be retrieved using the <code>--post-processings</code> query, as follows:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--post-processings</span> Elasticity.mfront </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> PrincipalStrain: compute the principal strain. Modified post-processing variables are:</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> PrincipalStrain <span class="er">(</span><span class="ex">εᵖ</span><span class="kw">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--post-processings</span> Elasticity.mfront </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> PrincipalStrain: compute the principal strain. Modified post-processing variables are:</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> PrincipalStrain <span class="er">(</span><span class="ex">εᵖ</span><span class="kw">)</span></span></code></pre></div>
 <h2 id="list-of-post-processing-variables">List of post-processing variables</h2>
 <p>The list of post-processing’ variables defined by a behaviour can be retrieved using the <code>--post-processing-variables</code> query, as follows:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--post-processing-variables</span> Elasticity.mfront </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> PrincipalStrain <span class="er">(</span><span class="ex">εᵖ</span><span class="kw">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--post-processing-variables</span> Elasticity.mfront </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> PrincipalStrain <span class="er">(</span><span class="ex">εᵖ</span><span class="kw">)</span></span></code></pre></div>
 <h2 id="list-of-mtest-tests-associated-with-a-behaviour-in-a-madnex-file">List of <code>MTest</code> tests associated with a behaviour in a <code>madnex</code> file</h2>
 <p>The <code>--list-behaviour-mtest-tests</code> command line argument can be used to display the list of tests associated with a behaviour in a <code>madnex</code> file.</p>
 <p>Optionnally, this command line argument accept the options <code>sorted-by-behaviours</code> or <code>unsorted</code> (see the examples below).</p>
 <h3 id="examples-of-usage">Examples of usage</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query --list-behaviour-mtest-tests --test=<span class="st">&quot;.+Tensile.+&quot;</span> Plasticity.mdnx</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>- tests associated with behaviour Plasticity</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    - UniaxialTensileTest</span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query --list-behaviour-mtest-tests=unsorted --test=<span class="st">&quot;.+Tensile.+&quot;</span> Plasticity.mdnx</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>UniaxialTensileTest</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query --list-behaviour-mtest-tests --test=<span class="st">&quot;.+Tensile.+&quot;</span> Plasticity.mdnx</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>- tests associated with behaviour Plasticity</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    - UniaxialTensileTest</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query --list-behaviour-mtest-tests=unsorted --test=<span class="st">&quot;.+Tensile.+&quot;</span> Plasticity.mdnx</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>UniaxialTensileTest</span></code></pre></div>
 <h2 id="list-of-mfm-test-generator-tests-associated-with-a-behaviour-in-a-madnex-file">List of <code>mfm-test-generator</code> tests associated with a behaviour in a <code>madnex</code> file</h2>
 <p>The <code>--list-behaviour-mfm-test-generator-tests</code> command line argument can be used to display the list of tests associated with a behaviour in a <code>madnex</code> file.</p>
 <p>Optionnally, this command line argument accept the options <code>sorted-by-behaviours</code> or <code>unsorted</code> (see the examples below).</p>
 <h3 id="examples-of-usage-1">Examples of usage</h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query --list-behaviour-mfm-test-generator-tests --test=<span class="st">&quot;.+Tensile.+&quot;</span> Plasticity.mdnx</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query --list-behaviour-mfm-test-generator-tests=unsorted --test=<span class="st">&quot;.+Tensile.+&quot;</span> Plasticity.mdnx</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query --list-behaviour-mfm-test-generator-tests --test=<span class="st">&quot;.+Tensile.+&quot;</span> Plasticity.mdnx</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query --list-behaviour-mfm-test-generator-tests=unsorted --test=<span class="st">&quot;.+Tensile.+&quot;</span> Plasticity.mdnx</span></code></pre></div>
+<h1 id="sec:mfront_query:madnex_support"><code>madnex</code> files support</h1>
+<h2 id="options-specific-to-madnex-files">Options specific to <code>madnex</code> files</h2>
+<p>Several options has been added to the <code>mfront-query</code> specifically for <code>madnex</code> files.</p>
+<p>Queries of the file itself (list of materials, behaviours, etc…) are also provided by the <code>madnex-query</code> tool.</p>
+<h3 id="listing-all-material-a-madnex-file">Listing all material a <code>madnex</code> file</h3>
+<p>The <code>--list-materials</code> returns the list of all materials in a <code>MFront</code> file:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-materials</span> file.madnex</span></code></pre></div>
+<h3 id="listing-of-all-material-properties-all-behaviours-or-all-models">Listing of all material properties, all behaviours or all models</h3>
+<p>The following options are available:</p>
+<ul>
+<li><code>--list-material-properties</code>: list of material properties.</li>
+<li><code>--list-behaviours</code>: list of all behaviours.</li>
+<li><code>--list-models</code>: list of all models.</li>
+</ul>
+<p>A typical call is as follows:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-behaviours</span> file.madnex</span></code></pre></div>
+<p>The previous options are affected by the the definition of a material, as follows:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --list-behaviours file.madnex</span></code></pre></div>
+<h2 id="querying-information-about-implementation-options-specific-to-madnex-files">Querying information about implementation, options specific to <code>madnex</code> files</h2>
+<p>For a behaviour, the selection of an implementation on which the queries are made is done through the <code>--material</code> and <code>--behaviour</code> options. For example:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.madnex <span class="at">--state-variables</span></span></code></pre></div>
+<p>Here, <code>behaviour_id</code> can be a regular expression.</p>
+<p>For material properties and models, the <code>--material-property</code> and <code>--model</code> options have a similar role than the <code>--behaviour</code> option for behaviours.</p>
+<h3 id="list-of-mtest-tests-associated-with-a-behaviour-in-a-madnex-file-1">List of <code>MTest</code> tests associated with a behaviour in a <code>madnex</code> file</h3>
+<p>The <code>--list-behaviour-mtest-tests</code> command line argument can be used to display the list of tests associated with a behaviour in a <code>madnex</code> file.</p>
+<p>Optionnally, this command line argument accept the options <code>sorted-by-behaviours</code> or <code>unsorted</code> (see the examples below).</p>
+<h4 id="examples-of-usage-2">Examples of usage</h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query --list-behaviour-mtest-tests --test=<span class="st">&quot;.+Tensile.+&quot;</span> Plasticity.mdnx</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>- tests associated with behaviour Plasticity</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    - UniaxialTensileTest</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront-query --list-behaviour-mtest-tests=unsorted --test=<span class="st">&quot;.+Tensile.+&quot;</span> Plasticity.mdnx</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>UniaxialTensileTest</span></code></pre></div>
+<h3 id="list-of-mfm-test-generator-tests-associated-with-a-behaviour-in-a-madnex-file-1">List of <code>mfm-test-generator</code> tests associated with a behaviour in a <code>madnex</code> file</h3>
+<p>The <code>--list-behaviour-mfm-test-generator-tests</code> command line argument can be used to display the list of tests associated with a behaviour in a <code>madnex</code> file.</p>
+<p>Optionnally, this command line argument accept the options <code>sorted-by-behaviours</code> or <code>unsorted</code> (see the examples below).</p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

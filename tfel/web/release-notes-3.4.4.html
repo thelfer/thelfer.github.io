@@ -330,6 +330,10 @@
 <li><a href="#issue-49-mfront-query-query-sources-related-to-specific-targets"><span class="toc-section-number">4.16</span> Issue #49: [mfront-query] query sources related to specific targets</a></li>
 <li><a href="#issue-40-mfront-query-return-all-the-generated-sources-not-sorted-by-library"><span class="toc-section-number">4.17</span> Issue #40: [mfront-query] return all the generated sources (not sorted by library)</a></li>
 </ul></li>
+<li><a href="#build-system-changes"><span class="toc-section-number">5</span> Build system changes</a>
+<ul>
+<li><a href="#build-static-libraries"><span class="toc-section-number">5.1</span> Build static libraries</a></li>
+</ul></li>
 </ul>
 </div>
 <p>The page describes the new functionalities of Version 3.4.4 of the <code>TFEL</code> project.</p>
@@ -461,6 +465,11 @@
 <h2 data-number="4.17" id="issue-40-mfront-query-return-all-the-generated-sources-not-sorted-by-library"><span class="header-section-number">4.17</span> Issue #40: [mfront-query] return all the generated sources (not sorted by library)</h2>
 <p>See Section 3.6 for a description of the new features of the <code>--generated-sources</code> query.</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/40" class="uri">https://github.com/thelfer/tfel/issues/40</a>.</p>
+<h1 data-number="5" id="build-system-changes"><span class="header-section-number">5</span> Build system changes</h1>
+<h2 data-number="5.1" id="build-static-libraries"><span class="header-section-number">5.1</span> Build static libraries</h2>
+<p>When specifying <code>-DBUILD_SHARED_LIBS=OFF</code> (for CMake-based builds only) all libraries except of modules are build as static libraries. This allows for easier deployment of downstream applications which use TFEL / MFront.</p>
+<p>Also added the CMake-option <code>enable-testing</code> (defaults to <code>ON</code>) to disable all tests to speed-up compilation times.</p>
+<p>For more details, see <a href="https://github.com/thelfer/tfel/pull/217" class="uri">https://github.com/thelfer/tfel/pull/217</a>.</p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

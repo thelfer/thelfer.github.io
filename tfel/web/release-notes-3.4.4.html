@@ -292,53 +292,63 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#new-features-of-mfront"><span class="toc-section-number">1</span> New features of <code>mfront</code></a>
+<li><a href="#known-incompatilities"><span class="toc-section-number">1</span> Known incompatilities</a>
 <ul>
-<li><a href="#sec:tfel-3.4.4:mfront:mandex_full_path"><span class="toc-section-number">1.1</span> Alternative way to select a single material knowledge (material property, behaviour, model) in a <code>madnex</code> file</a></li>
+<li><a href="#known-incompatilities-in-mfront"><span class="toc-section-number">1.1</span> Known incompatilities in <code>MFront</code></a></li>
 </ul></li>
-<li><a href="#new-features-of-mtest"><span class="toc-section-number">2</span> New features of <code>mtest</code></a>
+<li><a href="#new-features-of-mfront"><span class="toc-section-number">2</span> New features of <code>MFront</code></a>
 <ul>
-<li><a href="#imposed-inner-radius-loading-in-pipe-modelling"><span class="toc-section-number">2.1</span> Imposed inner radius loading in pipe modelling</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront:mandex_full_path"><span class="toc-section-number">2.1</span> Alternative way to select a single material knowledge (material property, behaviour, model) in a <code>madnex</code> file</a></li>
 </ul></li>
-<li><a href="#new-features-of-mfront-query"><span class="toc-section-number">3</span> New features of <code>mfront-query</code></a>
+<li><a href="#new-features-of-mtest"><span class="toc-section-number">3</span> New features of <code>mtest</code></a>
 <ul>
-<li><a href="#sec:tfel-3.4.4:mfront-query:list_implementation_paths"><span class="toc-section-number">3.1</span> New <code>--list-implementation-paths</code> query</a></li>
-<li><a href="#sec:tfel-3.4.4:mfront-query:list_materials"><span class="toc-section-number">3.2</span> New <code>--list-materials</code> query</a></li>
-<li><a href="#sec:tfel-3.4.4:mfront-query:list_materials_properties"><span class="toc-section-number">3.3</span> Better <code>--list-material-properties</code> query</a></li>
-<li><a href="#sec:tfel-3.4.4:mfront-query:list_behaviours"><span class="toc-section-number">3.4</span> Better <code>--list-behaviours</code> query</a></li>
-<li><a href="#sec:tfel-3.4.4:mfront-query:list_models"><span class="toc-section-number">3.5</span> Better <code>--list-models</code> query</a></li>
-<li><a href="#sec:tfel-3.4.4:mfront-query:generated_sources"><span class="toc-section-number">3.6</span> Better <code>--generated-sources</code> query</a></li>
-<li><a href="#sec:tfel-3.4.4:mfront-query:specific_target_generated_sources"><span class="toc-section-number">3.7</span> Retrieve the sources associated with specific targets</a></li>
+<li><a href="#imposed-inner-radius-loading-in-pipe-modelling"><span class="toc-section-number">3.1</span> Imposed inner radius loading in pipe modelling</a></li>
 </ul></li>
-<li><a href="#issues-solved"><span class="toc-section-number">4</span> Issues solved</a>
+<li><a href="#new-features-of-mfront-query"><span class="toc-section-number">4</span> New features of <code>mfront-query</code></a>
 <ul>
-<li><a href="#issue-212-mfront-overridableimplementation-does-not-take-into-account-overriden-parameters"><span class="toc-section-number">4.1</span> Issue #212: [mfront] <code>OverridableImplementation</code> does not take into account overriden parameters</a></li>
-<li><a href="#issue-185-mfront-missing-inclusion-of-the-cstddef-header-in-mfrontgenericbehaviourtypes.h"><span class="toc-section-number">4.2</span> Issue #185: [mfront] missing inclusion of the <code>cstddef</code> header in <code>MFront/GenericBehaviour/Types.h</code></a></li>
-<li><a href="#issue-131-mfront-the-content-of-a-madnex-files-is-erased-when-writting-an-overridable-implementation"><span class="toc-section-number">4.3</span> Issue #131: [mfront] The content of a madnex files is erased when writting an overridable implementation</a></li>
-<li><a href="#issue-98-mfront-query-add-query-to-retrieve-all-implementation-paths"><span class="toc-section-number">4.4</span> Issue #98: [mfront-query] add query to retrieve all implementation paths</a></li>
-<li><a href="#issue-97-mfront-allow-to-specify-the-full-path-to-a-material-knowledge-material-property-behaviour-model-in-a-madnex-file-on-the-command-line"><span class="toc-section-number">4.5</span> Issue #97: [mfront] Allow to specify the full path to a material knowledge (material property, behaviour, model) in a <code>madnex</code> file on the command line</a></li>
-<li><a href="#issue-96-mfront-add-support-to-the---all-material-properties---all-behaviours---all-models-to-the-parsepathspecifierarguments-function-for-consistency-with-mfront"><span class="toc-section-number">4.6</span> Issue #96: [mfront] Add support to the <code>--all-material-properties</code>, <code>--all-behaviours</code>, <code>--all-models</code> to the <code>parsePathSpecifierArguments</code> function for consistency with <code>mfront</code></a></li>
-<li><a href="#issue-87-better---list-material-properties---list-behaviours-and---list-models-queries"><span class="toc-section-number">4.7</span> Issue #87: Better <code>--list-material-properties</code>, <code>--list-behaviours</code> and <code>--list-models queries</code></a></li>
-<li><a href="#issue-86-mfront-query-new---list-materials-query"><span class="toc-section-number">4.8</span> Issue #86: [mfront-query] new <code>--list-materials</code> query</a></li>
-<li><a href="#issue-85-mfront-support-for-the-.mdnx-file-extension-for-madnex-files"><span class="toc-section-number">4.9</span> Issue #85: [mfront] Support for the <code>.mdnx</code> file extension for <code>madnex</code> files</a></li>
-<li><a href="#issue-68-mfront-query-add-a---dsl-target-option"><span class="toc-section-number">4.10</span> Issue #68: [mfront-query] Add a <code>--dsl-target</code> option</a></li>
-<li><a href="#issue-67-mfront-query-add-a---has-model-query-option-enhancement"><span class="toc-section-number">4.11</span> Issue #67: [mfront-query] Add a <code>--has-model-query</code> option enhancement</a></li>
-<li><a href="#issue-64-mfront-query-add-a-query-for-the-class-name"><span class="toc-section-number">4.12</span> Issue #64: [mfront-query] Add a query for the class name</a></li>
-<li><a href="#issue-63-mfront-query-add-a-query-for-the-behaviour-name"><span class="toc-section-number">4.13</span> Issue #63: [mfront-query] Add a query for the behaviour name</a></li>
-<li><a href="#issue-62-tfel-config-add-a---quiet-failure-option"><span class="toc-section-number">4.14</span> Issue #62: [tfel-config] add a <code>--quiet-failure</code> option</a></li>
-<li><a href="#issue-59-mfront-doc-add-a-standalone-option"><span class="toc-section-number">4.15</span> Issue #59: [mfront-doc] add a standalone option</a></li>
-<li><a href="#issue-49-mfront-query-query-sources-related-to-specific-targets"><span class="toc-section-number">4.16</span> Issue #49: [mfront-query] query sources related to specific targets</a></li>
-<li><a href="#issue-40-mfront-query-return-all-the-generated-sources-not-sorted-by-library"><span class="toc-section-number">4.17</span> Issue #40: [mfront-query] return all the generated sources (not sorted by library)</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront-query:list_implementation_paths"><span class="toc-section-number">4.1</span> New <code>--list-implementation-paths</code> query</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront-query:list_materials"><span class="toc-section-number">4.2</span> New <code>--list-materials</code> query</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront-query:list_materials_properties"><span class="toc-section-number">4.3</span> Better <code>--list-material-properties</code> query</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront-query:list_behaviours"><span class="toc-section-number">4.4</span> Better <code>--list-behaviours</code> query</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront-query:list_models"><span class="toc-section-number">4.5</span> Better <code>--list-models</code> query</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront-query:generated_sources"><span class="toc-section-number">4.6</span> Better <code>--generated-sources</code> query</a></li>
+<li><a href="#sec:tfel-3.4.4:mfront-query:specific_target_generated_sources"><span class="toc-section-number">4.7</span> Retrieve the sources associated with specific targets</a></li>
 </ul></li>
-<li><a href="#build-system-changes"><span class="toc-section-number">5</span> Build system changes</a>
+<li><a href="#issues-solved"><span class="toc-section-number">5</span> Issues solved</a>
 <ul>
-<li><a href="#build-static-libraries"><span class="toc-section-number">5.1</span> Build static libraries</a></li>
+<li><a href="#issue-228-mfront-check-if-overriding-parameters-are-well-defined"><span class="toc-section-number">5.1</span> Issue #228: [mfront] check if overriding parameters are well defined</a></li>
+<li><a href="#issue-227-mfront-override-parameters-by-external-symbolic-or-variable-names"><span class="toc-section-number">5.2</span> Issue #227:￼ ￼[mfront] Override parameters by external, symbolic or variable names</a></li>
+<li><a href="#issue-212-mfront-overridableimplementation-does-not-take-into-account-overriden-parameters"><span class="toc-section-number">5.3</span> Issue #212: [mfront] <code>OverridableImplementation</code> does not take into account overriden parameters</a></li>
+<li><a href="#issue-185-mfront-missing-inclusion-of-the-cstddef-header-in-mfrontgenericbehaviourtypes.h"><span class="toc-section-number">5.4</span> Issue #185: [mfront] missing inclusion of the <code>cstddef</code> header in <code>MFront/GenericBehaviour/Types.h</code></a></li>
+<li><a href="#issue-131-mfront-the-content-of-a-madnex-files-is-erased-when-writting-an-overridable-implementation"><span class="toc-section-number">5.5</span> Issue #131: [mfront] The content of a madnex files is erased when writting an overridable implementation</a></li>
+<li><a href="#issue-98-mfront-query-add-query-to-retrieve-all-implementation-paths"><span class="toc-section-number">5.6</span> Issue #98: [mfront-query] add query to retrieve all implementation paths</a></li>
+<li><a href="#issue-97-mfront-allow-to-specify-the-full-path-to-a-material-knowledge-material-property-behaviour-model-in-a-madnex-file-on-the-command-line"><span class="toc-section-number">5.7</span> Issue #97: [mfront] Allow to specify the full path to a material knowledge (material property, behaviour, model) in a <code>madnex</code> file on the command line</a></li>
+<li><a href="#issue-96-mfront-add-support-to-the---all-material-properties---all-behaviours---all-models-to-the-parsepathspecifierarguments-function-for-consistency-with-mfront"><span class="toc-section-number">5.8</span> Issue #96: [mfront] Add support to the <code>--all-material-properties</code>, <code>--all-behaviours</code>, <code>--all-models</code> to the <code>parsePathSpecifierArguments</code> function for consistency with <code>mfront</code></a></li>
+<li><a href="#issue-87-better---list-material-properties---list-behaviours-and---list-models-queries"><span class="toc-section-number">5.9</span> Issue #87: Better <code>--list-material-properties</code>, <code>--list-behaviours</code> and <code>--list-models queries</code></a></li>
+<li><a href="#issue-86-mfront-query-new---list-materials-query"><span class="toc-section-number">5.10</span> Issue #86: [mfront-query] new <code>--list-materials</code> query</a></li>
+<li><a href="#issue-85-mfront-support-for-the-.mdnx-file-extension-for-madnex-files"><span class="toc-section-number">5.11</span> Issue #85: [mfront] Support for the <code>.mdnx</code> file extension for <code>madnex</code> files</a></li>
+<li><a href="#issue-68-mfront-query-add-a---dsl-target-option"><span class="toc-section-number">5.12</span> Issue #68: [mfront-query] Add a <code>--dsl-target</code> option</a></li>
+<li><a href="#issue-67-mfront-query-add-a---has-model-query-option-enhancement"><span class="toc-section-number">5.13</span> Issue #67: [mfront-query] Add a <code>--has-model-query</code> option enhancement</a></li>
+<li><a href="#issue-64-mfront-query-add-a-query-for-the-class-name"><span class="toc-section-number">5.14</span> Issue #64: [mfront-query] Add a query for the class name</a></li>
+<li><a href="#issue-63-mfront-query-add-a-query-for-the-behaviour-name"><span class="toc-section-number">5.15</span> Issue #63: [mfront-query] Add a query for the behaviour name</a></li>
+<li><a href="#issue-62-tfel-config-add-a---quiet-failure-option"><span class="toc-section-number">5.16</span> Issue #62: [tfel-config] add a <code>--quiet-failure</code> option</a></li>
+<li><a href="#issue-59-mfront-doc-add-a-standalone-option"><span class="toc-section-number">5.17</span> Issue #59: [mfront-doc] add a standalone option</a></li>
+<li><a href="#issue-49-mfront-query-query-sources-related-to-specific-targets"><span class="toc-section-number">5.18</span> Issue #49: [mfront-query] query sources related to specific targets</a></li>
+<li><a href="#issue-40-mfront-query-return-all-the-generated-sources-not-sorted-by-library"><span class="toc-section-number">5.19</span> Issue #40: [mfront-query] return all the generated sources (not sorted by library)</a></li>
+</ul></li>
+<li><a href="#build-system-changes"><span class="toc-section-number">6</span> Build system changes</a>
+<ul>
+<li><a href="#build-static-libraries"><span class="toc-section-number">6.1</span> Build static libraries</a></li>
 </ul></li>
 </ul>
 </div>
 <p>The page describes the new functionalities of Version 3.4.4 of the <code>TFEL</code> project.</p>
-<h1 data-number="1" id="new-features-of-mfront"><span class="header-section-number">1</span> New features of <code>mfront</code></h1>
-<h2 data-number="1.1" id="sec:tfel-3.4.4:mfront:mandex_full_path"><span class="header-section-number">1.1</span> Alternative way to select a single material knowledge (material property, behaviour, model) in a <code>madnex</code> file</h2>
+<h1 data-number="1" id="known-incompatilities"><span class="header-section-number">1</span> Known incompatilities</h1>
+<h2 data-number="1.1" id="known-incompatilities-in-mfront"><span class="header-section-number">1.1</span> Known incompatilities in <code>MFront</code></h2>
+<p>Declaration of variables in the <code>MaterialLaw</code> DSL is more restrictive: they they must now be defined before the <code>@Function</code> keyword.</p>
+<p>The same restriction apply to the declaration of external names (glossary or entry names).</p>
+<h1 data-number="2" id="new-features-of-mfront"><span class="header-section-number">2</span> New features of <code>MFront</code></h1>
+<h2 data-number="2.1" id="sec:tfel-3.4.4:mfront:mandex_full_path"><span class="header-section-number">2.1</span> Alternative way to select a single material knowledge (material property, behaviour, model) in a <code>madnex</code> file</h2>
 <p><code>mfront</code>, <code>mfront-query</code> and <code>mfront-doc</code> now allow to select a specific material knowledge inside a <code>madnex</code> file using the following syntax:</p>
 <pre><code>madnex:&lt;file&gt;:&lt;type&gt;:&lt;material&gt;:&lt;name&gt;</code></pre>
 <p>where:</p>
@@ -348,19 +358,19 @@
 <li><code>&lt;material&gt;</code> is the name of the material considered. This name can be empty or <code>&lt;none&gt;</code> if the considered material knowledge is not associated to a material.</li>
 <li><code>&lt;name&gt;</code> is the name of theconsidered material knowledge.</li>
 </ul>
-<h3 data-number="1.1.1" id="example-of-usage"><span class="header-section-number">1.1.1</span> Example of usage</h3>
+<h3 data-number="2.1.1" id="example-of-usage"><span class="header-section-number">2.1.1</span> Example of usage</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic madnex:Plasticity.mdnx:behaviour::Plasticity</span></code></pre></div>
 <p>or, equivalently:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic madnex:Plasticity.mdnx:behaviour:<span class="st">&quot;&lt;none&gt;&quot;</span>:Plasticity</span></code></pre></div>
-<h1 data-number="2" id="new-features-of-mtest"><span class="header-section-number">2</span> New features of <code>mtest</code></h1>
-<h2 data-number="2.1" id="imposed-inner-radius-loading-in-pipe-modelling"><span class="header-section-number">2.1</span> Imposed inner radius loading in pipe modelling</h2>
+<h1 data-number="3" id="new-features-of-mtest"><span class="header-section-number">3</span> New features of <code>mtest</code></h1>
+<h2 data-number="3.1" id="imposed-inner-radius-loading-in-pipe-modelling"><span class="header-section-number">3.1</span> Imposed inner radius loading in pipe modelling</h2>
 <p><code>PTest</code> now supports imposing the evolution of the inner radius of the pipe.</p>
-<h3 data-number="2.1.1" id="example-of-usage-1"><span class="header-section-number">2.1.1</span> Example of usage</h3>
+<h3 data-number="3.1.1" id="example-of-usage-1"><span class="header-section-number">3.1.1</span> Example of usage</h3>
 <p>The following code shows how to impose the evolution of the inner radius of the pipe:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RadialLoading <span class="ch">&#39;I</span><span class="er">mposedInnerRadius</span><span class="ch">&#39;</span>;</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InnerRadiusEvolution{<span class="dv">0</span> : <span class="fl">4.2e-3</span>, <span class="dv">1</span> : <span class="fl">4.3e-3</span>};</span></code></pre></div>
-<h1 data-number="3" id="new-features-of-mfront-query"><span class="header-section-number">3</span> New features of <code>mfront-query</code></h1>
-<h2 data-number="3.1" id="sec:tfel-3.4.4:mfront-query:list_implementation_paths"><span class="header-section-number">3.1</span> New <code>--list-implementation-paths</code> query</h2>
+<h1 data-number="4" id="new-features-of-mfront-query"><span class="header-section-number">4</span> New features of <code>mfront-query</code></h1>
+<h2 data-number="4.1" id="sec:tfel-3.4.4:mfront-query:list_implementation_paths"><span class="header-section-number">4.1</span> New <code>--list-implementation-paths</code> query</h2>
 <p>The <code>--list-implementation-paths</code> query returns explicit paths to material knowledge in a <code>madnex</code> file. This query has two options:</p>
 <ul>
 <li><code>sorted-by-files</code> (default): the implementations paths are preceded by the <code>madnex</code> file name.</li>
@@ -368,69 +378,73 @@
 </ul>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-implementation-paths</span><span class="op">=</span>unsorted <span class="at">--all-behaviours</span> Plasticity.mdnx</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">madnex:Plasticity.mdnx:behaviour::Plasticity</span></span></code></pre></div>
-<p>See also Section 1.1.</p>
-<h2 data-number="3.2" id="sec:tfel-3.4.4:mfront-query:list_materials"><span class="header-section-number">3.2</span> New <code>--list-materials</code> query</h2>
+<p>See also Section 2.1.</p>
+<h2 data-number="4.2" id="sec:tfel-3.4.4:mfront-query:list_materials"><span class="header-section-number">4.2</span> New <code>--list-materials</code> query</h2>
 <p>The <code>--list-materials</code> returns the list of materials for which material knowledge is defined inside a <a href="madnex.html"><code>madnex file</code></a>.</p>
 <p>If a material knowledge is not associated to a material, the special identifier <code>&lt;none&gt;</code> is returned.</p>
-<h2 data-number="3.3" id="sec:tfel-3.4.4:mfront-query:list_materials_properties"><span class="header-section-number">3.3</span> Better <code>--list-material-properties</code> query</h2>
+<h2 data-number="4.3" id="sec:tfel-3.4.4:mfront-query:list_materials_properties"><span class="header-section-number">4.3</span> Better <code>--list-material-properties</code> query</h2>
 <p>The <code>--list-material-properties</code> query can now have an option:</p>
 <ul>
 <li><code>sorted-by-materials</code> (default): which returns the material properties sorted by materials</li>
 <li><code>unsorted</code>: which returns all the material properties to be generated</li>
 </ul>
-<h2 data-number="3.4" id="sec:tfel-3.4.4:mfront-query:list_behaviours"><span class="header-section-number">3.4</span> Better <code>--list-behaviours</code> query</h2>
+<h2 data-number="4.4" id="sec:tfel-3.4.4:mfront-query:list_behaviours"><span class="header-section-number">4.4</span> Better <code>--list-behaviours</code> query</h2>
 <p>The <code>--list-behaviours</code> query can now have an option:</p>
 <ul>
 <li><code>sorted-by-materials</code> (default): which returns the behaviours sorted by materials</li>
 <li><code>unsorted</code>: which returns all the behaviours to be generated</li>
 </ul>
-<h2 data-number="3.5" id="sec:tfel-3.4.4:mfront-query:list_models"><span class="header-section-number">3.5</span> Better <code>--list-models</code> query</h2>
+<h2 data-number="4.5" id="sec:tfel-3.4.4:mfront-query:list_models"><span class="header-section-number">4.5</span> Better <code>--list-models</code> query</h2>
 <p>The <code>--list-models</code> query can now have an option:</p>
 <ul>
 <li><code>sorted-by-materials</code> (default): which returns the models sorted by materials</li>
 <li><code>unsorted</code>: which returns all the models to be generated</li>
 </ul>
-<h2 data-number="3.6" id="sec:tfel-3.4.4:mfront-query:generated_sources"><span class="header-section-number">3.6</span> Better <code>--generated-sources</code> query</h2>
+<h2 data-number="4.6" id="sec:tfel-3.4.4:mfront-query:generated_sources"><span class="header-section-number">4.6</span> Better <code>--generated-sources</code> query</h2>
 <p>The <code>--generated-sources</code> query can now have an option:</p>
 <ul>
 <li><code>sorted-by-libraries</code> (default): which returns the sources to be generated associated with each library</li>
 <li><code>unsorted</code>: which returns all the sources to be generated</li>
 </ul>
 <p>This option may be used in conjunction with the <code>--nomelt</code> option.</p>
-<h2 data-number="3.7" id="sec:tfel-3.4.4:mfront-query:specific_target_generated_sources"><span class="header-section-number">3.7</span> Retrieve the sources associated with specific targets</h2>
+<h2 data-number="4.7" id="sec:tfel-3.4.4:mfront-query:specific_target_generated_sources"><span class="header-section-number">4.7</span> Retrieve the sources associated with specific targets</h2>
 <p><code>mfront-query</code> now have two new queries:</p>
 <ul>
 <li><code>--specific-target-generated-sources</code> which allows to retrieve the sources generated by a specific target</li>
 <li><code>--all-specific-targets-generated-source</code>, which displays all the sources associated with specific targets</li>
 </ul>
 <p>By default, all sources associated with libraries dependencies of the specific targets are also displayed, unless the <code>--nomelt</code> command line argument is used.</p>
-<h1 data-number="4" id="issues-solved"><span class="header-section-number">4</span> Issues solved</h1>
-<h2 data-number="4.1" id="issue-212-mfront-overridableimplementation-does-not-take-into-account-overriden-parameters"><span class="header-section-number">4.1</span> Issue #212: [mfront] <code>OverridableImplementation</code> does not take into account overriden parameters</h2>
+<h1 data-number="5" id="issues-solved"><span class="header-section-number">5</span> Issues solved</h1>
+<h2 data-number="5.1" id="issue-228-mfront-check-if-overriding-parameters-are-well-defined"><span class="header-section-number">5.1</span> Issue #228: [mfront] check if overriding parameters are well defined</h2>
+<p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/228" class="uri">https://github.com/thelfer/tfel/issues/228</a></p>
+<h2 data-number="5.2" id="issue-227-mfront-override-parameters-by-external-symbolic-or-variable-names"><span class="header-section-number">5.2</span> Issue #227:￼ ￼[mfront] Override parameters by external, symbolic or variable names</h2>
+<p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/227" class="uri">https://github.com/thelfer/tfel/issues/227</a></p>
+<h2 data-number="5.3" id="issue-212-mfront-overridableimplementation-does-not-take-into-account-overriden-parameters"><span class="header-section-number">5.3</span> Issue #212: [mfront] <code>OverridableImplementation</code> does not take into account overriden parameters</h2>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/212" class="uri">https://github.com/thelfer/tfel/issues/212</a></p>
-<h2 data-number="4.2" id="issue-185-mfront-missing-inclusion-of-the-cstddef-header-in-mfrontgenericbehaviourtypes.h"><span class="header-section-number">4.2</span> Issue #185: [mfront] missing inclusion of the <code>cstddef</code> header in <code>MFront/GenericBehaviour/Types.h</code></h2>
+<h2 data-number="5.4" id="issue-185-mfront-missing-inclusion-of-the-cstddef-header-in-mfrontgenericbehaviourtypes.h"><span class="header-section-number">5.4</span> Issue #185: [mfront] missing inclusion of the <code>cstddef</code> header in <code>MFront/GenericBehaviour/Types.h</code></h2>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/185" class="uri">https://github.com/thelfer/tfel/issues/185</a></p>
-<h2 data-number="4.3" id="issue-131-mfront-the-content-of-a-madnex-files-is-erased-when-writting-an-overridable-implementation"><span class="header-section-number">4.3</span> Issue #131: [mfront] The content of a madnex files is erased when writting an overridable implementation</h2>
+<h2 data-number="5.5" id="issue-131-mfront-the-content-of-a-madnex-files-is-erased-when-writting-an-overridable-implementation"><span class="header-section-number">5.5</span> Issue #131: [mfront] The content of a madnex files is erased when writting an overridable implementation</h2>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/131" class="uri">https://github.com/thelfer/tfel/issues/131</a></p>
-<h2 data-number="4.4" id="issue-98-mfront-query-add-query-to-retrieve-all-implementation-paths"><span class="header-section-number">4.4</span> Issue #98: [mfront-query] add query to retrieve all implementation paths</h2>
-<p>This feature is described in Section 3.1</p>
+<h2 data-number="5.6" id="issue-98-mfront-query-add-query-to-retrieve-all-implementation-paths"><span class="header-section-number">5.6</span> Issue #98: [mfront-query] add query to retrieve all implementation paths</h2>
+<p>This feature is described in Section 4.1</p>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/98" class="uri">https://github.com/thelfer/tfel/issues/98</a></p>
-<h2 data-number="4.5" id="issue-97-mfront-allow-to-specify-the-full-path-to-a-material-knowledge-material-property-behaviour-model-in-a-madnex-file-on-the-command-line"><span class="header-section-number">4.5</span> Issue #97: [mfront] Allow to specify the full path to a material knowledge (material property, behaviour, model) in a <code>madnex</code> file on the command line</h2>
-<p>This feature is described in Section 1.1.</p>
+<h2 data-number="5.7" id="issue-97-mfront-allow-to-specify-the-full-path-to-a-material-knowledge-material-property-behaviour-model-in-a-madnex-file-on-the-command-line"><span class="header-section-number">5.7</span> Issue #97: [mfront] Allow to specify the full path to a material knowledge (material property, behaviour, model) in a <code>madnex</code> file on the command line</h2>
+<p>This feature is described in Section 2.1.</p>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/97" class="uri">https://github.com/thelfer/tfel/issues/97</a></p>
-<h2 data-number="4.6" id="issue-96-mfront-add-support-to-the---all-material-properties---all-behaviours---all-models-to-the-parsepathspecifierarguments-function-for-consistency-with-mfront"><span class="header-section-number">4.6</span> Issue #96: [mfront] Add support to the <code>--all-material-properties</code>, <code>--all-behaviours</code>, <code>--all-models</code> to the <code>parsePathSpecifierArguments</code> function for consistency with <code>mfront</code></h2>
+<h2 data-number="5.8" id="issue-96-mfront-add-support-to-the---all-material-properties---all-behaviours---all-models-to-the-parsepathspecifierarguments-function-for-consistency-with-mfront"><span class="header-section-number">5.8</span> Issue #96: [mfront] Add support to the <code>--all-material-properties</code>, <code>--all-behaviours</code>, <code>--all-models</code> to the <code>parsePathSpecifierArguments</code> function for consistency with <code>mfront</code></h2>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/96" class="uri">https://github.com/thelfer/tfel/issues/96</a></p>
-<h2 data-number="4.7" id="issue-87-better---list-material-properties---list-behaviours-and---list-models-queries"><span class="header-section-number">4.7</span> Issue #87: Better <code>--list-material-properties</code>, <code>--list-behaviours</code> and <code>--list-models queries</code></h2>
-<p>Theses features are described in Sections 3.3, 3.4 and 3.5.</p>
+<h2 data-number="5.9" id="issue-87-better---list-material-properties---list-behaviours-and---list-models-queries"><span class="header-section-number">5.9</span> Issue #87: Better <code>--list-material-properties</code>, <code>--list-behaviours</code> and <code>--list-models queries</code></h2>
+<p>Theses features are described in Sections 4.3, 4.4 and 4.5.</p>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/87" class="uri">https://github.com/thelfer/tfel/issues/87</a></p>
-<h2 data-number="4.8" id="issue-86-mfront-query-new---list-materials-query"><span class="header-section-number">4.8</span> Issue #86: [mfront-query] new <code>--list-materials</code> query</h2>
-<p>This feature is described in Section 3.2.</p>
+<h2 data-number="5.10" id="issue-86-mfront-query-new---list-materials-query"><span class="header-section-number">5.10</span> Issue #86: [mfront-query] new <code>--list-materials</code> query</h2>
+<p>This feature is described in Section 4.2.</p>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/86" class="uri">https://github.com/thelfer/tfel/issues/86</a></p>
-<h2 data-number="4.9" id="issue-85-mfront-support-for-the-.mdnx-file-extension-for-madnex-files"><span class="header-section-number">4.9</span> Issue #85: [mfront] Support for the <code>.mdnx</code> file extension for <code>madnex</code> files</h2>
+<h2 data-number="5.11" id="issue-85-mfront-support-for-the-.mdnx-file-extension-for-madnex-files"><span class="header-section-number">5.11</span> Issue #85: [mfront] Support for the <code>.mdnx</code> file extension for <code>madnex</code> files</h2>
 <p>For more details, see : <a href="https://github.com/thelfer/tfel/issues/85" class="uri">https://github.com/thelfer/tfel/issues/85</a></p>
-<h2 data-number="4.10" id="issue-68-mfront-query-add-a---dsl-target-option"><span class="header-section-number">4.10</span> Issue #68: [mfront-query] Add a <code>--dsl-target</code> option</h2>
+<h2 data-number="5.12" id="issue-68-mfront-query-add-a---dsl-target-option"><span class="header-section-number">5.12</span> Issue #68: [mfront-query] Add a <code>--dsl-target</code> option</h2>
 <p><code>mfront-query</code> now have <code>--dsl-target</code> option which returns the kind of material knowledge described by a file (material property, behaviour, or model).</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/68" class="uri">https://github.com/thelfer/tfel/issues/68</a>.</p>
-<h2 data-number="4.11" id="issue-67-mfront-query-add-a---has-model-query-option-enhancement"><span class="header-section-number">4.11</span> Issue #67: [mfront-query] Add a <code>--has-model-query</code> option enhancement</h2>
+<h2 data-number="5.13" id="issue-67-mfront-query-add-a---has-model-query-option-enhancement"><span class="header-section-number">5.13</span> Issue #67: [mfront-query] Add a <code>--has-model-query</code> option enhancement</h2>
 <p><code>mfront-query</code> now have <code>--has-model-query</code> option that can be used as follows:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--has-model-query</span><span class="op">=</span>class-name</span></code></pre></div>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/67" class="uri">https://github.com/thelfer/tfel/issues/67</a>.</p>
@@ -442,10 +456,10 @@
 <p><code>mfront-query</code> now have <code>--has-behaviour-query</code> option that can be used as follows:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--has-behaviour-query</span><span class="op">=</span>class-name</span></code></pre></div>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/65" class="uri">https://github.com/thelfer/tfel/issues/65</a>.</p>
-<h2 data-number="4.12" id="issue-64-mfront-query-add-a-query-for-the-class-name"><span class="header-section-number">4.12</span> Issue #64: [mfront-query] Add a query for the class name</h2>
+<h2 data-number="5.14" id="issue-64-mfront-query-add-a-query-for-the-class-name"><span class="header-section-number">5.14</span> Issue #64: [mfront-query] Add a query for the class name</h2>
 <p><code>mfront-query</code> now has a <code>--class-name</code> query which works for material properties, behaviours and models.</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/64" class="uri">https://github.com/thelfer/tfel/issues/64</a>.</p>
-<h2 data-number="4.13" id="issue-63-mfront-query-add-a-query-for-the-behaviour-name"><span class="header-section-number">4.13</span> Issue #63: [mfront-query] Add a query for the behaviour name</h2>
+<h2 data-number="5.15" id="issue-63-mfront-query-add-a-query-for-the-behaviour-name"><span class="header-section-number">5.15</span> Issue #63: [mfront-query] Add a query for the behaviour name</h2>
 <p><code>mfront-query</code> now has:</p>
 <ul>
 <li>a <code>--law-name</code> query for material properties.</li>
@@ -453,20 +467,20 @@
 <li>a <code>--model-name</code> query for models.</li>
 </ul>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/63" class="uri">https://github.com/thelfer/tfel/issues/63</a>.</p>
-<h2 data-number="4.14" id="issue-62-tfel-config-add-a---quiet-failure-option"><span class="header-section-number">4.14</span> Issue #62: [tfel-config] add a <code>--quiet-failure</code> option</h2>
+<h2 data-number="5.16" id="issue-62-tfel-config-add-a---quiet-failure-option"><span class="header-section-number">5.16</span> Issue #62: [tfel-config] add a <code>--quiet-failure</code> option</h2>
 <p>In case of errors, <code>tfel-config</code> with the the <code>--quiet-failure</code> option just fails without displaying all the available options nor error message.</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/62" class="uri">https://github.com/thelfer/tfel/issues/62</a>.</p>
-<h2 data-number="4.15" id="issue-59-mfront-doc-add-a-standalone-option"><span class="header-section-number">4.15</span> Issue #59: [mfront-doc] add a standalone option</h2>
+<h2 data-number="5.17" id="issue-59-mfront-doc-add-a-standalone-option"><span class="header-section-number">5.17</span> Issue #59: [mfront-doc] add a standalone option</h2>
 <p>By default, the generated markdown uses a section to describe a behaviour. Using the <code>--standalone</code> option, <code>mfront-doc</code> generates a standalone document.</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/59" class="uri">https://github.com/thelfer/tfel/issues/59</a>.</p>
-<h2 data-number="4.16" id="issue-49-mfront-query-query-sources-related-to-specific-targets"><span class="header-section-number">4.16</span> Issue #49: [mfront-query] query sources related to specific targets</h2>
-<p>See Section 3.7 for a description of the <code>--specific-target-generated-sources</code> and <code>--all-specific-targets-generated-source</code> queries.</p>
+<h2 data-number="5.18" id="issue-49-mfront-query-query-sources-related-to-specific-targets"><span class="header-section-number">5.18</span> Issue #49: [mfront-query] query sources related to specific targets</h2>
+<p>See Section 4.7 for a description of the <code>--specific-target-generated-sources</code> and <code>--all-specific-targets-generated-source</code> queries.</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/49" class="uri">https://github.com/thelfer/tfel/issues/49</a>.</p>
-<h2 data-number="4.17" id="issue-40-mfront-query-return-all-the-generated-sources-not-sorted-by-library"><span class="header-section-number">4.17</span> Issue #40: [mfront-query] return all the generated sources (not sorted by library)</h2>
-<p>See Section 3.6 for a description of the new features of the <code>--generated-sources</code> query.</p>
+<h2 data-number="5.19" id="issue-40-mfront-query-return-all-the-generated-sources-not-sorted-by-library"><span class="header-section-number">5.19</span> Issue #40: [mfront-query] return all the generated sources (not sorted by library)</h2>
+<p>See Section 4.6 for a description of the new features of the <code>--generated-sources</code> query.</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/40" class="uri">https://github.com/thelfer/tfel/issues/40</a>.</p>
-<h1 data-number="5" id="build-system-changes"><span class="header-section-number">5</span> Build system changes</h1>
-<h2 data-number="5.1" id="build-static-libraries"><span class="header-section-number">5.1</span> Build static libraries</h2>
+<h1 data-number="6" id="build-system-changes"><span class="header-section-number">6</span> Build system changes</h1>
+<h2 data-number="6.1" id="build-static-libraries"><span class="header-section-number">6.1</span> Build static libraries</h2>
 <p>When specifying <code>-DBUILD_SHARED_LIBS=OFF</code> (for CMake-based builds only) all libraries except of modules are build as static libraries. This allows for easier deployment of downstream applications which use TFEL / MFront.</p>
 <p>Also added the CMake-option <code>enable-testing</code> (defaults to <code>ON</code>) to disable all tests to speed-up compilation times.</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/pull/217" class="uri">https://github.com/thelfer/tfel/pull/217</a>.</p>

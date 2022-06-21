@@ -1,0 +1,919 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Implicit integration of the constitutive equations of a polycrystal obtained by the Berveiller-Zaoui homogeneization scheme</title>
+        <meta name="author" content="Thomas Helfer, Cécilia Gicquel, Fabien Onimus" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #c4a000; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #000000; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #000000; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #000000; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+            
+        
+        
+      </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel/">Github repository</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/releases">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.9</a></li>
+		    <li><a href="release-notes-3.0.10.html">Version 3.0.10</a></li>
+		    <li><a href="release-notes-3.0.11.html">Version 3.0.11</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		    <li><a href="release-notes-3.1.8.html">Version 3.1.8</a></li>
+		    <li><a href="release-notes-3.1.9.html">Version 3.1.9</a></li>
+		    <li><a href="release-notes-3.1.10.html">Version 3.1.10</a></li>
+		    <li><a href="release-notes-3.1.11.html">Version 3.1.11</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.5</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.6</a></li>
+		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
+		    <li><a href="release-notes-3.4.3.html">Version 3.4.3</a></li>
+		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		    <li><a href="release-notes-4.0.1.html">Version 4.0.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.1.html">Version 4.1.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The Implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="tfel-math.html">TFEL/Math</a></li>
+		<li><a href="tfel-material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+		<li><a href="DefaultDSL-keywords.html">DefaultDSL</a></li> 
+		<li><a href="DefaultCZMDSL-keywords.html">DefaultCZMDSL</a></li> 
+		<li><a href="DefaultFiniteStrainDSL-keywords.html">DefaultFiniteStrainDSL</a></li> 
+		<li><a href="Implicit-keywords.html">Implicit</a></li> 
+		<li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li> 
+		<li><a href="ImplicitII-keywords.html">ImplicitII</a></li> 
+		<li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li> 
+		<li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li> 
+		<li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li> 
+		<li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li> 
+		<li><a href="Model-keywords.html">Model</a></li> 
+		<li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li> 
+		<li><a href="RungeKutta-keywords.html">RungeKutta</a></li> 
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="svn.html">Access to source repositories</a></li>
+	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
+	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">Implicit integration of the constitutive equations of a polycrystal obtained by the Berveiller-Zaoui homogeneization scheme</h1>
+<h2 class="author">Thomas Helfer, Cécilia Gicquel, Fabien Onimus</h2>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#outline">Outline</a></li>
+<li><a href="#notations">Notations</a></li>
+</ul></li>
+<li><a href="#constitutive-equations">Constitutive equations</a>
+<ul>
+<li><a href="#the-berveiller-zaoui-homogeneization-scheme">The Berveiller-Zaoui homogeneization scheme</a></li>
+<li><a href="#intra-granular-constitutive-behavior">Intra-granular constitutive behavior</a></li>
+</ul></li>
+<li><a href="#sec:mfront:bz:implicit_scheme">Implicit integration scheme</a>
+<ul>
+<li><a href="#former-implicit-integration-schemes">Former implicit integration schemes</a></li>
+<li><a href="#choice-of-the-integration-variables">Choice of the integration variables</a></li>
+<li><a href="#derivation-of-the-standard-implicit-scheme">Derivation of the standard implicit scheme</a></li>
+<li><a href="#sec:mfront:bz:staticcondensation">Static condensation</a></li>
+<li><a href="#resolution-algorithm">Resolution algorithm</a></li>
+<li><a href="#mfront-implementation"><code>MFront</code>’ Implementation</a></li>
+<li><a href="#unit-testing">Unit testing</a></li>
+</ul></li>
+<li><a href="#sec:mfront:bz:discussion">Comparison of the implicit and explicit schemes. Discussion.</a></li>
+<li><a href="#conclusions">Conclusions</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<h1 id="introduction">Introduction</h1>
+<p>The aim of this tutorial is to describe briefly the implementation of a simple self-consistent polycrystalline model based on the use of the Berveiller-Zaoui concentration rule <span class="citation" data-cites="berveiller_extension_1978">[<a href="#ref-berveiller_extension_1978" role="doc-biblioref">1</a>]</span> using an implicit scheme. This tutorial follows <a href="ExplicitBerveillerZaoui.html">another tutorial</a> which presented an explicit scheme for the same behaviour.</p>
+<p>In this work, a phase is defined as a set of grains having the same crystallographic orientation.</p>
+<p>This model provides an explicit relationship between the average stress, inside a crystallographic phase, and the macroscopic applied stress. This model assumes both an isotropic elastic behaviour and isotropic plastic behaviour at the macroscopic scale.</p>
+<h2 id="outline">Outline</h2>
+<p>After a quick recall of the equations involved, an implicit implementation is presented in Section 3.</p>
+<p>Implicit schemes for the integration of polycrystal behaviours obtained by homogeneization have been studied in previous works, see <span class="citation" data-cites="hutchinson_bounds_1976 bornert_second-order_2001">[<a href="#ref-hutchinson_bounds_1976" role="doc-biblioref">2</a>, <a href="#ref-bornert_second-order_2001" role="doc-biblioref">3</a>]</span> for example. However, those methods do not guarantee a quadratic convergence locally (at the integration point scale) nor provide an exact consistent tangent operator which guarantee a quadratic convergence of the equilibrium at the structural scale. The proposed integration scheme is, to the best of our knowledge, original. This scheme is based on a special choice of the integration variables and a static condensation technique to eliminate the internal state variables of the crystallographic phases. It is shown that this implementation is locally quadratically convergent and, since it provides an exact tangent operator, quadratically convergent at the structural scale. The latter point may allow the widespread use of such models in large scale structural computations. Moreover, this scheme is easily adaptable for complex local behaviours of the phases and/or other homogeneization schemes.</p>
+<h2 id="notations">Notations</h2>
+<ul>
+<li><span class="math inline">\(\underline{\Sigma}\)</span>: the macroscopic stress.</li>
+<li><span class="math inline">\(\Sigma_{\mathrm{eq}}\)</span>: the macroscropic von Mises stress.</li>
+<li><span class="math inline">\(\underline{E}^{\mathrm{to}}\)</span>: the macroscopic strain.</li>
+<li><span class="math inline">\(\underline{E}^{\mathrm{vp}}\)</span>: the macroscopic viscoplastic strain.</li>
+<li><span class="math inline">\(N_{g}\)</span>: number of grains/phases.</li>
+<li><span class="math inline">\({\underline{\sigma}}^{(k)}\)</span>: the average stress of the k<span class="math inline">\(\mbox{}^{\text{th}}\)</span> phase.</li>
+<li><span class="math inline">\({\phi}^{(k)}\)</span>: the volume fraction of the k<span class="math inline">\(\mbox{}^{\text{th}}\)</span> phase: <span class="math display">\[
+{\phi}^{(k)}=\dfrac{{V}^{(k)}}{\sum_{l=1}^{N_{g}}{V}^{(l)}}
+\]</span></li>
+<li><span class="math inline">\(M\)</span>: the macroscropic shear modulus.</li>
+<li><span class="math inline">\(N_{\nu}\)</span>: the macroscropic Poisson ratio.</li>
+<li><span class="math inline">\(P\)</span>: the equivalent macroscopic viscoplastic strain.</li>
+<li><span class="math inline">\({g}^{(k,i)}\)</span>: average plastic slip along the i<span class="math inline">\(\mbox{}^{\text{th}}\)</span> slip system of the k<span class="math inline">\(\mbox{}^{\text{th}}\)</span> phase.</li>
+<li><span class="math inline">\({\mu}^{(k,i)}\)</span>: orientation tensor of the i<span class="math inline">\(\mbox{}^{\text{th}}\)</span> slip system of the k<span class="math inline">\(\mbox{}^{\text{th}}\)</span> phase.</li>
+</ul>
+<h1 id="constitutive-equations">Constitutive equations</h1>
+<h2 id="the-berveiller-zaoui-homogeneization-scheme">The Berveiller-Zaoui homogeneization scheme</h2>
+<p>In the framework of macroscopically isotropic elasto-plastic behaviors, Berveiller and Zaoui have derived a self-consistent polycrystalline model using a secant approximation for the linearization of the non-linear behavior of materials <span class="citation" data-cites="berveiller_extension_1978">[<a href="#ref-berveiller_extension_1978" role="doc-biblioref">1</a>]</span>. The grains of the polycrystal have equiaxed shape and the texture of the material is isotropic. The local elasticity is assumed homogeneous and isotropic. In the case of monotonous radial loadings Berveiller and Zaoui have shown that the average stress <span class="math inline">\({\underline{\sigma}}^{(k)}\)</span> applied in a crystallographic phase <span class="math inline">\((k)\)</span> can be expressed explicitly as a function of the local plastic strain <span class="math inline">\({\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\)</span>, the macroscopic stress <span class="math inline">\(\underline{\Sigma}\)</span> and the macroscopic viscoplastic strain <span class="math inline">\(\underline{E}^{\mathrm{vp}}\)</span>.</p>
+<p>The macroscopic strain <span class="math inline">\(\underline{E}^{\mathrm{to}}\)</span> is split additively in a macroscopic elastic part <span class="math inline">\(\underline{E}^{\mathrm{el}}\)</span> and a macroscopic viscoplastic strain <span class="math inline">\(\underline{E}^{\mathrm{vp}}\)</span>:</p>
+<p><span id="eq:mfront:bz:strainsplit"><span class="math display">\[
+  \underline{E}^{\mathrm{to}}=\underline{E}^{\mathrm{el}}+\underline{E}^{\mathrm{vp}}
+\qquad(1)\]</span></span></p>
+<p>The macroscopic stress <span class="math inline">\(\underline{\Sigma}\)</span> is related to the macroscopic elastic strain <span class="math inline">\(\underline{E}^{\mathrm{el}}\)</span> by the Hooke law:</p>
+<p><span id="eq:mfront:bz:Hooke"><span class="math display">\[
+  \underline{\Sigma}=\underline{D}\,\colon\,\underline{E}^{\mathrm{el}}
+\qquad(2)\]</span></span></p>
+<p>where <span class="math inline">\(\underline{D}\)</span> is an elastic isotropic macroscopic stiffness that can be expressed using the macroscopic Young modulus and the macroscopic Poisson ratio <span class="math inline">\(N_{\nu}\)</span>.</p>
+<p>The macrosopic viscoplastic strain is linked to the average plastic strain <span class="math inline">\({\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\)</span> by a simple mixing rule:</p>
+<p><span id="eq:mfront:bz:Evp"><span class="math display">\[
+\underline{E}^{\mathrm{vp}}=\sum_{k=1}^{N_{g}} {\phi}^{(k)}\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}
+\qquad(3)\]</span></span></p>
+<p>where <span class="math inline">\({\phi}^{(k)}\)</span> is the volume fraction of the k<span class="math inline">\(\mbox{}^{\text{th}}\)</span> phase.</p>
+<p>The local stress <span class="math inline">\({\underline{\sigma}}^{(k)}\)</span> is given by the following relationship:</p>
+<p><span id="eq:mfront:bz:sig"><span class="math display">\[
+{\underline{\sigma}}^{(k)}=\underline{\Sigma}+2\,M\alpha{\left(\Sigma_{\mathrm{eq}},P\right)}\,{\left(1-\beta{\left(N_{\nu}\right)}\right)}\,{\left(\underline{E}^{\mathrm{vp}}-{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\right)}\quad\text{with}\quad\beta{\left(N_{\nu}\right)}=\dfrac{2}{15}\,\dfrac{4-5\,N_{\nu}}{1-N_{\nu}}
+\qquad(4)\]</span></span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\Sigma_{\mathrm{eq}}\)</span> is the macroscropic von Mises stress.</li>
+<li><span class="math inline">\(P\)</span> is the equivalent macroscropic viscoplastic strain defined in an incremental way as follows: <span class="math display">\[
+\dot{P}=\sqrt{\dfrac{2}{3}\,\underline{\dot{E}}^{\mathrm{vp}}\,\colon\,\underline{\dot{E}}^{\mathrm{vp}}}
+\]</span> with <span class="math inline">\(0\)</span> as the initial value.</li>
+</ul>
+<blockquote>
+<p>The <span class="math inline">\(\beta{\left(N_{\nu}\right)}\)</span> factor is closed to <span class="math inline">\(\frac{1}{2}\)</span> for a macroscopic Poisson ratio close to <span class="math inline">\(0.3\)</span>. In this case, the Localisation Equation (4) may be simplified as: <span class="math display">\[
+{\underline{\sigma}}^{(k)}=\underline{\Sigma}+M\alpha{\left(\Sigma_{\mathrm{eq}},P\right)}\,{\left(\underline{E}^{\mathrm{vp}}-{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\right)}
+\]</span></p>
+</blockquote>
+<p>The function <span class="math inline">\(\alpha{\left(\Sigma_{\mathrm{eq}},P\right)}\)</span> is called the accommodation function. It represents the plastic accommodation between the Homogeneous Equivalent Medium and the considered crystallographic phase (r) in inclusion (spherical inclusion). The expression of the accommodation function is as follows:</p>
+<p><span class="math display">\[
+\alpha{\left(\Sigma_{\mathrm{eq}},P\right)}=\dfrac{2\,\Sigma_{\mathrm{eq}}}{2\,\Sigma_{\mathrm{eq}}+3\,M\,P}
+\]</span></p>
+<p>Equations (3) and (4) are important as they resume the Berveiller-Zaoui homogeneization scheme, i.e. how the macroscopic and microscopic aspects are coupled. Equation (4) will be the basis of the static condensation method used to build the implicit scheme presented in Section 3 because it shows that the average stress <span class="math inline">\({\underline{\sigma}}^{(k)}\)</span> only depends on the macroscopic variables <span class="math inline">\(\underline{\Sigma}\)</span> and <span class="math inline">\(\underline{E}^{\mathrm{vp}}\)</span> and the viscoplastic strain <span class="math inline">\({\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\)</span> of the considered phase.</p>
+<p>Using this explicit concentration rule, it is particularly simple to compute the overall response of a polycrystalline material, provided the intra-granular constitutive behaviour is known.</p>
+<h2 id="intra-granular-constitutive-behavior">Intra-granular constitutive behavior</h2>
+<p>In this tutorial, we assume that the local constitutive equations have the following form:</p>
+<p><span id="eq:mfront:bz:flow_rule"><span class="math display">\[
+{\underline{\dot{\varepsilon}}^{\mathrm{vp}}}^{(k)}={v}^{(k)}{\left({\underline{\sigma}}^{(k)}\right)}
+\qquad(5)\]</span></span></p>
+<p>where the microscopic plastic strain may results from the slips along the slip systems of the crystal following:</p>
+<p><span class="math display">\[
+{\underline{\dot{\varepsilon}}^{\mathrm{vp}}}^{(k)}=\sum_{i=1}^{N_{s}}{\dot{g}}^{(k,i)}\,{\mu}^{(k,i)}\quad\text{with}\quad{\dot{g}}^{(k,i)}=\left\langle\dfrac{{\sigma}^{(k)}\,\colon\,{\mu}^{(k,i)}-R_{0}}{K}\right\rangle^{n}
+\]</span></p>
+<p>This constitutive equation is very simple, but extensions of the proposed integration scheme to more complex ones , such as i.e. the Méric-Cailletaud behaviour <span class="citation" data-cites="meric_single_1991">[<a href="#ref-meric_single_1991" role="doc-biblioref">5</a>]</span>, is straightforward using an explicit scheme and feasible for the implicit scheme although more involved.</p>
+<p>For the example, we will follow the work of Onimus et al. with sightly modified material coefficients <span class="citation" data-cites="onimus_polycrystalline_2009">[<a href="#ref-onimus_polycrystalline_2009" role="doc-biblioref">6</a>]</span>.</p>
+<h1 id="sec:mfront:bz:implicit_scheme">Implicit integration scheme</h1>
+<h2 id="former-implicit-integration-schemes">Former implicit integration schemes</h2>
+<p>Following the implicit integration scheme proposed in the past (see <span class="citation" data-cites="hutchinson_bounds_1976">[<a href="#ref-hutchinson_bounds_1976" role="doc-biblioref">2</a>]</span>), the set of integration variables are the averages per phase of the stress field, namely the <span class="math inline">\(N_g\)</span> symmetric second-order tensors <span class="math inline">\(\underline{\sigma}^{(k)}\)</span>. These <span class="math inline">\(N_g\)</span> unknowns are the solutions of the <span class="math inline">\(N_g\)</span> system of equation (4), where <span class="math inline">\(\underline{E}^{vp}\)</span> and <span class="math inline">\(\underline{\epsilon}^{vp(k)}\)</span> can be expressed as a function of these unknowns (relations (3) and (5), respectively) while <span class="math inline">\(\underline{\Sigma}\)</span> is obtained from:</p>
+<p><span id="eq:mfront:bz:SIGMA"><span class="math display">\[
+ \underline{\Sigma}= \sum_{k=1}^{N_g} \phi^{(k)}\,\underline{\sigma}^{(k)}
+\qquad(6)\]</span></span></p>
+<p>The size of the resulting system of nonlinear equations equals <span class="math inline">\(6\,N_g \times 6\,N_g\)</span> which makes difficult its resolution with the Newton-Raphson method. As a result, <span class="citation" data-cites="hutchinson_bounds_1976">[<a href="#ref-hutchinson_bounds_1976" role="doc-biblioref">2</a>]</span> proposed to solve this nonlinear system of equations with a fixed-point iterative method : for a given trial set of the unknowns, the macroscopic stress <span class="math inline">\(\underline{\Sigma}\)</span> and viscoplastic strain <span class="math inline">\(\underline{E}^{\mathrm{vp}}\)</span> are computed from Equations (3) and (6). Next, for each phase <span class="math inline">\((k)\)</span>, as the average viscoplastic strain in a given phase <span class="math inline">\((k)\)</span> is a function of the average stress (Equation (5)) in the same phase, the <span class="math inline">\(N_g\)</span> relations (4) are solved separately by a Newton-Raphson method. A new set of the average stresses per phases is then obtained. This iterative procedure stops when the new set of the unknowns is close to the previous one.</p>
+<p>This method has proved its efficiency and can be found in other more recent works (see for example <span class="citation" data-cites="bornert_second-order_2001">[<a href="#ref-bornert_second-order_2001" role="doc-biblioref">3</a>]</span>). However, its quadratic convergence is far from being verified.</p>
+<h2 id="choice-of-the-integration-variables">Choice of the integration variables</h2>
+<p>The integration variables are:</p>
+<ul>
+<li>the macroscopic elastic strain <span class="math inline">\(\underline{E}^{\mathrm{el}}\)</span>.</li>
+<li>the macroscopic viscoplastic strain <span class="math inline">\(\underline{E}^{\mathrm{vp}}\)</span>.</li>
+<li>the average viscoplastic strains <span class="math inline">\({\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\)</span> of every phases.</li>
+</ul>
+<p>The macroscopic equivalent plastic strain <span class="math inline">\(P\)</span> is described as an auxiliary state variable, i.e. is computed after the computation of the integration variables.</p>
+<p>Treating the macroscopic viscoplastic strain <span class="math inline">\(\underline{E}^{\mathrm{vp}}\)</span> as an integration variable may seem awkward at this stage, as it can obviously also be treated as an auxiliary state variable. The reason for this choice will become clearer in Section 3.5, where the treatment of the macroscopic viscoplastic strain <span class="math inline">\(\underline{E}^{\mathrm{vp}}\)</span> as an integration variable will appear as a key point of the proposed implicit scheme.</p>
+<h2 id="derivation-of-the-standard-implicit-scheme">Derivation of the standard implicit scheme</h2>
+<p>Let <span class="math inline">\(\vec{Y}\)</span> be a vector grouping all the variables:</p>
+<p><span class="math display">\[
+\vec{Y}=
+\begin{pmatrix}
+\underline{E}^{\mathrm{el}}\\
+\underline{E}^{\mathrm{vp}}\\
+{\underline{\varepsilon}^{\mathrm{vp}}}^{(0)}\\
+\vdots\\
+{\underline{\varepsilon}^{\mathrm{vp}}}^{(N_{g})}\\
+\end{pmatrix}
+\]</span></p>
+<p>Combining Equations (1), (3), (4) and (5), the evolution of <span class="math inline">\(\vec{Y}\)</span> can be expressed as an ordinary system of differential equations:</p>
+<p><span class="math display">\[
+\dot{\vec{Y}}=G{\left(\vec{Y}\right)}
+\]</span></p>
+<p>For a given time step <span class="math inline">\(\Delta\,t\)</span>, an implicit scheme consists in replacing this ordinary system of differential equations by a system of non linear equations which unknowns are the increments of the integration variables, as follows:</p>
+<p><span id="eq:mfront:bz:implicit_scheme"><span class="math display">\[
+\vec{F}{\left(\Delta\, \vec{Y}\right)}=\vec{0}
+\qquad(7)\]</span></span></p>
+<p>where the residual function <span class="math inline">\(\vec{F}\)</span> is given by:</p>
+<p><span class="math display">\[
+\vec{F}{\left(\Delta\, \vec{Y}\right)}=\Delta\,\vec{Y}-G{\left({\left.\vec{Y}\right|_{t+\theta\,\Delta\,t}}\right)}
+\]</span></p>
+<p>In the previous equation, <span class="math inline">\(\theta\)</span> is a numerical parameter (<span class="math inline">\(\theta\in\left[0,1\right]\)</span>) and the notation <span class="math inline">\({\left.\vec{Y}\right|_{t+\theta\,\Delta\,t}}\)</span> denotes:</p>
+<p><span class="math display">\[
+{\left.\vec{Y}\right|_{t+\theta\,\Delta\,t}}={\left.\vec{Y}\right|_{t}}+\theta\,\Delta\,\vec{Y}
+\]</span></p>
+<p>The unknowns of the implicit system are thus the increment of integration variables:</p>
+<p><span class="math display">\[
+\Delta\,\underline{E}^{\mathrm{el}}, \Delta\,\underline{E}^{\mathrm{vp}}, \Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}
+\]</span></p>
+<p>In the following, the residual function <span class="math inline">\(\vec{F}\)</span> is decomposed as follows:</p>
+<p><span class="math display">\[
+\vec{F}=
+\begin{pmatrix}
+f_{\underline{E}^{\mathrm{el}}} \\
+f_{\underline{E}^{\mathrm{vp}}}\\
+f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(0)}}\\
+\vdots\\
+f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(N_{g})}}\\
+\end{pmatrix}
+\]</span></p>
+<p>The residuals of the implicit systems are given by:</p>
+<p><span class="math display">\[
+\left\{
+\begin{aligned}
+f_{\underline{E}^{\mathrm{el}}}&amp;=\Delta\underline{E}^{\mathrm{el}}+\Delta\underline{E}^{\mathrm{vp}}-\Delta\underline{E}^{\mathrm{to}}\\
+f_{\underline{E}^{\mathrm{vp}}}&amp;=\Delta\underline{E}^{\mathrm{vp}}-\sum_{k=1}^{N_{g}}{\phi}^{(k)}\,\Delta{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\\
+f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}&amp;=\Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}-\Delta\,t\,{v}^{(k)}{\left({\left.{\underline{\sigma}}^{(k)}\right|_{t+\theta\,\Delta\,t}}\right)}
+\end{aligned}
+\right.
+\]</span></p>
+<p>The residual system (7) is generally solved by a standard Newton-Raphson method which requires the computation of the jacobian matrix <span class="math inline">\(J={\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\,Y}}\)</span> which can also be decomposed by blocks.</p>
+<p>Due to the expression of <span class="math inline">\({\left.{\underline{\sigma}}^{(k)}\right|_{t+\theta\,\Delta\,t}}\)</span> given by Equation (4), the only not zero jacobian blocks associated with <span class="math inline">\(f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}\)</span> are: <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}\)</span>, <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,\underline{E}^{\mathrm{el}}}}\)</span> and <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{vp}}}}\)</span>. In particular, <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(l)}}}\)</span> is null if <span class="math inline">\(l\)</span> is not equal to <span class="math inline">\(k\)</span>.</p>
+<p>In the simple case of the simple flow rule described in Equation (5), the expression of those derivatives are:</p>
+<p><span class="math display">\[
+\left\{
+\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}&amp;=\underline{\underline{\mathbf{I}}}-\Delta\,t\,{\displaystyle \frac{\displaystyle \partial {v}^{(k)}}{\displaystyle \partial {\underline{\sigma}}^{(k)}}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\underline{\sigma}}^{(k)}}{\displaystyle \partial \Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}\\
+{\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,\underline{E}^{\mathrm{el}}}}&amp;=-\Delta\,t\,{\displaystyle \frac{\displaystyle \partial {v}^{(k)}}{\displaystyle \partial {\underline{\sigma}}^{(k)}}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\underline{\sigma}}^{(k)}}{\displaystyle \partial \Delta\,\underline{E}^{\mathrm{el}}}}\\
+{\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,\underline{E}^{\mathrm{vp}}}}&amp;=-\Delta\,t\,{\displaystyle \frac{\displaystyle \partial {v}^{(k)}}{\displaystyle \partial {\underline{\sigma}}^{(k)}}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\underline{\sigma}}^{(k)}}{\displaystyle \partial \Delta\,\,\underline{E}^{\mathrm{vp}}}}\\
+\end{aligned}
+\right.
+\]</span></p>
+<p>Those expressions show that the jacobian block <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}\)</span> is always invertible for sufficiently small time steps.</p>
+<p>It shall be emphasised that even for the simple localisation equation of the Berveiller-Zaoui homogeneization scheme, the computation of the derivatives <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\underline{\sigma}}^{(k)}}{\displaystyle \partial \Delta\,\underline{E}^{\mathrm{el}}}}\)</span> and <span class="math inline">\({\displaystyle \frac{\displaystyle \partial {\underline{\sigma}}^{(k)}}{\displaystyle \partial \Delta\,\,\underline{E}^{\mathrm{vp}}}}\)</span> are quite involved due to the accomodation function.</p>
+<blockquote>
+<p><strong>Derivatives of the accomodation function</strong></p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial \alpha}{\displaystyle \partial \Sigma_{\mathrm{eq}}}}=\dfrac{6\,M\,P}{{\left(2\,\Sigma_{\mathrm{eq}}+3\,M\,P\right)}^{2}}
+\]</span></p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial \alpha}{\displaystyle \partial P}}=-\dfrac{6\,M\,\Sigma_{\mathrm{eq}}}{{\left(2\,\Sigma_{\mathrm{eq}}+3\,M\,P\right)}^{2}}
+\]</span></p>
+<h2 id="derivatives-of-the-local-stress">Derivatives of the local stress</h2>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial {\underline{\sigma}}^{(k)}}{\displaystyle \partial \underline{\Sigma}}}=
+\underline{\underline{\mathbf{I}}}+M\,{\displaystyle \frac{\displaystyle \partial \alpha}{\displaystyle \partial \Sigma_{\mathrm{eq}}}}\,{\left(\underline{E}^{\mathrm{vp}}-{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\right)}\,\otimes\,{\displaystyle \frac{\displaystyle \partial \Sigma_{\mathrm{eq}}}{\displaystyle \partial \underline{\Sigma}}}
+\]</span></p>
+<p>with <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \Sigma_{\mathrm{eq}}}{\displaystyle \partial \underline{\Sigma}}}=\underline{N}=\dfrac{3}{2\,\Sigma_{\mathrm{eq}}}\,{\left(\underline{\Sigma}-\dfrac{{\mathrm{tr}{\left(\underline{\Sigma}\right)}}}{3}\,\underline{I}\right)}\)</span></p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial {\underline{\sigma}}^{(k)}}{\displaystyle \partial \underline{E}^{\mathrm{vp}}}}=
+M\,\alpha\,\underline{\underline{\mathbf{I}}}+
+M\,{\displaystyle \frac{\displaystyle \partial \alpha}{\displaystyle \partial P}}\,{\left(\underline{E}^{\mathrm{vp}}-{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\right)}\,\otimes\,{\displaystyle \frac{\displaystyle \partial P}{\displaystyle \partial \underline{E}^{\mathrm{vp}}}}
+\]</span> with <span class="math inline">\({\displaystyle \frac{\displaystyle \partial P}{\displaystyle \partial \underline{E}^{\mathrm{vp}}}}=\dfrac{2}{3\,P}\,\underline{E}^{\mathrm{vp}}\)</span></p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial {\underline{\sigma}}^{(k)}}{\displaystyle \partial {\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}=
+-M\,\alpha\,\underline{\underline{\mathbf{I}}}
+\]</span></p>
+</blockquote>
+<p>At this stage, it must be emphasised that a direct application of this standard Newton-Raphson method would lead to a huge jacobian matrix which would be inefficient in practice, or even untractable for a high number of grains. Hence, the next paragraph is dedicated to a modification of this standard Newton-Raphson scheme which overcomes this issue.</p>
+<h2 id="sec:mfront:bz:staticcondensation">Static condensation</h2>
+<p>The Newton correction <span class="math inline">\(\delta\,\Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\)</span> to the increment of the current estimate of viscoplastic strain increment <span class="math inline">\(\Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\)</span> satisfies:</p>
+<p><span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}\,\colon\,\delta\,\Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}+
+{\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,\underline{E}^{\mathrm{el}}}}\,\colon\,\delta\,\Delta\,\underline{E}^{\mathrm{el}}+
+{\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,\underline{E}^{\mathrm{vp}}}}\,\colon\,\delta\,\Delta\,\underline{E}^{\mathrm{vp}}
+=-f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}
+\]</span></p>
+<p>Hence, the Newton correction <span class="math inline">\(\delta\,\Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\)</span> can be expressed as:</p>
+<p><span id="eq:mfront:bz:static_condensation1"><span class="math display">\[
+\delta\,\Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}=-{\left({\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}\right)}^{-1}\,\colon\,{\left(
+{\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,\underline{E}^{\mathrm{el}}}}\,\colon\,\delta\,\Delta\,\underline{E}^{\mathrm{el}}+
+{\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,\underline{E}^{\mathrm{vp}}}}\,\colon\,\delta\,\Delta\,\underline{E}^{\mathrm{vp}}+
+f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}
+\right)}
+\qquad(8)\]</span></span></p>
+<p>To simplify the notations, let us introduce the following fourth-order tensors:</p>
+<ul>
+<li><span class="math inline">\({\underline{\underline{\mathbf{A}}}}^{(k)}={\left({\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}\right)}^{-1}\,\colon\,{\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,\underline{E}^{\mathrm{el}}}}\)</span></li>
+<li><span class="math inline">\({\underline{\underline{\mathbf{B}}}}^{(k)}={\left({\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}\right)}^{-1}\,\colon\,{\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,\underline{E}^{\mathrm{vp}}}}\)</span></li>
+</ul>
+<p>and the following second-order tensor:</p>
+<ul>
+<li><span class="math inline">\({\underline{C}}^{(k)}={\left({\displaystyle \frac{\displaystyle \partial f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}{\displaystyle \partial \Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}}\right)}^{-1}\,\colon\,f_{{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}}\)</span></li>
+</ul>
+<p>With those tensors, Equation (8) may be rewritten as follows:</p>
+<p><span id="eq:mfront:bz:static_condensation"><span class="math display">\[
+\delta\,\Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}=
+-{\underline{\underline{\mathbf{A}}}}^{(k)}\,\colon\,\delta\,\Delta\,\underline{E}^{\mathrm{el}}
+-{\underline{\underline{\mathbf{B}}}}^{(k)}\,\colon\,\delta\,\Delta\,\underline{E}^{\mathrm{vp}}
+-{\underline{C}}^{(k)}
+\qquad(9)\]</span></span></p>
+<p>Equation (9) can be injected in the equation giving the Newton correction of the increment of the macroscopic viscoplastic strain:</p>
+<p><span class="math display">\[
+\delta\,\Delta\,\underline{E}^{\mathrm{vp}}-\sum_{k=1}^{N_{g}}{\phi}^{(k)}\,\delta\,\Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}=-f_{\underline{E}^{\mathrm{vp}}}
+\]</span></p>
+<p><span class="math display">\[
+{\left(\underline{I}+\sum_{k=1}^{N_{g}}{\phi}^{(k)}\,{\underline{\underline{\mathbf{B}}}}^{(k)}\right)}\,\colon\,\delta\,\Delta\,\underline{E}^{\mathrm{vp}}
++\sum_{k=1}^{N_{g}}{\phi}^{(k)}\,{\underline{\underline{\mathbf{A}}}}^{(k)}\,\colon\,\delta\,\Delta\,\underline{E}^{\mathrm{el}}=
+-f_{\underline{E}^{\mathrm{vp}}}-\sum_{k=1}^{N_{g}}{\phi}^{(k)}\,\,{\underline{C}}^{(k)}
+\]</span></p>
+<p>The correction of the increment of the macroscopic variables satisfies the following condensed system:</p>
+<p><span id="eq:mfront:bz:condensed:system"><span class="math display">\[
+\begin{pmatrix}
+\underline{\underline{\mathbf{I}}}          &amp; \underline{\underline{\mathbf{I}}}          \\ 
+\underline{\underline{\mathbf{J}}}^{(c)}_{\underline{E}^{\mathrm{el}}} &amp; \underline{\underline{\mathbf{J}}}^{(c)}_{\underline{E}^{\mathrm{vp}}}  
+\end{pmatrix}
+\,\cdot\,
+\begin{pmatrix}
+\delta\,\Delta\,\underline{E}^{\mathrm{el}}\\
+\delta\,\Delta\,\underline{E}^{\mathrm{vp}}\\
+\end{pmatrix}
+=
+-
+\begin{pmatrix}
+f_{{\underline{E}^{\mathrm{el}}}^{(k)}}\\
+f_{{\underline{E}^{\mathrm{vp}}}^{(k)}}^{(c)}
+\end{pmatrix}
+\qquad(10)\]</span></span></p>
+<p>where the following condensed tensors have been introduced:</p>
+<ul>
+<li><span class="math inline">\(\underline{\underline{\mathbf{J}}}^{(c)}_{\underline{E}^{\mathrm{el}}}=\sum_{k=1}^{N_{g}}{\phi}^{(k)}\,{\underline{\underline{\mathbf{A}}}}^{(k)}\)</span></li>
+<li><span class="math inline">\(\underline{\underline{\mathbf{J}}}^{(c)}_{\underline{E}^{\mathrm{vp}}}=\underline{I}+\sum_{k=1}^{N_{g}}{\phi}^{(k)}\,{\underline{\underline{\mathbf{B}}}}^{(k)}\)</span></li>
+<li><span class="math inline">\(f_{{\underline{E}^{\mathrm{vp}}}^{(k)}}^{(c)}=f_{{\underline{E}^{\mathrm{vp}}}^{(k)}}+\sum_{k=1}^{N_{g}}\,{\phi}^{(k)}\,{\underline{C}}^{(k)}\)</span></li>
+</ul>
+<p>Of course, Linear System (10) may be further condensed to make only appear the correction to increment the macroscopic elastic strain.</p>
+<h2 id="resolution-algorithm">Resolution algorithm</h2>
+<ol type="1">
+<li>Given an estimation of the <span class="math inline">\(\Delta\,\underline{E}^{\mathrm{el}}\)</span>, <span class="math inline">\(\Delta\,\underline{E}^{\mathrm{vp}}\)</span></li>
+<li>If the iteration number if greater than 1, loop over the phases
+<ol type="a">
+<li>Update <span class="math inline">\(\Delta\,{\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\)</span> using Equation (9).</li>
+</ol></li>
+<li>Compute <span class="math inline">\(f_{{\underline{E}^{\mathrm{el}}}^{(k)}}\)</span></li>
+<li>Loop over the phases
+<ol type="a">
+<li>Compute the local stress <span class="math inline">\({\underline{\sigma}}^{(k)}\)</span></li>
+<li>Compute <span class="math inline">\({\underline{\underline{\mathbf{A}}}}^{(k)}\)</span>, <span class="math inline">\({\underline{\underline{\mathbf{B}}}}^{(k)}\)</span>, <span class="math inline">\({\underline{C}}^{(k)}\)</span>,</li>
+<li>Update <span class="math inline">\(\underline{\underline{\mathbf{J}}}^{(c)}_{\underline{E}^{\mathrm{el}}}\)</span>, <span class="math inline">\(\underline{\underline{\mathbf{J}}}^{(c)}_{\underline{E}^{\mathrm{vp}}}\)</span> and <span class="math inline">\(f_{{\underline{E}^{\mathrm{vp}}}^{(k)}}^{(c)}\)</span></li>
+</ol></li>
+<li>Solve Linear System (10).</li>
+<li>Update <span class="math inline">\(\Delta\,\underline{E}^{\mathrm{el}}\)</span>, <span class="math inline">\(\Delta\,\underline{E}^{\mathrm{vp}}\)</span></li>
+</ol>
+<h2 id="mfront-implementation"><code>MFront</code>’ Implementation</h2>
+<p>The principle of the implicit scheme is fully described on <a href="implicit-dsl.html">this page</a>.</p>
+<h3 id="choice-of-domain-specific-language">Choice of domain specific language</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span></code></pre></div>
+<h3 id="name-of-the-behaviour">Name of the behaviour</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour ImplicitPolycrystalHCP_BZ;</span></code></pre></div>
+<h3 id="metadata">Metadata</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author F. Onimus, C. Gicquel, T. Helfer;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="bn">05</span>/<span class="dv">2020</span>;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description{</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  Implementation of a polycrystal of behaviour  <span class="cf">for</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  zirconium alloys <span class="kw">using</span> the Berveiller-Zaoui</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  homegeneization scheme. The presented behaviour</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  is inspired from Onimus <span class="dv">2009</span> with modified</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  material coefficients.</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Onimus, Fabien and Béchade, Jean-Luc.&quot;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;A polycrystalline modeling of the mechanical behavior of&quot;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;neutron irradiated zirconium alloys.&quot;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Journal of Nuclear Materials. 15 February 2009.&quot;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Vol. 384, no. 2, p. 163-174.&quot;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h3 id="symmetry-of-the-material-and-restriction-of-the-modelling-hypothesis">Symmetry of the material and restriction of the modelling hypothesis</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypothesis Tridimensional;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>OrthotropicBehaviour;</span></code></pre></div>
+<h3 id="numerical-parameters">Numerical parameters</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson;</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-14</span>;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span>;</span></code></pre></div>
+<h3 id="the-standardelasticity-brick">The <code>StandardElasticity</code> brick</h3>
+<p>The behaviour falls into the realm of the <a href="BehaviourBricks.html"><code>StandardElasticity</code> brick</a>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity{young_modulus : <span class="dv">80000</span>, poisson_ratio : <span class="fl">0.4</span>};</span></code></pre></div>
+<p>Here, the <code>StandardElasticity</code> brick allows to:</p>
+<ol type="1">
+<li>automatically update the macroscopic stress <span class="math inline">\(\underline{\Sigma}\)</span> at the middle of the time step before the evaluation of the implicit system (residual and jacobian matrix) and at the end of the time step.</li>
+<li>automatically compute the consistent tangent operator from the jacobian of the implicit system. This is described in depth here <span class="citation" data-cites="helfer_assisted_2020">[<a href="#ref-helfer_assisted_2020" role="doc-biblioref">7</a>]</span>.</li>
+</ol>
+<h3 id="crystal-structure-of-the-grains-and-associated-slip-systems">Crystal structure of the grains and associated slip systems</h3>
+<p>The crystal structure of the grains are declared as follows:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>CrystalStructure HCP;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>SlidingSystems{&lt;<span class="dv">1</span>, <span class="dv">1</span>, -<span class="dv">2</span>, <span class="dv">0</span>&gt;{<span class="dv">1</span>, -<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>},  <span class="co">//</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                &lt;-<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>&gt;{<span class="dv">1</span>, -<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>},  <span class="co">//</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                &lt;-<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>&gt;{<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>},   <span class="co">//</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="dv">1</span>, <span class="dv">1</span>, -<span class="dv">2</span>, <span class="dv">0</span>&gt;{<span class="dv">1</span>, -<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>}};</span></code></pre></div>
+<h3 id="number-of-phases">Number of phases</h3>
+<p>The declaration of the number of phases is as follows:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! Number of phases</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IntegerConstant Np = <span class="dv">240</span>;</span></code></pre></div>
+<h3 id="material-coefficients">Material coefficients</h3>
+<p>The declaration of the material coefficients is as follows:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! Norton exponents per slip system family</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real m[<span class="dv">4</span>] = {<span class="fl">10.</span>, <span class="fl">10.</span>, <span class="fl">10.</span>, <span class="fl">10.</span>};</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">//! Norton stress normalisation factor</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress K = <span class="fl">5.0</span>;</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">//! critical resolved shear stress per slip system family</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress τᶜ[<span class="dv">4</span>] = {<span class="fl">43.0</span>, <span class="fl">135.0</span>, <span class="fl">75.0</span>, <span class="fl">65.0</span>};</span></code></pre></div>
+<h3 id="state-variables">State variables</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable StrainStensor εᵛᵖ;</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>εᵛᵖ.setGlossaryName(<span class="st">&quot;ViscoplasticStrain&quot;</span>);</span></code></pre></div>
+<h3 id="auxiliary-state-variables">Auxiliary state variables</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable StrainStensor εᵛᵖᵍ[Np];</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>εᵛᵖᵍ.setEntryName(<span class="st">&quot;PhaseEquivalentViscoplasticStrain&quot;</span>);</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable strain p;</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>p.setGlossaryName(<span class="st">&quot;EquivalentViscoplasticStrain&quot;</span>);</span></code></pre></div>
+<h3 id="declaration-of-the-external-header">Declaration of the external header</h3>
+<p>For details about the declaration of the sliding systems, see <a href="ExplicitBerveillerZaouiPolyCrystals.html">this tutorial</a>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/ExtendedPolyCrystalsSlidingSystems.hxx&quot;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h3 id="local-variables">Local Variables</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! macroscopic viscoplastic strain increment</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable strain Δp;</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">//! increment of the local viscoplastic strain</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable StrainStensor Δεᵛᵖᵍ[Np];</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">//! tensor used for the static condensation and decondensation</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable Stensor4 A[Np];</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">//! tensor used for the static condensation and decondensation</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable Stensor4 B[Np];</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">//! tensor used for the static condensation and decondensation</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable Stensor C[Np];</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">//! previous estimate of the macroscopic elastic strain</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable Stensor Δεᵉˡ_p;</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">//! previous estimate of the macroscopic viscoplastic strain</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable Stensor Δεᵛᵖ_p;</span></code></pre></div>
+<h3 id="initialisation-of-the-local-variables">Initialisation of the local variables</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables&lt;Append&gt; {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// fractions volumiques</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="dt">unsigned</span> <span class="dt">short</span> i = <span class="dv">0</span>; i != Np; ++i) {</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    Δεᵛᵖᵍ[i] = StrainStensor(real(<span class="dv">0</span>));</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  Δεᵉˡ_p = StrainStensor(real(<span class="dv">0</span>));</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  Δεᵛᵖ_p = StrainStensor(real(<span class="dv">0</span>));</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h3 id="computation-of-the-condensed-system">Computation of the condensed system</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">using</span> PCSlidingSystems =</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>     ExtendedPolyCrystalsSlidingSystems&lt;Np, ImplicitPolycrystalHCP_BZSlipSystems&lt;real&gt;,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                                        real&gt;;</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> eeps = strain(<span class="fl">1.e-12</span>);</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> PCSlidingSystems&amp; gs =</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>      PCSlidingSystems::getPolyCrystalsSlidingSystems(<span class="st">&quot;isotrope_240_normalise.csv&quot;</span>);</span></code></pre></div>
+<p>The static decondensation step is implemented as follows:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (iter &gt; <span class="dv">1</span>) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// newton correction of the elastic strain</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> δΔεᵉˡ = Δεᵉˡ - Δεᵉˡ_p;</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// newton correction of the viscoplastic strain</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> δΔεᵛᵖ = Δεᵛᵖ - Δεᵛᵖ_p;</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// static decondensation</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="dt">unsigned</span> <span class="dt">short</span> k = <span class="dv">0</span>; k != Np; ++k) {</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>      Δεᵛᵖᵍ[k] -= C[k] + A[k] ⋅ δΔεᵉˡ + B[k] ⋅ δΔεᵛᵖ;</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>The residual associated with the elastic strain is implemented as follows:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>  fεᵉˡ += Δεᵛᵖ;</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  ∂fεᵉˡ∕∂Δεᵛᵖ = I₄;</span></code></pre></div>
+<p>The following lines of code computes the accomodation factor and the associated derivatives:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> σᵉ = sigmaeq(σ);</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  Δp = sqrt((<span class="dv">2</span> ⋅ (Δεᵛᵖ | Δεᵛᵖ)) / <span class="dv">3</span>);</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">p_</span> = p + θ ⋅Δp;</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> iΔp = <span class="dv">1</span> / max(Δp, eeps);</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dΔp∕∂Δεᵛᵖ = <span class="dv">2</span> ⋅ Δεᵛᵖ ⋅ (iΔp / <span class="dv">3</span>);</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> α<span class="dv">1</span> = <span class="dv">2</span> ⋅ σᵉ + <span class="dv">3</span> ⋅ mu ⋅ <span class="va">p_</span>;</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> α = (α<span class="dv">1</span> &gt; <span class="dv">0</span>) ? <span class="dv">2</span> ⋅ σᵉ / α<span class="dv">1</span> : real(<span class="dv">1</span>);</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> iσᵉ = <span class="dv">1</span> / max(σᵉ, mu ⋅ eeps);</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> n = <span class="dv">3</span> ⋅ deviator(σ) ⋅ (iσᵉ / <span class="dv">2</span>);</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> α<span class="dv">3</span> = (α<span class="dv">1</span> &gt; <span class="dv">0</span>) ? <span class="dv">6</span> ⋅ mu / (α<span class="dv">1</span> ⋅ α<span class="dv">1</span>) : real(<span class="dv">0</span>);</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂α∕∂σᵉ = α<span class="dv">3</span> ⋅ <span class="va">p_</span>;</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂α∕∂Δp = -α<span class="dv">3</span> ⋅ θ ⋅ σᵉ;</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂α∕∂Δεᵉˡ = <span class="dv">2</span> ⋅ mu ⋅ θ ⋅ ∂α∕∂σᵉ ⋅ n;</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂α∕∂Δεᵛᵖ = ∂α∕∂Δp ⋅ dΔp∕∂Δεᵛᵖ;</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> εᵛᵖ_ = εᵛᵖ + θ ⋅ Δεᵛᵖ;</span></code></pre></div>
+<p>We now can start the loop over the phases:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="dt">unsigned</span> <span class="dt">short</span> k = <span class="dv">0</span>; k != Np; ++k) {</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// volume fraction of the phase</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> φ = gs.volume_fractions[k];</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> εᵛᵖᵍ_ = εᵛᵖᵍ[k] + θ ⋅ Δεᵛᵖᵍ[k];</span></code></pre></div>
+<p>The following lines computes the local stress <span class="math inline">\({\underline{\sigma}}^{(k)}\)</span>:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// localisation BZ</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> δεᵛᵖ = (εᵛᵖ_ - εᵛᵖᵍ_);</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> σᵍ = eval(σ + mu ⋅ α ⋅ δεᵛᵖ);</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> ∂σᵍ∕∂Δεᵉˡ = lambda * (I₂ ⊗ I₂) + <span class="dv">2</span> * mu * I₄ + mu ⋅ (δεᵛᵖ ⊗ ∂α∕∂Δεᵉˡ);</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> ∂σᵍ∕∂Δεᵛᵖ = mu ⋅ (α ⋅ θ ⋅ I₄ + (δεᵛᵖ ⊗ ∂α∕∂Δεᵛᵖ));</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> ∂σᵍ∕∂Δεᵛᵖᵍ = -mu ⋅ α ⋅ θ ⋅ I₄;</span></code></pre></div>
+<p>To evaluate the residual associated with the microscopic viscoplastic strain.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> ∂fεᵛᵖᵍ∕∂Δεᵛᵖᵍ = I₄;</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> ∂fεᵛᵖᵍ∕∂Δεᵉˡ = Stensor4(real(<span class="dv">0</span>));</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> ∂fεᵛᵖᵍ∕∂Δεᵛᵖ = Stensor4(real(<span class="dv">0</span>));</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> fεᵛᵖᵍ = Δεᵛᵖᵍ[k];</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="dt">unsigned</span> <span class="dt">short</span> i = <span class="dv">0</span>; i != Nss; ++i) {</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> idx = [&amp;i] {</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (i &lt;= <span class="dv">2</span>) {</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>          <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> <span class="cf">if</span> (i &gt;= <span class="dv">3</span> &amp;&amp; i &lt;= <span class="dv">14</span>) {</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>          <span class="cf">return</span> <span class="dv">1</span>;</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> <span class="cf">if</span> (i &gt;= <span class="dv">15</span> &amp;&amp; i &lt;= <span class="dv">17</span>) {</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>          <span class="cf">return</span> <span class="dv">2</span>;</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">3</span>;</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>       }(); <span class="co">// return the family number </span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>      <span class="co">// orientation tensors in the material frame</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span>&amp; μⁱᵏ = gs.mus[k][i];</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>      <span class="co">// resolved shear stress</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> τ = μⁱᵏ | σᵍ;</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (abs(τ) &gt; <span class="dv">3</span> ⋅ τᶜ[idx]) {</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">false</span>;</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> rτ = (abs(τ) - τᶜ[idx]) / K;</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (rτ &gt; <span class="dv">0</span>) {</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">const</span> <span class="kw">auto</span> sgn = τ &gt; <span class="dv">0</span> ? <span class="dv">1</span> : -<span class="dv">1</span>;</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">const</span> <span class="kw">auto</span> irτ = <span class="dv">1</span> / rτ;</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">const</span> <span class="kw">auto</span> Δg = sgn ⋅ Δt ⋅ pow(rτ, m[idx]);</span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">const</span> <span class="kw">auto</span> ∂Δg∕∂σᵍ = m[idx] ⋅ Δg ⋅ irτ ⋅ (sgn / K) ⋅ μⁱᵏ;</span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>        fεᵛᵖᵍ -= Δg ⋅ μⁱᵏ;</span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>        ∂fεᵛᵖᵍ∕∂Δεᵛᵖᵍ -= (μⁱᵏ ⊗ (∂Δg∕∂σᵍ)) ⋅ ∂σᵍ∕∂Δεᵛᵖᵍ;</span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>        ∂fεᵛᵖᵍ∕∂Δεᵉˡ -= (μⁱᵏ ⊗ (∂Δg∕∂σᵍ)) ⋅ ∂σᵍ∕∂Δεᵉˡ;</span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>        ∂fεᵛᵖᵍ∕∂Δεᵛᵖ -= (μⁱᵏ ⊗ (∂Δg∕∂σᵍ)) ⋅ ∂σᵍ∕∂Δεᵛᵖ;</span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>      }</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>    } <span class="co">// end of the loop over the slip systems</span></span></code></pre></div>
+<p>The static condensation is done by:</p>
+<ul>
+<li>Computing the tensors <span class="math inline">\(\underline{\underline{\mathbf{A}}}\)</span>, <span class="math inline">\(\underline{\underline{\mathbf{B}}}\)</span> and <span class="math inline">\(\underline{C}\)</span>.</li>
+<li>Computing the condensed residual and jacobian terms <span class="math inline">\(\underline{\underline{\mathbf{J}}}^{(c)}_{\underline{E}^{\mathrm{el}}}\)</span>, <span class="math inline">\(\underline{\underline{\mathbf{J}}}^{(c)}_{\underline{E}^{\mathrm{vp}}}\)</span> and <span class="math inline">\(f_{{\underline{E}^{\mathrm{vp}}}^{(k)}}^{(c)}\)</span>.</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> i∂fεᵛᵖᵍ∕∂Δεᵛᵖᵍ = invert(∂fεᵛᵖᵍ∕∂Δεᵛᵖᵍ);</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    A[k] = i∂fεᵛᵖᵍ∕∂Δεᵛᵖᵍ ⋅ ∂fεᵛᵖᵍ∕∂Δεᵉˡ;</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    B[k] = i∂fεᵛᵖᵍ∕∂Δεᵛᵖᵍ ⋅ ∂fεᵛᵖᵍ∕∂Δεᵛᵖ;</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    C[k] = i∂fεᵛᵖᵍ∕∂Δεᵛᵖᵍ ⋅ fεᵛᵖᵍ;</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    fεᵛᵖ += C[k] ⋅ φ - Δεᵛᵖᵍ[k] ⋅ φ;</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    ∂fεᵛᵖ∕∂Δεᵛᵖ += B[k] ⋅ φ;</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    ∂fεᵛᵖ∕∂Δεᵉˡ += A[k] ⋅ φ;</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  } <span class="co">// end of the loop over the phases</span></span></code></pre></div>
+<p>The following lines saves the previous estimates of the increment of the macroscopic elastic strain and viscoplastic strain:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// saving the previous estimates</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  Δεᵉˡ_p = Δεᵉˡ;</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  Δεᵛᵖ_p = Δεᵛᵖ;</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Once the Newton algorithm has converged, the auxiliary state variables must be updated:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UpdateAuxiliaryStateVariables {</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  p += Δp;</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="dt">unsigned</span> <span class="dt">short</span> k = <span class="dv">0</span>; k != Np; ++k) {</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    εᵛᵖᵍ[k] += Δεᵛᵖᵍ[k];</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 id="unit-testing">Unit testing</h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour <span class="ch">&#39;s</span><span class="er">rc/libBehaviour.so</span><span class="ch">&#39;</span> <span class="ch">&#39;I</span><span class="er">mplicitPolycrystalHCP_BZ</span><span class="ch">&#39;</span>;</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;T</span><span class="er">emperature</span><span class="ch">&#39;</span> <span class="fl">293.15</span>;</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;t</span><span class="er">max</span><span class="ch">&#39;</span> <span class="dv">75</span> ;</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStrain <span class="ch">&#39;E</span><span class="er">XX</span><span class="ch">&#39;</span> {<span class="fl">0.</span>: <span class="fl">0.</span>, <span class="dv">75</span> : <span class="fl">0.015</span> };</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Times {<span class="fl">0.</span>,<span class="ch">&#39;t</span><span class="er">max</span><span class="ch">&#39;</span> in <span class="dv">10</span>};</span></code></pre></div>
+<p>The macroscopic results are compared to the results of the explicit scheme in Section 4.</p>
+<p>In this section, we will focus on checks on the validity of the computation of the various derivatives required to implement the implicit scheme.</p>
+<p>The first check can be performed by analysing how the implicit scheme converges. This can be done by adding the <code>--debug</code> flag to the <code>MFront</code> call. This flag prints the evolution of the norm of the residual during the local iterations of the implicit scheme. Here is a typical output with this option:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ImplicitPolycrystalHCP_BZ::integrate()</span> <span class="bu">:</span> iteration 1 : 0.000153076</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ImplicitPolycrystalHCP_BZ::integrate()</span> <span class="bu">:</span> iteration 2 : 1.97093e-05</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ImplicitPolycrystalHCP_BZ::integrate()</span> <span class="bu">:</span> iteration 3 : 7.06628e-06</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="ex">....</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ImplicitPolycrystalHCP_BZ::integrate()</span> <span class="bu">:</span> iteration 21 : 3.00128e-08</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ImplicitPolycrystalHCP_BZ::integrate()</span> <span class="bu">:</span> iteration 22 : 2.01722e-09</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ImplicitPolycrystalHCP_BZ::integrate()</span> <span class="bu">:</span> iteration 23 : 1.34406e-11</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ImplicitPolycrystalHCP_BZ::integrate()</span> <span class="bu">:</span> iteration 24 : 7.8715e-16</span></code></pre></div>
+<figure>
+<img src="img/ImplicitBerveillerZaoui/LocalResidual.svg" id="fig:mfront:bz:local_residual" style="width:75.0%" alt="Figure 1: Evolution of the norm of the local residual as a function of the iteration number" /><figcaption aria-hidden="true">Figure 1: Evolution of the norm of the local residual as a function of the iteration number</figcaption>
+</figure>
+<p>We took this output and use it to plot the residual as a function of the iteration number on Figure 1. This figure is typical of the Newton algorithm with a quasi-linear decrease of the residual during the first iterations and a final quadratic convergence near the solution.</p>
+<blockquote>
+<p><strong>Comparison of the analytical jacobian to a numerically approximated jacobian</strong></p>
+<p><code>MFront</code> also provides an automated way of the validating the analytical computations of the jacobian blocks by comparison to a numerical evaluation as follows:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--@CompareToNumericalJacobian</span><span class="op">=</span>true <span class="dt">\</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">--@PerturbationValueForNumericalJacobianComputation</span><span class="op">=</span>1e-8        <span class="dt">\</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>         ImplicitPolycrystalHCP_BZ.mfront</span></code></pre></div>
+<p>The output of this command is very verbose and not reported here. However, it confirms that the analytical jacobian is correct.</p>
+</blockquote>
+<p>Since the consistent tangent operator is deduced from the jacobian of the implicit system <span class="citation" data-cites="helfer_assisted_2020">[<a href="#ref-helfer_assisted_2020" role="doc-biblioref">7</a>]</span>, a final indication of the validity of the computation of this jacobian is to have a look of how the equilibrium residual decreases.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">resolution</span> from 67.5 to 75</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="ex">iteration</span> 1 : 0.0015 1.35033 ...</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="ex">iteration</span> 2 : 3.88574e-05 14.9107 ...</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="ex">iteration</span> 3 : 3.02004e-08 0.000348823 ...</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="ex">iteration</span> 4 : 2.45492e-14 9.93396e-10 ...</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="ex">convergence,</span> after 4 iterations, order 1.95853</span></code></pre></div>
+<p>At convergence, <code>MTest</code> provides an indicator of the order of convergence which is here very close to <span class="math inline">\(2\)</span>, showing that the global convergence is also quadratic.</p>
+<h1 id="sec:mfront:bz:discussion">Comparison of the implicit and explicit schemes. Discussion.</h1>
+<figure>
+<img src="img/ImplicitBerveillerZaoui/Comparison.svg" id="fig:mfront:bz:comparisonexplicitimplicit" style="width:75.0%" alt="Figure 2: Comparison of the results of the implicit and explicit implementations respectively for the unixial tensile test with 100 time steps" /><figcaption aria-hidden="true">Figure 2: Comparison of the results of the implicit and explicit implementations respectively for the unixial tensile test with 100 time steps</figcaption>
+</figure>
+<p>Figure 2 compares the results of the implicit and explicit implementations respectively for the unixial tensile test with 100 time steps. This figure exhibits the very good agreement between the two integration schemes.</p>
+<div id="tbl:mfront:bz:execution_times_comparison">
+<table>
+<caption>Table 1: Comparisons of the execution times of implicit and explicit implementations respectively for the unixial tensile test as a function of the number of time steps.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Explicit</th>
+<th style="text-align: center;">Implicit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">10 steps</td>
+<td style="text-align: center;">0m16.942s</td>
+<td style="text-align: center;">0m1.863s</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">100 steps</td>
+<td style="text-align: center;">0m18.457s</td>
+<td style="text-align: center;">0m6.206s</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1000 steps</td>
+<td style="text-align: center;">0m26.481s</td>
+<td style="text-align: center;">0m38.661s</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5000 steps</td>
+<td style="text-align: center;">0m35.154s</td>
+<td style="text-align: center;">1m53.873s</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Table 1 compares the execution times of implicit and explicit implementations respectively for the unixial tensile test as a function of the number of time steps. This execution times must be examined carefully before drawing a definitive conclusion as they result from a mix of several factors.</p>
+<p>The number of iterations of the explicit case, which uses the elastic operator and the <code>Cast3M</code> acceleration scheme, is always higher than in the Implicit case, which is based on the standard Newton method, i.e. uses the consistent tangent operator. For example, for <span class="math inline">\(10\)</span> time steps, the explicit simulation requires <span class="math inline">\(113\)</span> equilibrium iterations, where the implicit simulation only requires <span class="math inline">\(41\)</span> one. Hence, if we were to compare the bare execution time, we would conclude that the implicit scheme is <span class="math inline">\(9\)</span> times faster. But if we were to compare the execution time per iteration, we would conclude that the implicit scheme is only <span class="math inline">\(3.3\)</span> times faster. However, this analyse is only partial as part of the time is not spent in the behaviour integration. To go further, <code>MFront</code> also has a profiling mode which allows to measure precisely the time spent in the behaviour integration. This profiling shows, that each call to the implicit scheme is indeed <span class="math inline">\(16\)</span> times faster for this particular case.</p>
+<p>It shall also be emphasized that the computation time of the explicit time is strongly dependent on the convergence criterion used. We used a stringent value of <span class="math inline">\(10^{-12}\)</span>. With <span class="math inline">\(10^{-8}\)</span>, the total execution times drops to <span class="math inline">\(3.952s\)</span> with no visible impact on the stress-strain curve. With a value of <span class="math inline">\(10^{-6}\)</span>, the computations becomes unstable and the equilibrium algorithm fails to converge.</p>
+<p>The impact of the stopping criterion on the implicit scheme is much more limited due to quadratic convergence of the local Newton. For this test, we used a value of <span class="math inline">\(10^{-14}\)</span>. However, using a too loose convergence criterion value, typically <span class="math inline">\(10^{-10}\)</span>, leads to significant degradation of the quality of the consistent tangent operator and the quadratic convergence of the equilibrium algorithm is lost.</p>
+<p>The main conclusion of this comparison could be that the choice between the implicit scheme and the explicit scheme may strongly depend on the solver used:</p>
+<ul>
+<li>In <code>Cast3M</code>, the consistent tangent operator is not required, so the explicit scheme may be competitive. This shall be further investigated on structural cases.</li>
+<li>In most other solvers, the lack of consistent tangent operator is a serious disadvantage for the explicit scheme.</li>
+</ul>
+<p>The choice may also depend on the studied case. In the elastic domain, the implicit scheme is very efficient. So if most of the structure remains elastic, the implicit scheme may also have a significant advantage.</p>
+<h1 id="conclusions">Conclusions</h1>
+<p>The proposed implicit scheme is, to the best of our knowledge original and may be of significant importance for the use of such homogeneized behaviours in structural applications.</p>
+<p>This implicit scheme will be extended in a straightforward manner to more complex behaviours and other well-known homogeneization schemes, including:</p>
+<ul>
+<li>Taylor-Lin</li>
+<li>Kröner</li>
+<li>the Cailletaud-Pilvin (<span class="math inline">\(\beta\)</span>-model)</li>
+<li>Besson extensions</li>
+</ul>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-berveiller_extension_1978" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Berveiller</span>, M. and <span class="smallcaps">Zaoui</span>, A. An extension of the self-consistent scheme to plastically-flowing polycrystals. <em>Journal of the Mechanics and Physics of Solids</em>. October 1978. Vol. 26, no. 5–6, p. 325–344. DOI <a href="https://doi.org/10.1016/0022-5096(78)90003-0">10.1016/0022-5096(78)90003-0</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/0022509678900030">http://www.sciencedirect.com/science/article/pii/0022509678900030</a></div>
+</div>
+<div id="ref-hutchinson_bounds_1976" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Hutchinson</span>, John Woodside and <span class="smallcaps">Hill</span>, Robert. Bounds and self-consistent estimates for creep of polycrystalline materials. <em>Proceedings of the Royal Society of London. A. Mathematical and Physical Sciences</em>. 10 February 1976. Vol. 348, no. 1652, p. 101–127. DOI <a href="https://doi.org/10.1098/rspa.1976.0027">10.1098/rspa.1976.0027</a>. Available from: <a href="https://royalsocietypublishing.org/doi/10.1098/rspa.1976.0027">https://royalsocietypublishing.org/doi/10.1098/rspa.1976.0027</a></div><div class="csl-right-inline">Publisher: Royal Society</div>
+</div>
+<div id="ref-bornert_second-order_2001" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">Bornert</span>, M., <span class="smallcaps">Masson</span>, R., <span class="smallcaps">Castañeda</span>, P. Ponte and <span class="smallcaps">Zaoui</span>, A. Second-order estimates for the effective behaviour of viscoplastic polycrystalline materials. <em>Journal of the Mechanics and Physics of Solids</em>. 1 November 2001. Vol. 49, no. 11, p. 2737–2764. DOI <a href="https://doi.org/10.1016/S0022-5096(01)00077-1">10.1016/S0022-5096(01)00077-1</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0022509601000771">http://www.sciencedirect.com/science/article/pii/S0022509601000771</a></div>
+</div>
+<div id="ref-meric_single_1991" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline"><span class="smallcaps">Méric</span>, L. and <span class="smallcaps">Cailletaud</span>, Georges. Single crystal modelling for structural calculations. <em>Journal of Engineering Material and Technology</em>. January 1991. Vol. 113, p. 171–182. </div>
+</div>
+<div id="ref-meric_single_1991" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline"><span class="smallcaps">Méric</span>, L. and <span class="smallcaps">Cailletaud</span>, Georges. Single crystal modelling for structural calculations. <em>Journal of Engineering Material and Technology</em>. January 1991. Vol. 113, p. 171–182. </div>
+</div>
+<div id="ref-onimus_polycrystalline_2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline"><span class="smallcaps">Onimus</span>, Fabien and <span class="smallcaps">Béchade</span>, Jean-Luc. A polycrystalline modeling of the mechanical behavior of neutron irradiated zirconium alloys. <em>Journal of Nuclear Materials</em>. 15 February 2009. Vol. 384, no. 2, p. 163–174. DOI <a href="https://doi.org/10.1016/j.jnucmat.2008.11.006">10.1016/j.jnucmat.2008.11.006</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0022311508006910">http://www.sciencedirect.com/science/article/pii/S0022311508006910</a></div>
+</div>
+<div id="ref-helfer_assisted_2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas. Assisted computation of the consistent tangent operator of behaviours integrated using an implicit scheme. Theory and implementation in <span>MFront</span>. Documentation of mfront. <span>CEA</span>, 2020. Available from: <a href="https://www.researchgate.net/publication/342721072_Assisted_computation_of_the_consistent_tangent_operator_of_behaviours_integrated_using_an_implicit_scheme_Theory_and_implementation_in_MFront">https://www.researchgate.net/publication/342721072_Assisted_computation_of_the_consistent_tangent_operator_of_behaviours_integrated_using_an_implicit_scheme_Theory_and_implementation_in_MFront</a></div>
+</div>
+</div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

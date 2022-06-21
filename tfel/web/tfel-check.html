@@ -399,7 +399,14 @@
 <p>The <code>@Command</code> keyword specifies a command to be launched.</p>
 <p>This keyword has the following options:</p>
 <ul>
-<li><code>expected_output</code>: a string specifying the expected output. If the actual output differs from the expected one, the tests is marked as failed.</li>
+<li><code>expected_output</code>: a string (single line output) or an array of strings (multiline output) specifying the expected output. If the actual output differs from the expected one, the tests is marked as failed.</li>
+<li><code>expected_numerical_output</code>, which allows to test the numerical output of a command. This option must be defined as a map with two entries:
+<ul>
+<li><code>value</code>: the expected value</li>
+<li><code>criterion_value</code>: the criterion value used to test the output</li>
+</ul></li>
+<li><code>output_validation_regex</code>, which allows to specifiy a regular expression which shall validate the output of the command. The output of the command is concatenated in a single string for the test.</li>
+<li><code>shall_fail</code>: a boolean stating if the command shall succeed or fail.</li>
 </ul>
 <h3 data-number="2.1.4" id="the-precision-keyword"><span class="header-section-number">2.1.4</span> The <code>@Precision</code> keyword</h3>
 <p>The <code>@Precision</code> keyword specifies the comparison criterion used to compare the current values and the reference ones.</p>

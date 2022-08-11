@@ -468,7 +468,7 @@
 <h2 data-number="2.3" id="frobenius-inner-product-of-second-order-tensors"><span class="header-section-number">2.3</span> Frobenius inner product of second order tensors</h2>
 <p>The Frobenius inner product <span class="math inline">\({\underset{\tilde{}}{\mathbf{a}}}\,\colon\,{\underset{\tilde{}}{\mathbf{b}}}\)</span> of two tensors <span class="math inline">\({\underset{\tilde{}}{\mathbf{a}}}\)</span> and <span class="math inline">\({\underset{\tilde{}}{\mathbf{b}}}\)</span> is defined by:</p>
 <p><span class="math display">\[
-{\underset{\tilde{}}{\mathbf{a}}}\,\colon\,{\underset{\tilde{}}{\mathbf{b}}}={\mathrm{tr}{\left({{\underset{\tilde{}}{\mathbf{a}}}^{\mathop{T}}}\,\dot\,{\underset{\tilde{}}{\mathbf{b}}}\right)}}=\sum_{i,j}a_{ij}b_{ij}
+{\underset{\tilde{}}{\mathbf{a}}}\,\colon\,{\underset{\tilde{}}{\mathbf{b}}}={\mathrm{tr}{\left({{\underset{\tilde{}}{\mathbf{a}}}^{\mathop{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{b}}}\right)}}=\sum_{i,j}a_{ij}b_{ij}
 \]</span></p>
 <p>This operation is implemented in <code>TFEL/Math</code> using the <code>|</code> operator, as follows:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> r = a|b;</span></code></pre></div>
@@ -676,7 +676,7 @@ J_3 &amp;= \det{\left(\underline{s}\right)} \\
 <h3 data-number="3.9.1" id="first-derivative"><span class="header-section-number">3.9.1</span> First derivative</h3>
 <p>This paragraph details the first derivative of <span class="math inline">\(J_{2}\)</span> and <span class="math inline">\(J_{3}\)</span> with respect to <span class="math inline">\(\underline{\sigma}\)</span>.</p>
 <p>The computation of <span class="math inline">\({\displaystyle \frac{\displaystyle \partial J_{2}}{\displaystyle \partial \underline{\sigma}}}\)</span> is straight-forward by chain rule, using the expression of the derivatives of the invariants of a tensor (see Section 3.8.2): <span class="math display">\[
-{\displaystyle \frac{\displaystyle \partial J_{2}}{\displaystyle \partial \underline{\sigma}}}= {\displaystyle \frac{\displaystyle \partial J_{2}}{\displaystyle \partial \underline{s}}}\,\dot\,{\displaystyle \frac{\displaystyle \partial \underline{s}}{\displaystyle \partial \underline{\sigma}}}= \underline{s}
+{\displaystyle \frac{\displaystyle \partial J_{2}}{\displaystyle \partial \underline{\sigma}}}= {\displaystyle \frac{\displaystyle \partial J_{2}}{\displaystyle \partial \underline{s}}}\,\cdot\,{\displaystyle \frac{\displaystyle \partial \underline{s}}{\displaystyle \partial \underline{\sigma}}}= \underline{s}
 \]</span></p>
 <p>In pratice, this can be implemented as follows:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ2 = deviator(sig);</span></code></pre></div>

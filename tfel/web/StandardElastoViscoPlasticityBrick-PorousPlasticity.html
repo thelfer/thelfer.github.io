@@ -441,9 +441,13 @@ pandoc -f markdown+tex_math_single_backslash --template=/home/th202608/texmf/tex
 
 \[\sstar = \sqrt{\sigma_{vM}^{2} + 9 f  \sigma_m^2} \]
 
-where $\displaystyle{\sigma_{vM} = \sqrt{\dfrac{3}{2} \tenseur{s} : \tenseur{s}}}$ is the von Mises equivalent stress, and $\displaystyle{\sigma_m = \dfrac{1}{3}\trace{\tsigma}}$ the mean stress.
+where $\displaystyle{\sigma_{vM} = \sqrt{\dfrac{3}{2} \tenseur{s} :
+\tenseur{s}}}$ is the von Mises equivalent stress, and
+$\displaystyle{\sigma_m = \dfrac{1}{3}\trace{\tsigma}}$ the mean stress.
 
-> **Note** This model is a particular case of [@fritzen_computational_2013] and is implemented mainly as a simple working example of a porous stress criterion. 
+> **Note** This model is a particular case of
+> [@fritzen_computational_2013] and is implemented mainly as a simple
+> working example of a porous stress criterion.
 -->
 <ul>
 <li><strong>Gurson-Tvergaard-Needleman</strong> <span class="citation" data-cites="tvergaardneedleman1984">[<a href="#ref-tvergaardneedleman1984" role="doc-biblioref">2</a>]</span></li>
@@ -451,22 +455,22 @@ where $\displaystyle{\sigma_{vM} = \sqrt{\dfrac{3}{2} \tenseur{s} : \tenseur{s}}
 <p><span id="eq:mfront:porous_plasticity:GTN:S"><span class="math display">\[
  S = {\left(\dfrac{\sigma_{vM}}{\sigma_{\star}} \right)}^2 + 2 q_1 f_{\star} \cosh{{\left(\dfrac{3}{2} q_2 \dfrac{\sigma_m}{\sigma_{\star}}    \right)}} - 1 - q_3 f_{\star}^2  = 0
 \qquad(1)\]</span></span></p>
-<p>which defines implicitly <span class="math inline">\(\sigma_{\star}\)</span>, where <span class="math inline">\(\sigma_{vM}\)</span> is the von Mises equivalent stress, and <span class="math inline">\(\sigma_m\)</span> the mean stress. <span class="math inline">\(f_{\star}\)</span> is defined such that :</p>
+<p>which defines implicitly <span class="math inline">\(\sigma_{\star}\)</span>, where <span class="math inline">\(\sigma_{vM}\)</span> is the von Mises equivalent stress, and <span class="math inline">\(\sigma_m\)</span> the mean stress. <span class="math inline">\(f_{\star}\)</span> is defined such that:</p>
 <p><span class="math display">\[
 f_{\star} = \left\{
 \begin{array}{ll}
 \delta f &amp; \mbox{if } f &lt; f_c \\
 f_c + \delta (f - f_c)  &amp; \mbox{otherwise}
 \end{array}
-\right. \]</span></p>
-<p>and :</p>
-<p><span class="math display">\[
+\right.
+\]</span> and: <span class="math display">\[
 \delta = \left\{
 \begin{array}{ll}
 1 &amp; \mbox{if } f &lt; f_c \\
-\dfrac{\dfrac{1}{q_1} - f_c }{f_r - f_c}   &amp; \mbox{otherwise}
+\dfrac{f_u- f_c }{f_r - f_c}   &amp; \mbox{otherwise}
 \end{array}
-\right. \]</span></p>
+\right.
+\]</span> where <span class="math inline">\(f_{u}\)</span> is the root of <span class="math inline">\(2\,q_1\,f-1-q_3\,f^{2}\)</span>.</p>
 <p>The parameters of the model are:</p>
 <p><span class="math display">\[\left\{q_1,q_2,q_3,f_c,f_r \right\} \]</span></p>
 <p>For <span class="math inline">\(\left\{q_1,q_2,q_3,f_c,f_r \right\} = \left\{1,1,1,+\infty,-\right\}\)</span>, Gurson-Tvergaard-Needleman model reduces to the Gurson model <span class="citation" data-cites="gurson1977">[<a href="#ref-gurson1977" role="doc-biblioref">1</a>]</span> which has no free parameter.</p>

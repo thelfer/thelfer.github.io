@@ -11,7 +11,7 @@
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Best practices</title>
-        <meta name="author" content="Thomas Helfer" />
+        <meta name="author" content="Thomas Helfer, Maxence Wangermez" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
@@ -87,10 +87,37 @@
 
 <div id="header">
 <h1 class="title">Best practices</h1>
-<h2 class="author">Thomas Helfer</h2>
+<h2 class="author">Thomas Helfer, Maxence Wangermez</h2>
 <h3 class="date">18/12/2021</h3>
 </div>
-
+<div id="TOC">
+<ul>
+<li><a href="#mfront-implementations">MFront implementations</a>
+<ul>
+<li><a href="#consistent-units">Consistent units</a></li>
+<li><a href="#external-names-glossary-and-entry-names">External names (glossary and entry names)</a></li>
+<li><a href="#bounds-and-physical-bounds">Bounds and physical bounds</a></li>
+<li><a href="#consistent-tangent-operator">Consistent tangent operator</a></li>
+<li><a href="#prediction-operator">Prediction operator</a></li>
+<li><a href="#stored-and-dissipated-energy">Stored and dissipated energy</a></li>
+<li><a href="#file-encoding">File encoding</a></li>
+</ul></li>
+<li><a href="#unit-testing">Unit testing</a></li>
+</ul>
+</div>
+<h1 id="mfront-implementations">MFront implementations</h1>
+<h2 id="consistent-units">Consistent units</h2>
+<p>Since Version 4.1, <code>MFront</code> provides the <code>@UnitSystem</code> keyword to specify the unit system used.</p>
+<h2 id="external-names-glossary-and-entry-names">External names (glossary and entry names)</h2>
+<p>The <code>setGlossaryName</code> and <code>setEntryName</code> methods allows to affect so-called external names to <code>MFront</code>’s variables. Those external names are the one seen from the calling solver. Those names must be explicit.</p>
+<h2 id="bounds-and-physical-bounds">Bounds and physical bounds</h2>
+<p>Bounds and physical bounds can be assigned to most variables in <code>MFront</code>’s variables using the <code>@Bounds</code> and <code>@PhysicalBounds</code> methods.</p>
+<h2 id="consistent-tangent-operator">Consistent tangent operator</h2>
+<h2 id="prediction-operator">Prediction operator</h2>
+<h2 id="stored-and-dissipated-energy">Stored and dissipated energy</h2>
+<h2 id="file-encoding">File encoding</h2>
+<p>Encode your file in <code>UTF-8</code> which is the de facto on most systems. This encoding is enforced by <a href="https://github.com/thelfer/tfel-editor"><code>tfel-editor</code></a>.</p>
+<h1 id="unit-testing">Unit testing</h1>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

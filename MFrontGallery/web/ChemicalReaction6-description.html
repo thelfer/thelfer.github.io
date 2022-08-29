@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Description of behaviour StationaryLinearHeatTransfer</title>
+    <title>Description of behaviour ChemicalReaction6</title>
         <meta name="author" content="Thomas Helfer" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
@@ -86,18 +86,19 @@
     </header>
 
 <div id="header">
-<h1 class="title">Description of behaviour StationaryLinearHeatTransfer</h1>
+<h1 class="title">Description of behaviour ChemicalReaction6</h1>
 <h2 class="author">Thomas Helfer</h2>
-<h3 class="date">15 / 02 / 2019</h3>
+<h3 class="date">09 / 07 / 2022</h3>
 </div>
 <div id="TOC">
 <ul>
 <li><a href="#list-of-supported-hypotheses">List of supported Hypotheses</a></li>
 <li><a href="#variables">Variables</a>
 <ul>
-<li><a href="#material-properties">Material properties</a></li>
+<li><a href="#state-variables">State variables</a></li>
 <li><a href="#external-state-variables">External state variables</a></li>
 <li><a href="#parameters">Parameters</a></li>
+<li><a href="#local-variables">Local variables</a></li>
 </ul></li>
 </ul>
 </div>
@@ -111,13 +112,19 @@
 <li>Tridimensional</li>
 </ul>
 <h1 id="variables">Variables</h1>
-<h2 id="material-properties">Material properties</h2>
+<h2 id="state-variables">State variables</h2>
 <ul>
-<li>ThermalConductivity:
+<li>MolarConcentrationOfSpeciesA:
 <ul>
-<li>variable name: k</li>
-<li>variable type: thermalconductivity</li>
-<li>description: the thermal conductivity of an isotropic material</li>
+<li>variable name: ca</li>
+<li>variable type: tfel::math::quantity&lt;numeric_type,0,0,0,0,0,0,1&gt;</li>
+<li>description: molar concentration of species B</li>
+</ul></li>
+<li>MolarConcentrationOfSpeciesB:
+<ul>
+<li>variable name: cb</li>
+<li>variable type: tfel::math::quantity&lt;numeric_type,0,0,0,0,0,0,1&gt;</li>
+<li>description: molar concentration of species B</li>
 </ul></li>
 </ul>
 <h2 id="external-state-variables">External state variables</h2>
@@ -131,6 +138,38 @@
 </ul>
 <h2 id="parameters">Parameters</h2>
 <ul>
+<li>epsilon:
+<ul>
+<li>variable type: real</li>
+<li>default value: 1e-14</li>
+</ul></li>
+<li>ReferenceReactionRateCoefficientAB:
+<ul>
+<li>variable name: k01</li>
+<li>variable type: frequency</li>
+<li>default value: 0.0183775</li>
+</ul></li>
+<li>ReferenceReactionRateCoefficientBA:
+<ul>
+<li>variable name: k02</li>
+<li>variable type: frequency</li>
+<li>description: reference rate coefficient of the reaction transforming species B to species A</li>
+<li>default value: 0.010132</li>
+</ul></li>
+<li>ActivationTemperatureAB:
+<ul>
+<li>variable name: Ta1</li>
+<li>variable type: temperature</li>
+<li>description: activation temperature reaction transforming species B to species A</li>
+<li>default value: 3000</li>
+</ul></li>
+<li>ActivationTemperatureBA:
+<ul>
+<li>variable name: Ta2</li>
+<li>variable type: temperature</li>
+<li>description: activation temperature reaction transforming species B to species A</li>
+<li>default value: 1500</li>
+</ul></li>
 <li>minimal_time_step_scaling_factor:
 <ul>
 <li>variable type: real</li>
@@ -142,6 +181,46 @@
 <li>variable type: real</li>
 <li>description: maximal value for the time step scaling factor</li>
 <li>default value: 1.79769e+308</li>
+</ul></li>
+</ul>
+<h2 id="local-variables">Local variables</h2>
+<ul>
+<li>sum:
+<ul>
+<li>variable type: tfel::math::quantity&lt;numeric_type,0,0,0,0,0,0,1&gt;</li>
+<li>description: sum of the molar concentrations of species A and B</li>
+</ul></li>
+<li>dca_K1:
+<ul>
+<li>variable type: tfel::math::quantity&lt;numeric_type,0,0,0,0,0,0,1&gt;</li>
+</ul></li>
+<li>dca_K2:
+<ul>
+<li>variable type: tfel::math::quantity&lt;numeric_type,0,0,0,0,0,0,1&gt;</li>
+</ul></li>
+<li>dca_K3:
+<ul>
+<li>variable type: tfel::math::quantity&lt;numeric_type,0,0,0,0,0,0,1&gt;</li>
+</ul></li>
+<li>dca_K4:
+<ul>
+<li>variable type: tfel::math::quantity&lt;numeric_type,0,0,0,0,0,0,1&gt;</li>
+</ul></li>
+<li>dca_K5:
+<ul>
+<li>variable type: tfel::math::quantity&lt;numeric_type,0,0,0,0,0,0,1&gt;</li>
+</ul></li>
+<li>dca_K6:
+<ul>
+<li>variable type: tfel::math::quantity&lt;numeric_type,0,0,0,0,0,0,1&gt;</li>
+</ul></li>
+<li>ca_:
+<ul>
+<li>variable type: tfel::math::quantity&lt;numeric_type,0,0,0,0,0,0,1&gt;</li>
+</ul></li>
+<li>T_:
+<ul>
+<li>variable type: temperature</li>
 </ul></li>
 </ul>
     <script>

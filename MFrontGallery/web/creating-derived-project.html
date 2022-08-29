@@ -179,10 +179,17 @@
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># testing</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span>(<span class="dv">CTEST_CONFIGURATION_TYPE</span> <span class="st">&quot;</span><span class="dv">${JOB_BUILD_CONFIGURATION}</span><span class="st">&quot;</span>)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">enable_testing</span>()</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># add subdirectories here</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">add_subdirectory</span>(materials)</span></code></pre></div>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span>(<span class="dv">CMAKE_CONFIGURATION_TYPES</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">add_custom_target</span>(check <span class="ot">COMMAND</span> </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="dv">${CMAKE_CTEST_COMMAND}</span> -T test -C <span class="ot">$&lt;CONFIGURATION&gt;</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">else</span>(CMAKE_CONFIGURATION_TYPES)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">add_custom_target</span>(check <span class="ot">COMMAND</span> </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="dv">${CMAKE_CTEST_COMMAND}</span> -T test )</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="kw">endif</span>(CMAKE_CONFIGURATION_TYPES)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># add subdirectories here</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="kw">add_subdirectory</span>(materials)</span></code></pre></div>
 <p>Now you are ready to create the subdirectory <code>materials</code> containing your <code>MFront</code> files.</p>
 <h1 id="sources-organization">Sources organization</h1>
 <p>The following organization of the <code>MFront</code> sources is highly recommended:</p>

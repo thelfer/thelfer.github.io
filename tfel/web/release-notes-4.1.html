@@ -876,7 +876,7 @@
 <h3 data-number="9.7.2" id="new-inelastic-flow-userdefinedviscoplasticity"><span class="header-section-number">9.7.2</span> New inelastic flow <code>UserDefinedViscoplasticity</code></h3>
 <p>The <code>UserDefinedViscoplasticity</code> inelastic flow allows the user to specify the viscoplastic strain rate <code>vp</code> as a function of <code>f</code> and <code>p</code> where:</p>
 <ul>
-<li><code>f</code> is the positive part of the <span class="math inline">\(\phi\paren{\tsigma-\sum_{i}\tenseur{X}_{i}}-\sum_{i}R_{i}\paren{p}\)</span> where <span class="math inline">\(\phi\)</span> is the stress criterion.</li>
+<li><code>f</code> is the positive part of the <span class="math inline">\(\phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}-\sum_{i}R_{i}{\left(p\right)}\)</span> where <span class="math inline">\(\phi\)</span> is the stress criterion.</li>
 <li><code>p</code> is the equivalent viscoplastic strain.</li>
 </ul>
 <p>This function shall be given by a string option named <code>vp</code>. This function must depend on <code>f</code>. Dependance to <code>p</code> is optional.</p>
@@ -922,6 +922,14 @@
 <span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
+<h3 data-number="9.7.4" id="new-kinematic-hardening-rule-for-orthotropic-behaviours"><span class="header-section-number">9.7.4</span> New kinematic hardening rule for orthotropic behaviours</h3>
+<p><span class="math display">\[
+\underline{\dot{a}}=
+\dot{p}\,\underline{\mathbf{E}}_{c}\,\colon\,\underline{n}
+-D\,\dot{p}\,\underline{\mathbf{R}}_{d}\,\colon\,\underline{a}
+-f\,{\left({{\displaystyle \frac{\displaystyle a_{\mathrm{eq}}}{\displaystyle a_{0}}}}\right)}^{m}\,{\displaystyle \frac{\displaystyle \partial a_{\mathrm{eq}}}{\displaystyle \partial \underline{a}}}
+\]</span> with <span class="math inline">\(a_{\mathrm{eq}}=\sqrt{\underline{a}\,\colon\,\underline{\mathbf{R}}_{s}\,\colon\,\underline{a}}\)</span> and <span class="math inline">\({\displaystyle \frac{\displaystyle \partial a_{\mathrm{eq}}}{\displaystyle \partial \underline{a}}}={{\displaystyle \frac{\displaystyle \underline{\mathbf{R}}_{s}\,\colon\,\underline{a}}{\displaystyle a_{\mathrm{eq}}}}}\)</span></p>
+<p>The three fourth order tensors <span class="math inline">\(\underline{\mathbf{E}}_{c}\)</span>, <span class="math inline">\(\underline{\mathbf{R}}_{d}\)</span> and <span class="math inline">\(\underline{\mathbf{R}}_{s}\)</span> are assumed to have the same structure as the Hill tensors and are defined by <span class="math inline">\(6\)</span> components (see <a href="tensors.html">this page</a> for details).</p>
 <h2 data-number="9.8" id="improvements-to-the-rungekutta-domain-specific-language"><span class="header-section-number">9.8</span> Improvements to the <code>RungeKutta</code> domain specific language</h2>
 <h3 data-number="9.8.1" id="sec:tfel_4.1:mfront:rkCastem"><span class="header-section-number">9.8.1</span> Improvements to the <code>rkCastem</code> algorithm</h3>
 <p>The <code>rkCastem</code> algorithm compares the values of the stress computed by a predictor step and corrector step. The error between those values must be normalised. In previous versions, the existence of a variable named <code>young</code> was assumed.</p>

@@ -226,7 +226,8 @@
    		    <li><a href="calculix.html">CalculiX</a></li>
 		    <!-- <li><a >TMFFT</a></li> -->
 		    <li><a href="cyrano.html">Cyrano</a></li>
-   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+   		    <li><a href="generic-material-property-interface.html">Generic interface for material properties</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic interface for behaviours</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -932,6 +933,25 @@ D\,\Phi\left(p\right)\,\Psi\left(\underline{a}\right)\dot{p}\,\underline{a}
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>      m : <span class="dv">2</span>,</span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>      w : <span class="fl">0.6</span>,</span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div>
+<h3 data-number="2.5.5" id="delobelle-robinet-schaffler-drs-kinematic-hardening-rule"><span class="header-section-number">2.5.5</span> Delobelle-Robinet-Schaffler (DRS) kinematic hardening rule</h3>
+<p>The Delobelle-Robinet-Schaffler (DRS) kinematic hardening rule has been introduced to describe orthotropic viscoplasticity of Zircaloy alloys <span class="citation" data-cites="delobelle_model_1996 schaffler_thermomechanical_1999">[<a href="#ref-delobelle_model_1996" role="doc-biblioref">11</a>, <a href="#ref-schaffler_thermomechanical_1999" role="doc-biblioref">12</a>]</span>. It describes both dynamic and static recovery by the following evolution law: <span class="math display">\[
+\underline{\dot{a}}=
+\dot{p}\,\underline{\mathbf{E}}_{c}\,\colon\,\underline{n}
+-D\,\dot{p}\,\underline{\mathbf{R}}_{d}\,\colon\,\underline{a}
+-f\,{\left(\Frac{a_{\mathrm{eq}}}{a_{0}}\right)}^{m}\,{{\displaystyle \frac{\displaystyle \partial a_{\mathrm{eq}}}{\displaystyle \partial \underline{a}}}}
+\]</span> with <span class="math inline">\(a_{\mathrm{eq}}=\sqrt{\underline{a}\,\colon\,\underline{\mathbf{R}}_{s}\,\colon\,\underline{a}}\)</span> and <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial a_{\mathrm{eq}}}{\displaystyle \partial \underline{a}}}}=\Frac{\underline{\mathbf{R}}_{s}\,\colon\,\underline{a}}{a_{\mathrm{eq}}}\)</span></p>
+<p>The three fourth order tensors <span class="math inline">\(\underline{\mathbf{E}}_{c}\)</span>, <span class="math inline">\(\underline{\mathbf{R}}_{d}\)</span> and <span class="math inline">\(\underline{\mathbf{R}}_{s}\)</span> are assumed to have the same structure as the Hill tensors and are defined by <span class="math inline">\(6\)</span> components (see <a href="tensors.html">this page</a> for details).</p>
+<p>The <code>f</code> and <code>a0</code> parameters are optional and defaults to <span class="math inline">\(1\)</span>.</p>
+<h4 data-number="2.5.5.1" id="example-17"><span class="header-section-number">2.5.5.1</span> Example</h4>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening : <span class="st">&quot;DRS&quot;</span> {</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>      C : <span class="fl">150.e9</span>,  <span class="co">// kinematic moduli</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>      D : <span class="fl">1e2</span>,    <span class="co">// back-strain callback coefficient</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>      f : <span class="dv">10</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>      m : <span class="dv">5</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>      Ec : {<span class="fl">0.33</span>, <span class="fl">0.33</span>, <span class="fl">0.33</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>},</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>      Rs : {<span class="fl">0.33</span>, <span class="fl">0.63</span>, <span class="fl">0.33</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>},</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>      Rd : {<span class="fl">0.33</span>, <span class="fl">0.33</span>, <span class="fl">0.33</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>}  <span class="co">//</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    },</span></code></pre></div>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-monerie_overall_2006" class="csl-entry" role="doc-biblioentry">
@@ -963,6 +983,12 @@ D\,\Phi\left(p\right)\,\Psi\left(\underline{a}\right)\dot{p}\,\underline{a}
 </div>
 <div id="ref-chaboche_cyclic_2012" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">10. </div><div class="csl-right-inline"><span class="smallcaps">Chaboche</span>, J. -L., <span class="smallcaps">Kanouté</span>, P. and <span class="smallcaps">Azzouz</span>, F. Cyclic inelastic constitutive equations and their impact on the fatigue life predictions. <em>International Journal of Plasticity</em>. 1 August 2012. Vol. 35, p. 44–66. DOI <a href="https://doi.org/10.1016/j.ijplas.2012.01.010">10.1016/j.ijplas.2012.01.010</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641912000113">http://www.sciencedirect.com/science/article/pii/S0749641912000113</a></div>
+</div>
+<div id="ref-delobelle_model_1996" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline"><span class="smallcaps">Delobelle</span>, P., <span class="smallcaps">Robinet</span>, P., <span class="smallcaps">Geyer</span>, P. and <span class="smallcaps">Bouffioux</span>, P. A model to describe the anisotropic viscoplastic behaviour of zircaloy-4 tubes. <em>Journal of Nuclear Materials</em>. 1 November 1996. Vol. 238, no. 2, p. 135–162. DOI <a href="https://doi.org/10.1016/S0022-3115(96)00450-3">10.1016/S0022-3115(96)00450-3</a>. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S0022311596004503">https://www.sciencedirect.com/science/article/pii/S0022311596004503</a></div>
+</div>
+<div id="ref-schaffler_thermomechanical_1999" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">12. </div><div class="csl-right-inline"><span class="smallcaps">Schäffler</span>, I., <span class="smallcaps">Geyer</span>, P., <span class="smallcaps">Bouffioux</span>, P. and <span class="smallcaps">Delobelle</span>, P. Thermomechanical behavior and modeling between 350°c and 400°c of zircaloy-4 cladding tubes from an unirradiated state to high fluence. <em>Journal of Engineering Materials and Technology</em>. 6 July 1999. Vol. 122, no. 2, p. 168–176. DOI <a href="https://doi.org/10.1115/1.482783">10.1115/1.482783</a>. Available from: <a href="https://doi.org/10.1115/1.482783">https://doi.org/10.1115/1.482783</a></div>
 </div>
 </div>
     <script>

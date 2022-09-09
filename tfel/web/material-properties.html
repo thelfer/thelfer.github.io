@@ -228,7 +228,8 @@
    		    <li><a href="calculix.html">CalculiX</a></li>
 		    <!-- <li><a >TMFFT</a></li> -->
 		    <li><a href="cyrano.html">Cyrano</a></li>
-   		    <li><a href="generic-behaviours-interface.html">Generic Behaviour Interface</a></li>
+   		    <li><a href="generic-material-property-interface.html">Generic interface for material properties</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic interface for behaviours</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -331,7 +332,7 @@
 <li><a href="#modification-of-parameters"><span class="toc-section-number">3.5.1</span> Modification of parameters</a></li>
 <li><a href="#effect-on-the-runtime-performances"><span class="toc-section-number">3.5.2</span> Effect on the runtime performances</a></li>
 </ul></li>
-<li><a href="#other-metadata-for-assurance-quality"><span class="toc-section-number">3.6</span> Other metadata for assurance quality</a></li>
+<li><a href="#other-metadata-for-quality-assurance"><span class="toc-section-number">3.6</span> Other metadata for quality assurance</a></li>
 <li><a href="#sec:mfront:material_properties:types"><span class="toc-section-number">3.7</span> Explicit coding: add types and quantity support</a>
 <ul>
 <li><a href="#the-real-type-alias"><span class="toc-section-number">3.7.1</span> The <code>real</code> type alias</a></li>
@@ -709,7 +710,7 @@ E(T,f)=2.2693\,10^{11}\,(1-2.5\,f)\,(1-6.786\,10^{-5}\,T-4.23\,10^{-8}\,T^{2})
 <div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>python                            <span class="dt">\</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">--dsl-option</span><span class="op">=</span>parameters_initialization_from_file:false <span class="dt">\</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>         UO2_YoungModulus_Martini1989.mfront</span></code></pre></div>
-<p>This option has mostly been introduced to let solver developpers have control on the users ability to modify parameters of well-qualified material properties: if such parameter is modified, strict assurance quality of the solver is compromised.</p>
+<p>This option has mostly been introduced to let solver developpers have control on the users ability to modify parameters of well-qualified material properties: if such parameter is modified, strict quality assurance of the solver is compromised.</p>
 <h4 data-number="3.5.1.4" id="disabling-the-runtime-modification-of-parameters--"><span class="header-section-number">3.5.1.4</span> Disabling the runtime modification of parameters -</h4>
 <p>Since Version 4.1, it is possible to use the boolean DSL option <code>parameters_as_static_variables</code> in order to modify the way parameters are processed:</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>python                      <span class="dt">\</span></span>
@@ -718,7 +719,7 @@ E(T,f)=2.2693\,10^{11}\,(1-2.5\,f)\,(1-6.786\,10^{-5}\,T-4.23\,10^{-8}\,T^{2})
 <p>When treated as static variables, parameters can not be modified at runtime (neither using an external txt file nor using the <code>setParameter</code> function of the <code>ExternalLibraryManager</code> class).</p>
 <h3 data-number="3.5.2" id="effect-on-the-runtime-performances"><span class="header-section-number">3.5.2</span> Effect on the runtime performances</h3>
 <p>Modification of parameters may have runtime performances since a global variable is used to store the values of the parameters.</p>
-<h2 data-number="3.6" id="other-metadata-for-assurance-quality"><span class="header-section-number">3.6</span> Other metadata for assurance quality</h2>
+<h2 data-number="3.6" id="other-metadata-for-quality-assurance"><span class="header-section-number">3.6</span> Other metadata for quality assurance</h2>
 <p>Metadata describing the author of the implementation, the date of the implementation and a short description can be added by the <code>@Author</code>, <code>@Date</code> and <code>@Description</code> keywords respectively.</p>
 <p>For example, those information can be added as follows:</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author   T. Helfer;  <span class="co">// author name</span></span>
@@ -747,7 +748,7 @@ E(T,f)=2.2693\,10^{11}\,(1-2.5\,f)\,(1-6.786\,10^{-5}\,T-4.23\,10^{-8}\,T^{2})
 <div class="sourceCode" id="cb44"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input temperature T;</span></code></pre></div>
 <h3 data-number="3.7.4" id="using-quantities"><span class="header-section-number">3.7.4</span> Using quantities</h3>
 <p>By default, <code>temperature</code>, <code>strain</code>, <code>stress</code> are defined as type aliases to floating point number type used by the interface.</p>
-<p>The keyword <code>@UseQT</code> allows the usage of quantities, i.e. floatting point values associated with units. Quantities allow the compiler to perform <em>dimensional analysis</em> at compile-time.</p>
+<p>The keyword <code>@UseQT</code> allows the usage of quantities, i.e. floating point values associated with units. Quantities allow the compiler to perform <em>dimensional analysis</em> at compile-time.</p>
 <p>It must clearly emphasized that quantities are only used <em>inside</em> the body of the function and does not change the interface of the generated functions.</p>
 <p>Note that quantities are implemented by the <code>TFEL/Math</code> library and supported in <code>MFront</code> only since Version 4.0.</p>
 <h4 data-number="3.7.4.1" id="error-generated-by-invalid-operations-on-quantities--"><span class="header-section-number">3.7.4.1</span> Error generated by invalid operations on quantities -</h4>

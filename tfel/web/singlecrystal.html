@@ -379,7 +379,14 @@
 <ul>
 <li><code>--orientation-tensors</code>: list all the orientation tensors, sorted by family".</li>
 <li><code>--orientation-tensors-by-index</code>: list all the orientation tensors.</li>
-<li><code>--orientation-tensors-by-slip-system</code>: list all the orientation tensors.</li>
+<li><code>--orientation-tensors-by-slip-system</code>: list all the orientation tensors sorted by slip systems.</li>
+</ul>
+<h3 id="getting-information-about-the-climb-tensors">Getting information about the climb tensors</h3>
+<p>Concerning the climb tensors, the following queries are available:</p>
+<ul>
+<li><code>--climb-tensors</code>: list all the climb tensors, sorted by family".</li>
+<li><code>--climb-tensors-by-index</code>: list all the climb tensors.</li>
+<li><code>--climb-tensors-by-slip-system</code>: list all the climb tensors sorted by slip systems.</li>
 </ul>
 <h3 id="getting-information-about-the-schmid-factors">Getting information about the Schmid factors</h3>
 <p>Concerning the Schmid factors, the following queries are available:</p>
@@ -437,13 +444,14 @@
 <p>If this brick is not used or if this variable is needed in other blocks of the code, one may declare the <code>ss</code> variable as follows:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span>&amp; ss = FCCSingleCrystalSlipSystems&lt;real&gt;::getSlipSystems();</span></code></pre></div>
 <p>Of course, the name <code>ss</code> (for slips systems) can be changed by the user to match his/her own conventions.</p>
-<h3 id="access-to-normals-to-the-slip-planes-slip-directions-and-orientation-tensors">Access to normals to the slip planes, slip directions and orientation tensors</h3>
+<h3 id="access-to-normals-to-the-slip-planes-slip-directions-and-orientation-tensors-climb-tensors">Access to normals to the slip planes, slip directions and orientation tensors, climb tensors</h3>
 <p>The previous data structure has the following public members:</p>
 <ul>
 <li><code>np</code>: an array containing all the normals to the slip planes</li>
 <li><code>ns</code>: an array containing all the slip directions (unit vector based on the Burger’s vector)</li>
 <li><code>mu</code>: an array containing all the orientation tensors</li>
 <li><code>mus</code>: an array containing all the symmetric part of the orientation tensors</li>
+<li><code>climb_tensors</code>: an array containing all the climb tensors (as symmetric tensors) defined as the tensorial product of the normals by themselves.</li>
 </ul>
 <p>For every slip system family, specific arrays are also provided. For example, <code>np0</code> contains all the normals to the slip planes of the first family.</p>
 <h3 id="access-to-the-interaction-matrix-defined-through-interactionmatrix">Access to the interaction matrix defined through <code>@InteractionMatrix</code></h3>

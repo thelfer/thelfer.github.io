@@ -442,8 +442,18 @@
 <span id="cb4-104"><a href="#cb4-104"></a><span class="co">&#39;FIN&#39;</span><span class="op">;</span></span></code></pre></div>
 <p>The results given by <code>Cast3M</code> can be compared to an equivalent <code>MTest</code> computation on the following figure:</p>
 <figure>
-<img src="img/NortonCreepUniaxialTesting.svg" title="Comparaison des résultats `MTest`/`Cast3M`" alt="Comparaison des résultats MTest/Cast3M" /><figcaption aria-hidden="true">Comparaison des résultats <code>MTest</code>/<code>Cast3M</code></figcaption>
+<img src="img/NortonCreepUniaxialTesting.svg" title="Comparison of the results `MTest`/`Cast3M`" alt="Comparaison of the results MTest/Cast3M" /><figcaption aria-hidden="true">Comparaison of the results <code>MTest</code>/<code>Cast3M</code></figcaption>
 </figure>
+<h2 id="keywords-specific-to-the-cast3m-interface">Keywords specific to the <code>Cast3M</code> interface</h2>
+<p>The following keywords are specific to the <code>Cast3M</code> interface:</p>
+<ul>
+<li><code>@CastemGenerateMTestFileOnFailure</code> (or <code>@UMATGenerateMTestFileOnFailure</code>). This keyword is followed by a boolean. If this boolean is true, the behaviour will generate an <code>MTest</code> file for every integration failure. This keyword is deprecated in favor of <code>@GenerateMTestFileOnFailure</code>.</li>
+<li><code>@CastemUseTimeSubStepping</code> (or <code>@UMATUseTimeSubStepping</code>). This keyword is followed by a boolean. If this boolean is true, a local substepping scheme is set up. The time step is reduced by a factor <span class="math inline">\(2\)</span> at each sub steps. This time step is never increased.</li>
+<li><code>@CastemMaximumSubStepping</code> (or <code>@UMATMaximumSubStepping</code>). This keyword is followed by a strictly positive integer which indicates the maximum number of sub steps allowed. Any value greater that <span class="math inline">\(5\)</span> is not reasonnable, as it would lead to reduction by a factor of at most <span class="math inline">\(2^{5}\)</span> (i.e. <span class="math inline">\(32\)</span>) of the initial time step.</li>
+<li><code>@CastemDoSubSteppingOnInvalidResults</code> (or <code>@UMATDoSubSteppingOnInvalidResults</code>). This keyword is followed by a boolean. If true, invalid results will lead to a sub step. By default, invalid results does not lead to a substeps. Invalid results are debious results according to user defined criteria in the <code>@APosterioriTimeStepScalingFactor</code> code block.</li>
+<li><code>@CastemFiniteStrainStrategy</code> (or <code>@UMATFiniteStrainStrategy</code>). This keyword is followed by a string. This keyword is only valid for strain-based behaviours. Valid values are <code>None</code>, <code>FiniteRotationSmallStrain</code>, <code>MieheApelLambrechtLogarithmicStrain</code> and <code>LogarithmicStrain1D</code>. This keyword is deprecated in favor of the <code>@StrainMeasure</code> keyword.</li>
+<li><code>@CastemFiniteStrainStrategies</code> (or <code>@UMATFiniteStrainStrategies</code>). This keyword is followed by a list of strings (see the documentation of the <code>@CastemFiniteStrainStrategy</code> keyword). A version of the behaviour will be generated for each strategy defined. This keyword is deprecated in favor of the <code>@StrainMeasure</code> keyword.</li>
+</ul>
 <h1 id="material-proprerties">Material proprerties</h1>
 <h2 id="thermal-conductivity-of-upuc">Thermal conductivity of <span class="math inline">\(UPuC\)</span></h2>
 <p>The thermal conductivity of <span class="math inline">\(UPuC\)</span> <span class="math inline">\(k\left(T,p,\tau\right)\)</span> depends on the temperature <span class="math inline">\(T\)</span> (Kelvin), the porosity <span class="math inline">\(p\)</span> and the Burn-Up <span class="math inline">\(\tau\)</span> <span class="math inline">\(at.\%\)</span></p>

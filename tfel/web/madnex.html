@@ -347,11 +347,11 @@
 <h1 id="mfront-usage"><code>mfront</code> usage</h1>
 <p>The only thing specific to <code>madnex</code> files is the selection of the implementation to be treated.</p>
 <p>For a behaviour, this selection is done through the <code>--material</code> and <code>--behaviour</code> options. For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.madnex</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.mdnx</span></code></pre></div>
 <p>Here, <code>behaviour_id</code> can be a regular expression.</p>
 <p>For material properties and models, the <code>--material-property</code> and <code>--model</code> options have a similar role than the <code>--behaviour</code> option for behaviours.</p>
 <p>The <code>--all-material-properties</code>, <code>--all-behaviours</code>, and <code>--all-models</code> options allows to select all the material properties, behaviours and models respectively, as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --all-behaviours file.madnex</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --all-behaviours file.mdnx</span></code></pre></div>
 <p>The material name <code>&lt;none&gt;</code> has a special meaning here: it allows the selection of implementations that not associated with a material.</p>
 <h2 id="sec:tfel-3.4.4:mfront:mandex_full_path">Alternative way to select a single material knowledge (material property, behaviour, model) in a <code>madnex</code> file</h2>
 <p><code>mfront</code>, <code>mfront-query</code> and <code>mfront-doc</code> allow to select a specific material knowledge inside a <code>madnex</code> file using the following syntax:</p>
@@ -420,7 +420,7 @@
 <p>This function returns a list of strings where the path of the implementation is encoded.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>paths <span class="op">=</span> mfront.getImplementationsPaths(<span class="st">&quot;file.madnex&quot;</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>paths <span class="op">=</span> mfront.getImplementationsPaths(<span class="st">&quot;file.mdnx&quot;</span>,</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                                       material<span class="op">=&lt;</span>material_id<span class="op">&gt;</span>,</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                                       behaviour<span class="op">=</span>behaviour_id<span class="op">&gt;</span>)</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(paths) <span class="op">==</span> <span class="dv">0</span>:</span>
@@ -467,7 +467,7 @@
 <p>Queries of the file itself (list of materials, behaviours, etc…) are also provided by the <code>madnex-query</code> tool.</p>
 <h3 id="listing-all-material-a-madnex-file">Listing all material a <code>madnex</code> file</h3>
 <p>The <code>--list-materials</code> returns the list of all materials in a <code>MFront</code> file:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-materials</span> file.madnex</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-materials</span> file.mdnx</span></code></pre></div>
 <h3 id="listing-of-all-material-properties-all-behaviours-or-all-models">Listing of all material properties, all behaviours or all models</h3>
 <p>The following options are available:</p>
 <ul>
@@ -476,12 +476,12 @@
 <li><code>--list-models</code>: list of all models.</li>
 </ul>
 <p>A typical call is as follows:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-behaviours</span> file.madnex</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--list-behaviours</span> file.mdnx</span></code></pre></div>
 <p>The previous options are affected by the the definition of a material, as follows:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --list-behaviours file.madnex</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --list-behaviours file.mdnx</span></code></pre></div>
 <h2 id="querying-information-about-implementation-options-specific-to-madnex-files">Querying information about implementation, options specific to <code>madnex</code> files</h2>
 <p>For a behaviour, the selection of an implementation on which the queries are made is done through the <code>--material</code> and <code>--behaviour</code> options. For example:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.madnex <span class="at">--state-variables</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic <span class="at">--material</span><span class="op">=&lt;</span>material_id<span class="op">&gt;</span> --behaviour=<span class="op">&lt;</span>behaviour_id<span class="op">&gt;</span> file.mdnx <span class="at">--state-variables</span></span></code></pre></div>
 <p>Here, <code>behaviour_id</code> can be a regular expression.</p>
 <p>For material properties and models, the <code>--material-property</code> and <code>--model</code> options have a similar role than the <code>--behaviour</code> option for behaviours.</p>
 <h3 id="list-of-mtest-tests-associated-with-a-behaviour-in-a-madnex-file">List of <code>MTest</code> tests associated with a behaviour in a <code>madnex</code> file</h3>
@@ -501,15 +501,17 @@
 <div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</span></code></pre></div>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.mdnx&quot;</span>)</span></code></pre></div>
+<p>Note that an override of the <code>write</code> function is available to specify a template file, as follows:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mfront.write(i, template_file_path,<span class="st">&quot;Plasticity.mdnx&quot;</span>)</span></code></pre></div>
 <p>However, the <code>OverridableImplementation</code> class also allows modifying the medata of a implementation, as follows:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>i.overrideBehaviourName(<span class="st">&quot;Plasticity_SRMA2022&quot;</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>i.overrideMaterial(<span class="st">&quot;A316LN&quot;</span>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>i.overrideAuthor(<span class="st">&quot;John Mac Enroe&quot;</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.madnex&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> mfront.OverridableImplementation(<span class="st">&quot;Plasticity.mfront&quot;</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>i.overrideBehaviourName(<span class="st">&quot;Plasticity_SRMA2022&quot;</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>i.overrideMaterial(<span class="st">&quot;A316LN&quot;</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>i.overrideAuthor(<span class="st">&quot;John Mac Enroe&quot;</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>mfront.write(i, <span class="st">&quot;Plasticity.mdnx&quot;</span>)</span></code></pre></div>
 <h1 id="storing-an-mtest-file-in-a-madnex-file">Storing an <code>MTest</code> file in a <code>madnex</code> file</h1>
 <h2 id="c-application-programming-interface-api"><code>C++</code> Application Programming Interface (API)</h2>
 <p>The <code>TFELMTest</code> library exposes a data structure named <code>TestDescription</code> which describes an <code>MTest</code> file and two functions called respectively <code>loadMTestFileContent</code> and <code>write</code>.</p>
@@ -534,17 +536,17 @@
 <p>The <code>mtest</code> <code>python</code> module reflects the <code>C++</code> API and exposes the <code>TestDescription</code> data structure and the <code>loadMTestFileContent</code> and <code>write</code> functions.</p>
 <h3 id="example-of-usage-3">Example of usage</h3>
 <p>The following example shows how to store an existing <code>MTest</code> file to a <code>madnex</code> file:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mtest</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> mtest.TestDescription()</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>d.author <span class="op">=</span> <span class="st">&#39;John Doe&#39;</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>d.date <span class="op">=</span> <span class="st">&#39;01/03/2022&#39;</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>d.name <span class="op">=</span> <span class="st">&#39;UniaxialTensileTest&#39;</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>d.scheme <span class="op">=</span> <span class="st">&#39;mtest&#39;</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>d.behaviour <span class="op">=</span> <span class="st">&#39;Plasticity&#39;</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>mtest.loadMTestFileContent(d, <span class="st">&#39;Plasticity.mtest&#39;</span>)</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>mtest.write(d,<span class="st">&#39;Plasticity.mdnx&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mtest</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> mtest.TestDescription()</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>d.author <span class="op">=</span> <span class="st">&#39;John Doe&#39;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>d.date <span class="op">=</span> <span class="st">&#39;01/03/2022&#39;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>d.name <span class="op">=</span> <span class="st">&#39;UniaxialTensileTest&#39;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>d.scheme <span class="op">=</span> <span class="st">&#39;mtest&#39;</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>d.behaviour <span class="op">=</span> <span class="st">&#39;Plasticity&#39;</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>mtest.loadMTestFileContent(d, <span class="st">&#39;Plasticity.mtest&#39;</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>mtest.write(d,<span class="st">&#39;Plasticity.mdnx&#39;</span>)</span></code></pre></div>
 <h2 id="best-practices">Best practices</h2>
 <p>We highly recommend to use the following substitution variables when defining the test:</p>
 <ul>
@@ -575,16 +577,16 @@
 <p>The <code>mfm_test_generator</code> <code>python</code> module reflects the <code>C++</code> API and exposes the <code>TestDescription</code> data structure and the <code>loadMFMTestGeneratorFileContent</code> and <code>write</code> functions.</p>
 <h3 id="example-of-usage-4">Example of usage</h3>
 <p>The following example shows how to store an existing <code>mfm-test-generator</code> file to a <code>madnex</code> file:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfm_test_generator</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> mfm_test_generator.TestDescription()</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>d.author <span class="op">=</span> <span class="st">&#39;John Doe&#39;</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>d.date <span class="op">=</span> <span class="st">&#39;01/03/2022&#39;</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>d.name <span class="op">=</span> <span class="st">&#39;UniaxialTensileTest&#39;</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>d.behaviour <span class="op">=</span> <span class="st">&#39;Plasticity&#39;</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>mfm_test_generator.loadMFMTestGeneratorFileContent(d, <span class="st">&#39;Plasticity.mdnx&#39;</span>)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>mfm_test_generator.write(d,<span class="st">&#39;Plasticity.mdnx&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfm_test_generator</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> mfm_test_generator.TestDescription()</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>d.author <span class="op">=</span> <span class="st">&#39;John Doe&#39;</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>d.date <span class="op">=</span> <span class="st">&#39;01/03/2022&#39;</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>d.name <span class="op">=</span> <span class="st">&#39;UniaxialTensileTest&#39;</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>d.behaviour <span class="op">=</span> <span class="st">&#39;Plasticity&#39;</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>mfm_test_generator.loadMFMTestGeneratorFileContent(d, <span class="st">&#39;Plasticity.mdnx&#39;</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>mfm_test_generator.write(d,<span class="st">&#39;Plasticity.mdnx&#39;</span>)</span></code></pre></div>
 <h2 id="best-practices-1">Best practices</h2>
 <p>We highly recommend to use the following substitution variables when defining the test:</p>
 <ul>

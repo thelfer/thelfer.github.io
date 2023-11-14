@@ -708,6 +708,11 @@ J = {\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta
 <h2 data-number="2.1" id="the-tinynonlinearsolverbase-class"><span class="header-section-number">2.1</span> The <code>TinyNonLinearSolverBase</code> class</h2>
 <p>All the available solvers are based on the <code>TinyNonLinearSolverBase</code> which provides two main methods <code>solveNonLinearSystem</code> and <code>solveNonLinearSystem2</code> for the end users and many methods that can be overloaded to customize the behaviour of the algorithm.</p>
 <p>In pratice, the <code>NewtonRaphsonSolver</code> class presented in the previous example inherits from <code>TinyNewtonRaphson</code> <code>Solver&lt;2u, double, NewtonRaphsonSolver&gt;</code> which itself inherits from <code>TinyNonLinearSolverBase&lt;2u, double, NewtonRaphsonSolver&gt;</code>.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>For the sake of clarity, one template parameter of the <code>TinyNewtonRaphsonSolver</code> and <code>TinyNonLinearSolverBase</code> class have been omitted.</p>
+<p>This template parameter describes a data structure containing the so-called workspace of the solver, i.e. all the data members required by the solver. The default value of this template parameter allocates those data members on the stack.</p>
+</blockquote>
 <p>While a bit contrieved, this design ensures that all algorithms share the same customization points, a constraint which is not easy to enforce when relying on CRTP (compared to standard approach based on virtual calls).</p>
 <p>As a consequence, the <code>TinyNewtonRaphsonSolver</code> class only implements some methods specific to the Newton-Raphson algorithm while the global algorithmic structure in handled by the <code>TinyNonLinearSolverBase</code> class.</p>
 <p>More precisely, the <code>TinyNonLinearSolverBase</code> provides a method called <code>solveNonLinearSystem</code>. This method internally calls a method called <code>solveNonLinearSystem2</code> which indeed implements the core of the resolution algorithm. The <code>solveNonLinearSystem2</code> method is described in depth in Section 2.1.2.</p>

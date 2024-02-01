@@ -214,7 +214,9 @@
 	  <ul>
 	    <li><a href="documentations.html">General documentation</a></li>
 	    <li><a href="gallery.html">Gallery</a></li>
+<!--	    
 	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
+-->
 	    <li><a>Behaviours</a>
 	      <ul>
 		<li><a href="tutorial.html">Tutorial</a></li>
@@ -288,7 +290,8 @@
 	  <ul>
 	    <li><a href="search.html">Search on this site</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
-	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
 	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
 	  </ul>
 	</li>
@@ -343,7 +346,7 @@
 <p>Executing <code>bat</code> scripts is fairly easy: in <code>Windows</code> <code>Explorer</code>, right-click on the script and select <code>Open</code>.</p>
 <p>Modifying <code>bat</code> scripts is also easy: in <code>Windows</code> <code>Explorer</code>, right-click on the script and select <code>Modify</code>. By default, this action will open the script in <code>Notepad</code>, but any text editor will do.</p>
 <h2 id="about-binary-packages">About binary packages</h2>
-<p>Various binary packages can be downloaded on the <code>sourceforge</code> website. Those binary packages are built against specific versions of <code>Cast3M</code>. When installing thoses packages, the user have the choice to modify the <code>PATH</code> variable globally.</p>
+<p>Various binary packages can be downloaded on the <code>github</code> website. Those binary packages are built against specific versions of <code>Cast3M</code>. When installing thoses packages, the user have the choice to modify the <code>PATH</code> variable globally.</p>
 <p>This tutorial can nevertheless be usefull: small scripts wrapping calls to <code>MFront</code> can be a viable choice in the <code>Windows</code> environment, rather than relying on the command line. Be careful that modify the examples appropriately to reflect where <code>TFEL</code> and <code>MFront</code> have been installed.</p>
 <h1 id="decompressing-the-archive">Decompressing the archive</h1>
 <p>As said before, this tutorial is mostly based on <code>bat</code> scripts that can be downloaded <a href="downloads/windows-install-scripts.tar.bz2">here</a>.</p>
@@ -353,13 +356,13 @@
 <li><code>git-update.bat</code>: a script used to update the sources to the latest version.</li>
 <li><code>compil-castem2017.bat</code>: a script used to compile <code>TFEL</code> and <code>MFront</code> using the compiler delivered with <code>Cast3M</code> <code>2017</code>.</li>
 </ul>
-<p>The two first scripts are not mandatory: the user can directly download an archive from the sourceforge website (<a href="https://sourceforge.net/projects/tfel/files/" class="uri">https://sourceforge.net/projects/tfel/files/</a>).</p>
+<p>The two first scripts are not mandatory: the user can directly download an archive from the github website (<a href="https://github.com/thelfer/tfel/releases" class="uri">https://github.com/thelfer/tfel/releases</a>).</p>
 <p>It also contains a directory called <code>test</code>. The usage is those scripts is fully detailed in the following sections.</p>
 <p>The other files contained in the archive will not be used in this tutorial.</p>
 <h1 id="prerequisites">Prerequisites</h1>
 <p>In the following, we will suppose that:</p>
 <ul>
-<li><code>git</code> is installed. This is not mandatory. Users that do not want to follow the latest developments of <code>TFEL</code> and <code>MFront</code> can download a packaged version on the sourceforge website. The tutorial will mostly apply, but the name of the directory containing the sources must be changed. <code>git</code> for <code>Windows</code> can be downloaded <a href="https://git-scm.com/download/win">here</a></li>
+<li><code>git</code> is installed. This is not mandatory. Users that do not want to follow the latest developments of <code>TFEL</code> and <code>MFront</code> can download a packaged version on the github website. The tutorial will mostly apply, but the name of the directory containing the sources must be changed. <code>git</code> for <code>Windows</code> can be downloaded <a href="https://git-scm.com/download/win">here</a></li>
 <li><code>cmake</code> is installed. <code>cmake</code> can be downloaded <a href="https://cmake.org/download/">here</a>.</li>
 <li><code>Cast3M</code> <code>2017</code> <strong>developer version</strong> is installed. <code>Cast3M</code> can be downloaded <a href="http://www-cast3m.cea.fr/index.php?xml=download1">here</a>.</li>
 </ul>
@@ -368,7 +371,7 @@
 <p>In the following, it is expected that those prerequisites are located in directories listed in the <code>PATH</code> variables. If this is not the case, the scripts must be modified to update this variable appropriately.</p>
 </blockquote>
 <h1 id="getting-the-sources-using-git">Getting the sources using <code>git</code></h1>
-<p>This section can be skipped if the user wants to use a packaged version of tfel (<a href="https://sourceforge.net/projects/tfel/files/" class="uri">https://sourceforge.net/projects/tfel/files/</a>).</p>
+<p>This section can be skipped if the user wants to use a packaged version of tfel (<a href="https://github.com/thelfer/tfel/releases" class="uri">https://github.com/thelfer/tfel/releases</a>).</p>
 <h2 id="cloning-the-repository">Cloning the repository</h2>
 <p>The <code>git.bat</code> will clone the <code>git</code> repository on your machine in the current directory. The directory containing the repository is called <code>tfel</code>.</p>
 <h2 id="updating-the-repository">Updating the repository</h2>
@@ -380,7 +383,7 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> PATH=C:<span class="dt">\C</span>ast3M<span class="dt">\P</span>CW_17<span class="dt">\M</span>inGW<span class="dt">\x</span>86_64-6.3.0-posix-sjlj-rt_v5-rev1<span class="dt">\m</span>ingw64<span class="dt">\b</span>in<span class="kw">;</span><span class="ex">%PATH%</span></span></code></pre></div>
 <h2 id="changing-the-location-of-the-sources">Changing the location of the sources</h2>
 <p>By default, the script assumes that the sources are in the <code>tfel</code> subdirectory. This is the case if the user cloned the <code>git</code> repository as explained before.</p>
-<p>If the user has downloaded an archive from the <code>sourceforge</code> website, the name of the directory can be different and the user must update the following line:</p>
+<p>If the user has downloaded an archive from the <code>github</code> website, the name of the directory can be different and the user must update the following line:</p>
 <pre class="bat"><code>cmake.exe ..\tfel -G &quot;MinGW Makefiles&quot; ...</code></pre>
 <p>For example, if you have downloaded version <code>3.0.1</code>, the name of the archive is <code>tfel-3.0.1.tar.bz2</code>. Assuming that this archive is decompressed in the same directory than the scripts, the name of the directory containing the sources will be <code>tfel-3.0.1</code>. The previous line can thus be udpated as follows:</p>
 <pre class="bat"><code>cmake.exe ..\tfel-3.0.1 -G &quot;MinGW Makefiles&quot; ...</code></pre>

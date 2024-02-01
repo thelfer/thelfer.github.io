@@ -215,7 +215,9 @@
 	  <ul>
 	    <li><a href="documentations.html">General documentation</a></li>
 	    <li><a href="gallery.html">Gallery</a></li>
+<!--	    
 	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
+-->
 	    <li><a>Behaviours</a>
 	      <ul>
 		<li><a href="tutorial.html">Tutorial</a></li>
@@ -289,7 +291,8 @@
 	  <ul>
 	    <li><a href="search.html">Search on this site</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
-	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
 	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
 	  </ul>
 	</li>
@@ -353,7 +356,7 @@
 <div id="lst:sigmaeq_tfel_3.4.0" class="listing cxx">
 <p>Listing 1: Implementation of the sigmaeq function in TFEL-3.4.1</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> &lt;<span class="kw">typename</span> T&gt;</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">typename</span> <span class="bu">std::</span>enable_if&lt;tfel::meta::Implements&lt;T, StensorConcept&gt;::cond,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">typename</span> <span class="bu">std::</span>enable_if&lt;tfel::meta::Implements&lt;T, StensorConceptBase&gt;::cond,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                        StensorNumType&lt;T&gt;&gt;::type</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sigmaeq(<span class="at">const</span> T&amp; s) {</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">typedef</span> tfel::math::internals::SigmaEqImpl&lt;StensorTraits&lt;T&gt;::dime&gt; Impl;</span>
@@ -380,7 +383,7 @@
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> SigmaEqImpl&lt;<span class="dv">1</span><span class="bu">u</span>&gt; : <span class="kw">public</span> SigmaEqImplBase {</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">template</span> &lt;<span class="kw">class</span> T&gt;</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">static</span> <span class="kw">typename</span> <span class="bu">std::</span>enable_if&lt;</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        tfel::meta::Implements&lt;T, StensorConcept&gt;::cond,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        tfel::meta::Implements&lt;T, StensorConceptBase&gt;::cond,</span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        StensorNumType&lt;T&gt;&gt;::type</span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    exe(<span class="at">const</span> T&amp; s) {</span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      <span class="kw">typedef</span> StensorNumType&lt;T&gt; NumType;</span>

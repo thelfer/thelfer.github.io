@@ -215,7 +215,9 @@
 	  <ul>
 	    <li><a href="documentations.html">General documentation</a></li>
 	    <li><a href="gallery.html">Gallery</a></li>
+<!--	    
 	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
+-->
 	    <li><a>Behaviours</a>
 	      <ul>
 		<li><a href="tutorial.html">Tutorial</a></li>
@@ -289,7 +291,8 @@
 	  <ul>
 	    <li><a href="search.html">Search on this site</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
-	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
 	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
 	  </ul>
 	</li>
@@ -800,7 +803,7 @@ J = {\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta
 <li>If one considers a viscoplastic behaviour, one may want to reject a prediction of the stress which would lead to an unphysical viscoplastic strain rate. This is particularly useful with viscoplastic behaviour having an exponential sensitivity to the stress.</li>
 <li>If one considers a plasic behaviour yield surface with sharp corners, such as the approximations of the Mohr-Coulomb criterion given by Abbo and Sloan <span class="citation" data-cites="Abbo1995 Nagel2016">[<a href="#ref-Abbo1995" role="doc-biblioref">4</a>, <a href="#ref-Nagel2016" role="doc-biblioref">5</a>]</span>, the solver may fail because the flow direction may oscillate between too iterations. Too solve this issue, we can simply reject iterations that lead to a large change in the flow direction.</li>
 </ul>
-<p>The reader may find an example of such algorithms in the case of a perfect plastic behaviour based on the Hosford stress criterion on this page of the <code>MFront</code> gallery: <a href="http://tfel.sourceforge.net/hosford.html" class="uri">http://tfel.sourceforge.net/hosford.html</a></p>
+<p>The reader may find an example of such algorithms in the case of a perfect plastic behaviour based on the Hosford stress criterion on this page of the <code>MFront</code> gallery: <a href="https://thelfer.github.io/tfel/web/hosford.html" class="uri">https://thelfer.github.io/tfel/web/hosford.html</a></p>
 </blockquote>
 <p>An important caveat to this strategy is link to the use of an active-set method to describe multi-surface plasticity. The active-set method makes <em>a priori</em> assumptions on which plastic mechanisms are active and solve the non-linear equations with those assumptions. After convergence, those assumptions are checked and some mechanisms may be activated or desactivated and the non linear solver is restarted. The activation of a plastic mechanism can lead the <code>computeResidual</code> method to fail (as described earlier, rejecting steps leading to a prediction well beyond the current plastic limit is generally a good strategy). The trouble here is that the last correction computed by the solver is very small since the algorithm had converged. Thus, the strategy implemented by the <code>solveNonLinearSystem</code> method would divide a correction that is already almost null. To avoid this caveat, <code>MFront</code> automatically resets the <code>is_delta_zeros_defined</code> member to <code>false</code>. More precisely, here is the implementation of the <code>checkConvergence</code> method when the user has defined additional convergence checks:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> checkConvergence(<span class="at">const</span> NumericType error) {</span>

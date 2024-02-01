@@ -218,7 +218,9 @@
 	  <ul>
 	    <li><a href="documentations.html">General documentation</a></li>
 	    <li><a href="gallery.html">Gallery</a></li>
+<!--	    
 	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
+-->
 	    <li><a>Behaviours</a>
 	      <ul>
 		<li><a href="tutorial.html">Tutorial</a></li>
@@ -292,7 +294,8 @@
 	  <ul>
 	    <li><a href="search.html">Search on this site</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
-	    <li><a href="http://sourceforge.net/p/tfel/tfel">Mailing lists</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
 	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
 	  </ul>
 	</li>
@@ -361,7 +364,7 @@ pandoc -f markdown+tex_math_single_backslash --template=/home/th202608/texmf/tex
 <p>The purpose of this work is twofold:</p>
 <ul>
 <li>Propose a robust fully implicit algorithm which can handle thresholds of nucleation laws and material failure.</li>
-<li>Extend the <a href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a> to this class of behaviours, allowing a declarative syntax similar as:</li>
+<li>Extend the <a href="https://thelfer.github.io/tfel/web/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a> to this class of behaviours, allowing a declarative syntax similar as:</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick <span class="st">&quot;StandardElastoViscoPlasticity&quot;</span> {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   stress_potential : <span class="st">&quot;Hooke&quot;</span> {</span>
@@ -399,14 +402,14 @@ pandoc -f markdown+tex_math_single_backslash --template=/home/th202608/texmf/tex
 <li>The first one is the standard implicit scheme where the implicit equations associated with all the state variables are solved all at once using a Newton-like algorithm.</li>
 <li>The second one is built on a staggered approach in which the porosity evolution and the evolution of the other state variables are solved independently. Both evolutions are repeated until the implicit equations associated with all the state variables are all satisfied. We show that, if required, an exact consistent tangent operator can be derived.</li>
 </ul>
-<p>Section 4 discusses the design choices made for the extension of <code>MFront</code>’ <a href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a>.</p>
+<p>Section 4 discusses the design choices made for the extension of <code>MFront</code>’ <a href="https://thelfer.github.io/tfel/web/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a>.</p>
 <p>Section 5 is devoted to unit tests and verifications.</p>
 <p>Section 6 describes early results that proves the robustness of the proposed schemes.</p>
 <p>Appendix 8.1 is dedicated to the computation of the stress criterion which may require solving a non linear equation by Newton algorithm.</p>
 <p>Appendix 8.2 gives the derivatives of some common nucleation laws.</p>
 <p>Appendix 8.3 gives the derivatives of some common porous stress criteria.</p>
 <p>Appendix 8.4 describes a regularization of the effective porosity in the Gurson-Tvergaard-Needleman stress criterion.</p>
-<p>Appendix 8.5 details some numerical tricks to improve the robustness of finite element simulations performed with <code>Cast3M</code> using the constitutive laws from the extended <a href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a>.</p>
+<p>Appendix 8.5 details some numerical tricks to improve the robustness of finite element simulations performed with <code>Cast3M</code> using the constitutive laws from the extended <a href="https://thelfer.github.io/tfel/web/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a>.</p>
 <p>Appendix 8.6 is dedicated to the description of the various options that can be declared in the <code>porosity_evolution</code> section inside the declaration of the <code>StandardElastoViscoPlasticity</code> brick.</p>
 <h1 data-number="2" id="sec:mfront:porous_plasticity:overview"><span class="header-section-number">2</span> General framework</h1>
 <p>In the framework adopted in this report, a porous plastic model is defined by a stress criterion <span class="math inline">\(\sigma_{\star}\)</span> which depends explicitly on the stress tensor <span class="math inline">\(\underline{\sigma}\)</span> and the porosity <span class="math inline">\(f\)</span>:</p>
@@ -1140,7 +1143,7 @@ J\,\cdot\,{\displaystyle \frac{\displaystyle \partial \underline{\varepsilon}^{\
 <p>A perfect agreement is obtained between the reference solutions and the <code>MTest</code> results, as depicted on Figure 2, validating the implementation of the equations of these models. Finally, the jacobians of all models have been verified with respect to the numerical jacobian.</p>
 <h1 data-number="6" id="sec:mfront:porous_plasticity:applications"><span class="header-section-number">6</span> Applications and Finite Element simulations</h1>
 <h2 data-number="6.1" id="axisymmetric-tensile-tests-simulations"><span class="header-section-number">6.1</span> Axisymmetric tensile tests simulations</h2>
-<p>In this scope, the <a href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a> is tested using the finite elements software <a href="http://www-cast3m.cea.fr/"><code>Cast3M</code></a>. The Gurson-Tvergaard-Needleman stress criterion is used to model the ductile failure of Notched Tensile (NT) Samples and Simple Tensile (ST) ones. The <span class="math inline">\(2D\)</span> meshes are shown on Figure 3 .</p>
+<p>In this scope, the <a href="https://thelfer.github.io/tfel/web/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a> is tested using the finite elements software <a href="http://www-cast3m.cea.fr/"><code>Cast3M</code></a>. The Gurson-Tvergaard-Needleman stress criterion is used to model the ductile failure of Notched Tensile (NT) Samples and Simple Tensile (ST) ones. The <span class="math inline">\(2D\)</span> meshes are shown on Figure 3 .</p>
 <figure>
 <img src="img/PorousPlasticity/mesh_ST_NT.png" id="fig:porous_plasticity:mesh_ST_NT" style="width:95.0%" alt="Figure 3: Meshes of the Notched Tensile (NT) Samples and Simple Tensile (ST) ones" /><figcaption aria-hidden="true">Figure 3: Meshes of the Notched Tensile (NT) Samples and Simple Tensile (ST) ones</figcaption>
 </figure>
@@ -1178,7 +1181,7 @@ A_n = f_N \left&lt;\frac{\sigma_I}{\sigma_N} - 1 \right&gt;^m   \ \ \ \ \ \mathr
 <figure>
 <img src="img/PorousPlasticity/NT_FS0_DD0.svg" id="fig:porous_plasticity:NT_FS0_DD0" style="width:95.0%" alt="Figure 4: Numerical response of NT specimens" /><figcaption aria-hidden="true">Figure 4: Numerical response of NT specimens</figcaption>
 </figure>
-<p>One can see that the numerical convergence is rather good at the crack initiation phase where the reaction force decreases suddenly. Some aspects could be improved regarding the plastic flow and the damage parameters to smoothly follow the crack propagation modelled by the sudden force drop. Such improvements depends on the finite element solver used and must not be confused with the robustness of the <a href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a>.</p>
+<p>One can see that the numerical convergence is rather good at the crack initiation phase where the reaction force decreases suddenly. Some aspects could be improved regarding the plastic flow and the damage parameters to smoothly follow the crack propagation modelled by the sudden force drop. Such improvements depends on the finite element solver used and must not be confused with the robustness of the <a href="https://thelfer.github.io/tfel/web/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a>.</p>
 <p>Moreover, the evolution of the porosity was monitored during the simulation to observe the failure of elements that reached the critical porosity value. This could be seen on Figure 5 where the notch is pictured before the testing (left image), during the testing (middle image), and at failure (right image).</p>
 <figure>
 <img src="img/PorousPlasticity/NT10_porosity.png" id="fig:porous_plasticity:NT10_porosity" style="width:95.0%" alt="Figure 5: Evolution of the porosity for the NT10 specimen" /><figcaption aria-hidden="true">Figure 5: Evolution of the porosity for the NT10 specimen</figcaption>

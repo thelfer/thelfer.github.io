@@ -130,7 +130,8 @@
 		<li><a>Version 2.0.x</a>
 		  <ul>
 		    <li><a href="release-notes-2.0.html">Version 2.0</a></li>
-		    <li><a href="release-notes-2.0.html">Version 2.1</a></li>
+		    <li><a href="release-notes-2.1.html">Version 2.1</a></li>
+		    <li><a href="release-notes-2.2.html">Version 2.2</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -259,7 +260,7 @@
 <li><code>rotateThermodynamicForces</code></li>
 <li><code>rotateTangentOperatorBlocks</code></li>
 </ul>
-<p>Those functions takes memory blocks (wrapped in <code>mgis::span</code> objects) and checks that the size of those blocks are consistent. For each of those functions, two overloads exist, one for in place rotation, one for out of place rotations.</p>
+<p>Those functions takes memory blocks (wrapped in <code>std::span</code> objects) and checks that the size of those blocks are consistent. For each of those functions, two overloads exist, one for in place rotation, one for out of place rotations.</p>
 <p>Those functions are perfectly fine for managing the rotations of the gradients of a set of integration points. However, their overhead is probably significant when dealing with only one integration point and their use shall probably be limited to <code>debug</code> builds.</p>
 <h3 id="example-of-usage">Example of usage</h3>
 <p>The following example loads and orthotropic behaviour, defines a rotation matrix, and rotates a strain from the global frame to the material frame:</p>

@@ -67,7 +67,8 @@
 		<li><a>Version 2.0.x</a>
 		  <ul>
 		    <li><a href="release-notes-2.0.html">Version 2.0</a></li>
-		    <li><a href="release-notes-2.0.html">Version 2.1</a></li>
+		    <li><a href="release-notes-2.1.html">Version 2.1</a></li>
+		    <li><a href="release-notes-2.2.html">Version 2.2</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -105,18 +106,39 @@
 <ul>
 <li><a href="#new-features">New features</a>
 <ul>
-<li><a href="#support-for-retrieving-the-author-the-date-the-validator-and-the-build-identifier">Support for retrieving the author, the date, the validator and the build identifier</a></li>
+<li><a href="#sec:mgis:2.2:mass_density">Declaration of the mass density in the <code>MaterialStateManager</code> class and associated free functions</a>
+<ul>
+<li><a href="#python-bindings"><code>python</code> bindings</a></li>
 <li><a href="#c-bindings"><code>C</code> bindings</a></li>
 <li><a href="#fortran-bindings"><code>fortran</code> bindings</a></li>
-<li><a href="#python-bindings"><code>python</code> bindings</a></li>
+</ul></li>
+<li><a href="#support-for-retrieving-the-author-the-date-the-validator-and-the-build-identifier">Support for retrieving the author, the date, the validator and the build identifier</a></li>
+<li><a href="#c-bindings-1"><code>C</code> bindings</a></li>
+<li><a href="#fortran-bindings-1"><code>fortran</code> bindings</a></li>
+<li><a href="#python-bindings-1"><code>python</code> bindings</a></li>
 </ul></li>
 <li><a href="#issues-solved">Issues solved</a>
 <ul>
 <li><a href="#issue-125-add-support-for-retrieving-the-build-indentifier-and-the-validator">Issue #125: Add support for retrieving the build indentifier and the validator</a></li>
+<li><a href="#issue-121-pass-the-mass-density-from-the-materialdatamanager">Issue #121: Pass the mass density from the <code>MaterialDataManager</code></a></li>
 </ul></li>
 </ul>
 </div>
 <h1 id="new-features">New features</h1>
+<h2 id="sec:mgis:2.2:mass_density">Declaration of the mass density in the <code>MaterialStateManager</code> class and associated free functions</h2>
+<p>The <code>MaterialStateManager</code> class now have a data member named <code>mass_density</code>.</p>
+<p>The following free functions are available in <code>C++</code>:</p>
+<ul>
+<li><code>setMassDensity</code> which sets the mass density using either a scalar value (uniform case) or a set of values (non uniform case).</li>
+<li><code>isMassDensityDefined</code> which returns if the mass density has been defined.</li>
+<li><code>isMassDensityUniform</code> which returns if the mass density is uniform. This function throws if the mass density has not been defined.</li>
+</ul>
+<h3 id="python-bindings"><code>python</code> bindings</h3>
+<p>The <code>MaterialStateManager</code> class now have a <code>setMassDensity</code> member. A corresponding free function is also available.</p>
+<h3 id="c-bindings"><code>C</code> bindings</h3>
+<p>The following functions are now available: <code>mgis_bv_material_state_manager_set_uniform_scalar_mass_density</code>, <code>mgis_bv_material_state_manager_set_non_uniform_mass_density</code>, <code>mgis_bv_material_state_manager_is_mass_density_defined</code>, <code>mgis_bv_material_state_manager_is_mass_density_uniform</code>, <code>mgis_bv_material_state_manager_get_uniform_mass_density</code> and <code>mgis_bv_material_state_manager_get_non_uniform_mass_density</code>.</p>
+<h3 id="fortran-bindings"><code>fortran</code> bindings</h3>
+<p>The following functions are now available: <code>material_state_manager_set_uniform_scalar_mass_density</code>, <code>material_state_manager_is_mass_density_defined</code> and <code>material_state_manager_is_mass_density_uniform</code>.</p>
 <h2 id="support-for-retrieving-the-author-the-date-the-validator-and-the-build-identifier">Support for retrieving the author, the date, the validator and the build identifier</h2>
 <p>The <code>BehaviourDescription</code> class now exposes the following data members:</p>
 <ul>
@@ -125,7 +147,7 @@
 <li><code>validator</code>: validator of the <code>MFront</code> file,</li>
 <li><code>build_id</code>: build identifier defined when compiling the <code>MFront</code> file.</li>
 </ul>
-<h2 id="c-bindings"><code>C</code> bindings</h2>
+<h2 id="c-bindings-1"><code>C</code> bindings</h2>
 <p>The following functions are now available:</p>
 <ul>
 <li><code>mgis_bv_behaviour_get_author</code>, which returns the author of the <code>MFront</code> file.</li>
@@ -133,7 +155,7 @@
 <li><code>mgis_bv_behaviour_get_validator</code>, which returns the validator of the <code>MFront</code> file.</li>
 <li><code>mgis_bv_behaviour_get_build_id</code>, which returns the build identifier defined when compiling the <code>MFront</code> file.</li>
 </ul>
-<h2 id="fortran-bindings"><code>fortran</code> bindings</h2>
+<h2 id="fortran-bindings-1"><code>fortran</code> bindings</h2>
 <p>The <code>mgis_behaviour</code> module now exposes the following functions:</p>
 <ul>
 <li><code>behaviour_get_author</code>, which returns the author of the <code>MFront</code> file.</li>
@@ -141,7 +163,7 @@
 <li><code>behaviour_get_validator</code>, which returns the validator of the <code>MFront</code> file.</li>
 <li><code>behaviour_get_build_id</code>, which returns the build identifier defined when compiling the <code>MFront</code> file.</li>
 </ul>
-<h2 id="python-bindings"><code>python</code> bindings</h2>
+<h2 id="python-bindings-1"><code>python</code> bindings</h2>
 <p>The <code>BehaviourDescription</code> class now exposes the following properties:</p>
 <ul>
 <li><code>author</code>: author of the <code>MFront</code> file,</li>
@@ -152,5 +174,8 @@
 <h1 id="issues-solved">Issues solved</h1>
 <h2 id="issue-125-add-support-for-retrieving-the-build-indentifier-and-the-validator">Issue #125: Add support for retrieving the build indentifier and the validator</h2>
 <p>For more details, see <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/125" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/125</a>.</p>
+<h2 id="issue-121-pass-the-mass-density-from-the-materialdatamanager">Issue #121: Pass the mass density from the <code>MaterialDataManager</code></h2>
+<p>This feature is described in Section 1.1.</p>
+<p>For more details, see <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/121" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/121</a>.</p>
 </body>
 </html>

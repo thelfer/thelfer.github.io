@@ -10,9 +10,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Installing TFEL/MFront on Windows in the MSYS2 environment</title>
-        <meta name="author" content="Thomas Helfer" />
-            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <title>Using the TFEL libraries in C++</title>
+        <meta name="author" content="Thomas Helfer, Maxence Wangermez" />
+            <meta name="date" content="2024-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
@@ -324,32 +325,127 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Installing TFEL/MFront on <a href="http://windows.microsoft.com">Windows</a> in the <a href="https://www.msys2.org/"><code>MSYS2</code></a> environment</h1>
-<h2 class="author">Thomas Helfer</h2>
-<h3 class="date">13/01/2022</h3>
+<h1 class="title">Using the <code>TFEL</code> libraries in <code>C++</code></h1>
+<h2 class="author">Thomas Helfer, Maxence Wangermez</h2>
+<h3 class="date">2024</h3>
 </div>
-<p>This document describes how to install <code>TFEL/MFront</code> on <a href="http://windows.microsoft.com">Windows plateform</a> in the <a href="https://www.msys2.org/"><code>MSYS2</code></a> environment.</p>
-<h1 id="installing-msys2-and-the-mandatory-prerequisites">Installing <a href="https://www.msys2.org/"><code>MSYS2</code></a> and the mandatory prerequisites</h1>
-<h2 id="installing-msys2">Installing <a href="https://www.msys2.org/"><code>MSYS2</code></a></h2>
-<p><a href="https://www.msys2.org/"><code>MSYS2</code></a> is a collection of GNU utilities, in particular <code>make</code> which is used by <code>MFront</code>. It also provides a convenient shell which is far more easier to use than the <code>DOS</code> terminal provided by the <code>cmd</code> command.</p>
-<h2 id="installing-a-minimal-build-environment">Installing a minimal build environment</h2>
-<p>To build <code>TFEL</code>, one may need to install the following tools:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pacman <span class="at">-S</span> base-devel gcc cmake</span></code></pre></div>
-<h1 id="installing-the-official-package">Installing the official package</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pacman <span class="at">-S</span> mingw-w64-x86_64-tfel</span></code></pre></div>
-<h1 id="compiling-tfel">Compiling <code>TFEL</code></h1>
-<p><code>git</code> may be required if you want to work on the development branch:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pacman <span class="at">-S</span> git</span></code></pre></div>
-<p>Compiling <code>TFEL</code> is merely a simple as opening a new <code>MSYS2</code> session and following the instructions given on the <a href="install.html">main installation page</a>.</p>
-<p>For example:</p>
-<div class="sourceCode" id="compiling"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="compiling-1"><a href="#compiling-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake [path to TFEL sources] [options]</span>
-<span id="compiling-2"><a href="#compiling-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make</span></code></pre></div>
-<h2 id="running-the-tests">Running the tests</h2>
-<div class="sourceCode" id="testing"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="testing-1"><a href="#testing-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> source env.sh</span>
-<span id="testing-2"><a href="#testing-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make check</span></code></pre></div>
-<h1 id="usage">Usage</h1>
-<p>Once done, mfront can be used as “usual” (like in Posix environments) in <a href="https://www.msys2.org/"><code>MSYS2</code></a>.</p>
-<!-- Local IspellDict: english -->
+<div id="TOC">
+<ul>
+<li><a href="#using-tfel-config">Using <code>tfel-config</code></a>
+<ul>
+<li><a href="#paths">Paths</a>
+<ul>
+<li><a href="#headers">Headers</a></li>
+<li><a href="#libraries">Libraries</a></li>
+</ul></li>
+<li><a href="#compilation-flags">Compilation flags</a></li>
+<li><a href="#selection-of-the-libraries">Selection of the libraries</a></li>
+<li><a href="#examples-of-usage">Examples of usage</a></li>
+</ul></li>
+<li><a href="#using-cmake">Using <code>cmake</code></a>
+<ul>
+<li><a href="#example-of-usage">Example of usage</a></li>
+<li><a href="#exported-variables">Exported variables</a></li>
+</ul></li>
+</ul>
+</div>
+<p>The <code>TFEL</code> project generates several <code>C++</code> libraries that can be used directly: <code>TFELMFront</code>, <code>TFELMTest</code>, <code>TFELSystem</code>, <a href="tfel-material.html"><code>TFELMaterial</code></a>, <code>TFELMathCubicSpline</code>, <code>TFELMathKriging</code>, <code>TFELMathParser</code>, <a href="tfel-math.html"><code>TFELMath</code></a>, <code>TFELTests</code>, <code>TFELCheck</code>, <code>TFELException</code>, <code>TFELGlossary</code>, <code>TFELUtilities</code>, <code>TFELNUMODIS</code>, <code>TFELConfig</code>, and <code>TFELUnicodeSupport</code>.</p>
+<p>Using those libraries requires in practice to add several pre-processor, compiler or linker flags, including paths to headers and libraries, and handling dependencies between those libraries.</p>
+<p>The <code>TFEL</code> project provides two tools to ease developers’ life:</p>
+<ul>
+<li>the <code>tfel-config</code> utility,</li>
+<li>a set of <a href="https://cmake.org/"><code>cmake</code></a> packages.</li>
+</ul>
+<h1 id="using-tfel-config">Using <code>tfel-config</code></h1>
+<p>The <code>tfel-config</code> utility provides many informations useful for compiling projects based on the <code>TFEL</code> libraries. This utility is used internally by <code>MFront</code> (see <a href="compiling-mfront-shared-libraries.html">this page</a> for details).</p>
+<h2 id="paths">Paths</h2>
+<p>Most paths are influenced by the <code>TFELHOME</code> environment variable. If this variable is not defined, then the installation path, defined by the <code>CMAKE_INSTALL_PREFIX</code> variable, is used.</p>
+<h3 id="headers">Headers</h3>
+<p>The following flags allow to get the paths toward the <code>TFEL</code> headers.</p>
+<ul>
+<li><code>--include-path</code>: returns the path to the <code>TFEL</code> headers.</li>
+<li><code>--includes</code>: returns pre-processor directives to include the <code>TFEL</code> headers.</li>
+</ul>
+<h3 id="libraries">Libraries</h3>
+<p>The following flags allow to request information for the linker:</p>
+<ul>
+<li><code>--library-path</code>: returns the path to the <code>TFEL</code> libraries.</li>
+<li><code>--libs</code>: returns linker directives to link with the selected libraries (see below). This option also returns the linker directives for the dependencies of the selected libraries.</li>
+</ul>
+<h2 id="compilation-flags">Compilation flags</h2>
+<p>The following flags allow to request various pre-processor, compiler or linker flags:</p>
+<ul>
+<li><code>--compiler-flags</code> : returns TFEL’s recommended compiler flags.</li>
+<li><code>--cppflags</code> : returns flags related to the <code>C++</code> standard used.</li>
+<li><code>--cxx-standard</code> : prints the version of the <code>C++</code> standard used to compile TFEL.</li>
+<li><code>--debug-flags</code> : returns flags adding debugging symbols.</li>
+<li><code>--ldflags</code> : returns linking flags.</li>
+<li><code>--oflags</code> : returns tfel recommended optimisation flags with architecture specific flags.</li>
+<li><code>--oflags0</code> : returns tfel recommended optimisation flags without architecture specific flags.</li>
+<li><code>--oflags2</code> : returns some aggressive optimisation flags, possibly at the expense of numerical precision. This shall be added to <code>--oflags</code> results.</li>
+</ul>
+<p>Note that those flags are consistent with the compiler used to compile the <code>TFEL</code> project.</p>
+<h2 id="selection-of-the-libraries">Selection of the libraries</h2>
+<p>The following flags allow to select specific libraries:</p>
+<ul>
+<li><code>--material</code> : requests flags for the <code>TFELMaterial</code> library.</li>
+<li><code>--math</code> : requests flags for the <code>TFELMath</code> library.</li>
+<li><code>--math-cubic-spline</code>: requests flags for the <code>TFELMathCubicSpline</code> library.</li>
+<li><code>--math-kriging</code> : requests flags for the <code>TFELMathKriging</code> library.</li>
+<li><code>--math-parser</code> : requests flags for the <code>TFELMathParser</code> library.</li>
+<li><code>--numodis</code> : requests flags for the <code>TFELNUMODIS</code> library.</li>
+<li><code>--exceptions</code> : requests flags for the <code>TFELException</code> library.</li>
+<li><code>--glossary</code> : requests flags for the <code>TFELGlossary</code> library.</li>
+<li><code>--mfront-profiling</code> : requests flags for the <code>libMFrontProfiling</code> library.</li>
+</ul>
+<h2 id="examples-of-usage">Examples of usage</h2>
+<p>The following examples showcase typical usages of <code>tfel-config</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-config <span class="at">--includes</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-I</span><span class="op">&lt;</span>TFEL_INSTALL_PATH<span class="op">&gt;</span>/include </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-config <span class="at">--include-path</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>TFEL_INSTALL_PATH<span class="op">&gt;</span>/include </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-config <span class="at">--libs</span> <span class="at">--math-parser</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-L</span><span class="op">&lt;</span>TFEL_INSTALL_PATH<span class="op">&gt;</span>/lib <span class="at">-lTFELMathParser</span> <span class="at">-lTFELMathKriging</span> <span class="at">-lTFELMath</span> <span class="at">-lTFELUnicodeSupport</span> <span class="at">-lTFELException</span></span></code></pre></div>
+<p>In those example, <code>&lt;TFEL_INSTALL_PATH&gt;</code> is to be replaced by the actual installation path of the <code>TFEL</code> project.</p>
+<h1 id="using-cmake">Using <code>cmake</code></h1>
+<p>The following <code>cmake</code> packages are available: <code>TFELMFront</code>, <code>TFELMTest</code>, <code>TFELMaterial</code>, <code>TFELMath</code>, <code>TFELMathCubicSpline</code>, <code>TFELMathKriging</code>, <code>TFELMathParser</code>, <code>TFELSystem</code>, <code>TFELNUMODIS</code>, <code>TFELCheck</code>, <code>TFELUtilities</code>, <code>TFELGlossary</code>, <code>TFELTests</code>, <code>TFELUnicodeSupport</code>, <code>TFELException</code>, <code>TFELConfig</code></p>
+<p>Those packages can be loaded using the <code>find_package</code> command. It is highly recommended to pass the <code>TFEL_DIR</code> to <code>cmake</code> to indicate where the <code>TFEL</code> library has been installed.</p>
+<p>Note that those packages import targets in the <code>tfel::</code> namespace.</p>
+<h2 id="example-of-usage">Example of usage</h2>
+<p>The following <code>CMakeLists.txt</code> file declares a simple executable relying the <code>TFELMathCubicSpline</code> library:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">project</span>(Test)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> <span class="dt">3.13</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span>(<span class="dv">CMAKE_CXX_STANDARD</span> 20)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span>(CXX_STANDARD_REQUIRED <span class="ot">ON</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">find_package</span>(TFELMathCubicSpline <span class="ot">REQUIRED</span> <span class="ot">HINTS</span> <span class="st">&quot;</span><span class="dv">${TFEL_DIR}</span><span class="st">/share/tfel/cmake&quot;</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">add_executable</span>(test main.cxx)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">target_link_libraries</span>(test <span class="bn">tfel::TFELMathCubicSpline</span>)</span></code></pre></div>
+<h2 id="exported-variables">Exported variables</h2>
+<p>The <code>tfel-modules-common.cmake</code> file defines the following variables:</p>
+<ul>
+<li><code>TFEL_CXX_STANDARD</code>:</li>
+<li><code>TFEL_COMPILER_FLAGS</code>:</li>
+<li><code>TFEL_COMPILER_CXXFLAGS</code>:</li>
+<li><code>TFEL_COMPILER_WARNINGS</code>:</li>
+<li><code>TFEL_OPTIMISATION_FLAGS0</code>:</li>
+<li><code>TFEL_OPTIMISATION_FLAGS</code>:</li>
+<li><code>TFEL_OPTIMISATION_FLAGS2</code>:</li>
+<li><code>TFEL_CMAKE_C_FLAGS</code>:</li>
+<li><code>TFEL_CMAKE_C_FLAGS_DEBUG</code>:</li>
+<li><code>TFEL_CMAKE_C_FLAGS_RELEASE</code>:</li>
+<li><code>TFEL_CMAKE_C_FLAGS_COVERAGE</code>:</li>
+<li><code>TFEL_CMAKE_C_FLAGS_PROFILING</code>:</li>
+<li><code>TFEL_CMAKE_CXX_FLAGS</code>:</li>
+<li><code>TFEL_CMAKE_CXX_FLAGS_DEBUG</code>:</li>
+<li><code>TFEL_CMAKE_CXX_FLAGS_RELEASE</code>:</li>
+<li><code>TFEL_CMAKE_CXX_FLAGS_COVERAGE</code>:</li>
+<li><code>TFEL_CMAKE_CXX_FLAGS_PROFILING</code>:</li>
+<li><code>TFEL_CMAKE_EXE_LINKER_FLAGS_COVERAGE</code>:</li>
+<li><code>TFEL_CMAKE_MODULE_LINKER_FLAGS_COVERAGE</code>:</li>
+<li><code>TFEL_CMAKE_SHARED_LINKER_FLAGS_COVERAGE</code>:</li>
+</ul>
+<p>The <code>tfel-modules-common.cmake</code> can be included as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">include</span>(<span class="st">&quot;</span><span class="dv">${TFEL_DIR}</span><span class="st">/share/tfel/cmake/tfel-modules-common.cmake&quot;</span>)</span></code></pre></div>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

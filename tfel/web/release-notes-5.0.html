@@ -341,18 +341,20 @@
 </ul></li>
 <li><a href="#mfront"><span class="toc-section-number">2</span> MFront</a>
 <ul>
-<li><a href="#generic-interface-improvements"><span class="toc-section-number">2.1</span> <code>generic</code> interface improvements</a></li>
+<li><a href="#improvements-to-the-materialproperty-dsl"><span class="toc-section-number">2.1</span> Improvements to the <code>MaterialProperty</code> DSL</a></li>
+<li><a href="#generic-interface-improvements"><span class="toc-section-number">2.2</span> <code>generic</code> interface improvements</a></li>
 </ul></li>
 <li><a href="#documentation"><span class="toc-section-number">3</span> Documentation</a></li>
 <li><a href="#issues-fixed"><span class="toc-section-number">4</span> Issues fixed</a>
 <ul>
-<li><a href="#issue-585-mfront-allow-to-override-inputs-in-material-properties"><span class="toc-section-number">4.1</span> Issue 585: <span>mfront</span> Allow to override inputs in material properties</a></li>
-<li><a href="#issue-567-mtestcurrentstate.copy-produces-a-shallow-copy-in-python-bindings"><span class="toc-section-number">4.2</span> Issue 567: <code>MTestCurrentState.copy()</code> produces a shallow copy in python bindings</a></li>
-<li><a href="#issue-557-mfront-allow-to-specify-dsl-options-in-mfrontbasegetdsl"><span class="toc-section-number">4.3</span> Issue 557: <code>[mfront]</code> allow to specify dsl options in <code>MFrontBase::getDSL</code></a></li>
-<li><a href="#issue-556-cmake-export-compile-flags-in-dedicated-variables"><span class="toc-section-number">4.4</span> Issue 556: <code>[cmake]</code> export compile flags in dedicated variables</a></li>
-<li><a href="#issue-555-cmake-better-handling-of-dependencies-in-exported-cmake-files"><span class="toc-section-number">4.5</span> Issue 555: <code>[cmake]</code> better handling of dependencies in exported <code>cmake</code> files</a></li>
-<li><a href="#issue-526-the-useqt-keyword-is-not-mentioned-in-the-materiallaws-keywords-help-page"><span class="toc-section-number">4.6</span> Issue 526: The <code>@UseQt</code> keyword is not mentioned in the <code>MaterialLaw</code>’s keywords help page</a></li>
-<li><a href="#issue-476-generic-interface-add-support-for-arrays-of-thermodynamic-forces"><span class="toc-section-number">4.7</span> Issue 476: [generic interface] Add support for arrays of thermodynamic forces</a></li>
+<li><a href="#issue-582-cast3m-interface-add-explicit-names-and-4-letter-mapping-of-internal-variables-to-the-castem-file"><span class="toc-section-number">4.1</span> Issue 582: [cast3m interface] add explicit names and 4-letter mapping of internal variables to the castem file</a></li>
+<li><a href="#issue-585-mfront-allow-to-override-inputs-in-material-properties"><span class="toc-section-number">4.2</span> Issue 585: <span>mfront</span> Allow to override inputs in material properties</a></li>
+<li><a href="#issue-567-mtestcurrentstate.copy-produces-a-shallow-copy-in-python-bindings"><span class="toc-section-number">4.3</span> Issue 567: <code>MTestCurrentState.copy()</code> produces a shallow copy in python bindings</a></li>
+<li><a href="#issue-557-mfront-allow-to-specify-dsl-options-in-mfrontbasegetdsl"><span class="toc-section-number">4.4</span> Issue 557: <code>[mfront]</code> allow to specify dsl options in <code>MFrontBase::getDSL</code></a></li>
+<li><a href="#issue-556-cmake-export-compile-flags-in-dedicated-variables"><span class="toc-section-number">4.5</span> Issue 556: <code>[cmake]</code> export compile flags in dedicated variables</a></li>
+<li><a href="#issue-555-cmake-better-handling-of-dependencies-in-exported-cmake-files"><span class="toc-section-number">4.6</span> Issue 555: <code>[cmake]</code> better handling of dependencies in exported <code>cmake</code> files</a></li>
+<li><a href="#issue-526-the-useqt-keyword-is-not-mentioned-in-the-materiallaws-keywords-help-page"><span class="toc-section-number">4.7</span> Issue 526: The <code>@UseQt</code> keyword is not mentioned in the <code>MaterialLaw</code>’s keywords help page</a></li>
+<li><a href="#issue-476-generic-interface-add-support-for-arrays-of-thermodynamic-forces"><span class="toc-section-number">4.8</span> Issue 476: [generic interface] Add support for arrays of thermodynamic forces</a></li>
 </ul></li>
 </ul>
 </div>
@@ -653,40 +655,87 @@
 \]</span> where <span class="math inline">\(\varepsilon\)</span> is the accuracy of the floatting point considered.</p>
 <p>The results of those tests are reported on Tables 2, 3 and 4. The Harari eigen solver offers a better compromise between accuracy and numerical efficiency than the default <code>TFEL</code> solver.</p>
 <h1 data-number="2" id="mfront"><span class="header-section-number">2</span> MFront</h1>
-<h2 data-number="2.1" id="generic-interface-improvements"><span class="header-section-number">2.1</span> <code>generic</code> interface improvements</h2>
-<h3 data-number="2.1.1" id="the-selectedmodellinghypothesis-and-selectedmodellinghypotheses-keywords"><span class="header-section-number">2.1.1</span> The <code>@SelectedModellingHypothesis</code> and <code>@SelectedModellingHypotheses</code> keywords</h3>
+<h2 data-number="2.1" id="improvements-to-the-materialproperty-dsl"><span class="header-section-number">2.1</span> Improvements to the <code>MaterialProperty</code> DSL</h2>
+<h3 data-number="2.1.1" id="the-data-keyword"><span class="header-section-number">2.1.1</span> The <code>@Data</code> keyword</h3>
+<p>The <code>@Data</code> keyword allow the definition of a material properties using the interpolation of a set of values.</p>
+<p>The <code>@Data</code> keyword is followed by a set of options defining:</p>
+<ul>
+<li>the interpolation option,</li>
+<li>the set of values,</li>
+<li>the extrapolation option.</li>
+</ul>
+<p>The precise syntax depends on the number of inputs of the material property.</p>
+<h4 data-number="2.1.1.1" id="material-properties-without-input"><span class="header-section-number">2.1.1.1</span> Material properties without input</h4>
+<p>The only option accepted is <code>value</code>.</p>
+<h4 data-number="2.1.1.2" id="material-properties-with-only-one-input"><span class="header-section-number">2.1.1.2</span> Material properties with only one input</h4>
+<p>The <code>values</code> option is required. It must be a map associating values of the input and values of the output.</p>
+<p>The <code>interpolation</code> option is optional. It must be a string. The values <code>linear</code> and <code>cubic_spline</code> are accepted.</p>
+<p>The <code>extrapolation</code> option is optional. It must be a boolean or a string:</p>
+<ul>
+<li>The boolean value <code>true</code> means that a linear extrapolation will be performed.</li>
+<li>The boolean value <code>false</code> or the string value <code>bound_to_last_value</code> or the string value <code>constant</code> means that a constant value will be used for extrapolation.</li>
+</ul>
+<h4 data-number="2.1.1.3" id="example-of-usage"><span class="header-section-number">2.1.1.3</span> Example of usage</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL MaterialProperty;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Law LinearDataInterpolation;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UseQt <span class="kw">true</span>;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UnitSystem SI;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Output stress E;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>E.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable temperature T;</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>T.setGlossaryName(<span class="st">&quot;Temperature&quot;</span>);</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Data {</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  values: { <span class="fl">293.15</span> : <span class="fl">240e9</span>, <span class="fl">693.15</span> : <span class="fl">180e9</span>, <span class="fl">893.15</span> : <span class="fl">170e9</span> },</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  interpolation : <span class="st">&quot;linear&quot;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 data-number="2.2" id="generic-interface-improvements"><span class="header-section-number">2.2</span> <code>generic</code> interface improvements</h2>
+<h3 data-number="2.2.1" id="the-selectedmodellinghypothesis-and-selectedmodellinghypotheses-keywords"><span class="header-section-number">2.2.1</span> The <code>@SelectedModellingHypothesis</code> and <code>@SelectedModellingHypotheses</code> keywords</h3>
 <p>The <code>@SelectedModellingHypothesis</code> and <code>@SelectedModellingHypotheses</code> keywords allows to select which modelling hypotheses will be generated.</p>
 <p>Their syntaxes are similar to the keywords <code>@ModellingHypothesis</code> and <code>@ModellingHypotheses</code>, respectively.</p>
 <p>The selected modelling hypotheses must be a sub-set of the modelling hypotheses supported by the behaviour.</p>
-<h4 data-number="2.1.1.1" id="example-of-usage"><span class="header-section-number">2.1.1.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront --obuild --interface=generic --<span class="er">@</span>SelectedModellingHypothesis=PlaneStrain Plasticity.mfront</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Treating target : all</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>The following library has been built :</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>- libBehaviour.so :  Plasticity_PlaneStrain</span></code></pre></div>
+<h4 data-number="2.2.1.1" id="example-of-usage-1"><span class="header-section-number">2.2.1.1</span> Example of usage</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront --obuild --interface=generic --<span class="er">@</span>SelectedModellingHypothesis=PlaneStrain Plasticity.mfront</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Treating target : all</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>The following library has been built :</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>- libBehaviour.so :  Plasticity_PlaneStrain</span></code></pre></div>
 <h1 data-number="3" id="documentation"><span class="header-section-number">3</span> Documentation</h1>
 <p>The page <a href="libraries_usage.html">Libaries usage in C++</a> describe how to use the <code>TFEL</code> libraries in <code>C++</code> projects, using either the <code>tfel-config</code> utility or <code>cmake</code> packages.</p>
 <h1 data-number="4" id="issues-fixed"><span class="header-section-number">4</span> Issues fixed</h1>
-<h2 data-number="4.1" id="issue-585-mfront-allow-to-override-inputs-in-material-properties"><span class="header-section-number">4.1</span> Issue 585: <a href="#mfront">mfront</a> Allow to override inputs in material properties</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--state-variables</span> Inconel600_YoungModulus.mfront </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Temperature <span class="er">(</span><span class="ex">TK</span><span class="kw">)</span><span class="bu">:</span> the temperature</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> Inconel600_YoungModulus.mfront</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--state-variables</span> <span class="at">--dsl-option</span><span class="op">=</span><span class="st">&#39;overriding_parameters:{&quot;TK&quot;: 400}}&#39;</span> Inconel600_YoungModulus.mfront</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> <span class="at">--dsl-option</span><span class="op">=</span><span class="st">&#39;overriding_parameters:{&quot;TK&quot;: 400}}&#39;</span> Inconel600_YoungModulus.mfront</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Temperature <span class="er">(</span><span class="ex">TK</span><span class="kw">)</span><span class="bu">:</span> the temperature</span></code></pre></div>
+<h2 data-number="4.1" id="issue-582-cast3m-interface-add-explicit-names-and-4-letter-mapping-of-internal-variables-to-the-castem-file"><span class="header-section-number">4.1</span> Issue 582: [cast3m interface] add explicit names and 4-letter mapping of internal variables to the castem file</h2>
+<p>Adds the correspondence between variable names and the 4-letter names used in castem to the example <code>.dgibi</code> file, generated by <code>MFront</code> with castem interfaces. The mapping is written in the file as a comment, for example in the form :</p>
+<pre><code>** List of material properties:
+**
+** - YOUN: YoungModulus
+** - NU: PoissonRatio
+** - RHO: MassDensity
+** - H: HardeningSlope
+** - SO: Yield strength</code></pre>
+<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/582" class="uri">https://github.com/thelfer/tfel/issues/582</a></p>
+<h2 data-number="4.2" id="issue-585-mfront-allow-to-override-inputs-in-material-properties"><span class="header-section-number">4.2</span> Issue 585: <a href="#mfront">mfront</a> Allow to override inputs in material properties</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--state-variables</span> Inconel600_YoungModulus.mfront </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Temperature <span class="er">(</span><span class="ex">TK</span><span class="kw">)</span><span class="bu">:</span> the temperature</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> Inconel600_YoungModulus.mfront</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--state-variables</span> <span class="at">--dsl-option</span><span class="op">=</span><span class="st">&#39;overriding_parameters:{&quot;TK&quot;: 400}}&#39;</span> Inconel600_YoungModulus.mfront</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> <span class="at">--dsl-option</span><span class="op">=</span><span class="st">&#39;overriding_parameters:{&quot;TK&quot;: 400}}&#39;</span> Inconel600_YoungModulus.mfront</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Temperature <span class="er">(</span><span class="ex">TK</span><span class="kw">)</span><span class="bu">:</span> the temperature</span></code></pre></div>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/585" class="uri">https://github.com/thelfer/tfel/issues/585</a></p>
-<h2 data-number="4.2" id="issue-567-mtestcurrentstate.copy-produces-a-shallow-copy-in-python-bindings"><span class="header-section-number">4.2</span> Issue 567: <code>MTestCurrentState.copy()</code> produces a shallow copy in python bindings</h2>
+<h2 data-number="4.3" id="issue-567-mtestcurrentstate.copy-produces-a-shallow-copy-in-python-bindings"><span class="header-section-number">4.3</span> Issue 567: <code>MTestCurrentState.copy()</code> produces a shallow copy in python bindings</h2>
 <p>This behaviour is consistent with the copy constructor of the <code>StudyCurrentState</code> class.</p>
 <p>To make a deep copy of this object, the <code>makeDeepCopy</code> method has been introduced.</p>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/567" class="uri">https://github.com/thelfer/tfel/issues/567</a></p>
-<h2 data-number="4.3" id="issue-557-mfront-allow-to-specify-dsl-options-in-mfrontbasegetdsl"><span class="header-section-number">4.3</span> Issue 557: <code>[mfront]</code> allow to specify dsl options in <code>MFrontBase::getDSL</code></h2>
+<h2 data-number="4.4" id="issue-557-mfront-allow-to-specify-dsl-options-in-mfrontbasegetdsl"><span class="header-section-number">4.4</span> Issue 557: <code>[mfront]</code> allow to specify dsl options in <code>MFrontBase::getDSL</code></h2>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/557" class="uri">https://github.com/thelfer/tfel/issues/557</a></p>
-<h2 data-number="4.4" id="issue-556-cmake-export-compile-flags-in-dedicated-variables"><span class="header-section-number">4.4</span> Issue 556: <code>[cmake]</code> export compile flags in dedicated variables</h2>
+<h2 data-number="4.5" id="issue-556-cmake-export-compile-flags-in-dedicated-variables"><span class="header-section-number">4.5</span> Issue 556: <code>[cmake]</code> export compile flags in dedicated variables</h2>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/556" class="uri">https://github.com/thelfer/tfel/issues/556</a></p>
-<h2 data-number="4.5" id="issue-555-cmake-better-handling-of-dependencies-in-exported-cmake-files"><span class="header-section-number">4.5</span> Issue 555: <code>[cmake]</code> better handling of dependencies in exported <code>cmake</code> files</h2>
+<h2 data-number="4.6" id="issue-555-cmake-better-handling-of-dependencies-in-exported-cmake-files"><span class="header-section-number">4.6</span> Issue 555: <code>[cmake]</code> better handling of dependencies in exported <code>cmake</code> files</h2>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/556" class="uri">https://github.com/thelfer/tfel/issues/556</a></p>
-<h2 data-number="4.6" id="issue-526-the-useqt-keyword-is-not-mentioned-in-the-materiallaws-keywords-help-page"><span class="header-section-number">4.6</span> Issue 526: The <code>@UseQt</code> keyword is not mentioned in the <code>MaterialLaw</code>’s keywords help page</h2>
+<h2 data-number="4.7" id="issue-526-the-useqt-keyword-is-not-mentioned-in-the-materiallaws-keywords-help-page"><span class="header-section-number">4.7</span> Issue 526: The <code>@UseQt</code> keyword is not mentioned in the <code>MaterialLaw</code>’s keywords help page</h2>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/526" class="uri">https://github.com/thelfer/tfel/issues/526</a></p>
-<h2 data-number="4.7" id="issue-476-generic-interface-add-support-for-arrays-of-thermodynamic-forces"><span class="header-section-number">4.7</span> Issue 476: [generic interface] Add support for arrays of thermodynamic forces</h2>
+<h2 data-number="4.8" id="issue-476-generic-interface-add-support-for-arrays-of-thermodynamic-forces"><span class="header-section-number">4.8</span> Issue 476: [generic interface] Add support for arrays of thermodynamic forces</h2>
 <p>For more details, see <a href="https://github.com/thelfer/tfel/issues/476" class="uri">https://github.com/thelfer/tfel/issues/476</a></p>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-harari_computation_2023" class="csl-entry" role="doc-biblioentry">

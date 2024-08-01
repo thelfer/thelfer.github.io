@@ -163,7 +163,6 @@
 <li><a href="#standard-cmake-variables">Standard <code>cmake</code> variables</a></li>
 <li><a href="#variables-affecting-the-compilation-of-mfront-files">Variables affecting the compilation of <code>MFront</code> files</a></li>
 <li><a href="#interface-selection">Interface selection</a></li>
-<li><a href="#debug-options">Debug options</a></li>
 <li><a href="#generation-of-the-website">Generation of the website</a></li>
 <li><a href="#additional-behaviours">Additional behaviours</a></li>
 <li><a href="#automatic-documentation-generation-using-mfront-doc">Automatic documentation generation using <code>mfront-doc</code></a></li>
@@ -203,23 +202,12 @@
 <li><code>CMAKE_TOOLCHAIN_FILE</code>: specify a tool chain file (for cross-compilation).</li>
 </ul>
 <h3 id="variables-affecting-the-compilation-of-mfront-files">Variables affecting the compilation of <code>MFront</code> files</h3>
-<h4 id="option-passed-to-domain-specific-languages">Option passed to domain specific languages</h4>
-<p>The following variables can be used to define options passed to domain specific languages:</p>
 <ul>
-<li><code>MFM_BUILD_IDENTIFIER</code>: string variable specifying a build identifier. By default, the build identifier exported by <code>MFront</code> will be empty. Defining this variable is only supported when using a version of <code>TFEL</code> greater than <code>4.1</code>.</li>
-<li><code>MFM_TREAT_PARAMETERS_AS_STATIC_VARIABLES</code>: boolean variable stating if the parameters shall be treated as static variables. By default, parameters are not defined as static variables by <code>MFront</code> allowing their modifications at runtime. The way of modifying parameters depends on the interface considered. Defining this variable is only supported when using a version of <code>TFEL</code> greater than <code>4.1</code>.</li>
-<li><code>MFM_ALLOW_PARAMETERS_INITIALIZATION_FROM_FILE</code>: boolean variable stating if <code>MFront</code> shall generate code for reading parameters from an external text file located in the current directory at runtime, a feature supported by most interfaces. By default, <code>MFront</code> does generate this code. Defining this variable is only supported when using a version of <code>TFEL</code> greater than <code>4.1</code>.</li>
+<li><code>MFM_BUILD_IDENTIFIER</code>: string variable specifying a build identifier. Defining this variable is only supported when using a version of <code>TFEL</code> greater than <code>4.1</code>.</li>
+<li><code>MFM_TREAT_PARAMETERS_AS_STATIC_VARIABLES</code>: boolean variables stating if parameters shall be treated as static variables. Defining this variable is only supported when using a version of <code>TFEL</code> greater than <code>4.1</code>.</li>
 </ul>
-<p><code>MFrontGallery</code> may use more refined variables to define the options passed to <code>MFront</code>’ domain specific languages. The name of those variables depends on the name of the considered interface and the type of the material knowledge considered.</p>
-<p>Assuming that the <code>castem</code> interface as been enabled for behaviours, the build identifier passed to the domain specific languages of <code>MFront</code>’ files compiled with this interface is defined by one of the following variables:</p>
-<ul>
-<li><code>MFM_CASTEM_BEHAVIOURS_BUILD_IDENTIFIER</code></li>
-<li><code>MFM_CASTEM_BUILD_IDENTIFIER</code></li>
-<li><code>MFM_BUILD_IDENTIFIER</code></li>
-</ul>
-<p>The definition of all those variables is optional.</p>
 <h3 id="interface-selection">Interface selection</h3>
-<h4 id="interfaces-to-material-properties">Interfaces to material properties</h4>
+<h4 id="interface-to-material-properties">Interface to material properties</h4>
 <ul>
 <li><code>enable-c</code>: enable compilation of material properties using the <code>c</code> interface.</li>
 <li><code>enable-c++</code>: enable compilation of material properties using the <code>C++</code> interface.</li>
@@ -228,10 +216,9 @@
 <li><code>enable-python</code>: Enable the generation of <code>python</code> modules. Note that the <code>Python_ADDITIONAL_VERSIONS</code> selects the <code>python</code> version to use. Only the major and minor version of python shall be passed, not the revision version (otherwise the detection fails).</li>
 <li><code>enable-java</code>: enable compilation of material properties using the <code>java</code> interface.</li>
 <li><code>enable-octave</code>: enable compilation of material properties using the <code>octave</code> interface.</li>
-<li><code>enable-generic-material-properties</code>: enable compilation of material properties using the <code>generic</code> interface.</li>
 </ul>
 <p>See also the <code>enable-castem-material-properties</code> and <code>enable-cyrano-material-properties</code> options below.</p>
-<h4 id="interfaces-to-behaviours">Interfaces to behaviours</h4>
+<h4 id="interface-to-behaviours">Interface to behaviours</h4>
 <ul>
 <li><code>enable-generic-behaviours</code>: enable compilation of behaviours using the <code>generic</code> interface.</li>
 <li><code>enable-aster</code>: enable compilation of behaviours using the <code>aster</code> interface.</li>
@@ -244,10 +231,6 @@
 <li><code>enable-zmat</code>: enable compilation of behaviours using the <code>zmat</code> interface.</li>
 </ul>
 <p>See also the <code>enable-castem-behaviours</code> and <code>enable-cyrano-behaviours</code> below.</p>
-<h4 id="interfaces-to-models">Interfaces to models</h4>
-<ul>
-<li><code>enable-generic-models</code>: enable compilation of models using the <code>generic</code> interface.</li>
-</ul>
 <h4 id="options-related-to-the-cast3m-solver">Options related to the <code>Cast3M</code> solver</h4>
 <ul>
 <li><code>enable-castem</code>: enable the compilation of material properties and behaviours using the <code>castem</code> interface. This option is equivalent to using enabling both options <code>enable-castem-material-properties</code> and <code>enable-castem-behaviours</code>.</li>
@@ -260,11 +243,6 @@
 <li><code>enable-cyrano</code>: enable the compilation of material properties and behaviours using the <code>cyrano</code> interface. This option is equivalent to using enabling both options <code>enable-castem-material-properties</code> and <code>enable-castem-behaviours</code>.</li>
 <li><code>enable-cyrano-material-properties</code>: enable compilation of material properties using the <code>cyrano</code> interface.</li>
 <li><code>enable-cyrano-behaviours</code>: enable compilation of behaviours using the <code>cyrano</code> interface.</li>
-</ul>
-<h3 id="debug-options">Debug options</h3>
-<ul>
-<li><code>enable-mfront-debug-mode</code>: appends –debug to the options passed to <code>MFront</code>.</li>
-<li><code>enable-mtest-file-generation-on-failure</code>: appends <code>--@GenerateMTestFileOnFailure=true</code> to the options passed to <code>MFront</code> when compiling behaviours.</li>
 </ul>
 <h3 id="generation-of-the-website">Generation of the website</h3>
 <p>The <code>enable-website</code> option selects if the website of the project shall be generated. This requires <code>pandoc</code> (mandatory) and <code>pandoc-crossref</code> (optional) to be available.</p>

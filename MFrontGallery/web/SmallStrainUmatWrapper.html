@@ -11,8 +11,8 @@
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Introducing small strain legacy Abaqus/UMAT implementations in MFrontGallery</title>
-        <meta name="author" content="Thomas Helfer, Eric Simo" />
-            <meta name="date" content="2022-09-03" />
+        <meta name="author" content="Thomas Helfer, Éric Simo" />
+            <meta name="date" content="2020-01-01" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
@@ -151,8 +151,8 @@
 
 <div id="header">
 <h1 class="title">Introducing small strain legacy <code>Abaqus/UMAT</code> implementations in <code>MFrontGallery</code></h1>
-<h2 class="author">Thomas Helfer, Eric Simo</h2>
-<h3 class="date">09/03/2022</h3>
+<h2 class="author">Thomas Helfer, Éric Simo</h2>
+<h3 class="date">2020</h3>
 </div>
 <div id="TOC">
 <ul>
@@ -199,28 +199,19 @@
 <li><a href="#references">References</a></li>
 </ul>
 </div>
-<!--
-pandoc --pdf-engine=xelatex -f markdown --csl=iso690-numeric-en.csl  --bibliography=bibliography.bib --filter pandoc-crossref --citeproc -V geometry:a4paper,margin=2cm --highlight-style=tango --number-sections --variable urlcolor=blue --toc SmallStrainUmatWrapper.md -o SmallStrainUmatWrapper.pdf
-
-# Introduction
--->
 <p>Implementing a constitutive model is a long tedious and error-prone process, in particular for soils where a wide variety of phenomena must be taken into account. Moreover, the implementation must satisfy the interface requirements of the targeted solver.</p>
 <p>While <code>MFront</code> greatly reduces the amount of work required to implement a new behaviour, existing legacy implementations are highly valuable and their re-implementation in <code>MFront</code> should only be considered with caution considering the trade-offs. In our experience, such a re-implementation increases the maintainability and portability, and generally the numerical performances, but requires significant development efforts.</p>
 <p>In this work, we developed an alternative approach, which consists in using <code>MFront</code> as a wrapper to the legacy implementations written using the <code>UMAT</code> interface introduced by the <code>Abaqus/Standard</code> finite element solver.</p>
 <figure>
 <img src="img/SmallStrainUmatWrapper/mfront-wrapper.svg" id="fig:umat_wrapper:workflow" style="width:90.0%" alt="Figure 1: Workflow for wrapping legacy model implementations in MFront" /><figcaption aria-hidden="true">Figure 1: Workflow for wrapping legacy model implementations in <code>MFront</code></figcaption>
 </figure>
-<p>The <code>MFront</code> wrapper:</p>
+<p>The <code>MFront</code> wrapper manages:</p>
 <ul>
 <li>handles the transfer of the data from solver to the legacy implementation on input and output as illustrated in Figure 1.</li>
 <li>the definition of appropriate metadata which considerably simplifies the behaviour integration in the solver, in particular if the <a href="https://thelfer.github.io/mgis/web/index.html"><code>MFrontGenericInterfaceSupport</code> library</a> (<code>MGIS</code>) is used by the targeted solver <span class="citation" data-cites="Helfer2020 cea_mgis_2021">[<a href="#ref-Helfer2020" role="doc-biblioref">1</a>, <a href="#ref-cea_mgis_2021" role="doc-biblioref">2</a>]</span>.</li>
 </ul>
-<!--
-The latest version of this document can be found here:
-<https://thelfer.github.io/MFrontGallery/web/SmallStrainUmatWrapper.html>.
--->
 <h1 data-number="1" id="description-of-the-wrapped-umat-implementation-and-role-of-the-wrapper"><span class="header-section-number">1</span> Description of the wrapped <code>UMAT</code> implementation and role of the wrapper</h1>
-<p>In this tutorial, we use a sightly modified version of the <code>umat.f</code> file delivered with the <code>CalculiX</code> finite element solver which implements an isotropic elastic behaviour in <code>3D</code>. This implementation is reported in Listing 2 of Appendix 8.1.</p>
+<p>In this tutorial, we use a sightly modified version of the <code>umat.f</code> file delivered with the <code>CalculiX</code> finite element solver which implements an isotropic elastic behaviour in <code>3D</code>. This implementation is reported in Listing lst. 2 of Appendix 8.1.</p>
 <p>This implementation is written in <code>Fortran 77</code> which may lead to a portability issue as the name of the resulting function is implementation defined. We will discard this issue for the moment and come by to it later by rewritting this function in <code>Fortran 95</code> using the <code>BIND(C)</code> attribute in Section 6.</p>
 <p>This implementation has no state variables and requires two material properties: the Young’ modulus and the Poisson’ ratio.</p>
 <p>The number of arguments effectively used by the subroutine is here very small compared to the total number of arguments:</p>
@@ -231,7 +222,7 @@ The latest version of this document can be found here:
 <li><code>dstran</code>: an array containing the values of the strain increment during the time step.</li>
 <li><code>props</code>: an array containing the material properties.</li>
 </ul>
-<p>It is important to note that this implementation does not make any check of its arguments. For example, the user may pass any number of material properties, which may lead to segmentation faults at best or to spurious results difficult to debug at worse. It is interesting to note that <code>MFront</code> will ensure the correct usage of the wrapped behaviour and automatically generate the correct checks.</p>
+<p>It is important to note that this implementation does not make any check of its arguments. For example, the user may pass any number of material properties, which may lead segmentation faults at best or to spurious results difficult to debug at worse. It is interesting to note that <code>MFront</code> will ensure the correct usage of the wrapped behaviour and automatically generate the correct checks.</p>
 <p>The <code>UMAT</code> interface uses the so-called Voigt conventions to store symmetric tensors as vectors. <code>MFront</code> uses a different convention, as described in <a href="https://thelfer.github.io/tfel/web/tensors.html">its documentation</a> <span class="citation" data-cites="cea_edf_tfel_tensors_2021">[<a href="#ref-cea_edf_tfel_tensors_2021" role="doc-biblioref">3</a>]</span>. Conversion functions are thus required on input and output of the <code>UMAT</code> implementation.</p>
 <p>Special care must also be taken regarding the consistent tangent operator. Not only shall the difference of conventions be taken into account, but also the fact that <code>fortran</code> uses a column-major convention to store matrices while the <code>TFEL/Math</code> library uses a row-major convention. Basically, this means that the consistent tangent operator must transposed. In the case of linear elasticity, the stiffness matrix is obviously symmetric, but this is not the general case.</p>
 <p>In this case, the wrapper shall:</p>
@@ -253,7 +244,7 @@ The latest version of this document can be found here:
 <p>To avoid runtime checks, those functions use a the modelling hypothesis as a first template parameter. We use here the fact that <code>MFront</code>’ behaviours are also templated by the modelling hypothesis, which is then known at compile-time.</p>
 <p>Since <code>Abaqus/Explicit</code> handles computations in simple and double precision, the conversion function takes the numeric type as a second template parameter.</p>
 <p>All the convertion functions are declared in the <code>mfront_umat_wrapper</code> namespace.</p>
-<p>Listing 1 provide an implementation, limited to the tridimensional case, of the <code>convertStrainToAbaqus</code> function.</p>
+<p>Listing lst. 1 provide an implementation, limited to the tridimensional case, of the <code>convertStrainToAbaqus</code> function.</p>
 <div id="lst:umat_wrapper:convertStrainToAbaqus" class="listing cxx">
 <p>Listing 1: Source code of the `convertStrainToAbaqus` function</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">template</span> &lt;Hypothesis H, <span class="kw">typename</span> NumType&gt;</span>
@@ -274,14 +265,14 @@ The latest version of this document can be found here:
 </div>
 <h1 data-number="3" id="sec:umat_wrapper:material_properties"><span class="header-section-number">3</span> Treatment of the material properties</h1>
 <p>The treatment of the material properties deserves a special discussion.</p>
-<p>The first choice that one has to make is whether the final behaviour shall be specific to a given material and self-contained or be generic. You may refer to the <a href="index.html">front page</a> of the project for a detailled discussion about those concepts.</p>
+<p>The first choice that one has to make is wheter the final behaviour shall be specific to a given material and self-contained or be generic. You may refer to the <a href="index.html">front page</a> of the project for a detailled discussion about those concepts.</p>
 <p>Of course, in the case of the simple example treated in this document, this kind of considerations seems largely overkill. For the sake of the discussion, let us however pretend that we are considering an non trivial <code>UMAT</code> behaviour.</p>
 <h2 data-number="3.1" id="the-generic-behaviour-case"><span class="header-section-number">3.1</span> The generic behaviour case</h2>
 <p>Material properties, introduced by the <code>@MaterialProperty</code> keyword, imposes that the solver provides the required material coefficients.</p>
 <p>For the sake of simplicity, we choose that the <code>MFront</code> behaviour require the same material properties than the <code>UMAT</code> implementation, i.e. the Young’ modulus and the Poisson’ ratio. But other choices could have been discussed and we could have chosen another pair of elastic properties, for example the Lamé’ coefficients: with such a choice, the wrapper then would need to compute the Young’ modulus and the Poisson’ ratio before calling the <code>UMAT</code> behaviour.</p>
 <p>Another choice now have to be made: shall we declare an array of material properties or shall we declare two distinct material properties ? As usual, each solution have drawbacks and avantages, as now discussed.</p>
 <h3 data-number="3.1.1" id="declaring-an-array-of-material-properties"><span class="header-section-number">3.1.1</span> Declaring an array of material properties</h3>
-<p>Declaring an array of material properties has one pratical advantage as it already meets the requirements that the material properties shall be stored in a continuous array.</p>
+<p>Declaring an array of material properties has one pratical advantage as it already meets the requriments that the material properties shall be stored in a continuous array.</p>
 <p>This array of material properties could be declared as follows:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! elastic material properties</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real emps[<span class="dv">2</span>];</span>
@@ -298,7 +289,7 @@ The latest version of this document can be found here:
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real nu;</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>nu.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</span></code></pre></div>
 <p>This is more explicit and potentially more attractive for the end-user if the solver that he uses relies on the metadata exported by <code>MFront</code>.</p>
-<p>Before calling the <code>UMAT</code> implementation, one shall create an array of floating-point values and initialize its values as follows:</p>
+<p>Before calling the <code>UMAT</code> implementation, one shall create an array of floatting-point values and initialize its values as follows:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> real props[<span class="dv">2</span>] = {E,nu};</span></code></pre></div>
 <p>Again, this is straightforward when only two material properties are considered, but the effort grows significantly as the number of material properties increases.</p>
 <blockquote>
@@ -541,7 +532,7 @@ The latest version of this document can be found here:
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  mfront_umat_wrapper::convertStiffnessMatrixFromAbaqus&lt;hypothesis&gt;(&amp;Dt(<span class="dv">0</span>, <span class="dv">0</span>),</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                                                                    &amp;K(<span class="dv">0</span>, <span class="dv">0</span>));</span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>This optional conversion of the consistent tangent operator in a separate code block is the main reason why we stored the values of the consistent tangent operator in the local variable <code>K</code>.</p>
+<p>This optional conversion of the consistent tangent operator in a separate code block is the main reason why we stored the values of the consistennt tangent operator in the local variable <code>K</code>.</p>
 <h1 data-number="5" id="compiling-the-wrapper-outside-the-mfrontgallery"><span class="header-section-number">5</span> Compiling the wrapper outside the <code>MFrontGallery</code></h1>
 <p>Firt this first test, we will compile the <code>umat</code> file in a seperate shared library that will be linked to the shared library generated by <code>MFront</code>. This is convenient as it does not require the user to handle the complexity of generating shared libraries built with different languages (<code>C++</code> and <code>fortran</code>) and barely relies on the standard compilation process provided by <code>MFront</code>.</p>
 <h2 data-number="5.1" id="compiling-the-umat.f-file"><span class="header-section-number">5.1</span> Compiling the <code>umat.f</code> file</h2>
@@ -575,7 +566,7 @@ The latest version of this document can be found here:
 <div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mtest SmallStrainUmatWrapper.mtest</span></code></pre></div>
 <blockquote>
 <p><strong>Updating <code>LD_LIBRARY_PATH</code> </strong></p>
-<p>Note that on some systems, one shall add the current directory to the <code>LD_LIBRARY_PATH</code> environment variable before calling <code>mtest</code> to find the <code>libUmat.so</code> library, as follows:</p>
+<p>Note that On some system, one shall add the current directory to the <code>LD_LIBRARY_PATH</code> environment variable before calling <code>mtest</code> to find the <code>libUmat.so</code> library, as follows:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export LD_LIBRARY_PATH=<span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:<span class="va">$LD_LIBRARY_PATH</span></span></code></pre></div>
 </blockquote>
 <h1 data-number="6" id="sec:umat_wrapper:fortran95"><span class="header-section-number">6</span> A better solution</h1>
@@ -586,10 +577,10 @@ The latest version of this document can be found here:
 </ul>
 <h2 data-number="6.1" id="modification-of-the-fortran-sources"><span class="header-section-number">6.1</span> Modification of the <code>fortran</code> sources</h2>
 <p>The first thing to do is to rename the file <code>umat.f</code> in <code>umat.f90</code> which is a more or less standard file extension for free-form fortran source greater than <code>Fortran 90</code> (extension like <code>f95</code> and <code>f03</code> does not seem to be supported by build systems and text editors, as explained <a href="https://fortranwiki.org/fortran/show/File+extensions">here</a>).</p>
-<p>After converting the code to free form and removing the unused variables, the <code>umat2</code> subroutine has the following declaration:</p>
+<p>After converting the code to free form and removing the unsued variables, the <code>umat2</code> subroutine has the following declaration:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">subroutine</span> umat2(stress, ddsdde, stran, dstran, ntens, props, nprops) <span class="kw">&amp;</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  BIND(C,NAME<span class="kw">=</span><span class="st">&quot;umat2&quot;</span>)</span></code></pre></div>
-<p>See Listing 3 in Appendix 8.2 for the full code of the <code>umat2</code> subroutine.</p>
+<p>See Listing lst. 3 in Appendix 8.2 for the full code of the <code>umat2</code> subroutine.</p>
 <p>The <code>NAME</code> option specifies the name of the exported symbol. This is the name of the function on the <code>C++</code> side. This name is now perfectly portable across implementations.</p>
 <h2 data-number="6.2" id="modification-of-the-mfront-wrapper"><span class="header-section-number">6.2</span> Modification of the <code>MFront</code> wrapper</h2>
 <p>Two code blocks of the <code>MFront</code> wrapper must be changed:</p>
@@ -682,38 +673,17 @@ The latest version of this document can be found here:
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  umat2.f90)</span></code></pre></div>
 <p>The <code>mfront_behaviour_library</code> function is described in the documentation of the <a href="cmake-infrastructure.html">cmake infrastructure</a> of the project.</p>
 <p>This call to the <code>mfront_behaviour_library</code> function generates the following output:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UMATWRAPPERV2CALCULIXBEHAVIOURS</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">mfront-wrappers/fortran/umat/v2/calculix/src/calculixSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mfront-wrappers/fortran/umat/v2/calculix/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="er">)</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UMATWRAPPERV2ANSYSBEHAVIOURS</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">mfront-wrappers/fortran/umat/v2/ansys/src/ansysSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mfront-wrappers/fortran/umat/v2/ansys/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="er">)</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UMATWRAPPERV2ABAQUSBEHAVIOURS</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">mfront-wrappers/fortran/umat/v2/abaqus/src/abaqusSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mfront-wrappers/fortran/umat/v2/abaqus/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="er">)</span></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> SmallStrainUmatWrapper_v2 has been discarded for interface cyrano</span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">behaviour</span> does not support any of the  <span class="st">&#39;AxisymmetricalGeneralisedPlaneStrain&#39;</span></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>   <span class="ex">or</span>  <span class="st">&#39;AxisymmetricalGeneralisedPlaneStress modelling&#39;</span> hypothesis<span class="kw">)</span></span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Only external sources provided for library UmatWrapperV2Behaviours-cyrano for</span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>   <span class="ex">interface</span> cyrano. The generation of this library is disabled by default.</span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>   <span class="ex">It</span> can be enabled by using the GENERATE_WITHOUT_MFRONT_SOURCES option</span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> SmallStrainUmatWrapper_v2 has been discarded for interface epx</span>
-<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">small</span> strain behaviours are not supported<span class="kw">)</span></span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Only external sources provided for library UmatWrapperV2Behaviours-epx for</span>
-<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>   <span class="ex">interface</span> epx. The generation of this library is disabled by default.</span>
-<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>   <span class="ex">It</span> can be enabled by using the GENERATE_WITHOUT_MFRONT_SOURCES option</span>
-<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UmatWrapperV2DianaFEABehaviours</span>
-<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">mfront-wrappers/fortran/umat/v2/dianafea/src/DianaFEASmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span></span>
-<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mfront-wrappers/fortran/umat/v2/dianafea/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="er">)</span></span>
-<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UmatWrapperV2Behaviours-aster</span>
-<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">mfront-wrappers/fortran/umat/v2/aster/src/asterSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span></span>
-<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mfront-wrappers/fortran/umat/v2/aster/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="er">)</span></span>
-<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UmatWrapperV2Behaviours</span>
-<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">mfront-wrappers/fortran/umat/v2/castem/src/umatSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span></span>
-<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mfront-wrappers/fortran/umat/v2/castem/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="er">)</span></span>
-<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UmatWrapperV2Behaviours-generic</span>
-<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">mfront-wrappers/fortran/umat/v2/generic/src/SmallStrainUmatWrapper_v2-generic.cxx</span><span class="kw">;</span></span>
-<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mfront-wrappers/fortran/umat/v2/generic/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="er">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UMATWRAPPERV2CALCULIXBEHAVIOURS <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/calculix/src/calculixSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/calculix/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UMATWRAPPERV2ANSYSBEHAVIOURS <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/ansys/src/ansysSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/ansys/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UMATWRAPPERV2ABAQUSBEHAVIOURS <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/abaqus/src/abaqusSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/abaqus/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> SmallStrainUmatWrapper_v2 has been discarded for interface cyrano <span class="er">(</span><span class="ex">behaviour</span> does not support any of the  <span class="st">&#39;AxisymmetricalGeneralisedPlaneStrain&#39;</span> or  <span class="st">&#39;AxisymmetricalGeneralisedPlaneStress modelling&#39;</span> hypothesis<span class="kw">)</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Only external sources provided for library UmatWrapperV2Behaviours-cyrano for interface cyrano. The generation of this library is disabled by default. It can be enabled by passing the GENERATE_WITHOUT_MFRONT_SOURCES</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> SmallStrainUmatWrapper_v2 has been discarded for interface epx <span class="er">(</span><span class="ex">small</span> strain behaviours are not supported<span class="kw">)</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Only external sources provided for library UmatWrapperV2Behaviours-epx for interface epx. The generation of this library is disabled by default. It can be enabled by passing the GENERATE_WITHOUT_MFRONT_SOURCES</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UmatWrapperV2DianaFEABehaviours <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/dianafea/src/DianaFEASmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/dianafea/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UmatWrapperV2Behaviours-aster <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/aster/src/asterSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/aster/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UmatWrapperV2Behaviours <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/castem/src/umatSmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/castem/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : UmatWrapperV2Behaviours-generic <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/generic/src/SmallStrainUmatWrapper_v2-generic.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/mfront-wrappers/fortran/umat/v2/generic/src/SmallStrainUmatWrapper_v2.cxx</span><span class="kw">;</span><span class="ex">umat2.f90</span><span class="kw">)</span></span></code></pre></div>
 <p>This output shows that:</p>
 <ul>
 <li>The wrapped behaviour is not compatible with some interfaces (<code>cyrano</code>, <code>europlexus</code> for instance) for reasons explicitely stated in the previous output.</li>
@@ -743,23 +713,8 @@ The latest version of this document can be found here:
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    umat.f)</span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>endif()</span></code></pre></div>
 <p>The <code>GNU_FORTRAN_COMPILER</code> variable is automatically defined by the <code>cmake</code> infrastructure of the project.</p>
-<!--
-# Acknowledgements
-
-The development of TFEL/MFront is conducted in the framework of the
-`PLEIADES` project, which is supported financially by the French
-Alternative Energies and Atomic Energy Commission (CEA), Électricité de
-France (EDF) and Framatome.
-
-We also acknowledge contributions from Thomas Nagel and David Mašín
-during the genesis of this project. The funding by BGE mbH, the German
-federal company for radioactive waste is greatly acknowledged.
-
-\appendix
--->
 <h1 data-number="8" id="appendix"><span class="header-section-number">8</span> Appendix</h1>
 <h2 data-number="8.1" id="sec:umat_wrapper:umat_source_code"><span class="header-section-number">8.1</span> Source code of the <code>UMAT</code> subroutine</h2>
-<p>The source code of the <code>umat2</code> subroutine is reported in Listing 2.</p>
 <div id="lst:umat_wrapper:umat_source_code" class="listing fortran">
 <p>Listing 2: Source code of the `UMAT` subroutine</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">     s</span>ubroutine umat(stress,statev,ddsdde,sse,spd,scd,</span>
@@ -827,7 +782,6 @@ federal company for radioactive waste is greatly acknowledged.
 <span id="cb37-63"><a href="#cb37-63" aria-hidden="true" tabindex="-1"></a>      <span class="kw">end</span></span></code></pre></div>
 </div>
 <h2 data-number="8.2" id="sec:umat_wrapper:umat2_source_code"><span class="header-section-number">8.2</span> Source code of the <code>umat2</code> subroutine in <code>Fortran 2003</code></h2>
-<p>The source code of the <code>umat2</code> subroutine is reported in Listing 3.</p>
 <div id="lst:umat_wrapper:umat2_source_code" class="listing fortran">
 <p>Listing 3: Source code of the `umat2` subroutine</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">subroutine</span> umat2(stress, ddsdde, stran, dstran, ntens, props, nprops) BIND(C,NAME<span class="kw">=</span><span class="st">&quot;umat2&quot;</span>)</span>

@@ -16,8 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -26,7 +27,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -50,11 +51,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -63,14 +64,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -79,7 +80,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -182,6 +185,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -333,229 +337,477 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#getting-help">Getting help</a></li>
-<li><a href="#documentation">Documentation</a>
+<li><a href="#getting-help" id="toc-getting-help">Getting help</a></li>
+<li><a href="#documentation" id="toc-documentation">Documentation</a>
 <ul>
-<li><a href="#tfelmath">TFEL/Math</a>
+<li><a href="#tfelmath" id="toc-tfelmath">TFEL/Math</a>
 <ul>
-<li><a href="#documentation-about-operations-on-tensors">Documentation about operations on tensors</a></li>
+<li><a href="#documentation-about-operations-on-tensors"
+id="toc-documentation-about-operations-on-tensors">Documentation about
+operations on tensors</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#installation">Installation</a>
+<li><a href="#installation" id="toc-installation">Installation</a>
 <ul>
-<li><a href="#documentation-1">Documentation</a></li>
-<li><a href="#which-build-systems-shall-i-use-autotools-or-cmake">Which build systems shall I use (<code>autotools</code> or <code>cmake</code>)</a></li>
-<li><a href="#portable-build">Portable build</a></li>
+<li><a href="#documentation-1"
+id="toc-documentation-1">Documentation</a></li>
+<li><a href="#which-build-systems-shall-i-use-autotools-or-cmake"
+id="toc-which-build-systems-shall-i-use-autotools-or-cmake">Which build
+systems shall I use (<code>autotools</code> or
+<code>cmake</code>)</a></li>
+<li><a href="#portable-build" id="toc-portable-build">Portable
+build</a></li>
 </ul></li>
-<li><a href="#mfront">MFront</a>
+<li><a href="#mfront" id="toc-mfront">MFront</a>
 <ul>
-<li><a href="#general-questions">General questions</a>
+<li><a href="#general-questions" id="toc-general-questions">General
+questions</a>
 <ul>
-<li><a href="#what-is-a-dsl-domain-specific-language">What is a DSL (domain specific language)</a></li>
-<li><a href="#supporting-new-interfaces">Supporting new interfaces</a></li>
+<li><a href="#what-is-a-dsl-domain-specific-language"
+id="toc-what-is-a-dsl-domain-specific-language">What is a DSL (domain
+specific language)</a></li>
+<li><a href="#supporting-new-interfaces"
+id="toc-supporting-new-interfaces">Supporting new interfaces</a></li>
 </ul></li>
-<li><a href="#documentation-2">Documentation</a>
+<li><a href="#documentation-2"
+id="toc-documentation-2">Documentation</a>
 <ul>
-<li><a href="#keywords-available">Keywords available</a></li>
-<li><a href="#help-on-a-specific-keyword">Help on a specific keyword</a></li>
-<li><a href="#getting-the-help-on-all-keywords-of-a-specific-dsl">Getting the help on all keywords of a specific DSL</a></li>
+<li><a href="#keywords-available" id="toc-keywords-available">Keywords
+available</a></li>
+<li><a href="#help-on-a-specific-keyword"
+id="toc-help-on-a-specific-keyword">Help on a specific keyword</a></li>
+<li><a href="#getting-the-help-on-all-keywords-of-a-specific-dsl"
+id="toc-getting-the-help-on-all-keywords-of-a-specific-dsl">Getting the
+help on all keywords of a specific DSL</a></li>
 </ul></li>
-<li><a href="#general-questions-about-mechanical-behaviours">General questions about mechanical behaviours</a>
+<li><a href="#general-questions-about-mechanical-behaviours"
+id="toc-general-questions-about-mechanical-behaviours">General questions
+about mechanical behaviours</a>
 <ul>
-<li><a href="#where-can-i-find-examples-of-well-written-behaviours">Where can I find examples of well written behaviours ?</a></li>
-<li><a href="#my-newly-implemented-behaviour-do-not-converge-what-can-i-do">My newly implemented behaviour do not converge, what can I do ?</a></li>
-<li><a href="#what-are-the-variable-types-available-in-mfront">What are the variable types available in <code>MFront</code></a></li>
-<li><a href="#what-are-the-differences-between-the-stensor-stressstensor-and-strainstensor">What are the differences between the <code>Stensor</code>, <code>StressStensor</code> and <code>StrainStensor</code></a></li>
-<li><a href="#orthotropic-axes-convention">Orthotropic axes convention</a></li>
+<li><a href="#where-can-i-find-examples-of-well-written-behaviours"
+id="toc-where-can-i-find-examples-of-well-written-behaviours">Where can
+I find examples of well written behaviours ?</a></li>
+<li><a
+href="#my-newly-implemented-behaviour-do-not-converge-what-can-i-do"
+id="toc-my-newly-implemented-behaviour-do-not-converge-what-can-i-do">My
+newly implemented behaviour do not converge, what can I do ?</a></li>
+<li><a href="#what-are-the-variable-types-available-in-mfront"
+id="toc-what-are-the-variable-types-available-in-mfront">What are the
+variable types available in <code>MFront</code></a></li>
+<li><a
+href="#what-are-the-differences-between-the-stensor-stressstensor-and-strainstensor"
+id="toc-what-are-the-differences-between-the-stensor-stressstensor-and-strainstensor">What
+are the differences between the <code>Stensor</code>,
+<code>StressStensor</code> and <code>StrainStensor</code></a></li>
+<li><a href="#orthotropic-axes-convention"
+id="toc-orthotropic-axes-convention">Orthotropic axes
+convention</a></li>
 </ul></li>
-<li><a href="#implementing-mechanical-behaviours-using-the-implicit-dsl">Implementing mechanical behaviours using the <code>Implicit</code> DSL</a>
+<li><a href="#implementing-mechanical-behaviours-using-the-implicit-dsl"
+id="toc-implementing-mechanical-behaviours-using-the-implicit-dsl">Implementing
+mechanical behaviours using the <code>Implicit</code> DSL</a>
 <ul>
-<li><a href="#in-which-order-are-the-blocks-given-by-the-user-evaluated">In which order are the blocks given by the user evaluated ?</a></li>
+<li><a href="#in-which-order-are-the-blocks-given-by-the-user-evaluated"
+id="toc-in-which-order-are-the-blocks-given-by-the-user-evaluated">In
+which order are the blocks given by the user evaluated ?</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 <h1 id="getting-help">Getting help</h1>
 <p>There are various ways of getting help, including this FAQ.</p>
-<p>The main source is the <code>TFEL</code> website: <a href="https://thelfer.github.io/tfel/web/" class="uri">https://thelfer.github.io/tfel/web/</a>. In particular, one may want to read the pages dedicated to:</p>
+<p>The main source is the <code>TFEL</code> website: <a
+href="https://thelfer.github.io/tfel/web/"
+class="uri">https://thelfer.github.io/tfel/web/</a>. In particular, one
+may want to read the pages dedicated to:</p>
 <ul>
-<li>the documentation (see also the various entries in the FAQ below): <a href="https://thelfer.github.io/tfel/web/documentation.html" class="uri">https://thelfer.github.io/tfel/web/documentation.html</a></li>
-<li>the installation process (see also the dedicated entry in the FAQ below): <a href="https://thelfer.github.io/tfel/web/documentation.html" class="uri">https://thelfer.github.io/tfel/web/documentation.html</a></li>
+<li>the documentation (see also the various entries in the FAQ below):
+<a href="https://thelfer.github.io/tfel/web/documentation.html"
+class="uri">https://thelfer.github.io/tfel/web/documentation.html</a></li>
+<li>the installation process (see also the dedicated entry in the FAQ
+below): <a href="https://thelfer.github.io/tfel/web/documentation.html"
+class="uri">https://thelfer.github.io/tfel/web/documentation.html</a></li>
 </ul>
-<p>If none of the resources available is satisfying, one may want to use:</p>
+<p>If none of the resources available is satisfying, one may want to
+use:</p>
 <ul>
-<li>the <code>TFEL</code> forums: <a href="https://github.com/thelfer/tfel/discussions" class="uri">https://github.com/thelfer/tfel/discussions</a></li>
-<li>the <code>TFEL</code> bug report: <a href="https://github.com/thelfer/tfel/issues" class="uri">https://github.com/thelfer/tfel/issues</a></li>
-<li>the <code>TFEL</code> official mail adress to contact the developpers: <a href="tfel-contact@cea.fr">tfel-contact@cea.fr</a>.</li>
+<li>the <code>TFEL</code> forums: <a
+href="https://github.com/thelfer/tfel/discussions"
+class="uri">https://github.com/thelfer/tfel/discussions</a></li>
+<li>the <code>TFEL</code> bug report: <a
+href="https://github.com/thelfer/tfel/issues"
+class="uri">https://github.com/thelfer/tfel/issues</a></li>
+<li>the <code>TFEL</code> official mail adress to contact the
+developpers: <a href="tfel-contact@cea.fr">tfel-contact@cea.fr</a>.</li>
 </ul>
-<p>We recommend using the forums for general questions, as our answers can hopefully also be of any help to other users.</p>
+<p>We recommend using the forums for general questions, as our answers
+can hopefully also be of any help to other users.</p>
 <h1 id="documentation">Documentation</h1>
-<p>There are various kind of documents available, covering a wide range of questions. This section describes some of them, but documentation about specific part of the <code>TFEL</code> project, such as <code>MFront</code>, is described in the associated sections.</p>
+<p>There are various kind of documents available, covering a wide range
+of questions. This section describes some of them, but documentation
+about specific part of the <code>TFEL</code> project, such as
+<code>MFront</code>, is described in the associated sections.</p>
 <h2 id="tfelmath">TFEL/Math</h2>
-<h3 id="documentation-about-operations-on-tensors">Documentation about operations on tensors</h3>
-<p>Available operations on tensors are described <a href="tensors.html">here</a>. This page is not complete, so you may want to read the <code>doxygen</code> documentation of the project.</p>
+<h3 id="documentation-about-operations-on-tensors">Documentation about
+operations on tensors</h3>
+<p>Available operations on tensors are described <a
+href="tensors.html">here</a>. This page is not complete, so you may want
+to read the <code>doxygen</code> documentation of the project.</p>
 <h1 id="installation">Installation</h1>
-<p>This section deals with installing <code>MFront</code> from sources. Consider using binary packages of your distribution, when available, if those versions were compiled with the appropriate interfaces for your specific needs.</p>
+<p>This section deals with installing <code>MFront</code> from sources.
+Consider using binary packages of your distribution, when available, if
+those versions were compiled with the appropriate interfaces for your
+specific needs.</p>
 <h2 id="documentation-1">Documentation</h2>
-<p>The installation process is fully described in the following pages:</p>
+<p>The installation process is fully described in the following
+pages:</p>
 <ul>
-<li><a href="install.hml">install.html</a>: this document describes the generic installation procedure for <code>TFEL</code> from the sources on posix-compliant systems. Please note that the main systems on which <code>TFEL</code> was developed is <code>Linux</code>. Extensive testing on other posix-compliant operating systems, notably <code>FreeBSD</code>, is lacking, although compilation and unit testing is known to work.</li>
-<li>A page dedicated to <code>FreeBSD</code> is available <a href="install-freebsd.html">here</a>.</li>
-<li>The installation on <a href="http://windows.microsoft.com">Windows plateform</a> is described in the following pages:
+<li><a href="install.hml">install.html</a>: this document describes the
+generic installation procedure for <code>TFEL</code> from the sources on
+posix-compliant systems. Please note that the main systems on which
+<code>TFEL</code> was developed is <code>Linux</code>. Extensive testing
+on other posix-compliant operating systems, notably
+<code>FreeBSD</code>, is lacking, although compilation and unit testing
+is known to work.</li>
+<li>A page dedicated to <code>FreeBSD</code> is available <a
+href="install-freebsd.html">here</a>.</li>
+<li>The installation on <a href="http://windows.microsoft.com">Windows
+plateform</a> is described in the following pages:
 <ul>
-<li><a href="install-windows-VisualStudio.html">Installation based on <code>cmake</code> and <code>Visual Studio</code></a>.</li>
-<li><a href="install-windows-Cast3M2017.html">Installation based on <code>cmake</code> and <code>MinGW</code> (as packaged with <code>Cast3M</code> <code>2017</code>)</a>. This tutorial can easily be adapted to other versions of <code>MinGW</code>, without requiring <code>Cast3M</code> to be installed.</li>
-<li><a href="install-windows-msys.html">Installation based on <code>MSYS</code></a>.</li>
+<li><a href="install-windows-VisualStudio.html">Installation based on
+<code>cmake</code> and <code>Visual Studio</code></a>.</li>
+<li><a href="install-windows-Cast3M2017.html">Installation based on
+<code>cmake</code> and <code>MinGW</code> (as packaged with
+<code>Cast3M</code> <code>2017</code>)</a>. This tutorial can easily be
+adapted to other versions of <code>MinGW</code>, without requiring
+<code>Cast3M</code> to be installed.</li>
+<li><a href="install-windows-msys.html">Installation based on
+<code>MSYS</code></a>.</li>
 </ul></li>
-<li>The creation of binary packages are detailled <a href="packages.html">here</a>.</li>
+<li>The creation of binary packages are detailled <a
+href="packages.html">here</a>.</li>
 </ul>
-<h2 id="which-build-systems-shall-i-use-autotools-or-cmake">Which build systems shall I use (<code>autotools</code> or <code>cmake</code>)</h2>
-<p>We strongly recommend using the <code>cmake</code> build system, which is actively in the development process used for various reasons and which enables many tests that are not present when using <code>autotools</code>.</p>
-<p>The <code>autotools</code> build system is barely maintained in a functional state under <code>LinuX</code>. This can be used when <code>cmake</code> is not available.</p>
+<h2 id="which-build-systems-shall-i-use-autotools-or-cmake">Which build
+systems shall I use (<code>autotools</code> or <code>cmake</code>)</h2>
+<p>We strongly recommend using the <code>cmake</code> build system,
+which is actively in the development process used for various reasons
+and which enables many tests that are not present when using
+<code>autotools</code>.</p>
+<p>The <code>autotools</code> build system is barely maintained in a
+functional state under <code>LinuX</code>. This can be used when
+<code>cmake</code> is not available.</p>
 <h2 id="portable-build">Portable build</h2>
-<p>By default, the compilation of <code>mfront</code> takes advantage of the specific CPU of the host system (using flags such as <code>--march=native</code> with <code>clang</code> and <code>gcc</code>, <code>-xHost</code> with the <code>intel</code> compiler). However, the binaries generated can not:</p>
+<p>By default, the compilation of <code>mfront</code> takes advantage of
+the specific CPU of the host system (using flags such as
+<code>--march=native</code> with <code>clang</code> and
+<code>gcc</code>, <code>-xHost</code> with the <code>intel</code>
+compiler). However, the binaries generated can not:</p>
 <ul>
 <li>be used to generated redistributable binary packages.</li>
-<li>be installed on a NFS-like shared folder to be shared on a network of computers.</li>
+<li>be installed on a NFS-like shared folder to be shared on a network
+of computers.</li>
 </ul>
-<p>In both cases, the execution can fail with an <code>illegal instruction</code> message.</p>
-<p>To solve this issue, the <code>-Denable-portable-build=ON</code> option (this option is valid for <code>cmake</code>, when using the <code>autotools</code>, consider the <code>--enable-portable-build</code> option) has been introduced.</p>
-<p>With this option, the <code>mfront</code> binary and all the <code>TFEL</code> shared libraries will be “portable” (will not include CPU specific instructions).</p>
-<p>However, most of the times, the shared libraries produced by <code>MFront</code> will be executed on the machine on which they will be used. For this reasons, the default behaviour of <code>mfront</code> is to use flags like <code>-march=native</code> when compiling the libraries (This can be disabled by selecting <code>--obuild=level0</code>).</p>
-<p>Thus, we test the availability of this flag whether or not <code>-Denable-portable-build=ON</code> is used. Thus, a message such as <code>--enabling flag 'march=native'</code> barely states that this option is supported by the compiler.</p>
-<p>The best way to know if this option was taken into account is check the flags used to compile TFEL, as follows:</p>
+<p>In both cases, the execution can fail with an
+<code>illegal instruction</code> message.</p>
+<p>To solve this issue, the <code>-Denable-portable-build=ON</code>
+option (this option is valid for <code>cmake</code>, when using the
+<code>autotools</code>, consider the
+<code>--enable-portable-build</code> option) has been introduced.</p>
+<p>With this option, the <code>mfront</code> binary and all the
+<code>TFEL</code> shared libraries will be “portable” (will not include
+CPU specific instructions).</p>
+<p>However, most of the times, the shared libraries produced by
+<code>MFront</code> will be executed on the machine on which they will
+be used. For this reasons, the default behaviour of <code>mfront</code>
+is to use flags like <code>-march=native</code> when compiling the
+libraries (This can be disabled by selecting
+<code>--obuild=level0</code>).</p>
+<p>Thus, we test the availability of this flag whether or not
+<code>-Denable-portable-build=ON</code> is used. Thus, a message such as
+<code>--enabling flag 'march=native'</code> barely states that this
+option is supported by the compiler.</p>
+<p>The best way to know if this option was taken into account is check
+the flags used to compile TFEL, as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># when using cmake</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make VERBOSE=1</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># when using autotools</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make V=1</span></code></pre></div>
-<p>Without <code>-Denable-portable-build=ON</code>, you shall see the <code>--march=native</code> flag twice: one time as a compiler flag, one time as part of the definition of the <code>OPTIMISATION_FLAGS</code> macro. With <code>-Denable-portable-build=ON</code>, you will see it only once, in the definition of the <code>OPTIMISATION</code>_FLAGS macro.</p>
+<p>Without <code>-Denable-portable-build=ON</code>, you shall see the
+<code>--march=native</code> flag twice: one time as a compiler flag, one
+time as part of the definition of the <code>OPTIMISATION_FLAGS</code>
+macro. With <code>-Denable-portable-build=ON</code>, you will see it
+only once, in the definition of the <code>OPTIMISATION</code>_FLAGS
+macro.</p>
 <h1 id="mfront">MFront</h1>
 <h2 id="general-questions">General questions</h2>
-<h3 id="what-is-a-dsl-domain-specific-language">What is a DSL (domain specific language)</h3>
+<h3 id="what-is-a-dsl-domain-specific-language">What is a DSL (domain
+specific language)</h3>
 <p><code>MFront</code> treats various kind of material knowledge:</p>
 <ul>
-<li><a href="material-properties.html">material properties</a> (for instance the Young modulus, the thermal conductivity, etc.)</li>
+<li><a href="material-properties.html">material properties</a> (for
+instance the Young modulus, the thermal conductivity, etc.)</li>
 <li><a href="behaviours.html">mechanical behaviours</a>.</li>
-<li><a href="models.html">simple point-wise models</a>, such as material swelling used in fuel performance codes.</li>
+<li><a href="models.html">simple point-wise models</a>, such as material
+swelling used in fuel performance codes.</li>
 </ul>
 <p>For mechanical behaviours, various algorithms are available.</p>
-<p>In all cases, <code>MFront</code> strives to provide the most natural way of implementing the material knowledge under consideration. In technical terms, <code>MFront</code> provides for each case a <em>domain specific language</em> which is meant to be simple and expressive.</p>
+<p>In all cases, <code>MFront</code> strives to provide the most natural
+way of implementing the material knowledge under consideration. In
+technical terms, <code>MFront</code> provides for each case a <em>domain
+specific language</em> which is meant to be simple and expressive.</p>
 <h3 id="supporting-new-interfaces">Supporting new interfaces</h3>
 <p><code>MFront</code> already supports many interfaces to:</p>
 <ul>
-<li>free or commercial finite element solvers (implicit or explicit)</li>
+<li>free or commercial finite element solvers (implicit or
+explicit)</li>
 <li>mechanical solvers based on Fast Fourier Transform (FFT).</li>
 </ul>
-<p>Most solvers offers entry points to add user defined mechanical behaviours. The most common one is <code>UMAT</code>, which is part of the <code>Abaqus/Standard</code> solver. In this case, the process of supporting new a solver is fairly easy and we are ready to help setting it up. However, extensive testing can be a long and tedious task: again, we are ready to help by providing advice, test cases and reference solutions.</p>
-<p>If no such entry point exist, then one may need to modify the solver. Again, we can provide valuable advice of how to do add support for user defined behaviours and even provide tight integration with <code>MFront</code> (which can really ease user’s life).</p>
+<p>Most solvers offers entry points to add user defined mechanical
+behaviours. The most common one is <code>UMAT</code>, which is part of
+the <code>Abaqus/Standard</code> solver. In this case, the process of
+supporting new a solver is fairly easy and we are ready to help setting
+it up. However, extensive testing can be a long and tedious task: again,
+we are ready to help by providing advice, test cases and reference
+solutions.</p>
+<p>If no such entry point exist, then one may need to modify the solver.
+Again, we can provide valuable advice of how to do add support for user
+defined behaviours and even provide tight integration with
+<code>MFront</code> (which can really ease user’s life).</p>
 <h2 id="documentation-2">Documentation</h2>
 <h3 id="keywords-available">Keywords available</h3>
-<p>To get the list of all the keywords associated with a given <code>DSL</code>, the <code>Implicit</code> keyword for example, just type:</p>
+<p>To get the list of all the keywords associated with a given
+<code>DSL</code>, the <code>Implicit</code> keyword for example, just
+type:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--help-keywords-list</span><span class="op">=</span>Implicit</span></code></pre></div>
 <h3 id="help-on-a-specific-keyword">Help on a specific keyword</h3>
-<p>To get help on a specific keyword, the <code>@StrainMeasure</code> keyword from the <code>Implicit DSL</code> for example, just type:</p>
+<p>To get help on a specific keyword, the <code>@StrainMeasure</code>
+keyword from the <code>Implicit DSL</code> for example, just type:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--help-keyword</span><span class="op">=</span>Implicit:@StrainMeasure</span></code></pre></div>
-<p>The help is written using <code>pandoc</code>’ <code>markdown</code>.</p>
-<h3 id="getting-the-help-on-all-keywords-of-a-specific-dsl">Getting the help on all keywords of a specific DSL</h3>
-<p>The following command will display the description of all the keywords provided by the <code>Implicit DSL</code>:</p>
+<p>The help is written using <code>pandoc</code>’
+<code>markdown</code>.</p>
+<h3 id="getting-the-help-on-all-keywords-of-a-specific-dsl">Getting the
+help on all keywords of a specific DSL</h3>
+<p>The following command will display the description of all the
+keywords provided by the <code>Implicit DSL</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--help-keywords</span><span class="op">=</span>Implicit</span></code></pre></div>
-<p>Using <code>pandoc</code>, this can be turned into an web page or a <code>PDF</code> document, as follows:</p>
+<p>Using <code>pandoc</code>, this can be turned into an web page or a
+<code>PDF</code> document, as follows:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--help-keywords</span><span class="op">=</span>Implicit <span class="kw">|</span> <span class="ex">pandoc</span> <span class="at">-f</span> markdown-markdown_in_html_blocks+tex_math_single_backslash <span class="at">--mathjax</span> <span class="at">-o</span> Implicit.html</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--help-keywords</span><span class="op">=</span>Implicit <span class="kw">|</span> <span class="ex">pandoc</span> <span class="at">-f</span> markdown-markdown_in_html_blocks+tex_math_single_backslash <span class="at">--mathjax</span> <span class="at">-s</span> <span class="at">--toc</span> <span class="at">--toc-depth</span><span class="op">=</span>1 <span class="at">-o</span> Implicit.pdf</span></code></pre></div>
-<h2 id="general-questions-about-mechanical-behaviours">General questions about mechanical behaviours</h2>
-<h3 id="where-can-i-find-examples-of-well-written-behaviours">Where can I find examples of well written behaviours ?</h3>
-<p>The gallery has been created for that purpose. Various implementations of mechanical behaviour are covered in depth, including the description of the algorithm used. See <a href="gallery.html">this page</a> for details.</p>
-<h3 id="my-newly-implemented-behaviour-do-not-converge-what-can-i-do">My newly implemented behaviour do not converge, what can I do ?</h3>
-<p>Let us point that, there is no general guidelines, most troubles are behaviour specific. However, here are some advises to may help you. Note that those advises are worth considered during the behaviour implementation, before “real-world tests.”</p>
+<h2 id="general-questions-about-mechanical-behaviours">General questions
+about mechanical behaviours</h2>
+<h3 id="where-can-i-find-examples-of-well-written-behaviours">Where can
+I find examples of well written behaviours ?</h3>
+<p>The gallery has been created for that purpose. Various
+implementations of mechanical behaviour are covered in depth, including
+the description of the algorithm used. See <a href="gallery.html">this
+page</a> for details.</p>
+<h3 id="my-newly-implemented-behaviour-do-not-converge-what-can-i-do">My
+newly implemented behaviour do not converge, what can I do ?</h3>
+<p>Let us point that, there is no general guidelines, most troubles are
+behaviour specific. However, here are some advises to may help you. Note
+that those advises are worth considered during the behaviour
+implementation, before “real-world tests”.</p>
 <p>The first thing to do is to identify the trouble.</p>
-<p>If your computations are very CPU intensive and if the divergence appends after a noticeable amount of time, it is worth enabling the generation of a <code>MTest</code> file on failure. This feature is for example supported by the <code>castem</code> (<code>Cast3M</code>), <code>aster</code> and <code>cyrano</code> interfaces.</p>
+<p>If your computations are very CPU intensive and if the divergence
+appends after a noticeable amount of time, it is worth enabling the
+generation of a <code>MTest</code> file on failure. This feature is for
+example supported by the <code>castem</code> (<code>Cast3M</code>),
+<code>aster</code> and <code>cyrano</code> interfaces.</p>
 <p>I thus assume that your are using <code>MTest</code>.</p>
-<p>You can use <code>--debug</code> command line option when compiling the <code>MFront</code> file. This will print some information about convergence at runtime. For example, it may show:</p>
+<p>You can use <code>--debug</code> command line option when compiling
+the <code>MFront</code> file. This will print some information about
+convergence at runtime. For example, it may show:</p>
 <ul>
 <li>large values of the residual.</li>
-<li>a divergence (residual growing) or spurious oscillations in the residual.</li>
+<li>a divergence (residual growing) or spurious oscillations in the
+residual.</li>
 <li><code>NaN</code> propagation.</li>
 </ul>
 <h4 id="large-values-of-the-residual">Large values of the residual</h4>
-<p>In this case, you may want to print some of your variables to see what is happening. If the large values appears due to unrealistic prediction of the stresses, in particular at the second iteration, the <code>Implicit</code> scheme allows you to limit the <code>Newton</code> steps or use more robust algorithms (<code>PowellDogLeg</code>, <code>LevenbergMarquardt</code>). Otherwise, you must check your units.</p>
-<h4 id="divergence-spurious-oscillations-in-the-residual">Divergence spurious oscillations in the residual</h4>
-<p>In the second case, the trouble may be related to your implementation of the Jacobian matrix (assuming you are using an <code>Implicit</code> scheme with analytical jacobian). In this case, it is worth comparing your jacobian to a numericall one (see <code>@CompareToNumericalJaobian</code>). As this comparison is CPU intensive, please consider specifying this keyword in the command line rather than in your implementation to avoid forgetting removing it in your real-world tests:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem <span class="at">--@CompareToNumericalJacobian</span><span class="op">=</span>true norton.mfront</span></code></pre></div>
-<p>Spurious oscillations may also be caused by an ill-conditioned system, see the <code>setNormalisationFactor</code> method.</p>
+<p>In this case, you may want to print some of your variables to see
+what is happening. If the large values appears due to unrealistic
+prediction of the stresses, in particular at the second iteration, the
+<code>Implicit</code> scheme allows you to limit the <code>Newton</code>
+steps or use more robust algorithms (<code>PowellDogLeg</code>,
+<code>LevenbergMarquardt</code>). Otherwise, you must check your
+units.</p>
+<h4 id="divergence-spurious-oscillations-in-the-residual">Divergence
+spurious oscillations in the residual</h4>
+<p>In the second case, the trouble may be related to your implementation
+of the Jacobian matrix (assuming you are using an <code>Implicit</code>
+scheme with analytical jacobian). In this case, it is worth comparing
+your jacobian to a numericall one (see
+<code>@CompareToNumericalJaobian</code>). As this comparison is CPU
+intensive, please consider specifying this keyword in the command line
+rather than in your implementation to avoid forgetting removing it in
+your real-world tests:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem <span class="at">--@CompareToNumericalJacobian</span><span class="op">=</span>true norton.mfront</span></code></pre></div>
+<p>Spurious oscillations may also be caused by an ill-conditioned
+system, see the <code>setNormalisationFactor</code> method.</p>
 <h4 id="nan-propagation."><code>NaN</code> propagation.</h4>
-<p>In this case, you may want to build your <code>MFront</code> libraries with debugging symbols. This can be done by defining the <code>CXXFLAGS</code> environment variable before the behaviour compilation. For example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export CXXFLAGS=<span class="st">&quot;-g&quot;</span></span>
+<p>In this case, you may want to build your <code>MFront</code>
+libraries with debugging symbols. This can be done by defining the
+<code>CXXFLAGS</code> environment variable before the behaviour
+compilation. For example:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export CXXFLAGS=<span class="st">&quot;-g&quot;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem norton.mfront</span></code></pre></div>
 <p>or even better</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> CXXFLAGS=<span class="st">&quot;-g&quot;</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem norton.mfront</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> CXXFLAGS=<span class="st">&quot;-g&quot;</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem norton.mfront</span></code></pre></div>
 <p>In <code>c-shell</code>, you must use the following lines:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> setenv CXXFLAGS <span class="st">&quot;-g&quot;</span></span>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> setenv CXXFLAGS <span class="st">&quot;-g&quot;</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem norton.mfront</span></code></pre></div>
-<p>You can then launch <code>MTest</code> in the <code>gdb</code> debugger like this:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> gdb <span class="at">--args</span> mtest <span class="at">-fpe</span> norton.mtest</span></code></pre></div>
-<p>You must type <code>r</code> in <code>gdb</code> to start the computations. The <code>-fpe</code> command line option will cause the program to fail a the invalid operation and <code>gdb</code> will show you which line causes the trouble. Beware that this line may be in the generated code. In this case, this information will not be useful and you shall return to manual search of the problem.</p>
-<h3 id="what-are-the-variable-types-available-in-mfront">What are the variable types available in <code>MFront</code></h3>
-<p>For all domain specific languages, <code>MFront</code> defines the real <code>typedef</code> which is used to abstract to floating-point type used by the calling solver. For example, if the calling solver works in double precision, real will be a <code>typedef</code> to <code>double</code>. If the calling solver works in quadruple precision, real will be a <code>typedef</code> to <code>long double</code>.</p>
-<p>Thus, we do recommend not to use the numerical types defined by the <code>C++</code> language directly.</p>
-<p>For scalar values, <code>MFront</code> introduces many different aliases to be able to express the nature of the variable:</p>
+<p>You can then launch <code>MTest</code> in the <code>gdb</code>
+debugger like this:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> gdb <span class="at">--args</span> mtest <span class="at">-fpe</span> norton.mtest</span></code></pre></div>
+<p>You must type <code>r</code> in <code>gdb</code> to start the
+computations. The <code>-fpe</code> command line option will cause the
+program to fail a the invalid operation and <code>gdb</code> will show
+you which line causes the trouble. Beware that this line may be in the
+generated code. In this case, this information will not be useful and
+you shall return to manual search of the problem.</p>
+<h3 id="what-are-the-variable-types-available-in-mfront">What are the
+variable types available in <code>MFront</code></h3>
+<p>For all domain specific languages, <code>MFront</code> defines the
+real <code>typedef</code> which is used to abstract to floating-point
+type used by the calling solver. For example, if the calling solver
+works in double precision, real will be a <code>typedef</code> to
+<code>double</code>. If the calling solver works in quadruple precision,
+real will be a <code>typedef</code> to <code>long double</code>.</p>
+<p>Thus, we do recommend not to use the numerical types defined by the
+<code>C++</code> language directly.</p>
+<p>For scalar values, <code>MFront</code> introduces many different
+aliases to be able to express the nature of the variable:</p>
 <ul>
-<li><code>real</code>, <code>frequency</code>, <code>stress</code>, <code>length</code>, <code>time</code>, <code>strain</code>, <code>strainrate</code>, <code>temperature</code>, <code>energy_density</code>, <code>thermalexpansion</code>, <code>massdensity</code></li>
+<li><code>real</code>, <code>frequency</code>, <code>stress</code>,
+<code>length</code>, <code>time</code>, <code>strain</code>,
+<code>strainrate</code>, <code>temperature</code>,
+<code>energy_density</code>, <code>thermalexpansion</code>,
+<code>massdensity</code></li>
 </ul>
-<p>For vector values, <code>MFront</code> introduces these <code>typedef</code>:</p>
+<p>For vector values, <code>MFront</code> introduces these
+<code>typedef</code>:</p>
 <ul>
-<li><code>TVector</code>,<code>DisplacementTVector</code>, <code>ForceTVector</code></li>
+<li><code>TVector</code>,<code>DisplacementTVector</code>,
+<code>ForceTVector</code></li>
 </ul>
-<p>For symmetric tensor values, <code>MFront</code> also introduces many different <code>typedef</code>:</p>
+<p>For symmetric tensor values, <code>MFront</code> also introduces many
+different <code>typedef</code>:</p>
 <ul>
-<li><code>Stensor</code>, <code>StressStensor</code>, <code>StressRateStensor</code>, <code>StrainStensor</code>, <code>StrainRateStensor</code></li>
+<li><code>Stensor</code>, <code>StressStensor</code>,
+<code>StressRateStensor</code>, <code>StrainStensor</code>,
+<code>StrainRateStensor</code></li>
 </ul>
-<p>Finally, for tensor values, <code>MFront</code> introduces these <code>typedef</code>:</p>
+<p>Finally, for tensor values, <code>MFront</code> introduces these
+<code>typedef</code>:</p>
 <ul>
 <li><code>Tensor</code>, <code>DeformationGradientTensor</code></li>
 </ul>
-<p>An up-to-date list of all aliases automatically defined by <code>MFront</code> is available on the <a href="mfront-types.html">following page</a>.</p>
-<p>You can also directly use to types provided by the <code>TFEL</code> library. The most interesting ones for the end user are:</p>
+<p>An up-to-date list of all aliases automatically defined by
+<code>MFront</code> is available on the <a
+href="mfront-types.html">following page</a>.</p>
+<p>You can also directly use to types provided by the <code>TFEL</code>
+library. The most interesting ones for the end user are:</p>
 <ul>
 <li><code>tvector&lt;N,Type&gt;</code> (fixed sized vector)</li>
 <li><code>stensor&lt;N,Type&gt;</code> (symmetric tensor)</li>
 <li><code>tensor&lt;N,Type&gt;</code> (non symmetric tensor)</li>
 <li><code>tmatrix&lt;N,M,Type&gt;</code> (fixed sized matrix)</li>
-<li><code>st2tost2&lt;N,Type&gt;</code> (linear application changing a symmetric tensor to a symmetric tensor)</li>
-<li><code>st2tot2&lt;N,Type&gt;</code> (linear application changing a symmetric tensor to a non symmetric tensor)</li>
-<li><code>t2tost2&lt;N,Type&gt;</code> (linear application changing a non symmetric tensor to a symmetric tensor)</li>
-<li><code>t2tot2&lt;N,Type&gt;</code> (linear application changing a non symmetric tensor to a non symmetric tensor)</li>
+<li><code>st2tost2&lt;N,Type&gt;</code> (linear application changing a
+symmetric tensor to a symmetric tensor)</li>
+<li><code>st2tot2&lt;N,Type&gt;</code> (linear application changing a
+symmetric tensor to a non symmetric tensor)</li>
+<li><code>t2tost2&lt;N,Type&gt;</code> (linear application changing a
+non symmetric tensor to a symmetric tensor)</li>
+<li><code>t2tot2&lt;N,Type&gt;</code> (linear application changing a non
+symmetric tensor to a non symmetric tensor)</li>
 </ul>
-<p>where <code>N</code> is the size for vectors, the number of rows for matrices and the spatial dimension for the other types. <code>M</code> is the number of columns for the matrices. <code>Type</code> is the underlying numeric type.</p>
-<h3 id="what-are-the-differences-between-the-stensor-stressstensor-and-strainstensor">What are the differences between the <code>Stensor</code>, <code>StressStensor</code> and <code>StrainStensor</code></h3>
-<p>The difference between those types is currently purely informative: the user can use these types to improve the readability of their code which is strongly encouraged.</p>
-<p>The <code>TFEL</code> library has support for quantities (number associated with units) which allows to checks for the consistency of operations at compile-time (no cost at runtime). However, support for this feature has not been enabled in <code>MFront</code> yet: for the moment, we only have introduced the associated types.</p>
+<p>where <code>N</code> is the size for vectors, the number of rows for
+matrices and the spatial dimension for the other types. <code>M</code>
+is the number of columns for the matrices. <code>Type</code> is the
+underlying numeric type.</p>
+<h3
+id="what-are-the-differences-between-the-stensor-stressstensor-and-strainstensor">What
+are the differences between the <code>Stensor</code>,
+<code>StressStensor</code> and <code>StrainStensor</code></h3>
+<p>The difference between those types is currently purely informative:
+the user can use these types to improve the readability of their code
+which is strongly encouraged.</p>
+<p>The <code>TFEL</code> library has support for quantities (number
+associated with units) which allows to checks for the consistency of
+operations at compile-time (no cost at runtime). However, support for
+this feature has not been enabled in <code>MFront</code> yet: for the
+moment, we only have introduced the associated types.</p>
 <h3 id="orthotropic-axes-convention">Orthotropic axes convention</h3>
-<p>Most finite element solver can’t have a uniq definition of the orthotropic axes for all the modelling hypotheses.</p>
-<p>For example, one can define a pipe using the following axes definition:</p>
+<p>Most finite element solver can’t have a uniq definition of the
+orthotropic axes for all the modelling hypotheses.</p>
+<p>For example, one can define a pipe using the following axes
+definition:</p>
 <ul>
-<li><span class="math inline">\(\left(rr,zz,tt,...\right)\)</span> in <span class="math inline">\(3D\)</span>, <span class="math inline">\(2D\)</span> axysymmetric, <span class="math inline">\(1D\)</span> axisymmetric generalised plane strain or generalised plane stress.</li>
-<li><span class="math inline">\(\left(rr,tt,zz,...\right)\)</span> in <span class="math inline">\(2D\)</span> plane stress, strain, generalized plane strain.</li>
+<li><span class="math inline">\(\left(rr,zz,tt,...\right)\)</span> in
+<span class="math inline">\(3D\)</span>, <span
+class="math inline">\(2D\)</span> axysymmetric, <span
+class="math inline">\(1D\)</span> axisymmetric generalised plane strain
+or generalised plane stress.</li>
+<li><span class="math inline">\(\left(rr,tt,zz,...\right)\)</span> in
+<span class="math inline">\(2D\)</span> plane stress, strain,
+generalized plane strain.</li>
 </ul>
 <figure>
-<img src="img/pipe.svg" title="The `Pipe` orthotropic axes convention for (3D), (2D) axysymmetric, (1D) axisymmetric generalised plane strain or generalised plane stress (left) and (2D) plane stress, strain, generalized plane strain (right)" style="width:50.0%" alt="The Pipe orthotropic axes convention for 3D, 2D axysymmetric, 1D axisymmetric generalised plane strain or generalised plane stress (left) and 2D plane stress, strain, generalized plane strain (right)" /><figcaption aria-hidden="true">The <code>Pipe</code> orthotropic axes convention for <span class="math inline">\(3D\)</span>, <span class="math inline">\(2D\)</span> axysymmetric, <span class="math inline">\(1D\)</span> axisymmetric generalised plane strain or generalised plane stress (left) and <span class="math inline">\(2D\)</span> plane stress, strain, generalized plane strain (right)</figcaption>
+<img src="img/pipe.svg"
+title="The `Pipe` orthotropic axes convention for (3D), (2D) axysymmetric, (1D) axisymmetric generalised plane strain or generalised plane stress (left) and (2D) plane stress, strain, generalized plane strain (right)"
+style="width:50.0%"
+alt="The Pipe orthotropic axes convention for 3D, 2D axysymmetric, 1D axisymmetric generalised plane strain or generalised plane stress (left) and 2D plane stress, strain, generalized plane strain (right)" />
+<figcaption aria-hidden="true">The <code>Pipe</code> orthotropic axes
+convention for <span class="math inline">\(3D\)</span>, <span
+class="math inline">\(2D\)</span> axysymmetric, <span
+class="math inline">\(1D\)</span> axisymmetric generalised plane strain
+or generalised plane stress (left) and <span
+class="math inline">\(2D\)</span> plane stress, strain, generalized
+plane strain (right)</figcaption>
 </figure>
-<p>With those conventions, the axial direction is either the second or the third material axis, a fact that must be taken into account when defining the stiffness tensor, the Hill tensor(s), the thermal expansion, etc.</p>
+<p>With those conventions, the axial direction is either the second or
+the third material axis, a fact that must be taken into account when
+defining the stiffness tensor, the Hill tensor(s), the thermal
+expansion, etc.</p>
 <p>This convention is valid for all modelling hypotheses.</p>
 <figure>
-<img src="img/plate.svg" title="The `Plate` orthotropic axes convention" style="width:50.0%" alt="The Plate orthotropic axes convention" /><figcaption aria-hidden="true">The <code>Plate</code> orthotropic axes convention</figcaption>
+<img src="img/plate.svg" title="The `Plate` orthotropic axes convention"
+style="width:50.0%" alt="The Plate orthotropic axes convention" />
+<figcaption aria-hidden="true">The <code>Plate</code> orthotropic axes
+convention</figcaption>
 </figure>
-<p>If we were to model plates, an appropriate convention is the following:</p>
+<p>If we were to model plates, an appropriate convention is the
+following:</p>
 <ul>
 <li>The first material axis is the rolling direction</li>
-<li>The second material axis is the in plane direction perpendicular to the rolling direction (transverse direction).</li>
+<li>The second material axis is the in plane direction perpendicular to
+the rolling direction (transverse direction).</li>
 <li>The third material axis is the normal to the plate.</li>
 </ul>
-<p>By definition, this convention is only valid for <span class="math inline">\(3D\)</span>, <span class="math inline">\(2D\)</span> plane stress, strain and generalized plane strain modelling hypotheses.</p>
-<h2 id="implementing-mechanical-behaviours-using-the-implicit-dsl">Implementing mechanical behaviours using the <code>Implicit</code> DSL</h2>
-<h3 id="in-which-order-are-the-blocks-given-by-the-user-evaluated">In which order are the blocks given by the user evaluated ?</h3>
-<p>The following figure shows how the various blocks defined by the user may be used when using the <code>Implicit</code> domain specific language:</p>
+<p>By definition, this convention is only valid for <span
+class="math inline">\(3D\)</span>, <span
+class="math inline">\(2D\)</span> plane stress, strain and generalized
+plane strain modelling hypotheses.</p>
+<h2
+id="implementing-mechanical-behaviours-using-the-implicit-dsl">Implementing
+mechanical behaviours using the <code>Implicit</code> DSL</h2>
+<h3 id="in-which-order-are-the-blocks-given-by-the-user-evaluated">In
+which order are the blocks given by the user evaluated ?</h3>
+<p>The following figure shows how the various blocks defined by the user
+may be used when using the <code>Implicit</code> domain specific
+language:</p>
 <figure>
-<img src="img/ImplicitDSL.svg" title="Use order of the code blocks defined by the user" alt="Use order of the code blocks defined by the user" /><figcaption aria-hidden="true">Use order of the code blocks defined by the user</figcaption>
+<img src="img/ImplicitDSL.svg"
+title="Use order of the code blocks defined by the user"
+alt="Use order of the code blocks defined by the user" />
+<figcaption aria-hidden="true">Use order of the code blocks defined by
+the user</figcaption>
 </figure>
 <!-- Local IspellDict: english -->
     <script>

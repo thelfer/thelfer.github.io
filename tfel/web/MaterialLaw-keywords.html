@@ -15,8 +15,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -25,7 +26,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -49,11 +50,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -62,14 +63,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -78,7 +79,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -181,6 +184,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -330,303 +334,627 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#the-keyword">The <code>;</code> keyword</a></li>
-<li><a href="#the-author-keyword">The <code>@Author</code> keyword</a></li>
-<li><a href="#the-bounds-keyword">The <code>@Bounds</code> keyword</a></li>
-<li><a href="#the-constant-keyword">The <code>@Constant</code> keyword</a></li>
-<li><a href="#the-dsl-keyword">The <code>@DSL</code> keyword</a></li>
-<li><a href="#the-date-keyword">The <code>@Date</code> keyword</a></li>
-<li><a href="#the-description-keyword">The <code>@Description</code> keyword</a></li>
-<li><a href="#the-function-keyword">The <code>@Function</code> keyword</a></li>
-<li><a href="#the-import-keyword">The <code>@Import</code> keyword</a></li>
-<li><a href="#the-includes-keyword">The <code>@Includes</code> keyword</a></li>
-<li><a href="#the-input-keyword">The <code>@Input</code> keyword</a></li>
-<li><a href="#the-interface-keyword">The <code>@Interface</code> keyword</a></li>
-<li><a href="#the-law-keyword">The <code>@Law</code> keyword</a></li>
-<li><a href="#the-library-keyword">The <code>@Library</code> keyword</a></li>
-<li><a href="#the-link-keyword">The <code>@Link</code> keyword</a></li>
-<li><a href="#the-mfront-keyword">The <code>@MFront</code> keyword</a></li>
-<li><a href="#the-material-keyword">The <code>@Material</code> keyword</a></li>
-<li><a href="#the-materiallaw-keyword">The <code>@MaterialLaw</code> keyword</a></li>
-<li><a href="#the-output-keyword">The <code>@Output</code> keyword</a></li>
-<li><a href="#the-parameter-keyword">The <code>@Parameter</code> keyword</a></li>
-<li><a href="#the-parser-keyword">The <code>@Parser</code> keyword</a></li>
-<li><a href="#the-physicalbounds-keyword">The <code>@PhysicalBounds</code> keyword</a></li>
-<li><a href="#the-statevariable-keyword">The <code>@StateVariable</code> keyword</a></li>
-<li><a href="#the-staticvar-keyword">The <code>@StaticVar</code> keyword</a></li>
-<li><a href="#the-staticvariable-keyword">The <code>@StaticVariable</code> keyword</a></li>
-<li><a href="#the-unitsystem-keyword">The <code>@UnitSystem</code> keyword</a></li>
-<li><a href="#the-useqt-keyword">The <code>@UseQt</code> keyword</a></li>
+<li><a href="#the-keyword" id="toc-the-keyword">The <code>;</code>
+keyword</a></li>
+<li><a href="#the-author-keyword" id="toc-the-author-keyword">The
+<code>@Author</code> keyword</a></li>
+<li><a href="#the-bounds-keyword" id="toc-the-bounds-keyword">The
+<code>@Bounds</code> keyword</a></li>
+<li><a href="#the-constant-keyword" id="toc-the-constant-keyword">The
+<code>@Constant</code> keyword</a></li>
+<li><a href="#the-dsl-keyword" id="toc-the-dsl-keyword">The
+<code>@DSL</code> keyword</a></li>
+<li><a href="#the-date-keyword" id="toc-the-date-keyword">The
+<code>@Date</code> keyword</a></li>
+<li><a href="#the-description-keyword"
+id="toc-the-description-keyword">The <code>@Description</code>
+keyword</a></li>
+<li><a href="#the-function-keyword" id="toc-the-function-keyword">The
+<code>@Function</code> keyword</a></li>
+<li><a href="#the-import-keyword" id="toc-the-import-keyword">The
+<code>@Import</code> keyword</a></li>
+<li><a href="#the-includes-keyword" id="toc-the-includes-keyword">The
+<code>@Includes</code> keyword</a></li>
+<li><a href="#the-input-keyword" id="toc-the-input-keyword">The
+<code>@Input</code> keyword</a></li>
+<li><a href="#the-interface-keyword" id="toc-the-interface-keyword">The
+<code>@Interface</code> keyword</a></li>
+<li><a href="#the-law-keyword" id="toc-the-law-keyword">The
+<code>@Law</code> keyword</a></li>
+<li><a href="#the-library-keyword" id="toc-the-library-keyword">The
+<code>@Library</code> keyword</a></li>
+<li><a href="#the-link-keyword" id="toc-the-link-keyword">The
+<code>@Link</code> keyword</a></li>
+<li><a href="#the-mfront-keyword" id="toc-the-mfront-keyword">The
+<code>@MFront</code> keyword</a></li>
+<li><a href="#the-material-keyword" id="toc-the-material-keyword">The
+<code>@Material</code> keyword</a></li>
+<li><a href="#the-materiallaw-keyword"
+id="toc-the-materiallaw-keyword">The <code>@MaterialLaw</code>
+keyword</a></li>
+<li><a href="#the-output-keyword" id="toc-the-output-keyword">The
+<code>@Output</code> keyword</a></li>
+<li><a href="#the-parameter-keyword" id="toc-the-parameter-keyword">The
+<code>@Parameter</code> keyword</a></li>
+<li><a href="#the-parser-keyword" id="toc-the-parser-keyword">The
+<code>@Parser</code> keyword</a></li>
+<li><a href="#the-physicalbounds-keyword"
+id="toc-the-physicalbounds-keyword">The <code>@PhysicalBounds</code>
+keyword</a></li>
+<li><a href="#the-statevariable-keyword"
+id="toc-the-statevariable-keyword">The <code>@StateVariable</code>
+keyword</a></li>
+<li><a href="#the-staticvar-keyword" id="toc-the-staticvar-keyword">The
+<code>@StaticVar</code> keyword</a></li>
+<li><a href="#the-staticvariable-keyword"
+id="toc-the-staticvariable-keyword">The <code>@StaticVariable</code>
+keyword</a></li>
+<li><a href="#the-unitsystem-keyword"
+id="toc-the-unitsystem-keyword">The <code>@UnitSystem</code>
+keyword</a></li>
+<li><a href="#the-useqt-keyword" id="toc-the-useqt-keyword">The
+<code>@UseQt</code> keyword</a></li>
 </ul>
 </div>
 <h1 id="the-keyword">The <code>;</code> keyword</h1>
 <p>The keyword <code>;</code> is not documented yet</p>
 <h1 id="the-author-keyword">The <code>@Author</code> keyword</h1>
-<p>The <code>@Author</code> keyword is used to give the name of the person who wrote the <code>mfront</code> file.</p>
-<p>All the following words are appended to the author’s name up to a final semi-colon.</p>
-<p>Note: The name of the person who formulated the material property, behaviour or model shall be given in the description section (see the <code>@Description</code> keyword).</p>
+<p>The <code>@Author</code> keyword is used to give the name of the
+person who wrote the <code>mfront</code> file.</p>
+<p>All the following words are appended to the author’s name up to a
+final semi-colon.</p>
+<p>Note: The name of the person who formulated the material property,
+behaviour or model shall be given in the description section (see the
+<code>@Description</code> keyword).</p>
 <h2 id="example">Example</h2>
-<div class="sourceCode" id="Author"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="Author-1"><a href="#Author-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Éric Brunon;</span></code></pre></div>
+<div class="sourceCode" id="Author"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="Author-1"><a href="#Author-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Éric Brunon<span class="op">;</span></span></code></pre></div>
 <h1 id="the-bounds-keyword">The <code>@Bounds</code> keyword</h1>
-<p>The <code>@Bounds</code> keyword let the user define the domain of validity of the law.</p>
-<p>The <code>@Bounds</code> keyword is followed by a variable name, the keyword in and an interval. The interval may contain the infinity, represented by the ’*’ character.</p>
+<p>The <code>@Bounds</code> keyword let the user define the domain of
+validity of the law.</p>
+<p>The <code>@Bounds</code> keyword is followed by a variable name, the
+keyword in and an interval. The interval may contain the infinity,
+represented by the ’*’ character.</p>
 <h2 id="effect">Effect</h2>
-<p>What happens if a variable if found to be out of its bounds depends on the interface used. Most interfaces let the user choose one of three following policies:</p>
+<p>What happens if a variable if found to be out of its bounds depends
+on the interface used. Most interfaces let the user choose one of three
+following policies:</p>
 <ul>
 <li><code>None</code>, which means that nothing is done.</li>
-<li><code>Warning</code>, which means that a message is displayed, but computations are not stopped.</li>
-<li><code>Strict</code>, which means that computations are stopped with an error message.</li>
+<li><code>Warning</code>, which means that a message is displayed, but
+computations are not stopped.</li>
+<li><code>Strict</code>, which means that computations are stopped with
+an error message.</li>
 </ul>
 <h2 id="example-1">Example</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Bounds T in [<span class="fl">293.15</span>:<span class="fl">873.15</span>];</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Bounds T in <span class="op">[</span><span class="fl">293.15</span><span class="op">:</span><span class="fl">873.15</span><span class="op">];</span></span></code></pre></div>
 <h1 id="the-constant-keyword">The <code>@Constant</code> keyword</h1>
-<p>The <code>@Constant</code> keyword let the user define a constant value. This keyword is a synonym of <code>@StaticVariable</code> for a real variable.</p>
-<p>This keyword must be followed by the name of the constant and its value.</p>
+<p>The <code>@Constant</code> keyword let the user define a constant
+value. This keyword is a synonym of <code>@StaticVariable</code> for a
+real variable.</p>
+<p>This keyword must be followed by the name of the constant and its
+value.</p>
 <h2 id="example-2">Example</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Constant A <span class="fl">1.234e56</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Constant A <span class="fl">1.234e56</span><span class="op">;</span></span></code></pre></div>
 <h1 id="the-dsl-keyword">The <code>@DSL</code> keyword</h1>
-<p>The <code>@DSL</code> keyword specify the domain specific language (dsl) used.</p>
-<p>The list of available dsl’s is returned by the <code>--list-dsl</code> option of <code>mfront</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-dsl</span></span></code></pre></div>
-<p>As the time of writting this notice, the following dsl’s are available:</p>
+<p>The <code>@DSL</code> keyword specify the domain specific language
+(dsl) used.</p>
+<p>The list of available dsl’s is returned by the
+<code>--list-dsl</code> option of <code>mfront</code>:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-dsl</span></span></code></pre></div>
+<p>As the time of writting this notice, the following dsl’s are
+available:</p>
 <ul>
-<li><code>DefaultDSL</code>: this parser is the most generic one as it does not make any restriction on the behaviour or the integration method that may be used.</li>
-<li><code>DefaultCZMDSL</code>: this parser is the most generic one as it does not make any restriction on the behaviour or the integration method that may be used.</li>
-<li><code>DefaultFiniteStrainDSL</code>: this parser is the most generic one as it does not make any restriction on the behaviour or the integration method that may be used.</li>
-<li><code>Implicit</code>: this parser provides a generic integrator based on an implicit scheme. The elastic strain is automatically defined as a state variable</li>
-<li><code>ImplicitII</code>: this parser provides a generic integrator based on a theta method. Unlike <code>Implicit</code>, the elastic strain is not automatically defined as a state variable.</li>
-<li><code>ImplicitFiniteStrain</code>: this parser provides a generic integrator based on a theta method..</li>
-<li><code>IsotropicMisesCreep</code>: this parser is used for standard creep behaviours of the form <span class="math inline">\(\dot{p}=f(s)\)</span> where <span class="math inline">\(p\)</span> is the equivalent creep strain and <span class="math inline">\(s\)</span> the equivalent mises stress.</li>
-<li><code>IsotropicPlasticMisesFlow</code>: this parser is used for standard plastics behaviours with yield surface of the form <span class="math inline">\(f(s,p)=0\)</span> where <span class="math inline">\(p\)</span> is the equivalent creep strain and <span class="math inline">\(s\)</span> the equivalent mises stress.</li>
-<li><code>IsotropicStrainHardeningMisesCreep</code>: this parser is used for standard strain hardening creep behaviours of the form <span class="math inline">\(\dot{p}=f(s,p)\)</span> where <span class="math inline">\(p\)</span> is the equivalent creep strain and <span class="math inline">\(s\)</span> the equivalent mises stress.</li>
-<li><code>MaterialLaw</code>: this parser is used to define material properties.</li>
-<li><code>Model</code>: this parser is used to define simple material models.</li>
-<li><code>MultipleIsotropicMisesFlows</code>: this parser is used to define behaviours combining several isotropic flows. Supported flow type are ‘Creep’ (<span class="math inline">\(\dot{p}=f(s)\)</span>) ‘StrainHardeningCreep’ (<span class="math inline">\(\dot{p}=f(s,p)\)</span>) and ‘Plasticity’ (<span class="math inline">\(f(p,s)=0\)</span>) where <span class="math inline">\(p\)</span> is the equivalent plastic strain and <span class="math inline">\(s\)</span> the equivalent mises stress.</li>
-<li><code>RungeKutta</code>: this parser provides a generic integrator based on one of the many Runge-Kutta algorithm.</li>
+<li><code>DefaultDSL</code>: this parser is the most generic one as it
+does not make any restriction on the behaviour or the integration method
+that may be used.</li>
+<li><code>DefaultCZMDSL</code>: this parser is the most generic one as
+it does not make any restriction on the behaviour or the integration
+method that may be used.</li>
+<li><code>DefaultFiniteStrainDSL</code>: this parser is the most generic
+one as it does not make any restriction on the behaviour or the
+integration method that may be used.</li>
+<li><code>Implicit</code>: this parser provides a generic integrator
+based on an implicit scheme. The elastic strain is automatically defined
+as a state variable</li>
+<li><code>ImplicitII</code>: this parser provides a generic integrator
+based on a theta method. Unlike <code>Implicit</code>, the elastic
+strain is not automatically defined as a state variable.</li>
+<li><code>ImplicitFiniteStrain</code>: this parser provides a generic
+integrator based on a theta method..</li>
+<li><code>IsotropicMisesCreep</code>: this parser is used for standard
+creep behaviours of the form <span
+class="math inline">\(\dot{p}=f(s)\)</span> where <span
+class="math inline">\(p\)</span> is the equivalent creep strain and
+<span class="math inline">\(s\)</span> the equivalent mises stress.</li>
+<li><code>IsotropicPlasticMisesFlow</code>: this parser is used for
+standard plastics behaviours with yield surface of the form <span
+class="math inline">\(f(s,p)=0\)</span> where <span
+class="math inline">\(p\)</span> is the equivalent creep strain and
+<span class="math inline">\(s\)</span> the equivalent mises stress.</li>
+<li><code>IsotropicStrainHardeningMisesCreep</code>: this parser is used
+for standard strain hardening creep behaviours of the form <span
+class="math inline">\(\dot{p}=f(s,p)\)</span> where <span
+class="math inline">\(p\)</span> is the equivalent creep strain and
+<span class="math inline">\(s\)</span> the equivalent mises stress.</li>
+<li><code>MaterialLaw</code>: this parser is used to define material
+properties.</li>
+<li><code>Model</code>: this parser is used to define simple material
+models.</li>
+<li><code>MultipleIsotropicMisesFlows</code>: this parser is used to
+define behaviours combining several isotropic flows. Supported flow type
+are ‘Creep’ (<span class="math inline">\(\dot{p}=f(s)\)</span>)
+‘StrainHardeningCreep’ (<span
+class="math inline">\(\dot{p}=f(s,p)\)</span>) and ‘Plasticity’ (<span
+class="math inline">\(f(p,s)=0\)</span>) where <span
+class="math inline">\(p\)</span> is the equivalent plastic strain and
+<span class="math inline">\(s\)</span> the equivalent mises stress.</li>
+<li><code>RungeKutta</code>: this parser provides a generic integrator
+based on one of the many Runge-Kutta algorithm.</li>
 </ul>
 <h2 id="dsl-options">DSL options</h2>
-<p>A DSL’ behaviour may be changed using options defined either in the <code>MFront</code> file using a JSON-like syntax or as a command line argument.</p>
-<p>The options related to a specific <code>DSL</code> can be retrieved using the <code>--list-dsl-options</code> command line argument, as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-dsl-options</span><span class="op">=</span>Model</span>
+<p>A DSL’ behaviour may be changed using options defined either in the
+<code>MFront</code> file using a JSON-like syntax or as a command line
+argument.</p>
+<p>The options related to a specific <code>DSL</code> can be retrieved
+using the <code>--list-dsl-options</code> command line argument, as
+follows:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-dsl-options</span><span class="op">=</span>Model</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> parameters_as_static_variables: boolean stating if the parameter shall be treated as static variables.</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> build_identifier              : string specifying a build identifier. This option shall only be specified on the command line.</span></code></pre></div>
-<h3 id="defining-dsl-options-in-the-mfront-file">Defining <code>DSL</code> options in the MFront file</h3>
+<h3 id="defining-dsl-options-in-the-mfront-file">Defining
+<code>DSL</code> options in the MFront file</h3>
 <p>Options can be passed to a DSL as follows:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Default{</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  parameters_as_static_variables : <span class="kw">true</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h3 id="defining-dsl-options-on-the-command-line">Defining <code>DSL</code> options on the command line:</h3>
-<p><code>MFront</code> have various command line arguments to define options passed to DSLs:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Default<span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  parameters_as_static_variables <span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h3 id="defining-dsl-options-on-the-command-line">Defining
+<code>DSL</code> options on the command line:</h3>
+<p><code>MFront</code> have various command line arguments to define
+options passed to DSLs:</p>
 <ul>
-<li><code>--dsl-option</code>, which allows to define options passed to domain specific languages.</li>
-<li><code>--behaviour-dsl-option</code>, which allows to define options passed to domain specific languages related to behaviours.</li>
-<li><code>--material-property-dsl-option</code>, which allows to define options passed to domain specific languages related to material properties.</li>
-<li><code>--model-dsl-option</code>, which allows to define options passed to domain specific languages related to models.</li>
+<li><code>--dsl-option</code>, which allows to define options passed to
+domain specific languages.</li>
+<li><code>--behaviour-dsl-option</code>, which allows to define options
+passed to domain specific languages related to behaviours.</li>
+<li><code>--material-property-dsl-option</code>, which allows to define
+options passed to domain specific languages related to material
+properties.</li>
+<li><code>--model-dsl-option</code>, which allows to define options
+passed to domain specific languages related to models.</li>
 </ul>
-<p>For example, the <code>--dsl-option</code> can be used as follows:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>cyrano <span class="at">--dsl-option</span><span class="op">=</span>build_identifier:<span class="dt">\&quot;</span>Cyrano-3.2<span class="dt">\&quot;</span> Elasticity.mfront</span></code></pre></div>
-<p>This example illustrates that special care must be taken when defining an option expecting a string value.</p>
+<p>For example, the <code>--dsl-option</code> can be used as
+follows:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>cyrano <span class="at">--dsl-option</span><span class="op">=</span>build_identifier:<span class="dt">\&quot;</span>Cyrano-3.2<span class="dt">\&quot;</span> Elasticity.mfront</span></code></pre></div>
+<p>This example illustrates that special care must be taken when
+defining an option expecting a string value.</p>
 <h3 id="options-common-to-all-dsls">Options common to all DSLs</h3>
 <p>The following options are available for all DSLs:</p>
 <ul>
-<li><code>build_identifier</code> (string), which must be associated to a string value. However, the <code>build_identifier</code> is not meant to be directly specified in the <code>MFront</code> source file. It shall rather be defined on the command line.</li>
-<li><code>parameters_as_static_variables</code> (boolean), which states if parameters shall be treated as static variables.</li>
-<li><code>parameters_initialization_from_file</code> (boolean), which states if parameters can be modified from a external state file. This feature is only implemented by a few interfaces and is enabled by default.</li>
-<li><code>default_out_of_bounds_policy</code> (string), which selects the default out of bounds policy. Allowed values ar <code>None</code> (the default), <code>Warning</code> or <code>Strict</code>.</li>
-<li><code>out_of_bounds_policy_runtime_modification</code> (boolean), which states if the out of bounds policy can be changed at runtime. By default, this option is <code>true</code>.</li>
+<li><code>build_identifier</code> (string), which must be associated to
+a string value. However, the <code>build_identifier</code> is not meant
+to be directly specified in the <code>MFront</code> source file. It
+shall rather be defined on the command line.</li>
+<li><code>parameters_as_static_variables</code> (boolean), which states
+if parameters shall be treated as static variables.</li>
+<li><code>parameters_initialization_from_file</code> (boolean), which
+states if parameters can be modified from a external state file. This
+feature is only implemented by a few interfaces and is enabled by
+default.</li>
+<li><code>default_out_of_bounds_policy</code> (string), which selects
+the default out of bounds policy. Allowed values ar <code>None</code>
+(the default), <code>Warning</code> or <code>Strict</code>.</li>
+<li><code>out_of_bounds_policy_runtime_modification</code> (boolean),
+which states if the out of bounds policy can be changed at runtime. By
+default, this option is <code>true</code>.</li>
 </ul>
-<h3 id="options-common-to-all-dsls-related-to-behaviours">Options common to all DSLs related to behaviours</h3>
+<h3 id="options-common-to-all-dsls-related-to-behaviours">Options common
+to all DSLs related to behaviours</h3>
 <ul>
-<li><code>automatic_declaration_of_the_temperature_as_first_external_state_variable</code> (boolean), which states if the temperature shall be automatically declared as an external state variable.</li>
-<li><code>overriding_parameters</code>, which allows to specify overriding parameters. This parameters must be a map associating variables names and default values of the overriding parameters.</li>
+<li><code>automatic_declaration_of_the_temperature_as_first_external_state_variable</code>
+(boolean), which states if the temperature shall be automatically
+declared as an external state variable.</li>
+<li><code>overriding_parameters</code>, which allows to specify
+overriding parameters. This parameters must be a map associating
+variables names and default values of the overriding parameters.</li>
 </ul>
 <h2 id="example-3">Example</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit<span class="op">;</span></span></code></pre></div>
 <h1 id="the-date-keyword">The <code>@Date</code> keyword</h1>
-<p>The <code>@Date</code> keyword allows the user to precise when the mfront file was written.</p>
-<p>All the following words are appended to the date up to a final semi-colon.</p>
+<p>The <code>@Date</code> keyword allows the user to precise when the
+mfront file was written.</p>
+<p>All the following words are appended to the date up to a final
+semi-colon.</p>
 <h2 id="example-4">Example</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">2008</span>-<span class="dv">11</span>-<span class="dv">17</span>;</span></code></pre></div>
-<h1 id="the-description-keyword">The <code>@Description</code> keyword</h1>
-<p>The <code>@Description</code> describes the material property, behaviour or model which is implemented in a mfront file.</p>
-<p>This keyword is followed by a block containing all the relevant piece of information including:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">2008</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">17</span><span class="op">;</span></span></code></pre></div>
+<h1 id="the-description-keyword">The <code>@Description</code>
+keyword</h1>
+<p>The <code>@Description</code> describes the material property,
+behaviour or model which is implemented in a mfront file.</p>
+<p>This keyword is followed by a block containing all the relevant piece
+of information including:</p>
 <ul>
-<li>the references of the article or technical report from which the material property, behaviour or model is extracted</li>
+<li>the references of the article or technical report from which the
+material property, behaviour or model is extracted</li>
 <li>the name of the authors</li>
 <li>the modifications made</li>
 </ul>
 <h2 id="example-5">Example</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  Corrélation établie sur la nuance V-<span class="dv">4</span><span class="er">Cr</span>-<span class="dv">4</span><span class="er">Ti</span>.</span>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  Corrélation établie sur la nuance V<span class="op">-</span><span class="dv">4</span><span class="er">Cr</span><span class="op">-</span><span class="dv">4</span><span class="er">Ti.</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  Propriétés extraites du document :</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  Propriétés extraites du document <span class="op">:</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  Propriétés et comportement mécanique d alliages</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>   de Vanadium avant, après et sous irradiation</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>   de Vanadium avant<span class="op">,</span> après et sous irradiation</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  Marion Le Flem, Jean-Luc Bechade, Annick Bougault,</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  Aurore Michaux, Lionel Gosmain, Jean-Louis Seran</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  DMN/SRMA/LA2M/NT/<span class="dv">2008</span>-<span class="dv">2967</span>/A</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  Marion Le Flem<span class="op">,</span> Jean<span class="op">-</span>Luc Bechade<span class="op">,</span> Annick Bougault<span class="op">,</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  Aurore Michaux<span class="op">,</span> Lionel Gosmain<span class="op">,</span> Jean<span class="op">-</span>Louis Seran</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  DMN<span class="op">/</span>SRMA<span class="op">/</span>LA2M<span class="op">/</span>NT<span class="op">/</span><span class="dv">2008</span><span class="op">-</span><span class="dv">2967</span><span class="op">/</span>A</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h1 id="the-function-keyword">The <code>@Function</code> keyword</h1>
-<p>The <code>@Function</code> keyword introduces the C++ code computing the value a the material property.</p>
-<p>Note: the default output is called <code>res</code>. This is changed by the <code>@Output</code> keyword.</p>
+<p>The <code>@Function</code> keyword introduces the C++ code computing
+the value a the material property.</p>
+<p>Note: the default output is called <code>res</code>. This is changed
+by the <code>@Output</code> keyword.</p>
 <h2 id="note">Note</h2>
-<p>Although most interfaces use double for floatting point operations, this may not be always the case. A special <code>typedef</code> named <code>real</code> is thus introduced by the interfaces. We advice the user to use this <code>typedef</code> to define their local variables.</p>
+<p>Although most interfaces use double for floatting point operations,
+this may not be always the case. A special <code>typedef</code> named
+<code>real</code> is thus introduced by the interfaces. We advice the
+user to use this <code>typedef</code> to define their local
+variables.</p>
 <h2 id="example-6">Example</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Function</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> real C0 =    <span class="fl">575.57</span>;</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> real C1 = -<span class="fl">21094.</span>;</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  Cp = C0+C1/T;</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Function</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> real C0 <span class="op">=</span>    <span class="fl">575.57</span><span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> real C1 <span class="op">=</span> <span class="op">-</span><span class="fl">21094.</span><span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  Cp <span class="op">=</span> C0<span class="op">+</span>C1<span class="op">/</span>T<span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h1 id="the-import-keyword">The <code>@Import</code> keyword</h1>
-<p>The <code>@Import</code> keyword allows the inclusion of one or several (external) mfront files. This keyword is followed by a string or an array of strings. Each string stands for a mfront file name that is meant to be imported.</p>
-<p>This instruction interrupts the treatment of the current file and starts the sequential treatment of each file to be imported.</p>
+<p>The <code>@Import</code> keyword allows the inclusion of one or
+several (external) mfront files. This keyword is followed by a string or
+an array of strings. Each string stands for a mfront file name that is
+meant to be imported.</p>
+<p>This instruction interrupts the treatment of the current file and
+starts the sequential treatment of each file to be imported.</p>
 <h2 id="search-paths">Search paths</h2>
 <p>Files to be imported are searched, in that order:</p>
 <ul>
 <li>starting from the current directory.</li>
-<li>starting from directories specified with one of the <code>--search-path</code> or the <code>--include</code> (<code>-I</code>) <code>mfront</code>’ command line options.</li>
-<li>staring from directories specified through the <code>MFRONT_INCLUDE_PATH</code> environment variable.</li>
+<li>starting from directories specified with one of the
+<code>--search-path</code> or the <code>--include</code>
+(<code>-I</code>) <code>mfront</code>’ command line options.</li>
+<li>staring from directories specified through the
+<code>MFRONT_INCLUDE_PATH</code> environment variable.</li>
 </ul>
 <h2 id="example-7">Example</h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Import <span class="st">&quot;SlidingSystemsCC.mfront&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Import <span class="st">&quot;SlidingSystemsCC.mfront&quot;</span><span class="op">;</span></span></code></pre></div>
 <h1 id="the-includes-keyword">The <code>@Includes</code> keyword</h1>
-<p>The <code>@Includes</code> introduces a block were the user may define some preprocessor directives, typically #include directives (hence the name).</p>
+<p>The <code>@Includes</code> introduces a block were the user may
+define some preprocessor directives, typically #include directives
+(hence the name).</p>
 <h2 id="example-8">Example</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes{</span>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes<span class="op">{</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;fstream&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h1 id="the-input-keyword">The <code>@Input</code> keyword</h1>
-<p>The <code>@Input</code> keyword specifies one or several inputs of a material law. This keyword is followed by the names of the inputs, separated by commas.</p>
-<p>The following characters are legal as the first character of an identifier, or any subsequent character:</p>
-<p><code>_</code> <code>a</code> <code>b</code> <code>c</code> <code>d</code> <code>e</code> <code>f</code> <code>g</code> <code>h</code> <code>i</code> <code>j</code> <code>k</code> <code>l</code> <code>m</code> <code>n</code> <code>o</code> <code>p</code> <code>q</code> <code>r</code> <code>s</code> <code>t</code> <code>u</code> <code>v</code> <code>w</code> <code>x</code> <code>y</code> <code>z</code> <code>A</code> <code>B</code> <code>C</code> <code>D</code> <code>E</code> <code>F</code> <code>G</code> <code>H</code> <code>I</code> <code>J</code> <code>K</code> <code>L</code> <code>M</code> <code>N</code> <code>O</code> <code>P</code> <code>Q</code> <code>R</code> <code>S</code> <code>T</code> <code>U</code> <code>V</code> <code>W</code> <code>X</code> <code>Y</code> <code>Z</code></p>
-<p>The following characters are legal as any character in an identifier except the first:</p>
-<p><code>0</code> <code>1</code> <code>2</code> <code>3</code> <code>4</code> <code>5</code> <code>6</code> <code>7</code> <code>8</code> <code>9</code></p>
+<p>The <code>@Input</code> keyword specifies one or several inputs of a
+material law. This keyword is followed by the names of the inputs,
+separated by commas.</p>
+<p>The following characters are legal as the first character of an
+identifier, or any subsequent character:</p>
+<p><code>_</code> <code>a</code> <code>b</code> <code>c</code>
+<code>d</code> <code>e</code> <code>f</code> <code>g</code>
+<code>h</code> <code>i</code> <code>j</code> <code>k</code>
+<code>l</code> <code>m</code> <code>n</code> <code>o</code>
+<code>p</code> <code>q</code> <code>r</code> <code>s</code>
+<code>t</code> <code>u</code> <code>v</code> <code>w</code>
+<code>x</code> <code>y</code> <code>z</code> <code>A</code>
+<code>B</code> <code>C</code> <code>D</code> <code>E</code>
+<code>F</code> <code>G</code> <code>H</code> <code>I</code>
+<code>J</code> <code>K</code> <code>L</code> <code>M</code>
+<code>N</code> <code>O</code> <code>P</code> <code>Q</code>
+<code>R</code> <code>S</code> <code>T</code> <code>U</code>
+<code>V</code> <code>W</code> <code>X</code> <code>Y</code>
+<code>Z</code></p>
+<p>The following characters are legal as any character in an identifier
+except the first:</p>
+<p><code>0</code> <code>1</code> <code>2</code> <code>3</code>
+<code>4</code> <code>5</code> <code>6</code> <code>7</code>
+<code>8</code> <code>9</code></p>
 <h2 id="external-name">External name</h2>
-<p>It is recommended to associate to an input a glossary or an entry name through the methods <code>setGlossaryName</code> or <code>setEntryName</code> respectively.</p>
+<p>It is recommended to associate to an input a glossary or an entry
+name through the methods <code>setGlossaryName</code> or
+<code>setEntryName</code> respectively.</p>
 <h2 id="example-9">Example</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input T,p;</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>T.setGlossaryName(<span class="st">&quot;Temperature&quot;</span>);</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>p.setGlossaryName(<span class="st">&quot;Porosity&quot;</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Input T<span class="op">,</span>p<span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>T<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;Temperature&quot;</span><span class="op">);</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>p<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;Porosity&quot;</span><span class="op">);</span></span></code></pre></div>
 <h1 id="the-interface-keyword">The <code>@Interface</code> keyword</h1>
-<p>The <code>@Interface</code> keyword let the user specify interfaces to be used. The keyword is followed by a list of interface name, separated by commas.</p>
-<p>Using this keyword is considered a bad pratice. The user shall use the <code>--interface</code> command line argument to specify which interface shall be used.</p>
+<p>The <code>@Interface</code> keyword let the user specify interfaces
+to be used. The keyword is followed by a list of interface name,
+separated by commas.</p>
+<p>Using this keyword is considered a bad pratice. The user shall use
+the <code>--interface</code> command line argument to specify which
+interface shall be used.</p>
 <h2 id="example-10">Example</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Interface castem;</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Interface castem<span class="op">;</span></span></code></pre></div>
 <h1 id="the-law-keyword">The <code>@Law</code> keyword</h1>
-<p>The <code>@Law</code> keyword allows the user to associate a name to the material law being treated. This keyword is followed by a name.</p>
-<p>This name must be a valid C++ identifier. The following characters are legal as the first character of an identifier, or any subsequent character:</p>
-<p><code>_</code> <code>a</code> <code>b</code> <code>c</code> <code>d</code> <code>e</code> <code>f</code> <code>g</code> <code>h</code> <code>i</code> <code>j</code> <code>k</code> <code>l</code> <code>m</code> <code>n</code> <code>o</code> <code>p</code> <code>q</code> <code>r</code> <code>s</code> <code>t</code> <code>u</code> <code>v</code> <code>w</code> <code>x</code> <code>y</code> <code>z</code> <code>A</code> <code>B</code> <code>C</code> <code>D</code> <code>E</code> <code>F</code> <code>G</code> <code>H</code> <code>I</code> <code>J</code> <code>K</code> <code>L</code> <code>M</code> <code>N</code> <code>O</code> <code>P</code> <code>Q</code> <code>R</code> <code>S</code> <code>T</code> <code>U</code> <code>V</code> <code>W</code> <code>X</code> <code>Y</code> <code>Z</code></p>
-<p>The following characters are legal as any character in an identifier except the first:</p>
-<p><code>0</code> <code>1</code> <code>2</code> <code>3</code> <code>4</code> <code>5</code> <code>6</code> <code>7</code> <code>8</code> <code>9</code></p>
-<h2 id="name-of-the-generated-functions-or-classes">Name of the generated functions or classes</h2>
-<p>The names of the generated functions or classes depend on the law name as specifified with the <code>@Law</code> keyword but may also include the material name, as specified by the <code>@MaterialLaw</code> keyword.</p>
+<p>The <code>@Law</code> keyword allows the user to associate a name to
+the material law being treated. This keyword is followed by a name.</p>
+<p>This name must be a valid C++ identifier. The following characters
+are legal as the first character of an identifier, or any subsequent
+character:</p>
+<p><code>_</code> <code>a</code> <code>b</code> <code>c</code>
+<code>d</code> <code>e</code> <code>f</code> <code>g</code>
+<code>h</code> <code>i</code> <code>j</code> <code>k</code>
+<code>l</code> <code>m</code> <code>n</code> <code>o</code>
+<code>p</code> <code>q</code> <code>r</code> <code>s</code>
+<code>t</code> <code>u</code> <code>v</code> <code>w</code>
+<code>x</code> <code>y</code> <code>z</code> <code>A</code>
+<code>B</code> <code>C</code> <code>D</code> <code>E</code>
+<code>F</code> <code>G</code> <code>H</code> <code>I</code>
+<code>J</code> <code>K</code> <code>L</code> <code>M</code>
+<code>N</code> <code>O</code> <code>P</code> <code>Q</code>
+<code>R</code> <code>S</code> <code>T</code> <code>U</code>
+<code>V</code> <code>W</code> <code>X</code> <code>Y</code>
+<code>Z</code></p>
+<p>The following characters are legal as any character in an identifier
+except the first:</p>
+<p><code>0</code> <code>1</code> <code>2</code> <code>3</code>
+<code>4</code> <code>5</code> <code>6</code> <code>7</code>
+<code>8</code> <code>9</code></p>
+<h2 id="name-of-the-generated-functions-or-classes">Name of the
+generated functions or classes</h2>
+<p>The names of the generated functions or classes depend on the law
+name as specifified with the <code>@Law</code> keyword but may also
+include the material name, as specified by the <code>@MaterialLaw</code>
+keyword.</p>
 <h2 id="example-11">Example</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Law ThermalExansionCoefficient_SRMA;</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Law ThermalExansionCoefficient_SRMA<span class="op">;</span></span></code></pre></div>
 <h1 id="the-library-keyword">The <code>@Library</code> keyword</h1>
-<p>The <code>@Library</code> keyword let the user specify part of the generated libary name. This keyword is followed by the name of library.</p>
-<p>This name must be a valid C++ identifier. The following characters are legal as the first character of an identifier, or any subsequent character:</p>
-<p><code>_</code> <code>a</code> <code>b</code> <code>c</code> <code>d</code> <code>e</code> <code>f</code> <code>g</code> <code>h</code> <code>i</code> <code>j</code> <code>k</code> <code>l</code> <code>m</code> <code>n</code> <code>o</code> <code>p</code> <code>q</code> <code>r</code> <code>s</code> <code>t</code> <code>u</code> <code>v</code> <code>w</code> <code>x</code> <code>y</code> <code>z</code> <code>A</code> <code>B</code> <code>C</code> <code>D</code> <code>E</code> <code>F</code> <code>G</code> <code>H</code> <code>I</code> <code>J</code> <code>K</code> <code>L</code> <code>M</code> <code>N</code> <code>O</code> <code>P</code> <code>Q</code> <code>R</code> <code>S</code> <code>T</code> <code>U</code> <code>V</code> <code>W</code> <code>X</code> <code>Y</code> <code>Z</code></p>
-<p>The following characters are legal as any character in an identifier except the first:</p>
-<p><code>0</code> <code>1</code> <code>2</code> <code>3</code> <code>4</code> <code>5</code> <code>6</code> <code>7</code> <code>8</code> <code>9</code></p>
+<p>The <code>@Library</code> keyword let the user specify part of the
+generated libary name. This keyword is followed by the name of
+library.</p>
+<p>This name must be a valid C++ identifier. The following characters
+are legal as the first character of an identifier, or any subsequent
+character:</p>
+<p><code>_</code> <code>a</code> <code>b</code> <code>c</code>
+<code>d</code> <code>e</code> <code>f</code> <code>g</code>
+<code>h</code> <code>i</code> <code>j</code> <code>k</code>
+<code>l</code> <code>m</code> <code>n</code> <code>o</code>
+<code>p</code> <code>q</code> <code>r</code> <code>s</code>
+<code>t</code> <code>u</code> <code>v</code> <code>w</code>
+<code>x</code> <code>y</code> <code>z</code> <code>A</code>
+<code>B</code> <code>C</code> <code>D</code> <code>E</code>
+<code>F</code> <code>G</code> <code>H</code> <code>I</code>
+<code>J</code> <code>K</code> <code>L</code> <code>M</code>
+<code>N</code> <code>O</code> <code>P</code> <code>Q</code>
+<code>R</code> <code>S</code> <code>T</code> <code>U</code>
+<code>V</code> <code>W</code> <code>X</code> <code>Y</code>
+<code>Z</code></p>
+<p>The following characters are legal as any character in an identifier
+except the first:</p>
+<p><code>0</code> <code>1</code> <code>2</code> <code>3</code>
+<code>4</code> <code>5</code> <code>6</code> <code>7</code>
+<code>8</code> <code>9</code></p>
 <h2 id="example-12">Example</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Library AlcyoneLibrary;</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Library AlcyoneLibrary<span class="op">;</span></span></code></pre></div>
 <h1 id="the-link-keyword">The <code>@Link</code> keyword</h1>
-<p>The <code>@Link</code> keyword let the user specify additional linker flags used to build their shared library/executables. This keyword must be followed by a string or an array of strings.</p>
-<p>Usage of the <code>@Link</code> keyword is deprecated a linker flags are not portable. The user may prefer using the <code>LDFLAGS</code> environment variable.</p>
+<p>The <code>@Link</code> keyword let the user specify additional linker
+flags used to build their shared library/executables. This keyword must
+be followed by a string or an array of strings.</p>
+<p>Usage of the <code>@Link</code> keyword is deprecated a linker flags
+are not portable. The user may prefer using the <code>LDFLAGS</code>
+environment variable.</p>
 <h2 id="example-13">Example</h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// explicit link with libm.so</span></span>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// explicit link with libm.so</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">// (not necessary in pratice)</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Link <span class="st">&quot;-lm&quot;</span>;</span></code></pre></div>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Link <span class="st">&quot;-lm&quot;</span><span class="op">;</span></span></code></pre></div>
 <h1 id="the-mfront-keyword">The <code>@MFront</code> keyword</h1>
-<p>The <code>@MFront</code> keyword leads to the generation of sources from some mfront files as a subprocess of the current file treatment. This keyword is followed by a pair of strings or array of strings. The first member of the pair describes which a list of files to be treated. The second member of the pair describes a list of interfaces.</p>
+<p>The <code>@MFront</code> keyword leads to the generation of sources
+from some mfront files as a subprocess of the current file treatment.
+This keyword is followed by a pair of strings or array of strings. The
+first member of the pair describes which a list of files to be treated.
+The second member of the pair describes a list of interfaces.</p>
 <h2 id="example-14">Example</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MFront {<span class="st">&quot;YoungModulus.mfront&quot;</span>,{<span class="st">&quot;c&quot;</span>,<span class="st">&quot;excel&quot;</span>}};</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MFront <span class="op">{</span><span class="st">&quot;YoungModulus.mfront&quot;</span><span class="op">,{</span><span class="st">&quot;c&quot;</span><span class="op">,</span><span class="st">&quot;excel&quot;</span><span class="op">}};</span></span></code></pre></div>
 <h1 id="the-material-keyword">The <code>@Material</code> keyword</h1>
-<p>The <code>@Material</code> keyword let the user specify which material is treated by the current file. This keyword is followed by the name of the material.</p>
-<p>This name must be a valid <code>C++</code> identifier. The following characters are legal as the first character of an identifier, or any subsequent character:</p>
-<p><code>_</code> <code>a</code> <code>b</code> <code>c</code> <code>d</code> <code>e</code> <code>f</code> <code>g</code> <code>h</code> <code>i</code> <code>j</code> <code>k</code> <code>l</code> <code>m</code> <code>n</code> <code>o</code> <code>p</code> <code>q</code> <code>r</code> <code>s</code> <code>t</code> <code>u</code> <code>v</code> <code>w</code> <code>x</code> <code>y</code> <code>z</code> <code>A</code> <code>B</code> <code>C</code> <code>D</code> <code>E</code> <code>F</code> <code>G</code> <code>H</code> <code>I</code> <code>J</code> <code>K</code> <code>L</code> <code>M</code> <code>N</code> <code>O</code> <code>P</code> <code>Q</code> <code>R</code> <code>S</code> <code>T</code> <code>U</code> <code>V</code> <code>W</code> <code>X</code> <code>Y</code> <code>Z</code></p>
-<p>The following characters are legal as any character in an identifier except the first:</p>
-<p><code>0</code> <code>1</code> <code>2</code> <code>3</code> <code>4</code> <code>5</code> <code>6</code> <code>7</code> <code>8</code> <code>9</code></p>
+<p>The <code>@Material</code> keyword let the user specify which
+material is treated by the current file. This keyword is followed by the
+name of the material.</p>
+<p>This name must be a valid <code>C++</code> identifier. The following
+characters are legal as the first character of an identifier, or any
+subsequent character:</p>
+<p><code>_</code> <code>a</code> <code>b</code> <code>c</code>
+<code>d</code> <code>e</code> <code>f</code> <code>g</code>
+<code>h</code> <code>i</code> <code>j</code> <code>k</code>
+<code>l</code> <code>m</code> <code>n</code> <code>o</code>
+<code>p</code> <code>q</code> <code>r</code> <code>s</code>
+<code>t</code> <code>u</code> <code>v</code> <code>w</code>
+<code>x</code> <code>y</code> <code>z</code> <code>A</code>
+<code>B</code> <code>C</code> <code>D</code> <code>E</code>
+<code>F</code> <code>G</code> <code>H</code> <code>I</code>
+<code>J</code> <code>K</code> <code>L</code> <code>M</code>
+<code>N</code> <code>O</code> <code>P</code> <code>Q</code>
+<code>R</code> <code>S</code> <code>T</code> <code>U</code>
+<code>V</code> <code>W</code> <code>X</code> <code>Y</code>
+<code>Z</code></p>
+<p>The following characters are legal as any character in an identifier
+except the first:</p>
+<p><code>0</code> <code>1</code> <code>2</code> <code>3</code>
+<code>4</code> <code>5</code> <code>6</code> <code>7</code>
+<code>8</code> <code>9</code></p>
 <h2 id="example-15">Example</h2>
-<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Material UO2;</span></code></pre></div>
-<h1 id="the-materiallaw-keyword">The <code>@MaterialLaw</code> keyword</h1>
-<p>The <code>@MaterialLaw</code> keyword imports the definition of a material law defined in a mfront file and compiles, as part of the current library, an function using the <code>mfront</code> interface. This function is available in every standard code blocks.</p>
-<p>The <code>@MaterialLaw</code> keyword is followed by a string or an array of string identifying <code>mfront</code> files.</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Material UO2<span class="op">;</span></span></code></pre></div>
+<h1 id="the-materiallaw-keyword">The <code>@MaterialLaw</code>
+keyword</h1>
+<p>The <code>@MaterialLaw</code> keyword imports the definition of a
+material law defined in a mfront file and compiles, as part of the
+current library, an function using the <code>mfront</code> interface.
+This function is available in every standard code blocks.</p>
+<p>The <code>@MaterialLaw</code> keyword is followed by a string or an
+array of string identifying <code>mfront</code> files.</p>
 <h2 id="search-paths-1">Search paths</h2>
 <p>Files to be imported are searched, in that order:</p>
 <ul>
 <li>starting from the current directory.</li>
-<li>starting from directories specified with one of the <code>--search-path</code> or the <code>--include</code> (<code>-I</code>) <code>mfront</code>’ command line options.</li>
-<li>staring from directories specified through the <code>MFRONT_INCLUDE_PATH</code> environment variable.</li>
+<li>starting from directories specified with one of the
+<code>--search-path</code> or the <code>--include</code>
+(<code>-I</code>) <code>mfront</code>’ command line options.</li>
+<li>staring from directories specified through the
+<code>MFRONT_INCLUDE_PATH</code> environment variable.</li>
 </ul>
 <h2 id="note-1">Note</h2>
-<p>The <code>mfront</code> interface has been created to avoid names conflict.</p>
-<p>For internal reasons, <code>mfront</code> reports the creation of an auxiliary library which is of no use.</p>
+<p>The <code>mfront</code> interface has been created to avoid names
+conflict.</p>
+<p>For internal reasons, <code>mfront</code> reports the creation of an
+auxiliary library which is of no use.</p>
 <h2 id="example-16">Example</h2>
-<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialLaw <span class="st">&quot;UO2_YoungModulus.mfront&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialLaw <span class="st">&quot;UO2_YoungModulus.mfront&quot;</span><span class="op">;</span></span></code></pre></div>
 <h1 id="the-output-keyword">The <code>@Output</code> keyword</h1>
-<p>The <code>Output</code> keyword changes the name of the output variable. By default, this name is <code>res</code>. This keyword is followed by the new name of the output variable.</p>
+<p>The <code>Output</code> keyword changes the name of the output
+variable. By default, this name is <code>res</code>. This keyword is
+followed by the new name of the output variable.</p>
 <h2 id="example-17">Example</h2>
-<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Output b ;</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Output b <span class="op">;</span></span></code></pre></div>
 <h1 id="the-parameter-keyword">The <code>@Parameter</code> keyword</h1>
-<p>The <code>@Parameter</code> keyword declares a new parameter or a list of new parameters. Optionally, the default value of the declared parameters may also be given following various C++ standard assignment syntaxes.</p>
-<p>The default value of a parameter can also be declared after its declaration using the <code>setDefaultValue</code> method.</p>
+<p>The <code>@Parameter</code> keyword declares a new parameter or a
+list of new parameters. Optionally, the default value of the declared
+parameters may also be given following various C++ standard assignment
+syntaxes.</p>
+<p>The default value of a parameter can also be declared after its
+declaration using the <code>setDefaultValue</code> method.</p>
 <h2 id="example-18">Example</h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter  R0 = <span class="dv">500</span>;</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter  Q1{<span class="dv">1000000000</span>},b1{<span class="fl">0.000001</span>};</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter  Q2(<span class="dv">0</span>),b2(<span class="dv">0</span>);</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter  fc;</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>fc.setDefaultValue(<span class="fl">1.e-2</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter  R0 <span class="op">=</span> <span class="dv">500</span><span class="op">;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter  Q1<span class="op">{</span><span class="dv">1000000000</span><span class="op">},</span>b1<span class="op">{</span><span class="fl">0.000001</span><span class="op">};</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter  Q2<span class="op">(</span><span class="dv">0</span><span class="op">),</span>b2<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter  fc<span class="op">;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>fc<span class="op">.</span>setDefaultValue<span class="op">(</span><span class="fl">1.e-2</span><span class="op">);</span></span></code></pre></div>
 <h1 id="the-parser-keyword">The <code>@Parser</code> keyword</h1>
-<p>The <code>@Paser</code> keyword is a deprecated synonymous of <code>@DSL</code>.</p>
-<h1 id="the-physicalbounds-keyword">The <code>@PhysicalBounds</code> keyword</h1>
-<p>The <code>@PhysicalBounds</code> keyword let the use define the physical domain of a variable.</p>
-<p>The <code>@PhysicalBounds</code> keyword is followed by a variable name, the keyword in and an interval. The interval may contain the infinity, represented by the ’*’ character.</p>
+<p>The <code>@Paser</code> keyword is a deprecated synonymous of
+<code>@DSL</code>.</p>
+<h1 id="the-physicalbounds-keyword">The <code>@PhysicalBounds</code>
+keyword</h1>
+<p>The <code>@PhysicalBounds</code> keyword let the use define the
+physical domain of a variable.</p>
+<p>The <code>@PhysicalBounds</code> keyword is followed by a variable
+name, the keyword in and an interval. The interval may contain the
+infinity, represented by the ’*’ character.</p>
 <h2 id="effect-1">Effect</h2>
-<p>In implicit schemes, if physical bounds are set on a integration variable, this variable is bounded to satisfy them during the internal iterations.</p>
-<p>If a variable is found to be out of its physical bounds, the computations are stopped. The tests are performed at different stages of the integration depending on the nature of the variable.</p>
+<p>In implicit schemes, if physical bounds are set on a integration
+variable, this variable is bounded to satisfy them during the internal
+iterations.</p>
+<p>If a variable is found to be out of its physical bounds, the
+computations are stopped. The tests are performed at different stages of
+the integration depending on the nature of the variable.</p>
 <h2 id="example-19">Example</h2>
-<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">// a temperature (in Kelvin) can&#39;t be negative</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>PhysicalBounds T in [<span class="dv">0</span>:*[;</span></code></pre></div>
-<h1 id="the-statevariable-keyword">The <code>@StateVariable</code> keyword</h1>
-<p>The <code>StateVariable</code> keyword introduces one or several new state variables. It is followed by a type name and the name(s) of the variable(s) declared, separated by commas.</p>
-<p>The state variables names must be valid <code>C++</code> identifiers.</p>
-<p>The following characters are legal as the first character of an identifier, or any subsequent character:</p>
-<p><code>_</code> <code>a</code> <code>b</code> <code>c</code> <code>d</code> <code>e</code> <code>f</code> <code>g</code> <code>h</code> <code>i</code> <code>j</code> <code>k</code> <code>l</code> <code>m</code> <code>n</code> <code>o</code> <code>p</code> <code>q</code> <code>r</code> <code>s</code> <code>t</code> <code>u</code> <code>v</code> <code>w</code> <code>x</code> <code>y</code> <code>z</code> <code>A</code> <code>B</code> <code>C</code> <code>D</code> <code>E</code> <code>F</code> <code>G</code> <code>H</code> <code>I</code> <code>J</code> <code>K</code> <code>L</code> <code>M</code> <code>N</code> <code>O</code> <code>P</code> <code>Q</code> <code>R</code> <code>S</code> <code>T</code> <code>U</code> <code>V</code> <code>W</code> <code>X</code> <code>Y</code> <code>Z</code></p>
-<p>The following characters are legal as any character in an identifier except the first:</p>
-<p><code>0</code> <code>1</code> <code>2</code> <code>3</code> <code>4</code> <code>5</code> <code>6</code> <code>7</code> <code>8</code> <code>9</code></p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">// a temperature (in Kelvin) can&#39;t be negative</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>PhysicalBounds T in <span class="op">[</span><span class="dv">0</span><span class="op">:*[;</span></span></code></pre></div>
+<h1 id="the-statevariable-keyword">The <code>@StateVariable</code>
+keyword</h1>
+<p>The <code>StateVariable</code> keyword introduces one or several new
+state variables. It is followed by a type name and the name(s) of the
+variable(s) declared, separated by commas.</p>
+<p>The state variables names must be valid <code>C++</code>
+identifiers.</p>
+<p>The following characters are legal as the first character of an
+identifier, or any subsequent character:</p>
+<p><code>_</code> <code>a</code> <code>b</code> <code>c</code>
+<code>d</code> <code>e</code> <code>f</code> <code>g</code>
+<code>h</code> <code>i</code> <code>j</code> <code>k</code>
+<code>l</code> <code>m</code> <code>n</code> <code>o</code>
+<code>p</code> <code>q</code> <code>r</code> <code>s</code>
+<code>t</code> <code>u</code> <code>v</code> <code>w</code>
+<code>x</code> <code>y</code> <code>z</code> <code>A</code>
+<code>B</code> <code>C</code> <code>D</code> <code>E</code>
+<code>F</code> <code>G</code> <code>H</code> <code>I</code>
+<code>J</code> <code>K</code> <code>L</code> <code>M</code>
+<code>N</code> <code>O</code> <code>P</code> <code>Q</code>
+<code>R</code> <code>S</code> <code>T</code> <code>U</code>
+<code>V</code> <code>W</code> <code>X</code> <code>Y</code>
+<code>Z</code></p>
+<p>The following characters are legal as any character in an identifier
+except the first:</p>
+<p><code>0</code> <code>1</code> <code>2</code> <code>3</code>
+<code>4</code> <code>5</code> <code>6</code> <code>7</code>
+<code>8</code> <code>9</code></p>
 <h2 id="arrays">Arrays</h2>
-<p>One may declare an array of state variables by specifying the array size after the state variable name.</p>
+<p>One may declare an array of state variables by specifying the array
+size after the state variable name.</p>
 <h2 id="external-names">External names</h2>
-<p>It is recommended to associate to a state variable a glossary or an entry name through the methods <code>setGlossaryName</code> or <code>setEntryName</code> respectively.</p>
+<p>It is recommended to associate to a state variable a glossary or an
+entry name through the methods <code>setGlossaryName</code> or
+<code>setEntryName</code> respectively.</p>
 <h2 id="example-20">Example</h2>
-<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">// scalar state variable</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariables strain p;</span>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">// scalar state variable</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariables strain p<span class="op">;</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">// symmetric tensors state variable</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariables StrainStensor evp,evp2;</span></code></pre></div>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariables StrainStensor evp<span class="op">,</span>evp2<span class="op">;</span></span></code></pre></div>
 <h1 id="the-staticvar-keyword">The <code>@StaticVar</code> keyword</h1>
-<p>The <code>@StaticVar</code> keyword is a deprecated synonymous of <code>@StaticVariable</code>.</p>
-<h1 id="the-staticvariable-keyword">The <code>@StaticVariable</code> keyword</h1>
-<p>The <code>@StaticVariable</code> keyword let the user define a constant value. Unlike parameters (see the <code>@Parameter</code> keyword), static variables’ values can’t be changed after compilation.</p>
-<p>This keyword must be followed by the type of the constant, its name, an equal sign and its value.</p>
+<p>The <code>@StaticVar</code> keyword is a deprecated synonymous of
+<code>@StaticVariable</code>.</p>
+<h1 id="the-staticvariable-keyword">The <code>@StaticVariable</code>
+keyword</h1>
+<p>The <code>@StaticVariable</code> keyword let the user define a
+constant value. Unlike parameters (see the <code>@Parameter</code>
+keyword), static variables’ values can’t be changed after
+compilation.</p>
+<p>This keyword must be followed by the type of the constant, its name,
+an equal sign and its value.</p>
 <h2 id="example-21">Example</h2>
-<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StaticVariable real A = <span class="fl">1.234e56</span>;</span></code></pre></div>
-<h1 id="the-unitsystem-keyword">The <code>@UnitSystem</code> keyword</h1>
-<p>The <code>@UnitSystem</code> keyword declares that the state variables, external state variables an parameters are expressed in a given unit system. In the current version of <code>MFront</code>, the only supported unit system is the international system of units, denoted <code>SI</code>.</p>
-<p>One advantage of declaring an unit system is that physical bounds of variables associated with a glossary entry can automatically be declared by <code>MFront</code>.</p>
-<p>For instance the declaration of the physical bounds for the temperature and the porosity is automatic if the <code>SI</code> unit system is used.</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StaticVariable real A <span class="op">=</span> <span class="fl">1.234e56</span><span class="op">;</span></span></code></pre></div>
+<h1 id="the-unitsystem-keyword">The <code>@UnitSystem</code>
+keyword</h1>
+<p>The <code>@UnitSystem</code> keyword declares that the state
+variables, external state variables an parameters are expressed in a
+given unit system. In the current version of <code>MFront</code>, the
+only supported unit system is the international system of units, denoted
+<code>SI</code>.</p>
+<p>One advantage of declaring an unit system is that physical bounds of
+variables associated with a glossary entry can automatically be declared
+by <code>MFront</code>.</p>
+<p>For instance the declaration of the physical bounds for the
+temperature and the porosity is automatic if the <code>SI</code> unit
+system is used.</p>
 <h2 id="example-of-usage">Example of usage</h2>
-<div class="sourceCode" id="cb26"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UnitSystem SI;</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UnitSystem SI<span class="op">;</span></span></code></pre></div>
 <h1 id="the-useqt-keyword">The <code>@UseQt</code> keyword</h1>
-<p>The <code>UseQt</code> keyword (use quantities) specify if the behaviour compilation should perform compile-time units checks. It is followed by a boolean.</p>
+<p>The <code>UseQt</code> keyword (use quantities) specify if the
+behaviour compilation should perform compile-time units checks. It is
+followed by a boolean.</p>
 <h2 id="note-2">Note</h2>
 <p>This feature is still experimental and is disabled in most cases.</p>
 <h2 id="example-22">Example</h2>
-<div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UseQt <span class="kw">true</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UseQt <span class="kw">true</span><span class="op">;</span></span></code></pre></div>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

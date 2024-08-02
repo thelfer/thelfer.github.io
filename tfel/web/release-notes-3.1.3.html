@@ -17,7 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -120,6 +122,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -265,45 +268,116 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Release notes of the 3.1.3 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h1 class="title">Release notes of the 3.1.3 version of
+<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">2018</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#tickets-fixed">Tickets fixed</a>
+<li><a href="#tickets-fixed" id="toc-tickets-fixed">Tickets fixed</a>
 <ul>
-<li><a href="#ticket-139-invalid-system-flags-when-using-the-official-castem.h-header-for-cast3m-2018">Ticket #139: Invalid system flags when using the official <code>castem.h</code> header for <code>Cast3M 2018</code></a></li>
-<li><a href="#ticket-138-profiling-is-broken-when-one-of-the-following-code-blocks-is-defined-aprioritimestepscalingfactor-aposterioritimestepscalingfactor-additionalconvergencechecks">Ticket #138: Profiling is broken when one of the following code blocks is defined: <code>@APrioriTimeStepScalingFactor</code>, <code>@APosterioriTimeStepScalingFactor</code>, <code>@AdditionalConvergenceChecks</code></a></li>
-<li><a href="#ticket-136-removing-unwanted-output-statements-in-windows">Ticket #136: Removing unwanted output statements in windows</a></li>
-<li><a href="#ticket-135-declaration-error-of-material_properties_nb-in-cyranobehaviourhandler-with-the-cyrano-interface">Ticket #135: Declaration error of ‘material_properties_nb’ in <code>CyranoBehaviourHandler</code> with the <code>cyrano</code> interface</a></li>
-<li><a href="#ticket-134-the-mfront_compiling-flag-is-not-defined-when-using-the-cmake-generator">Ticket #134: The <code>MFRONT_COMPILING</code> flag is not defined when using the <code>CMake</code> generator</a></li>
+<li><a
+href="#ticket-139-invalid-system-flags-when-using-the-official-castem.h-header-for-cast3m-2018"
+id="toc-ticket-139-invalid-system-flags-when-using-the-official-castem.h-header-for-cast3m-2018">Ticket
+#139: Invalid system flags when using the official <code>castem.h</code>
+header for <code>Cast3M 2018</code></a></li>
+<li><a
+href="#ticket-138-profiling-is-broken-when-one-of-the-following-code-blocks-is-defined-aprioritimestepscalingfactor-aposterioritimestepscalingfactor-additionalconvergencechecks"
+id="toc-ticket-138-profiling-is-broken-when-one-of-the-following-code-blocks-is-defined-aprioritimestepscalingfactor-aposterioritimestepscalingfactor-additionalconvergencechecks">Ticket
+#138: Profiling is broken when one of the following code blocks is
+defined: <code>@APrioriTimeStepScalingFactor</code>,
+<code>@APosterioriTimeStepScalingFactor</code>,
+<code>@AdditionalConvergenceChecks</code></a></li>
+<li><a href="#ticket-136-removing-unwanted-output-statements-in-windows"
+id="toc-ticket-136-removing-unwanted-output-statements-in-windows">Ticket
+#136: Removing unwanted output statements in windows</a></li>
+<li><a
+href="#ticket-135-declaration-error-of-material_properties_nb-in-cyranobehaviourhandler-with-the-cyrano-interface"
+id="toc-ticket-135-declaration-error-of-material_properties_nb-in-cyranobehaviourhandler-with-the-cyrano-interface">Ticket
+#135: Declaration error of ‘material_properties_nb’ in
+<code>CyranoBehaviourHandler</code> with the <code>cyrano</code>
+interface</a></li>
+<li><a
+href="#ticket-134-the-mfront_compiling-flag-is-not-defined-when-using-the-cmake-generator"
+id="toc-ticket-134-the-mfront_compiling-flag-is-not-defined-when-using-the-cmake-generator">Ticket
+#134: The <code>MFRONT_COMPILING</code> flag is not defined when using
+the <code>CMake</code> generator</a></li>
 </ul></li>
 </ul>
 </div>
-<p>This is mainly a bug fix version of the <code>3.1</code> series. All tickets solved are described below.</p>
+<p>This is mainly a bug fix version of the <code>3.1</code> series. All
+tickets solved are described below.</p>
 <h1 id="tickets-fixed">Tickets fixed</h1>
-<h2 id="ticket-139-invalid-system-flags-when-using-the-official-castem.h-header-for-cast3m-2018">Ticket #139: Invalid system flags when using the official <code>castem.h</code> header for <code>Cast3M 2018</code></h2>
-<p>The <code>castem.h</code> header relies on the definition of some system flags to work appropriately (in particular to define the <code>cast_int</code> typedef). This file changed in <code>Cast3M 2018</code>. The system flags defined by <code>TFEL/MFront</code> (<code>-DSUN -DUNIX64</code> or <code>-DSUN -DUNIX32</code>) were no more appropriate under <code>Linux</code> and had to be changed to <code>-DLINUX64</code> or <code>-DLINUX32</code>.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/139/" class="uri">https://sourceforge.net/p/tfel/tickets/139/</a></p>
-<h2 id="ticket-138-profiling-is-broken-when-one-of-the-following-code-blocks-is-defined-aprioritimestepscalingfactor-aposterioritimestepscalingfactor-additionalconvergencechecks">Ticket #138: Profiling is broken when one of the following code blocks is defined: <code>@APrioriTimeStepScalingFactor</code>, <code>@APosterioriTimeStepScalingFactor</code>, <code>@AdditionalConvergenceChecks</code></h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/138/" class="uri">https://sourceforge.net/p/tfel/tickets/138/</a></p>
-<h2 id="ticket-136-removing-unwanted-output-statements-in-windows">Ticket #136: Removing unwanted output statements in windows</h2>
-<p>The integration errors are reported on the standard output, since the <code>Cast3M</code> interface does not have any output for error messages.</p>
-<p>This can be cumbersome, in particular when driving the simulation from the behaviour.</p>
-<p>The <code>Cast3M</code> interface now checks if the <code>CASTEM_DISPLAY_ERROR_MESSAGE</code> variable environment is defined. If it is set to any value different from <code>true</code>, no error message is displayed.</p>
+<h2
+id="ticket-139-invalid-system-flags-when-using-the-official-castem.h-header-for-cast3m-2018">Ticket
+#139: Invalid system flags when using the official <code>castem.h</code>
+header for <code>Cast3M 2018</code></h2>
+<p>The <code>castem.h</code> header relies on the definition of some
+system flags to work appropriately (in particular to define the
+<code>cast_int</code> typedef). This file changed in
+<code>Cast3M 2018</code>. The system flags defined by
+<code>TFEL/MFront</code> (<code>-DSUN -DUNIX64</code> or
+<code>-DSUN -DUNIX32</code>) were no more appropriate under
+<code>Linux</code> and had to be changed to <code>-DLINUX64</code> or
+<code>-DLINUX32</code>.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/139/"
+class="uri">https://sourceforge.net/p/tfel/tickets/139/</a></p>
+<h2
+id="ticket-138-profiling-is-broken-when-one-of-the-following-code-blocks-is-defined-aprioritimestepscalingfactor-aposterioritimestepscalingfactor-additionalconvergencechecks">Ticket
+#138: Profiling is broken when one of the following code blocks is
+defined: <code>@APrioriTimeStepScalingFactor</code>,
+<code>@APosterioriTimeStepScalingFactor</code>,
+<code>@AdditionalConvergenceChecks</code></h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/138/"
+class="uri">https://sourceforge.net/p/tfel/tickets/138/</a></p>
+<h2
+id="ticket-136-removing-unwanted-output-statements-in-windows">Ticket
+#136: Removing unwanted output statements in windows</h2>
+<p>The integration errors are reported on the standard output, since the
+<code>Cast3M</code> interface does not have any output for error
+messages.</p>
+<p>This can be cumbersome, in particular when driving the simulation
+from the behaviour.</p>
+<p>The <code>Cast3M</code> interface now checks if the
+<code>CASTEM_DISPLAY_ERROR_MESSAGE</code> variable environment is
+defined. If it is set to any value different from <code>true</code>, no
+error message is displayed.</p>
 <p>In <code>bash</code>:</p>
 <pre><code>export CASTEM_DISPLAY_ERROR_MESSAGE=true</code></pre>
 <p>In the <code>Windows</code> shell:</p>
 <pre><code>set CASTEM_DISPLAY_ERROR_MESSAGE=true</code></pre>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/136/" class="uri">https://sourceforge.net/p/tfel/tickets/136/</a></p>
-<h2 id="ticket-135-declaration-error-of-material_properties_nb-in-cyranobehaviourhandler-with-the-cyrano-interface">Ticket #135: Declaration error of ‘material_properties_nb’ in <code>CyranoBehaviourHandler</code> with the <code>cyrano</code> interface</h2>
-<p>The default version of the <code>CyranoTraits</code> class did not provide the <code>material_properties_nb</code> and <code>internal_state_variables_nb</code> members.</p>
-<p>As a consequence, the trouble appeared when the behaviour did not support the <code>AxisymmtricalGeneralisedPlaneStress</code> modelling hypotheses, which is the main modelling hypothesis used in <code>Cyrano</code>. This case was not tested.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/135/" class="uri">https://sourceforge.net/p/tfel/tickets/135/</a></p>
-<h2 id="ticket-134-the-mfront_compiling-flag-is-not-defined-when-using-the-cmake-generator">Ticket #134: The <code>MFRONT_COMPILING</code> flag is not defined when using the <code>CMake</code> generator</h2>
-<p>This bug leads to the failure of the compilation of <code>MFront</code> files based on other <code>MFront</code> files (such as material properties) on <code>Windows</code> with the <code>Visual</code> <code>C++</code> compiler.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/134/" class="uri">https://sourceforge.net/p/tfel/tickets/134/</a></p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/136/"
+class="uri">https://sourceforge.net/p/tfel/tickets/136/</a></p>
+<h2
+id="ticket-135-declaration-error-of-material_properties_nb-in-cyranobehaviourhandler-with-the-cyrano-interface">Ticket
+#135: Declaration error of ‘material_properties_nb’ in
+<code>CyranoBehaviourHandler</code> with the <code>cyrano</code>
+interface</h2>
+<p>The default version of the <code>CyranoTraits</code> class did not
+provide the <code>material_properties_nb</code> and
+<code>internal_state_variables_nb</code> members.</p>
+<p>As a consequence, the trouble appeared when the behaviour did not
+support the <code>AxisymmtricalGeneralisedPlaneStress</code> modelling
+hypotheses, which is the main modelling hypothesis used in
+<code>Cyrano</code>. This case was not tested.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/135/"
+class="uri">https://sourceforge.net/p/tfel/tickets/135/</a></p>
+<h2
+id="ticket-134-the-mfront_compiling-flag-is-not-defined-when-using-the-cmake-generator">Ticket
+#134: The <code>MFRONT_COMPILING</code> flag is not defined when using
+the <code>CMake</code> generator</h2>
+<p>This bug leads to the failure of the compilation of
+<code>MFront</code> files based on other <code>MFront</code> files (such
+as material properties) on <code>Windows</code> with the
+<code>Visual</code> <code>C++</code> compiler.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/134/"
+class="uri">https://sourceforge.net/p/tfel/tickets/134/</a></p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

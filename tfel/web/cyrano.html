@@ -16,7 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -119,6 +121,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -270,168 +273,379 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#material-properties"><span class="toc-section-number">1</span> Material properties</a></li>
-<li><a href="#mechanical-behaviours"><span class="toc-section-number">2</span> Mechanical behaviours</a></li>
-<li><a href="#references">References</a></li>
+<li><a href="#material-properties" id="toc-material-properties"><span
+class="toc-section-number">1</span> Material properties</a></li>
+<li><a href="#mechanical-behaviours"
+id="toc-mechanical-behaviours"><span class="toc-section-number">2</span>
+Mechanical behaviours</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
 </ul>
 </div>
 <!-- the previous works better than the standard solution: -->
 <!-- \newcommand{\tenseurq}[1]{\underline{\underline{{\mathbf{#1}}}}} -->
-<p>The industrial reference software CYRANO3 has been developed by EDF for more than 20 years to simulate the PWR fuel thermo-mechanical behaviour under nominal and incidental conventional operating conditions (See <span class="citation" data-cites="thouvenin_edf_2010">[1]</span>).</p>
-<p>The code integrates extensive knowledge and know-how based on more than 30 years of national and international research and feedback in the framework of nuclear materials under irradiation. It is part of the PLEIADES platform jointly developed by EDF and CEA, and validated on an extensive data base including more than 900 irradiated fuel rods examination and validation results.</p>
-<h1 data-number="1" id="material-properties"><span class="header-section-number">1</span> Material properties</h1>
-<p>The <code>cyrano</code> interface for material properties generates function having the following prototype:</p>
-<pre class="{.c++}"><code>CyranoRealType (*)(CyranoOutputStatus* const,
-                   const CyranoRealType* const,
-                   const CyranoIntegerType,
-                   const CyranoOutOfBoundsPolicy);</code></pre>
-<p>The first argument contains the output status (see Section 1.1 for details).</p>
-<p>The second argument contains the arguments of the material property.</p>
+<p>The industrial reference software CYRANO3 has been developed by EDF
+for more than 20 years to simulate the PWR fuel thermo-mechanical
+behaviour under nominal and incidental conventional operating conditions
+(See <span class="citation"
+data-cites="thouvenin_edf_2010">[1]</span>).</p>
+<p>The code integrates extensive knowledge and know-how based on more
+than 30 years of national and international research and feedback in the
+framework of nuclear materials under irradiation. It is part of the
+PLEIADES platform jointly developed by EDF and CEA, and validated on an
+extensive data base including more than 900 irradiated fuel rods
+examination and validation results.</p>
+<h1 data-number="1" id="material-properties"><span
+class="header-section-number">1</span> Material properties</h1>
+<p>The <code>cyrano</code> interface for material properties generates
+function having the following prototype:</p>
+<p>~~<del>{.c++} CyranoRealType (<em>)(CyranoOutputStatus</em> const,
+const CyranoRealType* const, const CyranoIntegerType, const
+CyranoOutOfBoundsPolicy);</del>~~</p>
+<p>The first argument contains the output status (see Section 1.1 for
+details).</p>
+<p>The second argument contains the arguments of the material
+property.</p>
 <p>The third argument gives the number of arguments.</p>
-<p>The fourth argument specify the policy used when an argument or the output is out of this bounds.</p>
-<h2 data-number="1.1" id="sec:error_handling"><span class="header-section-number">1.1</span> Error handling</h2>
-<p>On error, the returned value is <code>Not A Number</code> (<code>Nan</code>).</p>
-<p>Full diagnostic is available in the <code>CyranoOutputStatus</code> structure. See the <a href="html/struct_cyrano_output_status.html">doxygen documentation</a>).</p>
-<h2 data-number="1.2" id="out-of-bounds-policy"><span class="header-section-number">1.2</span> Out of bounds policy</h2>
-<p>The <code>CyranoOutOfBoundsPolicy</code> is an enumeration of the available policies. Three policies are declared:</p>
+<p>The fourth argument specify the policy used when an argument or the
+output is out of this bounds.</p>
+<h2 data-number="1.1" id="sec:error_handling"><span
+class="header-section-number">1.1</span> Error handling</h2>
+<p>On error, the returned value is <code>Not A Number</code>
+(<code>Nan</code>).</p>
+<p>Full diagnostic is available in the <code>CyranoOutputStatus</code>
+structure. See the <a
+href="html/struct_cyrano_output_status.html">doxygen
+documentation</a>).</p>
+<h2 data-number="1.2" id="out-of-bounds-policy"><span
+class="header-section-number">1.2</span> Out of bounds policy</h2>
+<p>The <code>CyranoOutOfBoundsPolicy</code> is an enumeration of the
+available policies. Three policies are declared:</p>
 <ul>
-<li><code>CYRANO_NONE_POLICY</code>: with this policy, nothing is done if the arguments are out of their bounds (checks are not even performed).</li>
-<li><code>CYRANO_WARNING_POLICY</code>: with this policy, checks on the arguments are performed. If one argument if out of its bounds, this will be reported in the output status and an appropriate error message will be reported. The computations are however performed.</li>
-<li><code>CYRANO_STRICT_POLICY</code>: With this policy, checks on the arguments are performed. If one argument if out of its bounds, this will be reported in the output status and an appropriate error message will be reported.</li>
+<li><code>CYRANO_NONE_POLICY</code>: with this policy, nothing is done
+if the arguments are out of their bounds (checks are not even
+performed).</li>
+<li><code>CYRANO_WARNING_POLICY</code>: with this policy, checks on the
+arguments are performed. If one argument if out of its bounds, this will
+be reported in the output status and an appropriate error message will
+be reported. The computations are however performed.</li>
+<li><code>CYRANO_STRICT_POLICY</code>: With this policy, checks on the
+arguments are performed. If one argument if out of its bounds, this will
+be reported in the output status and an appropriate error message will
+be reported.</li>
 </ul>
-<h1 data-number="2" id="mechanical-behaviours"><span class="header-section-number">2</span> Mechanical behaviours</h1>
+<h1 data-number="2" id="mechanical-behaviours"><span
+class="header-section-number">2</span> Mechanical behaviours</h1>
 <p><img src="img/topfuel2015-poster.png" /></p>
-<p>The interface with MFront has been presented during the LWR Fuel Performance Meeting in 2015 (Zurich, Switzerland), see <span class="citation" data-cites="petry_advanced_2015">[2]</span>:</p>
+<p>The interface with MFront has been presented during the LWR Fuel
+Performance Meeting in 2015 (Zurich, Switzerland), see <span
+class="citation" data-cites="petry_advanced_2015">[2]</span>:</p>
 <ul>
-<li><a href="https://github.com/thelfer/tfel-doc/blob/master/Papers/TopFuel2015/topfuel2015.pdf">abstract</a></li>
-<li><a href="https://github.com/thelfer/tfel-doc/blob/master/Papers/TopFuel2015/topfuel2015-poster.pdf">poster</a></li>
+<li><a
+href="https://github.com/thelfer/tfel-doc/blob/master/Papers/TopFuel2015/topfuel2015.pdf">abstract</a></li>
+<li><a
+href="https://github.com/thelfer/tfel-doc/blob/master/Papers/TopFuel2015/topfuel2015-poster.pdf">poster</a></li>
 </ul>
-<h2 data-number="2.1" id="supported-modelling-hypotheses"><span class="header-section-number">2.1</span> Supported modelling hypotheses</h2>
-<p>The <code>Cyrano3</code> code is based on a 1D description of the fuel rods using a finite element kernel to solve the thermal and mechanical radial equilibrium at different axial positions.</p>
-<figure>
-<img src="img/CyranoPrinciple.png" title="Principle of the rod discretisation in CYRANO3 code" id="fig:CyranoPrinciple" style="width:100.0%" alt="Figure 1: Principle of the rod discretisation in CYRANO3 code" /><figcaption aria-hidden="true">Figure 1: Principle of the rod discretisation in CYRANO3 code</figcaption>
+<h2 data-number="2.1" id="supported-modelling-hypotheses"><span
+class="header-section-number">2.1</span> Supported modelling
+hypotheses</h2>
+<p>The <code>Cyrano3</code> code is based on a 1D description of the
+fuel rods using a finite element kernel to solve the thermal and
+mechanical radial equilibrium at different axial positions.</p>
+<figure id="fig:CyranoPrinciple">
+<img src="img/CyranoPrinciple.png"
+title="Principle of the rod discretisation in CYRANO3 code"
+style="width:100.0%"
+alt="Principle of the rod discretisation in CYRANO3 code" />
+<figcaption>Figure 1: Principle of the rod discretisation in CYRANO3
+code</figcaption>
 </figure>
-<p>The principle of the geometrical discretisation of a single rod is illustrated in Figure 1. Due to revolution axisymmetry, only radial and axial directions are discretised. The fuel rod is axially divided in slices, leading to the so-called “1,5D” typical axisymmetric scheme - each slice being represented by a one-dimensional radial mesh including a pellet and a clad separated by a variable gap.</p>
-<p>To solve the mechanical equilibrium of a slice, two distinct hypotheses concerning the axial direction are supported:</p>
+<p>The principle of the geometrical discretisation of a single rod is
+illustrated in Figure 1. Due to revolution axisymmetry, only radial and
+axial directions are discretised. The fuel rod is axially divided in
+slices, leading to the so-called “1,5D” typical axisymmetric scheme -
+each slice being represented by a one-dimensional radial mesh including
+a pellet and a clad separated by a variable gap.</p>
+<p>To solve the mechanical equilibrium of a slice, two distinct
+hypotheses concerning the axial direction are supported:</p>
 <ul>
 <li>generalised plane stress (uniform axial stress)</li>
 <li>generalised plane strain (uniform axial strain)</li>
 </ul>
-<h2 data-number="2.2" id="finite-strain-modelling"><span class="header-section-number">2.2</span> Finite strain modelling</h2>
-<p><code>Cyrano3</code> finite strain modelling is based on the approach described by T. Helfer (See <span class="citation" data-cites="helfer_extension_2015">[3]</span>) which allows to easily extend small strain mono-dimensional code to support finite strain modelling.</p>
-<h3 data-number="2.2.1" id="kinematic-and-mechanical-equilibrium"><span class="header-section-number">2.2.1</span> Kinematic and mechanical equilibrium</h3>
-<p>This approach relies on the the fact that the direct link between the deformation gradient <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span> and the linearized strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in monodimensional modelling:</p>
+<h2 data-number="2.2" id="finite-strain-modelling"><span
+class="header-section-number">2.2</span> Finite strain modelling</h2>
+<p><code>Cyrano3</code> finite strain modelling is based on the approach
+described by T. Helfer (See <span class="citation"
+data-cites="helfer_extension_2015">[3]</span>) which allows to easily
+extend small strain mono-dimensional code to support finite strain
+modelling.</p>
+<h3 data-number="2.2.1" id="kinematic-and-mechanical-equilibrium"><span
+class="header-section-number">2.2.1</span> Kinematic and mechanical
+equilibrium</h3>
+<p>This approach relies on the the fact that the direct link between the
+deformation gradient <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span> and the
+linearized strain <span
+class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in
+monodimensional modelling:</p>
 <p><span class="math display">\[
-  {\underset{\tilde{}}{\mathbf{F}}} = {\underset{\tilde{}}{\mathbf{I}}} + \underline{\varepsilon}^{\mathrm{to}}
+  {\underset{\tilde{}}{\mathbf{F}}} = {\underset{\tilde{}}{\mathbf{I}}}
++ \underline{\varepsilon}^{\mathrm{to}}
 \]</span></p>
-<p>The mechanical equilibrium is expressed in the reference configuration:</p>
+<p>The mechanical equilibrium is expressed in the reference
+configuration:</p>
 <p><span class="math display">\[
   \mathop{\mathrm{Div}}{\underset{\tilde{}}{\mathbf{\Pi}}} = \vec{0}  
 \]</span></p>
 <p>where :</p>
 <ul>
-<li>the gradients in the divergence operator <span class="math inline">\(\mathop{\mathrm{Div}}\)</span> are computed in the reference configuration.</li>
-<li><span class="math inline">\({\underset{\tilde{}}{\mathbf{\Pi}}}\)</span> is the first Piola-Kirchoff stress (which is equal to the nominal stress in <span class="math inline">\(1D\)</span>, as all tensors are symmetric).</li>
+<li>the gradients in the divergence operator <span
+class="math inline">\(\mathop{\mathrm{Div}}\)</span> are computed in the
+reference configuration.</li>
+<li><span
+class="math inline">\({\underset{\tilde{}}{\mathbf{\Pi}}}\)</span> is
+the first Piola-Kirchoff stress (which is equal to the nominal stress in
+<span class="math inline">\(1D\)</span>, as all tensors are
+symmetric).</li>
 </ul>
-<h3 data-number="2.2.2" id="boundary-conditions"><span class="header-section-number">2.2.2</span> Boundary conditions</h3>
-<p>If <span class="math inline">\({{\mathrm{d}}}\,\vec{f}\)</span> is the force applied to an infinitesimal surface <span class="math inline">\({{\mathrm{d}}}\,\vec{s}\)</span> in the current configuration which maps to the infinitesimal surface <span class="math inline">\({{\mathrm{d}}}\,\vec{S}_{0}\)</span> in the reference configuration, the first Piola-Kirchoff stress <span class="math inline">\({\underset{\tilde{}}{\mathbf{\Pi}}}\)</span> has the following property:</p>
+<h3 data-number="2.2.2" id="boundary-conditions"><span
+class="header-section-number">2.2.2</span> Boundary conditions</h3>
+<p>If <span class="math inline">\({{\mathrm{d}}}\,\vec{f}\)</span> is
+the force applied to an infinitesimal surface <span
+class="math inline">\({{\mathrm{d}}}\,\vec{s}\)</span> in the current
+configuration which maps to the infinitesimal surface <span
+class="math inline">\({{\mathrm{d}}}\,\vec{S}_{0}\)</span> in the
+reference configuration, the first Piola-Kirchoff stress <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{\Pi}}}\)</span> has
+the following property:</p>
 <p><span class="math display">\[
 {{\mathrm{d}}}\,\vec{f}={\underset{\tilde{}}{\mathbf{\Pi}}}\,\colon\,{{\mathrm{d}}}\,\vec{S}_{0}  
 \]</span></p>
 <p>For pressure loading, one have: <span class="math display">\[
 {{\mathrm{d}}}\,\vec{f}=-P\,{{\mathrm{d}}}\,\vec{s}
 \]</span></p>
-<h4 data-number="2.2.2.1" id="radial-boundary-conditions"><span class="header-section-number">2.2.2.1</span> Radial boundary conditions</h4>
-<p>In 1D, the normal is constant, so the radial component <span class="math inline">\(\Pi_{rr}\)</span> of <span class="math inline">\({\underset{\tilde{}}{\mathbf{\Pi}}}\)</span> satisfies:</p>
+<h4 data-number="2.2.2.1" id="radial-boundary-conditions"><span
+class="header-section-number">2.2.2.1</span> Radial boundary
+conditions</h4>
+<p>In 1D, the normal is constant, so the radial component <span
+class="math inline">\(\Pi_{rr}\)</span> of <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{\Pi}}}\)</span>
+satisfies:</p>
 <p><span class="math display">\[
-\Pi_{rr}=-P\,{{\displaystyle \frac{\displaystyle S}{\displaystyle S_{0}}}}
+\Pi_{rr}=-P\,{{\displaystyle \frac{\displaystyle S}{\displaystyle
+S_{0}}}}
 \]</span></p>
 <p>Here, the surface is defined by: <span class="math display">\[
 S=2\,\pi\,R\,H
-\]</span> where <span class="math inline">\(R\)</span> is the actual radius and <span class="math inline">\(H\)</span> is the actual height. Thus,</p>
+\]</span> where <span class="math inline">\(R\)</span> is the actual
+radius and <span class="math inline">\(H\)</span> is the actual height.
+Thus,</p>
 <p><span class="math display">\[
-\Pi_{rr}=-P\,{{\displaystyle \frac{\displaystyle R}{\displaystyle R_{0}}}}\,{{\displaystyle \frac{\displaystyle H}{\displaystyle H_{0}}}}=-P\,\left(1+{{\displaystyle \frac{\displaystyle u_r\left(R_{0}\right)}{\displaystyle R_{0}}}}\right)\,\varepsilon^{\mathrm{to}}_{zz}
+\Pi_{rr}=-P\,{{\displaystyle \frac{\displaystyle R}{\displaystyle
+R_{0}}}}\,{{\displaystyle \frac{\displaystyle H}{\displaystyle
+H_{0}}}}=-P\,\left(1+{{\displaystyle \frac{\displaystyle
+u_r\left(R_{0}\right)}{\displaystyle
+R_{0}}}}\right)\,\varepsilon^{\mathrm{to}}_{zz}
 \]</span></p>
-<p>where <span class="math inline">\(u_{r}\)</span> is the radial displacement, <span class="math inline">\(R_{0}\)</span> is the initial radius and <span class="math inline">\(\varepsilon^{\mathrm{to}}_{zz}\)</span> is the axial strain.</p>
-<p>This relations are exactly the same as in small strain analysis, except for the dependency of <span class="math inline">\(S\)</span> with the actual radius which adds additional terms to the stiffness matrix.</p>
-<p>In generalised plane stress, the axial strain is not known. As discussed later, the axial strain is generally computed by the behaviour to ensure that the axial stress is equal to the prescribed value. This provides a way to compute the axial strain for the computation of the radial force, but one can not derive the exact stiffness matrix of the system. Another simpler solution is to consider the axial strain as constant during the time step for the computation of the radial forces.</p>
-<h4 data-number="2.2.2.2" id="axial-boundary-conditions"><span class="header-section-number">2.2.2.2</span> Axial boundary conditions</h4>
-<p>For a closed pipe, the axial force applied to the tube can be computed as follows:</p>
+<p>where <span class="math inline">\(u_{r}\)</span> is the radial
+displacement, <span class="math inline">\(R_{0}\)</span> is the initial
+radius and <span
+class="math inline">\(\varepsilon^{\mathrm{to}}_{zz}\)</span> is the
+axial strain.</p>
+<p>This relations are exactly the same as in small strain analysis,
+except for the dependency of <span class="math inline">\(S\)</span> with
+the actual radius which adds additional terms to the stiffness
+matrix.</p>
+<p>In generalised plane stress, the axial strain is not known. As
+discussed later, the axial strain is generally computed by the behaviour
+to ensure that the axial stress is equal to the prescribed value. This
+provides a way to compute the axial strain for the computation of the
+radial force, but one can not derive the exact stiffness matrix of the
+system. Another simpler solution is to consider the axial strain as
+constant during the time step for the computation of the radial
+forces.</p>
+<h4 data-number="2.2.2.2" id="axial-boundary-conditions"><span
+class="header-section-number">2.2.2.2</span> Axial boundary
+conditions</h4>
+<p>For a closed pipe, the axial force applied to the tube can be
+computed as follows:</p>
 <p><span class="math display">\[
 F = P_{i}\,S^{c}_{i} - P_{e}\,S^{c}_{e}
 \]</span></p>
 <p>where:</p>
 <ul>
-<li><span class="math inline">\(P_{i}\)</span> is the internal pressure.</li>
-<li><span class="math inline">\(P_{e}\)</span> is the external pressure.</li>
-<li><span class="math inline">\(S^{c}_{i}\)</span> is the internal surface of the upper cap in the current geometry, defined by <span class="math inline">\(S^{c}_{i}=\pi\,R_{i}^{2}\)</span>.</li>
-<li><span class="math inline">\(S^{c}_{e}\)</span> is the external surface of the upper cap in the current geometry, defined by <span class="math inline">\(S^{c}_{e}=\pi\,R_{e}^{2}\)</span>..</li>
+<li><span class="math inline">\(P_{i}\)</span> is the internal
+pressure.</li>
+<li><span class="math inline">\(P_{e}\)</span> is the external
+pressure.</li>
+<li><span class="math inline">\(S^{c}_{i}\)</span> is the internal
+surface of the upper cap in the current geometry, defined by <span
+class="math inline">\(S^{c}_{i}=\pi\,R_{i}^{2}\)</span>.</li>
+<li><span class="math inline">\(S^{c}_{e}\)</span> is the external
+surface of the upper cap in the current geometry, defined by <span
+class="math inline">\(S^{c}_{e}=\pi\,R_{e}^{2}\)</span>..</li>
 </ul>
-<p>Here, the pressure is assumed constant over the time step : the sensibility with the geometrical changes is neglected. Dependency of the pressure with the volume can also be taken into account, as in <code>MTest</code> if all the slices are homogeneous, which is almost never the case.</p>
-<h5 data-number="2.2.2.2.1" id="generalised-plane-stress"><span class="header-section-number">2.2.2.2.1</span> Generalised plane stress</h5>
-<p>In generalised plane stress, <span class="math inline">\(\Pi_{zz}\)</span> is assumed uniform and can determined by:</p>
+<p>Here, the pressure is assumed constant over the time step : the
+sensibility with the geometrical changes is neglected. Dependency of the
+pressure with the volume can also be taken into account, as in
+<code>MTest</code> if all the slices are homogeneous, which is almost
+never the case.</p>
+<h5 data-number="2.2.2.2.1" id="generalised-plane-stress"><span
+class="header-section-number">2.2.2.2.1</span> Generalised plane
+stress</h5>
+<p>In generalised plane stress, <span
+class="math inline">\(\Pi_{zz}\)</span> is assumed uniform and can
+determined by:</p>
 <p><span class="math display">\[
-F = \Pi_{zz}\,\left(\left(S^{c}_{e}\right)^{0}-\left(S^{c}_{i}\right)^{0}\right) = P_{i}\,S^{c}_{i} - P_{e}\,S^{c}_{e}
+F =
+\Pi_{zz}\,\left(\left(S^{c}_{e}\right)^{0}-\left(S^{c}_{i}\right)^{0}\right)
+= P_{i}\,S^{c}_{i} - P_{e}\,S^{c}_{e}
 \]</span></p>
-<p>This relation is exactly the same as in small strain analysis, except for the dependency of <span class="math inline">\(S^{c}_{i}\)</span> and <span class="math inline">\(S^{c}_{e}\)</span> with the actual inner and outer radius which adds additional terms to the stiffness matrix.</p>
-<h5 data-number="2.2.2.2.2" id="generalised-plane-strain"><span class="header-section-number">2.2.2.2.2</span> Generalised plane strain</h5>
+<p>This relation is exactly the same as in small strain analysis, except
+for the dependency of <span class="math inline">\(S^{c}_{i}\)</span> and
+<span class="math inline">\(S^{c}_{e}\)</span> with the actual inner and
+outer radius which adds additional terms to the stiffness matrix.</p>
+<h5 data-number="2.2.2.2.2" id="generalised-plane-strain"><span
+class="header-section-number">2.2.2.2.2</span> Generalised plane
+strain</h5>
 <p>In generalised plane strain, the total force is given by:</p>
 <p><span class="math display">\[
-F = 2\,\pi\,\int_{R_{i}^{0}}^{R_{e}^{0}}\Pi_{zz}\,R\,dR = P_{i}\,S^{c}_{i} - P_{e}\,S^{c}_{e}
+F = 2\,\pi\,\int_{R_{i}^{0}}^{R_{e}^{0}}\Pi_{zz}\,R\,dR =
+P_{i}\,S^{c}_{i} - P_{e}\,S^{c}_{e}
 \]</span></p>
-<p>This is exactly the same relation as in same strain analysis, except for the dependency of <span class="math inline">\(S^{c}_{i}\)</span> and <span class="math inline">\(S^{c}_{e}\)</span> with the actual inner and outer radius which adds additional terms to the stiffness matrix</p>
-<h3 data-number="2.2.3" id="finite-strain-mechanical-behaviours"><span class="header-section-number">2.2.3</span> Finite strain mechanical behaviours</h3>
-<p>Currently, the <code>MFront</code> interface only supports strain-based behaviour based on the Hencky strain measure, as described by Miehe et al. (See <span class="citation" data-cites="miehe_anisotropic_2002">[4]</span>).</p>
-<h4 data-number="2.2.3.1" id="support-of-the-hencky-strain-measure"><span class="header-section-number">2.2.3.1</span> Support of the Hencky strain measure</h4>
+<p>This is exactly the same relation as in same strain analysis, except
+for the dependency of <span class="math inline">\(S^{c}_{i}\)</span> and
+<span class="math inline">\(S^{c}_{e}\)</span> with the actual inner and
+outer radius which adds additional terms to the stiffness matrix</p>
+<h3 data-number="2.2.3" id="finite-strain-mechanical-behaviours"><span
+class="header-section-number">2.2.3</span> Finite strain mechanical
+behaviours</h3>
+<p>Currently, the <code>MFront</code> interface only supports
+strain-based behaviour based on the Hencky strain measure, as described
+by Miehe et al. (See <span class="citation"
+data-cites="miehe_anisotropic_2002">[4]</span>).</p>
+<h4 data-number="2.2.3.1"
+id="support-of-the-hencky-strain-measure"><span
+class="header-section-number">2.2.3.1</span> Support of the Hencky
+strain measure</h4>
 <p>The Hencky strain measure is defined by:</p>
 <p><span class="math display">\[
-\underline{\varepsilon}_{\log}^{\mathrm{tot}}={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,\log{{{\underset{\tilde{}}{\mathbf{F}}}^{\mathop{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}}
+\underline{\varepsilon}_{\log}^{\mathrm{tot}}={{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+2}}}\,\log{{{\underset{\tilde{}}{\mathbf{F}}}^{\mathop{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}}
 \]</span></p>
-<p>In <span class="math inline">\(1D\)</span>, this relation boils down to (See <span class="citation" data-cites="helfer_extension_2015">[3]</span>):</p>
+<p>In <span class="math inline">\(1D\)</span>, this relation boils down
+to (See <span class="citation"
+data-cites="helfer_extension_2015">[3]</span>):</p>
 <p><span class="math display">\[
   \left(\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{i}=\log\left(1+\underline{\varepsilon}^{\mathrm{to}}_{i}\right)  
 \]</span></p>
-<p>Based on energetic consideration, this strain measure also defined its dual stress denoted <span class="math inline">\(\underline{T}\)</span>. The relation between <span class="math inline">\({\underset{\tilde{}}{\mathbf{\Pi}}}\)</span> and <span class="math inline">\(\underline{T}\)</span> is fairly complex in <span class="math inline">\(3D\)</span>, but quite simple in <span class="math inline">\(1D\)</span>:</p>
+<p>Based on energetic consideration, this strain measure also defined
+its dual stress denoted <span
+class="math inline">\(\underline{T}\)</span>. The relation between <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{\Pi}}}\)</span> and
+<span class="math inline">\(\underline{T}\)</span> is fairly complex in
+<span class="math inline">\(3D\)</span>, but quite simple in <span
+class="math inline">\(1D\)</span>:</p>
 <p><span class="math display">\[
-  \Pi_{i} = {{\displaystyle \frac{\displaystyle T_{i}}{\displaystyle 1+\left(\underline{\varepsilon}^{\mathrm{to}}\right)_{i}}}}
+  \Pi_{i} = {{\displaystyle \frac{\displaystyle T_{i}}{\displaystyle
+1+\left(\underline{\varepsilon}^{\mathrm{to}}\right)_{i}}}}
 \]</span></p>
-<h5 data-number="2.2.3.1.1" id="generalised-plane-stress-1"><span class="header-section-number">2.2.3.1.1</span> Generalised plane stress</h5>
-<p>The generalised plane stress hypothesis is treated by introducing, at each integration point, an additional unknown: the axial logarithmic strain. Using the previous equations, the implicit equation associated with this unknown is:</p>
+<h5 data-number="2.2.3.1.1" id="generalised-plane-stress-1"><span
+class="header-section-number">2.2.3.1.1</span> Generalised plane
+stress</h5>
+<p>The generalised plane stress hypothesis is treated by introducing, at
+each integration point, an additional unknown: the axial logarithmic
+strain. Using the previous equations, the implicit equation associated
+with this unknown is:</p>
 <p><span class="math display">\[
 \exp\left(
 \left.\left(\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{zz}\right|_{t}+
 \Delta\,\left(\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{zz}
 \right)
-\,\left.T_{zz}\right|_{t+\Delta\,t}= \left.\Pi_{zz}^{(i)}\right|_{t+\Delta\,t}
+\,\left.T_{zz}\right|_{t+\Delta\,t}=
+\left.\Pi_{zz}^{(i)}\right|_{t+\Delta\,t}
 \]</span></p>
-<p>where <span class="math inline">\(\Pi_{zz}^{(i)}\)</span> is the prescribed axial stress.</p>
-<p>This equation is automatically added by the Hooke stress potential used by the <code>StandardElasticity</code> and <code>StandardViscoplasticity</code> bricks.</p>
+<p>where <span class="math inline">\(\Pi_{zz}^{(i)}\)</span> is the
+prescribed axial stress.</p>
+<p>This equation is automatically added by the Hooke stress potential
+used by the <code>StandardElasticity</code> and
+<code>StandardViscoplasticity</code> bricks.</p>
 <blockquote>
 <p><strong>Elastic prediction of the stress</strong></p>
-<p>Most stress potentials provide a <code>computeElasticPrediction</code> method. Under the generalised plane stress hypothesis and using the logarithmic strain, this method becomes non linear. The total axial logarithmic strain is computed so that: <span class="math display">\[
+<p>Most stress potentials provide a
+<code>computeElasticPrediction</code> method. Under the generalised
+plane stress hypothesis and using the logarithmic strain, this method
+becomes non linear. The total axial logarithmic strain is computed so
+that: <span class="math display">\[
 \exp\left(
 \left.\left(\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{zz}\right|_{t}+
 \Delta\,\left(\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{zz}\right)
-\,\left.T_{zz}^{el}\right|_{t+\Delta\,t}= \left.\Pi_{zz}^{(i)}\right|_{t+\Delta\,t}
-\]</span> where <span class="math inline">\(\left.T_{zz}^{el}\right|_{t+\Delta\,t}\)</span> is the elastic prediction of the stress, computed as a function of <span class="math inline">\(\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{zz}\)</span> among other variables (elastic strain at the beginning of the time step, in plane total strain increment, etc…)</p>
-<p>The elastic prediction of the stress is then based on the following approximation of the elastic strain at the middle of the time step: <span class="math display">\[
+\,\left.T_{zz}^{el}\right|_{t+\Delta\,t}=
+\left.\Pi_{zz}^{(i)}\right|_{t+\Delta\,t}
+\]</span> where <span
+class="math inline">\(\left.T_{zz}^{el}\right|_{t+\Delta\,t}\)</span> is
+the elastic prediction of the stress, computed as a function of <span
+class="math inline">\(\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}_{\text{log}}\right)_{zz}\)</span>
+among other variables (elastic strain at the beginning of the time step,
+in plane total strain increment, etc…)</p>
+<p>The elastic prediction of the stress is then based on the following
+approximation of the elastic strain at the middle of the time step:
+<span class="math display">\[
 \left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t}+\theta\,
 \left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}-\Delta\underline{\varepsilon}^{sf}\right)
-\]</span> where <span class="math inline">\(\Delta\underline{\varepsilon}^{sf}\)</span> is the increment of all the stress strains (thermal expansion, swelling, and so on.)</p>
+\]</span> where <span
+class="math inline">\(\Delta\underline{\varepsilon}^{sf}\)</span> is the
+increment of all the stress strains (thermal expansion, swelling, and so
+on.)</p>
 </blockquote>
 <h1 class="unnumbered" id="references">References</h1>
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-thouvenin_edf_2010" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Thouvenin</span>, Gilles, <span class="smallcaps">Baron</span>, Daniel, <span class="smallcaps">Largenton</span>, Nathalie, <span class="smallcaps">Largenton</span>, Rodrigue and <span class="smallcaps">Thevenin</span>, Philippe. <span>EDF</span> <span>CYRANO</span>3 code, recent innovations. In : <em><span>LWR</span> <span>Fuel</span> <span>Performance</span> <span>Meeting</span>/<span>TopFuel</span>/<span>WRFPM</span></em>. Orlando, Florida, USA, September 2010. </div>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-thouvenin_edf_2010" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Thouvenin</span>,
+Gilles, <span class="smallcaps">Baron</span>, Daniel, <span
+class="smallcaps">Largenton</span>, Nathalie, <span
+class="smallcaps">Largenton</span>, Rodrigue and <span
+class="smallcaps">Thevenin</span>, Philippe. <span>EDF</span>
+<span>CYRANO</span>3 code, recent innovations. In : <em><span>LWR</span>
+<span>Fuel</span> <span>Performance</span>
+<span>Meeting</span>/<span>TopFuel</span>/<span>WRFPM</span></em>.
+Orlando, Florida, USA, September 2010. </div>
 </div>
-<div id="ref-petry_advanced_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Petry</span>, Charles and <span class="smallcaps">Helfer</span>, Thomas. Advanced mechanical resolution in <span>CYRANO</span>3 fuel performance code using <span>MFront</span> generation tool. In : <em><span>LWR</span> <span>Fuel</span> <span>Performance</span> <span>Meeting</span>/<span>TopFuel</span>/<span>WRFPM</span></em>. Zurich, Switzerland, 2015. </div>
+<div id="ref-petry_advanced_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline"><span class="smallcaps">Petry</span>, Charles
+and <span class="smallcaps">Helfer</span>, Thomas. Advanced mechanical
+resolution in <span>CYRANO</span>3 fuel performance code using
+<span>MFront</span> generation tool. In : <em><span>LWR</span>
+<span>Fuel</span> <span>Performance</span>
+<span>Meeting</span>/<span>TopFuel</span>/<span>WRFPM</span></em>.
+Zurich, Switzerland, 2015. </div>
 </div>
-<div id="ref-helfer_extension_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas. Extension of monodimensional fuel performance codes to finite strain analysis using a <span>Lagrangian</span> logarithmic strain framework. <em>Nuclear Engineering and Design</em>. July 2015. Vol. 288, p. 75–81. DOI <a href="https://doi.org/10.1016/j.nucengdes.2015.02.010">10.1016/j.nucengdes.2015.02.010</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0029549315000928">http://www.sciencedirect.com/science/article/pii/S0029549315000928</a></div>
+<div id="ref-helfer_extension_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas.
+Extension of monodimensional fuel performance codes to finite strain
+analysis using a <span>Lagrangian</span> logarithmic strain framework.
+<em>Nuclear Engineering and Design</em>. July 2015. Vol. 288, p. 75–81.
+DOI <a
+href="https://doi.org/10.1016/j.nucengdes.2015.02.010">10.1016/j.nucengdes.2015.02.010</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0029549315000928">http://www.sciencedirect.com/science/article/pii/S0029549315000928</a></div>
 </div>
-<div id="ref-miehe_anisotropic_2002" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline"><span class="smallcaps">Miehe</span>, C., <span class="smallcaps">Apel</span>, N. and <span class="smallcaps">Lambrecht</span>, M. Anisotropic additive plasticity in the logarithmic strain space: Modular kinematic formulation and implementation based on incremental minimization principles for standard materials. <em>Computer Methods in Applied Mechanics and Engineering</em>. November 2002. Vol. 191, no. 47–48, p. 5383–5425. DOI <a href="https://doi.org/10.1016/S0045-7825(02)00438-3">10.1016/S0045-7825(02)00438-3</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0045782502004383">http://www.sciencedirect.com/science/article/pii/S0045782502004383</a></div>
+<div id="ref-miehe_anisotropic_2002" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline"><span class="smallcaps">Miehe</span>, C., <span
+class="smallcaps">Apel</span>, N. and <span
+class="smallcaps">Lambrecht</span>, M. Anisotropic additive plasticity
+in the logarithmic strain space: Modular kinematic formulation and
+implementation based on incremental minimization principles for standard
+materials. <em>Computer Methods in Applied Mechanics and
+Engineering</em>. November 2002. Vol. 191, no. 47–48, p. 5383–5425.
+DOI <a
+href="https://doi.org/10.1016/S0045-7825(02)00438-3">10.1016/S0045-7825(02)00438-3</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0045782502004383">http://www.sciencedirect.com/science/article/pii/S0045782502004383</a></div>
 </div>
 </div>
     <script>

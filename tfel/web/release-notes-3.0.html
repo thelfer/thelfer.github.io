@@ -17,8 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -27,7 +28,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -51,11 +52,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -64,14 +65,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -80,7 +81,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -183,6 +186,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -328,80 +332,197 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">New functionalities of the 3.0 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
-<h2 class="author">Thomas Helfer, Olivier Fandeur, David Haboussa, Dominique Deloison, Olivier Jamond, Rémi Munier, Lucie Berthon, Étienne Castelier, Isabelle Ramière</h2>
+<h1 class="title">New functionalities of the 3.0 version of
+<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h2 class="author">Thomas Helfer, Olivier Fandeur, David Haboussa,
+Dominique Deloison, Olivier Jamond, Rémi Munier, Lucie Berthon, Étienne
+Castelier, Isabelle Ramière</h2>
 <h3 class="date">2017</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#overview-of-tfel-mfront-and-mtest">Overview of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></a>
+<li><a href="#overview-of-tfel-mfront-and-mtest"
+id="toc-overview-of-tfel-mfront-and-mtest">Overview of
+<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></a>
 <ul>
-<li><a href="#how-to-get-tfel-and-mfront">How to get <code>TFEL</code> and <code>MFront</code></a></li>
+<li><a href="#how-to-get-tfel-and-mfront"
+id="toc-how-to-get-tfel-and-mfront">How to get <code>TFEL</code> and
+<code>MFront</code></a></li>
 </ul></li>
-<li><a href="#highlights">Highlights</a>
+<li><a href="#highlights" id="toc-highlights">Highlights</a>
 <ul>
-<li><a href="#new-interfaces">New interfaces</a></li>
-<li><a href="#behaviour-bricks">Behaviour bricks</a></li>
-<li><a href="#pipe-modelling-in-mtest">Pipe Modelling in <code>MTest</code></a></li>
-<li><a href="#new-acceleration-algorithms-in-mtest">New acceleration algorithms in <code>MTest</code></a></li>
-<li><a href="#a-stable-api-to-build-external-tools-application-to-the-mechanical-behaviours-identification-developed-in-the-map-plateform">A stable API to build external tools: application to the mechanical behaviours identification developed in the MAP plateform</a></li>
+<li><a href="#new-interfaces" id="toc-new-interfaces">New
+interfaces</a></li>
+<li><a href="#behaviour-bricks" id="toc-behaviour-bricks">Behaviour
+bricks</a></li>
+<li><a href="#pipe-modelling-in-mtest"
+id="toc-pipe-modelling-in-mtest">Pipe Modelling in
+<code>MTest</code></a></li>
+<li><a href="#new-acceleration-algorithms-in-mtest"
+id="toc-new-acceleration-algorithms-in-mtest">New acceleration
+algorithms in <code>MTest</code></a></li>
+<li><a
+href="#a-stable-api-to-build-external-tools-application-to-the-mechanical-behaviours-identification-developed-in-the-map-plateform"
+id="toc-a-stable-api-to-build-external-tools-application-to-the-mechanical-behaviours-identification-developed-in-the-map-plateform">A
+stable API to build external tools: application to the mechanical
+behaviours identification developed in the MAP plateform</a></li>
 </ul></li>
-<li><a href="#an-industrial-strength-software">An industrial strength software</a>
+<li><a href="#an-industrial-strength-software"
+id="toc-an-industrial-strength-software">An industrial strength
+software</a>
 <ul>
-<li><a href="#systems-supported">Systems supported</a></li>
-<li><a href="#compiler-support">Compiler support</a></li>
-<li><a href="#documentation">Documentation</a></li>
-<li><a href="#code-quality">Code quality</a></li>
-<li><a href="#solved-tickets">Solved Tickets</a></li>
+<li><a href="#systems-supported" id="toc-systems-supported">Systems
+supported</a></li>
+<li><a href="#compiler-support" id="toc-compiler-support">Compiler
+support</a></li>
+<li><a href="#documentation"
+id="toc-documentation">Documentation</a></li>
+<li><a href="#code-quality" id="toc-code-quality">Code quality</a></li>
+<li><a href="#solved-tickets" id="toc-solved-tickets">Solved
+Tickets</a></li>
 </ul></li>
-<li><a href="#conclusions">Conclusions</a></li>
-<li><a href="#references">References</a></li>
+<li><a href="#conclusions" id="toc-conclusions">Conclusions</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
 </ul>
 </div>
-<h1 id="overview-of-tfel-mfront-and-mtest">Overview of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
-<p>The <code>TFEL</code> project is an open-source collaborative development of the French Alternative Energies and Atomic Energy Commission (CEA) and Électricité de France (EDF) in the framework of the <code>PLEIADES</code> plateform (see <span class="citation" data-cites="marelle_new_2016">[1]</span>). <code>TFEL</code> provides mathematical libraries which are the basis of the <code>MFront</code> code generator and the <code>MTest</code> solver (see <span class="citation" data-cites="helfer_implantation_2015 helfer_introducing_2015">[3, 4]</span>).</p>
-<p><code>MFront</code> translates a set of closely related domain specific languages into plain C++ on top of the <code>TFEL</code> library. Those languages are meant to be easy to use and learn by researchers and engineers and cover three kinds of material knowledge:</p>
+<h1 id="overview-of-tfel-mfront-and-mtest">Overview of
+<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<p>The <code>TFEL</code> project is an open-source collaborative
+development of the French Alternative Energies and Atomic Energy
+Commission (CEA) and Électricité de France (EDF) in the framework of the
+<code>PLEIADES</code> plateform (see <span class="citation"
+data-cites="marelle_new_2016">[1]</span>). <code>TFEL</code> provides
+mathematical libraries which are the basis of the <code>MFront</code>
+code generator and the <code>MTest</code> solver (see <span
+class="citation"
+data-cites="helfer_implantation_2015 helfer_introducing_2015">[2,
+3]</span>).</p>
+<p><code>MFront</code> translates a set of closely related domain
+specific languages into plain C++ on top of the <code>TFEL</code>
+library. Those languages are meant to be easy to use and learn by
+researchers and engineers and cover three kinds of material
+knowledge:</p>
 <ul>
-<li>Material properties (for instance Young modulus, thermal conductivity, etc.)</li>
+<li>Material properties (for instance Young modulus, thermal
+conductivity, etc.)</li>
 <li>Mechanical behaviours.</li>
-<li>Simple point-wise models, such as material swelling used in fuel performance codes.</li>
+<li>Simple point-wise models, such as material swelling used in fuel
+performance codes.</li>
 </ul>
-<p>Authors of <code>MFront</code> paid particular attention to the robustness, reliability and numerical efficiency of the generated code, in particular for mechanical behaviours: various benchmarks show that <code>MFront</code> implementations are competitive with native implementations available in the <code>Cast3M</code> <span class="citation" data-cites="cea_site_2016">[5]</span>, <code>Code_Aster</code> <span class="citation" data-cites="edf_site_2016">[6]</span>, <code>Europlexus</code> <span class="citation" data-cites="cea_epx_2016">[8]</span>, <code>Abaqus/Standard</code> , <code>Abaqus/Explicit</code> <span class="citation" data-cites="dassault_abaqus_2016 deloison_testing_2016">[9, 10]</span> and <code>Cyrano3</code> <span class="citation" data-cites="petry_advanced_2015">[11]</span> solvers.</p>
-<p>Portability is also a very important issue: a behaviour written in <code>MFront</code> shall be usable in a solvers for which an interface exists. For example, for finite strain analysis, each solver has chosen a specific definition of the consistent tangent operator. <code>MFront</code> will convert the operator provided by the user, who is free to choose the most convenient operator to ease the implementation effort, into the one expected by the solver. The conversion paths currently available are depicted on Figure 1.</p>
-<figure>
-<img src="img/FiniteStrainTangentOperatorConvertion.svg" title="Supported relations between tangent operators in `MFront`" id="fig:FiniteStrainTangentOperatorConvertion" style="width:75.0%" alt="Figure 1: “Relation between tangent operators”" /><figcaption aria-hidden="true">Figure 1: “Relation between tangent operators”</figcaption>
+<p>Authors of <code>MFront</code> paid particular attention to the
+robustness, reliability and numerical efficiency of the generated code,
+in particular for mechanical behaviours: various benchmarks show that
+<code>MFront</code> implementations are competitive with native
+implementations available in the <code>Cast3M</code> <span
+class="citation" data-cites="cea_site_2016">[4]</span>,
+<code>Code_Aster</code> <span class="citation"
+data-cites="edf_site_2016">[5]</span>, <code>Europlexus</code> <span
+class="citation" data-cites="cea_epx_2016">[6]</span>,
+<code>Abaqus/Standard</code> , <code>Abaqus/Explicit</code> <span
+class="citation"
+data-cites="dassault_abaqus_2016 deloison_testing_2016">[7, 8]</span>
+and <code>Cyrano3</code> <span class="citation"
+data-cites="petry_advanced_2015">[9]</span> solvers.</p>
+<p>Portability is also a very important issue: a behaviour written in
+<code>MFront</code> shall be usable in a solvers for which an interface
+exists. For example, for finite strain analysis, each solver has chosen
+a specific definition of the consistent tangent operator.
+<code>MFront</code> will convert the operator provided by the user, who
+is free to choose the most convenient operator to ease the
+implementation effort, into the one expected by the solver. The
+conversion paths currently available are depicted on Figure 1.</p>
+<figure id="fig:FiniteStrainTangentOperatorConvertion">
+<img src="img/FiniteStrainTangentOperatorConvertion.svg"
+title="Supported relations between tangent operators in `MFront`"
+style="width:75.0%" alt="“Relation between tangent operators”" />
+<figcaption>Figure 1: “Relation between tangent operators”</figcaption>
 </figure>
-<p><code>MTest</code> is a tool created to perform unit-testings on the mechanical behaviours generated by <code>MFront</code>.</p>
-<h2 id="how-to-get-tfel-and-mfront">How to get <code>TFEL</code> and <code>MFront</code></h2>
-<p><code>TFEL</code> is distributed with the <code>Code_Aster</code> finite element solver (see <span class="citation" data-cites="edf_site_2016">[6]</span>), the <code>Salome-Meca</code> plateform (see also <span class="citation" data-cites="edf_site_2016">[6]</span>) and the <code>Material Ageing Plateform</code> (MAP), which is available for all members of the Material Ageing Institute (MAI) (see <span class="citation" data-cites="latourte_materials_2013 edf_mai_2016">[12, 13]</span>).</p>
-<p>Sources of <code>TFEL</code> can be downloaded from its website (see <span class="citation" data-cites="cea_mfront_2016">[14]</span>). Binaries for the <code>Windows</code> operating system which are built upon versions of the <code>Cast3M</code> finite element solver are also available.</p>
+<p><code>MTest</code> is a tool created to perform unit-testings on the
+mechanical behaviours generated by <code>MFront</code>.</p>
+<h2 id="how-to-get-tfel-and-mfront">How to get <code>TFEL</code> and
+<code>MFront</code></h2>
+<p><code>TFEL</code> is distributed with the <code>Code_Aster</code>
+finite element solver (see <span class="citation"
+data-cites="edf_site_2016">[5]</span>), the <code>Salome-Meca</code>
+plateform (see also <span class="citation"
+data-cites="edf_site_2016">[5]</span>) and the
+<code>Material Ageing Plateform</code> (MAP), which is available for all
+members of the Material Ageing Institute (MAI) (see <span
+class="citation" data-cites="latourte_materials_2013 edf_mai_2016">[10,
+11]</span>).</p>
+<p>Sources of <code>TFEL</code> can be downloaded from its website (see
+<span class="citation" data-cites="cea_mfront_2016">[12]</span>).
+Binaries for the <code>Windows</code> operating system which are built
+upon versions of the <code>Cast3M</code> finite element solver are also
+available.</p>
 <h1 id="highlights">Highlights</h1>
-<p>From a user point of view, <code>TFEL</code> 3.0 brings many game-changing features which are described hereafter:</p>
+<p>From a user point of view, <code>TFEL</code> 3.0 brings many
+game-changing features which are described hereafter:</p>
 <ul>
-<li>New mechanical behaviour interfaces to several finite element solvers (<code>Europlexus</code>, <code>Abaqus/Standard</code>, <code>Abaqus/Explicit</code>, <code>CalculiX</code>)</li>
+<li>New mechanical behaviour interfaces to several finite element
+solvers (<code>Europlexus</code>, <code>Abaqus/Standard</code>,
+<code>Abaqus/Explicit</code>, <code>CalculiX</code>)</li>
 <li>The support of behaviours bricks, described below.</li>
-<li>The ability to simulate pipes using a rigourous finite strain framework in <code>MTest</code></li>
-<li>The introduction of various accelerations algorithms used for solving the mechanical equilibrium when the consistent tangent operator is not available (see <span class="citation" data-cites="ramiere_iterative_2015">[16]</span>).</li>
-<li>The development of a stable API (application programming interface) in <code>C++</code> and <code>python</code> which allow building external tools upon <code>MFront</code> and <code>MTest</code>. This point is illustrated by the development by EDF MMC in the <code>Material Ageing Plateform</code> of a new identification tool which is particularly interesting.</li>
+<li>The ability to simulate pipes using a rigourous finite strain
+framework in <code>MTest</code></li>
+<li>The introduction of various accelerations algorithms used for
+solving the mechanical equilibrium when the consistent tangent operator
+is not available (see <span class="citation"
+data-cites="ramiere_iterative_2015">[14]</span>).</li>
+<li>The development of a stable API (application programming interface)
+in <code>C++</code> and <code>python</code> which allow building
+external tools upon <code>MFront</code> and <code>MTest</code>. This
+point is illustrated by the development by EDF MMC in the
+<code>Material Ageing Plateform</code> of a new identification tool
+which is particularly interesting.</li>
 </ul>
-<figure>
-<img src="img/FissurationPastille.png" id="fig:PhaseField" style="width:75.0%" alt="Figure 2: Phase field modelling of the nuclear fuel pellet fragmentation during the reactor start-up (see [17] for details)" /><figcaption aria-hidden="true">Figure 2: Phase field modelling of the nuclear fuel pellet fragmentation during the reactor start-up (see <span class="citation" data-cites="helfer_phase_field_2017">[17]</span> for details)</figcaption>
+<figure id="fig:PhaseField">
+<img src="img/FissurationPastille.png" style="width:75.0%"
+alt="Phase field modelling of the nuclear fuel pellet fragmentation during the reactor start-up (see [15] for details)" />
+<figcaption>Figure 2: Phase field modelling of the nuclear fuel pellet
+fragmentation during the reactor start-up (see <span class="citation"
+data-cites="helfer_phase_field_2017">[15]</span> for
+details)</figcaption>
 </figure>
-<p>Many improvements for mechanical behaviours have also been made, which won’t be detailed in this paper:</p>
+<p>Many improvements for mechanical behaviours have also been made,
+which won’t be detailed in this paper:</p>
 <ul>
-<li>Definition and automatic computation of elastic material properties from external <code>MFront</code> files.</li>
-<li>Support for the automatic computation of the thermal expansion and swelling in the mechanical behaviour.</li>
-<li>Better support for orthotropic behaviours with the notion of orthotropic convention which affects various keywords (<code>@ComputeStiffnessTensor</code>, <code>@ComputeThermalExpansion</code>, <code>@Swelling</code>, <code>@AxialGrowth</code>, <code>@HillTensor</code> etc..).</li>
-<li>An initial support of non local mechanical behaviours. See for example Figure 2.</li>
+<li>Definition and automatic computation of elastic material properties
+from external <code>MFront</code> files.</li>
+<li>Support for the automatic computation of the thermal expansion and
+swelling in the mechanical behaviour.</li>
+<li>Better support for orthotropic behaviours with the notion of
+orthotropic convention which affects various keywords
+(<code>@ComputeStiffnessTensor</code>,
+<code>@ComputeThermalExpansion</code>, <code>@Swelling</code>,
+<code>@AxialGrowth</code>, <code>@HillTensor</code> etc..).</li>
+<li>An initial support of non local mechanical behaviours. See for
+example Figure 2.</li>
 <li>Time steps management from the mechanical behaviour.</li>
-<li>Consistent tangent operator support in the <code>Cast3M</code> interface.</li>
-<li>Easier computations of isotropic functions of symmetric tensors and their derivatives.</li>
-<li>New material properties interfaces for various programming languages (<code>fortran03</code>, <code>java</code>, <code>GNU/Octave</code>).</li>
+<li>Consistent tangent operator support in the <code>Cast3M</code>
+interface.</li>
+<li>Easier computations of isotropic functions of symmetric tensors and
+their derivatives.</li>
+<li>New material properties interfaces for various programming languages
+(<code>fortran03</code>, <code>java</code>,
+<code>GNU/Octave</code>).</li>
 </ul>
 <h2 id="new-interfaces">New interfaces</h2>
 <h3 id="europlexus"><code>Europlexus</code></h3>
-<p><code>Europlexus</code> (<code>EPX</code>) is a simulation software dedicated to the analysis of fast transient phenomena involving structures and fluids in interaction. The program is co-owned by the French Alternative Energies and Atomic Energy Commission (CEA) and the Joint Research Centre of the European Commission (EC/JRC). Its development is carried out through a Consortium involving the co-owners and so-called major partners who are granted a complete access to the source code and development tools (see <span class="citation" data-cites="cea_epx_2016">[8]</span>).</p>
-<p>The ability to call external libraries generated by <code>MFront</code> has been introduced in the current developpement version of <code>EPX</code>. When loading a <code>MFront</code> behaviour, <code>Europlexus</code> automatically retrieves various helpfull information about the mechanical behaviour:</p>
+<p><code>Europlexus</code> (<code>EPX</code>) is a simulation software
+dedicated to the analysis of fast transient phenomena involving
+structures and fluids in interaction. The program is co-owned by the
+French Alternative Energies and Atomic Energy Commission (CEA) and the
+Joint Research Centre of the European Commission (EC/JRC). Its
+development is carried out through a Consortium involving the co-owners
+and so-called major partners who are granted a complete access to the
+source code and development tools (see <span class="citation"
+data-cites="cea_epx_2016">[6]</span>).</p>
+<p>The ability to call external libraries generated by
+<code>MFront</code> has been introduced in the current developpement
+version of <code>EPX</code>. When loading a <code>MFront</code>
+behaviour, <code>Europlexus</code> automatically retrieves various
+helpfull information about the mechanical behaviour:</p>
 <ul>
 <li>Number and name of material properties</li>
 <li>Number, names and type of internal state variables</li>
@@ -409,29 +530,47 @@
 <li>Symmetry of the behaviour (isotropy, entropy)</li>
 <li>etc…</li>
 </ul>
-<p>This information allows to check that the material declaration is consistent and reduces the inputs provided by the user to the bare minimal. A similar technique is used in <code>Code_Aster</code> and <code>MTest</code> when calling <code>MFront</code> generated behaviours.</p>
+<p>This information allows to check that the material declaration is
+consistent and reduces the inputs provided by the user to the bare
+minimal. A similar technique is used in <code>Code_Aster</code> and
+<code>MTest</code> when calling <code>MFront</code> generated
+behaviours.</p>
 <h4 id="supported-features">Supported features</h4>
 <p>The following features are currently available:</p>
 <ul>
 <li>Support for finite strain behaviours</li>
 <li>Support for isotropic and orthotropic behaviours</li>
-<li>Automatic generation of an input file example to help the user in assigning a <code>MFront</code> behaviour to a material.</li>
+<li>Automatic generation of an input file example to help the user in
+assigning a <code>MFront</code> behaviour to a material.</li>
 </ul>
 <h4 id="finite-strain-strategies">Finite strain strategies</h4>
-<p>Small strain behaviours can be embedded through finite strain strategies: currently, <code>MFront</code> provides (see <span class="citation" data-cites="edf_loi_2013 miehe_anisotropic_2002">[19, 20]</span>):</p>
+<p>Small strain behaviours can be embedded through finite strain
+strategies: currently, <code>MFront</code> provides (see <span
+class="citation" data-cites="edf_loi_2013 miehe_anisotropic_2002">[16,
+17]</span>):</p>
 <ul>
-<li>the <code>FiniteRotationSmallStrain</code> strategy: based on the Green-Lagrange strain measure.</li>
-<li>the <code>MieheApelLambrechtLogarithmicStrain</code> strategy based on the lagrangian Hencky strain measure.</li>
+<li>the <code>FiniteRotationSmallStrain</code> strategy: based on the
+Green-Lagrange strain measure.</li>
+<li>the <code>MieheApelLambrechtLogarithmicStrain</code> strategy based
+on the lagrangian Hencky strain measure.</li>
 </ul>
-<p>In both cases, the strain measure is computed before calling the behaviour and the stress tensor resulting from the behaviour integration is interpreted as the dual of this strain measure. This stress tensor is then converted into the Cauchy stress tensor for computing the nodal forces.</p>
+<p>In both cases, the strain measure is computed before calling the
+behaviour and the stress tensor resulting from the behaviour integration
+is interpreted as the dual of this strain measure. This stress tensor is
+then converted into the Cauchy stress tensor for computing the nodal
+forces.</p>
 <h4 id="performances">Performances</h4>
-<figure>
-<img src="img/epx-bars.png" id="fig:epx" style="width:75.0%" alt="Figure 3: Impact of two bars" /><figcaption aria-hidden="true">Figure 3: Impact of two bars</figcaption>
+<figure id="fig:epx">
+<img src="img/epx-bars.png" style="width:75.0%"
+alt="Impact of two bars" />
+<figcaption>Figure 3: Impact of two bars</figcaption>
 </figure>
 <p>Figure 3 shows a simple test simulating the impact of two bars.</p>
 <div id="tbl:epx">
 <table>
-<caption>Table 1: Example of comparison of the computation times for the test depicted on Figure 3 for various behaviours describing istropic plasticity with linear isotropic hardening.</caption>
+<caption>Table 1: Example of comparison of the computation times for the
+test depicted on Figure 3 for various behaviours describing istropic
+plasticity with linear isotropic hardening.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Behaviour</th>
@@ -448,51 +587,108 @@
 <td style="text-align: center;">232s</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">MFront ImplicitSimoMieheElastoPlasticity</td>
+<td style="text-align: center;">MFront
+ImplicitSimoMieheElastoPlasticity</td>
 <td style="text-align: center;">250s</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">MFront MieheApelLambrechtLogarithmicStrain</td>
+<td style="text-align: center;">MFront
+MieheApelLambrechtLogarithmicStrain</td>
 <td style="text-align: center;">528s</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>This tests show that, for simple behaviours describing isotropic plasticty, <code>MFront</code> behaviours seems a bit less efficient than Fortran built-in implementations, as reported on Table 1. However, it shall be stated that the behaviours tested are not strictly equivalent (native behaviours are based on objective stress rates while <code>MFront</code> ones are hyperelastoplastic). <code>MFront</code> computational times can be improved by keeping some intermediate results for one step to the next to the expense of memory usage.</p>
-<p>This interface is fully described here: <a href="http://tfel.sourceforge.net/epx.html" class="uri">http://tfel.sourceforge.net/epx.html</a></p>
-<p><em>Acknowledgements</em> This work was accomplished within the framework of the “dynamique rapide” project, financially supported by the CEA and EDF.</p>
-<h3 id="abaqusstandard-abaqusexplicit-and-calculix"><code>Abaqus/Standard</code>, <code>Abaqus/Explicit</code> and <code>CalculiX</code></h3>
+<p>This tests show that, for simple behaviours describing isotropic
+plasticty, <code>MFront</code> behaviours seems a bit less efficient
+than Fortran built-in implementations, as reported on Table 1. However,
+it shall be stated that the behaviours tested are not strictly
+equivalent (native behaviours are based on objective stress rates while
+<code>MFront</code> ones are hyperelastoplastic). <code>MFront</code>
+computational times can be improved by keeping some intermediate results
+for one step to the next to the expense of memory usage.</p>
+<p>This interface is fully described here: <a
+href="http://tfel.sourceforge.net/epx.html"
+class="uri">http://tfel.sourceforge.net/epx.html</a></p>
+<p><em>Acknowledgements</em> This work was accomplished within the
+framework of the “dynamique rapide” project, financially supported by
+the CEA and EDF.</p>
+<h3
+id="abaqusstandard-abaqusexplicit-and-calculix"><code>Abaqus/Standard</code>,
+<code>Abaqus/Explicit</code> and <code>CalculiX</code></h3>
 <p>The <code>Abaqus</code> Unified FEA product suite provides:</p>
 <ul>
-<li>an implicit finite element solver, called <code>Abaqus/Standard</code>, which can be extended using the <code>umat</code> subroutine.</li>
-<li>an explicit finite element solver, called <code>Abaqus/Explicit</code>, which can be extended using the <code>vumat</code> subroutine.</li>
+<li>an implicit finite element solver, called
+<code>Abaqus/Standard</code>, which can be extended using the
+<code>umat</code> subroutine.</li>
+<li>an explicit finite element solver, called
+<code>Abaqus/Explicit</code>, which can be extended using the
+<code>vumat</code> subroutine.</li>
 </ul>
-<p><code>MFront</code> provides an interface for these two solvers and strives to allow the user restart a computation while switching from one solver to the other: a feature which is not easy to implement as these solvers use different conventions and, by default, different kinematics assumptions.</p>
-<p>The <code>Abaqus/Standard</code> interface can also be used to extend the <code>CalculiX</code> finite element solver (see <span class="citation" data-cites="dhondt_calculix_2016">[21]</span>).</p>
-<h4 id="calling-mfront-behaviours-from-abaqusstandard-or-abaqusexplicit">Calling <code>MFront</code> behaviours from <code>Abaqus/Standard</code> or <code>Abaqus/Explicit</code></h4>
-<p>Calling a behaviour from <code>Abaqus/Standard</code> or <code>Abaqus/Explicit</code> is a two steps process:</p>
+<p><code>MFront</code> provides an interface for these two solvers and
+strives to allow the user restart a computation while switching from one
+solver to the other: a feature which is not easy to implement as these
+solvers use different conventions and, by default, different kinematics
+assumptions.</p>
+<p>The <code>Abaqus/Standard</code> interface can also be used to extend
+the <code>CalculiX</code> finite element solver (see <span
+class="citation" data-cites="dhondt_calculix_2016">[18]</span>).</p>
+<h4
+id="calling-mfront-behaviours-from-abaqusstandard-or-abaqusexplicit">Calling
+<code>MFront</code> behaviours from <code>Abaqus/Standard</code> or
+<code>Abaqus/Explicit</code></h4>
+<p>Calling a behaviour from <code>Abaqus/Standard</code> or
+<code>Abaqus/Explicit</code> is a two steps process:</p>
 <ul>
-<li>Compiling a <code>MFront</code> library before launching either <code>Abaqus/Standard</code> or <code>Abaqus/Explicit</code>. This allows the creation of a set of libraries that can be shared between co-workers (for example, by copying them in shared folders).</li>
-<li>Launching <code>Abaqus/Standard</code> or <code>Abaqus/Explicit</code> with a general purpose <code>umat</code> or <code>vumat</code> subroutine which handles the loading of the <code>MFront</code> library and the call of the appropriate behaviour. The material name as declared in the input file must contains the name of the library and the name of the behaviour and the modelling hypothesis.</li>
+<li>Compiling a <code>MFront</code> library before launching either
+<code>Abaqus/Standard</code> or <code>Abaqus/Explicit</code>. This
+allows the creation of a set of libraries that can be shared between
+co-workers (for example, by copying them in shared folders).</li>
+<li>Launching <code>Abaqus/Standard</code> or
+<code>Abaqus/Explicit</code> with a general purpose <code>umat</code> or
+<code>vumat</code> subroutine which handles the loading of the
+<code>MFront</code> library and the call of the appropriate behaviour.
+The material name as declared in the input file must contains the name
+of the library and the name of the behaviour and the modelling
+hypothesis.</li>
 </ul>
 <h4 id="features-supported">Features supported</h4>
-<p>For every behaviour, example of input file are automatically generated.</p>
-<p>The <code>MFront</code> interface for the <code>Abaqus/Standard</code> solver supports orthotropic and isotropic, small and finite strain behaviours. For isotropic behaviours written in the small strain framework, internal state variables are automatically and properly rotated in finite strain analyses.</p>
-<p>Concerning <code>Abaqus/Explicit</code>, we support orthotropic and isotropic finite strain behaviours.</p>
-<p>In both cases, we offer three finite strain strategies to use small strain behaviours implementations in finite strain:</p>
+<p>For every behaviour, example of input file are automatically
+generated.</p>
+<p>The <code>MFront</code> interface for the
+<code>Abaqus/Standard</code> solver supports orthotropic and isotropic,
+small and finite strain behaviours. For isotropic behaviours written in
+the small strain framework, internal state variables are automatically
+and properly rotated in finite strain analyses.</p>
+<p>Concerning <code>Abaqus/Explicit</code>, we support orthotropic and
+isotropic finite strain behaviours.</p>
+<p>In both cases, we offer three finite strain strategies to use small
+strain behaviours implementations in finite strain:</p>
 <ul>
-<li>The <code>Native</code> one which uses <code>Abaqus</code> native strategy to handle behaviour written in rate-form.</li>
-<li>The <code>FiniteRotationSmallStrain</code> strategy (see <span class="citation" data-cites="edf_loi_2013">[19]</span>).</li>
-<li>The <code>MieheApelLambrechtLogarithmicStrain</code> strategy (see <span class="citation" data-cites="miehe_anisotropic_2002">[20]</span>).</li>
+<li>The <code>Native</code> one which uses <code>Abaqus</code> native
+strategy to handle behaviour written in rate-form.</li>
+<li>The <code>FiniteRotationSmallStrain</code> strategy (see <span
+class="citation" data-cites="edf_loi_2013">[16]</span>).</li>
+<li>The <code>MieheApelLambrechtLogarithmicStrain</code> strategy (see
+<span class="citation"
+data-cites="miehe_anisotropic_2002">[17]</span>).</li>
 </ul>
 <h4 id="performances-1">Performances</h4>
-<p>In <code>Abaqus/Standard</code>, our tests show that the performances of <code>MFront</code> generated behaviours are on par with native behaviours (even slightly better in some cases): those results were quite surprising because we expected the manual handling of the external libraries at the Gauss point level to be a performance bottleneck.</p>
-<figure>
-<img src="img/AbaqusFLD.png" id="fig:abaqusFLD" width="465" height="240" alt="Figure 4: Simulation of a Punching test" /><figcaption aria-hidden="true">Figure 4: Simulation of a Punching test</figcaption>
+<p>In <code>Abaqus/Standard</code>, our tests show that the performances
+of <code>MFront</code> generated behaviours are on par with native
+behaviours (even slightly better in some cases): those results were
+quite surprising because we expected the manual handling of the external
+libraries at the Gauss point level to be a performance bottleneck.</p>
+<figure id="fig:abaqusFLD">
+<img src="img/AbaqusFLD.png" width="465" height="240"
+alt="Simulation of a Punching test" />
+<figcaption>Figure 4: Simulation of a Punching test</figcaption>
 </figure>
 <div id="tbl:abaqusexplicit">
 <table>
-<caption>Table 2: Comparison of computational times for a simple isotropic plasticity behaviour with linear kinematic hardening applied to the punching test depicted on Figure 4.</caption>
+<caption>Table 2: Comparison of computational times for a simple
+isotropic plasticity behaviour with linear kinematic hardening applied
+to the punching test depicted on Figure 4.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Implementation</th>
@@ -505,7 +701,8 @@
 <td style="text-align: center;">638s</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><code>VUMAT</code> (<code>Fortran</code>)</td>
+<td style="text-align: center;"><code>VUMAT</code>
+(<code>Fortran</code>)</td>
 <td style="text-align: center;">762s</td>
 </tr>
 <tr class="odd">
@@ -515,80 +712,127 @@
 </tbody>
 </table>
 </div>
-<p>In <code>Abaqus/Explicit</code>, we found that our implementations are about <span class="math inline">\(20\,\%\)</span> slower than the native ones on the simulation of the punching test depicted on Figure 4 for an isotropic plastic behaviour with linear isotropic hardening. However, our implementations are nearly equivalent to <code>VUMAT</code> implementations described in <span class="citation" data-cites="abaqus_vumat_2016">[22]</span> (see Table 2). This difference can have several explanations:</p>
+<p>In <code>Abaqus/Explicit</code>, we found that our implementations
+are about <span class="math inline">\(20\,\%\)</span> slower than the
+native ones on the simulation of the punching test depicted on Figure 4
+for an isotropic plastic behaviour with linear isotropic hardening.
+However, our implementations are nearly equivalent to <code>VUMAT</code>
+implementations described in <span class="citation"
+data-cites="abaqus_vumat_2016">[19]</span> (see Table 2). This
+difference can have several explanations:</p>
 <ul>
-<li>the <code>VUMAT</code> implementation is based on an update of the stresses whereas the <code>MFront</code> implementation keeps the elastic strain as an internal state variable.</li>
-<li>the <code>VUMAT</code> implementation is compiled using the <code>INTEL</code> compiler and the <code>MFront</code> implementation is compiled with <code>gcc</code>.</li>
+<li>the <code>VUMAT</code> implementation is based on an update of the
+stresses whereas the <code>MFront</code> implementation keeps the
+elastic strain as an internal state variable.</li>
+<li>the <code>VUMAT</code> implementation is compiled using the
+<code>INTEL</code> compiler and the <code>MFront</code> implementation
+is compiled with <code>gcc</code>.</li>
 </ul>
 <h4 id="additional-documentations">Additional documentations</h4>
-<p>A dedicated page has been created describing the current features of these interfaces, the potential pitfalls, and the choices that were made to support some behaviours, for example orthotropic finite strain behaviours: <a href="http://tfel.sourceforge.net/abaqus.html" class="uri">http://tfel.sourceforge.net/abaqus.html</a></p>
-<p>A specific talk of the Second MFront User Day has been dedicated to those interfaces (see <span class="citation" data-cites="deloison_testing_2016">[10]</span>).</p>
+<p>A dedicated page has been created describing the current features of
+these interfaces, the potential pitfalls, and the choices that were made
+to support some behaviours, for example orthotropic finite strain
+behaviours: <a href="http://tfel.sourceforge.net/abaqus.html"
+class="uri">http://tfel.sourceforge.net/abaqus.html</a></p>
+<p>A specific talk of the Second MFront User Day has been dedicated to
+those interfaces (see <span class="citation"
+data-cites="deloison_testing_2016">[8]</span>).</p>
 <h2 id="behaviour-bricks">Behaviour bricks</h2>
-<p>Behaviour bricks allow the use of predefined parts of a behaviour.</p>
+<p>Behaviour bricks allow the use of predefined parts of a
+behaviour.</p>
 <p>For example, the <code>StandardElasticity</code> brick handles:</p>
 <ul>
-<li>The computation of the stress according to the Hooke law, taking into account the evolution of the elastic material properties if necessary.</li>
-<li>The computation of an elastic prediction of the stresses, taking into account the modelling hypothesis.</li>
+<li>The computation of the stress according to the Hooke law, taking
+into account the evolution of the elastic material properties if
+necessary.</li>
+<li>The computation of an elastic prediction of the stresses, taking
+into account the modelling hypothesis.</li>
 <li>The computation of the tangent operator.</li>
 <li>The computation of a minimal prediction operator.</li>
 <li>The computation of the stored and dissipated energy.</li>
-<li>The additional equations associated with the plane stress and generalised plane stresss modelling hypotheses support.</li>
+<li>The additional equations associated with the plane stress and
+generalised plane stresss modelling hypotheses support.</li>
 </ul>
-<p>This brick works with isotropic of orthotropic small-strain behaviours implemented using the <code>Implicit</code> domain specific language.</p>
-<p>The use of bricks leads to much smaller, more robust and more portable implementations of mechanical behaviours. The user can focus on the specific parts of the behaviour. Listing lst. 1 shows how a implicit implementation with analytical jacobian of the Norton behaviours can now be written in about 25 lines of codes (without the blank and comment lines).</p>
+<p>This brick works with isotropic of orthotropic small-strain
+behaviours implemented using the <code>Implicit</code> domain specific
+language.</p>
+<p>The use of bricks leads to much smaller, more robust and more
+portable implementations of mechanical behaviours. The user can focus on
+the specific parts of the behaviour. Listing lst. 1 shows how a implicit
+implementation with analytical jacobian of the Norton behaviours can now
+be written in about 25 lines of codes (without the blank and comment
+lines).</p>
 <div id="lst:norton" class="listing numberLines cpp">
 <p>Listing 1: Implicit implementation of the Norton behaviour</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource numberLines cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1"></a><span class="er">@</span>DSL Implicit;</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="er">@</span>Behaviour ImplicitNorton;</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="er">@</span>ModellingHypotheses {<span class="st">&quot;.+&quot;</span>};</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="er">@</span>Brick   StandardElasticity;</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="er">@</span>Epsilon <span class="fl">1.e-16</span>;</span>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode numberSource numberLines cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1"></a><span class="er">@</span>DSL Implicit<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="er">@</span>Behaviour ImplicitNorton<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="er">@</span>ModellingHypotheses <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">};</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="er">@</span>Brick   StandardElasticity<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="er">@</span>Epsilon <span class="fl">1.e-16</span><span class="op">;</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="er">@</span>ElasticMaterialProperties {<span class="fl">150e9</span>,<span class="fl">0.3</span>};</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="er">@</span>ElasticMaterialProperties <span class="op">{</span><span class="fl">150e9</span><span class="op">,</span><span class="fl">0.3</span><span class="op">};</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="er">@</span>StateVariable strain p;</span>
-<span id="cb1-10"><a href="#cb1-10"></a>p.setGlossaryName(<span class="st">&quot;EquivalentViscoplasticStrain&quot;</span>);</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="er">@</span>StateVariable strain p<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>p<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;EquivalentViscoplasticStrain&quot;</span><span class="op">);</span></span>
 <span id="cb1-11"><a href="#cb1-11"></a></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="er">@</span>Parameter A = <span class="fl">8.e-67</span>;</span>
-<span id="cb1-13"><a href="#cb1-13"></a>A.setEntryName(<span class="st">&quot;NortonCoefficient&quot;</span>);</span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="er">@</span>Parameter E = <span class="fl">8.2</span>;</span>
-<span id="cb1-15"><a href="#cb1-15"></a>E.setEntryName(<span class="st">&quot;NortonExponent&quot;</span>);</span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="er">@</span>Parameter A <span class="op">=</span> <span class="fl">8.e-67</span><span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>A<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;NortonCoefficient&quot;</span><span class="op">);</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="er">@</span>Parameter E <span class="op">=</span> <span class="fl">8.2</span><span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>E<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;NortonExponent&quot;</span><span class="op">);</span></span>
 <span id="cb1-16"><a href="#cb1-16"></a></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="er">@</span>Integrator{</span>
-<span id="cb1-18"><a href="#cb1-18"></a>  <span class="at">const</span> <span class="kw">auto</span> seq  = sigmaeq(sig);</span>
-<span id="cb1-19"><a href="#cb1-19"></a>  <span class="cf">if</span>(seq&gt;<span class="fl">1.e-8</span>*young){</span>
-<span id="cb1-20"><a href="#cb1-20"></a>    <span class="at">const</span> <span class="kw">auto</span> n    = <span class="dv">3</span>*deviator(sig)/(<span class="dv">2</span>*seq);</span>
-<span id="cb1-21"><a href="#cb1-21"></a>    <span class="at">const</span> <span class="kw">auto</span> tmp  = A*pow(seq,E-<span class="dv">1</span>);</span>
-<span id="cb1-22"><a href="#cb1-22"></a>    <span class="at">const</span> <span class="kw">auto</span> df_dseq = E*tmp;</span>
-<span id="cb1-23"><a href="#cb1-23"></a>    feel += dp*n;</span>
-<span id="cb1-24"><a href="#cb1-24"></a>    fp   -= tmp*seq*dt;</span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="er">@</span>Integrator<span class="op">{</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>  <span class="at">const</span> <span class="kw">auto</span> seq  <span class="op">=</span> sigmaeq<span class="op">(</span>sig<span class="op">);</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>  <span class="cf">if</span><span class="op">(</span>seq<span class="op">&gt;</span><span class="fl">1.e-8</span><span class="op">*</span>young<span class="op">){</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>    <span class="at">const</span> <span class="kw">auto</span> n    <span class="op">=</span> <span class="dv">3</span><span class="op">*</span>deviator<span class="op">(</span>sig<span class="op">)/(</span><span class="dv">2</span><span class="op">*</span>seq<span class="op">);</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a>    <span class="at">const</span> <span class="kw">auto</span> tmp  <span class="op">=</span> A<span class="op">*</span>pow<span class="op">(</span>seq<span class="op">,</span>E<span class="op">-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a>    <span class="at">const</span> <span class="kw">auto</span> df_dseq <span class="op">=</span> E<span class="op">*</span>tmp<span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a>    feel <span class="op">+=</span> dp<span class="op">*</span>n<span class="op">;</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a>    fp   <span class="op">-=</span> tmp<span class="op">*</span>seq<span class="op">*</span>dt<span class="op">;</span></span>
 <span id="cb1-25"><a href="#cb1-25"></a>    <span class="co">// jacobian</span></span>
-<span id="cb1-26"><a href="#cb1-26"></a>    dfeel_ddeel += (<span class="dv">2</span>*mu*theta*dp/seq)*(Stensor4::M()-(n^n));</span>
-<span id="cb1-27"><a href="#cb1-27"></a>    dfeel_ddp    = n;</span>
-<span id="cb1-28"><a href="#cb1-28"></a>    dfp_ddeel    = -<span class="dv">2</span>*mu*theta*df_dseq*dt*n;</span>
-<span id="cb1-29"><a href="#cb1-29"></a>  }</span>
-<span id="cb1-30"><a href="#cb1-30"></a>} <span class="co">// end of @Integrator</span></span></code></pre></div>
+<span id="cb1-26"><a href="#cb1-26"></a>    dfeel_ddeel <span class="op">+=</span> <span class="op">(</span><span class="dv">2</span><span class="op">*</span>mu<span class="op">*</span>theta<span class="op">*</span>dp<span class="op">/</span>seq<span class="op">)*(</span>Stensor4<span class="op">::</span>M<span class="op">()-(</span>n<span class="op">^</span>n<span class="op">));</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a>    dfeel_ddp    <span class="op">=</span> n<span class="op">;</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a>    dfp_ddeel    <span class="op">=</span> <span class="op">-</span><span class="dv">2</span><span class="op">*</span>mu<span class="op">*</span>theta<span class="op">*</span>df_dseq<span class="op">*</span>dt<span class="op">*</span>n<span class="op">;</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>  <span class="op">}</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="op">}</span> <span class="co">// end of @Integrator</span></span></code></pre></div>
 </div>
 <p>The following bricks are available:</p>
 <ul>
-<li><code>StandardElasticity</code> which have been shortly described earlier.</li>
-<li><code>FiniteStrainSingleCrystal</code> which can be used to hide many details about the classical <span class="math inline">\(F_{e}F_{p}\)</span> formalism used in the implementations of finite strain single crystal behaviours (see <span class="citation" data-cites="hure_intergranular_2016">[23]</span>).</li>
-<li><code>DDIF2</code> which describes a damage model widely used in CEA nuclear fuel behaviours (see <span class="citation" data-cites="michel_3d_2008 michel_3d_2016">[24, 25]</span>).</li>
+<li><code>StandardElasticity</code> which have been shortly described
+earlier.</li>
+<li><code>FiniteStrainSingleCrystal</code> which can be used to hide
+many details about the classical <span
+class="math inline">\(F_{e}F_{p}\)</span> formalism used in the
+implementations of finite strain single crystal behaviours (see <span
+class="citation" data-cites="hure_intergranular_2016">[20]</span>).</li>
+<li><code>DDIF2</code> which describes a damage model widely used in CEA
+nuclear fuel behaviours (see <span class="citation"
+data-cites="michel_3d_2008 michel_3d_2016">[21, 22]</span>).</li>
 </ul>
-<h2 id="pipe-modelling-in-mtest">Pipe Modelling in <code>MTest</code></h2>
-<p>Most mechanical behaviours available for the cladding are identified on tests where a pipe is submitted to an internal pressure loading.</p>
-<p><code>MTest</code> have been extended to describe various tests on pipes with various axial or radial loadings using a mono-dimensional finite strain framework described in depth in <span class="citation" data-cites="helfer_extension_2015">[26]</span>:</p>
+<h2 id="pipe-modelling-in-mtest">Pipe Modelling in
+<code>MTest</code></h2>
+<p>Most mechanical behaviours available for the cladding are identified
+on tests where a pipe is submitted to an internal pressure loading.</p>
+<p><code>MTest</code> have been extended to describe various tests on
+pipes with various axial or radial loadings using a mono-dimensional
+finite strain framework described in depth in <span class="citation"
+data-cites="helfer_extension_2015">[23]</span>:</p>
 <ul>
 <li>imposed inner pressure or external pressure</li>
-<li>imposed external radius evolution rate, controlled through the internal pressure (which becomes one of the unknowns)</li>
+<li>imposed external radius evolution rate, controlled through the
+internal pressure (which becomes one of the unknowns)</li>
 <li>end-cap effect</li>
 <li>imposed axial strain</li>
 <li>imposed axial force</li>
 </ul>
-<p>This extension allows a consistent identification of the mechanical behaviour at finite strain.</p>
+<p>This extension allows a consistent identification of the mechanical
+behaviour at finite strain.</p>
 <div id="tbl:pipe">
 <table>
-<caption>Table 3: Example of comparison of the computation times for a simple test where a pipe with a Norton behaviour is submitted to internal pressure. The mesh size has been choosen large enough so that <code>MTest</code> computational times become significant</caption>
+<caption>Table 3: Example of comparison of the computation times for a
+simple test where a pipe with a Norton behaviour is submitted to
+internal pressure. The mesh size has been choosen large enough so that
+<code>MTest</code> computational times become significant</caption>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Solver</th>
@@ -611,182 +855,515 @@
 </tbody>
 </table>
 </div>
-<p>Being very specialized, this extension leads to computational times significantly lower than with general purpose finite element solver (see Table 3).</p>
-<h2 id="new-acceleration-algorithms-in-mtest">New acceleration algorithms in <code>MTest</code></h2>
-<p>The <code>Cast3M</code> finite element solver does not use by default a standard Newton-Raphson algorithm which would require the computation of the consistent tangent operator, but relies on a quasi-Newton algorithm using the elastic stiffness. The displacement is corrected by this fixed point iteration: <span class="math display">\[
+<p>Being very specialized, this extension leads to computational times
+significantly lower than with general purpose finite element solver (see
+Table 3).</p>
+<h2 id="new-acceleration-algorithms-in-mtest">New acceleration
+algorithms in <code>MTest</code></h2>
+<p>The <code>Cast3M</code> finite element solver does not use by default
+a standard Newton-Raphson algorithm which would require the computation
+of the consistent tangent operator, but relies on a quasi-Newton
+algorithm using the elastic stiffness. The displacement is corrected by
+this fixed point iteration: <span class="math display">\[
 \Delta\,\mathbb{U}^{n+1}=\Delta\,\mathbb{U}^{n}-\mathbb{K}^{-1}_{\mathrm{el}}\,\cdot\,\mathbb{R}\left(\Delta\,\mathbb{U}^{n}\right)
 \]</span></p>
-<p>The convergence of this algorithm is greatly improved by the use of an acceleration algorithm closed to the one introduced by Anderson (see <span class="citation" data-cites="anderson_iterative_1965">[27]</span>). There is no point in discussing whether this strategy is better than the standard Newton-Raphson algorithm, as the answer is very sensitive to the case treated. However, we can outline that the elastic stiffness is only decomposed once when using the <code>Cast3M</code> strategy.</p>
-<p>In <code>MTest</code>, systems solved are so small and the situation treated so simple that the full Newton-Raphson algorithm is always the better option.</p>
-<p>However, when the consistent tangent operator is not available, the <code>Cast3M</code> strategy can be used in <code>MTest</code>. As described by I. Ramière (see <span class="citation" data-cites="ramiere_iterative_2015">[15]</span>), various acceleration algorithms were introduced and tested in <code>MTest</code>.</p>
-<figure>
-<img src="img/anderson-withwithoutacceleration.svg" id="fig:UAnderson" style="width:75.0%" alt="Figure 5: Convergence of the TMFFT solver with and without acceleration (see [16] for details)" /><figcaption aria-hidden="true">Figure 5: Convergence of the TMFFT solver with and without acceleration (see <span class="citation" data-cites="castelier_using_2016">[16]</span> for details)</figcaption>
+<p>The convergence of this algorithm is greatly improved by the use of
+an acceleration algorithm closed to the one introduced by Anderson (see
+<span class="citation"
+data-cites="anderson_iterative_1965">[24]</span>). There is no point in
+discussing whether this strategy is better than the standard
+Newton-Raphson algorithm, as the answer is very sensitive to the case
+treated. However, we can outline that the elastic stiffness is only
+decomposed once when using the <code>Cast3M</code> strategy.</p>
+<p>In <code>MTest</code>, systems solved are so small and the situation
+treated so simple that the full Newton-Raphson algorithm is always the
+better option.</p>
+<p>However, when the consistent tangent operator is not available, the
+<code>Cast3M</code> strategy can be used in <code>MTest</code>. As
+described by I. Ramière (see <span class="citation"
+data-cites="ramiere_iterative_2015">[13]</span>), various acceleration
+algorithms were introduced and tested in <code>MTest</code>.</p>
+<figure id="fig:UAnderson">
+<img src="img/anderson-withwithoutacceleration.svg" style="width:75.0%"
+alt="Convergence of the TMFFT solver with and without acceleration (see [14] for details)" />
+<figcaption>Figure 5: Convergence of the TMFFT solver with and without
+acceleration (see <span class="citation"
+data-cites="castelier_using_2016">[14]</span> for details)</figcaption>
 </figure>
-<p>Those algorithms were improved by É. Castelier to accelerate the equilibrium iterations of the TMFFT solver (see <span class="citation" data-cites="castelier_using_2016">[16]</span>) for systems with several millions of degrees of freedom (see Figure 5). They are available in <code>MTest</code> with the name <code>UAnderson</code> and <code>FAnderson</code>. The implementations of those algorithms, which require a special care to get accurate and reliable results, are available as autonomous classes which can be used outside <code>MTest</code>.</p>
-<h2 id="a-stable-api-to-build-external-tools-application-to-the-mechanical-behaviours-identification-developed-in-the-map-plateform">A stable API to build external tools: application to the mechanical behaviours identification developed in the MAP plateform</h2>
-<p>With version 3.0.x, <code>MFront</code> and <code>MTest</code> now provide stable API in <code>C++</code> and <code>Python</code> upon which external tools can be built.</p>
-<p>This is illustrated by the recent development by EDF of an identification tool, called <code>c_solver_constitutive_law_0d</code>, in the <code>Material Ageing Plateform</code> (MAP) based on:</p>
+<p>Those algorithms were improved by É. Castelier to accelerate the
+equilibrium iterations of the TMFFT solver (see <span class="citation"
+data-cites="castelier_using_2016">[14]</span>) for systems with several
+millions of degrees of freedom (see Figure 5). They are available in
+<code>MTest</code> with the name <code>UAnderson</code> and
+<code>FAnderson</code>. The implementations of those algorithms, which
+require a special care to get accurate and reliable results, are
+available as autonomous classes which can be used outside
+<code>MTest</code>.</p>
+<h2
+id="a-stable-api-to-build-external-tools-application-to-the-mechanical-behaviours-identification-developed-in-the-map-plateform">A
+stable API to build external tools: application to the mechanical
+behaviours identification developed in the MAP plateform</h2>
+<p>With version 3.0.x, <code>MFront</code> and <code>MTest</code> now
+provide stable API in <code>C++</code> and <code>Python</code> upon
+which external tools can be built.</p>
+<p>This is illustrated by the recent development by EDF of an
+identification tool, called <code>c_solver_constitutive_law_0d</code>,
+in the <code>Material Ageing Plateform</code> (MAP) based on:</p>
 <ul>
-<li><code>MFront</code> to generate the mechanical behaviour. The <code>MFront</code> <code>python</code> module is used to extract information about the behaviour, such as the parameters that has to be identified.</li>
-<li><code>MTest</code> to perform simulations on simple mechanical tests such as tensile tests or tests on pipe as described earlier. More complex simulations requires a fully-fledge finite element solver such as <code>Code_Aster</code> or <code>Cast3M</code>. <code>MTest</code> is used through its <code>python</code> module.</li>
-<li><code>ADAO</code> for parameters optimisation. <code>ADAO</code> is a specific software dedicated to data assimilation and distributed in the platform <code>Salome</code> (see <span class="citation" data-cites="argaud_reconstruction_2014">[28]</span>).</li>
+<li><code>MFront</code> to generate the mechanical behaviour. The
+<code>MFront</code> <code>python</code> module is used to extract
+information about the behaviour, such as the parameters that has to be
+identified.</li>
+<li><code>MTest</code> to perform simulations on simple mechanical tests
+such as tensile tests or tests on pipe as described earlier. More
+complex simulations requires a fully-fledge finite element solver such
+as <code>Code_Aster</code> or <code>Cast3M</code>. <code>MTest</code> is
+used through its <code>python</code> module.</li>
+<li><code>ADAO</code> for parameters optimisation. <code>ADAO</code> is
+a specific software dedicated to data assimilation and distributed in
+the platform <code>Salome</code> (see <span class="citation"
+data-cites="argaud_reconstruction_2014">[25]</span>).</li>
 </ul>
-<p>This identification tool, co-developed by two departments of EDF R&amp;D (SINETICS and MMC), is a central part of the material knowledge management of the MAP plateform and thus addresses the following issues:</p>
+<p>This identification tool, co-developed by two departments of EDF
+R&amp;D (SINETICS and MMC), is a central part of the material knowledge
+management of the MAP plateform and thus addresses the following
+issues:</p>
 <ul>
 <li>Ease of use by engineers without advanced programming skills.</li>
-<li>Provide a robust and reliable identification of mechanical behaviours.</li>
-<li>Guarantee a consistent approach of the identification process and the behaviour usage in engineering studies. In particular, its is the same implementation that will be used in the identification process and the engineering simulations.</li>
-<li>Maintainability and tracability. EDF wants to guarantee that the identification process of each behaviour used in engineering studies can be replayed for years.</li>
-<li>Integration in the EDF material knowledge database (called <code>CADEEX</code>) which stores every information from the material specification, the measures, the thermal treatments, the experimental data and the identification process and finally the mechanical behaviour implementation. This integration is currently under heavy developments.</li>
+<li>Provide a robust and reliable identification of mechanical
+behaviours.</li>
+<li>Guarantee a consistent approach of the identification process and
+the behaviour usage in engineering studies. In particular, its is the
+same implementation that will be used in the identification process and
+the engineering simulations.</li>
+<li>Maintainability and tracability. EDF wants to guarantee that the
+identification process of each behaviour used in engineering studies can
+be replayed for years.</li>
+<li>Integration in the EDF material knowledge database (called
+<code>CADEEX</code>) which stores every information from the material
+specification, the measures, the thermal treatments, the experimental
+data and the identification process and finally the mechanical behaviour
+implementation. This integration is currently under heavy
+developments.</li>
 </ul>
-<p>Though relatively young - it has been developed for one year now -, this tool gives quite promising results, as discussed during the MFront users day (see <span class="citation" data-cites="munier_identification_2016">[29]</span>).</p>
-<p>This ambitious project highlights the need for high quality coding standards for <code>TFEL</code>, <code>MFront</code> and <code>MTest</code>. This point is discussed in depth in the following section.</p>
-<h1 id="an-industrial-strength-software">An industrial strength software</h1>
-<p>The version 3.0.x is based on the C++11 standard. This implied a major code refactoring. In particular, the expression template engine was greatly simplified and is now much more reliable and maintainable.</p>
+<p>Though relatively young - it has been developed for one year now -,
+this tool gives quite promising results, as discussed during the MFront
+users day (see <span class="citation"
+data-cites="munier_identification_2016">[26]</span>).</p>
+<p>This ambitious project highlights the need for high quality coding
+standards for <code>TFEL</code>, <code>MFront</code> and
+<code>MTest</code>. This point is discussed in depth in the following
+section.</p>
+<h1 id="an-industrial-strength-software">An industrial strength
+software</h1>
+<p>The version 3.0.x is based on the C++11 standard. This implied a
+major code refactoring. In particular, the expression template engine
+was greatly simplified and is now much more reliable and
+maintainable.</p>
 <h2 id="systems-supported">Systems supported</h2>
-<p>Version 3.0.x of <code>TFEL/MFront</code> will be available on the following systems:</p>
+<p>Version 3.0.x of <code>TFEL/MFront</code> will be available on the
+following systems:</p>
 <ul>
 <li><code>LiNuX</code></li>
-<li><code>Windows</code>. The port to <code>Visual Studio 2015</code> is the first step toward an industrial strength support of this platform. However, due to the very nature of this platform, a direct use of <code>MFront</code> is discouraged. One shall consider creating a material knowledge management project based on <code>cmake</code> to build material librairies.</li>
+<li><code>Windows</code>. The port to <code>Visual Studio 2015</code> is
+the first step toward an industrial strength support of this platform.
+However, due to the very nature of this platform, a direct use of
+<code>MFront</code> is discouraged. One shall consider creating a
+material knowledge management project based on <code>cmake</code> to
+build material librairies.</li>
 <li><code>FreeBSD</code> and <code>TrueOS</code>.</li>
 </ul>
-<p>Various Unix-based systems, including <code>Mac Os X</code>, have been tested at various stages of the development of this version and shall work out of the box.</p>
+<p>Various Unix-based systems, including <code>Mac Os X</code>, have
+been tested at various stages of the development of this version and
+shall work out of the box.</p>
 <h2 id="compiler-support">Compiler support</h2>
 <p>Version 3.0.x were tested using the following compilers:</p>
 <ul>
-<li><a href="https://gcc.gnu.org/"><code>gcc</code></a>: versions 4.7, 4.8, 4.9, 5.1, 5.2, 6.1, 6.2</li>
-<li><a href="http://clang.llvm.org/"><code>clang</code></a>: versions 3.5, 3.6, 3.7, 3.8, 3.9</li>
-<li><a href="https://software.intel.com/en-us/intel-compilers"><code>intel</code></a>. The only supported version is the 2016 version. <a href="https://software.intel.com/en-us/intel-compilers">Intel compilers 15</a> are known not to work due to a bug in the <a href="https://www.edg.com">EDG</a> front-end that can’t parse a syntax mandatory for the expression template engine. The same bug affects the <a href="http://sourceforge.net/projects/blitz/">Blitz++</a> library (see <a href="http://dsec.pku.edu.cn/~mendl/blitz/manual/blitz11.html" class="uri">http://dsec.pku.edu.cn/~mendl/blitz/manual/blitz11.html</a>)</li>
-<li><a href="https://www.visualstudio.com/"><code>Visual Studio</code></a> The only supported version is the 2015 version. Previous versions do not provide a suitable <code>C++11</code> support.</li>
+<li><a href="https://gcc.gnu.org/"><code>gcc</code></a>: versions 4.7,
+4.8, 4.9, 5.1, 5.2, 6.1, 6.2</li>
+<li><a href="http://clang.llvm.org/"><code>clang</code></a>: versions
+3.5, 3.6, 3.7, 3.8, 3.9</li>
+<li><a
+href="https://software.intel.com/en-us/intel-compilers"><code>intel</code></a>.
+The only supported version is the 2016 version. <a
+href="https://software.intel.com/en-us/intel-compilers">Intel compilers
+15</a> are known not to work due to a bug in the <a
+href="https://www.edg.com">EDG</a> front-end that can’t parse a syntax
+mandatory for the expression template engine. The same bug affects the
+<a href="http://sourceforge.net/projects/blitz/">Blitz++</a> library
+(see <a href="http://dsec.pku.edu.cn/~mendl/blitz/manual/blitz11.html"
+class="uri">http://dsec.pku.edu.cn/~mendl/blitz/manual/blitz11.html</a>)</li>
+<li><a
+href="https://www.visualstudio.com/"><code>Visual Studio</code></a> The
+only supported version is the 2015 version. Previous versions do not
+provide a suitable <code>C++11</code> support.</li>
 </ul>
 <h2 id="documentation">Documentation</h2>
-<p>A vast amount of documentation has been written for <code>TFEL</code> and <code>MFront</code>, mostly in French: (see <a href="http://tfel.sourceforge.net/publications.html" class="uri">http://tfel.sourceforge.net/publications.html</a>).</p>
-<p>With version <span class="math inline">\(3.0\)</span>, we followed the example of the <code>CMake</code> software and introduced the ability to query documentation from the command line for <code>MFront</code> and <code>MTest</code> which now provide the following options:</p>
+<p>A vast amount of documentation has been written for <code>TFEL</code>
+and <code>MFront</code>, mostly in French: (see <a
+href="http://tfel.sourceforge.net/publications.html"
+class="uri">http://tfel.sourceforge.net/publications.html</a>).</p>
+<p>With version <span class="math inline">\(3.0\)</span>, we followed
+the example of the <code>CMake</code> software and introduced the
+ability to query documentation from the command line for
+<code>MFront</code> and <code>MTest</code> which now provide the
+following options:</p>
 <ul>
-<li><code>--help-keywords</code> which displays the help associated with all keywords.</li>
-<li><code>--help-keywords-list</code> which displays the list of available keywords.</li>
-<li><code>--help-keyword</code> which displays the help associated to a specific keyword.</li>
+<li><code>--help-keywords</code> which displays the help associated with
+all keywords.</li>
+<li><code>--help-keywords-list</code> which displays the list of
+available keywords.</li>
+<li><code>--help-keyword</code> which displays the help associated to a
+specific keyword.</li>
 </ul>
-<p>The documentations of the keywords are now written in English and displayed using <code>pandoc</code> markdown language.</p>
+<p>The documentations of the keywords are now written in English and
+displayed using <code>pandoc</code> markdown language.</p>
 <h2 id="code-quality">Code quality</h2>
-<p>Code quality is an important matter in the development of <code>TFEL</code> and <code>MFront</code>. As an example, one may consider the number of code defects measured by the <code>Coverity</code> analysis tool: this indicator shows that the code is nearly as good as great open-source projects such as <code>Python</code> and much lower that what is considered as well developed industrial projects.</p>
-<p>Many static analysis tools (<code>Coverty</code>, <code>PVS-Studio</code>, <code>cppcheck</code>, <code>clang-tidy</code>) were used to improve the overall quality of the code.</p>
+<p>Code quality is an important matter in the development of
+<code>TFEL</code> and <code>MFront</code>. As an example, one may
+consider the number of code defects measured by the
+<code>Coverity</code> analysis tool: this indicator shows that the code
+is nearly as good as great open-source projects such as
+<code>Python</code> and much lower that what is considered as well
+developed industrial projects.</p>
+<p>Many static analysis tools (<code>Coverty</code>,
+<code>PVS-Studio</code>, <code>cppcheck</code>, <code>clang-tidy</code>)
+were used to improve the overall quality of the code.</p>
 <h3 id="a-myriad-of-tests">A myriad of tests</h3>
-<p><code>TFEL</code> and <code>MFront</code> use a test-driven development scheme: each new functionality has at least one associated test. The current version is delivered with more than <span class="math inline">\(3\,300\)</span> tests, each of them containing various units-tests.</p>
+<p><code>TFEL</code> and <code>MFront</code> use a test-driven
+development scheme: each new functionality has at least one associated
+test. The current version is delivered with more than <span
+class="math inline">\(3\,300\)</span> tests, each of them containing
+various units-tests.</p>
 <h2 id="solved-tickets">Solved Tickets</h2>
-<h3 id="tickets-31"><a href="https://sourceforge.net/p/tfel/tickets/31">Tickets #31</a></h3>
-<p>To be consistent with the <code>MTest</code> input file keywords, the following methods have been added to the <code>MTest</code> class of the<code>mtest</code> <code>python</code> module:</p>
+<h3 id="tickets-31"><a
+href="https://sourceforge.net/p/tfel/tickets/31">Tickets #31</a></h3>
+<p>To be consistent with the <code>MTest</code> input file keywords, the
+following methods have been added to the <code>MTest</code> class of
+the<code>mtest</code> <code>python</code> module:</p>
 <ul>
-<li><code>setStrainEpsilon</code> (valid for small strain behaviours)</li>
-<li><code>setDeformationGradientEpsilon</code> (valid for finite strain behaviours)</li>
-<li><code>setOpeningDisplacementEpsilon</code> (valid for cohesive zone models)</li>
-<li><code>setStressEpsilon</code> (valid for small and finite strain behaviours)</li>
-<li><code>setCohesiveForceEpsilon</code> (valid for cohesive zone models)</li>
+<li><code>setStrainEpsilon</code> (valid for small strain
+behaviours)</li>
+<li><code>setDeformationGradientEpsilon</code> (valid for finite strain
+behaviours)</li>
+<li><code>setOpeningDisplacementEpsilon</code> (valid for cohesive zone
+models)</li>
+<li><code>setStressEpsilon</code> (valid for small and finite strain
+behaviours)</li>
+<li><code>setCohesiveForceEpsilon</code> (valid for cohesive zone
+models)</li>
 </ul>
-<h3 id="tickets-32"><a href="https://sourceforge.net/p/tfel/tickets/32">Tickets #32</a></h3>
-<p>The <code>python</code> interface did not allow to initialize the values of the driving variables (deformation, deformation gradient or displacement jump) or the thermodynamic forces (Cauchy stress or cohesive force).</p>
-<p>The <code>setDrivingVariablesInitialValues</code> and the <code>setThermodynamicForcesInitialValues</code> methods were added the <code>MTest</code> class of the<code>mtest</code> <code>python</code> module to solve this issue.</p>
-<p>To be consistent with the <code>MTest</code> input file keywords, the following methods have also been added to the <code>MTest</code> class of the<code>mtest</code> <code>python</code> module:</p>
+<h3 id="tickets-32"><a
+href="https://sourceforge.net/p/tfel/tickets/32">Tickets #32</a></h3>
+<p>The <code>python</code> interface did not allow to initialize the
+values of the driving variables (deformation, deformation gradient or
+displacement jump) or the thermodynamic forces (Cauchy stress or
+cohesive force).</p>
+<p>The <code>setDrivingVariablesInitialValues</code> and the
+<code>setThermodynamicForcesInitialValues</code> methods were added the
+<code>MTest</code> class of the<code>mtest</code> <code>python</code>
+module to solve this issue.</p>
+<p>To be consistent with the <code>MTest</code> input file keywords, the
+following methods have also been added to the <code>MTest</code> class
+of the<code>mtest</code> <code>python</code> module:</p>
 <ul>
 <li><code>setStrain</code> (valid for small strain behaviours)</li>
-<li><code>setDeformationGradient</code> (valid for finite strain behaviours)</li>
-<li><code>setOpeningDisplacement</code> (valid for cohesive zone models)</li>
-<li><code>setStress</code> (valid for small and finite strain behaviours)</li>
+<li><code>setDeformationGradient</code> (valid for finite strain
+behaviours)</li>
+<li><code>setOpeningDisplacement</code> (valid for cohesive zone
+models)</li>
+<li><code>setStress</code> (valid for small and finite strain
+behaviours)</li>
 <li><code>setCohesiveForce</code> (valid for cohesive zone models)</li>
 </ul>
 <h1 id="conclusions">Conclusions</h1>
-<p>This paper have highlighted the improvements made in the version 3.0 of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code>. Mechanical behaviours can be written even more easily than in previous versions and performances are competitive with built-in behaviour implementation of most mechanical solvers. Being mostly developed for implicit solvers, we were pleased to see that performances obtained in explicit solvers such as <code>Europlexus</code> and <code>Abaqus/Explicit</code> are quite decent.</p>
-<p>The <code>MFront</code> users’ community is steadily increasing outside the nuclear industry and the french mechanical community: its use now encompasses a wide range of materials and applications. Creation of new interfaces is relatively easy, extensive testing is time consuming. Every new user is thus welcomed, even with a solver which is not currently supported yet, and everybody’s contribution in the improvement of TFEL and MFront is much appreciated.</p>
-<p><em>Acknowledgements</em> This research was conducted in the framework of the PLEIADES project, which was supported financially by the CEA (Commissariat à l’Énergie Atomique et aux Énergies Alternatives), EDF (Électricité de France) and AREVA and in the framework of the 3M project hold within EDF R&amp;D.</p>
+<p>This paper have highlighted the improvements made in the version 3.0
+of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code>.
+Mechanical behaviours can be written even more easily than in previous
+versions and performances are competitive with built-in behaviour
+implementation of most mechanical solvers. Being mostly developed for
+implicit solvers, we were pleased to see that performances obtained in
+explicit solvers such as <code>Europlexus</code> and
+<code>Abaqus/Explicit</code> are quite decent.</p>
+<p>The <code>MFront</code> users’ community is steadily increasing
+outside the nuclear industry and the french mechanical community: its
+use now encompasses a wide range of materials and applications. Creation
+of new interfaces is relatively easy, extensive testing is time
+consuming. Every new user is thus welcomed, even with a solver which is
+not currently supported yet, and everybody’s contribution in the
+improvement of TFEL and MFront is much appreciated.</p>
+<p><em>Acknowledgements</em> This research was conducted in the
+framework of the PLEIADES project, which was supported financially by
+the CEA (Commissariat à l’Énergie Atomique et aux Énergies
+Alternatives), EDF (Électricité de France) and AREVA and in the
+framework of the 3M project hold within EDF R&amp;D.</p>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-marelle_new_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Marelle</span>, Vincent, <span class="smallcaps">Goldbronn</span>, Patrick, <span class="smallcaps">Bernaud</span>, Stéphane, <span class="smallcaps">Castelier</span>, Étienne, <span class="smallcaps">Julien</span>, Jérôme, <span class="smallcaps">Nkonga</span>, Katherine, <span class="smallcaps">Noirot</span>, Laurence and <span class="smallcaps">Ramière</span>, Isabelle. New developments in <span>ALCYONE</span> 2.0 fuel performance code. In : <em>Top fuel</em>. Boise, <span>USA</span>, 2016. </div>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-marelle_new_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Marelle</span>,
+Vincent, <span class="smallcaps">Goldbronn</span>, Patrick, <span
+class="smallcaps">Bernaud</span>, Stéphane, <span
+class="smallcaps">Castelier</span>, Étienne, <span
+class="smallcaps">Julien</span>, Jérôme, <span
+class="smallcaps">Nkonga</span>, Katherine, <span
+class="smallcaps">Noirot</span>, Laurence and <span
+class="smallcaps">Ramière</span>, Isabelle. New developments in
+<span>ALCYONE</span> 2.0 fuel performance code. In : <em>Top fuel</em>.
+Boise, <span>USA</span>, 2016. </div>
 </div>
-<div id="ref-helfer_implantation_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Proix</span>, Jean-Michel and <span class="smallcaps">Fandeur</span>, Olivier. Implantation de lois de comportement mécanique à l’aide de <span>MFront</span> : Simplicité, efficacité, robustesse et portabilité. In : Giens, France : CSMA, June 2015. </div>
+<div id="ref-helfer_implantation_2015" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas,
+<span class="smallcaps">Proix</span>, Jean-Michel and <span
+class="smallcaps">Fandeur</span>, Olivier. Implantation de lois de
+comportement mécanique à l’aide de <span>MFront</span> : Simplicité,
+efficacité, robustesse et portabilité. In : Giens, France : CSMA, June
+2015. </div>
 </div>
-<div id="ref-helfer_implantation_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Proix</span>, Jean-Michel and <span class="smallcaps">Fandeur</span>, Olivier. Implantation de lois de comportement mécanique à l’aide de <span>MFront</span> : Simplicité, efficacité, robustesse et portabilité. In : Giens, France : CSMA, June 2015. </div>
+<div id="ref-helfer_introducing_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas,
+<span class="smallcaps">Michel</span>, Bruno, <span
+class="smallcaps">Proix</span>, Jean-Michel, <span
+class="smallcaps">Salvo</span>, Maxime, <span
+class="smallcaps">Sercombe</span>, Jérôme and <span
+class="smallcaps">Casella</span>, Michel. Introducing the open-source
+mfront code generator: <span>Application</span> to mechanical behaviours
+and material knowledge management within the <span>PLEIADES</span> fuel
+element modelling platform. <em>Computers &amp; Mathematics with
+Applications</em>. 2015. DOI <a
+href="https://doi.org/10.1016/j.camwa.2015.06.027">10.1016/j.camwa.2015.06.027</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0898122115003132">http://www.sciencedirect.com/science/article/pii/S0898122115003132</a></div>
 </div>
-<div id="ref-helfer_introducing_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Michel</span>, Bruno, <span class="smallcaps">Proix</span>, Jean-Michel, <span class="smallcaps">Salvo</span>, Maxime, <span class="smallcaps">Sercombe</span>, Jérôme and <span class="smallcaps">Casella</span>, Michel. Introducing the open-source mfront code generator: <span>Application</span> to mechanical behaviours and material knowledge management within the <span>PLEIADES</span> fuel element modelling platform. <em>Computers &amp; Mathematics with Applications</em>. 2015. DOI <a href="https://doi.org/10.1016/j.camwa.2015.06.027">10.1016/j.camwa.2015.06.027</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0898122115003132">http://www.sciencedirect.com/science/article/pii/S0898122115003132</a></div>
+<div id="ref-cea_site_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline"><span class="smallcaps">CEA</span>. Site
+<span>Cast</span>3M. 2016. Available from: <a
+href="http://www-cast3m.cea.fr/">http://www-cast3m.cea.fr/</a></div>
 </div>
-<div id="ref-cea_site_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">5. </div><div class="csl-right-inline"><span class="smallcaps">CEA</span>. Site <span>Cast</span>3M. 2016. Available from: <a href="http://www-cast3m.cea.fr/">http://www-cast3m.cea.fr/</a></div>
+<div id="ref-edf_site_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline"><span class="smallcaps">EDF</span>. Site du
+<span>Code</span>_aster. 2016. Available from: <a
+href="http://www.code-aster.org">http://www.code-aster.org</a></div>
 </div>
-<div id="ref-edf_site_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">6. </div><div class="csl-right-inline"><span class="smallcaps">EDF</span>. Site du <span>Code</span>_aster. 2016. Available from: <a href="http://www.code-aster.org">http://www.code-aster.org</a></div>
+<div id="ref-cea_epx_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline"><span class="smallcaps">CEA</span> and <span
+class="smallcaps">JRC</span>. ‘Europlexus‘ web site. 2016. Available
+from: <a
+href="http://www-epx.cea.fr/index.php/what-is-epx">http://www-epx.cea.fr/index.php/what-is-epx</a></div>
 </div>
-<div id="ref-cea_epx_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">8. </div><div class="csl-right-inline"><span class="smallcaps">CEA</span> and <span class="smallcaps">JRC</span>. ‘Europlexus‘ web site. 2016. Available from: <a href="http://www-epx.cea.fr/index.php/what-is-epx">http://www-epx.cea.fr/index.php/what-is-epx</a></div>
+<div id="ref-dassault_abaqus_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline"><span class="smallcaps">Dassault
+Systèmes</span>. <span>Abaqus</span> web site. 2016. Available from: <a
+href="http://www.3ds.com/products-services/simulia/products/abaqus/">http://www.3ds.com/products-services/simulia/products/abaqus/</a></div>
 </div>
-<div id="ref-cea_epx_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">8. </div><div class="csl-right-inline"><span class="smallcaps">CEA</span> and <span class="smallcaps">JRC</span>. ‘Europlexus‘ web site. 2016. Available from: <a href="http://www-epx.cea.fr/index.php/what-is-epx">http://www-epx.cea.fr/index.php/what-is-epx</a></div>
+<div id="ref-deloison_testing_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">8. </div><div
+class="csl-right-inline"><span class="smallcaps">Deloison</span>,
+Dominique and <span class="smallcaps">Congourdeau</span>, Fabrice.
+Testing and validation of the <span>MFront</span> interface for
+<span>ABAQUS</span>. <span>EDF</span> Lab Saclay, 2016. Available from:
+<a
+href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/SecondUserDay/deloison-abaqus.pdf">https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/SecondUserDay/deloison-abaqus.pdf</a></div><div
+class="csl-right-inline">. Second <span>MFront</span> users day.</div>
 </div>
-<div id="ref-dassault_abaqus_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">9. </div><div class="csl-right-inline"><span class="smallcaps">Dassault Systèmes</span>. <span>Abaqus</span> web site. 2016. Available from: <a href="http://www.3ds.com/products-services/simulia/products/abaqus/">http://www.3ds.com/products-services/simulia/products/abaqus/</a></div>
+<div id="ref-petry_advanced_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">9. </div><div
+class="csl-right-inline"><span class="smallcaps">Petry</span>, Charles
+and <span class="smallcaps">Helfer</span>, Thomas. Advanced mechanical
+resolution in <span>CYRANO</span>3 fuel performance code using
+<span>MFront</span> generation tool. In : <em><span>LWR</span>
+<span>Fuel</span> <span>Performance</span>
+<span>Meeting</span>/<span>TopFuel</span>/<span>WRFPM</span></em>.
+Zurich, Switzerland, 2015. </div>
 </div>
-<div id="ref-deloison_testing_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">10. </div><div class="csl-right-inline"><span class="smallcaps">Deloison</span>, Dominique and <span class="smallcaps">Congourdeau</span>, Fabrice. Testing and validation of the <span>MFront</span> interface for <span>ABAQUS</span>. <span>EDF</span> Lab Saclay, 2016. Available from: <a href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/SecondUserDay/deloison-abaqus.pdf">https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/SecondUserDay/deloison-abaqus.pdf</a></div><div class="csl-right-inline">. Second <span>MFront</span> users day.</div>
+<div id="ref-latourte_materials_2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">10. </div><div
+class="csl-right-inline"><span class="smallcaps">Latourte</span>, Felix,
+<span class="smallcaps">Toulemonde</span>, Charles, <span
+class="smallcaps">Rit</span>, Jean-François, <span
+class="smallcaps">Sanahuja</span>, Julien, <span
+class="smallcaps">Rupin</span>, Nicolas, <span
+class="smallcaps">Ferrari</span>, Jerome, <span
+class="smallcaps">Perron</span>, Hadrien, <span
+class="smallcaps">Bosso</span>, Elodie, <span
+class="smallcaps">Guery</span>, Adrien, <span
+class="smallcaps">Proix</span>, Jean-Michel and <span
+class="smallcaps">Wattrisse</span>, Bertrand. The materials ageing
+plateform: Towards a toolbox to perform a wide range of research studies
+on the behavior of industrial materials. In :
+<em><span>PhotoMechanics</span> 2013</em>. Montpellier, France, May
+2013. p. Clé USB. Available from: <a
+href="https://hal.archives-ouvertes.fr/hal-00836332">https://hal.archives-ouvertes.fr/hal-00836332</a></div>
 </div>
-<div id="ref-petry_advanced_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">11. </div><div class="csl-right-inline"><span class="smallcaps">Petry</span>, Charles and <span class="smallcaps">Helfer</span>, Thomas. Advanced mechanical resolution in <span>CYRANO</span>3 fuel performance code using <span>MFront</span> generation tool. In : <em><span>LWR</span> <span>Fuel</span> <span>Performance</span> <span>Meeting</span>/<span>TopFuel</span>/<span>WRFPM</span></em>. Zurich, Switzerland, 2015. </div>
+<div id="ref-edf_mai_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div
+class="csl-right-inline"><span class="smallcaps">MAI</span>. The
+<span>Material Ageing Institute</span> web site. 2016. Available from:
+<a href="http://www.themai.org/">http://www.themai.org/</a></div>
 </div>
-<div id="ref-latourte_materials_2013" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">12. </div><div class="csl-right-inline"><span class="smallcaps">Latourte</span>, Felix, <span class="smallcaps">Toulemonde</span>, Charles, <span class="smallcaps">Rit</span>, Jean-François, <span class="smallcaps">Sanahuja</span>, Julien, <span class="smallcaps">Rupin</span>, Nicolas, <span class="smallcaps">Ferrari</span>, Jerome, <span class="smallcaps">Perron</span>, Hadrien, <span class="smallcaps">Bosso</span>, Elodie, <span class="smallcaps">Guery</span>, Adrien, <span class="smallcaps">Proix</span>, Jean-Michel and <span class="smallcaps">Wattrisse</span>, Bertrand. The materials ageing plateform: Towards a toolbox to perform a wide range of research studies on the behavior of industrial materials. In : <em><span>PhotoMechanics</span> 2013</em>. Montpellier, France, May 2013. p. Clé USB. Available from: <a href="https://hal.archives-ouvertes.fr/hal-00836332">https://hal.archives-ouvertes.fr/hal-00836332</a></div>
+<div id="ref-cea_mfront_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline"><span class="smallcaps">CEA</span> and <span
+class="smallcaps">EDF</span>. <span>MFront</span> <span>Web</span>
+<span>Site</span>. 2016. Available from: <a
+href="https://thelfer.github.io/tfel/web/index.html">https://thelfer.github.io/tfel/web/index.html</a></div>
 </div>
-<div id="ref-edf_mai_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">13. </div><div class="csl-right-inline"><span class="smallcaps">MAI</span>. The <span>Material Ageing Institute</span> web site. 2016. Available from: <a href="http://www.themai.org/">http://www.themai.org/</a></div>
+<div id="ref-ramiere_iterative_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">13. </div><div
+class="csl-right-inline"><span class="smallcaps">Ramière</span>,
+Isabelle and <span class="smallcaps">Helfer</span>, Thomas. Iterative
+residual-based vector methods to accelerate fixed point iterations.
+<em>Computers &amp; Mathematics with Applications</em>. November 2015.
+Vol. 70, no. 9, p. 2210–2226. DOI <a
+href="https://doi.org/10.1016/j.camwa.2015.08.025">10.1016/j.camwa.2015.08.025</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0898122115004046">http://www.sciencedirect.com/science/article/pii/S0898122115004046</a></div>
 </div>
-<div id="ref-cea_mfront_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">14. </div><div class="csl-right-inline"><span class="smallcaps">CEA</span> and <span class="smallcaps">EDF</span>. <span>MFront</span> <span>Web</span> <span>Site</span>. 2016. Available from: <a href="https://thelfer.github.io/tfel/web/index.html">https://thelfer.github.io/tfel/web/index.html</a></div>
+<div id="ref-castelier_using_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">14. </div><div
+class="csl-right-inline"><span class="smallcaps">Castelier</span>,
+Étienne, <span class="smallcaps">Gélébart</span>, Lionel and <span
+class="smallcaps">Helfer</span>, Thomas. Using anderson algorithm to
+accelerate <span class="nocase">fft</span> based methods. In :
+<em><span>ECCOMAS</span> 2016</em>. Greece, 2016. </div>
 </div>
-<div id="ref-ramiere_iterative_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">15. </div><div class="csl-right-inline"><span class="smallcaps">Ramière</span>, Isabelle and <span class="smallcaps">Helfer</span>, Thomas. Iterative residual-based vector methods to accelerate fixed point iterations. <em>Computers &amp; Mathematics with Applications</em>. November 2015. Vol. 70, no. 9, p. 2210–2226. DOI <a href="https://doi.org/10.1016/j.camwa.2015.08.025">10.1016/j.camwa.2015.08.025</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0898122115004046">http://www.sciencedirect.com/science/article/pii/S0898122115004046</a></div>
+<div id="ref-helfer_phase_field_2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">15. </div><div
+class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas,
+<span class="smallcaps">Bary</span>, Benoît, <span
+class="smallcaps">Dang</span>, Tran Thang, <span
+class="smallcaps">Fandeur</span>, Olivier and <span
+class="smallcaps">Michel</span>, Bruno. Modélisation par champ de phase
+de la fissuration des matériaux fragiles: Aspects numériques et
+applications au combustible nucléaire oxyde. In : <em>13ème colloque
+national en calcul des structures</em>. Giens, France :
+<span>CSMA</span>, June 2017. </div>
 </div>
-<div id="ref-castelier_using_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">16. </div><div class="csl-right-inline"><span class="smallcaps">Castelier</span>, Étienne, <span class="smallcaps">Gélébart</span>, Lionel and <span class="smallcaps">Helfer</span>, Thomas. Using anderson algorithm to accelerate <span class="nocase">fft</span> based methods. In : <em><span>ECCOMAS</span> 2016</em>. Greece, 2016. </div>
+<div id="ref-edf_loi_2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">16. </div><div
+class="csl-right-inline"><span class="smallcaps">EDF</span>. R5.03.22
+révision : 11536: Loi de comportement en grandes rotations et petites
+déformations. Référence du {Code} {Aster}. EDF-R&amp;D/AMA, 2013.
+Available from: <a
+href="http://www.code-aster.org">http://www.code-aster.org</a></div>
 </div>
-<div id="ref-helfer_phase_field_2017" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">17. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Bary</span>, Benoît, <span class="smallcaps">Dang</span>, Tran Thang, <span class="smallcaps">Fandeur</span>, Olivier and <span class="smallcaps">Michel</span>, Bruno. Modélisation par champ de phase de la fissuration des matériaux fragiles: Aspects numériques et applications au combustible nucléaire oxyde. In : <em>13ème colloque national en calcul des structures</em>. Giens, France : <span>CSMA</span>, June 2017. </div>
+<div id="ref-miehe_anisotropic_2002" class="csl-entry" role="listitem">
+<div class="csl-left-margin">17. </div><div
+class="csl-right-inline"><span class="smallcaps">Miehe</span>, C., <span
+class="smallcaps">Apel</span>, N. and <span
+class="smallcaps">Lambrecht</span>, M. Anisotropic additive plasticity
+in the logarithmic strain space: Modular kinematic formulation and
+implementation based on incremental minimization principles for standard
+materials. <em>Computer Methods in Applied Mechanics and
+Engineering</em>. November 2002. Vol. 191, no. 47–48, p. 5383–5425.
+DOI <a
+href="https://doi.org/10.1016/S0045-7825(02)00438-3">10.1016/S0045-7825(02)00438-3</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0045782502004383">http://www.sciencedirect.com/science/article/pii/S0045782502004383</a></div>
 </div>
-<div id="ref-edf_loi_2013" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">19. </div><div class="csl-right-inline"><span class="smallcaps">EDF</span>. R5.03.22 révision : 11536: Loi de comportement en grandes rotations et petites déformations. Référence du Code Aster. EDF-R&amp;D/AMA, 2013. Available from: <a href="http://www.code-aster.org">http://www.code-aster.org</a></div>
+<div id="ref-dhondt_calculix_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">18. </div><div
+class="csl-right-inline"><span class="smallcaps">Dhondt</span>, Guido
+and <span class="smallcaps">Wittig</span>, Klaus. Calculix: A free
+software three-dimensional structural finite element program. 2016.
+Available from: <a
+href="http://www.calculix.de/">http://www.calculix.de/</a></div>
 </div>
-<div id="ref-edf_loi_2013" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">19. </div><div class="csl-right-inline"><span class="smallcaps">EDF</span>. R5.03.22 révision : 11536: Loi de comportement en grandes rotations et petites déformations. Référence du Code Aster. EDF-R&amp;D/AMA, 2013. Available from: <a href="http://www.code-aster.org">http://www.code-aster.org</a></div>
+<div id="ref-abaqus_vumat_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">19. </div><div
+class="csl-right-inline"><span class="smallcaps">Abaqus Inc.</span>
+Writing a VUMAT. 2005. Available from: <a
+href="http://imechanica.org/files/appendix3-vumat.pdf">http://imechanica.org/files/appendix3-vumat.pdf</a></div>
 </div>
-<div id="ref-miehe_anisotropic_2002" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">20. </div><div class="csl-right-inline"><span class="smallcaps">Miehe</span>, C., <span class="smallcaps">Apel</span>, N. and <span class="smallcaps">Lambrecht</span>, M. Anisotropic additive plasticity in the logarithmic strain space: Modular kinematic formulation and implementation based on incremental minimization principles for standard materials. <em>Computer Methods in Applied Mechanics and Engineering</em>. November 2002. Vol. 191, no. 47–48, p. 5383–5425. DOI <a href="https://doi.org/10.1016/S0045-7825(02)00438-3">10.1016/S0045-7825(02)00438-3</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0045782502004383">http://www.sciencedirect.com/science/article/pii/S0045782502004383</a></div>
+<div id="ref-hure_intergranular_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">20. </div><div
+class="csl-right-inline"><span class="smallcaps">Hure</span>, J., <span
+class="smallcaps">El Shawish</span>, S., <span
+class="smallcaps">Cizelj</span>, L. and <span
+class="smallcaps">Tanguy</span>, B. Intergranular stress distributions
+in polycrystalline aggregates of irradiated stainless steel. <em>Journal
+of Nuclear Materials</em>. 1 August 2016. Vol. 476, p. 231–242. DOI <a
+href="https://doi.org/10.1016/j.jnucmat.2016.04.017">10.1016/j.jnucmat.2016.04.017</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0022311516301313">http://www.sciencedirect.com/science/article/pii/S0022311516301313</a></div>
 </div>
-<div id="ref-dhondt_calculix_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">21. </div><div class="csl-right-inline"><span class="smallcaps">Dhondt</span>, Guido and <span class="smallcaps">Wittig</span>, Klaus. Calculix: A free software three-dimensional structural finite element program. 2016. Available from: <a href="http://www.calculix.de/">http://www.calculix.de/</a></div>
+<div id="ref-michel_3d_2008" class="csl-entry" role="listitem">
+<div class="csl-left-margin">21. </div><div
+class="csl-right-inline"><span class="smallcaps">Michel</span>, Bruno,
+<span class="smallcaps">Sercombe</span>, Jérôme, <span
+class="smallcaps">Thouvenin</span>, Gilles and <span
+class="smallcaps">Chatelet</span>, Rémy. 3D fuel cracking modelling in
+pellet cladding mechanical interaction. <em>Engineering Fracture
+Mechanics</em>. July 2008. Vol. 75, no. 11, p. 3581–3598. DOI <a
+href="https://doi.org/10.1016/j.engfracmech.2006.12.014">10.1016/j.engfracmech.2006.12.014</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0013794406004759">http://www.sciencedirect.com/science/article/pii/S0013794406004759</a></div>
 </div>
-<div id="ref-abaqus_vumat_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">22. </div><div class="csl-right-inline"><span class="smallcaps">Abaqus Inc.</span> Writing a VUMAT. 2005. Available from: <a href="http://imechanica.org/files/appendix3-vumat.pdf">http://imechanica.org/files/appendix3-vumat.pdf</a></div>
+<div id="ref-michel_3d_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">22. </div><div
+class="csl-right-inline"><span class="smallcaps">Michel</span>, Bruno,
+<span class="smallcaps">Helfer</span>, Thomas, <span
+class="smallcaps">Ramière</span>, Isabelle and <span
+class="smallcaps">Esnoul</span>, Coralie. 3D continuum damage approach
+for simulation of crack initiation and growth in ceramic materials.
+<em>Key Engineering Materials</em>. 2016. Vol. 713. DOI <a
+href="https://doi.org/10.4028/www.scientific.net/KEM.713.155">10.4028/www.scientific.net/KEM.713.155</a>.
 </div>
-<div id="ref-hure_intergranular_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">23. </div><div class="csl-right-inline"><span class="smallcaps">Hure</span>, J., <span class="smallcaps">El Shawish</span>, S., <span class="smallcaps">Cizelj</span>, L. and <span class="smallcaps">Tanguy</span>, B. Intergranular stress distributions in polycrystalline aggregates of irradiated stainless steel. <em>Journal of Nuclear Materials</em>. 1 August 2016. Vol. 476, p. 231–242. DOI <a href="https://doi.org/10.1016/j.jnucmat.2016.04.017">10.1016/j.jnucmat.2016.04.017</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0022311516301313">http://www.sciencedirect.com/science/article/pii/S0022311516301313</a></div>
 </div>
-<div id="ref-michel_3d_2008" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">24. </div><div class="csl-right-inline"><span class="smallcaps">Michel</span>, Bruno, <span class="smallcaps">Sercombe</span>, Jérôme, <span class="smallcaps">Thouvenin</span>, Gilles and <span class="smallcaps">Chatelet</span>, Rémy. 3D fuel cracking modelling in pellet cladding mechanical interaction. <em>Engineering Fracture Mechanics</em>. July 2008. Vol. 75, no. 11, p. 3581–3598. DOI <a href="https://doi.org/10.1016/j.engfracmech.2006.12.014">10.1016/j.engfracmech.2006.12.014</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0013794406004759">http://www.sciencedirect.com/science/article/pii/S0013794406004759</a></div>
+<div id="ref-helfer_extension_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">23. </div><div
+class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas.
+Extension of monodimensional fuel performance codes to finite strain
+analysis using a <span>Lagrangian</span> logarithmic strain framework.
+<em>Nuclear Engineering and Design</em>. July 2015. Vol. 288, p. 75–81.
+DOI <a
+href="https://doi.org/10.1016/j.nucengdes.2015.02.010">10.1016/j.nucengdes.2015.02.010</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0029549315000928">http://www.sciencedirect.com/science/article/pii/S0029549315000928</a></div>
 </div>
-<div id="ref-michel_3d_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">25. </div><div class="csl-right-inline"><span class="smallcaps">Michel</span>, Bruno, <span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Ramière</span>, Isabelle and <span class="smallcaps">Esnoul</span>, Coralie. 3D continuum damage approach for simulation of crack initiation and growth in ceramic materials. <em>Key Engineering Materials</em>. 2016. Vol. 713. DOI <a href="https://doi.org/10.4028/www.scientific.net/KEM.713.155">10.4028/www.scientific.net/KEM.713.155</a>. </div>
+<div id="ref-anderson_iterative_1965" class="csl-entry" role="listitem">
+<div class="csl-left-margin">24. </div><div
+class="csl-right-inline"><span class="smallcaps">Anderson</span>, Donald
+G. Iterative <span>Procedures</span> for <span>Nonlinear</span>
+<span>Integral</span> <span>Equations</span>. <em>J. ACM</em>. October
+1965. Vol. 12, no. 4, p. 547–560. DOI <a
+href="https://doi.org/10.1145/321296.321305">10.1145/321296.321305</a>.
+Available from: <a
+href="http://doi.acm.org/10.1145/321296.321305">http://doi.acm.org/10.1145/321296.321305</a></div>
 </div>
-<div id="ref-helfer_extension_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">26. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas. Extension of monodimensional fuel performance codes to finite strain analysis using a <span>Lagrangian</span> logarithmic strain framework. <em>Nuclear Engineering and Design</em>. July 2015. Vol. 288, p. 75–81. DOI <a href="https://doi.org/10.1016/j.nucengdes.2015.02.010">10.1016/j.nucengdes.2015.02.010</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0029549315000928">http://www.sciencedirect.com/science/article/pii/S0029549315000928</a></div>
+<div id="ref-argaud_reconstruction_2014" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">25. </div><div
+class="csl-right-inline"><span class="smallcaps">Argaud</span>,
+Jean-Philippe, <span class="smallcaps">Bouriquet</span>, Bertrand, <span
+class="smallcaps">Assire</span>, Aimery and <span
+class="smallcaps">Gervais</span>, Stéphane. Reconstruction by data
+assimilation of the inner temperature field from outer measurements in a
+thick pipe. <em><span>arXiv</span>:1404.7324 [physics]</em>. 29 April
+2014. Available from: <a
+href="http://arxiv.org/abs/1404.7324">http://arxiv.org/abs/1404.7324</a></div>
 </div>
-<div id="ref-anderson_iterative_1965" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">27. </div><div class="csl-right-inline"><span class="smallcaps">Anderson</span>, Donald G. Iterative <span>Procedures</span> for <span>Nonlinear</span> <span>Integral</span> <span>Equations</span>. <em>J. ACM</em>. October 1965. Vol. 12, no. 4, p. 547–560. DOI <a href="https://doi.org/10.1145/321296.321305">10.1145/321296.321305</a>. Available from: <a href="http://doi.acm.org/10.1145/321296.321305">http://doi.acm.org/10.1145/321296.321305</a></div>
-</div>
-<div id="ref-argaud_reconstruction_2014" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">28. </div><div class="csl-right-inline"><span class="smallcaps">Argaud</span>, Jean-Philippe, <span class="smallcaps">Bouriquet</span>, Bertrand, <span class="smallcaps">Assire</span>, Aimery and <span class="smallcaps">Gervais</span>, Stéphane. Reconstruction by data assimilation of the inner temperature field from outer measurements in a thick pipe. <em><span>arXiv</span>:1404.7324 [physics]</em>. 29 April 2014. Available from: <a href="http://arxiv.org/abs/1404.7324">http://arxiv.org/abs/1404.7324</a></div>
-</div>
-<div id="ref-munier_identification_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">29. </div><div class="csl-right-inline"><span class="smallcaps">Munier</span>, Rémi, <span class="smallcaps">Berthon</span>, Lucie, <span class="smallcaps">Argaud</span>, Jean Philippe, <span class="smallcaps">Toulemonde</span>, Charles, <span class="smallcaps">Curtit</span>, François and <span class="smallcaps">Rit</span>, Jean-François. Identification de paramètres de loi de comportement. <span>EDF</span> Lab Saclay, 2016. Available from: <a href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/SecondUserDay/munier-identification.pptx">https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/SecondUserDay/munier-identification.pptx</a></div><div class="csl-right-inline">. Second <span>MFront</span> users day.</div>
+<div id="ref-munier_identification_2016" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">26. </div><div
+class="csl-right-inline"><span class="smallcaps">Munier</span>, Rémi,
+<span class="smallcaps">Berthon</span>, Lucie, <span
+class="smallcaps">Argaud</span>, Jean Philippe, <span
+class="smallcaps">Toulemonde</span>, Charles, <span
+class="smallcaps">Curtit</span>, François and <span
+class="smallcaps">Rit</span>, Jean-François. Identification de
+paramètres de loi de comportement. <span>EDF</span> Lab Saclay, 2016.
+Available from: <a
+href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/SecondUserDay/munier-identification.pptx">https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/SecondUserDay/munier-identification.pptx</a></div><div
+class="csl-right-inline">. Second <span>MFront</span> users day.</div>
 </div>
 </div>
     <script>

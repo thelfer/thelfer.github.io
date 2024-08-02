@@ -17,8 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -27,7 +28,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -51,11 +52,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -64,14 +65,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -80,7 +81,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -183,6 +186,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -328,158 +332,398 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Release notes of the 3.1.1 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h1 class="title">Release notes of the 3.1.1 version of
+<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">2017</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#new-functionalities">New functionalities</a>
+<li><a href="#new-functionalities" id="toc-new-functionalities">New
+functionalities</a>
 <ul>
-<li><a href="#tfel-config"><code>tfel-config</code></a></li>
+<li><a href="#tfel-config"
+id="toc-tfel-config"><code>tfel-config</code></a></li>
 </ul></li>
-<li><a href="#tickets-fixed">Tickets fixed</a>
+<li><a href="#tickets-fixed" id="toc-tickets-fixed">Tickets fixed</a>
 <ul>
-<li><a href="#ticket-112-documentation-of-the-hilltensor-keyword">Ticket #112: Documentation of the <code>@HillTensor</code> keyword</a></li>
-<li><a href="#ticket-113-use-the-external-name-to-define-the-default-value-of-real-parameters">Ticket #113: Use the external name to define the default value of real parameters</a></li>
-<li><a href="#ticket-111-have-a-flag-stating-if-the-implicit-system-is-called-for-the-evaluation-of-the-jacobian-by-perturbation">Ticket #111: Have a flag stating if the implicit system is called for the evaluation of the jacobian by perturbation</a></li>
-<li><a href="#ticket-110-numerically-computed-parts-of-the-jacobian-shall-not-be-updated-after-convergence">Ticket #110: Numerically computed parts of the jacobian shall not be updated after convergence</a></li>
-<li><a href="#ticket-108-imcompatibility-between-strainmeasure-hencky-and-modellinghypothesis-axisymmetricalgeneralisedplanestrain">Ticket #108: Imcompatibility between <code>@StrainMeasure Hencky</code> and <code>@ModellingHypothesis AxisymmetricalGeneralisedPlaneStrain</code></a></li>
-<li><a href="#ticket-107-the-zmat-interface-does-not-support-array-of-parameters">Ticket #107: The ZMAT interface does not support array of parameters</a></li>
-<li><a href="#ticket-106-compilation-of-mfront-3.1-fails-for-intel-compiler">Ticket #106: Compilation of MFront 3.1 fails for Intel Compiler</a></li>
-<li><a href="#ticket-105-getting-version-number-of-mfront">Ticket #105: Getting version number of <code>MFront</code></a></li>
-<li><a href="#ticket-104-checks-of-material-properties-bounds-are-not-generated-anymore">Ticket #104: Checks of material properties’ bounds are not generated anymore</a></li>
-<li><a href="#ticket-103-the-temperature-is-updated-twice-in-updateexternalstatevariables">Ticket #103: The temperature is updated twice in updateExternalStateVariables</a></li>
-<li><a href="#ticket-102-the-usage-of-the-constants-defined-in-the-physicalconstants-class-is-broken-in-debug-mode">Ticket #102: The usage of the constants defined in the PhysicalConstants class is broken in debug mode</a></li>
-<li><a href="#ticket-100-the-name-of-the-parameter-for-the-reference-temperature-of-the-geometry-is-badly-choosen">Ticket #100: The name of the parameter for the reference temperature of the geometry is badly choosen</a></li>
-<li><a href="#ticket-99-functions-defined-in-barlat.ixx-and-hosford.ixx-does-not-work-for-floats">Ticket #99: Functions defined in <code>Barlat.ixx</code> and <code>Hosford.ixx</code> does not work for floats</a></li>
-<li><a href="#ticket-98-test-calculixelasticity3-shall-not-be-run-if-the-castem-interface-is-not-enabled">Ticket #98: Test <code>calculixelasticity3</code> shall not be run if the castem interface is not enabled</a></li>
-<li><a href="#ticket-16-change-error-management-in-aster-interface">Ticket #16: Change error management in Aster interface</a></li>
+<li><a href="#ticket-112-documentation-of-the-hilltensor-keyword"
+id="toc-ticket-112-documentation-of-the-hilltensor-keyword">Ticket #112:
+Documentation of the <code>@HillTensor</code> keyword</a></li>
+<li><a
+href="#ticket-113-use-the-external-name-to-define-the-default-value-of-real-parameters"
+id="toc-ticket-113-use-the-external-name-to-define-the-default-value-of-real-parameters">Ticket
+#113: Use the external name to define the default value of real
+parameters</a></li>
+<li><a
+href="#ticket-111-have-a-flag-stating-if-the-implicit-system-is-called-for-the-evaluation-of-the-jacobian-by-perturbation"
+id="toc-ticket-111-have-a-flag-stating-if-the-implicit-system-is-called-for-the-evaluation-of-the-jacobian-by-perturbation">Ticket
+#111: Have a flag stating if the implicit system is called for the
+evaluation of the jacobian by perturbation</a></li>
+<li><a
+href="#ticket-110-numerically-computed-parts-of-the-jacobian-shall-not-be-updated-after-convergence"
+id="toc-ticket-110-numerically-computed-parts-of-the-jacobian-shall-not-be-updated-after-convergence">Ticket
+#110: Numerically computed parts of the jacobian shall not be updated
+after convergence</a></li>
+<li><a
+href="#ticket-108-imcompatibility-between-strainmeasure-hencky-and-modellinghypothesis-axisymmetricalgeneralisedplanestrain"
+id="toc-ticket-108-imcompatibility-between-strainmeasure-hencky-and-modellinghypothesis-axisymmetricalgeneralisedplanestrain">Ticket
+#108: Imcompatibility between <code>@StrainMeasure Hencky</code> and
+<code>@ModellingHypothesis AxisymmetricalGeneralisedPlaneStrain</code></a></li>
+<li><a
+href="#ticket-107-the-zmat-interface-does-not-support-array-of-parameters"
+id="toc-ticket-107-the-zmat-interface-does-not-support-array-of-parameters">Ticket
+#107: The ZMAT interface does not support array of parameters</a></li>
+<li><a
+href="#ticket-106-compilation-of-mfront-3.1-fails-for-intel-compiler"
+id="toc-ticket-106-compilation-of-mfront-3.1-fails-for-intel-compiler">Ticket
+#106: Compilation of MFront 3.1 fails for Intel Compiler</a></li>
+<li><a href="#ticket-105-getting-version-number-of-mfront"
+id="toc-ticket-105-getting-version-number-of-mfront">Ticket #105:
+Getting version number of <code>MFront</code></a></li>
+<li><a
+href="#ticket-104-checks-of-material-properties-bounds-are-not-generated-anymore"
+id="toc-ticket-104-checks-of-material-properties-bounds-are-not-generated-anymore">Ticket
+#104: Checks of material properties’ bounds are not generated
+anymore</a></li>
+<li><a
+href="#ticket-103-the-temperature-is-updated-twice-in-updateexternalstatevariables"
+id="toc-ticket-103-the-temperature-is-updated-twice-in-updateexternalstatevariables">Ticket
+#103: The temperature is updated twice in
+updateExternalStateVariables</a></li>
+<li><a
+href="#ticket-102-the-usage-of-the-constants-defined-in-the-physicalconstants-class-is-broken-in-debug-mode"
+id="toc-ticket-102-the-usage-of-the-constants-defined-in-the-physicalconstants-class-is-broken-in-debug-mode">Ticket
+#102: The usage of the constants defined in the PhysicalConstants class
+is broken in debug mode</a></li>
+<li><a
+href="#ticket-100-the-name-of-the-parameter-for-the-reference-temperature-of-the-geometry-is-badly-choosen"
+id="toc-ticket-100-the-name-of-the-parameter-for-the-reference-temperature-of-the-geometry-is-badly-choosen">Ticket
+#100: The name of the parameter for the reference temperature of the
+geometry is badly choosen</a></li>
+<li><a
+href="#ticket-99-functions-defined-in-barlat.ixx-and-hosford.ixx-does-not-work-for-floats"
+id="toc-ticket-99-functions-defined-in-barlat.ixx-and-hosford.ixx-does-not-work-for-floats">Ticket
+#99: Functions defined in <code>Barlat.ixx</code> and
+<code>Hosford.ixx</code> does not work for floats</a></li>
+<li><a
+href="#ticket-98-test-calculixelasticity3-shall-not-be-run-if-the-castem-interface-is-not-enabled"
+id="toc-ticket-98-test-calculixelasticity3-shall-not-be-run-if-the-castem-interface-is-not-enabled">Ticket
+#98: Test <code>calculixelasticity3</code> shall not be run if the
+castem interface is not enabled</a></li>
+<li><a href="#ticket-16-change-error-management-in-aster-interface"
+id="toc-ticket-16-change-error-management-in-aster-interface">Ticket
+#16: Change error management in Aster interface</a></li>
 </ul></li>
-<li><a href="#known-incompatibilities">Known incompatibilities</a>
+<li><a href="#known-incompatibilities"
+id="toc-known-incompatibilities">Known incompatibilities</a>
 <ul>
-<li><a href="#the-name-of-the-parameter-used-to-define-the-reference-temperature-of-the-geometry-has-changed">The name of the parameter used to define the reference temperature of the geometry has changed</a></li>
-<li><a href="#default-value-for-error-reporting-in-the-aster-interface">Default value for error reporting in the <code>aster</code> interface</a></li>
+<li><a
+href="#the-name-of-the-parameter-used-to-define-the-reference-temperature-of-the-geometry-has-changed"
+id="toc-the-name-of-the-parameter-used-to-define-the-reference-temperature-of-the-geometry-has-changed">The
+name of the parameter used to define the reference temperature of the
+geometry has changed</a></li>
+<li><a href="#default-value-for-error-reporting-in-the-aster-interface"
+id="toc-default-value-for-error-reporting-in-the-aster-interface">Default
+value for error reporting in the <code>aster</code> interface</a></li>
 </ul></li>
 </ul>
 </div>
-<p>This is mainly a bug fix version of the <code>3.1</code> series. All tickets solved are described below.</p>
+<p>This is mainly a bug fix version of the <code>3.1</code> series. All
+tickets solved are described below.</p>
 <h1 id="new-functionalities">New functionalities</h1>
 <h2 id="tfel-config"><code>tfel-config</code></h2>
-<h3 id="requesting-the-c-standard-version-used-to-compile-tfel">Requesting the C++ standard version used to compile <code>TFEL</code></h3>
-<p>The <code>--cxx-standard</code> option returns the version of the C++ standard used to compile <code>TFEL</code>, as follows:</p>
+<h3
+id="requesting-the-c-standard-version-used-to-compile-tfel">Requesting
+the C++ standard version used to compile <code>TFEL</code></h3>
+<p>The <code>--cxx-standard</code> option returns the version of the C++
+standard used to compile <code>TFEL</code>, as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-config <span class="at">--cxx-standard</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">17</span></span></code></pre></div>
 <h1 id="tickets-fixed">Tickets fixed</h1>
-<h2 id="ticket-112-documentation-of-the-hilltensor-keyword">Ticket #112: Documentation of the <code>@HillTensor</code> keyword</h2>
+<h2 id="ticket-112-documentation-of-the-hilltensor-keyword">Ticket #112:
+Documentation of the <code>@HillTensor</code> keyword</h2>
 <p>The <code>@HillTensor</code> keyword is now documented.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/114/" class="uri">https://sourceforge.net/p/tfel/tickets/114/</a></p>
-<h2 id="ticket-113-use-the-external-name-to-define-the-default-value-of-real-parameters">Ticket #113: Use the external name to define the default value of real parameters</h2>
-<p>The variable name was used to form the symbol which defines the default value of a real parameter. One should have used the external name has this was already the case for <code>integer</code> and <code>unsigned short</code> parameters.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/113/" class="uri">https://sourceforge.net/p/tfel/tickets/113/</a>.</p>
-<h2 id="ticket-111-have-a-flag-stating-if-the-implicit-system-is-called-for-the-evaluation-of-the-jacobian-by-perturbation">Ticket #111: Have a flag stating if the implicit system is called for the evaluation of the jacobian by perturbation</h2>
-<p>In some cases, it is convenient to update auxiliary state variables in the <code>@Integrator</code> code block, rather than computing them in the <code>@UpdateAuxiliaryStateVariables</code> code block which is only called once the convergence is reached.</p>
-<p>However, if the jacobian matrix is computed numerically (at least partially), such updates could be wrong, because they can be based on the perturbated values of the unknowns.</p>
-<p>In <code>TFEL 3.1</code>, this can be circumvented by testing the value of the <code>perturbatedSystemEvaluation</code> boolean value as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// let av be an auxiliary state variable</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable StrainStensor av;</span>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/114/"
+class="uri">https://sourceforge.net/p/tfel/tickets/114/</a></p>
+<h2
+id="ticket-113-use-the-external-name-to-define-the-default-value-of-real-parameters">Ticket
+#113: Use the external name to define the default value of real
+parameters</h2>
+<p>The variable name was used to form the symbol which defines the
+default value of a real parameter. One should have used the external
+name has this was already the case for <code>integer</code> and
+<code>unsigned short</code> parameters.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/113/"
+class="uri">https://sourceforge.net/p/tfel/tickets/113/</a>.</p>
+<h2
+id="ticket-111-have-a-flag-stating-if-the-implicit-system-is-called-for-the-evaluation-of-the-jacobian-by-perturbation">Ticket
+#111: Have a flag stating if the implicit system is called for the
+evaluation of the jacobian by perturbation</h2>
+<p>In some cases, it is convenient to update auxiliary state variables
+in the <code>@Integrator</code> code block, rather than computing them
+in the <code>@UpdateAuxiliaryStateVariables</code> code block which is
+only called once the convergence is reached.</p>
+<p>However, if the jacobian matrix is computed numerically (at least
+partially), such updates could be wrong, because they can be based on
+the perturbated values of the unknowns.</p>
+<p>In <code>TFEL 3.1</code>, this can be circumvented by testing the
+value of the <code>perturbatedSystemEvaluation</code> boolean value as
+follows:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// let av be an auxiliary state variable</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable StrainStensor av<span class="op">;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator<span class="op">{</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// put updated value of av in a temporary variable</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">av_</span> = eval(...);  </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">av_</span> <span class="op">=</span> eval<span class="op">(...);</span>  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  definition of the implicit system</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  ...</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(!perturbatedSystemEvaluation){</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(!</span>perturbatedSystemEvaluation<span class="op">){</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// update auxiliary state variables</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    av = <span class="va">av_</span>;</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Integrator</span></span></code></pre></div>
-<p>In many cases, rather than updating auxiliary variables during the Newton iterations, it can be more pratical to compute its increment, defined in by local variable and to update the auxiliary variable in the <code>@UpdateAuxiliaryStateVariables</code> code block. The previous trick can be used in this case in a straightforward manner.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/111/" class="uri">https://sourceforge.net/p/tfel/tickets/111/</a></p>
-<h2 id="ticket-110-numerically-computed-parts-of-the-jacobian-shall-not-be-updated-after-convergence">Ticket #110: Numerically computed parts of the jacobian shall not be updated after convergence</h2>
-<p>In previous versions, the numerically computed parts of the jacobian were updated after the convergence has been reached to ensure that a proper jacobian is available for the computation of the consistent tangent operator.</p>
-<p>In <code>TFEL-3.1.1</code>, those parts of the jacobian are no more updated after convergence if the consistent tangent operator is not requested.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/110/" class="uri">https://sourceforge.net/p/tfel/tickets/110/</a></p>
-<h2 id="ticket-108-imcompatibility-between-strainmeasure-hencky-and-modellinghypothesis-axisymmetricalgeneralisedplanestrain">Ticket #108: Imcompatibility between <code>@StrainMeasure Hencky</code> and <code>@ModellingHypothesis AxisymmetricalGeneralisedPlaneStrain</code></h2>
-<p>This is a mistake in the <code>Cast3M</code> interface which happens when:</p>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    av <span class="op">=</span> <span class="va">av_</span><span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// end of @Integrator</span></span></code></pre></div>
+<p>In many cases, rather than updating auxiliary variables during the
+Newton iterations, it can be more pratical to compute its increment,
+defined in by local variable and to update the auxiliary variable in the
+<code>@UpdateAuxiliaryStateVariables</code> code block. The previous
+trick can be used in this case in a straightforward manner.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/111/"
+class="uri">https://sourceforge.net/p/tfel/tickets/111/</a></p>
+<h2
+id="ticket-110-numerically-computed-parts-of-the-jacobian-shall-not-be-updated-after-convergence">Ticket
+#110: Numerically computed parts of the jacobian shall not be updated
+after convergence</h2>
+<p>In previous versions, the numerically computed parts of the jacobian
+were updated after the convergence has been reached to ensure that a
+proper jacobian is available for the computation of the consistent
+tangent operator.</p>
+<p>In <code>TFEL-3.1.1</code>, those parts of the jacobian are no more
+updated after convergence if the consistent tangent operator is not
+requested.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/110/"
+class="uri">https://sourceforge.net/p/tfel/tickets/110/</a></p>
+<h2
+id="ticket-108-imcompatibility-between-strainmeasure-hencky-and-modellinghypothesis-axisymmetricalgeneralisedplanestrain">Ticket
+#108: Imcompatibility between <code>@StrainMeasure Hencky</code> and
+<code>@ModellingHypothesis AxisymmetricalGeneralisedPlaneStrain</code></h2>
+<p>This is a mistake in the <code>Cast3M</code> interface which happens
+when:</p>
 <ul>
-<li>using the <code>MieheApelLambrecht</code> finite strain strategy or using the Hencky strain measure (this is equivalent for the <code>Cast3M</code> interface)</li>
-<li>the plane stress hypothesis is not directly supported by the behaviour. In this case, the <code>Cast3M</code> interface tries to use the <code>GeneralisedPlaneStrain</code> hypothesis to support plane stress computations.</li>
+<li>using the <code>MieheApelLambrecht</code> finite strain strategy or
+using the Hencky strain measure (this is equivalent for the
+<code>Cast3M</code> interface)</li>
+<li>the plane stress hypothesis is not directly supported by the
+behaviour. In this case, the <code>Cast3M</code> interface tries to use
+the <code>GeneralisedPlaneStrain</code> hypothesis to support plane
+stress computations.</li>
 </ul>
-<p>Because of some ill-formed test in <code>CastemInterface.cxx</code>, the interface tried to access to the <code>BehaviourData</code> associated with the <code>GeneralisedPlaneStrain</code> hypothesis … which may be not available. Hence the error.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/108/" class="uri">https://sourceforge.net/p/tfel/tickets/108/</a></p>
-<h2 id="ticket-107-the-zmat-interface-does-not-support-array-of-parameters">Ticket #107: The ZMAT interface does not support array of parameters</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/107/" class="uri">https://sourceforge.net/p/tfel/tickets/107/</a></p>
-<h2 id="ticket-106-compilation-of-mfront-3.1-fails-for-intel-compiler">Ticket #106: Compilation of MFront 3.1 fails for Intel Compiler</h2>
-<p>Compilation of MFront 3.1 fails for Intel Compiler (version icc/2016.0.047) with this message:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mfm/src/mfm.cxx</span><span class="er">(</span><span class="ex">232</span><span class="kw">)</span><span class="bu">:</span> error: invalid type conversion: <span class="st">&quot;const tfel::utilities::Argument&quot;</span> to <span class="st">&quot;const std::string &amp;&quot;</span> const auto<span class="kw">&amp;</span> <span class="ex">l</span> = static_cast<span class="op">&lt;</span>const std::string<span class="kw">&amp;</span><span class="ex">=</span><span class="st">&quot;&quot;</span><span class="op">&gt;(</span><span class="ex">a</span><span class="op">)</span><span class="kw">;</span></span></code></pre></div>
-<p>This problem is limited to this version of the Intel Compiler. The solution is to change this line with:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span>&amp; l = a.as_string();</span></code></pre></div>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/106/" class="uri">https://sourceforge.net/p/tfel/tickets/106/</a></p>
-<h2 id="ticket-105-getting-version-number-of-mfront">Ticket #105: Getting version number of <code>MFront</code></h2>
-<p>In order to check the MFront usage with <code>CYRANO3</code>, its would be usefull to retrieve the version of <code>MFront</code>:</p>
+<p>Because of some ill-formed test in <code>CastemInterface.cxx</code>,
+the interface tried to access to the <code>BehaviourData</code>
+associated with the <code>GeneralisedPlaneStrain</code> hypothesis …
+which may be not available. Hence the error.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/108/"
+class="uri">https://sourceforge.net/p/tfel/tickets/108/</a></p>
+<h2
+id="ticket-107-the-zmat-interface-does-not-support-array-of-parameters">Ticket
+#107: The ZMAT interface does not support array of parameters</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/107/"
+class="uri">https://sourceforge.net/p/tfel/tickets/107/</a></p>
+<h2
+id="ticket-106-compilation-of-mfront-3.1-fails-for-intel-compiler">Ticket
+#106: Compilation of MFront 3.1 fails for Intel Compiler</h2>
+<p>Compilation of MFront 3.1 fails for Intel Compiler (version
+icc/2016.0.047) with this message:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mfm/src/mfm.cxx</span><span class="er">(</span><span class="ex">232</span><span class="kw">)</span><span class="bu">:</span> error: invalid type conversion: <span class="st">&quot;const tfel::utilities::Argument&quot;</span> to <span class="st">&quot;const std::string &amp;&quot;</span> const auto<span class="kw">&amp;</span> <span class="ex">l</span> = static_cast<span class="op">&lt;</span>const std::string<span class="kw">&amp;</span><span class="ex">=</span><span class="st">&quot;&quot;</span><span class="op">&gt;(</span><span class="ex">a</span><span class="op">)</span><span class="kw">;</span></span></code></pre></div>
+<p>This problem is limited to this version of the Intel Compiler. The
+solution is to change this line with:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span><span class="op">&amp;</span> l <span class="op">=</span> a<span class="op">.</span>as_string<span class="op">();</span></span></code></pre></div>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/106/"
+class="uri">https://sourceforge.net/p/tfel/tickets/106/</a></p>
+<h2 id="ticket-105-getting-version-number-of-mfront">Ticket #105:
+Getting version number of <code>MFront</code></h2>
+<p>In order to check the MFront usage with <code>CYRANO3</code>, its
+would be usefull to retrieve the version of <code>MFront</code>:</p>
 <ul>
 <li>used to generate a given shared library.</li>
-<li>associated with the library: <code>libTFELMFront.so</code> which is dynamically loaded in <code>CYRANO3</code>.</li>
+<li>associated with the library: <code>libTFELMFront.so</code> which is
+dynamically loaded in <code>CYRANO3</code>.</li>
 </ul>
-<h3 id="metadata-in-mfront-generated-libraries">Metadata in <code>MFront</code> generated libraries</h3>
-<p>A specific symbol is now generated for every generated entry points (functions or classes) defined in <code>MFront</code> libraries.</p>
-<p>This symbol’ name is composed by the entry point name followed by <code>_tfel_version</code>.</p>
-<p>For example, if we are testing the version used to generated the <code>cyranonorton</code> function, one have to retrieve the <code>cyranonorton_tfel_version</code> symbol.</p>
+<h3 id="metadata-in-mfront-generated-libraries">Metadata in
+<code>MFront</code> generated libraries</h3>
+<p>A specific symbol is now generated for every generated entry points
+(functions or classes) defined in <code>MFront</code> libraries.</p>
+<p>This symbol’ name is composed by the entry point name followed by
+<code>_tfel_version</code>.</p>
+<p>For example, if we are testing the version used to generated the
+<code>cyranonorton</code> function, one have to retrieve the
+<code>cyranonorton_tfel_version</code> symbol.</p>
 <p>This can be done:</p>
 <ul>
 <li>directly using <code>dlopen/dlsym</code>.</li>
-<li>by using the <code>getTFELVersion</code> method of the <code>ExternalLibraryManager</code> class.</li>
+<li>by using the <code>getTFELVersion</code> method of the
+<code>ExternalLibraryManager</code> class.</li>
 </ul>
-<p>The <code>tfel_version</code> member has been added to the <code>ExternalBehaviourDescription</code> class which is used by <code>Cyrano</code>. Beware that this can lead to inconsistencies if a previous version of <code>TFEL</code> is used.</p>
-<h3 id="retrieving-the-tfel-version-at-runtime">Retrieving the <code>TFEL</code> version at runtime</h3>
-<p>The <code>TFEL</code> version can be retrived by calling the <code>getTFELVersion</code> function defined in the <code>TFELConfig</code> shared library.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/105/" class="uri">https://sourceforge.net/p/tfel/tickets/105/</a></p>
-<h2 id="ticket-104-checks-of-material-properties-bounds-are-not-generated-anymore">Ticket #104: Checks of material properties’ bounds are not generated anymore</h2>
-<p>The checks for material properties are not generated any more. This is due to an ill-formed test in <code>BehaviourDSLCommon.cxx</code> in the <code>writeMaterialPropertyCheckBoundsEvaluation</code> method of the <code>BehaviourDSLCommon</code> class.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/104/" class="uri">https://sourceforge.net/p/tfel/tickets/104/</a></p>
-<h2 id="ticket-103-the-temperature-is-updated-twice-in-updateexternalstatevariables">Ticket #103: The temperature is updated twice in updateExternalStateVariables</h2>
-<p>The temperature is updated twice in <code>updateExternalStateVariables</code>. This is due to the fact that the temperature has been explicitly integrated in the external state variables in the 3.1 release (in previous releases, the temperature was treated independently, which led to lots of code duplication and special cases).</p>
-<p>This bug affects behaviours relying on local sub-stepping, a feature provided by the <code>Cast3M</code> and <code>Cyrano</code> interfaces. The other interfaces are not affected.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/103/" class="uri">https://sourceforge.net/p/tfel/tickets/103/</a></p>
-<h2 id="ticket-102-the-usage-of-the-constants-defined-in-the-physicalconstants-class-is-broken-in-debug-mode">Ticket #102: The usage of the constants defined in the PhysicalConstants class is broken in debug mode</h2>
-<p>The various constants defined in the <code>PhysicalConstants</code> class are declared as <code>constexpr static</code> variables.</p>
-<p>In release mode, those variables are inlined (which is what was intented). However, in debug mode, those static variables break the one definition rule of <code>C++</code>, leading to undefined symbols in libraries or executables using them. This is a aknowledged flaw in the <code>C++-11</code> standard which has been solved in <code>C++-17</code> which introduces inline variables.</p>
-<p>Thus the code of the <code>PhysicalConstants</code> class is only valid in <code>C++-17</code>. In <code>C++-11</code>, the solution to this issue in is to remove the <code>constexpr</code> keyword in front of constant declaration and introduce a library called <code>TFELPhysicalConstants</code> in which the constants are defined.</p>
+<p>The <code>tfel_version</code> member has been added to the
+<code>ExternalBehaviourDescription</code> class which is used by
+<code>Cyrano</code>. Beware that this can lead to inconsistencies if a
+previous version of <code>TFEL</code> is used.</p>
+<h3 id="retrieving-the-tfel-version-at-runtime">Retrieving the
+<code>TFEL</code> version at runtime</h3>
+<p>The <code>TFEL</code> version can be retrived by calling the
+<code>getTFELVersion</code> function defined in the
+<code>TFELConfig</code> shared library.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/105/"
+class="uri">https://sourceforge.net/p/tfel/tickets/105/</a></p>
+<h2
+id="ticket-104-checks-of-material-properties-bounds-are-not-generated-anymore">Ticket
+#104: Checks of material properties’ bounds are not generated
+anymore</h2>
+<p>The checks for material properties are not generated any more. This
+is due to an ill-formed test in <code>BehaviourDSLCommon.cxx</code> in
+the <code>writeMaterialPropertyCheckBoundsEvaluation</code> method of
+the <code>BehaviourDSLCommon</code> class.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/104/"
+class="uri">https://sourceforge.net/p/tfel/tickets/104/</a></p>
+<h2
+id="ticket-103-the-temperature-is-updated-twice-in-updateexternalstatevariables">Ticket
+#103: The temperature is updated twice in
+updateExternalStateVariables</h2>
+<p>The temperature is updated twice in
+<code>updateExternalStateVariables</code>. This is due to the fact that
+the temperature has been explicitly integrated in the external state
+variables in the 3.1 release (in previous releases, the temperature was
+treated independently, which led to lots of code duplication and special
+cases).</p>
+<p>This bug affects behaviours relying on local sub-stepping, a feature
+provided by the <code>Cast3M</code> and <code>Cyrano</code> interfaces.
+The other interfaces are not affected.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/103/"
+class="uri">https://sourceforge.net/p/tfel/tickets/103/</a></p>
+<h2
+id="ticket-102-the-usage-of-the-constants-defined-in-the-physicalconstants-class-is-broken-in-debug-mode">Ticket
+#102: The usage of the constants defined in the PhysicalConstants class
+is broken in debug mode</h2>
+<p>The various constants defined in the <code>PhysicalConstants</code>
+class are declared as <code>constexpr static</code> variables.</p>
+<p>In release mode, those variables are inlined (which is what was
+intented). However, in debug mode, those static variables break the one
+definition rule of <code>C++</code>, leading to undefined symbols in
+libraries or executables using them. This is a aknowledged flaw in the
+<code>C++-11</code> standard which has been solved in
+<code>C++-17</code> which introduces inline variables.</p>
+<p>Thus the code of the <code>PhysicalConstants</code> class is only
+valid in <code>C++-17</code>. In <code>C++-11</code>, the solution to
+this issue in is to remove the <code>constexpr</code> keyword in front
+of constant declaration and introduce a library called
+<code>TFELPhysicalConstants</code> in which the constants are
+defined.</p>
 <p>In <code>C++-17</code>, this library is empty.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/100/" class="uri">https://sourceforge.net/p/tfel/tickets/100/</a></p>
-<h2 id="ticket-100-the-name-of-the-parameter-for-the-reference-temperature-of-the-geometry-is-badly-choosen">Ticket #100: The name of the parameter for the reference temperature of the geometry is badly choosen</h2>
-<p>When using the <code>@ComputeThermalExpansion</code> keyword, the thermal expansion is computed as follows:</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/100/"
+class="uri">https://sourceforge.net/p/tfel/tickets/100/</a></p>
+<h2
+id="ticket-100-the-name-of-the-parameter-for-the-reference-temperature-of-the-geometry-is-badly-choosen">Ticket
+#100: The name of the parameter for the reference temperature of the
+geometry is badly choosen</h2>
+<p>When using the <code>@ComputeThermalExpansion</code> keyword, the
+thermal expansion is computed as follows:</p>
 <p><span class="math display">\[
-\frac{\Delta\,l}{l_{T^{i}}} = \frac{1}{1+\alpha\left(T^{i}\right)\,\left(T^{i}-T^{\alpha}\right)}\,\left[\alpha\left(T\right)\,\left(T-T^{\alpha}\right)-\alpha\left(T^{i}\right)\,\left(T^{i}-T^{\alpha}\right)\right]
+\frac{\Delta\,l}{l_{T^{i}}} =
+\frac{1}{1+\alpha\left(T^{i}\right)\,\left(T^{i}-T^{\alpha}\right)}\,\left[\alpha\left(T\right)\,\left(T-T^{\alpha}\right)-\alpha\left(T^{i}\right)\,\left(T^{i}-T^{\alpha}\right)\right]
 \]</span></p>
 <p>where:</p>
 <ul>
-<li><span class="math inline">\(T^{\alpha}\)</span> is the reference temperature for the thermal expansion.</li>
-<li><span class="math inline">\(T^{i}\)</span> is the reference temperature at which of the geometry has been measured which is generally assumed to be equal to the temperature at the beginning of the computations, in the undeformed state.</li>
+<li><span class="math inline">\(T^{\alpha}\)</span> is the reference
+temperature for the thermal expansion.</li>
+<li><span class="math inline">\(T^{i}\)</span> is the reference
+temperature at which of the geometry has been measured which is
+generally assumed to be equal to the temperature at the beginning of the
+computations, in the undeformed state.</li>
 </ul>
-<p>In previous versions of <code>TFEL</code> and <code>MFront</code>, the reference temperature for the geometry <span class="math inline">\(T^{i}\)</span> could be specified as a parameter named <code>ReferenceTemperature</code>. This name was badly choosen and can be confusing as it is more intuitively associated with <span class="math inline">\(T^{\alpha}\)</span>.</p>
-<p>Since this version of <code>TFEL</code> and <code>MFront</code>, this parameter has been renamed <code>ReferenceTemperatureForInitialGeometry</code>.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/100/" class="uri">https://sourceforge.net/p/tfel/tickets/100/</a></p>
-<h2 id="ticket-99-functions-defined-in-barlat.ixx-and-hosford.ixx-does-not-work-for-floats">Ticket #99: Functions defined in <code>Barlat.ixx</code> and <code>Hosford.ixx</code> does not work for floats</h2>
-<p>In this case, the functions defined in <code>Barlat.ixx</code> and <code>Hosford.ixx</code> can make extensive use of <code>std::pow(float,int)</code> when the exponent is an <code>int</code>: this function returns a <code>double</code> and not a <code>float</code>. Thus the result of those functions must be recasted in <code>float</code>.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/99/" class="uri">https://sourceforge.net/p/tfel/tickets/99/</a></p>
-<h2 id="ticket-98-test-calculixelasticity3-shall-not-be-run-if-the-castem-interface-is-not-enabled">Ticket #98: Test <code>calculixelasticity3</code> shall not be run if the castem interface is not enabled</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/98/" class="uri">https://sourceforge.net/p/tfel/tickets/98/</a></p>
-<h2 id="ticket-16-change-error-management-in-aster-interface">Ticket #16: Change error management in Aster interface</h2>
-<p>For each behaviour generated by <code>MFront</code> using the <code>aster</code> interface, a function called <code>&lt;aster_behaviour_name&gt;_getIntegrationErrorMessage()</code> is now also created. This function returns a buffer containing the last error encountered. This buffer has a per thread storage (so it is thread safe). Its size is 128 characters (arbitrary choice).</p>
-<p>Since this function is available, the default option for reporting integration errors on the standard error output has been changed from true to false. The previous option can be recovered by using the <code>@AsterErrorReport</code> keyword in <code>MFront</code> as follows:</p>
+<p>In previous versions of <code>TFEL</code> and <code>MFront</code>,
+the reference temperature for the geometry <span
+class="math inline">\(T^{i}\)</span> could be specified as a parameter
+named <code>ReferenceTemperature</code>. This name was badly choosen and
+can be confusing as it is more intuitively associated with <span
+class="math inline">\(T^{\alpha}\)</span>.</p>
+<p>Since this version of <code>TFEL</code> and <code>MFront</code>, this
+parameter has been renamed
+<code>ReferenceTemperatureForInitialGeometry</code>.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/100/"
+class="uri">https://sourceforge.net/p/tfel/tickets/100/</a></p>
+<h2
+id="ticket-99-functions-defined-in-barlat.ixx-and-hosford.ixx-does-not-work-for-floats">Ticket
+#99: Functions defined in <code>Barlat.ixx</code> and
+<code>Hosford.ixx</code> does not work for floats</h2>
+<p>In this case, the functions defined in <code>Barlat.ixx</code> and
+<code>Hosford.ixx</code> can make extensive use of
+<code>std::pow(float,int)</code> when the exponent is an
+<code>int</code>: this function returns a <code>double</code> and not a
+<code>float</code>. Thus the result of those functions must be recasted
+in <code>float</code>.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/99/"
+class="uri">https://sourceforge.net/p/tfel/tickets/99/</a></p>
+<h2
+id="ticket-98-test-calculixelasticity3-shall-not-be-run-if-the-castem-interface-is-not-enabled">Ticket
+#98: Test <code>calculixelasticity3</code> shall not be run if the
+castem interface is not enabled</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/98/"
+class="uri">https://sourceforge.net/p/tfel/tickets/98/</a></p>
+<h2 id="ticket-16-change-error-management-in-aster-interface">Ticket
+#16: Change error management in Aster interface</h2>
+<p>For each behaviour generated by <code>MFront</code> using the
+<code>aster</code> interface, a function called
+<code>&lt;aster_behaviour_name&gt;_getIntegrationErrorMessage()</code>
+is now also created. This function returns a buffer containing the last
+error encountered. This buffer has a per thread storage (so it is thread
+safe). Its size is 128 characters (arbitrary choice).</p>
+<p>Since this function is available, the default option for reporting
+integration errors on the standard error output has been changed from
+true to false. The previous option can be recovered by using the
+<code>@AsterErrorReport</code> keyword in <code>MFront</code> as
+follows:</p>
 <pre><code>@AsterErrorReport true;</code></pre>
-<p>or, even better, by passing <code>--@AsterErrorReport=true</code> when calling <code>MFront</code>, as follows:</p>
+<p>or, even better, by passing <code>--@AsterErrorReport=true</code>
+when calling <code>MFront</code>, as follows:</p>
 <pre><code>$ mfront --obuild --@AsterErrorReport=true ....</code></pre>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/16/" class="uri">https://sourceforge.net/p/tfel/tickets/16/</a></p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/16/"
+class="uri">https://sourceforge.net/p/tfel/tickets/16/</a></p>
 <h1 id="known-incompatibilities">Known incompatibilities</h1>
-<h2 id="the-name-of-the-parameter-used-to-define-the-reference-temperature-of-the-geometry-has-changed">The name of the parameter used to define the reference temperature of the geometry has changed</h2>
-<p>The name of the parameter used to define the reference temperature of the geometry has been changed to <code>ReferenceTemperatureForInitialGeometry</code>. See Ticket #100 for details.</p>
+<h2
+id="the-name-of-the-parameter-used-to-define-the-reference-temperature-of-the-geometry-has-changed">The
+name of the parameter used to define the reference temperature of the
+geometry has changed</h2>
+<p>The name of the parameter used to define the reference temperature of
+the geometry has been changed to
+<code>ReferenceTemperatureForInitialGeometry</code>. See Ticket #100 for
+details.</p>
 <!-- Local IspellDict: english -->
-<h2 id="default-value-for-error-reporting-in-the-aster-interface">Default value for error reporting in the <code>aster</code> interface</h2>
-<p>The default option for reporting integration errors on the standard error output has been changed from true to false. The previous option can be recovered by using the <code>@AsterErrorReport</code> keyword in <code>MFront</code> as follows:</p>
+<h2
+id="default-value-for-error-reporting-in-the-aster-interface">Default
+value for error reporting in the <code>aster</code> interface</h2>
+<p>The default option for reporting integration errors on the standard
+error output has been changed from true to false. The previous option
+can be recovered by using the <code>@AsterErrorReport</code> keyword in
+<code>MFront</code> as follows:</p>
 <pre><code>@AsterErrorReport true;</code></pre>
 <p>See Ticket #16 for details.</p>
     <script>

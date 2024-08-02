@@ -17,8 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -27,7 +28,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -51,11 +52,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -64,14 +65,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -80,7 +81,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -183,6 +186,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -328,199 +332,541 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">New functionalities of the 3.4 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h1 class="title">New functionalities of the 3.4 version of
+<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">2020</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#overview"><span class="toc-section-number">1</span> Overview</a>
+<li><a href="#overview" id="toc-overview"><span
+class="toc-section-number">1</span> Overview</a>
 <ul>
-<li><a href="#some-noticeable-applications-of-mfront-and-mgis-in-2020"><span class="toc-section-number">1.1</span> Some noticeable applications of <code>MFront</code> and <code>MGIS</code> in 2020</a></li>
-<li><a href="#highlights"><span class="toc-section-number">1.2</span> Highlights</a></li>
-<li><a href="#simultaneous-releases-this-version-has-been-released-along-with"><span class="toc-section-number">1.3</span> Simultaneous releases This version has been released along with:</a></li>
-<li><a href="#known-incompatibilities"><span class="toc-section-number">1.4</span> Known incompatibilities</a></li>
-<li><a href="#noticeable-fixed-issues-that-may-affect-the-results-obtained-with-previous-versions"><span class="toc-section-number">1.5</span> Noticeable fixed issues that may affect the results obtained with previous versions</a></li>
+<li><a href="#some-noticeable-applications-of-mfront-and-mgis-in-2020"
+id="toc-some-noticeable-applications-of-mfront-and-mgis-in-2020"><span
+class="toc-section-number">1.1</span> Some noticeable applications of
+<code>MFront</code> and <code>MGIS</code> in 2020</a></li>
+<li><a href="#highlights" id="toc-highlights"><span
+class="toc-section-number">1.2</span> Highlights</a></li>
+<li><a
+href="#simultaneous-releases-this-version-has-been-released-along-with"
+id="toc-simultaneous-releases-this-version-has-been-released-along-with"><span
+class="toc-section-number">1.3</span> Simultaneous releases This version
+has been released along with:</a></li>
+<li><a href="#known-incompatibilities"
+id="toc-known-incompatibilities"><span
+class="toc-section-number">1.4</span> Known incompatibilities</a></li>
+<li><a
+href="#noticeable-fixed-issues-that-may-affect-the-results-obtained-with-previous-versions"
+id="toc-noticeable-fixed-issues-that-may-affect-the-results-obtained-with-previous-versions"><span
+class="toc-section-number">1.5</span> Noticeable fixed issues that may
+affect the results obtained with previous versions</a></li>
 </ul></li>
-<li><a href="#documentation"><span class="toc-section-number">2</span> Documentation</a></li>
-<li><a href="#new-features-of-the-tfel-libraries"><span class="toc-section-number">3</span> New features of the <code>TFEL</code> libraries</a>
+<li><a href="#documentation" id="toc-documentation"><span
+class="toc-section-number">2</span> Documentation</a></li>
+<li><a href="#new-features-of-the-tfel-libraries"
+id="toc-new-features-of-the-tfel-libraries"><span
+class="toc-section-number">3</span> New features of the
+<code>TFEL</code> libraries</a>
 <ul>
-<li><a href="#new-features-of-the-tfelmath-library"><span class="toc-section-number">3.1</span> New features of the <code>TFEL/Math</code> library</a></li>
+<li><a href="#new-features-of-the-tfelmath-library"
+id="toc-new-features-of-the-tfelmath-library"><span
+class="toc-section-number">3.1</span> New features of the
+<code>TFEL/Math</code> library</a></li>
 </ul></li>
-<li><a href="#new-features-of-mfront"><span class="toc-section-number">4</span> New features of <code>MFront</code></a>
+<li><a href="#new-features-of-mfront"
+id="toc-new-features-of-mfront"><span
+class="toc-section-number">4</span> New features of
+<code>MFront</code></a>
 <ul>
-<li><a href="#debugging-options"><span class="toc-section-number">4.1</span> Debugging options</a></li>
-<li><a href="#improved-robustness-of-the-isotropic-dsls"><span class="toc-section-number">4.2</span> Improved robustness of the isotropic DSLs</a></li>
-<li><a href="#generic-behaviours"><span class="toc-section-number">4.3</span> Generic behaviours</a></li>
-<li><a href="#improvements-to-the-implicit-domain-specific-languages"><span class="toc-section-number">4.4</span> Improvements to the implicit domain specific languages</a></li>
-<li><a href="#improvement-of-the-standardelastoviscoplasticity-brick"><span class="toc-section-number">4.5</span> Improvement of the <code>StandardElastoViscoPlasticity</code> brick</a></li>
-<li><a href="#improvement-of-the-generic-interface"><span class="toc-section-number">4.6</span> Improvement of the <code>generic</code> interface</a></li>
+<li><a href="#debugging-options" id="toc-debugging-options"><span
+class="toc-section-number">4.1</span> Debugging options</a></li>
+<li><a href="#improved-robustness-of-the-isotropic-dsls"
+id="toc-improved-robustness-of-the-isotropic-dsls"><span
+class="toc-section-number">4.2</span> Improved robustness of the
+isotropic DSLs</a></li>
+<li><a href="#generic-behaviours" id="toc-generic-behaviours"><span
+class="toc-section-number">4.3</span> Generic behaviours</a></li>
+<li><a href="#improvements-to-the-implicit-domain-specific-languages"
+id="toc-improvements-to-the-implicit-domain-specific-languages"><span
+class="toc-section-number">4.4</span> Improvements to the implicit
+domain specific languages</a></li>
+<li><a href="#improvement-of-the-standardelastoviscoplasticity-brick"
+id="toc-improvement-of-the-standardelastoviscoplasticity-brick"><span
+class="toc-section-number">4.5</span> Improvement of the
+<code>StandardElastoViscoPlasticity</code> brick</a></li>
+<li><a href="#improvement-of-the-generic-interface"
+id="toc-improvement-of-the-generic-interface"><span
+class="toc-section-number">4.6</span> Improvement of the
+<code>generic</code> interface</a></li>
 </ul></li>
-<li><a href="#new-features-in-mtest"><span class="toc-section-number">5</span> New features in <code>MTest</code></a>
+<li><a href="#new-features-in-mtest"
+id="toc-new-features-in-mtest"><span class="toc-section-number">5</span>
+New features in <code>MTest</code></a>
 <ul>
-<li><a href="#import-behaviour-parameters"><span class="toc-section-number">5.1</span> Import behaviour parameters</a></li>
-<li><a href="#unicode-characters-in-mtest"><span class="toc-section-number">5.2</span> Unicode characters in <code>MTest</code></a></li>
+<li><a href="#import-behaviour-parameters"
+id="toc-import-behaviour-parameters"><span
+class="toc-section-number">5.1</span> Import behaviour
+parameters</a></li>
+<li><a href="#unicode-characters-in-mtest"
+id="toc-unicode-characters-in-mtest"><span
+class="toc-section-number">5.2</span> Unicode characters in
+<code>MTest</code></a></li>
 </ul></li>
-<li><a href="#new-features-of-the-python-bindings"><span class="toc-section-number">6</span> New features of the <code>python</code> bindings</a>
+<li><a href="#new-features-of-the-python-bindings"
+id="toc-new-features-of-the-python-bindings"><span
+class="toc-section-number">6</span> New features of the
+<code>python</code> bindings</a>
 <ul>
-<li><a href="#improvements-of-the-tfel.math-module"><span class="toc-section-number">6.1</span> Improvements of the <code>tfel.math</code> module</a></li>
+<li><a href="#improvements-of-the-tfel.math-module"
+id="toc-improvements-of-the-tfel.math-module"><span
+class="toc-section-number">6.1</span> Improvements of the
+<code>tfel.math</code> module</a></li>
 </ul></li>
-<li><a href="#tfel-unicode-filt"><span class="toc-section-number">7</span> <code>tfel-unicode-filt</code></a></li>
-<li><a href="#improvements-to-tfel-config"><span class="toc-section-number">8</span> Improvements to <code>tfel-config</code></a></li>
-<li><a href="#improvements-to-the-build-system"><span class="toc-section-number">9</span> Improvements to the build system</a>
+<li><a href="#tfel-unicode-filt" id="toc-tfel-unicode-filt"><span
+class="toc-section-number">7</span>
+<code>tfel-unicode-filt</code></a></li>
+<li><a href="#improvements-to-tfel-config"
+id="toc-improvements-to-tfel-config"><span
+class="toc-section-number">8</span> Improvements to
+<code>tfel-config</code></a></li>
+<li><a href="#improvements-to-the-build-system"
+id="toc-improvements-to-the-build-system"><span
+class="toc-section-number">9</span> Improvements to the build system</a>
 <ul>
-<li><a href="#exporting-cmake-targets"><span class="toc-section-number">9.1</span> Exporting <code>CMake</code>’ targets</a></li>
-<li><a href="#disabling-numpy-support"><span class="toc-section-number">9.2</span> Disabling <code>NumPy</code> support</a></li>
+<li><a href="#exporting-cmake-targets"
+id="toc-exporting-cmake-targets"><span
+class="toc-section-number">9.1</span> Exporting <code>CMake</code>’
+targets</a></li>
+<li><a href="#disabling-numpy-support"
+id="toc-disabling-numpy-support"><span
+class="toc-section-number">9.2</span> Disabling <code>NumPy</code>
+support</a></li>
 </ul></li>
-<li><a href="#tickets-solved-during-the-development-of-this-version"><span class="toc-section-number">10</span> Tickets solved during the development of this version</a>
+<li><a href="#tickets-solved-during-the-development-of-this-version"
+id="toc-tickets-solved-during-the-development-of-this-version"><span
+class="toc-section-number">10</span> Tickets solved during the
+development of this version</a>
 <ul>
-<li><a href="#ticket-250-add-a-new-inelastic-flow-to-the-standardelastoviscoplasticity-brick"><span class="toc-section-number">10.1</span> Ticket #250: Add a new inelastic flow to the <code>StandardElastoViscoPlasticity</code> brick</a></li>
-<li><a href="#ticket-234-import-behaviour-parameters-in-mtest"><span class="toc-section-number">10.2</span> Ticket #234: Import behaviour parameters in <code>MTest</code></a></li>
-<li><a href="#ticket-231-support-for-tensors-as-gradients-and-thermodynamic-forces-in-the-generic-behaviours"><span class="toc-section-number">10.3</span> Ticket #231: Support for tensors as gradients and thermodynamic forces in the <code>generic</code> behaviours</a></li>
-<li><a href="#ticket-219-add-the-possibility-to-define-the-tangent-operator-blocks"><span class="toc-section-number">10.4</span> Ticket #219: Add the possibility to define the tangent operator blocks</a></li>
-<li><a href="#ticket-214-add-a-debugging-option-to-mfront"><span class="toc-section-number">10.5</span> Ticket #214: Add a debugging option to <code>MFront</code></a></li>
-<li><a href="#ticket-212-better-const-correctness-in-the-generic-behaviour"><span class="toc-section-number">10.6</span> Ticket #212: Better <code>const</code> correctness in the <code>generic</code> behaviour</a></li>
-<li><a href="#ticket-209-lack-of-documentation-of-the-gasequationofstate-keyword"><span class="toc-section-number">10.7</span> Ticket #209: lack of documentation of the <code>@GasEquationOfState</code> keyword</a></li>
-<li><a href="#ticket-206-export-tfel-targets-for-use-by-external-projects"><span class="toc-section-number">10.8</span> Ticket #206: Export <code>TFEL</code> targets for use by external projects</a></li>
-<li><a href="#ticket-205-add-power-isotropic-hardening-rule"><span class="toc-section-number">10.9</span> Ticket #205: Add power isotropic hardening rule</a></li>
-<li><a href="#ticket-201-allow-better-control-of-the-convergence-in-the-standardelastoviscoplascity-brick"><span class="toc-section-number">10.10</span> Ticket #201: Allow better control of the convergence in the <code>StandardElastoviscoPlascity</code> brick</a></li>
-<li><a href="#ticket-200-allow-choosing-the-eigen-solver-for-some-stress-criteria-in-the-standardelastoviscoplascity-brick"><span class="toc-section-number">10.11</span> Ticket #200: Allow choosing the eigen solver for some stress criteria in the <code>StandardElastoviscoPlascity</code> brick</a></li>
-<li><a href="#ticket-195-export-variables-bounds-for-material-properties"><span class="toc-section-number">10.12</span> Ticket #195 : Export variables bounds for material properties</a></li>
-<li><a href="#ticket-202-dsls-for-isotropic-behaviours-dont-handle-nan"><span class="toc-section-number">10.13</span> Ticket #202: DSLs for isotropic behaviours don’t handle <code>NaN</code></a></li>
-<li><a href="#ticket-196-export-variable-names-for-all-interface-of-material-property"><span class="toc-section-number">10.14</span> Ticket #196 : Export variable names for all interface of material property</a></li>
+<li><a
+href="#ticket-250-add-a-new-inelastic-flow-to-the-standardelastoviscoplasticity-brick"
+id="toc-ticket-250-add-a-new-inelastic-flow-to-the-standardelastoviscoplasticity-brick"><span
+class="toc-section-number">10.1</span> Ticket #250: Add a new inelastic
+flow to the <code>StandardElastoViscoPlasticity</code> brick</a></li>
+<li><a href="#ticket-234-import-behaviour-parameters-in-mtest"
+id="toc-ticket-234-import-behaviour-parameters-in-mtest"><span
+class="toc-section-number">10.2</span> Ticket #234: Import behaviour
+parameters in <code>MTest</code></a></li>
+<li><a
+href="#ticket-231-support-for-tensors-as-gradients-and-thermodynamic-forces-in-the-generic-behaviours"
+id="toc-ticket-231-support-for-tensors-as-gradients-and-thermodynamic-forces-in-the-generic-behaviours"><span
+class="toc-section-number">10.3</span> Ticket #231: Support for tensors
+as gradients and thermodynamic forces in the <code>generic</code>
+behaviours</a></li>
+<li><a
+href="#ticket-219-add-the-possibility-to-define-the-tangent-operator-blocks"
+id="toc-ticket-219-add-the-possibility-to-define-the-tangent-operator-blocks"><span
+class="toc-section-number">10.4</span> Ticket #219: Add the possibility
+to define the tangent operator blocks</a></li>
+<li><a href="#ticket-214-add-a-debugging-option-to-mfront"
+id="toc-ticket-214-add-a-debugging-option-to-mfront"><span
+class="toc-section-number">10.5</span> Ticket #214: Add a debugging
+option to <code>MFront</code></a></li>
+<li><a
+href="#ticket-212-better-const-correctness-in-the-generic-behaviour"
+id="toc-ticket-212-better-const-correctness-in-the-generic-behaviour"><span
+class="toc-section-number">10.6</span> Ticket #212: Better
+<code>const</code> correctness in the <code>generic</code>
+behaviour</a></li>
+<li><a
+href="#ticket-209-lack-of-documentation-of-the-gasequationofstate-keyword"
+id="toc-ticket-209-lack-of-documentation-of-the-gasequationofstate-keyword"><span
+class="toc-section-number">10.7</span> Ticket #209: lack of
+documentation of the <code>@GasEquationOfState</code> keyword</a></li>
+<li><a
+href="#ticket-206-export-tfel-targets-for-use-by-external-projects"
+id="toc-ticket-206-export-tfel-targets-for-use-by-external-projects"><span
+class="toc-section-number">10.8</span> Ticket #206: Export
+<code>TFEL</code> targets for use by external projects</a></li>
+<li><a href="#ticket-205-add-power-isotropic-hardening-rule"
+id="toc-ticket-205-add-power-isotropic-hardening-rule"><span
+class="toc-section-number">10.9</span> Ticket #205: Add power isotropic
+hardening rule</a></li>
+<li><a
+href="#ticket-201-allow-better-control-of-the-convergence-in-the-standardelastoviscoplascity-brick"
+id="toc-ticket-201-allow-better-control-of-the-convergence-in-the-standardelastoviscoplascity-brick"><span
+class="toc-section-number">10.10</span> Ticket #201: Allow better
+control of the convergence in the
+<code>StandardElastoviscoPlascity</code> brick</a></li>
+<li><a
+href="#ticket-200-allow-choosing-the-eigen-solver-for-some-stress-criteria-in-the-standardelastoviscoplascity-brick"
+id="toc-ticket-200-allow-choosing-the-eigen-solver-for-some-stress-criteria-in-the-standardelastoviscoplascity-brick"><span
+class="toc-section-number">10.11</span> Ticket #200: Allow choosing the
+eigen solver for some stress criteria in the
+<code>StandardElastoviscoPlascity</code> brick</a></li>
+<li><a
+href="#ticket-195-export-variables-bounds-for-material-properties"
+id="toc-ticket-195-export-variables-bounds-for-material-properties"><span
+class="toc-section-number">10.12</span> Ticket #195 : Export variables
+bounds for material properties</a></li>
+<li><a href="#ticket-202-dsls-for-isotropic-behaviours-dont-handle-nan"
+id="toc-ticket-202-dsls-for-isotropic-behaviours-dont-handle-nan"><span
+class="toc-section-number">10.13</span> Ticket #202: DSLs for isotropic
+behaviours don’t handle <code>NaN</code></a></li>
+<li><a
+href="#ticket-196-export-variable-names-for-all-interface-of-material-property"
+id="toc-ticket-196-export-variable-names-for-all-interface-of-material-property"><span
+class="toc-section-number">10.14</span> Ticket #196 : Export variable
+names for all interface of material property</a></li>
 </ul></li>
-<li><a href="#references">References</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
 </ul>
 </div>
-<p>The page describes the new functionalities of Version 3.4 of the <code>TFEL</code> project.</p>
-<h1 data-number="1" id="overview"><span class="header-section-number">1</span> Overview</h1>
-<h2 data-number="1.1" id="some-noticeable-applications-of-mfront-and-mgis-in-2020"><span class="header-section-number">1.1</span> Some noticeable applications of <code>MFront</code> and <code>MGIS</code> in 2020</h2>
-<figure>
-<img src="img/Highlights-3.4.png" id="fig:tfel-3.4" style="width:90.0%" alt="Figure 1: Some noticeable applications of MFront and MGIS in 2020" /><figcaption aria-hidden="true">Figure 1: Some noticeable applications of <code>MFront</code> and <code>MGIS</code> in 2020</figcaption>
+<p>The page describes the new functionalities of Version 3.4 of the
+<code>TFEL</code> project.</p>
+<h1 data-number="1" id="overview"><span
+class="header-section-number">1</span> Overview</h1>
+<h2 data-number="1.1"
+id="some-noticeable-applications-of-mfront-and-mgis-in-2020"><span
+class="header-section-number">1.1</span> Some noticeable applications of
+<code>MFront</code> and <code>MGIS</code> in 2020</h2>
+<figure id="fig:tfel-3.4">
+<img src="img/Highlights-3.4.png" style="width:90.0%"
+alt="Some noticeable applications of MFront and MGIS in 2020" />
+<figcaption>Figure 1: Some noticeable applications of
+<code>MFront</code> and <code>MGIS</code> in 2020</figcaption>
 </figure>
-<p>Figure 1 presents some noticeable applications of <code>MFront</code>:</p>
+<p>Figure 1 presents some noticeable applications of
+<code>MFront</code>:</p>
 <ol type="a">
-<li>Normalised residual topography after an indentation test on a single crsytal of copper with Méric-Cailletaud’ finite stain behaviour <span class="citation" data-cites="meric_fe_1994">[<a href="#ref-meric_fe_1994" role="doc-biblioref">1</a>]</span> using <code>Ansys</code>. Contribution of A. Bourceret and A. Lejeune, (FEMTO).</li>
-<li>Slope failure analysis with strength reduction in <a href="https://www.opengeosys.org/"><code>OpenGeoSys</code></a> <span class="citation" data-cites="deng_slope_2020">[<a href="#ref-deng_slope_2020" role="doc-biblioref">2</a>]</span>. Contribution of T. Deng and T. Nagel (Geotechnical Institute, Technische Universität Bergakademie Freiberg).</li>
-<li>Integration of the <code>MGIS</code> integration in <code>Europlexus</code>. Contribution of P. Bouda, (CEA DM2S).</li>
-<li>Simulation of rolling using the innovative CEA’ proto-application <code>MEFISTO</code>. Contribution of O. Jamond, (CEA DM2S).</li>
-<li>Industrial thermomechanical design of a cylinder block with an with MFront and Abaqus at Groupe PSA. This study is one result of the PhD thesis of L. Jacquinot which provides a continuous modelling of the AlSi9Cu3Mg aluminium alloy behaviour from manufacturing to final usage Contribution of A. Forré (Groupe PSA).</li>
-<li>Column collapse using the Material Point Method. Contribution of Ning Guo, Wenlong Li (Zhejiang University)</li>
+<li>Normalised residual topography after an indentation test on a single
+crsytal of copper with Méric-Cailletaud’ finite stain behaviour <span
+class="citation" data-cites="meric_fe_1994">[<a
+href="#ref-meric_fe_1994" role="doc-biblioref">1</a>]</span> using
+<code>Ansys</code>. Contribution of A. Bourceret and A. Lejeune,
+(FEMTO).</li>
+<li>Slope failure analysis with strength reduction in <a
+href="https://www.opengeosys.org/"><code>OpenGeoSys</code></a> <span
+class="citation" data-cites="deng_slope_2020">[<a
+href="#ref-deng_slope_2020" role="doc-biblioref">2</a>]</span>.
+Contribution of T. Deng and T. Nagel (Geotechnical Institute, Technische
+Universität Bergakademie Freiberg).</li>
+<li>Integration of the <code>MGIS</code> integration in
+<code>Europlexus</code>. Contribution of P. Bouda, (CEA DM2S).</li>
+<li>Simulation of rolling using the innovative CEA’ proto-application
+<code>MEFISTO</code>. Contribution of O. Jamond, (CEA DM2S).</li>
+<li>Industrial thermomechanical design of a cylinder block with an with
+MFront and Abaqus at Groupe PSA. This study is one result of the PhD
+thesis of L. Jacquinot which provides a continuous modelling of the
+AlSi9Cu3Mg aluminium alloy behaviour from manufacturing to final usage
+Contribution of A. Forré (Groupe PSA).</li>
+<li>Column collapse using the Material Point Method. Contribution of
+Ning Guo, Wenlong Li (Zhejiang University)</li>
 </ol>
-<h2 data-number="1.2" id="highlights"><span class="header-section-number">1.2</span> Highlights</h2>
-<figure>
-<img src="img/PorousPlasticity-3.4.png" id="fig:porous_plasticity" style="width:95.0%" alt="Figure 2: a) Cast3M simulation of a Notched Tensile sample of an AA6061-T6 found in the core of Jules Horowitz Reactor and comparison of simulation result with experimental data. b) Cast3M simulation of a Charpy test on the PWR reactor core vessel’ steel" /><figcaption aria-hidden="true">Figure 2: a) <code>Cast3M</code> simulation of a Notched Tensile sample of an AA6061-T6 found in the core of Jules Horowitz Reactor and comparison of simulation result with experimental data. b) <code>Cast3M</code> simulation of a Charpy test on the PWR reactor core vessel’ steel</figcaption>
+<h2 data-number="1.2" id="highlights"><span
+class="header-section-number">1.2</span> Highlights</h2>
+<figure id="fig:porous_plasticity">
+<img src="img/PorousPlasticity-3.4.png" style="width:95.0%"
+alt="a) Cast3M simulation of a Notched Tensile sample of an AA6061-T6 found in the core of Jules Horowitz Reactor and comparison of simulation result with experimental data. b) Cast3M simulation of a Charpy test on the PWR reactor core vessel’ steel" />
+<figcaption>Figure 2: a) <code>Cast3M</code> simulation of a Notched
+Tensile sample of an AA6061-T6 found in the core of Jules Horowitz
+Reactor and comparison of simulation result with experimental data. b)
+<code>Cast3M</code> simulation of a Charpy test on the PWR reactor core
+vessel’ steel</figcaption>
 </figure>
 <p>The major features of Version 3.4 are:</p>
 <ul>
-<li>A better support generalised behaviours, in particular regarding the computation of the consistent tangent operator in the implicit schemes <span class="citation" data-cites="helfer_assisted_2020">[<a href="#ref-helfer_assisted_2020" role="doc-biblioref">3</a>]</span>. Examples of this features are presented in references <span class="citation" data-cites="bleyer_monolithic_2020 bleyer_multiphase_2020 bleyer_transient_2020 helfer_using_2020">[<a href="#ref-bleyer_monolithic_2020" role="doc-biblioref">4</a>–<a href="#ref-helfer_using_2020" role="doc-biblioref">7</a>]</span>.</li>
-<li>An extension of the <a href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a> to porous materials See Figure 2 for some examples of ductile failure simulations with <code>Cast3M</code>.</li>
-<li>The ability to store <code>MFront</code> behaviours in a <a href="https://github.com/thelfer/madnex"><code>madnex</code> file</a>. <code>madnex</code> is a data model based on <code>HDF5</code> file format that was originally designed by EDF as part of their in-house projects for capitalising their experimental data and which is now being shared among the main actors of the french nuclear industry with the aim of becoming the de facto standard to exchange experimental data, <code>MFront</code> implementations and unit tests of those implementations. Documentation is available here: <a href="http://tfel.sourceforge.net/madnex.html" class="uri">http://tfel.sourceforge.net/madnex.html</a>.</li>
-<li>The <code>MFront</code>’ <code>generic</code> interface now exports functions to rotate gradients in the material frame before the behaviour integration and rotate the thermodynamics forces and the tangent operator blocks in the global frame after the behaviour integration. Such functions are particularly useful for generalised behaviours.</li>
+<li>A better support generalised behaviours, in particular regarding the
+computation of the consistent tangent operator in the implicit schemes
+<span class="citation" data-cites="helfer_assisted_2020">[<a
+href="#ref-helfer_assisted_2020" role="doc-biblioref">3</a>]</span>.
+Examples of this features are presented in references <span
+class="citation"
+data-cites="bleyer_monolithic_2020 bleyer_multiphase_2020 bleyer_transient_2020 helfer_using_2020">[<a
+href="#ref-bleyer_monolithic_2020" role="doc-biblioref">4</a>–<a
+href="#ref-helfer_using_2020" role="doc-biblioref">7</a>]</span>.</li>
+<li>An extension of the <a
+href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code>
+brick</a> to porous materials See Figure 2 for some examples of ductile
+failure simulations with <code>Cast3M</code>.</li>
+<li>The ability to store <code>MFront</code> behaviours in a <a
+href="https://github.com/thelfer/madnex"><code>madnex</code> file</a>.
+<code>madnex</code> is a data model based on <code>HDF5</code> file
+format that was originally designed by EDF as part of their in-house
+projects for capitalising their experimental data and which is now being
+shared among the main actors of the french nuclear industry with the aim
+of becoming the de facto standard to exchange experimental data,
+<code>MFront</code> implementations and unit tests of those
+implementations. Documentation is available here: <a
+href="http://tfel.sourceforge.net/madnex.html"
+class="uri">http://tfel.sourceforge.net/madnex.html</a>.</li>
+<li>The <code>MFront</code>’ <code>generic</code> interface now exports
+functions to rotate gradients in the material frame before the behaviour
+integration and rotate the thermodynamics forces and the tangent
+operator blocks in the global frame after the behaviour integration.
+Such functions are particularly useful for generalised behaviours.</li>
 </ul>
-<p>A special effort has been set on the documentation with many new tutorials [<span class="citation" data-cites="helfer_assisted_2020">[<a href="#ref-helfer_assisted_2020" role="doc-biblioref">3</a>]</span>;<span class="citation" data-cites="bleyer_monolithic_2020">[<a href="#ref-bleyer_monolithic_2020" role="doc-biblioref">4</a>]</span>;<span class="citation" data-cites="bleyer_multiphase_2020">[<a href="#ref-bleyer_multiphase_2020" role="doc-biblioref">5</a>]</span>;<span class="citation" data-cites="bleyer_small-strain_2020">[<a href="#ref-bleyer_small-strain_2020" role="doc-biblioref">8</a>]</span>;<span class="citation" data-cites="bleyer_transient_2020">[<a href="#ref-bleyer_transient_2020" role="doc-biblioref">6</a>]</span>;<span class="citation" data-cites="bleyer_stationnary_2020">[<a href="#ref-bleyer_stationnary_2020" role="doc-biblioref">9</a>]</span>;<span class="citation" data-cites="bleyer_stationnary_2020b">[<a href="#ref-bleyer_stationnary_2020b" role="doc-biblioref">10</a>]</span>;<span class="citation" data-cites="bleyer_phase-field_2020">[<a href="#ref-bleyer_phase-field_2020" role="doc-biblioref">11</a>]</span>;@;<span class="citation" data-cites="helfer_using_2020">[<a href="#ref-helfer_using_2020" role="doc-biblioref">7</a>]</span>].</p>
-<p>In order to increase the community of developers, a first tutorial showing how a new stress criteria can be added to the <a href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code> brick</a> has been published <span class="citation" data-cites="helfer_extending_2020">[<a href="#ref-helfer_extending_2020" role="doc-biblioref">12</a>]</span>. Other similar tutorials are being considered.</p>
-<h2 data-number="1.3" id="simultaneous-releases-this-version-has-been-released-along-with"><span class="header-section-number">1.3</span> Simultaneous releases This version has been released along with:</h2>
+<p>A special effort has been set on the documentation with many new
+tutorials [<span class="citation" data-cites="helfer_assisted_2020">[<a
+href="#ref-helfer_assisted_2020"
+role="doc-biblioref">3</a>]</span>;<span class="citation"
+data-cites="bleyer_monolithic_2020">[<a
+href="#ref-bleyer_monolithic_2020"
+role="doc-biblioref">4</a>]</span>;<span class="citation"
+data-cites="bleyer_multiphase_2020">[<a
+href="#ref-bleyer_multiphase_2020"
+role="doc-biblioref">5</a>]</span>;<span class="citation"
+data-cites="bleyer_small-strain_2020">[<a
+href="#ref-bleyer_small-strain_2020"
+role="doc-biblioref">8</a>]</span>;<span class="citation"
+data-cites="bleyer_transient_2020">[<a href="#ref-bleyer_transient_2020"
+role="doc-biblioref">6</a>]</span>;<span class="citation"
+data-cites="bleyer_stationnary_2020">[<a
+href="#ref-bleyer_stationnary_2020"
+role="doc-biblioref">9</a>]</span>;<span class="citation"
+data-cites="bleyer_stationnary_2020b">[<a
+href="#ref-bleyer_stationnary_2020b"
+role="doc-biblioref">10</a>]</span>;<span class="citation"
+data-cites="bleyer_phase-field_2020">[<a
+href="#ref-bleyer_phase-field_2020"
+role="doc-biblioref">11</a>]</span>;@;<span class="citation"
+data-cites="helfer_using_2020">[<a href="#ref-helfer_using_2020"
+role="doc-biblioref">7</a>]</span>].</p>
+<p>In order to increase the community of developers, a first tutorial
+showing how a new stress criteria can be added to the <a
+href="http://tfel.sourceforge.net/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code>
+brick</a> has been published <span class="citation"
+data-cites="helfer_extending_2020">[<a href="#ref-helfer_extending_2020"
+role="doc-biblioref">12</a>]</span>. Other similar tutorials are being
+considered.</p>
+<h2 data-number="1.3"
+id="simultaneous-releases-this-version-has-been-released-along-with"><span
+class="header-section-number">1.3</span> Simultaneous releases This
+version has been released along with:</h2>
 <ul>
-<li><a href="http://tfel.sourceforge.net/release-notes-3.0.6.html">Version 3.0.6</a></li>
-<li><a href="http://tfel.sourceforge.net/release-notes-3.1.6.html">Version 3.1.6</a></li>
-<li><a href="http://tfel.sourceforge.net/release-notes-3.2.3.html">Version 3.2.3</a></li>
-<li><a href="http://tfel.sourceforge.net/release-notes-3.3.1.html">Version 3.3.1</a></li>
+<li><a
+href="http://tfel.sourceforge.net/release-notes-3.0.6.html">Version
+3.0.6</a></li>
+<li><a
+href="http://tfel.sourceforge.net/release-notes-3.1.6.html">Version
+3.1.6</a></li>
+<li><a
+href="http://tfel.sourceforge.net/release-notes-3.2.3.html">Version
+3.2.3</a></li>
+<li><a
+href="http://tfel.sourceforge.net/release-notes-3.3.1.html">Version
+3.3.1</a></li>
 </ul>
-<p>Those releases are mainly related to bug-fixes. Version 3.4 inherits from all the fixes detailed in the associated release notes.</p>
-<h2 data-number="1.4" id="known-incompatibilities"><span class="header-section-number">1.4</span> Known incompatibilities</h2>
-<h3 data-number="1.4.1" id="getpartialjacobianinvert"><span class="header-section-number">1.4.1</span> <code>getPartialJacobianInvert</code></h3>
-<p>In previous versions, <code>getPartialJacobianInvert</code> was implemented as a method.</p>
-<p>This may broke the code, in the extremely unlikely case, that the call to <code>getPartialJacobianInvert</code> was explicitly qualified as a method, i.e. if it was preceded by the <code>this</code> pointer. Hence, the following statement is not more valid:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span>-&gt;getPartialJacobianInvert(Je);</span></code></pre></div>
-<p>To the best of our knowledge, no implementation is affected by this incompatibility.</p>
-<h3 data-number="1.4.2" id="declaration-of-the-offsets-of-the-integration-variables-in-implicit-schemes"><span class="header-section-number">1.4.2</span> Declaration of the offsets of the integration variables in implicit schemes</h3>
-<p>The offsets of the integration variables in implicit schemes are now automatically declared in the <code>@Integrator</code> code block. The names of the variables associated with those offsets may conflict with user defined variables. See Section 4.4.1 for a description of this new feature.</p>
-<p>To the best of our knowledge, no implementation is affected by this incompatibility.</p>
-<h2 data-number="1.5" id="noticeable-fixed-issues-that-may-affect-the-results-obtained-with-previous-versions"><span class="header-section-number">1.5</span> Noticeable fixed issues that may affect the results obtained with previous versions</h2>
-<p>Ticket #256 reported that the scalar product of two unsymmetric tensors was not properly computed.</p>
-<p>This may affect single crystal finite strain computations to a limited extent, as the Mandel stress tensor is almost symmetric.</p>
-<h1 data-number="2" id="documentation"><span class="header-section-number">2</span> Documentation</h1>
-<p><a href="ExtendingStandardElastoViscoPlasticityBrick-StressCriterion.md">This page</a> describes how to extend the <code>TFEL/Material</code> library and the <code>StandardElastoViscoPlasticity</code> brick with a new stress criterion.</p>
-<h1 data-number="3" id="new-features-of-the-tfel-libraries"><span class="header-section-number">3</span> New features of the <code>TFEL</code> libraries</h1>
-<h2 data-number="3.1" id="new-features-of-the-tfelmath-library"><span class="header-section-number">3.1</span> New features of the <code>TFEL/Math</code> library</h2>
-<h3 data-number="3.1.1" id="solving-multiple-linear-systems-with-tinymatrixsolve"><span class="header-section-number">3.1.1</span> Solving multiple linear systems with <code>TinyMatrixSolve</code></h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  tfel::math::tmatrix&lt;<span class="dv">4</span>, <span class="dv">4</span>, T&gt; m = {<span class="dv">0</span>, <span class="dv">2</span>,  <span class="dv">0</span>,  <span class="dv">1</span>,  <span class="co">//</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">2</span>, <span class="dv">2</span>,  <span class="dv">3</span>,  <span class="dv">2</span>,  <span class="co">//</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">4</span>, -<span class="dv">3</span>, <span class="dv">0</span>,  <span class="dv">1</span>,  <span class="co">//</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">6</span>, <span class="dv">1</span>,  -<span class="dv">6</span>, -<span class="dv">5</span>};</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  tfel::math::tmatrix&lt;<span class="dv">4</span>, <span class="dv">2</span>, T&gt; b = {<span class="dv">0</span>,  <span class="dv">0</span>,    <span class="co">//</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                                    -<span class="dv">2</span>, -<span class="dv">12</span>,  <span class="co">//</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                                    -<span class="dv">7</span>, -<span class="dv">42</span>,  <span class="co">//</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">6</span>,  <span class="dv">36</span>};</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  tfel::math::TinyMatrixSolve&lt;<span class="dv">4</span><span class="bu">u</span>, T&gt;::exe(m, b);</span></code></pre></div>
-<h3 data-number="3.1.2" id="the-derivativetype-metafunction-and-the-derivative_type-alias"><span class="header-section-number">3.1.2</span> The <code>DerivativeType</code> metafunction and the <code>derivative_type</code> alias</h3>
-<p>The <code>DerivativeType</code> metafunction allows requiring the type of the derivative of a mathematical object with respect to another object. This metafunction handles units.</p>
+<p>Those releases are mainly related to bug-fixes. Version 3.4 inherits
+from all the fixes detailed in the associated release notes.</p>
+<h2 data-number="1.4" id="known-incompatibilities"><span
+class="header-section-number">1.4</span> Known incompatibilities</h2>
+<h3 data-number="1.4.1" id="getpartialjacobianinvert"><span
+class="header-section-number">1.4.1</span>
+<code>getPartialJacobianInvert</code></h3>
+<p>In previous versions, <code>getPartialJacobianInvert</code> was
+implemented as a method.</p>
+<p>This may broke the code, in the extremely unlikely case, that the
+call to <code>getPartialJacobianInvert</code> was explicitly qualified
+as a method, i.e. if it was preceded by the <code>this</code> pointer.
+Hence, the following statement is not more valid:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">-&gt;</span>getPartialJacobianInvert<span class="op">(</span>Je<span class="op">);</span></span></code></pre></div>
+<p>To the best of our knowledge, no implementation is affected by this
+incompatibility.</p>
+<h3 data-number="1.4.2"
+id="declaration-of-the-offsets-of-the-integration-variables-in-implicit-schemes"><span
+class="header-section-number">1.4.2</span> Declaration of the offsets of
+the integration variables in implicit schemes</h3>
+<p>The offsets of the integration variables in implicit schemes are now
+automatically declared in the <code>@Integrator</code> code block. The
+names of the variables associated with those offsets may conflict with
+user defined variables. See Section 4.4.1 for a description of this new
+feature.</p>
+<p>To the best of our knowledge, no implementation is affected by this
+incompatibility.</p>
+<h2 data-number="1.5"
+id="noticeable-fixed-issues-that-may-affect-the-results-obtained-with-previous-versions"><span
+class="header-section-number">1.5</span> Noticeable fixed issues that
+may affect the results obtained with previous versions</h2>
+<p>Ticket #256 reported that the scalar product of two unsymmetric
+tensors was not properly computed.</p>
+<p>This may affect single crystal finite strain computations to a
+limited extent, as the Mandel stress tensor is almost symmetric.</p>
+<h1 data-number="2" id="documentation"><span
+class="header-section-number">2</span> Documentation</h1>
+<p><a
+href="ExtendingStandardElastoViscoPlasticityBrick-StressCriterion.md">This
+page</a> describes how to extend the <code>TFEL/Material</code> library
+and the <code>StandardElastoViscoPlasticity</code> brick with a new
+stress criterion.</p>
+<h1 data-number="3" id="new-features-of-the-tfel-libraries"><span
+class="header-section-number">3</span> New features of the
+<code>TFEL</code> libraries</h1>
+<h2 data-number="3.1" id="new-features-of-the-tfelmath-library"><span
+class="header-section-number">3.1</span> New features of the
+<code>TFEL/Math</code> library</h2>
+<h3 data-number="3.1.1"
+id="solving-multiple-linear-systems-with-tinymatrixsolve"><span
+class="header-section-number">3.1.1</span> Solving multiple linear
+systems with <code>TinyMatrixSolve</code></h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  tfel<span class="op">::</span>math<span class="op">::</span>tmatrix<span class="op">&lt;</span><span class="dv">4</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> T<span class="op">&gt;</span> m <span class="op">=</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span>  <span class="dv">0</span><span class="op">,</span>  <span class="dv">1</span><span class="op">,</span>  <span class="co">//</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">2</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span>  <span class="dv">3</span><span class="op">,</span>  <span class="dv">2</span><span class="op">,</span>  <span class="co">//</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">4</span><span class="op">,</span> <span class="op">-</span><span class="dv">3</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span>  <span class="dv">1</span><span class="op">,</span>  <span class="co">//</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">6</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span>  <span class="op">-</span><span class="dv">6</span><span class="op">,</span> <span class="op">-</span><span class="dv">5</span><span class="op">};</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  tfel<span class="op">::</span>math<span class="op">::</span>tmatrix<span class="op">&lt;</span><span class="dv">4</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> T<span class="op">&gt;</span> b <span class="op">=</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span>  <span class="dv">0</span><span class="op">,</span>    <span class="co">//</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="op">-</span><span class="dv">12</span><span class="op">,</span>  <span class="co">//</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">-</span><span class="dv">7</span><span class="op">,</span> <span class="op">-</span><span class="dv">42</span><span class="op">,</span>  <span class="co">//</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">6</span><span class="op">,</span>  <span class="dv">36</span><span class="op">};</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  tfel<span class="op">::</span>math<span class="op">::</span>TinyMatrixSolve<span class="op">&lt;</span><span class="dv">4</span><span class="bu">u</span><span class="op">,</span> T<span class="op">&gt;::</span>exe<span class="op">(</span>m<span class="op">,</span> b<span class="op">);</span></span></code></pre></div>
+<h3 data-number="3.1.2"
+id="the-derivativetype-metafunction-and-the-derivative_type-alias"><span
+class="header-section-number">3.1.2</span> The
+<code>DerivativeType</code> metafunction and the
+<code>derivative_type</code> alias</h3>
+<p>The <code>DerivativeType</code> metafunction allows requiring the
+type of the derivative of a mathematical object with respect to another
+object. This metafunction handles units.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DerivativeType&lt;StrainStensor, time&gt;::type de_dt;</span></code></pre></div>
-<p>declares the variable <code>de_dt</code> as the derivative of the a strain tensor with respect to scalare which has the unit of at time.</p>
-<p>The <code>derivative_type</code> alias allows a more concise declaration:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">derivative_type</span>&lt;StrainStensor, time&gt; de_dt;</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DerivativeType<span class="op">&lt;</span>StrainStensor<span class="op">,</span> time<span class="op">&gt;::</span>type de_dt<span class="op">;</span></span></code></pre></div>
+<p>declares the variable <code>de_dt</code> as the derivative of the a
+strain tensor with respect to scalare which has the unit of at time.</p>
+<p>The <code>derivative_type</code> alias allows a more concise
+declaration:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">derivative_type</span><span class="op">&lt;</span>StrainStensor<span class="op">,</span> time<span class="op">&gt;</span> de_dt<span class="op">;</span></span></code></pre></div>
 <blockquote>
-<p>In <code>MFront</code> code blocks, the <code>StrainRateStensor</code> <code>typedef</code> is automatically defined, so the previous declaration is equivalent to:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>StrainRateStensor de_dt;</span></code></pre></div>
-<p>The <code>derivative_type</code> is much more general and can be always be used.</p>
+<p>In <code>MFront</code> code blocks, the
+<code>StrainRateStensor</code> <code>typedef</code> is automatically
+defined, so the previous declaration is equivalent to:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>StrainRateStensor de_dt<span class="op">;</span></span></code></pre></div>
+<p>The <code>derivative_type</code> is much more general and can be
+always be used.</p>
 </blockquote>
-<h3 data-number="3.1.3" id="scalar-newton-raphson-algorithm"><span class="header-section-number">3.1.3</span> Scalar Newton-Raphson algorithm</h3>
-<p>The function <code>scalarNewtonRaphson</code>, declared in the <code>TFEL/Math/ScalarNewtonRaphson.hxx</code> is a generic implementation of the Newton-Raphson algorithm for scalar non linear equations. The Newton algorithm is coupled with bisection whenever root-bracketing is possible, which considerably increase its robustness.</p>
-<p>This implementation handles properly <code>IEEE754</code> exceptional cases (infinite numbers, <code>NaN</code> values), even if advanced compilers options are used (such as <code>-ffast-math</code> under <code>gcc</code>).</p>
-<h4 data-number="3.1.3.1" id="usage"><span class="header-section-number">3.1.3.1</span> Usage</h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// this lambda takes the current estimate of the root and returns</span></span>
+<h3 data-number="3.1.3" id="scalar-newton-raphson-algorithm"><span
+class="header-section-number">3.1.3</span> Scalar Newton-Raphson
+algorithm</h3>
+<p>The function <code>scalarNewtonRaphson</code>, declared in the
+<code>TFEL/Math/ScalarNewtonRaphson.hxx</code> is a generic
+implementation of the Newton-Raphson algorithm for scalar non linear
+equations. The Newton algorithm is coupled with bisection whenever
+root-bracketing is possible, which considerably increase its
+robustness.</p>
+<p>This implementation handles properly <code>IEEE754</code> exceptional
+cases (infinite numbers, <code>NaN</code> values), even if advanced
+compilers options are used (such as <code>-ffast-math</code> under
+<code>gcc</code>).</p>
+<h4 data-number="3.1.3.1" id="usage"><span
+class="header-section-number">3.1.3.1</span> Usage</h4>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// this lambda takes the current estimate of the root and returns</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// a tuple containing the value of the function whose root is searched</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// and its derivative.</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> fdf = [](<span class="at">const</span> <span class="dt">double</span> x) {</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">std::</span>make_tuple(x * x - <span class="dv">13</span>, <span class="dv">2</span> * x);</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>};</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> fdf <span class="op">=</span> <span class="op">[](</span><span class="at">const</span> <span class="dt">double</span> x<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">std::</span>make_tuple<span class="op">(</span>x <span class="op">*</span> x <span class="op">-</span> <span class="dv">13</span><span class="op">,</span> <span class="dv">2</span> <span class="op">*</span> x<span class="op">);</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">// this lambda returns a boolean stating if the algorithm has converged</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">// the first argument is the value of the function whose root is searched</span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">// the second argument is the Newton correction to be applied</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">// the third argument is the current estimate of the root</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">// the fourth argument is the current iteration number</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> c = [](<span class="at">const</span> <span class="dt">double</span> f, <span class="at">const</span> <span class="dt">double</span>, <span class="at">const</span> <span class="dt">double</span>, <span class="at">const</span> <span class="dt">int</span>) {</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">std::</span>abs(f) &lt; <span class="fl">1.e-14</span>;</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>};</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> c <span class="op">=</span> <span class="op">[](</span><span class="at">const</span> <span class="dt">double</span> f<span class="op">,</span> <span class="at">const</span> <span class="dt">double</span><span class="op">,</span> <span class="at">const</span> <span class="dt">double</span><span class="op">,</span> <span class="at">const</span> <span class="dt">int</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">std::</span>abs<span class="op">(</span>f<span class="op">)</span> <span class="op">&lt;</span> <span class="fl">1.e-14</span><span class="op">;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">// The `scalarNewtonRaphson` returns a tuple containing:</span></span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">// - a boolean stating if the algorithm has converged</span></span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">// - the last estimate of the function root</span></span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">// - the number of iterations performed</span></span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">// The two last arguments are respectively the initial guess and </span></span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">// the maximum number of iterations to be performed</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> r = tfel::math::scalarNewtonRaphson(fdf, c, <span class="fl">0.1</span>, <span class="dv">100</span>);</span></code></pre></div>
-<h1 data-number="4" id="new-features-of-mfront"><span class="header-section-number">4</span> New features of <code>MFront</code></h1>
-<h2 data-number="4.1" id="debugging-options"><span class="header-section-number">4.1</span> Debugging options</h2>
-<p>A new command line option has been added to <code>MFront</code>. The <code>-g</code> option adds standard debugging flags to the compiler flags when compiling shared libraries.</p>
-<h2 data-number="4.2" id="improved-robustness-of-the-isotropic-dsls"><span class="header-section-number">4.2</span> Improved robustness of the isotropic DSLs</h2>
-<p>The <code>@Flow</code> block can now return a boolean value in the <code>IsotropicMisesCreep</code>, <code>IsotropicMisesPlasticFlow</code>, <code>IsotropicStrainHardeningMisesCreep</code> DSLs.</p>
-<p>This allows to check to avoid Newton steps leading to too high values of the equivalent stress by returning <code>false</code>. This usually occurs if in elastic prediction is made (the default), i.e. when the plastic strain increment is too low.</p>
-<p>If <code>false</code> is returned, the value of the plastic strain increment is increased by doubling the previous Newton correction. If this happens at the first iteration, the value of the plastic strain increment is set to half of its upper bound value (this upper bound value is such that the associated von Mises stress is null).</p>
-<h2 data-number="4.3" id="generic-behaviours"><span class="header-section-number">4.3</span> Generic behaviours</h2>
-<h3 data-number="4.3.1" id="add-the-possibility-of-defining-the-tangent-operator-blocks-the-tangentoperatorblock-and-tangentoperatorblocks-keywords"><span class="header-section-number">4.3.1</span> Add the possibility of defining the tangent operator blocks: the <code>@TangentOperatorBlock</code> and <code>@TangentOperatorBlocks</code> keywords</h3>
-<p>In version <code>3.3.x</code>, some tangent operator blocks are automatically declared, namely, the derivatives of all the fluxes with respect to all the gradients. The <code>@AdditionalTangentOperatorBlock</code> and <code>@AdditionalTangentOperatorBlocks</code> keywords allowed to add tangent operator blocks to this default set.</p>
-<p>The <code>@TangentOperatorBlock</code> and <code>@TangentOperatorBlocks</code> allow a more fine grained control of the tangent operator blocks available and disable the use of the default tangent operation blocks. Hence, tangent operator blocks that are structurally zero (for example due to symmetry conditions) don’t have to be computed any more.</p>
-<h2 data-number="4.4" id="improvements-to-the-implicit-domain-specific-languages"><span class="header-section-number">4.4</span> Improvements to the implicit domain specific languages</h2>
-<h3 data-number="4.4.1" id="sec:mfront:releas3.4:integration_variables_offset"><span class="header-section-number">4.4.1</span> Automatic definition of the offsets associated with integration variables</h3>
-<p>Let <code>X</code> be the name of an integration variable. The variable <code>X_offset</code> is now automatically defined in the <code>@Integrator</code> code block.</p>
-<p>This variable allows a direct modification of the residual associated with this variable (though the variable <code>fzeros</code>) and jacobian matrix (though the variable <code>jacobian</code>).</p>
-<h2 data-number="4.5" id="improvement-of-the-standardelastoviscoplasticity-brick"><span class="header-section-number">4.5</span> Improvement of the <code>StandardElastoViscoPlasticity</code> brick</h2>
-<h3 data-number="4.5.1" id="porous-visco-plasticity"><span class="header-section-number">4.5.1</span> Porous (visco-)plasticity</h3>
-<p>The <code>StandardElastoViscoPlasticity</code> brick has been extended to support porous (visco-)plastic flows which are typically used to model ductile failure of metals. This allows building complex porous plastic models in a clear and concise way, as illustrated below:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">70e3</span>, poisson_ratio : <span class="fl">0.3</span>},  <span class="co">//</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;GursonTvergaardNeedleman1982&quot;</span> {</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>      f_c : <span class="fl">0.04</span>, f_r : <span class="fl">0.056</span>, q_1 : <span class="fl">2.</span>, q_2 : <span class="fl">1.</span>, q_3 : <span class="fl">4.</span>},</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="dv">274</span>},</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="dv">0</span>, Rinf : <span class="dv">85</span>, b : <span class="dv">17</span>},</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="dv">0</span>, Rinf : <span class="dv">17</span>, b : <span class="dv">262</span>}</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  nucleation_model : <span class="st">&quot;Chu_Needleman&quot;</span> {</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    An : <span class="fl">0.01</span>, pn : <span class="fl">0.1</span>, sn : <span class="fl">0.1</span> },</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> r <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span>scalarNewtonRaphson<span class="op">(</span>fdf<span class="op">,</span> c<span class="op">,</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span></code></pre></div>
+<h1 data-number="4" id="new-features-of-mfront"><span
+class="header-section-number">4</span> New features of
+<code>MFront</code></h1>
+<h2 data-number="4.1" id="debugging-options"><span
+class="header-section-number">4.1</span> Debugging options</h2>
+<p>A new command line option has been added to <code>MFront</code>. The
+<code>-g</code> option adds standard debugging flags to the compiler
+flags when compiling shared libraries.</p>
+<h2 data-number="4.2"
+id="improved-robustness-of-the-isotropic-dsls"><span
+class="header-section-number">4.2</span> Improved robustness of the
+isotropic DSLs</h2>
+<p>The <code>@Flow</code> block can now return a boolean value in the
+<code>IsotropicMisesCreep</code>,
+<code>IsotropicMisesPlasticFlow</code>,
+<code>IsotropicStrainHardeningMisesCreep</code> DSLs.</p>
+<p>This allows to check to avoid Newton steps leading to too high values
+of the equivalent stress by returning <code>false</code>. This usually
+occurs if in elastic prediction is made (the default), i.e. when the
+plastic strain increment is too low.</p>
+<p>If <code>false</code> is returned, the value of the plastic strain
+increment is increased by doubling the previous Newton correction. If
+this happens at the first iteration, the value of the plastic strain
+increment is set to half of its upper bound value (this upper bound
+value is such that the associated von Mises stress is null).</p>
+<h2 data-number="4.3" id="generic-behaviours"><span
+class="header-section-number">4.3</span> Generic behaviours</h2>
+<h3 data-number="4.3.1"
+id="add-the-possibility-of-defining-the-tangent-operator-blocks-the-tangentoperatorblock-and-tangentoperatorblocks-keywords"><span
+class="header-section-number">4.3.1</span> Add the possibility of
+defining the tangent operator blocks: the
+<code>@TangentOperatorBlock</code> and
+<code>@TangentOperatorBlocks</code> keywords</h3>
+<p>In version <code>3.3.x</code>, some tangent operator blocks are
+automatically declared, namely, the derivatives of all the fluxes with
+respect to all the gradients. The
+<code>@AdditionalTangentOperatorBlock</code> and
+<code>@AdditionalTangentOperatorBlocks</code> keywords allowed to add
+tangent operator blocks to this default set.</p>
+<p>The <code>@TangentOperatorBlock</code> and
+<code>@TangentOperatorBlocks</code> allow a more fine grained control of
+the tangent operator blocks available and disable the use of the default
+tangent operation blocks. Hence, tangent operator blocks that are
+structurally zero (for example due to symmetry conditions) don’t have to
+be computed any more.</p>
+<h2 data-number="4.4"
+id="improvements-to-the-implicit-domain-specific-languages"><span
+class="header-section-number">4.4</span> Improvements to the implicit
+domain specific languages</h2>
+<h3 data-number="4.4.1"
+id="sec:mfront:releas3.4:integration_variables_offset"><span
+class="header-section-number">4.4.1</span> Automatic definition of the
+offsets associated with integration variables</h3>
+<p>Let <code>X</code> be the name of an integration variable. The
+variable <code>X_offset</code> is now automatically defined in the
+<code>@Integrator</code> code block.</p>
+<p>This variable allows a direct modification of the residual associated
+with this variable (though the variable <code>fzeros</code>) and
+jacobian matrix (though the variable <code>jacobian</code>).</p>
+<h2 data-number="4.5"
+id="improvement-of-the-standardelastoviscoplasticity-brick"><span
+class="header-section-number">4.5</span> Improvement of the
+<code>StandardElastoViscoPlasticity</code> brick</h2>
+<h3 data-number="4.5.1" id="porous-visco-plasticity"><span
+class="header-section-number">4.5.1</span> Porous
+(visco-)plasticity</h3>
+<p>The <code>StandardElastoViscoPlasticity</code> brick has been
+extended to support porous (visco-)plastic flows which are typically
+used to model ductile failure of metals. This allows building complex
+porous plastic models in a clear and concise way, as illustrated
+below:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">70e3</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span>  <span class="co">//</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;GursonTvergaardNeedleman1982&quot;</span> <span class="op">{</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>      f_c <span class="op">:</span> <span class="fl">0.04</span><span class="op">,</span> f_r <span class="op">:</span> <span class="fl">0.056</span><span class="op">,</span> q_1 <span class="op">:</span> <span class="fl">2.</span><span class="op">,</span> q_2 <span class="op">:</span> <span class="fl">1.</span><span class="op">,</span> q_3 <span class="op">:</span> <span class="fl">4.</span><span class="op">},</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="dv">274</span><span class="op">},</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="dv">0</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="dv">85</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">17</span><span class="op">},</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="dv">0</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="dv">17</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">262</span><span class="op">}</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  nucleation_model <span class="op">:</span> <span class="st">&quot;Chu_Needleman&quot;</span> <span class="op">{</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    An <span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> pn <span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> sn <span class="op">:</span> <span class="fl">0.1</span> <span class="op">},</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p>The following stress criteria are available:</p>
 <ul>
 <li><code>GursonTvergaardNeedleman1982</code></li>
@@ -533,120 +879,232 @@
 <li><code>PowerLaw (strain)</code></li>
 <li><code>PowerLaw (stress)</code></li>
 </ul>
-<p>This extension will be fully described in a dedicated report which is currently under review.</p>
-<h3 data-number="4.5.2" id="sec:HarmonicSumOfNortonHoffViscoplasticFlows"><span class="header-section-number">4.5.2</span> The <code>HarmonicSumOfNortonHoffViscoplasticFlows</code> inelastic flow</h3>
-<p>An new inelastic flow called <code>HarmonicSumOfNortonHoffViscoplasticFlows</code> has been added. The equivalent viscoplastic strain rate <span class="math inline">\(\dot{p}\)</span> is defined as:</p>
+<p>This extension will be fully described in a dedicated report which is
+currently under review.</p>
+<h3 data-number="4.5.2"
+id="sec:HarmonicSumOfNortonHoffViscoplasticFlows"><span
+class="header-section-number">4.5.2</span> The
+<code>HarmonicSumOfNortonHoffViscoplasticFlows</code> inelastic
+flow</h3>
+<p>An new inelastic flow called
+<code>HarmonicSumOfNortonHoffViscoplasticFlows</code> has been added.
+The equivalent viscoplastic strain rate <span
+class="math inline">\(\dot{p}\)</span> is defined as:</p>
 <p><span class="math display">\[
 \dfrac{1}{\dot{p}}=\sum_{i=1}^{N}\dfrac{1}{\dot{p}_{i}}
 \]</span></p>
-<p>where <span class="math inline">\(\dot{p}_{i}\)</span> has an expression similar to the the Norton-Hoff viscoplastic flow:</p>
+<p>where <span class="math inline">\(\dot{p}_{i}\)</span> has an
+expression similar to the the Norton-Hoff viscoplastic flow:</p>
 <p><span class="math display">\[
 \dot{p}_{i}=A_{i}\,{\left(\dfrac{\sigma_{\mathrm{eq}}}{K_{i}}\right)}^{n_{i}}
 \]</span></p>
-<h4 data-number="4.5.2.1" id="example"><span class="header-section-number">4.5.2.1</span> Example</h4>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">150e9</span>, poisson_ratio : <span class="fl">0.3</span>},</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;HarmonicSumOfNortonHoffViscoplasticFlows&quot;</span> {</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Mises&quot;</span>,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    A : {<span class="fl">8e-67</span>, <span class="fl">8e-67</span>},</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    K : {<span class="dv">1</span>,<span class="dv">1</span>},</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    n : {<span class="fl">8.2</span>,<span class="fl">8.2</span>}</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h3 data-number="4.5.3" id="sec:standardelastoviscoplascity:eigen_solver"><span class="header-section-number">4.5.3</span> Choice of the eigen solver for some stress criteria in the <code>StandardElastoviscoPlascity</code> brick</h3>
-<p>The <code>Hosford1972</code> and <code>Barlat2004</code> now has an <code>eigen_solver</code> option. This option may take either one of the following values:</p>
+<h4 data-number="4.5.2.1" id="example"><span
+class="header-section-number">4.5.2.1</span> Example</h4>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;HarmonicSumOfNortonHoffViscoplasticFlows&quot;</span> <span class="op">{</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    A <span class="op">:</span> <span class="op">{</span><span class="fl">8e-67</span><span class="op">,</span> <span class="fl">8e-67</span><span class="op">},</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    K <span class="op">:</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">},</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    n <span class="op">:</span> <span class="op">{</span><span class="fl">8.2</span><span class="op">,</span><span class="fl">8.2</span><span class="op">}</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h3 data-number="4.5.3"
+id="sec:standardelastoviscoplascity:eigen_solver"><span
+class="header-section-number">4.5.3</span> Choice of the eigen solver
+for some stress criteria in the <code>StandardElastoviscoPlascity</code>
+brick</h3>
+<p>The <code>Hosford1972</code> and <code>Barlat2004</code> now has an
+<code>eigen_solver</code> option. This option may take either one of the
+following values:</p>
 <ul>
-<li><code>default</code>: The default eigen solver for symmetric tensors used in <code>TFEL/Math</code>. It is based on analytical computations of the eigen values and eigen vectors. Such computations are numerically more efficient but less accurate than the iterative Jacobi algorithm.</li>
-<li><code>Jacobi</code>: The iterative Jacobi algorithm (see <span class="citation" data-cites="kopp_efficient_2008 kopp_numerical_2017">[<a href="#ref-kopp_efficient_2008" role="doc-biblioref">13</a>, <a href="#ref-kopp_numerical_2017" role="doc-biblioref">14</a>]</span> for details).</li>
+<li><code>default</code>: The default eigen solver for symmetric tensors
+used in <code>TFEL/Math</code>. It is based on analytical computations
+of the eigen values and eigen vectors. Such computations are numerically
+more efficient but less accurate than the iterative Jacobi
+algorithm.</li>
+<li><code>Jacobi</code>: The iterative Jacobi algorithm (see <span
+class="citation"
+data-cites="kopp_efficient_2008 kopp_numerical_2017">[<a
+href="#ref-kopp_efficient_2008" role="doc-biblioref">13</a>, <a
+href="#ref-kopp_numerical_2017" role="doc-biblioref">14</a>]</span> for
+details).</li>
 </ul>
-<h4 data-number="4.5.3.1" id="example-1"><span class="header-section-number">4.5.3.1</span> Example</h4>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">150e9</span>, poisson_ratio : <span class="fl">0.3</span>},</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Hosford1972&quot;</span> {a : <span class="dv">100</span>, eigen_solver : <span class="st">&quot;Jacobi&quot;</span>},</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">150e6</span>}</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h3 data-number="4.5.4" id="built-in-convergence-helpers"><span class="header-section-number">4.5.4</span> Built-in convergence helpers</h3>
-<h4 data-number="4.5.4.1" id="sec:inelastic_flow:cosine_check"><span class="header-section-number">4.5.4.1</span> Newton steps rejections based on the change of the flow direction between two successive estimates</h4>
-<p>Some stress criteria (Hosford 1972, Barlat 2004, Mohr-Coulomb) shows sharp edges that may cause the failure of the standard Newton algorithm, due to oscillations in the prediction of the flow direction.</p>
-<p>Rejecting Newton steps leading to a too large variation of the flow direction between the new estimate of the flow direction and the previous estimate is a cheap and efficient method to overcome this issue. This method can be viewed as a bisectional linesearch based on the Newton prediction: the Newton steps magnitude is divided by two if its results to a too large change in the flow direction.</p>
-<p>More precisely, the change of the flow direction is estimated by the computation of the cosine of the angle between the two previous estimates:</p>
+<h4 data-number="4.5.3.1" id="example-1"><span
+class="header-section-number">4.5.3.1</span> Example</h4>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Hosford1972&quot;</span> <span class="op">{</span>a <span class="op">:</span> <span class="dv">100</span><span class="op">,</span> eigen_solver <span class="op">:</span> <span class="st">&quot;Jacobi&quot;</span><span class="op">},</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">150e6</span><span class="op">}</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h3 data-number="4.5.4" id="built-in-convergence-helpers"><span
+class="header-section-number">4.5.4</span> Built-in convergence
+helpers</h3>
+<h4 data-number="4.5.4.1" id="sec:inelastic_flow:cosine_check"><span
+class="header-section-number">4.5.4.1</span> Newton steps rejections
+based on the change of the flow direction between two successive
+estimates</h4>
+<p>Some stress criteria (Hosford 1972, Barlat 2004, Mohr-Coulomb) shows
+sharp edges that may cause the failure of the standard Newton algorithm,
+due to oscillations in the prediction of the flow direction.</p>
+<p>Rejecting Newton steps leading to a too large variation of the flow
+direction between the new estimate of the flow direction and the
+previous estimate is a cheap and efficient method to overcome this
+issue. This method can be viewed as a bisectional linesearch based on
+the Newton prediction: the Newton steps magnitude is divided by two if
+its results to a too large change in the flow direction.</p>
+<p>More precisely, the change of the flow direction is estimated by the
+computation of the cosine of the angle between the two previous
+estimates:</p>
 <p><span class="math display">\[
-\cos{\left(\alpha_{\underline{n}}\right)}=\dfrac{\underline{n}\,\colon\,\underline{n}_{p}}{\lVert \underline{n}\rVert\,\lVert \underline{n}\rVert}
+\cos{\left(\alpha_{\underline{n}}\right)}=\dfrac{\underline{n}\,\colon\,\underline{n}_{p}}{\lVert
+\underline{n}\rVert\,\lVert \underline{n}\rVert}
 \]</span></p>
-<p>with <span class="math inline">\(\lVert \underline{n}\rVert=\sqrt{\underline{n}\,\colon\,\underline{n}}\)</span>.</p>
-<p>The Newton step is rejected if the value of <span class="math inline">\(\cos{\left(\alpha_{\underline{n}}\right)}\)</span> is lower than a user defined threshold. This threshold must be in the range <span class="math inline">\(\left[-1:1\right]\)</span>, but due to the slow variation of the cosine near <span class="math inline">\(0\)</span>, a typical value of this threshold is <span class="math inline">\(0.99\)</span> which is equivalent to impose that the angle between two successive estimates is below <span class="math inline">\(8\mbox{}^{\circ}\)</span>.</p>
-<h5 data-number="4.5.4.1.1" id="example-2"><span class="header-section-number">4.5.4.1.1</span> Example</h5>
-<p>Here is an implementation of a perfectly plastic behaviour based on the Hosford criterion with a very high exponent (<span class="math inline">\(100\)</span>), which closely approximate the Tresca criterion:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour HosfordPerfectPlasticity100;</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description{</span>
+<p>with <span class="math inline">\(\lVert
+\underline{n}\rVert=\sqrt{\underline{n}\,\colon\,\underline{n}}\)</span>.</p>
+<p>The Newton step is rejected if the value of <span
+class="math inline">\(\cos{\left(\alpha_{\underline{n}}\right)}\)</span>
+is lower than a user defined threshold. This threshold must be in the
+range <span class="math inline">\(\left[-1:1\right]\)</span>, but due to
+the slow variation of the cosine near <span
+class="math inline">\(0\)</span>, a typical value of this threshold is
+<span class="math inline">\(0.99\)</span> which is equivalent to impose
+that the angle between two successive estimates is below <span
+class="math inline">\(8\mbox{}^{\circ}\)</span>.</p>
+<h5 data-number="4.5.4.1.1" id="example-2"><span
+class="header-section-number">4.5.4.1.1</span> Example</h5>
+<p>Here is an implementation of a perfectly plastic behaviour based on
+the Hosford criterion with a very high exponent (<span
+class="math inline">\(100\)</span>), which closely approximate the
+Tresca criterion:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit<span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour HosfordPerfectPlasticity100<span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description<span class="op">{</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  A simple implementation of a perfect plasticity</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  behaviour <span class="kw">using</span> the Hosford stress.</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>};</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  behaviour <span class="kw">using</span> the Hosford stress<span class="op">.</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses{<span class="st">&quot;.+&quot;</span>};</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-16</span>;</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span>;</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses<span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">};</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-16</span><span class="op">;</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">150e9</span>, poisson_ratio : <span class="fl">0.3</span>},</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Hosford1972&quot;</span> {a : <span class="dv">100</span>},</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">150e6</span>},</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    cosine_threshold : <span class="fl">0.99</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h4 data-number="4.5.4.2" id="sec:plastic_flow:maximum_equivalent_stress"><span class="header-section-number">4.5.4.2</span> Maximum equivalent stress in the <code>Plastic</code> flow</h4>
-<p>During the Newton iterations, the current estimate of the equivalent stress <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> may be significantly higher than the elastic limit <span class="math inline">\(R\)</span>. This may lead to a divergence of the Newton algorithm.</p>
-<p>One may reject the Newton steps leading to such high values of the elastic limit by specifying a relative threshold denoted <span class="math inline">\(\alpha\)</span>, i.e. if <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> is greater than <span class="math inline">\(\alpha\,\cdot\,R\)</span>. A typical value for <span class="math inline">\(\alpha\)</span> is <span class="math inline">\(1.5\)</span>. This relative threshold is specified by the <code>maximum_equivalent_stress_factor</code> option.</p>
-<p>In some cases, rejecting steps may also lead to a divergence of the Newton algorithm, so one may specify a relative threshold <span class="math inline">\(\beta\)</span> on the iteration number which desactivate this check, i.e. the check is performed only if the current iteration number is below <span class="math inline">\(\beta\,\cdot\,i_{\max{}}\)</span> where <span class="math inline">\(i_{\max{}}\)</span> is the maximum number of iterations allowed for the Newton algorithm. A typical value for <span class="math inline">\(\beta\)</span> is <span class="math inline">\(0.4\)</span>. This relative threshold is specified by the <code>equivalent_stress_check_maximum_iteration_factor</code> option.</p>
-<h5 data-number="4.5.4.2.1" id="example-3"><span class="header-section-number">4.5.4.2.1</span> Example</h5>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour PerfectPlasticity;</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">17</span> / <span class="er">08</span> / <span class="dv">2020</span>;</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description{};</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Hosford1972&quot;</span> <span class="op">{</span>a <span class="op">:</span> <span class="dv">100</span><span class="op">},</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">150e6</span><span class="op">},</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    cosine_threshold <span class="op">:</span> <span class="fl">0.99</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h4 data-number="4.5.4.2"
+id="sec:plastic_flow:maximum_equivalent_stress"><span
+class="header-section-number">4.5.4.2</span> Maximum equivalent stress
+in the <code>Plastic</code> flow</h4>
+<p>During the Newton iterations, the current estimate of the equivalent
+stress <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> may be
+significantly higher than the elastic limit <span
+class="math inline">\(R\)</span>. This may lead to a divergence of the
+Newton algorithm.</p>
+<p>One may reject the Newton steps leading to such high values of the
+elastic limit by specifying a relative threshold denoted <span
+class="math inline">\(\alpha\)</span>, i.e. if <span
+class="math inline">\(\sigma_{\mathrm{eq}}\)</span> is greater than
+<span class="math inline">\(\alpha\,\cdot\,R\)</span>. A typical value
+for <span class="math inline">\(\alpha\)</span> is <span
+class="math inline">\(1.5\)</span>. This relative threshold is specified
+by the <code>maximum_equivalent_stress_factor</code> option.</p>
+<p>In some cases, rejecting steps may also lead to a divergence of the
+Newton algorithm, so one may specify a relative threshold <span
+class="math inline">\(\beta\)</span> on the iteration number which
+desactivate this check, i.e. the check is performed only if the current
+iteration number is below <span
+class="math inline">\(\beta\,\cdot\,i_{\max{}}\)</span> where <span
+class="math inline">\(i_{\max{}}\)</span> is the maximum number of
+iterations allowed for the Newton algorithm. A typical value for <span
+class="math inline">\(\beta\)</span> is <span
+class="math inline">\(0.4\)</span>. This relative threshold is specified
+by the <code>equivalent_stress_check_maximum_iteration_factor</code>
+option.</p>
+<h5 data-number="4.5.4.2.1" id="example-3"><span
+class="header-section-number">4.5.4.2.1</span> Example</h5>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit<span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour PerfectPlasticity<span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer<span class="op">;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">17</span> <span class="op">/</span> <span class="dv">0</span><span class="er">8</span> <span class="op">/</span> <span class="dv">2020</span><span class="op">;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description<span class="op">{};</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-14</span>;</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span>;</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-14</span><span class="op">;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">200e9</span>, poisson_ratio : <span class="fl">0.3</span>},</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Mises&quot;</span>,</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">150e6</span>},</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    maximum_equivalent_stress_factor : <span class="fl">1.5</span>,</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    equivalent_stress_check_maximum_iteration_factor: <span class="fl">0.4</span></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h3 data-number="4.5.5" id="the-standardstresscriterionbase-and-standardporousstresscriterionbase-base-class-to-ease-the-extension-of-the-standardelastoviscoplasticity-brick"><span class="header-section-number">4.5.5</span> The <code>StandardStressCriterionBase</code> and <code>StandardPorousStressCriterionBase</code> base class to ease the extension of the <code>StandardElastoViscoPlasticity</code> brick</h3>
-<h3 data-number="4.5.6" id="sec:power_isotropic_hardening_rule"><span class="header-section-number">4.5.6</span> The <code>Power</code> isotropic hardening rule</h3>
-<p>The <code>Power</code> isotropic hardening rule is defined by: <span class="math display">\[
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">200e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">150e6</span><span class="op">},</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    maximum_equivalent_stress_factor <span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    equivalent_stress_check_maximum_iteration_factor<span class="op">:</span> <span class="fl">0.4</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h3 data-number="4.5.5"
+id="the-standardstresscriterionbase-and-standardporousstresscriterionbase-base-class-to-ease-the-extension-of-the-standardelastoviscoplasticity-brick"><span
+class="header-section-number">4.5.5</span> The
+<code>StandardStressCriterionBase</code> and
+<code>StandardPorousStressCriterionBase</code> base class to ease the
+extension of the <code>StandardElastoViscoPlasticity</code> brick</h3>
+<h3 data-number="4.5.6" id="sec:power_isotropic_hardening_rule"><span
+class="header-section-number">4.5.6</span> The <code>Power</code>
+isotropic hardening rule</h3>
+<p>The <code>Power</code> isotropic hardening rule is defined by: <span
+class="math display">\[
 R{\left(p\right)}=R_{0}\,{\left(p+p_{0}\right)}^{n}
 \]</span></p>
-<h4 data-number="4.5.6.1" id="options"><span class="header-section-number">4.5.6.1</span> Options</h4>
-<p>The <code>Power</code> isotropic hardening rule expects at least the following material properties:</p>
+<h4 data-number="4.5.6.1" id="options"><span
+class="header-section-number">4.5.6.1</span> Options</h4>
+<p>The <code>Power</code> isotropic hardening rule expects at least the
+following material properties:</p>
 <ul>
 <li><code>R0</code>: the coefficient of the power law</li>
 <li><code>n</code>: the exponent of the power law</li>
 </ul>
-<p>The <code>p0</code> material property is <em>optional</em> and generally is considered a numerical parameter to avoir an initial infinite derivative of the power law when the exponent is lower than <span class="math inline">\(1\)</span>.</p>
-<h4 data-number="4.5.6.2" id="example-4"><span class="header-section-number">4.5.6.2</span> Example</h4>
-<p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">50e6</span>},</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Power&quot;</span> {R0 : <span class="fl">120e6</span>, p0 : <span class="fl">1e-8</span>, n : <span class="fl">5.e-2</span>}</span></code></pre></div>
-<h2 data-number="4.6" id="improvement-of-the-generic-interface"><span class="header-section-number">4.6</span> Improvement of the <code>generic</code> interface</h2>
-<h3 data-number="4.6.1" id="support-of-orthotropic-behaviours"><span class="header-section-number">4.6.1</span> Support of orthotropic behaviours</h3>
+<p>The <code>p0</code> material property is <em>optional</em> and
+generally is considered a numerical parameter to avoir an initial
+infinite derivative of the power law when the exponent is lower than
+<span class="math inline">\(1\)</span>.</p>
+<h4 data-number="4.5.6.2" id="example-4"><span
+class="header-section-number">4.5.6.2</span> Example</h4>
+<p>The following code can be added in a block defining an inelastic
+flow:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">50e6</span><span class="op">},</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Power&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">120e6</span><span class="op">,</span> p0 <span class="op">:</span> <span class="fl">1e-8</span><span class="op">,</span> n <span class="op">:</span> <span class="fl">5.e-2</span><span class="op">}</span></span></code></pre></div>
+<h2 data-number="4.6" id="improvement-of-the-generic-interface"><span
+class="header-section-number">4.6</span> Improvement of the
+<code>generic</code> interface</h2>
+<h3 data-number="4.6.1" id="support-of-orthotropic-behaviours"><span
+class="header-section-number">4.6.1</span> Support of orthotropic
+behaviours</h3>
 <p>Orthotropic behaviours requires to:</p>
 <ul>
-<li>rotate the gradients in the material frame in the global frame before the behaviour integration.</li>
-<li>rotate the thermodynamic forces and the tangent operator blocks from the material frame in the global frame.</li>
+<li>rotate the gradients in the material frame in the global frame
+before the behaviour integration.</li>
+<li>rotate the thermodynamic forces and the tangent operator blocks from
+the material frame in the global frame.</li>
 </ul>
-<p>By design, the <code>generic</code> behaviour interface does not automatically perform those rotations as part of the behaviour integration but generates additional functions to do it. This choice allows the calling solver to use their own internal routines to handle the rotations between the global and material frames.</p>
-<p>However, the <code>generic</code> interface also generates helper functions which can perform those rotations. Those functions are named as follows:</p>
+<p>By design, the <code>generic</code> behaviour interface does not
+automatically perform those rotations as part of the behaviour
+integration but generates additional functions to do it. This choice
+allows the calling solver to use their own internal routines to handle
+the rotations between the global and material frames.</p>
+<p>However, the <code>generic</code> interface also generates helper
+functions which can perform those rotations. Those functions are named
+as follows:</p>
 <ul>
 <li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateGradients</code></li>
 <li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateThermodynamicForces</code></li>
@@ -654,50 +1112,117 @@ R{\left(p\right)}=R_{0}\,{\left(p+p_{0}\right)}^{n}
 </ul>
 <p>They all take three arguments:</p>
 <ul>
-<li>a pointer to the location where the rotated variables will be stored.</li>
-<li>a pointer to the location where the original variables are stored.</li>
-<li>a pointer to the rotation matrix from the global frame to the material frame. The rotation matrix has 9 components stored in column-major format. For the function handling the thermodynamic forces and the tangent operators blocks, this rotation matrix is transposed internally to get the rotation matrix from the material frame to the global frame.</li>
+<li>a pointer to the location where the rotated variables will be
+stored.</li>
+<li>a pointer to the location where the original variables are
+stored.</li>
+<li>a pointer to the rotation matrix from the global frame to the
+material frame. The rotation matrix has 9 components stored in
+column-major format. For the function handling the thermodynamic forces
+and the tangent operators blocks, this rotation matrix is transposed
+internally to get the rotation matrix from the material frame to the
+global frame.</li>
 </ul>
-<p>In place rotations is explicitly allowed, i.e. the first and second arguments can be a pointer to the same location.</p>
-<p>The three previous functions works for an integration point. Three other functions are also generated:</p>
+<p>In place rotations is explicitly allowed, i.e. the first and second
+arguments can be a pointer to the same location.</p>
+<p>The three previous functions works for an integration point. Three
+other functions are also generated:</p>
 <ul>
 <li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateArrayOfGradients</code></li>
 <li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateArrayOfThermodynamicForces</code></li>
 <li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateArrayOfTangentOperatorBlocks</code></li>
 </ul>
-<p>Those functions takes an additional arguments which is the number of integration points to be treated.</p>
-<h4 data-number="4.6.1.1" id="finite-strain-behaviours"><span class="header-section-number">4.6.1.1</span> Finite strain behaviours</h4>
-<p>Finite strain behaviours are a special case, because the returned stress measure and the returned tangent operator can be chosen at runtime time. A specific rotation function is generated for each supported stress measure and each supported tangent operator.</p>
+<p>Those functions takes an additional arguments which is the number of
+integration points to be treated.</p>
+<h4 data-number="4.6.1.1" id="finite-strain-behaviours"><span
+class="header-section-number">4.6.1.1</span> Finite strain
+behaviours</h4>
+<p>Finite strain behaviours are a special case, because the returned
+stress measure and the returned tangent operator can be chosen at
+runtime time. A specific rotation function is generated for each
+supported stress measure and each supported tangent operator.</p>
 <p>Here is the list of the generated functions:</p>
 <ul>
-<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateThermodynamicForces_CauchyStress</code>. This function assumes that its first argument is the Cauchy stress in the material frame.</li>
-<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateThermodynamicForces_PK1Stress</code>. This function assumes that its first argument is the first Piola-Kirchhoff stress in the material frame.</li>
-<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateThermodynamicForces_PK2Stress</code>. This function assumes that its first argument is the second Piola-Kirchhoff stress in the material frame. <code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_dsig_dF</code>. This function assumes that its first argument is the derivative of the Cauchy stress with respect to the deformation gradient in the material frame.</li>
-<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_dPK1_dF</code>. This function assumes that its first argument is the derivative of the first Piola-Kirchhoff stress with respect to the deformation gradient in the material frame.</li>
-<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_PK2Stress</code>. This function assumes that its first argument is the derivative of the second Piola-Kirchhoff stress with respect to the Green-Lagrange strain in the material frame.</li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateThermodynamicForces_CauchyStress</code>.
+This function assumes that its first argument is the Cauchy stress in
+the material frame.</li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateThermodynamicForces_PK1Stress</code>.
+This function assumes that its first argument is the first
+Piola-Kirchhoff stress in the material frame.</li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateThermodynamicForces_PK2Stress</code>.
+This function assumes that its first argument is the second
+Piola-Kirchhoff stress in the material frame.
+<code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_dsig_dF</code>.
+This function assumes that its first argument is the derivative of the
+Cauchy stress with respect to the deformation gradient in the material
+frame.</li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_dPK1_dF</code>.
+This function assumes that its first argument is the derivative of the
+first Piola-Kirchhoff stress with respect to the deformation gradient in
+the material frame.</li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_PK2Stress</code>.
+This function assumes that its first argument is the derivative of the
+second Piola-Kirchhoff stress with respect to the Green-Lagrange strain
+in the material frame.</li>
 </ul>
-<h1 data-number="5" id="new-features-in-mtest"><span class="header-section-number">5</span> New features in <code>MTest</code></h1>
-<h2 data-number="5.1" id="import-behaviour-parameters"><span class="header-section-number">5.1</span> Import behaviour parameters</h2>
-<p>The behaviour parameters are now automatically imported in the behaviour namespace with its default value.</p>
-<p>For example, the <code>YoungModulus</code> parameter of the <code>BishopBehaviour</code> will be available in the <code>BishopBehaviour::YoungModulus</code> variable.</p>
-<p>This feature is convenient for building unit tests comparing the simulated results with analytical ones.</p>
-<p>The list of imported parameters is displayed in <code>debug</code> mode.</p>
-<h2 data-number="5.2" id="unicode-characters-in-mtest"><span class="header-section-number">5.2</span> Unicode characters in <code>MTest</code></h2>
-<p>Usage of a limited subsets of <code>UTF-8</code> characters in variable names is now allowed. This subset is described here:</p>
-<p><a href="http://tfel.sourceforge.net/unicode.html" class="uri">http://tfel.sourceforge.net/unicode.html</a></p>
-<h1 data-number="6" id="new-features-of-the-python-bindings"><span class="header-section-number">6</span> New features of the <code>python</code> bindings</h1>
-<h2 data-number="6.1" id="improvements-of-the-tfel.math-module"><span class="header-section-number">6.1</span> Improvements of the <code>tfel.math</code> module</h2>
-<h3 data-number="6.1.1" id="numpy-support"><span class="header-section-number">6.1.1</span> <code>NumPy</code> support</h3>
-<p>This version is the first to use <code>Boost/NumPy</code> to provide interaction with <code>NumPy</code> array.</p>
+<h1 data-number="5" id="new-features-in-mtest"><span
+class="header-section-number">5</span> New features in
+<code>MTest</code></h1>
+<h2 data-number="5.1" id="import-behaviour-parameters"><span
+class="header-section-number">5.1</span> Import behaviour
+parameters</h2>
+<p>The behaviour parameters are now automatically imported in the
+behaviour namespace with its default value.</p>
+<p>For example, the <code>YoungModulus</code> parameter of the
+<code>BishopBehaviour</code> will be available in the
+<code>BishopBehaviour::YoungModulus</code> variable.</p>
+<p>This feature is convenient for building unit tests comparing the
+simulated results with analytical ones.</p>
+<p>The list of imported parameters is displayed in <code>debug</code>
+mode.</p>
+<h2 data-number="5.2" id="unicode-characters-in-mtest"><span
+class="header-section-number">5.2</span> Unicode characters in
+<code>MTest</code></h2>
+<p>Usage of a limited subsets of <code>UTF-8</code> characters in
+variable names is now allowed. This subset is described here:</p>
+<p><a href="http://tfel.sourceforge.net/unicode.html"
+class="uri">http://tfel.sourceforge.net/unicode.html</a></p>
+<h1 data-number="6" id="new-features-of-the-python-bindings"><span
+class="header-section-number">6</span> New features of the
+<code>python</code> bindings</h1>
+<h2 data-number="6.1" id="improvements-of-the-tfel.math-module"><span
+class="header-section-number">6.1</span> Improvements of the
+<code>tfel.math</code> module</h2>
+<h3 data-number="6.1.1" id="numpy-support"><span
+class="header-section-number">6.1.1</span> <code>NumPy</code>
+support</h3>
+<p>This version is the first to use <code>Boost/NumPy</code> to provide
+interaction with <code>NumPy</code> array.</p>
 <blockquote>
 <p><strong>Note</strong></p>
-<p>The <code>NumPy</code> support is enabled by default if the <code>Python</code> bindings are requested. However, beware that <code>Boost/NumPy</code> is broken for <code>Python3</code> up to version 1.68. We strongly recommend disabling <code>NumPy</code> support when using previous versions of <code>Boost</code> by passing the flag <code>-Denable-numpy-support=OFF</code> to the <code>cmake</code> invokation.</p>
+<p>The <code>NumPy</code> support is enabled by default if the
+<code>Python</code> bindings are requested. However, beware that
+<code>Boost/NumPy</code> is broken for <code>Python3</code> up to
+version 1.68. We strongly recommend disabling <code>NumPy</code> support
+when using previous versions of <code>Boost</code> by passing the flag
+<code>-Denable-numpy-support=OFF</code> to the <code>cmake</code>
+invokation.</p>
 </blockquote>
-<h3 data-number="6.1.2" id="exposing-acceleration-algorithm"><span class="header-section-number">6.1.2</span> Exposing acceleration algorithm</h3>
-<p>The <code>FAnderson</code> and <code>UAnderson</code> acceleration algorithms are now available in the <code>tfel.math</code> module. This requires <code>NumPy</code> support.</p>
-<h4 data-number="6.1.2.1" id="example-of-the-usage-of-the-uanderson-acceleration-algorithm"><span class="header-section-number">6.1.2.1</span> Example of the usage of the <code>UAnderson</code> acceleration algorithm</h4>
-<p>The following code computes the solution of the equation <span class="math inline">\(x=\cos{\left(x\right)}\)</span> using a fixed point algorithm.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> cos</span>
+<h3 data-number="6.1.2" id="exposing-acceleration-algorithm"><span
+class="header-section-number">6.1.2</span> Exposing acceleration
+algorithm</h3>
+<p>The <code>FAnderson</code> and <code>UAnderson</code> acceleration
+algorithms are now available in the <code>tfel.math</code> module. This
+requires <code>NumPy</code> support.</p>
+<h4 data-number="6.1.2.1"
+id="example-of-the-usage-of-the-uanderson-acceleration-algorithm"><span
+class="header-section-number">6.1.2.1</span> Example of the usage of the
+<code>UAnderson</code> acceleration algorithm</h4>
+<p>The following code computes the solution of the equation <span
+class="math inline">\(x=\cos{\left(x\right)}\)</span> using a fixed
+point algorithm.</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> cos</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.math</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -721,13 +1246,26 @@ R{\left(p\right)}=R_{0}\,{\left(p+p_{0}\right)}^{n}
 <span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
 <span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># apply the acceleration</span></span>
 <span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    a.accelerate(x)</span></code></pre></div>
-<p>Without acceleration, this algorithm takes <span class="math inline">\(78\)</span> iterations. In comparison, the accelerated algorithm takes <span class="math inline">\(9\)</span> iterations.</p>
-<h1 data-number="7" id="tfel-unicode-filt"><span class="header-section-number">7</span> <code>tfel-unicode-filt</code></h1>
-<p>Version 3.3 introduces unicode support in <code>MFront</code>. This feature significantly improves the readability of <code>MFront</code> files, bringing it even closer to the mathematical expressions.</p>
-<p>When generating <code>C++</code> sources, unicode characters are mangled, i.e. translated into an acceptable form for the <code>C++</code> compiler. This mangled form may appears in the compiler error message and are difficult to read.</p>
-<p>The <code>tfel-unicode-filt</code> tool, which is similar to the famous <code>c++filt</code> tool, can be use to demangle the outputs of the compiler.</p>
+<p>Without acceleration, this algorithm takes <span
+class="math inline">\(78\)</span> iterations. In comparison, the
+accelerated algorithm takes <span class="math inline">\(9\)</span>
+iterations.</p>
+<h1 data-number="7" id="tfel-unicode-filt"><span
+class="header-section-number">7</span>
+<code>tfel-unicode-filt</code></h1>
+<p>Version 3.3 introduces unicode support in <code>MFront</code>. This
+feature significantly improves the readability of <code>MFront</code>
+files, bringing it even closer to the mathematical expressions.</p>
+<p>When generating <code>C++</code> sources, unicode characters are
+mangled, i.e. translated into an acceptable form for the
+<code>C++</code> compiler. This mangled form may appears in the compiler
+error message and are difficult to read.</p>
+<p>The <code>tfel-unicode-filt</code> tool, which is similar to the
+famous <code>c++filt</code> tool, can be use to demangle the outputs of
+the compiler.</p>
 <p>For example, the following error message:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span>  <span class="at">--interface</span><span class="op">=</span>generic ThermalNorton.mfront</span>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span>  <span class="at">--interface</span><span class="op">=</span>generic ThermalNorton.mfront</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Treating</span> target : all</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">In</span> file included from ThermalNorton-generic.cxx:33:0:</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ThermalNorton.mfront:</span> In member function ‘bool tfel::material::ThermalNorton<span class="op">&lt;</span>hypothesis, Type, false<span class="op">&gt;</span>::</span>
@@ -735,114 +1273,295 @@ R{\left(p\right)}=R_{0}\,{\left(p+p_{0}\right)}^{n}
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ex">ThermalNorton.mfront:147:75:</span> error: ‘tum_2202__tum_0394__tum_03B5__eltum_2215__tum_2202__tum_0394__T’</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="ex">was</span> not declared in this scope</span></code></pre></div>
 <p>can be significantly improved by <code>tfel-unicode-filt</code>:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span>  <span class="at">--interface</span><span class="op">=</span>generic ThermalNorton.mfront <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">|</span> <span class="ex">tfel-unicode-filt</span></span>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span>  <span class="at">--interface</span><span class="op">=</span>generic ThermalNorton.mfront <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">|</span> <span class="ex">tfel-unicode-filt</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Treating</span> target : all</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">In</span> file included from ThermalNorton-generic.cxx:33:0:</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ThermalNorton.mfront:</span> In member function ‘bool tfel::material::ThermalNorton<span class="op">&lt;</span>hypothesis, Type, false<span class="op">&gt;</span>::</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ex">computeConsistentTangentOperator</span><span class="er">(</span><span class="ex">tfel::material::ThermalNorton</span><span class="op">&lt;</span>hypothesis, Type, false<span class="op">&gt;</span>::SMType<span class="kw">)</span><span class="ex">’:</span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="ex">ThermalNorton.mfront:147:75:</span> error: ‘∂Δεel∕∂ΔT’ was not declared in this scope</span></code></pre></div>
-<h1 data-number="8" id="improvements-to-tfel-config"><span class="header-section-number">8</span> Improvements to <code>tfel-config</code></h1>
-<p>The command line option <code>--debug-flags</code> has been added to <code>tfel-config</code>. When used, <code>tfel-config</code> returns the standard debugging flags.</p>
-<h1 data-number="9" id="improvements-to-the-build-system"><span class="header-section-number">9</span> Improvements to the build system</h1>
-<h2 data-number="9.1" id="exporting-cmake-targets"><span class="header-section-number">9.1</span> Exporting <code>CMake</code>’ targets</h2>
-<h2 data-number="9.2" id="disabling-numpy-support"><span class="header-section-number">9.2</span> Disabling <code>NumPy</code> support</h2>
-<h1 data-number="10" id="tickets-solved-during-the-development-of-this-version"><span class="header-section-number">10</span> Tickets solved during the development of this version</h1>
-<h2 data-number="10.1" id="ticket-250-add-a-new-inelastic-flow-to-the-standardelastoviscoplasticity-brick"><span class="header-section-number">10.1</span> Ticket #250: Add a new inelastic flow to the <code>StandardElastoViscoPlasticity</code> brick</h2>
-<p>This ticket requested the addition of the <code>HarmonicSumOfNortonHoffViscoplasticFlows</code> inelastic flow. See Section 4.5.2 for details.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/250/" class="uri">https://sourceforge.net/p/tfel/tickets/250/</a></p>
-<h2 data-number="10.2" id="ticket-234-import-behaviour-parameters-in-mtest"><span class="header-section-number">10.2</span> Ticket #234: Import behaviour parameters in <code>MTest</code></h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/234/" class="uri">https://sourceforge.net/p/tfel/tickets/234/</a></p>
-<h2 data-number="10.3" id="ticket-231-support-for-tensors-as-gradients-and-thermodynamic-forces-in-the-generic-behaviours"><span class="header-section-number">10.3</span> Ticket #231: Support for tensors as gradients and thermodynamic forces in the <code>generic</code> behaviours</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/231/" class="uri">https://sourceforge.net/p/tfel/tickets/231/</a></p>
-<h2 data-number="10.4" id="ticket-219-add-the-possibility-to-define-the-tangent-operator-blocks"><span class="header-section-number">10.4</span> Ticket #219: Add the possibility to define the tangent operator blocks</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/219/" class="uri">https://sourceforge.net/p/tfel/tickets/219/</a></p>
-<h2 data-number="10.5" id="ticket-214-add-a-debugging-option-to-mfront"><span class="header-section-number">10.5</span> Ticket #214: Add a debugging option to <code>MFront</code></h2>
-<p>The <code>-g</code> option of <code>MFront</code> now adds standard debugging flags to the compiler flags when compiling shared libraries.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/214/" class="uri">https://sourceforge.net/p/tfel/tickets/214/</a></p>
-<h2 data-number="10.6" id="ticket-212-better-const-correctness-in-the-generic-behaviour"><span class="header-section-number">10.6</span> Ticket #212: Better <code>const</code> correctness in the <code>generic</code> behaviour</h2>
-<p>The state at the beginning of the time step is now described in a structure called <code>mfront::gb::InitialState</code>, the fields of which are all <code>const</code>.</p>
-<p>The following fields of the <code>mfront::gb::State</code> are now <code>const</code>:</p>
+<h1 data-number="8" id="improvements-to-tfel-config"><span
+class="header-section-number">8</span> Improvements to
+<code>tfel-config</code></h1>
+<p>The command line option <code>--debug-flags</code> has been added to
+<code>tfel-config</code>. When used, <code>tfel-config</code> returns
+the standard debugging flags.</p>
+<h1 data-number="9" id="improvements-to-the-build-system"><span
+class="header-section-number">9</span> Improvements to the build
+system</h1>
+<h2 data-number="9.1" id="exporting-cmake-targets"><span
+class="header-section-number">9.1</span> Exporting <code>CMake</code>’
+targets</h2>
+<h2 data-number="9.2" id="disabling-numpy-support"><span
+class="header-section-number">9.2</span> Disabling <code>NumPy</code>
+support</h2>
+<h1 data-number="10"
+id="tickets-solved-during-the-development-of-this-version"><span
+class="header-section-number">10</span> Tickets solved during the
+development of this version</h1>
+<h2 data-number="10.1"
+id="ticket-250-add-a-new-inelastic-flow-to-the-standardelastoviscoplasticity-brick"><span
+class="header-section-number">10.1</span> Ticket #250: Add a new
+inelastic flow to the <code>StandardElastoViscoPlasticity</code>
+brick</h2>
+<p>This ticket requested the addition of the
+<code>HarmonicSumOfNortonHoffViscoplasticFlows</code> inelastic flow.
+See Section 4.5.2 for details.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/250/"
+class="uri">https://sourceforge.net/p/tfel/tickets/250/</a></p>
+<h2 data-number="10.2"
+id="ticket-234-import-behaviour-parameters-in-mtest"><span
+class="header-section-number">10.2</span> Ticket #234: Import behaviour
+parameters in <code>MTest</code></h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/234/"
+class="uri">https://sourceforge.net/p/tfel/tickets/234/</a></p>
+<h2 data-number="10.3"
+id="ticket-231-support-for-tensors-as-gradients-and-thermodynamic-forces-in-the-generic-behaviours"><span
+class="header-section-number">10.3</span> Ticket #231: Support for
+tensors as gradients and thermodynamic forces in the
+<code>generic</code> behaviours</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/231/"
+class="uri">https://sourceforge.net/p/tfel/tickets/231/</a></p>
+<h2 data-number="10.4"
+id="ticket-219-add-the-possibility-to-define-the-tangent-operator-blocks"><span
+class="header-section-number">10.4</span> Ticket #219: Add the
+possibility to define the tangent operator blocks</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/219/"
+class="uri">https://sourceforge.net/p/tfel/tickets/219/</a></p>
+<h2 data-number="10.5"
+id="ticket-214-add-a-debugging-option-to-mfront"><span
+class="header-section-number">10.5</span> Ticket #214: Add a debugging
+option to <code>MFront</code></h2>
+<p>The <code>-g</code> option of <code>MFront</code> now adds standard
+debugging flags to the compiler flags when compiling shared
+libraries.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/214/"
+class="uri">https://sourceforge.net/p/tfel/tickets/214/</a></p>
+<h2 data-number="10.6"
+id="ticket-212-better-const-correctness-in-the-generic-behaviour"><span
+class="header-section-number">10.6</span> Ticket #212: Better
+<code>const</code> correctness in the <code>generic</code>
+behaviour</h2>
+<p>The state at the beginning of the time step is now described in a
+structure called <code>mfront::gb::InitialState</code>, the fields of
+which are all <code>const</code>.</p>
+<p>The following fields of the <code>mfront::gb::State</code> are now
+<code>const</code>:</p>
 <ul>
 <li><code>gradients</code></li>
 <li><code>material_properties</code></li>
 <li><code>external_state_variables</code></li>
 </ul>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/212/" class="uri">https://sourceforge.net/p/tfel/tickets/212/</a></p>
-<h2 data-number="10.7" id="ticket-209-lack-of-documentation-of-the-gasequationofstate-keyword"><span class="header-section-number">10.7</span> Ticket #209: lack of documentation of the <code>@GasEquationOfState</code> keyword</h2>
-<p>This feature is now described in the (<code>MTest</code> page)[mtest.html]</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/209/" class="uri">https://sourceforge.net/p/tfel/tickets/209/</a></p>
-<h2 data-number="10.8" id="ticket-206-export-tfel-targets-for-use-by-external-projects"><span class="header-section-number">10.8</span> Ticket #206: Export <code>TFEL</code> targets for use by external projects</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/212/"
+class="uri">https://sourceforge.net/p/tfel/tickets/212/</a></p>
+<h2 data-number="10.7"
+id="ticket-209-lack-of-documentation-of-the-gasequationofstate-keyword"><span
+class="header-section-number">10.7</span> Ticket #209: lack of
+documentation of the <code>@GasEquationOfState</code> keyword</h2>
+<p>This feature is now described in the (<code>MTest</code>
+page)[mtest.html]</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/209/"
+class="uri">https://sourceforge.net/p/tfel/tickets/209/</a></p>
+<h2 data-number="10.8"
+id="ticket-206-export-tfel-targets-for-use-by-external-projects"><span
+class="header-section-number">10.8</span> Ticket #206: Export
+<code>TFEL</code> targets for use by external projects</h2>
 <p>Here is a minimal example on how to use this feature:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">project</span>(<span class="st">&quot;tfel-test&quot;</span>)</span>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">project</span>(<span class="st">&quot;tfel-test&quot;</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> <span class="dt">3.0</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">find_package</span>(TFELException <span class="ot">REQUIRED</span>)</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="kw">find_package</span>(TFELMath <span class="ot">REQUIRED</span>)</span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="kw">add_executable</span>(test-test test.cxx)</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="kw">target_link_libraries</span>(test-test <span class="bn">tfel::TFELMath</span>)</span></code></pre></div>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/209/" class="uri">https://sourceforge.net/p/tfel/tickets/209/</a></p>
-<h2 data-number="10.9" id="ticket-205-add-power-isotropic-hardening-rule"><span class="header-section-number">10.9</span> Ticket #205: Add power isotropic hardening rule</h2>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="kw">add_executable</span>(<span class="bn">test-test</span> test.cxx)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="kw">target_link_libraries</span>(<span class="bn">test-test</span> <span class="bn">tfel::TFELMath</span>)</span></code></pre></div>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/209/"
+class="uri">https://sourceforge.net/p/tfel/tickets/209/</a></p>
+<h2 data-number="10.9"
+id="ticket-205-add-power-isotropic-hardening-rule"><span
+class="header-section-number">10.9</span> Ticket #205: Add power
+isotropic hardening rule</h2>
 <p>This feature is described in Section 4.5.6.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/205/" class="uri">https://sourceforge.net/p/tfel/tickets/205/</a></p>
-<h2 data-number="10.10" id="ticket-201-allow-better-control-of-the-convergence-in-the-standardelastoviscoplascity-brick"><span class="header-section-number">10.10</span> Ticket #201: Allow better control of the convergence in the <code>StandardElastoviscoPlascity</code> brick</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/205/"
+class="uri">https://sourceforge.net/p/tfel/tickets/205/</a></p>
+<h2 data-number="10.10"
+id="ticket-201-allow-better-control-of-the-convergence-in-the-standardelastoviscoplascity-brick"><span
+class="header-section-number">10.10</span> Ticket #201: Allow better
+control of the convergence in the
+<code>StandardElastoviscoPlascity</code> brick</h2>
 <p>See Sections 4.5.4.1 and 4.5.4.2.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/201/" class="uri">https://sourceforge.net/p/tfel/tickets/201/</a></p>
-<h2 data-number="10.11" id="ticket-200-allow-choosing-the-eigen-solver-for-some-stress-criteria-in-the-standardelastoviscoplascity-brick"><span class="header-section-number">10.11</span> Ticket #200: Allow choosing the eigen solver for some stress criteria in the <code>StandardElastoviscoPlascity</code> brick</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/201/"
+class="uri">https://sourceforge.net/p/tfel/tickets/201/</a></p>
+<h2 data-number="10.11"
+id="ticket-200-allow-choosing-the-eigen-solver-for-some-stress-criteria-in-the-standardelastoviscoplascity-brick"><span
+class="header-section-number">10.11</span> Ticket #200: Allow choosing
+the eigen solver for some stress criteria in the
+<code>StandardElastoviscoPlascity</code> brick</h2>
 <p>See 4.5.3.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/200/" class="uri">https://sourceforge.net/p/tfel/tickets/200/</a></p>
-<h2 data-number="10.12" id="ticket-195-export-variables-bounds-for-material-properties"><span class="header-section-number">10.12</span> Ticket #195 : Export variables bounds for material properties</h2>
-<p>Variables bounds (both <code>@Bounds</code> and <code>@PhysicalBounds</code>) are now available for material properties. They are available directly in the .so file via getExternalLibraryManager().</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/195/" class="uri">https://sourceforge.net/p/tfel/tickets/195/</a></p>
-<h2 data-number="10.13" id="ticket-202-dsls-for-isotropic-behaviours-dont-handle-nan"><span class="header-section-number">10.13</span> Ticket #202: DSLs for isotropic behaviours don’t handle <code>NaN</code></h2>
-<p>The <code>IsotropicMisesCreep</code>, <code>IsotropicMisesPlasticFlow</code>, <code>IsotropicStrainHardeningMisesCreep</code> and <code>MultipleIsotropicMisesFlowsDSL</code> now handle properly <code>NaN</code> values.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/202/" class="uri">https://sourceforge.net/p/tfel/tickets/202/</a></p>
-<h2 data-number="10.14" id="ticket-196-export-variable-names-for-all-interface-of-material-property"><span class="header-section-number">10.14</span> Ticket #196 : Export variable names for all interface of material property</h2>
-<p>The variable name of material property was available only for castem interface. Now it is available for all interface (c++, python, …). The name can be found in the .so file via getExternalLibraryManager().</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/196/" class="uri">https://sourceforge.net/p/tfel/tickets/196/</a></p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/200/"
+class="uri">https://sourceforge.net/p/tfel/tickets/200/</a></p>
+<h2 data-number="10.12"
+id="ticket-195-export-variables-bounds-for-material-properties"><span
+class="header-section-number">10.12</span> Ticket #195 : Export
+variables bounds for material properties</h2>
+<p>Variables bounds (both <code>@Bounds</code> and
+<code>@PhysicalBounds</code>) are now available for material properties.
+They are available directly in the .so file via
+getExternalLibraryManager().</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/195/"
+class="uri">https://sourceforge.net/p/tfel/tickets/195/</a></p>
+<h2 data-number="10.13"
+id="ticket-202-dsls-for-isotropic-behaviours-dont-handle-nan"><span
+class="header-section-number">10.13</span> Ticket #202: DSLs for
+isotropic behaviours don’t handle <code>NaN</code></h2>
+<p>The <code>IsotropicMisesCreep</code>,
+<code>IsotropicMisesPlasticFlow</code>,
+<code>IsotropicStrainHardeningMisesCreep</code> and
+<code>MultipleIsotropicMisesFlowsDSL</code> now handle properly
+<code>NaN</code> values.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/202/"
+class="uri">https://sourceforge.net/p/tfel/tickets/202/</a></p>
+<h2 data-number="10.14"
+id="ticket-196-export-variable-names-for-all-interface-of-material-property"><span
+class="header-section-number">10.14</span> Ticket #196 : Export variable
+names for all interface of material property</h2>
+<p>The variable name of material property was available only for castem
+interface. Now it is available for all interface (c++, python, …). The
+name can be found in the .so file via getExternalLibraryManager().</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/196/"
+class="uri">https://sourceforge.net/p/tfel/tickets/196/</a></p>
 <h1 class="unnumbered" id="references">References</h1>
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-meric_fe_1994" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Méric</span>, L., <span class="smallcaps">Cailletaud</span>, G. and <span class="smallcaps">Gaspérini</span>, M. F.e. Calculations of copper bicrystal specimens submitted to tension-compression tests. <em>Acta Metallurgica et Materialia</em>. 1 March 1994. Vol. 42, no. 3, p. 921–935. DOI <a href="https://doi.org/10.1016/0956-7151(94)90287-9">10.1016/0956-7151(94)90287-9</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/0956715194902879">http://www.sciencedirect.com/science/article/pii/0956715194902879</a></div>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-meric_fe_1994" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Méric</span>, L., <span
+class="smallcaps">Cailletaud</span>, G. and <span
+class="smallcaps">Gaspérini</span>, M. F.e. Calculations of copper
+bicrystal specimens submitted to tension-compression tests. <em>Acta
+Metallurgica et Materialia</em>. 1 March 1994. Vol. 42, no. 3,
+p. 921–935. DOI <a
+href="https://doi.org/10.1016/0956-7151(94)90287-9">10.1016/0956-7151(94)90287-9</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/0956715194902879">http://www.sciencedirect.com/science/article/pii/0956715194902879</a></div>
 </div>
-<div id="ref-deng_slope_2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Deng</span>, Tengfei and <span class="smallcaps">Nagel</span>, Thomas. Slope failure analysis with strength reduction in <span>OpenGeoSys</span>. OpenGeoSys documentation. 2020. Available from: <a href="https://www.opengeosys.org/docs/benchmarks/small-deformations/slope_stability.pdf">https://www.opengeosys.org/docs/benchmarks/small-deformations/slope_stability.pdf</a></div>
+<div id="ref-deng_slope_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline"><span class="smallcaps">Deng</span>, Tengfei
+and <span class="smallcaps">Nagel</span>, Thomas. Slope failure analysis
+with strength reduction in <span>OpenGeoSys</span>. {OpenGeoSys}
+documentation. 2020. Available from: <a
+href="https://www.opengeosys.org/docs/benchmarks/small-deformations/slope_stability.pdf">https://www.opengeosys.org/docs/benchmarks/small-deformations/slope_stability.pdf</a></div>
 </div>
-<div id="ref-helfer_assisted_2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas. Assisted computation of the consistent tangent operator of behaviours integrated using an implicit scheme. Theory and implementation in <span>MFront</span>. Documentation of mfront. <span>CEA</span>, 2020. Available from: <a href="https://www.researchgate.net/publication/342721072_Assisted_computation_of_the_consistent_tangent_operator_of_behaviours_integrated_using_an_implicit_scheme_Theory_and_implementation_in_MFront">https://www.researchgate.net/publication/342721072_Assisted_computation_of_the_consistent_tangent_operator_of_behaviours_integrated_using_an_implicit_scheme_Theory_and_implementation_in_MFront</a></div>
+<div id="ref-helfer_assisted_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas.
+Assisted computation of the consistent tangent operator of behaviours
+integrated using an implicit scheme. Theory and implementation in
+<span>MFront</span>. Documentation of mfront. <span>CEA</span>, 2020.
+Available from: <a
+href="https://www.researchgate.net/publication/342721072_Assisted_computation_of_the_consistent_tangent_operator_of_behaviours_integrated_using_an_implicit_scheme_Theory_and_implementation_in_MFront">https://www.researchgate.net/publication/342721072_Assisted_computation_of_the_consistent_tangent_operator_of_behaviours_integrated_using_an_implicit_scheme_Theory_and_implementation_in_MFront</a></div>
 </div>
-<div id="ref-bleyer_monolithic_2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jeremy and <span class="smallcaps">Helfer</span>, Thomas. Monolithic transient thermo-elasticity. 2020. Available from: <a href="https://www.researchgate.net/publication/341372231_Monolithic_transient_thermo-elasticity">https://www.researchgate.net/publication/341372231_Monolithic_transient_thermo-elasticity</a></div>
+<div id="ref-bleyer_monolithic_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jeremy
+and <span class="smallcaps">Helfer</span>, Thomas. Monolithic transient
+thermo-elasticity. 2020. Available from: <a
+href="https://www.researchgate.net/publication/341372231_Monolithic_transient_thermo-elasticity">https://www.researchgate.net/publication/341372231_Monolithic_transient_thermo-elasticity</a></div>
 </div>
-<div id="ref-bleyer_multiphase_2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">5. </div><div class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jeremy. Multiphase model for fiber-reinforced materials. 2020. Available from: <a href="https://www.researchgate.net/publication/341359306_Multiphase_model_for_fiber-reinforced_materials">https://www.researchgate.net/publication/341359306_Multiphase_model_for_fiber-reinforced_materials</a></div>
+<div id="ref-bleyer_multiphase_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jeremy.
+Multiphase model for fiber-reinforced materials. 2020. Available from:
+<a
+href="https://www.researchgate.net/publication/341359306_Multiphase_model_for_fiber-reinforced_materials">https://www.researchgate.net/publication/341359306_Multiphase_model_for_fiber-reinforced_materials</a></div>
 </div>
-<div id="ref-bleyer_transient_2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">6. </div><div class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jeremy and <span class="smallcaps">Helfer</span>, Thomas. Transient heat equation with phase change. 2020. Available from: <a href="https://www.researchgate.net/publication/341359549_Transient_heat_equation_with_phase_change">https://www.researchgate.net/publication/341359549_Transient_heat_equation_with_phase_change</a></div>
+<div id="ref-bleyer_transient_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jeremy
+and <span class="smallcaps">Helfer</span>, Thomas. Transient heat
+equation with phase change. 2020. Available from: <a
+href="https://www.researchgate.net/publication/341359549_Transient_heat_equation_with_phase_change">https://www.researchgate.net/publication/341359549_Transient_heat_equation_with_phase_change</a></div>
 </div>
-<div id="ref-helfer_using_2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">7. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Nagel</span>, Thomas and <span class="smallcaps">Mašín</span>, David. Using <span>MFront</span> as a wrapper for a thermo-hydro-mechanical behaviour for bentonite available in the <span>TRIAX</span> package. 2020. Available from: <a href="https://www.researchgate.net/publication/342747050_Using_MFront_as_a_wrapper_for_a_thermo-hydro-mechanical_behaviour_for_bentonite_available_in_the_TRIAX_package">https://www.researchgate.net/publication/342747050_Using_MFront_as_a_wrapper_for_a_thermo-hydro-mechanical_behaviour_for_bentonite_available_in_the_TRIAX_package</a></div>
+<div id="ref-helfer_using_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas,
+<span class="smallcaps">Nagel</span>, Thomas and <span
+class="smallcaps">Mašín</span>, David. Using <span>MFront</span> as a
+wrapper for a thermo-hydro-mechanical behaviour for bentonite available
+in the <span>TRIAX</span> package. 2020. Available from: <a
+href="https://www.researchgate.net/publication/342747050_Using_MFront_as_a_wrapper_for_a_thermo-hydro-mechanical_behaviour_for_bentonite_available_in_the_TRIAX_package">https://www.researchgate.net/publication/342747050_Using_MFront_as_a_wrapper_for_a_thermo-hydro-mechanical_behaviour_for_bentonite_available_in_the_TRIAX_package</a></div>
 </div>
-<div id="ref-bleyer_small-strain_2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">8. </div><div class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jeremy and <span class="smallcaps">Helfer</span>, Thomas. Small-strain von mises elastoplasticity. 2020. Available from: <a href="https://www.researchgate.net/publication/340953012_Small-strain_von_Mises_elastoplasticity">https://www.researchgate.net/publication/340953012_Small-strain_von_Mises_elastoplasticity</a></div>
+<div id="ref-bleyer_small-strain_2020" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">8. </div><div
+class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jeremy
+and <span class="smallcaps">Helfer</span>, Thomas. Small-strain von
+mises elastoplasticity. 2020. Available from: <a
+href="https://www.researchgate.net/publication/340953012_Small-strain_von_Mises_elastoplasticity">https://www.researchgate.net/publication/340953012_Small-strain_von_Mises_elastoplasticity</a></div>
 </div>
-<div id="ref-bleyer_stationnary_2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">9. </div><div class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jérémy and <span class="smallcaps">Helfer</span>, Thomas. Stationnary non-linear heat transfer using mgis.fenics. 2020. Available from: <a href="https://www.researchgate.net/publication/340965420_Stationnary_non-linear_heat_transfer_using_mgisfenics">https://www.researchgate.net/publication/340965420_Stationnary_non-linear_heat_transfer_using_mgisfenics</a></div>
+<div id="ref-bleyer_stationnary_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">9. </div><div
+class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jérémy
+and <span class="smallcaps">Helfer</span>, Thomas. Stationnary
+non-linear heat transfer using mgis.fenics. 2020. Available from: <a
+href="https://www.researchgate.net/publication/340965420_Stationnary_non-linear_heat_transfer_using_mgisfenics">https://www.researchgate.net/publication/340965420_Stationnary_non-linear_heat_transfer_using_mgisfenics</a></div>
 </div>
-<div id="ref-bleyer_stationnary_2020b" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">10. </div><div class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jérémy and <span class="smallcaps">Helfer</span>, Thomas. Stationnary non-linear heat transfer: 3D problem and performance comparisons. 2020. Available from: <a href="https://thelfer.github.io/mgis/web/mgis_fenics_nonlinear_heat_transfer_3D.html">https://thelfer.github.io/mgis/web/mgis_fenics_nonlinear_heat_transfer_3D.html</a></div>
+<div id="ref-bleyer_stationnary_2020b" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">10. </div><div
+class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jérémy
+and <span class="smallcaps">Helfer</span>, Thomas. Stationnary
+non-linear heat transfer: 3D problem and performance comparisons. 2020.
+Available from: <a
+href="https://thelfer.github.io/mgis/web/mgis_fenics_nonlinear_heat_transfer_3D.html">https://thelfer.github.io/mgis/web/mgis_fenics_nonlinear_heat_transfer_3D.html</a></div>
 </div>
-<div id="ref-bleyer_phase-field_2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">11. </div><div class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jérémy and <span class="smallcaps">Helfer</span>, Thomas. Phase-field approach to brittle fracture. Documentation of the mgis.module. 2020. Available from: <a href="https://www.researchgate.net/publication/341359638_Phase-field_approach_to_brittle_fracture">https://www.researchgate.net/publication/341359638_Phase-field_approach_to_brittle_fracture</a></div>
+<div id="ref-bleyer_phase-field_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div
+class="csl-right-inline"><span class="smallcaps">Bleyer</span>, Jérémy
+and <span class="smallcaps">Helfer</span>, Thomas. Phase-field approach
+to brittle fracture. Documentation of the mgis.module. 2020. Available
+from: <a
+href="https://www.researchgate.net/publication/341359638_Phase-field_approach_to_brittle_fracture">https://www.researchgate.net/publication/341359638_Phase-field_approach_to_brittle_fracture</a></div>
 </div>
-<div id="ref-helfer_extending_2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">12. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Hure</span>, Jérémy and <span class="smallcaps">Shokeir</span>, Mohamed. Extending the <span>StandardElastoViscoPlasticity</span> brick with a new stress criterion. 2020. Available from: <a href="https://www.researchgate.net/publication/340280305_Extending_the_StandardElastoViscoPlasticity_brick_with_a_new_stress_criterion">https://www.researchgate.net/publication/340280305_Extending_the_StandardElastoViscoPlasticity_brick_with_a_new_stress_criterion</a></div>
+<div id="ref-helfer_extending_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas,
+<span class="smallcaps">Hure</span>, Jérémy and <span
+class="smallcaps">Shokeir</span>, Mohamed. Extending the
+<span>StandardElastoViscoPlasticity</span> brick with a new stress
+criterion. 2020. Available from: <a
+href="https://www.researchgate.net/publication/340280305_Extending_the_StandardElastoViscoPlasticity_brick_with_a_new_stress_criterion">https://www.researchgate.net/publication/340280305_Extending_the_StandardElastoViscoPlasticity_brick_with_a_new_stress_criterion</a></div>
 </div>
-<div id="ref-kopp_efficient_2008" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">13. </div><div class="csl-right-inline"><span class="smallcaps">Kopp</span>, Joachim. Efficient numerical diagonalization of hermitian 3x3 matrices. <em>International Journal of Modern Physics C</em>. March 2008. Vol. 19, no. 3, p. 523–548. DOI <a href="https://doi.org/10.1142/S0129183108012303">10.1142/S0129183108012303</a>. Available from: <a href="http://arxiv.org/abs/physics/0610206">http://arxiv.org/abs/physics/0610206</a></div>
+<div id="ref-kopp_efficient_2008" class="csl-entry" role="listitem">
+<div class="csl-left-margin">13. </div><div
+class="csl-right-inline"><span class="smallcaps">Kopp</span>, Joachim.
+Efficient numerical diagonalization of hermitian 3x3 matrices.
+<em>International Journal of Modern Physics C</em>. March 2008. Vol. 19,
+no. 3, p. 523–548. DOI <a
+href="https://doi.org/10.1142/S0129183108012303">10.1142/S0129183108012303</a>.
+Available from: <a
+href="http://arxiv.org/abs/physics/0610206">http://arxiv.org/abs/physics/0610206</a></div>
 </div>
-<div id="ref-kopp_numerical_2017" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">14. </div><div class="csl-right-inline"><span class="smallcaps">Kopp</span>, Joachim. Numerical diagonalization of 3x3 matrices. 2017. Available from: <a href="https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/">https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/</a></div>
+<div id="ref-kopp_numerical_2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">14. </div><div
+class="csl-right-inline"><span class="smallcaps">Kopp</span>, Joachim.
+Numerical diagonalization of 3x3 matrices. 2017. Available from: <a
+href="https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/">https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/</a></div>
 </div>
 </div>
     <script>

@@ -17,8 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -27,7 +28,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -51,11 +52,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -64,14 +65,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -80,7 +81,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -183,6 +186,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -328,115 +332,215 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Description of the <code>StandardElastoViscoPlasticity</code> brick</h1>
+<h1 class="title">Description of the
+<code>StandardElastoViscoPlasticity</code> brick</h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">2020</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#a-detailled-example"><span class="toc-section-number">0.1</span> A detailled Example</a></li>
-<li><a href="#list-of-available-stress-potentials"><span class="toc-section-number">1</span> List of available stress potentials</a>
+<li><a href="#a-detailled-example" id="toc-a-detailled-example"><span
+class="toc-section-number">0.1</span> A detailled Example</a></li>
+<li><a href="#list-of-available-stress-potentials"
+id="toc-list-of-available-stress-potentials"><span
+class="toc-section-number">1</span> List of available stress
+potentials</a>
 <ul>
-<li><a href="#the-hooke-stress-potential"><span class="toc-section-number">1.1</span> The Hooke stress potential</a></li>
-<li><a href="#the-isotropicdamage-stress-potential"><span class="toc-section-number">1.2</span> The <code>IsotropicDamage</code> stress potential</a></li>
-<li><a href="#the-ddif2-stress-potential"><span class="toc-section-number">1.3</span> The <code>DDIF2</code> stress potential</a></li>
+<li><a href="#the-hooke-stress-potential"
+id="toc-the-hooke-stress-potential"><span
+class="toc-section-number">1.1</span> The Hooke stress
+potential</a></li>
+<li><a href="#the-isotropicdamage-stress-potential"
+id="toc-the-isotropicdamage-stress-potential"><span
+class="toc-section-number">1.2</span> The <code>IsotropicDamage</code>
+stress potential</a></li>
+<li><a href="#the-ddif2-stress-potential"
+id="toc-the-ddif2-stress-potential"><span
+class="toc-section-number">1.3</span> The <code>DDIF2</code> stress
+potential</a></li>
 </ul></li>
-<li><a href="#inelastic-flows"><span class="toc-section-number">2</span> Inelastic flows</a>
+<li><a href="#inelastic-flows" id="toc-inelastic-flows"><span
+class="toc-section-number">2</span> Inelastic flows</a>
 <ul>
-<li><a href="#list-of-available-inelastic-flows"><span class="toc-section-number">2.1</span> List of available inelastic flows</a></li>
-<li><a href="#sec:cosine_checks"><span class="toc-section-number">2.2</span> Newton steps rejections based on the change of the flow direction between two successive estimates</a></li>
-<li><a href="#list-of-available-stress-criteria"><span class="toc-section-number">2.3</span> List of available stress criteria</a></li>
-<li><a href="#list-of-available-isotropic-hardening-rules"><span class="toc-section-number">2.4</span> List of available isotropic hardening rules</a></li>
-<li><a href="#list-of-available-kinematic-hardening-rules"><span class="toc-section-number">2.5</span> List of available kinematic hardening rules</a></li>
+<li><a href="#list-of-available-inelastic-flows"
+id="toc-list-of-available-inelastic-flows"><span
+class="toc-section-number">2.1</span> List of available inelastic
+flows</a></li>
+<li><a href="#sec:cosine_checks" id="toc-sec:cosine_checks"><span
+class="toc-section-number">2.2</span> Newton steps rejections based on
+the change of the flow direction between two successive
+estimates</a></li>
+<li><a href="#list-of-available-stress-criteria"
+id="toc-list-of-available-stress-criteria"><span
+class="toc-section-number">2.3</span> List of available stress
+criteria</a></li>
+<li><a href="#list-of-available-isotropic-hardening-rules"
+id="toc-list-of-available-isotropic-hardening-rules"><span
+class="toc-section-number">2.4</span> List of available isotropic
+hardening rules</a></li>
+<li><a href="#list-of-available-kinematic-hardening-rules"
+id="toc-list-of-available-kinematic-hardening-rules"><span
+class="toc-section-number">2.5</span> List of available kinematic
+hardening rules</a></li>
 </ul></li>
-<li><a href="#references">References</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
 </ul>
 </div>
-<p>This page describes the <code>StandardElastoViscoPlasticity</code> brick. This brick is used to describe a specific class of strain based behaviours based on an additive split of the total strain <span class="math inline">\(\underline{\epsilon}^{\mathrm{to}}\)</span> into an elastic part <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> and one or several inelastic strains describing plastic (time-independent) flows and/or viscoplastic (time-dependent) flows: <span class="math display">\[
+<p>This page describes the <code>StandardElastoViscoPlasticity</code>
+brick. This brick is used to describe a specific class of strain based
+behaviours based on an additive split of the total strain <span
+class="math inline">\(\underline{\epsilon}^{\mathrm{to}}\)</span> into
+an elastic part <span
+class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> and
+one or several inelastic strains describing plastic (time-independent)
+flows and/or viscoplastic (time-dependent) flows: <span
+class="math display">\[
 \underline{\epsilon}^{\mathrm{to}}=\underline{\epsilon}^{\mathrm{el}}
 +\sum_{i_{\mathrm{p}}=0}^{n_{\mathrm{p}}}\underline{\epsilon}^{\mathrm{p}}_{i_{\mathrm{p}}}
 +\sum_{i_{\mathrm{vp}}=0}^{n_{\mathrm{vp}}}\underline{\epsilon}^{\mathrm{vp}}_{i_{\mathrm{vp}}}
 \]</span></p>
-<p>This equation defines the equation associated with the elastic strain <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span>.</p>
+<p>This equation defines the equation associated with the elastic strain
+<span
+class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span>.</p>
 <p>The brick decomposes the behaviour into two components:</p>
 <ul>
-<li>the stress potential which defines the relation between the elastic strain <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> and possibly some damage variables and the stress measure <span class="math inline">\(\underline{\sigma}\)</span>. As the definition of the elastic properties can be part of the definition of the stress potential, the thermal expansion coefficients can also be defined in the block corresponding to the stress potential.</li>
+<li>the stress potential which defines the relation between the elastic
+strain <span
+class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> and
+possibly some damage variables and the stress measure <span
+class="math inline">\(\underline{\sigma}\)</span>. As the definition of
+the elastic properties can be part of the definition of the stress
+potential, the thermal expansion coefficients can also be defined in the
+block corresponding to the stress potential.</li>
 <li>a list of inelastic flows.</li>
 </ul>
 <blockquote>
 <p><strong>Porous viscoplasticity</strong></p>
-<p>This page only introduces stress criteria which are not coupled with the evolution of the porosity. Stress criteria coupled with the evolution of porosity is described on a <a href="StandardElastoViscoPlasticityBrick-PorousPlasticity.html">dedicated page</a>.</p>
+<p>This page only introduces stress criteria which are not coupled with
+the evolution of the porosity. Stress criteria coupled with the
+evolution of porosity is described on a <a
+href="StandardElastoViscoPlasticityBrick-PorousPlasticity.html">dedicated
+page</a>.</p>
 </blockquote>
-<h2 data-number="0.1" id="a-detailled-example"><span class="header-section-number">0.1</span> A detailled Example</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick <span class="st">&quot;StandardElastoViscoPlasticity&quot;</span> {</span>
+<h2 data-number="0.1" id="a-detailled-example"><span
+class="header-section-number">0.1</span> A detailled Example</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick <span class="st">&quot;StandardElastoViscoPlasticity&quot;</span> <span class="op">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Here the stress potential is given by the Hooke law. We define:</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - the elastic properties (Young modulus and Poisson ratio).</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">//   Here the Young modulus is a function of the temperature.</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">//   The Poisson ratio is constant.</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - the thermal expansion coefficient</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - the reference temperature for the thermal expansion</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    young_modulus : <span class="st">&quot;2.e5 - (1.e5*((T - 100.)/960.)**2)&quot;</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    poisson_ratio : <span class="fl">0.3</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    thermal_expansion : <span class="st">&quot;1.e-5 + (1.e-5  * ((T - 100.)/960.) ** 4)&quot;</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    thermal_expansion_reference_temperature : <span class="dv">0</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    young_modulus <span class="op">:</span> <span class="st">&quot;2.e5 - (1.e5*((T - 100.)/960.)**2)&quot;</span><span class="op">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    thermal_expansion <span class="op">:</span> <span class="st">&quot;1.e-5 + (1.e-5  * ((T - 100.)/960.) ** 4)&quot;</span><span class="op">,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    thermal_expansion_reference_temperature <span class="op">:</span> <span class="dv">0</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">},</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Here we define only one viscplastic flow defined by the Norton law,</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// which is based:</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - the von Mises stress criterion</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - one isotorpic hardening rule based on Voce formalism</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - one kinematic hardening rule following the Armstrong-Frederick law</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Norton&quot;</span> {</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Mises&quot;</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="dv">200</span>, Rinf : <span class="dv">100</span>, b : <span class="dv">20</span>},</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening : <span class="st">&quot;Armstrong-Frederick&quot;</span> {</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>      C : <span class="st">&quot;1.e6 - 98500 * (T - 100) / 96&quot;</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>      D : <span class="st">&quot;5000 - 5* (T - 100)&quot;</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    K : <span class="st">&quot;(4200. * (T + 20.) - 3. * (T + 20.0)**2)/4900.&quot;</span>,</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    n : <span class="st">&quot;7. - (T - 100.) / 160.&quot;</span>,</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    Ksf : <span class="dv">3</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h1 data-number="1" id="list-of-available-stress-potentials"><span class="header-section-number">1</span> List of available stress potentials</h1>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Norton&quot;</span> <span class="op">{</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="dv">200</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="dv">100</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">20</span><span class="op">},</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Armstrong-Frederick&quot;</span> <span class="op">{</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>      C <span class="op">:</span> <span class="st">&quot;1.e6 - 98500 * (T - 100) / 96&quot;</span><span class="op">,</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>      D <span class="op">:</span> <span class="st">&quot;5000 - 5* (T - 100)&quot;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    K <span class="op">:</span> <span class="st">&quot;(4200. * (T + 20.) - 3. * (T + 20.0)**2)/4900.&quot;</span><span class="op">,</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    n <span class="op">:</span> <span class="st">&quot;7. - (T - 100.) / 160.&quot;</span><span class="op">,</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    Ksf <span class="op">:</span> <span class="dv">3</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h1 data-number="1" id="list-of-available-stress-potentials"><span
+class="header-section-number">1</span> List of available stress
+potentials</h1>
 <figure>
-<img src="img/StressPotentials.svg" title="Relations between stress potentials" alt="Relations between stress potentials. The stress potentials usable by the end users are marked in red." /><figcaption aria-hidden="true">Relations between stress potentials. The stress potentials usable by the end users are marked in red.</figcaption>
+<img src="img/StressPotentials.svg"
+title="Relations between stress potentials"
+alt="Relations between stress potentials. The stress potentials usable by the end users are marked in red." />
+<figcaption aria-hidden="true">Relations between stress potentials. The
+stress potentials usable by the end users are marked in
+red.</figcaption>
 </figure>
-<h2 data-number="1.1" id="the-hooke-stress-potential"><span class="header-section-number">1.1</span> The Hooke stress potential</h2>
-<p>This stress potential implements the Hooke law, i.e. a linear relation between the elastic strain and the stress, as follows:</p>
+<h2 data-number="1.1" id="the-hooke-stress-potential"><span
+class="header-section-number">1.1</span> The Hooke stress potential</h2>
+<p>This stress potential implements the Hooke law, i.e. a linear
+relation between the elastic strain and the stress, as follows:</p>
 <p><span class="math display">\[
- \underline{\sigma}=\underline{\mathbf{D}}\,\colon\,\underline{\epsilon}^{\mathrm{el}}
-\]</span> where <span class="math inline">\(\underline{\mathbf{D}}\)</span> is the elastic stiffness tensor.</p>
-<p>This stress potential applies to isotropic and orthotropic materials. This stress potential provides:</p>
+\underline{\sigma}=\underline{\mathbf{D}}\,\colon\,\underline{\epsilon}^{\mathrm{el}}
+\]</span> where <span
+class="math inline">\(\underline{\mathbf{D}}\)</span> is the elastic
+stiffness tensor.</p>
+<p>This stress potential applies to isotropic and orthotropic materials.
+This stress potential provides:</p>
 <ul>
-<li>Automatic computation of the stress tensor at various stages of the behaviour integration.</li>
+<li>Automatic computation of the stress tensor at various stages of the
+behaviour integration.</li>
 <li>Automatic computation of the consistent tangent operator.</li>
-<li>Automatic support for plane stress and generalized plane stress modelling hypotheses (The axial strain is defined as an additional state variable and the associated equation in the implicit system is added to enforce the plane stess condition).</li>
-<li>Automatic addition of the standard terms associated with the elastic strain state variable.</li>
+<li>Automatic support for plane stress and generalized plane stress
+modelling hypotheses (The axial strain is defined as an additional state
+variable and the associated equation in the implicit system is added to
+enforce the plane stess condition).</li>
+<li>Automatic addition of the standard terms associated with the elastic
+strain state variable.</li>
 </ul>
-<p>The Hooke stress potential is fully described <a href="HookeStressPotential.html">here</a>.</p>
-<h2 data-number="1.2" id="the-isotropicdamage-stress-potential"><span class="header-section-number">1.2</span> The <code>IsotropicDamage</code> stress potential</h2>
-<p>This stress potential adds to the Hooke stress potential the description of an isotropioc damage. The relation <span class="math display">\[
- \underline{\sigma}=\left(1-d\right)\,\underline{\mathbf{D}}\,\colon\,\underline{\epsilon}^{\mathrm{el}}
-\]</span> where <span class="math inline">\(\underline{\mathbf{D}}\)</span> is the elastic stiffness tensor and <span class="math inline">\(d\)</span> is the isotropic damage variable.</p>
-<p>This stress potential inherits all the features and options provided by the Hooke stress potential. The Hooke stress potential is fully described <a href="HookeStressPotential.html">here</a>.</p>
-<h2 data-number="1.3" id="the-ddif2-stress-potential"><span class="header-section-number">1.3</span> The <code>DDIF2</code> stress potential</h2>
-<p>The <code>DDIF2</code> behaviour is used to describe the brittle nature of nuclear fuel ceramics and is usually coupled with a description of the viscoplasticity of those ceramics (See for example <span class="citation" data-cites="monerie_overall_2006 salvo_experimental_2015-1">[<a href="#ref-salvo_experimental_2015" role="doc-biblioref">3</a>]</span>).</p>
-<p>This stress potential adds to the Hooke stress potential the description of cracking through an additional strain. As such, it inherits all the features provided by the Hooke stress potential.</p>
-<p>The Hooke stress potential is fully described <a href="HookeStressPotential.html">here</a>.</p>
-<p>The DDIF2 stress potential is fully described <a href="DDIF2StressPotential.html">here</a>.</p>
-<h1 data-number="2" id="inelastic-flows"><span class="header-section-number">2</span> Inelastic flows</h1>
-<h2 data-number="2.1" id="list-of-available-inelastic-flows"><span class="header-section-number">2.1</span> List of available inelastic flows</h2>
-<h3 data-number="2.1.1" id="the-plastic-inelastic-flow"><span class="header-section-number">2.1.1</span> The <code>Plastic</code> inelastic flow</h3>
+<p>The Hooke stress potential is fully described <a
+href="HookeStressPotential.html">here</a>.</p>
+<h2 data-number="1.2" id="the-isotropicdamage-stress-potential"><span
+class="header-section-number">1.2</span> The
+<code>IsotropicDamage</code> stress potential</h2>
+<p>This stress potential adds to the Hooke stress potential the
+description of an isotropioc damage. The relation <span
+class="math display">\[
+\underline{\sigma}=\left(1-d\right)\,\underline{\mathbf{D}}\,\colon\,\underline{\epsilon}^{\mathrm{el}}
+\]</span> where <span
+class="math inline">\(\underline{\mathbf{D}}\)</span> is the elastic
+stiffness tensor and <span class="math inline">\(d\)</span> is the
+isotropic damage variable.</p>
+<p>This stress potential inherits all the features and options provided
+by the Hooke stress potential. The Hooke stress potential is fully
+described <a href="HookeStressPotential.html">here</a>.</p>
+<h2 data-number="1.3" id="the-ddif2-stress-potential"><span
+class="header-section-number">1.3</span> The <code>DDIF2</code> stress
+potential</h2>
+<p>The <code>DDIF2</code> behaviour is used to describe the brittle
+nature of nuclear fuel ceramics and is usually coupled with a
+description of the viscoplasticity of those ceramics (See for example
+<span class="citation"
+data-cites="monerie_overall_2006 salvo_experimental_2015-1">[<a
+href="#ref-salvo_experimental_2015"
+role="doc-biblioref">3</a>]</span>).</p>
+<p>This stress potential adds to the Hooke stress potential the
+description of cracking through an additional strain. As such, it
+inherits all the features provided by the Hooke stress potential.</p>
+<p>The Hooke stress potential is fully described <a
+href="HookeStressPotential.html">here</a>.</p>
+<p>The DDIF2 stress potential is fully described <a
+href="DDIF2StressPotential.html">here</a>.</p>
+<h1 data-number="2" id="inelastic-flows"><span
+class="header-section-number">2</span> Inelastic flows</h1>
+<h2 data-number="2.1" id="list-of-available-inelastic-flows"><span
+class="header-section-number">2.1</span> List of available inelastic
+flows</h2>
+<h3 data-number="2.1.1" id="the-plastic-inelastic-flow"><span
+class="header-section-number">2.1.1</span> The <code>Plastic</code>
+inelastic flow</h3>
 <p>The plastic flow is defined by:</p>
 <ul>
 <li>a yield surface <span class="math inline">\(f\)</span></li>
 <li>a plastic potential <span class="math inline">\(g\)</span></li>
 </ul>
 <p>The plastic strain rate satisfies: <span class="math display">\[
-\underline{\dot{\epsilon}}^{\mathrm{p}}=\dot{\lambda}\,{{\displaystyle \frac{\displaystyle \partial g}{\displaystyle \partial \underline{\sigma}}}}
+\underline{\dot{\epsilon}}^{\mathrm{p}}=\dot{\lambda}\,{{\displaystyle
+\frac{\displaystyle \partial g}{\displaystyle \partial
+\underline{\sigma}}}}
 \]</span></p>
-<p>The plastic multiplier satifies the Kuhn-Tucker relation: <span class="math display">\[
+<p>The plastic multiplier satifies the Kuhn-Tucker relation: <span
+class="math display">\[
 \left\{
 \begin{aligned}
 \dot{\lambda}\,f{\left(\underline{\sigma},p\right)}&amp;=0\\
@@ -444,189 +548,383 @@
 \end{aligned}
 \right.
 \]</span></p>
-<p>The flow is associated is <span class="math inline">\(f\)</span> is equal to <span class="math inline">\(g\)</span>. In practice <span class="math inline">\(f\)</span> is defined by a stress criterion <span class="math inline">\(\phi\)</span>, a set of kinematic hardening rules, and an isotropic hardening rule, as follows:</p>
+<p>The flow is associated is <span class="math inline">\(f\)</span> is
+equal to <span class="math inline">\(g\)</span>. In practice <span
+class="math inline">\(f\)</span> is defined by a stress criterion <span
+class="math inline">\(\phi\)</span>, a set of kinematic hardening rules,
+and an isotropic hardening rule, as follows:</p>
 <p><span class="math display">\[
-f{\left(\underline{\sigma},p\right)}= \phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}-\sum_{i}R_{i}{\left(p\right)}
+f{\left(\underline{\sigma},p\right)}=
+\phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}-\sum_{i}R_{i}{\left(p\right)}
 \]</span></p>
-<p>where <span class="math inline">\(p\)</span> is the equivalent plastic strain. Here we have decomposed the limit of the elastic domain as a sum, denoted <span class="math inline">\(\sum_{i}R_{i}{\left(p\right)}\)</span>, to indicate that one may define it by combining various predefined forms of isotropic hardening rules (Voce, Linear, etc.) defined hereafter.</p>
-<h4 data-number="2.1.1.1" id="maximum-equivalent-stress-in-the-plastic-flow"><span class="header-section-number">2.1.1.1</span> Maximum equivalent stress in the <code>Plastic</code> flow</h4>
-<p>During the Newton iterations, the current estimate of the equivalent stress <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> may be significantly higher than the elastic limit <span class="math inline">\(R\)</span>. This may lead to a divergence of the Newton algorithm.</p>
-<p>One may reject the Newton steps leading to such high values of the elastic limit by specifying a relative threshold denoted <span class="math inline">\(\alpha\)</span>, i.e. if <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> is greater than <span class="math inline">\(\alpha\,\cdot\,R\)</span>. A typical value for <span class="math inline">\(\alpha\)</span> is <span class="math inline">\(1.5\)</span>. This relative threshold is specified by the <code>maximum_equivalent_stress_factor</code> option.</p>
-<p>In some cases, rejecting steps may also lead to a divergence of the Newton algorithm, so one may specify a relative threshold <span class="math inline">\(\beta\)</span> on the iteration number which desactivate this check, i.e. the check is performed only if the current iteration number is below <span class="math inline">\(\beta\,\cdot\,i_{\max{}}\)</span> where <span class="math inline">\(i_{\max{}}\)</span> is the maximum number of iterations allowed for the Newton algorithm. A typical value for <span class="math inline">\(\beta\)</span> is <span class="math inline">\(0.4\)</span>. This relative threshold is specified by the <code>equivalent_stress_check_maximum_iteration_factor</code> option.</p>
-<h5 data-number="2.1.1.1.1" id="example"><span class="header-section-number">2.1.1.1.1</span> Example</h5>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour PerfectPlasticity;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">17</span> / <span class="er">08</span> / <span class="dv">2020</span>;</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description{};</span>
+<p>where <span class="math inline">\(p\)</span> is the equivalent
+plastic strain. Here we have decomposed the limit of the elastic domain
+as a sum, denoted <span
+class="math inline">\(\sum_{i}R_{i}{\left(p\right)}\)</span>, to
+indicate that one may define it by combining various predefined forms of
+isotropic hardening rules (Voce, Linear, etc.) defined hereafter.</p>
+<h4 data-number="2.1.1.1"
+id="maximum-equivalent-stress-in-the-plastic-flow"><span
+class="header-section-number">2.1.1.1</span> Maximum equivalent stress
+in the <code>Plastic</code> flow</h4>
+<p>During the Newton iterations, the current estimate of the equivalent
+stress <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> may be
+significantly higher than the elastic limit <span
+class="math inline">\(R\)</span>. This may lead to a divergence of the
+Newton algorithm.</p>
+<p>One may reject the Newton steps leading to such high values of the
+elastic limit by specifying a relative threshold denoted <span
+class="math inline">\(\alpha\)</span>, i.e. if <span
+class="math inline">\(\sigma_{\mathrm{eq}}\)</span> is greater than
+<span class="math inline">\(\alpha\,\cdot\,R\)</span>. A typical value
+for <span class="math inline">\(\alpha\)</span> is <span
+class="math inline">\(1.5\)</span>. This relative threshold is specified
+by the <code>maximum_equivalent_stress_factor</code> option.</p>
+<p>In some cases, rejecting steps may also lead to a divergence of the
+Newton algorithm, so one may specify a relative threshold <span
+class="math inline">\(\beta\)</span> on the iteration number which
+desactivate this check, i.e. the check is performed only if the current
+iteration number is below <span
+class="math inline">\(\beta\,\cdot\,i_{\max{}}\)</span> where <span
+class="math inline">\(i_{\max{}}\)</span> is the maximum number of
+iterations allowed for the Newton algorithm. A typical value for <span
+class="math inline">\(\beta\)</span> is <span
+class="math inline">\(0.4\)</span>. This relative threshold is specified
+by the <code>equivalent_stress_check_maximum_iteration_factor</code>
+option.</p>
+<h5 data-number="2.1.1.1.1" id="example"><span
+class="header-section-number">2.1.1.1.1</span> Example</h5>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour PerfectPlasticity<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">17</span> <span class="op">/</span> <span class="dv">0</span><span class="er">8</span> <span class="op">/</span> <span class="dv">2020</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description<span class="op">{};</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-14</span>;</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span>;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-14</span><span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">200e9</span>, poisson_ratio : <span class="fl">0.3</span>},</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Mises&quot;</span>,</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">150e6</span>},</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    maximum_equivalent_stress_factor : <span class="fl">1.5</span>,</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    equivalent_stress_check_maximum_iteration_factor: <span class="fl">0.4</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h3 data-number="2.1.2" id="the-norton-inelastic-flow"><span class="header-section-number">2.1.2</span> The <code>Norton</code> inelastic flow</h3>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">200e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">150e6</span><span class="op">},</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    maximum_equivalent_stress_factor <span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    equivalent_stress_check_maximum_iteration_factor<span class="op">:</span> <span class="fl">0.4</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h3 data-number="2.1.2" id="the-norton-inelastic-flow"><span
+class="header-section-number">2.1.2</span> The <code>Norton</code>
+inelastic flow</h3>
 <p>The plastic flow is defined by:</p>
 <ul>
-<li>a function <span class="math inline">\(f{\left(\underline{\sigma}\right)}\)</span> giving the flow intensity: <span class="math display">\[
+<li>a function <span
+class="math inline">\(f{\left(\underline{\sigma}\right)}\)</span> giving
+the flow intensity: <span class="math display">\[
 f{\left(\underline{\sigma}\right)}=A\,\left&lt;\dfrac{\phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}-\sum_{i}R_{i}{\left(p\right)}}{K}\right&gt;^{n}
 \]</span></li>
 <li>a stress criterion <span class="math inline">\(\phi\)</span></li>
 <li>a viscoplastic potential <span class="math inline">\(g\)</span></li>
-<li>one or more kinematic hardening rule (optional), denoted <span class="math inline">\(\underline{X}_{i}\)</span></li>
-<li>one isotropic hardening rule (optional), denoted <span class="math inline">\(R_{i}\)</span></li>
+<li>one or more kinematic hardening rule (optional), denoted <span
+class="math inline">\(\underline{X}_{i}\)</span></li>
+<li>one isotropic hardening rule (optional), denoted <span
+class="math inline">\(R_{i}\)</span></li>
 </ul>
-<h3 data-number="2.1.3" id="the-hyperbolicsine-inelastic-flow"><span class="header-section-number">2.1.3</span> The <code>HyperbolicSine</code> inelastic flow</h3>
+<h3 data-number="2.1.3" id="the-hyperbolicsine-inelastic-flow"><span
+class="header-section-number">2.1.3</span> The
+<code>HyperbolicSine</code> inelastic flow</h3>
 <p>The viscoplastic flow is defined by:</p>
 <ul>
-<li>a function <span class="math inline">\(f{\left(\underline{\sigma}\right)}\)</span> giving the flow intensity given by: <span class="math display">\[
+<li>a function <span
+class="math inline">\(f{\left(\underline{\sigma}\right)}\)</span> giving
+the flow intensity given by: <span class="math display">\[
 f{\left(\underline{\sigma}\right)}=A\,\sinh{\left(\dfrac{\left&lt;\phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}-\sum_{i}R_{i}{\left(p\right)}\right&gt;}{K}\right)}^{n}
 \]</span></li>
 <li>a stress criterion <span class="math inline">\(\phi\)</span></li>
-<li>one or more kinematic hardening rule (optional), denoted <span class="math inline">\(\underline{X}_{i}\)</span></li>
-<li>one isotropic hardening rule (optional), denoted <span class="math inline">\(R_{i}\)</span></li>
+<li>one or more kinematic hardening rule (optional), denoted <span
+class="math inline">\(\underline{X}_{i}\)</span></li>
+<li>one isotropic hardening rule (optional), denoted <span
+class="math inline">\(R_{i}\)</span></li>
 </ul>
-<h3 data-number="2.1.4" id="the-harmonicsumofnortonhoffviscoplasticflows-inelastic-flow"><span class="header-section-number">2.1.4</span> The <code>HarmonicSumOfNortonHoffViscoplasticFlows</code> inelastic flow</h3>
-<p>The equivalent viscoplastic strain rate <span class="math inline">\(\dot{p}\)</span> is defined as:</p>
+<h3 data-number="2.1.4"
+id="the-harmonicsumofnortonhoffviscoplasticflows-inelastic-flow"><span
+class="header-section-number">2.1.4</span> The
+<code>HarmonicSumOfNortonHoffViscoplasticFlows</code> inelastic
+flow</h3>
+<p>The equivalent viscoplastic strain rate <span
+class="math inline">\(\dot{p}\)</span> is defined as:</p>
 <p><span class="math display">\[
 \dfrac{1}{\dot{p}}=\sum_{i=1}^{N}\dfrac{1}{\dot{p}_{i}}
 \]</span></p>
-<p>where <span class="math inline">\(\dot{p}_{i}\)</span> has an expression similar to the the Norton-Hoff viscoplastic flow:</p>
+<p>where <span class="math inline">\(\dot{p}_{i}\)</span> has an
+expression similar to the the Norton-Hoff viscoplastic flow:</p>
 <p><span class="math display">\[
 \dot{p}_{i}=A_{i}\,{\left(\dfrac{\left&lt;\phi{\left(\underline{\sigma}-\sum_{j}\underline{X}_{j}\right)}-\sum_{j}R_{j}{\left(p\right)}\right&gt;}{K_{i}}\right)}^{n_{i}}
 \]</span></p>
 <p>in which appear:</p>
 <ul>
 <li>a stress criterion <span class="math inline">\(\phi\)</span></li>
-<li>one or more kinematic hardening rule (optional), denoted <span class="math inline">\(\underline{X}_{i}\)</span></li>
-<li>one isotropic hardening rule (optional), denoted <span class="math inline">\(R_{i}\)</span></li>
+<li>one or more kinematic hardening rule (optional), denoted <span
+class="math inline">\(\underline{X}_{i}\)</span></li>
+<li>one isotropic hardening rule (optional), denoted <span
+class="math inline">\(R_{i}\)</span></li>
 </ul>
-<h4 data-number="2.1.4.1" id="example-1"><span class="header-section-number">2.1.4.1</span> Example</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">150e9</span>, poisson_ratio : <span class="fl">0.3</span>},</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;HarmonicSumOfNortonHoffViscoplasticFlows&quot;</span> {</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Mises&quot;</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    A : {<span class="fl">8e-67</span>, <span class="fl">8e-67</span>},</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    K : {<span class="dv">1</span>,<span class="dv">1</span>},</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    n : {<span class="fl">8.2</span>,<span class="fl">8.2</span>}</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h4 data-number="2.1.4.2" id="newton-steps-rejection"><span class="header-section-number">2.1.4.2</span> Newton steps rejection</h4>
-<p>The exponential nature of the hyperbolic sinus function may lead to divergence of the Newton method. To avoid this, one may specify a relative threshold denoted <span class="math inline">\(K_{sf}\)</span>: if the stress estimate is greater than <span class="math inline">\(K_{sf}\,K\)</span>, the step is rejected.</p>
-<h3 data-number="2.1.5" id="the-userdefinedviscoplasticity-inelastic-flow"><span class="header-section-number">2.1.5</span> The <code>UserDefinedViscoplasticity</code> inelastic flow</h3>
-<p>The <code>UserDefinedViscoplasticity</code> inelastic flow allows the user to specify the viscoplastic strain rate <code>vp</code> as a function of <code>f</code> and <code>p</code> where:</p>
+<h4 data-number="2.1.4.1" id="example-1"><span
+class="header-section-number">2.1.4.1</span> Example</h4>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;HarmonicSumOfNortonHoffViscoplasticFlows&quot;</span> <span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    A <span class="op">:</span> <span class="op">{</span><span class="fl">8e-67</span><span class="op">,</span> <span class="fl">8e-67</span><span class="op">},</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    K <span class="op">:</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">},</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    n <span class="op">:</span> <span class="op">{</span><span class="fl">8.2</span><span class="op">,</span><span class="fl">8.2</span><span class="op">}</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h4 data-number="2.1.4.2" id="newton-steps-rejection"><span
+class="header-section-number">2.1.4.2</span> Newton steps rejection</h4>
+<p>The exponential nature of the hyperbolic sinus function may lead to
+divergence of the Newton method. To avoid this, one may specify a
+relative threshold denoted <span class="math inline">\(K_{sf}\)</span>:
+if the stress estimate is greater than <span
+class="math inline">\(K_{sf}\,K\)</span>, the step is rejected.</p>
+<h3 data-number="2.1.5"
+id="the-userdefinedviscoplasticity-inelastic-flow"><span
+class="header-section-number">2.1.5</span> The
+<code>UserDefinedViscoplasticity</code> inelastic flow</h3>
+<p>The <code>UserDefinedViscoplasticity</code> inelastic flow allows the
+user to specify the viscoplastic strain rate <code>vp</code> as a
+function of <code>f</code> and <code>p</code> where:</p>
 <ul>
-<li><code>f</code> is the positive part of the <span class="math inline">\(\phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}-\sum_{i}R_{i}{\left(p\right)}\)</span> where <span class="math inline">\(\phi\)</span> is the stress criterion.</li>
+<li><code>f</code> is the positive part of the <span
+class="math inline">\(\phi{\left(\underline{\sigma}-\sum_{i}\underline{X}_{i}\right)}-\sum_{i}R_{i}{\left(p\right)}\)</span>
+where <span class="math inline">\(\phi\)</span> is the stress
+criterion.</li>
 <li><code>p</code> is the equivalent viscoplastic strain.</li>
 </ul>
-<p>This function shall be given by a string option named <code>vp</code>. This function must depend on <code>f</code>. Dependance to <code>p</code> is optional.</p>
-<p>The function may also depend on other variables. Let <code>A</code> be such a variable. The <code>UserDefinedViscoplasticity</code> flow will look if an option named <code>A</code> has been given to the flow:</p>
+<p>This function shall be given by a string option named
+<code>vp</code>. This function must depend on <code>f</code>. Dependance
+to <code>p</code> is optional.</p>
+<p>The function may also depend on other variables. Let <code>A</code>
+be such a variable. The <code>UserDefinedViscoplasticity</code> flow
+will look if an option named <code>A</code> has been given to the
+flow:</p>
 <ul>
-<li>If this option exists, it will be interpreted as a material coefficient as usal and this option can be a number, a formula or the name of an external <code>MFront</code> file.</li>
-<li>If this option does not exist, a suitable variable will be search in the variables defined in the behaviour (static variables, parameters, material properties, etc…).</li>
+<li>If this option exists, it will be interpreted as a material
+coefficient as usal and this option can be a number, a formula or the
+name of an external <code>MFront</code> file.</li>
+<li>If this option does not exist, a suitable variable will be search in
+the variables defined in the behaviour (static variables, parameters,
+material properties, etc…).</li>
 </ul>
-<p>If required, the derivatives of <code>vp</code> with respect to <code>f</code> and <code>p</code> can be provided through the options <code>dvp_df</code> and <code>dvp_dp</code>. The derivatives <code>dvp_df</code> and <code>dvp_dp</code> can depend on two additional variables, <code>vp</code> and <code>seps</code>, which denotes the viscoplastic strain rate and a stress threshold.</p>
-<p>If those derivatives are not provided, automatic differentiation will be used. The user shall be warned that the automatic differentiation provided by the <code>tfel::math::Evaluator</code> class may result in inefficient code.</p>
+<p>If required, the derivatives of <code>vp</code> with respect to
+<code>f</code> and <code>p</code> can be provided through the options
+<code>dvp_df</code> and <code>dvp_dp</code>. The derivatives
+<code>dvp_df</code> and <code>dvp_dp</code> can depend on two additional
+variables, <code>vp</code> and <code>seps</code>, which denotes the
+viscoplastic strain rate and a stress threshold.</p>
+<p>If those derivatives are not provided, automatic differentiation will
+be used. The user shall be warned that the automatic differentiation
+provided by the <code>tfel::math::Evaluator</code> class may result in
+inefficient code.</p>
 <h4 class="unnumbered" id="example-of-usage">Example of usage</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter temperature Ta = <span class="dv">600</span>;</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter strain p0 = <span class="fl">1e-8</span>;</span>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter temperature Ta <span class="op">=</span> <span class="dv">600</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter strain p0 <span class="op">=</span> <span class="fl">1e-8</span><span class="op">;</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">150e9</span>, poisson_ratio : <span class="fl">0.3</span>},</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;UserDefinedViscoplasticity&quot;</span> {</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Mises&quot;</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    E : <span class="fl">8.2</span>,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    A : <span class="st">&quot;8e-67 * exp(- T / Ta)&quot;</span>,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    m : <span class="fl">0.32</span>,</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    vp : <span class="st">&quot;A * (f ** E) / ((p + p0) ** m)&quot;</span>,</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    dvp_df : <span class="st">&quot;E * vp / (max(f, seps))&quot;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;UserDefinedViscoplasticity&quot;</span> <span class="op">{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    E <span class="op">:</span> <span class="fl">8.2</span><span class="op">,</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    A <span class="op">:</span> <span class="st">&quot;8e-67 * exp(- T / Ta)&quot;</span><span class="op">,</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    m <span class="op">:</span> <span class="fl">0.32</span><span class="op">,</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    vp <span class="op">:</span> <span class="st">&quot;A * (f ** E) / ((p + p0) ** m)&quot;</span><span class="op">,</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    dvp_df <span class="op">:</span> <span class="st">&quot;E * vp / (max(f, seps))&quot;</span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">// dvp_dp is evaluated by automatic differentiation (which is not recommended)</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h2 data-number="2.2" id="sec:cosine_checks"><span class="header-section-number">2.2</span> Newton steps rejections based on the change of the flow direction between two successive estimates</h2>
-<p>Some stress criteria (Hosford 1972, Barlat 2004, Mohr-Coulomb) shows sharp edges that may cause the failure of the standard Newton algorithm, due to oscillations in the prediction of the flow direction.</p>
-<p>Rejecting Newton steps leading to a too large variation of the flow direction between the new estimate of the flow direction and the previous estimate is a cheap and efficient method to overcome this issue. This method can be viewed as a bisectional linesearch based on the Newton prediction: the Newton steps magnitude is divided by two if its results to a too large change in the flow direction.</p>
-<p>More precisely, the change of the flow direction is estimated by the computation of the cosine of the angle between the two previous estimates:</p>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h2 data-number="2.2" id="sec:cosine_checks"><span
+class="header-section-number">2.2</span> Newton steps rejections based
+on the change of the flow direction between two successive
+estimates</h2>
+<p>Some stress criteria (Hosford 1972, Barlat 2004, Mohr-Coulomb) shows
+sharp edges that may cause the failure of the standard Newton algorithm,
+due to oscillations in the prediction of the flow direction.</p>
+<p>Rejecting Newton steps leading to a too large variation of the flow
+direction between the new estimate of the flow direction and the
+previous estimate is a cheap and efficient method to overcome this
+issue. This method can be viewed as a bisectional linesearch based on
+the Newton prediction: the Newton steps magnitude is divided by two if
+its results to a too large change in the flow direction.</p>
+<p>More precisely, the change of the flow direction is estimated by the
+computation of the cosine of the angle between the two previous
+estimates:</p>
 <p><span class="math display">\[
-\cos{\left(\alpha_{\underline{n}}\right)}=\dfrac{\underline{n}\,\colon\,\underline{n}_{p}}{\lVert \underline{n}\rVert\,\lVert \underline{n}\rVert}
+\cos{\left(\alpha_{\underline{n}}\right)}=\dfrac{\underline{n}\,\colon\,\underline{n}_{p}}{\lVert
+\underline{n}\rVert\,\lVert \underline{n}\rVert}
 \]</span></p>
-<p>with <span class="math inline">\(\lVert \underline{n}\rVert=\sqrt{\underline{n}\,\colon\,\underline{n}}\)</span>.</p>
-<p>The Newton step is rejected if the value of <span class="math inline">\(\cos{\left(\alpha_{\underline{n}}\right)}\)</span> is lower than a user defined threshold. This threshold must be in the range <span class="math inline">\(\left[-1:1\right]\)</span>, but due to the slow variation of the cosine near <span class="math inline">\(0\)</span>, a typical value of this threshold is <span class="math inline">\(0.99\)</span> which is equivalent to impose that the angle between two successive estimates is below <span class="math inline">\(8\mbox{}^{\circ}\)</span>.</p>
-<h2 data-number="2.3" id="list-of-available-stress-criteria"><span class="header-section-number">2.3</span> List of available stress criteria</h2>
-<p>The following section describes stress criteria available by default. However, the <code>StandardElastoViscoPlasticity</code> brick can also be extended by the user:</p>
+<p>with <span class="math inline">\(\lVert
+\underline{n}\rVert=\sqrt{\underline{n}\,\colon\,\underline{n}}\)</span>.</p>
+<p>The Newton step is rejected if the value of <span
+class="math inline">\(\cos{\left(\alpha_{\underline{n}}\right)}\)</span>
+is lower than a user defined threshold. This threshold must be in the
+range <span class="math inline">\(\left[-1:1\right]\)</span>, but due to
+the slow variation of the cosine near <span
+class="math inline">\(0\)</span>, a typical value of this threshold is
+<span class="math inline">\(0.99\)</span> which is equivalent to impose
+that the angle between two successive estimates is below <span
+class="math inline">\(8\mbox{}^{\circ}\)</span>.</p>
+<h2 data-number="2.3" id="list-of-available-stress-criteria"><span
+class="header-section-number">2.3</span> List of available stress
+criteria</h2>
+<p>The following section describes stress criteria available by default.
+However, the <code>StandardElastoViscoPlasticity</code> brick can also
+be extended by the user:</p>
 <ul>
-<li><a href="ExtendingStandardElastoViscoPlasticityBrick-StressCriterion.html">this page</a> describes how to add a new stress criterion which is not coupled with the evolution of the porosity.</li>
-<li><a href="ExtendingStandardElastoViscoPlasticityBrick-PorousStressCriterion.html">this page</a> describes how to add a new stress criterion coupled with the evolution of the porosity.</li>
+<li><a
+href="ExtendingStandardElastoViscoPlasticityBrick-StressCriterion.html">this
+page</a> describes how to add a new stress criterion which is not
+coupled with the evolution of the porosity.</li>
+<li><a
+href="ExtendingStandardElastoViscoPlasticityBrick-PorousStressCriterion.html">this
+page</a> describes how to add a new stress criterion coupled with the
+evolution of the porosity.</li>
 </ul>
-<h3 data-number="2.3.1" id="von-mises-stress-criterion"><span class="header-section-number">2.3.1</span> von Mises stress criterion</h3>
-<h4 data-number="2.3.1.1" id="definition"><span class="header-section-number">2.3.1.1</span> Definition</h4>
+<h3 data-number="2.3.1" id="von-mises-stress-criterion"><span
+class="header-section-number">2.3.1</span> von Mises stress
+criterion</h3>
+<h4 data-number="2.3.1.1" id="definition"><span
+class="header-section-number">2.3.1.1</span> Definition</h4>
 <p>The von Mises stress is defined by: <span class="math display">\[
 \sigma_{\mathrm{eq}}=\sqrt{\dfrac{3}{2}\,\underline{s}\,\colon\,\underline{s}}=\sqrt{3\,J_{2}}
-\]</span> where: - <span class="math inline">\(\underline{s}\)</span> is the deviatoric stress defined as follows: <span class="math display">\[
+\]</span> where: - <span class="math inline">\(\underline{s}\)</span> is
+the deviatoric stress defined as follows: <span class="math display">\[
 \underline{s}=\underline{\sigma}-\dfrac{1}{3}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
-\]</span> - <span class="math inline">\(J_{2}\)</span> is the second invariant of <span class="math inline">\(\underline{s}\)</span>.</p>
-<p>In terms of the eigenvalues of the stress, denoted by <span class="math inline">\(\sigma_{1}\)</span>, <span class="math inline">\(\sigma_{2}\)</span> and <span class="math inline">\(\sigma_{3}\)</span>, the von Mises stress can also be defined by: <span class="math display">\[
+\]</span> - <span class="math inline">\(J_{2}\)</span> is the second
+invariant of <span class="math inline">\(\underline{s}\)</span>.</p>
+<p>In terms of the eigenvalues of the stress, denoted by <span
+class="math inline">\(\sigma_{1}\)</span>, <span
+class="math inline">\(\sigma_{2}\)</span> and <span
+class="math inline">\(\sigma_{3}\)</span>, the von Mises stress can also
+be defined by: <span class="math display">\[
 \sigma_{\mathrm{eq}}=\sqrt{\dfrac{1}{2}{\left({\left|\sigma_{1}-\sigma_{2}\right|}^{2}+{\left|\sigma_{1}-\sigma_{3}\right|}^{2}+{\left|\sigma_{2}-\sigma_{3}\right|}^{2}\right)}}
 \]</span></p>
-<h4 data-number="2.3.1.2" id="options"><span class="header-section-number">2.3.1.2</span> Options</h4>
+<h4 data-number="2.3.1.2" id="options"><span
+class="header-section-number">2.3.1.2</span> Options</h4>
 <p>This stress criterion does not have any option.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Mises&quot;</span></span></code></pre></div>
-<h3 data-number="2.3.2" id="drucker-1949-stress-criterion"><span class="header-section-number">2.3.2</span> Drucker 1949 stress criterion</h3>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span></span></code></pre></div>
+<h3 data-number="2.3.2" id="drucker-1949-stress-criterion"><span
+class="header-section-number">2.3.2</span> Drucker 1949 stress
+criterion</h3>
 <p>The Drucker 1949 stress is defined by: <span class="math display">\[
 \sigma_{\mathrm{eq}}=\sqrt{3}\sqrt[6]{J_{2}^3-c\,J_{3}^{2}}
 \]</span> where:</p>
 <ul>
-<li><span class="math inline">\(J_{2}=\dfrac{1}{2}\,\underline{s}\,\colon\,\underline{s}\)</span> is the second invariant of <span class="math inline">\(\underline{s}\)</span>.</li>
-<li><span class="math inline">\(J_{3}=\mathrm{det}{\left(\underline{s}\right)}\)</span> is the third invariant of <span class="math inline">\(\underline{s}\)</span>.</li>
-<li><span class="math inline">\(\underline{s}\)</span> is the deviatoric stress defined as follows: <span class="math display">\[
+<li><span
+class="math inline">\(J_{2}=\dfrac{1}{2}\,\underline{s}\,\colon\,\underline{s}\)</span>
+is the second invariant of <span
+class="math inline">\(\underline{s}\)</span>.</li>
+<li><span
+class="math inline">\(J_{3}=\mathrm{det}{\left(\underline{s}\right)}\)</span>
+is the third invariant of <span
+class="math inline">\(\underline{s}\)</span>.</li>
+<li><span class="math inline">\(\underline{s}\)</span> is the deviatoric
+stress defined as follows: <span class="math display">\[
 \underline{s}=\underline{\sigma}-\dfrac{1}{3}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
 \]</span></li>
 </ul>
-<h3 data-number="2.3.3" id="example-2"><span class="header-section-number">2.3.3</span> Example</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Drucker 1949&quot;</span> {c : <span class="fl">1.285</span>}</span></code></pre></div>
-<h4 data-number="2.3.3.1" id="options-1"><span class="header-section-number">2.3.3.1</span> Options</h4>
-<p>The user must provide the <span class="math inline">\(c\)</span> coefficient.</p>
-<h3 data-number="2.3.4" id="hosford-1972-stress-criterion"><span class="header-section-number">2.3.4</span> Hosford 1972 stress criterion</h3>
-<p>The Hosford equivalent stress is defined by (see <span class="citation" data-cites="hosford_generalized_1972">[<a href="#ref-hosford_generalized_1972" role="doc-biblioref">4</a>]</span>): <span class="math display">\[
+<h3 data-number="2.3.3" id="example-2"><span
+class="header-section-number">2.3.3</span> Example</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Drucker 1949&quot;</span> <span class="op">{</span>c <span class="op">:</span> <span class="fl">1.285</span><span class="op">}</span></span></code></pre></div>
+<h4 data-number="2.3.3.1" id="options-1"><span
+class="header-section-number">2.3.3.1</span> Options</h4>
+<p>The user must provide the <span class="math inline">\(c\)</span>
+coefficient.</p>
+<h3 data-number="2.3.4" id="hosford-1972-stress-criterion"><span
+class="header-section-number">2.3.4</span> Hosford 1972 stress
+criterion</h3>
+<p>The Hosford equivalent stress is defined by (see <span
+class="citation" data-cites="hosford_generalized_1972">[<a
+href="#ref-hosford_generalized_1972"
+role="doc-biblioref">4</a>]</span>): <span class="math display">\[
 \sigma_{\mathrm{eq}}^{H}=\sqrt[a]{\dfrac{1}{2}{\left({\left|\sigma_{1}-\sigma_{2}\right|}^{a}+{\left|\sigma_{1}-\sigma_{3}\right|}^{a}+{\left|\sigma_{2}-\sigma_{3}\right|}^{a}\right)}}
-\]</span> where <span class="math inline">\(\sigma_{1}\)</span>, <span class="math inline">\(\sigma_{2}\)</span> and <span class="math inline">\(\sigma_{3}\)</span> are the eigenvalues of the stress.</p>
-<p>Therefore, when <span class="math inline">\(a\)</span> goes to infinity, the Hosford stress reduces to the Tresca stress. When <span class="math inline">\(n = 2\)</span> the Hosford stress reduces to the von Mises stress.</p>
+\]</span> where <span class="math inline">\(\sigma_{1}\)</span>, <span
+class="math inline">\(\sigma_{2}\)</span> and <span
+class="math inline">\(\sigma_{3}\)</span> are the eigenvalues of the
+stress.</p>
+<p>Therefore, when <span class="math inline">\(a\)</span> goes to
+infinity, the Hosford stress reduces to the Tresca stress. When <span
+class="math inline">\(n = 2\)</span> the Hosford stress reduces to the
+von Mises stress.</p>
 <figure>
-<img src="img/HosfordStress.svg" title="Comparison of the Hosford stress (a=100,a=8) and the von Mises stress in plane stress" style="width:70.0%" alt="Comparison of the Hosford stress a=100,a=8 and the von Mises stress in plane stress" /><figcaption aria-hidden="true">Comparison of the Hosford stress <span class="math inline">\(a=100,a=8\)</span> and the von Mises stress in plane stress</figcaption>
+<img src="img/HosfordStress.svg"
+title="Comparison of the Hosford stress (a=100,a=8) and the von Mises stress in plane stress"
+style="width:70.0%"
+alt="Comparison of the Hosford stress a=100,a=8 and the von Mises stress in plane stress" />
+<figcaption aria-hidden="true">Comparison of the Hosford stress <span
+class="math inline">\(a=100,a=8\)</span> and the von Mises stress in
+plane stress</figcaption>
 </figure>
-<h3 data-number="2.3.5" id="options-2"><span class="header-section-number">2.3.5</span> Options</h3>
+<h3 data-number="2.3.5" id="options-2"><span
+class="header-section-number">2.3.5</span> Options</h3>
 <p>The Hosford exponent <code>a</code> is mandatory.</p>
-<p>Specifying the eigen solver using the <code>eigen_solver</code> option is optional. This option can have the value <code>default</code> or the value <code>Jacobi</code>.</p>
-<h3 data-number="2.3.6" id="example-3"><span class="header-section-number">2.3.6</span> Example</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Hosford&quot;</span> {a : <span class="dv">6</span>}</span></code></pre></div>
-<h3 data-number="2.3.7" id="notes"><span class="header-section-number">2.3.7</span> Notes</h3>
-<p>The Hosford yield surface may have sharp edges which may lead to divergence of the Newton algorithm du to oscillations of the flow direction. Specifying a threshold for the angle between. See Section 3.2 for details.</p>
-<h4 data-number="2.3.7.1" id="options-3"><span class="header-section-number">2.3.7.1</span> Options</h4>
-<p>The user must provide the Hosford exponent <span class="math inline">\(a\)</span>.</p>
-<h3 data-number="2.3.8" id="isotropic-cazacu-2004-stress-criterion"><span class="header-section-number">2.3.8</span> Isotropic Cazacu 2004 stress criterion</h3>
-<p>In order to describe yield differential effects, the isotropic Cazacu 2004 equivalent stress criterion is defined by (see <span class="citation" data-cites="cazacu_criterion_2004">[<a href="#ref-cazacu_criterion_2004" role="doc-biblioref">5</a>]</span>):</p>
+<p>Specifying the eigen solver using the <code>eigen_solver</code>
+option is optional. This option can have the value <code>default</code>
+or the value <code>Jacobi</code>.</p>
+<h3 data-number="2.3.6" id="example-3"><span
+class="header-section-number">2.3.6</span> Example</h3>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Hosford&quot;</span> <span class="op">{</span>a <span class="op">:</span> <span class="dv">6</span><span class="op">}</span></span></code></pre></div>
+<h3 data-number="2.3.7" id="notes"><span
+class="header-section-number">2.3.7</span> Notes</h3>
+<p>The Hosford yield surface may have sharp edges which may lead to
+divergence of the Newton algorithm du to oscillations of the flow
+direction. Specifying a threshold for the angle between. See Section 2.2
+for details.</p>
+<h4 data-number="2.3.7.1" id="options-3"><span
+class="header-section-number">2.3.7.1</span> Options</h4>
+<p>The user must provide the Hosford exponent <span
+class="math inline">\(a\)</span>.</p>
+<h3 data-number="2.3.8"
+id="isotropic-cazacu-2004-stress-criterion"><span
+class="header-section-number">2.3.8</span> Isotropic Cazacu 2004 stress
+criterion</h3>
+<p>In order to describe yield differential effects, the isotropic Cazacu
+2004 equivalent stress criterion is defined by (see <span
+class="citation" data-cites="cazacu_criterion_2004">[<a
+href="#ref-cazacu_criterion_2004"
+role="doc-biblioref">5</a>]</span>):</p>
 <p><span class="math display">\[
 \sigma_{\mathrm{eq}}=\sqrt[3]{J_{2}^{3/2} - c \, J_{3}}
 \]</span></p>
 <p>where:</p>
 <ul>
-<li><span class="math inline">\(J_{2}=\dfrac{1}{2}\,\underline{s}\,\colon\,\underline{s}\)</span> is the second invariant of <span class="math inline">\(\underline{s}\)</span>.</li>
-<li><span class="math inline">\(J_{3}=\mathrm{det}{\left(\underline{s}\right)}\)</span> is the third invariant of <span class="math inline">\(\underline{s}\)</span>.</li>
-<li><span class="math inline">\(\underline{s}\)</span> is the deviatoric stress defined as follows: <span class="math display">\[
+<li><span
+class="math inline">\(J_{2}=\dfrac{1}{2}\,\underline{s}\,\colon\,\underline{s}\)</span>
+is the second invariant of <span
+class="math inline">\(\underline{s}\)</span>.</li>
+<li><span
+class="math inline">\(J_{3}=\mathrm{det}{\left(\underline{s}\right)}\)</span>
+is the third invariant of <span
+class="math inline">\(\underline{s}\)</span>.</li>
+<li><span class="math inline">\(\underline{s}\)</span> is the deviatoric
+stress defined as follows: <span class="math display">\[
 \underline{s}=\underline{\sigma}-\dfrac{1}{3}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
 \]</span></li>
 </ul>
-<h3 data-number="2.3.9" id="example-4"><span class="header-section-number">2.3.9</span> Example</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Isotropic Cazacu 2004&quot;</span> {c : -<span class="fl">1.056</span>}</span></code></pre></div>
-<h3 data-number="2.3.10" id="hill-stress-criterion"><span class="header-section-number">2.3.10</span> Hill stress criterion</h3>
-<p>This <code>Hill</code> criterion, also called <code>Hill1948</code> criterion, is based on the equivalent stress <span class="math inline">\(\sigma_{\mathrm{eq}}^{H}\)</span> defined as follows: <span class="math display">\[
+<h3 data-number="2.3.9" id="example-4"><span
+class="header-section-number">2.3.9</span> Example</h3>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Isotropic Cazacu 2004&quot;</span> <span class="op">{</span>c <span class="op">:</span> <span class="op">-</span><span class="fl">1.056</span><span class="op">}</span></span></code></pre></div>
+<h3 data-number="2.3.10" id="hill-stress-criterion"><span
+class="header-section-number">2.3.10</span> Hill stress criterion</h3>
+<p>This <code>Hill</code> criterion, also called <code>Hill1948</code>
+criterion, is based on the equivalent stress <span
+class="math inline">\(\sigma_{\mathrm{eq}}^{H}\)</span> defined as
+follows: <span class="math display">\[
 \begin{aligned}
 \sigma_{\mathrm{eq}}^{H}&amp;=\sqrt{\underline{\sigma}\,\colon\,\underline{\mathbf{H}}\,\colon\,\underline{\sigma}}\\
             &amp;=\sqrt{F\,{\left(\sigma_{11}-\sigma_{22}\right)}^2+
@@ -638,25 +936,64 @@ f{\left(\underline{\sigma}\right)}=A\,\sinh{\left(\dfrac{\left&lt;\phi{\left(\un
 \end{aligned}
 \]</span></p>
 <blockquote>
-<p><strong>Warning</strong> This convention is given in the book of Lemaître et Chaboche and seems to differ from the one described in most other books.</p>
+<p><strong>Warning</strong> This convention is given in the book of
+Lemaître et Chaboche and seems to differ from the one described in most
+other books.</p>
 </blockquote>
-<h4 data-number="2.3.10.1" id="options-4"><span class="header-section-number">2.3.10.1</span> Options</h4>
-<p>This stress criterion has <span class="math inline">\(6\)</span> mandatory options: <code>F</code>, <code>G</code>, <code>H</code>, <code>L</code>, <code>M</code>, <code>N</code>. Each of these options must be interpreted as material property.</p>
+<h4 data-number="2.3.10.1" id="options-4"><span
+class="header-section-number">2.3.10.1</span> Options</h4>
+<p>This stress criterion has <span class="math inline">\(6\)</span>
+mandatory options: <code>F</code>, <code>G</code>, <code>H</code>,
+<code>L</code>, <code>M</code>, <code>N</code>. Each of these options
+must be interpreted as material property.</p>
 <blockquote>
-<p><strong>Orthotropic axis convention</strong> If an orthotropic axis convention is defined (See the <code>@OrthotropicBehaviour</code> keyword’ documentation), the coefficients of the Hill tensor can be exchanged for some modelling hypotheses. The coefficients <code>F</code>, <code>G</code>, <code>H</code>, <code>L</code>, <code>M</code>, <code>N</code> must always correspond to the three dimensional case.</p>
+<p><strong>Orthotropic axis convention</strong> If an orthotropic axis
+convention is defined (See the <code>@OrthotropicBehaviour</code>
+keyword’ documentation), the coefficients of the Hill tensor can be
+exchanged for some modelling hypotheses. The coefficients
+<code>F</code>, <code>G</code>, <code>H</code>, <code>L</code>,
+<code>M</code>, <code>N</code> must always correspond to the three
+dimensional case.</p>
 </blockquote>
-<h3 data-number="2.3.11" id="example-5"><span class="header-section-number">2.3.11</span> Example</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Hill&quot;</span> {F : <span class="fl">0.371</span>, G : <span class="fl">0.629</span>, H : <span class="fl">4.052</span>, L : <span class="fl">1.5</span>, M : <span class="fl">1.5</span>, N : <span class="fl">1.5</span>},</span></code></pre></div>
-<h3 data-number="2.3.12" id="cazacu-2001-stress-criterion"><span class="header-section-number">2.3.12</span> Cazacu 2001 stress criterion</h3>
+<h3 data-number="2.3.11" id="example-5"><span
+class="header-section-number">2.3.11</span> Example</h3>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Hill&quot;</span> <span class="op">{</span>F <span class="op">:</span> <span class="fl">0.371</span><span class="op">,</span> G <span class="op">:</span> <span class="fl">0.629</span><span class="op">,</span> H <span class="op">:</span> <span class="fl">4.052</span><span class="op">,</span> L <span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span> M <span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span> N <span class="op">:</span> <span class="fl">1.5</span><span class="op">},</span></span></code></pre></div>
+<h3 data-number="2.3.12" id="cazacu-2001-stress-criterion"><span
+class="header-section-number">2.3.12</span> Cazacu 2001 stress
+criterion</h3>
 <figure>
-<img src="img/Cazacu2001_2090-T3.svg" title="Plane stress yield surface ((\sigma_{xy}=0) and (\sigma_{xy}=0.45,\sigma_{0})) of 2090-T3 alloy sheet as predicted by the generalization of the Drucker yield criterion using generalized invariants (See @cazacu_generalization_2001, Figure 3)" style="width:80.0%" alt="Plane stress yield surface (\sigma_{xy}=0 and \sigma_{xy}=0.45\,\sigma_{0}) of 2090-T3 alloy sheet as predicted by the generalization of the Drucker yield criterion using generalized invariants (See [6], Figure 6)." /><figcaption aria-hidden="true">Plane stress yield surface (<span class="math inline">\(\sigma_{xy}=0\)</span> and <span class="math inline">\(\sigma_{xy}=0.45\,\sigma_{0}\)</span>) of 2090-T3 alloy sheet as predicted by the generalization of the Drucker yield criterion using generalized invariants (See <span class="citation" data-cites="cazacu_generalization_2001">[<a href="#ref-cazacu_generalization_2001" role="doc-biblioref">6</a>]</span>, Figure 6).</figcaption>
+<img src="img/Cazacu2001_2090-T3.svg"
+title="Plane stress yield surface ((\sigma_{xy}=0) and (\sigma_{xy}=0.45,\sigma_{0})) of 2090-T3 alloy sheet as predicted by the generalization of the Drucker yield criterion using generalized invariants (See @cazacu_generalization_2001, Figure 3)"
+style="width:80.0%"
+alt="Plane stress yield surface (\sigma_{xy}=0 and \sigma_{xy}=0.45\,\sigma_{0}) of 2090-T3 alloy sheet as predicted by the generalization of the Drucker yield criterion using generalized invariants (See [6], Figure 6)." />
+<figcaption aria-hidden="true">Plane stress yield surface (<span
+class="math inline">\(\sigma_{xy}=0\)</span> and <span
+class="math inline">\(\sigma_{xy}=0.45\,\sigma_{0}\)</span>) of 2090-T3
+alloy sheet as predicted by the generalization of the Drucker yield
+criterion using generalized invariants (See <span class="citation"
+data-cites="cazacu_generalization_2001">[<a
+href="#ref-cazacu_generalization_2001"
+role="doc-biblioref">6</a>]</span>, Figure 6).</figcaption>
 </figure>
-<p>Within the framework of the theory of representation, generalizations to orthotropic conditions of the invariants of the deviatoric stress have been proposed by Cazacu and Barlat (see <span class="citation" data-cites="cazacu_generalization_2001">[<a href="#ref-cazacu_generalization_2001" role="doc-biblioref">6</a>]</span>):</p>
+<p>Within the framework of the theory of representation, generalizations
+to orthotropic conditions of the invariants of the deviatoric stress
+have been proposed by Cazacu and Barlat (see <span class="citation"
+data-cites="cazacu_generalization_2001">[<a
+href="#ref-cazacu_generalization_2001"
+role="doc-biblioref">6</a>]</span>):</p>
 <ul>
-<li>The generalization of <span class="math inline">\(J_{2}\)</span> is denoted <span class="math inline">\(J_{2}^{O}\)</span>. It is defined by: <span class="math display">\[
-J_{2}^{O}= a_6\,s_{yz}^2+a_5\,s_{xz}^2+a_4\,s_{xy}^2+\frac{a_2}{6}\,(s_{yy}-s_{zz})^2+\frac{a_3}{6}\,(s_{xx}-s_{zz})^2+\frac{a_1}{6}\,(s_{xx}-s_{yy})^2
-\]</span> where the <span class="math inline">\(\left.a_{i}\right|_{i\in[1:6]}\)</span> are six coefficients describing the orthotropy of the material.</li>
-<li>The generalization of <span class="math inline">\(J_{3}\)</span> is denoted <span class="math inline">\(J_{3}^{O}\)</span>. It is defined by: <span class="math display">\[
+<li>The generalization of <span class="math inline">\(J_{2}\)</span> is
+denoted <span class="math inline">\(J_{2}^{O}\)</span>. It is defined
+by: <span class="math display">\[
+J_{2}^{O}=
+a_6\,s_{yz}^2+a_5\,s_{xz}^2+a_4\,s_{xy}^2+\frac{a_2}{6}\,(s_{yy}-s_{zz})^2+\frac{a_3}{6}\,(s_{xx}-s_{zz})^2+\frac{a_1}{6}\,(s_{xx}-s_{yy})^2
+\]</span> where the <span
+class="math inline">\(\left.a_{i}\right|_{i\in[1:6]}\)</span> are six
+coefficients describing the orthotropy of the material.</li>
+<li>The generalization of <span class="math inline">\(J_{3}\)</span> is
+denoted <span class="math inline">\(J_{3}^{O}\)</span>. It is defined
+by: <span class="math display">\[
 \begin{aligned}
 J_{3}^{O}=
 &amp;\frac{1}{27}\,(b_1+b_2)\,s_{xx}^3+\frac{1}{27}\,(b_3+b_4)\,s_{yy}^3+\frac{1}{27}\,(2\,(b_1+b_4)-b_2-b_3)\,s_{zz}^3\\
@@ -669,62 +1006,126 @@ J_{3}^{O}=
 &amp;-\frac{s_{yz}^2}{3}\,((b_6+b_7)\,s_{xx}-b_6\,s_{yy}-b_7\,s_{zz})\\
 &amp;+2\,b_{11}\,s_{xy}\,s_{xz}\,s_{yz}
 \end{aligned}
-\]</span> where the <span class="math inline">\(\left.b_{i}\right|_{i\in[1:11]}\)</span> are eleven coefficients describing the orthotropy of the material.</li>
+\]</span> where the <span
+class="math inline">\(\left.b_{i}\right|_{i\in[1:11]}\)</span> are
+eleven coefficients describing the orthotropy of the material.</li>
 </ul>
-<p>Those invariants may be used to generalize isotropic yield criteria based on <span class="math inline">\(J_{2}\)</span> and <span class="math inline">\(J_{3}\)</span> invariants to orthotropy. The Cazacu 2001 equivalent stress criterion is defined as the orthotropic counterpart of the Drucker 1949 yield criterion, as follows (see <span class="citation" data-cites="cazacu_generalization_2001">[<a href="#ref-cazacu_generalization_2001" role="doc-biblioref">6</a>]</span>):</p>
+<p>Those invariants may be used to generalize isotropic yield criteria
+based on <span class="math inline">\(J_{2}\)</span> and <span
+class="math inline">\(J_{3}\)</span> invariants to orthotropy. The
+Cazacu 2001 equivalent stress criterion is defined as the orthotropic
+counterpart of the Drucker 1949 yield criterion, as follows (see <span
+class="citation" data-cites="cazacu_generalization_2001">[<a
+href="#ref-cazacu_generalization_2001"
+role="doc-biblioref">6</a>]</span>):</p>
 <p><span class="math display">\[
 \sigma_{\mathrm{eq}}=\sqrt{3}\sqrt[6]{\left(J_{2}^{O}\right)^3-c\,\left(J_{3}^{O}\right)^{2}}
 \]</span></p>
-<h4 data-number="2.3.12.1" id="options-5"><span class="header-section-number">2.3.12.1</span> Options</h4>
+<h4 data-number="2.3.12.1" id="options-5"><span
+class="header-section-number">2.3.12.1</span> Options</h4>
 <p>This criterion requires the following options:</p>
 <ul>
-<li><code>a</code>, as an array of <span class="math inline">\(6\)</span> material properties.</li>
-<li><code>b</code>, as an array of <span class="math inline">\(11\)</span> material properties.</li>
+<li><code>a</code>, as an array of <span
+class="math inline">\(6\)</span> material properties.</li>
+<li><code>b</code>, as an array of <span
+class="math inline">\(11\)</span> material properties.</li>
 <li><code>c</code>, as a material property.</li>
 </ul>
-<h4 data-number="2.3.12.2" id="example-6"><span class="header-section-number">2.3.12.2</span> Example</h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Cazacu 2001&quot;</span> {</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>      a : {<span class="fl">0.586</span>, <span class="fl">1.05</span>, <span class="fl">0.823</span>, <span class="fl">0.96</span>, <span class="dv">1</span>, <span class="dv">1</span>},</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>      b : {<span class="fl">1.44</span>, <span class="fl">0.061</span>, -<span class="fl">1.302</span>, -<span class="fl">0.281</span>, -<span class="fl">0.375</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.445</span>, <span class="dv">1</span>},</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>      c : <span class="fl">1.285</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    },</span></code></pre></div>
-<h4 data-number="2.3.12.3" id="restrictions"><span class="header-section-number">2.3.12.3</span> Restrictions</h4>
-<p>Proper support of orthotropic axes conventions has not been implemented yet for the computation of the <span class="math inline">\(J_{2}^{O}\)</span> and <span class="math inline">\(J_{3}^{O}\)</span>. Thus, the following restrictions apply:</p>
+<h4 data-number="2.3.12.2" id="example-6"><span
+class="header-section-number">2.3.12.2</span> Example</h4>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Cazacu 2001&quot;</span> <span class="op">{</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>      a <span class="op">:</span> <span class="op">{</span><span class="fl">0.586</span><span class="op">,</span> <span class="fl">1.05</span><span class="op">,</span> <span class="fl">0.823</span><span class="op">,</span> <span class="fl">0.96</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>      b <span class="op">:</span> <span class="op">{</span><span class="fl">1.44</span><span class="op">,</span> <span class="fl">0.061</span><span class="op">,</span> <span class="op">-</span><span class="fl">1.302</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.281</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.375</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="fl">0.445</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>      c <span class="op">:</span> <span class="fl">1.285</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span></code></pre></div>
+<h4 data-number="2.3.12.3" id="restrictions"><span
+class="header-section-number">2.3.12.3</span> Restrictions</h4>
+<p>Proper support of orthotropic axes conventions has not been
+implemented yet for the computation of the <span
+class="math inline">\(J_{2}^{O}\)</span> and <span
+class="math inline">\(J_{3}^{O}\)</span>. Thus, the following
+restrictions apply:</p>
 <ul>
-<li>if no orthotropic axis convention is defined, only the <code>Tridimensional</code> modelling hypothesis is supported.q</li>
-<li>if the <code>Plate</code> orthotropic axis convention is used, only the <code>Tridimensional</code> and <code>PlaneStress</code> modelling hypotheses are supported.</li>
-<li>if the <code>Pipe</code> orthotropic axis convention is used, only theI <code>Tridimensional</code>, <code>Axisymmetrical</code>, <code>AxisymmetricalGeneralisedPlainStrain</code>, and <code>AxisymmetricalGeneralisedPlainStres</code> modelling hypotheses are supported.</li>
+<li>if no orthotropic axis convention is defined, only the
+<code>Tridimensional</code> modelling hypothesis is supported.q</li>
+<li>if the <code>Plate</code> orthotropic axis convention is used, only
+the <code>Tridimensional</code> and <code>PlaneStress</code> modelling
+hypotheses are supported.</li>
+<li>if the <code>Pipe</code> orthotropic axis convention is used, only
+theI <code>Tridimensional</code>, <code>Axisymmetrical</code>,
+<code>AxisymmetricalGeneralisedPlainStrain</code>, and
+<code>AxisymmetricalGeneralisedPlainStres</code> modelling hypotheses
+are supported.</li>
 </ul>
-<h3 data-number="2.3.13" id="orthotropic-cazacu-2004-stress-criterion"><span class="header-section-number">2.3.13</span> Orthotropic Cazacu 2004 stress criterion</h3>
+<h3 data-number="2.3.13"
+id="orthotropic-cazacu-2004-stress-criterion"><span
+class="header-section-number">2.3.13</span> Orthotropic Cazacu 2004
+stress criterion</h3>
 <figure>
-<img src="img/Cazacu2004.svg" title="Plane stress yield loci for a magnesium sheet" style="width:80.0%" alt="Plane stress yield loci for a magnesium sheet (See [5], Figure 6)." /><figcaption aria-hidden="true">Plane stress yield loci for a magnesium sheet (See <span class="citation" data-cites="cazacu_criterion_2004">[<a href="#ref-cazacu_criterion_2004" role="doc-biblioref">5</a>]</span>, Figure 6).</figcaption>
+<img src="img/Cazacu2004.svg"
+title="Plane stress yield loci for a magnesium sheet"
+style="width:80.0%"
+alt="Plane stress yield loci for a magnesium sheet (See [5], Figure 6)." />
+<figcaption aria-hidden="true">Plane stress yield loci for a magnesium
+sheet (See <span class="citation" data-cites="cazacu_criterion_2004">[<a
+href="#ref-cazacu_criterion_2004" role="doc-biblioref">5</a>]</span>,
+Figure 6).</figcaption>
 </figure>
-<p>Using the invariants <span class="math inline">\(J_{2}^{O}\)</span> and <span class="math inline">\(J_{3}^{O}\)</span> previously defined, Cazacu and Barlat proposed the following criterion (See <span class="citation" data-cites="cazacu_criterion_2004">[<a href="#ref-cazacu_criterion_2004" role="doc-biblioref">5</a>]</span>):</p>
+<p>Using the invariants <span class="math inline">\(J_{2}^{O}\)</span>
+and <span class="math inline">\(J_{3}^{O}\)</span> previously defined,
+Cazacu and Barlat proposed the following criterion (See <span
+class="citation" data-cites="cazacu_criterion_2004">[<a
+href="#ref-cazacu_criterion_2004"
+role="doc-biblioref">5</a>]</span>):</p>
 <p><span class="math display">\[
-\sigma_{\mathrm{eq}}=\sqrt[3]{\left(J_{2}^{O}\right)^{3/2} - c\,J_{3}^{O}}
+\sigma_{\mathrm{eq}}=\sqrt[3]{\left(J_{2}^{O}\right)^{3/2} -
+c\,J_{3}^{O}}
 \]</span></p>
-<h4 data-number="2.3.13.1" id="options-6"><span class="header-section-number">2.3.13.1</span> Options</h4>
+<h4 data-number="2.3.13.1" id="options-6"><span
+class="header-section-number">2.3.13.1</span> Options</h4>
 <p>This criterion requires the following options:</p>
 <ul>
-<li><code>a</code>, as an array of <span class="math inline">\(6\)</span> material properties.</li>
-<li><code>b</code>, as an array of <span class="math inline">\(11\)</span> material properties.</li>
+<li><code>a</code>, as an array of <span
+class="math inline">\(6\)</span> material properties.</li>
+<li><code>b</code>, as an array of <span
+class="math inline">\(11\)</span> material properties.</li>
 <li><code>c</code>, as a material property.</li>
 </ul>
-<h4 data-number="2.3.13.2" id="example-7"><span class="header-section-number">2.3.13.2</span> Example</h4>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Orthotropic Cazacu 2004&quot;</span> {</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>      a : {<span class="fl">0.586</span>, <span class="fl">1.05</span>, <span class="fl">0.823</span>, <span class="fl">0.96</span>, <span class="dv">1</span>, <span class="dv">1</span>},</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>      b : {<span class="fl">1.44</span>, <span class="fl">0.061</span>, -<span class="fl">1.302</span>, -<span class="fl">0.281</span>, -<span class="fl">0.375</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.445</span>, <span class="dv">1</span>},</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>      c : <span class="fl">1.285</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    },</span></code></pre></div>
-<h4 data-number="2.3.13.3" id="restrictions-1"><span class="header-section-number">2.3.13.3</span> Restrictions</h4>
-<p>Proper support of orthotropic axes conventions has not been implemented yet for the computation of the <span class="math inline">\(J_{2}^{O}\)</span> and <span class="math inline">\(J_{3}^{O}\)</span>. Thus, the following restrictions apply:</p>
+<h4 data-number="2.3.13.2" id="example-7"><span
+class="header-section-number">2.3.13.2</span> Example</h4>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Orthotropic Cazacu 2004&quot;</span> <span class="op">{</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>      a <span class="op">:</span> <span class="op">{</span><span class="fl">0.586</span><span class="op">,</span> <span class="fl">1.05</span><span class="op">,</span> <span class="fl">0.823</span><span class="op">,</span> <span class="fl">0.96</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>      b <span class="op">:</span> <span class="op">{</span><span class="fl">1.44</span><span class="op">,</span> <span class="fl">0.061</span><span class="op">,</span> <span class="op">-</span><span class="fl">1.302</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.281</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.375</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="fl">0.445</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>      c <span class="op">:</span> <span class="fl">1.285</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span></code></pre></div>
+<h4 data-number="2.3.13.3" id="restrictions-1"><span
+class="header-section-number">2.3.13.3</span> Restrictions</h4>
+<p>Proper support of orthotropic axes conventions has not been
+implemented yet for the computation of the <span
+class="math inline">\(J_{2}^{O}\)</span> and <span
+class="math inline">\(J_{3}^{O}\)</span>. Thus, the following
+restrictions apply:</p>
 <ul>
-<li>if no orthotropic axis convention is defined, only the <code>Tridimensional</code> modelling hypothesis is supported.q</li>
-<li>if the <code>Plate</code> orthotropic axis convention is used, only the <code>Tridimensional</code> and <code>PlaneStress</code> modelling hypotheses are supported.</li>
-<li>if the <code>Pipe</code> orthotropic axis convention is used, only the <code>Tridimensional</code>, <code>Axisymmetrical</code>, <code>AxisymmetricalGeneralisedPlainStrain</code>, and <code>AxisymmetricalGeneralisedPlainStres</code> modelling hypotheses are supported.</li>
+<li>if no orthotropic axis convention is defined, only the
+<code>Tridimensional</code> modelling hypothesis is supported.q</li>
+<li>if the <code>Plate</code> orthotropic axis convention is used, only
+the <code>Tridimensional</code> and <code>PlaneStress</code> modelling
+hypotheses are supported.</li>
+<li>if the <code>Pipe</code> orthotropic axis convention is used, only
+the <code>Tridimensional</code>, <code>Axisymmetrical</code>,
+<code>AxisymmetricalGeneralisedPlainStrain</code>, and
+<code>AxisymmetricalGeneralisedPlainStres</code> modelling hypotheses
+are supported.</li>
 </ul>
-<h3 data-number="2.3.14" id="barlat-2004-stress-criterion"><span class="header-section-number">2.3.14</span> Barlat 2004 stress criterion</h3>
-<p>The Barlat equivalent stress is defined as follows (See <span class="citation" data-cites="barlat_linear_2005">[<a href="#ref-barlat_linear_2005" role="doc-biblioref">7</a>]</span>): <span class="math display">\[
+<h3 data-number="2.3.14" id="barlat-2004-stress-criterion"><span
+class="header-section-number">2.3.14</span> Barlat 2004 stress
+criterion</h3>
+<p>The Barlat equivalent stress is defined as follows (See <span
+class="citation" data-cites="barlat_linear_2005">[<a
+href="#ref-barlat_linear_2005" role="doc-biblioref">7</a>]</span>):
+<span class="math display">\[
 \sigma_{\mathrm{eq}}^{B}=
 \sqrt[a]{
   \frac{1}{4}\left(
@@ -734,23 +1135,48 @@ J_{3}^{O}=
   \right)
 }
 \]</span></p>
-<p>where <span class="math inline">\(s&#39;_{i}\)</span> and <span class="math inline">\(s&#39;&#39;_{i}\)</span> are the eigenvalues of two transformed stresses <span class="math inline">\(\underline{s}&#39;\)</span> and <span class="math inline">\(\underline{s}&#39;&#39;\)</span> by two linear transformation <span class="math inline">\(\underline{\mathbf{L}}&#39;\)</span> and <span class="math inline">\(\underline{\mathbf{L}}&#39;&#39;\)</span>: <span class="math display">\[
+<p>where <span class="math inline">\(s&#39;_{i}\)</span> and <span
+class="math inline">\(s&#39;&#39;_{i}\)</span> are the eigenvalues of
+two transformed stresses <span
+class="math inline">\(\underline{s}&#39;\)</span> and <span
+class="math inline">\(\underline{s}&#39;&#39;\)</span> by two linear
+transformation <span
+class="math inline">\(\underline{\mathbf{L}}&#39;\)</span> and <span
+class="math inline">\(\underline{\mathbf{L}}&#39;&#39;\)</span>: <span
+class="math display">\[
 \left\{
 \begin{aligned}
-\underline{s}&#39;  &amp;= \underline{\mathbf{L&#39;}} \,\colon\,\underline{\sigma}\\
-\underline{s}&#39;&#39; &amp;= \underline{\mathbf{L&#39;&#39;}}\,\colon\,\underline{\sigma}\\
+\underline{s}&#39;  &amp;= \underline{\mathbf{L&#39;}}
+\,\colon\,\underline{\sigma}\\
+\underline{s}&#39;&#39; &amp;=
+\underline{\mathbf{L&#39;&#39;}}\,\colon\,\underline{\sigma}\\
 \end{aligned}
 \right.
 \]</span></p>
-<p>The linear transformations <span class="math inline">\(\underline{\mathbf{L}}&#39;\)</span> and <span class="math inline">\(\underline{\mathbf{L}}&#39;&#39;\)</span> are defined by <span class="math inline">\(9\)</span> coefficients (each) which describe the material orthotropy. There are defined through auxiliary linear transformations <span class="math inline">\(\underline{\mathbf{C}}&#39;\)</span> and <span class="math inline">\(\underline{\mathbf{C}}&#39;&#39;\)</span> as follows: <span class="math display">\[
+<p>The linear transformations <span
+class="math inline">\(\underline{\mathbf{L}}&#39;\)</span> and <span
+class="math inline">\(\underline{\mathbf{L}}&#39;&#39;\)</span> are
+defined by <span class="math inline">\(9\)</span> coefficients (each)
+which describe the material orthotropy. There are defined through
+auxiliary linear transformations <span
+class="math inline">\(\underline{\mathbf{C}}&#39;\)</span> and <span
+class="math inline">\(\underline{\mathbf{C}}&#39;&#39;\)</span> as
+follows: <span class="math display">\[
 \begin{aligned}
-\underline{\mathbf{L}}&#39; &amp;=\underline{\mathbf{C}}&#39;\,\colon\,\underline{\mathbf{M}} \\
+\underline{\mathbf{L}}&#39;
+&amp;=\underline{\mathbf{C}}&#39;\,\colon\,\underline{\mathbf{M}} \\
 \underline{\mathbf{L}}&#39;&#39;&amp;=\underline{\mathbf{C}}&#39;&#39;\,\colon\,\underline{\mathbf{M}}
 \end{aligned}
-\]</span> where <span class="math inline">\(\underline{\mathbf{M}}\)</span> is the transformation of the stress to its deviator: <span class="math display">\[
+\]</span> where <span
+class="math inline">\(\underline{\mathbf{M}}\)</span> is the
+transformation of the stress to its deviator: <span
+class="math display">\[
 \underline{\mathbf{M}}=\underline{\mathbf{I}}-\dfrac{1}{3}\underline{I}\,\otimes\,\underline{I}
 \]</span></p>
-<p>The linear transformations <span class="math inline">\(\underline{\mathbf{C}}&#39;\)</span> and <span class="math inline">\(\underline{\mathbf{C}}&#39;&#39;\)</span> of the deviator stress are defined as follows: <span class="math display">\[
+<p>The linear transformations <span
+class="math inline">\(\underline{\mathbf{C}}&#39;\)</span> and <span
+class="math inline">\(\underline{\mathbf{C}}&#39;&#39;\)</span> of the
+deviator stress are defined as follows: <span class="math display">\[
 \underline{\mathbf{C}}&#39;=
 \begin{pmatrix}
 0 &amp; -c&#39;_{12} &amp; -c&#39;_{13} &amp; 0 &amp; 0 &amp; 0 \\
@@ -765,192 +1191,335 @@ J_{3}^{O}=
 \quad
 \underline{\mathbf{C}}&#39;&#39;=
 \begin{pmatrix}
-0 &amp; -c&#39;&#39;_{12} &amp; -c&#39;&#39;_{13} &amp; 0 &amp; 0 &amp; 0 \\
--c&#39;&#39;_{21} &amp; 0 &amp; -c&#39;&#39;_{23} &amp; 0 &amp; 0 &amp; 0 \\
--c&#39;&#39;_{31} &amp; -c&#39;&#39;_{32} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -c&#39;&#39;_{12} &amp; -c&#39;&#39;_{13} &amp; 0 &amp; 0 &amp;
+0 \\
+-c&#39;&#39;_{21} &amp; 0 &amp; -c&#39;&#39;_{23} &amp; 0 &amp; 0 &amp;
+0 \\
+-c&#39;&#39;_{31} &amp; -c&#39;&#39;_{32} &amp; 0 &amp; 0 &amp; 0 &amp;
+0 \\
 0 &amp; 0 &amp; 0 &amp; c&#39;&#39;_{44} &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; c&#39;&#39;_{55} &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; c&#39;&#39;_{66} \\
 \end{pmatrix}
 \]</span></p>
-<p>When all the coefficients <span class="math inline">\(c&#39;_{ji}\)</span> and <span class="math inline">\(c&#39;&#39;_{ji}\)</span> are equal to <span class="math inline">\(1\)</span>, the Barlat equivalent stress reduces to the Hosford equivalent stress.</p>
-<h4 data-number="2.3.14.1" id="options-7"><span class="header-section-number">2.3.14.1</span> Options</h4>
-<p>This stress criterion has <span class="math inline">\(3\)</span> mandatory options:</p>
+<p>When all the coefficients <span
+class="math inline">\(c&#39;_{ji}\)</span> and <span
+class="math inline">\(c&#39;&#39;_{ji}\)</span> are equal to <span
+class="math inline">\(1\)</span>, the Barlat equivalent stress reduces
+to the Hosford equivalent stress.</p>
+<h4 data-number="2.3.14.1" id="options-7"><span
+class="header-section-number">2.3.14.1</span> Options</h4>
+<p>This stress criterion has <span class="math inline">\(3\)</span>
+mandatory options:</p>
 <ul>
-<li>the coefficients of the first linear transformation <span class="math inline">\(\underline{\mathbf{L}}&#39;\)</span>, as <code>l1</code>;</li>
-<li>the coefficients of the second linear transformation <span class="math inline">\(\underline{\mathbf{L}}&#39;&#39;\)</span>, as <code>l2</code>;</li>
+<li>the coefficients of the first linear transformation <span
+class="math inline">\(\underline{\mathbf{L}}&#39;\)</span>, as
+<code>l1</code>;</li>
+<li>the coefficients of the second linear transformation <span
+class="math inline">\(\underline{\mathbf{L}}&#39;&#39;\)</span>, as
+<code>l2</code>;</li>
 <li>the Barlat exponent <span class="math inline">\(a\)</span></li>
 </ul>
 <blockquote>
-<p><strong>Orthotropic axis convention</strong> If an orthotropic axis convention is defined (See the <code>@OrthotropicBehaviour</code> keyword’ documentation), the coefficients of the linear transformationscan be exchanged for some modelling hypotheses. The coefficients given by the user must always correspond to the three dimensional case.</p>
+<p><strong>Orthotropic axis convention</strong> If an orthotropic axis
+convention is defined (See the <code>@OrthotropicBehaviour</code>
+keyword’ documentation), the coefficients of the linear
+transformationscan be exchanged for some modelling hypotheses. The
+coefficients given by the user must always correspond to the three
+dimensional case.</p>
 </blockquote>
-<p>Specifying the eigen solver using the <code>eigen_solver</code> option is optional. This option can have the value <code>default</code> or the value <code>Jacobi</code>.</p>
-<h3 data-number="2.3.15" id="example-8"><span class="header-section-number">2.3.15</span> Example</h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Barlat&quot;</span> {</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>      a : <span class="dv">8</span>,</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>      l1 : {-<span class="fl">0.069888</span>, <span class="fl">0.079143</span>, <span class="fl">0.936408</span>, <span class="fl">0.524741</span>, <span class="fl">1.00306</span>, <span class="fl">1.36318</span>, <span class="fl">0.954322</span>,</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>            <span class="fl">1.06906</span>, <span class="fl">1.02377</span>},</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>      l2 : {<span class="fl">0.981171</span>, <span class="fl">0.575316</span>, <span class="fl">0.476741</span>, <span class="fl">1.14501</span>, <span class="fl">0.866827</span>, -<span class="fl">0.079294</span>, <span class="fl">1.40462</span>,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="fl">1.1471</span>, <span class="fl">1.05166</span>}</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div>
-<h3 data-number="2.3.16" id="notes-1"><span class="header-section-number">2.3.16</span> Notes</h3>
-<p>The Barlat 2004 yield surface may have sharp edges which may lead to divergence of the Newton algorithm du to oscillations of the flow direction. Specifying a threshold for the angle between. See Section 3.2 for details.</p>
-<h2 data-number="2.4" id="list-of-available-isotropic-hardening-rules"><span class="header-section-number">2.4</span> List of available isotropic hardening rules</h2>
+<p>Specifying the eigen solver using the <code>eigen_solver</code>
+option is optional. This option can have the value <code>default</code>
+or the value <code>Jacobi</code>.</p>
+<h3 data-number="2.3.15" id="example-8"><span
+class="header-section-number">2.3.15</span> Example</h3>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Barlat&quot;</span> <span class="op">{</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>      a <span class="op">:</span> <span class="dv">8</span><span class="op">,</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>      l1 <span class="op">:</span> <span class="op">{-</span><span class="fl">0.069888</span><span class="op">,</span> <span class="fl">0.079143</span><span class="op">,</span> <span class="fl">0.936408</span><span class="op">,</span> <span class="fl">0.524741</span><span class="op">,</span> <span class="fl">1.00306</span><span class="op">,</span> <span class="fl">1.36318</span><span class="op">,</span> <span class="fl">0.954322</span><span class="op">,</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>            <span class="fl">1.06906</span><span class="op">,</span> <span class="fl">1.02377</span><span class="op">},</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>      l2 <span class="op">:</span> <span class="op">{</span><span class="fl">0.981171</span><span class="op">,</span> <span class="fl">0.575316</span><span class="op">,</span> <span class="fl">0.476741</span><span class="op">,</span> <span class="fl">1.14501</span><span class="op">,</span> <span class="fl">0.866827</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.079294</span><span class="op">,</span> <span class="fl">1.40462</span><span class="op">,</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="fl">1.1471</span><span class="op">,</span> <span class="fl">1.05166</span><span class="op">}</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div>
+<h3 data-number="2.3.16" id="notes-1"><span
+class="header-section-number">2.3.16</span> Notes</h3>
+<p>The Barlat 2004 yield surface may have sharp edges which may lead to
+divergence of the Newton algorithm du to oscillations of the flow
+direction. Specifying a threshold for the angle between. See Section 2.2
+for details.</p>
+<h2 data-number="2.4"
+id="list-of-available-isotropic-hardening-rules"><span
+class="header-section-number">2.4</span> List of available isotropic
+hardening rules</h2>
 <blockquote>
 <p><strong>Note</strong></p>
-<p>The follwing hardening rules can be combined to define more complex hardening rules. For example, the following code adds to Voce hardening:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="fl">600e6</span>, Rinf : <span class="fl">900e6</span>, b : <span class="dv">1</span>},</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="dv">0</span>, Rinf : <span class="fl">300e6</span>, b : <span class="dv">10</span>},</span></code></pre></div>
+<p>The follwing hardening rules can be combined to define more complex
+hardening rules. For example, the following code adds to Voce
+hardening:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">600e6</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="fl">900e6</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">1</span><span class="op">},</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="dv">0</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="fl">300e6</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">10</span><span class="op">},</span></span></code></pre></div>
 <p>The previous code is equalivent to the following hardening rule:</p>
 <p><span class="math display">\[
 R{\left(p\right)}=R_{0}^{0}+{\left(R_{\infty}^{0}-R_{0}^{0}\right)}\,{\left(1-\exp{\left(-b^{0}\,p\right)}\right)}+R_{\infty}^{1}\,{\left(1-\exp{\left(-b^{1}\,p\right)}\right)}
 \]</span></p>
 <p>with:</p>
 <ul>
-<li><span class="math inline">\(R_{0}^{0}=600\,.\,10^{6}\,Pa\)</span></li>
-<li><span class="math inline">\(R_{\infty}^{0}=900\,.\,10^{6}\,Pa\)</span></li>
-<li><span class="math inline">\(R_{\infty}^{1}=300\,.\,10^{6}\,Pa\)</span></li>
+<li><span
+class="math inline">\(R_{0}^{0}=600\,.\,10^{6}\,Pa\)</span></li>
+<li><span
+class="math inline">\(R_{\infty}^{0}=900\,.\,10^{6}\,Pa\)</span></li>
+<li><span
+class="math inline">\(R_{\infty}^{1}=300\,.\,10^{6}\,Pa\)</span></li>
 <li><span class="math inline">\(b^{0}=1\)</span></li>
 <li><span class="math inline">\(b^{1}=10\)</span></li>
 </ul>
 </blockquote>
-<h3 data-number="2.4.1" id="the-linear-isotropic-hardening-rule"><span class="header-section-number">2.4.1</span> The <code>Linear</code> isotropic hardening rule</h3>
-<p>The <code>Linear</code> isotropic hardening rule is defined by: <span class="math display">\[
+<h3 data-number="2.4.1" id="the-linear-isotropic-hardening-rule"><span
+class="header-section-number">2.4.1</span> The <code>Linear</code>
+isotropic hardening rule</h3>
+<p>The <code>Linear</code> isotropic hardening rule is defined by: <span
+class="math display">\[
 R{\left(p\right)}=R_{0}+H\,p
 \]</span></p>
-<h4 data-number="2.4.1.1" id="options-8"><span class="header-section-number">2.4.1.1</span> Options</h4>
-<p>The <code>Linear</code> isotropic hardening rule expects one of the two following material properties:</p>
+<h4 data-number="2.4.1.1" id="options-8"><span
+class="header-section-number">2.4.1.1</span> Options</h4>
+<p>The <code>Linear</code> isotropic hardening rule expects one of the
+two following material properties:</p>
 <ul>
 <li><code>R0</code>: the yield strength</li>
 <li><code>H</code>: the hardening slope</li>
 </ul>
 <blockquote>
 <p><strong>Note</strong></p>
-<p>If one of the previous material property is not defined, the generated code is optimised and there will be no parameter asscoiated with it. To avoid this, you must define the material property and assign it to a zero value.</p>
+<p>If one of the previous material property is not defined, the
+generated code is optimised and there will be no parameter asscoiated
+with it. To avoid this, you must define the material property and assign
+it to a zero value.</p>
 </blockquote>
-<h4 data-number="2.4.1.2" id="example-9"><span class="header-section-number">2.4.1.2</span> Example</h4>
-<p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">120e6</span>, H : <span class="fl">438e6</span>},</span></code></pre></div>
-<h3 data-number="2.4.2" id="the-swift-isotropic-hardening-rule"><span class="header-section-number">2.4.2</span> The <code>Swift</code> isotropic hardening rule</h3>
-<p>The <code>Swift</code> isotropic hardening rule is defined by: <span class="math display">\[
+<h4 data-number="2.4.1.2" id="example-9"><span
+class="header-section-number">2.4.1.2</span> Example</h4>
+<p>The following code can be added in a block defining an inelastic
+flow:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">120e6</span><span class="op">,</span> H <span class="op">:</span> <span class="fl">438e6</span><span class="op">},</span></span></code></pre></div>
+<h3 data-number="2.4.2" id="the-swift-isotropic-hardening-rule"><span
+class="header-section-number">2.4.2</span> The <code>Swift</code>
+isotropic hardening rule</h3>
+<p>The <code>Swift</code> isotropic hardening rule is defined by: <span
+class="math display">\[
 R{\left(p\right)}=R_{0}\,{\left(\dfrac{p+p_{0}}{p_{0}}\right)}^{n}
 \]</span></p>
-<h4 data-number="2.4.2.1" id="options-9"><span class="header-section-number">2.4.2.1</span> Options</h4>
-<p>The <code>Swift</code> isotropic hardening rule expects three material properties:</p>
+<h4 data-number="2.4.2.1" id="options-9"><span
+class="header-section-number">2.4.2.1</span> Options</h4>
+<p>The <code>Swift</code> isotropic hardening rule expects three
+material properties:</p>
 <ul>
 <li><code>R0</code>: the yield strength</li>
 <li><code>p0</code></li>
 <li><code>n</code></li>
 </ul>
-<h4 data-number="2.4.2.2" id="example-10"><span class="header-section-number">2.4.2.2</span> Example</h4>
-<p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Swift&quot;</span> {R0 : <span class="fl">120e6</span>, p0 : <span class="fl">1e-8</span>, n : <span class="fl">5.e-2</span>}</span></code></pre></div>
-<h3 data-number="2.4.3" id="the-power-isotropic-hardening-rule-since-tfel-3.4"><span class="header-section-number">2.4.3</span> The <code>Power</code> isotropic hardening rule (since TFEL 3.4)</h3>
-<p>The <code>Power</code> isotropic hardening rule is defined by: <span class="math display">\[
+<h4 data-number="2.4.2.2" id="example-10"><span
+class="header-section-number">2.4.2.2</span> Example</h4>
+<p>The following code can be added in a block defining an inelastic
+flow:</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Swift&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">120e6</span><span class="op">,</span> p0 <span class="op">:</span> <span class="fl">1e-8</span><span class="op">,</span> n <span class="op">:</span> <span class="fl">5.e-2</span><span class="op">}</span></span></code></pre></div>
+<h3 data-number="2.4.3"
+id="the-power-isotropic-hardening-rule-since-tfel-3.4"><span
+class="header-section-number">2.4.3</span> The <code>Power</code>
+isotropic hardening rule (since TFEL 3.4)</h3>
+<p>The <code>Power</code> isotropic hardening rule is defined by: <span
+class="math display">\[
 R{\left(p\right)}=R_{0}\,{\left(p+p_{0}\right)}^{n}
 \]</span></p>
-<h4 data-number="2.4.3.1" id="options-10"><span class="header-section-number">2.4.3.1</span> Options</h4>
-<p>The <code>Power</code> isotropic hardening rule expects at least the following material properties:</p>
+<h4 data-number="2.4.3.1" id="options-10"><span
+class="header-section-number">2.4.3.1</span> Options</h4>
+<p>The <code>Power</code> isotropic hardening rule expects at least the
+following material properties:</p>
 <ul>
 <li><code>R0</code>: the coefficient of the power law</li>
 <li><code>n</code>: the exponent of the power law</li>
 </ul>
-<p>The <code>p0</code> material property is <em>optional</em> and generally is considered a numerical parameter to avoir an initial infinite derivative of the power law when the exponent is lower than <span class="math inline">\(1\)</span>.</p>
-<h4 data-number="2.4.3.2" id="example-11"><span class="header-section-number">2.4.3.2</span> Example</h4>
-<p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="fl">50e6</span>},</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Power&quot;</span> {R0 : <span class="fl">120e6</span>, p0 : <span class="fl">1e-8</span>, n : <span class="fl">5.e-2</span>}</span></code></pre></div>
-<h3 data-number="2.4.4" id="the-voce-isotropic-hardening-rule"><span class="header-section-number">2.4.4</span> The <code>Voce</code> isotropic hardening rule</h3>
-<p>The <code>Voce</code> isotropic hardening rule is defined by: <span class="math display">\[
+<p>The <code>p0</code> material property is <em>optional</em> and
+generally is considered a numerical parameter to avoir an initial
+infinite derivative of the power law when the exponent is lower than
+<span class="math inline">\(1\)</span>.</p>
+<h4 data-number="2.4.3.2" id="example-11"><span
+class="header-section-number">2.4.3.2</span> Example</h4>
+<p>The following code can be added in a block defining an inelastic
+flow:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">50e6</span><span class="op">},</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Power&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">120e6</span><span class="op">,</span> p0 <span class="op">:</span> <span class="fl">1e-8</span><span class="op">,</span> n <span class="op">:</span> <span class="fl">5.e-2</span><span class="op">}</span></span></code></pre></div>
+<h3 data-number="2.4.4" id="the-voce-isotropic-hardening-rule"><span
+class="header-section-number">2.4.4</span> The <code>Voce</code>
+isotropic hardening rule</h3>
+<p>The <code>Voce</code> isotropic hardening rule is defined by: <span
+class="math display">\[
 R{\left(p\right)}=R_{\infty}+{\left(R_{0}-R_{\infty}\right)}\,exp{\left(-b\,p\right)}
 \]</span></p>
-<h4 data-number="2.4.4.1" id="options-11"><span class="header-section-number">2.4.4.1</span> Options</h4>
-<p>The <code>Voce</code> isotropic hardening rule expects three material properties:</p>
+<h4 data-number="2.4.4.1" id="options-11"><span
+class="header-section-number">2.4.4.1</span> Options</h4>
+<p>The <code>Voce</code> isotropic hardening rule expects three material
+properties:</p>
 <ul>
 <li><code>R0</code>: the yield strength</li>
 <li><code>Rinf</code>: the utimate strength</li>
 <li><code>b</code></li>
 </ul>
-<h4 data-number="2.4.4.2" id="example-12"><span class="header-section-number">2.4.4.2</span> Example</h4>
-<p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="dv">200</span>, Rinf : <span class="dv">100</span>, b : <span class="dv">20</span>}</span></code></pre></div>
-<h3 data-number="2.4.5" id="user-defined-isotropic-hardening-rule"><span class="header-section-number">2.4.5</span> User defined isotropic hardening rule</h3>
-<p>The <code>UserDefined</code> isotropic hardening rule allows the user to specify the radius of the yield surface as a function of the equivalent plastic strain <code>p</code>.</p>
-<p>This function shall be given by a string option named <code>R</code> and must depend on <code>p</code>. The function may also depend on other variables. Let <code>A</code> be such a variable. The <code>UserDefined</code> isotropic hardening rule will look if an option named <code>A</code> has been given:</p>
+<h4 data-number="2.4.4.2" id="example-12"><span
+class="header-section-number">2.4.4.2</span> Example</h4>
+<p>The following code can be added in a block defining an inelastic
+flow:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="dv">200</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="dv">100</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">20</span><span class="op">}</span></span></code></pre></div>
+<h3 data-number="2.4.5" id="user-defined-isotropic-hardening-rule"><span
+class="header-section-number">2.4.5</span> User defined isotropic
+hardening rule</h3>
+<p>The <code>UserDefined</code> isotropic hardening rule allows the user
+to specify the radius of the yield surface as a function of the
+equivalent plastic strain <code>p</code>.</p>
+<p>This function shall be given by a string option named <code>R</code>
+and must depend on <code>p</code>. The function may also depend on other
+variables. Let <code>A</code> be such a variable. The
+<code>UserDefined</code> isotropic hardening rule will look if an option
+named <code>A</code> has been given:</p>
 <ul>
-<li>If this option exists, it will be interpreted as a material coefficient as usal and this option can be a number, a formula or the name of an external <code>MFront</code> file.</li>
-<li>If this option does not exist, a suitable variable will be search in the variables defined in the behaviour (static variables, parameters, material properties, etc…).</li>
+<li>If this option exists, it will be interpreted as a material
+coefficient as usal and this option can be a number, a formula or the
+name of an external <code>MFront</code> file.</li>
+<li>If this option does not exist, a suitable variable will be search in
+the variables defined in the behaviour (static variables, parameters,
+material properties, etc…).</li>
 </ul>
-<p>If required, the derivative of <code>R</code> with respect to <code>p</code> can be provided through the option <code>dR_dp</code>. The derivative <code>dR_dp</code> can depend on the variable <code>R</code>.</p>
-<p>If this derivative is not provided, automatic differentiation will be used. The user shall be warned that the automatic differentiation provided by the <code>tfel::math::Evaluator</code> class may result in inefficient code.</p>
+<p>If required, the derivative of <code>R</code> with respect to
+<code>p</code> can be provided through the option <code>dR_dp</code>.
+The derivative <code>dR_dp</code> can depend on the variable
+<code>R</code>.</p>
+<p>If this derivative is not provided, automatic differentiation will be
+used. The user shall be warned that the automatic differentiation
+provided by the <code>tfel::math::Evaluator</code> class may result in
+inefficient code.</p>
 <h4 class="unnumbered" id="example-of-usage-1">Example of usage</h4>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress R0 = <span class="fl">200e6</span>;</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress Hy = <span class="fl">40e6</span>;</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real b = <span class="dv">100</span>;</span>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress R0 <span class="op">=</span> <span class="fl">200e6</span><span class="op">;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress Hy <span class="op">=</span> <span class="fl">40e6</span><span class="op">;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real b <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">150e9</span>, poisson_ratio : <span class="fl">0.3</span>},</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Mises&quot;</span>,</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;UserDefined&quot;</span> {</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>      R : <span class="st">&quot;R0 + Hy * (1 - exp(-b * p))&quot;</span>,     <span class="co">// Yield radius</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>      dR_dp : <span class="st">&quot;b * (R0 + Hy - R)&quot;</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h3 data-number="2.4.6" id="isotropic-harderning-rule-based-defined-by-points"><span class="header-section-number">2.4.6</span> Isotropic harderning rule based defined by points</h3>
-<p>The <code>Data</code> isotropic hardening rule allows the user to define an isotropic hardening rule using a curve defined by a set of pairs of equivalent strain and equivalent stress.</p>
-<p>This isotropic hardening rule can be parametrised using three entries:</p>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;UserDefined&quot;</span> <span class="op">{</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>      R <span class="op">:</span> <span class="st">&quot;R0 + Hy * (1 - exp(-b * p))&quot;</span><span class="op">,</span>     <span class="co">// Yield radius</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>      dR_dp <span class="op">:</span> <span class="st">&quot;b * (R0 + Hy - R)&quot;</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h3 data-number="2.4.6"
+id="isotropic-harderning-rule-based-defined-by-points"><span
+class="header-section-number">2.4.6</span> Isotropic harderning rule
+based defined by points</h3>
+<p>The <code>Data</code> isotropic hardening rule allows the user to
+define an isotropic hardening rule using a curve defined by a set of
+pairs of equivalent strain and equivalent stress.</p>
+<p>This isotropic hardening rule can be parametrised using three
+entries:</p>
 <ul>
-<li><code>values</code>: which must a dictionnary giving the value of the yield surface radius as a function of the equivalent plastic strain.</li>
-<li><code>interpolation</code>: which allows to select the interpolation type. Possible values are <code>linear</code> (default choice) and <code>cubic_spline</code>.</li>
-<li><code>extrapolation</code>: which allows to select the extrapolation type. Possible values are <code>bound_to_last_value</code> (or <code>constant</code>) and <code>extrapolation</code> (default choice).</li>
+<li><code>values</code>: which must a dictionnary giving the value of
+the yield surface radius as a function of the equivalent plastic
+strain.</li>
+<li><code>interpolation</code>: which allows to select the interpolation
+type. Possible values are <code>linear</code> (default choice) and
+<code>cubic_spline</code>.</li>
+<li><code>extrapolation</code>: which allows to select the extrapolation
+type. Possible values are <code>bound_to_last_value</code> (or
+<code>constant</code>) and <code>extrapolation</code> (default
+choice).</li>
 </ul>
-<h4 data-number="2.4.6.1" id="example-of-usage-2"><span class="header-section-number">2.4.6.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {young_modulus : <span class="fl">150e9</span>, poisson_ratio : <span class="fl">0.3</span>},</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Mises&quot;</span>,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Data&quot;</span> {</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>      values : {<span class="dv">0</span> : <span class="fl">150e6</span>, <span class="fl">1e-3</span> : <span class="fl">200e6</span>, <span class="fl">2e-3</span> : <span class="fl">400e6</span>},</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>      interpolation : <span class="st">&quot;linear&quot;</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h2 data-number="2.5" id="list-of-available-kinematic-hardening-rules"><span class="header-section-number">2.5</span> List of available kinematic hardening rules</h2>
-<h3 data-number="2.5.1" id="the-prager-kinematic-hardening-rule"><span class="header-section-number">2.5.1</span> The <code>Prager</code> kinematic hardening rule</h3>
-<h4 data-number="2.5.1.1" id="example-13"><span class="header-section-number">2.5.1.1</span> Example</h4>
-<p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening : <span class="st">&quot;Prager&quot;</span> {C : <span class="fl">33e6</span>},</span></code></pre></div>
-<h3 data-number="2.5.2" id="the-armstrong-frederick-kinematic-hardening-rule"><span class="header-section-number">2.5.2</span> The <code>Armstrong-Frederick</code> kinematic hardening rule</h3>
-<p>The <code>Armstrong-Frederick</code> kinematic hardening rule can be described as follows (see <span class="citation" data-cites="armstrong_mathematical_1966">[<a href="#ref-armstrong_mathematical_1966" role="doc-biblioref">8</a>]</span>): <span class="math display">\[
+<h4 data-number="2.4.6.1" id="example-of-usage-2"><span
+class="header-section-number">2.4.6.1</span> Example of usage</h4>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Data&quot;</span> <span class="op">{</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>      values <span class="op">:</span> <span class="op">{</span><span class="dv">0</span> <span class="op">:</span> <span class="fl">150e6</span><span class="op">,</span> <span class="fl">1e-3</span> <span class="op">:</span> <span class="fl">200e6</span><span class="op">,</span> <span class="fl">2e-3</span> <span class="op">:</span> <span class="fl">400e6</span><span class="op">},</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>      interpolation <span class="op">:</span> <span class="st">&quot;linear&quot;</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h2 data-number="2.5"
+id="list-of-available-kinematic-hardening-rules"><span
+class="header-section-number">2.5</span> List of available kinematic
+hardening rules</h2>
+<h3 data-number="2.5.1" id="the-prager-kinematic-hardening-rule"><span
+class="header-section-number">2.5.1</span> The <code>Prager</code>
+kinematic hardening rule</h3>
+<h4 data-number="2.5.1.1" id="example-13"><span
+class="header-section-number">2.5.1.1</span> Example</h4>
+<p>The following code can be added in a block defining an inelastic
+flow:</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Prager&quot;</span> <span class="op">{</span>C <span class="op">:</span> <span class="fl">33e6</span><span class="op">},</span></span></code></pre></div>
+<h3 data-number="2.5.2"
+id="the-armstrong-frederick-kinematic-hardening-rule"><span
+class="header-section-number">2.5.2</span> The
+<code>Armstrong-Frederick</code> kinematic hardening rule</h3>
+<p>The <code>Armstrong-Frederick</code> kinematic hardening rule can be
+described as follows (see <span class="citation"
+data-cites="armstrong_mathematical_1966">[<a
+href="#ref-armstrong_mathematical_1966"
+role="doc-biblioref">8</a>]</span>): <span class="math display">\[
 \left\{
 \begin{aligned}
 \underline{X}&amp;=\dfrac{2}{3}\,C\,\underline{a} \\
-\underline{\dot{a}}&amp;=\dot{p}\,\underline{n}-D\,\dot{p}\,\underline{a} \\
+\underline{\dot{a}}&amp;=\dot{p}\,\underline{n}-D\,\dot{p}\,\underline{a}
+\\
 \end{aligned}
 \right.
 \]</span></p>
-<h4 data-number="2.5.2.1" id="example-14"><span class="header-section-number">2.5.2.1</span> Example</h4>
-<p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening : <span class="st">&quot;Armstrong-Frederick&quot;</span> {C : <span class="fl">1.5e9</span>, D : <span class="dv">5</span>}</span></code></pre></div>
-<h3 data-number="2.5.3" id="the-burlet-cailletaud-kinematic-hardening-rule"><span class="header-section-number">2.5.3</span> The <code>Burlet-Cailletaud</code> kinematic hardening rule</h3>
-<p>The <code>Burlet-Cailletaud</code> kinematic hardening rule is defined as follows (see <span class="citation" data-cites="burlet_modelling_1987">[<a href="#ref-burlet_modelling_1987" role="doc-biblioref">9</a>]</span>):</p>
+<h4 data-number="2.5.2.1" id="example-14"><span
+class="header-section-number">2.5.2.1</span> Example</h4>
+<p>The following code can be added in a block defining an inelastic
+flow:</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Armstrong-Frederick&quot;</span> <span class="op">{</span>C <span class="op">:</span> <span class="fl">1.5e9</span><span class="op">,</span> D <span class="op">:</span> <span class="dv">5</span><span class="op">}</span></span></code></pre></div>
+<h3 data-number="2.5.3"
+id="the-burlet-cailletaud-kinematic-hardening-rule"><span
+class="header-section-number">2.5.3</span> The
+<code>Burlet-Cailletaud</code> kinematic hardening rule</h3>
+<p>The <code>Burlet-Cailletaud</code> kinematic hardening rule is
+defined as follows (see <span class="citation"
+data-cites="burlet_modelling_1987">[<a href="#ref-burlet_modelling_1987"
+role="doc-biblioref">9</a>]</span>):</p>
 <p><span class="math display">\[
 \left\{
 \begin{aligned}
 \underline{X}&amp;=\dfrac{2}{3}\,C\,\underline{a} \\
 \underline{\dot{a}}&amp;=\dot{p}\,\underline{n}
 -\eta\,D\,\dot{p}\,\underline{a}
--{\left(1-\eta\right)}\,D\,\dfrac{2}{3}\,\dot{p}\,{\left(\underline{a}\,\colon\,\underline{n}\right)}\,\underline{n} \\
+-{\left(1-\eta\right)}\,D\,\dfrac{2}{3}\,\dot{p}\,{\left(\underline{a}\,\colon\,\underline{n}\right)}\,\underline{n}
+\\
 \end{aligned}
 \right.
 \]</span></p>
-<h4 data-number="2.5.3.1" id="example-15"><span class="header-section-number">2.5.3.1</span> Example</h4>
-<p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening : <span class="st">&quot;Burlet-Cailletaud&quot;</span> {C : <span class="fl">250e7</span>, D : <span class="dv">100</span>, eta : <span class="dv">0</span>}</span></code></pre></div>
-<h3 data-number="2.5.4" id="the-chaboche-2012-kinematic-hardening-rule"><span class="header-section-number">2.5.4</span> The <code>Chaboche 2012</code> kinematic hardening rule</h3>
-<p>The <code>Chaboche 2012</code> kinematic hardening rule is defined as follows (see <span class="citation" data-cites="chaboche_cyclic_2012">[<a href="#ref-chaboche_cyclic_2012" role="doc-biblioref">10</a>]</span>):</p>
+<h4 data-number="2.5.3.1" id="example-15"><span
+class="header-section-number">2.5.3.1</span> Example</h4>
+<p>The following code can be added in a block defining an inelastic
+flow:</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Burlet-Cailletaud&quot;</span> <span class="op">{</span>C <span class="op">:</span> <span class="fl">250e7</span><span class="op">,</span> D <span class="op">:</span> <span class="dv">100</span><span class="op">,</span> eta <span class="op">:</span> <span class="dv">0</span><span class="op">}</span></span></code></pre></div>
+<h3 data-number="2.5.4"
+id="the-chaboche-2012-kinematic-hardening-rule"><span
+class="header-section-number">2.5.4</span> The
+<code>Chaboche 2012</code> kinematic hardening rule</h3>
+<p>The <code>Chaboche 2012</code> kinematic hardening rule is defined as
+follows (see <span class="citation"
+data-cites="chaboche_cyclic_2012">[<a href="#ref-chaboche_cyclic_2012"
+role="doc-biblioref">10</a>]</span>):</p>
 <p><span class="math display">\[
 \underline{\dot{a}}
 =\underline{\dot{\varepsilon}}^{p}-\frac{3\,D}{2\,C}\,\Phi\left(p\right)\,
@@ -960,75 +1529,215 @@ D\,\Phi\left(p\right)\,\Psi\left(\underline{a}\right)\dot{p}\,\underline{a}
 \]</span></p>
 <p>with:</p>
 <ul>
-<li><span class="math inline">\(\underline{X}=\frac{2}{3}\,C\,\underline{a}\)</span></li>
-<li><span class="math inline">\(\Phi\left(p\right)=\phi_{\infty}+ \left(1-\phi_{\infty}\right)\,\exp\left(-b\,p\right)\)</span></li>
-<li><span class="math inline">\(\Psi^{\left(\underline{X}\right)}\left(\underline{X}\right)= \frac{\left&lt;D\,J\left(\underline{X}\right)-\omega\,C\right&gt;^{m}}{1-\omega}\, \frac{1}{\left(D\,J\left(\underline{X}\right)\right)^{m}}\)</span></li>
-<li><span class="math inline">\(\Psi\left(\underline{a}\right)= \frac{\left&lt;D\,J\left(\underline{a}\right)-\frac{3}{2}\omega\right&gt;^{m}}{1-\omega}\, \frac{1}{\left(D\,J\left(\underline{a}\right)\right)^{m}}\)</span></li>
+<li><span
+class="math inline">\(\underline{X}=\frac{2}{3}\,C\,\underline{a}\)</span></li>
+<li><span class="math inline">\(\Phi\left(p\right)=\phi_{\infty}+
+\left(1-\phi_{\infty}\right)\,\exp\left(-b\,p\right)\)</span></li>
+<li><span
+class="math inline">\(\Psi^{\left(\underline{X}\right)}\left(\underline{X}\right)=
+\frac{\left&lt;D\,J\left(\underline{X}\right)-\omega\,C\right&gt;^{m}}{1-\omega}\,
+\frac{1}{\left(D\,J\left(\underline{X}\right)\right)^{m}}\)</span></li>
+<li><span class="math inline">\(\Psi\left(\underline{a}\right)=
+\frac{\left&lt;D\,J\left(\underline{a}\right)-\frac{3}{2}\omega\right&gt;^{m}}{1-\omega}\,
+\frac{1}{\left(D\,J\left(\underline{a}\right)\right)^{m}}\)</span></li>
 </ul>
-<h4 data-number="2.5.4.1" id="example-16"><span class="header-section-number">2.5.4.1</span> Example</h4>
-<p>The following code can be added in a block defining an inelastic flow:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening : <span class="st">&quot;Chaboche 2012&quot;</span> {</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>      C : <span class="fl">250e7</span>,</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>      D : <span class="dv">100</span>,</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>      m : <span class="dv">2</span>,</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>      w : <span class="fl">0.6</span>,</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div>
-<h3 data-number="2.5.5" id="delobelle-robinet-schaffler-drs-kinematic-hardening-rule"><span class="header-section-number">2.5.5</span> Delobelle-Robinet-Schaffler (DRS) kinematic hardening rule</h3>
-<p>The Delobelle-Robinet-Schaffler (DRS) kinematic hardening rule has been introduced to describe orthotropic viscoplasticity of Zircaloy alloys <span class="citation" data-cites="delobelle_model_1996 schaffler_thermomechanical_1999">[<a href="#ref-delobelle_model_1996" role="doc-biblioref">11</a>, <a href="#ref-schaffler_thermomechanical_1999" role="doc-biblioref">12</a>]</span>. It describes both dynamic and static recovery by the following evolution law: <span class="math display">\[
+<h4 data-number="2.5.4.1" id="example-16"><span
+class="header-section-number">2.5.4.1</span> Example</h4>
+<p>The following code can be added in a block defining an inelastic
+flow:</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Chaboche 2012&quot;</span> <span class="op">{</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>      C <span class="op">:</span> <span class="fl">250e7</span><span class="op">,</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>      D <span class="op">:</span> <span class="dv">100</span><span class="op">,</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>      m <span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>      w <span class="op">:</span> <span class="fl">0.6</span><span class="op">,</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div>
+<h3 data-number="2.5.5"
+id="delobelle-robinet-schaffler-drs-kinematic-hardening-rule"><span
+class="header-section-number">2.5.5</span> Delobelle-Robinet-Schaffler
+(DRS) kinematic hardening rule</h3>
+<p>The Delobelle-Robinet-Schaffler (DRS) kinematic hardening rule has
+been introduced to describe orthotropic viscoplasticity of Zircaloy
+alloys <span class="citation"
+data-cites="delobelle_model_1996 schaffler_thermomechanical_1999">[<a
+href="#ref-delobelle_model_1996" role="doc-biblioref">11</a>, <a
+href="#ref-schaffler_thermomechanical_1999"
+role="doc-biblioref">12</a>]</span>. It describes both dynamic and
+static recovery by the following evolution law: <span
+class="math display">\[
 \underline{\dot{a}}=
 \dot{p}\,\underline{\mathbf{E}}_{c}\,\colon\,\underline{n}
 -D\,\dot{p}\,\underline{\mathbf{R}}_{d}\,\colon\,\underline{a}
--f\,{\left(\frac{a_{\mathrm{eq}}}{a_{0}}\right)}^{m}\,{{\displaystyle \frac{\displaystyle \partial a_{\mathrm{eq}}}{\displaystyle \partial \underline{a}}}}
-\]</span> with <span class="math inline">\(a_{\mathrm{eq}}=\sqrt{\underline{a}\,\colon\,\underline{\mathbf{R}}_{s}\,\colon\,\underline{a}}\)</span> and <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial a_{\mathrm{eq}}}{\displaystyle \partial \underline{a}}}}=\frac{\underline{\mathbf{R}}_{s}\,\colon\,\underline{a}}{a_{\mathrm{eq}}}\)</span></p>
-<p>The three fourth order tensors <span class="math inline">\(\underline{\mathbf{E}}_{c}\)</span>, <span class="math inline">\(\underline{\mathbf{R}}_{d}\)</span> and <span class="math inline">\(\underline{\mathbf{R}}_{s}\)</span> are assumed to have the same structure as the Hill tensors and are defined by <span class="math inline">\(6\)</span> components (see <a href="tensors.html">this page</a> for details).</p>
-<p>The <code>f</code> and <code>a0</code> parameters are optional and defaults to <span class="math inline">\(1\)</span>.</p>
-<h4 data-number="2.5.5.1" id="example-17"><span class="header-section-number">2.5.5.1</span> Example</h4>
-<div class="sourceCode" id="cb24"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening : <span class="st">&quot;DRS&quot;</span> {</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>      C : <span class="fl">150.e9</span>,  <span class="co">// kinematic moduli</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>      D : <span class="fl">1e2</span>,    <span class="co">// back-strain callback coefficient</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>      f : <span class="dv">10</span>,</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>      m : <span class="dv">5</span>,</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>      Ec : {<span class="fl">0.33</span>, <span class="fl">0.33</span>, <span class="fl">0.33</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>},</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>      Rs : {<span class="fl">0.33</span>, <span class="fl">0.63</span>, <span class="fl">0.33</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>},</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>      Rd : {<span class="fl">0.33</span>, <span class="fl">0.33</span>, <span class="fl">0.33</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>}  <span class="co">//</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    },</span></code></pre></div>
+-f\,{\left(\frac{a_{\mathrm{eq}}}{a_{0}}\right)}^{m}\,{{\displaystyle
+\frac{\displaystyle \partial a_{\mathrm{eq}}}{\displaystyle \partial
+\underline{a}}}}
+\]</span> with <span
+class="math inline">\(a_{\mathrm{eq}}=\sqrt{\underline{a}\,\colon\,\underline{\mathbf{R}}_{s}\,\colon\,\underline{a}}\)</span>
+and <span class="math inline">\({{\displaystyle \frac{\displaystyle
+\partial a_{\mathrm{eq}}}{\displaystyle \partial
+\underline{a}}}}=\frac{\underline{\mathbf{R}}_{s}\,\colon\,\underline{a}}{a_{\mathrm{eq}}}\)</span></p>
+<p>The three fourth order tensors <span
+class="math inline">\(\underline{\mathbf{E}}_{c}\)</span>, <span
+class="math inline">\(\underline{\mathbf{R}}_{d}\)</span> and <span
+class="math inline">\(\underline{\mathbf{R}}_{s}\)</span> are assumed to
+have the same structure as the Hill tensors and are defined by <span
+class="math inline">\(6\)</span> components (see <a
+href="tensors.html">this page</a> for details).</p>
+<p>The <code>f</code> and <code>a0</code> parameters are optional and
+defaults to <span class="math inline">\(1\)</span>.</p>
+<h4 data-number="2.5.5.1" id="example-17"><span
+class="header-section-number">2.5.5.1</span> Example</h4>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;DRS&quot;</span> <span class="op">{</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>      C <span class="op">:</span> <span class="fl">150.e9</span><span class="op">,</span>  <span class="co">// kinematic moduli</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>      D <span class="op">:</span> <span class="fl">1e2</span><span class="op">,</span>    <span class="co">// back-strain callback coefficient</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>      f <span class="op">:</span> <span class="dv">10</span><span class="op">,</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>      m <span class="op">:</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>      Ec <span class="op">:</span> <span class="op">{</span><span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>      Rs <span class="op">:</span> <span class="op">{</span><span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.63</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>      Rd <span class="op">:</span> <span class="op">{</span><span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}</span>  <span class="co">//</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span></code></pre></div>
 <h1 class="unnumbered" id="references">References</h1>
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-monerie_overall_2006" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Monerie</span>, Yann and <span class="smallcaps">Gatt</span>, Jean-Marie. Overall viscoplastic behavior of non-irradiated porous nuclear ceramics. <em>Mechanics of Materials</em>. July 2006. Vol. 38, no. 7, p. 608–619. DOI <a href="https://doi.org/10.1016/j.mechmat.2005.11.004">10.1016/j.mechmat.2005.11.004</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0167663605001882">http://www.sciencedirect.com/science/article/pii/S0167663605001882</a></div>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-monerie_overall_2006" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Monerie</span>, Yann
+and <span class="smallcaps">Gatt</span>, Jean-Marie. Overall
+viscoplastic behavior of non-irradiated porous nuclear ceramics.
+<em>Mechanics of Materials</em>. July 2006. Vol. 38, no. 7, p. 608–619.
+DOI <a
+href="https://doi.org/10.1016/j.mechmat.2005.11.004">10.1016/j.mechmat.2005.11.004</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0167663605001882">http://www.sciencedirect.com/science/article/pii/S0167663605001882</a></div>
 </div>
-<div id="ref-salvo_experimental_2015-1" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Salvo</span>, Maxime, <span class="smallcaps">Sercombe</span>, Jérôme, <span class="smallcaps">Ménard</span>, Jean-Claude, <span class="smallcaps">Julien</span>, Jérôme, <span class="smallcaps">Helfer</span>, Thomas and <span class="smallcaps">Désoyer</span>, Thierry. Experimental characterization and modelling of <span>UO</span>2 behavior at high temperatures and high strain rates. <em>Journal of Nuclear Materials</em>. January 2015. Vol. 456, p. 54–67. DOI <a href="https://doi.org/10.1016/j.jnucmat.2014.09.024">10.1016/j.jnucmat.2014.09.024</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S002231151400614X">http://www.sciencedirect.com/science/article/pii/S002231151400614X</a></div>
+<div id="ref-salvo_experimental_2015-1" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline"><span class="smallcaps">Salvo</span>, Maxime,
+<span class="smallcaps">Sercombe</span>, Jérôme, <span
+class="smallcaps">Ménard</span>, Jean-Claude, <span
+class="smallcaps">Julien</span>, Jérôme, <span
+class="smallcaps">Helfer</span>, Thomas and <span
+class="smallcaps">Désoyer</span>, Thierry. Experimental characterization
+and modelling of <span>UO</span>2 behavior at high temperatures and high
+strain rates. <em>Journal of Nuclear Materials</em>. January 2015.
+Vol. 456, p. 54–67. DOI <a
+href="https://doi.org/10.1016/j.jnucmat.2014.09.024">10.1016/j.jnucmat.2014.09.024</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S002231151400614X">http://www.sciencedirect.com/science/article/pii/S002231151400614X</a></div>
 </div>
-<div id="ref-salvo_experimental_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">Salvo</span>, Maxime, <span class="smallcaps">Sercombe</span>, Jérôme, <span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Sornay</span>, Philippe and <span class="smallcaps">Désoyer</span>, Thierry. Experimental characterization and modeling of <span>UO</span>2 grain boundary cracking at high temperatures and high strain rates. <em>Journal of Nuclear Materials</em>. May 2015. Vol. 460, p. 184–199. DOI <a href="https://doi.org/10.1016/j.jnucmat.2015.02.018">10.1016/j.jnucmat.2015.02.018</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0022311515001130">http://www.sciencedirect.com/science/article/pii/S0022311515001130</a></div>
+<div id="ref-salvo_experimental_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline"><span class="smallcaps">Salvo</span>, Maxime,
+<span class="smallcaps">Sercombe</span>, Jérôme, <span
+class="smallcaps">Helfer</span>, Thomas, <span
+class="smallcaps">Sornay</span>, Philippe and <span
+class="smallcaps">Désoyer</span>, Thierry. Experimental characterization
+and modeling of <span>UO</span>2 grain boundary cracking at high
+temperatures and high strain rates. <em>Journal of Nuclear
+Materials</em>. May 2015. Vol. 460, p. 184–199. DOI <a
+href="https://doi.org/10.1016/j.jnucmat.2015.02.018">10.1016/j.jnucmat.2015.02.018</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0022311515001130">http://www.sciencedirect.com/science/article/pii/S0022311515001130</a></div>
 </div>
-<div id="ref-hosford_generalized_1972" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline"><span class="smallcaps">Hosford</span>, W. F. A generalized isotropic yield criterion. <em>Journal of Applied Mechanics</em>. 1972. Vol. 39, no. 2, p. 607–609. </div>
+<div id="ref-hosford_generalized_1972" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline"><span class="smallcaps">Hosford</span>, W. F. A
+generalized isotropic yield criterion. <em>Journal of Applied
+Mechanics</em>. 1972. Vol. 39, no. 2, p. 607–609. </div>
 </div>
-<div id="ref-cazacu_criterion_2004" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">5. </div><div class="csl-right-inline"><span class="smallcaps">Cazacu</span>, Oana and <span class="smallcaps">Barlat</span>, Frédéric. A criterion for description of anisotropy and yield differential effects in pressure-insensitive metals. <em>International Journal of Plasticity</em>. 1 November 2004. Vol. 20, no. 11, p. 2027–2045. DOI <a href="https://doi.org/10.1016/j.ijplas.2003.11.021">10.1016/j.ijplas.2003.11.021</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641904000348">http://www.sciencedirect.com/science/article/pii/S0749641904000348</a></div>
+<div id="ref-cazacu_criterion_2004" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline"><span class="smallcaps">Cazacu</span>, Oana and
+<span class="smallcaps">Barlat</span>, Frédéric. A criterion for
+description of anisotropy and yield differential effects in
+pressure-insensitive metals. <em>International Journal of
+Plasticity</em>. 1 November 2004. Vol. 20, no. 11, p. 2027–2045. DOI <a
+href="https://doi.org/10.1016/j.ijplas.2003.11.021">10.1016/j.ijplas.2003.11.021</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0749641904000348">http://www.sciencedirect.com/science/article/pii/S0749641904000348</a></div>
 </div>
-<div id="ref-cazacu_generalization_2001" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">6. </div><div class="csl-right-inline"><span class="smallcaps">Cazacu</span>, Oana and <span class="smallcaps">Barlat</span>, Frédéric. Generalization of drucker’s yield criterion to orthotropy. <em>Mathematics and Mechanics of Solids</em>. 1 December 2001. Vol. 6, no. 6, p. 613–630. DOI <a href="https://doi.org/10.1177/108128650100600603">10.1177/108128650100600603</a>. Available from: <a href="https://doi.org/10.1177/108128650100600603">https://doi.org/10.1177/108128650100600603</a></div>
+<div id="ref-cazacu_generalization_2001" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline"><span class="smallcaps">Cazacu</span>, Oana and
+<span class="smallcaps">Barlat</span>, Frédéric. Generalization of
+drucker’s yield criterion to orthotropy. <em>Mathematics and Mechanics
+of Solids</em>. 1 December 2001. Vol. 6, no. 6, p. 613–630. DOI <a
+href="https://doi.org/10.1177/108128650100600603">10.1177/108128650100600603</a>.
+Available from: <a
+href="https://doi.org/10.1177/108128650100600603">https://doi.org/10.1177/108128650100600603</a></div>
 </div>
-<div id="ref-barlat_linear_2005" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">7. </div><div class="csl-right-inline"><span class="smallcaps">Barlat</span>, F., <span class="smallcaps">Aretz</span>, H., <span class="smallcaps">Yoon</span>, J. W., <span class="smallcaps">Karabin</span>, M. E., <span class="smallcaps">Brem</span>, J. C. and <span class="smallcaps">Dick</span>, R. E. Linear transfomation-based anisotropic yield functions. <em>International Journal of Plasticity</em>. 1 May 2005. Vol. 21, no. 5, p. 1009–1039. DOI <a href="https://doi.org/10.1016/j.ijplas.2004.06.004">10.1016/j.ijplas.2004.06.004</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641904001160">http://www.sciencedirect.com/science/article/pii/S0749641904001160</a></div>
+<div id="ref-barlat_linear_2005" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline"><span class="smallcaps">Barlat</span>, F.,
+<span class="smallcaps">Aretz</span>, H., <span
+class="smallcaps">Yoon</span>, J. W., <span
+class="smallcaps">Karabin</span>, M. E., <span
+class="smallcaps">Brem</span>, J. C. and <span
+class="smallcaps">Dick</span>, R. E. Linear transfomation-based
+anisotropic yield functions. <em>International Journal of
+Plasticity</em>. 1 May 2005. Vol. 21, no. 5, p. 1009–1039. DOI <a
+href="https://doi.org/10.1016/j.ijplas.2004.06.004">10.1016/j.ijplas.2004.06.004</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0749641904001160">http://www.sciencedirect.com/science/article/pii/S0749641904001160</a></div>
 </div>
-<div id="ref-armstrong_mathematical_1966" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">8. </div><div class="csl-right-inline"><span class="smallcaps">Armstrong</span>, P. J. and <span class="smallcaps">Frederick</span>, C. O. <span>RD</span>/<span>BfN</span> 731: A mathematical representation of the multiaxial bauschinger effect. Central Electricity Generating Board, 1966. </div>
+<div id="ref-armstrong_mathematical_1966" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">8. </div><div
+class="csl-right-inline"><span class="smallcaps">Armstrong</span>, P. J.
+and <span class="smallcaps">Frederick</span>, C. O.
+<span>RD</span>/<span>BfN</span> 731: A mathematical representation of
+the multiaxial bauschinger effect. Central Electricity Generating Board,
+1966. </div>
 </div>
-<div id="ref-burlet_modelling_1987" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">9. </div><div class="csl-right-inline"><span class="smallcaps">Burlet</span>, Hélène and <span class="smallcaps">Cailletaud</span>, Georges. Modelling of cyclic plasticity in finite element codes. In : <em>Proceedings of 2nd international conference on constitutive laws for engineering materials; theory and application</em>. Tucson, <span>AZ</span>, 1987. </div>
+<div id="ref-burlet_modelling_1987" class="csl-entry" role="listitem">
+<div class="csl-left-margin">9. </div><div
+class="csl-right-inline"><span class="smallcaps">Burlet</span>, Hélène
+and <span class="smallcaps">Cailletaud</span>, Georges. Modelling of
+cyclic plasticity in finite element codes. In : <em>Proceedings of 2nd
+international conference on constitutive laws for engineering materials;
+theory and application</em>. Tucson, <span>AZ</span>, 1987. </div>
 </div>
-<div id="ref-chaboche_cyclic_2012" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">10. </div><div class="csl-right-inline"><span class="smallcaps">Chaboche</span>, J. -L., <span class="smallcaps">Kanouté</span>, P. and <span class="smallcaps">Azzouz</span>, F. Cyclic inelastic constitutive equations and their impact on the fatigue life predictions. <em>International Journal of Plasticity</em>. 1 August 2012. Vol. 35, p. 44–66. DOI <a href="https://doi.org/10.1016/j.ijplas.2012.01.010">10.1016/j.ijplas.2012.01.010</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641912000113">http://www.sciencedirect.com/science/article/pii/S0749641912000113</a></div>
+<div id="ref-chaboche_cyclic_2012" class="csl-entry" role="listitem">
+<div class="csl-left-margin">10. </div><div
+class="csl-right-inline"><span class="smallcaps">Chaboche</span>, J.
+-L., <span class="smallcaps">Kanouté</span>, P. and <span
+class="smallcaps">Azzouz</span>, F. Cyclic inelastic constitutive
+equations and their impact on the fatigue life predictions.
+<em>International Journal of Plasticity</em>. 1 August 2012. Vol. 35,
+p. 44–66. DOI <a
+href="https://doi.org/10.1016/j.ijplas.2012.01.010">10.1016/j.ijplas.2012.01.010</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0749641912000113">http://www.sciencedirect.com/science/article/pii/S0749641912000113</a></div>
 </div>
-<div id="ref-delobelle_model_1996" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">11. </div><div class="csl-right-inline"><span class="smallcaps">Delobelle</span>, P., <span class="smallcaps">Robinet</span>, P., <span class="smallcaps">Geyer</span>, P. and <span class="smallcaps">Bouffioux</span>, P. A model to describe the anisotropic viscoplastic behaviour of zircaloy-4 tubes. <em>Journal of Nuclear Materials</em>. 1 November 1996. Vol. 238, no. 2, p. 135–162. DOI <a href="https://doi.org/10.1016/S0022-3115(96)00450-3">10.1016/S0022-3115(96)00450-3</a>. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S0022311596004503">https://www.sciencedirect.com/science/article/pii/S0022311596004503</a></div>
+<div id="ref-delobelle_model_1996" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div
+class="csl-right-inline"><span class="smallcaps">Delobelle</span>, P.,
+<span class="smallcaps">Robinet</span>, P., <span
+class="smallcaps">Geyer</span>, P. and <span
+class="smallcaps">Bouffioux</span>, P. A model to describe the
+anisotropic viscoplastic behaviour of zircaloy-4 tubes. <em>Journal of
+Nuclear Materials</em>. 1 November 1996. Vol. 238, no. 2, p. 135–162.
+DOI <a
+href="https://doi.org/10.1016/S0022-3115(96)00450-3">10.1016/S0022-3115(96)00450-3</a>.
+Available from: <a
+href="https://www.sciencedirect.com/science/article/pii/S0022311596004503">https://www.sciencedirect.com/science/article/pii/S0022311596004503</a></div>
 </div>
-<div id="ref-schaffler_thermomechanical_1999" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">12. </div><div class="csl-right-inline"><span class="smallcaps">Schäffler</span>, I., <span class="smallcaps">Geyer</span>, P., <span class="smallcaps">Bouffioux</span>, P. and <span class="smallcaps">Delobelle</span>, P. Thermomechanical behavior and modeling between 350°c and 400°c of zircaloy-4 cladding tubes from an unirradiated state to high fluence. <em>Journal of Engineering Materials and Technology</em>. 6 July 1999. Vol. 122, no. 2, p. 168–176. DOI <a href="https://doi.org/10.1115/1.482783">10.1115/1.482783</a>. Available from: <a href="https://doi.org/10.1115/1.482783">https://doi.org/10.1115/1.482783</a></div>
+<div id="ref-schaffler_thermomechanical_1999" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline"><span class="smallcaps">Schäffler</span>, I.,
+<span class="smallcaps">Geyer</span>, P., <span
+class="smallcaps">Bouffioux</span>, P. and <span
+class="smallcaps">Delobelle</span>, P. Thermomechanical behavior and
+modeling between 350°c and 400°c of zircaloy-4 cladding tubes from an
+unirradiated state to high fluence. <em>Journal of Engineering Materials
+and Technology</em>. 6 July 1999. Vol. 122, no. 2, p. 168–176. DOI <a
+href="https://doi.org/10.1115/1.482783">10.1115/1.482783</a>. Available
+from: <a
+href="https://doi.org/10.1115/1.482783">https://doi.org/10.1115/1.482783</a></div>
 </div>
 </div>
     <script>

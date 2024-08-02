@@ -15,8 +15,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -25,7 +26,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -49,11 +50,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -62,14 +63,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -79,7 +80,9 @@
             <link rel="stylesheet" href=" css/slideshow.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -182,6 +185,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -330,20 +334,42 @@
 <h1 class="title">The Europlexus interface</h1>
 </div>
 <div id="slideshow">
-<p><ul class="slides"> <li> <video style="display:block; margin: 0 auto;" width="640" height="320" controls> <source src="media/epx1.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </li> <li> <video style="display:block; margin: 0 auto;" width="640" height="320" controls> <source src="media/epx2.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </li> </ul> <span class="arrow previous"></span> <span class="arrow next"></span></p>
+<p><ul class="slides"> <li>
+<video style="display:block; margin: 0 auto;" width="640" height="320" controls>
+<source src="media/epx1.mp4" type="video/mp4"> Your browser does not
+support the video tag. </video> </li> <li>
+<video style="display:block; margin: 0 auto;" width="640" height="320" controls>
+<source src="media/epx2.mp4" type="video/mp4"> Your browser does not
+support the video tag. </video> </li> </ul> <span
+class="arrow previous"></span> <span class="arrow next"></span></p>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script src="js/slideshow.js"></script>
-<p><code>Europlexus</code> (<code>EPX</code>) is a simulation software dedicated to the analysis of fast transient phenomena involving structures and fluids in interaction. The program is co-owned by the Commissariat à l’Energie Atomique et aux Energies Alternatives (CEA) and the Joint Research Centre of the European Commission (EC/JRC). Its development is carried out through a Consortium involving the co-owners and so-called major partners who are granted a complete access to the source code and development tools (see <span class="citation" data-cites="cea_epx_2016">[2]</span>).</p>
-<p>Time integration is achieved through a conditionally stable explicit scheme.</p>
+<p><code>Europlexus</code> (<code>EPX</code>) is a simulation software
+dedicated to the analysis of fast transient phenomena involving
+structures and fluids in interaction. The program is co-owned by the
+Commissariat à l’Energie Atomique et aux Energies Alternatives (CEA) and
+the Joint Research Centre of the European Commission (EC/JRC). Its
+development is carried out through a Consortium involving the co-owners
+and so-called major partners who are granted a complete access to the
+source code and development tools (see <span class="citation"
+data-cites="cea_epx_2016">[1]</span>).</p>
+<p>Time integration is achieved through a conditionally stable explicit
+scheme.</p>
 <h1 id="description-of-the-interface">Description of the interface</h1>
 <p>The following features are currently available:</p>
 <ul>
 <li>Support for finite strain behaviours
 <ul>
-<li>Small strain behaviours can be embedded though finite strain strategies: currently, <code>MFront</code> provides the <code>FiniteRotationSmallStrain</code> and the <code>MieheApelLambrechtLogarithmicStrain</code> strategies (see <span class="citation" data-cites="edf_loi_2013">[4]</span>;<span class="citation" data-cites="miehe_anisotropic_2002">[5]</span>)</li>
+<li>Small strain behaviours can be embedded though finite strain
+strategies: currently, <code>MFront</code> provides the
+<code>FiniteRotationSmallStrain</code> and the
+<code>MieheApelLambrechtLogarithmicStrain</code> strategies (see <span
+class="citation" data-cites="edf_loi_2013">[2]</span>;<span
+class="citation" data-cites="miehe_anisotropic_2002">[3]</span>)</li>
 </ul></li>
-<li><code>Europlexus</code> is able to analyse the generated library to get helpfull information about the mechanical behaviour:
+<li><code>Europlexus</code> is able to analyse the generated library to
+get helpfull information about the mechanical behaviour:
 <ul>
 <li>number and name of material properties</li>
 <li>number, names and type of internal state variables</li>
@@ -351,11 +377,15 @@
 <li>symmetry of the behaviour (isotropy, orthotropy)</li>
 <li>etc…</li>
 </ul></li>
-<li>An example of input file is automatically generated to help the user in assigning a <code>MFront</code> behaviour to a material.</li>
+<li>An example of input file is automatically generated to help the user
+in assigning a <code>MFront</code> behaviour to a material.</li>
 </ul>
-<h2 id="example-of-generated-input-file-fragment">Example of generated input file fragment</h2>
-<p>The following listing gives an example of generated input file fragment for an axisymmetric modelling hypothesis:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">MFRONT</span></span>
+<h2 id="example-of-generated-input-file-fragment">Example of generated
+input file fragment</h2>
+<p>The following listing gives an example of generated input file
+fragment for an axisymmetric modelling hypothesis:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">MFRONT</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">LIB</span> <span class="st">&#39;libEuroplexusBehaviour.so&#39;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">LAW</span> <span class="st">&#39;LogarithmicStrainNortonCreep&#39;</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">!!</span> material properties</span>
@@ -370,24 +400,39 @@
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ex">!!</span> external state variables</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">EVAR</span> <span class="st">&#39;Temperature&#39;</span> 293.15</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ex">LECT</span> MESH TERM</span></code></pre></div>
-<p>The user must replace each occurrences of ‘??’ by appropriate values.</p>
+<p>The user must replace each occurrences of ‘??’ by appropriate
+values.</p>
 <h1 id="qualification">Qualification</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-cea_epx_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">CEA</span> and <span class="smallcaps">JRC</span>. ‘Europlexus‘ web site. 2016. Available from: <a href="http://www-epx.cea.fr/index.php/what-is-epx">http://www-epx.cea.fr/index.php/what-is-epx</a></div>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-cea_epx_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">CEA</span> and <span
+class="smallcaps">JRC</span>. ‘Europlexus‘ web site. 2016. Available
+from: <a
+href="http://www-epx.cea.fr/index.php/what-is-epx">http://www-epx.cea.fr/index.php/what-is-epx</a></div>
 </div>
-<div id="ref-cea_epx_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">CEA</span> and <span class="smallcaps">JRC</span>. ‘Europlexus‘ web site. 2016. Available from: <a href="http://www-epx.cea.fr/index.php/what-is-epx">http://www-epx.cea.fr/index.php/what-is-epx</a></div>
+<div id="ref-edf_loi_2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline"><span class="smallcaps">EDF</span>. R5.03.22
+révision : 11536: Loi de comportement en grandes rotations et petites
+déformations. Référence du {Code} {Aster}. EDF-R&amp;D/AMA, 2013.
+Available from: <a
+href="http://www.code-aster.org">http://www.code-aster.org</a></div>
 </div>
-<div id="ref-edf_loi_2013" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline"><span class="smallcaps">EDF</span>. R5.03.22 révision : 11536: Loi de comportement en grandes rotations et petites déformations. Référence du Code Aster. EDF-R&amp;D/AMA, 2013. Available from: <a href="http://www.code-aster.org">http://www.code-aster.org</a></div>
-</div>
-<div id="ref-edf_loi_2013" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline"><span class="smallcaps">EDF</span>. R5.03.22 révision : 11536: Loi de comportement en grandes rotations et petites déformations. Référence du Code Aster. EDF-R&amp;D/AMA, 2013. Available from: <a href="http://www.code-aster.org">http://www.code-aster.org</a></div>
-</div>
-<div id="ref-miehe_anisotropic_2002" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">5. </div><div class="csl-right-inline"><span class="smallcaps">Miehe</span>, C., <span class="smallcaps">Apel</span>, N. and <span class="smallcaps">Lambrecht</span>, M. Anisotropic additive plasticity in the logarithmic strain space: Modular kinematic formulation and implementation based on incremental minimization principles for standard materials. <em>Computer Methods in Applied Mechanics and Engineering</em>. November 2002. Vol. 191, no. 47–48, p. 5383–5425. DOI <a href="https://doi.org/10.1016/S0045-7825(02)00438-3">10.1016/S0045-7825(02)00438-3</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0045782502004383">http://www.sciencedirect.com/science/article/pii/S0045782502004383</a></div>
+<div id="ref-miehe_anisotropic_2002" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline"><span class="smallcaps">Miehe</span>, C., <span
+class="smallcaps">Apel</span>, N. and <span
+class="smallcaps">Lambrecht</span>, M. Anisotropic additive plasticity
+in the logarithmic strain space: Modular kinematic formulation and
+implementation based on incremental minimization principles for standard
+materials. <em>Computer Methods in Applied Mechanics and
+Engineering</em>. November 2002. Vol. 191, no. 47–48, p. 5383–5425.
+DOI <a
+href="https://doi.org/10.1016/S0045-7825(02)00438-3">10.1016/S0045-7825(02)00438-3</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0045782502004383">http://www.sciencedirect.com/science/article/pii/S0045782502004383</a></div>
 </div>
 </div>
     <script>

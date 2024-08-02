@@ -16,8 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -26,7 +27,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -50,11 +51,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -63,14 +64,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -79,7 +80,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -182,6 +185,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -327,223 +331,443 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Implementing an isotropic elliptic yield criterion of the Green type</h1>
+<h1 class="title">Implementing an isotropic elliptic yield criterion of
+the Green type</h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">30/11/2017</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#description-of-the-behaviour">Description of the behaviour</a>
+<li><a href="#description-of-the-behaviour"
+id="toc-description-of-the-behaviour">Description of the behaviour</a>
 <ul>
-<li><a href="#elastic-behaviour">Elastic behaviour</a></li>
-<li><a href="#plastic-flow">Plastic flow</a></li>
+<li><a href="#elastic-behaviour" id="toc-elastic-behaviour">Elastic
+behaviour</a></li>
+<li><a href="#plastic-flow" id="toc-plastic-flow">Plastic flow</a></li>
 </ul></li>
-<li><a href="#integration-algorithm">Integration algorithm</a>
+<li><a href="#integration-algorithm"
+id="toc-integration-algorithm">Integration algorithm</a>
 <ul>
-<li><a href="#state-variables">State variables</a></li>
-<li><a href="#plastic-loading-case">Plastic loading case</a>
+<li><a href="#state-variables" id="toc-state-variables">State
+variables</a></li>
+<li><a href="#plastic-loading-case"
+id="toc-plastic-loading-case">Plastic loading case</a>
 <ul>
-<li><a href="#implicit-system">Implicit system</a></li>
-<li><a href="#computation-of-the-jacobian">Computation of the jacobian</a></li>
+<li><a href="#implicit-system" id="toc-implicit-system">Implicit
+system</a></li>
+<li><a href="#computation-of-the-jacobian"
+id="toc-computation-of-the-jacobian">Computation of the
+jacobian</a></li>
 </ul></li>
-<li><a href="#elastic-loading-case">Elastic loading case</a></li>
+<li><a href="#elastic-loading-case"
+id="toc-elastic-loading-case">Elastic loading case</a></li>
 </ul></li>
-<li><a href="#implementation">Implementation</a>
+<li><a href="#implementation" id="toc-implementation">Implementation</a>
 <ul>
-<li><a href="#preamble">Preamble</a>
+<li><a href="#preamble" id="toc-preamble">Preamble</a>
 <ul>
-<li><a href="#usage-of-the-standardelasticity-brick">Usage of the <code>StandardElasticity</code> brick</a></li>
-<li><a href="#elastic-stiffness-tensor">Elastic stiffness tensor</a></li>
-<li><a href="#variable-declarations">Variable declarations</a></li>
+<li><a href="#usage-of-the-standardelasticity-brick"
+id="toc-usage-of-the-standardelasticity-brick">Usage of the
+<code>StandardElasticity</code> brick</a></li>
+<li><a href="#elastic-stiffness-tensor"
+id="toc-elastic-stiffness-tensor">Elastic stiffness tensor</a></li>
+<li><a href="#variable-declarations"
+id="toc-variable-declarations">Variable declarations</a></li>
 </ul></li>
-<li><a href="#initialization-of-the-local-variables-determination-of-the-loading-case">Initialization of the local variables, determination of the loading case</a></li>
-<li><a href="#implicit-system-and-jacobian">Implicit system and jacobian</a></li>
+<li><a
+href="#initialization-of-the-local-variables-determination-of-the-loading-case"
+id="toc-initialization-of-the-local-variables-determination-of-the-loading-case">Initialization
+of the local variables, determination of the loading case</a></li>
+<li><a href="#implicit-system-and-jacobian"
+id="toc-implicit-system-and-jacobian">Implicit system and
+jacobian</a></li>
 </ul></li>
-<li><a href="#references">References</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
 </ul>
 </div>
-<p>This article shows how to implement an isotropic elliptic yield criterion of the Green type in <code>MFront</code>. Such an example illustrates the usage of <code>StandardElasticity</code> brick (see <a href="BehaviourBricks.html">this page</a>). This page is inspired by the paper of Fritzen et al. (See <span class="citation" data-cites="fritzen_computational_2013">[1]</span>).</p>
-<p>The whole implementation is available <a href="./gallery/plasticity/GreenPerfectPlasticity.mfront">here</a>.</p>
+<p>This article shows how to implement an isotropic elliptic yield
+criterion of the Green type in <code>MFront</code>. Such an example
+illustrates the usage of <code>StandardElasticity</code> brick (see <a
+href="BehaviourBricks.html">this page</a>). This page is inspired by the
+paper of Fritzen et al. (See <span class="citation"
+data-cites="fritzen_computational_2013">[1]</span>).</p>
+<p>The whole implementation is available <a
+href="./gallery/plasticity/GreenPerfectPlasticity.mfront">here</a>.</p>
 <h1 id="description-of-the-behaviour">Description of the behaviour</h1>
-<p>The behaviour is described by a standard decomposition of the strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in an elastic and a plastic component, respectively denoted <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and <span class="math inline">\(\underline{\varepsilon}^{\mathrm{p}}\)</span>:</p>
+<p>The behaviour is described by a standard decomposition of the strain
+<span
+class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in
+an elastic and a plastic component, respectively denoted <span
+class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and
+<span
+class="math inline">\(\underline{\varepsilon}^{\mathrm{p}}\)</span>:</p>
 <p><span class="math display">\[
 \underline{\varepsilon}^{\mathrm{to}}=\underline{\varepsilon}^{\mathrm{el}}+\underline{\varepsilon}^{\mathrm{p}}
 \]</span></p>
 <h2 id="elastic-behaviour">Elastic behaviour</h2>
-<p>The stress <span class="math inline">\(\underline{\sigma}\)</span> is related to the the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> by a the standard Hooke law expressed using the Lamé coefficients: <span class="math display">\[
-\underline{\sigma}= \lambda\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\underline{I}+2\,\mu\,\underline{\varepsilon}^{\mathrm{el}}
+<p>The stress <span class="math inline">\(\underline{\sigma}\)</span> is
+related to the the elastic strain <span
+class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> by
+a the standard Hooke law expressed using the Lamé coefficients: <span
+class="math display">\[
+\underline{\sigma}=
+\lambda\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\underline{I}+2\,\mu\,\underline{\varepsilon}^{\mathrm{el}}
 \]</span></p>
-<p>Cette relation est directement prise en charge par la brique <code>StandardElasticity</code>.</p>
+<p>Cette relation est directement prise en charge par la brique
+<code>StandardElasticity</code>.</p>
 <h2 id="plastic-flow">Plastic flow</h2>
-<p>The behaviour is based on the definition of an equivalent stress <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> defined as follows: <span class="math display">\[
-\sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,C\,\underline{s}\,\colon\,\underline{s}+F\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}^{2}}
-\]</span> where <span class="math inline">\(\underline{s}\)</span> is the deviatoric stress tensor: <span class="math display">\[
-\underline{s}=\underline{\sigma}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
-\]</span> This equivalent stress is an homogeneous function of the stress of degree 1.</p>
-<p>The plastic part of the behaviour is described by the following yield surface: <span class="math display">\[
+<p>The behaviour is based on the definition of an equivalent stress
+<span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> defined as
+follows: <span class="math display">\[
+\sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle
+3}{\displaystyle
+2}}}\,C\,\underline{s}\,\colon\,\underline{s}+F\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}^{2}}
+\]</span> where <span class="math inline">\(\underline{s}\)</span> is
+the deviatoric stress tensor: <span class="math display">\[
+\underline{s}=\underline{\sigma}-{{\displaystyle \frac{\displaystyle
+1}{\displaystyle
+3}}}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}
+\]</span> This equivalent stress is an homogeneous function of the
+stress of degree 1.</p>
+<p>The plastic part of the behaviour is described by the following yield
+surface: <span class="math display">\[
 f{\left(\underline{\sigma}\right)} = \sigma_{\mathrm{eq}}-\sigma_{0}
-\]</span> where <span class="math inline">\(\sigma_{0}\)</span> is the yield stress.</p>
-<p>Following the principle of maximum plastic dissipation, the plastic flow is assumed to be associated, so the flow direction <span class="math inline">\(\underline{n}\)</span> is given by <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f}{\displaystyle \partial \underline{\sigma}}}\)</span>:</p>
+\]</span> where <span class="math inline">\(\sigma_{0}\)</span> is the
+yield stress.</p>
+<p>Following the principle of maximum plastic dissipation, the plastic
+flow is assumed to be associated, so the flow direction <span
+class="math inline">\(\underline{n}\)</span> is given by <span
+class="math inline">\({\displaystyle \frac{\displaystyle \partial
+f}{\displaystyle \partial \underline{\sigma}}}\)</span>:</p>
 <p><span class="math display">\[
-\underline{n} = {\displaystyle \frac{\displaystyle \partial f}{\displaystyle \partial \underline{\sigma}}} = {{\displaystyle \frac{\displaystyle 1}{\displaystyle \sigma_{\mathrm{eq}}}}}\,{\left({{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,C\,\underline{s}+F\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}\right)}
+\underline{n} = {\displaystyle \frac{\displaystyle \partial
+f}{\displaystyle \partial \underline{\sigma}}} = {{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+\sigma_{\mathrm{eq}}}}}\,{\left({{\displaystyle \frac{\displaystyle
+3}{\displaystyle
+2}}}\,C\,\underline{s}+F\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}\,\underline{I}\right)}
 \]</span></p>
-<p>Since the equivalent stress is an homogeneous function of degree 1, the equivalent plastic strain <span class="math inline">\(p\)</span> is well defined and the plastic strain rate can be written: <span class="math display">\[
+<p>Since the equivalent stress is an homogeneous function of degree 1,
+the equivalent plastic strain <span class="math inline">\(p\)</span> is
+well defined and the plastic strain rate can be written: <span
+class="math display">\[
 \underline{\dot{\varepsilon}}^{\mathrm{p}}=\dot{p}\,\underline{n}
 \]</span></p>
 <h1 id="integration-algorithm">Integration algorithm</h1>
-<p>The previous constitutive equations will be integrated using a standard implicit scheme.</p>
-<p>The first thing that the integration will determine is whether a plastic flow occurs during the time step. To do this, a plastic prediction of the stress is made. If this prediction is inside the yield surface, the step is purely elastic and the integration is trivial. On the other hand, the material must lie on the yield surface at the end of the time step.</p>
+<p>The previous constitutive equations will be integrated using a
+standard implicit scheme.</p>
+<p>The first thing that the integration will determine is whether a
+plastic flow occurs during the time step. To do this, a plastic
+prediction of the stress is made. If this prediction is inside the yield
+surface, the step is purely elastic and the integration is trivial. On
+the other hand, the material must lie on the yield surface at the end of
+the time step.</p>
 <h2 id="state-variables">State variables</h2>
 <p>The state variable considered will be:</p>
 <ul>
-<li>the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span>, which is automatically declared by the <code>StandardElasticity</code> brick as <code>eel</code>.</li>
-<li>the equivalent plastic strain <span class="math inline">\(p\)</span>.</li>
+<li>the elastic strain <span
+class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span>,
+which is automatically declared by the <code>StandardElasticity</code>
+brick as <code>eel</code>.</li>
+<li>the equivalent plastic strain <span
+class="math inline">\(p\)</span>.</li>
 </ul>
 <h2 id="plastic-loading-case">Plastic loading case</h2>
 <h3 id="implicit-system">Implicit system</h3>
-<p>Assuming a plastic loading, the system of equations to be solved is: <span class="math display">\[
+<p>Assuming a plastic loading, the system of equations to be solved is:
+<span class="math display">\[
 \left\{
 \begin{aligned}
-    \Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}+\Delta\,p\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}} &amp;= 0 \\
-    f{\left({\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}\right)} &amp;= 0 \\
+    \Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}+\Delta\,p\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}
+&amp;= 0 \\
+    f{\left({\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}\right)}
+&amp;= 0 \\
 \end{aligned}
 \right.
 \]</span></p>
-<p>where <span class="math inline">\({\left.X\right|_{t+\theta\,\Delta\,t}}\)</span> is the value of <span class="math inline">\(X\)</span> at <span class="math inline">\(t+\theta\,\Delta\,t\)</span>, <span class="math inline">\(\theta\)</span> being a numerical parameter. In the following, the first (tensorial) equation is noted <span class="math inline">\(f_{\underline{\varepsilon}^{\mathrm{el}}}\)</span> and the second (scalar) equation is noted <span class="math inline">\(f_{p}\)</span>.</p>
-<p>In practice, it is physically sound to make satisfy exactly the yield condition at the end of the time step (otherwise, stress extrapolation can lead to stress state outside the yield surface and spurious oscillations can also be observed). This leads to the choice <span class="math inline">\(\theta=1\)</span>.</p>
+<p>where <span
+class="math inline">\({\left.X\right|_{t+\theta\,\Delta\,t}}\)</span> is
+the value of <span class="math inline">\(X\)</span> at <span
+class="math inline">\(t+\theta\,\Delta\,t\)</span>, <span
+class="math inline">\(\theta\)</span> being a numerical parameter. In
+the following, the first (tensorial) equation is noted <span
+class="math inline">\(f_{\underline{\varepsilon}^{\mathrm{el}}}\)</span>
+and the second (scalar) equation is noted <span
+class="math inline">\(f_{p}\)</span>.</p>
+<p>In practice, it is physically sound to make satisfy exactly the yield
+condition at the end of the time step (otherwise, stress extrapolation
+can lead to stress state outside the yield surface and spurious
+oscillations can also be observed). This leads to the choice <span
+class="math inline">\(\theta=1\)</span>.</p>
 <h3 id="computation-of-the-jacobian">Computation of the jacobian</h3>
-<p>The jacobian <span class="math inline">\(J\)</span> of the implicit system can be decomposed by blocks: <span class="math display">\[
+<p>The jacobian <span class="math inline">\(J\)</span> of the implicit
+system can be decomposed by blocks: <span class="math display">\[
 J=
 \begin{pmatrix}
-{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp; {\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p}} &amp; \\\\
-{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp; {\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,p}} \\
+{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp; {\displaystyle
+\frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,p}} &amp; \\\\
+{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;
+{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle
+\partial \Delta\,p}} \\
 \end{pmatrix}
 \]</span></p>
 <p>The expression of the previous terms is given by:</p>
 <p><span class="math display">\[
 \left\{
 \begin{aligned}
-{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;= \underline{I} + dp\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\\
-{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p}} &amp;= {\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\\
-{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;= -\theta\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
-{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,p}}           &amp;= 0
+{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;= \underline{I} +
+dp\,{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\\
+{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,p}} &amp;= {\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\\
+{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;=
+-\theta\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
+{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle
+\partial \Delta\,p}}           &amp;= 0
 \end{aligned}
 \right.
 \]</span></p>
 <p><span class="math display">\[
 \begin{aligned}
-{\displaystyle \frac{\displaystyle \partial {\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
-&amp;={\displaystyle \frac{\displaystyle \partial {\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\sigma\right|_{t+\theta\,\Delta\,t}}}}\,{\displaystyle \frac{\displaystyle \partial {\left.\sigma\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}}\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\\
-&amp;={{\displaystyle \frac{\displaystyle \theta}{\displaystyle \sigma_{\mathrm{eq}}}}}\,{\left({{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,C\,{\left(\underline{\underline{\mathbf{I}}}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,\underline{I}\,\otimes\,{\underline{I}}\right)}+F\,\underline{I}\,\otimes\,{\underline{I}}-{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\otimes\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\right)}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
-&amp;={{\displaystyle \frac{\displaystyle \theta}{\displaystyle \sigma_{\mathrm{eq}}}}}\,{\left({{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,C\,\,\underline{\underline{\mathbf{I}}}+{\left(F-{\left({{\displaystyle \frac{\displaystyle C}{\displaystyle 2}}}\right)}\right)}\,\underline{I}\,\otimes\,\underline{I}-{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\otimes\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\right)}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
+{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+&amp;={\displaystyle \frac{\displaystyle \partial
+{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial {\left.\sigma\right|_{t+\theta\,\Delta\,t}}}}\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\sigma\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial
+{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}}\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\\
+&amp;={{\displaystyle \frac{\displaystyle \theta}{\displaystyle
+\sigma_{\mathrm{eq}}}}}\,{\left({{\displaystyle \frac{\displaystyle
+3}{\displaystyle
+2}}}\,C\,{\left(\underline{\underline{\mathbf{I}}}-{{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+3}}}\,\underline{I}\,\otimes\,{\underline{I}}\right)}+F\,\underline{I}\,\otimes\,{\underline{I}}-{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\otimes\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\right)}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
+&amp;={{\displaystyle \frac{\displaystyle \theta}{\displaystyle
+\sigma_{\mathrm{eq}}}}}\,{\left({{\displaystyle \frac{\displaystyle
+3}{\displaystyle
+2}}}\,C\,\,\underline{\underline{\mathbf{I}}}+{\left(F-{\left({{\displaystyle
+\frac{\displaystyle C}{\displaystyle
+2}}}\right)}\right)}\,\underline{I}\,\otimes\,\underline{I}-{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\otimes\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\right)}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
 \end{aligned}
 \]</span></p>
 <p>This expression could be further simplified.</p>
 <h2 id="elastic-loading-case">Elastic loading case</h2>
-<p>Assuming an elastic loading, the system of equations to be solved is trivially: <span class="math display">\[
+<p>Assuming an elastic loading, the system of equations to be solved is
+trivially: <span class="math display">\[
 \left\{
 \begin{aligned}
-    \Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}&amp;= 0 \\
+    \Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}&amp;=
+0 \\
     \Delta\,p &amp;= 0 \\
 \end{aligned}
 \right.
 \]</span></p>
 <p>The jacobian associated with this system is the identity matrix.</p>
 <h1 id="implementation">Implementation</h1>
-<p>In the plastic loading case, the system of equations to be solved is <em>non-linear</em>. We choose the Newton-Raphson algorithm with an analytical jacobian. Compared to other algorithm available in <code>MFront</code> (Runge-Kutta, Broyden, Newton-Raphson with numerical jacobian, etc..), this algorithm is generally the <em>most efficient</em> in pratice.</p>
+<p>In the plastic loading case, the system of equations to be solved is
+<em>non-linear</em>. We choose the Newton-Raphson algorithm with an
+analytical jacobian. Compared to other algorithm available in
+<code>MFront</code> (Runge-Kutta, Broyden, Newton-Raphson with numerical
+jacobian, etc..), this algorithm is generally the <em>most
+efficient</em> in pratice.</p>
 <h2 id="preamble">Preamble</h2>
-<p>The implementation begins with the choice of the <code>Implicit</code> domain specific language (dsl):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span></code></pre></div>
-<p>Note that this dsl automatically declares the elastic strain <code>eel</code> as a state variable.</p>
-<p>As discussed before, we explicit state that a fully implicit integration will be used by default:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span>;</span></code></pre></div>
-<p>This value can be changed at runtime by modifying the <code>theta</code> parameter.</p>
-<p>The stopping criterion is chosen low, to ensure the quality of the consistent tangent operator (the default value, <span class="math inline">\(10^{-8}\)</span> is enough to ensure a good estimation of the state variable evolution, but is not enough to have a proper estimation of the consistent tangent operator):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1e-14</span>;</span></code></pre></div>
-<p>We then declare that we want to support all the modelling hypotheses:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses {<span class="st">&quot;.+&quot;</span>};</span></code></pre></div>
-<p>The support of plane stress modelling hypotheses are handled by the <code>StandardElasticity</code> brick and will not be discussed here.</p>
-<h3 id="usage-of-the-standardelasticity-brick">Usage of the <code>StandardElasticity</code> brick</h3>
-<p>To implement this behaviour, we will use the <code>StandardElasticity</code> brick which provides:</p>
+<p>The implementation begins with the choice of the
+<code>Implicit</code> domain specific language (dsl):</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit<span class="op">;</span></span></code></pre></div>
+<p>Note that this dsl automatically declares the elastic strain
+<code>eel</code> as a state variable.</p>
+<p>As discussed before, we explicit state that a fully implicit
+integration will be used by default:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
+<p>This value can be changed at runtime by modifying the
+<code>theta</code> parameter.</p>
+<p>The stopping criterion is chosen low, to ensure the quality of the
+consistent tangent operator (the default value, <span
+class="math inline">\(10^{-8}\)</span> is enough to ensure a good
+estimation of the state variable evolution, but is not enough to have a
+proper estimation of the consistent tangent operator):</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1e-14</span><span class="op">;</span></span></code></pre></div>
+<p>We then declare that we want to support all the modelling
+hypotheses:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">};</span></span></code></pre></div>
+<p>The support of plane stress modelling hypotheses are handled by the
+<code>StandardElasticity</code> brick and will not be discussed
+here.</p>
+<h3 id="usage-of-the-standardelasticity-brick">Usage of the
+<code>StandardElasticity</code> brick</h3>
+<p>To implement this behaviour, we will use the
+<code>StandardElasticity</code> brick which provides:</p>
 <ul>
-<li>Automatic computation of the stress tensor at various stages of the behaviour integration.</li>
+<li>Automatic computation of the stress tensor at various stages of the
+behaviour integration.</li>
 <li>Automatic computation of the consistent tangent operator.</li>
-<li>Automatic support for plane stress and generalized plane stress modelling hypotheses (The axial strain is defined as an additional state variable and the associated equation in the implicit system is added to enforce the plane stess condition).</li>
-<li>Automatic addition of the standard terms associated with the elastic strain state variable.</li>
+<li>Automatic support for plane stress and generalized plane stress
+modelling hypotheses (The axial strain is defined as an additional state
+variable and the associated equation in the implicit system is added to
+enforce the plane stess condition).</li>
+<li>Automatic addition of the standard terms associated with the elastic
+strain state variable.</li>
 </ul>
-<p>This behaviour brick is fully described <a href="BehaviourBricks.html">here</a>.</p>
-<p>The usage of the <code>StandardElasticity</code> is declared as follows:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity;</span></code></pre></div>
+<p>This behaviour brick is fully described <a
+href="BehaviourBricks.html">here</a>.</p>
+<p>The usage of the <code>StandardElasticity</code> is declared as
+follows:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity<span class="op">;</span></span></code></pre></div>
 <h3 id="elastic-stiffness-tensor">Elastic stiffness tensor</h3>
-<p>The elastic stiffness tensor <span class="math inline">\(D\)</span> is defined using <code>@ComputeStiffnessTensor</code> keyword by giving the elastic material properties as constants:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeStiffnessTensor&lt;UnAltered&gt; {<span class="fl">150e9</span>,<span class="fl">0.3</span>};</span></code></pre></div>
-<p>This computed stiffness is stored in a variable <code>D</code>. A second variable <code>D_tdt</code> is also introduced. As the material properties are constants, <code>D_tdt</code> is an alias to <code>D</code>.</p>
-<p>The elastic material properties can be changed at runtime time by modifying the following parameters: <code>YoungModulus</code> and <code>PoissonRatio</code>.</p>
-<p>Rather than constants, one can also use correlations implemented in seperate <code>MFront</code> files. This allows to take into account the dependency of the material properties with the temperature for example. In this case, the variable <code>D</code> contains the stiffness tensor at <span class="math inline">\(t+\theta\,\Delta\,t\)</span> and the variable <code>D_tdt</code> contains the stiffness tensor at <span class="math inline">\(t+\Delta\,t\)</span>.</p>
-<p>Another possibility is to use the <code>@RequireStiffnessTensor</code> keyword. In this case, the elastic material properties must be computed by the calling solver at the end of the time step (and furnished to the mechanical behaviours through hidden material properties).</p>
+<p>The elastic stiffness tensor <span class="math inline">\(D\)</span>
+is defined using <code>@ComputeStiffnessTensor</code> keyword by giving
+the elastic material properties as constants:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeStiffnessTensor<span class="op">&lt;</span>UnAltered<span class="op">&gt;</span> <span class="op">{</span><span class="fl">150e9</span><span class="op">,</span><span class="fl">0.3</span><span class="op">};</span></span></code></pre></div>
+<p>This computed stiffness is stored in a variable <code>D</code>. A
+second variable <code>D_tdt</code> is also introduced. As the material
+properties are constants, <code>D_tdt</code> is an alias to
+<code>D</code>.</p>
+<p>The elastic material properties can be changed at runtime time by
+modifying the following parameters: <code>YoungModulus</code> and
+<code>PoissonRatio</code>.</p>
+<p>Rather than constants, one can also use correlations implemented in
+seperate <code>MFront</code> files. This allows to take into account the
+dependency of the material properties with the temperature for example.
+In this case, the variable <code>D</code> contains the stiffness tensor
+at <span class="math inline">\(t+\theta\,\Delta\,t\)</span> and the
+variable <code>D_tdt</code> contains the stiffness tensor at <span
+class="math inline">\(t+\Delta\,t\)</span>.</p>
+<p>Another possibility is to use the
+<code>@RequireStiffnessTensor</code> keyword. In this case, the elastic
+material properties must be computed by the calling solver at the end of
+the time step (and furnished to the mechanical behaviours through hidden
+material properties).</p>
 <h3 id="variable-declarations">Variable declarations</h3>
 <h4 id="state-variables-1">State variables</h4>
-<p>As stated earlier, the state variable <code>eel</code> is automatically declared by the <code>Implicit</code> dsl.</p>
-<p>The equivalent plastic strain state variable <code>p</code> is declared as:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real p;</span></code></pre></div>
+<p>As stated earlier, the state variable <code>eel</code> is
+automatically declared by the <code>Implicit</code> dsl.</p>
+<p>The equivalent plastic strain state variable <code>p</code> is
+declared as:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real p<span class="op">;</span></span></code></pre></div>
 <p>We then associate the appropriate glossary name to this variable:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;EquivalentPlasticStrain&quot;</span><span class="op">);</span></span></code></pre></div>
 <h4 id="parameters">Parameters</h4>
-<p>The definition of yield surface introduces three material coefficients <span class="math inline">\(C\)</span>, <span class="math inline">\(F\)</span> and <span class="math inline">\(\sigma_{0}\)</span> that we declare as a parameter:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter C = <span class="fl">0.8</span>;</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>C.setEntryName(<span class="st">&quot;GreenYieldCriterion_C&quot;</span>);</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter F = <span class="fl">0.2</span>;</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>F.setEntryName(<span class="st">&quot;GreenYieldCriterion_F&quot;</span>);</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter s0 = <span class="fl">150e6</span>;</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>s0.setGlossaryName(<span class="st">&quot;YieldStress&quot;</span>);</span></code></pre></div>
-<p>The <code>YieldStress</code> is an entry of the glossary (see <a href="glossary.html">here</a>).</p>
+<p>The definition of yield surface introduces three material
+coefficients <span class="math inline">\(C\)</span>, <span
+class="math inline">\(F\)</span> and <span
+class="math inline">\(\sigma_{0}\)</span> that we declare as a
+parameter:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter C <span class="op">=</span> <span class="fl">0.8</span><span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>C<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;GreenYieldCriterion_C&quot;</span><span class="op">);</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter F <span class="op">=</span> <span class="fl">0.2</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>F<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;GreenYieldCriterion_F&quot;</span><span class="op">);</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter s0 <span class="op">=</span> <span class="fl">150e6</span><span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>s0<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;YieldStress&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>The <code>YieldStress</code> is an entry of the glossary (see <a
+href="glossary.html">here</a>).</p>
 <h4 id="local-variable">Local variable</h4>
-<p>To select the implicit system associated either with the elastic or plastic loading case, we introduce a boolean local variable <code>b</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">bool</span> b; <span class="co">// if true, plastic loading</span></span></code></pre></div>
-<h2 id="initialization-of-the-local-variables-determination-of-the-loading-case">Initialization of the local variables, determination of the loading case</h2>
-<p>Before solving the implicit system, the code block introduced by the <code>@InitLocalVariables</code> keyword is executed. For this behaviour, this block will select either the elastic or plastic loading case.</p>
-<p>We first make an <em>elastic prediction</em> of the stress at the end of the time step. We use the <code>computeElasticPrediction</code> method introduced by the <code>StandardElasticity</code> brick. This method takes into account the modelling hypothesis, which is mandatory for plane stress modelling hypotheses. We then make an elastic prediction of the Hill equivalent stress and check whether or not this elastic prediction is inside the elastic domain. The latter information is stored in the boolean value <code>b</code> which will be <code>false</code> (no plastic loading) if the loading is elastic.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables{</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sig_el  = computeElasticPrediction();</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">s_el</span>    = deviator(sig_el);</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> tr_el   = trace(sig_el);</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> seq     = sqrt(<span class="dv">3</span>*C*(<span class="va">s_el</span>|<span class="va">s_el</span>)/<span class="dv">2</span>+F*tr_el*tr_el);</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  b = seq-s0 &gt; <span class="dv">0</span>;</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>To select the implicit system associated either with the elastic or
+plastic loading case, we introduce a boolean local variable
+<code>b</code>.</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">bool</span> b<span class="op">;</span> <span class="co">// if true, plastic loading</span></span></code></pre></div>
+<h2
+id="initialization-of-the-local-variables-determination-of-the-loading-case">Initialization
+of the local variables, determination of the loading case</h2>
+<p>Before solving the implicit system, the code block introduced by the
+<code>@InitLocalVariables</code> keyword is executed. For this
+behaviour, this block will select either the elastic or plastic loading
+case.</p>
+<p>We first make an <em>elastic prediction</em> of the stress at the end
+of the time step. We use the <code>computeElasticPrediction</code>
+method introduced by the <code>StandardElasticity</code> brick. This
+method takes into account the modelling hypothesis, which is mandatory
+for plane stress modelling hypotheses. We then make an elastic
+prediction of the Hill equivalent stress and check whether or not this
+elastic prediction is inside the elastic domain. The latter information
+is stored in the boolean value <code>b</code> which will be
+<code>false</code> (no plastic loading) if the loading is elastic.</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables<span class="op">{</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sig_el  <span class="op">=</span> computeElasticPrediction<span class="op">();</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">s_el</span>    <span class="op">=</span> deviator<span class="op">(</span>sig_el<span class="op">);</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> tr_el   <span class="op">=</span> trace<span class="op">(</span>sig_el<span class="op">);</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> seq     <span class="op">=</span> sqrt<span class="op">(</span><span class="dv">3</span><span class="op">*</span>C<span class="op">*(</span><span class="va">s_el</span><span class="op">|</span><span class="va">s_el</span><span class="op">)/</span><span class="dv">2</span><span class="op">+</span>F<span class="op">*</span>tr_el<span class="op">*</span>tr_el<span class="op">);</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  b <span class="op">=</span> seq<span class="op">-</span>s0 <span class="op">&gt;</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h2 id="implicit-system-and-jacobian">Implicit system and jacobian</h2>
-<p>Finally, we describe how the implicit system and the computation of the jacobian is written in a code block introduced by the <code>@Integrator</code> keyword.</p>
+<p>Finally, we describe how the implicit system and the computation of
+the jacobian is written in a code block introduced by the
+<code>@Integrator</code> keyword.</p>
 <p>We use the following facts:</p>
 <ul>
-<li>The equations of implicit system are initialized to the state variables increments (i.e. <code>feel</code> is initialized to <code>deel</code>).</li>
-<li>The jacobian <span class="math inline">\(J\)</span> is initialized to the identity (i.e. <code>dfeel_ddeel</code> is initialized to the identity tensor).</li>
-<li>The increment of the total strain is automatically deduced from <code>feel</code> by the <code>StandardElasticity</code> brick.</li>
+<li>The equations of implicit system are initialized to the state
+variables increments (i.e. <code>feel</code> is initialized to
+<code>deel</code>).</li>
+<li>The jacobian <span class="math inline">\(J\)</span> is initialized
+to the identity (i.e. <code>dfeel_ddeel</code> is initialized to the
+identity tensor).</li>
+<li>The increment of the total strain is automatically deduced from
+<code>feel</code> by the <code>StandardElasticity</code> brick.</li>
 </ul>
-<p>Apart from those facts, the code is an almost direct translation of the mathematical expression described in previous sections and boils down to the following lines of code:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id    = Stensor::Id();</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = Stensor4::Id();</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(b){</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> hC   = C/<span class="dv">2</span>;</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> s    = deviator(sig);</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> <span class="fu">tr</span>   = trace(sig);</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> seq  = sqrt(<span class="dv">3</span>*hC*(s|s)+F*<span class="fu">tr</span>*<span class="fu">tr</span>);</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> iseq = <span class="dv">1</span>/(max(seq,real(<span class="fl">1.e-10</span>*young)));</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> n    = eval(iseq*(<span class="dv">3</span>*hC*s+F*<span class="fu">tr</span>*id));</span>
+<p>Apart from those facts, the code is an almost direct translation of
+the mathematical expression described in previous sections and boils
+down to the following lines of code:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator<span class="op">{</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id    <span class="op">=</span> Stensor<span class="op">::</span>Id<span class="op">();</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 <span class="op">=</span> Stensor4<span class="op">::</span>Id<span class="op">();</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>b<span class="op">){</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> hC   <span class="op">=</span> C<span class="op">/</span><span class="dv">2</span><span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> s    <span class="op">=</span> deviator<span class="op">(</span>sig<span class="op">);</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> <span class="fu">tr</span>   <span class="op">=</span> trace<span class="op">(</span>sig<span class="op">);</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> seq  <span class="op">=</span> sqrt<span class="op">(</span><span class="dv">3</span><span class="op">*</span>hC<span class="op">*(</span>s<span class="op">|</span>s<span class="op">)+</span>F<span class="op">*</span><span class="fu">tr</span><span class="op">*</span><span class="fu">tr</span><span class="op">);</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> iseq <span class="op">=</span> <span class="dv">1</span><span class="op">/(</span>max<span class="op">(</span>seq<span class="op">,</span>real<span class="op">(</span><span class="fl">1.e-10</span><span class="op">*</span>young<span class="op">)));</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> n    <span class="op">=</span> eval<span class="op">(</span>iseq<span class="op">*(</span><span class="dv">3</span><span class="op">*</span>hC<span class="op">*</span>s<span class="op">+</span>F<span class="op">*</span><span class="fu">tr</span><span class="op">*</span>id<span class="op">));</span></span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// elasticity</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    feel        += dp*n;</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    dfeel_ddeel += theta*dp*iseq*(<span class="dv">3</span>*hC*id4+(F-hC)*(id^id)-(n^n))*D;</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    dfeel_ddp    = n;</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    feel        <span class="op">+=</span> dp<span class="op">*</span>n<span class="op">;</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    dfeel_ddeel <span class="op">+=</span> theta<span class="op">*</span>dp<span class="op">*</span>iseq<span class="op">*(</span><span class="dv">3</span><span class="op">*</span>hC<span class="op">*</span>id4<span class="op">+(</span>F<span class="op">-</span>hC<span class="op">)*(</span>id<span class="op">^</span>id<span class="op">)-(</span>n<span class="op">^</span>n<span class="op">))*</span>D<span class="op">;</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    dfeel_ddp    <span class="op">=</span> n<span class="op">;</span></span>
 <span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// plasticity</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    fp           = (seq-s0)/young;</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    dfp_ddp      = strain(<span class="dv">0</span>);</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    dfp_ddeel    = theta*(n|D)/young;</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    fp           <span class="op">=</span> <span class="op">(</span>seq<span class="op">-</span>s0<span class="op">)/</span>young<span class="op">;</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    dfp_ddp      <span class="op">=</span> strain<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    dfp_ddeel    <span class="op">=</span> theta<span class="op">*(</span>n<span class="op">|</span>D<span class="op">)/</span>young<span class="op">;</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-fritzen_computational_2013" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Fritzen</span>, Felix, <span class="smallcaps">Forest</span>, Samuel, <span class="smallcaps">Kondo</span>, Djimedo and <span class="smallcaps">Böhlke</span>, Thomas. Computational homogenization of porous materials of green type. <em>Computational Mechanics</em>. 1 July 2013. Vol. 52, no. 1, p. 121–134. DOI <a href="https://doi.org/10.1007/s00466-012-0801-z">10.1007/s00466-012-0801-z</a>. Available from: <a href="https://link.springer.com/article/10.1007/s00466-012-0801-z">https://link.springer.com/article/10.1007/s00466-012-0801-z</a></div>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-fritzen_computational_2013" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Fritzen</span>, Felix,
+<span class="smallcaps">Forest</span>, Samuel, <span
+class="smallcaps">Kondo</span>, Djimedo and <span
+class="smallcaps">Böhlke</span>, Thomas. Computational homogenization of
+porous materials of green type. <em>Computational Mechanics</em>. 1 July
+2013. Vol. 52, no. 1, p. 121–134. DOI <a
+href="https://doi.org/10.1007/s00466-012-0801-z">10.1007/s00466-012-0801-z</a>.
+Available from: <a
+href="https://link.springer.com/article/10.1007/s00466-012-0801-z">https://link.springer.com/article/10.1007/s00466-012-0801-z</a></div>
 </div>
 </div>
     <script>

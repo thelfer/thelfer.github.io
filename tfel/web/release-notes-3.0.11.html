@@ -16,8 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -26,7 +27,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -50,11 +51,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -63,14 +64,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -79,7 +80,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -182,6 +185,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -327,71 +331,191 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Release notes of the 3.0.11 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h1 class="title">Release notes of the 3.0.11 version of
+<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">16/11/2021</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#issues-fixed">Issues fixed</a>
+<li><a href="#issues-fixed" id="toc-issues-fixed">Issues fixed</a>
 <ul>
-<li><a href="#issue-326-support-for-intels-compiler-icx">Issue #326: Support for Intel’s compiler <code>icx</code></a></li>
-<li><a href="#issue-320-mfront-heatflux-cant-be-use-as-a-glossary-name">Issue #320: [mfront] <code>HeatFlux</code> can’t be use as a glossary name</a></li>
-<li><a href="#issue-309-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-abaqus-interface">Issue #309: [mfront] Profiling is broken when using logarithmic strain in the <code>abaqus</code> interface</a></li>
-<li><a href="#issue-308-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-europlexus-interface">Issue #308: [mfront] Profiling is broken when using logarithmic strain in the <code>europlexus</code> interface</a></li>
-<li><a href="#issue-307-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-ansys-interface">Issue #307: [mfront] Profiling is broken when using logarithmic strain in the <code>ansys</code> interface</a></li>
-<li><a href="#issue-305-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-castem-interface">Issue #305: [mfront] Profiling is broken when using logarithmic strain in the <code>castem</code> interface</a></li>
-<li><a href="#issue-274-mfront-analysers-not-called-while-parsing-integrator-and-predictor-in-implicit-dsls">Issue 274: [mfront] Analysers not called while parsing <code>@Integrator</code> and <code>@Predictor</code> in implicit DSLs</a></li>
-<li><a href="#issue-251-mtest-bad-definition-of-pipemeshelementtype-in-python-bindings">Issue #251: [mtest] Bad definition of <code>PipeMeshElementType</code> in <code>python</code> bindings</a></li>
-<li><a href="#issue-162-mfront-minors-issues-of-syntax-in-standardelastoviscoplasticity-brick">Issue #162: [mfront] Minors issues of syntax in <code>StandardElastoViscoPlasticity</code> Brick</a></li>
-<li><a href="#issue-159-failing-to-generate-input-examples-shall-not-stop-mfront">Issue #159: Failing to generate input examples shall not stop mfront</a></li>
-<li><a href="#issue-140-mtest-lonely-separator-is-not-correctly-treated">Issue #140: [mtest] lonely separator is not correctly treated</a></li>
-<li><a href="#issue-43-mtest-prevent-declaration-of-boundary-conditions-after-the-call-to-completeinitialisation">Issue #43: [mtest] Prevent declaration of boundary conditions after the call to completeInitialisation</a></li>
-<li><a href="#issue-29-tfelmath-fix-definition-of-reference-in-differencerandomaccessiterator">Issue #29: [TFELMath] Fix definition of reference in DifferenceRandomAccessIterator</a></li>
-<li><a href="#issue-21-tfelmath-fix-support-for-negation-of-tensors-based-on-quantitites">Issue #21: [TFELMath] Fix support for negation of tensors based on quantitites</a></li>
+<li><a href="#issue-326-support-for-intels-compiler-icx"
+id="toc-issue-326-support-for-intels-compiler-icx">Issue #326: Support
+for Intel’s compiler <code>icx</code></a></li>
+<li><a href="#issue-320-mfront-heatflux-cant-be-use-as-a-glossary-name"
+id="toc-issue-320-mfront-heatflux-cant-be-use-as-a-glossary-name">Issue
+#320: [mfront] <code>HeatFlux</code> can’t be use as a glossary
+name</a></li>
+<li><a
+href="#issue-309-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-abaqus-interface"
+id="toc-issue-309-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-abaqus-interface">Issue
+#309: [mfront] Profiling is broken when using logarithmic strain in the
+<code>abaqus</code> interface</a></li>
+<li><a
+href="#issue-308-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-europlexus-interface"
+id="toc-issue-308-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-europlexus-interface">Issue
+#308: [mfront] Profiling is broken when using logarithmic strain in the
+<code>europlexus</code> interface</a></li>
+<li><a
+href="#issue-307-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-ansys-interface"
+id="toc-issue-307-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-ansys-interface">Issue
+#307: [mfront] Profiling is broken when using logarithmic strain in the
+<code>ansys</code> interface</a></li>
+<li><a
+href="#issue-305-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-castem-interface"
+id="toc-issue-305-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-castem-interface">Issue
+#305: [mfront] Profiling is broken when using logarithmic strain in the
+<code>castem</code> interface</a></li>
+<li><a
+href="#issue-274-mfront-analysers-not-called-while-parsing-integrator-and-predictor-in-implicit-dsls"
+id="toc-issue-274-mfront-analysers-not-called-while-parsing-integrator-and-predictor-in-implicit-dsls">Issue
+274: [mfront] Analysers not called while parsing
+<code>@Integrator</code> and <code>@Predictor</code> in implicit
+DSLs</a></li>
+<li><a
+href="#issue-251-mtest-bad-definition-of-pipemeshelementtype-in-python-bindings"
+id="toc-issue-251-mtest-bad-definition-of-pipemeshelementtype-in-python-bindings">Issue
+#251: [mtest] Bad definition of <code>PipeMeshElementType</code> in
+<code>python</code> bindings</a></li>
+<li><a
+href="#issue-162-mfront-minors-issues-of-syntax-in-standardelastoviscoplasticity-brick"
+id="toc-issue-162-mfront-minors-issues-of-syntax-in-standardelastoviscoplasticity-brick">Issue
+#162: [mfront] Minors issues of syntax in
+<code>StandardElastoViscoPlasticity</code> Brick</a></li>
+<li><a
+href="#issue-159-failing-to-generate-input-examples-shall-not-stop-mfront"
+id="toc-issue-159-failing-to-generate-input-examples-shall-not-stop-mfront">Issue
+#159: Failing to generate input examples shall not stop mfront</a></li>
+<li><a href="#issue-140-mtest-lonely-separator-is-not-correctly-treated"
+id="toc-issue-140-mtest-lonely-separator-is-not-correctly-treated">Issue
+#140: [mtest] lonely separator is not correctly treated</a></li>
+<li><a
+href="#issue-43-mtest-prevent-declaration-of-boundary-conditions-after-the-call-to-completeinitialisation"
+id="toc-issue-43-mtest-prevent-declaration-of-boundary-conditions-after-the-call-to-completeinitialisation">Issue
+#43: [mtest] Prevent declaration of boundary conditions after the call
+to completeInitialisation</a></li>
+<li><a
+href="#issue-29-tfelmath-fix-definition-of-reference-in-differencerandomaccessiterator"
+id="toc-issue-29-tfelmath-fix-definition-of-reference-in-differencerandomaccessiterator">Issue
+#29: [TFELMath] Fix definition of reference in
+DifferenceRandomAccessIterator</a></li>
+<li><a
+href="#issue-21-tfelmath-fix-support-for-negation-of-tensors-based-on-quantitites"
+id="toc-issue-21-tfelmath-fix-support-for-negation-of-tensors-based-on-quantitites">Issue
+#21: [TFELMath] Fix support for negation of tensors based on
+quantitites</a></li>
 </ul></li>
 </ul>
 </div>
 <p>Version 3.0.11 has been released on October, 24th 2022.</p>
 <h1 id="issues-fixed">Issues fixed</h1>
-<h2 id="issue-326-support-for-intels-compiler-icx">Issue #326: Support for Intel’s compiler <code>icx</code></h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/326" class="uri">https://github.com/thelfer/tfel/issues/326</a>.</p>
-<h2 id="issue-320-mfront-heatflux-cant-be-use-as-a-glossary-name">Issue #320: [mfront] <code>HeatFlux</code> can’t be use as a glossary name</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/320" class="uri">https://github.com/thelfer/tfel/issues/320</a>.</p>
-<h2 id="issue-309-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-abaqus-interface">Issue #309: [mfront] Profiling is broken when using logarithmic strain in the <code>abaqus</code> interface</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/309" class="uri">https://github.com/thelfer/tfel/issues/309</a>.</p>
-<h2 id="issue-308-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-europlexus-interface">Issue #308: [mfront] Profiling is broken when using logarithmic strain in the <code>europlexus</code> interface</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/308" class="uri">https://github.com/thelfer/tfel/issues/308</a>.</p>
-<h2 id="issue-307-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-ansys-interface">Issue #307: [mfront] Profiling is broken when using logarithmic strain in the <code>ansys</code> interface</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/307" class="uri">https://github.com/thelfer/tfel/issues/307</a>.</p>
-<h2 id="issue-305-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-castem-interface">Issue #305: [mfront] Profiling is broken when using logarithmic strain in the <code>castem</code> interface</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/305" class="uri">https://github.com/thelfer/tfel/issues/305</a>.</p>
-<h2 id="issue-274-mfront-analysers-not-called-while-parsing-integrator-and-predictor-in-implicit-dsls">Issue 274: [mfront] Analysers not called while parsing <code>@Integrator</code> and <code>@Predictor</code> in implicit DSLs</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/274" class="uri">https://github.com/thelfer/tfel/issues/274</a>.</p>
-<h2 id="issue-251-mtest-bad-definition-of-pipemeshelementtype-in-python-bindings">Issue #251: [mtest] Bad definition of <code>PipeMeshElementType</code> in <code>python</code> bindings</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/251" class="uri">https://github.com/thelfer/tfel/issues/251</a>.</p>
-<h2 id="issue-162-mfront-minors-issues-of-syntax-in-standardelastoviscoplasticity-brick">Issue #162: [mfront] Minors issues of syntax in <code>StandardElastoViscoPlasticity</code> Brick</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/162" class="uri">https://github.com/thelfer/tfel/issues/162</a>.</p>
-<h2 id="issue-159-failing-to-generate-input-examples-shall-not-stop-mfront">Issue #159: Failing to generate input examples shall not stop mfront</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/159" class="uri">https://github.com/thelfer/tfel/issues/159</a>.</p>
-<h2 id="issue-140-mtest-lonely-separator-is-not-correctly-treated">Issue #140: [mtest] lonely separator is not correctly treated</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/140" class="uri">https://github.com/thelfer/tfel/issues/140</a>.</p>
-<h2 id="issue-43-mtest-prevent-declaration-of-boundary-conditions-after-the-call-to-completeinitialisation">Issue #43: [mtest] Prevent declaration of boundary conditions after the call to completeInitialisation</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/43" class="uri">https://github.com/thelfer/tfel/issues/43</a>.</p>
-<h2 id="issue-29-tfelmath-fix-definition-of-reference-in-differencerandomaccessiterator">Issue #29: [TFELMath] Fix definition of reference in DifferenceRandomAccessIterator</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/21" class="uri">https://github.com/thelfer/tfel/issues/21</a>.</p>
-<h2 id="issue-21-tfelmath-fix-support-for-negation-of-tensors-based-on-quantitites">Issue #21: [TFELMath] Fix support for negation of tensors based on quantitites</h2>
+<h2 id="issue-326-support-for-intels-compiler-icx">Issue #326: Support
+for Intel’s compiler <code>icx</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/326"
+class="uri">https://github.com/thelfer/tfel/issues/326</a>.</p>
+<h2 id="issue-320-mfront-heatflux-cant-be-use-as-a-glossary-name">Issue
+#320: [mfront] <code>HeatFlux</code> can’t be use as a glossary
+name</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/320"
+class="uri">https://github.com/thelfer/tfel/issues/320</a>.</p>
+<h2
+id="issue-309-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-abaqus-interface">Issue
+#309: [mfront] Profiling is broken when using logarithmic strain in the
+<code>abaqus</code> interface</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/309"
+class="uri">https://github.com/thelfer/tfel/issues/309</a>.</p>
+<h2
+id="issue-308-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-europlexus-interface">Issue
+#308: [mfront] Profiling is broken when using logarithmic strain in the
+<code>europlexus</code> interface</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/308"
+class="uri">https://github.com/thelfer/tfel/issues/308</a>.</p>
+<h2
+id="issue-307-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-ansys-interface">Issue
+#307: [mfront] Profiling is broken when using logarithmic strain in the
+<code>ansys</code> interface</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/307"
+class="uri">https://github.com/thelfer/tfel/issues/307</a>.</p>
+<h2
+id="issue-305-mfront-profiling-is-broken-when-using-logarithmic-strain-in-the-castem-interface">Issue
+#305: [mfront] Profiling is broken when using logarithmic strain in the
+<code>castem</code> interface</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/305"
+class="uri">https://github.com/thelfer/tfel/issues/305</a>.</p>
+<h2
+id="issue-274-mfront-analysers-not-called-while-parsing-integrator-and-predictor-in-implicit-dsls">Issue
+274: [mfront] Analysers not called while parsing
+<code>@Integrator</code> and <code>@Predictor</code> in implicit
+DSLs</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/274"
+class="uri">https://github.com/thelfer/tfel/issues/274</a>.</p>
+<h2
+id="issue-251-mtest-bad-definition-of-pipemeshelementtype-in-python-bindings">Issue
+#251: [mtest] Bad definition of <code>PipeMeshElementType</code> in
+<code>python</code> bindings</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/251"
+class="uri">https://github.com/thelfer/tfel/issues/251</a>.</p>
+<h2
+id="issue-162-mfront-minors-issues-of-syntax-in-standardelastoviscoplasticity-brick">Issue
+#162: [mfront] Minors issues of syntax in
+<code>StandardElastoViscoPlasticity</code> Brick</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/162"
+class="uri">https://github.com/thelfer/tfel/issues/162</a>.</p>
+<h2
+id="issue-159-failing-to-generate-input-examples-shall-not-stop-mfront">Issue
+#159: Failing to generate input examples shall not stop mfront</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/159"
+class="uri">https://github.com/thelfer/tfel/issues/159</a>.</p>
+<h2 id="issue-140-mtest-lonely-separator-is-not-correctly-treated">Issue
+#140: [mtest] lonely separator is not correctly treated</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/140"
+class="uri">https://github.com/thelfer/tfel/issues/140</a>.</p>
+<h2
+id="issue-43-mtest-prevent-declaration-of-boundary-conditions-after-the-call-to-completeinitialisation">Issue
+#43: [mtest] Prevent declaration of boundary conditions after the call
+to completeInitialisation</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/43"
+class="uri">https://github.com/thelfer/tfel/issues/43</a>.</p>
+<h2
+id="issue-29-tfelmath-fix-definition-of-reference-in-differencerandomaccessiterator">Issue
+#29: [TFELMath] Fix definition of reference in
+DifferenceRandomAccessIterator</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/21"
+class="uri">https://github.com/thelfer/tfel/issues/21</a>.</p>
+<h2
+id="issue-21-tfelmath-fix-support-for-negation-of-tensors-based-on-quantitites">Issue
+#21: [TFELMath] Fix support for negation of tensors based on
+quantitites</h2>
 <p>The following code did not compile:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;TFEL/Math/qt.hxx&gt;</span></span>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;TFEL/Math/qt.hxx&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;TFEL/Math/st2tost2.hxx&gt;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main(){</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">using</span> <span class="kw">namespace</span> tfel::math;</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> s = -st2tost2&lt;<span class="dv">1</span><span class="bu">u</span>,qt&lt;Stress,<span class="dt">double</span>&gt;&gt;::Id();</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span>;</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>The trouble was related to the lack of specialisation of the <code>ComputeUnaryOperationResult</code> metafunction for quantities.</p>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/21" class="uri">https://github.com/thelfer/tfel/issues/21</a>.</p>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(){</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>math<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> s <span class="op">=</span> <span class="op">-</span>st2tost2<span class="op">&lt;</span><span class="dv">1</span><span class="bu">u</span><span class="op">,</span>qt<span class="op">&lt;</span>Stress<span class="op">,</span><span class="dt">double</span><span class="op">&gt;&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>The trouble was related to the lack of specialisation of the
+<code>ComputeUnaryOperationResult</code> metafunction for
+quantities.</p>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/21"
+class="uri">https://github.com/thelfer/tfel/issues/21</a>.</p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

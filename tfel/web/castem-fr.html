@@ -17,8 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -27,7 +28,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -51,11 +52,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -64,14 +65,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -80,7 +81,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -183,6 +186,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -328,19 +332,33 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Utilisation de MFront dans <a href="http://www-cast3m.cea.fr/">Cast3M</a></h1>
+<h1 class="title">Utilisation de MFront dans <a
+href="http://www-cast3m.cea.fr/">Cast3M</a></h1>
 <h2 class="author">Helfer Thomas</h2>
 <h3 class="date">August 19, 2014</h3>
 </div>
-<h1 id="lois-de-comportement-mécanique">Lois de comportement mécanique</h1>
-<p>L’utilisation de lois générées par <code>MFront</code> dans <a href="http://www-cast3m.cea.fr/"><code>Cast3M</code></a> se fait via l’interface générique <a href="http://www-cast3m.cea.fr/index.php?page=sources&amp;source=umat"><code>UMAT</code></a>.</p>
+<h1 id="lois-de-comportement-mécanique">Lois de comportement
+mécanique</h1>
+<p>L’utilisation de lois générées par <code>MFront</code> dans <a
+href="http://www-cast3m.cea.fr/"><code>Cast3M</code></a> se fait via
+l’interface générique <a
+href="http://www-cast3m.cea.fr/index.php?page=sources&amp;source=umat"><code>UMAT</code></a>.</p>
 <p><code>MFront</code> propose deux interfaces pour ce solveur:</p>
 <ul>
-<li><code>castem</code> pour les versions strictement antérieures à la version 2021. Pour des raisons historiques, cette interface est un synonyme de l’interface <code>umat</code>.</li>
-<li><code>castem21</code> pour les versions supérieures ou égales à la version 2021.</li>
+<li><code>castem</code> pour les versions strictement antérieures à la
+version 2021. Pour des raisons historiques, cette interface est un
+synonyme de l’interface <code>umat</code>.</li>
+<li><code>castem21</code> pour les versions supérieures ou égales à la
+version 2021.</li>
 </ul>
-<p>Dans la suite de ce document, nous supposons travailler dans un environnement <code>POSIX</code>. Le shell utilisé est <code>bash</code>. Une page dédiée à l’utilisation de <code>MFront</code> sous <code>Windows</code> sera ajoutée à terme.</p>
-<p>Nous utiliserons la loi de Norton décrite dans le <a href="tutorial.html">tutoriel</a>. L’ensemble des fichiers utilisés dans ce document peut être téléchargé <a href="downloads/example-castem2014.tar.bz2">ici</a>.</p>
+<p>Dans la suite de ce document, nous supposons travailler dans un
+environnement <code>POSIX</code>. Le shell utilisé est
+<code>bash</code>. Une page dédiée à l’utilisation de
+<code>MFront</code> sous <code>Windows</code> sera ajoutée à terme.</p>
+<p>Nous utiliserons la loi de Norton décrite dans le <a
+href="tutorial.html">tutoriel</a>. L’ensemble des fichiers utilisés dans
+ce document peut être téléchargé <a
+href="downloads/example-castem2014.tar.bz2">ici</a>.</p>
 <p>Ce document se découpe en trois partie :</p>
 <ul>
 <li>compilation de la loi ;</li>
@@ -348,15 +366,28 @@
 <li>test sur un essai de traction uniaxial.</li>
 </ul>
 <h2 id="compilation-de-la-loi">Compilation de la loi</h2>
-<p>MFront gère la compilation de la loi, il suffit de taper dans un terminal :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem norton.mfront</span></code></pre></div>
-<p>Ceci génère trois répertoires : <code>src</code>, <code>include</code> et <code>castem</code>.</p>
-<p>Le répertoire <code>src</code> contient en particulier une bibliothèque dynamique nommée <code>libUmatBehaviour.so</code>.</p>
-<p>Le répertoire <code>castem</code> contient un exemple de mise en donnée pour la loi générée pour chacune des hypothèses de modélisation supportée.</p>
-<h2 id="intégration-dans-cast3m">Intégration dans <code>Cast3M</code></h2>
-<p>Il est possible d’utiliser un appel direct à la librairie <code>MFront</code> générée. Pour la version <span class="math inline">\(2014\)</span>, il est nécessaire d’appliquer les <a href="downloads/patchs-Cast3M-2014.tar.bz2">certains patchs</a>. Ce patch n’est plus nécessaire depuis la version 2015.</p>
-<p>Pour utiliser la librairie générée via les appels dynamiques, l’appel à l’opérateur <code>MODELISER</code> se fait ainsi :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> s1 <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span> <span class="st">&#39;ISOTROPE&#39;</span></span>
+<p>MFront gère la compilation de la loi, il suffit de taper dans un
+terminal :</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem norton.mfront</span></code></pre></div>
+<p>Ceci génère trois répertoires : <code>src</code>,
+<code>include</code> et <code>castem</code>.</p>
+<p>Le répertoire <code>src</code> contient en particulier une
+bibliothèque dynamique nommée <code>libUmatBehaviour.so</code>.</p>
+<p>Le répertoire <code>castem</code> contient un exemple de mise en
+donnée pour la loi générée pour chacune des hypothèses de modélisation
+supportée.</p>
+<h2 id="intégration-dans-cast3m">Intégration dans
+<code>Cast3M</code></h2>
+<p>Il est possible d’utiliser un appel direct à la librairie
+<code>MFront</code> générée. Pour la version <span
+class="math inline">\(2014\)</span>, il est nécessaire d’appliquer les
+<a href="downloads/patchs-Cast3M-2014.tar.bz2">certains patchs</a>. Ce
+patch n’est plus nécessaire depuis la version 2015.</p>
+<p>Pour utiliser la librairie générée via les appels dynamiques, l’appel
+à l’opérateur <code>MODELISER</code> se fait ainsi :</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> s1 <span class="st">&#39;MECANIQUE&#39;</span> <span class="st">&#39;ELASTIQUE&#39;</span> <span class="st">&#39;ISOTROPE&#39;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;NON_LINEAIRE&#39;</span> <span class="st">&#39;UTILISATEUR&#39;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;LIB_LOI&#39;</span> <span class="st">&#39;src/libUmatBehaviour.so&#39;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;FCT_LOI&#39;</span> <span class="st">&#39;umatnorton&#39;</span></span>
@@ -364,10 +395,14 @@
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;C_VARINTER&#39;</span> stav2D</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;PARA_LOI&#39;</span>   para2D</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>   <span class="co">&#39;CONS&#39;</span> M<span class="op">;</span></span></code></pre></div>
-<p>Nous avons explicitement indiqué le chemin vers la librairie. En pratique, il est préférable de ne pas le faire et de modifier la variable <code>LD_LIBRARY_PATH</code>.</p>
+<p>Nous avons explicitement indiqué le chemin vers la librairie. En
+pratique, il est préférable de ne pas le faire et de modifier la
+variable <code>LD_LIBRARY_PATH</code>.</p>
 <h2 id="test">Test</h2>
-<p>Pour tester notre loi, nous pouvons utiliser le jeu de donnés suivant :</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">&#39;OPTION&#39;</span> <span class="st">&#39;ERREUR&#39;</span> <span class="st">&#39;FATALE&#39;</span> <span class="op">;</span></span>
+<p>Pour tester notre loi, nous pouvons utiliser le jeu de donnés suivant
+:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">&#39;OPTION&#39;</span> <span class="st">&#39;ERREUR&#39;</span> <span class="st">&#39;FATALE&#39;</span> <span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="co">&#39;OPTION&#39;</span> <span class="st">&#39;DIME&#39;</span> <span class="dv">2</span> <span class="st">&#39;ELEM&#39;</span> qua4<span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="co">&#39;OPTION&#39;</span> <span class="st">&#39;MODELISER&#39;</span> <span class="st">&#39;AXISYMETRIE&#39;</span><span class="op">;</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a></span>
@@ -470,46 +505,67 @@
 <span id="cb3-101"><a href="#cb3-101"></a><span class="co">&#39;DESSIN&#39;</span> evsig<span class="op">;</span></span>
 <span id="cb3-102"><a href="#cb3-102"></a></span>
 <span id="cb3-103"><a href="#cb3-103"></a><span class="co">&#39;FIN&#39;</span><span class="op">;</span></span></code></pre></div>
-<p>Le résultat obtenu par <code>Cast3M</code> peut-être comparé à la simulation <code>MTest</code> équivalente sur la figure ci-dessous :</p>
+<p>Le résultat obtenu par <code>Cast3M</code> peut-être comparé à la
+simulation <code>MTest</code> équivalente sur la figure ci-dessous :</p>
 <figure>
-<img src="img/NortonCreepUniaxialTesting.svg" title="Comparaison des résultats `MTest`/`Cast3M`" alt="Comparaison des résultats MTest/Cast3M" /><figcaption aria-hidden="true">Comparaison des résultats <code>MTest</code>/<code>Cast3M</code></figcaption>
+<img src="img/NortonCreepUniaxialTesting.svg"
+title="Comparaison des résultats `MTest`/`Cast3M`"
+alt="Comparaison des résultats MTest/Cast3M" />
+<figcaption aria-hidden="true">Comparaison des résultats
+<code>MTest</code>/<code>Cast3M</code></figcaption>
 </figure>
 <h1 id="propriétés-matériau">Propriétés matériau</h1>
-<h2 id="conductivité-thermique-du-combustible-carbure-upuc">Conductivité thermique du combustible carbure <span class="math inline">\(UPuC\)</span></h2>
-<p>La conductivité thermique d’un combustible carbure <span class="math inline">\(UPuC\)</span> <span class="math inline">\(k\left(T,p,\tau\right)\)</span> est supposée dépendre de la temperature <span class="math inline">\(T\)</span> (Kelvin), de la porosité <span class="math inline">\(p\)</span> et du taux de combustion <span class="math inline">\(\tau\)</span> <span class="math inline">\(at.\%\)</span></p>
-<p>Une implantation possible de cette propriété matériau en <code>MFront</code> est la suivante:</p>
-<div class="sourceCode" id="UPuCThermalConductivity"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="UPuCThermalConductivity-1"><a href="#UPuCThermalConductivity-1"></a><span class="er">@</span>Parser MaterialLaw;</span>
-<span id="UPuCThermalConductivity-2"><a href="#UPuCThermalConductivity-2"></a><span class="er">@</span>Law ThermalConductivity;</span>
-<span id="UPuCThermalConductivity-3"><a href="#UPuCThermalConductivity-3"></a><span class="er">@</span>Material UPuC;</span>
-<span id="UPuCThermalConductivity-4"><a href="#UPuCThermalConductivity-4"></a><span class="er">@</span>Author Thomas Helfer;</span>
-<span id="UPuCThermalConductivity-5"><a href="#UPuCThermalConductivity-5"></a><span class="er">@</span>Output k; <span class="co">//&lt; changing the name of output</span></span>
-<span id="UPuCThermalConductivity-6"><a href="#UPuCThermalConductivity-6"></a><span class="er">@</span>Input T,p,Bu; <span class="co">//&lt; inputs of the law</span></span>
-<span id="UPuCThermalConductivity-7"><a href="#UPuCThermalConductivity-7"></a>T.setGlossaryName(<span class="st">&quot;Temperature&quot;</span>); <span class="co">//&lt; pleiades name</span></span>
-<span id="UPuCThermalConductivity-8"><a href="#UPuCThermalConductivity-8"></a>p.setGlossaryName(<span class="st">&quot;Porosity&quot;</span>); <span class="co">//&lt; pleiades name</span></span>
-<span id="UPuCThermalConductivity-9"><a href="#UPuCThermalConductivity-9"></a>Bu.setGlossaryName(<span class="st">&quot;BurnUp&quot;</span>); <span class="co">//&lt; pleiades name</span></span>
-<span id="UPuCThermalConductivity-10"><a href="#UPuCThermalConductivity-10"></a><span class="er">@</span>PhysicalBounds T in [<span class="dv">0</span> :*[; <span class="co">//&lt; temperature physical bounds</span></span>
-<span id="UPuCThermalConductivity-11"><a href="#UPuCThermalConductivity-11"></a><span class="er">@</span>Bounds T in [<span class="dv">0</span> :<span class="fl">2573.15</span>]; <span class="co">//&lt; temperature bounds</span></span>
-<span id="UPuCThermalConductivity-12"><a href="#UPuCThermalConductivity-12"></a><span class="er">@</span>PhysicalBounds p in [<span class="dv">0</span> :<span class="dv">1</span>]; <span class="co">//&lt; porosity physical bounds</span></span>
-<span id="UPuCThermalConductivity-13"><a href="#UPuCThermalConductivity-13"></a><span class="er">@</span>PhysicalBounds Bu in [<span class="dv">0</span> :*[; <span class="co">//&lt; burn-up physicalbounds</span></span>
-<span id="UPuCThermalConductivity-14"><a href="#UPuCThermalConductivity-14"></a><span class="er">@</span>Function{</span>
-<span id="UPuCThermalConductivity-15"><a href="#UPuCThermalConductivity-15"></a>  <span class="cf">if</span> (T&lt;=<span class="fl">773.15</span>){</span>
-<span id="UPuCThermalConductivity-16"><a href="#UPuCThermalConductivity-16"></a>    k = (<span class="fl">8.14e-6</span>*T-<span class="fl">0.010096882</span>)*T+<span class="fl">19.65063040915</span>;</span>
-<span id="UPuCThermalConductivity-17"><a href="#UPuCThermalConductivity-17"></a>  } <span class="cf">else</span> {</span>
-<span id="UPuCThermalConductivity-18"><a href="#UPuCThermalConductivity-18"></a>    k = (-<span class="fl">1.88e-6</span>*T+<span class="fl">0.009737044</span>)*T+<span class="fl">10.2405949657</span>;</span>
-<span id="UPuCThermalConductivity-19"><a href="#UPuCThermalConductivity-19"></a>  }</span>
-<span id="UPuCThermalConductivity-20"><a href="#UPuCThermalConductivity-20"></a>  k *= (<span class="fl">1.</span>-p)/(<span class="fl">1.</span>+<span class="fl">2.</span>*p);</span>
-<span id="UPuCThermalConductivity-21"><a href="#UPuCThermalConductivity-21"></a>  k *= <span class="fl">1.</span>-(<span class="fl">0.02</span>*Bu);</span>
-<span id="UPuCThermalConductivity-22"><a href="#UPuCThermalConductivity-22"></a>}</span></code></pre></div>
-<p>Cette implantation peut être compilée en une librairie dynamique appelable depuis <code>Cast3M</code>:</p>
-<div class="sourceCode" id="UPuCThermalConductivity-mfront"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="UPuCThermalConductivity-mfront-1"><a href="#UPuCThermalConductivity-mfront-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem UPuCThermalConductivity.mfront</span></code></pre></div>
-<h1 id="utilisation-dans-cast3m">Utilisation dans <code>Cast3M</code></h1>
-<p>L’appel à des librairies dynamiques depuis l’opérateur <code>MATERIAU</code> nécessite l’application d’un patch~:</p>
+<h2 id="conductivité-thermique-du-combustible-carbure-upuc">Conductivité
+thermique du combustible carbure <span
+class="math inline">\(UPuC\)</span></h2>
+<p>La conductivité thermique d’un combustible carbure <span
+class="math inline">\(UPuC\)</span> <span
+class="math inline">\(k\left(T,p,\tau\right)\)</span> est supposée
+dépendre de la temperature <span class="math inline">\(T\)</span>
+(Kelvin), de la porosité <span class="math inline">\(p\)</span> et du
+taux de combustion <span class="math inline">\(\tau\)</span> <span
+class="math inline">\(at.\%\)</span></p>
+<p>Une implantation possible de cette propriété matériau en
+<code>MFront</code> est la suivante:</p>
+<div class="sourceCode" id="UPuCThermalConductivity"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="UPuCThermalConductivity-1"><a href="#UPuCThermalConductivity-1"></a><span class="er">@</span>Parser MaterialLaw<span class="op">;</span></span>
+<span id="UPuCThermalConductivity-2"><a href="#UPuCThermalConductivity-2"></a><span class="er">@</span>Law ThermalConductivity<span class="op">;</span></span>
+<span id="UPuCThermalConductivity-3"><a href="#UPuCThermalConductivity-3"></a><span class="er">@</span>Material UPuC<span class="op">;</span></span>
+<span id="UPuCThermalConductivity-4"><a href="#UPuCThermalConductivity-4"></a><span class="er">@</span>Author Thomas Helfer<span class="op">;</span></span>
+<span id="UPuCThermalConductivity-5"><a href="#UPuCThermalConductivity-5"></a><span class="er">@</span>Output k<span class="op">;</span> <span class="co">//&lt; changing the name of output</span></span>
+<span id="UPuCThermalConductivity-6"><a href="#UPuCThermalConductivity-6"></a><span class="er">@</span>Input T<span class="op">,</span>p<span class="op">,</span>Bu<span class="op">;</span> <span class="co">//&lt; inputs of the law</span></span>
+<span id="UPuCThermalConductivity-7"><a href="#UPuCThermalConductivity-7"></a>T<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;Temperature&quot;</span><span class="op">);</span> <span class="co">//&lt; pleiades name</span></span>
+<span id="UPuCThermalConductivity-8"><a href="#UPuCThermalConductivity-8"></a>p<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;Porosity&quot;</span><span class="op">);</span> <span class="co">//&lt; pleiades name</span></span>
+<span id="UPuCThermalConductivity-9"><a href="#UPuCThermalConductivity-9"></a>Bu<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;BurnUp&quot;</span><span class="op">);</span> <span class="co">//&lt; pleiades name</span></span>
+<span id="UPuCThermalConductivity-10"><a href="#UPuCThermalConductivity-10"></a><span class="er">@</span>PhysicalBounds T in <span class="op">[</span><span class="dv">0</span> <span class="op">:*[;</span> <span class="co">//&lt; temperature physical bounds</span></span>
+<span id="UPuCThermalConductivity-11"><a href="#UPuCThermalConductivity-11"></a><span class="er">@</span>Bounds T in <span class="op">[</span><span class="dv">0</span> <span class="op">:</span><span class="fl">2573.15</span><span class="op">];</span> <span class="co">//&lt; temperature bounds</span></span>
+<span id="UPuCThermalConductivity-12"><a href="#UPuCThermalConductivity-12"></a><span class="er">@</span>PhysicalBounds p in <span class="op">[</span><span class="dv">0</span> <span class="op">:</span><span class="dv">1</span><span class="op">];</span> <span class="co">//&lt; porosity physical bounds</span></span>
+<span id="UPuCThermalConductivity-13"><a href="#UPuCThermalConductivity-13"></a><span class="er">@</span>PhysicalBounds Bu in <span class="op">[</span><span class="dv">0</span> <span class="op">:*[;</span> <span class="co">//&lt; burn-up physicalbounds</span></span>
+<span id="UPuCThermalConductivity-14"><a href="#UPuCThermalConductivity-14"></a><span class="er">@</span>Function<span class="op">{</span></span>
+<span id="UPuCThermalConductivity-15"><a href="#UPuCThermalConductivity-15"></a>  <span class="cf">if</span> <span class="op">(</span>T<span class="op">&lt;=</span><span class="fl">773.15</span><span class="op">){</span></span>
+<span id="UPuCThermalConductivity-16"><a href="#UPuCThermalConductivity-16"></a>    k <span class="op">=</span> <span class="op">(</span><span class="fl">8.14e-6</span><span class="op">*</span>T<span class="op">-</span><span class="fl">0.010096882</span><span class="op">)*</span>T<span class="op">+</span><span class="fl">19.65063040915</span><span class="op">;</span></span>
+<span id="UPuCThermalConductivity-17"><a href="#UPuCThermalConductivity-17"></a>  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="UPuCThermalConductivity-18"><a href="#UPuCThermalConductivity-18"></a>    k <span class="op">=</span> <span class="op">(-</span><span class="fl">1.88e-6</span><span class="op">*</span>T<span class="op">+</span><span class="fl">0.009737044</span><span class="op">)*</span>T<span class="op">+</span><span class="fl">10.2405949657</span><span class="op">;</span></span>
+<span id="UPuCThermalConductivity-19"><a href="#UPuCThermalConductivity-19"></a>  <span class="op">}</span></span>
+<span id="UPuCThermalConductivity-20"><a href="#UPuCThermalConductivity-20"></a>  k <span class="op">*=</span> <span class="op">(</span><span class="fl">1.</span><span class="op">-</span>p<span class="op">)/(</span><span class="fl">1.</span><span class="op">+</span><span class="fl">2.</span><span class="op">*</span>p<span class="op">);</span></span>
+<span id="UPuCThermalConductivity-21"><a href="#UPuCThermalConductivity-21"></a>  k <span class="op">*=</span> <span class="fl">1.</span><span class="op">-(</span><span class="fl">0.02</span><span class="op">*</span>Bu<span class="op">);</span></span>
+<span id="UPuCThermalConductivity-22"><a href="#UPuCThermalConductivity-22"></a><span class="op">}</span></span></code></pre></div>
+<p>Cette implantation peut être compilée en une librairie dynamique
+appelable depuis <code>Cast3M</code>:</p>
+<div class="sourceCode" id="UPuCThermalConductivity-mfront"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="UPuCThermalConductivity-mfront-1"><a href="#UPuCThermalConductivity-mfront-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem UPuCThermalConductivity.mfront</span></code></pre></div>
+<h1 id="utilisation-dans-cast3m">Utilisation dans
+<code>Cast3M</code></h1>
+<p>L’appel à des librairies dynamiques depuis l’opérateur
+<code>MATERIAU</code> nécessite l’application d’un patch~:</p>
 <ul>
 <li><a href="downloads/patchs-Cast3M-2014.tar.bz2">Cast3M 2014</a></li>
 <li><a href="downloads/patchs-Cast3M-2015.tar.bz2">Cast3M 2015</a></li>
 </ul>
-<p>La directive <code>MATERIAU</code> accepte alors une table comme paramètre:</p>
-<div class="sourceCode" id="UPuCThermalConductivity-castem"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="UPuCThermalConductivity-castem-1"><a href="#UPuCThermalConductivity-castem-1"></a><span class="op">*</span> Création d un modèle thermique isotrope</span>
+<p>La directive <code>MATERIAU</code> accepte alors une table comme
+paramètre:</p>
+<div class="sourceCode" id="UPuCThermalConductivity-castem"><pre
+class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="UPuCThermalConductivity-castem-1"><a href="#UPuCThermalConductivity-castem-1"></a><span class="op">*</span> Création d un modèle thermique isotrope</span>
 <span id="UPuCThermalConductivity-castem-2"><a href="#UPuCThermalConductivity-castem-2"></a>ModT1 <span class="op">=</span> <span class="st">&#39;MODELISER&#39;</span> s1 <span class="st">&#39;THERMIQUE&#39;</span> <span class="st">&#39;ISOTROPE&#39;</span><span class="op">;</span></span>
 <span id="UPuCThermalConductivity-castem-3"><a href="#UPuCThermalConductivity-castem-3"></a><span class="op">*</span> Création d une table contenant les données relatives</span>
 <span id="UPuCThermalConductivity-castem-4"><a href="#UPuCThermalConductivity-castem-4"></a><span class="op">*</span> à la propriété externe :</span>
@@ -524,7 +580,8 @@
 <span id="UPuCThermalConductivity-castem-13"><a href="#UPuCThermalConductivity-castem-13"></a>Tmat. <span class="st">&#39;VARIABLES&#39;</span> <span class="op">=</span> <span class="st">&#39;MOTS&#39;</span> <span class="st">&#39;T&#39;</span> <span class="st">&#39;PORO&#39;</span> <span class="st">&#39;FIMA&#39;</span><span class="op">;</span></span>
 <span id="UPuCThermalConductivity-castem-14"><a href="#UPuCThermalConductivity-castem-14"></a><span class="op">*</span> Création du matériau.</span>
 <span id="UPuCThermalConductivity-castem-15"><a href="#UPuCThermalConductivity-castem-15"></a>MatT1 <span class="op">=</span> <span class="st">&#39;MATERIAU&#39;</span> ModT1 <span class="st">&#39;K&#39;</span> Tmat<span class="op">;</span></span></code></pre></div>
-<p>Pour une utilisation dans <code>PASAPAS</code>, deux chargements <code>PORO</code> et <code>FIMA</code> doivent être définis.</p>
+<p>Pour une utilisation dans <code>PASAPAS</code>, deux chargements
+<code>PORO</code> et <code>FIMA</code> doivent être définis.</p>
 <!-- Local IspellDict: english -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

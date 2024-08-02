@@ -16,8 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -26,7 +27,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -50,11 +51,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -63,14 +64,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -79,7 +80,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -182,6 +185,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -333,77 +337,169 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#rationale"><span class="toc-section-number">1</span> Rationale</a></li>
-<li><a href="#defining-a-parameter"><span class="toc-section-number">2</span> Defining a parameter</a></li>
-<li><a href="#modifying-a-parameter-at-runtime"><span class="toc-section-number">3</span> Modifying a parameter at runtime</a>
+<li><a href="#rationale" id="toc-rationale"><span
+class="toc-section-number">1</span> Rationale</a></li>
+<li><a href="#defining-a-parameter" id="toc-defining-a-parameter"><span
+class="toc-section-number">2</span> Defining a parameter</a></li>
+<li><a href="#modifying-a-parameter-at-runtime"
+id="toc-modifying-a-parameter-at-runtime"><span
+class="toc-section-number">3</span> Modifying a parameter at runtime</a>
 <ul>
-<li><a href="#examples-of-modify-the-calling-solver-input-file"><span class="toc-section-number">3.1</span> Examples of modify the calling solver input file</a>
+<li><a href="#examples-of-modify-the-calling-solver-input-file"
+id="toc-examples-of-modify-the-calling-solver-input-file"><span
+class="toc-section-number">3.1</span> Examples of modify the calling
+solver input file</a>
 <ul>
-<li><a href="#mtest"><span class="toc-section-number">3.1.1</span> <code>MTest</code></a></li>
-<li><a href="#code-aster"><span class="toc-section-number">3.1.2</span> <code>Code-Aster</code></a></li>
-<li><a href="#zebulon"><span class="toc-section-number">3.1.3</span> <code>Zebulon</code></a></li>
+<li><a href="#mtest" id="toc-mtest"><span
+class="toc-section-number">3.1.1</span> <code>MTest</code></a></li>
+<li><a href="#code-aster" id="toc-code-aster"><span
+class="toc-section-number">3.1.2</span> <code>Code-Aster</code></a></li>
+<li><a href="#zebulon" id="toc-zebulon"><span
+class="toc-section-number">3.1.3</span> <code>Zebulon</code></a></li>
 </ul></li>
-<li><a href="#sec:mfront:parameters:parameters_file"><span class="toc-section-number">3.2</span> External file</a></li>
+<li><a href="#sec:mfront:parameters:parameters_file"
+id="toc-sec:mfront:parameters:parameters_file"><span
+class="toc-section-number">3.2</span> External file</a></li>
 </ul></li>
-<li><a href="#querying-information-about-parameters-in-mfront-query"><span class="toc-section-number">4</span> Querying information about parameters in <code>mfront-query</code></a>
+<li><a href="#querying-information-about-parameters-in-mfront-query"
+id="toc-querying-information-about-parameters-in-mfront-query"><span
+class="toc-section-number">4</span> Querying information about
+parameters in <code>mfront-query</code></a>
 <ul>
-<li><a href="#list-of-parameters"><span class="toc-section-number">4.1</span> List of parameters</a></li>
-<li><a href="#querying-the-default-value-of-a-parameter"><span class="toc-section-number">4.2</span> Querying the default value of a parameter</a></li>
-<li><a href="#querying-the-type-of-a-parameter"><span class="toc-section-number">4.3</span> Querying the type of a parameter</a></li>
-<li><a href="#querying-the-name-of-the-parameters-file-through-mfront-query"><span class="toc-section-number">4.4</span> Querying the name of the parameters’ file through <code>mfront-query</code></a></li>
+<li><a href="#list-of-parameters" id="toc-list-of-parameters"><span
+class="toc-section-number">4.1</span> List of parameters</a></li>
+<li><a href="#querying-the-default-value-of-a-parameter"
+id="toc-querying-the-default-value-of-a-parameter"><span
+class="toc-section-number">4.2</span> Querying the default value of a
+parameter</a></li>
+<li><a href="#querying-the-type-of-a-parameter"
+id="toc-querying-the-type-of-a-parameter"><span
+class="toc-section-number">4.3</span> Querying the type of a
+parameter</a></li>
+<li><a
+href="#querying-the-name-of-the-parameters-file-through-mfront-query"
+id="toc-querying-the-name-of-the-parameters-file-through-mfront-query"><span
+class="toc-section-number">4.4</span> Querying the name of the
+parameters’ file through <code>mfront-query</code></a></li>
 </ul></li>
 </ul>
 </div>
-<h1 data-number="1" id="rationale"><span class="header-section-number">1</span> Rationale</h1>
-<p>Being able to modify some coefficients of a behaviour without recompiling is a very handy feature for the end user and is mandatory for parametric studies.</p>
-<p>To achieve this, most mechanical solvers have introduced material properties, declared with the <code>@MaterialProperty</code> keyword in <code>MFront</code>, which are evaluated by the calling solver and then passed to the behaviour. The main idea behind material properties is to write generic behaviours that can be used to describe a wide range of materials.</p>
-<p>There are a important shortcomings associated with the use of material properties:</p>
+<h1 data-number="1" id="rationale"><span
+class="header-section-number">1</span> Rationale</h1>
+<p>Being able to modify some coefficients of a behaviour without
+recompiling is a very handy feature for the end user and is mandatory
+for parametric studies.</p>
+<p>To achieve this, most mechanical solvers have introduced material
+properties, declared with the <code>@MaterialProperty</code> keyword in
+<code>MFront</code>, which are evaluated by the calling solver and then
+passed to the behaviour. The main idea behind material properties is to
+write generic behaviours that can be used to describe a wide range of
+materials.</p>
+<p>There are a important shortcomings associated with the use of
+material properties:</p>
 <ul>
-<li>For Assurance Quality reasons, we consider that the usage of generic behaviours shall be avoided, mainly because part of the definition of the behaviour is put in the user input file: we do think that the whole description of the behaviour shall be included in the <code>MFront</code> implementation. This can not be achieved with material properties since their is no easy cross-solver way to define their default values from the behaviour implementation.</li>
-<li>The use of material properties can have significant numerical impact in some finite element solver: those costs are associated to the evaluation and transfer of material properties values to the behaviour.</li>
+<li>For Assurance Quality reasons, we consider that the usage of generic
+behaviours shall be avoided, mainly because part of the definition of
+the behaviour is put in the user input file: we do think that the whole
+description of the behaviour shall be included in the
+<code>MFront</code> implementation. This can not be achieved with
+material properties since their is no easy cross-solver way to define
+their default values from the behaviour implementation.</li>
+<li>The use of material properties can have significant numerical impact
+in some finite element solver: those costs are associated to the
+evaluation and transfer of material properties values to the
+behaviour.</li>
 </ul>
-<p>Parameters, defined through the <code>@Parameter</code> keyword, are meant to be an alternative solution: parameters are internal coefficients that can be modified by the end user at (almost) no cost. <strong>A parameter must have a default value</strong> which must be considered as the reference value.</p>
-<p>Parameters are global values shared by all instances of the behaviour. Parameters are thus associated to the behaviour and not to a material (or model in the <code>Cast3M</code> wording). Parameters thus have a few shortcomings (compared to material properties).</p>
-<h1 data-number="2" id="defining-a-parameter"><span class="header-section-number">2</span> Defining a parameter</h1>
-<p>Parameters are defined with the <code>@Parameter</code> keyword. The following syntax are allowed:</p>
-<div class="sourceCode" id="parameters"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="parameters-1"><a href="#parameters-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real dmax1 =  <span class="fl">0.98</span>; <span class="co">// initialisation by assignment syntax</span></span>
-<span id="parameters-2"><a href="#parameters-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real dmax2(<span class="fl">0.98</span>);   <span class="co">// constructor syntax</span></span>
-<span id="parameters-3"><a href="#parameters-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real dmax3{<span class="fl">0.98</span>};   <span class="co">// uniform initialisation syntax</span></span>
-<span id="parameters-4"><a href="#parameters-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real dmax4;         <span class="co">// only syntax valid for tfel &lt; 2.0</span></span>
-<span id="parameters-5"><a href="#parameters-5" aria-hidden="true" tabindex="-1"></a>dmax4.setDefaultValue(<span class="fl">0.98</span>);</span></code></pre></div>
-<p>A glossary name or an entry name can be associated to a parameter through the <code>setGlossaryName</code> or the <code>setEntryName</code> method.</p>
+<p>Parameters, defined through the <code>@Parameter</code> keyword, are
+meant to be an alternative solution: parameters are internal
+coefficients that can be modified by the end user at (almost) no cost.
+<strong>A parameter must have a default value</strong> which must be
+considered as the reference value.</p>
+<p>Parameters are global values shared by all instances of the
+behaviour. Parameters are thus associated to the behaviour and not to a
+material (or model in the <code>Cast3M</code> wording). Parameters thus
+have a few shortcomings (compared to material properties).</p>
+<h1 data-number="2" id="defining-a-parameter"><span
+class="header-section-number">2</span> Defining a parameter</h1>
+<p>Parameters are defined with the <code>@Parameter</code> keyword. The
+following syntax are allowed:</p>
+<div class="sourceCode" id="parameters"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="parameters-1"><a href="#parameters-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real dmax1 <span class="op">=</span>  <span class="fl">0.98</span><span class="op">;</span> <span class="co">// initialisation by assignment syntax</span></span>
+<span id="parameters-2"><a href="#parameters-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real dmax2<span class="op">(</span><span class="fl">0.98</span><span class="op">);</span>   <span class="co">// constructor syntax</span></span>
+<span id="parameters-3"><a href="#parameters-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real dmax3<span class="op">{</span><span class="fl">0.98</span><span class="op">};</span>   <span class="co">// uniform initialisation syntax</span></span>
+<span id="parameters-4"><a href="#parameters-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real dmax4<span class="op">;</span>         <span class="co">// only syntax valid for tfel &lt; 2.0</span></span>
+<span id="parameters-5"><a href="#parameters-5" aria-hidden="true" tabindex="-1"></a>dmax4<span class="op">.</span>setDefaultValue<span class="op">(</span><span class="fl">0.98</span><span class="op">);</span></span></code></pre></div>
+<p>A glossary name or an entry name can be associated to a parameter
+through the <code>setGlossaryName</code> or the
+<code>setEntryName</code> method.</p>
 <blockquote>
 <p><strong>Note</strong></p>
-<p>Historically, the type of the parameter was not required and was implicitly assumed to be of the <code>real</code> type. Although deprecated, the following syntax is still valid:</p>
-<div class="sourceCode" id="parameters"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="parameters-1"><a href="#parameters-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter dmax1 =  <span class="fl">0.98</span>; <span class="co">// initialisation by assignment syntax</span></span></code></pre></div>
+<p>Historically, the type of the parameter was not required and was
+implicitly assumed to be of the <code>real</code> type. Although
+deprecated, the following syntax is still valid:</p>
+<div class="sourceCode" id="parameters"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="parameters-1"><a href="#parameters-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter dmax1 <span class="op">=</span>  <span class="fl">0.98</span><span class="op">;</span> <span class="co">// initialisation by assignment syntax</span></span></code></pre></div>
 </blockquote>
-<h1 data-number="3" id="modifying-a-parameter-at-runtime"><span class="header-section-number">3</span> Modifying a parameter at runtime</h1>
+<h1 data-number="3" id="modifying-a-parameter-at-runtime"><span
+class="header-section-number">3</span> Modifying a parameter at
+runtime</h1>
 <p>There are two ways to modify a parameter at runtime:</p>
 <ul>
 <li>through the calling solver input file;</li>
 <li>through an external file</li>
 </ul>
-<p>From our point of view, the first method is preferable but is not always available. Some examples are provided below.</p>
-<h2 data-number="3.1" id="examples-of-modify-the-calling-solver-input-file"><span class="header-section-number">3.1</span> Examples of modify the calling solver input file</h2>
-<h3 data-number="3.1.1" id="mtest"><span class="header-section-number">3.1.1</span> <code>MTest</code></h3>
-<p>The keyword <code>@Parameter</code> is available in <a href="mtest.html"><code>MTest</code></a>.</p>
-<h3 data-number="3.1.2" id="code-aster"><span class="header-section-number">3.1.2</span> <code>Code-Aster</code></h3>
-<h3 data-number="3.1.3" id="zebulon"><span class="header-section-number">3.1.3</span> <code>Zebulon</code></h3>
-<p>The <code>***parameter</code> section can be used to define parameters from the input file.</p>
-<h2 data-number="3.2" id="sec:mfront:parameters:parameters_file"><span class="header-section-number">3.2</span> External file</h2>
-<p>Let us take an example of a behaviour named <code>Mazars</code> (the behaviour name is defined by the value given to the <code>@Behaviour</code> keyword and prefixed by the material name, given by <code>@Material</code> keyword (if any)). We suppose that this behaviour defines a parameter whose entry name is <code>DamageThreshold</code> (entry names are defined through the <code>setEntryName</code> method).</p>
-<p>If a file named <code>Mazars-parameters.txt</code> is in the current directory, it is automatically read at the first behaviour call. This file must contain lines beginning with a parameter name and its value. No comments are allowed.</p>
+<p>From our point of view, the first method is preferable but is not
+always available. Some examples are provided below.</p>
+<h2 data-number="3.1"
+id="examples-of-modify-the-calling-solver-input-file"><span
+class="header-section-number">3.1</span> Examples of modify the calling
+solver input file</h2>
+<h3 data-number="3.1.1" id="mtest"><span
+class="header-section-number">3.1.1</span> <code>MTest</code></h3>
+<p>The keyword <code>@Parameter</code> is available in <a
+href="mtest.html"><code>MTest</code></a>.</p>
+<h3 data-number="3.1.2" id="code-aster"><span
+class="header-section-number">3.1.2</span> <code>Code-Aster</code></h3>
+<h3 data-number="3.1.3" id="zebulon"><span
+class="header-section-number">3.1.3</span> <code>Zebulon</code></h3>
+<p>The <code>***parameter</code> section can be used to define
+parameters from the input file.</p>
+<h2 data-number="3.2" id="sec:mfront:parameters:parameters_file"><span
+class="header-section-number">3.2</span> External file</h2>
+<p>Let us take an example of a behaviour named <code>Mazars</code> (the
+behaviour name is defined by the value given to the
+<code>@Behaviour</code> keyword and prefixed by the material name, given
+by <code>@Material</code> keyword (if any)). We suppose that this
+behaviour defines a parameter whose entry name is
+<code>DamageThreshold</code> (entry names are defined through the
+<code>setEntryName</code> method).</p>
+<p>If a file named <code>Mazars-parameters.txt</code> is in the current
+directory, it is automatically read at the first behaviour call. This
+file must contain lines beginning with a parameter name and its value.
+No comments are allowed.</p>
 <p>If our case, this file may contain the following line:</p>
-<div class="sourceCode" id="external-file"><pre class="sourceCode txt"><code class="sourceCode default"><span id="external-file-1"><a href="#external-file-1" aria-hidden="true" tabindex="-1"></a>DamageThreshold 0.95</span></code></pre></div>
-<p>If a parameter is not defined in this file, it will have its default value.</p>
+<div class="sourceCode" id="external-file"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="external-file-1"><a href="#external-file-1" aria-hidden="true" tabindex="-1"></a>DamageThreshold 0.95</span></code></pre></div>
+<p>If a parameter is not defined in this file, it will have its default
+value.</p>
 <p>This functionality is illustrated below:</p>
 <figure>
-<img src="img/parameters.svg" title="Defintion of parameters through an external file" alt="Defintion of parameters through an external file" /><figcaption aria-hidden="true">Defintion of parameters through an external file</figcaption>
+<img src="img/parameters.svg"
+title="Defintion of parameters through an external file"
+alt="Defintion of parameters through an external file" />
+<figcaption aria-hidden="true">Defintion of parameters through an
+external file</figcaption>
 </figure>
-<h1 data-number="4" id="querying-information-about-parameters-in-mfront-query"><span class="header-section-number">4</span> Querying information about parameters in <code>mfront-query</code></h1>
-<h2 data-number="4.1" id="list-of-parameters"><span class="header-section-number">4.1</span> List of parameters</h2>
-<p>The list of parameters in an <code>mfront</code> file can be retrieved as follows:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> Rousselier.mfront</span>
+<h1 data-number="4"
+id="querying-information-about-parameters-in-mfront-query"><span
+class="header-section-number">4</span> Querying information about
+parameters in <code>mfront-query</code></h1>
+<h2 data-number="4.1" id="list-of-parameters"><span
+class="header-section-number">4.1</span> List of parameters</h2>
+<p>The list of parameters in an <code>mfront</code> file can be
+retrieved as follows:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> Rousselier.mfront</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> safety_factor_for_the_upper_bound_of_the_porosity: a safety factor for the porosity upper bound</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> safety_factor_for_the_upper_bound_of_the_porosity_for_fracture_detection: a safety factor for the porosity upper bound</span>
@@ -413,20 +509,36 @@
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> maximal_time_step_scaling_factor: maximal value for the time step scaling factor</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> numerical_jacobian_epsilon: perturbation value used to compute a numerical approximation of the jacobian</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> iterMax: maximum number of iterations allowed</span></code></pre></div>
-<h2 data-number="4.2" id="querying-the-default-value-of-a-parameter"><span class="header-section-number">4.2</span> Querying the default value of a parameter</h2>
-<p>The default value of a parameter can be retrieved using the <code>--parameter-default-value</code> query, as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameter-default-value</span><span class="op">=</span>epsilon Rousselier.mfront </span>
+<h2 data-number="4.2"
+id="querying-the-default-value-of-a-parameter"><span
+class="header-section-number">4.2</span> Querying the default value of a
+parameter</h2>
+<p>The default value of a parameter can be retrieved using the
+<code>--parameter-default-value</code> query, as follows:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameter-default-value</span><span class="op">=</span>epsilon Rousselier.mfront </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">1.e-14</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameter-default-value</span><span class="op">=</span>iterMax Rousselier.mfront</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">100</span></span></code></pre></div>
-<h2 data-number="4.3" id="querying-the-type-of-a-parameter"><span class="header-section-number">4.3</span> Querying the type of a parameter</h2>
-<p>The type of a parameter can be retrieved through the <code>--parameter-type</code> query, as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameter-type</span><span class="op">=</span>iterMax Rousselier.mfront</span>
+<h2 data-number="4.3" id="querying-the-type-of-a-parameter"><span
+class="header-section-number">4.3</span> Querying the type of a
+parameter</h2>
+<p>The type of a parameter can be retrieved through the
+<code>--parameter-type</code> query, as follows:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameter-type</span><span class="op">=</span>iterMax Rousselier.mfront</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ushort</span></span></code></pre></div>
-<p>Here <code>ushort</code> means that the <code>iterMax</code> parameter is stored as unsigned short integer.</p>
-<h2 data-number="4.4" id="querying-the-name-of-the-parameters-file-through-mfront-query"><span class="header-section-number">4.4</span> Querying the name of the parameters’ file through <code>mfront-query</code></h2>
-<p>The name of the file which can be used to modify the parameters’ values (see Section 3.2) can be retrieved with the <code>--parameters-file</code> query:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters-file</span> Rousselier.mfront </span>
+<p>Here <code>ushort</code> means that the <code>iterMax</code>
+parameter is stored as unsigned short integer.</p>
+<h2 data-number="4.4"
+id="querying-the-name-of-the-parameters-file-through-mfront-query"><span
+class="header-section-number">4.4</span> Querying the name of the
+parameters’ file through <code>mfront-query</code></h2>
+<p>The name of the file which can be used to modify the parameters’
+values (see Section 3.2) can be retrieved with the
+<code>--parameters-file</code> query:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters-file</span> Rousselier.mfront </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rousseliertest-parameters.txt</span></span></code></pre></div>
 <!-- Local IspellDict: english -->
     <script>

@@ -17,8 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -27,7 +28,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -51,11 +52,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -64,14 +65,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -80,7 +81,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -183,6 +186,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -328,19 +332,37 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">MFront usage in <a href="http://www.zset-software.com/products/zebulon">ZeBuLoN</a></h1>
+<h1 class="title">MFront usage in <a
+href="http://www.zset-software.com/products/zebulon">ZeBuLoN</a></h1>
 <h2 class="author">Helfer Thomas</h2>
 <h3 class="date">October 13, 2014</h3>
 </div>
-<p>This document shows how to use <code>MFront</code> mechanical behaviour in the <a href="http://www.zset-software.com/products/zebulon">ZeBuLoN finite element solver</a>. It is extracted from the <a href="documents/mfront/zmat.pdf"><code>zmat</code> documentation</a>.</p>
-<p>This interface has been tested with the version <span class="math inline">\(8.5\)</span> of <a href="http://www.zset-software.com/products/zebulon">ZeBuLoN</a>. The files used can be downloaded <a href="downloads/example-zset8.5.tar.bz2">here</a>.</p>
+<p>This document shows how to use <code>MFront</code> mechanical
+behaviour in the <a
+href="http://www.zset-software.com/products/zebulon">ZeBuLoN finite
+element solver</a>. It is extracted from the <a
+href="documents/mfront/zmat.pdf"><code>zmat</code>
+documentation</a>.</p>
+<p>This interface has been tested with the version <span
+class="math inline">\(8.5\)</span> of <a
+href="http://www.zset-software.com/products/zebulon">ZeBuLoN</a>. The
+files used can be downloaded <a
+href="downloads/example-zset8.5.tar.bz2">here</a>.</p>
 <h1 id="compilation-of-the-behaviour">Compilation of the behaviour</h1>
-<p>The following instruction will compile the <code>MFront</code> behaviour using the <code>zmat</code> interface :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>zmat norton.mfront</span></code></pre></div>
-<h1 id="usage-in-zebulon">Usage in <a href="http://www.zset-software.com/products/zebulon">ZeBuLoN</a></h1>
-<p>The generated library must be placed in a directory registered by the <code>ZEBUPATH</code> environment variable. The generated library is then automatically loaded at <code>ZeBuLoN</code> start-up and all the behaviours are available.</p>
-<p>The behaviour can then be used as standard <code>ZMAT</code> behaviour:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">***behavior</span> Norton</span>
+<p>The following instruction will compile the <code>MFront</code>
+behaviour using the <code>zmat</code> interface :</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>zmat norton.mfront</span></code></pre></div>
+<h1 id="usage-in-zebulon">Usage in <a
+href="http://www.zset-software.com/products/zebulon">ZeBuLoN</a></h1>
+<p>The generated library must be placed in a directory registered by the
+<code>ZEBUPATH</code> environment variable. The generated library is
+then automatically loaded at <code>ZeBuLoN</code> start-up and all the
+behaviours are available.</p>
+<p>The behaviour can then be used as standard <code>ZMAT</code>
+behaviour:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">***behavior</span> Norton</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> <span class="ex">**material_properties</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">YoungModulus</span> 150e9</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">PoissonRatio</span>   0.33</span>

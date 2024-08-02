@@ -17,8 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -27,7 +28,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -51,11 +52,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -64,14 +65,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -80,7 +81,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -183,6 +186,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -328,79 +332,242 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Release notes of the 3.0.2 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h1 class="title">Release notes of the 3.0.2 version of
+<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">2017</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#tickets-fixed">Tickets fixed</a>
+<li><a href="#tickets-fixed" id="toc-tickets-fixed">Tickets fixed</a>
 <ul>
-<li><a href="#ticket-93-error-declaring-local-variable">Ticket #93: Error declaring local variable</a></li>
-<li><a href="#ticket-92-reading-boolean-values-in-dataread_value-is-broken">Ticket #92: Reading boolean values in <code>Data::read_value</code> is broken</a></li>
-<li><a href="#ticket-91-parts-of-the-implicit-systems-and-jacobian-matrix-blocks-by-the-standardelasticity-brick-shall-be-inserted-at-the-beginning-of-the-integrator-block-not-at-the-end">Ticket #91: Parts of the implicit systems and jacobian matrix blocks by the <code>StandardElasticity</code> brick shall be inserted at the beginning of the <code>@Integrator</code> block, not at the end</a></li>
-<li><a href="#ticket-90-wrong-test-on-boost_version-version-in-bindingspythonincludetfelpythonsharedptr.hxx">Ticket #90: Wrong test on <code>BOOST_VERSION</code> version in <code>bindings/python/include/TFEL/Python/SharedPtr.hxx</code></a></li>
-<li><a href="#ticket-89-standardelasticity-bug-when-only-one-the-plane-stress-modelling-hypotheses-is-selected">Ticket #89: StandardElasticity: bug when only one the plane stress modelling hypotheses is selected</a></li>
-<li><a href="#ticket-88-error-when-treating-axial-growth-the-axis-along-the-growth-is-wrong">Ticket #88: Error when treating axial growth: the axis along the growth is wrong</a></li>
-<li><a href="#ticket-87-the-correction-of-the-axial-growth-modifies-all-the-stress-free-expansion-treated-so-far">Ticket #87: The correction of the axial growth modifies all the stress free expansion treated so far</a></li>
-<li><a href="#ticket-86-the-material-laws-are-not-available-in-the-computestress-block-in-the-rungekutta-dsl">Ticket #86: The material laws are not available in the <code>ComputeStress</code> block in the <code>RungeKutta</code> DSL</a></li>
-<li><a href="#ticket-85-add-support-for-an-in-plane-relocalisation-strain-in-behaviours-laws">Ticket #85 Add support for an in plane “relocalisation strain” in behaviours laws</a></li>
-<li><a href="#ticket-84-check-the-ntens-value-in-the-abaqus-interface">Ticket #84: Check the <code>NTENS</code> value in the <code>Abaqus</code> interface</a></li>
-<li><a href="#ticket-82-python-interface-is-broken-if-no-material-name-if-not-defined">Ticket #82: Python interface is broken if no material name if not defined</a></li>
-<li><a href="#ticket-81-have-two-versions-of-mfront-in-the-same-environment">Ticket #81: Have two versions of MFront in the same environment</a></li>
-<li><a href="#ticket-80-adding-the-possiblity-to-compile-a-law-using-python-module">Ticket #80: Adding the possiblity to compile a law using python module</a></li>
-<li><a href="#ticket-79-cyrano-interface-bug-in-cyranobehaviourhandler-class.-missing-test.">Ticket #79: <code>Cyrano</code> interface: bug in <code>CyranoBehaviourHandler</code> class. Missing test.</a></li>
-<li><a href="#ticket-78-fix-transpose-of-st2tost2-when-using-rvalue-reference">Ticket #78: Fix transpose of <code>st2tost2</code> when using rvalue reference</a></li>
-<li><a href="#ticket-77-operators-and-are-broken-for-fourth-order-tensors">Ticket #77: operators <code>*=</code> and <code>/=</code> are broken for fourth order tensors</a></li>
-<li><a href="#ticket-75-support-for-python3-in-the-python-interface">Ticket #75: Support for <code>python3</code> in the python interface</a></li>
-<li><a href="#ticket-73-abaqusexplicit-wait-for-tasks-termination-when-the-threadpool-threading-model-is-used">Ticket #73 AbaqusExplicit: wait for tasks termination when the <code>ThreadPool</code> threading model is used</a></li>
-<li><a href="#ticket-72-error-at-compilation-of-documentation">Ticket #72: Error at compilation of documentation</a></li>
-<li><a href="#ticket-69-profiling-true-error-in-cygwin">Ticket #69: <code>@Profiling</code> true; Error in cygwin</a></li>
-<li><a href="#ticket-70-plastic-mfront-in-calculix">Ticket #70: <code>PLASTIC</code> + <code>MFRONT</code> in <code>CalculiX</code></a></li>
-<li><a href="#ticket-67-a-suffix-to-the-material-name-is-required-abaqus-interface">Ticket #67 A suffix to the material name is required (<code>abaqus</code> interface)</a></li>
-<li><a href="#ticket-64-change-the-library-prefix-to-cyg-under-cygwin">Ticket #64: Change the library prefix to “cyg” under cygwin</a></li>
-<li><a href="#ticket-63-error-cygwin-make">Ticket #63: Error cygwin (make)</a></li>
-<li><a href="#ticket-58-fix-initialisation-of-an-array-of-parameters">Ticket #58: Fix initialisation of an array of parameters</a></li>
-<li><a href="#ticket-57-more-robust-detection-of-python-versions-avoid-mismatch-between-the-python-libraries-the-python-interpreter-and-the-boost-python-library">Ticket #57: More robust detection of python versions: avoid mismatch between the python libraries, the python interpreter and the boost python library</a></li>
-<li><a href="#ticket-54-bug-in-stensorfromtinyvectorview-standard-assignement-fails">Ticket #54: Bug in StensorFromTinyVectorView: standard assignement fails</a></li>
-<li><a href="#ticket-53-add-comments-handling-in-parameters-txt-files">Ticket #53: Add comments handling in parameters txt files</a></li>
-<li><a href="#ticket-52-more-robust-handling-of-parameters-txt-file">Ticket #52: More robust handling of parameters txt file</a></li>
-<li><a href="#ticket-20-allow-mfront-to-work-under-windows-without-requiring-msys">Ticket #20 Allow <code>MFront</code> to work under <code>Windows</code> without requiring <code>MSYS</code></a></li>
-<li><a href="#ticket-17-add-physical-constants-from-codata">Ticket #17: Add physical constants from CODATA</a></li>
+<li><a href="#ticket-93-error-declaring-local-variable"
+id="toc-ticket-93-error-declaring-local-variable">Ticket #93: Error
+declaring local variable</a></li>
+<li><a
+href="#ticket-92-reading-boolean-values-in-dataread_value-is-broken"
+id="toc-ticket-92-reading-boolean-values-in-dataread_value-is-broken">Ticket
+#92: Reading boolean values in <code>Data::read_value</code> is
+broken</a></li>
+<li><a
+href="#ticket-91-parts-of-the-implicit-systems-and-jacobian-matrix-blocks-by-the-standardelasticity-brick-shall-be-inserted-at-the-beginning-of-the-integrator-block-not-at-the-end"
+id="toc-ticket-91-parts-of-the-implicit-systems-and-jacobian-matrix-blocks-by-the-standardelasticity-brick-shall-be-inserted-at-the-beginning-of-the-integrator-block-not-at-the-end">Ticket
+#91: Parts of the implicit systems and jacobian matrix blocks by the
+<code>StandardElasticity</code> brick shall be inserted at the beginning
+of the <code>@Integrator</code> block, not at the end</a></li>
+<li><a
+href="#ticket-90-wrong-test-on-boost_version-version-in-bindingspythonincludetfelpythonsharedptr.hxx"
+id="toc-ticket-90-wrong-test-on-boost_version-version-in-bindingspythonincludetfelpythonsharedptr.hxx">Ticket
+#90: Wrong test on <code>BOOST_VERSION</code> version in
+<code>bindings/python/include/TFEL/Python/SharedPtr.hxx</code></a></li>
+<li><a
+href="#ticket-89-standardelasticity-bug-when-only-one-the-plane-stress-modelling-hypotheses-is-selected"
+id="toc-ticket-89-standardelasticity-bug-when-only-one-the-plane-stress-modelling-hypotheses-is-selected">Ticket
+#89: StandardElasticity: bug when only one the plane stress modelling
+hypotheses is selected</a></li>
+<li><a
+href="#ticket-88-error-when-treating-axial-growth-the-axis-along-the-growth-is-wrong"
+id="toc-ticket-88-error-when-treating-axial-growth-the-axis-along-the-growth-is-wrong">Ticket
+#88: Error when treating axial growth: the axis along the growth is
+wrong</a></li>
+<li><a
+href="#ticket-87-the-correction-of-the-axial-growth-modifies-all-the-stress-free-expansion-treated-so-far"
+id="toc-ticket-87-the-correction-of-the-axial-growth-modifies-all-the-stress-free-expansion-treated-so-far">Ticket
+#87: The correction of the axial growth modifies all the stress free
+expansion treated so far</a></li>
+<li><a
+href="#ticket-86-the-material-laws-are-not-available-in-the-computestress-block-in-the-rungekutta-dsl"
+id="toc-ticket-86-the-material-laws-are-not-available-in-the-computestress-block-in-the-rungekutta-dsl">Ticket
+#86: The material laws are not available in the
+<code>ComputeStress</code> block in the <code>RungeKutta</code>
+DSL</a></li>
+<li><a
+href="#ticket-85-add-support-for-an-in-plane-relocalisation-strain-in-behaviours-laws"
+id="toc-ticket-85-add-support-for-an-in-plane-relocalisation-strain-in-behaviours-laws">Ticket
+#85 Add support for an in plane “relocalisation strain” in behaviours
+laws</a></li>
+<li><a href="#ticket-84-check-the-ntens-value-in-the-abaqus-interface"
+id="toc-ticket-84-check-the-ntens-value-in-the-abaqus-interface">Ticket
+#84: Check the <code>NTENS</code> value in the <code>Abaqus</code>
+interface</a></li>
+<li><a
+href="#ticket-82-python-interface-is-broken-if-no-material-name-if-not-defined"
+id="toc-ticket-82-python-interface-is-broken-if-no-material-name-if-not-defined">Ticket
+#82: Python interface is broken if no material name if not
+defined</a></li>
+<li><a
+href="#ticket-81-have-two-versions-of-mfront-in-the-same-environment"
+id="toc-ticket-81-have-two-versions-of-mfront-in-the-same-environment">Ticket
+#81: Have two versions of MFront in the same environment</a></li>
+<li><a
+href="#ticket-80-adding-the-possiblity-to-compile-a-law-using-python-module"
+id="toc-ticket-80-adding-the-possiblity-to-compile-a-law-using-python-module">Ticket
+#80: Adding the possiblity to compile a law using python module</a></li>
+<li><a
+href="#ticket-79-cyrano-interface-bug-in-cyranobehaviourhandler-class.-missing-test."
+id="toc-ticket-79-cyrano-interface-bug-in-cyranobehaviourhandler-class.-missing-test.">Ticket
+#79: <code>Cyrano</code> interface: bug in
+<code>CyranoBehaviourHandler</code> class. Missing test.</a></li>
+<li><a
+href="#ticket-78-fix-transpose-of-st2tost2-when-using-rvalue-reference"
+id="toc-ticket-78-fix-transpose-of-st2tost2-when-using-rvalue-reference">Ticket
+#78: Fix transpose of <code>st2tost2</code> when using rvalue
+reference</a></li>
+<li><a
+href="#ticket-77-operators-and-are-broken-for-fourth-order-tensors"
+id="toc-ticket-77-operators-and-are-broken-for-fourth-order-tensors">Ticket
+#77: operators <code>*=</code> and <code>/=</code> are broken for fourth
+order tensors</a></li>
+<li><a href="#ticket-75-support-for-python3-in-the-python-interface"
+id="toc-ticket-75-support-for-python3-in-the-python-interface">Ticket
+#75: Support for <code>python3</code> in the python interface</a></li>
+<li><a
+href="#ticket-73-abaqusexplicit-wait-for-tasks-termination-when-the-threadpool-threading-model-is-used"
+id="toc-ticket-73-abaqusexplicit-wait-for-tasks-termination-when-the-threadpool-threading-model-is-used">Ticket
+#73 AbaqusExplicit: wait for tasks termination when the
+<code>ThreadPool</code> threading model is used</a></li>
+<li><a href="#ticket-72-error-at-compilation-of-documentation"
+id="toc-ticket-72-error-at-compilation-of-documentation">Ticket #72:
+Error at compilation of documentation</a></li>
+<li><a href="#ticket-69-profiling-true-error-in-cygwin"
+id="toc-ticket-69-profiling-true-error-in-cygwin">Ticket #69:
+<code>@Profiling</code> true; Error in cygwin</a></li>
+<li><a href="#ticket-70-plastic-mfront-in-calculix"
+id="toc-ticket-70-plastic-mfront-in-calculix">Ticket #70:
+<code>PLASTIC</code> + <code>MFRONT</code> in
+<code>CalculiX</code></a></li>
+<li><a
+href="#ticket-67-a-suffix-to-the-material-name-is-required-abaqus-interface"
+id="toc-ticket-67-a-suffix-to-the-material-name-is-required-abaqus-interface">Ticket
+#67 A suffix to the material name is required (<code>abaqus</code>
+interface)</a></li>
+<li><a href="#ticket-64-change-the-library-prefix-to-cyg-under-cygwin"
+id="toc-ticket-64-change-the-library-prefix-to-cyg-under-cygwin">Ticket
+#64: Change the library prefix to “cyg” under cygwin</a></li>
+<li><a href="#ticket-63-error-cygwin-make"
+id="toc-ticket-63-error-cygwin-make">Ticket #63: Error cygwin
+(make)</a></li>
+<li><a href="#ticket-58-fix-initialisation-of-an-array-of-parameters"
+id="toc-ticket-58-fix-initialisation-of-an-array-of-parameters">Ticket
+#58: Fix initialisation of an array of parameters</a></li>
+<li><a
+href="#ticket-57-more-robust-detection-of-python-versions-avoid-mismatch-between-the-python-libraries-the-python-interpreter-and-the-boost-python-library"
+id="toc-ticket-57-more-robust-detection-of-python-versions-avoid-mismatch-between-the-python-libraries-the-python-interpreter-and-the-boost-python-library">Ticket
+#57: More robust detection of python versions: avoid mismatch between
+the python libraries, the python interpreter and the boost python
+library</a></li>
+<li><a
+href="#ticket-54-bug-in-stensorfromtinyvectorview-standard-assignement-fails"
+id="toc-ticket-54-bug-in-stensorfromtinyvectorview-standard-assignement-fails">Ticket
+#54: Bug in StensorFromTinyVectorView: standard assignement
+fails</a></li>
+<li><a href="#ticket-53-add-comments-handling-in-parameters-txt-files"
+id="toc-ticket-53-add-comments-handling-in-parameters-txt-files">Ticket
+#53: Add comments handling in parameters txt files</a></li>
+<li><a href="#ticket-52-more-robust-handling-of-parameters-txt-file"
+id="toc-ticket-52-more-robust-handling-of-parameters-txt-file">Ticket
+#52: More robust handling of parameters txt file</a></li>
+<li><a
+href="#ticket-20-allow-mfront-to-work-under-windows-without-requiring-msys"
+id="toc-ticket-20-allow-mfront-to-work-under-windows-without-requiring-msys">Ticket
+#20 Allow <code>MFront</code> to work under <code>Windows</code> without
+requiring <code>MSYS</code></a></li>
+<li><a href="#ticket-17-add-physical-constants-from-codata"
+id="toc-ticket-17-add-physical-constants-from-codata">Ticket #17: Add
+physical constants from CODATA</a></li>
 </ul></li>
 </ul>
 </div>
-<p>Version 3.0.2 of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code> has been released on the 25th October, 2017.</p>
-<p>This is mainly a bug fix version of the <code>3.0</code> series. All tickets solved are described below. There are no known regressions.</p>
+<p>Version 3.0.2 of <code>TFEL</code>, <code>MFront</code> and
+<code>MTest</code> has been released on the 25th October, 2017.</p>
+<p>This is mainly a bug fix version of the <code>3.0</code> series. All
+tickets solved are described below. There are no known regressions.</p>
 <h1 id="tickets-fixed">Tickets fixed</h1>
-<h2 id="ticket-93-error-declaring-local-variable">Ticket #93: Error declaring local variable</h2>
-<p>In certain circumstances, parsing a variable type was not consistent with <code>C++</code> rules. For example, the following statement was not properly parsed:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable tfel::math::tvector&lt;Nss,tfel::math::tensor&lt;<span class="dv">3</span><span class="bu">u</span>,real&gt; &gt;  mu;</span></code></pre></div>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/93/" class="uri">https://sourceforge.net/p/tfel/tickets/93/</a></p>
-<h2 id="ticket-92-reading-boolean-values-in-dataread_value-is-broken">Ticket #92: Reading boolean values in <code>Data::read_value</code> is broken</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/92/" class="uri">https://sourceforge.net/p/tfel/tickets/92/</a></p>
-<h2 id="ticket-91-parts-of-the-implicit-systems-and-jacobian-matrix-blocks-by-the-standardelasticity-brick-shall-be-inserted-at-the-beginning-of-the-integrator-block-not-at-the-end">Ticket #91: Parts of the implicit systems and jacobian matrix blocks by the <code>StandardElasticity</code> brick shall be inserted at the beginning of the <code>@Integrator</code> block, not at the end</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/91/" class="uri">https://sourceforge.net/p/tfel/tickets/91/</a></p>
-<h2 id="ticket-90-wrong-test-on-boost_version-version-in-bindingspythonincludetfelpythonsharedptr.hxx">Ticket #90: Wrong test on <code>BOOST_VERSION</code> version in <code>bindings/python/include/TFEL/Python/SharedPtr.hxx</code></h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/90/" class="uri">https://sourceforge.net/p/tfel/tickets/90/</a></p>
-<h2 id="ticket-89-standardelasticity-bug-when-only-one-the-plane-stress-modelling-hypotheses-is-selected">Ticket #89: StandardElasticity: bug when only one the plane stress modelling hypotheses is selected</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/89/" class="uri">https://sourceforge.net/p/tfel/tickets/89/</a></p>
-<h2 id="ticket-88-error-when-treating-axial-growth-the-axis-along-the-growth-is-wrong">Ticket #88: Error when treating axial growth: the axis along the growth is wrong</h2>
-<p>The main axis for the axial growth shall be the second direction of orthotropy, as described in the documentation, not the third one as implemented in versions <span class="math inline">\(3.0\)</span> and <span class="math inline">\(3.0.1\)</span>.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/88/" class="uri">https://sourceforge.net/p/tfel/tickets/88/</a></p>
-<h2 id="ticket-87-the-correction-of-the-axial-growth-modifies-all-the-stress-free-expansion-treated-so-far">Ticket #87: The correction of the axial growth modifies all the stress free expansion treated so far</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/87/" class="uri">https://sourceforge.net/p/tfel/tickets/87/</a></p>
-<h2 id="ticket-86-the-material-laws-are-not-available-in-the-computestress-block-in-the-rungekutta-dsl">Ticket #86: The material laws are not available in the <code>ComputeStress</code> block in the <code>RungeKutta</code> DSL</h2>
-<p>The material laws (declared for example via the <code>@MaterialLaw</code> keyword) were not available without extra qualification in the <code>ComputeStress</code> block when using the <code>RungeKutta</code> DSL: one have to add the <code>mfront::</code> qualifier in front of the material law.</p>
-<p>The problem is a missing call to <code>writeMaterialLaws</code> in the <code>writeBehaviourParserSpecificMembers</code> member function of the <code>RungeKuttaDSLBase</code> class.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/86/" class="uri">https://sourceforge.net/p/tfel/tickets/86/</a></p>
-<h2 id="ticket-85-add-support-for-an-in-plane-relocalisation-strain-in-behaviours-laws">Ticket #85 Add support for an in plane “relocalisation strain” in behaviours laws</h2>
-<p>The <code>@Relocation</code> keyword can be used to impose a boundary condition specific the fuel performances describing the rigid body translation of fuel pellet fragment as an additional strain.</p>
+<h2 id="ticket-93-error-declaring-local-variable">Ticket #93: Error
+declaring local variable</h2>
+<p>In certain circumstances, parsing a variable type was not consistent
+with <code>C++</code> rules. For example, the following statement was
+not properly parsed:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable tfel<span class="op">::</span>math<span class="op">::</span>tvector<span class="op">&lt;</span>Nss<span class="op">,</span>tfel<span class="op">::</span>math<span class="op">::</span>tensor<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;</span> <span class="op">&gt;</span>  mu<span class="op">;</span></span></code></pre></div>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/93/"
+class="uri">https://sourceforge.net/p/tfel/tickets/93/</a></p>
+<h2
+id="ticket-92-reading-boolean-values-in-dataread_value-is-broken">Ticket
+#92: Reading boolean values in <code>Data::read_value</code> is
+broken</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/92/"
+class="uri">https://sourceforge.net/p/tfel/tickets/92/</a></p>
+<h2
+id="ticket-91-parts-of-the-implicit-systems-and-jacobian-matrix-blocks-by-the-standardelasticity-brick-shall-be-inserted-at-the-beginning-of-the-integrator-block-not-at-the-end">Ticket
+#91: Parts of the implicit systems and jacobian matrix blocks by the
+<code>StandardElasticity</code> brick shall be inserted at the beginning
+of the <code>@Integrator</code> block, not at the end</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/91/"
+class="uri">https://sourceforge.net/p/tfel/tickets/91/</a></p>
+<h2
+id="ticket-90-wrong-test-on-boost_version-version-in-bindingspythonincludetfelpythonsharedptr.hxx">Ticket
+#90: Wrong test on <code>BOOST_VERSION</code> version in
+<code>bindings/python/include/TFEL/Python/SharedPtr.hxx</code></h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/90/"
+class="uri">https://sourceforge.net/p/tfel/tickets/90/</a></p>
+<h2
+id="ticket-89-standardelasticity-bug-when-only-one-the-plane-stress-modelling-hypotheses-is-selected">Ticket
+#89: StandardElasticity: bug when only one the plane stress modelling
+hypotheses is selected</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/89/"
+class="uri">https://sourceforge.net/p/tfel/tickets/89/</a></p>
+<h2
+id="ticket-88-error-when-treating-axial-growth-the-axis-along-the-growth-is-wrong">Ticket
+#88: Error when treating axial growth: the axis along the growth is
+wrong</h2>
+<p>The main axis for the axial growth shall be the second direction of
+orthotropy, as described in the documentation, not the third one as
+implemented in versions <span class="math inline">\(3.0\)</span> and
+<span class="math inline">\(3.0.1\)</span>.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/88/"
+class="uri">https://sourceforge.net/p/tfel/tickets/88/</a></p>
+<h2
+id="ticket-87-the-correction-of-the-axial-growth-modifies-all-the-stress-free-expansion-treated-so-far">Ticket
+#87: The correction of the axial growth modifies all the stress free
+expansion treated so far</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/87/"
+class="uri">https://sourceforge.net/p/tfel/tickets/87/</a></p>
+<h2
+id="ticket-86-the-material-laws-are-not-available-in-the-computestress-block-in-the-rungekutta-dsl">Ticket
+#86: The material laws are not available in the
+<code>ComputeStress</code> block in the <code>RungeKutta</code> DSL</h2>
+<p>The material laws (declared for example via the
+<code>@MaterialLaw</code> keyword) were not available without extra
+qualification in the <code>ComputeStress</code> block when using the
+<code>RungeKutta</code> DSL: one have to add the <code>mfront::</code>
+qualifier in front of the material law.</p>
+<p>The problem is a missing call to <code>writeMaterialLaws</code> in
+the <code>writeBehaviourParserSpecificMembers</code> member function of
+the <code>RungeKuttaDSLBase</code> class.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/86/"
+class="uri">https://sourceforge.net/p/tfel/tickets/86/</a></p>
+<h2
+id="ticket-85-add-support-for-an-in-plane-relocalisation-strain-in-behaviours-laws">Ticket
+#85 Add support for an in plane “relocalisation strain” in behaviours
+laws</h2>
+<p>The <code>@Relocation</code> keyword can be used to impose a boundary
+condition specific the fuel performances describing the rigid body
+translation of fuel pellet fragment as an additional strain.</p>
 <ul>
 <li>an external state variable name.</li>
 <li>a string giving an mfront file implementing a relocation model.</li>
 </ul>
-<h3 id="modelling-hypotheses-affected">Modelling hypotheses affected</h3>
+<h3 id="modelling-hypotheses-affected">Modelling hypotheses
+affected</h3>
 <p>This keyword is only effective in:</p>
 <ul>
 <li>axisymmetrical generalised plane strain.</li>
@@ -409,60 +576,101 @@
 <li>plane strain.</li>
 <li>plane stress.</li>
 </ul>
-<p>No expansion are added in the tridimensional and axisymmetrical modelling hypotheses.</p>
+<p>No expansion are added in the tridimensional and axisymmetrical
+modelling hypotheses.</p>
 <h3 id="physical-description">Physical description</h3>
-<p>The value of the relocation expansion <span class="math inline">\(r\)</span> is converted in an additional expansion in the radial and orthoradial directions:</p>
+<p>The value of the relocation expansion <span
+class="math inline">\(r\)</span> is converted in an additional expansion
+in the radial and orthoradial directions:</p>
 <p><span class="math display">\[
 \left\{
 \begin{aligned}
 \frac{\Delta\,l_{r}}{l_{r}}           &amp;= \frac{r}{2} \\
-\frac{\Delta\,l_{\theta}}{l_{\theta}} &amp;= \frac{r}{2} 
+\frac{\Delta\,l_{\theta}}{l_{\theta}} &amp;= \frac{r}{2}
 \end{aligned}
 \right.
 \]</span>.</p>
-<p>This additional expansion is such that it does not create any stress in the fuel pellet for an isotropic elastic material with constant material properties.</p>
-<p>The axial axis is the second direction in <span class="math inline">\(1D\)</span> hypotheses and the third direction in <span class="math inline">\(2D\)</span> hypotheses.</p>
+<p>This additional expansion is such that it does not create any stress
+in the fuel pellet for an isotropic elastic material with constant
+material properties.</p>
+<p>The axial axis is the second direction in <span
+class="math inline">\(1D\)</span> hypotheses and the third direction in
+<span class="math inline">\(2D\)</span> hypotheses.</p>
 <h3 id="examples">Examples</h3>
-<div class="sourceCode" id="Relocation"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="Relocation-1"><a href="#Relocation-1" aria-hidden="true" tabindex="-1"></a><span class="co">// relocation defined by an external model</span></span>
-<span id="Relocation-2"><a href="#Relocation-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Relocation <span class="ch">&#39;U</span><span class="er">O2Relocation.mfront</span><span class="ch">&#39;</span>;</span></code></pre></div>
-<div class="sourceCode" id="Relocation2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="Relocation2-1"><a href="#Relocation2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// relocation defined by an external state variable</span></span>
-<span id="Relocation2-2"><a href="#Relocation2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable real r;</span>
-<span id="Relocation2-3"><a href="#Relocation2-3" aria-hidden="true" tabindex="-1"></a>r.setEntryName(<span class="st">&quot;Relocation&quot;</span>);</span>
-<span id="Relocation2-4"><a href="#Relocation2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Relocation r;</span></code></pre></div>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/85/" class="uri">https://sourceforge.net/p/tfel/tickets/85/</a></p>
-<h2 id="ticket-84-check-the-ntens-value-in-the-abaqus-interface">Ticket #84: Check the <code>NTENS</code> value in the <code>Abaqus</code> interface</h2>
-<p>The value of the <code>NTENS</code> value was not used to check that the function called was consistent with the modelling hypothesis used.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/84/" class="uri">https://sourceforge.net/p/tfel/tickets/84/</a></p>
-<h2 id="ticket-82-python-interface-is-broken-if-no-material-name-if-not-defined">Ticket #82: Python interface is broken if no material name if not defined</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/82/" class="uri">https://sourceforge.net/p/tfel/tickets/82/</a></p>
-<h2 id="ticket-81-have-two-versions-of-mfront-in-the-same-environment">Ticket #81: Have two versions of MFront in the same environment</h2>
-<p>In <code>cmake</code>, the <code>TFEL_APPEND_VERSION</code> option will append the version number to the names of:</p>
+<div class="sourceCode" id="Relocation"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="Relocation-1"><a href="#Relocation-1" aria-hidden="true" tabindex="-1"></a><span class="co">// relocation defined by an external model</span></span>
+<span id="Relocation-2"><a href="#Relocation-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Relocation <span class="ch">&#39;U</span><span class="er">O2Relocation.mfront</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="Relocation2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="Relocation2-1"><a href="#Relocation2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// relocation defined by an external state variable</span></span>
+<span id="Relocation2-2"><a href="#Relocation2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable real r<span class="op">;</span></span>
+<span id="Relocation2-3"><a href="#Relocation2-3" aria-hidden="true" tabindex="-1"></a>r<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;Relocation&quot;</span><span class="op">);</span></span>
+<span id="Relocation2-4"><a href="#Relocation2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Relocation r<span class="op">;</span></span></code></pre></div>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/85/"
+class="uri">https://sourceforge.net/p/tfel/tickets/85/</a></p>
+<h2 id="ticket-84-check-the-ntens-value-in-the-abaqus-interface">Ticket
+#84: Check the <code>NTENS</code> value in the <code>Abaqus</code>
+interface</h2>
+<p>The value of the <code>NTENS</code> value was not used to check that
+the function called was consistent with the modelling hypothesis
+used.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/84/"
+class="uri">https://sourceforge.net/p/tfel/tickets/84/</a></p>
+<h2
+id="ticket-82-python-interface-is-broken-if-no-material-name-if-not-defined">Ticket
+#82: Python interface is broken if no material name if not defined</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/82/"
+class="uri">https://sourceforge.net/p/tfel/tickets/82/</a></p>
+<h2
+id="ticket-81-have-two-versions-of-mfront-in-the-same-environment">Ticket
+#81: Have two versions of MFront in the same environment</h2>
+<p>In <code>cmake</code>, the <code>TFEL_APPEND_VERSION</code> option
+will append the version number to the names of:</p>
 <ul>
 <li>The executables.</li>
 <li>The libraries.</li>
-<li>The python modules. Note that, to comply with <code>python</code> restriction on module’ names, the characters <code>.</code> and <code>-</code> are replace by <code>_</code> and that only the first level modules are affected.</li>
+<li>The python modules. Note that, to comply with <code>python</code>
+restriction on module’ names, the characters <code>.</code> and
+<code>-</code> are replace by <code>_</code> and that only the first
+level modules are affected.</li>
 <li>The directories in the <code>share</code> folder.</li>
 </ul>
-<p>The headers are installed in a subforder named <code>TFEL-${TVEL_VERSION}</code>.</p>
-<p>For example, if the <code>TFEL</code> version is <code>3.0.2-dev</code>, using <code>TFEL_APPEND_VERSION</code> opion will generate:</p>
+<p>The headers are installed in a subforder named
+<code>TFEL-${TVEL_VERSION}</code>.</p>
+<p>For example, if the <code>TFEL</code> version is
+<code>3.0.2-dev</code>, using <code>TFEL_APPEND_VERSION</code> opion
+will generate:</p>
 <ul>
 <li>The <code>mfront-3.0.2-dev</code> executable.</li>
 <li>The <code>libTFELMaterial-3.0.2-dev.so</code> library.</li>
 <li>The <code>mtest_3_0_2_dev</code> <code>python</code> module.</li>
-<li>The <code>tfel_3_0_2_dev.material</code> <code>python</code> module. In this case, the second level (<code>material</code>) is not affected.</li>
+<li>The <code>tfel_3_0_2_dev.material</code> <code>python</code> module.
+In this case, the second level (<code>material</code>) is not
+affected.</li>
 </ul>
-<p>This allows multiple executables to be installed in the same directory.</p>
+<p>This allows multiple executables to be installed in the same
+directory.</p>
 <h3 id="the-tfel-config-tool">The <code>tfel-config</code> tool</h3>
-<p>The <code>tfel-config</code> tool has been modified to take this option appropriately. For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-config-3.0.2-dev <span class="at">--includes</span></span>
+<p>The <code>tfel-config</code> tool has been modified to take this
+option appropriately. For example:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-config-3.0.2-dev <span class="at">--includes</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-I/tmp/install/include/TFEL-3.0.2-dev</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-config-3.0.2-dev <span class="at">--libs</span> <span class="at">--material</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-L/tmp/install/lib</span> <span class="at">-lTFELMaterial-3.0.2-dev</span> <span class="at">-lTFELMath-3.0.2-dev</span> <span class="at">-lTFELUtilities-3.0.2-dev</span> <span class="at">-lTFELException-3.0.2-dev</span></span></code></pre></div>
-<h3 id="modifications-to-mfront">Modifications to <code>mfront</code></h3>
-<p><code>mfront</code> has been modified to call the appropriate <code>tfel-config</code> executable.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/81/" class="uri">https://sourceforge.net/p/tfel/tickets/81/</a></p>
-<h3 id="an-helper-function-for-importing-tfel-modules">An helper function for importing <code>TFEL</code> modules</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, importlib</span>
+<h3 id="modifications-to-mfront">Modifications to
+<code>mfront</code></h3>
+<p><code>mfront</code> has been modified to call the appropriate
+<code>tfel-config</code> executable.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/81/"
+class="uri">https://sourceforge.net/p/tfel/tickets/81/</a></p>
+<h3 id="an-helper-function-for-importing-tfel-modules">An helper
+function for importing <code>TFEL</code> modules</h3>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, importlib</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> python_module_version(v):</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Return the python module extension from the TFEL version&quot;&quot;&quot;</span></span>
@@ -483,10 +691,17 @@
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="pp">ImportError</span>(<span class="st">&#39;Invalid number of arguments&#39;</span>)</span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> importlib.import_module(<span class="st">&#39;.&#39;</span>.join(m))</span></code></pre></div>
-<h2 id="ticket-80-adding-the-possiblity-to-compile-a-law-using-python-module">Ticket #80: Adding the possiblity to compile a law using python module</h2>
-<p><code>MFront</code> relies on external tools, called generators, for this step (this semantic is the same than the one used by <code>cmake</code>).</p>
-<p>The only available generator is currently the <code>Makefile</code> generator, handled by the <code>MakefileGenerator</code> class. This generator can be used as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
+<h2
+id="ticket-80-adding-the-possiblity-to-compile-a-law-using-python-module">Ticket
+#80: Adding the possiblity to compile a law using python module</h2>
+<p><code>MFront</code> relies on external tools, called generators, for
+this step (this semantic is the same than the one used by
+<code>cmake</code>).</p>
+<p>The only available generator is currently the <code>Makefile</code>
+generator, handled by the <code>MakefileGenerator</code> class. This
+generator can be used as follows:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mfront</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dsl <span class="op">=</span> mfront.getDSL(<span class="st">&quot;Chaboche.mfront&quot;</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>dsl.setInterfaces([<span class="st">&#39;castem&#39;</span>])</span>
@@ -495,81 +710,216 @@
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> mfront.MakefileGenerator()</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>m.exe(dsl.getTargetsDescription())</span></code></pre></div>
-<p>The <code>exe</code> methods provides several overloads and may accept an additional argument of type <code>GeneratorOptions</code> which let the user specifiy the optimisation level to be used.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/80/" class="uri">https://sourceforge.net/p/tfel/tickets/80/</a></p>
-<h2 id="ticket-79-cyrano-interface-bug-in-cyranobehaviourhandler-class.-missing-test.">Ticket #79: <code>Cyrano</code> interface: bug in <code>CyranoBehaviourHandler</code> class. Missing test.</h2>
+<p>The <code>exe</code> methods provides several overloads and may
+accept an additional argument of type <code>GeneratorOptions</code>
+which let the user specifiy the optimisation level to be used.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/80/"
+class="uri">https://sourceforge.net/p/tfel/tickets/80/</a></p>
+<h2
+id="ticket-79-cyrano-interface-bug-in-cyranobehaviourhandler-class.-missing-test.">Ticket
+#79: <code>Cyrano</code> interface: bug in
+<code>CyranoBehaviourHandler</code> class. Missing test.</h2>
 <p>The problem appeared when local substepping is enabled.</p>
-<p>This feature was not tested for the <code>Cyrano</code> interface, which explains why this regression has not been detected so far.</p>
+<p>This feature was not tested for the <code>Cyrano</code> interface,
+which explains why this regression has not been detected so far.</p>
 <p>The problem was fixed and appropriate test were added.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/79/" class="uri">https://sourceforge.net/p/tfel/tickets/79/</a></p>
-<h2 id="ticket-78-fix-transpose-of-st2tost2-when-using-rvalue-reference">Ticket #78: Fix transpose of <code>st2tost2</code> when using rvalue reference</h2>
-<p>The definition of the transpose of <code>st2tost2</code> was broken when the argument was an rvalue reference.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/78/" class="uri">https://sourceforge.net/p/tfel/tickets/78/</a></p>
-<h2 id="ticket-77-operators-and-are-broken-for-fourth-order-tensors">Ticket #77: operators <code>*=</code> and <code>/=</code> are broken for fourth order tensors</h2>
-<p>The operators <code>*=</code> and <code>/=</code> are broken for fourth order tensors: the <code>std::is_same</code> metafunction return value must be accessed with the <code>value</code> member, not the <code>cond</code> member. This was a reminiscence an old remove class called <code>tfel::meta::IsSame</code> which was removed in <code>TFEL-3.0</code>.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/77/" class="uri">https://sourceforge.net/p/tfel/tickets/77/</a></p>
-<h2 id="ticket-75-support-for-python3-in-the-python-interface">Ticket #75: Support for <code>python3</code> in the python interface</h2>
-<p>The code generated by mfront with the python interface is not compatible with <code>python3</code>. The trouble is linked to changes in the module declaration. See <a href="https://docs.python.org/3/howto/cporting.html" class="uri">https://docs.python.org/3/howto/cporting.html</a> for details.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/75/" class="uri">https://sourceforge.net/p/tfel/tickets/75/</a></p>
-<h2 id="ticket-73-abaqusexplicit-wait-for-tasks-termination-when-the-threadpool-threading-model-is-used">Ticket #73 AbaqusExplicit: wait for tasks termination when the <code>ThreadPool</code> threading model is used</h2>
-<p>The <code>ThreadPool</code> class now has a <code>wait</code> method that stops the main thread up to tasks completion. This method is now called at the end of the integration in the <code>AbaqusExplicit</code> interface when the <code>ThreadPool</code> threading model is used.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/73/" class="uri">https://sourceforge.net/p/tfel/tickets/73/</a></p>
-<h2 id="ticket-72-error-at-compilation-of-documentation">Ticket #72: Error at compilation of documentation</h2>
-<p>The latex documents declared a unnecessary dependency to the <code>stmaryrd</code> package. This package became outdated in recent <code>LaTeX</code> distributions causing some portability issues. This dependency has been removed.</p>
-<p>The inclusion of the <code>babel</code> package was missing in the <code>docs/presentations/mfront-formation-tp/tp.tex.in</code> file.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/72/" class="uri">https://sourceforge.net/p/tfel/tickets/72/</a></p>
-<h2 id="ticket-69-profiling-true-error-in-cygwin">Ticket #69: <code>@Profiling</code> true; Error in cygwin</h2>
-<p>Under Windows, the <code>__declspec(dllexport)</code> attribute does not propagate to inner structures, wheres the visibility flags used under <code>POSIX</code> systems does. This attribute is now set also on the <code>BehaviourProfiler::Timer</code> structure.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/69/" class="uri">https://sourceforge.net/p/tfel/tickets/69/</a></p>
-<h2 id="ticket-70-plastic-mfront-in-calculix">Ticket #70: <code>PLASTIC</code> + <code>MFRONT</code> in <code>CalculiX</code></h2>
-<p><code>CalculiX</code> provides two interfaces to <code>ABAQUS</code> <code>umat</code> behaviours. In versions prior to 2.12, those interfaces are not fully compatible with <code>ABAQUS</code> concerning various checks. The issue has been reported to <code>CalculiX</code> developers.</p>
-<p>To circumvent those issues, the <code>MFRONT_ABAQUS_NORUNTIMECHECKS</code> flag has been added. This flag desactivates:</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/79/"
+class="uri">https://sourceforge.net/p/tfel/tickets/79/</a></p>
+<h2
+id="ticket-78-fix-transpose-of-st2tost2-when-using-rvalue-reference">Ticket
+#78: Fix transpose of <code>st2tost2</code> when using rvalue
+reference</h2>
+<p>The definition of the transpose of <code>st2tost2</code> was broken
+when the argument was an rvalue reference.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/78/"
+class="uri">https://sourceforge.net/p/tfel/tickets/78/</a></p>
+<h2
+id="ticket-77-operators-and-are-broken-for-fourth-order-tensors">Ticket
+#77: operators <code>*=</code> and <code>/=</code> are broken for fourth
+order tensors</h2>
+<p>The operators <code>*=</code> and <code>/=</code> are broken for
+fourth order tensors: the <code>std::is_same</code> metafunction return
+value must be accessed with the <code>value</code> member, not the
+<code>cond</code> member. This was a reminiscence an old remove class
+called <code>tfel::meta::IsSame</code> which was removed in
+<code>TFEL-3.0</code>.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/77/"
+class="uri">https://sourceforge.net/p/tfel/tickets/77/</a></p>
+<h2 id="ticket-75-support-for-python3-in-the-python-interface">Ticket
+#75: Support for <code>python3</code> in the python interface</h2>
+<p>The code generated by mfront with the python interface is not
+compatible with <code>python3</code>. The trouble is linked to changes
+in the module declaration. See <a
+href="https://docs.python.org/3/howto/cporting.html"
+class="uri">https://docs.python.org/3/howto/cporting.html</a> for
+details.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/75/"
+class="uri">https://sourceforge.net/p/tfel/tickets/75/</a></p>
+<h2
+id="ticket-73-abaqusexplicit-wait-for-tasks-termination-when-the-threadpool-threading-model-is-used">Ticket
+#73 AbaqusExplicit: wait for tasks termination when the
+<code>ThreadPool</code> threading model is used</h2>
+<p>The <code>ThreadPool</code> class now has a <code>wait</code> method
+that stops the main thread up to tasks completion. This method is now
+called at the end of the integration in the <code>AbaqusExplicit</code>
+interface when the <code>ThreadPool</code> threading model is used.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/73/"
+class="uri">https://sourceforge.net/p/tfel/tickets/73/</a></p>
+<h2 id="ticket-72-error-at-compilation-of-documentation">Ticket #72:
+Error at compilation of documentation</h2>
+<p>The latex documents declared a unnecessary dependency to the
+<code>stmaryrd</code> package. This package became outdated in recent
+<code>LaTeX</code> distributions causing some portability issues. This
+dependency has been removed.</p>
+<p>The inclusion of the <code>babel</code> package was missing in the
+<code>docs/presentations/mfront-formation-tp/tp.tex.in</code> file.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/72/"
+class="uri">https://sourceforge.net/p/tfel/tickets/72/</a></p>
+<h2 id="ticket-69-profiling-true-error-in-cygwin">Ticket #69:
+<code>@Profiling</code> true; Error in cygwin</h2>
+<p>Under Windows, the <code>__declspec(dllexport)</code> attribute does
+not propagate to inner structures, wheres the visibility flags used
+under <code>POSIX</code> systems does. This attribute is now set also on
+the <code>BehaviourProfiler::Timer</code> structure.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/69/"
+class="uri">https://sourceforge.net/p/tfel/tickets/69/</a></p>
+<h2 id="ticket-70-plastic-mfront-in-calculix">Ticket #70:
+<code>PLASTIC</code> + <code>MFRONT</code> in <code>CalculiX</code></h2>
+<p><code>CalculiX</code> provides two interfaces to <code>ABAQUS</code>
+<code>umat</code> behaviours. In versions prior to 2.12, those
+interfaces are not fully compatible with <code>ABAQUS</code> concerning
+various checks. The issue has been reported to <code>CalculiX</code>
+developers.</p>
+<p>To circumvent those issues, the
+<code>MFRONT_ABAQUS_NORUNTIMECHECKS</code> flag has been added. This
+flag desactivates:</p>
 <ul>
-<li>checks related to the number of material properties (value of <code>NPROPS</code>)</li>
-<li>checks related to the number of state variables (value of <code>NSTATV</code>)</li>
-<li>checks related to usage of the behaviour in finite strain analysis (<code>KSTEP</code>)</li>
+<li>checks related to the number of material properties (value of
+<code>NPROPS</code>)</li>
+<li>checks related to the number of state variables (value of
+<code>NSTATV</code>)</li>
+<li>checks related to usage of the behaviour in finite strain analysis
+(<code>KSTEP</code>)</li>
 </ul>
-<p>All those checks may fail with the <code>ABAQUS</code> and <code>ABAQUSNL</code> interfaces in <code>CalculiX</code> for reasons described in the previous posts. This flag can be set as follows:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mfront</span> <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>abaqus <span class="at">-D</span> MFRONT_ABAQUS_NORUNTIMECHECKS SaintVenantKirchhoffElasticityTotalLagrangian.mfront</span></code></pre></div>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/70/" class="uri">https://sourceforge.net/p/tfel/tickets/70/</a></p>
-<h2 id="ticket-67-a-suffix-to-the-material-name-is-required-abaqus-interface">Ticket #67 A suffix to the material name is required (<code>abaqus</code> interface)</h2>
-<p>The material name in <code>Abaqus/Standard</code> and <code>Abaqus/Explicit</code> are now expected to have the following form: <code>LIBRARY_FUNCTION_HYPOTHESIS_IDENTIFIER</code>.</p>
+<p>All those checks may fail with the <code>ABAQUS</code> and
+<code>ABAQUSNL</code> interfaces in <code>CalculiX</code> for reasons
+described in the previous posts. This flag can be set as follows:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mfront</span> <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>abaqus <span class="at">-D</span> MFRONT_ABAQUS_NORUNTIMECHECKS SaintVenantKirchhoffElasticityTotalLagrangian.mfront</span></code></pre></div>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/70/"
+class="uri">https://sourceforge.net/p/tfel/tickets/70/</a></p>
+<h2
+id="ticket-67-a-suffix-to-the-material-name-is-required-abaqus-interface">Ticket
+#67 A suffix to the material name is required (<code>abaqus</code>
+interface)</h2>
+<p>The material name in <code>Abaqus/Standard</code> and
+<code>Abaqus/Explicit</code> are now expected to have the following
+form: <code>LIBRARY_FUNCTION_HYPOTHESIS_IDENTIFIER</code>.</p>
 <p>The last part (<code>_IDENTIFIER</code>) is optional.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/67/" class="uri">https://sourceforge.net/p/tfel/tickets/67/</a></p>
-<h2 id="ticket-64-change-the-library-prefix-to-cyg-under-cygwin">Ticket #64: Change the library prefix to “cyg” under cygwin</h2>
-<p>The default library prefix under cygwin has been changed to <code>cyg</code> (rather than <code>lib</code>) to follow the standard conventions of this environment.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/84/" class="uri">https://sourceforge.net/p/tfel/tickets/84/</a></p>
-<h2 id="ticket-63-error-cygwin-make">Ticket #63: Error cygwin (make)</h2>
-<p>Compiling <code>MFront</code> under <code>Cygwin</code> was broken because the <code>_GNU_SOURCE</code> macro was not defined in the following headers:</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/67/"
+class="uri">https://sourceforge.net/p/tfel/tickets/67/</a></p>
+<h2 id="ticket-64-change-the-library-prefix-to-cyg-under-cygwin">Ticket
+#64: Change the library prefix to “cyg” under cygwin</h2>
+<p>The default library prefix under cygwin has been changed to
+<code>cyg</code> (rather than <code>lib</code>) to follow the standard
+conventions of this environment.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/84/"
+class="uri">https://sourceforge.net/p/tfel/tickets/84/</a></p>
+<h2 id="ticket-63-error-cygwin-make">Ticket #63: Error cygwin
+(make)</h2>
+<p>Compiling <code>MFront</code> under <code>Cygwin</code> was broken
+because the <code>_GNU_SOURCE</code> macro was not defined in the
+following headers:</p>
 <ul>
 <li><code>mfront\tests\properties\test-cxx.cxx</code></li>
 <li><code>src\System\ProcessManager.cxx</code></li>
 <li><code>src\System\SignalManager.cxx</code></li>
 </ul>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/83/" class="uri">https://sourceforge.net/p/tfel/tickets/83/</a></p>
-<h2 id="ticket-58-fix-initialisation-of-an-array-of-parameters">Ticket #58: Fix initialisation of an array of parameters</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/58/" class="uri">https://sourceforge.net/p/tfel/tickets/58/</a></p>
-<h2 id="ticket-57-more-robust-detection-of-python-versions-avoid-mismatch-between-the-python-libraries-the-python-interpreter-and-the-boost-python-library">Ticket #57: More robust detection of python versions: avoid mismatch between the python libraries, the python interpreter and the boost python library</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/57/" class="uri">https://sourceforge.net/p/tfel/tickets/57/</a></p>
-<h2 id="ticket-54-bug-in-stensorfromtinyvectorview-standard-assignement-fails">Ticket #54: Bug in StensorFromTinyVectorView: standard assignement fails</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/54/" class="uri">https://sourceforge.net/p/tfel/tickets/54/</a></p>
-<h2 id="ticket-53-add-comments-handling-in-parameters-txt-files">Ticket #53: Add comments handling in parameters txt files</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/53/" class="uri">https://sourceforge.net/p/tfel/tickets/53/</a></p>
-<h2 id="ticket-52-more-robust-handling-of-parameters-txt-file">Ticket #52: More robust handling of parameters txt file</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/52/" class="uri">https://sourceforge.net/p/tfel/tickets/52/</a></p>
-<h2 id="ticket-20-allow-mfront-to-work-under-windows-without-requiring-msys">Ticket #20 Allow <code>MFront</code> to work under <code>Windows</code> without requiring <code>MSYS</code></h2>
-<p>The documentation describing how to install <code>TFEL</code> on <code>Windows</code> has been updated: The main difficulty associated with building <code>TFEL/MFront</code> on <a href="http://windows.microsoft.com">Windows plateform</a> is the lack of an unified build environment which must be set up by the user.</p>
-<p>The installation on <a href="http://windows.microsoft.com">Windows plateform</a> is thus described in the following pages:</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/83/"
+class="uri">https://sourceforge.net/p/tfel/tickets/83/</a></p>
+<h2 id="ticket-58-fix-initialisation-of-an-array-of-parameters">Ticket
+#58: Fix initialisation of an array of parameters</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/58/"
+class="uri">https://sourceforge.net/p/tfel/tickets/58/</a></p>
+<h2
+id="ticket-57-more-robust-detection-of-python-versions-avoid-mismatch-between-the-python-libraries-the-python-interpreter-and-the-boost-python-library">Ticket
+#57: More robust detection of python versions: avoid mismatch between
+the python libraries, the python interpreter and the boost python
+library</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/57/"
+class="uri">https://sourceforge.net/p/tfel/tickets/57/</a></p>
+<h2
+id="ticket-54-bug-in-stensorfromtinyvectorview-standard-assignement-fails">Ticket
+#54: Bug in StensorFromTinyVectorView: standard assignement fails</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/54/"
+class="uri">https://sourceforge.net/p/tfel/tickets/54/</a></p>
+<h2 id="ticket-53-add-comments-handling-in-parameters-txt-files">Ticket
+#53: Add comments handling in parameters txt files</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/53/"
+class="uri">https://sourceforge.net/p/tfel/tickets/53/</a></p>
+<h2 id="ticket-52-more-robust-handling-of-parameters-txt-file">Ticket
+#52: More robust handling of parameters txt file</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/52/"
+class="uri">https://sourceforge.net/p/tfel/tickets/52/</a></p>
+<h2
+id="ticket-20-allow-mfront-to-work-under-windows-without-requiring-msys">Ticket
+#20 Allow <code>MFront</code> to work under <code>Windows</code> without
+requiring <code>MSYS</code></h2>
+<p>The documentation describing how to install <code>TFEL</code> on
+<code>Windows</code> has been updated: The main difficulty associated
+with building <code>TFEL/MFront</code> on <a
+href="http://windows.microsoft.com">Windows plateform</a> is the lack of
+an unified build environment which must be set up by the user.</p>
+<p>The installation on <a href="http://windows.microsoft.com">Windows
+plateform</a> is thus described in the following pages:</p>
 <ul>
-<li><a href="http://tfel.sourceforge.net/install-windows-VisualStudio.html">Installation based on <code>cmake</code> and <code>Visual Studio</code></a>.</li>
-<li><a href="http://tfel.sourceforge.net/install-windows-Cast3M2017.html">Installation based on <code>cmake</code> and <code>MinGW</code> (as packaged with <code>Cast3M</code> <code>2017</code>)</a>. This tutorial can easily be adapted to other versions of <code>MinGW</code>, without requiring <code>Cast3M</code> to be installed.</li>
-<li><a href="http://tfel.sourceforge.net/install-windows-msys.html">Installation based on <code>MSYS</code></a>.</li>
+<li><a
+href="http://tfel.sourceforge.net/install-windows-VisualStudio.html">Installation
+based on <code>cmake</code> and <code>Visual Studio</code></a>.</li>
+<li><a
+href="http://tfel.sourceforge.net/install-windows-Cast3M2017.html">Installation
+based on <code>cmake</code> and <code>MinGW</code> (as packaged with
+<code>Cast3M</code> <code>2017</code>)</a>. This tutorial can easily be
+adapted to other versions of <code>MinGW</code>, without requiring
+<code>Cast3M</code> to be installed.</li>
+<li><a
+href="http://tfel.sourceforge.net/install-windows-msys.html">Installation
+based on <code>MSYS</code></a>.</li>
 </ul>
 <p>The two first solutions does not depend on <code>MSYS</code>.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/20/" class="uri">https://sourceforge.net/p/tfel/tickets/20/</a></p>
-<h2 id="ticket-17-add-physical-constants-from-codata">Ticket #17: Add physical constants from CODATA</h2>
-<p>Various physical constants are now available. The values are extracted from: <a href="http://physics.nist.gov/cuu/Constants/index.htm" class="uri">http://physics.nist.gov/cuu/Constants/index.htm</a></p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/20/"
+class="uri">https://sourceforge.net/p/tfel/tickets/20/</a></p>
+<h2 id="ticket-17-add-physical-constants-from-codata">Ticket #17: Add
+physical constants from CODATA</h2>
+<p>Various physical constants are now available. The values are
+extracted from: <a
+href="http://physics.nist.gov/cuu/Constants/index.htm"
+class="uri">http://physics.nist.gov/cuu/Constants/index.htm</a></p>
 <table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 29%" />
+<col style="width: 32%" />
+<col style="width: 26%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>Symbol</th>
@@ -653,14 +1003,21 @@
 </tr>
 </tbody>
 </table>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/17/" class="uri">https://sourceforge.net/p/tfel/tickets/17/</a></p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/17/"
+class="uri">https://sourceforge.net/p/tfel/tickets/17/</a></p>
 <h3 id="c"><code>C++</code></h3>
-<p>The physical constants are available as constexpr static members of <code>tfel::PhysicalConstants</code> class defined in the <code>TFEL/PhysicalConstants.hxx</code> header.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Cste   = tfel::PhysicalConstants&lt;real&gt;;</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> R = Cste::R;</span></code></pre></div>
+<p>The physical constants are available as constexpr static members of
+<code>tfel::PhysicalConstants</code> class defined in the
+<code>TFEL/PhysicalConstants.hxx</code> header.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Cste   <span class="op">=</span> tfel<span class="op">::</span>PhysicalConstants<span class="op">&lt;</span>real<span class="op">&gt;;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> R <span class="op">=</span> Cste<span class="op">::</span>R<span class="op">;</span></span></code></pre></div>
 <h3 id="python">Python</h3>
-<p>The physical constants are available as members of the <code>tfel.PhysicalConstants</code> class, as follows:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tfel <span class="im">import</span> PhysicalConstants <span class="im">as</span> Cste</span>
+<p>The physical constants are available as members of the
+<code>tfel.PhysicalConstants</code> class, as follows:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tfel <span class="im">import</span> PhysicalConstants <span class="im">as</span> Cste</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Cste.Na)</span></code></pre></div>
 <!-- Local IspellDict: english -->
     <script>

@@ -16,8 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -26,7 +27,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -50,11 +51,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -63,14 +64,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -79,7 +80,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -182,6 +185,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -327,93 +331,176 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">How to implement an hyperviscoelastic behaviour in MFront</h1>
+<h1 class="title">How to implement an hyperviscoelastic behaviour in
+MFront</h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">15/12/2016</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#computation-of-the-cauchy-stress">Computation of the Cauchy stress</a>
+<li><a href="#computation-of-the-cauchy-stress"
+id="toc-computation-of-the-cauchy-stress">Computation of the Cauchy
+stress</a>
 <ul>
-<li><a href="#evolution-of-the-overstresses">Evolution of the overstresses</a></li>
-<li><a href="#computation-of-second-piola-kirchhoff-stress">Computation of second Piola-Kirchhoff stress</a></li>
-<li><a href="#computation-of-the-cauchy-stress-1">Computation of the Cauchy stress</a></li>
+<li><a href="#evolution-of-the-overstresses"
+id="toc-evolution-of-the-overstresses">Evolution of the
+overstresses</a></li>
+<li><a href="#computation-of-second-piola-kirchhoff-stress"
+id="toc-computation-of-second-piola-kirchhoff-stress">Computation of
+second Piola-Kirchhoff stress</a></li>
+<li><a href="#computation-of-the-cauchy-stress-1"
+id="toc-computation-of-the-cauchy-stress-1">Computation of the Cauchy
+stress</a></li>
 </ul></li>
-<li><a href="#computation-of-the-consistent-tangent-operator">Computation of the consistent tangent operator</a></li>
+<li><a href="#computation-of-the-consistent-tangent-operator"
+id="toc-computation-of-the-consistent-tangent-operator">Computation of
+the consistent tangent operator</a></li>
 </ul>
 </div>
-<p>This article shows how to implement hyperviscoelastic behaviours in <code>MFront</code>.</p>
-<p>The hyperelastic behaviour is left unspecified. We only assume that one can compute <span class="math inline">\(\underline{S}^{\infty}\)</span> and its derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{S}^{\infty}}{\displaystyle \partial \underline{C}}}\)</span>.</p>
-<p>The reader can refer to the following pages describing the implementation of various hyperelastic behaviours:</p>
+<p>This article shows how to implement hyperviscoelastic behaviours in
+<code>MFront</code>.</p>
+<p>The hyperelastic behaviour is left unspecified. We only assume that
+one can compute <span
+class="math inline">\(\underline{S}^{\infty}\)</span> and its derivative
+<span class="math inline">\({\displaystyle \frac{\displaystyle \partial
+\underline{S}^{\infty}}{\displaystyle \partial
+\underline{C}}}\)</span>.</p>
+<p>The reader can refer to the following pages describing the
+implementation of various hyperelastic behaviours:</p>
 <ul>
 <li><a href="signorini.html">Signorini</a></li>
 <li><a href="ogden.html">Ogden</a></li>
 </ul>
-<p>The formalism used by most hyperelastic behaviours is described in <a href="hyperelasticity.html">this page</a>.</p>
-<p>An example of implementation based on the Signorini hyperelastic behaviour is available here: <a href="./gallery/hyperviscoelasticity/SignoriniHyperViscoelasticity.mfront">SignoriniHyperViscoelasticity.mfront</a></p>
+<p>The formalism used by most hyperelastic behaviours is described in <a
+href="hyperelasticity.html">this page</a>.</p>
+<p>An example of implementation based on the Signorini hyperelastic
+behaviour is available here: <a
+href="./gallery/hyperviscoelasticity/SignoriniHyperViscoelasticity.mfront">SignoriniHyperViscoelasticity.mfront</a></p>
 <blockquote>
-<p><strong>Compatibility with previous versions of <code>TFEL</code></strong></p>
-<p>This implementation presented here is based on the version <span class="math inline">\(3.0\)</span> of <code>TFEL</code>. However, only a few adaptations are required for used with previous versions:</p>
+<p><strong>Compatibility with previous versions of
+<code>TFEL</code></strong></p>
+<p>This implementation presented here is based on the version <span
+class="math inline">\(3.0\)</span> of <code>TFEL</code>. However, only a
+few adaptations are required for used with previous versions:</p>
 <ul>
-<li>the first line of the file must be replace by: <code>@Parser DefaultFiniteStrainParser;</code></li>
-<li>the <code>power</code> function is not available. It can be replaced by explicit multiplications.</li>
-<li>the <code>computeDeterminantSecondDerivative</code> is not available. It can be replaced by the following code: <code>Stensor4::dsquare(C)-(C^id)-I1*Stensor4::Id()+(id^dI2_dC)</code></li>
-<li>the use of the <code>auto</code> keyword is only permitted by the <code>C++11</code> standard, which is default for <code>TFEL-3.0</code>. The user is left with two choices:
+<li>the first line of the file must be replace by:
+<code>@Parser DefaultFiniteStrainParser;</code></li>
+<li>the <code>power</code> function is not available. It can be replaced
+by explicit multiplications.</li>
+<li>the <code>computeDeterminantSecondDerivative</code> is not
+available. It can be replaced by the following code:
+<code>Stensor4::dsquare(C)-(C^id)-I1*Stensor4::Id()+(id^dI2_dC)</code></li>
+<li>the use of the <code>auto</code> keyword is only permitted by the
+<code>C++11</code> standard, which is default for <code>TFEL-3.0</code>.
+The user is left with two choices:
 <ul>
-<li>replace <code>auto</code> with explicit types: <code>real</code> for scalars, <code>Stensor</code> for symmetric tensors, <code>Stensor4</code> for linear forms on symmetric tensors (“fourth order tensors”). However, in this case, the implementation can be less efficient as it leads to an explicit evaluation of intermediate results.</li>
-<li>specify the appropriate flag to the <code>C++</code> compiler. Assuming that the current shell is <code>bash</code> and that the compiler is <code>g++</code>, this can be done by invoking mfront as follows:</li>
+<li>replace <code>auto</code> with explicit types: <code>real</code> for
+scalars, <code>Stensor</code> for symmetric tensors,
+<code>Stensor4</code> for linear forms on symmetric tensors (“fourth
+order tensors”). However, in this case, the implementation can be less
+efficient as it leads to an explicit evaluation of intermediate
+results.</li>
+<li>specify the appropriate flag to the <code>C++</code> compiler.
+Assuming that the current shell is <code>bash</code> and that the
+compiler is <code>g++</code>, this can be done by invoking mfront as
+follows:</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">CXXFLAGS=</span><span class="st">&quot;</span><span class="kw">`</span><span class="ex">tfel-config</span> <span class="at">--oflags</span><span class="kw">`</span><span class="st"> -std=c++11&quot;</span> <span class="ex">mfront</span> <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>aster SignoriniHyperViscoelasticity-tfel-2.0.3.mfront<span class="kw">`</span></span></code></pre></div>
-<p>An implementation where those changes were made is available <a href="./gallery/hyperviscoelasticity/SignoriniHyperViscoelasticity-tfel-2.0.3.mfront">here</a></p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">CXXFLAGS</span><span class="op">=</span><span class="st">&quot;</span><span class="kw">`</span><span class="ex">tfel-config</span> <span class="at">--oflags</span><span class="kw">`</span><span class="st"> -std=c++11&quot;</span> <span class="ex">mfront</span> <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>aster SignoriniHyperViscoelasticity-tfel-2.0.3.mfront<span class="kw">`</span></span></code></pre></div>
+<p>An implementation where those changes were made is available <a
+href="./gallery/hyperviscoelasticity/SignoriniHyperViscoelasticity-tfel-2.0.3.mfront">here</a></p>
 </blockquote>
-<h1 id="computation-of-the-cauchy-stress">Computation of the Cauchy stress</h1>
-<p>The hyperelastic behaviour is supposed to decouple the volumetric stress <span class="math inline">\(\underline{S}^{v\,\infty}\)</span> and the isochoric stress <span class="math inline">\(S^{i\,\infty}\)</span>: <span class="math display">\[
+<h1 id="computation-of-the-cauchy-stress">Computation of the Cauchy
+stress</h1>
+<p>The hyperelastic behaviour is supposed to decouple the volumetric
+stress <span class="math inline">\(\underline{S}^{v\,\infty}\)</span>
+and the isochoric stress <span
+class="math inline">\(S^{i\,\infty}\)</span>: <span
+class="math display">\[
 \underline{S}^{\infty}=\underline{S}^{v\,\infty}+\underline{S}^{i\,\infty}
 \]</span></p>
 <p>The second Piola-Kirchhoff stress is given by:</p>
 <p><span class="math display">\[
 \underline{S}= \underline{S}^{\infty}+\sum_{i=1}^{N}\underline{H}_{i}
 \]</span></p>
-<p>where <span class="math inline">\(\underline{H}_{i}\)</span> are the overstresses.</p>
-<h2 id="evolution-of-the-overstresses">Evolution of the overstresses</h2>
-<p>The algorithm used to update <span class="math inline">\(\underline{H}_{i}\)</span> is the following:</p>
+<p>where <span class="math inline">\(\underline{H}_{i}\)</span> are the
+overstresses.</p>
+<h2 id="evolution-of-the-overstresses">Evolution of the
+overstresses</h2>
+<p>The algorithm used to update <span
+class="math inline">\(\underline{H}_{i}\)</span> is the following:</p>
 <p><span class="math display">\[
-{\left.\underline{H}_{i}\right|_{t+\Delta\,t}}=\exp{\left(-{{\displaystyle \frac{\displaystyle dt}{\displaystyle \tau_{i}}}}\right)}{\left.\underline{H}_{i}\right|_{t}}+g_{i}\,\tau_{i}{\left(1-\exp{\left(-{{\displaystyle \frac{\displaystyle dt}{\displaystyle \tau_{i}}}}\right)}\right)}{{\displaystyle \frac{\displaystyle {\left({\left.S^{i\,\infty}\right|_{t+\Delta\,t}}-{\left.S^{i\,\infty}\right|_{t}}\right)}}{\displaystyle dt}}}
+{\left.\underline{H}_{i}\right|_{t+\Delta\,t}}=\exp{\left(-{{\displaystyle
+\frac{\displaystyle dt}{\displaystyle
+\tau_{i}}}}\right)}{\left.\underline{H}_{i}\right|_{t}}+g_{i}\,\tau_{i}{\left(1-\exp{\left(-{{\displaystyle
+\frac{\displaystyle dt}{\displaystyle
+\tau_{i}}}}\right)}\right)}{{\displaystyle \frac{\displaystyle
+{\left({\left.S^{i\,\infty}\right|_{t+\Delta\,t}}-{\left.S^{i\,\infty}\right|_{t}}\right)}}{\displaystyle
+dt}}}
 \]</span></p>
-<h2 id="computation-of-second-piola-kirchhoff-stress">Computation of second Piola-Kirchhoff stress</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// updating the viscoelastic stresses and computing the Second</span></span>
+<h2 id="computation-of-second-piola-kirchhoff-stress">Computation of
+second Piola-Kirchhoff stress</h2>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// updating the viscoelastic stresses and computing the Second</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Piola-Kirchhoff stress</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>StressStensor S = Sv+Se;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(dt&gt;<span class="dv">0</span>){</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nv;++i){</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dtr = dt/tau[i];</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    e[i] = exp(-dtr);</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    H[i] = e[i]*H[i]+g[i]*(<span class="dv">1</span>-e[i])/dtr*(Se-Se_1);</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    S += H[i];</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<h2 id="computation-of-the-cauchy-stress-1">Computation of the Cauchy stress</h2>
-<p>The function <code>convertSecondPiolaKirchhoffStressToCauchyStress</code> converts the second Piola Kirchhoff stress to the Cauchy stress using the deformation gradient. It is used as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sig = convertSecondPiolaKirchhoffStressToCauchyStress(S,F1);</span></code></pre></div>
-<h1 id="computation-of-the-consistent-tangent-operator">Computation of the consistent tangent operator</h1>
-<p>Assuming that <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{S}^{v\,\infty}}{\displaystyle \partial \underline{C}}}\)</span> and <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \underline{S}^{i\,\infty}}{\displaystyle \partial \underline{C}}}\)</span> are known, the expression of the consistent tangent operator is:</p>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>StressStensor S <span class="op">=</span> Sv<span class="op">+</span>Se<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span><span class="op">(</span>dt<span class="op">&gt;</span><span class="dv">0</span><span class="op">){</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span><span class="op">(</span><span class="dt">unsigned</span> <span class="dt">short</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">!=</span>Nv<span class="op">;++</span>i<span class="op">){</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dtr <span class="op">=</span> dt<span class="op">/</span>tau<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    e<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> exp<span class="op">(-</span>dtr<span class="op">);</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    H<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> e<span class="op">[</span>i<span class="op">]*</span>H<span class="op">[</span>i<span class="op">]+</span>g<span class="op">[</span>i<span class="op">]*(</span><span class="dv">1</span><span class="op">-</span>e<span class="op">[</span>i<span class="op">])/</span>dtr<span class="op">*(</span>Se<span class="op">-</span>Se_1<span class="op">);</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    S <span class="op">+=</span> H<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h2 id="computation-of-the-cauchy-stress-1">Computation of the Cauchy
+stress</h2>
+<p>The function
+<code>convertSecondPiolaKirchhoffStressToCauchyStress</code> converts
+the second Piola Kirchhoff stress to the Cauchy stress using the
+deformation gradient. It is used as follows:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sig <span class="op">=</span> convertSecondPiolaKirchhoffStressToCauchyStress<span class="op">(</span>S<span class="op">,</span>F1<span class="op">);</span></span></code></pre></div>
+<h1 id="computation-of-the-consistent-tangent-operator">Computation of
+the consistent tangent operator</h1>
+<p>Assuming that <span class="math inline">\({\displaystyle
+\frac{\displaystyle \partial \underline{S}^{v\,\infty}}{\displaystyle
+\partial \underline{C}}}\)</span> and <span
+class="math inline">\({\displaystyle \frac{\displaystyle \partial
+\underline{S}^{i\,\infty}}{\displaystyle \partial
+\underline{C}}}\)</span> are known, the expression of the consistent
+tangent operator is:</p>
 <p><span class="math display">\[
 \begin{aligned}
-{\displaystyle \frac{\displaystyle \partial \underline{S}^{v\,\infty}}{\displaystyle \partial \underline{C}}} &amp;= {\displaystyle \frac{\displaystyle \partial \underline{S}^{v\,\infty}}{\displaystyle \partial \underline{C}}}+{\displaystyle \frac{\displaystyle \partial \underline{S}^{i\,\infty}}{\displaystyle \partial \underline{C}}}+ \sum_{i=1}^{N}{\displaystyle \frac{\displaystyle \partial {\left.\underline{H}_{i}\right|_{t+\Delta\,t}}}{\displaystyle \partial \underline{C}}}\\
-&amp;= {\displaystyle \frac{\displaystyle \partial \underline{S}^{v\,\infty}}{\displaystyle \partial \underline{C}}}+
-   {\displaystyle \frac{\displaystyle \partial \underline{S}^{i\,\infty}}{\displaystyle \partial \underline{C}}}\,\underbrace{{\left(1+\sum_{i=1}^{N}g_{i}\,\tau_{i}\,{{\displaystyle \frac{\displaystyle {\left(1-\exp{\left(-{{\displaystyle \frac{\displaystyle dt}{\displaystyle \tau_{i}}}}\right)}\right)}}{\displaystyle dt}}}\right)}}_{c}
+{\displaystyle \frac{\displaystyle \partial
+\underline{S}^{v\,\infty}}{\displaystyle \partial \underline{C}}} &amp;=
+{\displaystyle \frac{\displaystyle \partial
+\underline{S}^{v\,\infty}}{\displaystyle \partial
+\underline{C}}}+{\displaystyle \frac{\displaystyle \partial
+\underline{S}^{i\,\infty}}{\displaystyle \partial \underline{C}}}+
+\sum_{i=1}^{N}{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{H}_{i}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+\underline{C}}}\\
+&amp;= {\displaystyle \frac{\displaystyle \partial
+\underline{S}^{v\,\infty}}{\displaystyle \partial \underline{C}}}+
+   {\displaystyle \frac{\displaystyle \partial
+\underline{S}^{i\,\infty}}{\displaystyle \partial
+\underline{C}}}\,\underbrace{{\left(1+\sum_{i=1}^{N}g_{i}\,\tau_{i}\,{{\displaystyle
+\frac{\displaystyle {\left(1-\exp{\left(-{{\displaystyle
+\frac{\displaystyle dt}{\displaystyle
+\tau_{i}}}}\right)}\right)}}{\displaystyle dt}}}\right)}}_{c}
 \end{aligned}
 \]</span></p>
 <p>This expression can be implemented in a straightforward manner:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> c = real(<span class="dv">1</span>);</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(dt&gt;<span class="dv">0</span>){</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nv;++i){</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dtr = dt/tau[i];</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    c += g[i]*(<span class="dv">1</span>-e[i])/dtr;</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>dS_dC = dSv_dC+c*dSi_dC;</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> c <span class="op">=</span> real<span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span><span class="op">(</span>dt<span class="op">&gt;</span><span class="dv">0</span><span class="op">){</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span><span class="op">(</span><span class="dt">unsigned</span> <span class="dt">short</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">!=</span>Nv<span class="op">;++</span>i<span class="op">){</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dtr <span class="op">=</span> dt<span class="op">/</span>tau<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    c <span class="op">+=</span> g<span class="op">[</span>i<span class="op">]*(</span><span class="dv">1</span><span class="op">-</span>e<span class="op">[</span>i<span class="op">])/</span>dtr<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>dS_dC <span class="op">=</span> dSv_dC<span class="op">+</span>c<span class="op">*</span>dSi_dC<span class="op">;</span></span></code></pre></div>
 <!-- Local IspellDict: english -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -17,8 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -27,7 +28,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -51,11 +52,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -64,14 +65,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -80,7 +81,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -183,6 +186,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -328,54 +332,175 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Release notes of the 5.0 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h1 class="title">Release notes of the 5.0 version of <code>TFEL</code>,
+<code>MFront</code> and <code>MTest</code></h1>
 <h2 class="author">Thomas Helfer, Maxence Wangermez</h2>
 <h3 class="date">2024</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#new-tfelmath-features"><span class="toc-section-number">1</span> New <code>TFEL/Math</code> features</a>
+<li><a href="#new-tfelutilities-features"
+id="toc-new-tfelutilities-features"><span
+class="toc-section-number">1</span> New <code>TFEL/Utilities</code>
+features</a>
 <ul>
-<li><a href="#tiny-matrices-product"><span class="toc-section-number">1.1</span> tiny matrices product</a></li>
-<li><a href="#symmetric-tensor-eigen-values-and-eigen-vectors"><span class="toc-section-number">1.2</span> Symmetric tensor eigen values and eigen vectors</a></li>
+<li><a href="#support-for-c-digit-separator-in-cxxtokenizer"
+id="toc-support-for-c-digit-separator-in-cxxtokenizer"><span
+class="toc-section-number">1.1</span> Support for <code>C++</code> digit
+separator in <code>CxxTokenizer</code></a></li>
 </ul></li>
-<li><a href="#mfront"><span class="toc-section-number">2</span> MFront</a>
+<li><a href="#new-tfelmath-features"
+id="toc-new-tfelmath-features"><span class="toc-section-number">2</span>
+New <code>TFEL/Math</code> features</a>
 <ul>
-<li><a href="#improvements-to-the-materialproperty-dsl"><span class="toc-section-number">2.1</span> Improvements to the <code>MaterialProperty</code> DSL</a></li>
-<li><a href="#generic-interface-improvements"><span class="toc-section-number">2.2</span> <code>generic</code> interface improvements</a></li>
+<li><a href="#tiny-matrices-product"
+id="toc-tiny-matrices-product"><span
+class="toc-section-number">2.1</span> Tiny matrices product</a></li>
+<li><a href="#symmetric-tensor-eigen-values-and-eigen-vectors"
+id="toc-symmetric-tensor-eigen-values-and-eigen-vectors"><span
+class="toc-section-number">2.2</span> Symmetric tensor eigen values and
+eigen vectors</a></li>
 </ul></li>
-<li><a href="#documentation"><span class="toc-section-number">3</span> Documentation</a></li>
-<li><a href="#issues-fixed"><span class="toc-section-number">4</span> Issues fixed</a>
+<li><a href="#mfront" id="toc-mfront"><span
+class="toc-section-number">3</span> MFront</a>
 <ul>
-<li><a href="#issue-582-cast3m-interface-add-explicit-names-and-4-letter-mapping-of-internal-variables-to-the-castem-file"><span class="toc-section-number">4.1</span> Issue 582: [cast3m interface] add explicit names and 4-letter mapping of internal variables to the castem file</a></li>
-<li><a href="#issue-585-mfront-allow-to-override-inputs-in-material-properties"><span class="toc-section-number">4.2</span> Issue 585: <span>mfront</span> Allow to override inputs in material properties</a></li>
-<li><a href="#issue-567-mtestcurrentstate.copy-produces-a-shallow-copy-in-python-bindings"><span class="toc-section-number">4.3</span> Issue 567: <code>MTestCurrentState.copy()</code> produces a shallow copy in python bindings</a></li>
-<li><a href="#issue-557-mfront-allow-to-specify-dsl-options-in-mfrontbasegetdsl"><span class="toc-section-number">4.4</span> Issue 557: <code>[mfront]</code> allow to specify dsl options in <code>MFrontBase::getDSL</code></a></li>
-<li><a href="#issue-556-cmake-export-compile-flags-in-dedicated-variables"><span class="toc-section-number">4.5</span> Issue 556: <code>[cmake]</code> export compile flags in dedicated variables</a></li>
-<li><a href="#issue-555-cmake-better-handling-of-dependencies-in-exported-cmake-files"><span class="toc-section-number">4.6</span> Issue 555: <code>[cmake]</code> better handling of dependencies in exported <code>cmake</code> files</a></li>
-<li><a href="#issue-526-the-useqt-keyword-is-not-mentioned-in-the-materiallaws-keywords-help-page"><span class="toc-section-number">4.7</span> Issue 526: The <code>@UseQt</code> keyword is not mentioned in the <code>MaterialLaw</code>’s keywords help page</a></li>
-<li><a href="#issue-476-generic-interface-add-support-for-arrays-of-thermodynamic-forces"><span class="toc-section-number">4.8</span> Issue 476: [generic interface] Add support for arrays of thermodynamic forces</a></li>
+<li><a href="#improvements-to-the-materialproperty-dsl"
+id="toc-improvements-to-the-materialproperty-dsl"><span
+class="toc-section-number">3.1</span> Improvements to the
+<code>MaterialProperty</code> DSL</a></li>
+<li><a href="#new-dsl-options" id="toc-new-dsl-options"><span
+class="toc-section-number">3.2</span> New DSL options</a></li>
+<li><a href="#generic-interface-improvements"
+id="toc-generic-interface-improvements"><span
+class="toc-section-number">3.3</span> <code>generic</code> interface
+improvements</a></li>
+</ul></li>
+<li><a href="#documentation" id="toc-documentation"><span
+class="toc-section-number">4</span> Documentation</a></li>
+<li><a href="#issues-fixed" id="toc-issues-fixed"><span
+class="toc-section-number">5</span> Issues fixed</a>
+<ul>
+<li><a href="#issue-535-mfront-doc-add-support-for-material-properties"
+id="toc-issue-535-mfront-doc-add-support-for-material-properties"><span
+class="toc-section-number">5.1</span> Issue 535: [mfront-doc] add
+support for material properties</a></li>
+<li><a
+href="#issue-582-cast3m-interface-add-explicit-names-and-4-letter-mapping-of-internal-variables-to-the-castem-file"
+id="toc-issue-582-cast3m-interface-add-explicit-names-and-4-letter-mapping-of-internal-variables-to-the-castem-file"><span
+class="toc-section-number">5.2</span> Issue 582: [cast3m interface] add
+explicit names and 4-letter mapping of internal variables to the castem
+file</a></li>
+<li><a
+href="#issue-585-mfront-allow-to-override-inputs-in-material-properties"
+id="toc-issue-585-mfront-allow-to-override-inputs-in-material-properties"><span
+class="toc-section-number">5.3</span> Issue 585: mfront Allow to
+override inputs in material properties</a></li>
+<li><a
+href="#issue-567-mtestcurrentstate.copy-produces-a-shallow-copy-in-python-bindings"
+id="toc-issue-567-mtestcurrentstate.copy-produces-a-shallow-copy-in-python-bindings"><span
+class="toc-section-number">5.4</span> Issue 567:
+<code>MTestCurrentState.copy()</code> produces a shallow copy in python
+bindings</a></li>
+<li><a
+href="#issue-557-mfront-allow-to-specify-dsl-options-in-mfrontbasegetdsl"
+id="toc-issue-557-mfront-allow-to-specify-dsl-options-in-mfrontbasegetdsl"><span
+class="toc-section-number">5.5</span> Issue 557: <code>[mfront]</code>
+allow to specify dsl options in <code>MFrontBase::getDSL</code></a></li>
+<li><a
+href="#issue-556-cmake-export-compile-flags-in-dedicated-variables"
+id="toc-issue-556-cmake-export-compile-flags-in-dedicated-variables"><span
+class="toc-section-number">5.6</span> Issue 556: <code>[cmake]</code>
+export compile flags in dedicated variables</a></li>
+<li><a
+href="#issue-555-cmake-better-handling-of-dependencies-in-exported-cmake-files"
+id="toc-issue-555-cmake-better-handling-of-dependencies-in-exported-cmake-files"><span
+class="toc-section-number">5.7</span> Issue 555: <code>[cmake]</code>
+better handling of dependencies in exported <code>cmake</code>
+files</a></li>
+<li><a
+href="#issue-526-the-useqt-keyword-is-not-mentioned-in-the-materiallaws-keywords-help-page"
+id="toc-issue-526-the-useqt-keyword-is-not-mentioned-in-the-materiallaws-keywords-help-page"><span
+class="toc-section-number">5.8</span> Issue 526: The <code>@UseQt</code>
+keyword is not mentioned in the <code>MaterialLaw</code>’s keywords help
+page</a></li>
+<li><a
+href="#issue-476-generic-interface-add-support-for-arrays-of-thermodynamic-forces"
+id="toc-issue-476-generic-interface-add-support-for-arrays-of-thermodynamic-forces"><span
+class="toc-section-number">5.9</span> Issue 476: [generic interface] Add
+support for arrays of thermodynamic forces</a></li>
+<li><a href="#issue-370-tfel-utilities-support-for-c-digit-separator"
+id="toc-issue-370-tfel-utilities-support-for-c-digit-separator"><span
+class="toc-section-number">5.10</span> Issue 370: [tfel-utilities]
+Support for <code>C++</code> digit separator</a></li>
 </ul></li>
 </ul>
 </div>
-<h1 data-number="1" id="new-tfelmath-features"><span class="header-section-number">1</span> New <code>TFEL/Math</code> features</h1>
-<h2 data-number="1.1" id="tiny-matrices-product"><span class="header-section-number">1.1</span> tiny matrices product</h2>
+<h1 data-number="1" id="new-tfelutilities-features"><span
+class="header-section-number">1</span> New <code>TFEL/Utilities</code>
+features</h1>
+<h2 data-number="1.1"
+id="support-for-c-digit-separator-in-cxxtokenizer"><span
+class="header-section-number">1.1</span> Support for <code>C++</code>
+digit separator in <code>CxxTokenizer</code></h2>
+<p>The <code>CxxTokenizer</code> class now supports <code>C++</code>
+digit separators in numbers, (integer of floatting point numbers), as
+illustrated in the following example:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL IsotropicMisesCreep<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour DigitSeparatorTest<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UseQt <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">0.000&#39;000&#39;000&#39;1</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IterMax <span class="dv">1&#39;000</span><span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ElasticMaterialProperties<span class="op">{</span><span class="dv">150&#39;000&#39;000&#39;000</span><span class="op">,</span> <span class="fl">0.3</span><span class="op">};</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress s0 <span class="op">=</span> <span class="dv">10&#39;000&#39;000</span><span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter strainrate de0 <span class="op">=</span> <span class="fl">8.230&#39;512e-67</span><span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter strainrate E <span class="op">=</span> <span class="fl">8.2</span><span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FlowRule<span class="op">{</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  f <span class="op">=</span> de0 <span class="op">*</span> pow<span class="op">(</span>seq <span class="op">/</span> s0<span class="op">,</span> E<span class="op">);</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h1 data-number="2" id="new-tfelmath-features"><span
+class="header-section-number">2</span> New <code>TFEL/Math</code>
+features</h1>
+<h2 data-number="2.1" id="tiny-matrices-product"><span
+class="header-section-number">2.1</span> Tiny matrices product</h2>
 <p>The product of two tiny matrices has been implemented:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> m1 = tmatrix&lt;<span class="dv">2</span><span class="bu">u</span>, <span class="dv">2</span><span class="bu">u</span>, <span class="dt">int</span>&gt;{<span class="dv">0</span>, <span class="dv">1</span>,  <span class="co">//</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                                     <span class="dv">2</span>, <span class="dv">3</span>};</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> m2 = tmatrix&lt;<span class="dv">2</span><span class="bu">u</span>, <span class="dv">2</span><span class="bu">u</span>, <span class="dt">int</span>&gt;{<span class="dv">4</span>, -<span class="dv">1</span>,  <span class="co">//</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                                     <span class="dv">5</span>, <span class="dv">2</span>};</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> m3 = m1 * m2;</span></code></pre></div>
-<h2 data-number="1.2" id="symmetric-tensor-eigen-values-and-eigen-vectors"><span class="header-section-number">1.2</span> Symmetric tensor eigen values and eigen vectors</h2>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> m1 <span class="op">=</span> tmatrix<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span>  <span class="co">//</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                                     <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> m2 <span class="op">=</span> tmatrix<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;{</span><span class="dv">4</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span>  <span class="co">//</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                                     <span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> m3 <span class="op">=</span> m1 <span class="op">*</span> m2<span class="op">;</span></span></code></pre></div>
+<h2 data-number="2.2"
+id="symmetric-tensor-eigen-values-and-eigen-vectors"><span
+class="header-section-number">2.2</span> Symmetric tensor eigen values
+and eigen vectors</h2>
 <ul>
 <li>New eigen solvers have been introduced.</li>
 </ul>
-<h3 data-number="1.2.1" id="sec:tfel-5.0.0:tfel-math:eigensolvers"><span class="header-section-number">1.2.1</span> New eigen solvers</h3>
-<p>New eigen solver based on Harari analytical solution have been introduced for symmetric tensors. The computation of eigen values is done with Harari’s algorithm <span class="citation" data-cites="harari_computation_2023">[<a href="#ref-harari_computation_2023" role="doc-biblioref">1</a>]</span> and the computation of eigen vectors is done with the default eigen solver for symmetric tensors of <code>TFEL</code>. Such computations are more efficient and more accurate than the default <code>TFEL</code> algorithm.</p>
-<p>Those algorithms are available in 3D. For 2D symmetric tensors, we fall back to some default algorithm as described below.</p>
+<h3 data-number="2.2.1" id="sec:tfel-5.0.0:tfel-math:eigensolvers"><span
+class="header-section-number">2.2.1</span> New eigen solvers</h3>
+<p>New eigen solver based on Harari analytical solution have been
+introduced for symmetric tensors. The computation of eigen values is
+done with Harari’s algorithm <span class="citation"
+data-cites="harari_computation_2023">[<a
+href="#ref-harari_computation_2023" role="doc-biblioref">1</a>]</span>
+and the computation of eigen vectors is done with the default eigen
+solver for symmetric tensors of <code>TFEL</code>. Such computations are
+more efficient and more accurate than the default <code>TFEL</code>
+algorithm.</p>
+<p>Those algorithms are available in 3D. For 2D symmetric tensors, we
+fall back to some default algorithm as described below.</p>
 <div id="tbl:eigensolvers">
 <table>
 <caption>Table 1: List of available eigen solvers.</caption>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 36%" />
+<col style="width: 24%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Name</th>
@@ -405,7 +530,8 @@
 <td style="text-align: center;">Analytical (FSES)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><code>FSESANALYTICALEIGENSOLVER</code></td>
+<td
+style="text-align: center;"><code>FSESANALYTICALEIGENSOLVER</code></td>
 <td style="text-align: center;">Analytical</td>
 <td style="text-align: center;">Analytical (FSES)</td>
 </tr>
@@ -415,7 +541,8 @@
 <td style="text-align: center;">Analytical (FSES)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><code>GTESYMMETRICQREIGENSOLVER</code></td>
+<td
+style="text-align: center;"><code>GTESYMMETRICQREIGENSOLVER</code></td>
 <td style="text-align: center;">Symmetric QR</td>
 <td style="text-align: center;">Analytical (TFEL)</td>
 </tr>
@@ -428,19 +555,33 @@
 </table>
 </div>
 <p>The various eigen solvers available are enumerated in Table 1.</p>
-<p>The eigen solver is passed as a template argument of the <code>computeEigenValues</code> or the <code>computeEigenVectors</code> methods as illustrated in the code below:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tmatrix&lt;<span class="dv">3</span><span class="bu">u</span>,<span class="dv">3</span><span class="bu">u</span>,real&gt; m2;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tvector&lt;<span class="dv">3</span><span class="bu">u</span>,real&gt;    vp2;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>tie(vp,m)=s.computeEigenVectors&lt;stensor::HARARIEIGENSOLVER&gt;();</span></code></pre></div>
-<h4 data-number="1.2.1.1" id="some-benchmarks"><span class="header-section-number">1.2.1.1</span> Some benchmarks</h4>
+<p>The eigen solver is passed as a template argument of the
+<code>computeEigenValues</code> or the <code>computeEigenVectors</code>
+methods as illustrated in the code below:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tmatrix<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;</span> m2<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;</span>    vp2<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>tie<span class="op">(</span>vp<span class="op">,</span>m<span class="op">)=</span>s<span class="op">.</span>computeEigenVectors<span class="op">&lt;</span>stensor<span class="op">::</span>HARARIEIGENSOLVER<span class="op">&gt;();</span></span></code></pre></div>
+<h4 data-number="2.2.1.1" id="some-benchmarks"><span
+class="header-section-number">2.2.1.1</span> Some benchmarks</h4>
 <div id="tbl:comp_eigensolvers_float">
 <table>
-<caption>Table 2: Test on <span class="math inline">\(10^{6}\)</span> random symmetric tensors in single precision (<code>float</code>).</caption>
+<caption>Table 2: Test on <span class="math inline">\(10^{6}\)</span>
+random symmetric tensors in single precision
+(<code>float</code>).</caption>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 16%" />
+<col style="width: 24%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Algorithm</th>
 <th style="text-align: center;">Failure ratio</th>
-<th style="text-align: center;"><span class="math inline">\(\Delta_{\infty}\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(\Delta_{\infty}\)</span></th>
 <th style="text-align: center;">Times (ns)</th>
 <th style="text-align: center;">Time ratio</th>
 </tr>
@@ -454,7 +595,8 @@
 <td style="text-align: center;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><code>GTESYMMETRICQREIGENSOLVER</code></td>
+<td
+style="text-align: center;"><code>GTESYMMETRICQREIGENSOLVER</code></td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">9.57e-07</td>
 <td style="text-align: center;">236544828</td>
@@ -489,7 +631,8 @@
 <td style="text-align: center;">0.62</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><code>FSESANALYTICALEIGENSOLVER</code></td>
+<td
+style="text-align: center;"><code>FSESANALYTICALEIGENSOLVER</code></td>
 <td style="text-align: center;">0.102626</td>
 <td style="text-align: center;">6.21e-02</td>
 <td style="text-align: center;">76865961</td>
@@ -507,12 +650,22 @@
 </div>
 <div id="tbl:comp_eigensolvers_double">
 <table>
-<caption>Table 3: Test on <span class="math inline">\(10^{6}\)</span> random symmetric tensors in double precision (<code>double</code>).</caption>
+<caption>Table 3: Test on <span class="math inline">\(10^{6}\)</span>
+random symmetric tensors in double precision
+(<code>double</code>).</caption>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 16%" />
+<col style="width: 24%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Algorithm</th>
 <th style="text-align: center;">Failure ratio</th>
-<th style="text-align: center;"><span class="math inline">\(\Delta_{\infty}\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(\Delta_{\infty}\)</span></th>
 <th style="text-align: center;">Times (ns)</th>
 <th style="text-align: center;">Time ratio</th>
 </tr>
@@ -526,7 +679,8 @@
 <td style="text-align: center;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><code>GTESYMMETRICQREIGENSOLVER</code></td>
+<td
+style="text-align: center;"><code>GTESYMMETRICQREIGENSOLVER</code></td>
 <td style="text-align: center;">1e-06</td>
 <td style="text-align: center;">2.30e-15</td>
 <td style="text-align: center;">315593552</td>
@@ -561,7 +715,8 @@
 <td style="text-align: center;">0.59</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><code>FSESANALYTICALEIGENSOLVER</code></td>
+<td
+style="text-align: center;"><code>FSESANALYTICALEIGENSOLVER</code></td>
 <td style="text-align: center;">0.103935</td>
 <td style="text-align: center;">4.11e-10</td>
 <td style="text-align: center;">79701256</td>
@@ -579,12 +734,22 @@
 </div>
 <div id="tbl:comp_eigensolvers_long_double">
 <table>
-<caption>Table 4: Test on <span class="math inline">\(10^{6}\)</span> random symmetric tensors in extended precision (<code>long double</code>).</caption>
+<caption>Table 4: Test on <span class="math inline">\(10^{6}\)</span>
+random symmetric tensors in extended precision
+(<code>long double</code>).</caption>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 16%" />
+<col style="width: 24%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Algorithm</th>
 <th style="text-align: center;">Failure ratio</th>
-<th style="text-align: center;"><span class="math inline">\(\Delta_{\infty}\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(\Delta_{\infty}\)</span></th>
 <th style="text-align: center;">Times (ns)</th>
 <th style="text-align: center;">Time ratio</th>
 </tr>
@@ -598,7 +763,8 @@
 <td style="text-align: center;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><code>GTESYMMETRICQREIGENSOLVER</code></td>
+<td
+style="text-align: center;"><code>GTESYMMETRICQREIGENSOLVER</code></td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1.01e-18</td>
 <td style="text-align: center;">558605772</td>
@@ -633,7 +799,8 @@
 <td style="text-align: center;">0.62</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><code>FSESANALYTICALEIGENSOLVER</code></td>
+<td
+style="text-align: center;"><code>FSESANALYTICALEIGENSOLVER</code></td>
 <td style="text-align: center;">0.999669</td>
 <td style="text-align: center;">1.36e-11</td>
 <td style="text-align: center;">211710377</td>
@@ -649,64 +816,138 @@
 </tbody>
 </table>
 </div>
-<p>We have compared the available algorithm on <span class="math inline">\(10^{6}\)</span> random symmetric tensors whose components are in <span class="math inline">\([-1:1]\)</span>.</p>
-<p>For a given symmetric tensor, we consider that the computation of the eigenvalues and eigenvectors failed if: <span class="math display">\[
-\Delta_{\infty}=\max_{i\in[1,2,3]}\left\|\tenseur{s}\,\cdot\,\vec{v}_{i}-\lambda_{i}\,\vec{v}_{i}\right\|&gt;10\,\varepsilon
-\]</span> where <span class="math inline">\(\varepsilon\)</span> is the accuracy of the floatting point considered.</p>
-<p>The results of those tests are reported on Tables 2, 3 and 4. The Harari eigen solver offers a better compromise between accuracy and numerical efficiency than the default <code>TFEL</code> solver.</p>
-<h1 data-number="2" id="mfront"><span class="header-section-number">2</span> MFront</h1>
-<h2 data-number="2.1" id="improvements-to-the-materialproperty-dsl"><span class="header-section-number">2.1</span> Improvements to the <code>MaterialProperty</code> DSL</h2>
-<h3 data-number="2.1.1" id="the-data-keyword"><span class="header-section-number">2.1.1</span> The <code>@Data</code> keyword</h3>
-<p>The <code>@Data</code> keyword allow the definition of a material properties using the interpolation of a set of values.</p>
-<p>The <code>@Data</code> keyword is followed by a set of options defining:</p>
+<p>We have compared the available algorithm on <span
+class="math inline">\(10^{6}\)</span> random symmetric tensors whose
+components are in <span class="math inline">\([-1:1]\)</span>.</p>
+<p>For a given symmetric tensor, we consider that the computation of the
+eigenvalues and eigenvectors failed if: <span class="math display">\[
+\Delta_{\infty}=\max_{i\in[1,2,3]}\left\|\underline{s}\,\cdot\,\vec{v}_{i}-\lambda_{i}\,\vec{v}_{i}\right\|&gt;10\,\varepsilon
+\]</span> where <span class="math inline">\(\varepsilon\)</span> is the
+accuracy of the floatting point considered.</p>
+<p>The results of those tests are reported on Tables 2, 3 and 4. The
+Harari eigen solver offers a better compromise between accuracy and
+numerical efficiency than the default <code>TFEL</code> solver.</p>
+<h1 data-number="3" id="mfront"><span
+class="header-section-number">3</span> MFront</h1>
+<h2 data-number="3.1"
+id="improvements-to-the-materialproperty-dsl"><span
+class="header-section-number">3.1</span> Improvements to the
+<code>MaterialProperty</code> DSL</h2>
+<h3 data-number="3.1.1" id="the-data-keyword"><span
+class="header-section-number">3.1.1</span> The <code>@Data</code>
+keyword</h3>
+<p>The <code>@Data</code> keyword allow the definition of a material
+properties using the interpolation of a set of values.</p>
+<p>The <code>@Data</code> keyword is followed by a set of options
+defining:</p>
 <ul>
 <li>the interpolation option,</li>
 <li>the set of values,</li>
 <li>the extrapolation option.</li>
 </ul>
-<p>The precise syntax depends on the number of inputs of the material property.</p>
-<h4 data-number="2.1.1.1" id="material-properties-without-input"><span class="header-section-number">2.1.1.1</span> Material properties without input</h4>
+<p>The precise syntax depends on the number of inputs of the material
+property.</p>
+<h4 data-number="3.1.1.1" id="material-properties-without-input"><span
+class="header-section-number">3.1.1.1</span> Material properties without
+input</h4>
 <p>The only option accepted is <code>value</code>.</p>
-<h4 data-number="2.1.1.2" id="material-properties-with-only-one-input"><span class="header-section-number">2.1.1.2</span> Material properties with only one input</h4>
-<p>The <code>values</code> option is required. It must be a map associating values of the input and values of the output.</p>
-<p>The <code>interpolation</code> option is optional. It must be a string. The values <code>linear</code> and <code>cubic_spline</code> are accepted.</p>
-<p>The <code>extrapolation</code> option is optional. It must be a boolean or a string:</p>
+<h4 data-number="3.1.1.2"
+id="material-properties-with-only-one-input"><span
+class="header-section-number">3.1.1.2</span> Material properties with
+only one input</h4>
+<p>The <code>values</code> option is required. It must be a map
+associating values of the input and values of the output.</p>
+<p>The <code>interpolation</code> option is optional. It must be a
+string. The values <code>linear</code> and <code>cubic_spline</code> are
+accepted.</p>
+<p>The <code>extrapolation</code> option is optional. It must be a
+boolean or a string:</p>
 <ul>
-<li>The boolean value <code>true</code> means that a linear extrapolation will be performed.</li>
-<li>The boolean value <code>false</code> or the string value <code>bound_to_last_value</code> or the string value <code>constant</code> means that a constant value will be used for extrapolation.</li>
+<li>The boolean value <code>true</code> means that a linear
+extrapolation will be performed.</li>
+<li>The boolean value <code>false</code> or the string value
+<code>bound_to_last_value</code> or the string value
+<code>constant</code> means that a constant value will be used for
+extrapolation.</li>
 </ul>
-<h4 data-number="2.1.1.3" id="example-of-usage"><span class="header-section-number">2.1.1.3</span> Example of usage</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL MaterialProperty;</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Law LinearDataInterpolation;</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UseQt <span class="kw">true</span>;</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UnitSystem SI;</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Output stress E;</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>E.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable temperature T;</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>T.setGlossaryName(<span class="st">&quot;Temperature&quot;</span>);</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Data {</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  values: { <span class="fl">293.15</span> : <span class="fl">240e9</span>, <span class="fl">693.15</span> : <span class="fl">180e9</span>, <span class="fl">893.15</span> : <span class="fl">170e9</span> },</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  interpolation : <span class="st">&quot;linear&quot;</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<h2 data-number="2.2" id="generic-interface-improvements"><span class="header-section-number">2.2</span> <code>generic</code> interface improvements</h2>
-<h3 data-number="2.2.1" id="the-selectedmodellinghypothesis-and-selectedmodellinghypotheses-keywords"><span class="header-section-number">2.2.1</span> The <code>@SelectedModellingHypothesis</code> and <code>@SelectedModellingHypotheses</code> keywords</h3>
-<p>The <code>@SelectedModellingHypothesis</code> and <code>@SelectedModellingHypotheses</code> keywords allows to select which modelling hypotheses will be generated.</p>
-<p>Their syntaxes are similar to the keywords <code>@ModellingHypothesis</code> and <code>@ModellingHypotheses</code>, respectively.</p>
-<p>The selected modelling hypotheses must be a sub-set of the modelling hypotheses supported by the behaviour.</p>
-<h4 data-number="2.2.1.1" id="example-of-usage-1"><span class="header-section-number">2.2.1.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront --obuild --interface=generic --<span class="er">@</span>SelectedModellingHypothesis=PlaneStrain Plasticity.mfront</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Treating target : all</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>The following library has been built :</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>- libBehaviour.so :  Plasticity_PlaneStrain</span></code></pre></div>
-<h1 data-number="3" id="documentation"><span class="header-section-number">3</span> Documentation</h1>
-<p>The page <a href="libraries_usage.html">Libaries usage in C++</a> describe how to use the <code>TFEL</code> libraries in <code>C++</code> projects, using either the <code>tfel-config</code> utility or <code>cmake</code> packages.</p>
-<h1 data-number="4" id="issues-fixed"><span class="header-section-number">4</span> Issues fixed</h1>
-<h2 data-number="4.1" id="issue-582-cast3m-interface-add-explicit-names-and-4-letter-mapping-of-internal-variables-to-the-castem-file"><span class="header-section-number">4.1</span> Issue 582: [cast3m interface] add explicit names and 4-letter mapping of internal variables to the castem file</h2>
-<p>Adds the correspondence between variable names and the 4-letter names used in castem to the example <code>.dgibi</code> file, generated by <code>MFront</code> with castem interfaces. The mapping is written in the file as a comment, for example in the form :</p>
+<h4 data-number="3.1.1.3" id="example-of-usage"><span
+class="header-section-number">3.1.1.3</span> Example of usage</h4>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL MaterialProperty<span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Law LinearDataInterpolation<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UseQt <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UnitSystem SI<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Output stress E<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>E<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;YoungModulus&quot;</span><span class="op">);</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable temperature T<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>T<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;Temperature&quot;</span><span class="op">);</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Data <span class="op">{</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  values<span class="op">:</span> <span class="op">{</span> <span class="fl">293.15</span> <span class="op">:</span> <span class="fl">240e9</span><span class="op">,</span> <span class="fl">693.15</span> <span class="op">:</span> <span class="fl">180e9</span><span class="op">,</span> <span class="fl">893.15</span> <span class="op">:</span> <span class="fl">170e9</span> <span class="op">},</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  interpolation <span class="op">:</span> <span class="st">&quot;linear&quot;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h2 data-number="3.2" id="new-dsl-options"><span
+class="header-section-number">3.2</span> New DSL options</h2>
+<h3 data-number="3.2.1" id="the-disable_runtime_checks-option"><span
+class="header-section-number">3.2.1</span> The
+<code>disable_runtime_checks</code> option</h3>
+<p>If this option is set to <code>true</code>, interfaces may disable as
+much runtime checks as possible. Those runtime checks include checking
+standard bounds and physical bounds for instance.</p>
+<h2 data-number="3.3" id="generic-interface-improvements"><span
+class="header-section-number">3.3</span> <code>generic</code> interface
+improvements</h2>
+<h3 data-number="3.3.1"
+id="the-selectedmodellinghypothesis-and-selectedmodellinghypotheses-keywords"><span
+class="header-section-number">3.3.1</span> The
+<code>@SelectedModellingHypothesis</code> and
+<code>@SelectedModellingHypotheses</code> keywords</h3>
+<p>The <code>@SelectedModellingHypothesis</code> and
+<code>@SelectedModellingHypotheses</code> keywords allows to select
+which modelling hypotheses will be generated.</p>
+<p>Their syntaxes are similar to the keywords
+<code>@ModellingHypothesis</code> and <code>@ModellingHypotheses</code>,
+respectively.</p>
+<p>The selected modelling hypotheses must be a sub-set of the modelling
+hypotheses supported by the behaviour.</p>
+<h4 data-number="3.3.1.1" id="example-of-usage-1"><span
+class="header-section-number">3.3.1.1</span> Example of usage</h4>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront <span class="op">--</span>obuild <span class="op">--</span>interface<span class="op">=</span>generic <span class="op">--</span><span class="er">@</span>SelectedModellingHypothesis<span class="op">=</span>PlaneStrain Plasticity<span class="op">.</span>mfront</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Treating target <span class="op">:</span> all</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>The following library has been built <span class="op">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> libBehaviour<span class="op">.</span>so <span class="op">:</span>  Plasticity_PlaneStrain</span></code></pre></div>
+<h1 data-number="4" id="documentation"><span
+class="header-section-number">4</span> Documentation</h1>
+<p>The page <a href="libraries_usage.html">Libaries usage in C++</a>
+describe how to use the <code>TFEL</code> libraries in <code>C++</code>
+projects, using either the <code>tfel-config</code> utility or
+<code>cmake</code> packages.</p>
+<h1 data-number="5" id="issues-fixed"><span
+class="header-section-number">5</span> Issues fixed</h1>
+<h2 data-number="5.1"
+id="issue-535-mfront-doc-add-support-for-material-properties"><span
+class="header-section-number">5.1</span> Issue 535: [mfront-doc] add
+support for material properties</h2>
+<p>Allows mfront-doc to be used with the <code>MaterialLaw</code> DSL.
+Example of use:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-doc T91MartensiticSteel_gamma1_ROUX2007.mfront</span></code></pre></div>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/535"
+class="uri">https://github.com/thelfer/tfel/issues/535</a></p>
+<h2 data-number="5.2"
+id="issue-582-cast3m-interface-add-explicit-names-and-4-letter-mapping-of-internal-variables-to-the-castem-file"><span
+class="header-section-number">5.2</span> Issue 582: [cast3m interface]
+add explicit names and 4-letter mapping of internal variables to the
+castem file</h2>
+<p>Adds the correspondence between variable names and the 4-letter names
+used in castem to the example <code>.dgibi</code> file, generated by
+<code>MFront</code> with castem interfaces. The mapping is written in
+the file as a comment, for example in the form :</p>
 <pre><code>** List of material properties:
 **
 ** - YOUN: YoungModulus
@@ -714,32 +955,94 @@
 ** - RHO: MassDensity
 ** - H: HardeningSlope
 ** - SO: Yield strength</code></pre>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/582" class="uri">https://github.com/thelfer/tfel/issues/582</a></p>
-<h2 data-number="4.2" id="issue-585-mfront-allow-to-override-inputs-in-material-properties"><span class="header-section-number">4.2</span> Issue 585: <a href="#mfront">mfront</a> Allow to override inputs in material properties</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--state-variables</span> Inconel600_YoungModulus.mfront </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Temperature <span class="er">(</span><span class="ex">TK</span><span class="kw">)</span><span class="bu">:</span> the temperature</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> Inconel600_YoungModulus.mfront</span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--state-variables</span> <span class="at">--dsl-option</span><span class="op">=</span><span class="st">&#39;overriding_parameters:{&quot;TK&quot;: 400}}&#39;</span> Inconel600_YoungModulus.mfront</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> <span class="at">--dsl-option</span><span class="op">=</span><span class="st">&#39;overriding_parameters:{&quot;TK&quot;: 400}}&#39;</span> Inconel600_YoungModulus.mfront</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Temperature <span class="er">(</span><span class="ex">TK</span><span class="kw">)</span><span class="bu">:</span> the temperature</span></code></pre></div>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/585" class="uri">https://github.com/thelfer/tfel/issues/585</a></p>
-<h2 data-number="4.3" id="issue-567-mtestcurrentstate.copy-produces-a-shallow-copy-in-python-bindings"><span class="header-section-number">4.3</span> Issue 567: <code>MTestCurrentState.copy()</code> produces a shallow copy in python bindings</h2>
-<p>This behaviour is consistent with the copy constructor of the <code>StudyCurrentState</code> class.</p>
-<p>To make a deep copy of this object, the <code>makeDeepCopy</code> method has been introduced.</p>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/567" class="uri">https://github.com/thelfer/tfel/issues/567</a></p>
-<h2 data-number="4.4" id="issue-557-mfront-allow-to-specify-dsl-options-in-mfrontbasegetdsl"><span class="header-section-number">4.4</span> Issue 557: <code>[mfront]</code> allow to specify dsl options in <code>MFrontBase::getDSL</code></h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/557" class="uri">https://github.com/thelfer/tfel/issues/557</a></p>
-<h2 data-number="4.5" id="issue-556-cmake-export-compile-flags-in-dedicated-variables"><span class="header-section-number">4.5</span> Issue 556: <code>[cmake]</code> export compile flags in dedicated variables</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/556" class="uri">https://github.com/thelfer/tfel/issues/556</a></p>
-<h2 data-number="4.6" id="issue-555-cmake-better-handling-of-dependencies-in-exported-cmake-files"><span class="header-section-number">4.6</span> Issue 555: <code>[cmake]</code> better handling of dependencies in exported <code>cmake</code> files</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/556" class="uri">https://github.com/thelfer/tfel/issues/556</a></p>
-<h2 data-number="4.7" id="issue-526-the-useqt-keyword-is-not-mentioned-in-the-materiallaws-keywords-help-page"><span class="header-section-number">4.7</span> Issue 526: The <code>@UseQt</code> keyword is not mentioned in the <code>MaterialLaw</code>’s keywords help page</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/526" class="uri">https://github.com/thelfer/tfel/issues/526</a></p>
-<h2 data-number="4.8" id="issue-476-generic-interface-add-support-for-arrays-of-thermodynamic-forces"><span class="header-section-number">4.8</span> Issue 476: [generic interface] Add support for arrays of thermodynamic forces</h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/476" class="uri">https://github.com/thelfer/tfel/issues/476</a></p>
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-harari_computation_2023" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Harari</span>, Isaac and <span class="smallcaps">Albocher</span>, Uri. Computation of eigenvalues of a real, symmetric 3 x 3 matrix with particular reference to the pernicious case of two nearly equal eigenvalues. <em>International Journal for Numerical Methods in Engineering</em>. 2023. Vol. 124, no. 5, p. 1089–1110. DOI <a href="https://doi.org/10.1002/nme.7153">https://doi.org/10.1002/nme.7153</a>. Available from: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.7153">https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.7153</a></div>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/582"
+class="uri">https://github.com/thelfer/tfel/issues/582</a></p>
+<h2 data-number="5.3"
+id="issue-585-mfront-allow-to-override-inputs-in-material-properties"><span
+class="header-section-number">5.3</span> Issue 585: <a
+href="#mfront">mfront</a> Allow to override inputs in material
+properties</h2>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--state-variables</span> Inconel600_YoungModulus.mfront </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Temperature <span class="er">(</span><span class="ex">TK</span><span class="kw">)</span><span class="bu">:</span> the temperature</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> Inconel600_YoungModulus.mfront</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--state-variables</span> <span class="at">--dsl-option</span><span class="op">=</span><span class="st">&#39;overriding_parameters:{&quot;TK&quot;: 400}}&#39;</span> Inconel600_YoungModulus.mfront</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> <span class="at">--dsl-option</span><span class="op">=</span><span class="st">&#39;overriding_parameters:{&quot;TK&quot;: 400}}&#39;</span> Inconel600_YoungModulus.mfront</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Temperature <span class="er">(</span><span class="ex">TK</span><span class="kw">)</span><span class="bu">:</span> the temperature</span></code></pre></div>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/585"
+class="uri">https://github.com/thelfer/tfel/issues/585</a></p>
+<h2 data-number="5.4"
+id="issue-567-mtestcurrentstate.copy-produces-a-shallow-copy-in-python-bindings"><span
+class="header-section-number">5.4</span> Issue 567:
+<code>MTestCurrentState.copy()</code> produces a shallow copy in python
+bindings</h2>
+<p>This behaviour is consistent with the copy constructor of the
+<code>StudyCurrentState</code> class.</p>
+<p>To make a deep copy of this object, the <code>makeDeepCopy</code>
+method has been introduced.</p>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/567"
+class="uri">https://github.com/thelfer/tfel/issues/567</a></p>
+<h2 data-number="5.5"
+id="issue-557-mfront-allow-to-specify-dsl-options-in-mfrontbasegetdsl"><span
+class="header-section-number">5.5</span> Issue 557:
+<code>[mfront]</code> allow to specify dsl options in
+<code>MFrontBase::getDSL</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/557"
+class="uri">https://github.com/thelfer/tfel/issues/557</a></p>
+<h2 data-number="5.6"
+id="issue-556-cmake-export-compile-flags-in-dedicated-variables"><span
+class="header-section-number">5.6</span> Issue 556: <code>[cmake]</code>
+export compile flags in dedicated variables</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/556"
+class="uri">https://github.com/thelfer/tfel/issues/556</a></p>
+<h2 data-number="5.7"
+id="issue-555-cmake-better-handling-of-dependencies-in-exported-cmake-files"><span
+class="header-section-number">5.7</span> Issue 555: <code>[cmake]</code>
+better handling of dependencies in exported <code>cmake</code>
+files</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/556"
+class="uri">https://github.com/thelfer/tfel/issues/556</a></p>
+<h2 data-number="5.8"
+id="issue-526-the-useqt-keyword-is-not-mentioned-in-the-materiallaws-keywords-help-page"><span
+class="header-section-number">5.8</span> Issue 526: The
+<code>@UseQt</code> keyword is not mentioned in the
+<code>MaterialLaw</code>’s keywords help page</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/526"
+class="uri">https://github.com/thelfer/tfel/issues/526</a></p>
+<h2 data-number="5.9"
+id="issue-476-generic-interface-add-support-for-arrays-of-thermodynamic-forces"><span
+class="header-section-number">5.9</span> Issue 476: [generic interface]
+Add support for arrays of thermodynamic forces</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/476"
+class="uri">https://github.com/thelfer/tfel/issues/476</a></p>
+<h2 data-number="5.10"
+id="issue-370-tfel-utilities-support-for-c-digit-separator"><span
+class="header-section-number">5.10</span> Issue 370: [tfel-utilities]
+Support for <code>C++</code> digit separator</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/370"
+class="uri">https://github.com/thelfer/tfel/issues/370</a></p>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-harari_computation_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Harari</span>, Isaac
+and <span class="smallcaps">Albocher</span>, Uri. Computation of
+eigenvalues of a real, symmetric 3 x 3 matrix with particular reference
+to the pernicious case of two nearly equal eigenvalues.
+<em>International Journal for Numerical Methods in Engineering</em>.
+2023. Vol. 124, no. 5, p. 1089–1110. DOI <a
+href="https://doi.org/10.1002/nme.7153">https://doi.org/10.1002/nme.7153</a>.
+Available from: <a
+href="https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.7153">https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.7153</a></div>
 </div>
 </div>
     <script>

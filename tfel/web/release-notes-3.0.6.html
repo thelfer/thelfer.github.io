@@ -17,7 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -120,6 +122,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -265,44 +268,113 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Release notes of the 3.0.6 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h1 class="title">Release notes of the 3.0.6 version of
+<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">2020</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#noticeable-fixed-issues-that-may-affect-the-results-obtained-with-previous-versions">Noticeable fixed issues that may affect the results obtained with previous versions</a></li>
-<li><a href="#tickets-fixed">Tickets fixed</a>
+<li><a
+href="#noticeable-fixed-issues-that-may-affect-the-results-obtained-with-previous-versions"
+id="toc-noticeable-fixed-issues-that-may-affect-the-results-obtained-with-previous-versions">Noticeable
+fixed issues that may affect the results obtained with previous
+versions</a></li>
+<li><a href="#tickets-fixed" id="toc-tickets-fixed">Tickets fixed</a>
 <ul>
-<li><a href="#ticket-256-scalar-products-of-unsymmetric-tensors">Ticket #256: Scalar products of unsymmetric tensors</a></li>
-<li><a href="#ticket-254-register-libraries-for-ldconfig">Ticket #254: Register libraries for <code>ldconfig</code></a></li>
-<li><a href="#ticket-246-explicit-implementation-of-the-berveiller-zaoui-homogeneisation-scheme-is-inefficient">Ticket #246: Explicit implementation of the Berveiller-Zaoui homogeneisation scheme is inefficient</a></li>
-<li><a href="#ticket-244-some-header-files-related-to-mtest-are-not-installed-by-cmake">Ticket #244: Some header files related to MTest are not installed by <code>cmake</code></a></li>
-<li><a href="#ticket-239-missing-ostream-header-for-gcc-10.1.0">Ticket #239: Missing <code>ostream</code> header for <code>gcc-10.1.0</code></a></li>
-<li><a href="#ticket-238-getpartialjacobianinvert-is-broken-for-arrays-of-internal-state-variables">Ticket #238: <code>getPartialJacobianInvert</code> is broken for arrays of internal state variables</a></li>
-<li><a href="#ticket-224-fix-compilation-of-the-gentype3.cxx-test-in-c-17-with-gcc-9.2">Ticket #224: Fix compilation of the <code>gentype3.cxx</code> test in <code>C++-17</code> with <code>gcc-9.2</code></a></li>
-<li><a href="#ticket-208-support-of-the-gasequationofstate-keyword-is-broken-in-mtest">Ticket #208: Support of the <code>@GasEquationOfState</code> keyword is broken in <code>MTest</code></a></li>
-<li><a href="#ticket-207-circumvent-a-possible-bug-in-findboost-for-cmake-3.16">Ticket #207: Circumvent a possible bug in <code>FindBoost</code> for <code>cmake-3.16</code></a></li>
-<li><a href="#ticket-197-allow-using-flags-defined-in-standard-environment-variables-to-build-tfelmfront">Ticket #197: Allow using flags defined in standard environment variables to build <code>TFEL/MFront</code></a></li>
+<li><a href="#ticket-256-scalar-products-of-unsymmetric-tensors"
+id="toc-ticket-256-scalar-products-of-unsymmetric-tensors">Ticket #256:
+Scalar products of unsymmetric tensors</a></li>
+<li><a href="#ticket-254-register-libraries-for-ldconfig"
+id="toc-ticket-254-register-libraries-for-ldconfig">Ticket #254:
+Register libraries for <code>ldconfig</code></a></li>
+<li><a
+href="#ticket-246-explicit-implementation-of-the-berveiller-zaoui-homogeneisation-scheme-is-inefficient"
+id="toc-ticket-246-explicit-implementation-of-the-berveiller-zaoui-homogeneisation-scheme-is-inefficient">Ticket
+#246: Explicit implementation of the Berveiller-Zaoui homogeneisation
+scheme is inefficient</a></li>
+<li><a
+href="#ticket-244-some-header-files-related-to-mtest-are-not-installed-by-cmake"
+id="toc-ticket-244-some-header-files-related-to-mtest-are-not-installed-by-cmake">Ticket
+#244: Some header files related to MTest are not installed by
+<code>cmake</code></a></li>
+<li><a href="#ticket-239-missing-ostream-header-for-gcc-10.1.0"
+id="toc-ticket-239-missing-ostream-header-for-gcc-10.1.0">Ticket #239:
+Missing <code>ostream</code> header for <code>gcc-10.1.0</code></a></li>
+<li><a
+href="#ticket-238-getpartialjacobianinvert-is-broken-for-arrays-of-internal-state-variables"
+id="toc-ticket-238-getpartialjacobianinvert-is-broken-for-arrays-of-internal-state-variables">Ticket
+#238: <code>getPartialJacobianInvert</code> is broken for arrays of
+internal state variables</a></li>
+<li><a
+href="#ticket-224-fix-compilation-of-the-gentype3.cxx-test-in-c-17-with-gcc-9.2"
+id="toc-ticket-224-fix-compilation-of-the-gentype3.cxx-test-in-c-17-with-gcc-9.2">Ticket
+#224: Fix compilation of the <code>gentype3.cxx</code> test in
+<code>C++-17</code> with <code>gcc-9.2</code></a></li>
+<li><a
+href="#ticket-208-support-of-the-gasequationofstate-keyword-is-broken-in-mtest"
+id="toc-ticket-208-support-of-the-gasequationofstate-keyword-is-broken-in-mtest">Ticket
+#208: Support of the <code>@GasEquationOfState</code> keyword is broken
+in <code>MTest</code></a></li>
+<li><a
+href="#ticket-207-circumvent-a-possible-bug-in-findboost-for-cmake-3.16"
+id="toc-ticket-207-circumvent-a-possible-bug-in-findboost-for-cmake-3.16">Ticket
+#207: Circumvent a possible bug in <code>FindBoost</code> for
+<code>cmake-3.16</code></a></li>
+<li><a
+href="#ticket-197-allow-using-flags-defined-in-standard-environment-variables-to-build-tfelmfront"
+id="toc-ticket-197-allow-using-flags-defined-in-standard-environment-variables-to-build-tfelmfront">Ticket
+#197: Allow using flags defined in standard environment variables to
+build <code>TFEL/MFront</code></a></li>
 </ul></li>
 </ul>
 </div>
-<h1 id="noticeable-fixed-issues-that-may-affect-the-results-obtained-with-previous-versions">Noticeable fixed issues that may affect the results obtained with previous versions</h1>
-<p>Ticket #256 reported that the scalar product of two unsymmetric tensors was not properly computed.</p>
-<p>This may affect single crystal finite strain computations to a limited extent, as the Mandel stress tensor is almost symmetric.</p>
+<h1
+id="noticeable-fixed-issues-that-may-affect-the-results-obtained-with-previous-versions">Noticeable
+fixed issues that may affect the results obtained with previous
+versions</h1>
+<p>Ticket #256 reported that the scalar product of two unsymmetric
+tensors was not properly computed.</p>
+<p>This may affect single crystal finite strain computations to a
+limited extent, as the Mandel stress tensor is almost symmetric.</p>
 <h1 id="tickets-fixed">Tickets fixed</h1>
-<h2 id="ticket-256-scalar-products-of-unsymmetric-tensors">Ticket #256: Scalar products of unsymmetric tensors</h2>
-<p>The scalar product of unsymmetric tensors was not computed correctly in <span class="math inline">\(2D\)</span> and <span class="math inline">\(3D\)</span>.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/256/" class="uri">https://sourceforge.net/p/tfel/tickets/256/</a></p>
-<h2 id="ticket-254-register-libraries-for-ldconfig">Ticket #254: Register libraries for <code>ldconfig</code></h2>
-<p>In previous versions, the build version and the API version of shared libraries were not specified.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/254/" class="uri">https://sourceforge.net/p/tfel/tickets/254/</a></p>
-<h2 id="ticket-246-explicit-implementation-of-the-berveiller-zaoui-homogeneisation-scheme-is-inefficient">Ticket #246: Explicit implementation of the Berveiller-Zaoui homogeneisation scheme is inefficient</h2>
-<p>Several polycrystal behaviours based on the Berveiller-Zaoui homogeneisation scheme are available in the tests of <code>MFront</code>.</p>
-<p>For some unknown reasons, those implementations declared the equivalent plastic strain as an auxiliary state variable. This lead to a significantly more difficult convergence of the <code>Runge-Kutta</code> algorithm.</p>
-<p>Since the results are correct, those implementations are kept as they are, but new corrected implementations are provided. Appropriate warnings are added to the description of flawed behaviours. Users are advised to use the newly proposed implementation.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/246/" class="uri">https://sourceforge.net/p/tfel/tickets/246/</a></p>
-<h2 id="ticket-244-some-header-files-related-to-mtest-are-not-installed-by-cmake">Ticket #244: Some header files related to MTest are not installed by <code>cmake</code></h2>
+<h2 id="ticket-256-scalar-products-of-unsymmetric-tensors">Ticket #256:
+Scalar products of unsymmetric tensors</h2>
+<p>The scalar product of unsymmetric tensors was not computed correctly
+in <span class="math inline">\(2D\)</span> and <span
+class="math inline">\(3D\)</span>.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/256/"
+class="uri">https://sourceforge.net/p/tfel/tickets/256/</a></p>
+<h2 id="ticket-254-register-libraries-for-ldconfig">Ticket #254:
+Register libraries for <code>ldconfig</code></h2>
+<p>In previous versions, the build version and the API version of shared
+libraries were not specified.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/254/"
+class="uri">https://sourceforge.net/p/tfel/tickets/254/</a></p>
+<h2
+id="ticket-246-explicit-implementation-of-the-berveiller-zaoui-homogeneisation-scheme-is-inefficient">Ticket
+#246: Explicit implementation of the Berveiller-Zaoui homogeneisation
+scheme is inefficient</h2>
+<p>Several polycrystal behaviours based on the Berveiller-Zaoui
+homogeneisation scheme are available in the tests of
+<code>MFront</code>.</p>
+<p>For some unknown reasons, those implementations declared the
+equivalent plastic strain as an auxiliary state variable. This lead to a
+significantly more difficult convergence of the <code>Runge-Kutta</code>
+algorithm.</p>
+<p>Since the results are correct, those implementations are kept as they
+are, but new corrected implementations are provided. Appropriate
+warnings are added to the description of flawed behaviours. Users are
+advised to use the newly proposed implementation.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/246/"
+class="uri">https://sourceforge.net/p/tfel/tickets/246/</a></p>
+<h2
+id="ticket-244-some-header-files-related-to-mtest-are-not-installed-by-cmake">Ticket
+#244: Some header files related to MTest are not installed by
+<code>cmake</code></h2>
 <p>The following headers were not installed by <code>cmake</code>:</p>
 <ul>
 <li><code>SolverWorkSpace.hxx</code></li>
@@ -310,26 +382,71 @@
 <li><code>PipeMesh.hxx</code></li>
 <li><code>PipeProfileHandler.hxx</code></li>
 </ul>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/244/" class="uri">https://sourceforge.net/p/tfel/tickets/244/</a></p>
-<h2 id="ticket-239-missing-ostream-header-for-gcc-10.1.0">Ticket #239: Missing <code>ostream</code> header for <code>gcc-10.1.0</code></h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/239/" class="uri">https://sourceforge.net/p/tfel/tickets/239/</a></p>
-<h2 id="ticket-238-getpartialjacobianinvert-is-broken-for-arrays-of-internal-state-variables">Ticket #238: <code>getPartialJacobianInvert</code> is broken for arrays of internal state variables</h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/238/" class="uri">https://sourceforge.net/p/tfel/tickets/238/</a></p>
-<h2 id="ticket-224-fix-compilation-of-the-gentype3.cxx-test-in-c-17-with-gcc-9.2">Ticket #224: Fix compilation of the <code>gentype3.cxx</code> test in <code>C++-17</code> with <code>gcc-9.2</code></h2>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/208/" class="uri">https://sourceforge.net/p/tfel/tickets/208/</a></p>
-<h2 id="ticket-208-support-of-the-gasequationofstate-keyword-is-broken-in-mtest">Ticket #208: Support of the <code>@GasEquationOfState</code> keyword is broken in <code>MTest</code></h2>
-<p><code>MTest</code> is able to model a tight pipe. This hypothesis assumes that the amount of substance of the gas inside the pipe is constant. The evolution of the inner pressure is linked to the temperature and radius evolution through the gas equation of state. By default, the equation of state of a perfect gas is used.</p>
-<p>The <code>@GasEquationOfState</code> keyword was introduced to specify the equation of state of the gas. This feature has never been tested and was not functional in previous versions.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/208/" class="uri">https://sourceforge.net/p/tfel/tickets/208/</a></p>
-<h2 id="ticket-207-circumvent-a-possible-bug-in-findboost-for-cmake-3.16">Ticket #207: Circumvent a possible bug in <code>FindBoost</code> for <code>cmake-3.16</code></h2>
-<p>Two boost components are searched when enabling <code>python</code> bindings: <code>boost-python</code> and <code>boost-numpy</code>. The first one is required and the second one is optional.</p>
-<p>The detection process that was used in previous versions called <code>find_package</code> for two components at the same time and then we checkd of two components were found.</p>
-<p>In <code>cmake</code> 3.16 (at least), the behaviour of <code>find_package</code> changed and if one component is missing, both are declared not found.</p>
-<p>We now check for <code>boost-python</code> first and then search for <code>boost-numpy</code>.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/207/" class="uri">https://sourceforge.net/p/tfel/tickets/207/</a></p>
-<h2 id="ticket-197-allow-using-flags-defined-in-standard-environment-variables-to-build-tfelmfront">Ticket #197: Allow using flags defined in standard environment variables to build <code>TFEL/MFront</code></h2>
-<p>The variable <code>USE_EXTERNAL_COMPILER_FLAGS</code> can now be defined in <code>cmake</code> to use the flags defined in the environment variables <code>CFLAGS</code> and <code>CXXFLAGS</code>.</p>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/197/" class="uri">https://sourceforge.net/p/tfel/tickets/197/</a></p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/244/"
+class="uri">https://sourceforge.net/p/tfel/tickets/244/</a></p>
+<h2 id="ticket-239-missing-ostream-header-for-gcc-10.1.0">Ticket #239:
+Missing <code>ostream</code> header for <code>gcc-10.1.0</code></h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/239/"
+class="uri">https://sourceforge.net/p/tfel/tickets/239/</a></p>
+<h2
+id="ticket-238-getpartialjacobianinvert-is-broken-for-arrays-of-internal-state-variables">Ticket
+#238: <code>getPartialJacobianInvert</code> is broken for arrays of
+internal state variables</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/238/"
+class="uri">https://sourceforge.net/p/tfel/tickets/238/</a></p>
+<h2
+id="ticket-224-fix-compilation-of-the-gentype3.cxx-test-in-c-17-with-gcc-9.2">Ticket
+#224: Fix compilation of the <code>gentype3.cxx</code> test in
+<code>C++-17</code> with <code>gcc-9.2</code></h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/208/"
+class="uri">https://sourceforge.net/p/tfel/tickets/208/</a></p>
+<h2
+id="ticket-208-support-of-the-gasequationofstate-keyword-is-broken-in-mtest">Ticket
+#208: Support of the <code>@GasEquationOfState</code> keyword is broken
+in <code>MTest</code></h2>
+<p><code>MTest</code> is able to model a tight pipe. This hypothesis
+assumes that the amount of substance of the gas inside the pipe is
+constant. The evolution of the inner pressure is linked to the
+temperature and radius evolution through the gas equation of state. By
+default, the equation of state of a perfect gas is used.</p>
+<p>The <code>@GasEquationOfState</code> keyword was introduced to
+specify the equation of state of the gas. This feature has never been
+tested and was not functional in previous versions.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/208/"
+class="uri">https://sourceforge.net/p/tfel/tickets/208/</a></p>
+<h2
+id="ticket-207-circumvent-a-possible-bug-in-findboost-for-cmake-3.16">Ticket
+#207: Circumvent a possible bug in <code>FindBoost</code> for
+<code>cmake-3.16</code></h2>
+<p>Two boost components are searched when enabling <code>python</code>
+bindings: <code>boost-python</code> and <code>boost-numpy</code>. The
+first one is required and the second one is optional.</p>
+<p>The detection process that was used in previous versions called
+<code>find_package</code> for two components at the same time and then
+we checkd of two components were found.</p>
+<p>In <code>cmake</code> 3.16 (at least), the behaviour of
+<code>find_package</code> changed and if one component is missing, both
+are declared not found.</p>
+<p>We now check for <code>boost-python</code> first and then search for
+<code>boost-numpy</code>.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/207/"
+class="uri">https://sourceforge.net/p/tfel/tickets/207/</a></p>
+<h2
+id="ticket-197-allow-using-flags-defined-in-standard-environment-variables-to-build-tfelmfront">Ticket
+#197: Allow using flags defined in standard environment variables to
+build <code>TFEL/MFront</code></h2>
+<p>The variable <code>USE_EXTERNAL_COMPILER_FLAGS</code> can now be
+defined in <code>cmake</code> to use the flags defined in the
+environment variables <code>CFLAGS</code> and <code>CXXFLAGS</code>.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/197/"
+class="uri">https://sourceforge.net/p/tfel/tickets/197/</a></p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

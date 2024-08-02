@@ -17,8 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -27,7 +28,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -51,11 +52,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -64,14 +65,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -81,7 +82,9 @@
             <link rel="stylesheet" href=" css/slideshow.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -184,6 +187,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -329,170 +333,368 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">New functionalities of the 3.2 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h1 class="title">New functionalities of the 3.2 version of
+<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">2017</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#documentation"><span class="toc-section-number">1</span> Documentation</a></li>
-<li><a href="#updates-in-tfel-libraries"><span class="toc-section-number">2</span> Updates in <code>TFEL</code> libraries</a>
+<li><a href="#documentation" id="toc-documentation"><span
+class="toc-section-number">1</span> Documentation</a></li>
+<li><a href="#updates-in-tfel-libraries"
+id="toc-updates-in-tfel-libraries"><span
+class="toc-section-number">2</span> Updates in <code>TFEL</code>
+libraries</a>
 <ul>
-<li><a href="#tfelmath"><span class="toc-section-number">2.1</span> TFEL/Math</a></li>
-<li><a href="#tfelmaterial"><span class="toc-section-number">2.2</span> TFEL/Material</a></li>
-<li><a href="#python-bindings"><span class="toc-section-number">2.3</span> <code>python</code> bindings</a></li>
+<li><a href="#tfelmath" id="toc-tfelmath"><span
+class="toc-section-number">2.1</span> TFEL/Math</a></li>
+<li><a href="#tfelmaterial" id="toc-tfelmaterial"><span
+class="toc-section-number">2.2</span> TFEL/Material</a></li>
+<li><a href="#python-bindings" id="toc-python-bindings"><span
+class="toc-section-number">2.3</span> <code>python</code>
+bindings</a></li>
 </ul></li>
-<li><a href="#new-functionalities-in-mfront"><span class="toc-section-number">3</span> New functionalities in <code>MFront</code></a>
+<li><a href="#new-functionalities-in-mfront"
+id="toc-new-functionalities-in-mfront"><span
+class="toc-section-number">3</span> New functionalities in
+<code>MFront</code></a>
 <ul>
-<li><a href="#the-standardelastoviscoplasticity-brick"><span class="toc-section-number">3.1</span> The <code>StandardElastoViscoPlasticity</code> brick</a></li>
-<li><a href="#logarithmic-strain-framework-support-in-the-cyrano-interface"><span class="toc-section-number">3.2</span> Logarithmic strain framework support in the <code>cyrano</code> interface</a></li>
-<li><a href="#the-generic-behaviour-interface"><span class="toc-section-number">3.3</span> The generic behaviour interface</a></li>
-<li><a href="#various-improvements"><span class="toc-section-number">3.4</span> Various improvements</a></li>
-<li><a href="#new-command-line-arguments"><span class="toc-section-number">3.5</span> New command line arguments</a></li>
+<li><a href="#the-standardelastoviscoplasticity-brick"
+id="toc-the-standardelastoviscoplasticity-brick"><span
+class="toc-section-number">3.1</span> The
+<code>StandardElastoViscoPlasticity</code> brick</a></li>
+<li><a
+href="#logarithmic-strain-framework-support-in-the-cyrano-interface"
+id="toc-logarithmic-strain-framework-support-in-the-cyrano-interface"><span
+class="toc-section-number">3.2</span> Logarithmic strain framework
+support in the <code>cyrano</code> interface</a></li>
+<li><a href="#the-generic-behaviour-interface"
+id="toc-the-generic-behaviour-interface"><span
+class="toc-section-number">3.3</span> The generic behaviour
+interface</a></li>
+<li><a href="#various-improvements" id="toc-various-improvements"><span
+class="toc-section-number">3.4</span> Various improvements</a></li>
+<li><a href="#new-command-line-arguments"
+id="toc-new-command-line-arguments"><span
+class="toc-section-number">3.5</span> New command line
+arguments</a></li>
 </ul></li>
-<li><a href="#new-functionalities-in-mtest"><span class="toc-section-number">4</span> New functionalities in <code>MTest</code></a>
+<li><a href="#new-functionalities-in-mtest"
+id="toc-new-functionalities-in-mtest"><span
+class="toc-section-number">4</span> New functionalities in
+<code>MTest</code></a>
 <ul>
-<li><a href="#events-activation-and-desactivation-of-constraints"><span class="toc-section-number">4.1</span> Events, activation and desactivation of constraints</a></li>
+<li><a href="#events-activation-and-desactivation-of-constraints"
+id="toc-events-activation-and-desactivation-of-constraints"><span
+class="toc-section-number">4.1</span> Events, activation and
+desactivation of constraints</a></li>
 </ul></li>
-<li><a href="#tickets-solved-during-the-development-of-this-version"><span class="toc-section-number">5</span> Tickets solved during the development of this version</a>
+<li><a href="#tickets-solved-during-the-development-of-this-version"
+id="toc-tickets-solved-during-the-development-of-this-version"><span
+class="toc-section-number">5</span> Tickets solved during the
+development of this version</a>
 <ul>
-<li><a href="#ticket-137-compiling-error-fix-mfrontpython-under-windows"><span class="toc-section-number">5.1</span> Ticket #137: Compiling error fix <code>Mfront/Python</code> under <code>Windows</code></a></li>
-<li><a href="#ticket-112-mtest-outputs"><span class="toc-section-number">5.2</span> Ticket #112: MTEST outputs</a></li>
+<li><a href="#ticket-137-compiling-error-fix-mfrontpython-under-windows"
+id="toc-ticket-137-compiling-error-fix-mfrontpython-under-windows"><span
+class="toc-section-number">5.1</span> Ticket #137: Compiling error fix
+<code>Mfront/Python</code> under <code>Windows</code></a></li>
+<li><a href="#ticket-112-mtest-outputs"
+id="toc-ticket-112-mtest-outputs"><span
+class="toc-section-number">5.2</span> Ticket #112: MTEST
+outputs</a></li>
 </ul></li>
-<li><a href="#known-incompatibilities"><span class="toc-section-number">6</span> Known incompatibilities</a>
+<li><a href="#known-incompatibilities"
+id="toc-known-incompatibilities"><span
+class="toc-section-number">6</span> Known incompatibilities</a>
 <ul>
-<li><a href="#header-files"><span class="toc-section-number">6.1</span> Header files</a></li>
+<li><a href="#header-files" id="toc-header-files"><span
+class="toc-section-number">6.1</span> Header files</a></li>
 </ul></li>
-<li><a href="#references"><span class="toc-section-number">7</span> References</a></li>
+<li><a href="#references" id="toc-references"><span
+class="toc-section-number">7</span> References</a></li>
 </ul>
 </div>
-<p>The page declares the new functionalities of the 3.2 version of the <code>TFEL</code> project. This version has been released along with version 3.1.3 and benefits from all the associated fixes. See <a href="release-notes-3.1.3.html">this page</a> for details.</p>
-<p>The <code>TFEL</code> project is a collaborative development of <a href="http://www.cea.fr/english-portal" title="Commissariat à l&#39;énergie atomique">CEA</a> and <a href="http://www.edf.com/" title="Électricité de France">EDF</a> dedicated to material knowledge manangement with special focus on mechanical behaviours. It provides a set of libraries (including <code>TFEL/Math</code> and <code>TFEL/Material</code>) and several executables, in particular <code>MFront</code> and <code>MTest</code>.</p>
-<p><code>TFEL</code> is available on a wide variety of operating systems and compilers.</p>
-<h1 data-number="1" id="documentation"><span class="header-section-number">1</span> Documentation</h1>
-<p>A new page dedicated to the <code>python</code> bindings of the <code>TFEL</code> libraries is available <a href="tfel-python.html">here</a>.</p>
-<h1 data-number="2" id="updates-in-tfel-libraries"><span class="header-section-number">2</span> Updates in <code>TFEL</code> libraries</h1>
-<p>The <code>TFEL</code> project provides several libraries. This paragraph is about updates made in those libraries.</p>
-<h2 data-number="2.1" id="tfelmath"><span class="header-section-number">2.1</span> TFEL/Math</h2>
-<h3 data-number="2.1.1" id="improvements-to-the-evaluator-class"><span class="header-section-number">2.1.1</span> Improvements to the <code>Evaluator</code> class</h3>
-<p>The <code>Evaluator</code> class is used to interpret textual formula, as follows:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev(<span class="st">&quot;sin(x)&quot;</span>);</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ev.setVariableValue(<span class="st">&quot;x&quot;</span>,<span class="dv">12</span>);</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s = ev.getValue();</span></code></pre></div>
-<h4 data-number="2.1.1.1" id="an-overload-for-the-getvalue-method"><span class="header-section-number">2.1.1.1</span> An overload for the <code>getValue</code> method</h4>
-<p>In the previous example, each variable value had to be set using the <code>setVariableValue</code> method. The new overloaded version of the <code>getValue</code> method can take a map as argument as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev(<span class="st">&quot;sin(x)&quot;</span>);</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s = ev.getValue({{<span class="st">&quot;x&quot;</span>,<span class="dv">12</span>}});</span></code></pre></div>
-<h4 data-number="2.1.1.2" id="operator"><span class="header-section-number">2.1.1.2</span> <code>Operator()</code></h4>
-<p>Two overloaded versions of the <code>Evaluator::operator()</code> has been introduced as a synonyms for the <code>getValue</code> method:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev(<span class="st">&quot;sin(x)&quot;</span>);</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s = ev({{<span class="st">&quot;x&quot;</span>,<span class="dv">12</span>}});</span></code></pre></div>
-<h4 data-number="2.1.1.3" id="the-getcxxformula-method"><span class="header-section-number">2.1.1.3</span> The <code>getCxxFormula</code> method</h4>
-<p>The <code>getCxxFormula</code> method returns a string representing the evaluation of the formula in standard <code>C++</code>. This method takes a map as argument which describes how certain variables shall be represented. This method can be used, as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev(<span class="st">&quot;2*sin(x)&quot;</span>);</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout &lt;&lt; ev({<span class="st">&quot;x&quot;</span>:<span class="st">&quot;this-&gt;x&quot;</span>}}) &lt;&lt; <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>;</span></code></pre></div>
+<p>The page declares the new functionalities of the 3.2 version of the
+<code>TFEL</code> project. This version has been released along with
+version 3.1.3 and benefits from all the associated fixes. See <a
+href="release-notes-3.1.3.html">this page</a> for details.</p>
+<p>The <code>TFEL</code> project is a collaborative development of <a
+href="http://www.cea.fr/english-portal"
+title="Commissariat à l&#39;énergie atomique">CEA</a> and <a
+href="http://www.edf.com/" title="Électricité de France">EDF</a>
+dedicated to material knowledge manangement with special focus on
+mechanical behaviours. It provides a set of libraries (including
+<code>TFEL/Math</code> and <code>TFEL/Material</code>) and several
+executables, in particular <code>MFront</code> and
+<code>MTest</code>.</p>
+<p><code>TFEL</code> is available on a wide variety of operating systems
+and compilers.</p>
+<h1 data-number="1" id="documentation"><span
+class="header-section-number">1</span> Documentation</h1>
+<p>A new page dedicated to the <code>python</code> bindings of the
+<code>TFEL</code> libraries is available <a
+href="tfel-python.html">here</a>.</p>
+<h1 data-number="2" id="updates-in-tfel-libraries"><span
+class="header-section-number">2</span> Updates in <code>TFEL</code>
+libraries</h1>
+<p>The <code>TFEL</code> project provides several libraries. This
+paragraph is about updates made in those libraries.</p>
+<h2 data-number="2.1" id="tfelmath"><span
+class="header-section-number">2.1</span> TFEL/Math</h2>
+<h3 data-number="2.1.1" id="improvements-to-the-evaluator-class"><span
+class="header-section-number">2.1.1</span> Improvements to the
+<code>Evaluator</code> class</h3>
+<p>The <code>Evaluator</code> class is used to interpret textual
+formula, as follows:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev<span class="op">(</span><span class="st">&quot;sin(x)&quot;</span><span class="op">);</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ev<span class="op">.</span>setVariableValue<span class="op">(</span><span class="st">&quot;x&quot;</span><span class="op">,</span><span class="dv">12</span><span class="op">);</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s <span class="op">=</span> ev<span class="op">.</span>getValue<span class="op">();</span></span></code></pre></div>
+<h4 data-number="2.1.1.1" id="an-overload-for-the-getvalue-method"><span
+class="header-section-number">2.1.1.1</span> An overload for the
+<code>getValue</code> method</h4>
+<p>In the previous example, each variable value had to be set using the
+<code>setVariableValue</code> method. The new overloaded version of the
+<code>getValue</code> method can take a map as argument as follows:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev<span class="op">(</span><span class="st">&quot;sin(x)&quot;</span><span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s <span class="op">=</span> ev<span class="op">.</span>getValue<span class="op">({{</span><span class="st">&quot;x&quot;</span><span class="op">,</span><span class="dv">12</span><span class="op">}});</span></span></code></pre></div>
+<h4 data-number="2.1.1.2" id="operator"><span
+class="header-section-number">2.1.1.2</span>
+<code>Operator()</code></h4>
+<p>Two overloaded versions of the <code>Evaluator::operator()</code> has
+been introduced as a synonyms for the <code>getValue</code> method:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev<span class="op">(</span><span class="st">&quot;sin(x)&quot;</span><span class="op">);</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s <span class="op">=</span> ev<span class="op">({{</span><span class="st">&quot;x&quot;</span><span class="op">,</span><span class="dv">12</span><span class="op">}});</span></span></code></pre></div>
+<h4 data-number="2.1.1.3" id="the-getcxxformula-method"><span
+class="header-section-number">2.1.1.3</span> The
+<code>getCxxFormula</code> method</h4>
+<p>The <code>getCxxFormula</code> method returns a string representing
+the evaluation of the formula in standard <code>C++</code>. This method
+takes a map as argument which describes how certain variables shall be
+represented. This method can be used, as follows:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev<span class="op">(</span><span class="st">&quot;2*sin(x)&quot;</span><span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> ev<span class="op">({</span><span class="st">&quot;x&quot;</span><span class="op">:</span><span class="st">&quot;this-&gt;x&quot;</span><span class="op">}})</span> <span class="op">&lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
 <p>The previous code displays:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sin</span><span class="er">((</span><span class="dv">2</span>)<span class="op">*</span>(<span class="va">this</span><span class="op">-&gt;</span><span class="va">x</span>))</span></code></pre></div>
-<p>This function is the basis of a new functionality of the <code>MFront</code> code generator (inline material properties), see Section 3.4.1 for details.</p>
-<h4 data-number="2.1.1.4" id="new-mathematical-functions"><span class="header-section-number">2.1.1.4</span> New mathematical functions</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sin</span><span class="er">((</span><span class="dv">2</span><span class="kw">)</span><span class="ex">*</span><span class="er">(</span><span class="ex">this-</span><span class="op">&gt;</span>x<span class="kw">))</span></span></code></pre></div>
+<p>This function is the basis of a new functionality of the
+<code>MFront</code> code generator (inline material properties), see
+Section 3.4.1 for details.</p>
+<h4 data-number="2.1.1.4" id="new-mathematical-functions"><span
+class="header-section-number">2.1.1.4</span> New mathematical
+functions</h4>
 <p>The following new mathematical functions have been introduced:</p>
 <ul>
 <li><code>exp2</code>: returns the base-2 exponential.</li>
 <li><code>expm1</code>: returns the base-e exponential minus one.</li>
 <li><code>cbrt</code>: returns the cubic root</li>
-<li><code>log2</code>: computes the base-2 logarithm of the argment.</li>
-<li><code>log1p</code>: computes the logarithm of the argment plus one.</li>
-<li><code>acosh</code>: computes the inverse of the hyperbolic cosine.</li>
-<li><code>asinh</code>: computes the inverse of the hyperbolic sine.</li>
-<li><code>atanh</code>: computes the inverse of the hyperbolic tangent.</li>
+<li><code>log2</code>: computes the base-2 logarithm of the
+argment.</li>
+<li><code>log1p</code>: computes the logarithm of the argment plus
+one.</li>
+<li><code>acosh</code>: computes the inverse of the hyperbolic
+cosine.</li>
+<li><code>asinh</code>: computes the inverse of the hyperbolic
+sine.</li>
+<li><code>atanh</code>: computes the inverse of the hyperbolic
+tangent.</li>
 <li><code>erf</code>: computes the error function.</li>
 <li><code>erfc</code>: computes the complementary error function.</li>
 <li><code>tgamma</code>: computes the Gamma function.</li>
-<li><code>lgamma</code>: compute the natural logarithm of the gamma function.</li>
-<li><code>hypot</code>: returns the hypotenuse of a right-angled triangle whose legs are x and y, i.e. computes (.</li>
-<li><code>atan2</code>: returns the principal value of the arc tangent of <span class="math inline">\(y/x\)</span>, expressed in radians.</li>
+<li><code>lgamma</code>: compute the natural logarithm of the gamma
+function.</li>
+<li><code>hypot</code>: returns the hypotenuse of a right-angled
+triangle whose legs are x and y, i.e. computes (.</li>
+<li><code>atan2</code>: returns the principal value of the arc tangent
+of <span class="math inline">\(y/x\)</span>, expressed in radians.</li>
 </ul>
-<h3 data-number="2.1.2" id="sec:deviatoric:invariants"><span class="header-section-number">2.1.2</span> Efficient computations of the first and second derivatives of the invariants of the stress deviator tensor with respect to the stress</h3>
-<p>Let <span class="math inline">\(\underline{\sigma}\)</span> be a stress tensor. Its deviatoric part <span class="math inline">\(\underline{s}\)</span> is:</p>
+<h3 data-number="2.1.2" id="sec:deviatoric:invariants"><span
+class="header-section-number">2.1.2</span> Efficient computations of the
+first and second derivatives of the invariants of the stress deviator
+tensor with respect to the stress</h3>
+<p>Let <span class="math inline">\(\underline{\sigma}\)</span> be a
+stress tensor. Its deviatoric part <span
+class="math inline">\(\underline{s}\)</span> is:</p>
 <p><span class="math display">\[
-\underline{s}=\underline{\sigma}-\displaystyle\frac{\displaystyle 1}{\displaystyle 3}\,{\mathrm{tr}\left(\underline{\sigma}\right)}\,\underline{I}
-=\left(\underline{\underline{\mathbf{I}}}-\displaystyle\frac{\displaystyle 1}{\displaystyle 3}\,\underline{I}\,\otimes\,\underline{I}\right)\,\colon\,\underline{\sigma}
+\underline{s}=\underline{\sigma}-\displaystyle\frac{\displaystyle
+1}{\displaystyle
+3}\,{\mathrm{tr}\left(\underline{\sigma}\right)}\,\underline{I}
+=\left(\underline{\underline{\mathbf{I}}}-\displaystyle\frac{\displaystyle
+1}{\displaystyle
+3}\,\underline{I}\,\otimes\,\underline{I}\right)\,\colon\,\underline{\sigma}
 \]</span></p>
-<p>The deviator of a tensor can be computed using the <code>deviator</code> function.</p>
-<p>As it is a second order tensor, the stress deviator tensor also has a set of invariants, which can be obtained using the same procedure used to calculate the invariants of the stress tensor. It can be shown that the principal directions of the stress deviator tensor <span class="math inline">\(s_{ij}\)</span> are the same as the principal directions of the stress tensor <span class="math inline">\(\sigma_{ij}\)</span>. Thus, the characteristic equation is</p>
+<p>The deviator of a tensor can be computed using the
+<code>deviator</code> function.</p>
+<p>As it is a second order tensor, the stress deviator tensor also has a
+set of invariants, which can be obtained using the same procedure used
+to calculate the invariants of the stress tensor. It can be shown that
+the principal directions of the stress deviator tensor <span
+class="math inline">\(s_{ij}\)</span> are the same as the principal
+directions of the stress tensor <span
+class="math inline">\(\sigma_{ij}\)</span>. Thus, the characteristic
+equation is</p>
 <p><span class="math display">\[
-\left| s_{ij}- \lambda\delta_{ij} \right| = -\lambda^3+J_1\lambda^2-J_2\lambda+J_3=0,
+\left| s_{ij}- \lambda\delta_{ij} \right| =
+-\lambda^3+J_1\lambda^2-J_2\lambda+J_3=0,
 \]</span></p>
-<p>where <span class="math inline">\(J_1\)</span>, <span class="math inline">\(J_2\)</span> and <span class="math inline">\(J_3\)</span> are the first, second, and third <em>deviatoric stress invariants</em>, respectively. Their values are the same (invariant) regardless of the orientation of the coordinate system chosen. These deviatoric stress invariants can be expressed as a function of the components of <span class="math inline">\(s_{ij}\)</span> or its principal values <span class="math inline">\(s_1\)</span>, <span class="math inline">\(s_2\)</span>, and <span class="math inline">\(s_3\)</span>, or alternatively, as a function of <span class="math inline">\(\sigma_{ij}\)</span> or its principal values <span class="math inline">\(\sigma_1\)</span>, <span class="math inline">\(\sigma_2\)</span>, and <span class="math inline">\(\sigma_3\)</span>. Thus,</p>
+<p>where <span class="math inline">\(J_1\)</span>, <span
+class="math inline">\(J_2\)</span> and <span
+class="math inline">\(J_3\)</span> are the first, second, and third
+<em>deviatoric stress invariants</em>, respectively. Their values are
+the same (invariant) regardless of the orientation of the coordinate
+system chosen. These deviatoric stress invariants can be expressed as a
+function of the components of <span
+class="math inline">\(s_{ij}\)</span> or its principal values <span
+class="math inline">\(s_1\)</span>, <span
+class="math inline">\(s_2\)</span>, and <span
+class="math inline">\(s_3\)</span>, or alternatively, as a function of
+<span class="math inline">\(\sigma_{ij}\)</span> or its principal values
+<span class="math inline">\(\sigma_1\)</span>, <span
+class="math inline">\(\sigma_2\)</span>, and <span
+class="math inline">\(\sigma_3\)</span>. Thus,</p>
 <p><span class="math display">\[
 \begin{aligned}
 J_1 &amp;= s_{kk}=0,\, \\
-J_2 &amp;= \textstyle{\frac{1}{2}}s_{ij}s_{ji} = \displaystyle\frac{\displaystyle 1}{\displaystyle 2}{\mathrm{tr}\left(\underline{s}^2\right)}\\
-&amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle 2}(s_1^2 + s_2^2 + s_3^2) \\
-&amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle 6}\left[(\sigma_{11} - \sigma_{22})^2 + (\sigma_{22} - \sigma_{33})^2 + (\sigma_{33} - \sigma_{11})^2 \right ] + \sigma_{12}^2 + \sigma_{23}^2 + \sigma_{31}^2 \\
-&amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle 6}\left[(\sigma_1 - \sigma_2)^2 + (\sigma_2 - \sigma_3)^2 + (\sigma_3 - \sigma_1)^2 \right ] \\
-&amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle 3}I_1^2-I_2 = \frac{1}{2}\left[{\mathrm{tr}\left(\underline{\sigma}^2\right)} - \frac{1}{3}{\mathrm{tr}\left(\underline{\sigma}\right)}^2\right],\,\\
+J_2 &amp;= \textstyle{\frac{1}{2}}s_{ij}s_{ji} =
+\displaystyle\frac{\displaystyle 1}{\displaystyle
+2}{\mathrm{tr}\left(\underline{s}^2\right)}\\
+&amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle 2}(s_1^2 +
+s_2^2 + s_3^2) \\
+&amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle
+6}\left[(\sigma_{11} - \sigma_{22})^2 + (\sigma_{22} - \sigma_{33})^2 +
+(\sigma_{33} - \sigma_{11})^2 \right ] + \sigma_{12}^2 + \sigma_{23}^2 +
+\sigma_{31}^2 \\
+&amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle
+6}\left[(\sigma_1 - \sigma_2)^2 + (\sigma_2 - \sigma_3)^2 + (\sigma_3 -
+\sigma_1)^2 \right ] \\
+&amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle 3}I_1^2-I_2 =
+\frac{1}{2}\left[{\mathrm{tr}\left(\underline{\sigma}^2\right)} -
+\frac{1}{3}{\mathrm{tr}\left(\underline{\sigma}\right)}^2\right],\,\\
 J_3 &amp;= \det\left(\underline{s}\right) \\
-&amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle 3}s_{ij}s_{jk}s_{ki} = \displaystyle\frac{\displaystyle 1}{\displaystyle 3} {\mathrm{tr}\left(\underline{s}^3\right)}\\
-&amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle 3}(s_1^3 + s_2^3 + s_3^3) \\
+&amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle
+3}s_{ij}s_{jk}s_{ki} = \displaystyle\frac{\displaystyle 1}{\displaystyle
+3} {\mathrm{tr}\left(\underline{s}^3\right)}\\
+&amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle 3}(s_1^3 +
+s_2^3 + s_3^3) \\
 &amp;= s_1s_2s_3 \\
-&amp;= \displaystyle\frac{\displaystyle 2}{\displaystyle 27}I_1^3 - \displaystyle\frac{\displaystyle 1}{\displaystyle 3}I_1 I_2 + I_3 = \displaystyle\frac{\displaystyle 1}{\displaystyle 3}\left[{\mathrm{tr}\left(\underline{\sigma}^3\right)} - {\mathrm{tr}\left(\underline{\sigma}^2\right)}{\mathrm{tr}\left(\underline{\sigma}\right)} +\displaystyle\frac{\displaystyle 2}{\displaystyle 9}{\mathrm{tr}\left(\underline{\sigma}\right)}^3\right].
+&amp;= \displaystyle\frac{\displaystyle 2}{\displaystyle 27}I_1^3 -
+\displaystyle\frac{\displaystyle 1}{\displaystyle 3}I_1 I_2 + I_3 =
+\displaystyle\frac{\displaystyle 1}{\displaystyle
+3}\left[{\mathrm{tr}\left(\underline{\sigma}^3\right)} -
+{\mathrm{tr}\left(\underline{\sigma}^2\right)}{\mathrm{tr}\left(\underline{\sigma}\right)}
++\displaystyle\frac{\displaystyle 2}{\displaystyle
+9}{\mathrm{tr}\left(\underline{\sigma}\right)}^3\right].
 \end{aligned}
 \]</span></p>
-<p>where <span class="math inline">\(I_{1}\)</span>, <span class="math inline">\(I_{2}\)</span> and <span class="math inline">\(I_{3}\)</span> are the invariants of <span class="math inline">\(\underline{\sigma}\)</span>.</p>
-<p><span class="math inline">\(J_{2}\)</span> and <span class="math inline">\(J_{3}\)</span> are building blocks for many isotropic yield critera. Classically, <span class="math inline">\(J_{2}\)</span> is directly related to the von Mises stress <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span>:</p>
+<p>where <span class="math inline">\(I_{1}\)</span>, <span
+class="math inline">\(I_{2}\)</span> and <span
+class="math inline">\(I_{3}\)</span> are the invariants of <span
+class="math inline">\(\underline{\sigma}\)</span>.</p>
+<p><span class="math inline">\(J_{2}\)</span> and <span
+class="math inline">\(J_{3}\)</span> are building blocks for many
+isotropic yield critera. Classically, <span
+class="math inline">\(J_{2}\)</span> is directly related to the von
+Mises stress <span
+class="math inline">\(\sigma_{\mathrm{eq}}\)</span>:</p>
 <p><span class="math display">\[
-\sigma_{\mathrm{eq}}=\sqrt{\displaystyle\frac{\displaystyle 3}{\displaystyle 2}\,\underline{s}\,\colon\,\underline{s}}=\sqrt{3\,J_{2}}
+\sigma_{\mathrm{eq}}=\sqrt{\displaystyle\frac{\displaystyle
+3}{\displaystyle
+2}\,\underline{s}\,\colon\,\underline{s}}=\sqrt{3\,J_{2}}
 \]</span></p>
-<p>The first and second derivatives of <span class="math inline">\(J_{2}\)</span> with respect to <span class="math inline">\(\sigma\)</span> can be trivially implemented, as follows:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id  = stensor&lt;N,real&gt;::Id();</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</span>
+<p>The first and second derivatives of <span
+class="math inline">\(J_{2}\)</span> with respect to <span
+class="math inline">\(\sigma\)</span> can be trivially implemented, as
+follows:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id  <span class="op">=</span> stensor<span class="op">&lt;</span>N<span class="op">,</span>real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 <span class="op">=</span> st2tost2<span class="op">&lt;</span>N<span class="op">,</span>real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// first derivative of J2</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ2  = deviator(sig);</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ2  <span class="op">=</span> deviator<span class="op">(</span>sig<span class="op">);</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">// second derivative of J2</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2J2 = eval(id4-(id^id)/<span class="dv">3</span>);</span></code></pre></div>
-<p>In comparison, the computation of the first and second derivatives of <span class="math inline">\(J_{3}\)</span> with respect to <span class="math inline">\(\sigma\)</span> are more cumbersome. In previous versions <code>TFEL</code>, one had to write:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id = stensor&lt;N,real&gt;::Id();</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 = st2tost2&lt;N,real&gt;::Id();</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I1   = trace(sig);</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I2   = (I1*I1-trace(square(sig)))/<span class="dv">2</span>;</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dI2  = I1*id-sig;</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dI3  = computeDeterminantDerivative(sig);</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2I2 = (id^id)-id4;</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2I3 = computeDeterminantSecondDerivative(sig);</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2J2 <span class="op">=</span> eval<span class="op">(</span>id4<span class="op">-(</span>id<span class="op">^</span>id<span class="op">)/</span><span class="dv">3</span><span class="op">);</span></span></code></pre></div>
+<p>In comparison, the computation of the first and second derivatives of
+<span class="math inline">\(J_{3}\)</span> with respect to <span
+class="math inline">\(\sigma\)</span> are more cumbersome. In previous
+versions <code>TFEL</code>, one had to write:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id <span class="op">=</span> stensor<span class="op">&lt;</span>N<span class="op">,</span>real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> id4 <span class="op">=</span> st2tost2<span class="op">&lt;</span>N<span class="op">,</span>real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I1   <span class="op">=</span> trace<span class="op">(</span>sig<span class="op">);</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> I2   <span class="op">=</span> <span class="op">(</span>I1<span class="op">*</span>I1<span class="op">-</span>trace<span class="op">(</span>square<span class="op">(</span>sig<span class="op">)))/</span><span class="dv">2</span><span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dI2  <span class="op">=</span> I1<span class="op">*</span>id<span class="op">-</span>sig<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dI3  <span class="op">=</span> computeDeterminantDerivative<span class="op">(</span>sig<span class="op">);</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2I2 <span class="op">=</span> <span class="op">(</span>id<span class="op">^</span>id<span class="op">)-</span>id4<span class="op">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2I3 <span class="op">=</span> computeDeterminantSecondDerivative<span class="op">(</span>sig<span class="op">);</span></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">// first derivative of J3</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ3  = eval((<span class="dv">2</span>*I1*I1/<span class="dv">9</span>)*id-(I2*id+I1*dI2)/<span class="dv">3</span>+dI3);</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ3  <span class="op">=</span> eval<span class="op">((</span><span class="dv">2</span><span class="op">*</span>I1<span class="op">*</span>I1<span class="op">/</span><span class="dv">9</span><span class="op">)*</span>id<span class="op">-(</span>I2<span class="op">*</span>id<span class="op">+</span>I1<span class="op">*</span>dI2<span class="op">)/</span><span class="dv">3</span><span class="op">+</span>dI3<span class="op">);</span></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">// second derivative of J3</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2J3 = eval((<span class="dv">4</span>*I1/<span class="dv">9</span>)*(id^id)-((id^dI2)+(dI2^id)+i1*d2I2)/<span class="dv">3</span>+d2I3);</span></code></pre></div>
-<p>More efficient implementations are now available using the <code>computeDeviatorDeterminantDerivative</code> and <code>computeDeviatorDeterminantSecondDerivative</code> functions:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// first derivative of J3</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ3  = computeDeviatorDeterminantDerivative(sig);</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2J3 <span class="op">=</span> eval<span class="op">((</span><span class="dv">4</span><span class="op">*</span>I1<span class="op">/</span><span class="dv">9</span><span class="op">)*(</span>id<span class="op">^</span>id<span class="op">)-((</span>id<span class="op">^</span>dI2<span class="op">)+(</span>dI2<span class="op">^</span>id<span class="op">)+</span>i1<span class="op">*</span>d2I2<span class="op">)/</span><span class="dv">3</span><span class="op">+</span>d2I3<span class="op">);</span></span></code></pre></div>
+<p>More efficient implementations are now available using the
+<code>computeDeviatorDeterminantDerivative</code> and
+<code>computeDeviatorDeterminantSecondDerivative</code> functions:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// first derivative of J3</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ3  <span class="op">=</span> computeDeviatorDeterminantDerivative<span class="op">(</span>sig<span class="op">);</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">// second derivative of J3</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2J3 = computeDeviatorDeterminantSecondDerivative(sig);</span></code></pre></div>
-<h2 data-number="2.2" id="tfelmaterial"><span class="header-section-number">2.2</span> TFEL/Material</h2>
-<h3 data-number="2.2.1" id="isotropic-plasticity"><span class="header-section-number">2.2.1</span> Isotropic Plasticity</h3>
-<p>By definition, <span class="math inline">\(J_{2}\)</span> and <span class="math inline">\(J_{3}\)</span> are the second and third invariants of the deviatoric part <span class="math inline">\(\underline{s}\)</span> of the stress tensor <span class="math inline">\(\underline{\sigma}\)</span> (see also Section 2.1.2):</p>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2J3 <span class="op">=</span> computeDeviatorDeterminantSecondDerivative<span class="op">(</span>sig<span class="op">);</span></span></code></pre></div>
+<h2 data-number="2.2" id="tfelmaterial"><span
+class="header-section-number">2.2</span> TFEL/Material</h2>
+<h3 data-number="2.2.1" id="isotropic-plasticity"><span
+class="header-section-number">2.2.1</span> Isotropic Plasticity</h3>
+<p>By definition, <span class="math inline">\(J_{2}\)</span> and <span
+class="math inline">\(J_{3}\)</span> are the second and third invariants
+of the deviatoric part <span
+class="math inline">\(\underline{s}\)</span> of the stress tensor <span
+class="math inline">\(\underline{\sigma}\)</span> (see also
+Section 2.1.2):</p>
 <p><span class="math display">\[
 \left\{
 \begin{aligned}
-J_2 &amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle 2}{\mathrm{tr}\left(\underline{s}^2\right)}\\
+J_2 &amp;= \displaystyle\frac{\displaystyle 1}{\displaystyle
+2}{\mathrm{tr}\left(\underline{s}^2\right)}\\
 J_3 &amp;= \det(\underline{s}) \\
 \end{aligned}
 \right.
 \]</span></p>
-<p>The first and second derivatives of <span class="math inline">\(J_{2}\)</span> with respect to the stress tensor <span class="math inline">\(\underline{\sigma}\)</span> are trivially computed and implemented (see Section 2.1.2).</p>
-<p>The first and second derivatives of <span class="math inline">\(J_{2}\)</span> with respect to the stress tensor <span class="math inline">\(\underline{\sigma}\)</span> can be computed respectively by:</p>
+<p>The first and second derivatives of <span
+class="math inline">\(J_{2}\)</span> with respect to the stress tensor
+<span class="math inline">\(\underline{\sigma}\)</span> are trivially
+computed and implemented (see Section 2.1.2).</p>
+<p>The first and second derivatives of <span
+class="math inline">\(J_{2}\)</span> with respect to the stress tensor
+<span class="math inline">\(\underline{\sigma}\)</span> can be computed
+respectively by:</p>
 <ul>
-<li>The <code>computesJ3Derivative</code> function, which is a synonym for the <code>computeDeviatorDeterminantDerivative</code> function defined in the <code>tfel::math</code> namespace (see Section 2.1.2 for details).</li>
-<li>The <code>computeJ3SecondDerivative</code> function, which is a synonym for the <code>computeDeviatorDeterminantSecondDerivative</code> function defined in the <code>tfel::math</code> namespace (see Section 2.1.2 for details).</li>
+<li>The <code>computesJ3Derivative</code> function, which is a synonym
+for the <code>computeDeviatorDeterminantDerivative</code> function
+defined in the <code>tfel::math</code> namespace (see Section 2.1.2 for
+details).</li>
+<li>The <code>computeJ3SecondDerivative</code> function, which is a
+synonym for the <code>computeDeviatorDeterminantSecondDerivative</code>
+function defined in the <code>tfel::math</code> namespace (see
+Section 2.1.2 for details).</li>
 </ul>
-<h3 data-number="2.2.2" id="orthotropic-plasticity"><span class="header-section-number">2.2.2</span> Orthotropic plasticity</h3>
-<p>Within the framework of the theory of representation, generalizations to anisotropic conditions of the invariants of the deviatoric stress have been proposed by Cazacu and Barlat (see <span class="citation" data-cites="cazacu_generalization_2001">[1]</span>):</p>
+<h3 data-number="2.2.2" id="orthotropic-plasticity"><span
+class="header-section-number">2.2.2</span> Orthotropic plasticity</h3>
+<p>Within the framework of the theory of representation, generalizations
+to anisotropic conditions of the invariants of the deviatoric stress
+have been proposed by Cazacu and Barlat (see <span class="citation"
+data-cites="cazacu_generalization_2001">[1]</span>):</p>
 <ul>
-<li>The generalization of <span class="math inline">\(J_{2}\)</span> is denoted <span class="math inline">\(J_{2}^{O}\)</span>. It is defined by: <span class="math display">\[
-J_{2}^{O}= a_6\,s_{yz}^2+a_5\,s_{xz}^2+a_4\,s_{xy}^2+\frac{a_2}{6}\,(s_{yy}-s_{zz})^2+\frac{a_3}{6}\,(s_{xx}-s_{zz})^2+\frac{a_1}{6}\,(s_{xx}-s_{yy})^2
-\]</span> where the <span class="math inline">\(\left.a_{i}\right|_{i\in[1:6]}\)</span> are six coefficients describing the orthotropy of the material.</li>
-<li>The generalization of <span class="math inline">\(J_{3}\)</span> is denoted <span class="math inline">\(J_{3}^{O}\)</span>. It is defined by: <span class="math display">\[
+<li>The generalization of <span class="math inline">\(J_{2}\)</span> is
+denoted <span class="math inline">\(J_{2}^{O}\)</span>. It is defined
+by: <span class="math display">\[
+J_{2}^{O}=
+a_6\,s_{yz}^2+a_5\,s_{xz}^2+a_4\,s_{xy}^2+\frac{a_2}{6}\,(s_{yy}-s_{zz})^2+\frac{a_3}{6}\,(s_{xx}-s_{zz})^2+\frac{a_1}{6}\,(s_{xx}-s_{yy})^2
+\]</span> where the <span
+class="math inline">\(\left.a_{i}\right|_{i\in[1:6]}\)</span> are six
+coefficients describing the orthotropy of the material.</li>
+<li>The generalization of <span class="math inline">\(J_{3}\)</span> is
+denoted <span class="math inline">\(J_{3}^{O}\)</span>. It is defined
+by: <span class="math display">\[
 \begin{aligned}
 J_{3}^{O}=
 &amp;\frac{1}{27}\,(b_1+b_2)\,s_{xx}^3+\frac{1}{27}\,(b_3+b_4)\,s_{yy}^3+\frac{1}{27}\,(2\,(b_1+b_4)-b_2-b_3)\,s_{zz}^3\\
@@ -505,24 +707,54 @@ J_{3}^{O}=
 &amp;-\frac{s_{yz}^2}{3}\,((b_6+b_7)\,s_{xx}-b_6\,s_{yy}-b_7\,s_{zz})\\
 &amp;+2\,b_{11}\,s_{xy}\,s_{xz}\,s_{yz}
 \end{aligned}
-\]</span> where the <span class="math inline">\(\left.b_{i}\right|_{i\in[1:11]}\)</span> are eleven coefficients describing the orthotropy of the material.</li>
+\]</span> where the <span
+class="math inline">\(\left.b_{i}\right|_{i\in[1:11]}\)</span> are
+eleven coefficients describing the orthotropy of the material.</li>
 </ul>
-<p>Those invariants may be used to generalize isotropic yield criteria based on <span class="math inline">\(J_{2}\)</span> and <span class="math inline">\(J_{3}\)</span> invariants to orthotropy.</p>
+<p>Those invariants may be used to generalize isotropic yield criteria
+based on <span class="math inline">\(J_{2}\)</span> and <span
+class="math inline">\(J_{3}\)</span> invariants to orthotropy.</p>
 <p>The following functions</p>
-<p><span class="math inline">\(J_{2}^{0}\)</span>, <span class="math inline">\(J_{3}^{0}\)</span> and their first and second derivatives with respect to the stress tensor <span class="math inline">\(\underline{\sigma}\)</span> can be computed by the following functions:</p>
+<p><span class="math inline">\(J_{2}^{0}\)</span>, <span
+class="math inline">\(J_{3}^{0}\)</span> and their first and second
+derivatives with respect to the stress tensor <span
+class="math inline">\(\underline{\sigma}\)</span> can be computed by the
+following functions:</p>
 <ul>
-<li><code>computesJ2O</code>, <code>computesJ2ODerivative</code> and <code>computesJ2OSecondDerivative</code>.</li>
-<li><code>computesJ3O</code>, <code>computesJ3ODerivative</code> and <code>computesJ3OSecondDerivative</code>.</li>
+<li><code>computesJ2O</code>, <code>computesJ2ODerivative</code> and
+<code>computesJ2OSecondDerivative</code>.</li>
+<li><code>computesJ3O</code>, <code>computesJ3ODerivative</code> and
+<code>computesJ3OSecondDerivative</code>.</li>
 </ul>
-<p>Those functions take the stress tensor as first argument and each orthotropic coefficients. Each of those functions has an overload taking the stress tensor as its firs arguments and a tiny vector (<code>tfel::math::tvector</code>) containing the orthotropic coefficients.</p>
-<h3 data-number="2.2.3" id="pi-plane"><span class="header-section-number">2.2.3</span> <span class="math inline">\(\pi\)</span>-plane</h3>
+<p>Those functions take the stress tensor as first argument and each
+orthotropic coefficients. Each of those functions has an overload taking
+the stress tensor as its firs arguments and a tiny vector
+(<code>tfel::math::tvector</code>) containing the orthotropic
+coefficients.</p>
+<h3 data-number="2.2.3" id="pi-plane"><span
+class="header-section-number">2.2.3</span> <span
+class="math inline">\(\pi\)</span>-plane</h3>
 <figure>
-<img src="img/IsotropicEquivalentStressesInPiPlane.svg" title="Comparison of the isosurfaces of various equivalent stresses (Tresca, von Mises, Hosford (a=8)) in the (\pi)-plane" style="width:70.0%" alt="Comparison of the isosurfaces of various equivalent stresses (Tresca, von Mises, Hosford a=8) in the \pi-plane" /><figcaption aria-hidden="true">Comparison of the isosurfaces of various equivalent stresses (Tresca, von Mises, Hosford <span class="math inline">\(a=8\)</span>) in the <span class="math inline">\(\pi\)</span>-plane</figcaption>
+<img src="img/IsotropicEquivalentStressesInPiPlane.svg"
+title="Comparison of the isosurfaces of various equivalent stresses (Tresca, von Mises, Hosford (a=8)) in the (\pi)-plane"
+style="width:70.0%"
+alt="Comparison of the isosurfaces of various equivalent stresses (Tresca, von Mises, Hosford a=8) in the \pi-plane" />
+<figcaption aria-hidden="true">Comparison of the isosurfaces of various
+equivalent stresses (Tresca, von Mises, Hosford <span
+class="math inline">\(a=8\)</span>) in the <span
+class="math inline">\(\pi\)</span>-plane</figcaption>
 </figure>
-<p>The <span class="math inline">\(\pi\)</span>-plane is defined in the space defined by the three eigenvalues <span class="math inline">\(S_{0}\)</span>, <span class="math inline">\(S_{1}\)</span> and <span class="math inline">\(S_{2}\)</span> of the stress by the following equations: <span class="math display">\[
+<p>The <span class="math inline">\(\pi\)</span>-plane is defined in the
+space defined by the three eigenvalues <span
+class="math inline">\(S_{0}\)</span>, <span
+class="math inline">\(S_{1}\)</span> and <span
+class="math inline">\(S_{2}\)</span> of the stress by the following
+equations: <span class="math display">\[
 S_{0}+S_{1}+S_{2}=0
 \]</span></p>
-<p>This plane contains deviatoric stress states and is perpendicular to the hydrostatic axis. A basis of this plane is given by the following vectors: <span class="math display">\[
+<p>This plane contains deviatoric stress states and is perpendicular to
+the hydrostatic axis. A basis of this plane is given by the following
+vectors: <span class="math display">\[
 \vec{n}_{0}=
 \frac{1}{\sqrt{2}}\,
 \begin{pmatrix}
@@ -536,18 +768,29 @@ S_{0}+S_{1}+S_{2}=0
 \begin{pmatrix}
 -1 \\
 -1 \\
- 2
+2
 \end{pmatrix}
 \]</span></p>
-<p>This plane is used to characterize the iso-values of equivalent stresses which are not sensitive to the hydrostatic pression.</p>
+<p>This plane is used to characterize the iso-values of equivalent
+stresses which are not sensitive to the hydrostatic pression.</p>
 <p>Various functions are available:</p>
 <ul>
-<li><code>projectOnPiPlane</code>: this function projects a stress state on the <span class="math inline">\(\pi\)</span>-plane.</li>
-<li><code>buildFromPiPlane</code>: this function builds a stress state, defined by its three eigenvalues, from its coordinate in the <span class="math inline">\(\pi\)</span>-plane.</li>
+<li><code>projectOnPiPlane</code>: this function projects a stress state
+on the <span class="math inline">\(\pi\)</span>-plane.</li>
+<li><code>buildFromPiPlane</code>: this function builds a stress state,
+defined by its three eigenvalues, from its coordinate in the <span
+class="math inline">\(\pi\)</span>-plane.</li>
 </ul>
-<h2 data-number="2.3" id="python-bindings"><span class="header-section-number">2.3</span> <code>python</code> bindings</h2>
-<h3 data-number="2.3.1" id="tfel.math-module"><span class="header-section-number">2.3.1</span> <code>tfel.math</code> module</h3>
-<h4 data-number="2.3.1.1" id="updated-bindings-for-the-stensor-class"><span class="header-section-number">2.3.1.1</span> Updated bindings for the <code>stensor</code> class</h4>
+<h2 data-number="2.3" id="python-bindings"><span
+class="header-section-number">2.3</span> <code>python</code>
+bindings</h2>
+<h3 data-number="2.3.1" id="tfel.math-module"><span
+class="header-section-number">2.3.1</span> <code>tfel.math</code>
+module</h3>
+<h4 data-number="2.3.1.1"
+id="updated-bindings-for-the-stensor-class"><span
+class="header-section-number">2.3.1.1</span> Updated bindings for the
+<code>stensor</code> class</h4>
 <p>The following operations are supported:</p>
 <ul>
 <li>addition of two symmetric tensors.</li>
@@ -560,19 +803,36 @@ S_{0}+S_{1}+S_{2}=0
 </ul>
 <p>The following functions have been introduced:</p>
 <ul>
-<li><code>makeStensor1D</code>: builds a <span class="math inline">\(1D\)</span> symmetric tensor from a tuple of three values.</li>
-<li><code>makeStensor2D</code>: builds a <span class="math inline">\(2D\)</span> symmetric tensor from a tuple of three values.</li>
-<li><code>makeStensor3D</code>: builds a <span class="math inline">\(3D\)</span> symmetric tensor from a tuple of three values.</li>
+<li><code>makeStensor1D</code>: builds a <span
+class="math inline">\(1D\)</span> symmetric tensor from a tuple of three
+values.</li>
+<li><code>makeStensor2D</code>: builds a <span
+class="math inline">\(2D\)</span> symmetric tensor from a tuple of three
+values.</li>
+<li><code>makeStensor3D</code>: builds a <span
+class="math inline">\(3D\)</span> symmetric tensor from a tuple of three
+values.</li>
 </ul>
-<h3 data-number="2.3.2" id="tfel.material-module"><span class="header-section-number">2.3.2</span> <code>tfel.material</code> module</h3>
-<h4 data-number="2.3.2.1" id="bindings-related-to-the-pi-plane"><span class="header-section-number">2.3.2.1</span> Bindings related to the <span class="math inline">\(\pi\)</span>-plane</h4>
+<h3 data-number="2.3.2" id="tfel.material-module"><span
+class="header-section-number">2.3.2</span> <code>tfel.material</code>
+module</h3>
+<h4 data-number="2.3.2.1" id="bindings-related-to-the-pi-plane"><span
+class="header-section-number">2.3.2.1</span> Bindings related to the
+<span class="math inline">\(\pi\)</span>-plane</h4>
 <p>The following functions are available:</p>
 <ul>
-<li><code>buildFromPiPlane</code>: returns a tuple containing the three eigenvalues of the stress corresponding to the given point in the <span class="math inline">\(\pi\)</span>-plane.</li>
-<li><code>projectOnPiPlane</code>: projects a stress state, defined its three eigenvalues or by a symmetric tensor, on the <span class="math inline">\(\pi\)</span>-plane.</li>
+<li><code>buildFromPiPlane</code>: returns a tuple containing the three
+eigenvalues of the stress corresponding to the given point in the <span
+class="math inline">\(\pi\)</span>-plane.</li>
+<li><code>projectOnPiPlane</code>: projects a stress state, defined its
+three eigenvalues or by a symmetric tensor, on the <span
+class="math inline">\(\pi\)</span>-plane.</li>
 </ul>
-<p>The following script shows how to build an isosurface of the von Mises equivalent stress in the <span class="math inline">\(\pi\)</span>-plane:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi,cos,sin</span>
+<p>The following script shows how to build an isosurface of the von
+Mises equivalent stress in the <span
+class="math inline">\(\pi\)</span>-plane:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi,cos,sin</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.math     <span class="im">as</span> tmath</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.material <span class="im">as</span> tmaterial</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -583,10 +843,17 @@ S_{0}+S_{1}+S_{2}=0
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    s  <span class="op">*=</span> <span class="dv">1</span><span class="op">/</span>seq<span class="op">;</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    s1,s2  <span class="op">=</span> tmaterial.projectOnPiPlane(s)<span class="op">;</span></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(s1,s2)<span class="op">;</span></span></code></pre></div>
-<h4 data-number="2.3.2.2" id="bindings-related-to-the-hosford-equivalent-stress"><span class="header-section-number">2.3.2.2</span> Bindings related to the Hosford equivalent stress</h4>
-<p>The <code>computeHosfordStress</code> function, which compute the Hosford equivalent stress, is available.</p>
-<p>The following script shows how to print an iso-surface of the Hosford equivalent stress in the <span class="math inline">\(\pi\)</span>-plane:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi,cos,sin</span>
+<h4 data-number="2.3.2.2"
+id="bindings-related-to-the-hosford-equivalent-stress"><span
+class="header-section-number">2.3.2.2</span> Bindings related to the
+Hosford equivalent stress</h4>
+<p>The <code>computeHosfordStress</code> function, which compute the
+Hosford equivalent stress, is available.</p>
+<p>The following script shows how to print an iso-surface of the Hosford
+equivalent stress in the <span
+class="math inline">\(\pi\)</span>-plane:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi,cos,sin</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.math     <span class="im">as</span> tmath</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.material <span class="im">as</span> tmaterial</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -597,16 +864,30 @@ S_{0}+S_{1}+S_{2}=0
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    s     <span class="op">/=</span> seq<span class="op">;</span></span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    s1,s2  <span class="op">=</span> tmaterial.projectOnPiPlane(s)<span class="op">;</span></span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(s1,s2)<span class="op">;</span></span></code></pre></div>
-<h4 data-number="2.3.2.3" id="bindings-related-to-the-barlat-equivalent-stress"><span class="header-section-number">2.3.2.3</span> Bindings related to the Barlat equivalent stress</h4>
+<h4 data-number="2.3.2.3"
+id="bindings-related-to-the-barlat-equivalent-stress"><span
+class="header-section-number">2.3.2.3</span> Bindings related to the
+Barlat equivalent stress</h4>
 <p>The following functions are available:</p>
 <ul>
-<li><code>makeBarlatLinearTransformation1D</code>: builds a <span class="math inline">\(1D\)</span> linear transformation of the stress tensor.</li>
-<li><code>makeBarlatLinearTransformation2D</code>: builds a <span class="math inline">\(2D\)</span> linear transformation of the stress tensor.</li>
-<li><code>makeBarlatLinearTransformation3D</code>: builds a <span class="math inline">\(3D\)</span> linear transformation of the stress tensor.</li>
-<li><code>computeBarlatStress</code>: computes the Barlat equivalent Barlat stress.</li>
+<li><code>makeBarlatLinearTransformation1D</code>: builds a <span
+class="math inline">\(1D\)</span> linear transformation of the stress
+tensor.</li>
+<li><code>makeBarlatLinearTransformation2D</code>: builds a <span
+class="math inline">\(2D\)</span> linear transformation of the stress
+tensor.</li>
+<li><code>makeBarlatLinearTransformation3D</code>: builds a <span
+class="math inline">\(3D\)</span> linear transformation of the stress
+tensor.</li>
+<li><code>computeBarlatStress</code>: computes the Barlat equivalent
+Barlat stress.</li>
 </ul>
-<p>The following script shows how to print an iso-surface of the Barlat equivalent stress for the 2090-T3 aluminum alloy in the <span class="math inline">\(\pi\)</span>-plane (see <span class="citation" data-cites="barlat_linear_2005">[2]</span>):</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi,cos,sin</span>
+<p>The following script shows how to print an iso-surface of the Barlat
+equivalent stress for the 2090-T3 aluminum alloy in the <span
+class="math inline">\(\pi\)</span>-plane (see <span class="citation"
+data-cites="barlat_linear_2005">[2]</span>):</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi,cos,sin</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.math     <span class="im">as</span> tmath</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.material <span class="im">as</span> tmaterial</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -623,17 +904,37 @@ S_{0}+S_{1}+S_{2}=0
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    s     <span class="op">*=</span> <span class="dv">1</span><span class="op">/</span>seq<span class="op">;</span></span>
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    s1,s2  <span class="op">=</span> tmaterial.projectOnPiPlane(s)<span class="op">;</span></span>
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(s1,s2)<span class="op">;</span></span></code></pre></div>
-<h1 data-number="3" id="new-functionalities-in-mfront"><span class="header-section-number">3</span> New functionalities in <code>MFront</code></h1>
-<h2 data-number="3.1" id="the-standardelastoviscoplasticity-brick"><span class="header-section-number">3.1</span> The <code>StandardElastoViscoPlasticity</code> brick</h2>
-<p>This brick is used to describe a specific class of strain based behaviours based on an additive split of the total strain <span class="math inline">\(\underline{\epsilon}^{\mathrm{to}}\)</span> into an elastic part <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> and an one or several inelastic strains describing plastic (time-independent) flows and/or viscoplastic (time-dependent) flows: <span class="math display">\[
- \underline{\epsilon}^{\mathrm{to}}=\underline{\epsilon}^{\mathrm{el}}
+<h1 data-number="3" id="new-functionalities-in-mfront"><span
+class="header-section-number">3</span> New functionalities in
+<code>MFront</code></h1>
+<h2 data-number="3.1" id="the-standardelastoviscoplasticity-brick"><span
+class="header-section-number">3.1</span> The
+<code>StandardElastoViscoPlasticity</code> brick</h2>
+<p>This brick is used to describe a specific class of strain based
+behaviours based on an additive split of the total strain <span
+class="math inline">\(\underline{\epsilon}^{\mathrm{to}}\)</span> into
+an elastic part <span
+class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> and an
+one or several inelastic strains describing plastic (time-independent)
+flows and/or viscoplastic (time-dependent) flows: <span
+class="math display">\[
+\underline{\epsilon}^{\mathrm{to}}=\underline{\epsilon}^{\mathrm{el}}
 +\sum_{i_{\mathrm{p}}=0}^{n_{\mathrm{p}}}\underline{\epsilon}^{\mathrm{p}}_{i_{\mathrm{p}}}
 +\sum_{i_{\mathrm{vp}}=0}^{n_{\mathrm{vp}}}\underline{\epsilon}^{\mathrm{vp}}_{i_{\mathrm{vp}}}
 \]</span></p>
-<p>This equation defines the equation associated with the elastic strain <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span>.</p>
+<p>This equation defines the equation associated with the elastic strain
+<span
+class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span>.</p>
 <p>The brick decomposes the behaviour into two components:</p>
 <ul>
-<li>the stress potential which defines the relation between the elastic strain <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> and possibly some damage variables and the stress measure <span class="math inline">\(\underline{\sigma}\)</span>. As the definition of the elastic properties can be part of the definition of the stress potential, the thermal expansion coefficients can also be defined in the block corresponding to the stress potential.</li>
+<li>the stress potential which defines the relation between the elastic
+strain <span
+class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> and
+possibly some damage variables and the stress measure <span
+class="math inline">\(\underline{\sigma}\)</span>. As the definition of
+the elastic properties can be part of the definition of the stress
+potential, the thermal expansion coefficients can also be defined in the
+block corresponding to the stress potential.</li>
 <li>a list of inelastic flows. Inelastic flows are defined by:
 <ul>
 <li>a criterion</li>
@@ -643,92 +944,163 @@ S_{0}+S_{1}+S_{2}=0
 </ul></li>
 </ul>
 <p>Here is a complete usage:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick <span class="st">&quot;StandardElastoViscoPlasticity&quot;</span> {</span>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick <span class="st">&quot;StandardElastoViscoPlasticity&quot;</span> <span class="op">{</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Here the stress potential is given by the Hooke law. We define:</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - the elastic properties (Young modulus and Poisson ratio).</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">//   Here the Young modulus is a function of the temperature.</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">//   The Poisson ratio is constant.</span></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - the thermal expansion coefficient</span></span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - the reference temperature for the thermal expansion</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    young_modulus : <span class="st">&quot;2.e5 - (1.e5*((T - 100.)/960.)**2)&quot;</span>,</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    poisson_ratio : <span class="fl">0.3</span>,</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    thermal_expansion : <span class="st">&quot;1.e-5 + (1.e-5  * ((T - 100.)/960.) ** 4)&quot;</span>,</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    thermal_expansion_reference_temperature : <span class="dv">0</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    young_modulus <span class="op">:</span> <span class="st">&quot;2.e5 - (1.e5*((T - 100.)/960.)**2)&quot;</span><span class="op">,</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">,</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    thermal_expansion <span class="op">:</span> <span class="st">&quot;1.e-5 + (1.e-5  * ((T - 100.)/960.) ** 4)&quot;</span><span class="op">,</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    thermal_expansion_reference_temperature <span class="op">:</span> <span class="dv">0</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">},</span></span>
 <span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Here we define only one viscplastic flow defined by the Norton law,</span></span>
 <span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// which is based:</span></span>
 <span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - the von Mises stress criterion</span></span>
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - one isotorpic hardening rule based on Voce formalism</span></span>
 <span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - one kinematic hardening rule following the Armstrong-Frederick law</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Norton&quot;</span> {</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;Mises&quot;</span>,</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Voce&quot;</span> {R0 : <span class="dv">200</span>, Rinf : <span class="dv">100</span>, b : <span class="dv">20</span>},</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening : <span class="st">&quot;Armstrong-Frederick&quot;</span> {</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>      C : <span class="st">&quot;1.e6 - 98500 * (T - 100) / 96&quot;</span>,</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>      D : <span class="st">&quot;5000 - 5* (T - 100)&quot;</span></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    K : <span class="st">&quot;(4200. * (T + 20.) - 3. * (T + 20.0)**2)/4900.&quot;</span>,</span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    n : <span class="st">&quot;7. - (T - 100.) / 160.&quot;</span>,</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    Ksf : <span class="dv">3</span></span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h2 data-number="3.2" id="logarithmic-strain-framework-support-in-the-cyrano-interface"><span class="header-section-number">3.2</span> Logarithmic strain framework support in the <code>cyrano</code> interface</h2>
-<p><code>Cyrano</code> is the state of the art fuel performance code developed by EDF (See <span class="citation" data-cites="thouvenin_edf_2010 petry_advanced_2015">[3, 4]</span>).</p>
-<h3 data-number="3.2.1" id="extension-of-cyrano-to-finite-strain-analysis"><span class="header-section-number">3.2.1</span> Extension of <code>Cyrano</code> to finite strain analysis</h3>
-<p>As Cyrano, provides a mono-dimensional description of the fuel rod, its extension to finite strain follows the same treatment used for:</p>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Norton&quot;</span> <span class="op">{</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="dv">200</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="dv">100</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">20</span><span class="op">},</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Armstrong-Frederick&quot;</span> <span class="op">{</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>      C <span class="op">:</span> <span class="st">&quot;1.e6 - 98500 * (T - 100) / 96&quot;</span><span class="op">,</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>      D <span class="op">:</span> <span class="st">&quot;5000 - 5* (T - 100)&quot;</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    K <span class="op">:</span> <span class="st">&quot;(4200. * (T + 20.) - 3. * (T + 20.0)**2)/4900.&quot;</span><span class="op">,</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    n <span class="op">:</span> <span class="st">&quot;7. - (T - 100.) / 160.&quot;</span><span class="op">,</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    Ksf <span class="op">:</span> <span class="dv">3</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h2 data-number="3.2"
+id="logarithmic-strain-framework-support-in-the-cyrano-interface"><span
+class="header-section-number">3.2</span> Logarithmic strain framework
+support in the <code>cyrano</code> interface</h2>
+<p><code>Cyrano</code> is the state of the art fuel performance code
+developed by EDF (See <span class="citation"
+data-cites="thouvenin_edf_2010 petry_advanced_2015">[3, 4]</span>).</p>
+<h3 data-number="3.2.1"
+id="extension-of-cyrano-to-finite-strain-analysis"><span
+class="header-section-number">3.2.1</span> Extension of
+<code>Cyrano</code> to finite strain analysis</h3>
+<p>As Cyrano, provides a mono-dimensional description of the fuel rod,
+its extension to finite strain follows the same treatment used for:</p>
 <ul>
 <li>the extension of <code>MTest</code> to pipes.</li>
-<li>the extension of <code>Alcyone1D</code> to finite strain analysis.</li>
+<li>the extension of <code>Alcyone1D</code> to finite strain
+analysis.</li>
 </ul>
-<h3 data-number="3.2.2" id="logarithmic-strain-framework"><span class="header-section-number">3.2.2</span> Logarithmic strain framework</h3>
-<p>Miehe et al. have introduced a finite strain framework based on the Hencky strain measure (logarithmic strain) and its dual stress (see <span class="citation" data-cites="miehe_anisotropic_2002">[5]</span>). This framework has been introduced in <code>Code_Aster</code> in 2011 (see <span class="citation" data-cites="edf_modeles_2013">[6]</span>).</p>
-<p>A behaviour is declared to follow this framework by using the <code>@StrainMeasure</code> keyword:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StrainMeasure Hencky;</span></code></pre></div>
-<p>The <code>cyrano</code> interface now provides support for behaviours based on this strain measure.</p>
-<p>The interface handles (See <span class="citation" data-cites="helfer_extension_2015">[7]</span> for details):</p>
+<h3 data-number="3.2.2" id="logarithmic-strain-framework"><span
+class="header-section-number">3.2.2</span> Logarithmic strain
+framework</h3>
+<p>Miehe et al. have introduced a finite strain framework based on the
+Hencky strain measure (logarithmic strain) and its dual stress (see
+<span class="citation" data-cites="miehe_anisotropic_2002">[5]</span>).
+This framework has been introduced in <code>Code_Aster</code> in 2011
+(see <span class="citation"
+data-cites="edf_modeles_2013">[6]</span>).</p>
+<p>A behaviour is declared to follow this framework by using the
+<code>@StrainMeasure</code> keyword:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StrainMeasure Hencky<span class="op">;</span></span></code></pre></div>
+<p>The <code>cyrano</code> interface now provides support for behaviours
+based on this strain measure.</p>
+<p>The interface handles (See <span class="citation"
+data-cites="helfer_extension_2015">[7]</span> for details):</p>
 <ul>
-<li>the pre-processing stage (computation of the logarithmic strain from the linearised strain).</li>
-<li>the post-processing stage (conversion of the dual stress to the first Piola-Kirchoff stress, conversion of the consistent tangent operator),</li>
+<li>the pre-processing stage (computation of the logarithmic strain from
+the linearised strain).</li>
+<li>the post-processing stage (conversion of the dual stress to the
+first Piola-Kirchoff stress, conversion of the consistent tangent
+operator),</li>
 </ul>
-<h2 data-number="3.3" id="the-generic-behaviour-interface"><span class="header-section-number">3.3</span> The generic behaviour interface</h2>
-<p>The generic behaviour interface has been introduced to provide an interface suitable for most needs.</p>
-<p>Whereas other interfaces target a specific solver and thus are restricted by choices made by this specific solver, this interface has been created for developers of homebrew solvers who are able to modify their code to take full advantage of <code>MFront</code> behaviours.</p>
-<p>This interface is tightly linked with the <code>MFrontGenericInterfaceSupport</code> project which is available on <code>github</code>: <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport</a>. This project has a more liberal licence which allows it to be included in both commercial and open-source solvers/library. This licensing choice explains why this project is not part of the <code>TFEL</code>.</p>
-<h2 data-number="3.4" id="various-improvements"><span class="header-section-number">3.4</span> Various improvements</h2>
-<h3 data-number="3.4.1" id="sec:inline-mprops"><span class="header-section-number">3.4.1</span> Inline material properties in mechanical behaviours</h3>
-<p>Various keywords (such as <code>@ElasticMaterialProperties</code>, <code>@ComputeThermalExpansion</code>, <code>@HillTensor</code>, etc.) expects one or more material properties. In previous versions, those material properties were constants or defined by an external <code>MFront</code> file.</p>
-<p>This new version allows those material properties to be defined by formulae, as follows:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter E0 =<span class="fl">2.1421e11</span>,E1 = -<span class="fl">3.8654e7</span>,E2 = -<span class="fl">3.1636e4</span>;</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ElasticMaterialProperties {<span class="st">&quot;E0+(T-273.15)*(E1+E2*(T-273.15))&quot;</span>,<span class="fl">0.3</span>}</span></code></pre></div>
-<p>As for material properties defined in external <code>MFront</code> files, the material properties evaluated by formulae will be computed for updated values of their parameters. For example, if the previous lines were used in the <code>Implicit</code> DSL, two variables <code>young</code> and <code>young_tdt</code> will be automatically made available:</p>
+<h2 data-number="3.3" id="the-generic-behaviour-interface"><span
+class="header-section-number">3.3</span> The generic behaviour
+interface</h2>
+<p>The generic behaviour interface has been introduced to provide an
+interface suitable for most needs.</p>
+<p>Whereas other interfaces target a specific solver and thus are
+restricted by choices made by this specific solver, this interface has
+been created for developers of homebrew solvers who are able to modify
+their code to take full advantage of <code>MFront</code> behaviours.</p>
+<p>This interface is tightly linked with the
+<code>MFrontGenericInterfaceSupport</code> project which is available on
+<code>github</code>: <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport</a>.
+This project has a more liberal licence which allows it to be included
+in both commercial and open-source solvers/library. This licensing
+choice explains why this project is not part of the
+<code>TFEL</code>.</p>
+<h2 data-number="3.4" id="various-improvements"><span
+class="header-section-number">3.4</span> Various improvements</h2>
+<h3 data-number="3.4.1" id="sec:inline-mprops"><span
+class="header-section-number">3.4.1</span> Inline material properties in
+mechanical behaviours</h3>
+<p>Various keywords (such as <code>@ElasticMaterialProperties</code>,
+<code>@ComputeThermalExpansion</code>, <code>@HillTensor</code>, etc.)
+expects one or more material properties. In previous versions, those
+material properties were constants or defined by an external
+<code>MFront</code> file.</p>
+<p>This new version allows those material properties to be defined by
+formulae, as follows:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter E0 <span class="op">=</span><span class="fl">2.1421e11</span><span class="op">,</span>E1 <span class="op">=</span> <span class="op">-</span><span class="fl">3.8654e7</span><span class="op">,</span>E2 <span class="op">=</span> <span class="op">-</span><span class="fl">3.1636e4</span><span class="op">;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ElasticMaterialProperties <span class="op">{</span><span class="st">&quot;E0+(T-273.15)*(E1+E2*(T-273.15))&quot;</span><span class="op">,</span><span class="fl">0.3</span><span class="op">}</span></span></code></pre></div>
+<p>As for material properties defined in external <code>MFront</code>
+files, the material properties evaluated by formulae will be computed
+for updated values of their parameters. For example, if the previous
+lines were used in the <code>Implicit</code> DSL, two variables
+<code>young</code> and <code>young_tdt</code> will be automatically made
+available:</p>
 <ul>
-<li>the <code>young</code> variable will be computed for the temperature <span class="math inline">\(T+\theta\,\Delta\,T\)</span>.</li>
-<li>the <code>young_tdt</code> variable will be computed for the temperature <span class="math inline">\(T+\Delta\,T\)</span>.</li>
+<li>the <code>young</code> variable will be computed for the temperature
+<span class="math inline">\(T+\theta\,\Delta\,T\)</span>.</li>
+<li>the <code>young_tdt</code> variable will be computed for the
+temperature <span class="math inline">\(T+\Delta\,T\)</span>.</li>
 </ul>
-<h2 data-number="3.5" id="new-command-line-arguments"><span class="header-section-number">3.5</span> New command line arguments</h2>
-<h3 data-number="3.5.1" id="the---list-behaviour-bricks-argument"><span class="header-section-number">3.5.1</span> The <code>--list-behaviour-bricks</code> argument</h3>
-<p>The <code>--list-behaviour-bricks</code> argument returns the list of all available behaviour bricks.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-behaviour-bricks</span></span>
+<h2 data-number="3.5" id="new-command-line-arguments"><span
+class="header-section-number">3.5</span> New command line arguments</h2>
+<h3 data-number="3.5.1" id="the---list-behaviour-bricks-argument"><span
+class="header-section-number">3.5.1</span> The
+<code>--list-behaviour-bricks</code> argument</h3>
+<p>The <code>--list-behaviour-bricks</code> argument returns the list of
+all available behaviour bricks.</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-behaviour-bricks</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">DDIF2</span>                         <span class="er">(</span><span class="ex">undocumented</span><span class="kw">)</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">FiniteStrainSingleCrystal</span>     <span class="er">(</span><span class="ex">undocumented</span><span class="kw">)</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="ex">StandardElasticity</span>            <span class="er">(</span><span class="ex">documented</span><span class="kw">)</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ex">StandardElastoViscoPlasticity</span> <span class="er">(</span><span class="ex">undocumented</span><span class="kw">)</span></span></code></pre></div>
-<h3 data-number="3.5.2" id="the---help-behaviour-brick-argument"><span class="header-section-number">3.5.2</span> The <code>--help-behaviour-brick</code> argument</h3>
-<p>The <code>--help-behaviour-brick</code> argument returns the help associated with a given behaviour brick.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--help-behaviour-brick</span><span class="op">=</span>StandardElasticity</span>
+<h3 data-number="3.5.2" id="the---help-behaviour-brick-argument"><span
+class="header-section-number">3.5.2</span> The
+<code>--help-behaviour-brick</code> argument</h3>
+<p>The <code>--help-behaviour-brick</code> argument returns the help
+associated with a given behaviour brick.</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--help-behaviour-brick</span><span class="op">=</span>StandardElasticity</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> <span class="kw">`</span><span class="ex">StandardElasticity</span><span class="kw">`</span> brick describes the linear elastic part of</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">the</span> behaviour of an isotropic or orthotropic material.</span></code></pre></div>
-<h3 data-number="3.5.3" id="arguments-related-to-the-standardelastoviscoplasticity-brick"><span class="header-section-number">3.5.3</span> Arguments related to the <code>StandardElastoViscoplasticity</code> brick</h3>
-<p>The <code>StandardElastoViscoplasticity</code> brick is based on the concepts of:</p>
+<h3 data-number="3.5.3"
+id="arguments-related-to-the-standardelastoviscoplasticity-brick"><span
+class="header-section-number">3.5.3</span> Arguments related to the
+<code>StandardElastoViscoplasticity</code> brick</h3>
+<p>The <code>StandardElastoViscoplasticity</code> brick is based on the
+concepts of:</p>
 <ul>
 <li>stress-potential</li>
 <li>criterion</li>
 <li>isotropic hardening rule</li>
 <li>kinematic hardening rule</li>
 </ul>
-<p>For each concept, one can query the list of concrete implementations of this concept and the associated help, as in the following example:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-stress-potentials</span></span>
+<p>For each concept, one can query the list of concrete implementations
+of this concept and the associated help, as in the following
+example:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-stress-potentials</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> DDIF2           <span class="er">(</span><span class="ex">documented</span><span class="kw">)</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Hooke           <span class="er">(</span><span class="ex">documented</span><span class="kw">)</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> IsotropicDamage <span class="er">(</span><span class="ex">undocumented</span><span class="kw">)</span></span>
@@ -747,32 +1119,69 @@ S_{0}+S_{1}+S_{2}=0
 <li><code>--help-stress-criterion</code></li>
 <li><code>--help-stress-potential</code></li>
 </ul>
-<h1 data-number="4" id="new-functionalities-in-mtest"><span class="header-section-number">4</span> New functionalities in <code>MTest</code></h1>
-<h2 data-number="4.1" id="events-activation-and-desactivation-of-constraints"><span class="header-section-number">4.1</span> Events, activation and desactivation of constraints</h2>
-<p>Defining an event is a way to active/desactivate a constraint, (see <code>@ImposedStrain</code>, <code>@ImposedCohesiveForce</code>, <code>@ImposedOpeningDisplacement</code>, <code>@ImposedStrain</code>, <code>@ImposedDeformationGradient</code>, <code>@NonLinearConstraint</code>).</p>
-<h3 data-number="4.1.1" id="defining-a-new-event"><span class="header-section-number">4.1.1</span> Defining a new event</h3>
-<p>The <code>@Event</code> keyword is followed by the name of the event and a time or a list of times (given as an array of values).</p>
-<h4 data-number="4.1.1.1" id="example"><span class="header-section-number">4.1.1.1</span> Example</h4>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Event <span class="ch">&#39;S</span><span class="er">top</span><span class="ch">&#39;</span> <span class="dv">1</span>;</span></code></pre></div>
-<h3 data-number="4.1.2" id="activation-and-desactivation-of-constraints"><span class="header-section-number">4.1.2</span> Activation and desactivation of constraints</h3>
-<p>At the end of the definition of a constraint, one may now optionnally set options on the active state of this contraint at the beginning of the computation, the activating events and desactivating events using a JSON-like structure. This structure starts with an opening curly brace (<code>{</code>) and ends with a closing curly brace (<code>}</code>). An option is given by its name, an double-dot character (<code>:</code>) and the value of the option. Consecutive options are separated by a comma <code>,</code> (see below for an example). The following options are available:</p>
+<h1 data-number="4" id="new-functionalities-in-mtest"><span
+class="header-section-number">4</span> New functionalities in
+<code>MTest</code></h1>
+<h2 data-number="4.1"
+id="events-activation-and-desactivation-of-constraints"><span
+class="header-section-number">4.1</span> Events, activation and
+desactivation of constraints</h2>
+<p>Defining an event is a way to active/desactivate a constraint, (see
+<code>@ImposedStrain</code>, <code>@ImposedCohesiveForce</code>,
+<code>@ImposedOpeningDisplacement</code>, <code>@ImposedStrain</code>,
+<code>@ImposedDeformationGradient</code>,
+<code>@NonLinearConstraint</code>).</p>
+<h3 data-number="4.1.1" id="defining-a-new-event"><span
+class="header-section-number">4.1.1</span> Defining a new event</h3>
+<p>The <code>@Event</code> keyword is followed by the name of the event
+and a time or a list of times (given as an array of values).</p>
+<h4 data-number="4.1.1.1" id="example"><span
+class="header-section-number">4.1.1.1</span> Example</h4>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Event <span class="ch">&#39;S</span><span class="er">top</span><span class="ch">&#39;</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
+<h3 data-number="4.1.2"
+id="activation-and-desactivation-of-constraints"><span
+class="header-section-number">4.1.2</span> Activation and desactivation
+of constraints</h3>
+<p>At the end of the definition of a constraint, one may now optionnally
+set options on the active state of this contraint at the beginning of
+the computation, the activating events and desactivating events using a
+JSON-like structure. This structure starts with an opening curly brace
+(<code>{</code>) and ends with a closing curly brace (<code>}</code>).
+An option is given by its name, an double-dot character (<code>:</code>)
+and the value of the option. Consecutive options are separated by a
+comma <code>,</code> (see below for an example). The following options
+are available:</p>
 <ul>
-<li><code>active</code>: states if the constraint is active at the beginning of the computation. This is a boolean, so the expected value are either <code>true</code> or <code>false</code>.</li>
-<li><code>activating_event</code>: gives the name of the event which activate the constraint. An array of string is expected.</li>
-<li><code>activating_events</code>: gives the list of events which activate the constraint. An array of string is expected.</li>
-<li><code>desactivating_event</code>: gives the name of the event which desactivate the constraint. An array of string is expected.</li>
-<li><code>desactivating_events</code>: gives the list of events which desactivate the constraint. An array of string is expected.</li>
+<li><code>active</code>: states if the constraint is active at the
+beginning of the computation. This is a boolean, so the expected value
+are either <code>true</code> or <code>false</code>.</li>
+<li><code>activating_event</code>: gives the name of the event which
+activate the constraint. An array of string is expected.</li>
+<li><code>activating_events</code>: gives the list of events which
+activate the constraint. An array of string is expected.</li>
+<li><code>desactivating_event</code>: gives the name of the event which
+desactivate the constraint. An array of string is expected.</li>
+<li><code>desactivating_events</code>: gives the list of events which
+desactivate the constraint. An array of string is expected.</li>
 </ul>
-<h4 data-number="4.1.2.1" id="example-1"><span class="header-section-number">4.1.2.1</span> Example</h4>
-<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStrain&lt;evolution&gt; <span class="ch">&#39;E</span><span class="er">XX</span><span class="ch">&#39;</span> {<span class="fl">0.</span>:<span class="fl">0.</span>,<span class="dv">1</span>:<span class="fl">1e-3</span>}{</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    desactivating_event : <span class="ch">&#39;S</span><span class="er">top</span><span class="ch">&#39;</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h3 data-number="4.1.3" id="user-defined-post-processings"><span class="header-section-number">4.1.3</span> User defined post-processings</h3>
-<p>The <code>@UserDefinedPostProcessing</code> lets the user define is own post-processings.</p>
+<h4 data-number="4.1.2.1" id="example-1"><span
+class="header-section-number">4.1.2.1</span> Example</h4>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ImposedStrain<span class="op">&lt;</span>evolution<span class="op">&gt;</span> <span class="ch">&#39;E</span><span class="er">XX</span><span class="ch">&#39;</span> <span class="op">{</span><span class="fl">0.</span><span class="op">:</span><span class="fl">0.</span><span class="op">,</span><span class="dv">1</span><span class="op">:</span><span class="fl">1e-3</span><span class="op">}{</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    desactivating_event <span class="op">:</span> <span class="ch">&#39;S</span><span class="er">top</span><span class="ch">&#39;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h3 data-number="4.1.3" id="user-defined-post-processings"><span
+class="header-section-number">4.1.3</span> User defined
+post-processings</h3>
+<p>The <code>@UserDefinedPostProcessing</code> lets the user define is
+own post-processings.</p>
 <p>This keywords is followed by:</p>
 <ul>
 <li>the name of the output file</li>
-<li>the list of post-processings given by a string or and an array of strings. Those strings defines formulae which are evaluated at the end of the time step. Those formulae may depend on:
+<li>the list of post-processings given by a string or and an array of
+strings. Those strings defines formulae which are evaluated at the end
+of the time step. Those formulae may depend on:
 <ul>
 <li>the behaviour’ driving variable</li>
 <li>the behaviour’ thermodynamic forces</li>
@@ -781,25 +1190,45 @@ S_{0}+S_{1}+S_{2}=0
 <li>any evolution defined in the input file</li>
 </ul></li>
 </ul>
-<h4 data-number="4.1.3.1" id="example-2"><span class="header-section-number">4.1.3.1</span> Example</h4>
-<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UserDefinedPostProcessing <span class="ch">&#39;m</span><span class="er">youtput.txt</span><span class="ch">&#39;</span> {<span class="ch">&#39;S</span><span class="er">XX</span><span class="ch">&#39;</span>,<span class="ch">&#39;E</span><span class="er">quivalentPlasticStrain</span><span class="ch">&#39;</span>};</span></code></pre></div>
-<h1 data-number="5" id="tickets-solved-during-the-development-of-this-version"><span class="header-section-number">5</span> Tickets solved during the development of this version</h1>
-<h2 data-number="5.1" id="ticket-137-compiling-error-fix-mfrontpython-under-windows"><span class="header-section-number">5.1</span> Ticket #137: Compiling error fix <code>Mfront/Python</code> under <code>Windows</code></h2>
-<p>When compiling <code>MFront</code> with python bindings support using <code>Visual Studio 2015 Community</code>, the following error message is triggered:</p>
+<h4 data-number="4.1.3.1" id="example-2"><span
+class="header-section-number">4.1.3.1</span> Example</h4>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UserDefinedPostProcessing <span class="ch">&#39;m</span><span class="er">youtput.txt</span><span class="ch">&#39;</span> <span class="op">{</span><span class="ch">&#39;S</span><span class="er">XX</span><span class="ch">&#39;</span><span class="op">,</span><span class="ch">&#39;E</span><span class="er">quivalentPlasticStrain</span><span class="ch">&#39;</span><span class="op">};</span></span></code></pre></div>
+<h1 data-number="5"
+id="tickets-solved-during-the-development-of-this-version"><span
+class="header-section-number">5</span> Tickets solved during the
+development of this version</h1>
+<h2 data-number="5.1"
+id="ticket-137-compiling-error-fix-mfrontpython-under-windows"><span
+class="header-section-number">5.1</span> Ticket #137: Compiling error
+fix <code>Mfront/Python</code> under <code>Windows</code></h2>
+<p>When compiling <code>MFront</code> with python bindings support using
+<code>Visual Studio 2015 Community</code>, the following error message
+is triggered:</p>
 <pre><code>C:\Codes\tfel\sources\tfel\include\TFEL/Material/PiPlane.ixx(60): error C2131: l&#39;expression n&#39;a pas été évaluée en co
 nstante [C:\Codes\tfel\sources\build-vs-2015\bindings\python\tfel\py_tfel_material.vcxproj]
 
 0 Avertissement(s)
 1 Erreur(s)</code></pre>
-<p>The problem is that <code>constexpr</code> variables are poorly handled by <code>Visual Studio 2015</code>. The <code>constexpr</code> macro was introduced to handle this compiler (it boils down to <code>constexpr</code> for others compilers). The issue can be solved by changing the faulty line as as follows:</p>
+<p>The problem is that <code>constexpr</code> variables are poorly
+handled by <code>Visual Studio 2015</code>. The <code>constexpr</code>
+macro was introduced to handle this compiler (it boils down to
+<code>constexpr</code> for others compilers). The issue can be solved by
+changing the faulty line as as follows:</p>
 <pre><code>constexpr const auto isqrt6 = isqrt2 * isqrt3;</code></pre>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/137/" class="uri">https://sourceforge.net/p/tfel/tickets/137/</a></p>
-<h2 data-number="5.2" id="ticket-112-mtest-outputs"><span class="header-section-number">5.2</span> Ticket #112: MTEST outputs</h2>
-<p>The <code>@UserDefinedPostProcessing</code> lets the user define is own post-processings.</p>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/137/"
+class="uri">https://sourceforge.net/p/tfel/tickets/137/</a></p>
+<h2 data-number="5.2" id="ticket-112-mtest-outputs"><span
+class="header-section-number">5.2</span> Ticket #112: MTEST outputs</h2>
+<p>The <code>@UserDefinedPostProcessing</code> lets the user define is
+own post-processings.</p>
 <p>This keywords is followed by:</p>
 <ul>
 <li>the name of the output file</li>
-<li>the list of post-processings given by a string or and an array of strings. Those strings defines formulae which are evaluated at the end of the time step. Those formulae may depend on:
+<li>the list of post-processings given by a string or and an array of
+strings. Those strings defines formulae which are evaluated at the end
+of the time step. Those formulae may depend on:
 <ul>
 <li>the behaviour’ driving variable</li>
 <li>the behaviour’ thermodynamic forces</li>
@@ -808,37 +1237,103 @@ nstante [C:\Codes\tfel\sources\build-vs-2015\bindings\python\tfel\py_tfel_materi
 <li>any evolution defined in the input file</li>
 </ul></li>
 </ul>
-<p>For more details, see: <a href="https://sourceforge.net/p/tfel/tickets/112/" class="uri">https://sourceforge.net/p/tfel/tickets/112/</a></p>
-<h1 data-number="6" id="known-incompatibilities"><span class="header-section-number">6</span> Known incompatibilities</h1>
-<h2 data-number="6.1" id="header-files"><span class="header-section-number">6.1</span> Header files</h2>
+<p>For more details, see: <a
+href="https://sourceforge.net/p/tfel/tickets/112/"
+class="uri">https://sourceforge.net/p/tfel/tickets/112/</a></p>
+<h1 data-number="6" id="known-incompatibilities"><span
+class="header-section-number">6</span> Known incompatibilities</h1>
+<h2 data-number="6.1" id="header-files"><span
+class="header-section-number">6.1</span> Header files</h2>
 <p>The following header files have been renamed:</p>
 <ul>
-<li><code>Hosford.hxx</code> has been moved in <code>Hosford1972YieldCriterion.hxx</code>.</li>
-<li><code>Barlat.hxx</code> has been moved in <code>Barlat2004YieldCriterion.hxx</code>.</li>
+<li><code>Hosford.hxx</code> has been moved in
+<code>Hosford1972YieldCriterion.hxx</code>.</li>
+<li><code>Barlat.hxx</code> has been moved in
+<code>Barlat2004YieldCriterion.hxx</code>.</li>
 </ul>
-<h1 data-number="7" id="references"><span class="header-section-number">7</span> References</h1>
+<h1 data-number="7" id="references"><span
+class="header-section-number">7</span> References</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-cazacu_generalization_2001" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Cazacu</span>, Oana and <span class="smallcaps">Barlat</span>, Frédéric. Generalization of drucker’s yield criterion to orthotropy. <em>Mathematics and Mechanics of Solids</em>. 1 December 2001. Vol. 6, no. 6, p. 613–630. DOI <a href="https://doi.org/10.1177/108128650100600603">10.1177/108128650100600603</a>. Available from: <a href="https://doi.org/10.1177/108128650100600603">https://doi.org/10.1177/108128650100600603</a></div>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-cazacu_generalization_2001" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Cazacu</span>, Oana and
+<span class="smallcaps">Barlat</span>, Frédéric. Generalization of
+drucker’s yield criterion to orthotropy. <em>Mathematics and Mechanics
+of Solids</em>. 1 December 2001. Vol. 6, no. 6, p. 613–630. DOI <a
+href="https://doi.org/10.1177/108128650100600603">10.1177/108128650100600603</a>.
+Available from: <a
+href="https://doi.org/10.1177/108128650100600603">https://doi.org/10.1177/108128650100600603</a></div>
 </div>
-<div id="ref-barlat_linear_2005" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Barlat</span>, F., <span class="smallcaps">Aretz</span>, H., <span class="smallcaps">Yoon</span>, J. W., <span class="smallcaps">Karabin</span>, M. E., <span class="smallcaps">Brem</span>, J. C. and <span class="smallcaps">Dick</span>, R. E. Linear transfomation-based anisotropic yield functions. <em>International Journal of Plasticity</em>. 1 May 2005. Vol. 21, no. 5, p. 1009–1039. DOI <a href="https://doi.org/10.1016/j.ijplas.2004.06.004">10.1016/j.ijplas.2004.06.004</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0749641904001160">http://www.sciencedirect.com/science/article/pii/S0749641904001160</a></div>
+<div id="ref-barlat_linear_2005" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline"><span class="smallcaps">Barlat</span>, F.,
+<span class="smallcaps">Aretz</span>, H., <span
+class="smallcaps">Yoon</span>, J. W., <span
+class="smallcaps">Karabin</span>, M. E., <span
+class="smallcaps">Brem</span>, J. C. and <span
+class="smallcaps">Dick</span>, R. E. Linear transfomation-based
+anisotropic yield functions. <em>International Journal of
+Plasticity</em>. 1 May 2005. Vol. 21, no. 5, p. 1009–1039. DOI <a
+href="https://doi.org/10.1016/j.ijplas.2004.06.004">10.1016/j.ijplas.2004.06.004</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0749641904001160">http://www.sciencedirect.com/science/article/pii/S0749641904001160</a></div>
 </div>
-<div id="ref-thouvenin_edf_2010" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline"><span class="smallcaps">Thouvenin</span>, Gilles, <span class="smallcaps">Baron</span>, Daniel, <span class="smallcaps">Largenton</span>, Nathalie, <span class="smallcaps">Largenton</span>, Rodrigue and <span class="smallcaps">Thevenin</span>, Philippe. <span>EDF</span> <span>CYRANO</span>3 code, recent innovations. In : <em><span>LWR</span> <span>Fuel</span> <span>Performance</span> <span>Meeting</span>/<span>TopFuel</span>/<span>WRFPM</span></em>. Orlando, Florida, USA, September 2010. </div>
+<div id="ref-thouvenin_edf_2010" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline"><span class="smallcaps">Thouvenin</span>,
+Gilles, <span class="smallcaps">Baron</span>, Daniel, <span
+class="smallcaps">Largenton</span>, Nathalie, <span
+class="smallcaps">Largenton</span>, Rodrigue and <span
+class="smallcaps">Thevenin</span>, Philippe. <span>EDF</span>
+<span>CYRANO</span>3 code, recent innovations. In : <em><span>LWR</span>
+<span>Fuel</span> <span>Performance</span>
+<span>Meeting</span>/<span>TopFuel</span>/<span>WRFPM</span></em>.
+Orlando, Florida, USA, September 2010. </div>
 </div>
-<div id="ref-petry_advanced_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline"><span class="smallcaps">Petry</span>, Charles and <span class="smallcaps">Helfer</span>, Thomas. Advanced mechanical resolution in <span>CYRANO</span>3 fuel performance code using <span>MFront</span> generation tool. In : <em><span>LWR</span> <span>Fuel</span> <span>Performance</span> <span>Meeting</span>/<span>TopFuel</span>/<span>WRFPM</span></em>. Zurich, Switzerland, 2015. </div>
+<div id="ref-petry_advanced_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline"><span class="smallcaps">Petry</span>, Charles
+and <span class="smallcaps">Helfer</span>, Thomas. Advanced mechanical
+resolution in <span>CYRANO</span>3 fuel performance code using
+<span>MFront</span> generation tool. In : <em><span>LWR</span>
+<span>Fuel</span> <span>Performance</span>
+<span>Meeting</span>/<span>TopFuel</span>/<span>WRFPM</span></em>.
+Zurich, Switzerland, 2015. </div>
 </div>
-<div id="ref-miehe_anisotropic_2002" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">5. </div><div class="csl-right-inline"><span class="smallcaps">Miehe</span>, C., <span class="smallcaps">Apel</span>, N. and <span class="smallcaps">Lambrecht</span>, M. Anisotropic additive plasticity in the logarithmic strain space: Modular kinematic formulation and implementation based on incremental minimization principles for standard materials. <em>Computer Methods in Applied Mechanics and Engineering</em>. November 2002. Vol. 191, no. 47–48, p. 5383–5425. DOI <a href="https://doi.org/10.1016/S0045-7825(02)00438-3">10.1016/S0045-7825(02)00438-3</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0045782502004383">http://www.sciencedirect.com/science/article/pii/S0045782502004383</a></div>
+<div id="ref-miehe_anisotropic_2002" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline"><span class="smallcaps">Miehe</span>, C., <span
+class="smallcaps">Apel</span>, N. and <span
+class="smallcaps">Lambrecht</span>, M. Anisotropic additive plasticity
+in the logarithmic strain space: Modular kinematic formulation and
+implementation based on incremental minimization principles for standard
+materials. <em>Computer Methods in Applied Mechanics and
+Engineering</em>. November 2002. Vol. 191, no. 47–48, p. 5383–5425.
+DOI <a
+href="https://doi.org/10.1016/S0045-7825(02)00438-3">10.1016/S0045-7825(02)00438-3</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0045782502004383">http://www.sciencedirect.com/science/article/pii/S0045782502004383</a></div>
 </div>
-<div id="ref-edf_modeles_2013" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">6. </div><div class="csl-right-inline"><span class="smallcaps">EDF</span>. R5.03.24 révision : 10464: Modèles de grandes déformations <span>GDEF</span>_LOG et <span>GDEF</span>_HYPO_ELAS. Référence du Code Aster. EDF-R&amp;D/AMA, 2013. Available from: <a href="http://www.code-aster.org">http://www.code-aster.org</a></div>
+<div id="ref-edf_modeles_2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline"><span class="smallcaps">EDF</span>. R5.03.24
+révision : 10464: Modèles de grandes déformations <span>GDEF</span>_LOG
+et <span>GDEF</span>_HYPO_ELAS. Référence du {Code} {Aster}.
+EDF-R&amp;D/AMA, 2013. Available from: <a
+href="http://www.code-aster.org">http://www.code-aster.org</a></div>
 </div>
-<div id="ref-helfer_extension_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">7. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas. Extension of monodimensional fuel performance codes to finite strain analysis using a <span>Lagrangian</span> logarithmic strain framework. <em>Nuclear Engineering and Design</em>. July 2015. Vol. 288, p. 75–81. DOI <a href="https://doi.org/10.1016/j.nucengdes.2015.02.010">10.1016/j.nucengdes.2015.02.010</a>. Available from: <a href="http://www.sciencedirect.com/science/article/pii/S0029549315000928">http://www.sciencedirect.com/science/article/pii/S0029549315000928</a></div>
+<div id="ref-helfer_extension_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas.
+Extension of monodimensional fuel performance codes to finite strain
+analysis using a <span>Lagrangian</span> logarithmic strain framework.
+<em>Nuclear Engineering and Design</em>. July 2015. Vol. 288, p. 75–81.
+DOI <a
+href="https://doi.org/10.1016/j.nucengdes.2015.02.010">10.1016/j.nucengdes.2015.02.010</a>.
+Available from: <a
+href="http://www.sciencedirect.com/science/article/pii/S0029549315000928">http://www.sciencedirect.com/science/article/pii/S0029549315000928</a></div>
 </div>
 </div>
     <script>

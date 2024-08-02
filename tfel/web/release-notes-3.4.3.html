@@ -16,8 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -26,7 +27,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -50,11 +51,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -63,14 +64,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -79,7 +80,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -182,6 +185,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -327,101 +331,210 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Release notes of the 3.4.3 version of <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h1 class="title">Release notes of the 3.4.3 version of
+<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">21/09/2021</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#new-features-of-mfront"><span class="toc-section-number">1</span> New features of <code>MFront</code></a>
+<li><a href="#new-features-of-mfront"
+id="toc-new-features-of-mfront"><span
+class="toc-section-number">1</span> New features of
+<code>MFront</code></a>
 <ul>
-<li><a href="#sec:tfel-3.4.3:mfront:point_wise_models"><span class="toc-section-number">1.1</span> Ability to implement point-wise models as a particular case of generic behaviours</a></li>
+<li><a href="#sec:tfel-3.4.3:mfront:point_wise_models"
+id="toc-sec:tfel-3.4.3:mfront:point_wise_models"><span
+class="toc-section-number">1.1</span> Ability to implement point-wise
+models as a particular case of generic behaviours</a></li>
 </ul></li>
-<li><a href="#new-features-of-mtest"><span class="toc-section-number">2</span> New features of <code>MTest</code></a>
+<li><a href="#new-features-of-mtest"
+id="toc-new-features-of-mtest"><span class="toc-section-number">2</span>
+New features of <code>MTest</code></a>
 <ul>
-<li><a href="#sec:tfel-3.4.3:mtest:point_wise_models"><span class="toc-section-number">2.1</span> Support for point-wise models, i.e. generic behaviours without gradient, thermodynamic force nor tangent operator block</a></li>
-<li><a href="#support-for-the-amitex-interface"><span class="toc-section-number">2.2</span> Support for the <code>amitex</code> interface</a></li>
+<li><a href="#sec:tfel-3.4.3:mtest:point_wise_models"
+id="toc-sec:tfel-3.4.3:mtest:point_wise_models"><span
+class="toc-section-number">2.1</span> Support for point-wise models,
+i.e. generic behaviours without gradient, thermodynamic force nor
+tangent operator block</a></li>
+<li><a href="#support-for-the-amitex-interface"
+id="toc-support-for-the-amitex-interface"><span
+class="toc-section-number">2.2</span> Support for the
+<code>amitex</code> interface</a></li>
 </ul></li>
-<li><a href="#issues-solved"><span class="toc-section-number">3</span> Issues solved</a>
+<li><a href="#issues-solved" id="toc-issues-solved"><span
+class="toc-section-number">3</span> Issues solved</a>
 <ul>
-<li><a href="#issue-13-mtest-support-for-the-amitex-interface-in-mtest"><span class="toc-section-number">3.1</span> Issue #13: [mtest] Support for the <code>amitex</code> interface in <code>MTest</code></a></li>
-<li><a href="#issue-12-mtest-add-support-for-generic-behaviours-with-no-gradients-aka-point-wise-models"><span class="toc-section-number">3.2</span> Issue #12: [mtest] Add support for generic behaviours with no gradients, aka point-wise models</a></li>
-<li><a href="#issue-11-models-implements-point-wise-models-on-top-of-the-default-implicit-and-runge-kutta-dsls-as-a-particular-case-of-generic-behaviours"><span class="toc-section-number">3.3</span> Issue #11: [models] Implements point-wise models on top of the Default, Implicit and Runge-Kutta DSLs as a particular case of generic behaviours</a></li>
+<li><a href="#issue-13-mtest-support-for-the-amitex-interface-in-mtest"
+id="toc-issue-13-mtest-support-for-the-amitex-interface-in-mtest"><span
+class="toc-section-number">3.1</span> Issue #13: [mtest] Support for the
+<code>amitex</code> interface in <code>MTest</code></a></li>
+<li><a
+href="#issue-12-mtest-add-support-for-generic-behaviours-with-no-gradients-aka-point-wise-models"
+id="toc-issue-12-mtest-add-support-for-generic-behaviours-with-no-gradients-aka-point-wise-models"><span
+class="toc-section-number">3.2</span> Issue #12: [mtest] Add support for
+generic behaviours with no gradients, aka point-wise models</a></li>
+<li><a
+href="#issue-11-models-implements-point-wise-models-on-top-of-the-default-implicit-and-runge-kutta-dsls-as-a-particular-case-of-generic-behaviours"
+id="toc-issue-11-models-implements-point-wise-models-on-top-of-the-default-implicit-and-runge-kutta-dsls-as-a-particular-case-of-generic-behaviours"><span
+class="toc-section-number">3.3</span> Issue #11: [models] Implements
+point-wise models on top of the Default, Implicit and Runge-Kutta DSLs
+as a particular case of generic behaviours</a></li>
 </ul></li>
 </ul>
 </div>
-<p>The page describes the new functionalities of Version 3.4.3 of the <code>TFEL</code> project.</p>
-<p>This version was released on October 26, 2021 along with <code>TFEL-3.0.10</code>, <code>TFEL-3.1.10</code>, <code>TFEL-3.2.7</code> and <code>TFEL-3.3.3</code> and inherits from the issues fixed in those releases.</p>
-<h1 data-number="1" id="new-features-of-mfront"><span class="header-section-number">1</span> New features of <code>MFront</code></h1>
-<h2 data-number="1.1" id="sec:tfel-3.4.3:mfront:point_wise_models"><span class="header-section-number">1.1</span> Ability to implement point-wise models as a particular case of generic behaviours</h2>
-<p>Point-wise models computes the evolution of a set of state variables as a function of the evolution of some external state variables. Examples of point-wise models of current usage are phase transitions, swelling models due to irradiations products, etc…</p>
-<p>In previous versions, point-wise models were only handled by a dedicated domain specific language called <code>Model</code>. This DSLs has its own convention, which makes it inhomogeneous with the other DSLs, and is acknowledgly much less powerful than DSLs associated with behaviours.</p>
-<p>Point-wise models mostly differs from behaviours du to the fact that they don’t have no gradients and associated thermodynamic forces and do not compute any consistent tangent operator. This difference was very important in early versions of <code>MFront</code> which only supported small and finite strain behaviours.</p>
-<p>With the support of generic behaviours introduced in version 3.3 and extended in Version 3.4,this difference appears less important and point-wise models can be seen as a particular case of generic beahviours without gradient (and no conjugated thermodynamic force) and tangent operator blocks.</p>
-<p>Version 3.4.3 introduces three new domains specific languages called respectively <code>DefaultModel</code>, <code>RungeKuttaModel</code> and <code>ImplicitModel</code> based on this idea. Those DSLs mostly differ from their counterparts dedicated to generic behaviour by:</p>
+<p>The page describes the new functionalities of Version 3.4.3 of the
+<code>TFEL</code> project.</p>
+<p>This version was released on October 26, 2021 along with
+<code>TFEL-3.0.10</code>, <code>TFEL-3.1.10</code>,
+<code>TFEL-3.2.7</code> and <code>TFEL-3.3.3</code> and inherits from
+the issues fixed in those releases.</p>
+<h1 data-number="1" id="new-features-of-mfront"><span
+class="header-section-number">1</span> New features of
+<code>MFront</code></h1>
+<h2 data-number="1.1" id="sec:tfel-3.4.3:mfront:point_wise_models"><span
+class="header-section-number">1.1</span> Ability to implement point-wise
+models as a particular case of generic behaviours</h2>
+<p>Point-wise models computes the evolution of a set of state variables
+as a function of the evolution of some external state variables.
+Examples of point-wise models of current usage are phase transitions,
+swelling models due to irradiations products, etc…</p>
+<p>In previous versions, point-wise models were only handled by a
+dedicated domain specific language called <code>Model</code>. This DSLs
+has its own convention, which makes it inhomogeneous with the other
+DSLs, and is acknowledgly much less powerful than DSLs associated with
+behaviours.</p>
+<p>Point-wise models mostly differs from behaviours du to the fact that
+they don’t have no gradients and associated thermodynamic forces and do
+not compute any consistent tangent operator. This difference was very
+important in early versions of <code>MFront</code> which only supported
+small and finite strain behaviours.</p>
+<p>With the support of generic behaviours introduced in version 3.3 and
+extended in Version 3.4,this difference appears less important and
+point-wise models can be seen as a particular case of generic beahviours
+without gradient (and no conjugated thermodynamic force) and tangent
+operator blocks.</p>
+<p>Version 3.4.3 introduces three new domains specific languages called
+respectively <code>DefaultModel</code>, <code>RungeKuttaModel</code> and
+<code>ImplicitModel</code> based on this idea. Those DSLs mostly differ
+from their counterparts dedicated to generic behaviour by:</p>
 <ul>
-<li>The fact that they don’t allow the declaration of gradients and thermodynamic forces, nor tangent operator blocks.</li>
-<li>The fact that their name is introduced by the <code>@Model</code> keyword and not <code>@Behaviour</code>.</li>
+<li>The fact that they don’t allow the declaration of gradients and
+thermodynamic forces, nor tangent operator blocks.</li>
+<li>The fact that their name is introduced by the <code>@Model</code>
+keyword and not <code>@Behaviour</code>.</li>
 </ul>
-<h3 data-number="1.1.1" id="sec:tfel-3.4.3:ode_example"><span class="header-section-number">1.1.1</span> Resolution of simple ordinary differential equation</h3>
+<h3 data-number="1.1.1" id="sec:tfel-3.4.3:ode_example"><span
+class="header-section-number">1.1.1</span> Resolution of simple ordinary
+differential equation</h3>
 <p>Let us consider the following ordinary differential equation:</p>
 <p><span id="eq:tfel-3.4.3:mfront:ode"><span class="math display">\[
 \dot{x}=-A\,x
-\qquad(1)\]</span></span></p>
-<p>where <span class="math inline">\(A\)</span> is a positive constant. The solution of this ordinary differential equation is an exponential decay of <span class="math inline">\(x\)</span>:</p>
+\qquad{(1)}\]</span></span></p>
+<p>where <span class="math inline">\(A\)</span> is a positive constant.
+The solution of this ordinary differential equation is an exponential
+decay of <span class="math inline">\(x\)</span>:</p>
 <p><span class="math display">\[
 x\left(t\right)=x_{0}\exp\left(-A\,x\right)
 \]</span></p>
-<p>A numerical resolution of this equation using the <code>RungeKuttaModel</code> can be implemented as follows:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL RungeKuttaModelDSL;</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Model ode_rk54;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">21</span> / <span class="er">09</span> / <span class="dv">2021</span>;</span>
+<p>A numerical resolution of this equation using the
+<code>RungeKuttaModel</code> can be implemented as follows:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL RungeKuttaModelDSL<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Model ode_rk54<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">21</span> <span class="op">/</span> <span class="dv">0</span><span class="er">9</span> <span class="op">/</span> <span class="dv">2021</span><span class="op">;</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-11</span>;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-11</span><span class="op">;</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real x;</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter frequency A = <span class="fl">1.2</span>;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real x<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter frequency A <span class="op">=</span> <span class="fl">1.2</span><span class="op">;</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Derivative {</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  dx = -A * x;</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>Three examples are available in the <code>mfront/tests/behaviours</code> directory:</p>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Derivative <span class="op">{</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  dx <span class="op">=</span> <span class="op">-</span>A <span class="op">*</span> x<span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Three examples are available in the
+<code>mfront/tests/behaviours</code> directory:</p>
 <ul>
-<li><code>ode_rk54</code>, which contains the previous implementation.</li>
-<li><code>ode_implicit</code>, which shows how to solve the Ordinary Differential Equation (1) using an implicit scheme.</li>
-<li><code>ode_default</code>, which shows how to solve the Ordinary Differential Equation (1) using the Default DSL.</li>
+<li><code>ode_rk54</code>, which contains the previous
+implementation.</li>
+<li><code>ode_implicit</code>, which shows how to solve the Ordinary
+Differential Equation (1) using an implicit scheme.</li>
+<li><code>ode_default</code>, which shows how to solve the Ordinary
+Differential Equation (1) using the Default DSL.</li>
 </ul>
-<h1 data-number="2" id="new-features-of-mtest"><span class="header-section-number">2</span> New features of <code>MTest</code></h1>
-<h2 data-number="2.1" id="sec:tfel-3.4.3:mtest:point_wise_models"><span class="header-section-number">2.1</span> Support for point-wise models, i.e. generic behaviours without gradient, thermodynamic force nor tangent operator block</h2>
-<p>Following Section 1.1, <code>MTest</code> now supports point-wise models, i.e. generic behaviours without gradient, thermodynamic force nor tangent operator block.</p>
-<p>The <code>@Model</code> can be used in place of <code>@Behaviour</code> to declare the point-wise model. This only difference with <code>@Behaviour</code> is that <code>MTest</code> checks that no gradient, thermodynamic force nor tangent operator block is declared.</p>
-<h3 data-number="2.1.1" id="example"><span class="header-section-number">2.1.1</span> Example</h3>
-<p>The following example can be used to integrate the odinary differential equation presented in Section 1.1.1:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date   <span class="dv">21</span>/<span class="er">09</span>/<span class="dv">2021</span>;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypothesis <span class="st">&quot;Tridimensional&quot;</span>;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Model&lt;generic&gt; <span class="st">&quot;src/libBehaviour.so&quot;</span> <span class="st">&quot;ode_rk54&quot;</span>;</span>
+<h1 data-number="2" id="new-features-of-mtest"><span
+class="header-section-number">2</span> New features of
+<code>MTest</code></h1>
+<h2 data-number="2.1" id="sec:tfel-3.4.3:mtest:point_wise_models"><span
+class="header-section-number">2.1</span> Support for point-wise models,
+i.e. generic behaviours without gradient, thermodynamic force nor
+tangent operator block</h2>
+<p>Following Section 1.1, <code>MTest</code> now supports point-wise
+models, i.e. generic behaviours without gradient, thermodynamic force
+nor tangent operator block.</p>
+<p>The <code>@Model</code> can be used in place of
+<code>@Behaviour</code> to declare the point-wise model. This only
+difference with <code>@Behaviour</code> is that <code>MTest</code>
+checks that no gradient, thermodynamic force nor tangent operator block
+is declared.</p>
+<h3 data-number="2.1.1" id="example"><span
+class="header-section-number">2.1.1</span> Example</h3>
+<p>The following example can be used to integrate the odinary
+differential equation presented in Section 1.1.1:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date   <span class="dv">21</span><span class="op">/</span><span class="dv">0</span><span class="er">9</span><span class="op">/</span><span class="dv">2021</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypothesis <span class="st">&quot;Tridimensional&quot;</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Model<span class="op">&lt;</span>generic<span class="op">&gt;</span> <span class="st">&quot;src/libBehaviour.so&quot;</span> <span class="st">&quot;ode_rk54&quot;</span><span class="op">;</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">// internal state variable initialisations</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InternalStateVariable <span class="st">&quot;x&quot;</span> <span class="dv">1</span>;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InternalStateVariable <span class="st">&quot;x&quot;</span> <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">// external state variable</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="st">&quot;Temperature&quot;</span> <span class="fl">293.15</span>;</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Times {<span class="dv">0</span>, <span class="dv">1</span> in <span class="dv">10</span>};</span></code></pre></div>
-<figure>
-<img src="img/ModelDSLs.svg" id="fig:tfel-3.4.3:ode_results" style="width:75.0%" alt="Figure 1: Results of resolution of a ordinary differential equation with DSLs dedicated to point wise models" /><figcaption aria-hidden="true">Figure 1: Results of resolution of a ordinary differential equation with DSLs dedicated to point wise models</figcaption>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="st">&quot;Temperature&quot;</span> <span class="fl">293.15</span><span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Times <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span> in <span class="dv">10</span><span class="op">};</span></span></code></pre></div>
+<figure id="fig:tfel-3.4.3:ode_results">
+<img src="img/ModelDSLs.svg" style="width:75.0%"
+alt="Results of resolution of a ordinary differential equation with DSLs dedicated to point wise models" />
+<figcaption>Figure 1: Results of resolution of a ordinary differential
+equation with DSLs dedicated to point wise models</figcaption>
 </figure>
-<p>The Figure 1 compares the results obtained with the implementation of the model presented in Section 1.1.1 with all the DSLs dedicated to piont-wise models.</p>
-<h2 data-number="2.2" id="support-for-the-amitex-interface"><span class="header-section-number">2.2</span> Support for the <code>amitex</code> interface</h2>
-<p>Behaviours created using the <code>amitex</code> interface can now be tested with <code>MTest</code>. See <a href="https://github.com/thelfer/tfel/issues/13">Issue #13</a>.</p>
-<h1 data-number="3" id="issues-solved"><span class="header-section-number">3</span> Issues solved</h1>
-<h2 data-number="3.1" id="issue-13-mtest-support-for-the-amitex-interface-in-mtest"><span class="header-section-number">3.1</span> Issue #13: [mtest] Support for the <code>amitex</code> interface in <code>MTest</code></h2>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/13" class="uri">https://github.com/thelfer/tfel/issues/13</a>.</p>
-<h2 data-number="3.2" id="issue-12-mtest-add-support-for-generic-behaviours-with-no-gradients-aka-point-wise-models"><span class="header-section-number">3.2</span> Issue #12: [mtest] Add support for generic behaviours with no gradients, aka point-wise models</h2>
-<p>The developments associated with this Issue are documented in Section 2.1.</p>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/12" class="uri">https://github.com/thelfer/tfel/issues/12</a>.</p>
-<h2 data-number="3.3" id="issue-11-models-implements-point-wise-models-on-top-of-the-default-implicit-and-runge-kutta-dsls-as-a-particular-case-of-generic-behaviours"><span class="header-section-number">3.3</span> Issue #11: [models] Implements point-wise models on top of the Default, Implicit and Runge-Kutta DSLs as a particular case of generic behaviours</h2>
-<p>The developments associated with this Issue are documented in Section 1.1.</p>
-<p>For more details, see <a href="https://github.com/thelfer/tfel/issues/11" class="uri">https://github.com/thelfer/tfel/issues/11</a>.</p>
+<p>The Figure 1 compares the results obtained with the implementation of
+the model presented in Section 1.1.1 with all the DSLs dedicated to
+piont-wise models.</p>
+<h2 data-number="2.2" id="support-for-the-amitex-interface"><span
+class="header-section-number">2.2</span> Support for the
+<code>amitex</code> interface</h2>
+<p>Behaviours created using the <code>amitex</code> interface can now be
+tested with <code>MTest</code>. See <a
+href="https://github.com/thelfer/tfel/issues/13">Issue #13</a>.</p>
+<h1 data-number="3" id="issues-solved"><span
+class="header-section-number">3</span> Issues solved</h1>
+<h2 data-number="3.1"
+id="issue-13-mtest-support-for-the-amitex-interface-in-mtest"><span
+class="header-section-number">3.1</span> Issue #13: [mtest] Support for
+the <code>amitex</code> interface in <code>MTest</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/13"
+class="uri">https://github.com/thelfer/tfel/issues/13</a>.</p>
+<h2 data-number="3.2"
+id="issue-12-mtest-add-support-for-generic-behaviours-with-no-gradients-aka-point-wise-models"><span
+class="header-section-number">3.2</span> Issue #12: [mtest] Add support
+for generic behaviours with no gradients, aka point-wise models</h2>
+<p>The developments associated with this Issue are documented in Section
+2.1.</p>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/12"
+class="uri">https://github.com/thelfer/tfel/issues/12</a>.</p>
+<h2 data-number="3.3"
+id="issue-11-models-implements-point-wise-models-on-top-of-the-default-implicit-and-runge-kutta-dsls-as-a-particular-case-of-generic-behaviours"><span
+class="header-section-number">3.3</span> Issue #11: [models] Implements
+point-wise models on top of the Default, Implicit and Runge-Kutta DSLs
+as a particular case of generic behaviours</h2>
+<p>The developments associated with this Issue are documented in Section
+1.1.</p>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/11"
+class="uri">https://github.com/thelfer/tfel/issues/11</a>.</p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

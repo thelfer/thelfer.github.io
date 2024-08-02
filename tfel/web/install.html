@@ -16,8 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -26,7 +27,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -50,11 +51,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -63,14 +64,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -79,7 +80,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -182,6 +185,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -333,63 +337,141 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#prerequisites"><span class="toc-section-number">1</span> Prerequisites</a>
+<li><a href="#prerequisites" id="toc-prerequisites"><span
+class="toc-section-number">1</span> Prerequisites</a>
 <ul>
-<li><a href="#compilers"><span class="toc-section-number">1.1</span> Compilers</a></li>
-<li><a href="#third-party-libraries"><span class="toc-section-number">1.2</span> Third party libraries</a></li>
-<li><a href="#third-party-tools"><span class="toc-section-number">1.3</span> Third party tools</a></li>
+<li><a href="#compilers" id="toc-compilers"><span
+class="toc-section-number">1.1</span> Compilers</a></li>
+<li><a href="#third-party-libraries"
+id="toc-third-party-libraries"><span
+class="toc-section-number">1.2</span> Third party libraries</a></li>
+<li><a href="#third-party-tools" id="toc-third-party-tools"><span
+class="toc-section-number">1.3</span> Third party tools</a></li>
 </ul></li>
-<li><a href="#downloading-the-source"><span class="toc-section-number">2</span> Downloading the source</a></li>
-<li><a href="#configuration"><span class="toc-section-number">3</span> Configuration</a>
+<li><a href="#downloading-the-source"
+id="toc-downloading-the-source"><span
+class="toc-section-number">2</span> Downloading the source</a></li>
+<li><a href="#configuration" id="toc-configuration"><span
+class="toc-section-number">3</span> Configuration</a>
 <ul>
-<li><a href="#creating-a-build-directory"><span class="toc-section-number">3.1</span> Creating a <code>build</code> directory</a></li>
-<li><a href="#using-the-cmake-build-system"><span class="toc-section-number">3.2</span> Using the <code>cmake</code> build system</a>
+<li><a href="#creating-a-build-directory"
+id="toc-creating-a-build-directory"><span
+class="toc-section-number">3.1</span> Creating a <code>build</code>
+directory</a></li>
+<li><a href="#using-the-cmake-build-system"
+id="toc-using-the-cmake-build-system"><span
+class="toc-section-number">3.2</span> Using the <code>cmake</code> build
+system</a>
 <ul>
-<li><a href="#controlling-the-generation-of-the-documentation"><span class="toc-section-number">3.2.1</span> Controlling the generation of the documentation</a></li>
-<li><a href="#localisation-of-the-libraries"><span class="toc-section-number">3.2.2</span> Localisation of the libraries</a></li>
-<li><a href="#appending-the-version-number"><span class="toc-section-number">3.2.3</span> Appending the version number</a></li>
-<li><a href="#specifying-a-version-flavour"><span class="toc-section-number">3.2.4</span> Specifying a version flavour</a></li>
-<li><a href="#selecting-the-python-version"><span class="toc-section-number">3.2.5</span> Selecting the <code>python</code> version</a></li>
+<li><a href="#controlling-the-generation-of-the-documentation"
+id="toc-controlling-the-generation-of-the-documentation"><span
+class="toc-section-number">3.2.1</span> Controlling the generation of
+the documentation</a></li>
+<li><a href="#localisation-of-the-libraries"
+id="toc-localisation-of-the-libraries"><span
+class="toc-section-number">3.2.2</span> Localisation of the
+libraries</a></li>
+<li><a href="#appending-the-version-number"
+id="toc-appending-the-version-number"><span
+class="toc-section-number">3.2.3</span> Appending the version
+number</a></li>
+<li><a href="#specifying-a-version-flavour"
+id="toc-specifying-a-version-flavour"><span
+class="toc-section-number">3.2.4</span> Specifying a version
+flavour</a></li>
+<li><a href="#selecting-the-python-version"
+id="toc-selecting-the-python-version"><span
+class="toc-section-number">3.2.5</span> Selecting the
+<code>python</code> version</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#building"><span class="toc-section-number">4</span> Building</a></li>
-<li><a href="#testing-optional"><span class="toc-section-number">5</span> Testing (optional)</a>
+<li><a href="#building" id="toc-building"><span
+class="toc-section-number">4</span> Building</a></li>
+<li><a href="#testing-optional" id="toc-testing-optional"><span
+class="toc-section-number">5</span> Testing (optional)</a>
 <ul>
-<li><a href="#building-the-documentation"><span class="toc-section-number">5.1</span> Building the documentation</a></li>
+<li><a href="#building-the-documentation"
+id="toc-building-the-documentation"><span
+class="toc-section-number">5.1</span> Building the
+documentation</a></li>
 </ul></li>
-<li><a href="#final-install"><span class="toc-section-number">6</span> Final install</a></li>
-<li><a href="#sec:QuickUbuntu"><span class="toc-section-number">7</span> A Quick installation procedure on <code>Ubuntu</code></a></li>
+<li><a href="#final-install" id="toc-final-install"><span
+class="toc-section-number">6</span> Final install</a></li>
+<li><a href="#sec:QuickUbuntu" id="toc-sec:QuickUbuntu"><span
+class="toc-section-number">7</span> A Quick installation procedure on
+<code>Ubuntu</code></a></li>
 </ul>
 </div>
-<p>The latest version of this document is always available at <a href="https://thelfer.github.io/tfel/web/install.html" class="uri">https://thelfer.github.io/tfel/web/install.html</a>.</p>
+<p>The latest version of this document is always available at <a
+href="https://thelfer.github.io/tfel/web/install.html"
+class="uri">https://thelfer.github.io/tfel/web/install.html</a>.</p>
 <blockquote>
-<p><strong>Note</strong> <code>TFEL</code> can be installed along with <a href="http://www-cast3m.cea.fr/"><code>Cast3M</code></a> (&gt;2019). <em>No extra installation is required</em>.</p>
+<p><strong>Note</strong> <code>TFEL</code> can be installed along with
+<a href="http://www-cast3m.cea.fr/"><code>Cast3M</code></a> (&gt;2019).
+<em>No extra installation is required</em>.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> <code>TFEL</code> is a part of the <a href="http://www.code-aster.org/"><code>code-aster</code></a> (&gt;12.03) and <a href="www.code-aster.org/"><code>Salome-Meca</code></a> (&gt; 2015.1) packages: no extra installation is required if you use one of these products*</p>
+<p><strong>Note</strong> <code>TFEL</code> is a part of the <a
+href="http://www.code-aster.org/"><code>code-aster</code></a>
+(&gt;12.03) and <a
+href="www.code-aster.org/"><code>Salome-Meca</code></a> (&gt; 2015.1)
+packages: no extra installation is required if you use one of these
+products*</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> <code>TFEL</code> is available as a <code>spack</code> package.</p>
-<p>One easy way to install <code>TFEL</code> under <code>LiNuX</code> and <code>MacOs</code> is to use the following instructions:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone <span class="at">--single-branch</span> <span class="at">-b</span> develop https://github.com/spack/spack.git </span>
+<p><strong>Note</strong> <code>TFEL</code> is available as a
+<code>spack</code> package.</p>
+<p>One easy way to install <code>TFEL</code> under <code>LiNuX</code>
+and <code>MacOs</code> is to use the following instructions:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone <span class="at">--single-branch</span> <span class="at">-b</span> develop https://github.com/spack/spack.git </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> . spack/share/spack/setup-env.sh</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> spack install tfel@master</span></code></pre></div>
 <p>The <code>TFEL</code> package can then be loaded as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> spack load tfel@master</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> spack load tfel@master</span></code></pre></div>
 </blockquote>
-<p>It refers to the <strong>current development sources</strong>, instructions for specific released versions are included with the sources and detailled in the <code>INSTALL</code> and the <code>INSTALL-cmake</code> files located at the root directory of the sources).</p>
-<p>This document describes the generic installation procedure for <code>TFEL</code> from the sources on posix-compliant systems. Please note that the main systems on which <code>TFEL</code> was developed is <code>Linux</code>. Extensive testing on other posix-compliant operating systems, notably <code>FreeBSD</code>, is lacking, although compilation and unit testing is known to work. A page dedicated to <code>FreeBSD</code> is available <a href="install-freebsd.html">here</a>.</p>
-<p>The installation on <a href="http://windows.microsoft.com">Windows plateform</a> is described in the following pages:</p>
+<p>It refers to the <strong>current development sources</strong>,
+instructions for specific released versions are included with the
+sources and detailled in the <code>INSTALL</code> and the
+<code>INSTALL-cmake</code> files located at the root directory of the
+sources).</p>
+<p>This document describes the generic installation procedure for
+<code>TFEL</code> from the sources on posix-compliant systems. Please
+note that the main systems on which <code>TFEL</code> was developed is
+<code>Linux</code>. Extensive testing on other posix-compliant operating
+systems, notably <code>FreeBSD</code>, is lacking, although compilation
+and unit testing is known to work. A page dedicated to
+<code>FreeBSD</code> is available <a
+href="install-freebsd.html">here</a>.</p>
+<p>The installation on <a href="http://windows.microsoft.com">Windows
+plateform</a> is described in the following pages:</p>
 <ul>
-<li><a href="install-windows-VisualStudio.html">Installation based on <code>cmake</code> and <code>Visual Studio</code></a>.</li>
-<li><a href="install-windows-Cast3M2017.html">Installation based on <code>cmake</code> and <code>MinGW</code> (as packaged with <code>Cast3M</code> <code>2017</code>)</a>. This tutorial can easily be adapted to other versions of <code>MinGW</code>, without requiring <code>Cast3M</code> to be installed.</li>
-<li><a href="install-windows-msys.html">Installation on [Windows](http://windows.microsoft.com) in the [<code>MSYS2</code>](https://www.msys2.org/) environment</a>.</li>
+<li><a href="install-windows-VisualStudio.html">Installation based on
+<code>cmake</code> and <code>Visual Studio</code></a>.</li>
+<li><a href="install-windows-Cast3M2017.html">Installation based on
+<code>cmake</code> and <code>MinGW</code> (as packaged with
+<code>Cast3M</code> <code>2017</code>)</a>. This tutorial can easily be
+adapted to other versions of <code>MinGW</code>, without requiring
+<code>Cast3M</code> to be installed.</li>
+<li><a href="install-windows-msys.html">Installation on
+[Windows](http://windows.microsoft.com) in the
+[<code>MSYS2</code>](https://www.msys2.org/) environment</a>.</li>
 </ul>
-<p>The creation of binary packages are detailled <a href="packages.html">here</a>.</p>
-<p>A quick way of installing <code>TFEL</code> on <code>Ubuntu</code> systems is given in Section 7.</p>
-<p><code>TFEL</code> is known to work on standard architectures implemented by the Intel and AMD processors, either 32 or 64 bits. As no specific instructions relative to the underlying architecture is used in the code, other architectures shall work as well.</p>
-<p>You must have the <code>cmake</code> build system (version greater than <span class="math inline">\(2.8\)</span>) installed on your system, installing ̀<code>TFEL</code> basically boils down to the following simple commands:</p>
-<div class="sourceCode" id="building1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="building1-1"><a href="#building1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake [options]</span>
+<p>The creation of binary packages are detailled <a
+href="packages.html">here</a>.</p>
+<p>A quick way of installing <code>TFEL</code> on <code>Ubuntu</code>
+systems is given in Section 7.</p>
+<p><code>TFEL</code> is known to work on standard architectures
+implemented by the Intel and AMD processors, either 32 or 64 bits. As no
+specific instructions relative to the underlying architecture is used in
+the code, other architectures shall work as well.</p>
+<p>You must have the <code>cmake</code> build system (version greater
+than <span class="math inline">\(2.8\)</span>) installed on your system,
+installing ̀<code>TFEL</code> basically boils down to the following
+simple commands:</p>
+<div class="sourceCode" id="building1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="building1-1"><a href="#building1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="pp">[</span><span class="ss">options</span><span class="pp">]</span></span>
 <span id="building1-2"><a href="#building1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make </span>
 <span id="building1-3"><a href="#building1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make install</span></code></pre></div>
 <p>The optional parameters of <code>cmake</code> allows you to:</p>
@@ -398,7 +480,9 @@
 <li>specify the installation directory</li>
 <li><em>specify the interfaces to be build</em></li>
 </ul>
-<p>The rest of this document is dedicated to giving all the details related to the installation process. For completeness, we will broke the installation procedure into five steps:</p>
+<p>The rest of this document is dedicated to giving all the details
+related to the installation process. For completeness, we will broke the
+installation procedure into five steps:</p>
 <ul>
 <li>Checking for available prerequisites</li>
 <li>Downloading the source</li>
@@ -407,142 +491,285 @@
 <li>Testing (optional)</li>
 <li>Final install</li>
 </ul>
-<h1 data-number="1" id="prerequisites"><span class="header-section-number">1</span> Prerequisites</h1>
-<h2 data-number="1.1" id="compilers"><span class="header-section-number">1.1</span> Compilers</h2>
-<p><code>TFEL</code> version 5.0 requires a <code>C++-20</code> compliant compiler, a <code>C</code> compiler and optionally a <code>fortran</code> compiler. The following compilers suite are officially supported:</p>
+<h1 data-number="1" id="prerequisites"><span
+class="header-section-number">1</span> Prerequisites</h1>
+<h2 data-number="1.1" id="compilers"><span
+class="header-section-number">1.1</span> Compilers</h2>
+<p><code>TFEL</code> version 5.0 requires a <code>C++-20</code>
+compliant compiler, a <code>C</code> compiler and optionally a
+<code>fortran</code> compiler. The following compilers suite are
+officially supported:</p>
 <ul>
-<li><a href="https://gcc.gnu.org/">The GNU Compiler Collection</a>. This is the default on most Linux distributions and is used for the development of <code>TFEL</code>.</li>
-<li><a href="http://clang.llvm.org/">The <code>clang</code> C and C++ compilers</a>.</li>
-<li>The <a href="https://software.intel.com/en-us/c-compilers">Intel compilers suite</a>.</li>
+<li><a href="https://gcc.gnu.org/">The GNU Compiler Collection</a>. This
+is the default on most Linux distributions and is used for the
+development of <code>TFEL</code>.</li>
+<li><a href="http://clang.llvm.org/">The <code>clang</code> C and C++
+compilers</a>.</li>
+<li>The <a href="https://software.intel.com/en-us/c-compilers">Intel
+compilers suite</a>.</li>
 </ul>
-<h2 data-number="1.2" id="third-party-libraries"><span class="header-section-number">1.2</span> Third party libraries</h2>
-<p><code>TFEL</code> has been designed to have no dependencies to third parties libraries to the very exception of the <a href="http://www.boost.org">Boost.Python</a> library used to create the optional bindings for the <a href="https://www.python.org/"><code>Python</code></a> language.</p>
-<h2 data-number="1.3" id="third-party-tools"><span class="header-section-number">1.3</span> Third party tools</h2>
-<p>The better way to build the <code>TFEL</code> is to use the <a href="http://www.cmake.org/"><code>cmake</code></a> build system (see this <a href="#using-the-cmake-build-system">section</a>). <em>We only support <code>cmake</code> version greater than <span class="math inline">\(2.8\)</span></em>.</p>
+<h2 data-number="1.2" id="third-party-libraries"><span
+class="header-section-number">1.2</span> Third party libraries</h2>
+<p><code>TFEL</code> has been designed to have no dependencies to third
+parties libraries to the very exception of the <a
+href="http://www.boost.org">Boost.Python</a> library used to create the
+optional bindings for the <a
+href="https://www.python.org/"><code>Python</code></a> language.</p>
+<h2 data-number="1.3" id="third-party-tools"><span
+class="header-section-number">1.3</span> Third party tools</h2>
+<p>The better way to build the <code>TFEL</code> is to use the <a
+href="http://www.cmake.org/"><code>cmake</code></a> build system (see
+this <a href="#using-the-cmake-build-system">section</a>). <em>We only
+support <code>cmake</code> version greater than <span
+class="math inline">\(2.8\)</span></em>.</p>
 <p>To build <code>TFEL</code> documentation, one may need:</p>
 <ul>
-<li>a valid <a href="http://www.latex-project.org/">LaTeX</a> installation (reference manual in pdf format). The author uses the <a href="https://www.tug.org/texlive/">texlive</a> distribution available with major Linux distributions.</li>
-<li>the <a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a> tool (code source documentation)</li>
+<li>a valid <a href="http://www.latex-project.org/">LaTeX</a>
+installation (reference manual in pdf format). The author uses the <a
+href="https://www.tug.org/texlive/">texlive</a> distribution available
+with major Linux distributions.</li>
+<li>the <a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a> tool
+(code source documentation)</li>
 </ul>
-<h1 data-number="2" id="downloading-the-source"><span class="header-section-number">2</span> Downloading the source</h1>
-<p>Official releases sources can be downloaded on <a href="https://github.com/thelfer/tfel/releases"><code>TFEL</code> github page</a> (see the Download entry of the navigation bar).</p>
-<h1 data-number="3" id="configuration"><span class="header-section-number">3</span> Configuration</h1>
-<p><code>TFEL</code> is based on the <a href="http://www.cmake.org/"><code>cmake</code></a> build-system.</p>
-<h2 data-number="3.1" id="creating-a-build-directory"><span class="header-section-number">3.1</span> Creating a <code>build</code> directory</h2>
-<p>We highly recommend to use a separate directory to build the sources.</p>
+<h1 data-number="2" id="downloading-the-source"><span
+class="header-section-number">2</span> Downloading the source</h1>
+<p>Official releases sources can be downloaded on <a
+href="https://github.com/thelfer/tfel/releases"><code>TFEL</code> github
+page</a> (see the Download entry of the navigation bar).</p>
+<h1 data-number="3" id="configuration"><span
+class="header-section-number">3</span> Configuration</h1>
+<p><code>TFEL</code> is based on the <a
+href="http://www.cmake.org/"><code>cmake</code></a> build-system.</p>
+<h2 data-number="3.1" id="creating-a-build-directory"><span
+class="header-section-number">3.1</span> Creating a <code>build</code>
+directory</h2>
+<p>We highly recommend to use a separate directory to build the
+sources.</p>
 <p>In the following, we use the following convention:</p>
 <ul>
-<li><code>$srcdir</code> points to the directory that actually contains the sources files.</li>
-<li><code>$prefix</code> points to the final installation directory.</li>
+<li><code>$srcdir</code> points to the directory that actually contains
+the sources files.</li>
+<li><code>$prefix</code> points to the final installation
+directory.</li>
 </ul>
-<p>Both <code>$srcdir</code> and <code>$prefix</code> must contain an <em>absolute</em> path.</p>
-<h2 data-number="3.2" id="using-the-cmake-build-system"><span class="header-section-number">3.2</span> Using the <code>cmake</code> build system</h2>
-<p>The use of the <code>cmake</code> build system is described in depth in the <code>INSTALL-cmake</code> file that is located in the top directory of <code>TFEL</code> sources. <em>We only support <code>cmake</code> version greater than <span class="math inline">\(2.8\)</span></em>, so please check the version available on your system:</p>
-<div class="sourceCode" id="cmake-version"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cmake-version-1"><a href="#cmake-version-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--version</span></span></code></pre></div>
+<p>Both <code>$srcdir</code> and <code>$prefix</code> must contain an
+<em>absolute</em> path.</p>
+<h2 data-number="3.2" id="using-the-cmake-build-system"><span
+class="header-section-number">3.2</span> Using the <code>cmake</code>
+build system</h2>
+<p>The use of the <code>cmake</code> build system is described in depth
+in the <code>INSTALL-cmake</code> file that is located in the top
+directory of <code>TFEL</code> sources. <em>We only support
+<code>cmake</code> version greater than <span
+class="math inline">\(2.8\)</span></em>, so please check the version
+available on your system:</p>
+<div class="sourceCode" id="cmake-version"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cmake-version-1"><a href="#cmake-version-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--version</span></span></code></pre></div>
 <p>A typical usage of <code>cmake</code> is the following:</p>
-<div class="sourceCode" id="building"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="building-1"><a href="#building-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="va">$srcdir</span> <span class="at">-DCMAKE_BUILD_TYPE</span><span class="op">=</span>Release <span class="at">-Dlocal-castem-header</span><span class="op">=</span>ON <span class="at">-Denable-fortran</span><span class="op">=</span>ON <span class="at">-Denable-aster</span><span class="op">=</span>ON <span class="at">-DCMAKE_INSTALL_PREFIX</span><span class="op">=</span><span class="va">$prefix</span></span></code></pre></div>
-<p>This will build <code>TFEL</code> with the support of interfaces for the <a href="http://www-cast3m.cea.fr/">Cast3M</a> and <a href="http://www.code-aster.org">Code-Aster</a> finite element solvers.</p>
+<div class="sourceCode" id="building"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="building-1"><a href="#building-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="va">$srcdir</span> <span class="at">-DCMAKE_BUILD_TYPE</span><span class="op">=</span>Release <span class="at">-Dlocal-castem-header</span><span class="op">=</span>ON <span class="at">-Denable-fortran</span><span class="op">=</span>ON <span class="at">-Denable-aster</span><span class="op">=</span>ON <span class="at">-DCMAKE_INSTALL_PREFIX</span><span class="op">=</span><span class="va">$prefix</span></span></code></pre></div>
+<p>This will build <code>TFEL</code> with the support of interfaces for
+the <a href="http://www-cast3m.cea.fr/">Cast3M</a> and <a
+href="http://www.code-aster.org">Code-Aster</a> finite element
+solvers.</p>
 <p>Various other options can be passed to <code>cmake</code>:</p>
 <ul>
-<li>The option <code>-Denable-cyrano=ON</code> enables the interface for the <code>Cyrano3</code> fuel performance code.</li>
-<li>To enable the mechanical behaviour interface for the ZeBuLoN finite element solver, one may use the <code>-Denable-zmat=ON   -DZSET_INSTALL_PATH=$ZSETPATH</code> option, where <code>$ZSETPATH</code> points to the installation directory of the ZeBuLoN finite element solver.</li>
-<li>To enable the material properties interface for the <a href="https://www.python.org/"><code>Python</code></a> language, one may use the <code>-Denable-python=ON</code> option.</li>
-<li>To enable bindings for the <a href="https://www.python.org/"><code>Python</code></a> language, notably for the <code>MTest</code> tool, one may use the <code>-Denable-python-bindings=ON</code> option. This requires the <a href="http://www.boost.org">Boost.Python</a> to be available.</li>
+<li>The option <code>-Denable-cyrano=ON</code> enables the interface for
+the <code>Cyrano3</code> fuel performance code.</li>
+<li>To enable the mechanical behaviour interface for the ZeBuLoN finite
+element solver, one may use the
+<code>-Denable-zmat=ON   -DZSET_INSTALL_PATH=$ZSETPATH</code> option,
+where <code>$ZSETPATH</code> points to the installation directory of the
+ZeBuLoN finite element solver.</li>
+<li>To enable the material properties interface for the <a
+href="https://www.python.org/"><code>Python</code></a> language, one may
+use the <code>-Denable-python=ON</code> option.</li>
+<li>To enable bindings for the <a
+href="https://www.python.org/"><code>Python</code></a> language, notably
+for the <code>MTest</code> tool, one may use the
+<code>-Denable-python-bindings=ON</code> option. This requires the <a
+href="http://www.boost.org">Boost.Python</a> to be available.</li>
 </ul>
-<p>Some default compiler settings are detected by <code>cmake</code>, depending on your system. To explicitly specify the compilers to be used, one may define one of the following variables:</p>
+<p>Some default compiler settings are detected by <code>cmake</code>,
+depending on your system. To explicitly specify the compilers to be
+used, one may define one of the following variables:</p>
 <ul>
 <li><code>CXX</code> : name of the <code>C++</code> compiler</li>
 <li><code>CC</code> : name of the <code>C</code> compiler</li>
 <li><code>FC</code> : name of the <code>fortran</code> compiler</li>
-<li><code>F77</code> : name of the <code>fortran</code> compiler (77 standard)</li>
+<li><code>F77</code> : name of the <code>fortran</code> compiler (77
+standard)</li>
 </ul>
-<p>For example, we can use the following command to select the <a href="https://software.intel.com/en-us/c-compilers">Intel compilers suite</a>:</p>
-<div class="sourceCode" id="building-icpc"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="building-icpc-1"><a href="#building-icpc-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> CXX=icpc CC=icc FC=ifort F77=ifort cmake <span class="va">$srcdir</span> <span class="at">-DCMAKE_BUILD_TYPE</span><span class="op">=</span>Release <span class="at">-Dlocal-castem-header</span><span class="op">=</span>ON <span class="at">-Denable-fortran</span><span class="op">=</span>ON <span class="at">-Denable-aster</span><span class="op">=</span>ON <span class="at">-DCMAKE_INSTALL_PREFIX</span><span class="op">=</span><span class="va">$prefix</span></span></code></pre></div>
-<h3 data-number="3.2.1" id="controlling-the-generation-of-the-documentation"><span class="header-section-number">3.2.1</span> Controlling the generation of the documentation</h3>
-<p>Generation of the documentation can be controlled by the following boolean options:</p>
+<p>For example, we can use the following command to select the <a
+href="https://software.intel.com/en-us/c-compilers">Intel compilers
+suite</a>:</p>
+<div class="sourceCode" id="building-icpc"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="building-icpc-1"><a href="#building-icpc-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> CXX=icpc CC=icc FC=ifort F77=ifort cmake <span class="va">$srcdir</span> <span class="at">-DCMAKE_BUILD_TYPE</span><span class="op">=</span>Release <span class="at">-Dlocal-castem-header</span><span class="op">=</span>ON <span class="at">-Denable-fortran</span><span class="op">=</span>ON <span class="at">-Denable-aster</span><span class="op">=</span>ON <span class="at">-DCMAKE_INSTALL_PREFIX</span><span class="op">=</span><span class="va">$prefix</span></span></code></pre></div>
+<h3 data-number="3.2.1"
+id="controlling-the-generation-of-the-documentation"><span
+class="header-section-number">3.2.1</span> Controlling the generation of
+the documentation</h3>
+<p>Generation of the documentation can be controlled by the following
+boolean options:</p>
 <ul>
-<li><code>enable-doxygen-doc</code>, which enables or disables the generation of the doxygen documentation (disabled by default)</li>
-<li><code>enable-reference-doc</code>, which enables or disables the reference documentation generation (enabled by default if <code>latex</code> of <code>pandoc</code> is found)</li>
-<li><code>enable-website</code>, which enables or disables the generation of the <code>TFEL</code> website (enabled by default if <code>pandoc</code> is found)</li>
+<li><code>enable-doxygen-doc</code>, which enables or disables the
+generation of the doxygen documentation (disabled by default)</li>
+<li><code>enable-reference-doc</code>, which enables or disables the
+reference documentation generation (enabled by default if
+<code>latex</code> of <code>pandoc</code> is found)</li>
+<li><code>enable-website</code>, which enables or disables the
+generation of the <code>TFEL</code> website (enabled by default if
+<code>pandoc</code> is found)</li>
 </ul>
-<h3 data-number="3.2.2" id="localisation-of-the-libraries"><span class="header-section-number">3.2.2</span> Localisation of the libraries</h3>
-<p>Some <code>LiNuX</code> distributions install libraries in <code>lib64</code> on <span class="math inline">\(64\)</span> bits architectures and in <code>lib</code>. This can be changed by defining a <code>LIB_SUFFIX</code> variable like this:</p>
-<div class="sourceCode" id="lib-dir"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="lib-dir-1"><a href="#lib-dir-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">-DLIB_SUFFIX</span><span class="op">=</span>64 ....</span></code></pre></div>
-<h3 data-number="3.2.3" id="appending-the-version-number"><span class="header-section-number">3.2.3</span> Appending the version number</h3>
-<p>The <code>TFEL_APPEND_VERSION</code> option will append the version number to the names of:</p>
+<h3 data-number="3.2.2" id="localisation-of-the-libraries"><span
+class="header-section-number">3.2.2</span> Localisation of the
+libraries</h3>
+<p>Some <code>LiNuX</code> distributions install libraries in
+<code>lib64</code> on <span class="math inline">\(64\)</span> bits
+architectures and in <code>lib</code>. This can be changed by defining a
+<code>LIB_SUFFIX</code> variable like this:</p>
+<div class="sourceCode" id="lib-dir"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="lib-dir-1"><a href="#lib-dir-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">-DLIB_SUFFIX</span><span class="op">=</span>64 ....</span></code></pre></div>
+<h3 data-number="3.2.3" id="appending-the-version-number"><span
+class="header-section-number">3.2.3</span> Appending the version
+number</h3>
+<p>The <code>TFEL_APPEND_VERSION</code> option will append the version
+number to the names of:</p>
 <ul>
 <li>The executables.</li>
 <li>The libraries.</li>
-<li>The python modules. Note that, to comply with <code>python</code> restriction on module’ names, the characters <code>.</code> and <code>-</code> are replace by <code>_</code> and that only the first level modules are affected.</li>
+<li>The python modules. Note that, to comply with <code>python</code>
+restriction on module’ names, the characters <code>.</code> and
+<code>-</code> are replace by <code>_</code> and that only the first
+level modules are affected.</li>
 <li>The directories in the <code>share</code> folder.</li>
 </ul>
-<p>The headers are installed in a subforder named <code>TFEL-${TVEL_VERSION}</code>.</p>
-<p>For example, if the <code>TFEL</code> version is <code>3.0.2-dev</code>, using <code>TFEL_APPEND_VERSION</code> opion will generate:</p>
+<p>The headers are installed in a subforder named
+<code>TFEL-${TVEL_VERSION}</code>.</p>
+<p>For example, if the <code>TFEL</code> version is
+<code>3.0.2-dev</code>, using <code>TFEL_APPEND_VERSION</code> opion
+will generate:</p>
 <ul>
 <li>The <code>mfront-3.0.2-dev</code> executable.</li>
 <li>The <code>libTFELMaterial-3.0.2-dev.so</code> library.</li>
 <li>The <code>mtest_3_0_2_dev</code> <code>python</code> module.</li>
-<li>The <code>tfel_3_0_2_dev.material</code> <code>python</code> module. In this case, the second level (<code>material</code>) is not affected.</li>
+<li>The <code>tfel_3_0_2_dev.material</code> <code>python</code> module.
+In this case, the second level (<code>material</code>) is not
+affected.</li>
 </ul>
-<p>This allows multiple executables to be installed in the same directory.</p>
-<h3 data-number="3.2.4" id="specifying-a-version-flavour"><span class="header-section-number">3.2.4</span> Specifying a version flavour</h3>
-<p>The <code>TFEL_VERSION_FLAVOUR</code> let the user define a string that will be used to modify the names of executables, libraries and so on (see the previous paragraph for details).</p>
-<p>For example, using <code>-DTFEL_VERSION_FLAVOUR=dbg</code> at the <code>cmake</code> invocation, will generate an executable called <code>mfront-dbg</code>.</p>
-<p>This option can be combined with the <code>TFEL_APPEND_VERSION</code> option.</p>
-<h3 data-number="3.2.5" id="selecting-the-python-version"><span class="header-section-number">3.2.5</span> Selecting the <code>python</code> version</h3>
-<p>A specific <code>python</code> version can be selected by setting the <code>Python_ADDITIONAL_VERSIONS</code>, as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> ../master/ <span class="at">-Denable-python-bindings</span><span class="op">=</span>ON <span class="at">-DPython_ADDITIONAL_VERSIONS</span><span class="op">=</span>2.7 ...</span></code></pre></div>
-<h1 data-number="4" id="building"><span class="header-section-number">4</span> Building</h1>
-<p>The configuration step created a compilation environment based on the <code>make</code> tool.</p>
+<p>This allows multiple executables to be installed in the same
+directory.</p>
+<h3 data-number="3.2.4" id="specifying-a-version-flavour"><span
+class="header-section-number">3.2.4</span> Specifying a version
+flavour</h3>
+<p>The <code>TFEL_VERSION_FLAVOUR</code> let the user define a string
+that will be used to modify the names of executables, libraries and so
+on (see the previous paragraph for details).</p>
+<p>For example, using <code>-DTFEL_VERSION_FLAVOUR=dbg</code> at the
+<code>cmake</code> invocation, will generate an executable called
+<code>mfront-dbg</code>.</p>
+<p>This option can be combined with the <code>TFEL_APPEND_VERSION</code>
+option.</p>
+<h3 data-number="3.2.5" id="selecting-the-python-version"><span
+class="header-section-number">3.2.5</span> Selecting the
+<code>python</code> version</h3>
+<p>A specific <code>python</code> version can be selected by setting the
+<code>Python_ADDITIONAL_VERSIONS</code>, as follows:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> ../master/ <span class="at">-Denable-python-bindings</span><span class="op">=</span>ON <span class="at">-DPython_ADDITIONAL_VERSIONS</span><span class="op">=</span>2.7 ...</span></code></pre></div>
+<h1 data-number="4" id="building"><span
+class="header-section-number">4</span> Building</h1>
+<p>The configuration step created a compilation environment based on the
+<code>make</code> tool.</p>
 <p>To build <code>TFEL</code> libraries and binaries, just type:</p>
-<div class="sourceCode" id="building-make"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="building-make-1"><a href="#building-make-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make</span></code></pre></div>
-<p>To reduce compilation times, one may want to build <code>TFEL</code> libraries and binaries in parallel. In this case, just type:</p>
-<div class="sourceCode" id="building-make-j"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="building-make-j-1"><a href="#building-make-j-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make <span class="at">-j</span> X</span></code></pre></div>
+<div class="sourceCode" id="building-make"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="building-make-1"><a href="#building-make-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make</span></code></pre></div>
+<p>To reduce compilation times, one may want to build <code>TFEL</code>
+libraries and binaries in parallel. In this case, just type:</p>
+<div class="sourceCode" id="building-make-j"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="building-make-j-1"><a href="#building-make-j-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make <span class="at">-j</span> X</span></code></pre></div>
 <p><code>X</code> being the number of processors available.</p>
-<h1 data-number="5" id="testing-optional"><span class="header-section-number">5</span> Testing (optional)</h1>
-<p><code>TFEL</code> is delivered with many unit tests (more than 500 if you are using the <code>cmake</code> build system and all the interfaces available). To build them and execute them, just type:</p>
-<div class="sourceCode" id="building-check"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="building-check-1"><a href="#building-check-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make check</span></code></pre></div>
-<p>Again, compilation time can be reduced using the <code>-j</code> option of the <code>make</code> command.</p>
-<h2 data-number="5.1" id="building-the-documentation"><span class="header-section-number">5.1</span> Building the documentation</h2>
-<p>If a valid <a href="http://www.latex-project.org">LaTeX</a> distribution is available, reference manuals can be build through:</p>
-<div class="sourceCode" id="building-pdf"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="building-pdf-1"><a href="#building-pdf-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make doc-pdf</span></code></pre></div>
-<p>If the <a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a> tool is available, code source documentation can be build through:</p>
-<div class="sourceCode" id="building-html"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="building-html-1"><a href="#building-html-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make doc-html</span></code></pre></div>
-<p>If <a href="http://johnmacfarlane.net/pandoc/index.html"><code>pandoc</code></a> is build and if you are using the <code>cmake</code> build system, the previous command will also install a local version of the <code>TFEL</code> web site.</p>
-<div class="sourceCode" id="building-website"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="building-website-1"><a href="#building-website-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make website</span></code></pre></div>
+<h1 data-number="5" id="testing-optional"><span
+class="header-section-number">5</span> Testing (optional)</h1>
+<p><code>TFEL</code> is delivered with many unit tests (more than 500 if
+you are using the <code>cmake</code> build system and all the interfaces
+available). To build them and execute them, just type:</p>
+<div class="sourceCode" id="building-check"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="building-check-1"><a href="#building-check-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make check</span></code></pre></div>
+<p>Again, compilation time can be reduced using the <code>-j</code>
+option of the <code>make</code> command.</p>
+<h2 data-number="5.1" id="building-the-documentation"><span
+class="header-section-number">5.1</span> Building the documentation</h2>
+<p>If a valid <a href="http://www.latex-project.org">LaTeX</a>
+distribution is available, reference manuals can be build through:</p>
+<div class="sourceCode" id="building-pdf"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="building-pdf-1"><a href="#building-pdf-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make doc-pdf</span></code></pre></div>
+<p>If the <a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a>
+tool is available, code source documentation can be build through:</p>
+<div class="sourceCode" id="building-html"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="building-html-1"><a href="#building-html-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make doc-html</span></code></pre></div>
+<p>If <a
+href="http://johnmacfarlane.net/pandoc/index.html"><code>pandoc</code></a>
+is build and if you are using the <code>cmake</code> build system, the
+previous command will also install a local version of the
+<code>TFEL</code> web site.</p>
+<div class="sourceCode" id="building-website"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="building-website-1"><a href="#building-website-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make website</span></code></pre></div>
 <p>All the documentation will be build with the following command:</p>
-<div class="sourceCode" id="building-html"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="building-html-1"><a href="#building-html-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make doc</span></code></pre></div>
-<h1 data-number="6" id="final-install"><span class="header-section-number">6</span> Final install</h1>
-<p>To install <code>TFEL</code> binaries and libraries in the directory pointed by <code>$prefix</code>, just type:</p>
-<div class="sourceCode" id="building-install"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="building-install-1"><a href="#building-install-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make install</span></code></pre></div>
+<div class="sourceCode" id="building-html"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="building-html-1"><a href="#building-html-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make doc</span></code></pre></div>
+<h1 data-number="6" id="final-install"><span
+class="header-section-number">6</span> Final install</h1>
+<p>To install <code>TFEL</code> binaries and libraries in the directory
+pointed by <code>$prefix</code>, just type:</p>
+<div class="sourceCode" id="building-install"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="building-install-1"><a href="#building-install-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make install</span></code></pre></div>
 <p>The previous command also installs the documentation if build.</p>
-<h1 data-number="7" id="sec:QuickUbuntu"><span class="header-section-number">7</span> A Quick installation procedure on <code>Ubuntu</code></h1>
-<p>The following steps show a quick way of installing <code>TFEL</code> on <code>Ubuntu</code> systems. The configuration described in this section only compiles the <code>generic</code> interface, which makes suitable for use with solvers using the <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues"><code>MFrontGenericInterfaceSupport</code> project</a>, e.g. with <code>OpenGeoSys</code>, <code>FEniCS</code>, <code>MoFEM</code>, etc…</p>
-<p>The compilation requires that <code>gcc</code>, <code>git</code> and <code>python3</code> are installed, as well as the python module <code>numpy</code> and the <code>libboost</code> library to build the <code>python</code> bindings. Those packages can be installed using:</p>
+<h1 data-number="7" id="sec:QuickUbuntu"><span
+class="header-section-number">7</span> A Quick installation procedure on
+<code>Ubuntu</code></h1>
+<p>The following steps show a quick way of installing <code>TFEL</code>
+on <code>Ubuntu</code> systems. The configuration described in this
+section only compiles the <code>generic</code> interface, which makes
+suitable for use with solvers using the <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues"><code>MFrontGenericInterfaceSupport</code>
+project</a>, e.g. with <code>OpenGeoSys</code>, <code>FEniCS</code>,
+<code>MoFEM</code>, etc…</p>
+<p>The compilation requires that <code>gcc</code>, <code>git</code> and
+<code>python3</code> are installed, as well as the python module
+<code>numpy</code> and the <code>libboost</code> library to build the
+<code>python</code> bindings. Those packages can be installed using:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt install python3 python3-numpy libboost-all-dev cmake g++ gfortran</span></code></pre></div>
 <p>The next step is to get the <code>TFEL</code> source code:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd <span class="op">&lt;</span>where_you_want_to_download_the_source<span class="op">&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> TFEL <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> TFEL</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone https://github.com/thelfer/tfel.git</span></code></pre></div>
-<p>This will download the current development version of <code>TFEL</code>.</p>
-<p>Then we create a <code>build</code> directory and call <code>ccmake</code>.</p>
+<p>This will download the current development version of
+<code>TFEL</code>.</p>
+<p>Then we create a <code>build</code> directory and call
+<code>ccmake</code>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir build <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> build</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ccmake ../tfel</span></code></pre></div>
-<p><code>ccmake</code> allows to select various options. In this tutorial, we choose the following options:</p>
+<p><code>ccmake</code> allows to select various options. In this
+tutorial, we choose the following options:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="ex">CMAKE_INSTALL_PREFIX</span>    ~/.local</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">TFEL_APPEND_VERSION</span>           ON</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enable-numpy-support</span>          ON</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enable-python</span>                 ON</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enable-python-bindings</span>        ON</span></code></pre></div>
-<p>The <code>TFEL_APPEND_VERSION</code> allows to install different versions of <code>TFEL</code> at the same location.</p>
-<p>Then configure twice <code>[c]</code>,<code>[c]</code> and generate <code>[g]</code>. Once done, just type:</p>
+<p>The <code>TFEL_APPEND_VERSION</code> allows to install different
+versions of <code>TFEL</code> at the same location.</p>
+<p>Then configure twice <code>[c]</code>,<code>[c]</code> and generate
+<code>[g]</code>. Once done, just type:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make install</span></code></pre></div>
 <p>Finally, add the paths in your local <code>.bashrc</code> file:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH=$PATH</span>:~/.local/bin</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">LD_LIBRARY_PATH=${LD_LIBRARY_PATH}</span>:~/.local/lib</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PYTHONPATH=${PYTHONPATH}</span>:~/.local/lib/python3.8/site-packages</span></code></pre></div>
-<p>Now you can use the local <code>TFEL</code> binaries such as <code>mfront-X.Y.Z-dev</code> and <code>mtest-X.Y.Z-dev</code> or define some global alias names for them.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="va">$PATH</span>:~/.local/bin</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">LD_LIBRARY_PATH</span><span class="op">=</span><span class="va">${LD_LIBRARY_PATH}</span>:~/.local/lib</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PYTHONPATH</span><span class="op">=</span><span class="va">${PYTHONPATH}</span>:~/.local/lib/python3.8/site-packages</span></code></pre></div>
+<p>Now you can use the local <code>TFEL</code> binaries such as
+<code>mfront-X.Y.Z-dev</code> and <code>mtest-X.Y.Z-dev</code> or define
+some global alias names for them.</p>
 <p>&lt;!– # Windows MINGW – &gt;</p>
 <!-- Local IspellDict: english -->
     <script>

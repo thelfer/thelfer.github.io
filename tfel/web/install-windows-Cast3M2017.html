@@ -16,8 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -26,7 +27,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -50,11 +51,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -63,14 +64,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -79,7 +80,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -182,6 +185,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -327,118 +331,250 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">How to build and use <code>TFEL</code> and <code>MFront</code> on <code>Windows</code> with the <code>MinGW</code> compiler delivered with <code>Cast3M</code> <code>2017</code></h1>
+<h1 class="title">How to build and use <code>TFEL</code> and
+<code>MFront</code> on <code>Windows</code> with the <code>MinGW</code>
+compiler delivered with <code>Cast3M</code> <code>2017</code></h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">1/09/2017</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#notes-on-the-installation-directory">Notes on the installation directory</a></li>
-<li><a href="#notes-on-bat-scripts">Notes on <code>bat</code> scripts</a></li>
-<li><a href="#about-binary-packages">About binary packages</a></li>
-<li><a href="#decompressing-the-archive">Decompressing the archive</a></li>
-<li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#getting-the-sources-using-git">Getting the sources using <code>git</code></a>
+<li><a href="#notes-on-the-installation-directory"
+id="toc-notes-on-the-installation-directory">Notes on the installation
+directory</a></li>
+<li><a href="#notes-on-bat-scripts" id="toc-notes-on-bat-scripts">Notes
+on <code>bat</code> scripts</a></li>
+<li><a href="#about-binary-packages"
+id="toc-about-binary-packages">About binary packages</a></li>
+<li><a href="#decompressing-the-archive"
+id="toc-decompressing-the-archive">Decompressing the archive</a></li>
+<li><a href="#prerequisites"
+id="toc-prerequisites">Prerequisites</a></li>
+<li><a href="#getting-the-sources-using-git"
+id="toc-getting-the-sources-using-git">Getting the sources using
+<code>git</code></a>
 <ul>
-<li><a href="#cloning-the-repository">Cloning the repository</a></li>
-<li><a href="#updating-the-repository">Updating the repository</a></li>
+<li><a href="#cloning-the-repository"
+id="toc-cloning-the-repository">Cloning the repository</a></li>
+<li><a href="#updating-the-repository"
+id="toc-updating-the-repository">Updating the repository</a></li>
 </ul></li>
-<li><a href="#compiling-mfront">Compiling <code>MFront</code></a>
+<li><a href="#compiling-mfront" id="toc-compiling-mfront">Compiling
+<code>MFront</code></a>
 <ul>
-<li><a href="#changing-the-location-of-cast3m-2017">Changing the location of <code>Cast3M</code> <code>2017</code></a></li>
-<li><a href="#changing-the-location-of-the-sources">Changing the location of the sources</a></li>
-<li><a href="#changing-the-installation-directory">Changing the installation directory</a></li>
+<li><a href="#changing-the-location-of-cast3m-2017"
+id="toc-changing-the-location-of-cast3m-2017">Changing the location of
+<code>Cast3M</code> <code>2017</code></a></li>
+<li><a href="#changing-the-location-of-the-sources"
+id="toc-changing-the-location-of-the-sources">Changing the location of
+the sources</a></li>
+<li><a href="#changing-the-installation-directory"
+id="toc-changing-the-installation-directory">Changing the installation
+directory</a></li>
 </ul></li>
-<li><a href="#a-simple-test-showing-how-to-perform-cast3m-2017-simulations-with-a-mfront-behaviour">A simple test showing how to perform <code>Cast3M</code> <code>2017</code> simulations with a <code>MFront</code> behaviour</a>
+<li><a
+href="#a-simple-test-showing-how-to-perform-cast3m-2017-simulations-with-a-mfront-behaviour"
+id="toc-a-simple-test-showing-how-to-perform-cast3m-2017-simulations-with-a-mfront-behaviour">A
+simple test showing how to perform <code>Cast3M</code> <code>2017</code>
+simulations with a <code>MFront</code> behaviour</a>
 <ul>
-<li><a href="#compilation-the-mfront-behaviour">Compilation the <code>MFront</code> behaviour</a></li>
-<li><a href="#launch-the-cast3m-2017-simulation">Launch the <code>Cast3M</code> <code>2017</code> simulation</a></li>
+<li><a href="#compilation-the-mfront-behaviour"
+id="toc-compilation-the-mfront-behaviour">Compilation the
+<code>MFront</code> behaviour</a></li>
+<li><a href="#launch-the-cast3m-2017-simulation"
+id="toc-launch-the-cast3m-2017-simulation">Launch the
+<code>Cast3M</code> <code>2017</code> simulation</a></li>
 </ul></li>
 </ul>
 </div>
-<p>Building and using <code>MFront</code> on <code>Windows</code> is more complex than on other systems for the following reasons:</p>
+<p>Building and using <code>MFront</code> on <code>Windows</code> is
+more complex than on other systems for the following reasons:</p>
 <ul>
 <li>There is no default compiler on this platform.</li>
 <li>The usage of command line is less common.</li>
 </ul>
-<p>This page is dedicated to show how this issues can be overcome and ease the <code>MFront</code> experience on <code>Windows</code>. We will focus on coupling with <code>Cast3M</code> <code>2017</code> which is packaged with a version of the <code>MinGW</code> compiler suite. <strong>This tutorial makes the assumption that the user have installed the developer version of <code>Cast3M</code></strong>.</p>
+<p>This page is dedicated to show how this issues can be overcome and
+ease the <code>MFront</code> experience on <code>Windows</code>. We will
+focus on coupling with <code>Cast3M</code> <code>2017</code> which is
+packaged with a version of the <code>MinGW</code> compiler suite.
+<strong>This tutorial makes the assumption that the user have installed
+the developer version of <code>Cast3M</code></strong>.</p>
 <p>This tutorial will show that:</p>
 <ul>
 <li>The installation does not require any administrator privileges.</li>
-<li>The main trick is to appropriately update the <code>PATH</code> variable so that the <code>MinGW</code> and <code>TFEL</code> libraries are found when needed. This can be done by creating small wrapper scripts as discussed bellow.</li>
+<li>The main trick is to appropriately update the <code>PATH</code>
+variable so that the <code>MinGW</code> and <code>TFEL</code> libraries
+are found when needed. This can be done by creating small wrapper
+scripts as discussed bellow.</li>
 </ul>
-<p>This tutorial is mostly based on <code>bat</code> scripts that can be downloaded <a href="downloads/windows-install-scripts.tar.bz2">here</a>.</p>
-<h2 id="notes-on-the-installation-directory">Notes on the installation directory</h2>
-<p>For information, the author use the following convention: the scripts are decompressed in <code>C:\tfel-master\src</code>.</p>
-<p>By default, the previous scripts will install <code>TFEL</code> and <code>MFront</code> in <code>C:\tfel-master\install-castem2017</code>. The user is, of course, free to choose another installation location: he simply has to edit the scripts accordingly.</p>
+<p>This tutorial is mostly based on <code>bat</code> scripts that can be
+downloaded <a
+href="downloads/windows-install-scripts.tar.bz2">here</a>.</p>
+<h2 id="notes-on-the-installation-directory">Notes on the installation
+directory</h2>
+<p>For information, the author use the following convention: the scripts
+are decompressed in <code>C:\tfel-master\src</code>.</p>
+<p>By default, the previous scripts will install <code>TFEL</code> and
+<code>MFront</code> in <code>C:\tfel-master\install-castem2017</code>.
+The user is, of course, free to choose another installation location: he
+simply has to edit the scripts accordingly.</p>
 <h2 id="notes-on-bat-scripts">Notes on <code>bat</code> scripts</h2>
-<p>Executing <code>bat</code> scripts is fairly easy: in <code>Windows</code> <code>Explorer</code>, right-click on the script and select <code>Open</code>.</p>
-<p>Modifying <code>bat</code> scripts is also easy: in <code>Windows</code> <code>Explorer</code>, right-click on the script and select <code>Modify</code>. By default, this action will open the script in <code>Notepad</code>, but any text editor will do.</p>
+<p>Executing <code>bat</code> scripts is fairly easy: in
+<code>Windows</code> <code>Explorer</code>, right-click on the script
+and select <code>Open</code>.</p>
+<p>Modifying <code>bat</code> scripts is also easy: in
+<code>Windows</code> <code>Explorer</code>, right-click on the script
+and select <code>Modify</code>. By default, this action will open the
+script in <code>Notepad</code>, but any text editor will do.</p>
 <h2 id="about-binary-packages">About binary packages</h2>
-<p>Various binary packages can be downloaded on the <code>github</code> website. Those binary packages are built against specific versions of <code>Cast3M</code>. When installing thoses packages, the user have the choice to modify the <code>PATH</code> variable globally.</p>
-<p>This tutorial can nevertheless be usefull: small scripts wrapping calls to <code>MFront</code> can be a viable choice in the <code>Windows</code> environment, rather than relying on the command line. Be careful that modify the examples appropriately to reflect where <code>TFEL</code> and <code>MFront</code> have been installed.</p>
+<p>Various binary packages can be downloaded on the <code>github</code>
+website. Those binary packages are built against specific versions of
+<code>Cast3M</code>. When installing thoses packages, the user have the
+choice to modify the <code>PATH</code> variable globally.</p>
+<p>This tutorial can nevertheless be usefull: small scripts wrapping
+calls to <code>MFront</code> can be a viable choice in the
+<code>Windows</code> environment, rather than relying on the command
+line. Be careful that modify the examples appropriately to reflect where
+<code>TFEL</code> and <code>MFront</code> have been installed.</p>
 <h1 id="decompressing-the-archive">Decompressing the archive</h1>
-<p>As said before, this tutorial is mostly based on <code>bat</code> scripts that can be downloaded <a href="downloads/windows-install-scripts.tar.bz2">here</a>.</p>
+<p>As said before, this tutorial is mostly based on <code>bat</code>
+scripts that can be downloaded <a
+href="downloads/windows-install-scripts.tar.bz2">here</a>.</p>
 <p>The archive contains the following files:</p>
 <ul>
-<li><code>git.bat</code>: a script used to fetch the latest source from the <code>github</code> repository.</li>
-<li><code>git-update.bat</code>: a script used to update the sources to the latest version.</li>
-<li><code>compil-castem2017.bat</code>: a script used to compile <code>TFEL</code> and <code>MFront</code> using the compiler delivered with <code>Cast3M</code> <code>2017</code>.</li>
+<li><code>git.bat</code>: a script used to fetch the latest source from
+the <code>github</code> repository.</li>
+<li><code>git-update.bat</code>: a script used to update the sources to
+the latest version.</li>
+<li><code>compil-castem2017.bat</code>: a script used to compile
+<code>TFEL</code> and <code>MFront</code> using the compiler delivered
+with <code>Cast3M</code> <code>2017</code>.</li>
 </ul>
-<p>The two first scripts are not mandatory: the user can directly download an archive from the github website (<a href="https://github.com/thelfer/tfel/releases" class="uri">https://github.com/thelfer/tfel/releases</a>).</p>
-<p>It also contains a directory called <code>test</code>. The usage is those scripts is fully detailed in the following sections.</p>
-<p>The other files contained in the archive will not be used in this tutorial.</p>
+<p>The two first scripts are not mandatory: the user can directly
+download an archive from the github website (<a
+href="https://github.com/thelfer/tfel/releases"
+class="uri">https://github.com/thelfer/tfel/releases</a>).</p>
+<p>It also contains a directory called <code>test</code>. The usage is
+those scripts is fully detailed in the following sections.</p>
+<p>The other files contained in the archive will not be used in this
+tutorial.</p>
 <h1 id="prerequisites">Prerequisites</h1>
 <p>In the following, we will suppose that:</p>
 <ul>
-<li><code>git</code> is installed. This is not mandatory. Users that do not want to follow the latest developments of <code>TFEL</code> and <code>MFront</code> can download a packaged version on the github website. The tutorial will mostly apply, but the name of the directory containing the sources must be changed. <code>git</code> for <code>Windows</code> can be downloaded <a href="https://git-scm.com/download/win">here</a></li>
-<li><code>cmake</code> is installed. <code>cmake</code> can be downloaded <a href="https://cmake.org/download/">here</a>.</li>
-<li><code>Cast3M</code> <code>2017</code> <strong>developer version</strong> is installed. <code>Cast3M</code> can be downloaded <a href="http://www-cast3m.cea.fr/index.php?xml=download1">here</a>.</li>
+<li><code>git</code> is installed. This is not mandatory. Users that do
+not want to follow the latest developments of <code>TFEL</code> and
+<code>MFront</code> can download a packaged version on the github
+website. The tutorial will mostly apply, but the name of the directory
+containing the sources must be changed. <code>git</code> for
+<code>Windows</code> can be downloaded <a
+href="https://git-scm.com/download/win">here</a></li>
+<li><code>cmake</code> is installed. <code>cmake</code> can be
+downloaded <a href="https://cmake.org/download/">here</a>.</li>
+<li><code>Cast3M</code> <code>2017</code> <strong>developer
+version</strong> is installed. <code>Cast3M</code> can be downloaded <a
+href="http://www-cast3m.cea.fr/index.php?xml=download1">here</a>.</li>
 </ul>
 <blockquote>
 <p><strong>Notes</strong></p>
-<p>In the following, it is expected that those prerequisites are located in directories listed in the <code>PATH</code> variables. If this is not the case, the scripts must be modified to update this variable appropriately.</p>
+<p>In the following, it is expected that those prerequisites are located
+in directories listed in the <code>PATH</code> variables. If this is not
+the case, the scripts must be modified to update this variable
+appropriately.</p>
 </blockquote>
-<h1 id="getting-the-sources-using-git">Getting the sources using <code>git</code></h1>
-<p>This section can be skipped if the user wants to use a packaged version of tfel (<a href="https://github.com/thelfer/tfel/releases" class="uri">https://github.com/thelfer/tfel/releases</a>).</p>
+<h1 id="getting-the-sources-using-git">Getting the sources using
+<code>git</code></h1>
+<p>This section can be skipped if the user wants to use a packaged
+version of tfel (<a href="https://github.com/thelfer/tfel/releases"
+class="uri">https://github.com/thelfer/tfel/releases</a>).</p>
 <h2 id="cloning-the-repository">Cloning the repository</h2>
-<p>The <code>git.bat</code> will clone the <code>git</code> repository on your machine in the current directory. The directory containing the repository is called <code>tfel</code>.</p>
+<p>The <code>git.bat</code> will clone the <code>git</code> repository
+on your machine in the current directory. The directory containing the
+repository is called <code>tfel</code>.</p>
 <h2 id="updating-the-repository">Updating the repository</h2>
-<p>After the <code>git</code> repository has been cloned, the <code>git-update.bat</code> script can be used to synchronize our local repository with the official repository and follow the latest developments.</p>
+<p>After the <code>git</code> repository has been cloned, the
+<code>git-update.bat</code> script can be used to synchronize our local
+repository with the official repository and follow the latest
+developments.</p>
 <h1 id="compiling-mfront">Compiling <code>MFront</code></h1>
-<p>The <code>compil-castem2017.bat</code> can now be used to compile and install <code>TFEL</code> using the <code>MinGW</code> compiler delivered with <code>Cast3M</code> <code>2017</code>.</p>
-<h2 id="changing-the-location-of-cast3m-2017">Changing the location of <code>Cast3M</code> <code>2017</code></h2>
-<p>The script assumes that <code>Cast3M</code> <code>2017</code> is installed in <code>C:\Cast3M\PCW_17</code>. If this is not the case, edit the script and change the following line appropriately:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> PATH=C:<span class="dt">\C</span>ast3M<span class="dt">\P</span>CW_17<span class="dt">\M</span>inGW<span class="dt">\x</span>86_64-6.3.0-posix-sjlj-rt_v5-rev1<span class="dt">\m</span>ingw64<span class="dt">\b</span>in<span class="kw">;</span><span class="ex">%PATH%</span></span></code></pre></div>
-<h2 id="changing-the-location-of-the-sources">Changing the location of the sources</h2>
-<p>By default, the script assumes that the sources are in the <code>tfel</code> subdirectory. This is the case if the user cloned the <code>git</code> repository as explained before.</p>
-<p>If the user has downloaded an archive from the <code>github</code> website, the name of the directory can be different and the user must update the following line:</p>
-<pre class="bat"><code>cmake.exe ..\tfel -G &quot;MinGW Makefiles&quot; ...</code></pre>
-<p>For example, if you have downloaded version <code>3.0.1</code>, the name of the archive is <code>tfel-3.0.1.tar.bz2</code>. Assuming that this archive is decompressed in the same directory than the scripts, the name of the directory containing the sources will be <code>tfel-3.0.1</code>. The previous line can thus be udpated as follows:</p>
-<pre class="bat"><code>cmake.exe ..\tfel-3.0.1 -G &quot;MinGW Makefiles&quot; ...</code></pre>
-<h2 id="changing-the-installation-directory">Changing the installation directory</h2>
-<p>The installation directory is passed to <code>cmake</code> through the <code>CMAKE_INSTALL_PREFIX</code> variable. The default install directory is <code>C:\tfel-master\install-castem-2017</code>. The user can modify this value to fit its needs.</p>
-<h1 id="a-simple-test-showing-how-to-perform-cast3m-2017-simulations-with-a-mfront-behaviour">A simple test showing how to perform <code>Cast3M</code> <code>2017</code> simulations with a <code>MFront</code> behaviour</h1>
-<p>The <code>test</code> directory contains an example showing how to perform <code>Cast3M</code> <code>2017</code> simulations with a <code>MFront</code> behaviour. It contains:</p>
+<p>The <code>compil-castem2017.bat</code> can now be used to compile and
+install <code>TFEL</code> using the <code>MinGW</code> compiler
+delivered with <code>Cast3M</code> <code>2017</code>.</p>
+<h2 id="changing-the-location-of-cast3m-2017">Changing the location of
+<code>Cast3M</code> <code>2017</code></h2>
+<p>The script assumes that <code>Cast3M</code> <code>2017</code> is
+installed in <code>C:\Cast3M\PCW_17</code>. If this is not the case,
+edit the script and change the following line appropriately:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> PATH=C:<span class="dt">\C</span>ast3M<span class="dt">\P</span>CW_17<span class="dt">\M</span>inGW<span class="dt">\x</span>86_64-6.3.0-posix-sjlj-rt_v5-rev1<span class="dt">\m</span>ingw64<span class="dt">\b</span>in<span class="kw">;</span><span class="ex">%PATH%</span></span></code></pre></div>
+<h2 id="changing-the-location-of-the-sources">Changing the location of
+the sources</h2>
+<p>By default, the script assumes that the sources are in the
+<code>tfel</code> subdirectory. This is the case if the user cloned the
+<code>git</code> repository as explained before.</p>
+<p>If the user has downloaded an archive from the <code>github</code>
+website, the name of the directory can be different and the user must
+update the following line:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bat"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cmake.exe ..\tfel <span class="at">-G</span> <span class="st">&quot;MinGW Makefiles&quot;</span> ...</span></code></pre></div>
+<p>For example, if you have downloaded version <code>3.0.1</code>, the
+name of the archive is <code>tfel-3.0.1.tar.bz2</code>. Assuming that
+this archive is decompressed in the same directory than the scripts, the
+name of the directory containing the sources will be
+<code>tfel-3.0.1</code>. The previous line can thus be udpated as
+follows:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bat"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cmake.exe ..\tfel-3.0.1 <span class="at">-G</span> <span class="st">&quot;MinGW Makefiles&quot;</span> ...</span></code></pre></div>
+<h2 id="changing-the-installation-directory">Changing the installation
+directory</h2>
+<p>The installation directory is passed to <code>cmake</code> through
+the <code>CMAKE_INSTALL_PREFIX</code> variable. The default install
+directory is <code>C:\tfel-master\install-castem-2017</code>. The user
+can modify this value to fit its needs.</p>
+<h1
+id="a-simple-test-showing-how-to-perform-cast3m-2017-simulations-with-a-mfront-behaviour">A
+simple test showing how to perform <code>Cast3M</code> <code>2017</code>
+simulations with a <code>MFront</code> behaviour</h1>
+<p>The <code>test</code> directory contains an example showing how to
+perform <code>Cast3M</code> <code>2017</code> simulations with a
+<code>MFront</code> behaviour. It contains:</p>
 <ul>
 <li>a <code>mfront.bat</code> script.</li>
 <li>a <code>launch-castem.bat</code> script.</li>
-<li>a <code>MFront</code> behaviour called <code>LogarithimcStrainPlasticity</code>.</li>
-<li>a <code>Gibiane</code> script called <code>LogarithimcStrainPlasticity-ssna303.dgibi</code>.</li>
+<li>a <code>MFront</code> behaviour called
+<code>LogarithimcStrainPlasticity</code>.</li>
+<li>a <code>Gibiane</code> script called
+<code>LogarithimcStrainPlasticity-ssna303.dgibi</code>.</li>
 </ul>
-<h2 id="compilation-the-mfront-behaviour">Compilation the <code>MFront</code> behaviour</h2>
-<p>Launch the <code>mfront.bat</code> script. This script is basically a wrapper around the following call to <code>MFront</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mfront.exe</span> <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem LogarithmicStrainPlasticity.mfront</span></code></pre></div>
+<h2 id="compilation-the-mfront-behaviour">Compilation the
+<code>MFront</code> behaviour</h2>
+<p>Launch the <code>mfront.bat</code> script. This script is basically a
+wrapper around the following call to <code>MFront</code>:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mfront.exe</span> <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem LogarithmicStrainPlasticity.mfront</span></code></pre></div>
 <p>This command:</p>
 <ul>
-<li>generates <code>C++</code> sources from the <code>LogarithmicStrainPlasticity.mfront</code> file and a <code>Makefile.mfront</code> file.</li>
-<li>calls the <code>make</code> utility to compile the sources an generate the <code>libUmatBehaviour.dll</code> library.</li>
+<li>generates <code>C++</code> sources from the
+<code>LogarithmicStrainPlasticity.mfront</code> file and a
+<code>Makefile.mfront</code> file.</li>
+<li>calls the <code>make</code> utility to compile the sources an
+generate the <code>libUmatBehaviour.dll</code> library.</li>
 </ul>
-<p>There is one trick here: the name of <code>make</code> utility in the <code>MinGW</code> compiler suite is <code>mingw32-make</code>. For <code>MFront</code> to call the appropriate program, the <code>MAKE</code> environment variable must be set. This is done in the script at the following line:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> MAKE=mingw32-make</span></code></pre></div>
-<h2 id="launch-the-cast3m-2017-simulation">Launch the <code>Cast3M</code> <code>2017</code> simulation</h2>
-<p>The <code>Cast3M</code> solver can be used directly because it can’t find the <code>TFEL</code> libraries automatically. The <code>launch-castem.bat</code> script thus first updates the <code>PATH</code> variable and then launches the <code>Cast3M</code> solver script.</p>
-<p>Launch the <code>launch-castem.bat</code> script to perform the simulation.</p>
+<p>There is one trick here: the name of <code>make</code> utility in the
+<code>MinGW</code> compiler suite is <code>mingw32-make</code>. For
+<code>MFront</code> to call the appropriate program, the
+<code>MAKE</code> environment variable must be set. This is done in the
+script at the following line:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> MAKE=mingw32-make</span></code></pre></div>
+<h2 id="launch-the-cast3m-2017-simulation">Launch the
+<code>Cast3M</code> <code>2017</code> simulation</h2>
+<p>The <code>Cast3M</code> solver can be used directly because it can’t
+find the <code>TFEL</code> libraries automatically. The
+<code>launch-castem.bat</code> script thus first updates the
+<code>PATH</code> variable and then launches the <code>Cast3M</code>
+solver script.</p>
+<p>Launch the <code>launch-castem.bat</code> script to perform the
+simulation.</p>
 <!-- Local IspellDict: english -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

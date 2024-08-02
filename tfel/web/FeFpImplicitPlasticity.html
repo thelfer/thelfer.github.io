@@ -17,8 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -27,7 +28,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -51,11 +52,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -64,14 +65,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -80,7 +81,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
             
         
         
@@ -186,6 +189,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -331,530 +335,1182 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Implicit integration of finite strain behaviours based on a multiplicative decomposition of the deformation gradient</h1>
-<h2 class="author">Thomas Helfer, Chao Ling, Jérémy Hure, Jean-Michel Scherer</h2>
+<h1 class="title">Implicit integration of finite strain behaviours based
+on a multiplicative decomposition of the deformation gradient</h1>
+<h2 class="author">Thomas Helfer, Chao Ling, Jérémy Hure, Jean-Michel
+Scherer</h2>
 <h3 class="date">01/02/2022</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#thermodynamical-approach"><span class="toc-section-number">1</span> Thermodynamical approach</a>
+<li><a href="#thermodynamical-approach"
+id="toc-thermodynamical-approach"><span
+class="toc-section-number">1</span> Thermodynamical approach</a>
 <ul>
-<li><a href="#kinematics"><span class="toc-section-number">1.1</span> Kinematics</a></li>
-<li><a href="#multiplicative-decomposition-of-the-deformation-gradient"><span class="toc-section-number">1.2</span> Multiplicative decomposition of the deformation gradient</a></li>
-<li><a href="#expression-of-the-mechanical-power"><span class="toc-section-number">1.3</span> Expression of the mechanical power</a></li>
-<li><a href="#sec:mfront:FeFpImplicitPlasticity:hyperelasticity"><span class="toc-section-number">1.4</span> Hyperelastic behaviour</a></li>
-<li><a href="#sec:mfront:FeFpImplicitPlasticity:MandelStress"><span class="toc-section-number">1.5</span> Plastic dissipation and Mandel stress</a></li>
-<li><a href="#clausius-duhem-inequality"><span class="toc-section-number">1.6</span> Clausius-Duhem inequality</a></li>
+<li><a href="#kinematics" id="toc-kinematics"><span
+class="toc-section-number">1.1</span> Kinematics</a></li>
+<li><a href="#multiplicative-decomposition-of-the-deformation-gradient"
+id="toc-multiplicative-decomposition-of-the-deformation-gradient"><span
+class="toc-section-number">1.2</span> Multiplicative decomposition of
+the deformation gradient</a></li>
+<li><a href="#expression-of-the-mechanical-power"
+id="toc-expression-of-the-mechanical-power"><span
+class="toc-section-number">1.3</span> Expression of the mechanical
+power</a></li>
+<li><a href="#sec:mfront:FeFpImplicitPlasticity:hyperelasticity"
+id="toc-sec:mfront:FeFpImplicitPlasticity:hyperelasticity"><span
+class="toc-section-number">1.4</span> Hyperelastic behaviour</a></li>
+<li><a href="#sec:mfront:FeFpImplicitPlasticity:MandelStress"
+id="toc-sec:mfront:FeFpImplicitPlasticity:MandelStress"><span
+class="toc-section-number">1.5</span> Plastic dissipation and Mandel
+stress</a></li>
+<li><a href="#clausius-duhem-inequality"
+id="toc-clausius-duhem-inequality"><span
+class="toc-section-number">1.6</span> Clausius-Duhem inequality</a></li>
 </ul></li>
-<li><a href="#examples"><span class="toc-section-number">2</span> Examples</a>
+<li><a href="#examples" id="toc-examples"><span
+class="toc-section-number">2</span> Examples</a>
 <ul>
-<li><a href="#isotropic-incompressible-visco-plasticity"><span class="toc-section-number">2.1</span> Isotropic incompressible (visco)-plasticity</a></li>
-<li><a href="#sec:mfront:FeFpImplicitPlasticity:single_crystal"><span class="toc-section-number">2.2</span> Single crystal plasticity</a></li>
+<li><a href="#isotropic-incompressible-visco-plasticity"
+id="toc-isotropic-incompressible-visco-plasticity"><span
+class="toc-section-number">2.1</span> Isotropic incompressible
+(visco)-plasticity</a></li>
+<li><a href="#sec:mfront:FeFpImplicitPlasticity:single_crystal"
+id="toc-sec:mfront:FeFpImplicitPlasticity:single_crystal"><span
+class="toc-section-number">2.2</span> Single crystal plasticity</a></li>
 </ul></li>
-<li><a href="#numerical-implementation"><span class="toc-section-number">3</span> Numerical implementation</a>
+<li><a href="#numerical-implementation"
+id="toc-numerical-implementation"><span
+class="toc-section-number">3</span> Numerical implementation</a>
 <ul>
-<li><a href="#implicit-equations"><span class="toc-section-number">3.1</span> Implicit equations</a></li>
-<li><a href="#resolution-by-a-newton-algorithm.-residual-and-jacobian-matrix"><span class="toc-section-number">3.2</span> Resolution by a Newton algorithm. Residual and jacobian matrix</a></li>
-<li><a href="#consistent-tangent-operator"><span class="toc-section-number">3.3</span> Consistent tangent operator</a></li>
+<li><a href="#implicit-equations" id="toc-implicit-equations"><span
+class="toc-section-number">3.1</span> Implicit equations</a></li>
+<li><a
+href="#resolution-by-a-newton-algorithm.-residual-and-jacobian-matrix"
+id="toc-resolution-by-a-newton-algorithm.-residual-and-jacobian-matrix"><span
+class="toc-section-number">3.2</span> Resolution by a Newton algorithm.
+Residual and jacobian matrix</a></li>
+<li><a href="#consistent-tangent-operator"
+id="toc-consistent-tangent-operator"><span
+class="toc-section-number">3.3</span> Consistent tangent
+operator</a></li>
 </ul></li>
-<li><a href="#plastic-behaviour-implementation"><span class="toc-section-number">4</span> Plastic behaviour’ implementation</a></li>
-<li><a href="#sec:mfront:FeFpImplicitPlasticity:consistent_tangent_operators"><span class="toc-section-number">5</span> Alternative consistent tangent operators</a>
+<li><a href="#plastic-behaviour-implementation"
+id="toc-plastic-behaviour-implementation"><span
+class="toc-section-number">4</span> Plastic behaviour’
+implementation</a></li>
+<li><a
+href="#sec:mfront:FeFpImplicitPlasticity:consistent_tangent_operators"
+id="toc-sec:mfront:FeFpImplicitPlasticity:consistent_tangent_operators"><span
+class="toc-section-number">5</span> Alternative consistent tangent
+operators</a>
 <ul>
-<li><a href="#sec:mfront:FeFpImplicitPlasticity:dtau_dF"><span class="toc-section-number">5.1</span> Another expression of the derivative of the Kirchhoff stress with respect ot the deformation gradient</a></li>
-<li><a href="#derivative-of-the-second-piola-kirchhoff-stress-in-the-initial-configuration-with-respect-to-the-right-cauchy-tensor-in-the-initial-configuration"><span class="toc-section-number">5.2</span> Derivative of the second Piola-Kirchhoff stress in the initial configuration with respect to the right Cauchy tensor in the initial configuration</a></li>
+<li><a href="#sec:mfront:FeFpImplicitPlasticity:dtau_dF"
+id="toc-sec:mfront:FeFpImplicitPlasticity:dtau_dF"><span
+class="toc-section-number">5.1</span> Another expression of the
+derivative of the Kirchhoff stress with respect ot the deformation
+gradient</a></li>
+<li><a
+href="#derivative-of-the-second-piola-kirchhoff-stress-in-the-initial-configuration-with-respect-to-the-right-cauchy-tensor-in-the-initial-configuration"
+id="toc-derivative-of-the-second-piola-kirchhoff-stress-in-the-initial-configuration-with-respect-to-the-right-cauchy-tensor-in-the-initial-configuration"><span
+class="toc-section-number">5.2</span> Derivative of the second
+Piola-Kirchhoff stress in the initial configuration with respect to the
+right Cauchy tensor in the initial configuration</a></li>
 </ul></li>
-<li><a href="#references"><span class="toc-section-number">6</span> References</a></li>
+<li><a href="#references" id="toc-references"><span
+class="toc-section-number">6</span> References</a></li>
 </ul>
 </div>
 <!--
 pandoc -f markdown+tex_math_single_backslash -F pandoc-crossref --citeproc --highlight-style=tango FeFpImplicitPlasticity.md -o FeFpImplicitPlasticity.pdf
 -->
-<p>This page describes an implicit algorithm for a finite strain plastic behaviour based on a multiplicative decomposition of the deformation gradient <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span> in an elastic part <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> and a plastic part <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{p}\)</span> following the work of Mandel <span class="citation" data-cites="mandel_equations_1973">[<a href="#ref-mandel_equations_1973" role="doc-biblioref">1</a>]</span>.</p>
-<h1 data-number="1" id="thermodynamical-approach"><span class="header-section-number">1</span> Thermodynamical approach</h1>
-<h2 data-number="1.1" id="kinematics"><span class="header-section-number">1.1</span> Kinematics</h2>
-<p>Let <span class="math inline">\(\vec{x}\)</span> be the current position of a point located at <span class="math inline">\(\vec{X}\)</span> int the intial configuration.</p>
-<p>The displacement of this point is denoted <span class="math inline">\(\vec{u}\)</span>: <span class="math display">\[
+<p>This page describes an implicit algorithm for a finite strain plastic
+behaviour based on a multiplicative decomposition of the deformation
+gradient <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span> in an
+elastic part <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> and
+a plastic part <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{p}\)</span>
+following the work of Mandel <span class="citation"
+data-cites="mandel_equations_1973">[<a href="#ref-mandel_equations_1973"
+role="doc-biblioref">1</a>]</span>.</p>
+<h1 data-number="1" id="thermodynamical-approach"><span
+class="header-section-number">1</span> Thermodynamical approach</h1>
+<h2 data-number="1.1" id="kinematics"><span
+class="header-section-number">1.1</span> Kinematics</h2>
+<p>Let <span class="math inline">\(\vec{x}\)</span> be the current
+position of a point located at <span
+class="math inline">\(\vec{X}\)</span> int the intial configuration.</p>
+<p>The displacement of this point is denoted <span
+class="math inline">\(\vec{u}\)</span>: <span class="math display">\[
   \vec{u}=\vec{x}-\vec{X}
 \]</span></p>
-<h3 data-number="1.1.1" id="the-deformation-gradient"><span class="header-section-number">1.1.1</span> The deformation gradient</h3>
-<p>The deformation gradient <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span> is defined as the derivative of the current position with respect to the initial position:</p>
-<p><span id="eq:mfront:FeFpImplicitPlasticity:F"><span class="math display">\[
- {\underset{\tilde{}}{\mathbf{F}}}= {{\displaystyle \frac{\displaystyle \partial \vec{x}}{\displaystyle \partial \vec{X}}}} = {\underset{\tilde{}}{\mathbf{I}}}+ {{\displaystyle \frac{\displaystyle \partial \vec{u}}{\displaystyle \partial \vec{X}}}}
-\qquad(1)\]</span></span></p>
-<h3 data-number="1.1.2" id="the-velocity-gradient-and-the-rate-of-deformation"><span class="header-section-number">1.1.2</span> The velocity gradient and the rate of deformation</h3>
-<p>Let <span class="math inline">\(\vec{\dot{x}}\)</span> be the velocity of a point <span class="math inline">\(\vec{x}\)</span> in the current configuration.</p>
-<p>The gradient of the velocity <span class="math inline">\(\vec{\dot{x}}\)</span> in the current configuration is denoted <span class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span>:</p>
+<h3 data-number="1.1.1" id="the-deformation-gradient"><span
+class="header-section-number">1.1.1</span> The deformation gradient</h3>
+<p>The deformation gradient <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span> is
+defined as the derivative of the current position with respect to the
+initial position:</p>
+<p><span id="eq:mfront:FeFpImplicitPlasticity:F"><span
+class="math display">\[
+{\underset{\tilde{}}{\mathbf{F}}}= {{\displaystyle \frac{\displaystyle
+\partial \vec{x}}{\displaystyle \partial \vec{X}}}} =
+{\underset{\tilde{}}{\mathbf{I}}}+ {{\displaystyle \frac{\displaystyle
+\partial \vec{u}}{\displaystyle \partial \vec{X}}}}
+\qquad{(1)}\]</span></span></p>
+<h3 data-number="1.1.2"
+id="the-velocity-gradient-and-the-rate-of-deformation"><span
+class="header-section-number">1.1.2</span> The velocity gradient and the
+rate of deformation</h3>
+<p>Let <span class="math inline">\(\vec{\dot{x}}\)</span> be the
+velocity of a point <span class="math inline">\(\vec{x}\)</span> in the
+current configuration.</p>
+<p>The gradient of the velocity <span
+class="math inline">\(\vec{\dot{x}}\)</span> in the current
+configuration is denoted <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span>:</p>
 <p><span class="math display">\[
-{\underset{\tilde{}}{\mathbf{L}}}={{\displaystyle \frac{\displaystyle \partial \vec{\dot{x}}}{\displaystyle \partial \vec{x}}}}
+{\underset{\tilde{}}{\mathbf{L}}}={{\displaystyle \frac{\displaystyle
+\partial \vec{\dot{x}}}{\displaystyle \partial \vec{x}}}}
 \]</span></p>
-<p>Using Equation (1), the velocity <span class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span> can be related to the time derivative of the deformation gradient by chain rule:</p>
-<p><span id="eq:mfront:FeFpImplicitPlasticity:L_F"><span class="math display">\[
-{\underset{\tilde{}}{\mathbf{L}}}={{\displaystyle \frac{\displaystyle \partial \vec{\dot{x}}}{\displaystyle \partial \vec{X}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial \vec{X}}{\displaystyle \partial \vec{x}}}}={\underset{\tilde{}}{\mathbf{\dot{F}}}}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}}
-\qquad(2)\]</span></span></p>
-<p>The rate of deformation is the symmetric part of is <span class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span>: <span id="eq:mfront:FeFpImplicitPlasticity:D"><span class="math display">\[
-\underline{D}= {{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{\left({\underset{\tilde{}}{\mathbf{L}}}+{{\underset{\tilde{}}{\mathbf{L}}}^{\mathrm{T}}}\right)}
-\qquad(3)\]</span></span></p>
-<p>The time derivative of the change of volume, <span class="math inline">\(\dot{J}\)</span>, is given by:</p>
-<p><span id="eq:mfront:FeFpImplicitPlasticity:dJdt"><span class="math display">\[
-\dot{J}=J\,{\mathrm{tr}{\left(\underline{D}\right)}} \quad\Leftrightarrow\quad {{\displaystyle \frac{\displaystyle {{\mathrm{d}}}\ln{\left(J\right)}}{\displaystyle {{\mathrm{d}}}t}}}={\mathrm{tr}{\left(\underline{D}\right)}}={\mathrm{tr}{\left({\underset{\tilde{}}{\mathbf{L}}}\right)}}
-\qquad(4)\]</span></span></p>
-<p>This relation shows that there is no change of volume if the trace of the rate of deformation <span class="math inline">\(\underline{D}\)</span> is null.</p>
+<p>Using Equation (1), the velocity <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span> can be
+related to the time derivative of the deformation gradient by chain
+rule:</p>
+<p><span id="eq:mfront:FeFpImplicitPlasticity:L_F"><span
+class="math display">\[
+{\underset{\tilde{}}{\mathbf{L}}}={{\displaystyle \frac{\displaystyle
+\partial \vec{\dot{x}}}{\displaystyle \partial
+\vec{X}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial
+\vec{X}}{\displaystyle \partial
+\vec{x}}}}={\underset{\tilde{}}{\mathbf{\dot{F}}}}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}}
+\qquad{(2)}\]</span></span></p>
+<p>The rate of deformation is the symmetric part of is <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span>: <span
+id="eq:mfront:FeFpImplicitPlasticity:D"><span class="math display">\[
+\underline{D}= {{\displaystyle \frac{\displaystyle 1}{\displaystyle
+2}}}{\left({\underset{\tilde{}}{\mathbf{L}}}+{{\underset{\tilde{}}{\mathbf{L}}}^{\mathrm{T}}}\right)}
+\qquad{(3)}\]</span></span></p>
+<p>The time derivative of the change of volume, <span
+class="math inline">\(\dot{J}\)</span>, is given by:</p>
+<p><span id="eq:mfront:FeFpImplicitPlasticity:dJdt"><span
+class="math display">\[
+\dot{J}=J\,{\mathrm{tr}{\left(\underline{D}\right)}}
+\quad\Leftrightarrow\quad {{\displaystyle \frac{\displaystyle
+{{\mathrm{d}}}\ln{\left(J\right)}}{\displaystyle
+{{\mathrm{d}}}t}}}={\mathrm{tr}{\left(\underline{D}\right)}}={\mathrm{tr}{\left({\underset{\tilde{}}{\mathbf{L}}}\right)}}
+\qquad{(4)}\]</span></span></p>
+<p>This relation shows that there is no change of volume if the trace of
+the rate of deformation <span
+class="math inline">\(\underline{D}\)</span> is null.</p>
 <blockquote>
 <p><strong>Demonstration of Equation (4)</strong></p>
-<p>Equation (4) can be established by computing the following first order development of the determinant of the deformation gradient:</p>
+<p>Equation (4) can be established by computing the following first
+order development of the determinant of the deformation gradient:</p>
 <p><span class="math display">\[
 \begin{aligned}
 {\left.J\right|_{t+\Delta\,t}}&amp;=\det{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}\right)}
 =\det{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t}}+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}\right)}
 =\det{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t}}+\Delta\,t\,{\underset{\tilde{}}{\mathbf{L}}}\,\cdot\,{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t}}\right)}\\
-&amp;\approx\det{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t}}\right)}\,\det{\left(\underline{I}+\Delta t\,{\underset{\tilde{}}{\mathbf{L}}}\right)}
-\approx{\left.J\right|_{t}}\,{\left(1+\Delta t\,{\mathrm{tr}{\left(\underline{D}\right)}}\right)}
+&amp;\approx\det{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t}}\right)}\,\det{\left(\underline{I}+\Delta
+t\,{\underset{\tilde{}}{\mathbf{L}}}\right)}
+\approx{\left.J\right|_{t}}\,{\left(1+\Delta
+t\,{\mathrm{tr}{\left(\underline{D}\right)}}\right)}
 \end{aligned}
 \]</span></p>
 </blockquote>
-<h2 data-number="1.2" id="multiplicative-decomposition-of-the-deformation-gradient"><span class="header-section-number">1.2</span> Multiplicative decomposition of the deformation gradient</h2>
-<p><span id="eq:mfront:FeFpImplicitPlasticity:FeFp"><span class="math display">\[
-{\underset{\tilde{}}{\mathbf{F}}}= {\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\, {\underset{\tilde{}}{\mathbf{F}}}_{p}
-\qquad(5)\]</span></span></p>
-<h3 data-number="1.2.1" id="decomposition-of-velocity-gradient"><span class="header-section-number">1.2.1</span> Decomposition of velocity gradient</h3>
-<p>Using Equation (5), the velocity gradient <span class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span> can be expressed as:</p>
+<h2 data-number="1.2"
+id="multiplicative-decomposition-of-the-deformation-gradient"><span
+class="header-section-number">1.2</span> Multiplicative decomposition of
+the deformation gradient</h2>
+<p><span id="eq:mfront:FeFpImplicitPlasticity:FeFp"><span
+class="math display">\[
+{\underset{\tilde{}}{\mathbf{F}}}=
+{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,
+{\underset{\tilde{}}{\mathbf{F}}}_{p}
+\qquad{(5)}\]</span></span></p>
+<h3 data-number="1.2.1" id="decomposition-of-velocity-gradient"><span
+class="header-section-number">1.2.1</span> Decomposition of velocity
+gradient</h3>
+<p>Using Equation (5), the velocity gradient <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span> can be
+expressed as:</p>
 <p><span class="math display">\[
 \begin{aligned}
-{\underset{\tilde{}}{\mathbf{L}}}&amp;= {\underset{\tilde{}}{\mathbf{\dot{F}}}}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}} = {\left({\underset{\tilde{}}{\mathbf{\dot{F}}}}_{e}\,\cdot\, {\underset{\tilde{}}{\mathbf{F}}}_{p}+{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\, {\underset{\tilde{}}{\mathbf{\dot{F}}}}_{p}\right)}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}}
-   &amp;= {\left({\underset{\tilde{}}{\mathbf{\dot{F}}}}_{e}\,\cdot\, {\underset{\tilde{}}{\mathbf{F}}}_{p}+{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\, {\underset{\tilde{}}{\mathbf{\dot{F}}}}_{p}\right)}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\\
-   &amp;= {\underset{\tilde{}}{\mathbf{\dot{F}}}}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}+{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\, {\underset{\tilde{}}{\mathbf{\dot{F}}}}_{p}\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\\
-   &amp;= {\underset{\tilde{}}{\mathbf{L}}}_{e}+{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}
+{\underset{\tilde{}}{\mathbf{L}}}&amp;=
+{\underset{\tilde{}}{\mathbf{\dot{F}}}}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}}
+= {\left({\underset{\tilde{}}{\mathbf{\dot{F}}}}_{e}\,\cdot\,
+{\underset{\tilde{}}{\mathbf{F}}}_{p}+{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,
+{\underset{\tilde{}}{\mathbf{\dot{F}}}}_{p}\right)}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}}
+   &amp;= {\left({\underset{\tilde{}}{\mathbf{\dot{F}}}}_{e}\,\cdot\,
+{\underset{\tilde{}}{\mathbf{F}}}_{p}+{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,
+{\underset{\tilde{}}{\mathbf{\dot{F}}}}_{p}\right)}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\\
+   &amp;=
+{\underset{\tilde{}}{\mathbf{\dot{F}}}}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}+{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,
+{\underset{\tilde{}}{\mathbf{\dot{F}}}}_{p}\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\\
+   &amp;=
+{\underset{\tilde{}}{\mathbf{L}}}_{e}+{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}
 \end{aligned}
 \]</span></p>
 <p>where:</p>
 <ul>
-<li>The elastic part <span class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}_{e}={\underset{\tilde{}}{\mathbf{\dot{F}}}}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\)</span> of the velocity gradient is defined in the current configuration <span class="math inline">\(C\)</span>.</li>
-<li>The plastic part of the velocity gradient <span class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}_{p}={\underset{\tilde{}}{\mathbf{\dot{F}}}}_{p}\,\cdot\, {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\)</span> in the intermediate configuration <span class="math inline">\(C_{i}\)</span>.</li>
+<li>The elastic part <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}_{e}={\underset{\tilde{}}{\mathbf{\dot{F}}}}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\)</span>
+of the velocity gradient is defined in the current configuration <span
+class="math inline">\(C\)</span>.</li>
+<li>The plastic part of the velocity gradient <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}_{p}={\underset{\tilde{}}{\mathbf{\dot{F}}}}_{p}\,\cdot\,
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\)</span> in the
+intermediate configuration <span
+class="math inline">\(C_{i}\)</span>.</li>
 </ul>
-<h2 data-number="1.3" id="expression-of-the-mechanical-power"><span class="header-section-number">1.3</span> Expression of the mechanical power</h2>
-<p>The mechanical power per unit of volume in the current configuration <span class="math inline">\(p_{v}\)</span> is given by the contracted product of the Cauchy stress and the deformation gradient.</p>
-<p>Assuming the symmetry of the Cauchy stress, <span class="math inline">\(p_{v}\)</span> can be developped as follows:</p>
+<h2 data-number="1.3" id="expression-of-the-mechanical-power"><span
+class="header-section-number">1.3</span> Expression of the mechanical
+power</h2>
+<p>The mechanical power per unit of volume in the current configuration
+<span class="math inline">\(p_{v}\)</span> is given by the contracted
+product of the Cauchy stress and the deformation gradient.</p>
+<p>Assuming the symmetry of the Cauchy stress, <span
+class="math inline">\(p_{v}\)</span> can be developped as follows:</p>
 <p><span class="math display">\[
-\underline{\sigma}\,\colon\,\underline{D}= 
-\underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}= 
+\underline{\sigma}\,\colon\,\underline{D}=
+\underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}=
 \underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{e}+\underline{\sigma}\,\colon\,{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\right)}
 \]</span></p>
-<p>The term <span class="math inline">\(\underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{e}\)</span> is assumed to be reversible and must derive from an convex free energy <span class="math inline">\(\Psi\)</span>, as developped in Section 1.4, such that:</p>
+<p>The term <span
+class="math inline">\(\underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{e}\)</span>
+is assumed to be reversible and must derive from an convex free energy
+<span class="math inline">\(\Psi\)</span>, as developped in Section 1.4,
+such that:</p>
 <p><span class="math display">\[
-\underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{e}= {{\displaystyle \frac{\displaystyle 1}{\displaystyle J_{e}}}}\,\underline{S}_{e}\,\colon\,\underline{\dot{\varepsilon}}^{GL}_{e}
-\quad\text{with}\quad\underline{S}_{e}=\rho_{e}\,{{\displaystyle \frac{\displaystyle \partial \Psi_{e}}{\displaystyle \partial \underline{\varepsilon}^{GL}_{e}}}}
+\underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{e}=
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle
+J_{e}}}}\,\underline{S}_{e}\,\colon\,\underline{\dot{\varepsilon}}^{GL}_{e}
+\quad\text{with}\quad\underline{S}_{e}=\rho_{e}\,{{\displaystyle
+\frac{\displaystyle \partial \Psi_{e}}{\displaystyle \partial
+\underline{\varepsilon}^{GL}_{e}}}}
 \]</span></p>
-<p>where <span class="math inline">\(\underline{S}_{e}\)</span> is the second Piola-Kirchhoff stress, <span class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span> is the Green-Lagrange strain, <span class="math inline">\(J_{e}\)</span> is the determinant of the elastic part of the deformation gradient and <span class="math inline">\(\rho_{e}\)</span> the mass density in the intermediate configuration.</p>
-<p>The second term will be associated with the plastic dissipation in Section 1.5 which introduces the Mandel stress <span class="math inline">\(M\)</span> such that:</p>
-<p><span id="eq:mfront:FeFpImplicitPlasticity:mechanical_power"><span class="math display">\[
-\underline{\sigma}\,\colon\,\underline{D}= 
-\underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{e}+{{\displaystyle \frac{\displaystyle 1}{\displaystyle J_{e}}}}\,{\underset{\tilde{}}{\mathbf{M}}}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{p}
-\qquad(6)\]</span></span></p>
-<h2 data-number="1.4" id="sec:mfront:FeFpImplicitPlasticity:hyperelasticity"><span class="header-section-number">1.4</span> Hyperelastic behaviour</h2>
-<p>Let <span class="math inline">\(\underline{S}_{e}\)</span> be the second Piola-Kirchhoff stress in the intermediate configuration, which is related to the Cauchy stress by:</p>
+<p>where <span class="math inline">\(\underline{S}_{e}\)</span> is the
+second Piola-Kirchhoff stress, <span
+class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span> is the
+Green-Lagrange strain, <span class="math inline">\(J_{e}\)</span> is the
+determinant of the elastic part of the deformation gradient and <span
+class="math inline">\(\rho_{e}\)</span> the mass density in the
+intermediate configuration.</p>
+<p>The second term will be associated with the plastic dissipation in
+Section 1.5 which introduces the Mandel stress <span
+class="math inline">\(M\)</span> such that:</p>
+<p><span id="eq:mfront:FeFpImplicitPlasticity:mechanical_power"><span
+class="math display">\[
+\underline{\sigma}\,\colon\,\underline{D}=
+\underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{e}+{{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+J_{e}}}}\,{\underset{\tilde{}}{\mathbf{M}}}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{p}
+\qquad{(6)}\]</span></span></p>
+<h2 data-number="1.4"
+id="sec:mfront:FeFpImplicitPlasticity:hyperelasticity"><span
+class="header-section-number">1.4</span> Hyperelastic behaviour</h2>
+<p>Let <span class="math inline">\(\underline{S}_{e}\)</span> be the
+second Piola-Kirchhoff stress in the intermediate configuration, which
+is related to the Cauchy stress by:</p>
 <p><span class="math display">\[
-\underline{\sigma}= {{\displaystyle \frac{\displaystyle 1}{\displaystyle J_{e}}}}\,{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,\underline{S}_{e}\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}
+\underline{\sigma}= {{\displaystyle \frac{\displaystyle 1}{\displaystyle
+J_{e}}}}\,{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,\underline{S}_{e}\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}
 \]</span></p>
-<p>Classically, <span class="math inline">\(\underline{S}_{e}\)</span> is conjugated to the Green-Lagrange strain <span class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span>, i.e.:</p>
-<p><span id="eq:mfront:FeFpImplicitPlasticity:Se_degl"><span class="math display">\[
-\underline{\sigma}\,\colon\,\underline{D}= {{\displaystyle \frac{\displaystyle 1}{\displaystyle J_{e}}}}\,\underline{S}_{e}\,\colon\,\underline{\dot{\varepsilon}}^{GL}_{e}
-\qquad(7)\]</span></span></p>
-<p>The Green-Lagrange strain <span class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span> is defined by:</p>
+<p>Classically, <span class="math inline">\(\underline{S}_{e}\)</span>
+is conjugated to the Green-Lagrange strain <span
+class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span>,
+i.e.:</p>
+<p><span id="eq:mfront:FeFpImplicitPlasticity:Se_degl"><span
+class="math display">\[
+\underline{\sigma}\,\colon\,\underline{D}= {{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+J_{e}}}}\,\underline{S}_{e}\,\colon\,\underline{\dot{\varepsilon}}^{GL}_{e}
+\qquad{(7)}\]</span></span></p>
+<p>The Green-Lagrange strain <span
+class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span> is
+defined by:</p>
 <p><span class="math display">\[
-\underline{\varepsilon}^{GL}_{e}={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{\left(\underline{C}_{e}-\underline{I}\right)}={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{\left({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}-\underline{I}\right)}
+\underline{\varepsilon}^{GL}_{e}={{\displaystyle \frac{\displaystyle
+1}{\displaystyle
+2}}}{\left(\underline{C}_{e}-\underline{I}\right)}={{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+2}}}{\left({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}-\underline{I}\right)}
 \]</span></p>
-<p>where <span class="math inline">\(\underline{C}_{e}={Fe^{\mathrm{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> is the right Cauchy tensor in the intermediate configuration.</p>
+<p>where <span
+class="math inline">\(\underline{C}_{e}={Fe^{\mathrm{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span>
+is the right Cauchy tensor in the intermediate configuration.</p>
 <blockquote>
 <p><strong>Demonstration of Equation (7)</strong></p>
 <p>The time derivative of the Green-Lagrange strain is:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\underline{\dot{\varepsilon}}^{GL}_{e}&amp;= {{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,{\left({{\underset{\tilde{}}{\mathbf{\dot{F}}}}^{\mathrm{T}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{\dot{F}}}}_{e}\right)} \\
-      &amp;= {{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\left({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\,\cdot\,{{\underset{\tilde{}}{\mathbf{\dot{F}}}}^{\mathrm{T}}}_{e}+{\underset{\tilde{}}{\mathbf{\dot{F}}}}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\right)}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}
-      &amp;= {{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\left({{\underset{\tilde{}}{\mathbf{L}}}_{e}^{\mathrm{T}}}+{\underset{\tilde{}}{\mathbf{L}}}_{e}\right)}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}
-      &amp;= {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{D}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}
+\underline{\dot{\varepsilon}}^{GL}_{e}&amp;= {{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+2}}}\,{\left({{\underset{\tilde{}}{\mathbf{\dot{F}}}}^{\mathrm{T}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{\dot{F}}}}_{e}\right)}
+\\
+      &amp;= {{\displaystyle \frac{\displaystyle 1}{\displaystyle
+2}}}\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\left({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\,\cdot\,{{\underset{\tilde{}}{\mathbf{\dot{F}}}}^{\mathrm{T}}}_{e}+{\underset{\tilde{}}{\mathbf{\dot{F}}}}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\right)}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}
+      &amp;= {{\displaystyle \frac{\displaystyle 1}{\displaystyle
+2}}}\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\left({{\underset{\tilde{}}{\mathbf{L}}}_{e}^{\mathrm{T}}}+{\underset{\tilde{}}{\mathbf{L}}}_{e}\right)}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}
+      &amp;=
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{D}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}
 \end{aligned}
 \]</span></p>
-<p>where <span class="math inline">\({\underset{\tilde{}}{\mathbf{D}}}_{e}\)</span> is the elastic rate of deformation, i.e. the symmetric part of the elastic part of the velocity gradient.</p>
-<p>This expression shows that <span class="math inline">\({\underset{\tilde{}}{\mathbf{D}}}_{e}\)</span> is the pull-back of <span class="math inline">\(\underline{\dot{\varepsilon}}^{GL}_{e}\)</span>, while <span class="math inline">\(\underline{\dot{\varepsilon}}^{GL}_{e}\)</span> is the push-forward of <span class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}_{e}\)</span> <span class="citation" data-cites="belytschko_nonlinear_2000">[<a href="#ref-belytschko_nonlinear_2000" role="doc-biblioref">2</a>]</span>:</p>
+<p>where <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{D}}}_{e}\)</span> is
+the elastic rate of deformation, i.e. the symmetric part of the elastic
+part of the velocity gradient.</p>
+<p>This expression shows that <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{D}}}_{e}\)</span> is
+the pull-back of <span
+class="math inline">\(\underline{\dot{\varepsilon}}^{GL}_{e}\)</span>,
+while <span
+class="math inline">\(\underline{\dot{\varepsilon}}^{GL}_{e}\)</span> is
+the push-forward of <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}_{e}\)</span>
+<span class="citation" data-cites="belytschko_nonlinear_2000">[<a
+href="#ref-belytschko_nonlinear_2000"
+role="doc-biblioref">2</a>]</span>:</p>
 <p><span class="math display">\[
 {\underset{\tilde{}}{\mathbf{D}}}_{e}={{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{L}}}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}
 \]</span></p>
 <p>Then:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{D}}}_{e}&amp;=&amp; \underline{\sigma}\,\colon\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\,\cdot\,\underline{\dot{\varepsilon}}^{GL}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}
-                     &amp;=&amp; {\mathrm{tr}{\left(\underline{\sigma}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\,\cdot\,\underline{\dot{\varepsilon}}^{GL}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\right)}}&amp;                  \\
-                     &amp;=&amp; {\mathrm{tr}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\,\cdot\,\underline{\sigma}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\,\cdot\,\underline{\dot{\varepsilon}}^{GL}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\right)}}
-                     &amp;=&amp; {\mathrm{tr}{\left({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\,\cdot\,\underline{\sigma}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\,\cdot\,\underline{\dot{\varepsilon}}^{GL}_{e}\right)}}&amp; \\
-                     &amp;=&amp; {\mathrm{tr}{\left({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\,\cdot\,\underline{\sigma}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\,\cdot\,\underline{\dot{\varepsilon}}^{GL}_{e}\right)}}
-                     &amp;=&amp; {{\displaystyle \frac{\displaystyle 1}{\displaystyle J_{e}}}}\,\underline{S}_{e}\,\colon\,\underline{\dot{\varepsilon}}^{GL}_{e}&amp;
+\underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{D}}}_{e}&amp;=&amp;
+\underline{\sigma}\,\colon\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\,\cdot\,\underline{\dot{\varepsilon}}^{GL}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}
+                     &amp;=&amp;
+{\mathrm{tr}{\left(\underline{\sigma}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\,\cdot\,\underline{\dot{\varepsilon}}^{GL}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\right)}}&amp;                  \\
+                     &amp;=&amp;
+{\mathrm{tr}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\,\cdot\,\underline{\sigma}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\,\cdot\,\underline{\dot{\varepsilon}}^{GL}_{e}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\right)}}
+                     &amp;=&amp;
+{\mathrm{tr}{\left({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\,\cdot\,\underline{\sigma}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\,\cdot\,\underline{\dot{\varepsilon}}^{GL}_{e}\right)}}&amp;
+\\
+                     &amp;=&amp;
+{\mathrm{tr}{\left({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\,\cdot\,\underline{\sigma}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\,\cdot\,\underline{\dot{\varepsilon}}^{GL}_{e}\right)}}
+                     &amp;=&amp; {{\displaystyle \frac{\displaystyle
+1}{\displaystyle
+J_{e}}}}\,\underline{S}_{e}\,\colon\,\underline{\dot{\varepsilon}}^{GL}_{e}&amp;
 \end{aligned}
 \]</span></p>
-<p>where we used the classical property of similarity-invariance of the trace:</p>
-<p><span id="eq:mfront:FeFpImplicitPlasticity:trace:similarity_invariance"><span class="math display">\[
-{\mathrm{tr}{\left(B^{-1}\,\cdot\,A\,\cdot\,B\right)}} = {\mathrm{tr}{\left(A\right)}}
-\qquad(8)\]</span></span></p>
-<p>which is valid for any matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
+<p>where we used the classical property of similarity-invariance of the
+trace:</p>
+<p><span
+id="eq:mfront:FeFpImplicitPlasticity:trace:similarity_invariance"><span
+class="math display">\[
+{\mathrm{tr}{\left(B^{-1}\,\cdot\,A\,\cdot\,B\right)}} =
+{\mathrm{tr}{\left(A\right)}}
+\qquad{(8)}\]</span></span></p>
+<p>which is valid for any matrices <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span>.</p>
 </blockquote>
-<p>The behaviour is hyperelastic if the the second Piola-Kirchhoff stress derives from a convex free energy <span class="math inline">\(\Psi\)</span>, such that:</p>
+<p>The behaviour is hyperelastic if the the second Piola-Kirchhoff
+stress derives from a convex free energy <span
+class="math inline">\(\Psi\)</span>, such that:</p>
 <p><span class="math display">\[
-\underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{e}= {{\displaystyle \frac{\displaystyle 1}{\displaystyle J_{e}}}}\,\underline{S}_{e}\,\colon\,\underline{\dot{\varepsilon}}^{GL}_{e}
-\quad\text{with}\quad\underline{S}_{e}=\rho_{e}\,{{\displaystyle \frac{\displaystyle \partial \Psi_{e}}{\displaystyle \partial \underline{\varepsilon}^{GL}_{e}}}}
+\underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{e}=
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle
+J_{e}}}}\,\underline{S}_{e}\,\colon\,\underline{\dot{\varepsilon}}^{GL}_{e}
+\quad\text{with}\quad\underline{S}_{e}=\rho_{e}\,{{\displaystyle
+\frac{\displaystyle \partial \Psi_{e}}{\displaystyle \partial
+\underline{\varepsilon}^{GL}_{e}}}}
 \]</span></p>
-<p>For metals, the Green-Lagrange strain <span class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span> is generally small in practice, the choice of the free energy <span class="math inline">\(\Psi\)</span> generally have little influence. The Saint-Venant Kirchhoff hyperelastic behaviour, which is the simpliest generalisation of the Hooke behaviour at finite strain, is thus generally choosen.</p>
-<h3 data-number="1.4.1" id="the-saint-venant-kirchhoff-hyperelastic-behaviour"><span class="header-section-number">1.4.1</span> The Saint-Venant Kirchhoff hyperelastic behaviour</h3>
-<p>The Saint-Venant Kirchhoff hyperelastic behaviour is given by: <span class="math display">\[
+<p>For metals, the Green-Lagrange strain <span
+class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span> is
+generally small in practice, the choice of the free energy <span
+class="math inline">\(\Psi\)</span> generally have little influence. The
+Saint-Venant Kirchhoff hyperelastic behaviour, which is the simpliest
+generalisation of the Hooke behaviour at finite strain, is thus
+generally choosen.</p>
+<h3 data-number="1.4.1"
+id="the-saint-venant-kirchhoff-hyperelastic-behaviour"><span
+class="header-section-number">1.4.1</span> The Saint-Venant Kirchhoff
+hyperelastic behaviour</h3>
+<p>The Saint-Venant Kirchhoff hyperelastic behaviour is given by: <span
+class="math display">\[
 \underline{S}_{e}=\underline{\underline{\mathbf{D}}}\,\colon\,\underline{\varepsilon}^{GL}_{e}
-\]</span> where <span class="math inline">\(\underline{D}\)</span> is the elastic stiffness matrix.</p>
-<p>The Saint-Venant Kirchhoff hyperelastic behaviour derives from the following free-energy:</p>
+\]</span> where <span class="math inline">\(\underline{D}\)</span> is
+the elastic stiffness matrix.</p>
+<p>The Saint-Venant Kirchhoff hyperelastic behaviour derives from the
+following free-energy:</p>
 <p><span class="math display">\[
-\rho_{e}\,\Psi_{e} = {{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\underline{\varepsilon}^{GL}_{e}\,\colon\,\underline{\underline{\mathbf{D}}}\,\colon\,\underline{\varepsilon}^{GL}_{e}
+\rho_{e}\,\Psi_{e} = {{\displaystyle \frac{\displaystyle
+1}{\displaystyle
+2}}}\underline{\varepsilon}^{GL}_{e}\,\colon\,\underline{\underline{\mathbf{D}}}\,\colon\,\underline{\varepsilon}^{GL}_{e}
 \]</span></p>
-<h2 data-number="1.5" id="sec:mfront:FeFpImplicitPlasticity:MandelStress"><span class="header-section-number">1.5</span> Plastic dissipation and Mandel stress</h2>
-<p>The Mandel stress <span class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}\)</span> is defined as the dual of the plastic velocity gradient <span class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}_{p}\)</span>, i.e. as the stress measure which satisfies:</p>
+<h2 data-number="1.5"
+id="sec:mfront:FeFpImplicitPlasticity:MandelStress"><span
+class="header-section-number">1.5</span> Plastic dissipation and Mandel
+stress</h2>
+<p>The Mandel stress <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}\)</span> is
+defined as the dual of the plastic velocity gradient <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}_{p}\)</span>,
+i.e. as the stress measure which satisfies:</p>
 <p><span class="math display">\[
-\underline{\sigma}\,\colon\,{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\right)} = {{\displaystyle \frac{\displaystyle 1}{\displaystyle J_{e}}}}\,{\underset{\tilde{}}{\mathbf{M}}}\,\colon{\underset{\tilde{}}{\mathbf{L}}}_{p}
+\underline{\sigma}\,\colon\,{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\right)}
+= {{\displaystyle \frac{\displaystyle 1}{\displaystyle
+J_{e}}}}\,{\underset{\tilde{}}{\mathbf{M}}}\,\colon{\underset{\tilde{}}{\mathbf{L}}}_{p}
 \]</span></p>
-<p>The Mandel stress <span class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}\)</span> is egal to (see demonstration below):</p>
-<p><span id="eq:mfront:FeFpImplicitPlasticity:MandelStress"><span class="math display">\[
-{\underset{\tilde{}}{\mathbf{M}}}= \underline{C}_{e}\,\cdot\,\underline{S}_{e}= {\left(2\,\underline{\varepsilon}^{GL}_{e}+{\underset{\tilde{}}{\mathbf{I}}}\right)}\,\cdot\,\,\underline{S}_{e}
-\qquad(9)\]</span></span></p>
+<p>The Mandel stress <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}\)</span> is egal
+to (see demonstration below):</p>
+<p><span id="eq:mfront:FeFpImplicitPlasticity:MandelStress"><span
+class="math display">\[
+{\underset{\tilde{}}{\mathbf{M}}}=
+\underline{C}_{e}\,\cdot\,\underline{S}_{e}=
+{\left(2\,\underline{\varepsilon}^{GL}_{e}+{\underset{\tilde{}}{\mathbf{I}}}\right)}\,\cdot\,\,\underline{S}_{e}
+\qquad{(9)}\]</span></span></p>
 <p>Note that the Mandel stress is not symmetric.</p>
 <blockquote>
 <p><strong>Demonstration of Equation (9)</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
 \underline{\sigma}\,\colon\,{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\right)}
-&amp;=&amp; {{\displaystyle \frac{\displaystyle 1}{\displaystyle J_{e}}}}\,{\mathrm{tr}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,\underline{S}_{e}\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\right)}}&amp; \\
-&amp;=&amp; {{\displaystyle \frac{\displaystyle 1}{\displaystyle J_{e}}}}\,{\mathrm{tr}{\left(\underline{S}_{e}\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\right)}}
-= {{\displaystyle \frac{\displaystyle 1}{\displaystyle J_{e}}}}\,{\mathrm{tr}{\left(\underline{S}_{e}\,\underline{C}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\right)}} 
-= {{\displaystyle \frac{\displaystyle 1}{\displaystyle J_{e}}}}\,{\underset{\tilde{}}{\mathbf{M}}}\,\colon{\underset{\tilde{}}{\mathbf{L}}}_{p}&amp;
+&amp;=&amp; {{\displaystyle \frac{\displaystyle 1}{\displaystyle
+J_{e}}}}\,{\mathrm{tr}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,\underline{S}_{e}\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\right)}}&amp;
+\\
+&amp;=&amp; {{\displaystyle \frac{\displaystyle 1}{\displaystyle
+J_{e}}}}\,{\mathrm{tr}{\left(\underline{S}_{e}\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\right)}}
+= {{\displaystyle \frac{\displaystyle 1}{\displaystyle
+J_{e}}}}\,{\mathrm{tr}{\left(\underline{S}_{e}\,\underline{C}_{e}\,\cdot\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\right)}}
+= {{\displaystyle \frac{\displaystyle 1}{\displaystyle
+J_{e}}}}\,{\underset{\tilde{}}{\mathbf{M}}}\,\colon{\underset{\tilde{}}{\mathbf{L}}}_{p}&amp;
 \end{aligned}
 \]</span></p>
 <p>where we re-used Equation (8).</p>
 </blockquote>
-<h2 data-number="1.6" id="clausius-duhem-inequality"><span class="header-section-number">1.6</span> Clausius-Duhem inequality</h2>
-<p>The Clausius-Duhem inequality can be written as follows: <span id="eq:Clausius-Duhem"><span class="math display">\[
--\rho (\dot{e}{\left(\underline{\varepsilon}^{GL}_{e},T,\vec{Y}\right)} - T\,\dot{s}) + \underline{\sigma}\,\colon\, \underline{D} - {{\displaystyle \frac{\displaystyle \vec{q}}{\displaystyle T}}} \cdot \vec{\nabla} T \geqslant 0
-\qquad(10)\]</span></span> where:</p>
+<h2 data-number="1.6" id="clausius-duhem-inequality"><span
+class="header-section-number">1.6</span> Clausius-Duhem inequality</h2>
+<p>The Clausius-Duhem inequality can be written as follows: <span
+id="eq:Clausius-Duhem"><span class="math display">\[
+-\rho (\dot{e}{\left(\underline{\varepsilon}^{GL}_{e},T,\vec{Y}\right)}
+- T\,\dot{s}) + \underline{\sigma}\,\colon\, \underline{D} -
+{{\displaystyle \frac{\displaystyle \vec{q}}{\displaystyle T}}} \cdot
+\vec{\nabla} T \geqslant 0
+\qquad{(10)}\]</span></span> where:</p>
 <ul>
-<li><span class="math inline">\(\rho\)</span> is the volumetric mass density.</li>
-<li><span class="math inline">\(e\)</span> is the internal energy density in the current configuration.</li>
+<li><span class="math inline">\(\rho\)</span> is the volumetric mass
+density.</li>
+<li><span class="math inline">\(e\)</span> is the internal energy
+density in the current configuration.</li>
 <li><span class="math inline">\(T\)</span> is the temperature.</li>
-<li><span class="math inline">\(s\)</span> is the entropy density in the current configuration.</li>
-<li><span class="math inline">\(\vec{y}\)</span> a set of internal state variables</li>
+<li><span class="math inline">\(s\)</span> is the entropy density in the
+current configuration.</li>
+<li><span class="math inline">\(\vec{y}\)</span> a set of internal state
+variables</li>
 </ul>
-<p>Let <span class="math inline">\(\Psi = e - T\,s\)</span> be the free energy in in the current configuration. Using Equation (6), one gets:</p>
+<p>Let <span class="math inline">\(\Psi = e - T\,s\)</span> be the free
+energy in in the current configuration. Using Equation (6), one
+gets:</p>
 <p><span class="math display">\[
 \begin{aligned}
--\rho\,{\left(\dot{\Psi} - s\,\dot{T}\right)} + \underline{\sigma}\,\colon\, \underline{D} - {{\displaystyle \frac{\displaystyle \vec{q}}{\displaystyle T}}} \cdot \vec{\nabla} T &amp;\geqslant 0 \\
--\rho\,{\left({{\displaystyle \frac{\displaystyle \partial \Psi}{\displaystyle \partial \underline{\varepsilon}^{GL}_{e}}}}\,\colon\,\underline{\dot{\varepsilon}}^{GL}_{e}+{{\displaystyle \frac{\displaystyle \partial \Phi}{\displaystyle \partial \vec{y}}}}\,\cdot\,\vec{\dot{y}}+{\left({{\displaystyle \frac{\displaystyle \partial \Psi}{\displaystyle \partial T}}} - s\,\right)}\dot{T}\right)} + \underline{\sigma}\,\colon\, \underline{D} - {{\displaystyle \frac{\displaystyle \vec{q}}{\displaystyle T}}} \cdot \vec{\nabla} T &amp;\geqslant 0\\
--\rho\,{\left({\left({{\displaystyle \frac{\displaystyle \partial \Psi}{\displaystyle \partial \underline{\varepsilon}^{GL}_{e}}}}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle \rho\,J_{e}}}}\,\underline{S}_{e}\right)}\,\colon\,\underline{\dot{\varepsilon}}^{GL}_{e}+{\left({{\displaystyle \frac{\displaystyle \partial \Psi}{\displaystyle \partial T}}} - s\,\right)}\dot{T}\right)} -\rho\,{{\displaystyle \frac{\displaystyle \partial \Phi}{\displaystyle \partial \vec{y}}}}\,\cdot\,\vec{\dot{y}}+{{\displaystyle \frac{\displaystyle 1}{\displaystyle J_{e}}}}{\underset{\tilde{}}{\mathbf{M}}}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{p}- {{\displaystyle \frac{\displaystyle \vec{q}}{\displaystyle T}}} \cdot \vec{\nabla} T &amp;\geqslant 0
+-\rho\,{\left(\dot{\Psi} - s\,\dot{T}\right)} +
+\underline{\sigma}\,\colon\, \underline{D} - {{\displaystyle
+\frac{\displaystyle \vec{q}}{\displaystyle T}}} \cdot \vec{\nabla} T
+&amp;\geqslant 0 \\
+-\rho\,{\left({{\displaystyle \frac{\displaystyle \partial
+\Psi}{\displaystyle \partial
+\underline{\varepsilon}^{GL}_{e}}}}\,\colon\,\underline{\dot{\varepsilon}}^{GL}_{e}+{{\displaystyle
+\frac{\displaystyle \partial \Phi}{\displaystyle \partial
+\vec{y}}}}\,\cdot\,\vec{\dot{y}}+{\left({{\displaystyle
+\frac{\displaystyle \partial \Psi}{\displaystyle \partial T}}} -
+s\,\right)}\dot{T}\right)} + \underline{\sigma}\,\colon\, \underline{D}
+- {{\displaystyle \frac{\displaystyle \vec{q}}{\displaystyle T}}} \cdot
+\vec{\nabla} T &amp;\geqslant 0\\
+-\rho\,{\left({\left({{\displaystyle \frac{\displaystyle \partial
+\Psi}{\displaystyle \partial
+\underline{\varepsilon}^{GL}_{e}}}}-{{\displaystyle \frac{\displaystyle
+1}{\displaystyle
+\rho\,J_{e}}}}\,\underline{S}_{e}\right)}\,\colon\,\underline{\dot{\varepsilon}}^{GL}_{e}+{\left({{\displaystyle
+\frac{\displaystyle \partial \Psi}{\displaystyle \partial T}}} -
+s\,\right)}\dot{T}\right)} -\rho\,{{\displaystyle \frac{\displaystyle
+\partial \Phi}{\displaystyle \partial
+\vec{y}}}}\,\cdot\,\vec{\dot{y}}+{{\displaystyle \frac{\displaystyle
+1}{\displaystyle
+J_{e}}}}{\underset{\tilde{}}{\mathbf{M}}}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{p}-
+{{\displaystyle \frac{\displaystyle \vec{q}}{\displaystyle T}}} \cdot
+\vec{\nabla} T &amp;\geqslant 0
 \end{aligned}
 \]</span></p>
 <p>Classical arguments (considering a reversible process), leads to:</p>
 <p><span class="math display">\[
-\underline{S}_{e}= \rho_{e}\,{{\displaystyle \frac{\displaystyle \partial \Psi}{\displaystyle \partial \underline{\varepsilon}^{GL}_{e}}}}
+\underline{S}_{e}= \rho_{e}\,{{\displaystyle \frac{\displaystyle
+\partial \Psi}{\displaystyle \partial
+\underline{\varepsilon}^{GL}_{e}}}}
 \quad\text{and}\quad
-s = {{\displaystyle \frac{\displaystyle \partial \Psi}{\displaystyle \partial T}}}
+s = {{\displaystyle \frac{\displaystyle \partial \Psi}{\displaystyle
+\partial T}}}
 \]</span></p>
-<p>where <span class="math inline">\(\rho_{e}\)</span> is the density in the intermediate configuration (<span class="math inline">\(\rho_{e}=\rho\,J_{e}\)</span>).</p>
-<p>Assuming that the dissipation du to heat transfer <span class="math inline">\(D_{T}\)</span> and the mechanical dissipation <span class="math inline">\(D_{m}\)</span> are both positive, one gets: <span class="math display">\[
+<p>where <span class="math inline">\(\rho_{e}\)</span> is the density in
+the intermediate configuration (<span
+class="math inline">\(\rho_{e}=\rho\,J_{e}\)</span>).</p>
+<p>Assuming that the dissipation du to heat transfer <span
+class="math inline">\(D_{T}\)</span> and the mechanical dissipation
+<span class="math inline">\(D_{m}\)</span> are both positive, one gets:
+<span class="math display">\[
 \begin{aligned}
-D_{m}&amp;=\vec{Y}\,\cdot\,\vec{\dot{y}}+{\underset{\tilde{}}{\mathbf{M}}}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\geqslant 0\\
-D_{T}&amp;=-{{\displaystyle \frac{\displaystyle \vec{q}}{\displaystyle T}}} \cdot \vec{\nabla} T \geqslant 0
+D_{m}&amp;=\vec{Y}\,\cdot\,\vec{\dot{y}}+{\underset{\tilde{}}{\mathbf{M}}}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{p}\geqslant
+0\\
+D_{T}&amp;=-{{\displaystyle \frac{\displaystyle \vec{q}}{\displaystyle
+T}}} \cdot \vec{\nabla} T \geqslant 0
 \end{aligned}
-\]</span> where <span class="math inline">\(\vec{Y} = -\rho_{e}\,{{\displaystyle \frac{\displaystyle \partial \Phi}{\displaystyle \partial \vec{y}}}}\)</span> are the thermodynamic forces associated to the internal state variables <span class="math inline">\(\vec{y}\)</span>.</p>
-<p>The mechanical dissipation is automatically positive if we introduce a convex dissipation potential <span class="math inline">\(\phi\)</span> minimal at zero such that: <span class="math display">\[
-{\underset{\tilde{}}{\mathbf{L}}}_{p}={{\displaystyle \frac{\displaystyle \partial \phi}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{M}}}}}} \quad\text{and}\quad \vec{\dot{y}}={{\displaystyle \frac{\displaystyle \partial \phi}{\displaystyle \partial \vec{Y}}}}
+\]</span> where <span class="math inline">\(\vec{Y} =
+-\rho_{e}\,{{\displaystyle \frac{\displaystyle \partial
+\Phi}{\displaystyle \partial \vec{y}}}}\)</span> are the thermodynamic
+forces associated to the internal state variables <span
+class="math inline">\(\vec{y}\)</span>.</p>
+<p>The mechanical dissipation is automatically positive if we introduce
+a convex dissipation potential <span class="math inline">\(\phi\)</span>
+minimal at zero such that: <span class="math display">\[
+{\underset{\tilde{}}{\mathbf{L}}}_{p}={{\displaystyle
+\frac{\displaystyle \partial \phi}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{M}}}}}} \quad\text{and}\quad
+\vec{\dot{y}}={{\displaystyle \frac{\displaystyle \partial
+\phi}{\displaystyle \partial \vec{Y}}}}
 \]</span></p>
-<h1 data-number="2" id="examples"><span class="header-section-number">2</span> Examples</h1>
-<h2 data-number="2.1" id="isotropic-incompressible-visco-plasticity"><span class="header-section-number">2.1</span> Isotropic incompressible (visco)-plasticity</h2>
+<h1 data-number="2" id="examples"><span
+class="header-section-number">2</span> Examples</h1>
+<h2 data-number="2.1"
+id="isotropic-incompressible-visco-plasticity"><span
+class="header-section-number">2.1</span> Isotropic incompressible
+(visco)-plasticity</h2>
 <p>In this section, we consider two examples:</p>
 <ul>
 <li>An isotropic incompressible viscoplastic behaviour.</li>
 <li>An isotropic incompressible plastic behaviour.</li>
 </ul>
-<p>Those examples shares the same hyperelastic behaviour and the same stress criterion.</p>
-<h3 data-number="2.1.1" id="hyperelastic-behaviour"><span class="header-section-number">2.1.1</span> Hyperelastic behaviour</h3>
-<p>The simpliest isotropic hyperelastic behaviour is the Saint Venant-Kirchhoff law:</p>
+<p>Those examples shares the same hyperelastic behaviour and the same
+stress criterion.</p>
+<h3 data-number="2.1.1" id="hyperelastic-behaviour"><span
+class="header-section-number">2.1.1</span> Hyperelastic behaviour</h3>
+<p>The simpliest isotropic hyperelastic behaviour is the Saint
+Venant-Kirchhoff law:</p>
 <p><span class="math display">\[
-\underline{S}_{e}= \lambda\,{\mathrm{tr}{\left(\underline{\varepsilon}^{GL}_{e}\right)}}\,\underline{I}+2\,\,\mu\,\underline{\varepsilon}^{GL}_{e}
+\underline{S}_{e}=
+\lambda\,{\mathrm{tr}{\left(\underline{\varepsilon}^{GL}_{e}\right)}}\,\underline{I}+2\,\,\mu\,\underline{\varepsilon}^{GL}_{e}
 \]</span></p>
-<p>where <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\mu\)</span> are respectively the first and second Lamé coefficients.</p>
-<h3 data-number="2.1.2" id="choice-of-the-stress-criterion"><span class="header-section-number">2.1.2</span> Choice of the stress criterion</h3>
-<p>Du to isotropy, the dissipation potential must be a function of the invariants of the Mandel stress:</p>
+<p>where <span class="math inline">\(\lambda\)</span> and <span
+class="math inline">\(\mu\)</span> are respectively the first and second
+Lamé coefficients.</p>
+<h3 data-number="2.1.2" id="choice-of-the-stress-criterion"><span
+class="header-section-number">2.1.2</span> Choice of the stress
+criterion</h3>
+<p>Du to isotropy, the dissipation potential must be a function of the
+invariants of the Mandel stress:</p>
 <ul>
-<li>the trace of the Mandel stress, <span class="math inline">\(I_{1}\)</span>.</li>
-<li>the von Mises norm of the Mandel stress, <span class="math inline">\(M_{\mathrm{eq}}\)</span>: <span class="math display">\[
-M_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}\,{\underset{\tilde{}}{\mathbf{M}}}_{\mathrm{dev}}\,\colon\,{\underset{\tilde{}}{\mathbf{M}}}_{\mathrm{dev}}}.
-\]</span> where <span class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}_{\mathrm{dev}}\)</span> is the deviatoric part of the Mandel stress.</li>
+<li>the trace of the Mandel stress, <span
+class="math inline">\(I_{1}\)</span>.</li>
+<li>the von Mises norm of the Mandel stress, <span
+class="math inline">\(M_{\mathrm{eq}}\)</span>: <span
+class="math display">\[
+M_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle
+3}{\displaystyle
+2}}}\,{\underset{\tilde{}}{\mathbf{M}}}_{\mathrm{dev}}\,\colon\,{\underset{\tilde{}}{\mathbf{M}}}_{\mathrm{dev}}}.
+\]</span> where <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}_{\mathrm{dev}}\)</span>
+is the deviatoric part of the Mandel stress.</li>
 <li>the determinant of the deviator of the Mandel stress.</li>
 </ul>
-<p>Since the plastic flow is assumed to be isochoric, <span class="math inline">\(L_{p}\)</span> must be traceless, so the dissipation potentiel can’t be a function of <span class="math inline">\(I_{1}\)</span>.</p>
-<p>In this section, we assume that the behaviour oly depends on <span class="math inline">\(M_{\mathrm{eq}}\)</span>. Thus,</p>
+<p>Since the plastic flow is assumed to be isochoric, <span
+class="math inline">\(L_{p}\)</span> must be traceless, so the
+dissipation potentiel can’t be a function of <span
+class="math inline">\(I_{1}\)</span>.</p>
+<p>In this section, we assume that the behaviour oly depends on <span
+class="math inline">\(M_{\mathrm{eq}}\)</span>. Thus,</p>
 <p><span class="math display">\[
-{\underset{\tilde{}}{\mathbf{L}}}_{p}={{\displaystyle \frac{\displaystyle \partial \phi}{\displaystyle \partial M_{\mathrm{eq}}}}}\,{{\displaystyle \frac{\displaystyle \partial M_{\mathrm{eq}}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{M}}}}}}={{\displaystyle \frac{\displaystyle \partial \phi}{\displaystyle \partial M_{\mathrm{eq}}}}}\,{\left({{\displaystyle \frac{\displaystyle 3}{\displaystyle 2\,M_{\mathrm{eq}}}}}\,{\underset{\tilde{}}{\mathbf{M}}}_{\mathrm{dev}}\right)}={{\displaystyle \frac{\displaystyle \partial \phi}{\displaystyle \partial M_{\mathrm{eq}}}}}\,{\underset{\tilde{}}{\mathbf{N}}}
+{\underset{\tilde{}}{\mathbf{L}}}_{p}={{\displaystyle
+\frac{\displaystyle \partial \phi}{\displaystyle \partial
+M_{\mathrm{eq}}}}}\,{{\displaystyle \frac{\displaystyle \partial
+M_{\mathrm{eq}}}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{M}}}}}}={{\displaystyle \frac{\displaystyle
+\partial \phi}{\displaystyle \partial
+M_{\mathrm{eq}}}}}\,{\left({{\displaystyle \frac{\displaystyle
+3}{\displaystyle
+2\,M_{\mathrm{eq}}}}}\,{\underset{\tilde{}}{\mathbf{M}}}_{\mathrm{dev}}\right)}={{\displaystyle
+\frac{\displaystyle \partial \phi}{\displaystyle \partial
+M_{\mathrm{eq}}}}}\,{\underset{\tilde{}}{\mathbf{N}}}
 \]</span></p>
-<p>where <span class="math inline">\({\underset{\tilde{}}{\mathbf{N}}}={{\displaystyle \frac{\displaystyle 3\,{\underset{\tilde{}}{\mathbf{M}}}_{\mathrm{dev}}}{\displaystyle 2\,M_{\mathrm{eq}}}}}\)</span> is the normal.</p>
-<h3 data-number="2.1.3" id="sec:mfront:FeFpImplicitPlasticity:J2_viscoplasticity"><span class="header-section-number">2.1.3</span> Isotropic incompressible viscoplasticty</h3>
+<p>where <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{N}}}={{\displaystyle
+\frac{\displaystyle
+3\,{\underset{\tilde{}}{\mathbf{M}}}_{\mathrm{dev}}}{\displaystyle
+2\,M_{\mathrm{eq}}}}}\)</span> is the normal.</p>
+<h3 data-number="2.1.3"
+id="sec:mfront:FeFpImplicitPlasticity:J2_viscoplasticity"><span
+class="header-section-number">2.1.3</span> Isotropic incompressible
+viscoplasticty</h3>
 <p><span class="math display">\[
-\phi = {{\displaystyle \frac{\displaystyle M_{0}\,\dot{\varepsilon}_{0}}{\displaystyle n+1}}}\,{\left({{\displaystyle \frac{\displaystyle M_{\mathrm{eq}}}{\displaystyle M_{0}}}}\right)}^{n+1}
+\phi = {{\displaystyle \frac{\displaystyle
+M_{0}\,\dot{\varepsilon}_{0}}{\displaystyle
+n+1}}}\,{\left({{\displaystyle \frac{\displaystyle
+M_{\mathrm{eq}}}{\displaystyle M_{0}}}}\right)}^{n+1}
 \]</span></p>
-<h3 data-number="2.1.4" id="sec:mfront:FeFpImplicitPlasticity:J2_plasticity"><span class="header-section-number">2.1.4</span> Isotropic incompressible plasticity</h3>
-<p>The yield surface of a plastic behaviour with linear isotropic hardening is given by: <span class="math display">\[
+<h3 data-number="2.1.4"
+id="sec:mfront:FeFpImplicitPlasticity:J2_plasticity"><span
+class="header-section-number">2.1.4</span> Isotropic incompressible
+plasticity</h3>
+<p>The yield surface of a plastic behaviour with linear isotropic
+hardening is given by: <span class="math display">\[
 f = M_{\mathrm{eq}}-M_{0}-H\,{\left(p\right)}
-\]</span> where <span class="math inline">\(p\)</span> is the equivalent plastic strain, <span class="math inline">\(M_{0}\)</span> is the yield stress and <span class="math inline">\(H\)</span> is the hardening slope.</p>
-<h2 data-number="2.2" id="sec:mfront:FeFpImplicitPlasticity:single_crystal"><span class="header-section-number">2.2</span> Single crystal plasticity</h2>
-<p>It is assumed that the crystal deforms by gliding of dislocations on a set of <span class="math inline">\(N_{s}\)</span> prescribed cristallographic planes called <em>slip planes</em>, also called <em>slip systems</em> or <em>gliding systems</em>.</p>
-<p>A slip plane is characterized by its normal <span class="math inline">\(\vec{n}_{s}\)</span> and a slip direction <span class="math inline">\(\vec{m}_{s}\)</span> in the plane (<span class="math inline">\(s\,\in\,\left[1, N_{s}\right]\)</span>). By definition, the vectors are <span class="math inline">\(\vec{n}_{s}\)</span> and <span class="math inline">\(\vec{m}_{s}\)</span> are orthogonal. A slip plane is also characterized by its orientation tensor <span class="math inline">\({\underset{\tilde{}}{\mathbf{N}}}_{s}\)</span> such that: <span class="math display">\[
+\]</span> where <span class="math inline">\(p\)</span> is the equivalent
+plastic strain, <span class="math inline">\(M_{0}\)</span> is the yield
+stress and <span class="math inline">\(H\)</span> is the hardening
+slope.</p>
+<h2 data-number="2.2"
+id="sec:mfront:FeFpImplicitPlasticity:single_crystal"><span
+class="header-section-number">2.2</span> Single crystal plasticity</h2>
+<p>It is assumed that the crystal deforms by gliding of dislocations on
+a set of <span class="math inline">\(N_{s}\)</span> prescribed
+cristallographic planes called <em>slip planes</em>, also called
+<em>slip systems</em> or <em>gliding systems</em>.</p>
+<p>A slip plane is characterized by its normal <span
+class="math inline">\(\vec{n}_{s}\)</span> and a slip direction <span
+class="math inline">\(\vec{m}_{s}\)</span> in the plane (<span
+class="math inline">\(s\,\in\,\left[1, N_{s}\right]\)</span>). By
+definition, the vectors are <span
+class="math inline">\(\vec{n}_{s}\)</span> and <span
+class="math inline">\(\vec{m}_{s}\)</span> are orthogonal. A slip plane
+is also characterized by its orientation tensor <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{N}}}_{s}\)</span>
+such that: <span class="math display">\[
 {\underset{\tilde{}}{\mathbf{N}}}_{s}= \vec{m}_{s}\,\otimes\,\vec{n}_{s}
 \]</span></p>
-<p>The gliding of dislocations leave the crystal orientations unchanged, so the orientation tensors are the same in the initial configuration <span class="math inline">\(C_{0}\)</span> and in the intermediate configuration <span class="math inline">\(C_{i}\)</span>.</p>
-<p>Finally, the plastic part of the velocity gradient is given by the sum of the glidings on all gliding planes, as follows: <span class="math display">\[
-{\underset{\tilde{}}{\mathbf{L}}}_{p}= \sum_{s}^{N_{s}} \dot{\gamma}_{s}\,{\underset{\tilde{}}{\mathbf{N}}}_{s}
-\]</span> where <span class="math inline">\(\dot{\gamma}_{s}\)</span> is the slip rate of the <span class="math inline">\(s^{\mathrm{th}}\)</span> plane.</p>
+<p>The gliding of dislocations leave the crystal orientations unchanged,
+so the orientation tensors are the same in the initial configuration
+<span class="math inline">\(C_{0}\)</span> and in the intermediate
+configuration <span class="math inline">\(C_{i}\)</span>.</p>
+<p>Finally, the plastic part of the velocity gradient is given by the
+sum of the glidings on all gliding planes, as follows: <span
+class="math display">\[
+{\underset{\tilde{}}{\mathbf{L}}}_{p}= \sum_{s}^{N_{s}}
+\dot{\gamma}_{s}\,{\underset{\tilde{}}{\mathbf{N}}}_{s}
+\]</span> where <span class="math inline">\(\dot{\gamma}_{s}\)</span> is
+the slip rate of the <span
+class="math inline">\(s^{\mathrm{th}}\)</span> plane.</p>
 <p>This plastic flow is isochoric, as: <span class="math display">\[
-{\mathrm{tr}{\left({\underset{\tilde{}}{\mathbf{L}}}_{p}\right)}}=\sum_{s}^{N_{s}} \dot{\gamma}_{s}\,{\mathrm{tr}{\left({\underset{\tilde{}}{\mathbf{N}}}_{s}\right)}}=\sum_{s}^{N_{s}} \dot{\gamma}_{s}\,\vec{m}_{s}\,\cdot\,\vec{n}_{s}=0
+{\mathrm{tr}{\left({\underset{\tilde{}}{\mathbf{L}}}_{p}\right)}}=\sum_{s}^{N_{s}}
+\dot{\gamma}_{s}\,{\mathrm{tr}{\left({\underset{\tilde{}}{\mathbf{N}}}_{s}\right)}}=\sum_{s}^{N_{s}}
+\dot{\gamma}_{s}\,\vec{m}_{s}\,\cdot\,\vec{n}_{s}=0
 \]</span></p>
-<p>The expression of the plastic dissipation naturally introduces the resolved shear stresses <span class="math inline">\(\tau^{s}\)</span>: <span class="math display">\[
-{\underset{\tilde{}}{\mathbf{M}}}\,\colon{\underset{\tilde{}}{\mathbf{L}}}_{p}=\sum_{s}^{N_{s}} \dot{\gamma}_{s}\,\tau^{s}
-\]</span> with <span class="math inline">\(\tau^{s}={\underset{\tilde{}}{\mathbf{M}}}\,\colon\,{\underset{\tilde{}}{\mathbf{N}}}_{s}\)</span>.</p>
-<h3 data-number="2.2.1" id="a-simple-dissipation-potential-for-crystal-plasticity"><span class="header-section-number">2.2.1</span> A simple dissipation potential for crystal plasticity</h3>
-<p>A simple dissipation potential for the single crystal can be defined as follows: <span class="math display">\[
+<p>The expression of the plastic dissipation naturally introduces the
+resolved shear stresses <span class="math inline">\(\tau^{s}\)</span>:
+<span class="math display">\[
+{\underset{\tilde{}}{\mathbf{M}}}\,\colon{\underset{\tilde{}}{\mathbf{L}}}_{p}=\sum_{s}^{N_{s}}
+\dot{\gamma}_{s}\,\tau^{s}
+\]</span> with <span
+class="math inline">\(\tau^{s}={\underset{\tilde{}}{\mathbf{M}}}\,\colon\,{\underset{\tilde{}}{\mathbf{N}}}_{s}\)</span>.</p>
+<h3 data-number="2.2.1"
+id="a-simple-dissipation-potential-for-crystal-plasticity"><span
+class="header-section-number">2.2.1</span> A simple dissipation
+potential for crystal plasticity</h3>
+<p>A simple dissipation potential for the single crystal can be defined
+as follows: <span class="math display">\[
 \phi{\left(\underline{{\underset{\tilde{}}{\mathbf{M}}}}\right)}=
 \sum_{s}^{N_{s}} \phi^{s}{\left(\left|\tau^{s}\right|\right)}
-\]</span> where each function <span class="math inline">\(\phi^{s}\)</span> is assumed to be convex and minimal at zero.</p>
+\]</span> where each function <span
+class="math inline">\(\phi^{s}\)</span> is assumed to be convex and
+minimal at zero.</p>
 <p>This dissipation potential leads to: <span class="math display">\[
-{\underset{\tilde{}}{\mathbf{L}}}_{p}= \sum_{s}^{N_{s}} {{\displaystyle \frac{\displaystyle \partial \phi^{s}}{\displaystyle \partial \left|\tau^{s}\right|}}}\,{{\displaystyle \frac{\displaystyle \partial \left|\tau^{s}\right|}{\displaystyle \partial \tau^{s}}}}\,{{\displaystyle \frac{\displaystyle \partial \tau^{s}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{M}}}}}} 
-    = \sum_{s}^{N_{s}} \mathop{sgn}{\left(\tau^{s}\right)}\,{{\displaystyle \frac{\displaystyle \partial \phi^{s}}{\displaystyle \partial \left|\tau^{s}\right|}}}\,{{\displaystyle \frac{\displaystyle \partial \tau^{s}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{M}}}}}}
-    = \sum_{s}^{N_{s}} \mathop{sgn}{\left(\tau^{s}\right)}\,{{\displaystyle \frac{\displaystyle \partial \phi^{s}}{\displaystyle \partial \left|\tau^{s}\right|}}}\,{\underset{\tilde{}}{\mathbf{N}}}_{s}
-\]</span> where <span class="math inline">\(\mathop{sgn}{\left(\tau^{s}\right)}\)</span> denotes the sign function: <span class="math display">\[
+{\underset{\tilde{}}{\mathbf{L}}}_{p}= \sum_{s}^{N_{s}} {{\displaystyle
+\frac{\displaystyle \partial \phi^{s}}{\displaystyle \partial
+\left|\tau^{s}\right|}}}\,{{\displaystyle \frac{\displaystyle \partial
+\left|\tau^{s}\right|}{\displaystyle \partial
+\tau^{s}}}}\,{{\displaystyle \frac{\displaystyle \partial
+\tau^{s}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{M}}}}}}
+    = \sum_{s}^{N_{s}}
+\mathop{sgn}{\left(\tau^{s}\right)}\,{{\displaystyle \frac{\displaystyle
+\partial \phi^{s}}{\displaystyle \partial
+\left|\tau^{s}\right|}}}\,{{\displaystyle \frac{\displaystyle \partial
+\tau^{s}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{M}}}}}}
+    = \sum_{s}^{N_{s}}
+\mathop{sgn}{\left(\tau^{s}\right)}\,{{\displaystyle \frac{\displaystyle
+\partial \phi^{s}}{\displaystyle \partial
+\left|\tau^{s}\right|}}}\,{\underset{\tilde{}}{\mathbf{N}}}_{s}
+\]</span> where <span
+class="math inline">\(\mathop{sgn}{\left(\tau^{s}\right)}\)</span>
+denotes the sign function: <span class="math display">\[
 \mathop{sgn}{\left(x\right)}=
 \left\{
 \begin{aligned}
- 1 &amp; \, &amp; \text{if} \,&amp; x \geq 0 \\
+1 &amp; \, &amp; \text{if} \,&amp; x \geq 0 \\
 -1 &amp; \, &amp; \text{if} \,&amp; x &lt;  0 \\
 \end{aligned}
 \right.
 \]</span></p>
-<p>A classical choice for <span class="math inline">\(\phi^{s}\)</span> is a power-law: <span class="math display">\[
-\phi^{s}{\left(\left|\tau^{s}\right|\right)} = {{\displaystyle \frac{\displaystyle A}{\displaystyle n+1}}} \left|\tau^{s}\right|^{n+1}
+<p>A classical choice for <span class="math inline">\(\phi^{s}\)</span>
+is a power-law: <span class="math display">\[
+\phi^{s}{\left(\left|\tau^{s}\right|\right)} = {{\displaystyle
+\frac{\displaystyle A}{\displaystyle n+1}}} \left|\tau^{s}\right|^{n+1}
 \]</span></p>
-<h1 data-number="3" id="numerical-implementation"><span class="header-section-number">3</span> Numerical implementation</h1>
-<h2 data-number="3.1" id="implicit-equations"><span class="header-section-number">3.1</span> Implicit equations</h2>
-<p>The decompositions of the deformation gradient at the beginning of the time step, denoted <span class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t}}\)</span>, and at the end of the time step, denoted <span class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t}}\)</span> are respectively <span class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t}} = {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t}}\,\cdot\,{\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t}}\)</span> and <span class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}} = {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}\)</span>.</p>
-<p>Using those decompositions, the elastic part of the deformation gradient at the end of the time step can expressed as: <span class="math display">\[
-{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}} = {\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\,\cdot\,{\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t}}\,\cdot\,{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}\right)^{\mathrm{-1}}}
-\]</span> where <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\)</span> denotes the value of the elastic part of the deformation gradient if no (visco-)plastic flow happens: <span class="math display">\[
-{\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr} = {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t}}\right)^{\mathrm{-1}}}
+<h1 data-number="3" id="numerical-implementation"><span
+class="header-section-number">3</span> Numerical implementation</h1>
+<h2 data-number="3.1" id="implicit-equations"><span
+class="header-section-number">3.1</span> Implicit equations</h2>
+<p>The decompositions of the deformation gradient at the beginning of
+the time step, denoted <span
+class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t}}\)</span>,
+and at the end of the time step, denoted <span
+class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t}}\)</span>
+are respectively <span
+class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t}}
+=
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t}}\,\cdot\,{\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t}}\)</span>
+and <span
+class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}
+=
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}\)</span>.</p>
+<p>Using those decompositions, the elastic part of the deformation
+gradient at the end of the time step can expressed as: <span
+class="math display">\[
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}} =
+{\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\,\cdot\,{\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t}}\,\cdot\,{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}\right)^{\mathrm{-1}}}
+\]</span> where <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\)</span>
+denotes the value of the elastic part of the deformation gradient if no
+(visco-)plastic flow happens: <span class="math display">\[
+{\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr} =
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t}}\right)^{\mathrm{-1}}}
 \]</span></p>
-<p>The plastic part of the velocity gradient can be approximated by the following expression: <span id="eq:mfront:FeFpImplicitPlasticity:Lp:forward_euler"><span class="math display">\[
-{\underset{\tilde{}}{\mathbf{L}}}_{p}\approx{{\displaystyle \frac{\displaystyle 1}{\displaystyle \Delta\,t}}}\,{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}-{\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t}}\right)}\,\cdot\,{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}\right)^{\mathrm{-1}}}=
-{{\displaystyle \frac{\displaystyle 1}{\displaystyle \Delta\,t}}}\,{\left({\underset{\tilde{}}{\mathbf{I}}}-\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}
-\qquad(11)\]</span></span> where <span class="math inline">\(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\)</span> denotes the product <span class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t}}\,\cdot\,{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}\right)^{\mathrm{-1}}}\)</span>.</p>
+<p>The plastic part of the velocity gradient can be approximated by the
+following expression: <span
+id="eq:mfront:FeFpImplicitPlasticity:Lp:forward_euler"><span
+class="math display">\[
+{\underset{\tilde{}}{\mathbf{L}}}_{p}\approx{{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+\Delta\,t}}}\,{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}-{\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t}}\right)}\,\cdot\,{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}\right)^{\mathrm{-1}}}=
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle
+\Delta\,t}}}\,{\left({\underset{\tilde{}}{\mathbf{I}}}-\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}
+\qquad{(11)}\]</span></span> where <span
+class="math inline">\(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\)</span>
+denotes the product <span
+class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t}}\,\cdot\,{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}\right)^{\mathrm{-1}}}\)</span>.</p>
 <blockquote>
-<p><strong>Alternative treatment of the plastic part of the velocity gradient</strong></p>
-<p>Expression (11) is convenient, but does not ensure the incompressiblity condition given by: <span class="math display">\[
-\det{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}\right)} = 1
+<p><strong>Alternative treatment of the plastic part of the velocity
+gradient</strong></p>
+<p>Expression (11) is convenient, but does not ensure the
+incompressiblity condition given by: <span class="math display">\[
+\det{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}\right)}
+= 1
 \]</span></p>
-<p>Using an exponential mapping does ensure this condition, but is much more computationaly intensive and will not be considered in this document.</p>
+<p>Using an exponential mapping does ensure this condition, but is much
+more computationaly intensive and will not be considered in this
+document.</p>
 </blockquote>
-<p><span class="math inline">\(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\)</span> can be directly obtained by the constitutive equations. For example, in the viscoplastic case treated in Section 2.1.3 or in the case of simple single crystal behaviour described in Section 2.2, <span class="math inline">\(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\)</span> is given by: <span class="math display">\[
-\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}={\underset{\tilde{}}{\mathbf{I}}}-\Delta\,t\,{\left.{{\displaystyle \frac{\displaystyle \partial \phi}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{M}}}}}}\right|_{t+\Delta\,t}}
+<p><span
+class="math inline">\(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\)</span>
+can be directly obtained by the constitutive equations. For example, in
+the viscoplastic case treated in Section 2.1.3 or in the case of simple
+single crystal behaviour described in Section 2.2, <span
+class="math inline">\(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\)</span>
+is given by: <span class="math display">\[
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}={\underset{\tilde{}}{\mathbf{I}}}-\Delta\,t\,{\left.{{\displaystyle
+\frac{\displaystyle \partial \phi}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{M}}}}}}\right|_{t+\Delta\,t}}
 \]</span></p>
-<p>This expression shows that <span class="math inline">\(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\)</span> is a function of the Mandel stress <span class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{M}}}\right|_{t+\Delta\,t}}\)</span> which is a function of the Green-Lagrange strain <span class="math inline">\({\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}\)</span>. The elastic part of the deformation gradient at the end of the time step can now be expressed as: <span class="math display">\[
-{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}} = {\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\,\cdot\,\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}
+<p>This expression shows that <span
+class="math inline">\(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\)</span>
+is a function of the Mandel stress <span
+class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{M}}}\right|_{t+\Delta\,t}}\)</span>
+which is a function of the Green-Lagrange strain <span
+class="math inline">\({\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}\)</span>.
+The elastic part of the deformation gradient at the end of the time step
+can now be expressed as: <span class="math display">\[
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}} =
+{\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\,\cdot\,\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}
 \]</span></p>
-<p>Hence, <span class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}\)</span> is a function of the the Green-Lagrange strain <span class="math inline">\({\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}\)</span> and can also be used to compute the right Cauchy-Green tensor <span class="math inline">\({\left.\underline{C}_{e}\right|_{t+\Delta\,t}}\)</span>, which can be used to compute the Green-Lagrange strain <span class="math inline">\({\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}\)</span>. Finally, the Green-Lagrange strain <span class="math inline">\({\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}\)</span> satisfies this non linear equation: <span id="eq:mfront:FeFpImplicitPlasticity:egl_eq"><span class="math display">\[
-{\left.\underline{\varepsilon}^{GL}_{e}\right|_{t}}+\Delta\,\underline{\varepsilon}^{GL}_{e}={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,{\left({\left.\underline{C}_{e}\right|_{t+\Delta\,t}}{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}{\left({\left.\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}{\left({\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}\right)}\right|_{t+\Delta\,t}}\right)}\right)}-\underline{I}\right)}
-\qquad(12)\]</span></span></p>
-<h3 data-number="3.1.1" id="plastic-case"><span class="header-section-number">3.1.1</span> Plastic case</h3>
-<p>The equation allowing to determine is value of the increment of the equivalent plastic strain is to impose that the stress state lies on the yield surface in case of plastic loading: <span id="eq:mfront:FeFpImplicitPlasticity:Meq"><span class="math display">\[
-{\left.M_{eq}\right|_{t+\Delta\,t}} = M_{0} + H\,{\left(p+\Delta\,p\right)}
-\qquad(13)\]</span></span></p>
-<h2 data-number="3.2" id="resolution-by-a-newton-algorithm.-residual-and-jacobian-matrix"><span class="header-section-number">3.2</span> Resolution by a Newton algorithm. Residual and jacobian matrix</h2>
-<p>Equation (12), combined with Equation (13) in the plastic case, must be solved numerically to find the increment of the Green-Lagrange strain <span class="math inline">\(\Delta\,\underline{\varepsilon}^{GL}_{e}\)</span>, and the increment of the equivalent plastic strain <span class="math inline">\(\Delta\,p\)</span> in the plastic case.</p>
-<p>This resolution is generally based on the iterative Newton algorithm to find the zero of a function called the residual <span class="math inline">\(\vec{R}\)</span>. Let <span class="math inline">\(\Delta\,\vec{Y}^{n}\)</span> be a vector containing the current estimate of the increment of the integration variables (the Green-Lagrange strain in the viscoplatic case, the the Green-Lagrange strain and the equivalent plastic strain in the plastic case).</p>
-<p>A new estimate <span class="math inline">\(\Delta\,\vec{Y}^{n+1}\)</span> is assumed to close be the solution searched, i.e. that: <span class="math display">\[
+<p>Hence, <span
+class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}\)</span>
+is a function of the the Green-Lagrange strain <span
+class="math inline">\({\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}\)</span>
+and can also be used to compute the right Cauchy-Green tensor <span
+class="math inline">\({\left.\underline{C}_{e}\right|_{t+\Delta\,t}}\)</span>,
+which can be used to compute the Green-Lagrange strain <span
+class="math inline">\({\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}\)</span>.
+Finally, the Green-Lagrange strain <span
+class="math inline">\({\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}\)</span>
+satisfies this non linear equation: <span
+id="eq:mfront:FeFpImplicitPlasticity:egl_eq"><span
+class="math display">\[
+{\left.\underline{\varepsilon}^{GL}_{e}\right|_{t}}+\Delta\,\underline{\varepsilon}^{GL}_{e}={{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+2}}}\,{\left({\left.\underline{C}_{e}\right|_{t+\Delta\,t}}{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}{\left({\left.\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}{\left({\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}\right)}\right|_{t+\Delta\,t}}\right)}\right)}-\underline{I}\right)}
+\qquad{(12)}\]</span></span></p>
+<h3 data-number="3.1.1" id="plastic-case"><span
+class="header-section-number">3.1.1</span> Plastic case</h3>
+<p>The equation allowing to determine is value of the increment of the
+equivalent plastic strain is to impose that the stress state lies on the
+yield surface in case of plastic loading: <span
+id="eq:mfront:FeFpImplicitPlasticity:Meq"><span class="math display">\[
+{\left.M_{eq}\right|_{t+\Delta\,t}} = M_{0} +
+H\,{\left(p+\Delta\,p\right)}
+\qquad{(13)}\]</span></span></p>
+<h2 data-number="3.2"
+id="resolution-by-a-newton-algorithm.-residual-and-jacobian-matrix"><span
+class="header-section-number">3.2</span> Resolution by a Newton
+algorithm. Residual and jacobian matrix</h2>
+<p>Equation (12), combined with Equation (13) in the plastic case, must
+be solved numerically to find the increment of the Green-Lagrange strain
+<span
+class="math inline">\(\Delta\,\underline{\varepsilon}^{GL}_{e}\)</span>,
+and the increment of the equivalent plastic strain <span
+class="math inline">\(\Delta\,p\)</span> in the plastic case.</p>
+<p>This resolution is generally based on the iterative Newton algorithm
+to find the zero of a function called the residual <span
+class="math inline">\(\vec{R}\)</span>. Let <span
+class="math inline">\(\Delta\,\vec{Y}^{n}\)</span> be a vector
+containing the current estimate of the increment of the integration
+variables (the Green-Lagrange strain in the viscoplatic case, the the
+Green-Lagrange strain and the equivalent plastic strain in the plastic
+case).</p>
+<p>A new estimate <span
+class="math inline">\(\Delta\,\vec{Y}^{n+1}\)</span> is assumed to close
+be the solution searched, i.e. that: <span class="math display">\[
 \vec{R}{\left(\Delta\,\vec{Y}^{n+1}\right)}\approx \vec{0}
 \]</span></p>
-<p>Taking the first order expansion of <span class="math inline">\(R\)</span> around <span class="math inline">\(\Delta\,\vec{Y}^{n}\)</span> leads to: <span class="math display">\[
+<p>Taking the first order expansion of <span
+class="math inline">\(R\)</span> around <span
+class="math inline">\(\Delta\,\vec{Y}^{n}\)</span> leads to: <span
+class="math display">\[
 \vec{R}{\left(\Delta\,\vec{Y}^{n+1}\right)}
-\approx \vec{R}{\left(\Delta\,\vec{Y}^{n}\right)}+J\,\cdot\,{\left(\Delta\,\vec{Y}^{n+1}-\Delta\,\vec{Y}^{n}\right)}
+\approx
+\vec{R}{\left(\Delta\,\vec{Y}^{n}\right)}+J\,\cdot\,{\left(\Delta\,\vec{Y}^{n+1}-\Delta\,\vec{Y}^{n}\right)}
 \approx \vec{0}
-\]</span> where <span class="math inline">\(J\)</span> is the jacobian matrix. Assuming that <span class="math inline">\(J\)</span> is invertible, <span class="math inline">\(\Delta\,\vec{Y}^{n+1}\)</span> is given by: <span class="math display">\[
+\]</span> where <span class="math inline">\(J\)</span> is the jacobian
+matrix. Assuming that <span class="math inline">\(J\)</span> is
+invertible, <span class="math inline">\(\Delta\,\vec{Y}^{n+1}\)</span>
+is given by: <span class="math display">\[
 \Delta\,\vec{Y}^{n+1}=\Delta\,\vec{Y}^{n}-J^{-1}\,\cdot\,\vec{R}{\left(\Delta\,\vec{Y}^{n}\right)}
 \]</span></p>
-<h3 data-number="3.2.1" id="viscoplastic-case"><span class="header-section-number">3.2.1</span> Viscoplastic case</h3>
-<p>The only integration variable in the viscoplastic case is the Green-Lagrange strain <span class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span>. The residual associated with this equation, denoted <span class="math inline">\(f_{\underline{\varepsilon}^{GL}_{e}}\)</span> using standard <code>MFront</code> notations, is directly derived from Equation (12): <span class="math display">\[
-f_{\underline{\varepsilon}^{GL}_{e}} = {\left.\underline{\varepsilon}^{GL}_{e}\right|_{t}}+\Delta\,\underline{\varepsilon}^{GL}_{e}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,{\left({\left.\underline{C}_{e}\right|_{t+\Delta\,t}}-\underline{I}\right)}
-\]</span> where we dropped the dependencies of <span class="math inline">\(\underline{C}_{e}\)</span> for the sake of clarity.</p>
-<p>The derivative of <span class="math inline">\(f_{\underline{\varepsilon}^{GL}_{e}}\)</span> with respect to the increment of the Green-Lagrange strain is given by: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{GL}_{e}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{GL}_{e}}}}=\underline{I}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{{\displaystyle \frac{\displaystyle \partial {\left.\underline{C}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{GL}_{e}}}}
+<h3 data-number="3.2.1" id="viscoplastic-case"><span
+class="header-section-number">3.2.1</span> Viscoplastic case</h3>
+<p>The only integration variable in the viscoplastic case is the
+Green-Lagrange strain <span
+class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span>. The
+residual associated with this equation, denoted <span
+class="math inline">\(f_{\underline{\varepsilon}^{GL}_{e}}\)</span>
+using standard <code>MFront</code> notations, is directly derived from
+Equation (12): <span class="math display">\[
+f_{\underline{\varepsilon}^{GL}_{e}} =
+{\left.\underline{\varepsilon}^{GL}_{e}\right|_{t}}+\Delta\,\underline{\varepsilon}^{GL}_{e}-{{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+2}}}\,{\left({\left.\underline{C}_{e}\right|_{t+\Delta\,t}}-\underline{I}\right)}
+\]</span> where we dropped the dependencies of <span
+class="math inline">\(\underline{C}_{e}\)</span> for the sake of
+clarity.</p>
+<p>The derivative of <span
+class="math inline">\(f_{\underline{\varepsilon}^{GL}_{e}}\)</span> with
+respect to the increment of the Green-Lagrange strain is given by: <span
+class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{GL}_{e}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{GL}_{e}}}}=\underline{I}-{{\displaystyle
+\frac{\displaystyle 1}{\displaystyle 2}}}{{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{C}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{GL}_{e}}}}
 \]</span></p>
-<p>The derivative <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{GL}_{e}}}}\)</span>, which will also be useful for the computation of the consistent tangent operator, is given by: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{GL}_{e}}}}={{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial \Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial \Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{M}}}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{M}}}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial {\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{GL}_{e}}}}
-\]</span> where <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial \Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{M}}}\right|_{t+\Delta\,t}}}}}=-\Delta\,t\,{\left.{{\displaystyle \frac{\displaystyle \partial^{2} \phi}{\displaystyle \partial^{2} {\underset{\tilde{}}{\mathbf{M}}}}}}\right|_{t+\Delta\,t}}\)</span>, <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{M}}}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}}}}=\underline{\underline{\mathbf{D}}}\)</span> and <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{GL}_{e}}}}=\underline{I}\)</span>. The derivative <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left.\underline{C}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}\)</span> can be computed by the <code>t2tost2::dCdF</code> function. Finally, the derivative <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial \Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}}}\)</span> can be computed with the <code>t2tot2::tprd</code> method<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
-<h3 data-number="3.2.2" id="plastic-case-1"><span class="header-section-number">3.2.2</span> Plastic case</h3>
-<p>The integration variables in the plastic case are the Green-Lagrange strain <span class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span> and the equivalent plastic strain increment <span class="math inline">\(p\)</span>: <span class="math display">\[
+<p>The derivative <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{GL}_{e}}}}\)</span>, which
+will also be useful for the computation of the consistent tangent
+operator, is given by: <span class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{GL}_{e}}}}={{\displaystyle
+\frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle
+\partial
+{\left.{\underset{\tilde{}}{\mathbf{M}}}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{M}}}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+{\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{GL}_{e}}}}
+\]</span> where <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle
+\partial
+{\left.{\underset{\tilde{}}{\mathbf{M}}}\right|_{t+\Delta\,t}}}}}=-\Delta\,t\,{\left.{{\displaystyle
+\frac{\displaystyle \partial^{2} \phi}{\displaystyle \partial^{2}
+{\underset{\tilde{}}{\mathbf{M}}}}}}\right|_{t+\Delta\,t}}\)</span>,
+<span class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{M}}}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+{\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}}}}=\underline{\underline{\mathbf{D}}}\)</span>
+and <span class="math inline">\({{\displaystyle \frac{\displaystyle
+\partial
+{\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+\Delta\,\underline{\varepsilon}^{GL}_{e}}}}=\underline{I}\)</span>. The
+derivative <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{C}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}\)</span>
+can be computed by the <code>t2tost2::dCdF</code> function. Finally, the
+derivative <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}}}\)</span> can be
+computed with the <code>t2tot2::tprd</code> method<a href="#fn1"
+class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>.</p>
+<h3 data-number="3.2.2" id="plastic-case-1"><span
+class="header-section-number">3.2.2</span> Plastic case</h3>
+<p>The integration variables in the plastic case are the Green-Lagrange
+strain <span
+class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span> and the
+equivalent plastic strain increment <span
+class="math inline">\(p\)</span>: <span class="math display">\[
 \vec{Y}=
 \begin{pmatrix}
 \underline{\varepsilon}^{GL}_{e}\\
 p
 \end{pmatrix}
 \]</span></p>
-<p>The residual <span class="math inline">\(\vec{R}\)</span> can be decomposed by blocks as follows: <span class="math display">\[
+<p>The residual <span class="math inline">\(\vec{R}\)</span> can be
+decomposed by blocks as follows: <span class="math display">\[
 \vec{R}{\left(\vec{Y}\right)}=
 \begin{pmatrix}
 f_{\underline{\varepsilon}^{GL}_{e}}\\
 f_{p}
 \end{pmatrix}
 \]</span></p>
-<p>where <span class="math inline">\(f_{\underline{\varepsilon}^{GL}_{e}}\)</span> and <span class="math inline">\(f_{p}\)</span> can be deduced from Equations (12), combined with Equation (13) as follows: <span class="math display">\[
+<p>where <span
+class="math inline">\(f_{\underline{\varepsilon}^{GL}_{e}}\)</span> and
+<span class="math inline">\(f_{p}\)</span> can be deduced from Equations
+(12), combined with Equation (13) as follows: <span
+class="math display">\[
 \left\{
 \begin{aligned}
-f_{\underline{\varepsilon}^{GL}_{e}} &amp;= {\left.\underline{\varepsilon}^{GL}_{e}\right|_{t}}+\Delta\,\underline{\varepsilon}^{GL}_{e}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,{\left({\left.\underline{C}_{e}\right|_{t+\Delta\,t}}-\underline{I}\right)} \\
-f_{p}    &amp;=  {{\displaystyle \frac{\displaystyle 1}{\displaystyle E}}}\,{\left(M_{eq} - M_{0} - H\,{\left(p+\Delta\,p\right)}\right)}
+f_{\underline{\varepsilon}^{GL}_{e}} &amp;=
+{\left.\underline{\varepsilon}^{GL}_{e}\right|_{t}}+\Delta\,\underline{\varepsilon}^{GL}_{e}-{{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+2}}}\,{\left({\left.\underline{C}_{e}\right|_{t+\Delta\,t}}-\underline{I}\right)}
+\\
+f_{p}    &amp;=  {{\displaystyle \frac{\displaystyle 1}{\displaystyle
+E}}}\,{\left(M_{eq} - M_{0} - H\,{\left(p+\Delta\,p\right)}\right)}
 \end{aligned}
 \right.
-\]</span> where normalisation factor <span class="math inline">\({{\displaystyle \frac{\displaystyle 1}{\displaystyle E}}}\)</span> has be introduced so that <span class="math inline">\(f_{p}\)</span> has the same magnitude as <span class="math inline">\(f_{\underline{\varepsilon}^{GL}_{e}}\)</span>. <span class="math inline">\(E\)</span> is generally choosen to be Young’ modulus for isotropic behaviours and the first component of the siffness matrix for orthotropic behaviours.</p>
-<h2 data-number="3.3" id="consistent-tangent-operator"><span class="header-section-number">3.3</span> Consistent tangent operator</h2>
-<p>This section is devoted to the computation of the derivative of the Kirchhoff stress with respect to the deformation gradient. Alternative consistent tangent operators are described in Appendix 5.</p>
-<p>The Kirchhoff stress <span class="math inline">\({\left.\tau\right|_{t+\Delta\,t}}\)</span> is defined as the push-forward of the second Piola-Kirchhoff stress <span class="math inline">\({\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\)</span>: <span class="math display">\[
+\]</span> where normalisation factor <span
+class="math inline">\({{\displaystyle \frac{\displaystyle
+1}{\displaystyle E}}}\)</span> has be introduced so that <span
+class="math inline">\(f_{p}\)</span> has the same magnitude as <span
+class="math inline">\(f_{\underline{\varepsilon}^{GL}_{e}}\)</span>.
+<span class="math inline">\(E\)</span> is generally choosen to be Young’
+modulus for isotropic behaviours and the first component of the siffness
+matrix for orthotropic behaviours.</p>
+<h2 data-number="3.3" id="consistent-tangent-operator"><span
+class="header-section-number">3.3</span> Consistent tangent
+operator</h2>
+<p>This section is devoted to the computation of the derivative of the
+Kirchhoff stress with respect to the deformation gradient. Alternative
+consistent tangent operators are described in Appendix 5.</p>
+<p>The Kirchhoff stress <span
+class="math inline">\({\left.\tau\right|_{t+\Delta\,t}}\)</span> is
+defined as the push-forward of the second Piola-Kirchhoff stress <span
+class="math inline">\({\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\)</span>:
+<span class="math display">\[
 {\left.\tau\right|_{t+\Delta\,t}}={\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}^{\mathrm{T}}}
 \]</span> with: <span class="math display">\[
-{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,\underline{\underline{\mathbf{D}}}\,\colon\,{\left(\underline{C}_{e}-{\underset{\tilde{}}{\mathbf{I}}}\right)}
+{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}={{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+2}}}\,\underline{\underline{\mathbf{D}}}\,\colon\,{\left(\underline{C}_{e}-{\underset{\tilde{}}{\mathbf{I}}}\right)}
 \]</span></p>
-<p>This definition of <span class="math inline">\({\left.\tau\right|_{t+\Delta\,t}}\)</span> differs from the one used in the previous section since we directly uses <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> to compute <span class="math inline">\(\underline{S}_{e}\)</span> rather than <span class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span>.</p>
-<p>The consistent tangent operator is then: <span class="math display">\[
+<p>This definition of <span
+class="math inline">\({\left.\tau\right|_{t+\Delta\,t}}\)</span> differs
+from the one used in the previous section since we directly uses <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> to
+compute <span class="math inline">\(\underline{S}_{e}\)</span> rather
+than <span
+class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span>.</p>
+<p>The consistent tangent operator is then: <span
+class="math display">\[
 \begin{aligned}
-{{\displaystyle \frac{\displaystyle \partial {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
+{{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
 &amp;={\left(
-{{\displaystyle \frac{\displaystyle \partial {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial {\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}+
-{{\displaystyle \frac{\displaystyle \partial {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}
-\right)}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}\\
+{{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}+
+{{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}
+\right)}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}\\
 &amp;={\left(
-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{{\displaystyle \frac{\displaystyle \partial {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,\underline{\underline{\mathbf{D}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial {\left.\underline{C}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}+
-{{\displaystyle \frac{\displaystyle \partial {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}
-\right)}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,\underline{\underline{\mathbf{D}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{C}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}+
+{{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}
+\right)}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
 \end{aligned}
 \]</span> with: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}=
+{{\displaystyle \frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}=
 \partial_{\star}^{l}{\left(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}\,\cdot\,\partial_{\star}^{l}{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}^{-1}\right|_{t}}\right)}+
-\partial_{\star}^{r}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\right)}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial \Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle \partial \Delta\,\vec{Y}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial \Delta\,\vec{Y}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
+\partial_{\star}^{r}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\right)}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle
+\partial \Delta\,\vec{Y}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle
+\partial \Delta\,\vec{Y}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
 \]</span></p>
-<h1 data-number="4" id="plastic-behaviour-implementation"><span class="header-section-number">4</span> Plastic behaviour’ implementation</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL ImplicitFiniteStrain;</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour ImplicitFeFpPlasticity;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">13</span> / <span class="er">09</span> / <span class="dv">2021</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-14</span>;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ElasticMaterialProperties {<span class="fl">150e9</span>, <span class="fl">0.3</span>};</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress M0 = <span class="fl">100e6</span>;</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress H = <span class="fl">2e6</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IntegrationVariable StrainStensor eel;</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable strain p;</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable DeformationGradientTensor Fp;</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Fp.setEntryName(<span class="st">&quot;PlasticPartOfTheDeformationGradient&quot;</span>);</span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable DeformationGradientTensor Fe_tr;</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable DeformationGradientTensor iFp;</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable DeformationGradientTensor idFp;</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable StiffnessTensor De;</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable st2tot2&lt;N,real&gt; didFp_ddeel;</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable tensor&lt;N,real&gt; n;</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">bool</span> b_loading;</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitializeLocalVariables {</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> id = Stensor::Id();</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> uid = Tensor::Id();</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  De = lambda * Stensor4::IxI() + <span class="dv">2</span> * mu * Stensor4::Id();</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  iFp = invert(Fp);</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Fe = F0 * iFp;</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  eel = computeGreenLagrangeTensor(Fe);</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  Fe_tr = F1 * iFp;</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> eel_tr = computeGreenLagrangeTensor(Fe_tr);</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> S_tr = De * eel_tr;</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> M_tr = eval((id + <span class="dv">2</span> * eel_tr) * S_tr);</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Mdev_tr = M_tr - trace(M_tr) / <span class="dv">3</span> * uid;</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Meq_tr = sqrt(<span class="dv">3</span> * (Mdev_tr | Mdev_tr) / <span class="dv">2</span>);</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  b_loading = Meq_tr &gt; M0 + H * p;</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (!b_loading) {</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    idFp = uid;</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    didFp_ddeel = st2tot2&lt;N, real&gt;{<span class="dv">0</span>};</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (!b_loading) {</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> egl = computeGreenLagrangeTensor(Fe_tr);</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    feel = eel + deel - egl;</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    dfeel_ddeel = Stensor4::Id();</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span>;</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> id = Stensor::Id();</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> uid = Tensor::Id();</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> eeps = real(<span class="fl">1.e-14</span>);</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> seps = young * eeps;</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> eel_ets = eel + deel;</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> S = De * eel_ets;</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> M = eval((id + <span class="dv">2</span> * eel_ets) * S);</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dM_ddeel =</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>      st2tot2&lt;N, real&gt;{<span class="dv">2</span> * st2tot2&lt;N, real&gt;::tpld(S) +</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                       st2tot2&lt;N, real&gt;::tprd(id + <span class="dv">2</span> * eel_ets, De)};</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Mdev = M - trace(M) / <span class="dv">3</span> * uid;</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Meq = sqrt(<span class="dv">3</span> * (Mdev | Mdev) / <span class="dv">2</span>);</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> iMeq = <span class="dv">1</span> / max(Meq, seps);</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  n = <span class="dv">3</span> * Mdev * (iMeq / <span class="dv">2</span>);</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  idFp = uid - dp * n;</span>
+<h1 data-number="4" id="plastic-behaviour-implementation"><span
+class="header-section-number">4</span> Plastic behaviour’
+implementation</h1>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL ImplicitFiniteStrain<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour ImplicitFeFpPlasticity<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">13</span> <span class="op">/</span> <span class="dv">0</span><span class="er">9</span> <span class="op">/</span> <span class="dv">2021</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-14</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ElasticMaterialProperties <span class="op">{</span><span class="fl">150e9</span><span class="op">,</span> <span class="fl">0.3</span><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress M0 <span class="op">=</span> <span class="fl">100e6</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress H <span class="op">=</span> <span class="fl">2e6</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IntegrationVariable StrainStensor eel<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable strain p<span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>p<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;EquivalentPlasticStrain&quot;</span><span class="op">);</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable DeformationGradientTensor Fp<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Fp<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;PlasticPartOfTheDeformationGradient&quot;</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable DeformationGradientTensor Fe_tr<span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable DeformationGradientTensor iFp<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable DeformationGradientTensor idFp<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable StiffnessTensor De<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable st2tot2<span class="op">&lt;</span>N<span class="op">,</span>real<span class="op">&gt;</span> didFp_ddeel<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable tensor<span class="op">&lt;</span>N<span class="op">,</span>real<span class="op">&gt;</span> n<span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">bool</span> b_loading<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitializeLocalVariables <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> id <span class="op">=</span> Stensor<span class="op">::</span>Id<span class="op">();</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> uid <span class="op">=</span> Tensor<span class="op">::</span>Id<span class="op">();</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  De <span class="op">=</span> lambda <span class="op">*</span> Stensor4<span class="op">::</span>IxI<span class="op">()</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> mu <span class="op">*</span> Stensor4<span class="op">::</span>Id<span class="op">();</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  iFp <span class="op">=</span> invert<span class="op">(</span>Fp<span class="op">);</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Fe <span class="op">=</span> F0 <span class="op">*</span> iFp<span class="op">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  eel <span class="op">=</span> computeGreenLagrangeTensor<span class="op">(</span>Fe<span class="op">);</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  Fe_tr <span class="op">=</span> F1 <span class="op">*</span> iFp<span class="op">;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> eel_tr <span class="op">=</span> computeGreenLagrangeTensor<span class="op">(</span>Fe_tr<span class="op">);</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> S_tr <span class="op">=</span> De <span class="op">*</span> eel_tr<span class="op">;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> M_tr <span class="op">=</span> eval<span class="op">((</span>id <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> eel_tr<span class="op">)</span> <span class="op">*</span> S_tr<span class="op">);</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Mdev_tr <span class="op">=</span> M_tr <span class="op">-</span> trace<span class="op">(</span>M_tr<span class="op">)</span> <span class="op">/</span> <span class="dv">3</span> <span class="op">*</span> uid<span class="op">;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Meq_tr <span class="op">=</span> sqrt<span class="op">(</span><span class="dv">3</span> <span class="op">*</span> <span class="op">(</span>Mdev_tr <span class="op">|</span> Mdev_tr<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  b_loading <span class="op">=</span> Meq_tr <span class="op">&gt;</span> M0 <span class="op">+</span> H <span class="op">*</span> p<span class="op">;</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>b_loading<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    idFp <span class="op">=</span> uid<span class="op">;</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    didFp_ddeel <span class="op">=</span> st2tot2<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;{</span><span class="dv">0</span><span class="op">};</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator <span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>b_loading<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> egl <span class="op">=</span> computeGreenLagrangeTensor<span class="op">(</span>Fe_tr<span class="op">);</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    feel <span class="op">=</span> eel <span class="op">+</span> deel <span class="op">-</span> egl<span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    dfeel_ddeel <span class="op">=</span> Stensor4<span class="op">::</span>Id<span class="op">();</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> id <span class="op">=</span> Stensor<span class="op">::</span>Id<span class="op">();</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> uid <span class="op">=</span> Tensor<span class="op">::</span>Id<span class="op">();</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> eeps <span class="op">=</span> real<span class="op">(</span><span class="fl">1.e-14</span><span class="op">);</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> seps <span class="op">=</span> young <span class="op">*</span> eeps<span class="op">;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> eel_ets <span class="op">=</span> eel <span class="op">+</span> deel<span class="op">;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> S <span class="op">=</span> De <span class="op">*</span> eel_ets<span class="op">;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> M <span class="op">=</span> eval<span class="op">((</span>id <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> eel_ets<span class="op">)</span> <span class="op">*</span> S<span class="op">);</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dM_ddeel <span class="op">=</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>      st2tot2<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;{</span><span class="dv">2</span> <span class="op">*</span> st2tot2<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;::</span>tpld<span class="op">(</span>S<span class="op">)</span> <span class="op">+</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                       st2tot2<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;::</span>tprd<span class="op">(</span>id <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> eel_ets<span class="op">,</span> De<span class="op">)};</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Mdev <span class="op">=</span> M <span class="op">-</span> trace<span class="op">(</span>M<span class="op">)</span> <span class="op">/</span> <span class="dv">3</span> <span class="op">*</span> uid<span class="op">;</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Meq <span class="op">=</span> sqrt<span class="op">(</span><span class="dv">3</span> <span class="op">*</span> <span class="op">(</span>Mdev <span class="op">|</span> Mdev<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> iMeq <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> max<span class="op">(</span>Meq<span class="op">,</span> seps<span class="op">);</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  n <span class="op">=</span> <span class="dv">3</span> <span class="op">*</span> Mdev <span class="op">*</span> <span class="op">(</span>iMeq <span class="op">/</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  idFp <span class="op">=</span> uid <span class="op">-</span> dp <span class="op">*</span> n<span class="op">;</span></span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">// current estimate of the elastic part of the deformation gradient at the end</span></span>
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="co">// of the time step</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Fe = Fe_tr * idFp;</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> egl = computeGreenLagrangeTensor(Fe);</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  feel = eel + deel - egl;</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Fe <span class="op">=</span> Fe_tr <span class="op">*</span> idFp<span class="op">;</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> egl <span class="op">=</span> computeGreenLagrangeTensor<span class="op">(</span>Fe<span class="op">);</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  feel <span class="op">=</span> eel <span class="op">+</span> deel <span class="op">-</span> egl<span class="op">;</span></span>
 <span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  <span class="co">// jacobian</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> degl_didFp =</span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>      t2tost2&lt;N, real&gt;::dCdF(Fe) * t2tot2&lt;N, real&gt;::tprd(Fe_tr) / <span class="dv">2</span>;</span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> uM = (<span class="dv">3</span> * t2tot2&lt;N, real&gt;::K()) / <span class="dv">2</span>;</span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dn_dM = iMeq * (uM - (n ^ n));</span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> didFp_dM = - dp * dn_dM;</span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  didFp_ddeel = didFp_dM * dM_ddeel;</span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>  dfeel_ddeel -= degl_didFp * didFp_ddeel;</span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>  dfeel_ddp = degl_didFp * n;</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> degl_didFp <span class="op">=</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>      t2tost2<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;::</span>dCdF<span class="op">(</span>Fe<span class="op">)</span> <span class="op">*</span> t2tot2<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;::</span>tprd<span class="op">(</span>Fe_tr<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> uM <span class="op">=</span> <span class="op">(</span><span class="dv">3</span> <span class="op">*</span> t2tot2<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;::</span>K<span class="op">())</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dn_dM <span class="op">=</span> iMeq <span class="op">*</span> <span class="op">(</span>uM <span class="op">-</span> <span class="op">(</span>n <span class="op">^</span> n<span class="op">));</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> didFp_dM <span class="op">=</span> <span class="op">-</span> dp <span class="op">*</span> dn_dM<span class="op">;</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  didFp_ddeel <span class="op">=</span> didFp_dM <span class="op">*</span> dM_ddeel<span class="op">;</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>  dfeel_ddeel <span class="op">-=</span> degl_didFp <span class="op">*</span> didFp_ddeel<span class="op">;</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>  dfeel_ddp <span class="op">=</span> degl_didFp <span class="op">*</span> n<span class="op">;</span></span>
 <span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>  <span class="co">// plastic part</span></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>  fp = (Meq - M0 - H * (p + dp)) / young;</span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>  dfp_ddeel = (n | dM_ddeel) / young;</span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>  dfp_ddp = -H / young;</span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeFinalStress {</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Fe = Fe_tr * idFp;</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> S = De * eel;</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  sig = convertSecondPiolaKirchhoffStressToCauchyStress(S,Fe);</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UpdateAuxiliaryStateVariables {</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  Fp = eval(invert(idFp) * Fp);</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  Fp /= cbrt(det(Fp));</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator&lt;DTAU_DF&gt; {</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Fe = Fe_tr * idFp;</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> S = De * eel;</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dCe_dFe = t2tost2&lt;N, real&gt;::dCdF(Fe);</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dS_dFe = De * dCe_dFe / <span class="dv">2</span>;</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  t2tost2&lt;N, stress&gt; dtau_dFe;</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  computePushForwardDerivative(dtau_dFe, dS_dFe, S, Fe);</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>  fp <span class="op">=</span> <span class="op">(</span>Meq <span class="op">-</span> M0 <span class="op">-</span> H <span class="op">*</span> <span class="op">(</span>p <span class="op">+</span> dp<span class="op">))</span> <span class="op">/</span> young<span class="op">;</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>  dfp_ddeel <span class="op">=</span> <span class="op">(</span>n <span class="op">|</span> dM_ddeel<span class="op">)</span> <span class="op">/</span> young<span class="op">;</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>  dfp_ddp <span class="op">=</span> <span class="op">-</span>H <span class="op">/</span> young<span class="op">;</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeFinalStress <span class="op">{</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Fe <span class="op">=</span> Fe_tr <span class="op">*</span> idFp<span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> S <span class="op">=</span> De <span class="op">*</span> eel<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  sig <span class="op">=</span> convertSecondPiolaKirchhoffStressToCauchyStress<span class="op">(</span>S<span class="op">,</span>Fe<span class="op">);</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UpdateAuxiliaryStateVariables <span class="op">{</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  Fp <span class="op">=</span> eval<span class="op">(</span>invert<span class="op">(</span>idFp<span class="op">)</span> <span class="op">*</span> Fp<span class="op">);</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  Fp <span class="op">/=</span> cbrt<span class="op">(</span>det<span class="op">(</span>Fp<span class="op">));</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator<span class="op">&lt;</span>DTAU_DF<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Fe <span class="op">=</span> Fe_tr <span class="op">*</span> idFp<span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> S <span class="op">=</span> De <span class="op">*</span> eel<span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dCe_dFe <span class="op">=</span> t2tost2<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;::</span>dCdF<span class="op">(</span>Fe<span class="op">);</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dS_dFe <span class="op">=</span> De <span class="op">*</span> dCe_dFe <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  t2tost2<span class="op">&lt;</span>N<span class="op">,</span> stress<span class="op">&gt;</span> dtau_dFe<span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  computePushForwardDerivative<span class="op">(</span>dtau_dFe<span class="op">,</span> dS_dFe<span class="op">,</span> S<span class="op">,</span> Fe<span class="op">);</span></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// now we need dFe_dF</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dFe_tr_dF = t2tot2&lt;N, real&gt;::tpld(iFp);</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  dfeel_ddF = -dCe_dFe * t2tot2&lt;N, real&gt;::tpld(idFp, dFe_tr_dF) / <span class="dv">2</span>;</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> ddeel_dF = t2tost2&lt;N, real&gt;{};</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> ddp_dF = tensor&lt;N, real&gt;{};</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  getIntegrationVariablesDerivatives_F(ddeel_dF, ddp_dF);  <span class="co">//</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> didFp_dF = didFp_ddeel * ddeel_dF - (n ^ ddp_dF);</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dFe_dF = t2tot2&lt;N, real&gt;::tpld(idFp, dFe_tr_dF) +</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>                      t2tot2&lt;N, real&gt;::tprd(Fe_tr, didFp_dF);</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  Dt = dtau_dFe * dFe_dF;</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dFe_tr_dF <span class="op">=</span> t2tot2<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;::</span>tpld<span class="op">(</span>iFp<span class="op">);</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  dfeel_ddF <span class="op">=</span> <span class="op">-</span>dCe_dFe <span class="op">*</span> t2tot2<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;::</span>tpld<span class="op">(</span>idFp<span class="op">,</span> dFe_tr_dF<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> ddeel_dF <span class="op">=</span> t2tost2<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;{};</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> ddp_dF <span class="op">=</span> tensor<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;{};</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  getIntegrationVariablesDerivatives_F<span class="op">(</span>ddeel_dF<span class="op">,</span> ddp_dF<span class="op">);</span>  <span class="co">//</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> didFp_dF <span class="op">=</span> didFp_ddeel <span class="op">*</span> ddeel_dF <span class="op">-</span> <span class="op">(</span>n <span class="op">^</span> ddp_dF<span class="op">);</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dFe_dF <span class="op">=</span> t2tot2<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;::</span>tpld<span class="op">(</span>idFp<span class="op">,</span> dFe_tr_dF<span class="op">)</span> <span class="op">+</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>                      t2tot2<span class="op">&lt;</span>N<span class="op">,</span> real<span class="op">&gt;::</span>tprd<span class="op">(</span>Fe_tr<span class="op">,</span> didFp_dF<span class="op">);</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  Dt <span class="op">=</span> dtau_dFe <span class="op">*</span> dFe_dF<span class="op">;</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <!--
 # The `FiniteStrainSingleCrystal` brick
 
@@ -957,66 +1613,242 @@ the algorithm requires an analytic jacobian, the derivative
 \(\deriv{\tns{M}}{\Delta\,\tepsilonel}\) is also computed and stored
 in the variable `dM_ddeel` respectively.
 -->
-<h1 data-number="5" id="sec:mfront:FeFpImplicitPlasticity:consistent_tangent_operators"><span class="header-section-number">5</span> Alternative consistent tangent operators</h1>
-<h2 data-number="5.1" id="sec:mfront:FeFpImplicitPlasticity:dtau_dF"><span class="header-section-number">5.1</span> Another expression of the derivative of the Kirchhoff stress with respect ot the deformation gradient</h2>
-<p>The Kirchhoff stress <span class="math inline">\({\left.\tau\right|_{t+\Delta\,t}}\)</span> is defined as the push-forward of the second Piola-Kirchhoff stress <span class="math inline">\({\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\)</span>: <span class="math display">\[
+<h1 data-number="5"
+id="sec:mfront:FeFpImplicitPlasticity:consistent_tangent_operators"><span
+class="header-section-number">5</span> Alternative consistent tangent
+operators</h1>
+<h2 data-number="5.1"
+id="sec:mfront:FeFpImplicitPlasticity:dtau_dF"><span
+class="header-section-number">5.1</span> Another expression of the
+derivative of the Kirchhoff stress with respect ot the deformation
+gradient</h2>
+<p>The Kirchhoff stress <span
+class="math inline">\({\left.\tau\right|_{t+\Delta\,t}}\)</span> is
+defined as the push-forward of the second Piola-Kirchhoff stress <span
+class="math inline">\({\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\)</span>:
+<span class="math display">\[
 {\left.\tau\right|_{t+\Delta\,t}}={\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}^{\mathrm{T}}}
-\]</span> f his section is devoted to the computation of the derivative <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}\)</span> which can be obtained by the chain rule, as follows: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}=
-{{\displaystyle \frac{\displaystyle \partial {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial {\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}+
-{{\displaystyle \frac{\displaystyle \partial {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
+\]</span> f his section is devoted to the computation of the derivative
+<span class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}\)</span>
+which can be obtained by the chain rule, as follows: <span
+class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}=
+{{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}+
+{{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
 \]</span> where:</p>
 <ul>
-<li><span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}}}\)</span> is computed assuming that <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> is constant. This derivative can be computed using the <code>computePushForwardDerivative</code> function.</li>
-<li><span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}\)</span> is computed assuming that <span class="math inline">\(\underline{S}_{e}\)</span> is constant. This derivative can be computed using the <code>computePushForwardDerivativeWithRespectToTheDeformationGradient</code> function.</li>
+<li><span class="math inline">\({{\displaystyle \frac{\displaystyle
+\partial {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial {\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}}}\)</span> is
+computed assuming that <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> is
+constant. This derivative can be computed using the
+<code>computePushForwardDerivative</code> function.</li>
+<li><span class="math inline">\({{\displaystyle \frac{\displaystyle
+\partial {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}\)</span>
+is computed assuming that <span
+class="math inline">\(\underline{S}_{e}\)</span> is constant. This
+derivative can be computed using the
+<code>computePushForwardDerivativeWithRespectToTheDeformationGradient</code>
+function.</li>
 </ul>
-<p>The derivative <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}\)</span> is given by: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial {\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}={{\displaystyle \frac{\displaystyle \partial {\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial {\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
-=\underline{\underline{\mathbf{M}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial \Delta\,\underline{\varepsilon}^{GL}_{e}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
+<p>The derivative <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}\)</span>
+is given by: <span class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}={{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{\varepsilon}^{GL}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
+=\underline{\underline{\mathbf{M}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{GL}_{e}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
 \]</span></p>
-<p>The derivative <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}\)</span> is given by: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}=
-\partial_{\star}^{l}{\left(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}+
-\partial_{\star}^{r}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\right)}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial \Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle \partial \Delta\,\vec{Y}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial \Delta\,\vec{Y}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
-\]</span> where the tensors <span class="math inline">\(\partial_{\star}^{l}{\left(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}\)</span> and <span class="math inline">\(\partial_{\star}^{r}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\right)}\)</span> can be computed by the <code>t2tot2::tpld</code> and <code>t2tot2::tprd</code> respectively<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
-<p>The derivative <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}\)</span> is given by <span class="math inline">\(\partial_{\star}^{l}{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}^{-1}\right|_{t}}\right)}\)</span>, so: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}=
+<p>The derivative <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}\)</span>
+is given by: <span class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}=
+\partial_{\star}^{l}{\left(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}+
+\partial_{\star}^{r}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\right)}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle
+\partial \Delta\,\vec{Y}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle
+\partial \Delta\,\vec{Y}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
+\]</span> where the tensors <span
+class="math inline">\(\partial_{\star}^{l}{\left(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}\)</span>
+and <span
+class="math inline">\(\partial_{\star}^{r}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\right)}\)</span>
+can be computed by the <code>t2tot2::tpld</code> and
+<code>t2tot2::tprd</code> respectively<a href="#fn2"
+class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>.</p>
+<p>The derivative <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}\)</span>
+is given by <span
+class="math inline">\(\partial_{\star}^{l}{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}^{-1}\right|_{t}}\right)}\)</span>,
+so: <span class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}=
 \partial_{\star}^{l}{\left(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}\,\cdot\,\partial_{\star}^{l}{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}^{-1}\right|_{t}}\right)}+
-\partial_{\star}^{r}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\right)}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial \Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle \partial \Delta\,\vec{Y}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial \Delta\,\vec{Y}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
+\partial_{\star}^{r}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{tr}\right)}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle
+\partial \Delta\,\vec{Y}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle
+\partial \Delta\,\vec{Y}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
 \]</span></p>
-<p>Finally, the last derivative to be computed is <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial \Delta\,\underline{\varepsilon}^{GL}_{e}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}\)</span>. This derivative can be computed using the implicit function theorem as follow: <span class="math display">\[
-J\,{{\displaystyle \frac{\displaystyle \partial \Delta\,\vec{Y}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}=-{{\displaystyle \frac{\displaystyle \partial \vec{R}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
+<p>Finally, the last derivative to be computed is <span
+class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{GL}_{e}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}\)</span>.
+This derivative can be computed using the implicit function theorem as
+follow: <span class="math display">\[
+J\,{{\displaystyle \frac{\displaystyle \partial
+\Delta\,\vec{Y}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}=-{{\displaystyle
+\frac{\displaystyle \partial \vec{R}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
 \]</span></p>
-<p>where <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial \vec{R}}{\displaystyle \partial {\left.F\right|_{t+\Delta\,t}}}}}\)</span> must be computed assuming that the internal state variables are constant constant. Only the block <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{GL}_{e}}}{\displaystyle \partial {\left.F\right|_{t+\Delta\,t}}}}}\)</span> is not null and is given by: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{GL}_{e}}}{\displaystyle \partial {\left.F\right|_{t+\Delta\,t}}}}}=
--{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,{{\displaystyle \frac{\displaystyle \partial {\left.\underline{C}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}=
--{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,{{\displaystyle \frac{\displaystyle \partial {\left.\underline{C}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,\partial_{\star}^{l}{\left(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}\,\cdot\,\partial_{\star}^{l}{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}^{-1}\right|_{t}}\right)}
+<p>where <span class="math inline">\({{\displaystyle \frac{\displaystyle
+\partial \vec{R}}{\displaystyle \partial
+{\left.F\right|_{t+\Delta\,t}}}}}\)</span> must be computed assuming
+that the internal state variables are constant constant. Only the block
+<span class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{GL}_{e}}}{\displaystyle \partial
+{\left.F\right|_{t+\Delta\,t}}}}}\)</span> is not null and is given by:
+<span class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{GL}_{e}}}{\displaystyle \partial
+{\left.F\right|_{t+\Delta\,t}}}}}=
+-{{\displaystyle \frac{\displaystyle 1}{\displaystyle
+2}}}\,{{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{C}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}=
+-{{\displaystyle \frac{\displaystyle 1}{\displaystyle
+2}}}\,{{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{C}_{e}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,\partial_{\star}^{l}{\left(\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}\,\cdot\,\partial_{\star}^{l}{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}^{-1}\right|_{t}}\right)}
 \]</span></p>
-<h2 data-number="5.2" id="derivative-of-the-second-piola-kirchhoff-stress-in-the-initial-configuration-with-respect-to-the-right-cauchy-tensor-in-the-initial-configuration"><span class="header-section-number">5.2</span> Derivative of the second Piola-Kirchhoff stress in the initial configuration with respect to the right Cauchy tensor in the initial configuration</h2>
-<p>This paragraph computes the derivative <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left.\underline{S}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}\)</span> of the second Piola-Kirchhoff stress <span class="math inline">\({\left.\underline{S}\right|_{t+\Delta\,t}}\)</span> in the initial configuration with respect to the right Cauchy tensor in the initial configuration <span class="math inline">\({\left.\underline{C}\right|_{t+\Delta\,t}}={\left.{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{T}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}\)</span>.</p>
-<p>The second Piola-Kirchhoff stress <span class="math inline">\({\left.\underline{S}\right|_{t+\Delta\,t}}\)</span> can be computed by the pull-back of the Kirchoff stress <span class="math inline">\({\left.\underline{\tau}\right|_{t+\Delta\,t}}\)</span>: <span class="math display">\[
+<h2 data-number="5.2"
+id="derivative-of-the-second-piola-kirchhoff-stress-in-the-initial-configuration-with-respect-to-the-right-cauchy-tensor-in-the-initial-configuration"><span
+class="header-section-number">5.2</span> Derivative of the second
+Piola-Kirchhoff stress in the initial configuration with respect to the
+right Cauchy tensor in the initial configuration</h2>
+<p>This paragraph computes the derivative <span
+class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{S}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.\underline{C}\right|_{t+\Delta\,t}}}}}\)</span> of the second
+Piola-Kirchhoff stress <span
+class="math inline">\({\left.\underline{S}\right|_{t+\Delta\,t}}\)</span>
+in the initial configuration with respect to the right Cauchy tensor in
+the initial configuration <span
+class="math inline">\({\left.\underline{C}\right|_{t+\Delta\,t}}={\left.{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{T}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}\)</span>.</p>
+<p>The second Piola-Kirchhoff stress <span
+class="math inline">\({\left.\underline{S}\right|_{t+\Delta\,t}}\)</span>
+can be computed by the pull-back of the Kirchoff stress <span
+class="math inline">\({\left.\underline{\tau}\right|_{t+\Delta\,t}}\)</span>:
+<span class="math display">\[
 \begin{aligned}
 {\left.\underline{S}\right|_{t+\Delta\,t}}
-&amp;={\left.{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left.\underline{\tau}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-T}}}\right|_{t+\Delta\,t}} \\
+&amp;={\left.{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left.\underline{\tau}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-T}}}\right|_{t+\Delta\,t}}
+\\
 &amp;={\left.{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}^{\mathrm{T}}}\,\cdot\,{\left.{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-T}}}\right|_{t+\Delta\,t}}\\
 &amp;={\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}^{\mathrm{T}}}\,\cdot\,{\left.{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-T}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-T}}}\right|_{t+\Delta\,t}}\\
-&amp;={\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-T}}}\right|_{t+\Delta\,t}} \\
+&amp;={\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-T}}}\right|_{t+\Delta\,t}}
+\\
 \end{aligned}
 \]</span></p>
-<p>This relationship shows that <span class="math inline">\(\underline{S}_{e}\)</span> can be identified to the Kirchhoff stress in the intermediate configuration and that <span class="math inline">\(\underline{S}\)</span> is the pull-back of <span class="math inline">\(\underline{S}_{e}\)</span> by the plastic part of the deformation gradient <span class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}\)</span>.</p>
+<p>This relationship shows that <span
+class="math inline">\(\underline{S}_{e}\)</span> can be identified to
+the Kirchhoff stress in the intermediate configuration and that <span
+class="math inline">\(\underline{S}\)</span> is the pull-back of <span
+class="math inline">\(\underline{S}_{e}\)</span> by the plastic part of
+the deformation gradient <span
+class="math inline">\({\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}\)</span>.</p>
 <p><span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial {\left.\underline{S}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}=
-{{\displaystyle \frac{\displaystyle \partial {\left.\underline{S}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial \underline{S}_{e}}{\displaystyle \partial \underline{C}}}}+
-{{\displaystyle \frac{\displaystyle \partial {\left.\underline{S}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}}{\displaystyle \partial \underline{C}}}}
+{{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{S}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.\underline{C}\right|_{t+\Delta\,t}}}}}=
+{{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{S}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial \underline{S}_{e}}{\displaystyle \partial
+\underline{C}}}}+
+{{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{S}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+{\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\right|_{t+\Delta\,t}}}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}}{\displaystyle
+\partial \underline{C}}}}
 \]</span> where:</p>
 <ul>
-<li><span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left.\underline{S}\right|_{t+\Delta\,t}}}{\displaystyle \partial {\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}}}\)</span> is computed assuming that <span class="math inline">\({{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\)</span> is constant.</li>
-<li><span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left.\underline{S}\right|_{t+\Delta\,t}}}{\displaystyle \partial {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}}}}\)</span> is computed assuming that <span class="math inline">\({\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\)</span> is constant.</li>
+<li><span class="math inline">\({{\displaystyle \frac{\displaystyle
+\partial {\left.\underline{S}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial {\left.\underline{S}_{e}\right|_{t+\Delta\,t}}}}}\)</span> is
+computed assuming that <span
+class="math inline">\({{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\)</span>
+is constant.</li>
+<li><span class="math inline">\({{\displaystyle \frac{\displaystyle
+\partial {\left.\underline{S}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}}}}\)</span> is
+computed assuming that <span
+class="math inline">\({\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\)</span>
+is constant.</li>
 </ul>
 <p><span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial \underline{S}_{e}}{\displaystyle \partial \underline{C}}}}={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,\underline{\underline{\mathbf{D}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial \underline{C}_{e}}{\displaystyle \partial \underline{C}}}}
+{{\displaystyle \frac{\displaystyle \partial
+\underline{S}_{e}}{\displaystyle \partial
+\underline{C}}}}={{\displaystyle \frac{\displaystyle 1}{\displaystyle
+2}}}\,\underline{\underline{\mathbf{D}}}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial \underline{C}_{e}}{\displaystyle \partial
+\underline{C}}}}
 \]</span></p>
-<p><span class="math inline">\(\underline{C}_{e}\)</span> satisfies: <span class="math display">\[
+<p><span class="math inline">\(\underline{C}_{e}\)</span> satisfies:
+<span class="math display">\[
 \begin{aligned}
 \underline{C}_{e}
 &amp;={\left.{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}
@@ -1024,31 +1856,83 @@ J\,{{\displaystyle \frac{\displaystyle \partial \Delta\,\vec{Y}}{\displaystyle \
 &amp;={\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-T}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left.\underline{C}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\right|_{t+\Delta\,t}}
 \end{aligned}
 \]</span></p>
-<p>Its derivative requires one again to compute <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}}{\displaystyle \partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}\)</span> which can be related to the derivative <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial \Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle \partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}\)</span> since the relation: <span class="math display">\[
-{{\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}^{\mathrm{-1}}}= {\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\right|_{t}}\,\cdot\,\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}
+<p>Its derivative requires one again to compute <span
+class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}}{\displaystyle
+\partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}\)</span> which
+can be related to the derivative <span
+class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle
+\partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}\)</span> since
+the relation: <span class="math display">\[
+{{\left.{\underset{\tilde{}}{\mathbf{F}}}_{p}\right|_{t+\Delta\,t}}^{\mathrm{-1}}}=
+{\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\right|_{t}}\,\cdot\,\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}
 \]</span> implies: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}}{\displaystyle \partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}=\partial_{\star}^{r}{\left({\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\right|_{t}}\right)}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial \Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle \partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}
+{{\displaystyle \frac{\displaystyle \partial
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}}{\displaystyle
+\partial
+{\left.\underline{C}\right|_{t+\Delta\,t}}}}}=\partial_{\star}^{r}{\left({\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\right|_{t}}\right)}\,\cdot\,{{\displaystyle
+\frac{\displaystyle \partial
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle
+\partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}
 \]</span></p>
-<p>The computation of <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial \Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle \partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}\)</span> is similar to the computation of <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial \Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle \partial {\left.F\right|_{t+\Delta\,t}}}}}\)</span> in Section 5.1: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial \Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle \partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}={{\displaystyle \frac{\displaystyle \partial \Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle \partial \vec{Y}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial \vec{Y}}{\displaystyle \partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}
+<p>The computation of <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle
+\partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}\)</span> is
+similar to the computation of <span
+class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle
+\partial {\left.F\right|_{t+\Delta\,t}}}}}\)</span> in Section 5.1:
+<span class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle
+\partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}={{\displaystyle
+\frac{\displaystyle \partial
+\Delta_{\star}\,{\underset{\tilde{}}{\mathbf{F}}}_{p}}{\displaystyle
+\partial \vec{Y}}}}\,\cdot\,{{\displaystyle \frac{\displaystyle \partial
+\vec{Y}}{\displaystyle \partial
+{\left.\underline{C}\right|_{t+\Delta\,t}}}}}
 \]</span></p>
-<h1 data-number="6" id="references"><span class="header-section-number">6</span> References</h1>
+<h1 data-number="6" id="references"><span
+class="header-section-number">6</span> References</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-mandel_equations_1973" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Mandel</span>, J. Equations constitutives et directeurs dans les milieux plastiques et viscoplastiques. <em>International Journal of Solids and Structures</em>. 1 June 1973. Vol. 9, no. 6, p. 725–740. DOI <a href="https://doi.org/10.1016/0020-7683(73)90120-0">10.1016/0020-7683(73)90120-0</a>. Available from: <a href="https://www.sciencedirect.com/science/article/pii/0020768373901200">https://www.sciencedirect.com/science/article/pii/0020768373901200</a></div>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-mandel_equations_1973" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Mandel</span>, J.
+Equations constitutives et directeurs dans les milieux plastiques et
+viscoplastiques. <em>International Journal of Solids and
+Structures</em>. 1 June 1973. Vol. 9, no. 6, p. 725–740. DOI <a
+href="https://doi.org/10.1016/0020-7683(73)90120-0">10.1016/0020-7683(73)90120-0</a>.
+Available from: <a
+href="https://www.sciencedirect.com/science/article/pii/0020768373901200">https://www.sciencedirect.com/science/article/pii/0020768373901200</a></div>
 </div>
-<div id="ref-belytschko_nonlinear_2000" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Belytschko</span>, Ted. Nonlinear <span>Finite</span> <span>Elements</span> for <span>Continua</span> and <span>Structures</span>. Chichester ; New York : Wiley-Blackwell, 2000. ISBN <a href="https://worldcat.org/isbn/9780471987741">9780471987741</a>. </div>
+<div id="ref-belytschko_nonlinear_2000" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline"><span class="smallcaps">Belytschko</span>, Ted.
+Nonlinear <span>Finite</span> <span>Elements</span> for
+<span>Continua</span> and <span>Structures</span>. Chichester ; New
+York : Wiley-Blackwell, 2000. ISBN 9780471987741. </div>
 </div>
 </div>
-<section class="footnotes" role="doc-endnotes">
+<aside id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>tprd means “tensor product right derivative” and computes the derivative <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial {\underset{\tilde{}}{\mathbf{B}}}}}}{\left({\underset{\tilde{}}{\mathbf{A}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{B}}}\right)}\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>tpld means “tensor product left derivative” and computes the derivative <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial {\underset{\tilde{}}{\mathbf{A}}}}}}{\left({\underset{\tilde{}}{\mathbf{A}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{B}}}\right)}\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>tprd means “tensor product right derivative” and
+computes the derivative <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial }{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{B}}}}}}{\left({\underset{\tilde{}}{\mathbf{A}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{B}}}\right)}\)</span>.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>tpld means “tensor product left derivative” and computes
+the derivative <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial }{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{A}}}}}}{\left({\underset{\tilde{}}{\mathbf{A}}}\,\cdot\,{\underset{\tilde{}}{\mathbf{B}}}\right)}\)</span>.<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section>
+</aside>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

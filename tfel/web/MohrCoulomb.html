@@ -16,8 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -26,7 +27,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -50,11 +51,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -63,14 +64,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -79,7 +80,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -182,6 +185,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -327,598 +331,922 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Invariant-based implementation of the Mohr-Coulomb elasto-plastic model in OpenGeoSys using MFront</h1>
-<h2 class="author">Gentien Marois, Thomas Nagel, Dmitri Naumov, Thomas Helfer</h2>
+<h1 class="title">Invariant-based implementation of the Mohr-Coulomb
+elasto-plastic model in OpenGeoSys using MFront</h1>
+<h2 class="author">Gentien Marois, Thomas Nagel, Dmitri Naumov, Thomas
+Helfer</h2>
 <h3 class="date">1/08/2019</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#description-of-the-behaviour">Description of the behaviour</a>
+<li><a href="#description-of-the-behaviour"
+id="toc-description-of-the-behaviour">Description of the behaviour</a>
 <ul>
-<li><a href="#elastic-behaviour">Elastic behaviour</a></li>
-<li><a href="#yield-surface">Yield surface</a></li>
-<li><a href="#plastic-potential">Plastic potential</a></li>
-<li><a href="#plastic-flow-rule">Plastic flow rule</a></li>
+<li><a href="#elastic-behaviour" id="toc-elastic-behaviour">Elastic
+behaviour</a></li>
+<li><a href="#yield-surface" id="toc-yield-surface">Yield
+surface</a></li>
+<li><a href="#plastic-potential" id="toc-plastic-potential">Plastic
+potential</a></li>
+<li><a href="#plastic-flow-rule" id="toc-plastic-flow-rule">Plastic flow
+rule</a></li>
 </ul></li>
-<li><a href="#integration-algorithm">Integration algorithm</a>
+<li><a href="#integration-algorithm"
+id="toc-integration-algorithm">Integration algorithm</a>
 <ul>
-<li><a href="#plastic-loading-case">Plastic loading case</a></li>
-<li><a href="#elastic-loading-case">Elastic loading case</a></li>
+<li><a href="#plastic-loading-case"
+id="toc-plastic-loading-case">Plastic loading case</a></li>
+<li><a href="#elastic-loading-case"
+id="toc-elastic-loading-case">Elastic loading case</a></li>
 </ul></li>
-<li><a href="#implementation">Implementation</a>
+<li><a href="#implementation" id="toc-implementation">Implementation</a>
 <ul>
-<li><a href="#choice-of-domain-specific-language">Choice of domain specific language</a></li>
-<li><a href="#name-of-the-behaviour">Name of the behaviour</a></li>
-<li><a href="#metadata">Metadata</a></li>
-<li><a href="#name-of-the-algorithm-of-resolution">Name of the Algorithm of resolution</a></li>
-<li><a href="#usage-of-the-standardelasticity-brick">Usage of the <code>StandardElasticity</code> brick</a></li>
-<li><a href="#numerical-parameters">Numerical parameters</a></li>
-<li><a href="#supported-modelling-hypothesis">Supported modelling hypothesis</a></li>
-<li><a href="#requirestiffnesstensor">RequireStiffnessTensor<Unaltered></a></li>
-<li><a href="#state-variable">State variable</a></li>
-<li><a href="#material-properties">Material properties</a></li>
-<li><a href="#local-variable">Local variable</a></li>
-<li><a href="#initialisation-a-the-local-variable">Initialisation a the local variable</a></li>
-<li><a href="#implicit-system-implementation">Implicit system implementation</a></li>
+<li><a href="#choice-of-domain-specific-language"
+id="toc-choice-of-domain-specific-language">Choice of domain specific
+language</a></li>
+<li><a href="#name-of-the-behaviour" id="toc-name-of-the-behaviour">Name
+of the behaviour</a></li>
+<li><a href="#metadata" id="toc-metadata">Metadata</a></li>
+<li><a href="#name-of-the-algorithm-of-resolution"
+id="toc-name-of-the-algorithm-of-resolution">Name of the Algorithm of
+resolution</a></li>
+<li><a href="#usage-of-the-standardelasticity-brick"
+id="toc-usage-of-the-standardelasticity-brick">Usage of the
+<code>StandardElasticity</code> brick</a></li>
+<li><a href="#numerical-parameters"
+id="toc-numerical-parameters">Numerical parameters</a></li>
+<li><a href="#supported-modelling-hypothesis"
+id="toc-supported-modelling-hypothesis">Supported modelling
+hypothesis</a></li>
+<li><a href="#requirestiffnesstensor"
+id="toc-requirestiffnesstensor">RequireStiffnessTensor<Unaltered></a></li>
+<li><a href="#state-variable" id="toc-state-variable">State
+variable</a></li>
+<li><a href="#material-properties" id="toc-material-properties">Material
+properties</a></li>
+<li><a href="#local-variable" id="toc-local-variable">Local
+variable</a></li>
+<li><a href="#initialisation-a-the-local-variable"
+id="toc-initialisation-a-the-local-variable">Initialisation a the local
+variable</a></li>
+<li><a href="#implicit-system-implementation"
+id="toc-implicit-system-implementation">Implicit system
+implementation</a></li>
 </ul></li>
-<li><a href="#verification">Verification</a></li>
-<li><a href="#simplification-of-the-mfront-file-use-of-tfelmaterialmohrcoulombyieldcriterion.hxx-file">Simplification of the MFront file : use of <code>TFEL/Material/MohrCoulombYieldCriterion.hxx</code> file</a></li>
-<li><a href="#simplification-of-the-mfront-file-use-of-the-standardelastoviscoplasticity-brick">Simplification of the MFront file : use of the <code>StandardElastoViscoPlasticity</code> brick</a></li>
-<li><a href="#references">References</a></li>
+<li><a href="#verification" id="toc-verification">Verification</a></li>
+<li><a
+href="#simplification-of-the-mfront-file-use-of-tfelmaterialmohrcoulombyieldcriterion.hxx-file"
+id="toc-simplification-of-the-mfront-file-use-of-tfelmaterialmohrcoulombyieldcriterion.hxx-file">Simplification
+of the MFront file : use of
+<code>TFEL/Material/MohrCoulombYieldCriterion.hxx</code> file</a></li>
+<li><a
+href="#simplification-of-the-mfront-file-use-of-the-standardelastoviscoplasticity-brick"
+id="toc-simplification-of-the-mfront-file-use-of-the-standardelastoviscoplasticity-brick">Simplification
+of the MFront file : use of the
+<code>StandardElastoViscoPlasticity</code> brick</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
 </ul>
 </div>
 <!--
 pandoc --filter pandoc-crossref --filter pandoc-citeproc --bibliography=bibliography.bib -fmarkdown+tex_math_single_backslash MohrCoulomb.md -o MohrCoulomb.pdf --toc --number-sections  -V geometry:margin=1in
 -->
-<p>This page describes how to implement a non-associated plastic behaviour based on the Mohr-Coulomb criterion. The algorithm mostly follows the work of <span class="citation" data-cites="Nagel2016">[1]</span> and relies on an apex smoothing introduced by <span class="citation" data-cites="Abbo1995">[2]</span>.</p>
-<p>This implementation has been introduced in <a href="https://www.opengeosys.org/">OpenGeoSys</a>, as illustrated below:</p>
+<p>This page describes how to implement a non-associated plastic
+behaviour based on the Mohr-Coulomb criterion. The algorithm mostly
+follows the work of <span class="citation"
+data-cites="Nagel2016">[1]</span> and relies on an apex smoothing
+introduced by <span class="citation"
+data-cites="Abbo1995">[2]</span>.</p>
+<p>This implementation has been introduced in <a
+href="https://www.opengeosys.org/">OpenGeoSys</a>, as illustrated
+below:</p>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/juWMIkJ64iE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </center>
 <p>This page shows:</p>
 <ul>
-<li>how to implement a plastic behaviour based on the third invariants of the stress tensor.</li>
-<li>how to simply the implementation by moving the evoluation of the stress criteria (and its first and second derivatives) in a seperate header file.</li>
-<li>how the implementation finally looks like once introduced in the <a href="https://thelfer.github.io/tfel/web/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoplasticity</code> brick</a></li>
+<li>how to implement a plastic behaviour based on the third invariants
+of the stress tensor.</li>
+<li>how to simply the implementation by moving the evoluation of the
+stress criteria (and its first and second derivatives) in a seperate
+header file.</li>
+<li>how the implementation finally looks like once introduced in the <a
+href="https://thelfer.github.io/tfel/web/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoplasticity</code>
+brick</a></li>
 </ul>
 <h1 id="description-of-the-behaviour">Description of the behaviour</h1>
-<p>The behaviour is described by a standard decomposition of the strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in an elastic and a plastic component, respectively denoted <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and <span class="math inline">\(\underline{\varepsilon}^{\mathrm{p}}\)</span>:</p>
+<p>The behaviour is described by a standard decomposition of the strain
+<span
+class="math inline">\(\underline{\varepsilon}^{\mathrm{to}}\)</span> in
+an elastic and a plastic component, respectively denoted <span
+class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> and
+<span
+class="math inline">\(\underline{\varepsilon}^{\mathrm{p}}\)</span>:</p>
 <p><span class="math display">\[
 \underline{\varepsilon}^{\mathrm{to}}=\underline{\varepsilon}^{\mathrm{el}}+\underline{\varepsilon}^{\mathrm{p}}
 \]</span></p>
 <h2 id="elastic-behaviour">Elastic behaviour</h2>
-<p>The stress <span class="math inline">\(\underline{\sigma}\)</span> is related to the the elastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> by a the orthotropic elastic stiffness <span class="math inline">\(\underline{\underline{\mathbf{D}}}\)</span>:</p>
+<p>The stress <span class="math inline">\(\underline{\sigma}\)</span> is
+related to the the elastic strain <span
+class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> by
+a the orthotropic elastic stiffness <span
+class="math inline">\(\underline{\underline{\mathbf{D}}}\)</span>:</p>
 <p><span class="math display">\[
-\underline{\sigma}= \underline{\underline{\mathbf{D}}}\,\colon\,\underline{\varepsilon}^{\mathrm{el}}
+\underline{\sigma}=
+\underline{\underline{\mathbf{D}}}\,\colon\,\underline{\varepsilon}^{\mathrm{el}}
 \]</span></p>
 <h2 id="yield-surface">Yield surface</h2>
-<p>The plastic part of the behaviour is described by the following yield surface: <span class="math display">\[ F = 0 \]</span></p>
+<p>The plastic part of the behaviour is described by the following yield
+surface: <span class="math display">\[ F = 0 \]</span></p>
 <p>F is defined as follow:</p>
 <p><span id="eq:yield_function"><span class="math display">\[
-    F = \frac{I_1}{3} \sin \phi + \sqrt{J_2 K(\theta)^2 + a^2 \sin^2 \phi} - c \cos \phi
-\qquad(1)\]</span></span> where <span id="eq:K_abbo"><span class="math display">\[
+    F = \frac{I_1}{3} \sin \phi + \sqrt{J_2 K(\theta)^2 + a^2 \sin^2
+\phi} - c \cos \phi
+\qquad{(1)}\]</span></span> where <span id="eq:K_abbo"><span
+class="math display">\[
 K(\theta) = \begin{cases}
-    \cos \theta - \frac{1}{\sqrt{3}} \sin \phi \sin \theta &amp; |\theta| &lt; \theta_\mathrm{T}
-    \\ 
-    A + B \sin 3\theta  + C \sin^2 3 \theta &amp;  |\theta| \geq \theta_\mathrm{T}
+    \cos \theta - \frac{1}{\sqrt{3}} \sin \phi \sin \theta &amp;
+|\theta| &lt; \theta_\mathrm{T}
+    \\
+    A + B \sin 3\theta  + C \sin^2 3 \theta &amp;  |\theta| \geq
+\theta_\mathrm{T}
 \end{cases}
-\qquad(2)\]</span></span></p>
+\qquad{(2)}\]</span></span></p>
 <p><span id="eq:Sloan"><span class="math display">\[
 \begin{aligned}
-    A &amp;= - \frac{1}{\sqrt{3}} \sin \phi \mathrm{sign \theta} \sin \theta_\mathrm{T} - B \mathrm{sign \theta} \sin 3\,\theta_\mathrm{T} - C \sin^2 3\theta_\mathrm{T} + \cos \theta_\mathrm{T}\\
+    A &amp;= - \frac{1}{\sqrt{3}} \sin \phi \mathrm{sign \theta} \sin
+\theta_\mathrm{T} - B \mathrm{sign \theta} \sin 3\,\theta_\mathrm{T} - C
+\sin^2 3\theta_\mathrm{T} + \cos \theta_\mathrm{T}\\
     %
-    B &amp;= \frac{\mathrm{sign \theta} \sin 6\theta_\mathrm{T} \left( \cos \theta_\mathrm{T} - \frac{1}{\sqrt{3}} \sin \phi \mathrm{sign \theta} \sin \theta_\mathrm{T} \right) - 6 \cos 6\theta_\mathrm{T} \left( \mathrm{sign \theta}  \sin \theta_\mathrm{T} + \frac{1}{\sqrt{3}} \sin \phi \cos \theta_\mathrm{T} \right) }{18 \cos^3 3 \theta_\mathrm{T}}\\
+    B &amp;= \frac{\mathrm{sign \theta} \sin 6\theta_\mathrm{T} \left(
+\cos \theta_\mathrm{T} - \frac{1}{\sqrt{3}} \sin \phi \mathrm{sign
+\theta} \sin \theta_\mathrm{T} \right) - 6 \cos 6\theta_\mathrm{T}
+\left( \mathrm{sign \theta}  \sin \theta_\mathrm{T} + \frac{1}{\sqrt{3}}
+\sin \phi \cos \theta_\mathrm{T} \right) }{18 \cos^3 3
+\theta_\mathrm{T}}\\
   %
-  C &amp;= \frac{-\cos 3 \theta_\mathrm{T} \left( \cos \theta_\mathrm{T} - \frac{1}{\sqrt{3}} \sin \phi \mathrm{sign \theta} \sin \theta_\mathrm{T} \right) - 3 \mathrm{sign \theta} \sin 3 \theta_\mathrm{T} \left( \mathrm{sign \theta}  \sin \theta_\mathrm{T} + \frac{1}{\sqrt{3}} \sin \phi \cos \theta_\mathrm{T} \right) }{18 \cos^3 3 \theta_\mathrm{T}}
+  C &amp;= \frac{-\cos 3 \theta_\mathrm{T} \left( \cos \theta_\mathrm{T}
+- \frac{1}{\sqrt{3}} \sin \phi \mathrm{sign \theta} \sin
+\theta_\mathrm{T} \right) - 3 \mathrm{sign \theta} \sin 3
+\theta_\mathrm{T} \left( \mathrm{sign \theta}  \sin \theta_\mathrm{T} +
+\frac{1}{\sqrt{3}} \sin \phi \cos \theta_\mathrm{T} \right) }{18 \cos^3
+3 \theta_\mathrm{T}}
 \end{aligned}
-\qquad(3)\]</span></span></p>
+\qquad{(3)}\]</span></span></p>
 <p>and</p>
 <p><span class="math display">\[
-    I_1 = {\mathrm{tr}{\left(\underline{\sigma}\right)}} \qquad J_2 = \frac{1}{2} \underline{\sigma}^\mathrm{D} \,:\,\underline{\sigma}^\mathrm{D} \qquad J_3 = \det \underline{\sigma}^\mathrm{D} \qquad \theta = \frac{1}{3} \arcsin \left( -\frac{3\sqrt{3} J_3}{2 \sqrt{J_2^3}} \right)
+    I_1 = {\mathrm{tr}{\left(\underline{\sigma}\right)}} \qquad J_2 =
+\frac{1}{2} \underline{\sigma}^\mathrm{D}
+\,:\,\underline{\sigma}^\mathrm{D} \qquad J_3 = \det
+\underline{\sigma}^\mathrm{D} \qquad \theta = \frac{1}{3} \arcsin \left(
+-\frac{3\sqrt{3} J_3}{2 \sqrt{J_2^3}} \right)
 \]</span></p>
-<p><span class="math inline">\(\underline{\sigma}^\mathrm{D}\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(\phi\)</span> are respectively the deviatoric part of the tensor <span class="math inline">\(\underline{\sigma}\)</span>, the cohesion and friction angle.</p>
+<p><span class="math inline">\(\underline{\sigma}^\mathrm{D}\)</span>,
+<span class="math inline">\(c\)</span> and <span
+class="math inline">\(\phi\)</span> are respectively the deviatoric part
+of the tensor <span class="math inline">\(\underline{\sigma}\)</span>,
+the cohesion and friction angle.</p>
 <hr />
 <p>The contribution of the smoothing is visualized in Figure 1.</p>
-<figure>
-<img src="img/MohrCoulombSmoothing.svg" title="Effect of the smoothing of the yield surface" id="fig:mc_vis" style="width:115.0%" alt="Figure 1: Effect of the smoothing of the yield surface" /><figcaption aria-hidden="true">Figure 1: Effect of the smoothing of the yield surface</figcaption>
+<figure id="fig:mc_vis">
+<img src="img/MohrCoulombSmoothing.svg"
+title="Effect of the smoothing of the yield surface"
+style="width:115.0%"
+alt="Effect of the smoothing of the yield surface" />
+<figcaption>Figure 1: Effect of the smoothing of the yield
+surface</figcaption>
 </figure>
 <hr />
 <h2 id="plastic-potential">Plastic potential</h2>
-<p>The plastic potential differs from the yield surface in order to more accurately estimate dilatancy, but has an analogous structure:</p>
+<p>The plastic potential differs from the yield surface in order to more
+accurately estimate dilatancy, but has an analogous structure:</p>
 <p><span id="eq:plastic_potential"><span class="math display">\[
-    G_\mathrm{F} = \frac{I_1}{3} \sin \psi + \sqrt{J_2 K_G^2 + a^2 \tan^2 \phi \cos^2 \psi} - c \cos \psi
-\qquad(4)\]</span></span></p>
-<p>where <span class="math inline">\(\psi\)</span> is the dilatancy angle. <span class="math inline">\(K_G\)</span>, <span class="math inline">\(A_G\)</span> and <span class="math inline">\(B_G\)</span> follow from (2) and (3) by substituting the friction angle with the dilatancy angle :</p>
+    G_\mathrm{F} = \frac{I_1}{3} \sin \psi + \sqrt{J_2 K_G^2 + a^2
+\tan^2 \phi \cos^2 \psi} - c \cos \psi
+\qquad{(4)}\]</span></span></p>
+<p>where <span class="math inline">\(\psi\)</span> is the dilatancy
+angle. <span class="math inline">\(K_G\)</span>, <span
+class="math inline">\(A_G\)</span> and <span
+class="math inline">\(B_G\)</span> follow from (2) and (3) by
+substituting the friction angle with the dilatancy angle :</p>
 <p><span class="math display">\[
 K_G(\theta) = \begin{cases}
-    \cos \theta - \frac{1}{\sqrt{3}} \sin \psi \sin \theta &amp; |\theta| &lt; \theta_\mathrm{T}
-    \\ 
-    A_G + B_G \sin 3\theta  + C_G \sin^2 3 \theta &amp;  |\theta| \geq \theta_\mathrm{T}
+    \cos \theta - \frac{1}{\sqrt{3}} \sin \psi \sin \theta &amp;
+|\theta| &lt; \theta_\mathrm{T}
+    \\
+    A_G + B_G \sin 3\theta  + C_G \sin^2 3 \theta &amp;  |\theta| \geq
+\theta_\mathrm{T}
 \end{cases}
 \]</span></p>
 <p><span class="math display">\[
 \begin{aligned}
-    A_G &amp;= - \frac{1}{\sqrt{3}} \sin \psi \mathrm{sign \theta} \sin \theta_\mathrm{T} - B \mathrm{sign \theta} \sin 3\theta_\mathrm{T} - C \sin^2 3\theta_\mathrm{T} + \cos \theta_\mathrm{T}\\
+    A_G &amp;= - \frac{1}{\sqrt{3}} \sin \psi \mathrm{sign \theta} \sin
+\theta_\mathrm{T} - B \mathrm{sign \theta} \sin 3\theta_\mathrm{T} - C
+\sin^2 3\theta_\mathrm{T} + \cos \theta_\mathrm{T}\\
     %
-    B_G &amp;= \frac{\mathrm{sign \theta} \sin 6\theta_\mathrm{T} \left( \cos \theta_\mathrm{T} - \frac{1}{\sqrt{3}} \sin \psi \mathrm{sign \theta} \sin \theta_\mathrm{T} \right) - 6 \cos 6\theta_\mathrm{T} \left( \mathrm{sign \theta}  \sin \theta_\mathrm{T} + \frac{1}{\sqrt{3}} \sin \psi \cos \theta_\mathrm{T} \right) }{18 \cos^3 3 \theta_\mathrm{T}}\\
+    B_G &amp;= \frac{\mathrm{sign \theta} \sin 6\theta_\mathrm{T} \left(
+\cos \theta_\mathrm{T} - \frac{1}{\sqrt{3}} \sin \psi \mathrm{sign
+\theta} \sin \theta_\mathrm{T} \right) - 6 \cos 6\theta_\mathrm{T}
+\left( \mathrm{sign \theta}  \sin \theta_\mathrm{T} + \frac{1}{\sqrt{3}}
+\sin \psi \cos \theta_\mathrm{T} \right) }{18 \cos^3 3
+\theta_\mathrm{T}}\\
   %
-  C_G &amp;= \frac{-\cos 3 \theta_\mathrm{T} \left( \cos \theta_\mathrm{T} - \frac{1}{\sqrt{3}} \sin \psi \mathrm{sign \theta} \sin \theta_\mathrm{T} \right) - 3 \mathrm{sign \theta} \sin 3 \theta_\mathrm{T} \left( \mathrm{sign \theta}  \sin \theta_\mathrm{T} + \frac{1}{\sqrt{3}} \sin \psi \cos \theta_\mathrm{T} \right) }{18 \cos^3 3 \theta_\mathrm{T}}
+  C_G &amp;= \frac{-\cos 3 \theta_\mathrm{T} \left( \cos
+\theta_\mathrm{T} - \frac{1}{\sqrt{3}} \sin \psi \mathrm{sign \theta}
+\sin \theta_\mathrm{T} \right) - 3 \mathrm{sign \theta} \sin 3
+\theta_\mathrm{T} \left( \mathrm{sign \theta}  \sin \theta_\mathrm{T} +
+\frac{1}{\sqrt{3}} \sin \psi \cos \theta_\mathrm{T} \right) }{18 \cos^3
+3 \theta_\mathrm{T}}
 \end{aligned}
 \]</span></p>
 <p>Equation ((4)) can be written as follow:</p>
 <p><span id="eq:plastic_potential2"><span class="math display">\[
-    G_\mathrm{F} = \frac{I_1}{3} \sin \psi + \sqrt{J_2 K_G^2 + a_G^2 \sin^2 \psi} - c \cos \psi
-\qquad(5)\]</span></span></p>
+    G_\mathrm{F} = \frac{I_1}{3} \sin \psi + \sqrt{J_2 K_G^2 + a_G^2
+\sin^2 \psi} - c \cos \psi
+\qquad{(5)}\]</span></span></p>
 <p>with</p>
 <p><span class="math display">\[
 a_G = a \dfrac{\tan \phi}{\tan \psi}
 \]</span></p>
-<p>this formulation allows the use of the <code>StandardElastoViscoplasticity</code> brick (see the last part).</p>
+<p>this formulation allows the use of the
+<code>StandardElastoViscoplasticity</code> brick (see the last
+part).</p>
 <h2 id="plastic-flow-rule">Plastic flow rule</h2>
-<p>Plastic flow follows in a general manner for a <span class="math inline">\(I_1,\,J_2,\,\theta\)</span>-type yield surface as</p>
+<p>Plastic flow follows in a general manner for a <span
+class="math inline">\(I_1,\,J_2,\,\theta\)</span>-type yield surface
+as</p>
 <p><span class="math display">\[
-    \underline{n} = \frac{\partial G_{F}}{\partial I_1} \underline{I} + \left( \frac{\partial G_{F}}{\partial J_2} + \frac{\partial G_{F}}{\partial \theta} \frac{\partial \theta}{\partial J_2} \right) \underline{\sigma}^{D} +  \frac{\partial G_{F}}{\partial \theta}  \frac{\partial \theta}{\partial J_3} J_3 {(\underline{\sigma}^{D})}^{-1} \,:\,\underline{\underline{\mathbf{P}}}^{D}
+    \underline{n} = \frac{\partial G_{F}}{\partial I_1} \underline{I} +
+\left( \frac{\partial G_{F}}{\partial J_2} + \frac{\partial
+G_{F}}{\partial \theta} \frac{\partial \theta}{\partial J_2} \right)
+\underline{\sigma}^{D} +  \frac{\partial G_{F}}{\partial
+\theta}  \frac{\partial \theta}{\partial J_3} J_3
+{(\underline{\sigma}^{D})}^{-1}
+\,:\,\underline{\underline{\mathbf{P}}}^{D}
 \]</span></p>
 <p>or by use of the Caley-Hamilton theorem as</p>
 <p><span class="math display">\[
-    \underline{n} = \frac{\partial G_{F}}{\partial I_1} \underline{I} + \left( \frac{\partial G_{F}}{\partial J_2} + \frac{\partial G_{F}}{\partial \theta} \frac{\partial \theta}{\partial J_2} \right) \underline{\sigma}^{D} +  \frac{\partial G_{F}}{\partial \theta}  \frac{\partial \theta}{\partial J_3} (\underline{\sigma}^{D})^{2}\,:\,\underline{\underline{\mathbf{P}}}^{D}
+    \underline{n} = \frac{\partial G_{F}}{\partial I_1} \underline{I} +
+\left( \frac{\partial G_{F}}{\partial J_2} + \frac{\partial
+G_{F}}{\partial \theta} \frac{\partial \theta}{\partial J_2} \right)
+\underline{\sigma}^{D} +  \frac{\partial G_{F}}{\partial
+\theta}  \frac{\partial \theta}{\partial J_3}
+(\underline{\sigma}^{D})^{2}\,:\,\underline{\underline{\mathbf{P}}}^{D}
 \]</span></p>
 <h1 id="integration-algorithm">Integration algorithm</h1>
-<p>The previous constitutive equations will be integrated using a standard implicit scheme.</p>
+<p>The previous constitutive equations will be integrated using a
+standard implicit scheme.</p>
 <h2 id="plastic-loading-case">Plastic loading case</h2>
 <h3 id="implicit-system">Implicit system</h3>
-<p>Assuming a plastic loading, the system of equations to be solved is: <span class="math display">\[
+<p>Assuming a plastic loading, the system of equations to be solved is:
+<span class="math display">\[
 \left\{
 \begin{aligned}
-    \Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}+\Delta\,p\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}} &amp;= 0 \\
+    \Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}+\Delta\,p\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}
+&amp;= 0 \\
      F &amp;= 0 \\
 \end{aligned}
 \right.
 \]</span></p>
-<p>where <span class="math inline">\({\left.X\right|_{t+\theta\,\Delta\,t}}\)</span> is the value of <span class="math inline">\(X\)</span> at <span class="math inline">\(t+\theta\,\Delta\,t\)</span>, <span class="math inline">\(\theta\)</span> being a numerical parameter.</p>
-<p>In the following, the first (tensorial) equation is noted <span class="math inline">\(f_{\underline{\varepsilon}^{\mathrm{el}}}\)</span> and the second (scalar) equation is noted <span class="math inline">\(f_{p}\)</span>.</p>
-<p>In practice, it is physically sound to make satisfy exactly the yield condition at the end of the time step (otherwise, stress extrapolation can lead to stress state outside the yield surface and spurious oscillations can also be observed). This leads to the choice <span class="math inline">\(\theta=1\)</span>.</p>
+<p>where <span
+class="math inline">\({\left.X\right|_{t+\theta\,\Delta\,t}}\)</span> is
+the value of <span class="math inline">\(X\)</span> at <span
+class="math inline">\(t+\theta\,\Delta\,t\)</span>, <span
+class="math inline">\(\theta\)</span> being a numerical parameter.</p>
+<p>In the following, the first (tensorial) equation is noted <span
+class="math inline">\(f_{\underline{\varepsilon}^{\mathrm{el}}}\)</span>
+and the second (scalar) equation is noted <span
+class="math inline">\(f_{p}\)</span>.</p>
+<p>In practice, it is physically sound to make satisfy exactly the yield
+condition at the end of the time step (otherwise, stress extrapolation
+can lead to stress state outside the yield surface and spurious
+oscillations can also be observed). This leads to the choice <span
+class="math inline">\(\theta=1\)</span>.</p>
 <h3 id="computation-of-the-jacobian">Computation of the jacobian</h3>
-<p>The jacobian <span class="math inline">\(J\)</span> of the implicit system can be decomposed by blocks: <span id="eq:Jacobian"><span class="math display">\[
+<p>The jacobian <span class="math inline">\(J\)</span> of the implicit
+system can be decomposed by blocks: <span id="eq:Jacobian"><span
+class="math display">\[
 J=
 \begin{pmatrix}
-{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp; {\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p}} &amp; \\\\
-{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp; {\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,p}} \\
+{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp; {\displaystyle
+\frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,p}} &amp; \\\\
+{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;
+{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle
+\partial \Delta\,p}} \\
 \end{pmatrix}
-\qquad(6)\]</span></span></p>
+\qquad{(6)}\]</span></span></p>
 <p>The expression of the previous terms is given by:</p>
 <p><span class="math display">\[
 \left\{
 \begin{aligned}
-{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;= \underline{\underline{\mathbf{I}}} + \Delta \lambda \frac{\partial \underline{n}}{\partial \Delta \underline{\epsilon}_{el}} \\
-{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,p}} &amp;= \underline{n} \\
-{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;=  E^{-1} \underline{n}_F \,:\,\underline{\underline{\mathbf{C}}}  \\
-{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle \partial \Delta\,p}}           &amp;= 0 
+{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;=
+\underline{\underline{\mathbf{I}}} + \Delta \lambda \frac{\partial
+\underline{n}}{\partial \Delta \underline{\epsilon}_{el}} \\
+{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,p}} &amp;= \underline{n} \\
+{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}} &amp;=  E^{-1}
+\underline{n}_F \,:\,\underline{\underline{\mathbf{C}}}  \\
+{\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle
+\partial \Delta\,p}}           &amp;= 0
 \end{aligned}
 \right.
 \]</span></p>
 <h2 id="elastic-loading-case">Elastic loading case</h2>
-<p>Assuming an elastic loading, the system of equations to be solved is trivially: <span class="math display">\[
+<p>Assuming an elastic loading, the system of equations to be solved is
+trivially: <span class="math display">\[
 \left\{
 \begin{aligned}
-    \Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}&amp;= 0 \\
+    \Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}&amp;=
+0 \\
     \Delta\,p &amp;= 0 \\
 \end{aligned}
 \right.
 \]</span></p>
 <p>The jacobian associated with this system is the identity matrix.</p>
 <h1 id="implementation">Implementation</h1>
-<h2 id="choice-of-domain-specific-language">Choice of domain specific language</h2>
-<p>While not mandatory (the <code>@DSL</code> keyword can be place anywhere in the file), its is convenient to start the implementation by declaring the domain specific language to be used. For an integration by a <span class="math inline">\(\theta\)</span>-scheme, the <code>Implicit</code> domain specific language is choosen:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span></code></pre></div>
+<h2 id="choice-of-domain-specific-language">Choice of domain specific
+language</h2>
+<p>While not mandatory (the <code>@DSL</code> keyword can be place
+anywhere in the file), its is convenient to start the implementation by
+declaring the domain specific language to be used. For an integration by
+a <span class="math inline">\(\theta\)</span>-scheme, the
+<code>Implicit</code> domain specific language is choosen:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit<span class="op">;</span></span></code></pre></div>
 <h2 id="name-of-the-behaviour">Name of the behaviour</h2>
-<p>The <code>@Behaviour</code> keyword is used to give the name of the behaviour.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour MohrCoulombAbboSloan;</span></code></pre></div>
+<p>The <code>@Behaviour</code> keyword is used to give the name of the
+behaviour.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour MohrCoulombAbboSloan<span class="op">;</span></span></code></pre></div>
 <h2 id="metadata">Metadata</h2>
-<p>The following instructions give some information about the author, the date</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Nagel;</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="bn">05</span>/<span class="bn">02</span>/<span class="dv">2019</span>;</span></code></pre></div>
-<h2 id="name-of-the-algorithm-of-resolution">Name of the Algorithm of resolution</h2>
-<p>The <code>@Algorithm</code> keyword is used to give the name of the algorithm.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson;</span></code></pre></div>
-<h2 id="usage-of-the-standardelasticity-brick">Usage of the <code>StandardElasticity</code> brick</h2>
-<p>The implicit scheme used satisfies the requirements of the <code>StandardElasticity</code> brick as described <a href="BehaviourBricks.html">here</a>.</p>
+<p>The following instructions give some information about the author,
+the date</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Nagel<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="bn">05</span><span class="op">/</span><span class="bn">02</span><span class="op">/</span><span class="dv">2019</span><span class="op">;</span></span></code></pre></div>
+<h2 id="name-of-the-algorithm-of-resolution">Name of the Algorithm of
+resolution</h2>
+<p>The <code>@Algorithm</code> keyword is used to give the name of the
+algorithm.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson<span class="op">;</span></span></code></pre></div>
+<h2 id="usage-of-the-standardelasticity-brick">Usage of the
+<code>StandardElasticity</code> brick</h2>
+<p>The implicit scheme used satisfies the requirements of the
+<code>StandardElasticity</code> brick as described <a
+href="BehaviourBricks.html">here</a>.</p>
 <p>The <code>StandardElasticity</code> brick which provides:</p>
 <ul>
-<li>Automatic computation of the stress tensor at various stages of the behaviour integration.</li>
+<li>Automatic computation of the stress tensor at various stages of the
+behaviour integration.</li>
 <li>Automatic computation of the consistent tangent operator.</li>
-<li>Automatic support for plane stress and generalized plane stress modelling hypotheses (The axial strain is defined as an additional state variable and the associated equation in the implicit system is added to enforce the plane stess condition).</li>
-<li>Automatic addition of the standard terms associated with the elastic strain state variable. The usage of the <code>StandardElasticity</code> is introduced as follows:</li>
+<li>Automatic support for plane stress and generalized plane stress
+modelling hypotheses (The axial strain is defined as an additional state
+variable and the associated equation in the implicit system is added to
+enforce the plane stess condition).</li>
+<li>Automatic addition of the standard terms associated with the elastic
+strain state variable. The usage of the <code>StandardElasticity</code>
+is introduced as follows:</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity;</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity<span class="op">;</span></span></code></pre></div>
 <h2 id="numerical-parameters">Numerical parameters</h2>
-<p>The following instruction changes the default value of the stopping criterion <span class="math inline">\(\epsilon\)</span> used by the Newton-Raphson method and the time integration scheme parameter <span class="math inline">\(\theta\)</span> :</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="fl">1.0</span>;</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-14</span>;</span></code></pre></div>
-<h2 id="supported-modelling-hypothesis">Supported modelling hypothesis</h2>
-<p>Thanks to the <code>StandardElasticity</code> brick, all the modelling hypotheses can be supported. The following statement, starting with the <code>@ModellingHypotheses</code>, enables all the modelling hypotheses:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses {<span class="st">&quot;.+&quot;</span>};</span></code></pre></div>
+<p>The following instruction changes the default value of the stopping
+criterion <span class="math inline">\(\epsilon\)</span> used by the
+Newton-Raphson method and the time integration scheme parameter <span
+class="math inline">\(\theta\)</span> :</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="fl">1.0</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-14</span><span class="op">;</span></span></code></pre></div>
+<h2 id="supported-modelling-hypothesis">Supported modelling
+hypothesis</h2>
+<p>Thanks to the <code>StandardElasticity</code> brick, all the
+modelling hypotheses can be supported. The following statement, starting
+with the <code>@ModellingHypotheses</code>, enables all the modelling
+hypotheses:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">};</span></span></code></pre></div>
 <h2 id="requirestiffnesstensor">RequireStiffnessTensor<Unaltered></h2>
-<p>The <code>@RequireStiffnessTensor</code> keyword requires the stiffness tensor to be computed by the calling code. This generally means that some extra material properties will be introduced and handled by the interface before the behaviour integration.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RequireStiffnessTensor&lt;UnAltered&gt;;</span></code></pre></div>
+<p>The <code>@RequireStiffnessTensor</code> keyword requires the
+stiffness tensor to be computed by the calling code. This generally
+means that some extra material properties will be introduced and handled
+by the interface before the behaviour integration.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RequireStiffnessTensor<span class="op">&lt;</span>UnAltered<span class="op">&gt;;</span></span></code></pre></div>
 <h2 id="state-variable">State variable</h2>
-<p>The <code>@StateVariable</code> keyword introduces the EquivalentPlasticStrain <span class="math inline">\(\lambda\)</span>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real lam;</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>lam.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</span></code></pre></div>
+<p>The <code>@StateVariable</code> keyword introduces the
+EquivalentPlasticStrain <span
+class="math inline">\(\lambda\)</span>.</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real lam<span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>lam<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;EquivalentPlasticStrain&quot;</span><span class="op">);</span></span></code></pre></div>
 <h2 id="material-properties">Material properties</h2>
-<p>The <code>@MaterialProperty</code> keyword introduces several properties, here:</p>
+<p>The <code>@MaterialProperty</code> keyword introduces several
+properties, here:</p>
 <ul>
 <li>The cohesion c</li>
 <li>The friction angle <span class="math inline">\(\phi\)</span></li>
 <li>The dilatancy angle <span class="math inline">\(\psi\)</span></li>
-<li>The transition angle <span class="math inline">\(\theta_T\)</span></li>
+<li>The transition angle <span
+class="math inline">\(\theta_T\)</span></li>
 <li>The tension cut-off control parameter a</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress c;</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>c.setEntryName(<span class="st">&quot;Cohesion&quot;</span>);</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real phi;</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>phi.setEntryName(<span class="st">&quot;FrictionAngle&quot;</span>);</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real psi;</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>psi.setEntryName(<span class="st">&quot;DilatancyAngle&quot;</span>);</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real lodeT;</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>lodeT.setEntryName(<span class="st">&quot;TransitionAngle&quot;</span>);</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress a;</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>a.setEntryName(<span class="st">&quot;TensionCutOffParameter&quot;</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress c<span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>c<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;Cohesion&quot;</span><span class="op">);</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real phi<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>phi<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;FrictionAngle&quot;</span><span class="op">);</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real psi<span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>psi<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;DilatancyAngle&quot;</span><span class="op">);</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real lodeT<span class="op">;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>lodeT<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;TransitionAngle&quot;</span><span class="op">);</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress a<span class="op">;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>a<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;TensionCutOffParameter&quot;</span><span class="op">);</span></span></code></pre></div>
 <h2 id="local-variable">Local variable</h2>
-<p>In <code>MFront</code>, an integration variable is defined to store a variable and use it in various code block.</p>
-<p>Here several local variables are declared such as the bolean variable F: if true, plastic loading</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable Stensor np;</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">bool</span> F; <span class="co">// if true, plastic loading</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real sin_psi;</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real sin_phi;</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real cos_phi;</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real cos_lodeT;</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real sin_lodeT;</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real tan_lodeT;</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real cos_3_lodeT;</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real sin_3_lodeT;</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real cos_6_lodeT;</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real sin_6_lodeT;</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real tan_3_lodeT;</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real a_G;</span></code></pre></div>
-<h2 id="initialisation-a-the-local-variable">Initialisation a the local variable</h2>
-<p>The <code>@InitLocalVariables</code> code block is called before the behaviour integration.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>{</span></code></pre></div>
+<p>In <code>MFront</code>, an integration variable is defined to store a
+variable and use it in various code block.</p>
+<p>Here several local variables are declared such as the bolean variable
+F: if true, plastic loading</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable Stensor np<span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">bool</span> F<span class="op">;</span> <span class="co">// if true, plastic loading</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real sin_psi<span class="op">;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real sin_phi<span class="op">;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real cos_phi<span class="op">;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real cos_lodeT<span class="op">;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real sin_lodeT<span class="op">;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real tan_lodeT<span class="op">;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real cos_3_lodeT<span class="op">;</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real sin_3_lodeT<span class="op">;</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real cos_6_lodeT<span class="op">;</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real sin_6_lodeT<span class="op">;</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real tan_3_lodeT<span class="op">;</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real a_G<span class="op">;</span></span></code></pre></div>
+<h2 id="initialisation-a-the-local-variable">Initialisation a the local
+variable</h2>
+<p>The <code>@InitLocalVariables</code> code block is called before the
+behaviour integration.</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span></code></pre></div>
 <p>First, we define some variables :</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> sqrt3 = Cste&lt;real&gt;::sqrt3;</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> isqrt3 = Cste&lt;real&gt;::isqrt3;</span>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> sqrt3 <span class="op">=</span> Cste<span class="op">&lt;</span>real<span class="op">&gt;::</span>sqrt3<span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> isqrt3 <span class="op">=</span> Cste<span class="op">&lt;</span>real<span class="op">&gt;::</span>isqrt3<span class="op">;</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// conversion to rad</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  phi *= pi / <span class="fl">180.</span>;</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  psi *= pi / <span class="fl">180.</span>;</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  lodeT *= pi / <span class="fl">180.</span>;</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  sin_psi = sin(psi);</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  cos_phi = cos(phi);</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  sin_phi = sin(phi);</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  sin_lodeT = sin(lodeT);</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  cos_lodeT = cos(lodeT);</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  tan_lodeT = tan(lodeT);</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  cos_3_lodeT = cos(<span class="fl">3.</span> * lodeT);</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  sin_3_lodeT = sin(<span class="fl">3.</span> * lodeT);</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  cos_6_lodeT = cos(<span class="fl">6.</span> * lodeT);</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  sin_6_lodeT = sin(<span class="fl">6.</span> * lodeT);</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  tan_3_lodeT = tan(<span class="fl">3.</span> * lodeT);</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  a_G = (a * tan(phi)) / tan(psi)</span></code></pre></div>
-<p>Then the <code>computeElasticPrediction</code> method (introducted with the <code>StandardElasticity</code> brick) is used to compute <span class="math inline">\(\sigma^{el}\)</span></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// elastic prediction</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sig_el = computeElasticPrediction();</span></code></pre></div>
-<p>The three invariant <span class="math inline">\(I_{1}^{el}\)</span>, <span class="math inline">\(J_{2}^{el}\)</span> and <span class="math inline">\(J_{3}^{el}\)</span> corresponding to the elastic prediction are calculated:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">s_el</span> = deviator(sig_el);</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> I1_el = trace(sig_el);</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> J2_el = max((<span class="va">s_el</span> | <span class="va">s_el</span>) / <span class="fl">2.</span>, local_zero_tolerance);</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> J3_el = det(<span class="va">s_el</span>);</span></code></pre></div>
-<p>The <span class="math inline">\(\theta^{el}\)</span> angle is defined:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> arg = min(max(-<span class="fl">3.</span> * sqrt3 * J3_el / (<span class="fl">2.</span> * J2_el * sqrt(J2_el)),</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                           -<span class="fl">1.</span> + local_zero_tolerance),</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                       <span class="fl">1.</span> - local_zero_tolerance);</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> lode_el = <span class="fl">1.</span> / <span class="fl">3.</span> * asin(arg);</span></code></pre></div>
-<p>K is initiliazed as <span class="math inline">\(K^{el}\)</span> value:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> K = <span class="fl">0.0</span>;</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (abs(lode_el) &lt; lodeT) {</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    K = cos(lode_el) - isqrt3 * sin_phi * sin(lode_el);</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> sign =</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        min(max(lode_el / max(abs(lode_el), local_zero_tolerance), -<span class="fl">1.</span>), <span class="fl">1.</span>);</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> term1 = cos_lodeT - isqrt3 * sin_phi * sin_lodeT;</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> term2 = sign * sin_lodeT + isqrt3 * sin_phi * cos_lodeT;</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> term3 = <span class="fl">18.</span> * cos_3_lodeT * cos_3_lodeT * cos_3_lodeT;</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  phi <span class="op">*=</span> pi <span class="op">/</span> <span class="fl">180.</span><span class="op">;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  psi <span class="op">*=</span> pi <span class="op">/</span> <span class="fl">180.</span><span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  lodeT <span class="op">*=</span> pi <span class="op">/</span> <span class="fl">180.</span><span class="op">;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  sin_psi <span class="op">=</span> sin<span class="op">(</span>psi<span class="op">);</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  cos_phi <span class="op">=</span> cos<span class="op">(</span>phi<span class="op">);</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  sin_phi <span class="op">=</span> sin<span class="op">(</span>phi<span class="op">);</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  sin_lodeT <span class="op">=</span> sin<span class="op">(</span>lodeT<span class="op">);</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  cos_lodeT <span class="op">=</span> cos<span class="op">(</span>lodeT<span class="op">);</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  tan_lodeT <span class="op">=</span> tan<span class="op">(</span>lodeT<span class="op">);</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  cos_3_lodeT <span class="op">=</span> cos<span class="op">(</span><span class="fl">3.</span> <span class="op">*</span> lodeT<span class="op">);</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  sin_3_lodeT <span class="op">=</span> sin<span class="op">(</span><span class="fl">3.</span> <span class="op">*</span> lodeT<span class="op">);</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  cos_6_lodeT <span class="op">=</span> cos<span class="op">(</span><span class="fl">6.</span> <span class="op">*</span> lodeT<span class="op">);</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  sin_6_lodeT <span class="op">=</span> sin<span class="op">(</span><span class="fl">6.</span> <span class="op">*</span> lodeT<span class="op">);</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  tan_3_lodeT <span class="op">=</span> tan<span class="op">(</span><span class="fl">3.</span> <span class="op">*</span> lodeT<span class="op">);</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  a_G <span class="op">=</span> <span class="op">(</span>a <span class="op">*</span> tan<span class="op">(</span>phi<span class="op">))</span> <span class="op">/</span> tan<span class="op">(</span>psi<span class="op">)</span></span></code></pre></div>
+<p>Then the <code>computeElasticPrediction</code> method (introducted
+with the <code>StandardElasticity</code> brick) is used to compute <span
+class="math inline">\(\sigma^{el}\)</span></p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// elastic prediction</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sig_el <span class="op">=</span> computeElasticPrediction<span class="op">();</span></span></code></pre></div>
+<p>The three invariant <span class="math inline">\(I_{1}^{el}\)</span>,
+<span class="math inline">\(J_{2}^{el}\)</span> and <span
+class="math inline">\(J_{3}^{el}\)</span> corresponding to the elastic
+prediction are calculated:</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">s_el</span> <span class="op">=</span> deviator<span class="op">(</span>sig_el<span class="op">);</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> I1_el <span class="op">=</span> trace<span class="op">(</span>sig_el<span class="op">);</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> J2_el <span class="op">=</span> max<span class="op">((</span><span class="va">s_el</span> <span class="op">|</span> <span class="va">s_el</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2.</span><span class="op">,</span> local_zero_tolerance<span class="op">);</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> J3_el <span class="op">=</span> det<span class="op">(</span><span class="va">s_el</span><span class="op">);</span></span></code></pre></div>
+<p>The <span class="math inline">\(\theta^{el}\)</span> angle is
+defined:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> arg <span class="op">=</span> min<span class="op">(</span>max<span class="op">(-</span><span class="fl">3.</span> <span class="op">*</span> sqrt3 <span class="op">*</span> J3_el <span class="op">/</span> <span class="op">(</span><span class="fl">2.</span> <span class="op">*</span> J2_el <span class="op">*</span> sqrt<span class="op">(</span>J2_el<span class="op">)),</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                           <span class="op">-</span><span class="fl">1.</span> <span class="op">+</span> local_zero_tolerance<span class="op">),</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                       <span class="fl">1.</span> <span class="op">-</span> local_zero_tolerance<span class="op">);</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> lode_el <span class="op">=</span> <span class="fl">1.</span> <span class="op">/</span> <span class="fl">3.</span> <span class="op">*</span> asin<span class="op">(</span>arg<span class="op">);</span></span></code></pre></div>
+<p>K is initiliazed as <span class="math inline">\(K^{el}\)</span>
+value:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> K <span class="op">=</span> <span class="fl">0.0</span><span class="op">;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>abs<span class="op">(</span>lode_el<span class="op">)</span> <span class="op">&lt;</span> lodeT<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    K <span class="op">=</span> cos<span class="op">(</span>lode_el<span class="op">)</span> <span class="op">-</span> isqrt3 <span class="op">*</span> sin_phi <span class="op">*</span> sin<span class="op">(</span>lode_el<span class="op">);</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> sign <span class="op">=</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        min<span class="op">(</span>max<span class="op">(</span>lode_el <span class="op">/</span> max<span class="op">(</span>abs<span class="op">(</span>lode_el<span class="op">),</span> local_zero_tolerance<span class="op">),</span> <span class="op">-</span><span class="fl">1.</span><span class="op">),</span> <span class="fl">1.</span><span class="op">);</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> term1 <span class="op">=</span> cos_lodeT <span class="op">-</span> isqrt3 <span class="op">*</span> sin_phi <span class="op">*</span> sin_lodeT<span class="op">;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> term2 <span class="op">=</span> sign <span class="op">*</span> sin_lodeT <span class="op">+</span> isqrt3 <span class="op">*</span> sin_phi <span class="op">*</span> cos_lodeT<span class="op">;</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> term3 <span class="op">=</span> <span class="fl">18.</span> <span class="op">*</span> cos_3_lodeT <span class="op">*</span> cos_3_lodeT <span class="op">*</span> cos_3_lodeT<span class="op">;</span></span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> B = ( sign * sin_6_lodeT * term1 - </span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>      <span class="fl">6.</span> * cos_6_lodeT * term2 ) / term3; </span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> C = (- cos_3_lodeT * term1 - <span class="fl">3.</span> * sign * sin_3_lodeT * term2) / term3; </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> B <span class="op">=</span> <span class="op">(</span> sign <span class="op">*</span> sin_6_lodeT <span class="op">*</span> term1 <span class="op">-</span> </span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>      <span class="fl">6.</span> <span class="op">*</span> cos_6_lodeT <span class="op">*</span> term2 <span class="op">)</span> <span class="op">/</span> term3<span class="op">;</span> </span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> C <span class="op">=</span> <span class="op">(-</span> cos_3_lodeT <span class="op">*</span> term1 <span class="op">-</span> <span class="fl">3.</span> <span class="op">*</span> sign <span class="op">*</span> sin_3_lodeT <span class="op">*</span> term2<span class="op">)</span> <span class="op">/</span> term3<span class="op">;</span> </span>
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> A =          </span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>        -isqrt3 * sin_phi * sign * sin_lodeT - B * sign * sin_3_lodeT - </span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>        C * sin_3_lodeT*sin_3_lodeT + cos_lodeT;</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    K = A + B * arg + C * arg*arg;</span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
-<p>To finish <span class="math inline">\(F^{el}\)</span> is calculated and the normal <code>np</code> is initialized.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sMC =</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>      I1_el / <span class="dv">3</span> * sin_phi + sqrt(J2_el * K * K + a * a * sin_phi * sin_phi);</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  F = sMC - c * cos_phi &gt; <span class="fl">0.</span>;</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  np = Stensor(real(<span class="dv">0</span>));</span></code></pre></div>
-<h2 id="implicit-system-implementation">Implicit system implementation</h2>
-<p>The implementation of the implicit system and its derivative is done in the <code>@Integrator</code> code block:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span></code></pre></div>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> A <span class="op">=</span>          </span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span>isqrt3 <span class="op">*</span> sin_phi <span class="op">*</span> sign <span class="op">*</span> sin_lodeT <span class="op">-</span> B <span class="op">*</span> sign <span class="op">*</span> sin_3_lodeT <span class="op">-</span> </span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>        C <span class="op">*</span> sin_3_lodeT<span class="op">*</span>sin_3_lodeT <span class="op">+</span> cos_lodeT<span class="op">;</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    K <span class="op">=</span> A <span class="op">+</span> B <span class="op">*</span> arg <span class="op">+</span> C <span class="op">*</span> arg<span class="op">*</span>arg<span class="op">;</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span></code></pre></div>
+<p>To finish <span class="math inline">\(F^{el}\)</span> is calculated
+and the normal <code>np</code> is initialized.</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sMC <span class="op">=</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>      I1_el <span class="op">/</span> <span class="dv">3</span> <span class="op">*</span> sin_phi <span class="op">+</span> sqrt<span class="op">(</span>J2_el <span class="op">*</span> K <span class="op">*</span> K <span class="op">+</span> a <span class="op">*</span> a <span class="op">*</span> sin_phi <span class="op">*</span> sin_phi<span class="op">);</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  F <span class="op">=</span> sMC <span class="op">-</span> c <span class="op">*</span> cos_phi <span class="op">&gt;</span> <span class="fl">0.</span><span class="op">;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  np <span class="op">=</span> Stensor<span class="op">(</span>real<span class="op">(</span><span class="dv">0</span><span class="op">));</span></span></code></pre></div>
+<h2 id="implicit-system-implementation">Implicit system
+implementation</h2>
+<p>The implementation of the implicit system and its derivative is done
+in the <code>@Integrator</code> code block:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator<span class="op">{</span></span></code></pre></div>
 <p>Some expressions are defined</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> sqrt3 = Cste&lt;real&gt;::sqrt3;</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> isqrt3 = Cste&lt;real&gt;::isqrt3;</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> id = Stensor::Id();</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> id4 = Stensor4::Id();</span></code></pre></div>
-<p>If there is no plasticity (elastic strain) there is no need for additional calculation because the various variables have already been initialized with elastic hypothesis. If there is plastic strain the rest is necessary.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (F) {</span></code></pre></div>
-<p><span class="math inline">\(K\)</span> and <span class="math inline">\(\dfrac{\partial K}{\partial \theta}\)</span> are computed:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> s = deviator(sig);</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> I1 = trace(sig);</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> J2 = max((s | s) / <span class="fl">2.</span>, local_zero_tolerance);</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> J3 = real(det(s) &lt; <span class="fl">0.</span> ? min(det(s), -local_zero_tolerance)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                                     : max(det(s), local_zero_tolerance));</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> arg = min(max(-<span class="fl">3.</span> * sqrt3 * J3 / (<span class="fl">2.</span> * J2 * sqrt(J2)),</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>                             -<span class="fl">1.</span> + local_zero_tolerance),</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>                         <span class="fl">1.</span> - local_zero_tolerance);</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> lode = <span class="fl">1.</span> / <span class="fl">3.</span> * asin(arg);</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> cos_lode = cos(lode);</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> sin_lode = sin(lode);</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> cos_3_lode = cos(<span class="fl">3.</span> * lode);</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> sin_6_lode = sin(<span class="fl">6.</span> * lode);</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> cos_6_lode = cos(<span class="fl">6.</span> * lode);</span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> sin_3_lode = arg;</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> tan_3_lode = tan(<span class="fl">3.</span> * lode);</span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> K = <span class="fl">0.</span>;</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> dK_dlode = <span class="fl">1.</span>;</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (abs(lode) &lt; lodeT) {</span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>      K = cos_lode - isqrt3 * sin_phi * sin_lode;</span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>      dK_dlode = -sin_lode - isqrt3 * sin_phi * cos_lode;</span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> sign =</span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>          min(max(lode / max(abs(lode), local_zero_tolerance), -<span class="fl">1.</span>), <span class="fl">1.</span>);</span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> term1 = cos_lodeT - isqrt3 * sin_phi * sin_lodeT;</span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> term2 = sign * sin_lodeT + isqrt3 * sin_phi * cos_lodeT;</span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> term3 = <span class="fl">18.</span> * cos_3_lodeT * cos_3_lodeT * cos_3_lodeT;</span>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> sqrt3 <span class="op">=</span> Cste<span class="op">&lt;</span>real<span class="op">&gt;::</span>sqrt3<span class="op">;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> isqrt3 <span class="op">=</span> Cste<span class="op">&lt;</span>real<span class="op">&gt;::</span>isqrt3<span class="op">;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> id <span class="op">=</span> Stensor<span class="op">::</span>Id<span class="op">();</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> id4 <span class="op">=</span> Stensor4<span class="op">::</span>Id<span class="op">();</span></span></code></pre></div>
+<p>If there is no plasticity (elastic strain) there is no need for
+additional calculation because the various variables have already been
+initialized with elastic hypothesis. If there is plastic strain the rest
+is necessary.</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>F<span class="op">)</span> <span class="op">{</span></span></code></pre></div>
+<p><span class="math inline">\(K\)</span> and <span
+class="math inline">\(\dfrac{\partial K}{\partial \theta}\)</span> are
+computed:</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> s <span class="op">=</span> deviator<span class="op">(</span>sig<span class="op">);</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> I1 <span class="op">=</span> trace<span class="op">(</span>sig<span class="op">);</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> J2 <span class="op">=</span> max<span class="op">((</span>s <span class="op">|</span> s<span class="op">)</span> <span class="op">/</span> <span class="fl">2.</span><span class="op">,</span> local_zero_tolerance<span class="op">);</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> J3 <span class="op">=</span> real<span class="op">(</span>det<span class="op">(</span>s<span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.</span> <span class="op">?</span> min<span class="op">(</span>det<span class="op">(</span>s<span class="op">),</span> <span class="op">-</span>local_zero_tolerance<span class="op">)</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                                     <span class="op">:</span> max<span class="op">(</span>det<span class="op">(</span>s<span class="op">),</span> local_zero_tolerance<span class="op">));</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> arg <span class="op">=</span> min<span class="op">(</span>max<span class="op">(-</span><span class="fl">3.</span> <span class="op">*</span> sqrt3 <span class="op">*</span> J3 <span class="op">/</span> <span class="op">(</span><span class="fl">2.</span> <span class="op">*</span> J2 <span class="op">*</span> sqrt<span class="op">(</span>J2<span class="op">)),</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>                             <span class="op">-</span><span class="fl">1.</span> <span class="op">+</span> local_zero_tolerance<span class="op">),</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>                         <span class="fl">1.</span> <span class="op">-</span> local_zero_tolerance<span class="op">);</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> lode <span class="op">=</span> <span class="fl">1.</span> <span class="op">/</span> <span class="fl">3.</span> <span class="op">*</span> asin<span class="op">(</span>arg<span class="op">);</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> cos_lode <span class="op">=</span> cos<span class="op">(</span>lode<span class="op">);</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> sin_lode <span class="op">=</span> sin<span class="op">(</span>lode<span class="op">);</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> cos_3_lode <span class="op">=</span> cos<span class="op">(</span><span class="fl">3.</span> <span class="op">*</span> lode<span class="op">);</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> sin_6_lode <span class="op">=</span> sin<span class="op">(</span><span class="fl">6.</span> <span class="op">*</span> lode<span class="op">);</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> cos_6_lode <span class="op">=</span> cos<span class="op">(</span><span class="fl">6.</span> <span class="op">*</span> lode<span class="op">);</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> sin_3_lode <span class="op">=</span> arg<span class="op">;</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> tan_3_lode <span class="op">=</span> tan<span class="op">(</span><span class="fl">3.</span> <span class="op">*</span> lode<span class="op">);</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> K <span class="op">=</span> <span class="fl">0.</span><span class="op">;</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> dK_dlode <span class="op">=</span> <span class="fl">1.</span><span class="op">;</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>abs<span class="op">(</span>lode<span class="op">)</span> <span class="op">&lt;</span> lodeT<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>      K <span class="op">=</span> cos_lode <span class="op">-</span> isqrt3 <span class="op">*</span> sin_phi <span class="op">*</span> sin_lode<span class="op">;</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>      dK_dlode <span class="op">=</span> <span class="op">-</span>sin_lode <span class="op">-</span> isqrt3 <span class="op">*</span> sin_phi <span class="op">*</span> cos_lode<span class="op">;</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> sign <span class="op">=</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>          min<span class="op">(</span>max<span class="op">(</span>lode <span class="op">/</span> max<span class="op">(</span>abs<span class="op">(</span>lode<span class="op">),</span> local_zero_tolerance<span class="op">),</span> <span class="op">-</span><span class="fl">1.</span><span class="op">),</span> <span class="fl">1.</span><span class="op">);</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> term1 <span class="op">=</span> cos_lodeT <span class="op">-</span> isqrt3 <span class="op">*</span> sin_phi <span class="op">*</span> sin_lodeT<span class="op">;</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> term2 <span class="op">=</span> sign <span class="op">*</span> sin_lodeT <span class="op">+</span> isqrt3 <span class="op">*</span> sin_phi <span class="op">*</span> cos_lodeT<span class="op">;</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> term3 <span class="op">=</span> <span class="fl">18.</span> <span class="op">*</span> cos_3_lodeT <span class="op">*</span> cos_3_lodeT <span class="op">*</span> cos_3_lodeT<span class="op">;</span></span>
 <span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>          </span>
-<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> B = ( sign * sin_6_lodeT * term1 - </span>
-<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>        <span class="fl">6.</span> * cos_6_lodeT * term2 ) / term3; </span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> C = (- cos_3_lodeT * term1 - <span class="fl">3.</span> * sign * sin_3_lodeT * term2) / term3; </span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> B <span class="op">=</span> <span class="op">(</span> sign <span class="op">*</span> sin_6_lodeT <span class="op">*</span> term1 <span class="op">-</span> </span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>        <span class="fl">6.</span> <span class="op">*</span> cos_6_lodeT <span class="op">*</span> term2 <span class="op">)</span> <span class="op">/</span> term3<span class="op">;</span> </span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> C <span class="op">=</span> <span class="op">(-</span> cos_3_lodeT <span class="op">*</span> term1 <span class="op">-</span> <span class="fl">3.</span> <span class="op">*</span> sign <span class="op">*</span> sin_3_lodeT <span class="op">*</span> term2<span class="op">)</span> <span class="op">/</span> term3<span class="op">;</span> </span>
 <span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> A =          </span>
-<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>          -isqrt3 * sin_phi * sign * sin_lodeT - B * sign * sin_3_lodeT - </span>
-<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>          C * sin_3_lodeT*sin_3_lodeT + cos_lodeT;</span>
-<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>      K = A + B * sin_3_lode + C * sin_3_lode*sin_3_lode;</span>
-<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>          dK_dlode = <span class="fl">3.</span> * B * cos_3_lode + <span class="fl">3.</span> * C * sin_6_lode;</span>
-<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div>
-<p><span class="math inline">\(K_G\)</span>, <span class="math inline">\(\dfrac{\partial K_G}{\partial \theta}\)</span> and <span class="math inline">\(\dfrac{\partial^2 K_G}{\partial^2 \theta}\)</span> are computed :</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> KG = <span class="fl">0.0</span>; <span class="co">// move into a function to avoid code duplication</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> dKG_dlode = <span class="fl">1.</span>;</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> dKG_ddlode = <span class="fl">1.</span>;</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (abs(lode) &lt; lodeT) </span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>      KG = cos_lode - isqrt3 * sin_psi * sin_lode;</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>      dKG_dlode = -sin_lode - isqrt3 * sin_psi * cos_lode;</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>      dKG_ddlode = -cos_lode + isqrt3 * sin_psi * sin_lode;</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    } </span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> A <span class="op">=</span>          </span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>          <span class="op">-</span>isqrt3 <span class="op">*</span> sin_phi <span class="op">*</span> sign <span class="op">*</span> sin_lodeT <span class="op">-</span> B <span class="op">*</span> sign <span class="op">*</span> sin_3_lodeT <span class="op">-</span> </span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>          C <span class="op">*</span> sin_3_lodeT<span class="op">*</span>sin_3_lodeT <span class="op">+</span> cos_lodeT<span class="op">;</span></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>      K <span class="op">=</span> A <span class="op">+</span> B <span class="op">*</span> sin_3_lode <span class="op">+</span> C <span class="op">*</span> sin_3_lode<span class="op">*</span>sin_3_lode<span class="op">;</span></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>          dK_dlode <span class="op">=</span> <span class="fl">3.</span> <span class="op">*</span> B <span class="op">*</span> cos_3_lode <span class="op">+</span> <span class="fl">3.</span> <span class="op">*</span> C <span class="op">*</span> sin_6_lode<span class="op">;</span></span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div>
+<p><span class="math inline">\(K_G\)</span>, <span
+class="math inline">\(\dfrac{\partial K_G}{\partial \theta}\)</span> and
+<span class="math inline">\(\dfrac{\partial^2 K_G}{\partial^2
+\theta}\)</span> are computed :</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> KG <span class="op">=</span> <span class="fl">0.0</span><span class="op">;</span> <span class="co">// move into a function to avoid code duplication</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> dKG_dlode <span class="op">=</span> <span class="fl">1.</span><span class="op">;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> dKG_ddlode <span class="op">=</span> <span class="fl">1.</span><span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>abs<span class="op">(</span>lode<span class="op">)</span> <span class="op">&lt;</span> lodeT<span class="op">)</span> </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>      KG <span class="op">=</span> cos_lode <span class="op">-</span> isqrt3 <span class="op">*</span> sin_psi <span class="op">*</span> sin_lode<span class="op">;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>      dKG_dlode <span class="op">=</span> <span class="op">-</span>sin_lode <span class="op">-</span> isqrt3 <span class="op">*</span> sin_psi <span class="op">*</span> cos_lode<span class="op">;</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>      dKG_ddlode <span class="op">=</span> <span class="op">-</span>cos_lode <span class="op">+</span> isqrt3 <span class="op">*</span> sin_psi <span class="op">*</span> sin_lode<span class="op">;</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> </span>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> </span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> sign =</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>          min(max(lode / max(abs(lode), local_zero_tolerance), -<span class="fl">1.</span>), <span class="fl">1.</span>);</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> term1 = cos_lodeT - isqrt3 * sin_psi * sin_lodeT;</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> term2 = sign * sin_lodeT + isqrt3 * sin_psi * cos_lodeT;</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> term3 = <span class="fl">18.</span> * cos_3_lodeT * cos_3_lodeT * cos_3_lodeT;</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> sign <span class="op">=</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>          min<span class="op">(</span>max<span class="op">(</span>lode <span class="op">/</span> max<span class="op">(</span>abs<span class="op">(</span>lode<span class="op">),</span> local_zero_tolerance<span class="op">),</span> <span class="op">-</span><span class="fl">1.</span><span class="op">),</span> <span class="fl">1.</span><span class="op">);</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> term1 <span class="op">=</span> cos_lodeT <span class="op">-</span> isqrt3 <span class="op">*</span> sin_psi <span class="op">*</span> sin_lodeT<span class="op">;</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> term2 <span class="op">=</span> sign <span class="op">*</span> sin_lodeT <span class="op">+</span> isqrt3 <span class="op">*</span> sin_psi <span class="op">*</span> cos_lodeT<span class="op">;</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> term3 <span class="op">=</span> <span class="fl">18.</span> <span class="op">*</span> cos_3_lodeT <span class="op">*</span> cos_3_lodeT <span class="op">*</span> cos_3_lodeT<span class="op">;</span></span>
 <span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>          </span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> B = ( sign * sin_6_lodeT * term1 - </span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>        <span class="fl">6.</span> * cos_6_lodeT * term2 ) / term3; </span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> C = (- cos_3_lodeT * term1 - <span class="fl">3.</span> * sign * sin_3_lodeT * term2) / term3; </span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> B <span class="op">=</span> <span class="op">(</span> sign <span class="op">*</span> sin_6_lodeT <span class="op">*</span> term1 <span class="op">-</span> </span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>        <span class="fl">6.</span> <span class="op">*</span> cos_6_lodeT <span class="op">*</span> term2 <span class="op">)</span> <span class="op">/</span> term3<span class="op">;</span> </span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> C <span class="op">=</span> <span class="op">(-</span> cos_3_lodeT <span class="op">*</span> term1 <span class="op">-</span> <span class="fl">3.</span> <span class="op">*</span> sign <span class="op">*</span> sin_3_lodeT <span class="op">*</span> term2<span class="op">)</span> <span class="op">/</span> term3<span class="op">;</span> </span>
 <span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> A =          </span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>          -isqrt3 * sin_psi * sign * sin_lodeT - B * sign * sin_3_lodeT - </span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>          C * sin_3_lodeT*sin_3_lodeT + cos_lodeT;</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>          KG = A + B * sin_3_lode + C * sin_3_lode * sin_3_lode;</span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>          dKG_dlode = <span class="fl">3.</span> * B * cos_3_lode + <span class="fl">3.</span> * C * sin_6_lode;</span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>          dKG_ddlode = -<span class="fl">9.</span> * B * sin_3_lode + <span class="fl">18.</span> * C * cos_6_lode;</span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> <span class="kw">auto</span> A <span class="op">=</span>          </span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>          <span class="op">-</span>isqrt3 <span class="op">*</span> sin_psi <span class="op">*</span> sign <span class="op">*</span> sin_lodeT <span class="op">-</span> B <span class="op">*</span> sign <span class="op">*</span> sin_3_lodeT <span class="op">-</span> </span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>          C <span class="op">*</span> sin_3_lodeT<span class="op">*</span>sin_3_lodeT <span class="op">+</span> cos_lodeT<span class="op">;</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>          KG <span class="op">=</span> A <span class="op">+</span> B <span class="op">*</span> sin_3_lode <span class="op">+</span> C <span class="op">*</span> sin_3_lode <span class="op">*</span> sin_3_lode<span class="op">;</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>          dKG_dlode <span class="op">=</span> <span class="fl">3.</span> <span class="op">*</span> B <span class="op">*</span> cos_3_lode <span class="op">+</span> <span class="fl">3.</span> <span class="op">*</span> C <span class="op">*</span> sin_6_lode<span class="op">;</span></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>          dKG_ddlode <span class="op">=</span> <span class="op">-</span><span class="fl">9.</span> <span class="op">*</span> B <span class="op">*</span> sin_3_lode <span class="op">+</span> <span class="fl">18.</span> <span class="op">*</span> C <span class="op">*</span> cos_6_lode<span class="op">;</span></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div>
 <p>The flow direction is computed :</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// flow direction</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dev_s_squared = computeJ3Derivative(</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        sig); <span class="co">// replaces dev_s_squared = deviator(square(s));</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_dI1 = sin_psi / <span class="fl">3.</span>;</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> root = max(sqrt(J2 * KG * KG + a_G * a_G * sin_psi * sin_psi),</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>                          local_zero_tolerance);</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_dJ2 = KG / (<span class="fl">2.</span> * root) * (KG - tan_3_lode * dKG_dlode);</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_dJ3 = J2 * KG * tan_3_lode / (<span class="fl">3.</span> * J3 * root) * dKG_dlode;</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> n = eval(dG_dI1 * id + dG_dJ2 * s + dG_dJ3 * dev_s_squared);</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// flow direction</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dev_s_squared <span class="op">=</span> computeJ3Derivative<span class="op">(</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        sig<span class="op">);</span> <span class="co">// replaces dev_s_squared = deviator(square(s));</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_dI1 <span class="op">=</span> sin_psi <span class="op">/</span> <span class="fl">3.</span><span class="op">;</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> root <span class="op">=</span> max<span class="op">(</span>sqrt<span class="op">(</span>J2 <span class="op">*</span> KG <span class="op">*</span> KG <span class="op">+</span> a_G <span class="op">*</span> a_G <span class="op">*</span> sin_psi <span class="op">*</span> sin_psi<span class="op">),</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>                          local_zero_tolerance<span class="op">);</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_dJ2 <span class="op">=</span> KG <span class="op">/</span> <span class="op">(</span><span class="fl">2.</span> <span class="op">*</span> root<span class="op">)</span> <span class="op">*</span> <span class="op">(</span>KG <span class="op">-</span> tan_3_lode <span class="op">*</span> dKG_dlode<span class="op">);</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_dJ3 <span class="op">=</span> J2 <span class="op">*</span> KG <span class="op">*</span> tan_3_lode <span class="op">/</span> <span class="op">(</span><span class="fl">3.</span> <span class="op">*</span> J3 <span class="op">*</span> root<span class="op">)</span> <span class="op">*</span> dKG_dlode<span class="op">;</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> n <span class="op">=</span> eval<span class="op">(</span>dG_dI1 <span class="op">*</span> id <span class="op">+</span> dG_dJ2 <span class="op">*</span> s <span class="op">+</span> dG_dJ3 <span class="op">*</span> dev_s_squared<span class="op">);</span></span></code></pre></div>
 <p>The yield function <code>F</code> is computed:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// yield function</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> rootF = max(sqrt(J2 * K * K + a * a * sin_phi * sin_phi), local_zero_tolerance);</span>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// yield function</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> rootF <span class="op">=</span> max<span class="op">(</span>sqrt<span class="op">(</span>J2 <span class="op">*</span> K <span class="op">*</span> K <span class="op">+</span> a <span class="op">*</span> a <span class="op">*</span> sin_phi <span class="op">*</span> sin_phi<span class="op">),</span> local_zero_tolerance<span class="op">);</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> Fy1 = I1 * sin_phi / <span class="dv">3</span> + rootF;</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> Fy =  Fy1 - c * cos_phi;</span></code></pre></div>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> Fy1 <span class="op">=</span> I1 <span class="op">*</span> sin_phi <span class="op">/</span> <span class="dv">3</span> <span class="op">+</span> rootF<span class="op">;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> Fy <span class="op">=</span>  Fy1 <span class="op">-</span> c <span class="op">*</span> cos_phi<span class="op">;</span></span></code></pre></div>
 <p>Derivatives are calculated before computing the Jacobian matrix:</p>
-<p><span class="math inline">\(\dfrac{\partial F}{\partial I_1}\)</span>, <span class="math inline">\(\dfrac{\partial F}{\partial J_2}\)</span>, <span class="math inline">\(\dfrac{\partial F}{\partial J_3}\)</span>, <span class="math inline">\(n_F\)</span>, <span class="math inline">\(\dfrac{\partial G}{\partial \theta}\)</span>, <span class="math inline">\(\dfrac{\partial^2 G}{\partial^2 \theta}\)</span> <span class="math inline">\(\dfrac{\partial^2 G}{\partial \theta \partial J_2}\)</span>, <span class="math inline">\(\dfrac{\partial^2 G}{\partial^2 J_2}\)</span>, <span class="math inline">\(\dfrac{\partial^2 G}{\partial^2 J_3}\)</span>, <span class="math inline">\(\dfrac{\partial ^2G}{\partial J_2 \partial J_3}\)</span></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// yield function derivative for Jacobian</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dF_dI1 = sin_phi / <span class="fl">3.</span>;</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dF_dJ2 = K / (<span class="fl">2.</span> * rootF) * (K - tan_3_lode * dK_dlode);</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dF_dJ3 = J2 * K * tan_3_lode / (<span class="fl">3.</span> * J3 * rootF) * dK_dlode;</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> nF = eval(dF_dI1 * id + dF_dJ2 * s + dF_dJ3 * dev_s_squared);</span>
+<p><span class="math inline">\(\dfrac{\partial F}{\partial
+I_1}\)</span>, <span class="math inline">\(\dfrac{\partial F}{\partial
+J_2}\)</span>, <span class="math inline">\(\dfrac{\partial F}{\partial
+J_3}\)</span>, <span class="math inline">\(n_F\)</span>, <span
+class="math inline">\(\dfrac{\partial G}{\partial \theta}\)</span>,
+<span class="math inline">\(\dfrac{\partial^2 G}{\partial^2
+\theta}\)</span> <span class="math inline">\(\dfrac{\partial^2
+G}{\partial \theta \partial J_2}\)</span>, <span
+class="math inline">\(\dfrac{\partial^2 G}{\partial^2 J_2}\)</span>,
+<span class="math inline">\(\dfrac{\partial^2 G}{\partial^2
+J_3}\)</span>, <span class="math inline">\(\dfrac{\partial ^2G}{\partial
+J_2 \partial J_3}\)</span></p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// yield function derivative for Jacobian</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dF_dI1 <span class="op">=</span> sin_phi <span class="op">/</span> <span class="fl">3.</span><span class="op">;</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dF_dJ2 <span class="op">=</span> K <span class="op">/</span> <span class="op">(</span><span class="fl">2.</span> <span class="op">*</span> rootF<span class="op">)</span> <span class="op">*</span> <span class="op">(</span>K <span class="op">-</span> tan_3_lode <span class="op">*</span> dK_dlode<span class="op">);</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dF_dJ3 <span class="op">=</span> J2 <span class="op">*</span> K <span class="op">*</span> tan_3_lode <span class="op">/</span> <span class="op">(</span><span class="fl">3.</span> <span class="op">*</span> J3 <span class="op">*</span> rootF<span class="op">)</span> <span class="op">*</span> dK_dlode<span class="op">;</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> nF <span class="op">=</span> eval<span class="op">(</span>dF_dI1 <span class="op">*</span> id <span class="op">+</span> dF_dJ2 <span class="op">*</span> s <span class="op">+</span> dF_dJ3 <span class="op">*</span> dev_s_squared<span class="op">);</span></span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// building dfeel_ddeel</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> Pdev = id4 - (id ^ id) / <span class="dv">3</span>;</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> Pdev <span class="op">=</span> id4 <span class="op">-</span> <span class="op">(</span>id <span class="op">^</span> id<span class="op">)</span> <span class="op">/</span> <span class="dv">3</span><span class="op">;</span></span>
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_dlode = KG * J2 / (root)*dKG_dlode;</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_ddlode =</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>        J2 / root * (dKG_dlode * dKG_dlode * (<span class="fl">1.</span> - J2 * KG * KG / (root * root)) + KG * dKG_ddlode);</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_ddlodeJ2 = KG / root * dKG_dlode * (<span class="fl">1.</span> - J2 * KG * KG / (<span class="dv">2</span> * root * root));</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_ddJ2 =</span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>        -KG * KG * KG * KG / (<span class="fl">4.</span> * root * root * root) + dG_dlode * tan_3_lode / (<span class="dv">2</span> * J2 * J2) -</span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>        tan_3_lode / (<span class="dv">2</span> * J2) * (<span class="dv">2</span> * dG_ddlodeJ2 - tan_3_lode / (<span class="dv">2</span> * J2) * dG_ddlode -</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>                                 <span class="dv">3</span> / (<span class="dv">2</span> * J2 * cos_3_lode * cos_3_lode) * dG_dlode);</span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_ddJ3 = -tan_3_lode / (<span class="dv">3</span> * J3 * J3) * dG_dlode +</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>                         tan_3_lode / (<span class="dv">3</span> * J3) * (dG_ddlode * tan_3_lode / (<span class="dv">3</span> * J3) +</span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>                                                  dG_dlode * <span class="fl">1.</span> / (J3 * cos_3_lode * cos_3_lode));</span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_ddJ2J3 = dG_ddlodeJ2 * tan_3_lode / (<span class="dv">3</span> * J3) -</span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>                           tan_3_lode / (<span class="dv">2</span> * J2) * (dG_ddlode * tan_3_lode / (<span class="dv">3</span> * J3) +</span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>                                                    dG_dlode * <span class="fl">1.</span> / (J3 * cos_3_lode * cos_3_lode));</span></code></pre></div>
-<p><span class="math inline">\(f^{el}\)</span>, <span class="math inline">\(\dfrac{\partial f^{el}}{\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}\)</span>, <span class="math inline">\(\dfrac{\partial f^{el}}{\partial \Delta\,\lambda}\)</span> are computed:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// elasticity</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    feel += dlam * n;</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    dfeel_ddeel += theta * dlam * (dG_dJ2 * Pdev + dG_dJ3 * computeJ3SecondDerivative(sig) +</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                                   dG_ddJ2 * (s ^ s) + dG_ddJ3 * (dev_s_squared ^ dev_s_squared) +</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>                                   dG_ddJ2J3 * ((dev_s_squared ^ s) + (s ^ dev_s_squared))) *</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>                   D;</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    dfeel_ddlam = n;</span></code></pre></div>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_dlode <span class="op">=</span> KG <span class="op">*</span> J2 <span class="op">/</span> <span class="op">(</span>root<span class="op">)*</span>dKG_dlode<span class="op">;</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_ddlode <span class="op">=</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>        J2 <span class="op">/</span> root <span class="op">*</span> <span class="op">(</span>dKG_dlode <span class="op">*</span> dKG_dlode <span class="op">*</span> <span class="op">(</span><span class="fl">1.</span> <span class="op">-</span> J2 <span class="op">*</span> KG <span class="op">*</span> KG <span class="op">/</span> <span class="op">(</span>root <span class="op">*</span> root<span class="op">))</span> <span class="op">+</span> KG <span class="op">*</span> dKG_ddlode<span class="op">);</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_ddlodeJ2 <span class="op">=</span> KG <span class="op">/</span> root <span class="op">*</span> dKG_dlode <span class="op">*</span> <span class="op">(</span><span class="fl">1.</span> <span class="op">-</span> J2 <span class="op">*</span> KG <span class="op">*</span> KG <span class="op">/</span> <span class="op">(</span><span class="dv">2</span> <span class="op">*</span> root <span class="op">*</span> root<span class="op">));</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_ddJ2 <span class="op">=</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span>KG <span class="op">*</span> KG <span class="op">*</span> KG <span class="op">*</span> KG <span class="op">/</span> <span class="op">(</span><span class="fl">4.</span> <span class="op">*</span> root <span class="op">*</span> root <span class="op">*</span> root<span class="op">)</span> <span class="op">+</span> dG_dlode <span class="op">*</span> tan_3_lode <span class="op">/</span> <span class="op">(</span><span class="dv">2</span> <span class="op">*</span> J2 <span class="op">*</span> J2<span class="op">)</span> <span class="op">-</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>        tan_3_lode <span class="op">/</span> <span class="op">(</span><span class="dv">2</span> <span class="op">*</span> J2<span class="op">)</span> <span class="op">*</span> <span class="op">(</span><span class="dv">2</span> <span class="op">*</span> dG_ddlodeJ2 <span class="op">-</span> tan_3_lode <span class="op">/</span> <span class="op">(</span><span class="dv">2</span> <span class="op">*</span> J2<span class="op">)</span> <span class="op">*</span> dG_ddlode <span class="op">-</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>                                 <span class="dv">3</span> <span class="op">/</span> <span class="op">(</span><span class="dv">2</span> <span class="op">*</span> J2 <span class="op">*</span> cos_3_lode <span class="op">*</span> cos_3_lode<span class="op">)</span> <span class="op">*</span> dG_dlode<span class="op">);</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_ddJ3 <span class="op">=</span> <span class="op">-</span>tan_3_lode <span class="op">/</span> <span class="op">(</span><span class="dv">3</span> <span class="op">*</span> J3 <span class="op">*</span> J3<span class="op">)</span> <span class="op">*</span> dG_dlode <span class="op">+</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>                         tan_3_lode <span class="op">/</span> <span class="op">(</span><span class="dv">3</span> <span class="op">*</span> J3<span class="op">)</span> <span class="op">*</span> <span class="op">(</span>dG_ddlode <span class="op">*</span> tan_3_lode <span class="op">/</span> <span class="op">(</span><span class="dv">3</span> <span class="op">*</span> J3<span class="op">)</span> <span class="op">+</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>                                                  dG_dlode <span class="op">*</span> <span class="fl">1.</span> <span class="op">/</span> <span class="op">(</span>J3 <span class="op">*</span> cos_3_lode <span class="op">*</span> cos_3_lode<span class="op">));</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> dG_ddJ2J3 <span class="op">=</span> dG_ddlodeJ2 <span class="op">*</span> tan_3_lode <span class="op">/</span> <span class="op">(</span><span class="dv">3</span> <span class="op">*</span> J3<span class="op">)</span> <span class="op">-</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>                           tan_3_lode <span class="op">/</span> <span class="op">(</span><span class="dv">2</span> <span class="op">*</span> J2<span class="op">)</span> <span class="op">*</span> <span class="op">(</span>dG_ddlode <span class="op">*</span> tan_3_lode <span class="op">/</span> <span class="op">(</span><span class="dv">3</span> <span class="op">*</span> J3<span class="op">)</span> <span class="op">+</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>                                                    dG_dlode <span class="op">*</span> <span class="fl">1.</span> <span class="op">/</span> <span class="op">(</span>J3 <span class="op">*</span> cos_3_lode <span class="op">*</span> cos_3_lode<span class="op">));</span></span></code></pre></div>
+<p><span class="math inline">\(f^{el}\)</span>, <span
+class="math inline">\(\dfrac{\partial f^{el}}{\partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}\)</span>, <span
+class="math inline">\(\dfrac{\partial f^{el}}{\partial
+\Delta\,\lambda}\)</span> are computed:</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// elasticity</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    feel <span class="op">+=</span> dlam <span class="op">*</span> n<span class="op">;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    dfeel_ddeel <span class="op">+=</span> theta <span class="op">*</span> dlam <span class="op">*</span> <span class="op">(</span>dG_dJ2 <span class="op">*</span> Pdev <span class="op">+</span> dG_dJ3 <span class="op">*</span> computeJ3SecondDerivative<span class="op">(</span>sig<span class="op">)</span> <span class="op">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                                   dG_ddJ2 <span class="op">*</span> <span class="op">(</span>s <span class="op">^</span> s<span class="op">)</span> <span class="op">+</span> dG_ddJ3 <span class="op">*</span> <span class="op">(</span>dev_s_squared <span class="op">^</span> dev_s_squared<span class="op">)</span> <span class="op">+</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>                                   dG_ddJ2J3 <span class="op">*</span> <span class="op">((</span>dev_s_squared <span class="op">^</span> s<span class="op">)</span> <span class="op">+</span> <span class="op">(</span>s <span class="op">^</span> dev_s_squared<span class="op">)))</span> <span class="op">*</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>                   D<span class="op">;</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    dfeel_ddlam <span class="op">=</span> n<span class="op">;</span></span></code></pre></div>
 <p>These equations are equivalent to:</p>
 <p><span class="math display">\[
 \begin{aligned}
-  &amp; f^{el} = \Delta\,\underline{\varepsilon}^{\mathrm{el}}- \Delta\,\underline{\varepsilon}^{\mathrm{to}}\ + \Delta\,\lambda\,\underline{n} = 0  \\
-  &amp; \dfrac{\partial f^{el}}{\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}} = 
-  1 + \Delta \lambda \frac{\partial \underline{n}}{\partial \Delta \underline{\varepsilon}^{\mathrm{el}}} =
-  1 + \Delta \lambda \frac{\partial \underline{n}}{\partial \underline{\sigma}} 
-  \frac{\partial \underline{\sigma}}{\partial \Delta \underline{\varepsilon}^{\mathrm{el}}} \, \\
-  &amp; \dfrac{\partial f^{el}}{\partial \Delta\,\lambda} = \underline{n}
+  &amp; f^{el} = \Delta\,\underline{\varepsilon}^{\mathrm{el}}-
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}\ +
+\Delta\,\lambda\,\underline{n} = 0  \\
+  &amp; \dfrac{\partial f^{el}}{\partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}} =
+  1 + \Delta \lambda \frac{\partial \underline{n}}{\partial \Delta
+\underline{\varepsilon}^{\mathrm{el}}} =
+  1 + \Delta \lambda \frac{\partial \underline{n}}{\partial
+\underline{\sigma}}
+  \frac{\partial \underline{\sigma}}{\partial \Delta
+\underline{\varepsilon}^{\mathrm{el}}} \, \\
+  &amp; \dfrac{\partial f^{el}}{\partial \Delta\,\lambda} =
+\underline{n}
 \end{aligned}
 \]</span></p>
-<p>because this implementation takes into account the fact that the <code>Implicit</code> DSL automatically initializes <code>feel</code> to the current estimation of <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span> and the Jacobian to identity. Moreover, the <code>StandardElasticity</code> brick automatically subtracts <span class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\)</span> to <code>feel</code>.</p>
-<p>And to finish <span class="math inline">\(f^{\lambda}\)</span>, <span class="math inline">\(\dfrac{\partial f^{\lambda}}{\partial \Delta\,\lambda}\)</span>, <span class="math inline">\(\dfrac{\partial f^{\lambda}}{\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}\)</span> are computed:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// plasticity</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    flam = Fy / D(<span class="dv">0</span>, <span class="dv">0</span>);</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    dflam_ddlam = strain(<span class="dv">0</span>);</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    dflam_ddeel = theta * (nF | D) / D(<span class="dv">0</span>, <span class="dv">0</span>);</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    np = n;</span></code></pre></div>
+<p>because this implementation takes into account the fact that the
+<code>Implicit</code> DSL automatically initializes <code>feel</code> to
+the current estimation of <span
+class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span>
+and the Jacobian to identity. Moreover, the
+<code>StandardElasticity</code> brick automatically subtracts <span
+class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\)</span>
+to <code>feel</code>.</p>
+<p>And to finish <span class="math inline">\(f^{\lambda}\)</span>, <span
+class="math inline">\(\dfrac{\partial f^{\lambda}}{\partial
+\Delta\,\lambda}\)</span>, <span class="math inline">\(\dfrac{\partial
+f^{\lambda}}{\partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}\)</span> are
+computed:</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// plasticity</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    flam <span class="op">=</span> Fy <span class="op">/</span> D<span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    dflam_ddlam <span class="op">=</span> strain<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    dflam_ddeel <span class="op">=</span> theta <span class="op">*</span> <span class="op">(</span>nF <span class="op">|</span> D<span class="op">)</span> <span class="op">/</span> D<span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    np <span class="op">=</span> n<span class="op">;</span></span></code></pre></div>
 <p>The Jacobian can now be computed (see (6))</p>
 <h1 id="verification">Verification</h1>
-<figure>
-<img src="img/MohrCoulombPiPlane.svg" title="Trace of the yield surface (green) when approached on different stress paths (purple)" id="fig:MC_stress_paths" style="width:90.0%" alt="Figure 2: Trace of the yield surface (green) when approached on different stress paths (purple)" /><figcaption aria-hidden="true">Figure 2: Trace of the yield surface (green) when approached on different stress paths (purple)</figcaption>
+<figure id="fig:MC_stress_paths">
+<img src="img/MohrCoulombPiPlane.svg"
+title="Trace of the yield surface (green) when approached on different stress paths (purple)"
+style="width:90.0%"
+alt="Trace of the yield surface (green) when approached on different stress paths (purple)" />
+<figcaption>Figure 2: Trace of the yield surface (green) when approached
+on different stress paths (purple)</figcaption>
 </figure>
-<p>The yield function was approached along different stress paths, shown in Figure 2 within the <span class="math inline">\(\pi\)</span>-plane. This shows that a) yield is correctly detected, and b) the stress-state is correctly pulled back onto the yield surface.</p>
-<figure>
-<img src="img/MohrCoulombAnalitical.svg" title="Verification against analytical example. Description in @Nagel2016" id="fig:MC_vis" style="width:125.0%" alt="Figure 3: Verification against analytical example. Description in [1]." /><figcaption aria-hidden="true">Figure 3: Verification against analytical example. Description in <span class="citation" data-cites="Nagel2016">[1]</span>.</figcaption>
+<p>The yield function was approached along different stress paths, shown
+in Figure 2 within the <span class="math inline">\(\pi\)</span>-plane.
+This shows that a) yield is correctly detected, and b) the stress-state
+is correctly pulled back onto the yield surface.</p>
+<figure id="fig:MC_vis">
+<img src="img/MohrCoulombAnalitical.svg"
+title="Verification against analytical example. Description in @Nagel2016"
+style="width:125.0%"
+alt="Verification against analytical example. Description in [1]." />
+<figcaption>Figure 3: Verification against analytical example.
+Description in <span class="citation"
+data-cites="Nagel2016">[1]</span>.</figcaption>
 </figure>
-<p>The second test (included as a benchmark) follows an analytical solution for a stress-free cavity in an infinite medium under a variable far-field stress. The solution computes stress- and displacement fields as well as the location of the plastified zone. It has been used in <span class="citation" data-cites="Nagel2016">[1]</span> where the test is described in more detail (with a partial extension towards non-associated flow).</p>
-<h1 id="simplification-of-the-mfront-file-use-of-tfelmaterialmohrcoulombyieldcriterion.hxx-file">Simplification of the MFront file : use of <code>TFEL/Material/MohrCoulombYieldCriterion.hxx</code> file</h1>
-<p>Because F et G have an analogous structure, it’s possible to simplify the MFront file and to do the calculation in the hxx <code>TFEL/Material/MohrCoulombYieldCriterion.hxx</code> instead of the MFront file.</p>
+<p>The second test (included as a benchmark) follows an analytical
+solution for a stress-free cavity in an infinite medium under a variable
+far-field stress. The solution computes stress- and displacement fields
+as well as the location of the plastified zone. It has been used in
+<span class="citation" data-cites="Nagel2016">[1]</span> where the test
+is described in more detail (with a partial extension towards
+non-associated flow).</p>
+<h1
+id="simplification-of-the-mfront-file-use-of-tfelmaterialmohrcoulombyieldcriterion.hxx-file">Simplification
+of the MFront file : use of
+<code>TFEL/Material/MohrCoulombYieldCriterion.hxx</code> file</h1>
+<p>Because F et G have an analogous structure, it’s possible to simplify
+the MFront file and to do the calculation in the hxx
+<code>TFEL/Material/MohrCoulombYieldCriterion.hxx</code> instead of the
+MFront file.</p>
 <p>Severals simplifications are done:</p>
 <ul>
-<li>parameters and local variables such as <code>sin_phi</code>, <code>sin_psi</code>, … are now defined in the hxx file</li>
-<li>the calculation of <span class="math inline">\(F^{el}\)</span> is done by <code>computeMohrCoulombStressCriterion</code> function</li>
-<li>the calculation of <span class="math inline">\(F\)</span> and this normal <span class="math inline">\(\underline{n}_{F}\)</span> are done by <code>computeMohrCoulombStressCriterionNormal</code> function</li>
-<li>the calculation of <span class="math inline">\(G\)</span>, <span class="math inline">\(\underline{n}_{G}\)</span> and <span class="math inline">\(\dfrac{\partial \underline{n}_{G}}{\partial \underline{\sigma}}\)</span> are done by <code>computeMohrCoulombStressCriterionSecondDerivative</code> function</li>
+<li>parameters and local variables such as <code>sin_phi</code>,
+<code>sin_psi</code>, … are now defined in the hxx file</li>
+<li>the calculation of <span class="math inline">\(F^{el}\)</span> is
+done by <code>computeMohrCoulombStressCriterion</code> function</li>
+<li>the calculation of <span class="math inline">\(F\)</span> and this
+normal <span class="math inline">\(\underline{n}_{F}\)</span> are done
+by <code>computeMohrCoulombStressCriterionNormal</code> function</li>
+<li>the calculation of <span class="math inline">\(G\)</span>, <span
+class="math inline">\(\underline{n}_{G}\)</span> and <span
+class="math inline">\(\dfrac{\partial \underline{n}_{G}}{\partial
+\underline{\sigma}}\)</span> are done by
+<code>computeMohrCoulombStressCriterionSecondDerivative</code>
+function</li>
 </ul>
-<p>Except for some name changes (for example p instead lam for the EquivalentPlasticStrain) and the functions previously introduced (<code>computeMohrCoulombStressCriterion</code>,<code>computeMohrCoulombStressCriterionNormal</code> and <code>computeMohrCoulombStressCriterionSecondDerivative</code>) the rest of the MFront file is identical to that described above in the section <code>Implementation</code>).</p>
+<p>Except for some name changes (for example p instead lam for the
+EquivalentPlasticStrain) and the functions previously introduced
+(<code>computeMohrCoulombStressCriterion</code>,<code>computeMohrCoulombStressCriterionNormal</code>
+and <code>computeMohrCoulombStressCriterionSecondDerivative</code>) the
+rest of the MFront file is identical to that described above in the
+section <code>Implementation</code>).</p>
 <p>The new MFront file is however much shorter and clearer:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour MohrCoulombAbboSloan;</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Nagel;</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="bn">05</span> / <span class="bn">02</span> / <span class="dv">2019</span>;</span>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit<span class="op">;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour MohrCoulombAbboSloan<span class="op">;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Nagel<span class="op">;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="bn">05</span> <span class="op">/</span> <span class="bn">02</span> <span class="op">/</span> <span class="dv">2019</span><span class="op">;</span></span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson;</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson<span class="op">;</span></span>
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity;</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity<span class="op">;</span></span>
 <span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes{</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Includes<span class="op">{</span></span>
 <span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/MohrCoulombYieldCriterion.hxx&quot;</span></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="fl">1.0</span>;     <span class="co">// time integration scheme</span></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1e-14</span>; <span class="co">// tolerance of local stress integration algorithm</span></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses{<span class="st">&quot;.+&quot;</span>};</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="fl">1.0</span><span class="op">;</span>     <span class="co">// time integration scheme</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1e-14</span><span class="op">;</span> <span class="co">// tolerance of local stress integration algorithm</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses<span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">};</span></span>
 <span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RequireStiffnessTensor&lt;UnAltered&gt;;</span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter pi = <span class="fl">3.14159265359</span>;</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RequireStiffnessTensor<span class="op">&lt;</span>UnAltered<span class="op">&gt;;</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter pi <span class="op">=</span> <span class="fl">3.14159265359</span><span class="op">;</span></span>
 <span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real p;</span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>p.setGlossaryName(<span class="st">&quot;EquivalentPlasticStrain&quot;</span>);</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real p<span class="op">;</span></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>p<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;EquivalentPlasticStrain&quot;</span><span class="op">);</span></span>
 <span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress c;</span>
-<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>c.setEntryName(<span class="st">&quot;Cohesion&quot;</span>);</span>
-<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real phi;</span>
-<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>phi.setEntryName(<span class="st">&quot;FrictionAngle&quot;</span>);</span>
-<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real psi;</span>
-<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>psi.setEntryName(<span class="st">&quot;DilatancyAngle&quot;</span>);</span>
-<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real lodeT;</span>
-<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>lodeT.setEntryName(<span class="st">&quot;TransitionAngle&quot;</span>);</span>
-<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress a;</span>
-<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>a.setEntryName(<span class="st">&quot;TensionCutOffParameter&quot;</span>);</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress c<span class="op">;</span></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>c<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;Cohesion&quot;</span><span class="op">);</span></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real phi<span class="op">;</span></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>phi<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;FrictionAngle&quot;</span><span class="op">);</span></span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real psi<span class="op">;</span></span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>psi<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;DilatancyAngle&quot;</span><span class="op">);</span></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real lodeT<span class="op">;</span></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>lodeT<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;TransitionAngle&quot;</span><span class="op">);</span></span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress a<span class="op">;</span></span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>a<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;TensionCutOffParameter&quot;</span><span class="op">);</span></span>
 <span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable Stensor ngp;</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable Stensor ngp<span class="op">;</span></span>
 <span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">bool</span> F; <span class="co">// if true, plastic loading</span></span>
-<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable MohrCoulombParameters&lt;StressStensor&gt; pf;</span>
-<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable MohrCoulombParameters&lt;StressStensor&gt; pg;</span>
-<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real a_G;</span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">bool</span> F<span class="op">;</span> <span class="co">// if true, plastic loading</span></span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable MohrCoulombParameters<span class="op">&lt;</span>StressStensor<span class="op">&gt;</span> pf<span class="op">;</span></span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable MohrCoulombParameters<span class="op">&lt;</span>StressStensor<span class="op">&gt;</span> pg<span class="op">;</span></span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real a_G<span class="op">;</span></span>
 <span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables {</span>
-<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>  a_G = (a * tan((phi*pi)/<span class="dv">180</span>)) / tan((psi*pi)/<span class="dv">180</span>);</span>
-<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> u = MohrCoulombParameters&lt;StressStensor&gt;::DEGREE;</span>
-<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>  pf = makeMohrCoulombParameters&lt;StressStensor, u&gt;(c, phi, lodeT, a);</span>
-<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>  pg = makeMohrCoulombParameters&lt;StressStensor, u&gt;(c, psi, lodeT, a_G);</span>
-<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sel = computeElasticPrediction();</span>
-<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> smc = computeMohrCoulombStressCriterion(pf, sel);</span>
-<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a>  F = smc &gt; stress(<span class="dv">0</span>);</span>
-<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a>  ngp = Stensor(real(<span class="dv">0</span>));</span>
-<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables <span class="op">{</span></span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>  a_G <span class="op">=</span> <span class="op">(</span>a <span class="op">*</span> tan<span class="op">((</span>phi<span class="op">*</span>pi<span class="op">)/</span><span class="dv">180</span><span class="op">))</span> <span class="op">/</span> tan<span class="op">((</span>psi<span class="op">*</span>pi<span class="op">)/</span><span class="dv">180</span><span class="op">);</span></span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> u <span class="op">=</span> MohrCoulombParameters<span class="op">&lt;</span>StressStensor<span class="op">&gt;::</span>DEGREE<span class="op">;</span></span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>  pf <span class="op">=</span> makeMohrCoulombParameters<span class="op">&lt;</span>StressStensor<span class="op">,</span> u<span class="op">&gt;(</span>c<span class="op">,</span> phi<span class="op">,</span> lodeT<span class="op">,</span> a<span class="op">);</span></span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>  pg <span class="op">=</span> makeMohrCoulombParameters<span class="op">&lt;</span>StressStensor<span class="op">,</span> u<span class="op">&gt;(</span>c<span class="op">,</span> psi<span class="op">,</span> lodeT<span class="op">,</span> a_G<span class="op">);</span></span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sel <span class="op">=</span> computeElasticPrediction<span class="op">();</span></span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> smc <span class="op">=</span> computeMohrCoulombStressCriterion<span class="op">(</span>pf<span class="op">,</span> sel<span class="op">);</span></span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a>  F <span class="op">=</span> smc <span class="op">&gt;</span> stress<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a>  ngp <span class="op">=</span> Stensor<span class="op">(</span>real<span class="op">(</span><span class="dv">0</span><span class="op">));</span></span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span>
-<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (F) {</span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator <span class="op">{</span></span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>F<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a>    <span class="co">// in C++11:</span></span>
-<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> Fy = stress{};</span>
-<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> nf = Stensor{};</span>
-<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> Fg = stress{};</span>
-<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> ng = Stensor{};</span>
-<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> dng = Stensor4{};</span>
-<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>tie(Fy, nf) = computeMohrCoulombStressCriterionNormal(pf, sig);</span>
-<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>tie(Fg, ng, dng) = computeMohrCoulombStressCriterionSecondDerivative(pg, sig);</span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> Fy <span class="op">=</span> stress<span class="op">{};</span></span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> nf <span class="op">=</span> Stensor<span class="op">{};</span></span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> Fg <span class="op">=</span> stress<span class="op">{};</span></span>
+<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> ng <span class="op">=</span> Stensor<span class="op">{};</span></span>
+<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> dng <span class="op">=</span> Stensor4<span class="op">{};</span></span>
+<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>tie<span class="op">(</span>Fy<span class="op">,</span> nf<span class="op">)</span> <span class="op">=</span> computeMohrCoulombStressCriterionNormal<span class="op">(</span>pf<span class="op">,</span> sig<span class="op">);</span></span>
+<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>tie<span class="op">(</span>Fg<span class="op">,</span> ng<span class="op">,</span> dng<span class="op">)</span> <span class="op">=</span> computeMohrCoulombStressCriterionSecondDerivative<span class="op">(</span>pg<span class="op">,</span> sig<span class="op">);</span></span>
 <span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a>    <span class="co">// elasticity</span></span>
-<span id="cb29-64"><a href="#cb29-64" aria-hidden="true" tabindex="-1"></a>    feel += dp * ng;</span>
-<span id="cb29-65"><a href="#cb29-65" aria-hidden="true" tabindex="-1"></a>    dfeel_ddeel += theta * dp * dng * D;</span>
-<span id="cb29-66"><a href="#cb29-66" aria-hidden="true" tabindex="-1"></a>    dfeel_ddp = ng;</span>
+<span id="cb29-64"><a href="#cb29-64" aria-hidden="true" tabindex="-1"></a>    feel <span class="op">+=</span> dp <span class="op">*</span> ng<span class="op">;</span></span>
+<span id="cb29-65"><a href="#cb29-65" aria-hidden="true" tabindex="-1"></a>    dfeel_ddeel <span class="op">+=</span> theta <span class="op">*</span> dp <span class="op">*</span> dng <span class="op">*</span> D<span class="op">;</span></span>
+<span id="cb29-66"><a href="#cb29-66" aria-hidden="true" tabindex="-1"></a>    dfeel_ddp <span class="op">=</span> ng<span class="op">;</span></span>
 <span id="cb29-67"><a href="#cb29-67" aria-hidden="true" tabindex="-1"></a>    <span class="co">// plasticity</span></span>
-<span id="cb29-68"><a href="#cb29-68" aria-hidden="true" tabindex="-1"></a>    fp = Fy / D(<span class="dv">0</span>, <span class="dv">0</span>);</span>
-<span id="cb29-69"><a href="#cb29-69" aria-hidden="true" tabindex="-1"></a>    dfp_ddp = strain(<span class="dv">0</span>);</span>
-<span id="cb29-70"><a href="#cb29-70" aria-hidden="true" tabindex="-1"></a>    dfp_ddeel = theta * (nf | D) / D(<span class="dv">0</span>, <span class="dv">0</span>);</span>
-<span id="cb29-71"><a href="#cb29-71" aria-hidden="true" tabindex="-1"></a>    ngp = ng;</span>
-<span id="cb29-72"><a href="#cb29-72" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb29-73"><a href="#cb29-73" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<h1 id="simplification-of-the-mfront-file-use-of-the-standardelastoviscoplasticity-brick">Simplification of the MFront file : use of the <code>StandardElastoViscoPlasticity</code> brick</h1>
-<p>The Mohr-Coulomb model has been introduced in the <code>StandardElastoViscoPlasticity</code> brick.</p>
-<p>The <code>MFront</code> file is then very short: the whole model is contained in the brick and can be called by the keyword <code>MohrCoulomb</code></p>
+<span id="cb29-68"><a href="#cb29-68" aria-hidden="true" tabindex="-1"></a>    fp <span class="op">=</span> Fy <span class="op">/</span> D<span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb29-69"><a href="#cb29-69" aria-hidden="true" tabindex="-1"></a>    dfp_ddp <span class="op">=</span> strain<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb29-70"><a href="#cb29-70" aria-hidden="true" tabindex="-1"></a>    dfp_ddeel <span class="op">=</span> theta <span class="op">*</span> <span class="op">(</span>nf <span class="op">|</span> D<span class="op">)</span> <span class="op">/</span> D<span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb29-71"><a href="#cb29-71" aria-hidden="true" tabindex="-1"></a>    ngp <span class="op">=</span> ng<span class="op">;</span></span>
+<span id="cb29-72"><a href="#cb29-72" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb29-73"><a href="#cb29-73" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h1
+id="simplification-of-the-mfront-file-use-of-the-standardelastoviscoplasticity-brick">Simplification
+of the MFront file : use of the
+<code>StandardElastoViscoPlasticity</code> brick</h1>
+<p>The Mohr-Coulomb model has been introduced in the
+<code>StandardElastoViscoPlasticity</code> brick.</p>
+<p>The <code>MFront</code> file is then very short: the whole model is
+contained in the brick and can be called by the keyword
+<code>MohrCoulomb</code></p>
 <p>The MFront file is now:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit;</span>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit<span class="op">;</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour MohrCoulomAbboSloan3;</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author HELFER Thomas <span class="dv">202608</span>;</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">10</span> / <span class="dv">12</span> / <span class="dv">2019</span>;</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description {</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour MohrCoulomAbboSloan3<span class="op">;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author HELFER Thomas <span class="dv">202608</span><span class="op">;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">10</span> <span class="op">/</span> <span class="dv">12</span> <span class="op">/</span> <span class="dv">2019</span><span class="op">;</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description <span class="op">{</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson;</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-14</span>;</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span>;</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson<span class="op">;</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-14</span><span class="op">;</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity{</span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  stress_potential : <span class="st">&quot;Hooke&quot;</span> {</span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    young_modulus : <span class="fl">150.e3</span>,</span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>    poisson_ratio : <span class="fl">0.3</span></span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>  inelastic_flow : <span class="st">&quot;Plastic&quot;</span> {</span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>    criterion : <span class="st">&quot;MohrCoulomb&quot;</span> {</span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>      c : <span class="fl">3.e1</span>,      <span class="co">// cohesion</span></span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>      phi : <span class="fl">0.523598775598299</span>,    <span class="co">// friction angle or dilatancy angle</span></span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>      lodeT : <span class="fl">0.506145483078356</span>,  <span class="co">// transition angle as defined by Abbo and Sloan</span></span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>      a : <span class="fl">1e1</span>       <span class="co">// tension cuff-off parameter</span></span>
-<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>    flow_criterion : <span class="st">&quot;MohrCoulomb&quot;</span> {</span>
-<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>      c : <span class="fl">3.e1</span>,      <span class="co">// cohesion</span></span>
-<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>      phi : <span class="fl">0.174532925199433</span>,    <span class="co">// friction angle or dilatancy angle</span></span>
-<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>      lodeT : <span class="fl">0.506145483078356</span>,  <span class="co">// transition angle as defined by Abbo and Sloan</span></span>
-<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>      a : <span class="fl">3e1</span>       <span class="co">// tension cuff-off parameter</span></span>
-<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening : <span class="st">&quot;Linear&quot;</span> {R0 : <span class="st">&quot;0&quot;</span>}</span>
-<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    young_modulus <span class="op">:</span> <span class="fl">150.e3</span><span class="op">,</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>    poisson_ratio <span class="op">:</span> <span class="fl">0.3</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>  <span class="op">},</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;MohrCoulomb&quot;</span> <span class="op">{</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>      c <span class="op">:</span> <span class="fl">3.e1</span><span class="op">,</span>      <span class="co">// cohesion</span></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>      phi <span class="op">:</span> <span class="fl">0.523598775598299</span><span class="op">,</span>    <span class="co">// friction angle or dilatancy angle</span></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>      lodeT <span class="op">:</span> <span class="fl">0.506145483078356</span><span class="op">,</span>  <span class="co">// transition angle as defined by Abbo and Sloan</span></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>      a <span class="op">:</span> <span class="fl">1e1</span>       <span class="co">// tension cuff-off parameter</span></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>    flow_criterion <span class="op">:</span> <span class="st">&quot;MohrCoulomb&quot;</span> <span class="op">{</span></span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>      c <span class="op">:</span> <span class="fl">3.e1</span><span class="op">,</span>      <span class="co">// cohesion</span></span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>      phi <span class="op">:</span> <span class="fl">0.174532925199433</span><span class="op">,</span>    <span class="co">// friction angle or dilatancy angle</span></span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>      lodeT <span class="op">:</span> <span class="fl">0.506145483078356</span><span class="op">,</span>  <span class="co">// transition angle as defined by Abbo and Sloan</span></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>      a <span class="op">:</span> <span class="fl">3e1</span>       <span class="co">// tension cuff-off parameter</span></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="st">&quot;0&quot;</span><span class="op">}</span></span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h1 id="references">References</h1>
 <!--
 # Appendix 1
@@ -1098,12 +1426,34 @@ Jacobian is here (non-associated!)
 \end{pmatrix}
 \]{#eq:Jacobian}
 -->
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-Nagel2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Nagel</span>, Thomas, <span class="smallcaps">Minkley</span>, Wolfgang, <span class="smallcaps">Böttcher</span>, Norbert, <span class="smallcaps">Naumov</span>, Dmitri, <span class="smallcaps">Görke</span>, Uwe-Jens and <span class="smallcaps">Kolditz</span>, Olaf. <span class="nocase">Implicit numerical integration and consistent linearization of inelastic constitutive models of rock salt</span>. <em>Computers <span>&amp;</span> Structures</em>. April 2017. Vol. 182, p. 87–103. DOI <a href="https://doi.org/10.1016/j.compstruc.2016.11.010">10.1016/j.compstruc.2016.11.010</a>. Available from: <a href="http://www.scopus.com/inward/record.url?eid=2-s2.0-85006482432&amp;partnerID=MN8TOARS http://linkinghub.elsevier.com/retrieve/pii/S0045794916306319">http://www.scopus.com/inward/record.url?eid=2-s2.0-85006482432&amp;partnerID=MN8TOARS http://linkinghub.elsevier.com/retrieve/pii/S0045794916306319</a></div>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-Nagel2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Nagel</span>, Thomas,
+<span class="smallcaps">Minkley</span>, Wolfgang, <span
+class="smallcaps">Böttcher</span>, Norbert, <span
+class="smallcaps">Naumov</span>, Dmitri, <span
+class="smallcaps">Görke</span>, Uwe-Jens and <span
+class="smallcaps">Kolditz</span>, Olaf. <span class="nocase">Implicit
+numerical integration and consistent linearization of inelastic
+constitutive models of rock salt</span>. <em>Computers
+<span>&amp;</span> Structures</em>. April 2017. Vol. 182, p. 87–103.
+DOI <a
+href="https://doi.org/10.1016/j.compstruc.2016.11.010">10.1016/j.compstruc.2016.11.010</a>.
+Available from: <a
+href="http://www.scopus.com/inward/record.url?eid=2-s2.0-85006482432{\&amp;}partnerID=MN8TOARS http://linkinghub.elsevier.com/retrieve/pii/S0045794916306319">http://www.scopus.com/inward/record.url?eid=2-s2.0-85006482432{\&amp;}partnerID=MN8TOARS
+http://linkinghub.elsevier.com/retrieve/pii/S0045794916306319</a></div>
 </div>
-<div id="ref-Abbo1995" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Abbo</span>, A. J. and <span class="smallcaps">Sloan</span>, S. W. <span class="nocase">A smooth hyperbolic approximation to the Mohr-Coulomb yield criterion</span>. <em>Computers <span>&amp;</span> Structures</em>. February 1995. Vol. 54, no. 3, p. 427–441. DOI <a href="https://doi.org/10.1016/0045-7949(94)00339-5">10.1016/0045-7949(94)00339-5</a>. Available from: <a href="http://linkinghub.elsevier.com/retrieve/pii/0045794994003395">http://linkinghub.elsevier.com/retrieve/pii/0045794994003395</a></div>
+<div id="ref-Abbo1995" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline"><span class="smallcaps">Abbo</span>, A. J. and
+<span class="smallcaps">Sloan</span>, S. W. <span class="nocase">A
+smooth hyperbolic approximation to the Mohr-Coulomb yield
+criterion</span>. <em>Computers <span>&amp;</span> Structures</em>.
+February 1995. Vol. 54, no. 3, p. 427–441. DOI <a
+href="https://doi.org/10.1016/0045-7949(94)00339-5">10.1016/0045-7949(94)00339-5</a>.
+Available from: <a
+href="http://linkinghub.elsevier.com/retrieve/pii/0045794994003395">http://linkinghub.elsevier.com/retrieve/pii/0045794994003395</a></div>
 </div>
 </div>
     <script>

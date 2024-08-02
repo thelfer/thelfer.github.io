@@ -15,7 +15,9 @@
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -118,6 +120,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -268,13 +271,21 @@
 <li>author : Helfer Thomas</li>
 <li>date : 23 / 11 / 06</li>
 </ul>
-<p>This viscoplastic behaviour is fully determined by the evolution of the equivalent viscoplastic strain <span class="math inline">\(p\)</span> as a function <span class="math inline">\(f\)</span> of the Von Mises stress <span class="math inline">\(\sigma_{\mathrm{eq}}\)</span> : <span class="math display">\[\dot{p}=f\left(\sigma_{\mathrm{eq}}\right)=A\,\sigma_{\mathrm{eq}}^{E}\]</span></p>
+<p>This viscoplastic behaviour is fully determined by the evolution of
+the equivalent viscoplastic strain <span
+class="math inline">\(p\)</span> as a function <span
+class="math inline">\(f\)</span> of the Von Mises stress <span
+class="math inline">\(\sigma_{\mathrm{eq}}\)</span> : <span
+class="math display">\[\dot{p}=f\left(\sigma_{\mathrm{eq}}\right)=A\,\sigma_{\mathrm{eq}}^{E}\]</span></p>
 <p>where :</p>
 <ul>
-<li><span class="math inline">\(A\)</span> is the Norton coefficient .</li>
+<li><span class="math inline">\(A\)</span> is the Norton coefficient
+.</li>
 <li><span class="math inline">\(E\)</span> is the Norton exponent .</li>
 </ul>
-<p><span class="math inline">\(A\)</span> and <span class="math inline">\(E\)</span> are declared as material properties .</p>
+<p><span class="math inline">\(A\)</span> and <span
+class="math inline">\(E\)</span> are declared as material properties
+.</p>
 <h3 id="list-of-supported-hypotheses">List of supported Hypotheses</h3>
 <ul>
 <li>AxisymmetricalGeneralisedPlaneStrain</li>
@@ -386,14 +397,31 @@
 </ul>
 <h2 id="code-documentation">Code documentation</h2>
 <h3 id="flowrule-description">FlowRule description</h3>
-<p>The return-mapping algorithm used to integrate this behaviour requires the definition of <span class="math inline">\(f\)</span> and <span class="math inline">\({\displaystyle \frac{\displaystyle \partial f}{\displaystyle \partial \sigma_{\mathrm{eq}}}}\)</span> (see <span class="citation" data-cites="simo_computational_1998">[1]</span> and <span class="citation" data-cites="helfer_generateur_2013">[2]</span> for details).</p>
-<p>We introduce an auxiliary variable called <code>tmp</code> to limit the number of call to the <code>pow</code> function</p>
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-simo_computational_1998" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Simo</span>, Juan C and <span class="smallcaps">Hughes</span>, Thomas J. R. Computational inelasticity. New York : Springer, 1998. ISBN <a href="https://worldcat.org/isbn/0387975209 9780387975207">0387975209 9780387975207</a>. </div>
+<p>The return-mapping algorithm used to integrate this behaviour
+requires the definition of <span class="math inline">\(f\)</span> and
+<span class="math inline">\({\displaystyle \frac{\displaystyle \partial
+f}{\displaystyle \partial \sigma_{\mathrm{eq}}}}\)</span> (see <span
+class="citation" data-cites="simo_computational_1998">[1]</span> and
+<span class="citation" data-cites="helfer_generateur_2013">[2]</span>
+for details).</p>
+<p>We introduce an auxiliary variable called <code>tmp</code> to limit
+the number of call to the <code>pow</code> function</p>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-simo_computational_1998" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Simo</span>, Juan C and
+<span class="smallcaps">Hughes</span>, Thomas J. R. Computational
+inelasticity. New York : Springer, 1998. ISBN 0387975209 9780387975207.
 </div>
-<div id="ref-helfer_generateur_2013" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas, <span class="smallcaps">Castelier</span>, Étienne, <span class="smallcaps">Blanc</span>, Victor and <span class="smallcaps">Julien</span>, Jérôme. 13-020: Le générateur de code mfront : Écriture de lois de comportement mécanique. Note technique. CEA DEN/DEC/SESC/LSC, 2013. </div>
+</div>
+<div id="ref-helfer_generateur_2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas,
+<span class="smallcaps">Castelier</span>, Étienne, <span
+class="smallcaps">Blanc</span>, Victor and <span
+class="smallcaps">Julien</span>, Jérôme. 13-020: Le générateur de code
+mfront : Écriture de lois de comportement mécanique. Note technique. CEA
+DEN/DEC/SESC/LSC, 2013. </div>
 </div>
 </div>
     <script>

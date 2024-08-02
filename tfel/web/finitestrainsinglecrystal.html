@@ -16,7 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -119,6 +121,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -264,254 +267,707 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">A framework to implement finite strain single crystal behaviors, introducing the <code>FiniteStrainSingleCrystal</code> brick</h1>
+<h1 class="title">A framework to implement finite strain single crystal
+behaviors, introducing the <code>FiniteStrainSingleCrystal</code>
+brick</h1>
 <h2 class="author">Thomas Helfer, Chao Ling, Jérémy Hure</h2>
 <h3 class="date">13/09/2021</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#a-generic-framework-for-finite-strain-single-crystal-plasticity">A generic framework for finite strain single crystal plasticity</a>
+<li><a
+href="#a-generic-framework-for-finite-strain-single-crystal-plasticity"
+id="toc-a-generic-framework-for-finite-strain-single-crystal-plasticity">A
+generic framework for finite strain single crystal plasticity</a>
 <ul>
-<li><a href="#thermodynamical-basis">Thermodynamical basis</a></li>
+<li><a href="#thermodynamical-basis"
+id="toc-thermodynamical-basis">Thermodynamical basis</a></li>
 </ul></li>
-<li><a href="#the-finitestrainsinglecrystal-brick">The <code>FiniteStrainSingleCrystal</code> brick</a>
+<li><a href="#the-finitestrainsinglecrystal-brick"
+id="toc-the-finitestrainsinglecrystal-brick">The
+<code>FiniteStrainSingleCrystal</code> brick</a>
 <ul>
-<li><a href="#variables-automatically-defined">Variables automatically defined</a></li>
-<li><a href="#implementation-of-the-implicit-system">Implementation of the implicit system</a></li>
-<li><a href="#implementation-of-the-consistent-tangent-operator">Implementation of the consistent tangent operator</a></li>
-<li><a href="#code-blocks-automatically-declared">Code blocks automatically declared</a></li>
-<li><a href="#variables-automatically-computed">Variables automatically computed</a></li>
+<li><a href="#variables-automatically-defined"
+id="toc-variables-automatically-defined">Variables automatically
+defined</a></li>
+<li><a href="#implementation-of-the-implicit-system"
+id="toc-implementation-of-the-implicit-system">Implementation of the
+implicit system</a></li>
+<li><a href="#implementation-of-the-consistent-tangent-operator"
+id="toc-implementation-of-the-consistent-tangent-operator">Implementation
+of the consistent tangent operator</a></li>
+<li><a href="#code-blocks-automatically-declared"
+id="toc-code-blocks-automatically-declared">Code blocks automatically
+declared</a></li>
+<li><a href="#variables-automatically-computed"
+id="toc-variables-automatically-computed">Variables automatically
+computed</a></li>
 </ul></li>
-<li><a href="#references">References</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
 </ul>
 </div>
-<p>This page describes a general framework to implement finite strain single crystal behaviors. The reader is strongly encouraged to read the following page on <a href="singlecrystal.html">how to describe of the slip systems, orientation tensors and of the interaction matrices of a single crystal</a>.</p>
-<p>The first section is dedicated to the description of the thermodynamic bases of the framework presented, based on the work of Xhu Han (see <span class="citation" data-cites="Han2012">[<a href="#ref-Han2012" role="doc-biblioref">1</a>]</span>).</p>
-<p>The second part describes the implicit scheme used to integrate this behaviour and the computation of the consistent tangent operator. This part is based on the <code>Code_Aster</code> documentation (<span class="citation" data-cites="edf_lois_2011">[<a href="#ref-edf_lois_2011" role="doc-biblioref">2</a>]</span>).</p>
-<p>The third part details the <code>MFront</code> implementation of this behaviour.</p>
-<p>The last part introduces the <code>FiniteStrainSingleCrystal</code> brick which hides all the details described in the previous sections.</p>
-<h1 id="a-generic-framework-for-finite-strain-single-crystal-plasticity">A generic framework for finite strain single crystal plasticity</h1>
+<p>This page describes a general framework to implement finite strain
+single crystal behaviors. The reader is strongly encouraged to read the
+following page on <a href="singlecrystal.html">how to describe of the
+slip systems, orientation tensors and of the interaction matrices of a
+single crystal</a>.</p>
+<p>The first section is dedicated to the description of the
+thermodynamic bases of the framework presented, based on the work of Xhu
+Han (see <span class="citation" data-cites="Han2012">[<a
+href="#ref-Han2012" role="doc-biblioref">1</a>]</span>).</p>
+<p>The second part describes the implicit scheme used to integrate this
+behaviour and the computation of the consistent tangent operator. This
+part is based on the <code>Code_Aster</code> documentation (<span
+class="citation" data-cites="edf_lois_2011">[<a
+href="#ref-edf_lois_2011" role="doc-biblioref">2</a>]</span>).</p>
+<p>The third part details the <code>MFront</code> implementation of this
+behaviour.</p>
+<p>The last part introduces the <code>FiniteStrainSingleCrystal</code>
+brick which hides all the details described in the previous
+sections.</p>
+<h1
+id="a-generic-framework-for-finite-strain-single-crystal-plasticity">A
+generic framework for finite strain single crystal plasticity</h1>
 <h2 id="thermodynamical-basis">Thermodynamical basis</h2>
-<p>Les notions principales liées au formalisme en grandes déformations sont présentées. Cette partie s’appuie sur les références  et .</p>
-<p>Le vecteur <span class="math inline">\(\vec{X}\)</span> désigne les coordonnées d’un point dans la configuration initiale <span class="math inline">\(\mathit{C}_0\)</span> et le vecteur <span class="math inline">\(\vec{x}\)</span> désigne les coordonnées dans la configuration finale <span class="math inline">\(\mathit{C}\)</span>. Le gradient de la transformation s’écrit : \begin{equation}  =  ]</p>
-<p>Pour la plasticité cristalline, la décomposition multiplicative du gradient de la transformation <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span> est adoptée selon  :</p>
+<p>Les notions principales liées au formalisme en grandes déformations
+sont présentées. Cette partie s’appuie sur les références et .</p>
+<p>Le vecteur <span class="math inline">\(\vec{X}\)</span> désigne les
+coordonnées d’un point dans la configuration initiale <span
+class="math inline">\(\mathit{C}_0\)</span> et le vecteur <span
+class="math inline">\(\vec{x}\)</span> désigne les coordonnées dans la
+configuration finale <span class="math inline">\(\mathit{C}\)</span>. Le
+gradient de la transformation s’écrit : \begin{equation} = ]</p>
+<p>Pour la plasticité cristalline, la décomposition multiplicative du
+gradient de la transformation <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span> est
+adoptée selon :</p>
 <p><span class="math display">\[
-{\underset{\tilde{}}{\mathbf{F}}} = {\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\, {\underset{\tilde{}}{\mathbf{F}}}_{p}
+{\underset{\tilde{}}{\mathbf{F}}} =
+{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\cdot\,
+{\underset{\tilde{}}{\mathbf{F}}}_{p}
 \]</span></p>
-<p>avec la partie plastique <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{p}\)</span> pour l’écoulement plastique induit par les glissements entre différents systèmes de glissement, et la partie élastique <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> pour la déformation élastique pure et la rotation de corps rigide du réseau cristallin. De plus, la déformation élastique de Green-Lagrange est définie par :</p>
+<p>avec la partie plastique <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{p}\)</span>
+pour l’écoulement plastique induit par les glissements entre différents
+systèmes de glissement, et la partie élastique <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span>
+pour la déformation élastique pure et la rotation de corps rigide du
+réseau cristallin. De plus, la déformation élastique de Green-Lagrange
+est définie par :</p>
 <p><span class="math display">\[
-\underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}} ={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}} \left( {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}} {\underset{\tilde{}}{\mathbf{F}}}_{e} - \underline{I} \right)
+\underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}} ={{\displaystyle
+\frac{\displaystyle 1}{\displaystyle 2}}} \left(
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}
+{\underset{\tilde{}}{\mathbf{F}}}_{e} - \underline{I} \right)
 \]</span></p>
-<p>Le gradient du vecteur vitesse <span class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span> est défini par :</p>
+<p>Le gradient du vecteur vitesse <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span> est
+défini par :</p>
 <p><span class="math display">\[
-{\underset{\tilde{}}{\mathbf{L}}} = \vec{\nabla} \vec{v} = \dot{{\underset{\tilde{}}{\mathbf{F}}}} {{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}}
+{\underset{\tilde{}}{\mathbf{L}}} = \vec{\nabla} \vec{v} =
+\dot{{\underset{\tilde{}}{\mathbf{F}}}}
+{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}}
 \]</span></p>
-<p>où <span class="math inline">\(\vec{v}\)</span> est le vecteur vitesse. Compte tenu de la décomposition multiplicative du gradient de transformation, le gradient du vecteur vitesse <span class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span> s’exprime :</p>
+<p>où <span class="math inline">\(\vec{v}\)</span> est le vecteur
+vitesse. Compte tenu de la décomposition multiplicative du gradient de
+transformation, le gradient du vecteur vitesse <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span>
+s’exprime :</p>
 <p><span class="math display">\[
-{\underset{\tilde{}}{\mathbf{L}}} = \dot{{\underset{\tilde{}}{\mathbf{F}}}} {{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}} = \dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}} {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}} +  {\underset{\tilde{}}{\mathbf{F}}}_{e} \dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}} = {\underset{\tilde{}}{\mathbf{L}}}^e + {\underset{\tilde{}}{\mathbf{L}}}^p
+{\underset{\tilde{}}{\mathbf{L}}} =
+\dot{{\underset{\tilde{}}{\mathbf{F}}}}
+{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}} =
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}
++  {\underset{\tilde{}}{\mathbf{F}}}_{e}
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}} =
+{\underset{\tilde{}}{\mathbf{L}}}^e +
+{\underset{\tilde{}}{\mathbf{L}}}^p
 \]</span></p>
-<p>avec <span class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}^e=\dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}} {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\)</span> et <span class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}^p={\underset{\tilde{}}{\mathbf{F}}}_{e} \dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\)</span>.</p>
-<p>Pour la plasticité cristalline, <span class="math inline">\(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\)</span> peut être déterminé sur les 12 systèmes de glissement des matériaux CFC de type <span class="math inline">\(\{111\}\left&lt;110\right&gt;\)</span> par :</p>
+<p>avec <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}^e=\dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\)</span> et <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}^p={\underset{\tilde{}}{\mathbf{F}}}_{e}
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}\)</span>.</p>
+<p>Pour la plasticité cristalline, <span
+class="math inline">\(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\)</span> peut être
+déterminé sur les 12 systèmes de glissement des matériaux CFC de type
+<span class="math inline">\(\{111\}\left&lt;110\right&gt;\)</span> par
+:</p>
 <p><span id="eq:PP"><span class="math display">\[
-\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} = \sum \limits_{s=1}^{12} \dot{\gamma}^s {\underset{\tilde{}}{\mathbf{N}}}^s
-\qquad(1)\]</span></span></p>
-<p>avec le tenseur d’orientation <span class="math inline">\({\underset{\tilde{}}{\mathbf{N}}}^s\)</span> pour le système de glissement <span class="math inline">\(s\)</span> et le taux de glissement <span class="math inline">\(\dot{\gamma}^s\)</span> pour le système de glissement <span class="math inline">\(s\)</span>.</p>
-Par rapport à la description des contraintes, plusieurs notions sont utilisées :
-<p>Dans la suite, la formulation thermodynamique est présentée pour le monocristal. Le deuxième principe de la thermodynamique dans sa forme locale, qui est connu sous le nom d’<em>Inégalité de Clausius-Duhem</em> s’écrit :</p>
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} = \sum
+\limits_{s=1}^{12} \dot{\gamma}^s {\underset{\tilde{}}{\mathbf{N}}}^s
+\qquad{(1)}\]</span></span></p>
+<p>avec le tenseur d’orientation <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{N}}}^s\)</span> pour
+le système de glissement <span class="math inline">\(s\)</span> et le
+taux de glissement <span class="math inline">\(\dot{\gamma}^s\)</span>
+pour le système de glissement <span
+class="math inline">\(s\)</span>.</p>
+Par rapport à la description des contraintes, plusieurs notions sont
+utilisées :
+<p>Dans la suite, la formulation thermodynamique est présentée pour le
+monocristal. Le deuxième principe de la thermodynamique dans sa forme
+locale, qui est connu sous le nom d’<em>Inégalité de Clausius-Duhem</em>
+s’écrit :</p>
 <p><span id="eq:Clausius-Duhem"><span class="math display">\[
--\rho (\dot e - T \dot s) + \underline{\sigma}\,\colon\, \underline{D} - {{\displaystyle \frac{\displaystyle \vec{q}}{\displaystyle T}}} \cdot \vec{\nabla} T \geqslant 0
-\qquad(2)\]</span></span></p>
-<p>avec <span class="math inline">\(\rho\)</span> la masse volumique du monocristal dans la configuration actuelle, <span class="math inline">\(e\)</span> la densité d’énergie interne, <span class="math inline">\(T\)</span> la température, <span class="math inline">\(s\)</span> la densité d’entropie, <span class="math inline">\(\underline{D}\)</span> le tenseur vitesse de déformation <span class="math inline">\(\underline{D} = {{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}{\left({\underset{\tilde{}}{\mathbf{L}}} + {{\underset{\tilde{}}{\mathbf{L}}}^{\mathrm{T}}}\right)}\)</span> et <span class="math inline">\(\vec{q}\)</span> le flux de chaleur. Pour le monocristal, la puissance des efforts intérieurs est:</p>
+-\rho (\dot e - T \dot s) + \underline{\sigma}\,\colon\, \underline{D} -
+{{\displaystyle \frac{\displaystyle \vec{q}}{\displaystyle T}}} \cdot
+\vec{\nabla} T \geqslant 0
+\qquad{(2)}\]</span></span></p>
+<p>avec <span class="math inline">\(\rho\)</span> la masse volumique du
+monocristal dans la configuration actuelle, <span
+class="math inline">\(e\)</span> la densité d’énergie interne, <span
+class="math inline">\(T\)</span> la température, <span
+class="math inline">\(s\)</span> la densité d’entropie, <span
+class="math inline">\(\underline{D}\)</span> le tenseur vitesse de
+déformation <span class="math inline">\(\underline{D} = {{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+2}}}{\left({\underset{\tilde{}}{\mathbf{L}}} +
+{{\underset{\tilde{}}{\mathbf{L}}}^{\mathrm{T}}}\right)}\)</span> et
+<span class="math inline">\(\vec{q}\)</span> le flux de chaleur. Pour le
+monocristal, la puissance des efforts intérieurs est:</p>
 <p><span id="eq:power_internal_forces_0"><span class="math display">\[
 \begin{aligned}
-{{\displaystyle \frac{\displaystyle 1}{\displaystyle \rho}}} \underline{\sigma}\,\colon\, \underline{D} &amp;=&amp; {{\displaystyle \frac{\displaystyle 1}{\displaystyle \rho}}}\underline{\sigma}\,\colon\, {\underset{\tilde{}}{\mathbf{L}}} = {{\displaystyle \frac{\displaystyle 1}{\displaystyle \rho}}}\underline{\sigma}\,\colon\, \dot{{\underset{\tilde{}}{\mathbf{F}}}} {{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}} \\
-&amp;=&amp; {{\displaystyle \frac{\displaystyle 1}{\displaystyle \rho}}}\underline{\sigma}\,\colon\, (\dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}} {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}+{\underset{\tilde{}}{\mathbf{F}}}_{e} \dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}) \\ 
-&amp;=&amp; {{\displaystyle \frac{\displaystyle 1}{\displaystyle \rho}}}\underline{\sigma}\,\colon\, (\dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}} {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}) + {{\displaystyle \frac{\displaystyle 1}{\displaystyle \rho}}}\underline{\sigma}\,\colon\, ({\underset{\tilde{}}{\mathbf{F}}}_{e} \dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}})
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle \rho}}}
+\underline{\sigma}\,\colon\, \underline{D} &amp;=&amp; {{\displaystyle
+\frac{\displaystyle 1}{\displaystyle \rho}}}\underline{\sigma}\,\colon\,
+{\underset{\tilde{}}{\mathbf{L}}} = {{\displaystyle \frac{\displaystyle
+1}{\displaystyle \rho}}}\underline{\sigma}\,\colon\,
+\dot{{\underset{\tilde{}}{\mathbf{F}}}}
+{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}} \\
+&amp;=&amp; {{\displaystyle \frac{\displaystyle 1}{\displaystyle
+\rho}}}\underline{\sigma}\,\colon\,
+(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}+{\underset{\tilde{}}{\mathbf{F}}}_{e}
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}) \\
+&amp;=&amp; {{\displaystyle \frac{\displaystyle 1}{\displaystyle
+\rho}}}\underline{\sigma}\,\colon\,
+(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}) + {{\displaystyle
+\frac{\displaystyle 1}{\displaystyle \rho}}}\underline{\sigma}\,\colon\,
+({\underset{\tilde{}}{\mathbf{F}}}_{e}
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}})
 \end{aligned}
-\qquad(3)\]</span></span></p>
-<p>Dans l’équation (3), comme <span class="math inline">\(\underline{\sigma}\)</span> est un tenseur symétrique, on peut donc remplacer <span class="math inline">\(\underline{D}\)</span> par <span class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span>. Dans l’équation (<strong>¿eq:power_internal_forces_1?</strong>), tenant compte de la relation entre le second tenseur de Piola-Kirchhoff <span class="math inline">\(\underline{S}^e\)</span> et le tenseur de Cauchy <span class="math inline">\(\underline{\sigma}\)</span>, on a</p>
+\qquad{(3)}\]</span></span></p>
+<p>Dans l’équation (3), comme <span
+class="math inline">\(\underline{\sigma}\)</span> est un tenseur
+symétrique, on peut donc remplacer <span
+class="math inline">\(\underline{D}\)</span> par <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span>. Dans
+l’équation (<strong>¿eq:power_internal_forces_1?</strong>), tenant
+compte de la relation entre le second tenseur de Piola-Kirchhoff <span
+class="math inline">\(\underline{S}^e\)</span> et le tenseur de Cauchy
+<span class="math inline">\(\underline{\sigma}\)</span>, on a</p>
 <p><span class="math display">\[
 \begin{aligned}
 \frac{1}{\rho} \underline{\sigma}\,\colon\, \underline{D}
-&amp;=&amp; \frac{1}{\rho_i} ({\underset{\tilde{}}{\mathbf{F}}}_{e} \underline{S}^e {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}})\,\colon\, (\dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}} {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}) + \frac {1}{\rho_i} ({\underset{\tilde{}}{\mathbf{F}}}_{e} \underline{S}^e {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}})\,\colon\, ({\underset{\tilde{}}{\mathbf{F}}}_{e} \dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}) \\
-&amp;=&amp; \frac{1}{\rho_i} \underline{S}^e\,\colon\, ({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}} \dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}}) + \frac{1}{\rho_i} ({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}} {\underset{\tilde{}}{\mathbf{F}}}_{e} \underline{S}^e)\,\colon\, (\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}})
+&amp;=&amp; \frac{1}{\rho_i} ({\underset{\tilde{}}{\mathbf{F}}}_{e}
+\underline{S}^e
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}})\,\colon\,
+(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}) + \frac
+{1}{\rho_i} ({\underset{\tilde{}}{\mathbf{F}}}_{e} \underline{S}^e
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}})\,\colon\,
+({\underset{\tilde{}}{\mathbf{F}}}_{e}
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{-1}}}) \\
+&amp;=&amp; \frac{1}{\rho_i} \underline{S}^e\,\colon\,
+({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}}) + \frac{1}{\rho_i}
+({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}
+{\underset{\tilde{}}{\mathbf{F}}}_{e} \underline{S}^e)\,\colon\,
+(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}})
 \end{aligned}                                   
 \]</span></p>
 <p>Comme le second tenseur de Piola-Kirchhoff est symétrique, on a :</p>
 <p><span id="eq:power_internal_forces"><span class="math display">\[
 \begin{aligned}
 \frac{1}{\rho} \underline{\sigma}\,\colon\, \underline{D}
-&amp;=&amp; \frac{1}{\rho_i} \underline{S}^e\,\colon\, {{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\left( {{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}} \dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}} + {\dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}}^{\mathrm{T}}} {\underset{\tilde{}}{\mathbf{F}}}_{e}\right)+ \frac{1}{\rho_i} ({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}} {\underset{\tilde{}}{\mathbf{F}}}_{e} \underline{S}^e)\,\colon\, (\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}) \\
-&amp;=&amp; \frac{1}{\rho_i} \underline{S}^e\,\colon\, \underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}+ \frac{1}{\rho_i} {\underset{\tilde{}}{\mathbf{M}}}\,\colon\, (\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}})
+&amp;=&amp; \frac{1}{\rho_i} \underline{S}^e\,\colon\, {{\displaystyle
+\frac{\displaystyle 1}{\displaystyle 2}}}\left(
+{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}} +
+{\dot{{\underset{\tilde{}}{\mathbf{F}}}_{e}}^{\mathrm{T}}}
+{\underset{\tilde{}}{\mathbf{F}}}_{e}\right)+ \frac{1}{\rho_i}
+({{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}
+{\underset{\tilde{}}{\mathbf{F}}}_{e} \underline{S}^e)\,\colon\,
+(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}) \\
+&amp;=&amp; \frac{1}{\rho_i} \underline{S}^e\,\colon\,
+\underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}+ \frac{1}{\rho_i}
+{\underset{\tilde{}}{\mathbf{M}}}\,\colon\,
+(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}})
 \end{aligned}
-\qquad(4)\]</span></span></p>
-<p>Pour le monocristal sans écrouissage, la densité d’énergie interne <span class="math inline">\(e\)</span> est une fonction de la déformation élastique de Green-Lagrange <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}\)</span> et de la densité d’entropie <span class="math inline">\(s\)</span> :</p>
+\qquad{(4)}\]</span></span></p>
+<p>Pour le monocristal sans écrouissage, la densité d’énergie interne
+<span class="math inline">\(e\)</span> est une fonction de la
+déformation élastique de Green-Lagrange <span
+class="math inline">\(\underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}\)</span>
+et de la densité d’entropie <span class="math inline">\(s\)</span> :</p>
 <p><span class="math display">\[
 e=e \left( \underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}},s \right)
 \]</span></p>
-<p>la densité d’énergie libre <span class="math inline">\(\psi\)</span> est une fonction de <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}\)</span> et de la température <span class="math inline">\(T\)</span> :</p>
+<p>la densité d’énergie libre <span class="math inline">\(\psi\)</span>
+est une fonction de <span
+class="math inline">\(\underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}\)</span>
+et de la température <span class="math inline">\(T\)</span> :</p>
 <p><span class="math display">\[
-\psi=\psi \left( \underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}},T \right)
+\psi=\psi \left( \underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}},T
+\right)
 \]</span></p>
-<p>On sait que la relation entre la densité d’énergie libre <span class="math inline">\(\psi\)</span> et la densité d’énergie interne <span class="math inline">\(e\)</span> s’écrit :</p>
+<p>On sait que la relation entre la densité d’énergie libre <span
+class="math inline">\(\psi\)</span> et la densité d’énergie interne
+<span class="math inline">\(e\)</span> s’écrit :</p>
 <p><span id="eq:internal_and_free_E"><span class="math display">\[
 \psi=e-Ts
-\qquad(5)\]</span></span></p>
-<p>Compte tenu des équations (4) et (5), l’inégalité de Clausisu-Duhem devient :</p>
+\qquad{(5)}\]</span></span></p>
+<p>Compte tenu des équations (4) et (5), l’inégalité de Clausisu-Duhem
+devient :</p>
 <p><span id="eq:Clausius-Duhem_crystal"><span class="math display">\[
-\rho \left(  \frac{\underline{S}^{e}}{\rho_i} - \frac{\partial \psi}{\partial \underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}} \right)\,\colon\, \underline{\dot{\epsilon}}^{\mathrm{el}}_{\mathrm{GL}} - \rho \left( s + \frac{\partial \psi}{\partial T}\right) \dot T +\frac{\rho}{\rho_i} {\underset{\tilde{}}{\mathbf{M}}}\,\colon\, \left( \dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right) - \frac{\vec{q}}{T} \cdot \vec{\nabla} T \geqslant 0
-\qquad(6)\]</span></span></p>
-<p>où on a la dissipation thermique <span class="math inline">\(D^{t\!h}\)</span> :</p>
+\rho \left(  \frac{\underline{S}^{e}}{\rho_i} - \frac{\partial
+\psi}{\partial \underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}}
+\right)\,\colon\, \underline{\dot{\epsilon}}^{\mathrm{el}}_{\mathrm{GL}}
+- \rho \left( s + \frac{\partial \psi}{\partial T}\right) \dot T
++\frac{\rho}{\rho_i} {\underset{\tilde{}}{\mathbf{M}}}\,\colon\, \left(
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right) -
+\frac{\vec{q}}{T} \cdot \vec{\nabla} T \geqslant 0
+\qquad{(6)}\]</span></span></p>
+<p>où on a la dissipation thermique <span
+class="math inline">\(D^{t\!h}\)</span> :</p>
 <p><span class="math display">\[
 D^{t\!h} = - \frac{\vec{q}}{T} \cdot \vec{\nabla} T
 \]</span></p>
-<p>et la dissipation intrinsèque <span class="math inline">\(D^i\)</span>:</p>
+<p>et la dissipation intrinsèque <span
+class="math inline">\(D^i\)</span>:</p>
 <p><span class="math display">\[
-D^i = \rho \left(  \frac{\underline{S}^{e}}{\rho_i} - \frac{\partial \psi}{\partial \underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}} \right)\,\colon\, \underline{\dot{\epsilon}}^{\mathrm{el}}_{\mathrm{GL}} - \rho \left( s + \frac{\partial \psi}{\partial T}\right) \dot T +\frac{\rho}{\rho_i} {\underset{\tilde{}}{\mathbf{M}}}\,\colon\, \left( \dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right)
+D^i = \rho \left(  \frac{\underline{S}^{e}}{\rho_i} - \frac{\partial
+\psi}{\partial \underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}}
+\right)\,\colon\, \underline{\dot{\epsilon}}^{\mathrm{el}}_{\mathrm{GL}}
+- \rho \left( s + \frac{\partial \psi}{\partial T}\right) \dot T
++\frac{\rho}{\rho_i} {\underset{\tilde{}}{\mathbf{M}}}\,\colon\, \left(
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right)
 \]</span></p>
-<p>Considérons un processus réversible tel que <span class="math inline">\(\dot T = 0\)</span>, <span class="math inline">\(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}=0\)</span> et <span class="math inline">\(\vec{\nabla} T = 0\)</span>. Pour le processus réversible, l’inégalité  réduit à l’égalité, puisqu’il n’y a pas de dissipation. Par conséquent, on obtient</p>
+<p>Considérons un processus réversible tel que <span
+class="math inline">\(\dot T = 0\)</span>, <span
+class="math inline">\(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}=0\)</span> et
+<span class="math inline">\(\vec{\nabla} T = 0\)</span>. Pour le
+processus réversible, l’inégalité <span
+class="math inline">\(\ref{eq:Clausius-Duhem_crystal}\)</span> réduit à
+l’égalité, puisqu’il n’y a pas de dissipation. Par conséquent, on
+obtient</p>
 <p><span class="math display">\[
-\underline{S}^e = \rho_i \frac{\partial \psi}{\partial \underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}}
+\underline{S}^e = \rho_i \frac{\partial \psi}{\partial
+\underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}}
 \]</span></p>
-<p>De même, considérons un autre processus réversible tel que <span class="math inline">\(\underline{\dot{\epsilon}}^{\mathrm{el}}_{\mathrm{GL}}=0\)</span>, <span class="math inline">\(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}=0\)</span> et <span class="math inline">\(\vec{\nabla} T = 0\)</span>, on a</p>
+<p>De même, considérons un autre processus réversible tel que <span
+class="math inline">\(\underline{\dot{\epsilon}}^{\mathrm{el}}_{\mathrm{GL}}=0\)</span>,
+<span class="math inline">\(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}=0\)</span> et
+<span class="math inline">\(\vec{\nabla} T = 0\)</span>, on a</p>
 <p><span class="math display">\[
 s=-\frac{\partial \psi}{\partial T}
 \]</span></p>
 <p>Enfin, la dissipation intrinsèque se réduit à :</p>
 <p><span id="eq:intrinsic_dissipation"><span class="math display">\[
-D^i = \frac{\rho}{\rho_i} {\underset{\tilde{}}{\mathbf{M}}}\,\colon\, \left( \dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right)
-\qquad(7)\]</span></span></p>
-<p>Dans l’équation (7), <span class="math inline">\(\rho / \rho_i\)</span> vient du fait que l’inégalité  est écrite pour une volume <span class="math inline">\(dV\)</span> dans la configuration actuelle et que <span class="math inline">\({\underset{\tilde{}}{\mathbf{M}}} : \left( \dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right)\)</span> est pour une volume <span class="math inline">\(dV_i\)</span> dans la configuration intermédiaire. En raison de la conservation de masse, on a</p>
+D^i = \frac{\rho}{\rho_i} {\underset{\tilde{}}{\mathbf{M}}}\,\colon\,
+\left( \dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right)
+\qquad{(7)}\]</span></span></p>
+<p>Dans l’équation (7), <span class="math inline">\(\rho /
+\rho_i\)</span> vient du fait que l’inégalité <span
+class="math inline">\(\ref{eq:Clausius-Duhem}\)</span> est écrite pour
+une volume <span class="math inline">\(dV\)</span> dans la configuration
+actuelle et que <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{M}}} : \left(
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right)\)</span>
+est pour une volume <span class="math inline">\(dV_i\)</span> dans la
+configuration intermédiaire. En raison de la conservation de masse, on
+a</p>
 <p><span class="math display">\[
 dV_i = \frac{\rho}{\rho_i} dV
 \]</span></p>
-<p>Dans le cadre de matériaux standards généralisés, un potentiel convexe <span class="math inline">\(\Omega= \Omega\left( {\underset{\tilde{}}{\mathbf{M}}} \right)\)</span> existe et permet de définir l’évolution de <span class="math inline">\(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\)</span> :</p>
+<p>Dans le cadre de matériaux standards généralisés, un potentiel
+convexe <span class="math inline">\(\Omega= \Omega\left(
+{\underset{\tilde{}}{\mathbf{M}}} \right)\)</span> existe et permet de
+définir l’évolution de <span
+class="math inline">\(\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\)</span> :</p>
 <p><span class="math display">\[
-\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} = \frac{\partial \Omega}{\partial {\underset{\tilde{}}{\mathbf{M}}}}
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} = \frac{\partial
+\Omega}{\partial {\underset{\tilde{}}{\mathbf{M}}}}
 \]</span></p>
-<p>Selon les équations (4) et (7), le second tenseur de Piola-Kirchhoff <span class="math inline">\(\underline{S}^e\)</span> est utilisé pour la loi d’élasticité et le tenseur de Mandel <span class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}\)</span> pour la loi d’écoulement. Vu que la dissipation décrite par <span class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}\,\colon\, \left( \dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right)\)</span> est liée au glissement des dislocations dans le monocristal, on a</p>
+<p>Selon les équations (4) et (7), le second tenseur de Piola-Kirchhoff
+<span class="math inline">\(\underline{S}^e\)</span> est utilisé pour la
+loi d’élasticité et le tenseur de Mandel <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}\)</span> pour la
+loi d’écoulement. Vu que la dissipation décrite par <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}\,\colon\, \left(
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right)\)</span>
+est liée au glissement des dislocations dans le monocristal, on a</p>
 <p><span id="eq:plastic_power_1"><span class="math display">\[
-{\underset{\tilde{}}{\mathbf{M}}}\,\colon\, \left( \dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right) = \sum_{s=1}^{12} \dot \gamma^s \tau^s
-\qquad(8)\]</span></span></p>
-<p>où <span class="math inline">\(\tau^s\)</span> est la cission résolue du système de glissement <span class="math inline">\(s\)</span>. Compte tenu l’équation (1), on a</p>
+{\underset{\tilde{}}{\mathbf{M}}}\,\colon\, \left(
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right) =
+\sum_{s=1}^{12} \dot \gamma^s \tau^s
+\qquad{(8)}\]</span></span></p>
+<p>où <span class="math inline">\(\tau^s\)</span> est la cission résolue
+du système de glissement <span class="math inline">\(s\)</span>. Compte
+tenu l’équation (1), on a</p>
 <p><span id="eq:plastic_power_2"><span class="math display">\[
-{\underset{\tilde{}}{\mathbf{M}}}\,\colon\, \left( \dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}} {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right) = {\underset{\tilde{}}{\mathbf{M}}}\,\colon\, \left(\sum_{s=1}^{12} \dot \gamma^s {\underset{\tilde{}}{\mathbf{N}}}^s \right) = \sum_{s=1}^{12} \dot \gamma^s {\underset{\tilde{}}{\mathbf{M}}}\,\colon\, {\underset{\tilde{}}{\mathbf{N}}}^s
-\qquad(9)\]</span></span></p>
-<p>Si on compare l’équation (8) et l’équation (9), la cission résolue <span class="math inline">\(\tau^s\)</span> du système de glissement <span class="math inline">\(s\)</span> s’écrit donc :</p>
+{\underset{\tilde{}}{\mathbf{M}}}\,\colon\, \left(
+\dot{{\underset{\tilde{}}{\mathbf{F}}}_{p}}
+{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}} \right) =
+{\underset{\tilde{}}{\mathbf{M}}}\,\colon\, \left(\sum_{s=1}^{12} \dot
+\gamma^s {\underset{\tilde{}}{\mathbf{N}}}^s \right) = \sum_{s=1}^{12}
+\dot \gamma^s {\underset{\tilde{}}{\mathbf{M}}}\,\colon\,
+{\underset{\tilde{}}{\mathbf{N}}}^s
+\qquad{(9)}\]</span></span></p>
+<p>Si on compare l’équation (8) et l’équation (9), la cission résolue
+<span class="math inline">\(\tau^s\)</span> du système de glissement
+<span class="math inline">\(s\)</span> s’écrit donc :</p>
 <p><span class="math display">\[
-\tau^s = {\underset{\tilde{}}{\mathbf{M}}}\,\colon\, {\underset{\tilde{}}{\mathbf{N}}}^s
+\tau^s = {\underset{\tilde{}}{\mathbf{M}}}\,\colon\,
+{\underset{\tilde{}}{\mathbf{N}}}^s
 \]</span></p>
-<h1 id="the-finitestrainsinglecrystal-brick">The <code>FiniteStrainSingleCrystal</code> brick</h1>
-<p>The previous framework allows the implementation of a wide range of finite strain single crystals that differ from their flow rules and the constitutive equations used to describe their internal state variables’ evolution.</p>
-<p>The <code>FiniteStrainSingleCrystal</code> brick hides all the details related to this framework and simplifies the declaration of the slip systems and the interaction matrix.</p>
-<h2 id="variables-automatically-defined">Variables automatically defined</h2>
-<p>The plastic slip <span class="math inline">\(g\)</span> are automatically defined.</p>
-<h2 id="implementation-of-the-implicit-system">Implementation of the implicit system</h2>
-<p>Le second tenseur de Piola-Kirchhoff est défini par la loi élastique de Saint-Venant Kirchhoff: <span class="math display">\[
+<h1 id="the-finitestrainsinglecrystal-brick">The
+<code>FiniteStrainSingleCrystal</code> brick</h1>
+<p>The previous framework allows the implementation of a wide range of
+finite strain single crystals that differ from their flow rules and the
+constitutive equations used to describe their internal state variables’
+evolution.</p>
+<p>The <code>FiniteStrainSingleCrystal</code> brick hides all the
+details related to this framework and simplifies the declaration of the
+slip systems and the interaction matrix.</p>
+<h2 id="variables-automatically-defined">Variables automatically
+defined</h2>
+<p>The plastic slip <span class="math inline">\(g\)</span> are
+automatically defined.</p>
+<h2 id="implementation-of-the-implicit-system">Implementation of the
+implicit system</h2>
+<p>Le second tenseur de Piola-Kirchhoff est défini par la loi élastique
+de Saint-Venant Kirchhoff: <span class="math display">\[
 \underline{S}=\underline{\mathbf{D}}\,.\,{\left({\left.\underline{\epsilon}^{\mathrm{el}}\right|_{t}}+\Delta\,\underline{\epsilon}^{\mathrm{el}}\right)}
 \]</span></p>
-<p>Nous calculons (une approximation) de l’inverse de l’incrément de la partie plastique du gradient de la transformation: <span class="math display">\[
-{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1} = {\underset{\tilde{}}{\mathbf{I}}}-\sum_{i=1}^{12}\Delta\,g_{i}\,{\underset{\tilde{}}{\mathbf{\mu}}}_{i}
+<p>Nous calculons (une approximation) de l’inverse de l’incrément de la
+partie plastique du gradient de la transformation: <span
+class="math display">\[
+{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1} =
+{\underset{\tilde{}}{\mathbf{I}}}-\sum_{i=1}^{12}\Delta\,g_{i}\,{\underset{\tilde{}}{\mathbf{\mu}}}_{i}
 \]</span></p>
-<p>Nous calculons la partie élastique de gradient de la transformation <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> en fin de pas de temps en fin de pas de temps: <span class="math display">\[
+<p>Nous calculons la partie élastique de gradient de la transformation
+<span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> en
+fin de pas de temps en fin de pas de temps: <span
+class="math display">\[
 {\underset{\tilde{}}{\mathbf{F}}}_{e}={\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\,\star\,{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}
-\]</span> où <span class="math inline">\(\star\)</span> représente le produit des représentations matricielles de <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\)</span> et <span class="math inline">\({\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\)</span>.</p>
-<p>L’équation associée à l’incrément de déformation élastique impose qu’elle soit égale au tenseur de Green-Lagrange <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}\)</span> associé à la partie élastique <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> du gradient de la transformation: <span class="math display">\[
+\]</span> où <span class="math inline">\(\star\)</span> représente le
+produit des représentations matricielles de <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\)</span>
+et <span
+class="math inline">\({\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\)</span>.</p>
+<p>L’équation associée à l’incrément de déformation élastique impose
+qu’elle soit égale au tenseur de Green-Lagrange <span
+class="math inline">\(\underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}\)</span>
+associé à la partie élastique <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> du
+gradient de la transformation: <span class="math display">\[
 {\left.\underline{\epsilon}^{\mathrm{el}}\right|_{t}}+\Delta\,{\left.\underline{\epsilon}^{\mathrm{el}}\right|_{t}}-
 \underline{\epsilon}^{\mathrm{el}}_{\mathrm{GL}}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}\right)}=0
 \]</span></p>
-<p>Le calcul des termes <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial f_{\underline{\epsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,g_{i}}}}\)</span> est assez technique et devra se faire en plusieurs étapes: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial \underline{\varepsilon_{\mathrm{GL}}}}{\displaystyle \partial \Delta\,g_{i}}}}=
-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,{{\displaystyle \frac{\displaystyle \partial \underline{C}_{e}}{\displaystyle \partial \Delta\,g_{i}}}}=
-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,{{\displaystyle \frac{\displaystyle \partial \underline{C}_{e}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\,.\,
-{{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial \Delta\,g_{i}}}}
+<p>Le calcul des termes <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial
+f_{\underline{\epsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,g_{i}}}}\)</span> est assez technique et devra se faire en
+plusieurs étapes: <span class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+\underline{\varepsilon_{\mathrm{GL}}}}{\displaystyle \partial
+\Delta\,g_{i}}}}=
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle
+2}}}\,{{\displaystyle \frac{\displaystyle \partial
+\underline{C}_{e}}{\displaystyle \partial \Delta\,g_{i}}}}=
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle
+2}}}\,{{\displaystyle \frac{\displaystyle \partial
+\underline{C}_{e}}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\,.\,
+{{\displaystyle \frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial
+\Delta\,g_{i}}}}
 \]</span></p>
-<p>La classe <code>t2tost2</code> fournit une méthode statique permettant de calculer la dérivée du tenseur de Cauchy élastique <span class="math inline">\(\underline{C}_{e}\)</span> par rapport au gradient de la transformation élastique <span class="math inline">\(F_{e}\)</span>.</p>
-<p>Il faut alors calculer le terme <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial \Delta\,g_{i}}}}\)</span>. Le tenseur <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> est le produit <span class="math inline">\(\star\)</span> des représentation matricielle de deux tenseurs: <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\)</span> et le tenseur <span class="math inline">\({\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\)</span>.</p>
-<p>Cette démarche est maintenant appliquée au calcul de la dérivée du tenseur <span class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span>: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial {\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}}} =
+<p>La classe <code>t2tost2</code> fournit une méthode statique
+permettant de calculer la dérivée du tenseur de Cauchy élastique <span
+class="math inline">\(\underline{C}_{e}\)</span> par rapport au gradient
+de la transformation élastique <span
+class="math inline">\(F_{e}\)</span>.</p>
+<p>Il faut alors calculer le terme <span
+class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial
+\Delta\,g_{i}}}}\)</span>. Le tenseur <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> est
+le produit <span class="math inline">\(\star\)</span> des représentation
+matricielle de deux tenseurs: <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\)</span>
+et le tenseur <span
+class="math inline">\({\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\)</span>.</p>
+<p>Cette démarche est maintenant appliquée au calcul de la dérivée du
+tenseur <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span>:
+<span class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial
+{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}}} =
 \partial^{r}_{\star}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\right)}
 \]</span></p>
-<p>En négligeant la correction plastique, la dérivée <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle \partial \Delta\,g_{i}}}}\)</span> s’écrit simplement: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial {\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle \partial \Delta\,g_{i}}}} = -{\underset{\tilde{}}{\mathbf{\mu}}}_{i}
+<p>En négligeant la correction plastique, la dérivée <span
+class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle
+\partial \Delta\,g_{i}}}}\)</span> s’écrit simplement: <span
+class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle
+\partial \Delta\,g_{i}}}} = -{\underset{\tilde{}}{\mathbf{\mu}}}_{i}
 \]</span></p>
-<p>Nous obtenons finalement l’expression la dérivée <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial f}{\displaystyle \partial \Delta\,g_{i}}}}\)</span>: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial f_{\underline{\epsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,g_{i}}}}=
--{{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,{{\displaystyle \frac{\displaystyle \partial \underline{C}_{e}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\,.\,
+<p>Nous obtenons finalement l’expression la dérivée <span
+class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+f}{\displaystyle \partial \Delta\,g_{i}}}}\)</span>: <span
+class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\epsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,g_{i}}}}=
+-{{\displaystyle \frac{\displaystyle 1}{\displaystyle
+2}}}\,{{\displaystyle \frac{\displaystyle \partial
+\underline{C}_{e}}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\,.\,
 \partial^{r}_{\star}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\right)}\,.\,
 {\underset{\tilde{}}{\mathbf{\mu}}}_{i}
 \]</span></p>
-<h2 id="implementation-of-the-consistent-tangent-operator">Implementation of the consistent tangent operator</h2>
-<p>Le point de départ du calcul est la relation: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial \underline{\tau}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}={{\displaystyle \frac{\displaystyle \partial \underline{\tau}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}}}{{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}
+<h2
+id="implementation-of-the-consistent-tangent-operator">Implementation of
+the consistent tangent operator</h2>
+<p>Le point de départ du calcul est la relation: <span
+class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+\underline{\tau}}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}={{\displaystyle
+\frac{\displaystyle \partial \underline{\tau}}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}}}{{\displaystyle
+\frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}
 \]</span></p>
 <p>Nous calculons maintenant chacun des termes du produit.</p>
-<p>La contrainte de Kirchhoff <span class="math inline">\(\underline{\tau}\)</span> se calcule par le transport dans la configuration finale du second tenseur de Piola-Kirchhoff calculé dans la configuration intermédiaire. <span class="math display">\[
-\underline{\tau} = {\underset{\tilde{}}{\mathbf{F}}}_{e}\,\star\,\underline{S}\,\star\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}
-\]</span> où <span class="math inline">\(\star\)</span> représente le produit matriciel.</p>
-<p>TFEL propose la méthode computePushForwardDerivative permettant de relier la dérivée <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial \underline{\tau}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\)</span> à la dérivée du second tenseur de Piola-Kirchhoff <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial \underline{S}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\)</span>. Cette dérivée se calcule par dérivation en chaînes: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial \underline{S}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}}}={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2}}}\,D\,{{\displaystyle \frac{\displaystyle \partial \underline{C}_{e}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}}}
+<p>La contrainte de Kirchhoff <span
+class="math inline">\(\underline{\tau}\)</span> se calcule par le
+transport dans la configuration finale du second tenseur de
+Piola-Kirchhoff calculé dans la configuration intermédiaire. <span
+class="math display">\[
+\underline{\tau} =
+{\underset{\tilde{}}{\mathbf{F}}}_{e}\,\star\,\underline{S}\,\star\,{{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{T}}}
+\]</span> où <span class="math inline">\(\star\)</span> représente le
+produit matriciel.</p>
+<p>TFEL propose la méthode computePushForwardDerivative permettant de
+relier la dérivée <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial \underline{\tau}}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\)</span> à la dérivée du second
+tenseur de Piola-Kirchhoff <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial \underline{S}}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\)</span>. Cette dérivée se
+calcule par dérivation en chaînes: <span class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+\underline{S}}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}}}={{\displaystyle
+\frac{\displaystyle 1}{\displaystyle 2}}}\,D\,{{\displaystyle
+\frac{\displaystyle \partial \underline{C}_{e}}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}}}
 \]</span></p>
-<p>La dérivée <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial \underline{C}_{e}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\)</span> se calcule par la méthode statique dCdF de la classe t2tost2.</p>
-<p>Il nous fait maintenant calculer le terme <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\)</span>.</p>
+<p>La dérivée <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial \underline{C}_{e}}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\)</span> se calcule par la
+méthode statique dCdF de la classe t2tost2.</p>
+<p>Il nous fait maintenant calculer le terme <span
+class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\)</span>.</p>
 <p>Nous savons que: <span class="math display">\[
 {\underset{\tilde{}}{\mathbf{F}}}_{e}={\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\,\star\,{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}
 \]</span> Par dérivation, nous obtenons: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}=
-\partial^{l}_{\star}{\left({\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\right)}\,{{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}+
-\partial^{r}_{\star}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\right)}\,{{\displaystyle \frac{\displaystyle \partial {\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}
+{{\displaystyle \frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}=
+\partial^{l}_{\star}{\left({\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\right)}\,{{\displaystyle
+\frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}}{\displaystyle
+\partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}+
+\partial^{r}_{\star}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\right)}\,{{\displaystyle
+\frac{\displaystyle \partial
+{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle
+\partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}
 \]</span></p>
-<p>Le calcul du terme <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\)</span> est aisé: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}=
+<p>Le calcul du terme <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}}{\displaystyle
+\partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\)</span> est aisé:
+<span class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}}{\displaystyle
+\partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}=
 \partial^{l}_{\star}{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_e\right|_{t}}\right)}
 \]</span></p>
-<p>Pour le calcul de la dérivée <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\)</span>, nous pouvons nous baser sur l’approximation faite lors de l’intégration. Nous avons alors directement: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial {\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}=
--\sum_{i=1}^{12}{\underset{\tilde{}}{\mathbf{\mu}}}_{i}\,\otimes\,{{\displaystyle \frac{\displaystyle \partial \Delta\,g_{i}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}
+<p>Pour le calcul de la dérivée <span
+class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle
+\partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\)</span>, nous
+pouvons nous baser sur l’approximation faite lors de l’intégration. Nous
+avons alors directement: <span class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle
+\partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}=
+-\sum_{i=1}^{12}{\underset{\tilde{}}{\mathbf{\mu}}}_{i}\,\otimes\,{{\displaystyle
+\frac{\displaystyle \partial \Delta\,g_{i}}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}
 \]</span></p>
-<p>Le calcul de <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial \Delta\,g_{i}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\)</span> représente la seule vraie difficulté. Son calcul peut se faire en généralisant les techniques utilisées en petites déformations.</p>
-<p>Pour toute variation de <span class="math inline">\(\delta\,\Delta\,{\underset{\tilde{}}{\mathbf{F}}}\)</span> de <span class="math inline">\(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}\)</span>, la variation du système implicite <span class="math inline">\(\delta\,F\)</span> est nulle: <span class="math display">\[
+<p>Le calcul de <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial \Delta\,g_{i}}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\)</span> représente la
+seule vraie difficulté. Son calcul peut se faire en généralisant les
+techniques utilisées en petites déformations.</p>
+<p>Pour toute variation de <span
+class="math inline">\(\delta\,\Delta\,{\underset{\tilde{}}{\mathbf{F}}}\)</span>
+de <span
+class="math inline">\(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}\)</span>,
+la variation du système implicite <span
+class="math inline">\(\delta\,F\)</span> est nulle: <span
+class="math display">\[
 \delta\,F{\left(\Delta\,Y{\left(\delta\,\Delta\,{\underset{\tilde{}}{\mathbf{F}}}\right)},\delta\,\Delta\,{\underset{\tilde{}}{\mathbf{F}}}\right)}
 =J\,\delta\,\Delta\,Y+
-\left.{{\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\right|_{{\left(\Delta\,\underline{\epsilon}^{\mathrm{el}},\Delta\,g_{i}\right)}}\,\delta\,\Delta\,{\underset{\tilde{}}{\mathbf{F}}}=0
+\left.{{\displaystyle \frac{\displaystyle \partial F}{\displaystyle
+\partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\right|_{{\left(\Delta\,\underline{\epsilon}^{\mathrm{el}},\Delta\,g_{i}\right)}}\,\delta\,\Delta\,{\underset{\tilde{}}{\mathbf{F}}}=0
 \]</span></p>
-<p>Nous avons explicitement spécifié, en utilisant la notation classique de la thermodynamique, que le calcul du terme <span class="math inline">\(\left.{{\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\right|_{{\left(\Delta\,\underline{\epsilon}^{\mathrm{el}},\Delta\,g_{i}\right)}}\)</span> se faisait en supposant que <span class="math inline">\(\Delta\,\underline{\epsilon}^{\mathrm{el}}\)</span> et <span class="math inline">\(\Delta\,g_{i}\)</span> étaient des variables indépendantes.</p>
-<p>Il est donc nécessaire de calculer la dérivée <span class="math inline">\(\left.{{\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\right|_{{\left(\Delta\,\underline{\epsilon}^{\mathrm{el}},\Delta\,g_{i}\right)}}\)</span> dont la seule composante non nulle est <span class="math inline">\(\left.{{\displaystyle \frac{\displaystyle \partial f_{\underline{\epsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\right|_{{\left(\Delta\,\underline{\epsilon}^{\mathrm{el}},\Delta\,g_{i}\right)}}\)</span>: <span class="math display">\[
-\left.{{\displaystyle \frac{\displaystyle \partial f_{\underline{\epsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\right|_{{\left(\Delta\,\underline{\epsilon}^{\mathrm{el}},\Delta\,g_{i}\right)}}=
--{{\displaystyle \frac{\displaystyle \partial \underline{C}_{e}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\,.\,
-{{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}=
--{{\displaystyle \frac{\displaystyle \partial \underline{C}_{e}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\,.\,
-{{\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\,\star\,{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\right)}
+<p>Nous avons explicitement spécifié, en utilisant la notation classique
+de la thermodynamique, que le calcul du terme <span
+class="math inline">\(\left.{{\displaystyle \frac{\displaystyle \partial
+F}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\right|_{{\left(\Delta\,\underline{\epsilon}^{\mathrm{el}},\Delta\,g_{i}\right)}}\)</span>
+se faisait en supposant que <span
+class="math inline">\(\Delta\,\underline{\epsilon}^{\mathrm{el}}\)</span>
+et <span class="math inline">\(\Delta\,g_{i}\)</span> étaient des
+variables indépendantes.</p>
+<p>Il est donc nécessaire de calculer la dérivée <span
+class="math inline">\(\left.{{\displaystyle \frac{\displaystyle \partial
+F}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\right|_{{\left(\Delta\,\underline{\epsilon}^{\mathrm{el}},\Delta\,g_{i}\right)}}\)</span>
+dont la seule composante non nulle est <span
+class="math inline">\(\left.{{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\epsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\right|_{{\left(\Delta\,\underline{\epsilon}^{\mathrm{el}},\Delta\,g_{i}\right)}}\)</span>:
+<span class="math display">\[
+\left.{{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\epsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\right|_{{\left(\Delta\,\underline{\epsilon}^{\mathrm{el}},\Delta\,g_{i}\right)}}=
+-{{\displaystyle \frac{\displaystyle \partial
+\underline{C}_{e}}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\,.\,
+{{\displaystyle \frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}=
+-{{\displaystyle \frac{\displaystyle \partial
+\underline{C}_{e}}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\,.\,
+{{\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\,\star\,{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\right)}
 \]</span></p>
 <p><span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\,\star\,{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\right)}=
+{{\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\,\star\,{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\right)}=
 \partial^{l}_{\star}{\left({\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\right)}\,.\,
-{{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}=
-\partial^{l}_{\star}{\left({\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\right)}\,.\,
-\partial^{l}_{\star}{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t}}\right)}
-\]</span></p>
-<p>Finalement, <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial F}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\)</span> s’écrit: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial f_{\underline{\epsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}={{\displaystyle \frac{\displaystyle \partial \underline{C}_{e}}{\displaystyle \partial {\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\,.\,
+{{\displaystyle \frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}}{\displaystyle
+\partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}=
 \partial^{l}_{\star}{\left({\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\right)}\,.\,
 \partial^{l}_{\star}{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t}}\right)}
 \]</span></p>
-<p>La dérivée <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial \Delta\,g_{i}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\)</span> est alors: <span class="math display">\[
-{{\displaystyle \frac{\displaystyle \partial \Delta\,g_{i}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}=-J^{-1}_{\Delta\,g_{i}}|{{\displaystyle \frac{\displaystyle \partial f_{\underline{\epsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}
+<p>Finalement, <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial F}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\)</span> s’écrit: <span
+class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\epsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}={{\displaystyle
+\frac{\displaystyle \partial \underline{C}_{e}}{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\,.\,
+\partial^{l}_{\star}{\left({\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\right)}\,.\,
+\partial^{l}_{\star}{\left({\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t}}\right)}
 \]</span></p>
-<h2 id="code-blocks-automatically-declared">Code blocks automatically declared</h2>
-<p>The <code>ComputeFinalStress</code> code block is automatically declared.</p>
-<p>The <code>TangentOperator</code> code block is automatically declared.</p>
-<h2 id="variables-automatically-computed">Variables automatically computed</h2>
-<p>The residual <span class="math inline">\(f_{\underline{\epsilon}^{\mathrm{el}}}\)</span> associated with the elastic strain <span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> is automatically implemented.</p>
-<p>The Mandel stress <span class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}\)</span> is automatically computed before the integrator code block. Its value is stored in the variables <code>M</code>. If the algorithm requires an analytic jacobian, the derivative <span class="math inline">\({{\displaystyle \frac{\displaystyle \partial {\underset{\tilde{}}{\mathbf{M}}}}{\displaystyle \partial \Delta\,\underline{\epsilon}^{\mathrm{el}}}}}\)</span> is also computed and stored in the variable <code>dM_ddeel</code> respectively.</p>
+<p>La dérivée <span class="math inline">\({{\displaystyle
+\frac{\displaystyle \partial \Delta\,g_{i}}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\)</span> est alors: <span
+class="math display">\[
+{{\displaystyle \frac{\displaystyle \partial
+\Delta\,g_{i}}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}=-J^{-1}_{\Delta\,g_{i}}|{{\displaystyle
+\frac{\displaystyle \partial
+f_{\underline{\epsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}
+\]</span></p>
+<h2 id="code-blocks-automatically-declared">Code blocks automatically
+declared</h2>
+<p>The <code>ComputeFinalStress</code> code block is automatically
+declared.</p>
+<p>The <code>TangentOperator</code> code block is automatically
+declared.</p>
+<h2 id="variables-automatically-computed">Variables automatically
+computed</h2>
+<p>The residual <span
+class="math inline">\(f_{\underline{\epsilon}^{\mathrm{el}}}\)</span>
+associated with the elastic strain <span
+class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> is
+automatically implemented.</p>
+<p>The Mandel stress <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}\)</span> is
+automatically computed before the integrator code block. Its value is
+stored in the variables <code>M</code>. If the algorithm requires an
+analytic jacobian, the derivative <span
+class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+{\underset{\tilde{}}{\mathbf{M}}}}{\displaystyle \partial
+\Delta\,\underline{\epsilon}^{\mathrm{el}}}}}\)</span> is also computed
+and stored in the variable <code>dM_ddeel</code> respectively.</p>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-Han2012" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Han</span>, Xu. Modélisation de la fragilisation due au gonflement dans les aciers inoxydables austénitiques irradiés. PhD thesis. 2012. Available from: <a href="http://www.theses.fr/2012ENMP0066/document">http://www.theses.fr/2012ENMP0066/document</a></div><div class="csl-right-inline">2012ENMP0066</div>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-Han2012" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Han</span>, Xu.
+Modélisation de la fragilisation due au gonflement dans les aciers
+inoxydables austénitiques irradiés. PhD thesis. 2012. Available from: <a
+href="http://www.theses.fr/2012ENMP0066/document">http://www.theses.fr/2012ENMP0066/document</a></div><div
+class="csl-right-inline">2012ENMP0066</div>
 </div>
-<div id="ref-edf_lois_2011" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline"><span class="smallcaps">EDF</span>. Lois de comportement cristallines en grandes déformations. Documentation du Code-Aster. 2011. Available from: <a href="http://www.code-aster.org">http://www.code-aster.org</a></div>
+<div id="ref-edf_lois_2011" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline"><span class="smallcaps">EDF</span>. Lois de
+comportement cristallines en grandes déformations. Documentation du
+{Code}-{Aster}. 2011. Available from: <a
+href="http://www.code-aster.org">http://www.code-aster.org</a></div>
 </div>
 </div>
     <script>

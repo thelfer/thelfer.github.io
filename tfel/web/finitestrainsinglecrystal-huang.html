@@ -16,8 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -26,7 +27,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -50,11 +51,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -63,14 +64,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -79,7 +80,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -182,6 +185,7 @@
 		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
 		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -327,45 +331,89 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Implementing a simple finite strain single crystal behaviour, comparison with Huang’s implementation</h1>
+<h1 class="title">Implementing a simple finite strain single crystal
+behaviour, comparison with Huang’s implementation</h1>
 <h2 class="author">Thomas Helfer, Jürgen Almanstoetter</h2>
 <h3 class="date">October 2017</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#constitutive-equations">Constitutive equations</a></li>
-<li><a href="#mfront-implementation"><code>MFront</code> Implementation</a>
+<li><a href="#constitutive-equations"
+id="toc-constitutive-equations">Constitutive equations</a></li>
+<li><a href="#mfront-implementation"
+id="toc-mfront-implementation"><code>MFront</code> Implementation</a>
 <ul>
-<li><a href="#dsl-type"><code>DSL</code> type</a></li>
-<li><a href="#some-meta-data">Some meta-data</a></li>
-<li><a href="#default-numerical-parameters">Default numerical parameters</a></li>
-<li><a href="#the-finitestrainsinglecrystal-brick">The <code>FiniteStrainSingleCrystal</code> brick</a></li>
-<li><a href="#description-of-the-crystal-structure-and-the-slip-systems">Description of the crystal structure and the slip systems</a></li>
-<li><a href="#material-properties">Material properties</a></li>
-<li><a href="#auxiliary-state-variables">Auxiliary state variables</a></li>
-<li><a href="#integration-of-the-constitutive-equations">Integration of the constitutive equations</a></li>
-<li><a href="#update-auxiliary-state-variables">Update auxiliary state variables</a></li>
+<li><a href="#dsl-type" id="toc-dsl-type"><code>DSL</code> type</a></li>
+<li><a href="#some-meta-data" id="toc-some-meta-data">Some
+meta-data</a></li>
+<li><a href="#default-numerical-parameters"
+id="toc-default-numerical-parameters">Default numerical
+parameters</a></li>
+<li><a href="#the-finitestrainsinglecrystal-brick"
+id="toc-the-finitestrainsinglecrystal-brick">The
+<code>FiniteStrainSingleCrystal</code> brick</a></li>
+<li><a href="#description-of-the-crystal-structure-and-the-slip-systems"
+id="toc-description-of-the-crystal-structure-and-the-slip-systems">Description
+of the crystal structure and the slip systems</a></li>
+<li><a href="#material-properties" id="toc-material-properties">Material
+properties</a></li>
+<li><a href="#auxiliary-state-variables"
+id="toc-auxiliary-state-variables">Auxiliary state variables</a></li>
+<li><a href="#integration-of-the-constitutive-equations"
+id="toc-integration-of-the-constitutive-equations">Integration of the
+constitutive equations</a></li>
+<li><a href="#update-auxiliary-state-variables"
+id="toc-update-auxiliary-state-variables">Update auxiliary state
+variables</a></li>
 </ul></li>
-<li><a href="#comparison-to-huangs-implementation">Comparison to Huang’s implementation</a></li>
+<li><a href="#comparison-to-huangs-implementation"
+id="toc-comparison-to-huangs-implementation">Comparison to Huang’s
+implementation</a></li>
 </ul>
 </div>
-<p>This document describes how to implement a phenomenological crystal plasticity model used in Huang’s UMAT subroutine (See <span class="citation" data-cites="huang_user-material_1991">[1]</span>).</p>
+<p>This document describes how to implement a phenomenological crystal
+plasticity model used in Huang’s UMAT subroutine (See <span
+class="citation" data-cites="huang_user-material_1991">[1]</span>).</p>
 <p>Such an example illustrates:</p>
 <ul>
-<li>The usage of <code>FiniteStrainSingleCrystal</code> brick (see <a href="finitestrainsinglecrystal.html">this page</a>).</li>
-<li>The usage of the <code>@CristalStructure</code> and <code>@SlidingSystem</code> keywords. See <a href="singlecrystal.html">this page</a> for details.</li>
+<li>The usage of <code>FiniteStrainSingleCrystal</code> brick (see <a
+href="finitestrainsinglecrystal.html">this page</a>).</li>
+<li>The usage of the <code>@CristalStructure</code> and
+<code>@SlidingSystem</code> keywords. See <a
+href="singlecrystal.html">this page</a> for details.</li>
 </ul>
-<p>The whole implementation is available <a href="./gallery/finitestrainsinglecrystal/FiniteStrainSingleCrystalHuang.mfront">here</a>.</p>
+<p>The whole implementation is available <a
+href="./gallery/finitestrainsinglecrystal/FiniteStrainSingleCrystalHuang.mfront">here</a>.</p>
 <h1 id="constitutive-equations">Constitutive equations</h1>
-<p>The shear rate <span class="math inline">\(\dot{g}^\alpha\)</span> on each slip system <span class="math inline">\(\alpha\)</span> is determined by the resolved shear stress <span class="math inline">\(\tau^\alpha\)</span> and the slip system strength <span class="math inline">\(\tau_c^\alpha\)</span> according to a power law relationship,</p>
+<p>The shear rate <span class="math inline">\(\dot{g}^\alpha\)</span> on
+each slip system <span class="math inline">\(\alpha\)</span> is
+determined by the resolved shear stress <span
+class="math inline">\(\tau^\alpha\)</span> and the slip system strength
+<span class="math inline">\(\tau_c^\alpha\)</span> according to a power
+law relationship,</p>
 <p><span class="math display">\[
-\dot{g}^\alpha=\dot a\left|\frac{\tau^\alpha}{\tau_c^\alpha}\right|^m sgn(\tau^\alpha).
+\dot{g}^\alpha=\dot a\left|\frac{\tau^\alpha}{\tau_c^\alpha}\right|^m
+sgn(\tau^\alpha).
 \]</span></p>
-<p><span class="math inline">\(\dot a\)</span> denotes the reference shear strain rate on slip system <span class="math inline">\(\alpha\)</span> and the exponent <span class="math inline">\(m\)</span> the strain rate sensitivity. Strain hardening is described by the evolution law</p>
+<p><span class="math inline">\(\dot a\)</span> denotes the reference
+shear strain rate on slip system <span
+class="math inline">\(\alpha\)</span> and the exponent <span
+class="math inline">\(m\)</span> the strain rate sensitivity. Strain
+hardening is described by the evolution law</p>
 <p><span class="math display">\[
-\dot\tau_c^\alpha=\sum_{\beta=1}^{n} h_{\alpha\beta}\,\left|\dot{g}^\beta\right|
+\dot\tau_c^\alpha=\sum_{\beta=1}^{n}
+h_{\alpha\beta}\,\left|\dot{g}^\beta\right|
 \]</span></p>
-<p>where <span class="math inline">\(h_{\alpha\beta}\)</span> is the matrix of strain hardening coeffcients. The diagonal terms <span class="math inline">\(h_{\alpha\alpha}\)</span> indicate self hardening, while the off-diagonal entries <span class="math inline">\(h_{\alpha\beta}\,(\alpha\neq\beta)\)</span> represent latent hardening. The sum extends over all <span class="math inline">\(n\)</span> slip systems. The latent hardening is assumed to scale with <span class="math inline">\(h_{\alpha\alpha}\)</span> by the latent hardening coefficient <span class="math inline">\(r\)</span>,</p>
+<p>where <span class="math inline">\(h_{\alpha\beta}\)</span> is the
+matrix of strain hardening coeffcients. The diagonal terms <span
+class="math inline">\(h_{\alpha\alpha}\)</span> indicate self hardening,
+while the off-diagonal entries <span
+class="math inline">\(h_{\alpha\beta}\,(\alpha\neq\beta)\)</span>
+represent latent hardening. The sum extends over all <span
+class="math inline">\(n\)</span> slip systems. The latent hardening is
+assumed to scale with <span
+class="math inline">\(h_{\alpha\alpha}\)</span> by the latent hardening
+coefficient <span class="math inline">\(r\)</span>,</p>
 <p><span class="math display">\[
 h_{\alpha\beta}=r\,h_{\alpha\alpha}.
 \]</span></p>
@@ -373,87 +421,164 @@ h_{\alpha\beta}=r\,h_{\alpha\alpha}.
 <p><span class="math display">\[
 h_{\alpha\alpha}=h(g_{c})=h_0\,\text{sech}^2\left|\frac{h_0g_{c}}{\tau_{sat}-\tau_0}\right|.
 \]</span></p>
-<p>Here <span class="math inline">\(h_0\)</span> is the initial hardening modulus, <span class="math inline">\(\tau_0\)</span> the initial yield stress, <span class="math inline">\(\tau_{sat}\)</span> the saturation stress of hardening and <span class="math inline">\(g_{c}\)</span> the cumulative shear strain, that is given by</p>
+<p>Here <span class="math inline">\(h_0\)</span> is the initial
+hardening modulus, <span class="math inline">\(\tau_0\)</span> the
+initial yield stress, <span class="math inline">\(\tau_{sat}\)</span>
+the saturation stress of hardening and <span
+class="math inline">\(g_{c}\)</span> the cumulative shear strain, that
+is given by</p>
 <p><span class="math display">\[
 g_{c}=\sum_{\alpha=1}^{n} \int_0^t \left|\dot{g}^{\alpha}\right|\, dt
 \]</span></p>
 <h1 id="mfront-implementation"><code>MFront</code> Implementation</h1>
 <h2 id="dsl-type"><code>DSL</code> type</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL ImplicitFiniteStrain;</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL ImplicitFiniteStrain<span class="op">;</span></span></code></pre></div>
 <h2 id="some-meta-data">Some meta-data</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour FiniteStrainSingleCrystalBrickHuang;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author    Juergen Almanstoetter, Thomas Helfer;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date      <span class="dv">25</span>/<span class="er">09</span>/<span class="dv">2017</span>;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description{</span>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour FiniteStrainSingleCrystalBrickHuang<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author    Juergen Almanstoetter<span class="op">,</span> Thomas Helfer<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date      <span class="dv">25</span><span class="op">/</span><span class="dv">0</span><span class="er">9</span><span class="op">/</span><span class="dv">2017</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description<span class="op">{</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Implementation of the Huang&#39;s model.&quot;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h2 id="default-numerical-parameters">Default numerical parameters</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson;</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta   <span class="dv">1</span>;</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-11</span>;</span></code></pre></div>
-<h2 id="the-finitestrainsinglecrystal-brick">The <code>FiniteStrainSingleCrystal</code> brick</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick FiniteStrainSingleCrystal{</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> shifted_elastic_deformation_gradient : <span class="kw">true</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
-<h2 id="description-of-the-crystal-structure-and-the-slip-systems">Description of the crystal structure and the slip systems</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>CrystalStructure FCC;</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>SlidingSystem &lt;<span class="dv">0</span>,<span class="dv">1</span>,-<span class="dv">1</span>&gt;{<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>};</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta   <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-11</span><span class="op">;</span></span></code></pre></div>
+<h2 id="the-finitestrainsinglecrystal-brick">The
+<code>FiniteStrainSingleCrystal</code> brick</h2>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick FiniteStrainSingleCrystal<span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> shifted_elastic_deformation_gradient <span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h2
+id="description-of-the-crystal-structure-and-the-slip-systems">Description
+of the crystal structure and the slip systems</h2>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>CrystalStructure FCC<span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>SlidingSystem <span class="op">&lt;</span><span class="dv">0</span><span class="op">,</span><span class="dv">1</span><span class="op">,-</span><span class="dv">1</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">};</span></span></code></pre></div>
 <h2 id="material-properties">Material properties</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress h0;</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress tau_sat;</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress tau0;</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real m;</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty strainrate da;</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real y0;</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real r;</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress h0<span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress tau_sat<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress tau0<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real m<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty strainrate da<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real y0<span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real r<span class="op">;</span></span></code></pre></div>
 <h2 id="auxiliary-state-variables">Auxiliary state variables</h2>
-<h3 id="cumulative-shear-strain-on-slip-systems">Cumulative shear strain on slip systems</h3>
-<p>In our implementation, we store the cumulative shear strain <span class="math inline">\(g_{c}\)</span> in an auxiliary state variable.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable real gc;</span></code></pre></div>
-<p>For convenience, a variable to store the increment of <span class="math inline">\(g_{c}\)</span> over the time step will be needed. This increment is defined as a local variable, to be able to access it from the <code>@Integrator</code> and <code>@UpdateAuxiliaryStateVariables</code> blocks of our implementation.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real dgc; </span></code></pre></div>
+<h3 id="cumulative-shear-strain-on-slip-systems">Cumulative shear strain
+on slip systems</h3>
+<p>In our implementation, we store the cumulative shear strain <span
+class="math inline">\(g_{c}\)</span> in an auxiliary state variable.</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable real gc<span class="op">;</span></span></code></pre></div>
+<p>For convenience, a variable to store the increment of <span
+class="math inline">\(g_{c}\)</span> over the time step will be needed.
+This increment is defined as a local variable, to be able to access it
+from the <code>@Integrator</code> and
+<code>@UpdateAuxiliaryStateVariables</code> blocks of our
+implementation.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real dgc<span class="op">;</span> </span></code></pre></div>
 <h3 id="slip-system-strength">Slip system strength</h3>
-<p>In this implementation, we store the strength of each slip system in an array of auxiliary state variables (y).</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable real y[Nss];</span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real dy[Nss];</span></code></pre></div>
-<h2 id="integration-of-the-constitutive-equations">Integration of the constitutive equations</h2>
-<h3 id="computation-of-deltag_c">Computation of <span class="math inline">\(\Delta\,g_{c}\)</span></h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dgc = real{};</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> i=<span class="dv">0</span>;i!=Nss;++i){</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  dgc+=abs(dg[i]);</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<h3 id="computation-of-the-self-hardening">Computation of the self-hardening</h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> hb = h0/power&lt;<span class="dv">2</span>&gt;(<span class="bu">std::</span>cosh((h0*(gc+dgc))/(tau_sat-tau0)));</span></code></pre></div>
-<h3 id="computation-of-the-hardening-strength-and-the-plastic-slip-rate-of-the-ith-system">Computation of the hardening strength and the plastic slip rate of the <span class="math inline">\(i\)</span>th system</h3>
+<p>In this implementation, we store the strength of each slip system in
+an array of auxiliary state variables (y).</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable real y<span class="op">[</span>Nss<span class="op">];</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real dy<span class="op">[</span>Nss<span class="op">];</span></span></code></pre></div>
+<h2 id="integration-of-the-constitutive-equations">Integration of the
+constitutive equations</h2>
+<h3 id="computation-of-deltag_c">Computation of <span
+class="math inline">\(\Delta\,g_{c}\)</span></h3>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dgc <span class="op">=</span> real<span class="op">{};</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span><span class="op">(</span><span class="dt">unsigned</span> <span class="dt">short</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">!=</span>Nss<span class="op">;++</span>i<span class="op">){</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  dgc<span class="op">+=</span>abs<span class="op">(</span>dg<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="computation-of-the-self-hardening">Computation of the
+self-hardening</h3>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> hb <span class="op">=</span> h0<span class="op">/</span>power<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;(</span><span class="bu">std::</span>cosh<span class="op">((</span>h0<span class="op">*(</span>gc<span class="op">+</span>dgc<span class="op">))/(</span>tau_sat<span class="op">-</span>tau0<span class="op">)));</span></span></code></pre></div>
+<h3
+id="computation-of-the-hardening-strength-and-the-plastic-slip-rate-of-the-ith-system">Computation
+of the hardening strength and the plastic slip rate of the <span
+class="math inline">\(i\)</span>th system</h3>
 <h4 id="hardening-strength">Hardening strength</h4>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dy[i] = real{};</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(<span class="dt">unsigned</span> <span class="dt">short</span> j=<span class="dv">0</span>;j!=Nss;++j){</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> qab = (ss.areCoplanar(i,j)) ? <span class="dv">1</span> : r;</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  dy[i] += qab*hb*abs(dg[j]);</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dy<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> real<span class="op">{};</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span><span class="op">(</span><span class="dt">unsigned</span> <span class="dt">short</span> j<span class="op">=</span><span class="dv">0</span><span class="op">;</span>j<span class="op">!=</span>Nss<span class="op">;++</span>j<span class="op">){</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> qab <span class="op">=</span> <span class="op">(</span>ss<span class="op">.</span>areCoplanar<span class="op">(</span>i<span class="op">,</span>j<span class="op">))</span> <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> r<span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  dy<span class="op">[</span>i<span class="op">]</span> <span class="op">+=</span> qab<span class="op">*</span>hb<span class="op">*</span>abs<span class="op">(</span>dg<span class="op">[</span>j<span class="op">]);</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h4 id="plastic-slip-rate">Plastic slip rate</h4>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> tau = ss.mu[i] | M ;</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (abs(tau)&gt;<span class="dv">0</span>){</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">y_</span>   = y0+y[i]+dy[i];</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sgn  = tau/abs(tau);</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> hsi  = dt*da*pow(abs(tau/<span class="va">y_</span>),m-<span class="dv">1</span>)/<span class="va">y_</span>;</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  fg[i] -= hsi*abs(tau)*sgn;</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Hsi  = hsi*m;</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  dfg_ddeel(i)    = -Hsi*(ss.mu[i]|dM_ddeel);</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  dfg_ddg(i,i)   -=  m*fg[i]*hb/<span class="va">y_</span>;</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<h2 id="update-auxiliary-state-variables">Update auxiliary state variables</h2>
-<p>If the Newton-Raphson algorithm converges, the evolution of <span class="math inline">\(g\)</span> is known. The only thing left is to update the values of the auxiliary state variables <span class="math inline">\(g_{c}\)</span> and <span class="math inline">\(\Delta\,y\)</span>. Here, for convenience, a litte approximation is made: the values of <span class="math inline">\(\Delta\,g_{c}\)</span> and <span class="math inline">\(\Delta\,y\)</span> as computed at the last iteration of the Newton-Raphson algorithm, are used for that purpose:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UpdateAuxiliaryStateVariables{</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  gc+=dgc;</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  y+=dy;</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @UpdateAuxiliaryStateVariables</span></span></code></pre></div>
-<p>Indeed, a more rigorous approach would be to re-evaluate <span class="math inline">\(\Delta\,g_{c}\)</span> and <span class="math inline">\(\Delta\,y\)</span> using the values of <span class="math inline">\(\Delta\,g\)</span> at convergence.</p>
-<h1 id="comparison-to-huangs-implementation">Comparison to Huang’s implementation</h1>
-<p>The <code>MFront</code> solution is verified using <code>ABAQUS</code> by comparing to results obtained using Huang’s <code>UMAT</code> subroutine. In both cases a single crystal copper bar of 100 mm x 10 mm x 10 mm is subjected to a tensile load of 200 MPa within 1s. The required materials parameters are taken from the reference [1], with elastic moduli <span class="math inline">\(C_{11} = 168400\)</span> MPa, <span class="math inline">\(C_{12} =121400\)</span> MPa, <span class="math inline">\(C_{44} =75400\)</span> MPa, initial flow stress <span class="math inline">\(\tau_0=60.8\)</span> MPa, initial hardening <span class="math inline">\(h_0=541.5\)</span> MPa, rate sensitivity exponent <span class="math inline">\(m=10\)</span>, latent hardening <span class="math inline">\(r=1.0\)</span>, reference strain rate <span class="math inline">\(\dot a=0.001\)</span> and saturation strength <span class="math inline">\(\tau_{sat}=109.8\)</span> MPa. Symmetric boundary conditions are applied in all three directions to allow for uniform deformation. The copper material has an fcc crystal structure with [110])) slip systems. The grain is oriented using zeros for all Euler angles and represented by a single higher order C3D20R hex element.</p>
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-huang_user-material_1991" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline"><span class="smallcaps">Huang</span>, Yonggang. Report Mech-178: A user-material subroutine incorporating single crystal plasticity in the <span>ABAQUS</span> finite element program. Division of Engineering and Applied Science. Cambridge, Massachusett : Division of Engineering; Applied Science, Harvard University, 1991. Available from: <a href="http://www.columbia.edu/~jk2079/fem/umat_documentation.pdf">http://www.columbia.edu/~jk2079/fem/umat_documentation.pdf</a></div>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> tau <span class="op">=</span> ss<span class="op">.</span>mu<span class="op">[</span>i<span class="op">]</span> <span class="op">|</span> M <span class="op">;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>abs<span class="op">(</span>tau<span class="op">)&gt;</span><span class="dv">0</span><span class="op">){</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">y_</span>   <span class="op">=</span> y0<span class="op">+</span>y<span class="op">[</span>i<span class="op">]+</span>dy<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sgn  <span class="op">=</span> tau<span class="op">/</span>abs<span class="op">(</span>tau<span class="op">);</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> hsi  <span class="op">=</span> dt<span class="op">*</span>da<span class="op">*</span>pow<span class="op">(</span>abs<span class="op">(</span>tau<span class="op">/</span><span class="va">y_</span><span class="op">),</span>m<span class="op">-</span><span class="dv">1</span><span class="op">)/</span><span class="va">y_</span><span class="op">;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  fg<span class="op">[</span>i<span class="op">]</span> <span class="op">-=</span> hsi<span class="op">*</span>abs<span class="op">(</span>tau<span class="op">)*</span>sgn<span class="op">;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Hsi  <span class="op">=</span> hsi<span class="op">*</span>m<span class="op">;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  dfg_ddeel<span class="op">(</span>i<span class="op">)</span>    <span class="op">=</span> <span class="op">-</span>Hsi<span class="op">*(</span>ss<span class="op">.</span>mu<span class="op">[</span>i<span class="op">]|</span>dM_ddeel<span class="op">);</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  dfg_ddg<span class="op">(</span>i<span class="op">,</span>i<span class="op">)</span>   <span class="op">-=</span>  m<span class="op">*</span>fg<span class="op">[</span>i<span class="op">]*</span>hb<span class="op">/</span><span class="va">y_</span><span class="op">;</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h2 id="update-auxiliary-state-variables">Update auxiliary state
+variables</h2>
+<p>If the Newton-Raphson algorithm converges, the evolution of <span
+class="math inline">\(g\)</span> is known. The only thing left is to
+update the values of the auxiliary state variables <span
+class="math inline">\(g_{c}\)</span> and <span
+class="math inline">\(\Delta\,y\)</span>. Here, for convenience, a litte
+approximation is made: the values of <span
+class="math inline">\(\Delta\,g_{c}\)</span> and <span
+class="math inline">\(\Delta\,y\)</span> as computed at the last
+iteration of the Newton-Raphson algorithm, are used for that
+purpose:</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>UpdateAuxiliaryStateVariables<span class="op">{</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  gc<span class="op">+=</span>dgc<span class="op">;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  y<span class="op">+=</span>dy<span class="op">;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// end of @UpdateAuxiliaryStateVariables</span></span></code></pre></div>
+<p>Indeed, a more rigorous approach would be to re-evaluate <span
+class="math inline">\(\Delta\,g_{c}\)</span> and <span
+class="math inline">\(\Delta\,y\)</span> using the values of <span
+class="math inline">\(\Delta\,g\)</span> at convergence.</p>
+<h1 id="comparison-to-huangs-implementation">Comparison to Huang’s
+implementation</h1>
+<p>The <code>MFront</code> solution is verified using
+<code>ABAQUS</code> by comparing to results obtained using Huang’s
+<code>UMAT</code> subroutine. In both cases a single crystal copper bar
+of 100 mm x 10 mm x 10 mm is subjected to a tensile load of 200 MPa
+within 1s. The required materials parameters are taken from the
+reference [1], with elastic moduli <span class="math inline">\(C_{11} =
+168400\)</span> MPa, <span class="math inline">\(C_{12} =121400\)</span>
+MPa, <span class="math inline">\(C_{44} =75400\)</span> MPa, initial
+flow stress <span class="math inline">\(\tau_0=60.8\)</span> MPa,
+initial hardening <span class="math inline">\(h_0=541.5\)</span> MPa,
+rate sensitivity exponent <span class="math inline">\(m=10\)</span>,
+latent hardening <span class="math inline">\(r=1.0\)</span>, reference
+strain rate <span class="math inline">\(\dot a=0.001\)</span> and
+saturation strength <span
+class="math inline">\(\tau_{sat}=109.8\)</span> MPa. Symmetric boundary
+conditions are applied in all three directions to allow for uniform
+deformation. The copper material has an fcc crystal structure with
+[110])) slip systems. The grain is oriented using zeros for all Euler
+angles and represented by a single higher order C3D20R hex element.</p>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-huang_user-material_1991" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Huang</span>, Yonggang.
+Report Mech-178: A user-material subroutine incorporating single crystal
+plasticity in the <span>ABAQUS</span> finite element program. Division
+of Engineering and Applied Science. Cambridge, Massachusett : Division
+of Engineering; Applied Science, Harvard University, 1991. Available
+from: <a
+href="http://www.columbia.edu/~jk2079/fem/umat_documentation.pdf">http://www.columbia.edu/~jk2079/fem/umat_documentation.pdf</a></div>
 </div>
 </div>
     <script>

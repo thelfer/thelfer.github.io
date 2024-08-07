@@ -16,7 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -86,192 +88,380 @@
     </header>
 
 <div id="header">
-<h1 class="title">Implementation of the Korthaus’ behaviour for crushed salt</h1>
+<h1 class="title">Implementation of the Korthaus’ behaviour for crushed
+salt</h1>
 <h2 class="author">Thomas Helfer, Éric Simo, Christian Lerch</h2>
 <h3 class="date">17/11/2021</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#description">Description</a>
+<li><a href="#description" id="toc-description">Description</a>
 <ul>
-<li><a href="#elasticity">Elasticity</a></li>
-<li><a href="#viscoplastic-part">Viscoplastic part</a></li>
-<li><a href="#grain-deformation-contribution">Grain deformation contribution</a></li>
-<li><a href="#porosity-evolution">Porosity evolution</a></li>
+<li><a href="#elasticity" id="toc-elasticity">Elasticity</a></li>
+<li><a href="#viscoplastic-part" id="toc-viscoplastic-part">Viscoplastic
+part</a></li>
+<li><a href="#grain-deformation-contribution"
+id="toc-grain-deformation-contribution">Grain deformation
+contribution</a></li>
+<li><a href="#porosity-evolution" id="toc-porosity-evolution">Porosity
+evolution</a></li>
 </ul></li>
-<li><a href="#implementation">Implementation</a>
+<li><a href="#implementation" id="toc-implementation">Implementation</a>
 <ul>
-<li><a href="#choice-of-the-integration-variable">Choice of the integration variable</a></li>
-<li><a href="#residual">Residual</a></li>
-<li><a href="#computation-of-the-consistent-tangent-operator">Computation of the consistent tangent operator</a></li>
+<li><a href="#choice-of-the-integration-variable"
+id="toc-choice-of-the-integration-variable">Choice of the integration
+variable</a></li>
+<li><a href="#residual" id="toc-residual">Residual</a></li>
+<li><a href="#computation-of-the-consistent-tangent-operator"
+id="toc-computation-of-the-consistent-tangent-operator">Computation of
+the consistent tangent operator</a></li>
 </ul></li>
 </ul>
 </div>
 <h1 id="description">Description</h1>
 <h2 id="elasticity">Elasticity</h2>
-<p>The elasticity is assumed linear and isotropic, i.e. given by the Hooke law:</p>
+<p>The elasticity is assumed linear and isotropic, i.e. given by the
+Hooke law:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \underline{\sigma}&amp;=\underline{\underline{\mathbf{D}}}\,\colon\,\underline{\varepsilon}^{\mathrm{el}}\\
        &amp;=\lambda\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\,\underline{I}+2\,\mu\,\underline{\varepsilon}^{\mathrm{el}}\\
-       &amp;= K^{\star}\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\,\underline{I}+2\,\mu\,{\left(\underline{\varepsilon}^{\mathrm{el}}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\,\underline{I}\right)} \\
-       &amp;= K^{\star}\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\,\underline{I}+2\,\mu\,\underline{s}^{\mathrm{el}}
+       &amp;=
+K^{\star}\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\,\underline{I}+2\,\mu\,{\left(\underline{\varepsilon}^{\mathrm{el}}-{{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+3}}}\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\,\underline{I}\right)}
+\\
+       &amp;=
+K^{\star}\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\,\underline{I}+2\,\mu\,\underline{s}^{\mathrm{el}}
 \end{aligned}
 \]</span> where:</p>
 <ul>
-<li><span class="math inline">\(\underline{D}\)</span> is the elastic stiffness tensor.</li>
-<li><span class="math inline">\(\underline{s}^{\mathrm{el}}\)</span> is the deviatoric part of the elastic strain: <span class="math display">\[
-\underline{s}^{\mathrm{el}}= \underline{\varepsilon}^{\mathrm{el}}-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\,\underline{I}
+<li><span class="math inline">\(\underline{D}\)</span> is the elastic
+stiffness tensor.</li>
+<li><span class="math inline">\(\underline{s}^{\mathrm{el}}\)</span> is
+the deviatoric part of the elastic strain: <span class="math display">\[
+\underline{s}^{\mathrm{el}}=
+\underline{\varepsilon}^{\mathrm{el}}-{{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+3}}}\,{\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{el}}\right)}}\,\underline{I}
 \]</span></li>
-<li><span class="math inline">\(\lambda^{\star}\)</span>, <span class="math inline">\(\mu^{\star}\)</span> and <span class="math inline">\(K^{\star}\)</span> are respectively the first and second Lamé parameters and the bulk modulus.</li>
+<li><span class="math inline">\(\lambda^{\star}\)</span>, <span
+class="math inline">\(\mu^{\star}\)</span> and <span
+class="math inline">\(K^{\star}\)</span> are respectively the first and
+second Lamé parameters and the bulk modulus.</li>
 </ul>
-<p>For crushed salt, the buldmodulus is a function of the porosity and can be defined by: <span class="math display">\[
-K^{\star} = K \cdot e^{-c_k \cdot \eta \cdot \left(\dfrac{1-\eta_0}{1-\eta}\right)} 
+<p>For crushed salt, the buldmodulus is a function of the porosity and
+can be defined by: <span class="math display">\[
+K^{\star} = K \cdot e^{-c_k \cdot \eta \cdot
+\left(\dfrac{1-\eta_0}{1-\eta}\right)}
 \]</span> where:</p>
 <ul>
-<li><span class="math inline">\(K^{\star}\)</span>: compression modulus of crushed salt<br />
+<li><span class="math inline">\(K^{\star}\)</span>: compression modulus
+of crushed salt<br />
 </li>
-<li><span class="math inline">\(K\)</span>: compression modulus of rock salt</li>
-<li><span class="math inline">\(c_k\)</span>: material constant <span class="math inline">\(c_k= 50.46\)</span></li>
+<li><span class="math inline">\(K\)</span>: compression modulus of rock
+salt</li>
+<li><span class="math inline">\(c_k\)</span>: material constant <span
+class="math inline">\(c_k= 50.46\)</span></li>
 <li><span class="math inline">\(\eta\)</span>: porosity</li>
-<li><span class="math inline">\(\eta_0\)</span>: is a reference porosity</li>
+<li><span class="math inline">\(\eta_0\)</span>: is a reference
+porosity</li>
 </ul>
-<p>The Poisson’s ratio <span class="math inline">\(\nu^{\star}\)</span> of crushed salt and rock salt <span class="math inline">\(\nu\)</span> are assumed equal, thus: <span class="math display">\[
-\nu^{\star} = \nu 
+<p>The Poisson’s ratio <span class="math inline">\(\nu^{\star}\)</span>
+of crushed salt and rock salt <span class="math inline">\(\nu\)</span>
+are assumed equal, thus: <span class="math display">\[
+\nu^{\star} = \nu
 \]</span></p>
-<p>The Young’ modulus <span class="math inline">\(E^{\star}\)</span> of crushed salt can thus be derived as: <span class="math display">\[
+<p>The Young’ modulus <span class="math inline">\(E^{\star}\)</span> of
+crushed salt can thus be derived as: <span class="math display">\[
 \begin{aligned}
 E^{\star} &amp;= 3 (1-2 \cdot \nu^{\star}) \cdot K^{\star} \\
-          &amp;= 3 (1-2 \cdot \nu) \cdot K  \cdot e^{-c_k \cdot \eta \cdot \left(\dfrac{1-\eta_0}{1-\eta}\right)}
+          &amp;= 3 (1-2 \cdot \nu) \cdot K  \cdot e^{-c_k \cdot \eta
+\cdot \left(\dfrac{1-\eta_0}{1-\eta}\right)}
 \end{aligned}
 \]</span></p>
 <h2 id="viscoplastic-part">Viscoplastic part</h2>
-<h3 id="expression-of-the-viscoplastic-strain-rate">Expression of the viscoplastic strain rate</h3>
-<p>The inelastic strain <span class="math inline">\(\underline{\varepsilon}^{\mathrm{in}}\)</span> is split as the sum of two contributions <span class="math inline">\(\underline{\varepsilon}^{\mathrm{vp}}\)</span> and <span class="math inline">\(\underline{\varepsilon}^{\mathrm{g}}\)</span> which respectively describe the viscoplastic deformation of single salt grains and the relative displacement between grains, as follows: <span id="eq:viscoplastic_split"><span class="math display">\[
-\underline{\dot{\varepsilon}}^{\mathrm{in}}=  \underline{\dot{\varepsilon}}^{\mathrm{vp}}+ \underline{\dot{\varepsilon}}^{\mathrm{g}}
-\qquad(1)\]</span></span></p>
-<p>In repository conditions, the grain displacement phenomenon can be neglected, but it may a role in certain conditions.</p>
-<h2 id="grain-deformation-contribution">Grain deformation contribution</h2>
-<p>The grain deformation strain rate tensor <span class="math inline">\(\underline{\dot{\varepsilon}}^{\mathrm{vp}}\)</span> follows an associated Norton-Hoff behaviour based on a Green stress criterion. This criterion is expressed as: <span class="math display">\[
-\sigma_{\mathrm{eq}}= \sqrt{h_1{\left(\eta\right)} \, p^{2}+h_2{\left(\eta\right)} \, q^{2}}
+<h3 id="expression-of-the-viscoplastic-strain-rate">Expression of the
+viscoplastic strain rate</h3>
+<p>The inelastic strain <span
+class="math inline">\(\underline{\varepsilon}^{\mathrm{in}}\)</span> is
+split as the sum of two contributions <span
+class="math inline">\(\underline{\varepsilon}^{\mathrm{vp}}\)</span> and
+<span
+class="math inline">\(\underline{\varepsilon}^{\mathrm{g}}\)</span>
+which respectively describe the viscoplastic deformation of single salt
+grains and the relative displacement between grains, as follows: <span
+id="eq:viscoplastic_split"><span class="math display">\[
+\underline{\dot{\varepsilon}}^{\mathrm{in}}=  \underline{\dot{\varepsilon}}^{\mathrm{vp}}+
+\underline{\dot{\varepsilon}}^{\mathrm{g}}
+\qquad{(1)}\]</span></span></p>
+<p>In repository conditions, the grain displacement phenomenon can be
+neglected, but it may a role in certain conditions.</p>
+<h2 id="grain-deformation-contribution">Grain deformation
+contribution</h2>
+<p>The grain deformation strain rate tensor <span
+class="math inline">\(\underline{\dot{\varepsilon}}^{\mathrm{vp}}\)</span>
+follows an associated Norton-Hoff behaviour based on a Green stress
+criterion. This criterion is expressed as: <span class="math display">\[
+\sigma_{\mathrm{eq}}= \sqrt{h_1{\left(\eta\right)} \,
+p^{2}+h_2{\left(\eta\right)} \, q^{2}}
 \]</span> where:</p>
 <ul>
-<li><span class="math inline">\(p\)</span> is the hydrostatic stress: <span class="math display">\[p={{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,{\mathrm{tr}{\left(\sigma\right)}}\]</span></li>
-<li><span class="math inline">\(q\)</span> is the second invariant of the deviatoric stress <span class="math inline">\(\underline{s}\)</span>: <span class="math display">\[q=\sqrt{\underline{s}\,\colon\,\underline{s}}\]</span></li>
+<li><span class="math inline">\(p\)</span> is the hydrostatic stress:
+<span class="math display">\[p={{\displaystyle \frac{\displaystyle
+1}{\displaystyle 3}}}\,{\mathrm{tr}{\left(\sigma\right)}}\]</span></li>
+<li><span class="math inline">\(q\)</span> is the second invariant of
+the deviatoric stress <span
+class="math inline">\(\underline{s}\)</span>: <span
+class="math display">\[q=\sqrt{\underline{s}\,\colon\,\underline{s}}\]</span></li>
 </ul>
-<p>Various models can be derived from the choice of the functions <span class="math inline">\(h_1{\left(\eta\right)}\)</span> and <span class="math inline">\(h_2{\left(\eta\right)}\)</span>. In Korthaus’s work, the following expressions are used: <span class="math display">\[
+<p>Various models can be derived from the choice of the functions <span
+class="math inline">\(h_1{\left(\eta\right)}\)</span> and <span
+class="math inline">\(h_2{\left(\eta\right)}\)</span>. In Korthaus’s
+work, the following expressions are used: <span class="math display">\[
 \begin{aligned}
-h_1{\left(\eta\right)} &amp;= {{\displaystyle \frac{\displaystyle a}{\displaystyle \left( \eta^{-c}-\eta_0^{-c}\right)^m}}} \\
+h_1{\left(\eta\right)} &amp;= {{\displaystyle \frac{\displaystyle
+a}{\displaystyle \left( \eta^{-c}-\eta_0^{-c}\right)^m}}} \\
 h_2{\left(\eta\right)} &amp;= b_1 + b_2 \, h_1
 \end{aligned}
 \]</span> with:</p>
 <ul>
-<li><span class="math inline">\(a, c, m\)</span>: material constant <span class="math inline">\([-]\)</span></li>
-<li><span class="math inline">\(b_1, b_2\)</span>: material constant <span class="math inline">\([-]\)</span>, <span class="math inline">\(b_2= 1\)</span> in Korthaus approach</li>
+<li><span class="math inline">\(a, c, m\)</span>: material constant
+<span class="math inline">\([-]\)</span></li>
+<li><span class="math inline">\(b_1, b_2\)</span>: material constant
+<span class="math inline">\([-]\)</span>, <span
+class="math inline">\(b_2= 1\)</span> in Korthaus approach</li>
 </ul>
 <blockquote>
 <p><strong>A potential numerical issue</strong></p>
-<p>The expression of <span class="math inline">\(h_{1}\)</span> diverges as the porosity <span class="math inline">\(\eta\)</span> tends to the reference porosity <span class="math inline">\(\eta_{0}\)</span>. To avoid numerical issues, a numerical parameter <span class="math inline">\(\Delta\)</span> is introduced in the implementation.</p>
+<p>The expression of <span class="math inline">\(h_{1}\)</span> diverges
+as the porosity <span class="math inline">\(\eta\)</span> tends to the
+reference porosity <span class="math inline">\(\eta_{0}\)</span>. To
+avoid numerical issues, a numerical parameter <span
+class="math inline">\(\Delta\)</span> is introduced in the
+implementation.</p>
 </blockquote>
 <!--
 \marginnote{\esnote{to prevent singularity $\eta= \min{(\eta, \eta_0-\Delta)}$ is to be implemented}\\ \thnote{I thought that \(\eta_{0}\) was an inaccessible reference porosity ? If so, what is the use of \(\Delta\) ?}}[-2cm]
 -->
-<p>The normal <span class="math inline">\(\underline{n}\)</span> to the Green criterion is given by: <span class="math display">\[
+<p>The normal <span class="math inline">\(\underline{n}\)</span> to the
+Green criterion is given by: <span class="math display">\[
 \begin{aligned}
-\underline{n}&amp;={\displaystyle \frac{\displaystyle \partial \sigma_{\mathrm{eq}}}{\displaystyle \partial \underline{\sigma}}}={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2\,\sigma_{\mathrm{eq}}}}}\,{\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial \underline{\sigma}}}{\left(h_1{\left(\eta\right)} \, p^{2}+h_2{\left(\eta\right)} \, q^{2}\right)}\\
-  &amp;={{\displaystyle \frac{\displaystyle 1}{\displaystyle 2\,\sigma_{\mathrm{eq}}}}}{\left(2\,p\,{\displaystyle \frac{\displaystyle \partial p}{\displaystyle \partial \underline{\sigma}}}+2\,q\,{\displaystyle \frac{\displaystyle \partial q}{\displaystyle \partial \underline{\sigma}}}\right)}\\
-  &amp;={{\displaystyle \frac{\displaystyle 1}{\displaystyle \sigma_{\mathrm{eq}}}}}{\left({{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}} \, h_1{\left(\eta\right)} \, p \, \underline{I} + h_2{\left(\eta\right)} \, \underline{s}\right)}
+\underline{n}&amp;={\displaystyle \frac{\displaystyle \partial
+\sigma_{\mathrm{eq}}}{\displaystyle \partial
+\underline{\sigma}}}={{\displaystyle \frac{\displaystyle
+1}{\displaystyle 2\,\sigma_{\mathrm{eq}}}}}\,{\displaystyle
+\frac{\displaystyle \partial }{\displaystyle \partial
+\underline{\sigma}}}{\left(h_1{\left(\eta\right)} \,
+p^{2}+h_2{\left(\eta\right)} \, q^{2}\right)}\\
+  &amp;={{\displaystyle \frac{\displaystyle 1}{\displaystyle
+2\,\sigma_{\mathrm{eq}}}}}{\left(2\,p\,{\displaystyle
+\frac{\displaystyle \partial p}{\displaystyle \partial
+\underline{\sigma}}}+2\,q\,{\displaystyle \frac{\displaystyle \partial
+q}{\displaystyle \partial \underline{\sigma}}}\right)}\\
+  &amp;={{\displaystyle \frac{\displaystyle 1}{\displaystyle
+\sigma_{\mathrm{eq}}}}}{\left({{\displaystyle \frac{\displaystyle
+1}{\displaystyle 3}}} \, h_1{\left(\eta\right)} \, p \, \underline{I} +
+h_2{\left(\eta\right)} \, \underline{s}\right)}
 \end{aligned}
 \]</span></p>
-<p>Finally, the viscoplastic strain rate can be expressed as follows:</p>
+<p>Finally, the viscoplastic strain rate can be expressed as
+follows:</p>
 <p><span id="eq:grain_def1"><span class="math display">\[
- \underline{\dot{\varepsilon}}^{\mathrm{vp}}= A_{\mathrm{vp}} \, \exp{\left(-{{\displaystyle \frac{\displaystyle Q_c}{\displaystyle R_m \, T}}}\right)} \, \sigma_{\mathrm{eq}}^{n_{\mathrm{vp}}}\,\underline{n}
-\qquad(2)\]</span></span></p>
+\underline{\dot{\varepsilon}}^{\mathrm{vp}}= A_{\mathrm{vp}} \,
+\exp{\left(-{{\displaystyle \frac{\displaystyle Q_c}{\displaystyle R_m
+\, T}}}\right)} \, \sigma_{\mathrm{eq}}^{n_{\mathrm{vp}}}\,\underline{n}
+\qquad{(2)}\]</span></span></p>
 <p>with:</p>
 <ul>
-<li><span class="math inline">\(A_{\mathrm{vp}}\)</span>: Norton coefficient</li>
-<li><span class="math inline">\(n_{\mathrm{vp}}\)</span>: Norton exponent</li>
-<li><span class="math inline">\(Q_c\)</span>: activation energy in <span class="math inline">\([J \, mol^{-1}]\)</span></li>
-<li><span class="math inline">\(R_m= 8.314~ J \, mol^{-1} \, K^{-1}\)</span>: gas constant<br />
+<li><span class="math inline">\(A_{\mathrm{vp}}\)</span>: Norton
+coefficient</li>
+<li><span class="math inline">\(n_{\mathrm{vp}}\)</span>: Norton
+exponent</li>
+<li><span class="math inline">\(Q_c\)</span>: activation energy in <span
+class="math inline">\([J \, mol^{-1}]\)</span></li>
+<li><span class="math inline">\(R_m= 8.314~ J \, mol^{-1} \,
+K^{-1}\)</span>: gas constant<br />
 </li>
 <li><span class="math inline">\(T\)</span>: temperature in [K]</li>
 </ul>
 <p>The expression may we rewritten as follows:</p>
 <p><span class="math display">\[
- \underline{\dot{\varepsilon}}^{\mathrm{vp}}= \dot{\varepsilon}_{0} \, \exp{\left(-{{\displaystyle \frac{\displaystyle T_{a}}{\displaystyle T}}}\right)} \, {\left({{\displaystyle \frac{\displaystyle \sigma_{\mathrm{eq}}}{\displaystyle \sigma_{0}}}}\right)}^{n_{\mathrm{vp}}}\,\underline{n}
+\underline{\dot{\varepsilon}}^{\mathrm{vp}}= \dot{\varepsilon}_{0} \,
+\exp{\left(-{{\displaystyle \frac{\displaystyle T_{a}}{\displaystyle
+T}}}\right)} \, {\left({{\displaystyle \frac{\displaystyle
+\sigma_{\mathrm{eq}}}{\displaystyle
+\sigma_{0}}}}\right)}^{n_{\mathrm{vp}}}\,\underline{n}
 \]</span></p>
 <p>where:</p>
 <ul>
-<li><span class="math inline">\(\sigma_{0}\)</span> is a reference equivalent stress that may be chosen arbitrarly.</li>
-<li><span class="math inline">\(\dot{\varepsilon}_{0}\)</span> is a reference strain rate: <span class="math display">\[
+<li><span class="math inline">\(\sigma_{0}\)</span> is a reference
+equivalent stress that may be chosen arbitrarly.</li>
+<li><span class="math inline">\(\dot{\varepsilon}_{0}\)</span> is a
+reference strain rate: <span class="math display">\[
 \dot{\varepsilon}_{0}=A_{\mathrm{vp}}\,\sigma_{0}^{n_{\mathrm{vp}}}
 \]</span></li>
-<li><span class="math inline">\(T_{a}\)</span> is an activation temperature given by: <span class="math display">\[
+<li><span class="math inline">\(T_{a}\)</span> is an activation
+temperature given by: <span class="math display">\[
 T_{a}={{\displaystyle \frac{\displaystyle Q_c}{\displaystyle R_{m}}}}
 \]</span></li>
 </ul>
 <h2 id="porosity-evolution">Porosity evolution</h2>
 <p>The porosity evolution is given by: <span class="math display">\[
-\dot{\eta} = \left(1-\eta\right)\,{\mathrm{tr}{\left(\underline{\dot{\varepsilon}}^{\mathrm{to}}\right)}}
+\dot{\eta} =
+\left(1-\eta\right)\,{\mathrm{tr}{\left(\underline{\dot{\varepsilon}}^{\mathrm{to}}\right)}}
 \]</span></p>
-<p>The porosity is however bounded between <span class="math inline">\(0\)</span> and the reference porosity <span class="math inline">\(\eta_{0}\)</span>.</p>
-<p>This ordinary differential equation can be integrated exactly between <span class="math inline">\(t\)</span> and <span class="math inline">\(t+\theta\,\Delta\,t\)</span> by separation of variables: <span class="math display">\[
-\int_{t}^{t+\theta\,\Delta\,t}{{\displaystyle \frac{\displaystyle \dot{\eta}}{\displaystyle 1-\eta}}}\,\mathrm{d}t =
+<p>The porosity is however bounded between <span
+class="math inline">\(0\)</span> and the reference porosity <span
+class="math inline">\(\eta_{0}\)</span>.</p>
+<p>This ordinary differential equation can be integrated exactly between
+<span class="math inline">\(t\)</span> and <span
+class="math inline">\(t+\theta\,\Delta\,t\)</span> by separation of
+variables: <span class="math display">\[
+\int_{t}^{t+\theta\,\Delta\,t}{{\displaystyle \frac{\displaystyle
+\dot{\eta}}{\displaystyle 1-\eta}}}\,\mathrm{d}t =
 \int_{t}^{t+\theta\,\Delta\,t}{\mathrm{tr}{\left(\underline{\dot{\varepsilon}}^{\mathrm{to}}\right)}}\,\mathrm{d}t
 \Leftrightarrow
--\log{\left({{\displaystyle \frac{\displaystyle 1-{\left.\eta\right|_{t+\theta\,\Delta\,t}}}{\displaystyle 1-{\left.\eta\right|_{t}}}}}\right)} =
+-\log{\left({{\displaystyle \frac{\displaystyle
+1-{\left.\eta\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+1-{\left.\eta\right|_{t}}}}}\right)} =
 \theta\,{\mathrm{tr}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}}
 \]</span></p>
-<p>Finally, the porosity at the middle of the time step and the porosity at the end of time step are given by: <span id="eq:porosity:mts"><span class="math display">\[
-{\left.\eta\right|_{t+\theta\,\Delta\,t}} = 1 - {\left(1-{\left.\eta\right|_{t}}\right)}\,\exp{\left(-\theta\,{\mathrm{tr}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}}\right)}
-\qquad(3)\]</span></span> and <span id="eq:porosity:ets"><span class="math display">\[
-{\left.\eta\right|_{t+\Delta\,t}} = 1 - {\left(1-{\left.\eta\right|_{t}}\right)}\,\exp{\left(-{\mathrm{tr}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}}\right)}
-\qquad(4)\]</span></span></p>
-<p>For the computation of the consistent tangent operator, the expression of the derivatives of those quantities with respect to the total strain increment <span class="math inline">\(\Delta\underline{\varepsilon}^{\mathrm{to}}\)</span> will be required: <span id="eq:porosity:derivatives"><span class="math display">\[
+<p>Finally, the porosity at the middle of the time step and the porosity
+at the end of time step are given by: <span id="eq:porosity:mts"><span
+class="math display">\[
+{\left.\eta\right|_{t+\theta\,\Delta\,t}} = 1 -
+{\left(1-{\left.\eta\right|_{t}}\right)}\,\exp{\left(-\theta\,{\mathrm{tr}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}}\right)}
+\qquad{(3)}\]</span></span> and <span id="eq:porosity:ets"><span
+class="math display">\[
+{\left.\eta\right|_{t+\Delta\,t}} = 1 -
+{\left(1-{\left.\eta\right|_{t}}\right)}\,\exp{\left(-{\mathrm{tr}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}}\right)}
+\qquad{(4)}\]</span></span></p>
+<p>For the computation of the consistent tangent operator, the
+expression of the derivatives of those quantities with respect to the
+total strain increment <span
+class="math inline">\(\Delta\underline{\varepsilon}^{\mathrm{to}}\)</span>
+will be required: <span id="eq:porosity:derivatives"><span
+class="math display">\[
 \left\{
 \begin{aligned}
-{\displaystyle \frac{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}} &amp;=
-{\left(1-{\left.\eta\right|_{t}}\right)}\,\theta\,\exp{\left(-\theta\,{\mathrm{tr}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}}\right)}\,\underline{I} = \theta\,{\left(1-{\left.\eta\right|_{t+\theta\,\Delta\,t}}\right)}\,\underline{I}\\
-{\displaystyle \frac{\displaystyle \partial {\left.\eta\right|_{t+\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}} &amp;=
+{\displaystyle \frac{\displaystyle \partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}} &amp;=
+{\left(1-{\left.\eta\right|_{t}}\right)}\,\theta\,\exp{\left(-\theta\,{\mathrm{tr}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}}\right)}\,\underline{I}
+=
+\theta\,{\left(1-{\left.\eta\right|_{t+\theta\,\Delta\,t}}\right)}\,\underline{I}\\
+{\displaystyle \frac{\displaystyle \partial
+{\left.\eta\right|_{t+\Delta\,t}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}} &amp;=
 {\left(1-{\left.\eta\right|_{t}}\right)}\,\exp{\left({\mathrm{tr}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}}\right)}\,\underline{I}
 = {\left(1-{\left.\eta\right|_{t+\Delta\,t}}\right)}\,\underline{I} \\
 \end{aligned}
 \right.
-\qquad(5)\]</span></span></p>
+\qquad{(5)}\]</span></span></p>
 <h1 id="implementation">Implementation</h1>
-<h2 id="choice-of-the-integration-variable">Choice of the integration variable</h2>
+<h2 id="choice-of-the-integration-variable">Choice of the integration
+variable</h2>
 <p>The elastic strain is the only integration variable required.</p>
 <h2 id="residual">Residual</h2>
-<p>The residual associated with the elastic strain can be expressed as follows:</p>
+<p>The residual associated with the elastic strain can be expressed as
+follows:</p>
 <p><span class="math display">\[
 \begin{aligned}
 f_{\underline{\varepsilon}^{\mathrm{el}}}
-&amp;= \Delta\,\underline{\varepsilon}^{\mathrm{el}}+\Delta\,\underline{\varepsilon}^{\mathrm{vp}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}\\
-&amp;= \Delta\,\underline{\varepsilon}^{\mathrm{el}}+\Delta\,t\,\dot{\varepsilon}_{0} \, \exp{\left(-{{\displaystyle \frac{\displaystyle T_{a}}{\displaystyle {\left.T\right|_{t+\theta\,\Delta\,t}}}}}\right)} \, {\left({{\displaystyle \frac{\displaystyle {\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \sigma_{0}}}}\right)}^{n_{\mathrm{vp}}}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}\\
-&amp;= \Delta\,\underline{\varepsilon}^{\mathrm{el}}+\Delta\,t\,f_{\mathrm{vp}}{\left({\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}\right)}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}
+&amp;=
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}+\Delta\,\underline{\varepsilon}^{\mathrm{vp}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}\\
+&amp;=
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}+\Delta\,t\,\dot{\varepsilon}_{0}
+\, \exp{\left(-{{\displaystyle \frac{\displaystyle T_{a}}{\displaystyle
+{\left.T\right|_{t+\theta\,\Delta\,t}}}}}\right)} \,
+{\left({{\displaystyle \frac{\displaystyle
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\sigma_{0}}}}\right)}^{n_{\mathrm{vp}}}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}\\
+&amp;=
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}+\Delta\,t\,f_{\mathrm{vp}}{\left({\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}\right)}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}
 \end{aligned}
-\]</span> where <span class="math inline">\(f_{\mathrm{vp}}{\left({\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}\right)}=\dot{\varepsilon}_{0} \, \exp{\left(-{{\displaystyle \frac{\displaystyle T_{a}}{\displaystyle {\left.T\right|_{t+\theta\,\Delta\,t}}}}}\right)} \, {\left({{\displaystyle \frac{\displaystyle {\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \sigma_{0}}}}\right)}^{n_{\mathrm{vp}}}\)</span></p>
-<p>The jacobian of the implicit system is given by: <span class="math display">\[
-{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+\]</span> where <span
+class="math inline">\(f_{\mathrm{vp}}{\left({\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}\right)}=\dot{\varepsilon}_{0}
+\, \exp{\left(-{{\displaystyle \frac{\displaystyle T_{a}}{\displaystyle
+{\left.T\right|_{t+\theta\,\Delta\,t}}}}}\right)} \,
+{\left({{\displaystyle \frac{\displaystyle
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\sigma_{0}}}}\right)}^{n_{\mathrm{vp}}}\)</span></p>
+<p>The jacobian of the implicit system is given by: <span
+class="math display">\[
+{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
 =\underline{\underline{\mathbf{I}}}+
-\Delta\,t\,\underline{n}\,\otimes\,{\displaystyle \frac{\displaystyle \partial f_{\mathrm{vp}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}+
-\Delta\,t\,f_{\mathrm{vp}}{\left({\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}\right)}\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+\Delta\,t\,\underline{n}\,\otimes\,{\displaystyle \frac{\displaystyle
+\partial f_{\mathrm{vp}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}}+
+\Delta\,t\,f_{\mathrm{vp}}{\left({\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}\right)}\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
 \]</span></p>
 <p>where:</p>
 <p><span class="math display">\[
 \begin{aligned}
-{\displaystyle \frac{\displaystyle \partial f_{\mathrm{vp}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
-&amp;={\displaystyle \frac{\displaystyle \partial f_{\mathrm{vp}}}{\displaystyle \partial {\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}\,{\displaystyle \frac{\displaystyle \partial {\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\\
-&amp;=\theta\,{\displaystyle \frac{\displaystyle \partial f_{\mathrm{vp}}}{\displaystyle \partial {\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}}\\
-&amp;=\theta\,{\displaystyle \frac{\displaystyle \partial f_{\mathrm{vp}}}{\displaystyle \partial {\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
+{\displaystyle \frac{\displaystyle \partial
+f_{\mathrm{vp}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+&amp;={\displaystyle \frac{\displaystyle \partial
+f_{\mathrm{vp}}}{\displaystyle \partial
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial
+{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial
+{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\\
+&amp;=\theta\,{\displaystyle \frac{\displaystyle \partial
+f_{\mathrm{vp}}}{\displaystyle \partial
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial
+{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}}\\
+&amp;=\theta\,{\displaystyle \frac{\displaystyle \partial
+f_{\mathrm{vp}}}{\displaystyle \partial
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
 \end{aligned}
 \]</span></p>
 <p><span class="math display">\[
 \begin{aligned}
-{\displaystyle \frac{\displaystyle \partial {\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
-&amp;={\displaystyle \frac{\displaystyle \partial {\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\\
-&amp;=\theta\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}}\\
-&amp;=\theta\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
+{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}
+&amp;={\displaystyle \frac{\displaystyle \partial
+{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial
+{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial
+{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\\
+&amp;=\theta\,{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial
+{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial
+{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\theta\,\Delta\,t}}}}\\
+&amp;=\theta\,{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial
+{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\,\colon\,{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\theta\,\Delta\,t}}\\
 \end{aligned}
 \]</span></p>
 <!--
@@ -280,56 +470,184 @@ f_{\underline{\varepsilon}^{\mathrm{el}}}
 \end{aligned}
 \]
 -->
-<h2 id="computation-of-the-consistent-tangent-operator">Computation of the consistent tangent operator</h2>
-<p>While the implementation of the behaviour integration per se is trivial, the computation of the consistent tangent operator is particularly involved.</p>
+<h2 id="computation-of-the-consistent-tangent-operator">Computation of
+the consistent tangent operator</h2>
+<p>While the implementation of the behaviour integration per se is
+trivial, the computation of the consistent tangent operator is
+particularly involved.</p>
 <p><span class="math display">\[
 \begin{aligned}
-{\displaystyle \frac{\displaystyle \partial {\left.\underline{\sigma}\right|_{t+\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
-&amp;= 
-{\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\left[K^{\star}{\left({\left.\eta\right|_{t+\Delta\,t}}\right)}\,{\mathrm{tr}{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\Delta\,t}}\right)}}\,\underline{I}+2\,\mu{\left({\left.\eta\right|_{t+\Delta\,t}}\right)}\,{\left.\underline{s}^{\mathrm{el}}\right|_{t+\Delta\,t}}\,\underline{I}\right]\\
-&amp;= {\mathrm{tr}{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\Delta\,t}}\right)}}\,\underline{I}\,\otimes\,{\displaystyle \frac{\displaystyle \partial K^{\star}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}+
-2\,{\left.\underline{s}^{\mathrm{el}}\right|_{t+\Delta\,t}}\,\otimes\,{\displaystyle \frac{\displaystyle \partial \mu^{\star}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}+
-{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\Delta\,t}}\,\colon\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\\
-&amp;= {\left({\mathrm{tr}{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\Delta\,t}}\right)}}\,{\displaystyle \frac{\displaystyle \partial K^{\star}}{\displaystyle \partial {\left.f\right|_{t+\Delta\,t}}}}\,\underline{I}+
-2\,{\displaystyle \frac{\displaystyle \partial \mu^{\star}}{\displaystyle \partial {\left.f\right|_{t+\Delta\,t}}}}\,{\left.\underline{s}^{\mathrm{el}}\right|_{t+\Delta\,t}}\right)}\,\otimes\,{\displaystyle \frac{\displaystyle \partial {\left.\eta\right|_{t+\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}+
-{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\Delta\,t}}\,\colon\,{\displaystyle \frac{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
+{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{\sigma}\right|_{t+\Delta\,t}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
+&amp;=
+{\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\left[K^{\star}{\left({\left.\eta\right|_{t+\Delta\,t}}\right)}\,{\mathrm{tr}{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\Delta\,t}}\right)}}\,\underline{I}+2\,\mu{\left({\left.\eta\right|_{t+\Delta\,t}}\right)}\,{\left.\underline{s}^{\mathrm{el}}\right|_{t+\Delta\,t}}\,\underline{I}\right]\\
+&amp;=
+{\mathrm{tr}{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\Delta\,t}}\right)}}\,\underline{I}\,\otimes\,{\displaystyle
+\frac{\displaystyle \partial K^{\star}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}+
+2\,{\left.\underline{s}^{\mathrm{el}}\right|_{t+\Delta\,t}}\,\otimes\,{\displaystyle
+\frac{\displaystyle \partial \mu^{\star}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}+
+{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\Delta\,t}}\,\colon\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\Delta\,t}}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\\
+&amp;=
+{\left({\mathrm{tr}{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\Delta\,t}}\right)}}\,{\displaystyle
+\frac{\displaystyle \partial K^{\star}}{\displaystyle \partial
+{\left.f\right|_{t+\Delta\,t}}}}\,\underline{I}+
+2\,{\displaystyle \frac{\displaystyle \partial
+\mu^{\star}}{\displaystyle \partial
+{\left.f\right|_{t+\Delta\,t}}}}\,{\left.\underline{s}^{\mathrm{el}}\right|_{t+\Delta\,t}}\right)}\,\otimes\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\eta\right|_{t+\Delta\,t}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}+
+{\left.\underline{\underline{\mathbf{D}}}\right|_{t+\Delta\,t}}\,\colon\,{\displaystyle
+\frac{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
 \end{aligned}
 \]</span></p>
-<p>The derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\)</span> can be obtained by the implicit function theorem as follows:</p>
+<p>The derivative <span class="math inline">\({\displaystyle
+\frac{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\)</span> can be obtained
+by the implicit function theorem as follows:</p>
 <p><span class="math display">\[
 \begin{aligned}
-&amp;&amp;f_{\underline{\varepsilon}^{\mathrm{el}}}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{el}}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)} = 0\\
-&amp;\Rightarrow&amp;\quad{\displaystyle \frac{\displaystyle \mathrm{d}f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \mathrm{d}\Delta\,\underline{\varepsilon}^{\mathrm{to}}}} = 0\\
+&amp;&amp;f_{\underline{\varepsilon}^{\mathrm{el}}}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{el}}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}
+= 0\\
+&amp;\Rightarrow&amp;\quad{\displaystyle \frac{\displaystyle
+\mathrm{d}f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle
+\mathrm{d}\Delta\,\underline{\varepsilon}^{\mathrm{to}}}} = 0\\
 &amp;\Rightarrow&amp;
-{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\,\colon\,{\displaystyle \frac{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}=-{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\\
+{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\,\colon\,{\displaystyle
+\frac{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}=-{\displaystyle
+\frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\\
 &amp;\Rightarrow&amp;
-{\displaystyle \frac{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}=-{\left({\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\right)}^{-1}\,\colon\,{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
+{\displaystyle \frac{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}=-{\left({\displaystyle
+\frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{el}}}}\right)}^{-1}\,\colon\,{\displaystyle
+\frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
 \end{aligned}
 \]</span></p>
 <p>with:</p>
 <p><span class="math display">\[
 \begin{aligned}
-{\displaystyle \frac{\displaystyle \partial f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
-&amp;=-\underline{\underline{\mathbf{I}}}+\Delta\,t\,{\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\left[f_{\mathrm{vp}}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\right]\\
-&amp;=-\underline{\underline{\mathbf{I}}}+\Delta\,t\,\left[{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\otimes\,{\displaystyle \frac{\displaystyle \partial f_{\mathrm{vp}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}+f_{\mathrm{vp}}\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\right]\\
+{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
+&amp;=-\underline{\underline{\mathbf{I}}}+\Delta\,t\,{\displaystyle
+\frac{\displaystyle \partial }{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\left[f_{\mathrm{vp}}\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\right]\\
+&amp;=-\underline{\underline{\mathbf{I}}}+\Delta\,t\,\left[{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\otimes\,{\displaystyle
+\frac{\displaystyle \partial f_{\mathrm{vp}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}+f_{\mathrm{vp}}\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\right]\\
 &amp;=-\underline{\underline{\mathbf{I}}}+\Delta\,t\,\left[
-{\displaystyle \frac{\displaystyle \partial f_{\mathrm{vp}}}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}}{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}+f_{\mathrm{vp}}\,{\displaystyle \frac{\displaystyle \partial {\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}}\right]\,\otimes\,{\displaystyle \frac{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\\
+{\displaystyle \frac{\displaystyle \partial
+f_{\mathrm{vp}}}{\displaystyle \partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}}{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}+f_{\mathrm{vp}}\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}}\right]\,\otimes\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial
+\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\\
 \end{aligned}
 \]</span></p>
-<p>The derivative of <span class="math inline">\(f_{\mathrm{vp}}\)</span> with respect to the porosity <span class="math inline">\({\left.\eta\right|_{t+\theta\,\Delta\,t}}\)</span> is: <span class="math display">\[
-{\displaystyle \frac{\displaystyle \partial f_{\mathrm{vp}}}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}}={\displaystyle \frac{\displaystyle \partial f_{\mathrm{vp}}}{\displaystyle \partial {\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}\,{\displaystyle \frac{\displaystyle \partial {\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}}
+<p>The derivative of <span
+class="math inline">\(f_{\mathrm{vp}}\)</span> with respect to the
+porosity <span
+class="math inline">\({\left.\eta\right|_{t+\theta\,\Delta\,t}}\)</span>
+is: <span class="math display">\[
+{\displaystyle \frac{\displaystyle \partial
+f_{\mathrm{vp}}}{\displaystyle \partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}}={\displaystyle
+\frac{\displaystyle \partial f_{\mathrm{vp}}}{\displaystyle \partial
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}\,{\displaystyle
+\frac{\displaystyle \partial
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}}
 \]</span></p>
-<p>The partial derivative of the equivalent stress <span class="math inline">\({\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}\)</span> with respect to the porosity <span class="math inline">\({\left.\eta\right|_{t+\theta\,\Delta\,t}}\)</span> step is given by:</p>
+<p>The partial derivative of the equivalent stress <span
+class="math inline">\({\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}\)</span>
+with respect to the porosity <span
+class="math inline">\({\left.\eta\right|_{t+\theta\,\Delta\,t}}\)</span>
+step is given by:</p>
 <p><span class="math display">\[
-{\displaystyle \frac{\displaystyle \partial {\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}} = {{\displaystyle \frac{\displaystyle 1}{\displaystyle 2\,\sigma_{\mathrm{eq}}}}}\left[p^{2}\,{\displaystyle \frac{\displaystyle \partial h_{1}}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}}+q^{2}\,{\displaystyle \frac{\displaystyle \partial h_{2}}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}}\right]
+{\displaystyle \frac{\displaystyle \partial
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}} = {{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+2\,\sigma_{\mathrm{eq}}}}}\left[p^{2}\,{\displaystyle
+\frac{\displaystyle \partial h_{1}}{\displaystyle \partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}}+q^{2}\,{\displaystyle
+\frac{\displaystyle \partial h_{2}}{\displaystyle \partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}}\right]
 \]</span></p>
-<p>The partial derivative of the normal <span class="math inline">\({\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\)</span> with respect to the porosity <span class="math inline">\({\left.\eta\right|_{t+\theta\,\Delta\,t}}\)</span> is given by: <span class="math display">\[
+<p>The partial derivative of the normal <span
+class="math inline">\({\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\)</span>
+with respect to the porosity <span
+class="math inline">\({\left.\eta\right|_{t+\theta\,\Delta\,t}}\)</span>
+is given by: <span class="math display">\[
 \begin{aligned}
-{\displaystyle \frac{\displaystyle \partial {\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}}
-&amp;=&amp;{\displaystyle \frac{\displaystyle \partial }{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}}\left[{{\displaystyle \frac{\displaystyle 1}{\displaystyle {\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}}\,{\left({{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}} \, h_1{\left({\left.\eta\right|_{t+\theta\,\Delta\,t}}\right)} \, p \, \underline{I} + h_2{\left({\left.\eta\right|_{t+\theta\,\Delta\,t}}\right)} \, \underline{s}\right)}\right]\\
-&amp;=&amp;{{\displaystyle \frac{\displaystyle -1}{\displaystyle {\left.\sigma_{\mathrm{eq}}^{2}\right|_{t+\theta\,\Delta\,t}}}}}\,\,{\displaystyle \frac{\displaystyle \partial \sigma_{\mathrm{eq}}}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}}\,{\left({{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}} \, h_1{\left({\left.\eta\right|_{t+\theta\,\Delta\,t}}\right)} \, p \, \underline{I} + h_2{\left({\left.\eta\right|_{t+\theta\,\Delta\,t}}\right)} \, \underline{s}\right)}\\
-&amp;&amp;+{{\displaystyle \frac{\displaystyle 1}{\displaystyle {\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}}\,{\left({{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}} \, {\displaystyle \frac{\displaystyle \partial h_1}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}} \, p \, \underline{I} + {\displaystyle \frac{\displaystyle \partial h_2}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}} \, \underline{s}\right)}\\
-&amp;=&amp;{{\displaystyle \frac{\displaystyle 1}{\displaystyle {\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}}\,\left[{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}} \, {\displaystyle \frac{\displaystyle \partial h_1}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}} \, p \, \underline{I} + {\displaystyle \frac{\displaystyle \partial h_2}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}} \, \underline{s}-{\displaystyle \frac{\displaystyle \partial \sigma_{\mathrm{eq}}}{\displaystyle \partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}}\,{\left.n\right|_{t+\theta\,\Delta\,t}}\right]\\
+{\displaystyle \frac{\displaystyle \partial
+{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}}{\displaystyle
+\partial {\left.\eta\right|_{t+\theta\,\Delta\,t}}}}
+&amp;=&amp;{\displaystyle \frac{\displaystyle \partial }{\displaystyle
+\partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}}\left[{{\displaystyle
+\frac{\displaystyle 1}{\displaystyle
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}}\,{\left({{\displaystyle
+\frac{\displaystyle 1}{\displaystyle 3}}} \,
+h_1{\left({\left.\eta\right|_{t+\theta\,\Delta\,t}}\right)} \, p \,
+\underline{I} +
+h_2{\left({\left.\eta\right|_{t+\theta\,\Delta\,t}}\right)} \,
+\underline{s}\right)}\right]\\
+&amp;=&amp;{{\displaystyle \frac{\displaystyle -1}{\displaystyle
+{\left.\sigma_{\mathrm{eq}}^{2}\right|_{t+\theta\,\Delta\,t}}}}}\,\,{\displaystyle
+\frac{\displaystyle \partial \sigma_{\mathrm{eq}}}{\displaystyle
+\partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}}\,{\left({{\displaystyle
+\frac{\displaystyle 1}{\displaystyle 3}}} \,
+h_1{\left({\left.\eta\right|_{t+\theta\,\Delta\,t}}\right)} \, p \,
+\underline{I} +
+h_2{\left({\left.\eta\right|_{t+\theta\,\Delta\,t}}\right)} \,
+\underline{s}\right)}\\
+&amp;&amp;+{{\displaystyle \frac{\displaystyle 1}{\displaystyle
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}}\,{\left({{\displaystyle
+\frac{\displaystyle 1}{\displaystyle 3}}} \, {\displaystyle
+\frac{\displaystyle \partial h_1}{\displaystyle \partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}} \, p \, \underline{I} +
+{\displaystyle \frac{\displaystyle \partial h_2}{\displaystyle \partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}} \, \underline{s}\right)}\\
+&amp;=&amp;{{\displaystyle \frac{\displaystyle 1}{\displaystyle
+{\left.\sigma_{\mathrm{eq}}\right|_{t+\theta\,\Delta\,t}}}}}\,\left[{{\displaystyle
+\frac{\displaystyle 1}{\displaystyle 3}}} \, {\displaystyle
+\frac{\displaystyle \partial h_1}{\displaystyle \partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}} \, p \, \underline{I} +
+{\displaystyle \frac{\displaystyle \partial h_2}{\displaystyle \partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}} \,
+\underline{s}-{\displaystyle \frac{\displaystyle \partial
+\sigma_{\mathrm{eq}}}{\displaystyle \partial
+{\left.\eta\right|_{t+\theta\,\Delta\,t}}}}\,{\left.n\right|_{t+\theta\,\Delta\,t}}\right]\\
 \end{aligned}
 \]</span></p>
 <!--

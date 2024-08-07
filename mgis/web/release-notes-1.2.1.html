@@ -17,8 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -27,7 +28,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -51,11 +52,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -64,14 +65,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -81,7 +82,9 @@
             <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -167,126 +170,307 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#known-incompatibilites"><span class="toc-section-number">1</span> Known incompatibilites</a></li>
-<li><a href="#new-features"><span class="toc-section-number">2</span> New features</a>
+<li><a href="#known-incompatibilites"
+id="toc-known-incompatibilites"><span
+class="toc-section-number">1</span> Known incompatibilites</a></li>
+<li><a href="#new-features" id="toc-new-features"><span
+class="toc-section-number">2</span> New features</a>
 <ul>
-<li><a href="#sec:mgis:1.2.1:speed_of_sound"><span class="toc-section-number">2.1</span> Computation of the speed of sound</a></li>
-<li><a href="#sec:mgis:1.2.1:MaterialDataManagerInitializer"><span class="toc-section-number">2.2</span> New member in the <code>MaterialDataManagerInitializer</code> class</a></li>
-<li><a href="#sec:mgis:1.2.1:MaterialDataManager"><span class="toc-section-number">2.3</span> New methods of the <code>MaterialDataManager</code> class</a></li>
-<li><a href="#enhancements-to-the-behaviour-integration"><span class="toc-section-number">2.4</span> Enhancements to the behaviour integration</a>
+<li><a href="#sec:mgis:1.2.1:speed_of_sound"
+id="toc-sec:mgis:1.2.1:speed_of_sound"><span
+class="toc-section-number">2.1</span> Computation of the speed of
+sound</a></li>
+<li><a href="#sec:mgis:1.2.1:MaterialDataManagerInitializer"
+id="toc-sec:mgis:1.2.1:MaterialDataManagerInitializer"><span
+class="toc-section-number">2.2</span> New member in the
+<code>MaterialDataManagerInitializer</code> class</a></li>
+<li><a href="#sec:mgis:1.2.1:MaterialDataManager"
+id="toc-sec:mgis:1.2.1:MaterialDataManager"><span
+class="toc-section-number">2.3</span> New methods of the
+<code>MaterialDataManager</code> class</a></li>
+<li><a href="#enhancements-to-the-behaviour-integration"
+id="toc-enhancements-to-the-behaviour-integration"><span
+class="toc-section-number">2.4</span> Enhancements to the behaviour
+integration</a>
 <ul>
-<li><a href="#sec:mgis:1.2.1:K0"><span class="toc-section-number">2.4.1</span> Type of behaviour integration to be performed when using the <code>BehaviourDataView</code> directly</a></li>
-<li><a href="#sec:mgis:1.2.1:behaviour_integration_options"><span class="toc-section-number">2.4.2</span> The <code>BehaviourIntegrationOptions</code> class</a></li>
-<li><a href="#sec:mgis:1.2.1:behaviour_integration_results"><span class="toc-section-number">2.4.3</span> The <code>BehaviourIntegrationResult</code> and <code>MultiThreadedBehaviourIntegrationResult</code> classes</a></li>
-<li><a href="#sec:mgis:1.2.1:integrate"><span class="toc-section-number">2.4.4</span> New overloads of the <code>integrate</code> functions</a></li>
+<li><a href="#sec:mgis:1.2.1:K0" id="toc-sec:mgis:1.2.1:K0"><span
+class="toc-section-number">2.4.1</span> Type of behaviour integration to
+be performed when using the <code>BehaviourDataView</code>
+directly</a></li>
+<li><a href="#sec:mgis:1.2.1:behaviour_integration_options"
+id="toc-sec:mgis:1.2.1:behaviour_integration_options"><span
+class="toc-section-number">2.4.2</span> The
+<code>BehaviourIntegrationOptions</code> class</a></li>
+<li><a href="#sec:mgis:1.2.1:behaviour_integration_results"
+id="toc-sec:mgis:1.2.1:behaviour_integration_results"><span
+class="toc-section-number">2.4.3</span> The
+<code>BehaviourIntegrationResult</code> and
+<code>MultiThreadedBehaviourIntegrationResult</code> classes</a></li>
+<li><a href="#sec:mgis:1.2.1:integrate"
+id="toc-sec:mgis:1.2.1:integrate"><span
+class="toc-section-number">2.4.4</span> New overloads of the
+<code>integrate</code> functions</a></li>
 </ul></li>
-<li><a href="#sec:mgis:1.2.1:api_versioning"><span class="toc-section-number">2.5</span> <code>API</code> versioning</a></li>
-<li><a href="#enhancements-to-the-c-bindings"><span class="toc-section-number">2.6</span> Enhancements to the <code>C</code> bindings</a>
+<li><a href="#sec:mgis:1.2.1:api_versioning"
+id="toc-sec:mgis:1.2.1:api_versioning"><span
+class="toc-section-number">2.5</span> <code>API</code>
+versioning</a></li>
+<li><a href="#enhancements-to-the-c-bindings"
+id="toc-enhancements-to-the-c-bindings"><span
+class="toc-section-number">2.6</span> Enhancements to the <code>C</code>
+bindings</a>
 <ul>
-<li><a href="#new-function-related-to-the-mgis_bv_materialdatamanagerinitializer-data-structure"><span class="toc-section-number">2.6.1</span> New function related to the <code>mgis_bv_MaterialDataManagerInitializer</code> data structure</a></li>
-<li><a href="#new-functions-related-to-the-mgis_bv_materialdatamanager-data-structure"><span class="toc-section-number">2.6.2</span> New functions related to the <code>mgis_bv_MaterialDataManager</code> data structure</a></li>
+<li><a
+href="#new-function-related-to-the-mgis_bv_materialdatamanagerinitializer-data-structure"
+id="toc-new-function-related-to-the-mgis_bv_materialdatamanagerinitializer-data-structure"><span
+class="toc-section-number">2.6.1</span> New function related to the
+<code>mgis_bv_MaterialDataManagerInitializer</code> data
+structure</a></li>
+<li><a
+href="#new-functions-related-to-the-mgis_bv_materialdatamanager-data-structure"
+id="toc-new-functions-related-to-the-mgis_bv_materialdatamanager-data-structure"><span
+class="toc-section-number">2.6.2</span> New functions related to the
+<code>mgis_bv_MaterialDataManager</code> data structure</a></li>
 </ul></li>
-<li><a href="#enhancements-to-the-mgis_behaviour-module"><span class="toc-section-number">2.7</span> Enhancements to the <code>mgis_behaviour</code> module</a>
+<li><a href="#enhancements-to-the-mgis_behaviour-module"
+id="toc-enhancements-to-the-mgis_behaviour-module"><span
+class="toc-section-number">2.7</span> Enhancements to the
+<code>mgis_behaviour</code> module</a>
 <ul>
-<li><a href="#new-function-related-to-the-materialdatamanagerinitializer-data-structure"><span class="toc-section-number">2.7.1</span> New function related to the <code>MaterialDataManagerInitializer</code> data structure</a></li>
+<li><a
+href="#new-function-related-to-the-materialdatamanagerinitializer-data-structure"
+id="toc-new-function-related-to-the-materialdatamanagerinitializer-data-structure"><span
+class="toc-section-number">2.7.1</span> New function related to the
+<code>MaterialDataManagerInitializer</code> data structure</a></li>
 </ul></li>
-<li><a href="#enhancements-to-the-python-bindings"><span class="toc-section-number">2.8</span> Enhancements to the <code>python</code> bindings</a>
+<li><a href="#enhancements-to-the-python-bindings"
+id="toc-enhancements-to-the-python-bindings"><span
+class="toc-section-number">2.8</span> Enhancements to the
+<code>python</code> bindings</a>
 <ul>
-<li><a href="#new-methods-in-the-materialdatamanager-class"><span class="toc-section-number">2.8.1</span> New methods in the <code>MaterialDataManager</code> class</a></li>
-<li><a href="#enhancements-to-the-behaviour-integration-1"><span class="toc-section-number">2.8.2</span> Enhancements to the behaviour integration</a></li>
-<li><a href="#enhancements-to-the-mgis.fenics-module"><span class="toc-section-number">2.8.3</span> Enhancements to the <code>mgis.fenics</code> module</a></li>
+<li><a href="#new-methods-in-the-materialdatamanager-class"
+id="toc-new-methods-in-the-materialdatamanager-class"><span
+class="toc-section-number">2.8.1</span> New methods in the
+<code>MaterialDataManager</code> class</a></li>
+<li><a href="#enhancements-to-the-behaviour-integration-1"
+id="toc-enhancements-to-the-behaviour-integration-1"><span
+class="toc-section-number">2.8.2</span> Enhancements to the behaviour
+integration</a></li>
+<li><a href="#enhancements-to-the-mgis.fenics-module"
+id="toc-enhancements-to-the-mgis.fenics-module"><span
+class="toc-section-number">2.8.3</span> Enhancements to the
+<code>mgis.fenics</code> module</a></li>
 </ul></li>
-<li><a href="#enhancements-to-the-julia-bindings"><span class="toc-section-number">2.9</span> Enhancements to the <code>Julia</code> bindings</a></li>
+<li><a href="#enhancements-to-the-julia-bindings"
+id="toc-enhancements-to-the-julia-bindings"><span
+class="toc-section-number">2.9</span> Enhancements to the
+<code>Julia</code> bindings</a></li>
 </ul></li>
-<li><a href="#issues-solved"><span class="toc-section-number">3</span> Issues solved</a>
+<li><a href="#issues-solved" id="toc-issues-solved"><span
+class="toc-section-number">3</span> Issues solved</a>
 <ul>
-<li><a href="#issue-66-mgis.fenics-missing-update-of-external-state-variables-when-seen-as-ufl-expression"><span class="toc-section-number">3.1</span> Issue #66: <code>mgis.fenics</code>: Missing update of external state variables when seen as UFL expression</a></li>
-<li><a href="#issue-31-sound-velocity-management"><span class="toc-section-number">3.2</span> Issue #31: Sound Velocity management</a></li>
+<li><a
+href="#issue-66-mgis.fenics-missing-update-of-external-state-variables-when-seen-as-ufl-expression"
+id="toc-issue-66-mgis.fenics-missing-update-of-external-state-variables-when-seen-as-ufl-expression"><span
+class="toc-section-number">3.1</span> Issue #66:
+<code>mgis.fenics</code>: Missing update of external state variables
+when seen as UFL expression</a></li>
+<li><a href="#issue-31-sound-velocity-management"
+id="toc-issue-31-sound-velocity-management"><span
+class="toc-section-number">3.2</span> Issue #31: Sound Velocity
+management</a></li>
 </ul></li>
 </ul>
 </div>
-<p>This version is compatible with behaviours generated by Version 3.4.1 of the <code>TFEL/MFront</code> project using the <code>generic</code> interface. More precisely, one expects that the behaviour must conform to the generic behaviour <code>API</code> Version <code>1</code> (See Section 2.5).</p>
-<h1 data-number="1" id="known-incompatibilites"><span class="header-section-number">1</span> Known incompatibilites</h1>
-<p>Reflecting the changes made to the data structures used by the <code>generic</code> behaviour in Version 3.4.1 of the <code>TFEL/MFront</code> project, the <code>API</code> and <code>ABI</code> of <code>MGIS</code> is changed in this version.</p>
-<p>Most changes are hidden to the user in the <code>MaterialDataManager</code> and <code>BehaviourData</code> classes. However, at low level, two main changes are worth noting:</p>
+<p>This version is compatible with behaviours generated by Version 3.4.1
+of the <code>TFEL/MFront</code> project using the <code>generic</code>
+interface. More precisely, one expects that the behaviour must conform
+to the generic behaviour <code>API</code> Version <code>1</code> (See
+Section 2.5).</p>
+<h1 data-number="1" id="known-incompatibilites"><span
+class="header-section-number">1</span> Known incompatibilites</h1>
+<p>Reflecting the changes made to the data structures used by the
+<code>generic</code> behaviour in Version 3.4.1 of the
+<code>TFEL/MFront</code> project, the <code>API</code> and
+<code>ABI</code> of <code>MGIS</code> is changed in this version.</p>
+<p>Most changes are hidden to the user in the
+<code>MaterialDataManager</code> and <code>BehaviourData</code> classes.
+However, at low level, two main changes are worth noting:</p>
 <ul>
-<li>the <code>rdt</code> member of the <code>BehaviourDataView</code> is now a pointer.</li>
-<li>the <code>BehaviourDataView</code> now has a <code>speed_of_sound</code> member (See Section 2.1). This member can be set to <code>nullptr</code> if the computation of the speed of sound is not requested.</li>
-<li>The <code>BehaviourDataView</code> now has an <code>error_message</code> member.</li>
-<li>The meaning of the first entry of the <code>K</code> data member of the <code>BehaviourDataView</code> slightly changed. If <code>K[0]</code> is greater than <code>50</code>, the speed of sound is computed. In this case, the type of behaviour integration to be performed is given by <code>K[0]-50</code>. If <code>K[0]</code> is lower than <code>50</code>, it is interpreted as in previous versions. See Section 2.4.1 for details.</li>
+<li>the <code>rdt</code> member of the <code>BehaviourDataView</code> is
+now a pointer.</li>
+<li>the <code>BehaviourDataView</code> now has a
+<code>speed_of_sound</code> member (See Section 2.1). This member can be
+set to <code>nullptr</code> if the computation of the speed of sound is
+not requested.</li>
+<li>The <code>BehaviourDataView</code> now has an
+<code>error_message</code> member.</li>
+<li>The meaning of the first entry of the <code>K</code> data member of
+the <code>BehaviourDataView</code> slightly changed. If
+<code>K[0]</code> is greater than <code>50</code>, the speed of sound is
+computed. In this case, the type of behaviour integration to be
+performed is given by <code>K[0]-50</code>. If <code>K[0]</code> is
+lower than <code>50</code>, it is interpreted as in previous versions.
+See Section 2.4.1 for details.</li>
 </ul>
-<h1 data-number="2" id="new-features"><span class="header-section-number">2</span> New features</h1>
-<h2 data-number="2.1" id="sec:mgis:1.2.1:speed_of_sound"><span class="header-section-number">2.1</span> Computation of the speed of sound</h2>
-<p>The speed of sound can now be computed by the behaviour. The computation of this value can be requested using the <code>BehaviourIntegrationOptions</code> class (See Section 2.4.2).</p>
-<p>If requested during the behaviour integration, the speed of sound can be retrieved using:</p>
+<h1 data-number="2" id="new-features"><span
+class="header-section-number">2</span> New features</h1>
+<h2 data-number="2.1" id="sec:mgis:1.2.1:speed_of_sound"><span
+class="header-section-number">2.1</span> Computation of the speed of
+sound</h2>
+<p>The speed of sound can now be computed by the behaviour. The
+computation of this value can be requested using the
+<code>BehaviourIntegrationOptions</code> class (See Section 2.4.2).</p>
+<p>If requested during the behaviour integration, the speed of sound can
+be retrieved using:</p>
 <ul>
-<li>The <code>speed_of_sound</code> data member of the <code>BehaviourData</code> class.</li>
-<li>The <code>speed_of_sound</code> data member of the <code>MaterialDataManager</code> class.</li>
+<li>The <code>speed_of_sound</code> data member of the
+<code>BehaviourData</code> class.</li>
+<li>The <code>speed_of_sound</code> data member of the
+<code>MaterialDataManager</code> class.</li>
 </ul>
-<h2 data-number="2.2" id="sec:mgis:1.2.1:MaterialDataManagerInitializer"><span class="header-section-number">2.2</span> New member in the <code>MaterialDataManagerInitializer</code> class</h2>
-<p>The <code>speed_of_sound</code> data member can point ot to an externally allocated memory which will be used to store the speed of sound. If empty, the material data manager will initialize the required memory internally if required.</p>
-<h2 data-number="2.3" id="sec:mgis:1.2.1:MaterialDataManager"><span class="header-section-number">2.3</span> New methods of the <code>MaterialDataManager</code> class</h2>
-<p>The following methods has been added to the <code>MaterialDataManager</code> class:</p>
+<h2 data-number="2.2"
+id="sec:mgis:1.2.1:MaterialDataManagerInitializer"><span
+class="header-section-number">2.2</span> New member in the
+<code>MaterialDataManagerInitializer</code> class</h2>
+<p>The <code>speed_of_sound</code> data member can point ot to an
+externally allocated memory which will be used to store the speed of
+sound. If empty, the material data manager will initialize the required
+memory internally if required.</p>
+<h2 data-number="2.3" id="sec:mgis:1.2.1:MaterialDataManager"><span
+class="header-section-number">2.3</span> New methods of the
+<code>MaterialDataManager</code> class</h2>
+<p>The following methods has been added to the
+<code>MaterialDataManager</code> class:</p>
 <ul>
-<li><code>setThreadSafe</code>: set if the <code>MaterialDataManager</code> must take care of thread-safety. This mostly affects member functions allocating memory. Note that thread-safety mostly refers to the standard way of handling threads, so no thread-safety guarantees are provided if other threading libraries/frameworks (such as <code>OpenMP</code>) are used.</li>
-<li><code>allocateArrayOfTangentOperatorBlocks</code>: allocate the memory associated with the tangent operator blocks.</li>
-<li><code>useExternalArrayOfTangentOperatorBlocks</code>: use an externally allocated memory to store the tangent operator blocks.</li>
-<li><code>releaseArrayOfTangentOperatorBlocks</code>: release the memory associated with the tangent operator blocks.</li>
-<li><code>allocateArrayOfSpeedOfSounds</code>: allocate the memory associated with thespeed of sounds.</li>
-<li><code>useExternalArrayOfSpeedOfSounds</code>: use an externally allocated memory to store thespeed of sounds.</li>
-<li><code>releaseArrayOfSpeedOfSounds</code>: release the memory associated with thespeed of sounds.</li>
-<li><code>getBehaviourIntegrationWorkSpace</code>: return a workspace associated with the behaviour. This method returns a object per thread if thread-safety is ensured by the <code>MaterialDataManager</code> class. This workspace is hold internally. Memory associated with this workspace can be released by the <code>releaseBehaviourIntegrationWorkspaces</code> method.</li>
-<li><code>releaseBehaviourIntegrationWorkspaces</code>: clear behaviour integration workspaces.</li>
+<li><code>setThreadSafe</code>: set if the
+<code>MaterialDataManager</code> must take care of thread-safety. This
+mostly affects member functions allocating memory. Note that
+thread-safety mostly refers to the standard way of handling threads, so
+no thread-safety guarantees are provided if other threading
+libraries/frameworks (such as <code>OpenMP</code>) are used.</li>
+<li><code>allocateArrayOfTangentOperatorBlocks</code>: allocate the
+memory associated with the tangent operator blocks.</li>
+<li><code>useExternalArrayOfTangentOperatorBlocks</code>: use an
+externally allocated memory to store the tangent operator blocks.</li>
+<li><code>releaseArrayOfTangentOperatorBlocks</code>: release the memory
+associated with the tangent operator blocks.</li>
+<li><code>allocateArrayOfSpeedOfSounds</code>: allocate the memory
+associated with thespeed of sounds.</li>
+<li><code>useExternalArrayOfSpeedOfSounds</code>: use an externally
+allocated memory to store thespeed of sounds.</li>
+<li><code>releaseArrayOfSpeedOfSounds</code>: release the memory
+associated with thespeed of sounds.</li>
+<li><code>getBehaviourIntegrationWorkSpace</code>: return a workspace
+associated with the behaviour. This method returns a object per thread
+if thread-safety is ensured by the <code>MaterialDataManager</code>
+class. This workspace is hold internally. Memory associated with this
+workspace can be released by the
+<code>releaseBehaviourIntegrationWorkspaces</code> method.</li>
+<li><code>releaseBehaviourIntegrationWorkspaces</code>: clear behaviour
+integration workspaces.</li>
 </ul>
-<h2 data-number="2.4" id="enhancements-to-the-behaviour-integration"><span class="header-section-number">2.4</span> Enhancements to the behaviour integration</h2>
-<h3 data-number="2.4.1" id="sec:mgis:1.2.1:K0"><span class="header-section-number">2.4.1</span> Type of behaviour integration to be performed when using the <code>BehaviourDataView</code> directly</h3>
-<p>If <code>K[0]</code> is greater than 50, the speed of sound must be computed.</p>
+<h2 data-number="2.4"
+id="enhancements-to-the-behaviour-integration"><span
+class="header-section-number">2.4</span> Enhancements to the behaviour
+integration</h2>
+<h3 data-number="2.4.1" id="sec:mgis:1.2.1:K0"><span
+class="header-section-number">2.4.1</span> Type of behaviour integration
+to be performed when using the <code>BehaviourDataView</code>
+directly</h3>
+<p>If <code>K[0]</code> is greater than 50, the speed of sound must be
+computed.</p>
 <p>Let Ke be equal to:</p>
 <ul>
 <li><code>K[0]</code> - 100 if <code>K[0]</code> is greater than 50</li>
 <li><code>K[0]</code> otherwise.</li>
 </ul>
-<p>If <code>Ke</code> is negative, only the prediction operator is computed and no behaviour integration is performed.</p>
+<p>If <code>Ke</code> is negative, only the prediction operator is
+computed and no behaviour integration is performed.</p>
 <p><code>Ke</code> has the following meaning:</p>
 <ul>
-<li>if <code>Ke</code> is lower than -2.5, the tangent operator must be computed.</li>
-<li>if <code>Ke</code> is in [-2.5:-1.5]: the secant operator must be computed.</li>
-<li>if <code>Ke</code> is in [-1.5:-0.5]: the elastic operator must be computed.</li>
-<li>if <code>Ke</code> is in [-0.5:0.5]: the behaviour integration is performed, but no stiffness matrix is computed.</li>
-<li>if <code>Ke</code> is in [0.5:1.5]: the behaviour integration is performed and the elastic operator must be computed.</li>
-<li>if <code>Ke</code> is in [1.5:2.5]: the behaviour integration is performed and the secant operator must be computed.</li>
-<li>if <code>Ke</code> is in [2.5:3.5]: the behaviour integration is performed and the secant operator must be computed.</li>
-<li>if <code>Ke</code> is greater than 3.5, the behaviour integration is performed and the consistent tangent operator must be computed.</li>
+<li>if <code>Ke</code> is lower than -2.5, the tangent operator must be
+computed.</li>
+<li>if <code>Ke</code> is in [-2.5:-1.5]: the secant operator must be
+computed.</li>
+<li>if <code>Ke</code> is in [-1.5:-0.5]: the elastic operator must be
+computed.</li>
+<li>if <code>Ke</code> is in [-0.5:0.5]: the behaviour integration is
+performed, but no stiffness matrix is computed.</li>
+<li>if <code>Ke</code> is in [0.5:1.5]: the behaviour integration is
+performed and the elastic operator must be computed.</li>
+<li>if <code>Ke</code> is in [1.5:2.5]: the behaviour integration is
+performed and the secant operator must be computed.</li>
+<li>if <code>Ke</code> is in [2.5:3.5]: the behaviour integration is
+performed and the secant operator must be computed.</li>
+<li>if <code>Ke</code> is greater than 3.5, the behaviour integration is
+performed and the consistent tangent operator must be computed.</li>
 </ul>
-<h3 data-number="2.4.2" id="sec:mgis:1.2.1:behaviour_integration_options"><span class="header-section-number">2.4.2</span> The <code>BehaviourIntegrationOptions</code> class</h3>
-<p>New overloads of the <code>integrate</code> functions (See Section 2.4.4) use a new data structure called <code>BehaviourIntegrationOptions</code> to specify the kind of integration to be used, rather than specifying an enumeration of the <code>IntegrationType</code> type.</p>
-<p>The <code>BehaviourIntegrationOptions</code> currently has two data members:</p>
+<h3 data-number="2.4.2"
+id="sec:mgis:1.2.1:behaviour_integration_options"><span
+class="header-section-number">2.4.2</span> The
+<code>BehaviourIntegrationOptions</code> class</h3>
+<p>New overloads of the <code>integrate</code> functions (See Section
+2.4.4) use a new data structure called
+<code>BehaviourIntegrationOptions</code> to specify the kind of
+integration to be used, rather than specifying an enumeration of the
+<code>IntegrationType</code> type.</p>
+<p>The <code>BehaviourIntegrationOptions</code> currently has two data
+members:</p>
 <ul>
-<li><code>integration_type</code> which is an enumeration of the <code>IntegrationType</code> type.</li>
-<li><code>compute_speed_of_sound</code> (boolean). This boolean is <code>false</code> by default.</li>
+<li><code>integration_type</code> which is an enumeration of the
+<code>IntegrationType</code> type.</li>
+<li><code>compute_speed_of_sound</code> (boolean). This boolean is
+<code>false</code> by default.</li>
 </ul>
-<h3 data-number="2.4.3" id="sec:mgis:1.2.1:behaviour_integration_results"><span class="header-section-number">2.4.3</span> The <code>BehaviourIntegrationResult</code> and <code>MultiThreadedBehaviourIntegrationResult</code> classes</h3>
-<p>The new overloads of the <code>integrate</code> functions (See Section 2.4.4) may return an object of the type <code>BehaviourIntegrationResult</code> or and of the type <code>MultiThreadedBehaviourIntegrationResult</code>.</p>
-<p>The <code>BehaviourIntegrationResult</code> contains the result of the integration on a single thread and contains the following data members:</p>
+<h3 data-number="2.4.3"
+id="sec:mgis:1.2.1:behaviour_integration_results"><span
+class="header-section-number">2.4.3</span> The
+<code>BehaviourIntegrationResult</code> and
+<code>MultiThreadedBehaviourIntegrationResult</code> classes</h3>
+<p>The new overloads of the <code>integrate</code> functions (See
+Section 2.4.4) may return an object of the type
+<code>BehaviourIntegrationResult</code> or and of the type
+<code>MultiThreadedBehaviourIntegrationResult</code>.</p>
+<p>The <code>BehaviourIntegrationResult</code> contains the result of
+the integration on a single thread and contains the following data
+members:</p>
 <ul>
 <li><code>exit_status</code>. This data member may have the following:
 <ul>
 <li><code>1</code>: the integration is successful</li>
-<li><code>0</code>: the integration is successful, but a least one Gauss point reported that its result is not reliable. The meaning of unreliable results depends on the behaviour used.</li>
+<li><code>0</code>: the integration is successful, but a least one Gauss
+point reported that its result is not reliable. The meaning of
+unreliable results depends on the behaviour used.</li>
 <li><code>-1</code>: the behaviour integration has failed.</li>
 </ul></li>
-<li><code>time_step_increase_factor</code>. This data member gives a factor that can be used to increase or decrease the time step. This is mostly useful in case of behaviour integration failure.</li>
-<li><code>n</code>, which gives the number of the integration point that failed or number of the last integration point that reported unreliable results. This information can be useful what element leads to difficulties regarding the behaviour integration.</li>
-<li><code>error_message</code>. This data member contains an error message returned by the behaviour in case of failure of the behaviour integration, if any.</li>
+<li><code>time_step_increase_factor</code>. This data member gives a
+factor that can be used to increase or decrease the time step. This is
+mostly useful in case of behaviour integration failure.</li>
+<li><code>n</code>, which gives the number of the integration point that
+failed or number of the last integration point that reported unreliable
+results. This information can be useful what element leads to
+difficulties regarding the behaviour integration.</li>
+<li><code>error_message</code>. This data member contains an error
+message returned by the behaviour in case of failure of the behaviour
+integration, if any.</li>
 </ul>
-<p>The <code>MultiThreadedBehaviourIntegrationResult</code> contains the result of the integration on multiple threads and contains the following data members:</p>
+<p>The <code>MultiThreadedBehaviourIntegrationResult</code> contains the
+result of the integration on multiple threads and contains the following
+data members:</p>
 <ul>
-<li><code>exit_status</code>. This value is the minimum of the exit statuses of all threads.</li>
-<li><code>results</code> which gives the behaviour integration results returned by the resolution on the various threads.</li>
+<li><code>exit_status</code>. This value is the minimum of the exit
+statuses of all threads.</li>
+<li><code>results</code> which gives the behaviour integration results
+returned by the resolution on the various threads.</li>
 </ul>
-<h3 data-number="2.4.4" id="sec:mgis:1.2.1:integrate"><span class="header-section-number">2.4.4</span> New overloads of the <code>integrate</code> functions</h3>
-<p>The following overloads of the <code>integrate</code> functions are now available:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*!</span></span>
+<h3 data-number="2.4.4" id="sec:mgis:1.2.1:integrate"><span
+class="header-section-number">2.4.4</span> New overloads of the
+<code>integrate</code> functions</h3>
+<p>The following overloads of the <code>integrate</code> functions are
+now available:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*!</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">\brief</span><span class="co"> integrate the behaviour for a range of integration points.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">\return</span><span class="co"> the result of the behaviour integration.</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">\param[in,out]</span><span class="co"> </span><span class="cv">m:</span><span class="co"> material data manager</span></span>
@@ -299,11 +483,11 @@
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"> * is automatically allocated.</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>BehaviourIntegrationResult</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>integrate(MaterialDataManager&amp;,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">const</span> BehaviourIntegrationOptions&amp;,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">const</span> real,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">const</span> <span class="dt">size_type</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">const</span> <span class="dt">size_type</span>);</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>integrate<span class="op">(</span>MaterialDataManager<span class="op">&amp;,</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">const</span> BehaviourIntegrationOptions<span class="op">&amp;,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">const</span> real<span class="op">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">const</span> <span class="dt">size_type</span><span class="op">,</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">const</span> <span class="dt">size_type</span><span class="op">);</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">/*!</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">\brief</span><span class="co"> integrate the behaviour over all integration points using a thread</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"> * pool to parallelize the integration.</span></span>
@@ -317,20 +501,46 @@
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"> * is automatically allocated.</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>MultiThreadedBehaviourIntegrationResult</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>integrate(mgis::ThreadPool&amp;,</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>          MaterialDataManager&amp;,</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>          <span class="at">const</span> BehaviourIntegrationOptions&amp;,</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>          <span class="at">const</span> real);</span></code></pre></div>
-<h2 data-number="2.5" id="sec:mgis:1.2.1:api_versioning"><span class="header-section-number">2.5</span> <code>API</code> versioning</h2>
-<p>Version 3.4.1 of <code>TFEL</code> changed the <code>API</code> and <code>ABI</code> of the generic interface. This change may lead to conflicts with the <code>API</code> used by <code>MGIS</code>, notably errors of segmentation.</p>
-<p>The <code>API</code> introduced in Version 3.4.1 of <code>TFEL</code> is said to match Version 1 of the <code>generic</code> behaviour interface. By convention, previous versions are associated with Version 0.</p>
-<p>The behaviours generated by the <code>generic</code> interface now exports their <code>API</code> version. This piece of information can be retrieved by the <code>getAPIVersion</code> of the <code>LibrariesManager</code> class.</p>
-<p>The <code>load</code> function uses this feature to check if the <code>API</code> of the behaviour conforms with the one expected by <code>MGIS</code>.</p>
-<h2 data-number="2.6" id="enhancements-to-the-c-bindings"><span class="header-section-number">2.6</span> Enhancements to the <code>C</code> bindings</h2>
-<h3 data-number="2.6.1" id="new-function-related-to-the-mgis_bv_materialdatamanagerinitializer-data-structure"><span class="header-section-number">2.6.1</span> New function related to the <code>mgis_bv_MaterialDataManagerInitializer</code> data structure</h3>
-<p>The <code>mgis_bv_material_data_manager_initializer_bind_speed_of_sound</code> has been added. It allows to associate a memory area to the computation of the speed of the sound in the <code>mgis_bv_MaterialDataManagerInitializer</code> data structure.</p>
-<h3 data-number="2.6.2" id="new-functions-related-to-the-mgis_bv_materialdatamanager-data-structure"><span class="header-section-number">2.6.2</span> New functions related to the <code>mgis_bv_MaterialDataManager</code> data structure</h3>
-<p>New functions mirroring the new methods introduced in Section 2.3 has been added:</p>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>integrate<span class="op">(</span>mgis<span class="op">::</span>ThreadPool<span class="op">&amp;,</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>          MaterialDataManager<span class="op">&amp;,</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>          <span class="at">const</span> BehaviourIntegrationOptions<span class="op">&amp;,</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>          <span class="at">const</span> real<span class="op">);</span></span></code></pre></div>
+<h2 data-number="2.5" id="sec:mgis:1.2.1:api_versioning"><span
+class="header-section-number">2.5</span> <code>API</code>
+versioning</h2>
+<p>Version 3.4.1 of <code>TFEL</code> changed the <code>API</code> and
+<code>ABI</code> of the generic interface. This change may lead to
+conflicts with the <code>API</code> used by <code>MGIS</code>, notably
+errors of segmentation.</p>
+<p>The <code>API</code> introduced in Version 3.4.1 of <code>TFEL</code>
+is said to match Version 1 of the <code>generic</code> behaviour
+interface. By convention, previous versions are associated with Version
+0.</p>
+<p>The behaviours generated by the <code>generic</code> interface now
+exports their <code>API</code> version. This piece of information can be
+retrieved by the <code>getAPIVersion</code> of the
+<code>LibrariesManager</code> class.</p>
+<p>The <code>load</code> function uses this feature to check if the
+<code>API</code> of the behaviour conforms with the one expected by
+<code>MGIS</code>.</p>
+<h2 data-number="2.6" id="enhancements-to-the-c-bindings"><span
+class="header-section-number">2.6</span> Enhancements to the
+<code>C</code> bindings</h2>
+<h3 data-number="2.6.1"
+id="new-function-related-to-the-mgis_bv_materialdatamanagerinitializer-data-structure"><span
+class="header-section-number">2.6.1</span> New function related to the
+<code>mgis_bv_MaterialDataManagerInitializer</code> data structure</h3>
+<p>The
+<code>mgis_bv_material_data_manager_initializer_bind_speed_of_sound</code>
+has been added. It allows to associate a memory area to the computation
+of the speed of the sound in the
+<code>mgis_bv_MaterialDataManagerInitializer</code> data structure.</p>
+<h3 data-number="2.6.2"
+id="new-functions-related-to-the-mgis_bv_materialdatamanager-data-structure"><span
+class="header-section-number">2.6.2</span> New functions related to the
+<code>mgis_bv_MaterialDataManager</code> data structure</h3>
+<p>New functions mirroring the new methods introduced in Section 2.3 has
+been added:</p>
 <ul>
 <li><code>mgis_bv_material_data_manager_set_thread_safe</code></li>
 <li><code>mgis_bv_material_data_manager_allocate_array_of_tangent_operator_blocks</code></li>
@@ -340,40 +550,92 @@
 <li><code>mgis_bv_material_data_manager_use_external_array_of_speed_of_sounds</code></li>
 <li><code>mgis_bv_material_data_manager_release_array_of_speed_of_sounds</code></li>
 </ul>
-<h2 data-number="2.7" id="enhancements-to-the-mgis_behaviour-module"><span class="header-section-number">2.7</span> Enhancements to the <code>mgis_behaviour</code> module</h2>
-<h3 data-number="2.7.1" id="new-function-related-to-the-materialdatamanagerinitializer-data-structure"><span class="header-section-number">2.7.1</span> New function related to the <code>MaterialDataManagerInitializer</code> data structure</h3>
-<p>The <code>material_data_manager_initializer_bind_speed_of_sound</code> has been added. It allows to associate a memory area to the computation of the speed of the sound in the <code>mgis_bv_MaterialDataManagerInitializer</code> data structure. <code>### New functions related to the</code>MaterialDataManager` data structure</p>
-<p>New functions mirroring the new methods introduced in Section 2.3 has been added:</p>
+<h2 data-number="2.7"
+id="enhancements-to-the-mgis_behaviour-module"><span
+class="header-section-number">2.7</span> Enhancements to the
+<code>mgis_behaviour</code> module</h2>
+<h3 data-number="2.7.1"
+id="new-function-related-to-the-materialdatamanagerinitializer-data-structure"><span
+class="header-section-number">2.7.1</span> New function related to the
+<code>MaterialDataManagerInitializer</code> data structure</h3>
+<p>The
+<code>material_data_manager_initializer_bind_speed_of_sound</code> has
+been added. It allows to associate a memory area to the computation of
+the speed of the sound in the
+<code>mgis_bv_MaterialDataManagerInitializer</code> data structure.
+<code>### New functions related to the</code>MaterialDataManager` data
+structure</p>
+<p>New functions mirroring the new methods introduced in Section 2.3 has
+been added:</p>
 <ul>
 <li><code>material_data_manager_set_thread_safe</code></li>
 <li><code>material_data_manager_allocate_array_of_tangent_operator_blocks</code></li>
-<li><code>material_data_manager_use_array_of_tangent_operator_blocks</code>. Note that this function names differs from its <code>C</code> counterpart du to limitation to the length of <code>Fortran</code> functions.</li>
+<li><code>material_data_manager_use_array_of_tangent_operator_blocks</code>.
+Note that this function names differs from its <code>C</code>
+counterpart du to limitation to the length of <code>Fortran</code>
+functions.</li>
 <li><code>material_data_manager_release_array_of_tangent_operator_blocks</code></li>
 <li><code>material_data_manager_allocate_array_of_speed_of_sounds</code></li>
-<li><code>material_data_manager_use_array_of_speed_of_sounds</code>. Note that this function names differs from its <code>C</code> counterpart for consistency with the <code>material_data_manager_use_array_of_tangent_operator_blocks</code> function.</li>
+<li><code>material_data_manager_use_array_of_speed_of_sounds</code>.
+Note that this function names differs from its <code>C</code>
+counterpart for consistency with the
+<code>material_data_manager_use_array_of_tangent_operator_blocks</code>
+function.</li>
 <li><code>material_data_manager_release_array_of_speed_of_sounds</code></li>
 </ul>
-<h2 data-number="2.8" id="enhancements-to-the-python-bindings"><span class="header-section-number">2.8</span> Enhancements to the <code>python</code> bindings</h2>
-<h3 data-number="2.8.1" id="new-methods-in-the-materialdatamanager-class"><span class="header-section-number">2.8.1</span> New methods in the <code>MaterialDataManager</code> class</h3>
-<p>The methods described in Section 2.3 has been wrapped to <code>python</code>.</p>
-<h3 data-number="2.8.2" id="enhancements-to-the-behaviour-integration-1"><span class="header-section-number">2.8.2</span> Enhancements to the behaviour integration</h3>
-<p>The following classes and functions are now available in <code>python</code>:</p>
+<h2 data-number="2.8" id="enhancements-to-the-python-bindings"><span
+class="header-section-number">2.8</span> Enhancements to the
+<code>python</code> bindings</h2>
+<h3 data-number="2.8.1"
+id="new-methods-in-the-materialdatamanager-class"><span
+class="header-section-number">2.8.1</span> New methods in the
+<code>MaterialDataManager</code> class</h3>
+<p>The methods described in Section 2.3 has been wrapped to
+<code>python</code>.</p>
+<h3 data-number="2.8.2"
+id="enhancements-to-the-behaviour-integration-1"><span
+class="header-section-number">2.8.2</span> Enhancements to the behaviour
+integration</h3>
+<p>The following classes and functions are now available in
+<code>python</code>:</p>
 <ul>
-<li>The <code>BehaviourIntegrationOptions</code> class, described in Section 2.4.2.</li>
-<li>The <code>BehaviourIntegrationResult</code> and <code>MultiThreadedBehaviourIntegrationResult</code> classes, described in Section 2.4.3.</li>
+<li>The <code>BehaviourIntegrationOptions</code> class, described in
+Section 2.4.2.</li>
+<li>The <code>BehaviourIntegrationResult</code> and
+<code>MultiThreadedBehaviourIntegrationResult</code> classes, described
+in Section 2.4.3.</li>
 <li>The <code>integrate</code> functions describe in Section 2.4.4.</li>
 </ul>
-<h3 data-number="2.8.3" id="enhancements-to-the-mgis.fenics-module"><span class="header-section-number">2.8.3</span> Enhancements to the <code>mgis.fenics</code> module</h3>
+<h3 data-number="2.8.3"
+id="enhancements-to-the-mgis.fenics-module"><span
+class="header-section-number">2.8.3</span> Enhancements to the
+<code>mgis.fenics</code> module</h3>
 <ul>
-<li>A <code>set_internal_state_variables</code> is now available to update the values of internal state variables at the beginning of the time step.</li>
-<li><code>linear_solver</code> and <code>preconditioner</code> keywords are now available when performing projection in the ̀get_flux<code>,</code>get_gradient<code>and</code>get_state_variable` methods.</li>
+<li>A <code>set_internal_state_variables</code> is now available to
+update the values of internal state variables at the beginning of the
+time step.</li>
+<li><code>linear_solver</code> and <code>preconditioner</code> keywords
+are now available when performing projection in the
+̀get_flux<code>,</code>get_gradient<code>and</code>get_state_variable`
+methods.</li>
 </ul>
-<h2 data-number="2.9" id="enhancements-to-the-julia-bindings"><span class="header-section-number">2.9</span> Enhancements to the <code>Julia</code> bindings</h2>
-<p>Support for recent version of <code>CxxWrap</code> has been added.</p>
-<h1 data-number="3" id="issues-solved"><span class="header-section-number">3</span> Issues solved</h1>
-<h2 data-number="3.1" id="issue-66-mgis.fenics-missing-update-of-external-state-variables-when-seen-as-ufl-expression"><span class="header-section-number">3.1</span> Issue #66: <code>mgis.fenics</code>: Missing update of external state variables when seen as UFL expression</h2>
-<p>Declaring external state variables as <code>UFL</code> expressions were not properly updated between time steps.</p>
-<h2 data-number="3.2" id="issue-31-sound-velocity-management"><span class="header-section-number">3.2</span> Issue #31: Sound Velocity management</h2>
+<h2 data-number="2.9" id="enhancements-to-the-julia-bindings"><span
+class="header-section-number">2.9</span> Enhancements to the
+<code>Julia</code> bindings</h2>
+<p>Support for recent version of <code>CxxWrap</code> has been
+added.</p>
+<h1 data-number="3" id="issues-solved"><span
+class="header-section-number">3</span> Issues solved</h1>
+<h2 data-number="3.1"
+id="issue-66-mgis.fenics-missing-update-of-external-state-variables-when-seen-as-ufl-expression"><span
+class="header-section-number">3.1</span> Issue #66:
+<code>mgis.fenics</code>: Missing update of external state variables
+when seen as UFL expression</h2>
+<p>Declaring external state variables as <code>UFL</code> expressions
+were not properly updated between time steps.</p>
+<h2 data-number="3.2" id="issue-31-sound-velocity-management"><span
+class="header-section-number">3.2</span> Issue #31: Sound Velocity
+management</h2>
 <p>The speed of sound can now be computed. See section 2.1.</p>
 </body>
 </html>

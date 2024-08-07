@@ -17,7 +17,9 @@
                 <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -102,25 +104,48 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#issues-solved">Issues solved</a>
+<li><a href="#issues-solved" id="toc-issues-solved">Issues solved</a>
 <ul>
-<li><a href="#issue-46-memory-leakage-in-python-bindings">Issue #46: Memory leakage in python bindings</a></li>
-<li><a href="#issue-45-stored-and-dissipated-energies-are-not-updated-properly-when-updating-the-materialdatamanager">Issue #45: Stored and dissipated energies are not updated properly when updating the <code>MaterialDataManager</code></a></li>
+<li><a href="#issue-46-memory-leakage-in-python-bindings"
+id="toc-issue-46-memory-leakage-in-python-bindings">Issue #46: Memory
+leakage in python bindings</a></li>
+<li><a
+href="#issue-45-stored-and-dissipated-energies-are-not-updated-properly-when-updating-the-materialdatamanager"
+id="toc-issue-45-stored-and-dissipated-energies-are-not-updated-properly-when-updating-the-materialdatamanager">Issue
+#45: Stored and dissipated energies are not updated properly when
+updating the <code>MaterialDataManager</code></a></li>
 </ul></li>
 </ul>
 </div>
 <p>Version 1.1.1 is mostly a bug fix release of the 1.1 release.</p>
 <h1 id="issues-solved">Issues solved</h1>
-<h2 id="issue-46-memory-leakage-in-python-bindings">Issue #46: Memory leakage in python bindings</h2>
-<p>The trouble is in the <code>mgis_convert_to_span</code> function which relies on the <code>PyArray_FROM_OTF</code> function to retrieve the data associated with an <code>numpy</code> array. I misread the documentation of this function and though it only retrieves the pointer of the <code>numpy</code> object, but it does more:</p>
+<h2 id="issue-46-memory-leakage-in-python-bindings">Issue #46: Memory
+leakage in python bindings</h2>
+<p>The trouble is in the <code>mgis_convert_to_span</code> function
+which relies on the <code>PyArray_FROM_OTF</code> function to retrieve
+the data associated with an <code>numpy</code> array. I misread the
+documentation of this function and though it only retrieves the pointer
+of the <code>numpy</code> object, but it does more:</p>
 <ul>
-<li>if its argument is a <code>numpy</code> array it increases the internal counter.</li>
-<li>if it is not, it tries to convert the object in a new <code>numpy</code> array.</li>
+<li>if its argument is a <code>numpy</code> array it increases the
+internal counter.</li>
+<li>if it is not, it tries to convert the object in a new
+<code>numpy</code> array.</li>
 </ul>
-<p>In both cases, the counter of the returned object must be decreased at the end of the function, which was not done. Hence the memory leak.</p>
-<p>For details, see <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/46" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/46</a>.</p>
-<h2 id="issue-45-stored-and-dissipated-energies-are-not-updated-properly-when-updating-the-materialdatamanager">Issue #45: Stored and dissipated energies are not updated properly when updating the <code>MaterialDataManager</code></h2>
-<p>The stored and dissipated energies were not updated when updating the <code>MaterialDataManager</code>.</p>
-<p>For details, see <a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/45" class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/45</a>.</p>
+<p>In both cases, the counter of the returned object must be decreased
+at the end of the function, which was not done. Hence the memory
+leak.</p>
+<p>For details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/46"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/46</a>.</p>
+<h2
+id="issue-45-stored-and-dissipated-energies-are-not-updated-properly-when-updating-the-materialdatamanager">Issue
+#45: Stored and dissipated energies are not updated properly when
+updating the <code>MaterialDataManager</code></h2>
+<p>The stored and dissipated energies were not updated when updating the
+<code>MaterialDataManager</code>.</p>
+<p>For details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/45"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/45</a>.</p>
 </body>
 </html>

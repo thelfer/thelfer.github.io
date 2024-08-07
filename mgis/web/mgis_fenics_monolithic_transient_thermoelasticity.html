@@ -18,8 +18,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -28,7 +29,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -52,11 +53,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -65,14 +66,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -82,7 +83,9 @@
             <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -170,138 +173,251 @@
 <div id="TOC">
 true
 </div>
-<p>This demo is a direct transposition of the <a href="https://comet-fenics.readthedocs.io/en/latest/demo/thermoelasticity/thermoelasticity_transient.html">transient thermo-elasticity demo</a> using a pure <code>FEniCS</code> formulation. We will show how to compute fully coupled thermo-mechanical problems using <code>MFront</code>, which can pave the way to more complex thermo-mechanical behaviours including plasticity for instance.</p>
+<p>This demo is a direct transposition of the <a
+href="https://comet-fenics.readthedocs.io/en/latest/demo/thermoelasticity/thermoelasticity_transient.html">transient
+thermo-elasticity demo</a> using a pure <code>FEniCS</code> formulation.
+We will show how to compute fully coupled thermo-mechanical problems
+using <code>MFront</code>, which can pave the way to more complex
+thermo-mechanical behaviours including plasticity for instance.</p>
 <blockquote>
 <p><strong>Source files:</strong></p>
 <ul>
-<li>Jupyter notebook: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/transient_thermoelasticity/mgis_fenics_monolithic_transient_thermoelasticity.ipynb">mgis_fenics_monolithic_transient_thermoelasticity.ipynb</a></li>
-<li>Python file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/transient_thermoelasticity/mgis_fenics_monolithic_transient_thermoelasticity.py">mgis_fenics_monolithic_transient_thermoelasticity.py</a></li>
-<li>MFront behaviour file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/transient_thermoelasticity/ThermoElasticity.mfront">ThermoElasticity.mfront</a></li>
+<li>Jupyter notebook: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/transient_thermoelasticity/mgis_fenics_monolithic_transient_thermoelasticity.ipynb">mgis_fenics_monolithic_transient_thermoelasticity.ipynb</a></li>
+<li>Python file: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/transient_thermoelasticity/mgis_fenics_monolithic_transient_thermoelasticity.py">mgis_fenics_monolithic_transient_thermoelasticity.py</a></li>
+<li>MFront behaviour file: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/transient_thermoelasticity/ThermoElasticity.mfront">ThermoElasticity.mfront</a></li>
 </ul>
 </blockquote>
 <h1 id="constitutive-equations">Constitutive equations</h1>
-<p>The constitutive equations are derived from the following expression of the Gibbs free energy:</p>
+<p>The constitutive equations are derived from the following expression
+of the Gibbs free energy:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\rho\,\Phi{\left(\boldsymbol{\varepsilon}^{\mathrm{to}},T\right)}&amp;={{\displaystyle \frac{\displaystyle \lambda}{\displaystyle 2}}}\,{\left({\mathrm{tr}{\left(\boldsymbol{\varepsilon}^{\mathrm{to}}\right)}}-3\,\alpha\,{\left(T-T^{\mathrm{ref}}\right)}\right)}^2+
+\rho\,\Phi{\left(\boldsymbol{\varepsilon}^{\mathrm{to}},T\right)}&amp;={{\displaystyle
+\frac{\displaystyle \lambda}{\displaystyle
+2}}}\,{\left({\mathrm{tr}{\left(\boldsymbol{\varepsilon}^{\mathrm{to}}\right)}}-3\,\alpha\,{\left(T-T^{\mathrm{ref}}\right)}\right)}^2+
 \mu\,{\left(\boldsymbol{\varepsilon}^{\mathrm{to}}-\alpha\,{\left(T-T^{\mathrm{ref}}\right)}\,\mathbf{I}\right)}\,\colon\,{\left(\boldsymbol{\varepsilon}^{\mathrm{to}}-\alpha\,{\left(T-T^{\mathrm{ref}}\right)}\,\mathbf{I}\right)}\\
-&amp;+{{\displaystyle \frac{\displaystyle \rho\,C_{\varepsilon}}{\displaystyle 2\,T^{\mathrm{ref}}}}}\,{\left(T-T^{\mathrm{ref}}\right)}^2+s_{0}\,{\left(T-T^{\mathrm{ref}}\right)}
+&amp;+{{\displaystyle \frac{\displaystyle
+\rho\,C_{\varepsilon}}{\displaystyle
+2\,T^{\mathrm{ref}}}}}\,{\left(T-T^{\mathrm{ref}}\right)}^2+s_{0}\,{\left(T-T^{\mathrm{ref}}\right)}
 \end{aligned}
 \]</span></p>
 <p>where:</p>
 <ul>
-<li><span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\mu\)</span> are the Lamé coefficients</li>
+<li><span class="math inline">\(\lambda\)</span> and <span
+class="math inline">\(\mu\)</span> are the Lamé coefficients</li>
 <li><span class="math inline">\(\rho\)</span> is the mass density</li>
-<li><span class="math inline">\(\alpha\)</span> is mean linear thermal expansion coefficient</li>
-<li><span class="math inline">\(C_{\varepsilon}\)</span> is the specific heat at constant strain (per unit of mass).</li>
+<li><span class="math inline">\(\alpha\)</span> is mean linear thermal
+expansion coefficient</li>
+<li><span class="math inline">\(C_{\varepsilon}\)</span> is the specific
+heat at constant strain (per unit of mass).</li>
 </ul>
-<p>This expression leads to the following expressions of the stress tensor <span class="math inline">\(\boldsymbol{\sigma}\)</span> and entropy per unit of mass <span class="math inline">\(s\)</span>:</p>
+<p>This expression leads to the following expressions of the stress
+tensor <span class="math inline">\(\boldsymbol{\sigma}\)</span> and
+entropy per unit of mass <span class="math inline">\(s\)</span>:</p>
 <p><span id="eq:constitutive_equations"><span class="math display">\[
 \begin{aligned}
-\boldsymbol{\sigma}&amp;=\rho \dfrac{\partial \Phi}{\partial \boldsymbol{\varepsilon}^{\mathrm{to}}}=\lambda\,{\mathrm{tr}{\left(\boldsymbol{\varepsilon}^{\mathrm{to}}\right)}}\,\mathbf{I}+2\,\mu\,\boldsymbol{\varepsilon}^{\mathrm{to}}-\kappa\,{\left(T-T^{\mathrm{ref}}\right)}\,\mathbf{I}\\
-s&amp;={\displaystyle \frac{\displaystyle \partial \Phi}{\displaystyle \partial T}}={{\displaystyle \frac{\displaystyle C_{\varepsilon}}{\displaystyle T^{\mathrm{ref}}}}}\,{\left(T-T^{\mathrm{ref}}\right)}+{{\displaystyle \frac{\displaystyle \kappa}{\displaystyle \rho}}}\,{\mathrm{tr}{\left(\boldsymbol{\varepsilon}^{\mathrm{to}}\right)}}\\
+\boldsymbol{\sigma}&amp;=\rho \dfrac{\partial \Phi}{\partial
+\boldsymbol{\varepsilon}^{\mathrm{to}}}=\lambda\,{\mathrm{tr}{\left(\boldsymbol{\varepsilon}^{\mathrm{to}}\right)}}\,\mathbf{I}+2\,\mu\,\boldsymbol{\varepsilon}^{\mathrm{to}}-\kappa\,{\left(T-T^{\mathrm{ref}}\right)}\,\mathbf{I}\\
+s&amp;={\displaystyle \frac{\displaystyle \partial \Phi}{\displaystyle
+\partial T}}={{\displaystyle \frac{\displaystyle
+C_{\varepsilon}}{\displaystyle
+T^{\mathrm{ref}}}}}\,{\left(T-T^{\mathrm{ref}}\right)}+{{\displaystyle
+\frac{\displaystyle \kappa}{\displaystyle
+\rho}}}\,{\mathrm{tr}{\left(\boldsymbol{\varepsilon}^{\mathrm{to}}\right)}}\\
 \end{aligned}
-\qquad(1)\]</span></span></p>
-<p>where <span class="math inline">\(\kappa=\alpha\,{\left(3\,\lambda+2\,\mu\right)}\)</span>.</p>
-<p>The heat flux <span class="math inline">\(\mathbf{j}\)</span> is related to the temperature gradient <span class="math inline">\(\nabla\, T\)</span> by the linear Fourier law:</p>
+\qquad{(1)}\]</span></span></p>
+<p>where <span
+class="math inline">\(\kappa=\alpha\,{\left(3\,\lambda+2\,\mu\right)}\)</span>.</p>
+<p>The heat flux <span class="math inline">\(\mathbf{j}\)</span> is
+related to the temperature gradient <span class="math inline">\(\nabla\,
+T\)</span> by the linear Fourier law:</p>
 <p><span id="eq:constitutive_equations_2"><span class="math display">\[
 \mathbf{j}=-k\,\nabla\, T
-\qquad(2)\]</span></span></p>
+\qquad{(2)}\]</span></span></p>
 <h1 id="mfront-implementation"><code>MFront</code> implementation</h1>
-<h2 id="choice-of-the-domain-specific-language">Choice of the domain specific language</h2>
-<p>The constitutive equations (1) and (2) exhibit an explicit expression of the thermodynamic forces <span class="math inline">\({\left(\boldsymbol{\sigma}\, \mathbf{j}, s\right)}\)</span> as a function of the gradients <span class="math inline">\({\left(\boldsymbol{\varepsilon}^{\mathrm{to}}, \nabla T, T\right)}\)</span>.</p>
-<p>The most suitable domain specific language for this kind of behaviour if the <code>DefaultGenericBehaviour</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultGenericBehaviour;</span></code></pre></div>
+<h2 id="choice-of-the-domain-specific-language">Choice of the domain
+specific language</h2>
+<p>The constitutive equations (1) and (2) exhibit an explicit expression
+of the thermodynamic forces <span
+class="math inline">\({\left(\boldsymbol{\sigma}\, \mathbf{j},
+s\right)}\)</span> as a function of the gradients <span
+class="math inline">\({\left(\boldsymbol{\varepsilon}^{\mathrm{to}},
+\nabla T, T\right)}\)</span>.</p>
+<p>The most suitable domain specific language for this kind of behaviour
+if the <code>DefaultGenericBehaviour</code>.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultGenericBehaviour<span class="op">;</span></span></code></pre></div>
 <h2 id="name-of-the-behaviour">Name of the behaviour</h2>
-<p>The <code>@Behaviour</code> keyword allows giving the name of the behaviour:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour ThermoElasticity;</span></code></pre></div>
+<p>The <code>@Behaviour</code> keyword allows giving the name of the
+behaviour:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour ThermoElasticity<span class="op">;</span></span></code></pre></div>
 <h2 id="metadata">Metadata</h2>
-<p>The following lines add some metadata (authors of the implementation, date, description):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer, Jérémy Bleyer;</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">19</span>/<span class="bn">04</span>/<span class="dv">2020</span>;</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description {</span>
+<p>The following lines add some metadata (authors of the implementation,
+date, description):</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer<span class="op">,</span> Jérémy Bleyer<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">19</span><span class="op">/</span><span class="bn">04</span><span class="op">/</span><span class="dv">2020</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description <span class="op">{</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  This simple thermoelastic behaviour allows to perform</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  fully coupled thermo-mechanical resolutions.</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  fully coupled thermo<span class="op">-</span>mechanical resolutions<span class="op">.</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  See https:<span class="co">//comet-fenics.readthedocs.io/ for details.</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<h2 id="definition-of-the-gradients-and-conjugated-thermodynamic-forces">Definition of the gradients and conjugated thermodynamic forces</h2>
-<p>The gradients are the strain <span class="math inline">\(\boldsymbol{\varepsilon}^{\mathrm{to}}\)</span>, the temperature gradient <span class="math inline">\(\nabla\,T\)</span> and the temperature. The associated thermodynamic forces are respectively the stress <span class="math inline">\(\boldsymbol{\sigma}\)</span>, the heat flux <span class="math inline">\(\mathbf{j}\)</span> and the entropy <span class="math inline">\(s\)</span>.</p>
-<p><span class="math inline">\(\boldsymbol{\varepsilon}^{\mathrm{to}}\)</span>, <span class="math inline">\(\nabla\,T\)</span>, <span class="math inline">\(\boldsymbol{\sigma}\)</span> and <span class="math inline">\(\mathbf{j}\)</span> are declared as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient StrainStensor εᵗᵒ;</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>εᵗᵒ.setGlossaryName(<span class="st">&quot;Strain&quot;</span>);</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  See https<span class="op">:</span><span class="co">//comet-fenics.readthedocs.io/ for details.</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h2
+id="definition-of-the-gradients-and-conjugated-thermodynamic-forces">Definition
+of the gradients and conjugated thermodynamic forces</h2>
+<p>The gradients are the strain <span
+class="math inline">\(\boldsymbol{\varepsilon}^{\mathrm{to}}\)</span>,
+the temperature gradient <span class="math inline">\(\nabla\,T\)</span>
+and the temperature. The associated thermodynamic forces are
+respectively the stress <span
+class="math inline">\(\boldsymbol{\sigma}\)</span>, the heat flux <span
+class="math inline">\(\mathbf{j}\)</span> and the entropy <span
+class="math inline">\(s\)</span>.</p>
+<p><span
+class="math inline">\(\boldsymbol{\varepsilon}^{\mathrm{to}}\)</span>,
+<span class="math inline">\(\nabla\,T\)</span>, <span
+class="math inline">\(\boldsymbol{\sigma}\)</span> and <span
+class="math inline">\(\mathbf{j}\)</span> are declared as follows:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient StrainStensor εᵗᵒ<span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>εᵗᵒ<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;Strain&quot;</span><span class="op">);</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ThermodynamicForce StressStensor σ;</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>σ.setGlossaryName(<span class="st">&quot;Stress&quot;</span>);</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ThermodynamicForce StressStensor σ<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>σ<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;Stress&quot;</span><span class="op">);</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient TemperatureGradient ∇T;</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>∇T.setGlossaryName(<span class="st">&quot;TemperatureGradient&quot;</span>);</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient TemperatureGradient ∇T<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>∇T<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;TemperatureGradient&quot;</span><span class="op">);</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ThermodynamicForce HeatFlux j;</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>j.setGlossaryName(<span class="st">&quot;HeatFlux&quot;</span>);</span></code></pre></div>
-<p>The glossary names are the names seen from the calling solver. Glossary names are described on <a href="http://tfel.sourceforge.net/glossary.html">this page</a>.</p>
-<p>Due to a <code>MFront</code> convention, the temperature is automatically declared as an external state variable. For this reason, the entropy is declared as a state variable:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real s;</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>s.setEntryName(<span class="st">&quot;EntropyPerUnitOfMass&quot;</span>);</span></code></pre></div>
-<p>In the current version of <code>MFront</code>, there is no glossary name associated with the entropy per unit of mass. In this case, the <code>setEntryName</code> is used to associate a name to this variable.</p>
-<h2 id="declaration-of-the-tangent-operator-blocks">Declaration of the tangent operator blocks</h2>
-<p>By default, all the derivatives of the thermodynamic forces with respect to the increments of the gradients are declared as tangent operator blocks, i.e. derivatives that are meant to be used when building the stiffness matrix at the structural scale.</p>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ThermodynamicForce HeatFlux j<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>j<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;HeatFlux&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>The glossary names are the names seen from the calling solver.
+Glossary names are described on <a
+href="http://tfel.sourceforge.net/glossary.html">this page</a>.</p>
+<p>Due to a <code>MFront</code> convention, the temperature is
+automatically declared as an external state variable. For this reason,
+the entropy is declared as a state variable:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real s<span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;EntropyPerUnitOfMass&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>In the current version of <code>MFront</code>, there is no glossary
+name associated with the entropy per unit of mass. In this case, the
+<code>setEntryName</code> is used to associate a name to this
+variable.</p>
+<h2 id="declaration-of-the-tangent-operator-blocks">Declaration of the
+tangent operator blocks</h2>
+<p>By default, all the derivatives of the thermodynamic forces with
+respect to the increments of the gradients are declared as tangent
+operator blocks, i.e. derivatives that are meant to be used when
+building the stiffness matrix at the structural scale.</p>
 <p>In this case, this is not appropriate as:</p>
 <ul>
-<li>some derivatives are known to be null, such as <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \boldsymbol{\sigma}}{\displaystyle \partial \Delta\,\nabla\,T}}\)</span> and <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \mathbf{j}}{\displaystyle \partial \Delta\,\boldsymbol{\varepsilon}^{\mathrm{to}}}}\)</span>.</li>
-<li>the derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial s}{\displaystyle \partial \Delta\,\boldsymbol{\varepsilon}^{\mathrm{to}}}}\)</span> of the entropy with respect to strain and the derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial s}{\displaystyle \partial \Delta\,T}}\)</span> of the entropy with respect to the temperature are also required.</li>
+<li>some derivatives are known to be null, such as <span
+class="math inline">\({\displaystyle \frac{\displaystyle \partial
+\boldsymbol{\sigma}}{\displaystyle \partial \Delta\,\nabla\,T}}\)</span>
+and <span class="math inline">\({\displaystyle \frac{\displaystyle
+\partial \mathbf{j}}{\displaystyle \partial
+\Delta\,\boldsymbol{\varepsilon}^{\mathrm{to}}}}\)</span>.</li>
+<li>the derivative <span class="math inline">\({\displaystyle
+\frac{\displaystyle \partial s}{\displaystyle \partial
+\Delta\,\boldsymbol{\varepsilon}^{\mathrm{to}}}}\)</span> of the entropy
+with respect to strain and the derivative <span
+class="math inline">\({\displaystyle \frac{\displaystyle \partial
+s}{\displaystyle \partial \Delta\,T}}\)</span> of the entropy with
+respect to the temperature are also required.</li>
 </ul>
-<p>The required tangent operator blocks are therefore explicitly requested:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperatorBlocks{∂σ∕∂Δεᵗᵒ, ∂σ∕∂ΔT, ∂s∕∂ΔT, ∂s∕∂Δεᵗᵒ, ∂j∕∂Δ∇T};</span></code></pre></div>
-<h2 id="declaration-of-the-reference-temperature">Declaration of the reference temperature</h2>
-<p>The reference temperature is declared using the <code>@StaticVariable</code> keyword:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StaticVariable temperature Tʳᵉᶠ = <span class="fl">293.15</span>;</span></code></pre></div>
-<p>Internally <code>Tʳᵉᶠ</code> is hold in an immutable static variable.</p>
-<h2 id="declaration-of-the-material-coefficients">Declaration of the material coefficients</h2>
+<p>The required tangent operator blocks are therefore explicitly
+requested:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperatorBlocks<span class="op">{</span>∂σ∕∂Δεᵗᵒ<span class="op">,</span> ∂σ∕∂ΔT<span class="op">,</span> ∂s∕∂ΔT<span class="op">,</span> ∂s∕∂Δεᵗᵒ<span class="op">,</span> ∂j∕∂Δ∇T<span class="op">};</span></span></code></pre></div>
+<h2 id="declaration-of-the-reference-temperature">Declaration of the
+reference temperature</h2>
+<p>The reference temperature is declared using the
+<code>@StaticVariable</code> keyword:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StaticVariable temperature Tʳᵉᶠ <span class="op">=</span> <span class="fl">293.15</span><span class="op">;</span></span></code></pre></div>
+<p>Internally <code>Tʳᵉᶠ</code> is hold in an immutable static
+variable.</p>
+<h2 id="declaration-of-the-material-coefficients">Declaration of the
+material coefficients</h2>
 <p>The various material coefficients are now declared as parameters:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress E = <span class="fl">70e3</span>;</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>E.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real ν = <span class="fl">0.3</span>;</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>ν.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter massdensity ρ = <span class="fl">2700.</span>;</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>ρ.setGlossaryName(<span class="st">&quot;MassDensity&quot;</span>);</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter thermalconductivity α = <span class="fl">2.31e-5</span> ;</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>α.setGlossaryName(<span class="st">&quot;ThermalExpansion&quot;</span>);</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real Cₑ = <span class="fl">910e-6</span>;</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>Cₑ.setEntryName(<span class="st">&quot;SpecificHeatAtConstantStrainPerUnitOfMass&quot;</span>);</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter thermalconductivity k = <span class="fl">237e-6</span>;</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>k.setGlossaryName(<span class="st">&quot;ThermalConductivity&quot;</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress E <span class="op">=</span> <span class="fl">70e3</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>E<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;YoungModulus&quot;</span><span class="op">);</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real ν <span class="op">=</span> <span class="fl">0.3</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>ν<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;PoissonRatio&quot;</span><span class="op">);</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter massdensity ρ <span class="op">=</span> <span class="fl">2700.</span><span class="op">;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>ρ<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;MassDensity&quot;</span><span class="op">);</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter thermalconductivity α <span class="op">=</span> <span class="fl">2.31e-5</span> <span class="op">;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>α<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;ThermalExpansion&quot;</span><span class="op">);</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real Cₑ <span class="op">=</span> <span class="fl">910e-6</span><span class="op">;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>Cₑ<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;SpecificHeatAtConstantStrainPerUnitOfMass&quot;</span><span class="op">);</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter thermalconductivity k <span class="op">=</span> <span class="fl">237e-6</span><span class="op">;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>k<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;ThermalConductivity&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>Parameters are global values that can be modified at runtime.</p>
-<h2 id="computation-of-the-thermodynamic-forces-and-tangent-operator-blocks">Computation of the thermodynamic forces and tangent operator blocks</h2>
-<p>The computation of the thermodynamic forces and tangent operator blocks is implemented in the <code>@Integrator</code> code block:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span></code></pre></div>
-<p>First, the Lamé coefficients are computed using the built-in <code>computeLambda</code> and <code>computeMu</code> functions and then we compute the <span class="math inline">\(\kappa\)</span> factor:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ = computeLambda(E, ν);</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ = computeMu(E, ν);</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> κ = α ⋅ (<span class="dv">2</span> ⋅ μ + <span class="dv">3</span> ⋅ λ);</span></code></pre></div>
-<p>For brevity, we compute the strain at the end of the time step as follows:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ε = εᵗᵒ + Δεᵗᵒ;</span></code></pre></div>
-<p>The computation of the thermodynamic forces is then straightforward and closely looks like the constitutive equations (1) and (2):</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  σ = λ ⋅ trace(ε) ⋅ I₂ + <span class="dv">2</span> ⋅ μ ⋅ ε - κ ⋅ (T + ΔT - Tʳᵉᶠ) ⋅ I₂;</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  s = Cₑ / Tʳᵉᶠ ⋅ (T + ΔT - Tʳᵉᶠ) + (κ / ρ) ⋅ trace(ε);</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  j = -k ⋅ (∇T + Δ∇T);</span></code></pre></div>
-<p>The computation of the consistent tangent operator is only required if the <code>computeTangentOperator_</code> boolean value is true. Again, their computations is straightforward [2]:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="va">computeTangentOperator_</span>) {</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    ∂σ∕∂Δεᵗᵒ = λ ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ μ ⋅ I₄;</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    ∂σ∕∂ΔT = -κ ⋅ I₂;</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    ∂s∕∂ΔT = Cₑ / Tʳᵉᶠ;</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    ∂s∕∂Δεᵗᵒ = κ ⋅ Cₑ / Tʳᵉᶠ ⋅ I₂;</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    ∂j∕∂Δ∇T = -k ⋅ tmatrix&lt;N, N, real&gt;::Id();</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
-<p>A final curly bracket then ends the <code>@Integrator</code> code block:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>[1] We may also note that those blocks are third order tensors that are not yet supported by <code>MFront</code>.</p>
-<p>[2] <code>N</code> is the space dimension. <code>real</code> is a type alias to the numeric type used, which depends on the interface used.</p>
+<h2
+id="computation-of-the-thermodynamic-forces-and-tangent-operator-blocks">Computation
+of the thermodynamic forces and tangent operator blocks</h2>
+<p>The computation of the thermodynamic forces and tangent operator
+blocks is implemented in the <code>@Integrator</code> code block:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator<span class="op">{</span></span></code></pre></div>
+<p>First, the Lamé coefficients are computed using the built-in
+<code>computeLambda</code> and <code>computeMu</code> functions and then
+we compute the <span class="math inline">\(\kappa\)</span> factor:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ <span class="op">=</span> computeLambda<span class="op">(</span>E<span class="op">,</span> ν<span class="op">);</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ <span class="op">=</span> computeMu<span class="op">(</span>E<span class="op">,</span> ν<span class="op">);</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> κ <span class="op">=</span> α ⋅ <span class="op">(</span><span class="dv">2</span> ⋅ μ <span class="op">+</span> <span class="dv">3</span> ⋅ λ<span class="op">);</span></span></code></pre></div>
+<p>For brevity, we compute the strain at the end of the time step as
+follows:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ε <span class="op">=</span> εᵗᵒ <span class="op">+</span> Δεᵗᵒ<span class="op">;</span></span></code></pre></div>
+<p>The computation of the thermodynamic forces is then straightforward
+and closely looks like the constitutive equations (1) and (2):</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  σ <span class="op">=</span> λ ⋅ trace<span class="op">(</span>ε<span class="op">)</span> ⋅ I₂ <span class="op">+</span> <span class="dv">2</span> ⋅ μ ⋅ ε <span class="op">-</span> κ ⋅ <span class="op">(</span>T <span class="op">+</span> ΔT <span class="op">-</span> Tʳᵉᶠ<span class="op">)</span> ⋅ I₂<span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  s <span class="op">=</span> Cₑ <span class="op">/</span> Tʳᵉᶠ ⋅ <span class="op">(</span>T <span class="op">+</span> ΔT <span class="op">-</span> Tʳᵉᶠ<span class="op">)</span> <span class="op">+</span> <span class="op">(</span>κ <span class="op">/</span> ρ<span class="op">)</span> ⋅ trace<span class="op">(</span>ε<span class="op">);</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  j <span class="op">=</span> <span class="op">-</span>k ⋅ <span class="op">(</span>∇T <span class="op">+</span> Δ∇T<span class="op">);</span></span></code></pre></div>
+<p>The computation of the consistent tangent operator is only required
+if the <code>computeTangentOperator_</code> boolean value is true.
+Again, their computations is straightforward [2]:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span><span class="va">computeTangentOperator_</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    ∂σ∕∂Δεᵗᵒ <span class="op">=</span> λ ⋅ <span class="op">(</span>I₂ ⊗ I₂<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span> ⋅ μ ⋅ I₄<span class="op">;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    ∂σ∕∂ΔT <span class="op">=</span> <span class="op">-</span>κ ⋅ I₂<span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    ∂s∕∂ΔT <span class="op">=</span> Cₑ <span class="op">/</span> Tʳᵉᶠ<span class="op">;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    ∂s∕∂Δεᵗᵒ <span class="op">=</span> κ ⋅ Cₑ <span class="op">/</span> Tʳᵉᶠ ⋅ I₂<span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    ∂j∕∂Δ∇T <span class="op">=</span> <span class="op">-</span>k ⋅ tmatrix<span class="op">&lt;</span>N<span class="op">,</span> N<span class="op">,</span> real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span></code></pre></div>
+<p>A final curly bracket then ends the <code>@Integrator</code> code
+block:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>[1] We may also note that those blocks are third order tensors that
+are not yet supported by <code>MFront</code>.</p>
+<p>[2] <code>N</code> is the space dimension. <code>real</code> is a
+type alias to the numeric type used, which depends on the interface
+used.</p>
 <h1 id="fenics-implementation"><code>FEniCS</code> implementation</h1>
 <h2 id="problem-position">Problem position</h2>
-<p>The problem consists of a quarter of a square plate perforated by a circular hole. A temperature increase of <span class="math inline">\(\Delta T=+10^{\circ}\text{C}\)</span> will be applied on the hole boundary. Symmetry conditions are applied on the corresponding symmetry planes and stress and flux-free boundary conditions are adopted on the plate outer boundary. Similarly to the <a href="https://comet-fenics.readthedocs.io/en/latest/demo/thermoelasticity/thermoelasticity_transient.html">original demo</a>, we will formulate the problem using the temperature variation as the main unknown.</p>
-<p>We first import the relevant modules then define the mesh and some constants.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dolfin <span class="im">import</span> <span class="op">*</span></span>
+<p>The problem consists of a quarter of a square plate perforated by a
+circular hole. A temperature increase of <span
+class="math inline">\(\Delta T=+10^{\circ}\text{C}\)</span> will be
+applied on the hole boundary. Symmetry conditions are applied on the
+corresponding symmetry planes and stress and flux-free boundary
+conditions are adopted on the plate outer boundary. Similarly to the <a
+href="https://comet-fenics.readthedocs.io/en/latest/demo/thermoelasticity/thermoelasticity_transient.html">original
+demo</a>, we will formulate the problem using the temperature variation
+as the main unknown.</p>
+<p>We first import the relevant modules then define the mesh and some
+constants.</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dolfin <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mgis.fenics <span class="im">as</span> mf</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mshr <span class="im">import</span> Rectangle, Circle, generate_mesh</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -318,8 +434,15 @@ s&amp;={\displaystyle \frac{\displaystyle \partial \Phi}{\displaystyle \partial 
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>Tref <span class="op">=</span> Constant(<span class="fl">293.15</span>)</span>
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>DThole <span class="op">=</span> Constant(<span class="fl">10.0</span>)</span>
 <span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> Constant(<span class="dv">0</span>)  <span class="co"># time step</span></span></code></pre></div>
-<p>We now define the relevant FunctionSpace for the considered problem. Since we will adopt a monolithic approach i.e. in which both fields are coupled and solved at the same time, we will need to resort to a Mixed FunctionSpace for both the displacement <span class="math inline">\(\boldsymbol{u}\)</span> and the temperature variation <span class="math inline">\(\Theta = T-T^\text{ref}\)</span>.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Vue <span class="op">=</span> VectorElement(<span class="st">&quot;CG&quot;</span>, mesh.ufl_cell(), <span class="dv">2</span>)  <span class="co"># displacement finite element</span></span>
+<p>We now define the relevant FunctionSpace for the considered problem.
+Since we will adopt a monolithic approach i.e. in which both fields are
+coupled and solved at the same time, we will need to resort to a Mixed
+FunctionSpace for both the displacement <span
+class="math inline">\(\boldsymbol{u}\)</span> and the temperature
+variation <span class="math inline">\(\Theta =
+T-T^\text{ref}\)</span>.</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Vue <span class="op">=</span> VectorElement(<span class="st">&quot;CG&quot;</span>, mesh.ufl_cell(), <span class="dv">2</span>)  <span class="co"># displacement finite element</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>Vte <span class="op">=</span> FiniteElement(<span class="st">&quot;CG&quot;</span>, mesh.ufl_cell(), <span class="dv">1</span>)  <span class="co"># temperature finite element</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> FunctionSpace(mesh, MixedElement([Vue, Vte]))</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -339,31 +462,66 @@ s&amp;={\displaystyle \frac{\displaystyle \partial \Phi}{\displaystyle \partial 
 <span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>bcs <span class="op">=</span> [DirichletBC(V.sub(<span class="dv">0</span>).sub(<span class="dv">1</span>), Constant(<span class="fl">0.0</span>), bottom),</span>
 <span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>       DirichletBC(V.sub(<span class="dv">0</span>).sub(<span class="dv">0</span>), Constant(<span class="fl">0.0</span>), left),</span>
 <span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>       DirichletBC(V.sub(<span class="dv">1</span>), DThole, inner_boundary)]</span></code></pre></div>
-<h2 id="variational-formulation-and-time-discretization">Variational formulation and time discretization</h2>
-<p>The constitutive equations described earlier are completed by the quasi-static equilibrium equation:</p>
+<h2 id="variational-formulation-and-time-discretization">Variational
+formulation and time discretization</h2>
+<p>The constitutive equations described earlier are completed by the
+quasi-static equilibrium equation:</p>
 <p><span class="math display">\[
 \text{div} \boldsymbol{\sigma}= 0
 \]</span></p>
 <p>and the transient heat equation (without source terms):</p>
 <p><span class="math display">\[
-\rho T^\text{ref} \dfrac{\partial s}{\partial t} + \text{div} \mathbf{j}= 0
+\rho T^\text{ref} \dfrac{\partial s}{\partial t} + \text{div}
+\mathbf{j}= 0
 \]</span></p>
 <p>which can both be written in the following weak form:</p>
 <p><span id="eq:coupled-system"><span class="math display">\[
 \begin{aligned}
-\int_{\Omega}\boldsymbol{\sigma}:\nabla^s\widehat{\boldsymbol{u}}\text{ d} \Omega &amp;=\int_{\partial \Omega} (\boldsymbol{\sigma}\cdot\boldsymbol{n})\cdot\widehat{\boldsymbol{u}} dS \quad \forall \widehat{\boldsymbol{u}}\in V_U \\
-\int_{\Omega}\rho T^\text{ref} \dfrac{\partial s}{\partial t}\widehat{T}d\Omega - \int_{\Omega} \mathbf{j}\cdot\nabla \widehat{T}d\Omega &amp;= -\int_{\partial \Omega} \mathbf{j}\cdot\boldsymbol{n} \widehat{T} dS \quad \forall \widehat{T} \in V_T
+\int_{\Omega}\boldsymbol{\sigma}:\nabla^s\widehat{\boldsymbol{u}}\text{
+d} \Omega &amp;=\int_{\partial \Omega}
+(\boldsymbol{\sigma}\cdot\boldsymbol{n})\cdot\widehat{\boldsymbol{u}} dS
+\quad \forall \widehat{\boldsymbol{u}}\in V_U \\
+\int_{\Omega}\rho T^\text{ref} \dfrac{\partial s}{\partial
+t}\widehat{T}d\Omega - \int_{\Omega} \mathbf{j}\cdot\nabla
+\widehat{T}d\Omega &amp;= -\int_{\partial \Omega}
+\mathbf{j}\cdot\boldsymbol{n} \widehat{T} dS \quad \forall \widehat{T}
+\in V_T
 \end{aligned}
-\qquad(3)\]</span></span></p>
-<p>with <span class="math inline">\(V_U\)</span> and <span class="math inline">\(V_T\)</span> being the displacement and temperature function spaces.</p>
-<p>The time derivative in the heat equation is now replaced by an implicit Euler scheme, so that the previous weak form at the time increment <span class="math inline">\(n+1\)</span> is now:</p>
+\qquad{(3)}\]</span></span></p>
+<p>with <span class="math inline">\(V_U\)</span> and <span
+class="math inline">\(V_T\)</span> being the displacement and
+temperature function spaces.</p>
+<p>The time derivative in the heat equation is now replaced by an
+implicit Euler scheme, so that the previous weak form at the time
+increment <span class="math inline">\(n+1\)</span> is now:</p>
 <p><span class="math display">\[
-\int_{\Omega}\rho T^\text{ref} \dfrac{s^{n+1}-s^n}{\Delta t}\widehat{T}d\Omega - \int_{\Omega} \mathbf{j}^{n+1}\cdot\nabla \widehat{T}d\Omega = -\int_{\partial \Omega} \mathbf{j}^{n+1}\cdot\boldsymbol{n} \widehat{T} dS \quad \forall \widehat{T} \in V_T
+\int_{\Omega}\rho T^\text{ref} \dfrac{s^{n+1}-s^n}{\Delta
+t}\widehat{T}d\Omega - \int_{\Omega} \mathbf{j}^{n+1}\cdot\nabla
+\widehat{T}d\Omega = -\int_{\partial \Omega}
+\mathbf{j}^{n+1}\cdot\boldsymbol{n} \widehat{T} dS \quad \forall
+\widehat{T} \in V_T
 \]</span></p>
-<p>where <span class="math inline">\(s^{n+1},\mathbf{j}^{n+1}\)</span> correspond to the <em>unknown</em> entropy and heat flux at time <span class="math inline">\(t_{n+1}\)</span>.</p>
-<p>Since both the entropy and the stress tensor depend on the temperature and the total strain, we obtain a fully coupled problem at <span class="math inline">\(t=t_{n+1}\)</span> for <span class="math inline">\((\boldsymbol{u}_{n+1},T_{n+1})\in V_U\times V_T\)</span>. With the retained boundary conditions both right-hand sides in (3).</p>
-<p>We now load the material behaviour and define the corresponding <code>MFrontNonlinearProblem</code>. One notable specificity of the present example is that the unknown field <code>v</code> belongs to a mixed function space. Therefore, we cannot rely on automatic registration for the strain and temperature gradient. We will have to specify explicitly their UFL expression with respect to the displacement <code>u</code> and temperature variation <code>Theta</code> sub-functions of the mixed unknown <code>v</code>. We also register the <code>"Temperature"</code> external state variable with respect to <code>Theta</code>.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>material <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;./src/libBehaviour.so&quot;</span>,</span>
+<p>where <span class="math inline">\(s^{n+1},\mathbf{j}^{n+1}\)</span>
+correspond to the <em>unknown</em> entropy and heat flux at time <span
+class="math inline">\(t_{n+1}\)</span>.</p>
+<p>Since both the entropy and the stress tensor depend on the
+temperature and the total strain, we obtain a fully coupled problem at
+<span class="math inline">\(t=t_{n+1}\)</span> for <span
+class="math inline">\((\boldsymbol{u}_{n+1},T_{n+1})\in V_U\times
+V_T\)</span>. With the retained boundary conditions both right-hand
+sides in (3).</p>
+<p>We now load the material behaviour and define the corresponding
+<code>MFrontNonlinearProblem</code>. One notable specificity of the
+present example is that the unknown field <code>v</code> belongs to a
+mixed function space. Therefore, we cannot rely on automatic
+registration for the strain and temperature gradient. We will have to
+specify explicitly their UFL expression with respect to the displacement
+<code>u</code> and temperature variation <code>Theta</code>
+sub-functions of the mixed unknown <code>v</code>. We also register the
+<code>"Temperature"</code> external state variable with respect to
+<code>Theta</code>.</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>material <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;./src/libBehaviour.so&quot;</span>,</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;ThermoElasticity&quot;</span>,</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                                      hypothesis<span class="op">=</span><span class="st">&quot;plane_strain&quot;</span>)</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> Constant(material.get_parameter(<span class="st">&quot;MassDensity&quot;</span>))</span>
@@ -373,8 +531,25 @@ s&amp;={\displaystyle \frac{\displaystyle \partial \Phi}{\displaystyle \partial 
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>problem.register_gradient(<span class="st">&quot;Strain&quot;</span>, sym(grad(u)))</span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>problem.register_gradient(<span class="st">&quot;TemperatureGradient&quot;</span>, grad(Theta))</span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>problem.register_external_state_variable(<span class="st">&quot;Temperature&quot;</span>, Theta <span class="op">+</span> Tref)</span></code></pre></div>
-<p>Similarly to the <a href="https://thelfer.github.io/mgis/web/mgis_fenics_heat_equation_phase_change.html">Transient heat equation with phase change demo</a>, we need to specify explicitly the coupled thermo-mechanical residual expression using the stress, heat flux and entropy variables. For the implicit Euler scheme, we will need to define the entropy at the previous time step. For the mechanical residual, note that the stress variable <code>sig</code> is represented in the form of its vector of components. The computation of <span class="math inline">\(\boldsymbol{\sigma}:\nabla^s\widehat{\boldsymbol{u}}\)</span> therefore requires to express <span class="math inline">\(\widehat{\boldsymbol{\varepsilon}}=\nabla^s\widehat{\boldsymbol{u}}\)</span> in the same way. For this purpose, we could use the <code>mgis.fenics.utils.symmetric_tensor_to_vector</code> on the tensorial UFL expression <code>sym(grad(u))</code>. Another possibility is to get the corresponding <code>"Strain"</code> gradient object (expressed in vectorial form) and get his variation with respect to <code>v_</code>.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sig <span class="op">=</span> problem.get_flux(<span class="st">&quot;Stress&quot;</span>)</span>
+<p>Similarly to the <a
+href="https://thelfer.github.io/mgis/web/mgis_fenics_heat_equation_phase_change.html">Transient
+heat equation with phase change demo</a>, we need to specify explicitly
+the coupled thermo-mechanical residual expression using the stress, heat
+flux and entropy variables. For the implicit Euler scheme, we will need
+to define the entropy at the previous time step. For the mechanical
+residual, note that the stress variable <code>sig</code> is represented
+in the form of its vector of components. The computation of <span
+class="math inline">\(\boldsymbol{\sigma}:\nabla^s\widehat{\boldsymbol{u}}\)</span>
+therefore requires to express <span
+class="math inline">\(\widehat{\boldsymbol{\varepsilon}}=\nabla^s\widehat{\boldsymbol{u}}\)</span>
+in the same way. For this purpose, we could use the
+<code>mgis.fenics.utils.symmetric_tensor_to_vector</code> on the
+tensorial UFL expression <code>sym(grad(u))</code>. Another possibility
+is to get the corresponding <code>"Strain"</code> gradient object
+(expressed in vectorial form) and get his variation with respect to
+<code>v_</code>.</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sig <span class="op">=</span> problem.get_flux(<span class="st">&quot;Stress&quot;</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> problem.get_flux(<span class="st">&quot;HeatFlux&quot;</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> problem.get_state_variable(<span class="st">&quot;EntropyPerUnitOfMass&quot;</span>)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>problem.initialize()</span>
@@ -388,8 +563,14 @@ s&amp;={\displaystyle \frac{\displaystyle \partial \Phi}{\displaystyle \partial 
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>problem.residual <span class="op">=</span> mech_residual <span class="op">+</span> thermal_residual</span>
 <span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>problem.compute_tangent_form()</span></code></pre></div>
 <h1 id="resolution">Resolution</h1>
-<p>The problem is now solved by looping over time increments. Because of the typical exponential time variation of temperature evolution of the heat equation, time steps are discretized on a non-uniform (logarithmic) scale. <span class="math inline">\(\Delta t\)</span> is therefore updated at each time step. The previous entropy field <code>s_old</code> is updated at the end of each step.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Nincr <span class="op">=</span> <span class="dv">10</span></span>
+<p>The problem is now solved by looping over time increments. Because of
+the typical exponential time variation of temperature evolution of the
+heat equation, time steps are discretized on a non-uniform (logarithmic)
+scale. <span class="math inline">\(\Delta t\)</span> is therefore
+updated at each time step. The previous entropy field <code>s_old</code>
+is updated at the end of each step.</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Nincr <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.logspace(<span class="dv">1</span>, <span class="dv">4</span>, Nincr <span class="op">+</span> <span class="dv">1</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>Nx <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(R, L, Nx)</span>
@@ -412,8 +593,17 @@ Increment 7
 Increment 8
 Increment 9
 Increment 10</code></pre>
-<p>At each time increment, the variation of the temperature increase <span class="math inline">\(\Delta T\)</span> along a line <span class="math inline">\((x, y=0)\)</span> is saved in the <code>T_res</code> array. This evolution is plotted below. As expected, the temperature gradually increases over time, reaching eventually a uniform value of <span class="math inline">\(+10^{\circ}\text{C}\)</span> over infinitely long waiting time. We check that we obtain the same solution as the pure <code>FEniCS</code> demo.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib notebook</span>
+<p>At each time increment, the variation of the temperature increase
+<span class="math inline">\(\Delta T\)</span> along a line <span
+class="math inline">\((x, y=0)\)</span> is saved in the
+<code>T_res</code> array. This evolution is plotted below. As expected,
+the temperature gradually increases over time, reaching eventually a
+uniform value of <span
+class="math inline">\(+10^{\circ}\text{C}\)</span> over infinitely long
+waiting time. We check that we obtain the same solution as the pure
+<code>FEniCS</code> demo.</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib notebook</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x, T_res[:, <span class="dv">1</span>::Nincr <span class="op">//</span> <span class="dv">10</span>])</span>

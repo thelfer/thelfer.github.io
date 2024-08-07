@@ -10,75 +10,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Release notes of the 3.0.14 version of TFEL, MFront and MTest</title>
+    <title>Release notes of the 3.3.6 version of TFEL, MFront and MTest</title>
         <meta name="author" content="Thomas Helfer" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
-            <style type="text/css">
-      pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { line-height: 1.25; }
-      pre > code.sourceCode > span:empty { height: 1.2em; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode > span { color: inherit; text-decoration: inherit; }
-      div.sourceCode { margin: 1em 0; }
-      pre.sourceCode { margin: 0; }
-      @media screen {
-      div.sourceCode { overflow: auto; }
-      }
-      @media print {
-      pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-      }
-      pre.numberSource code
-        { counter-reset: source-line 0; }
-      pre.numberSource code > span
-        { position: relative; left: -4em; counter-increment: source-line; }
-      pre.numberSource code > span > a:first-child::before
-        { content: counter(source-line);
-          position: relative; left: -1em; text-align: right; vertical-align: baseline;
-          border: none; display: inline-block;
-          -webkit-touch-callout: none; -webkit-user-select: none;
-          -khtml-user-select: none; -moz-user-select: none;
-          -ms-user-select: none; user-select: none;
-          padding: 0 4px; width: 4em;
-          color: #aaaaaa;
-        }
-      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-      div.sourceCode
-        {  background-color: #f8f8f8; }
-      @media screen {
-      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-      }
-      code span.al { color: #ef2929; } /* Alert */
-      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #204a87; } /* Attribute */
-      code span.bn { color: #0000cf; } /* BaseN */
-      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-      code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #8f5902; } /* Constant */
-      code span.co { color: #8f5902; font-style: italic; } /* Comment */
-      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-      code span.dt { color: #204a87; } /* DataType */
-      code span.dv { color: #0000cf; } /* DecVal */
-      code span.er { color: #a40000; font-weight: bold; } /* Error */
-      code span.ex { } /* Extension */
-      code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #204a87; font-weight: bold; } /* Function */
-      code span.im { } /* Import */
-      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-      code span.ot { color: #8f5902; } /* Other */
-      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
-      code span.ss { color: #4e9a06; } /* SpecialString */
-      code span.st { color: #4e9a06; } /* String */
-      code span.va { color: #000000; } /* Variable */
-      code span.vs { color: #4e9a06; } /* VerbatimString */
-      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-    </style>
-            <link rel="stylesheet" href="css/normalize.css"/>
+                <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
         <script
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -331,58 +267,34 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Release notes of the 3.0.14 version of
+<h1 class="title">Release notes of the 3.3.6 version of
 <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
 <h2 class="author">Thomas Helfer</h2>
-<h3 class="date">6/12/2023</h3>
+<h3 class="date">14/01/2022</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#issues-fixed" id="toc-issues-fixed">Issues fixed</a>
+<li><a href="#issues-fixed" id="toc-issues-fixed"><span
+class="toc-section-number">1</span> Issues fixed</a>
 <ul>
-<li><a href="#issue-605-update-octave-interface"
-id="toc-issue-605-update-octave-interface">Issue 605: update
-<code>octave</code> interface</a></li>
 <li><a
-href="#issue-583-mtest-fix-typo-when-comparing-tangent-operator-to-its-numerical-approximation"
-id="toc-issue-583-mtest-fix-typo-when-comparing-tangent-operator-to-its-numerical-approximation">Issue
-583: [mtest] Fix typo when comparing tangent operator to its numerical
-approximation</a></li>
-<li><a
-href="#issue-580-aster-interface-some-fields-are-missing-in-the-default-implementation-of-the-astertraits-class"
-id="toc-issue-580-aster-interface-some-fields-are-missing-in-the-default-implementation-of-the-astertraits-class">Issue
-580: [aster interface] Some fields are missing in the default
-implementation of the <code>AsterTraits</code> class</a></li>
+href="#issue-597-using-the-elastic-material-properties-exported-the-behaviour-is-broken-for-orthotropic-behaviours-in-the-cast3m-interface"
+id="toc-issue-597-using-the-elastic-material-properties-exported-the-behaviour-is-broken-for-orthotropic-behaviours-in-the-cast3m-interface"><span
+class="toc-section-number">1.1</span> Issue 597: Using the elastic
+material properties exported the behaviour is broken for orthotropic
+behaviours in the <code>Cast3M</code> interface</a></li>
 </ul></li>
 </ul>
 </div>
-<p>The page describes the new functionalities of Version 3.0.14 of the
-<code>TFEL</code> project.</p>
-<h1 id="issues-fixed">Issues fixed</h1>
-<h2 id="issue-605-update-octave-interface">Issue 605: update
-<code>octave</code> interface</h2>
-<p>For more details, see <a
-href="https://github.com/thelfer/tfel/issues/605"
-class="uri">https://github.com/thelfer/tfel/issues/605</a>.</p>
-<h2
-id="issue-583-mtest-fix-typo-when-comparing-tangent-operator-to-its-numerical-approximation">Issue
-583: [mtest] Fix typo when comparing tangent operator to its numerical
-approximation</h2>
-<p>For more details, see <a
-href="https://github.com/thelfer/tfel/issues/583"
-class="uri">https://github.com/thelfer/tfel/issues/583</a>.</p>
-<h2
-id="issue-580-aster-interface-some-fields-are-missing-in-the-default-implementation-of-the-astertraits-class">Issue
-580: [aster interface] Some fields are missing in the default
-implementation of the <code>AsterTraits</code> class</h2>
-<p>The following fields are missing:</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">static</span> <span class="kw">constexpr</span> <span class="dt">unsigned</span> <span class="dt">short</span> material_properties_nb <span class="op">=</span> <span class="dv">0</span><span class="bu">u</span><span class="op">;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">static</span> <span class="kw">constexpr</span> <span class="dt">unsigned</span> <span class="dt">short</span> elasticPropertiesOffset <span class="op">=</span> <span class="dv">0</span><span class="bu">u</span><span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">static</span> <span class="kw">constexpr</span> <span class="dt">unsigned</span> <span class="dt">short</span> thermalExpansionPropertiesOffset <span class="op">=</span> <span class="dv">0</span><span class="bu">u</span><span class="op">;</span></span></code></pre></div>
-<p>For more details, see <a
-href="https://github.com/thelfer/tfel/issues/580"
-class="uri">https://github.com/thelfer/tfel/issues/580</a>.</p>
+<h1 data-number="1" id="issues-fixed"><span
+class="header-section-number">1</span> Issues fixed</h1>
+<h2 data-number="1.1"
+id="issue-597-using-the-elastic-material-properties-exported-the-behaviour-is-broken-for-orthotropic-behaviours-in-the-cast3m-interface"><span
+class="header-section-number">1.1</span> Issue 597: Using the elastic
+material properties exported the behaviour is broken for orthotropic
+behaviours in the <code>Cast3M</code> interface</h2>
+<p>For more details, see
+&lt;https://github.com/thelfer/tfel/issues/597.</p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

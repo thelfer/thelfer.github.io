@@ -19,7 +19,9 @@
         <link rel="stylesheet" href=" css/slideshow.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -116,43 +118,99 @@
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
 <!-- <script src="js/slideshow.js"></script> -->
 <figure>
-<img src="img/mgis.svg" style="width:100.0%" alt="Principle of MGIS" /><figcaption aria-hidden="true">Principle of MGIS</figcaption>
+<img src="img/mgis.svg" style="width:100.0%" alt="Principle of MGIS" />
+<figcaption aria-hidden="true">Principle of MGIS</figcaption>
 </figure>
-<p>This project aims at proving tools (functions, classes, bindings, etc…) to handle behaviours written using <code>MFront</code> generic interface. For information about <code>MFront</code>, see <a href="http://tfel.sourceforge.net" class="uri">http://tfel.sourceforge.net</a>.</p>
-<p>Those tools are meant to be used by (<code>FEM</code>, <code>FFT</code>, etc.) solver developers. This tools are <em>not</em> linked to the <code>TFEL</code> libraries. Permissive licences have been chosen to allow integration in open-source and proprietary codes.</p>
-<h1 id="the-mfrontgenericinterface-c-library">The <code>MFrontGenericInterface</code> <code>C++</code> library</h1>
-<p>The project is build around the <code>MFrontGenericInterface</code> library. This library provides two main functions:</p>
+<p>This project aims at proving tools (functions, classes, bindings,
+etc…) to handle behaviours written using <code>MFront</code> generic
+interface. For information about <code>MFront</code>, see <a
+href="http://thelfer.github.io/tfel/web/index.html"
+class="uri">http://thelfer.github.io/tfel/web/index.html</a>.</p>
+<p>Those tools are meant to be used by (<code>FEM</code>,
+<code>FFT</code>, etc.) solver developers. This tools are <em>not</em>
+linked to the <code>TFEL</code> libraries. Permissive licences have been
+chosen to allow integration in open-source and proprietary codes.</p>
+<h1 id="the-mfrontgenericinterface-c-library">The
+<code>MFrontGenericInterface</code> <code>C++</code> library</h1>
+<p>The project is build around the <code>MFrontGenericInterface</code>
+library. This library provides two main functions:</p>
 <ul>
-<li>the <code>mgis::behaviour::load</code> functions loads <code>MFront</code> behaviours from external shared libraries and retrieve all relevant meta data function. Those relevant information are stored in the <code>mgis::behaviour::Behaviour</code> class.</li>
-<li>the <code>mgis::behaviour::integrate</code> integrates the behaviour over one time step. The data associated with an integration point are handled by the <code>mgis::behaviour::BehaviourData</code> class which contains the state of the integration point at the beginning and at the end of the time step.</li>
+<li>the <code>mgis::behaviour::load</code> functions loads
+<code>MFront</code> behaviours from external shared libraries and
+retrieve all relevant meta data function. Those relevant information are
+stored in the <code>mgis::behaviour::Behaviour</code> class.</li>
+<li>the <code>mgis::behaviour::integrate</code> integrates the behaviour
+over one time step. The data associated with an integration point are
+handled by the <code>mgis::behaviour::BehaviourData</code> class which
+contains the state of the integration point at the beginning and at the
+end of the time step.</li>
 </ul>
-<p>The library also supports handling a group of integration points though the <code>mgis::behaviour::MaterialStateManager</code> class.</p>
-<p>An introduction to the <code>C++</code> library may be found <a href="bindings-cxx.html">here</a></p>
-<h1 id="projects-using-mgis-or-in-which-mgis-can-be-coupled">Projects using <code>MGIS</code> or in which <code>MGIS</code> can be coupled</h1>
+<p>The library also supports handling a group of integration points
+though the <code>mgis::behaviour::MaterialStateManager</code> class.</p>
+<p>An introduction to the <code>C++</code> library may be found <a
+href="bindings-cxx.html">here</a></p>
+<h1 id="projects-using-mgis-or-in-which-mgis-can-be-coupled">Projects
+using <code>MGIS</code> or in which <code>MGIS</code> can be
+coupled</h1>
 <ul>
 <li><a href="https://code-aster.org"><code>code-aster</code></a></li>
-<li><a href="https://www.opengeosys.org/"><code>OpenGeoSys</code></a>. See this <a href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/FifthUserDays/OpenGeoSys-Nagel-MFrontUserDays-2019.pdf">talk</a> for details.</li>
-<li><a href="https://fenicsproject.org/"><code>FEniCS</code></a>. Coupling with <code>FEniCS</code> can be made using the <code>python</code> bindings (See this <a href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/FifthUserDays/OpenGeoSys-Nagel-MFrontUserDays-2019.pdf">talk</a> and this <a href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/FifthUserDays/OpenGeoSys-Nagel-MFrontUserDays-2019.pdf">tutorial</a> for details). However, we recommend using the higher level <a href="mgis_fenics.html"><code>mgis.fenics</code></a> module.</li>
-<li><a href="https://mfem.org/"><code>MFEM</code></a> through the <a href="https://github.com/thelfer/mfem-mgis/"><code>MFEM-MGIS</code></a>. See <a href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/SeventhUserDays/mfem-mgis.pdf">this talk</a> for details.</li>
-<li><a href="http://mofem.eng.gla.ac.uk/mofem/html/"><code>MoFEM</code></a>. See <a href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/SixthUserDays/Talk6-MoFEM_MFront.pdf">this talk</a> for details.</li>
-<li><a href="https://europlexus.jrc.ec.europa.eu/"><code>Europlexus</code></a></li>
-<li><code>XPer</code>. See this <a href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/FifthUserDays/Xper-Perales-MFrontUserDays-2019.pdf">talk</a> for details.</li>
-<li><a href="https://www.mbdyn.org/"><code>MBDyn</code></a>. See <a href="https://www.youtube.com/watch?v=I8HENx5mszA">this demo</a>.</li>
-<li>The (yet to be released) solver <code>MANTA</code> developed at CEA <span class="citation" data-cites="jamond_manta_2022">(<a href="#ref-jamond_manta_2022" role="doc-biblioref">Jamond et al. 2022</a>)</span>.</li>
-<li><a href="http://www.juliafem.org/"><code>JuliaFEM</code></a> through the <a href="https://github.com/JuliaFEM/MFrontInterface.jl"><code>MFrontInterface.jl</code></a> package.</li>
-<li><a href="https://github.com/KratosMultiphysics/Kratos"><code>Kratos Multiphysics</code></a> through the experimental <code>MGISApplication</code></li>
-<li>An example using <code>MGIS</code> and the <a href="https://www.dune-project.org/"><code>DUNE</code> platform</a> is available <a href="https://github.com/thelfer/dune-mgis">here</a>.</li>
+<li><a href="https://www.opengeosys.org/"><code>OpenGeoSys</code></a>.
+See this <a
+href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/FifthUserDays/OpenGeoSys-Nagel-MFrontUserDays-2019.pdf">talk</a>
+for details.</li>
+<li><a href="https://fenicsproject.org/"><code>FEniCS</code></a>.
+Coupling with <code>FEniCS</code> can be made using the
+<code>python</code> bindings (See this <a
+href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/FifthUserDays/OpenGeoSys-Nagel-MFrontUserDays-2019.pdf">talk</a>
+and this <a
+href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/FifthUserDays/OpenGeoSys-Nagel-MFrontUserDays-2019.pdf">tutorial</a>
+for details). However, we recommend using the higher level <a
+href="mgis_fenics.html"><code>mgis.fenics</code></a> module.</li>
+<li><a href="https://mfem.org/"><code>MFEM</code></a> through the <a
+href="https://github.com/thelfer/mfem-mgis/"><code>MFEM-MGIS</code></a>.
+See <a
+href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/SeventhUserDays/mfem-mgis.pdf">this
+talk</a> for details.</li>
+<li><a
+href="http://mofem.eng.gla.ac.uk/mofem/html/"><code>MoFEM</code></a>.
+See <a
+href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/SixthUserDays/Talk6-MoFEM_MFront.pdf">this
+talk</a> for details.</li>
+<li><a
+href="https://europlexus.jrc.ec.europa.eu/"><code>Europlexus</code></a></li>
+<li><code>XPer</code>. See this <a
+href="https://github.com/thelfer/tfel-doc/blob/master/MFrontUserDays/FifthUserDays/Xper-Perales-MFrontUserDays-2019.pdf">talk</a>
+for details.</li>
+<li><a href="https://www.mbdyn.org/"><code>MBDyn</code></a>. See <a
+href="https://www.youtube.com/watch?v=I8HENx5mszA">this demo</a>.</li>
+<li>The (yet to be released) solver <code>MANTA</code> developed at CEA
+<span class="citation" data-cites="jamond_manta_2022">(<a
+href="#ref-jamond_manta_2022" role="doc-biblioref">Jamond et al.
+2022</a>)</span>.</li>
+<li><a href="http://www.juliafem.org/"><code>JuliaFEM</code></a> through
+the <a
+href="https://github.com/JuliaFEM/MFrontInterface.jl"><code>MFrontInterface.jl</code></a>
+package.</li>
+<li><a
+href="https://github.com/KratosMultiphysics/Kratos"><code>Kratos Multiphysics</code></a>
+through the experimental <code>MGISApplication</code></li>
+<li>An example using <code>MGIS</code> and the <a
+href="https://www.dune-project.org/"><code>DUNE</code> platform</a> is
+available <a href="https://github.com/thelfer/dune-mgis">here</a>.</li>
 </ul>
 <h1 id="bindings">Bindings</h1>
 <h2 id="existing-bindings">Existing bindings</h2>
 <p>The following bindings are available:</p>
 <ul>
 <li><code>c</code> binding</li>
-<li><code>python</code> binding: this binding also provide an interface to <code>FEniCS</code> which is discussed <a href="mgis_fenics.html">here along with a collection of commented demos</a></li>
+<li><code>python</code> binding: this binding also provide an interface
+to <code>FEniCS</code> which is discussed <a
+href="mgis_fenics.html">here along with a collection of commented
+demos</a></li>
 <li><code>fortran</code> binding</li>
-<li><code>julia</code> binding</li>
 </ul>
-<h2 id="future-bindings-contributors-are-welcomed">Future bindings (contributors are welcomed)</h2>
+<h2 id="future-bindings-contributors-are-welcomed">Future bindings
+(contributors are welcomed)</h2>
 <p>The following bindings are under consideration:</p>
 <ul>
 <li><code>octave</code> binding</li>
@@ -160,22 +218,40 @@
 <h1 id="versions-branches">Versions, branches</h1>
 <h2 id="branches">Branches</h2>
 <ul>
-<li>the <code>master</code> branch follows the evolution of the <code>master</code> branch of the <code>TFEL</code> project</li>
-<li>the <code>rliv-1.1</code> follows the evolution of the 3.3.x series of the <code>TFEL</code> project.</li>
-<li>the <code>rliv-1.0</code> follows the evolution of the 3.2.x series of the <code>TFEL</code> project. Note that this branch is <strong>not</strong> compatible with <code>TFEL-3.2.0</code>.</li>
+<li>the <code>master</code> branch follows the evolution of the
+<code>master</code> branch of the <code>TFEL</code> project</li>
+<li>the <code>rliv-1.1</code> follows the evolution of the 3.3.x series
+of the <code>TFEL</code> project.</li>
+<li>the <code>rliv-1.0</code> follows the evolution of the 3.2.x series
+of the <code>TFEL</code> project. Note that this branch is
+<strong>not</strong> compatible with <code>TFEL-3.2.0</code>.</li>
 </ul>
 <h1 id="acknowledgement">Acknowledgement</h1>
 <p>This project uses code extracted from the following projects:</p>
 <ul>
-<li><a href="https://github.com/bitwizeshift/string_view-standalone" class="uri">https://github.com/bitwizeshift/string_view-standalone</a> by Matthew Rodusek</li>
-<li><a href="https://github.com/mpark/variant" class="uri">https://github.com/mpark/variant</a>: by Michael Park</li>
-<li><a href="https://github.com/progschj/ThreadPool" class="uri">https://github.com/progschj/ThreadPool</a> by Jakob Progsch and Václav Zeman</li>
-<li><a href="https://github.com/martinmoene/span-lite" class="uri">https://github.com/martinmoene/span-lite</a> by Martin Moene</li>
+<li><a href="https://github.com/bitwizeshift/string_view-standalone"
+class="uri">https://github.com/bitwizeshift/string_view-standalone</a>
+by Matthew Rodusek</li>
+<li><a href="https://github.com/mpark/variant"
+class="uri">https://github.com/mpark/variant</a>: by Michael Park</li>
+<li><a href="https://github.com/progschj/ThreadPool"
+class="uri">https://github.com/progschj/ThreadPool</a> by Jakob Progsch
+and Václav Zeman</li>
+<li><a href="https://github.com/martinmoene/span-lite"
+class="uri">https://github.com/martinmoene/span-lite</a> by Martin
+Moene</li>
 </ul>
 <h1 class="unnumbered" id="bibliography">References</h1>
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-jamond_manta_2022" class="csl-entry" role="doc-biblioentry">
-Jamond, Olivier, Nicolas Lelong, Axel Fourmont, Joffrey Bluthé, Matthieu Breuze, Pascal Bouda, Guillaume Brooking, et al. 2022. <span>“<span>MANTA</span> : Un Code <span>HPC</span> généraliste Pour La Simulation de Problèmes Complexes En mécanique.”</span> In <em><span>CSMA</span> 2022 15ème Colloque National En Calcul Des Structures</em>. Giens, France. <a href="https://hal.archives-ouvertes.fr/hal-03688160">https://hal.archives-ouvertes.fr/hal-03688160</a>.
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-jamond_manta_2022" class="csl-entry" role="listitem">
+Jamond, Olivier, Nicolas Lelong, Axel Fourmont, Joffrey Bluthé, Matthieu
+Breuze, Pascal Bouda, Guillaume Brooking, et al. 2022.
+<span>“<span>MANTA</span> : Un Code <span>HPC</span> Généraliste Pour La
+Simulation de Problèmes Complexes En Mécanique.”</span> In
+<em><span>CSMA</span> 2022 15ème Colloque National En Calcul Des
+Structures</em>. Giens, France. <a
+href="https://hal.archives-ouvertes.fr/hal-03688160">https://hal.archives-ouvertes.fr/hal-03688160</a>.
 </div>
 </div>
 </body>

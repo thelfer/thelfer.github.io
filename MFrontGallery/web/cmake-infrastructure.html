@@ -16,8 +16,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -26,7 +27,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -50,11 +51,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -63,14 +64,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -79,7 +80,9 @@
     </style>
             <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -155,73 +158,132 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#sec:mfm:cmake:main_functions">Main functions</a>
+<li><a href="#sec:mfm:cmake:main_functions"
+id="toc-sec:mfm:cmake:main_functions"><span
+class="toc-section-number">1</span> Main functions</a>
 <ul>
-<li><a href="#the-mfront_properties_library-function">The <code>mfront_properties_library</code> function</a>
-<ul>
-<li><a href="#usage">Usage</a></li>
-</ul></li>
-<li><a href="#the-mfront_behaviours_library-function">The <code>mfront_behaviours_library</code> function</a>
-<ul>
-<li><a href="#usage-1">Usage</a></li>
-<li><a href="#sec:mfm:cmake:mfront_behaviours_library:sources">Treatment of the sources</a></li>
-</ul></li>
-<li><a href="#sec:mfm:cmake:parse_mfront_library_sources">The <code>parse_mfront_library_sources</code> function</a></li>
-<li><a href="#functions-related-to-tests-based-on-mtest">Functions related to tests based on <code>MTest</code></a></li>
-<li><a href="#the-pandoc_html-function">The <code>pandoc_html</code> function</a></li>
-</ul></li>
-<li><a href="#sec:mfm:cmake:cmake_modules">The <code>cmake/modules</code> directory</a>
-<ul>
-<li><a href="#main-files">Main files</a>
-<ul>
-<li><a href="#the-tfel.cmake-file">The <code>tfel.cmake</code> file</a></li>
-<li><a href="#files-related-to-mfront-interfaces">Files related to <code>MFront</code> interfaces</a></li>
-<li><a href="#files-related-to-compiler-support">Files related to compiler support</a></li>
-</ul></li>
+<li><a href="#the-mfront_properties_library-function"
+id="toc-the-mfront_properties_library-function"><span
+class="toc-section-number">1.1</span> The
+<code>mfront_properties_library</code> function</a></li>
+<li><a href="#the-mfront_behaviours_library-function"
+id="toc-the-mfront_behaviours_library-function"><span
+class="toc-section-number">1.2</span> The
+<code>mfront_behaviours_library</code> function</a></li>
+<li><a href="#sec:mfm:cmake:parse_mfront_library_sources"
+id="toc-sec:mfm:cmake:parse_mfront_library_sources"><span
+class="toc-section-number">1.3</span> The
+<code>parse_mfront_library_sources</code> function</a></li>
+<li><a href="#functions-related-to-tests-based-on-mtest"
+id="toc-functions-related-to-tests-based-on-mtest"><span
+class="toc-section-number">1.4</span> Functions related to tests based
+on <code>MTest</code></a></li>
+<li><a href="#tests-based-on-tfel-check"
+id="toc-tests-based-on-tfel-check"><span
+class="toc-section-number">1.5</span> Tests based on
+<code>tfel-check</code></a></li>
+<li><a href="#the-pandoc_html-function"
+id="toc-the-pandoc_html-function"><span
+class="toc-section-number">1.6</span> The <code>pandoc_html</code>
+function</a></li>
 </ul></li>
 </ul>
 </div>
-<p>This document gives an overview of the <a href="https://cmake.org"><code>CMake</code></a> infrastructure of the <code>MFrontGallery</code> and <code>MFrontMaterials</code> projects.</p>
-<p>This infrastructure is fully contained in the <code>cmake/modules</code> directory, the file <code>cmake/modules/mfm.cmake</code> being the main entry point.</p>
-<p>Section 1 describes the main <code>cmake</code> functions provided by this infrastructure from the point of view of the maintainer and developper of a material knowledge management project. It mostly convers:</p>
+<p>This document gives an overview of the <a
+href="https://cmake.org"><code>CMake</code></a> infrastructure of the
+<code>MFrontGallery</code> and <code>MFrontMaterials</code>
+projects.</p>
+<p>This infrastructure is fully contained in the
+<code>cmake/modules</code> directory, the file
+<code>cmake/modules/mfm.cmake</code> being the main entry point.</p>
+<p>Section 1 describes the main <code>cmake</code> functions provided by
+this infrastructure from the point of view of the maintainer and
+developper of a material knowledge management project. It mostly
+convers:</p>
 <ul>
-<li>functions used to compile <code>MFront</code> files related to material properties, behaviours and models.</li>
+<li>functions used to compile <code>MFront</code> files related to
+material properties, behaviours and models.</li>
 <li>functions related to documentation and website generation.</li>
 </ul>
-<p>Section 2 describes the contents of the <code>cmake/modules</code> directory.</p>
-<h1 id="sec:mfm:cmake:main_functions">Main functions</h1>
-<h2 id="the-mfront_properties_library-function">The <code>mfront_properties_library</code> function</h2>
-<p>The <code>mfront_behaviours_library</code> function adds shared libraries to the project related to <code>MFront</code>’ behaviours. The number of added shared libraries depends on the number of (material properties) interfaces selected when the project is configured (see the <a href="install.html%60"><code>install</code> page for details</a>).</p>
-<h3 id="usage">Usage</h3>
-<p>The following example shows how to create libraries associated with a material called <code>VanadiumAlloy</code> from a single <code>MFront</code> source file named <code>VanadiumAlloy_YoungModulus_SRMA.mfront</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mfront_properties_library</span>(VanadiumAlloy</span>
+<h1 data-number="1" id="sec:mfm:cmake:main_functions"><span
+class="header-section-number">1</span> Main functions</h1>
+<h2 data-number="1.1" id="the-mfront_properties_library-function"><span
+class="header-section-number">1.1</span> The
+<code>mfront_properties_library</code> function</h2>
+<p>The <code>mfront_behaviours_library</code> function adds shared
+libraries to the project related to <code>MFront</code>’ behaviours. The
+number of added shared libraries depends on the number of (material
+properties) interfaces selected when the project is configured (see the
+<a href="install.html%60"><code>install</code> page for
+details</a>).</p>
+<h3 data-number="1.1.1" id="usage"><span
+class="header-section-number">1.1.1</span> Usage</h3>
+<p>The following example shows how to create libraries associated with a
+material called <code>VanadiumAlloy</code> from a single
+<code>MFront</code> source file named
+<code>VanadiumAlloy_YoungModulus_SRMA.mfront</code>:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mfront_properties_library</span>(VanadiumAlloy</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  VanadiumAlloy_YoungModulus_SRMA)</span></code></pre></div>
-<p>Note that the <code>.mfront</code> suffix has been omitted in this declaration.</p>
-<p>Internally, the <code>mfront_properties_library</code> function forward is arguments to the <code>parse_mfront_library_sources</code> function and use its results to add the shared libraries properly. See Section 1.3 for the available options.</p>
-<p>The output generated by this function during the <code>cmake</code> configuration process is similar to the following:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Treating interface cyrano</span>
+<p>Note that the <code>.mfront</code> suffix has been omitted in this
+declaration.</p>
+<p>Internally, the <code>mfront_properties_library</code> function
+forward is arguments to the <code>parse_mfront_library_sources</code>
+function and use its results to add the shared libraries properly. See
+Section 1.3 for the available options.</p>
+<p>The output generated by this function during the <code>cmake</code>
+configuration process is similar to the following:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Treating interface cyrano</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : VanadiumAlloyMaterialProperties-cyrano <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/materials/VanadiumAlloy/properties/cyrano/src/VanadiumAlloy_YoungModulus_SRMA-mfront.cxx</span><span class="kw">)</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Treating interface castem</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : VanadiumAlloyMaterialProperties-castem <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/materials/VanadiumAlloy/properties/castem/src/VanadiumAlloy_YoungModulus_SRMA-mfront.cxx</span><span class="kw">)</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">....</span></span></code></pre></div>
-<p>which lists the shared libraries that will be compiled and the sources that will be generated by <code>MFront</code>. One may notice that each shared library is compiled in its own directory.</p>
-<p>Internally, the <code>mfront_properties_library</code> relies on the <code>mfront-query</code> to get the list generated sources and handle dependencies to other <code>MFront</code> files and so on.</p>
-<p>Regarding dependencies to other <code>MFront</code> files, the current directory <code>${CMAKE_SOURCE_DIR}/materials/${mat}/properties</code> is automatically added to the <code>MFront</code> search paths, where:</p>
+<p>which lists the shared libraries that will be compiled and the
+sources that will be generated by <code>MFront</code>. One may notice
+that each shared library is compiled in its own directory.</p>
+<p>Internally, the <code>mfront_properties_library</code> relies on the
+<code>mfront-query</code> to get the list generated sources and handle
+dependencies to other <code>MFront</code> files and so on.</p>
+<p>Regarding dependencies to other <code>MFront</code> files, the
+current directory
+<code>${CMAKE_SOURCE_DIR}/materials/${mat}/properties</code> is
+automatically added to the <code>MFront</code> search paths, where:</p>
 <ul>
-<li><code>${CMAKE_SOURCE_DIR}</code> denotes the top level directory of the project</li>
-<li><code>${mat}</code> is the name of the material passed as first argument to the <code>mfront_properties_library</code>.</li>
+<li><code>${CMAKE_SOURCE_DIR}</code> denotes the top level directory of
+the project</li>
+<li><code>${mat}</code> is the name of the material passed as first
+argument to the <code>mfront_properties_library</code>.</li>
 </ul>
-<p>Other search paths can be added by using any of the options <code>SEARCH_PATH</code> or <code>SEARCH_PATHS</code>, as described in Section @1.3.</p>
-<h2 id="the-mfront_behaviours_library-function">The <code>mfront_behaviours_library</code> function</h2>
-<p>The <code>mfront_behaviours_library</code> function adds shared libraries to the project related to <code>MFront</code>’ behaviours. The number of added shared libraries depends on the number of (behaviour) interfaces selected when the project is configured (see the <a href="install.html%60"><code>install</code> page for details</a>).</p>
-<h3 id="usage-1">Usage</h3>
-<p>A typical usage of the <code>mfront_behaviours_library</code> is the following:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mfront_behaviours_library</span>(Concrete</span>
+<p>Other search paths can be added by using any of the keywords
+<code>SEARCH_PATH</code> or <code>SEARCH_PATHS</code>, as described in
+Section 1.3.</p>
+<h2 data-number="1.2" id="the-mfront_behaviours_library-function"><span
+class="header-section-number">1.2</span> The
+<code>mfront_behaviours_library</code> function</h2>
+<p>The <code>mfront_behaviours_library</code> function adds shared
+libraries to the project related to <code>MFront</code>’ behaviours. The
+number of added shared libraries depends on the number of (behaviour)
+interfaces selected when the project is configured (see the <a
+href="install.html%60"><code>install</code> page for details</a>).</p>
+<h3 data-number="1.2.1" id="usage-1"><span
+class="header-section-number">1.2.1</span> Usage</h3>
+<p>A typical usage of the <code>mfront_behaviours_library</code> is the
+following:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mfront_behaviours_library</span>(Concrete</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  ConcreteBurger_EDF_CIWAP_2021</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  ConcreteBurger_EDF_CIWAP_2021_v2)</span></code></pre></div>
-<p>which declares a set of shared libraries associated with the <code>Concrete</code> material. Those shared libraries are generated using two <code>MFront</code> files named respectively <code>ConcreteBurger_EDF_CIWAP_2021.mfront</code> and <code>ConcreteBurger_EDF_CIWAP_2021_v2.mfront</code> (See Section 1.2.2 for details).</p>
-<p>Note that the <code>.mfront</code> suffix has been omitted in this declaration.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> ConcreteBurger_EDF_CIWAP_2021 has been discarded for interface calculix <span class="er">(</span><span class="ex">behaviours</span> with external state variable other  than the temperature are not supported<span class="kw">)</span></span>
+<p>which declares a set of shared libraries associated with the
+<code>Concrete</code> material. Those shared libraries are generated
+using two <code>MFront</code> files named respectively
+<code>ConcreteBurger_EDF_CIWAP_2021.mfront</code> and
+<code>ConcreteBurger_EDF_CIWAP_2021_v2.mfront</code> (See Section 1.3.1
+for details).</p>
+<p>Note that the <code>.mfront</code> suffix has been omitted in this
+declaration.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> ConcreteBurger_EDF_CIWAP_2021 has been discarded for interface calculix <span class="er">(</span><span class="ex">behaviours</span> with external state variable other  than the temperature are not supported<span class="kw">)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> ConcreteBurger_EDF_CIWAP_2021_v2 has been discarded for interface calculix <span class="er">(</span><span class="ex">behaviours</span> with external state variable other  than the temperature are not supported<span class="kw">)</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> No sources selected for library CONCRETECALCULIXBEHAVIOURS for interface calculix</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> ConcreteBurger_EDF_CIWAP_2021 has been discarded for interface ansys <span class="er">(</span><span class="ex">behaviours</span> with external state variable other  than the temperature are not supported<span class="kw">)</span></span>
@@ -238,51 +300,305 @@
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : ConcreteBehaviours-aster <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/materials/Concrete/behaviours/aster/src/asterConcreteBurger_EDF_CIWAP_2021.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/materials/Concrete/behaviours/aster/src/ConcreteBurger_EDF_CIWAP_2021.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/materials/Concrete/behaviours/aster/src/asterConcreteBurger_EDF_CIWAP_2021_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/materials/Concrete/behaviours/aster/src/ConcreteBurger_EDF_CIWAP_2021_v2.cxx</span><span class="kw">)</span></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Adding library : ConcreteBehaviours <span class="er">(</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/materials/Concrete/behaviours/castem/src/umatConcreteBurger_EDF_CIWAP_2021.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/materials/Concrete/behaviours/castem/src/ConcreteBurger_EDF_CIWAP_2021.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/materials/Concrete/behaviours/castem/src/umatConcreteBurger_EDF_CIWAP_2021_v2.cxx</span><span class="kw">;</span><span class="ex">/home/th202608/codes/MFrontGallery/master/src/build/materials/Concrete/behaviours/castem/src/ConcreteBurger_EDF_CIWAP_2021_v2.cxx</span><span class="kw">)</span></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ex">....</span></span></code></pre></div>
-<p>which lists the shared libraries that will be compiled and the sources that will be generated by <code>MFront</code>. One may notice that each shared library is compiled in its own directory.</p>
-<p>One may also notice that the behaviours considered are not compatible with some of the selected behaviour interfaces and are thus discarded:</p>
+<p>which lists the shared libraries that will be compiled and the
+sources that will be generated by <code>MFront</code>. One may notice
+that each shared library is compiled in its own directory.</p>
+<p>One may also notice that the behaviours considered are not compatible
+with some of the selected behaviour interfaces and are thus
+discarded:</p>
 <ul>
-<li>Those behaviours are not compatible with the <code>dianafea</code>, <code>calculix</code> and <code>ansys</code> interfaces because it declares an external state variable which is not the temperature and this is not supported by those interfaces.</li>
-<li>Those behaviours are not compatible with the <code>epx</code> (Europlexus) interface because this solver only supports finite strain behaviours.</li>
+<li>Those behaviours are not compatible with the <code>dianafea</code>,
+<code>calculix</code> and <code>ansys</code> interfaces because it
+declares an external state variable which is not the temperature and
+this is not supported by those interfaces.</li>
+<li>Those behaviours are not compatible with the <code>epx</code>
+(Europlexus) interface because this solver only supports finite strain
+behaviours.</li>
 </ul>
-<p>In this example, no shared libraries for the <code>Concrete</code> material will be generated for the interfaces <code>dianafea</code>, <code>calculix</code>, <code>ansys</code> and <code>epx</code> interfaces since no <code>MFront</code> are compatible with them.</p>
-<p>Internally, the <code>mfront_behaviours_library</code> function forward is arguments to the <code>parse_mfront_library_sources</code> function and use its results to add the shared libraries properly. See Section 1.3 for the available options.</p>
-<h3 id="sec:mfm:cmake:mfront_behaviours_library:sources">Treatment of the sources</h3>
-<p>For each shared library to be added, each source returned in the <code>mfront_sources</code> variable by the <code>parse_mfront_library_sources</code> is treated as follows:</p>
+<p>In this example, no shared libraries for the <code>Concrete</code>
+material will be generated for the interfaces <code>dianafea</code>,
+<code>calculix</code>, <code>ansys</code> and <code>epx</code>
+interfaces since no <code>MFront</code> are compatible with them.</p>
+<p>Internally, the <code>mfront_behaviours_library</code> function
+forward is arguments to the <code>parse_mfront_library_sources</code>
+function and use its results to add the shared libraries properly. See
+Section 1.3 for the available options.</p>
+<h2 data-number="1.3"
+id="sec:mfm:cmake:parse_mfront_library_sources"><span
+class="header-section-number">1.3</span> The
+<code>parse_mfront_library_sources</code> function</h2>
+<p>The <code>parse_mfront_library_sources</code> function set the
+following variables on output:</p>
 <ul>
-<li>If the file <code>@source@.mfront</code> (where <code>@source@</code> is the name of the considered source) exists in the current source directory, then it is treated as an <code>MFront</code> source file.</li>
-<li>If the file <code>@source@.mfront.in</code> (where <code>@source@</code> is the name of the considered source) exists in the current source directory, then it is automatically configured using <code>̀CMake</code>’ <code>configure_file</code> command and the resulting file is treated as an <code>MFront</code> source file.</li>
-<li>If neither the <code>@source@.mfront</code> nor <code>@source@.mfront.in</code> exist in the current directory, the file <code>@source@</code> is added in the list of sources for the treated shared library. This file can be given by its full path, and is searched in the current source directory or the the current binary directory.</li>
+<li><code>mfront_sources</code>: list of sources to be processed (see
+below). In practice, this is the list of arguments which are not
+specifically introduced by a keyword (see below).</li>
+<li><code>mfront_search_paths</code>: list of search paths, i.e. list of
+directories where <code>MFront</code> shall search for auxiliary files
+(imported files, external material properties, external models.).</li>
+<li><code>mfront_include_directories</code>: list of include
+directories. The include directories are added the compiler include
+directories.</li>
+<li><code>mfront_link_libraries</code>: list of link libraries. Those
+link libraries are meant to be linked to the generated shared
+libraries.</li>
 </ul>
-<p><code>MFront</code> source files are treated by:</p>
+<p>The <code>parse_mfront_library_sources</code> function allows the
+following keywords:</p>
 <ul>
-<li>the <code>generate_mfront_doc</code> function which will generate a web page for this source file using the <code>mfront-doc</code> utility if the <code>enable-website</code> option has been choosen at the <code>CMake</code> configuration stage (see the <a href="install.html%60"><code>install</code> page for details</a>).</li>
-<li></li>
+<li><code>SOURCES</code> (the default): this option introduces new
+sources for the generated libraries. All subsequent arguments are
+treated as sources, up to the next option.</li>
+<li><code>LINK_LIBRARY</code>: this option allows to define one link
+library by the next argument passed to the
+<code>parse_mfront_library_sources</code> function.</li>
+<li><code>LINK_LIBRARIES</code>: all subsequent arguments are treated as
+link libraries, up to the next option.</li>
+<li><code>SEARCH_PATH</code>: the next argument passed to the
+<code>parse_mfront_library_sources</code> function is added to the list
+of search paths.</li>
+<li><code>SEARCH_PATHS</code>: all subsequent arguments are treated as
+<code>MFront</code> search path, up to the next option.</li>
+<li><code>INCLUDE_DIRECTORY</code>: the next argument passed to the
+<code>parse_mfront_library_sources</code> function is added to the list
+of include directories.</li>
+<li><code>INCLUDE_DIRECTORIES</code>: the next argument passed to the
+<code>parse_mfront_library_sources</code> function is added to the list
+of include directories.</li>
 </ul>
-<h2 id="sec:mfm:cmake:parse_mfront_library_sources">The <code>parse_mfront_library_sources</code> function</h2>
-<p>The <code>parse_mfront_library_sources</code> function set the following variables on output:</p>
+<h3 data-number="1.3.1"
+id="sec:mfm:cmake:mfront_behaviours_library:sources"><span
+class="header-section-number">1.3.1</span> Treatment of the sources</h3>
+<p>For each shared library to be added, each source returned in the
+<code>mfront_sources</code> variable by the
+<code>parse_mfront_library_sources</code> is treated as follows:</p>
 <ul>
-<li><code>mfront_sources</code>: list of sources to be processed. In practice, this is the list of arguments which are not specifically treated.</li>
-<li><code>mfront_search_paths</code>: list of search paths, i.e. list of directories where <code>MFront</code> shall search for auxiliary files (imported files, external material properties, external models.).</li>
-<li><code>mfront_include_directories</code>: list of include directories. The include directories are added the compiler include directories.</li>
-<li><code>mfront_link_libraries</code>: list of link libraries. Those link libraries are meant to be linked to the generated shared libraries.</li>
+<li>If the considered source, denoted <code>@source@</code> in the
+following, starts with the <code>mdnx:</code> prefix, it is considered
+as a path in a madnex file.</li>
+<li>If a file <code>@source@.mdnx</code> (or
+<code>@source@.madnex</code>) exists in the current source directory,
+then it is treated as an <code>madnex</code> source file. All the
+material knowledge of the considered kind (material property, behaviour,
+model) contained in this file is added to the library.</li>
+<li>If a file <code>@source@.mfront</code> exists in the current source
+directory or in the current source directory, this file is treated as an
+<code>MFront</code> source file.</li>
+<li>If a file <code>@source@.mfront.in</code> (where
+<code>@source@</code> is the name of the considered source) exists in
+the current source directory, then it is automatically configured using
+<code>̀CMake</code>’ <code>configure_file</code> command and the
+resulting file is treated as an <code>MFront</code> source file.</li>
+<li>If none of the previous cases applied, the file
+<code>@source@</code> is added in the list of sources for the treated
+shared library. This file can be given by its full path, and is searched
+in the current source directory or the the current binary
+directory.</li>
 </ul>
-<p>The <code>parse_mfront_library_sources</code> function allows the following options:</p>
+<p><code>MFront</code> source files are treated by the
+<code>generate_mfront_doc</code> function which will generate a web page
+for this source file using the <code>mfront-doc</code> utility if the
+<code>enable-website</code> option has been choosen at the
+<code>CMake</code> configuration stage (see the <a
+href="install.html%60"><code>install</code> page for details</a>).</p>
+<h2 data-number="1.4"
+id="functions-related-to-tests-based-on-mtest"><span
+class="header-section-number">1.4</span> Functions related to tests
+based on <code>MTest</code></h2>
+<h3 data-number="1.4.1"
+id="the-add_mtest-function-defined-in-behaviours.cmake"><span
+class="header-section-number">1.4.1</span> The <code>add_mtest</code>
+function (defined in <code>behaviours.cmake</code>)</h3>
+<p>The <code>add_mtest</code> function allows to declare a test on
+behaviours based on the <code>MTest</code> solver. The
+<code>add_mtest</code> function is used by wrappers such as
+<code>genericmtest</code> (for tests associated with the
+<code>generic</code> interface) or <code>castemmest</code> (for tests
+associated with the <code>Cast3M</code> interface) and not used directly
+(see below).</p>
+<p>This function takes two mandatory arguments:</p>
 <ul>
-<li><code>SOURCES</code> (the default): this option introduces new sources for the generated libraries. All subsequent arguments are treated as sources, up to the next option.</li>
-<li><code>LINK_LIBRARY</code>: this option allows to define one link library by the next argument passed to the <code>parse_mfront_library_sources</code> function.</li>
-<li><code>LINK_LIBRARIES</code>: all subsequent arguments are treated as link libraries, up to the next option.</li>
-<li><code>SEARCH_PATH</code>: the next argument passed to the <code>parse_mfront_library_sources</code> function is added to the list of search paths.</li>
-<li><code>SEARCH_PATHS</code>: all subsequent arguments are treated as <code>MFront</code> search path, up to the next option.</li>
-<li><code>INCLUDE_DIRECTORY</code>: the next argument passed to the <code>parse_mfront_library_sources</code> function is added to the list of include directories.</li>
-<li><code>INCLUDE_DIRECTORIES</code>: the next argument passed to the <code>parse_mfront_library_sources</code> function is added to the list of include directories.</li>
+<li>the name of the interface.</li>
+<li>the name of the library containing the behaviour to be tested.</li>
 </ul>
-<h2 id="functions-related-to-tests-based-on-mtest">Functions related to tests based on <code>MTest</code></h2>
-<h2 id="the-pandoc_html-function">The <code>pandoc_html</code> function</h2>
-<h1 id="sec:mfm:cmake:cmake_modules">The <code>cmake/modules</code> directory</h1>
-<h2 id="main-files">Main files</h2>
-<h3 id="the-tfel.cmake-file">The <code>tfel.cmake</code> file</h3>
-<h3 id="files-related-to-mfront-interfaces">Files related to <code>MFront</code> interfaces</h3>
-<h3 id="files-related-to-compiler-support">Files related to compiler support</h3>
+<p>This function may take optional arguments introduced by the following
+keywords:</p>
+<ul>
+<li><code>TEST_NAME</code> (default): this keyword introduces the base
+name of one or several tests. The full test name is created by adding:
+<ul>
+<li>the configuration (<code>Release</code>, <code>Debug</code>, etc.)
+for build systems that support multiple configurations in the same
+build</li>
+<li>the rounding mode (see below for details).</li>
+</ul></li>
+<li><code>MTEST_FILE</code>: this keyword introduces one or several base
+names to declare <code>MTest</code> scripts (i.e. the name of a file
+without extension). For each base name, the <code>add_mtest</code>
+function proceeds as follows:
+<ul>
+<li>If a file, with this base name and the extension
+<code>.mtest.in</code> exists, the <code>configure_file</code> function
+is called to generate a script file in the current directory. This file
+will be called by <code>MTest</code>.</li>
+<li>Otherwise, a file, with this base name and the extension
+<code>.mtest</code> is expected to exist in the current source
+directory.</li>
+</ul></li>
+<li><code>BEHAVIOUR</code>: this keyword introduces the name of the
+behaviour. This name used to replace all occurences of
+<code>@behaviour@</code> in the <code>MTest</code> scripts.</li>
+<li><code>LIBRARY</code>: this keyword introduces the path to the
+library containing the behaviour to be tested. This name used to replace
+all occurences of <code>@library@</code> in the <code>MTest</code>
+scripts. By default, this location is deduced from the name of the
+second argument of the function.</li>
+<li><code>INTERFACE</code>: this keyword introduces the name of the
+interface used to generate the library. This name used to replace all
+occurences of <code>@interface@</code> in the <code>MTest</code>
+scripts.</li>
+<li><code>REFERENCE_FILE</code>: this keyword introduces the name of the
+file containing the reference results. This name used to replace all
+occurences of <code>@reference_file@</code> in the <code>MTest</code>
+scripts.</li>
+<li><code>ACCELERATION_ALGORITHM</code>: this keyword introduces the
+name of an acceleration algorithm (see the <code>MTest</code>
+documentation for a list of acceleration algorithms).</li>
+<li><code>STIFFNESS_MATRIX_TYPE</code>: this keyword introduces the type
+of stiffness matrix type to be used for the test (see the
+<code>MTest</code> documentation for a list of available stiffness
+matrix types).</li>
+<li><code>MATERIAL_PROPERTIES_LIBRARIES</code>: this keyword introduces
+a list of libraries whose locations are requested. This keyword is only
+meaningful if an <code>mtest.in</code> file is to be used.</li>
+</ul>
+<p>Several test names and several <code>MTest</code> scripts can be
+declared through the <code>TEST_NAME</code> and <code>MTEST_FILE</code>
+keywords respectively. The number of test names must match the number of
+scripts.</p>
+<p>A script is generally run several times with different rounding modes
+(see the <code>MTest</code> documentation for details).</p>
+<h3 data-number="1.4.2"
+id="wrappers-around-the-add_mtest-functions"><span
+class="header-section-number">1.4.2</span> Wrappers around the
+<code>add_mtest</code> functions</h3>
+<p>The <code>add_mtest</code> function does not check if the interface
+used by the test has been selected and is not able to deduce the name of
+the library associated with an interface from the name of a material
+(<code>Bentonite</code> for instance) or the name of the class of
+behaviours considered (<code>Plasticity</code> for instance).</p>
+<p><code>MFrontGallery</code> thus provides several wrappers, such as:
+<code>castemmtest</code>, <code>astermtest</code>,
+<code>europlexusmtest</code> <code>abaqusmtest</code>,
+<code>abaqusexplicitmtest</code>, <code>ansysmtest</code>,
+<code>calculixmtest</code> <code>dianafeamtest</code>,
+<code>cyranomtest</code> and <code>genericmtest</code>.</p>
+<p>For instance, one can call the <code>castemmtest</code> function even
+if the <code>Cast3M</code> interface for behaviours has not been
+selected: in this case, the associated test is just not declared.</p>
+<h4 data-number="1.4.2.1" id="example-of-usage"><span
+class="header-section-number">1.4.2.1</span> Example of usage</h4>
+<p>The following code declares a test based on the
+<code>asteriwan.mtest</code> script if the <code>aster</code> interface
+has been selected:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mfront_behaviours_library</span>(Plasticity</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">${MFRONT_BEHAVIOURS_PLASTICITY_SOURCES}</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">astermtest</span>(Plasticity asteriwan)</span></code></pre></div>
+<h2 data-number="1.5" id="tests-based-on-tfel-check"><span
+class="header-section-number">1.5</span> Tests based on
+<code>tfel-check</code></h2>
+<p>The <code>tfel_check</code> function declares a test based on
+[<code>tfel-check</code>]](https://thelfer.github.io/tfel/web/tfel-check.html).
+This function takes one mandatory argument named <code>file</code>,
+which must contain the base name for the input file passed to
+<code>tfel-check</code>. A file named <code>${file}.check</code> or
+<code>${file}.check.in</code> must exist in the current source
+directory. If the <code>${file}.check.in</code> exists, the
+<code>configure_file</code> function is called to generate a file named
+<code>${file}.check</code> in the current directory.</p>
+<p>The configuration file <code>mfm-tfel-check.config</code> is
+automatically used. This configuration file is generated at the top
+level directory of the build tree by the
+<code>create_tfel_check_config_file</code>. This configuration file
+declares a component for each interface selected. For an interface
+<code>${interface}</code> associated with a material property, the
+component <code>mfm::material_property_interface::${interface}</code> is
+declared. A similar declaration is performed for interfaces associated
+with behaviours and models.</p>
+<p>If a python interpreter is detected, the substitution variable
+<code>python</code> is automatically defined and contains the path to
+the python interpreter.</p>
+<p>If the castem tests are enabled (see the
+<code>enable-castem-tests</code> option), the substitution variable
+<code>castem</code> is automatically defined and contains the path to
+the <code>Cast3M</code> executable.</p>
+<p>Additional configuration files may be added by derived projects to
+the <code>mfm-tfel-check-configuration-files</code> list.</p>
+<p>The following substitution variables are automatically defined:</p>
+<ul>
+<li><code>current_src_dir</code>: points to the current source
+directory</li>
+<li><code>current_binary_dir</code>: points to the current directory in
+the build tree</li>
+</ul>
+<h2 data-number="1.6" id="the-pandoc_html-function"><span
+class="header-section-number">1.6</span> The <code>pandoc_html</code>
+function</h2>
+<p>The <code>pandoc_html</code> function can be used to generate an
+<code>html</code> page from a markdow file using <a
+href="https://pandoc.org"><code>pandoc</code></a>. This function takes
+the name of a markdown file a argument. All the other options are passed
+verbatim to <code>pandoc</code>.</p>
+<p>The following options are automatically passed to
+<code>pandoc</code>:</p>
+<ul>
+<li><code>--mathjax</code>: This option forces the use of the
+<code>MathJax</code> library to display embedded <code>(La)TeX</code>
+formulae.</li>
+<li><code>--highlight-style=tango</code>: This option selects the
+<code>tango</code> style to display code snippets.</li>
+<li><code>--email-obfuscation=javascript</code>: This option modifies
+how emails are displayed.</li>
+<li><code>--default-image-extension=svg</code>: This option chooses
+<code>SVG</code> as the default image extension.</li>
+</ul>
+<h3 data-number="1.6.1" id="html-template"><span
+class="header-section-number">1.6.1</span> HTML template</h3>
+<p>If a file named <code>mfm-template.html</code> is found in the
+directory <code>docs/web</code> (from the root of the sources of the
+project), this file is used as a template for generating the web pages
+(see pandoc’s <code>--template</code> option).</p>
+<h3 data-number="1.6.2" id="bibliography"><span
+class="header-section-number">1.6.2</span> Bibliography</h3>
+<p>If a biblatex file named <code>bibliography.bib</code> is found in
+the directory <code>docs/web</code> (from the root of the sources of the
+project), the generation of a bibliography is automatically enabled (see
+pandoc’s <code>--bibliography</code> option).</p>
+<h3 data-number="1.6.3" id="citation-style-language-csl-file"><span
+class="header-section-number">1.6.3</span> Citation Style Language (CSL)
+file</h3>
+<p>If a file named <code>iso690-numeric-en.csl</code> is found in the
+directory <code>docs/web</code> (from the root of the sources of the
+project), this file is used to define the reference style used (see
+pandoc’s <code>--csl</code> option).</p>
+<!--
+# The `cmake/modules` directory {#sec:mfm:cmake:cmake_modules}
+
+The `cmake` infrastructure provided by the `MFrontGallery` project is
+based on a set of files located in the `cmake/modules` directory.
+
+## Main files
+
+### The `tfel.cmake` file
+
+The `tfel.cmake` file detects the `MFront` installation and e
+
+### Files related to `MFront` interfaces
+
+### Files related to compiler support
+-->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

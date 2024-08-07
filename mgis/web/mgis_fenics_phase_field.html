@@ -18,8 +18,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -28,7 +29,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -52,11 +53,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -65,14 +66,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -82,7 +83,9 @@
             <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -170,224 +173,406 @@
 <div id="TOC">
 true
 </div>
-<p>The present demo illustrates how multi-physics problems can be coupled and solved in a staggered fashion. This problematic is illustrated on a phase-field approach to brittle fracture in which two different mechanical problems are involved:</p>
+<p>The present demo illustrates how multi-physics problems can be
+coupled and solved in a staggered fashion. This problematic is
+illustrated on a phase-field approach to brittle fracture in which two
+different mechanical problems are involved:</p>
 <ul>
-<li>a displacement problem (<span class="math inline">\(u\)</span>-problem) involving a non-linear elastic constitutive model at fixed damage which includes unilateral conditions forbidding crack evolution under compressive states</li>
-<li>a damage problem (<span class="math inline">\(d\)</span>-problem) including a damage gradient term associated with a regularization length <span class="math inline">\(\ell_0\)</span> which is at the basis of the phase-field approach to fracture</li>
+<li>a displacement problem (<span
+class="math inline">\(u\)</span>-problem) involving a non-linear elastic
+constitutive model at fixed damage which includes unilateral conditions
+forbidding crack evolution under compressive states</li>
+<li>a damage problem (<span class="math inline">\(d\)</span>-problem)
+including a damage gradient term associated with a regularization length
+<span class="math inline">\(\ell_0\)</span> which is at the basis of the
+phase-field approach to fracture</li>
 </ul>
 <blockquote>
-<p>Note that for the sake of simplicity, the damage problem considered in this demo is in fact a linear problem and could, therefore, well be formulated directly with FEniCS. We will however implement it as a <code>MFrontNonlinearProblem</code> to show how information can be exchanged between both problems. Besides, more advanced numerical implementations of the phase-field method involve damage problems which are indeed non-linear.</p>
+<p>Note that for the sake of simplicity, the damage problem considered
+in this demo is in fact a linear problem and could, therefore, well be
+formulated directly with FEniCS. We will however implement it as a
+<code>MFrontNonlinearProblem</code> to show how information can be
+exchanged between both problems. Besides, more advanced numerical
+implementations of the phase-field method involve damage problems which
+are indeed non-linear.</p>
 </blockquote>
-<p>The problem is that of a stiff circular inclusion embedded in a square plate under imposed vertical displacement on its top surface, see <span class="citation" data-cites="bourdin2000numerical"><a href="#ref-bourdin2000numerical" role="doc-biblioref">Bourdin, Francfort, and Marigo</a> (<a href="#ref-bourdin2000numerical" role="doc-biblioref">2000</a>)</span>. Zero Dirichlet boundary conditions will be enforced for the damage field on the inclusion boundary.</p>
+<p>The problem is that of a stiff circular inclusion embedded in a
+square plate under imposed vertical displacement on its top surface, see
+<span class="citation" data-cites="bourdin2000numerical">Bourdin,
+Francfort, and Marigo (<a href="#ref-bourdin2000numerical"
+role="doc-biblioref">2000</a>)</span>. Zero Dirichlet boundary
+conditions will be enforced for the damage field on the inclusion
+boundary.</p>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1RPYmFMCK4A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <blockquote>
 <p><strong>Source files:</strong></p>
 <ul>
-<li>Jupyter notebook: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/phase_field/mgis_fenics_phase_field.ipynb">mgis_fenics_phase_field.ipynb</a></li>
-<li>Python file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/phase_field/mgis_fenics_phase_field.py">mgis_fenics_phase_field.py</a></li>
-<li>MFront behaviour file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/phase_field/PhaseFieldDisplacementSpectralSplit.mfront">PhaseFieldDisplacementSpectralSplit.mfront</a></li>
-<li>MFront behaviour file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/phase_field/PhaseFieldDisplacementDeviatoricSplit.mfront">PhaseFieldDisplacementDeviatoricSplit.mfront</a></li>
-<li>MFront behaviour file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/phase_field/PhaseFieldDamage.mfront">PhaseFieldDamage.mfront</a></li>
+<li>Jupyter notebook: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/phase_field/mgis_fenics_phase_field.ipynb">mgis_fenics_phase_field.ipynb</a></li>
+<li>Python file: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/phase_field/mgis_fenics_phase_field.py">mgis_fenics_phase_field.py</a></li>
+<li>MFront behaviour file: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/phase_field/PhaseFieldDisplacementSpectralSplit.mfront">PhaseFieldDisplacementSpectralSplit.mfront</a></li>
+<li>MFront behaviour file: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/phase_field/PhaseFieldDisplacementDeviatoricSplit.mfront">PhaseFieldDisplacementDeviatoricSplit.mfront</a></li>
+<li>MFront behaviour file: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/phase_field/PhaseFieldDamage.mfront">PhaseFieldDamage.mfront</a></li>
 </ul>
 </blockquote>
-<h1 id="introduction-on-phase-field-approaches-to-brittle-fracture">Introduction on phase-field approaches to brittle fracture</h1>
-<p>The phase-field approach to brittle fracture originates from the mathematical regularization of Francfort &amp; Marigo variational approach of fracture (see <span class="citation" data-cites="francfort1998revisiting"><a href="#ref-francfort1998revisiting" role="doc-biblioref">Francfort and Marigo</a> (<a href="#ref-francfort1998revisiting" role="doc-biblioref">1998</a>)</span>). Following mathematical works of <span class="citation" data-cites="ambrosio1990approximation"><a href="#ref-ambrosio1990approximation" role="doc-biblioref">Ambrosio and Tortorelli</a> (<a href="#ref-ambrosio1990approximation" role="doc-biblioref">1990</a>)</span>, the regularization proposed by <span class="citation" data-cites="bourdin2000numerical"><a href="#ref-bourdin2000numerical" role="doc-biblioref">Bourdin, Francfort, and Marigo</a> (<a href="#ref-bourdin2000numerical" role="doc-biblioref">2000</a>)</span> relies on the following total energy <span class="math inline">\(\mathcal{E}(u, d) = \mathcal{E}_\text{pot}(u,d)+\mathcal{E}_\text{frac}(d)\)</span> where the potential and fracture energies respectively read as:</p>
+<h1
+id="introduction-on-phase-field-approaches-to-brittle-fracture">Introduction
+on phase-field approaches to brittle fracture</h1>
+<p>The phase-field approach to brittle fracture originates from the
+mathematical regularization of Francfort &amp; Marigo variational
+approach of fracture (see <span class="citation"
+data-cites="francfort1998revisiting">Francfort and Marigo (<a
+href="#ref-francfort1998revisiting"
+role="doc-biblioref">1998</a>)</span>). Following mathematical works of
+<span class="citation" data-cites="ambrosio1990approximation">Ambrosio
+and Tortorelli (<a href="#ref-ambrosio1990approximation"
+role="doc-biblioref">1990</a>)</span>, the regularization proposed by
+<span class="citation" data-cites="bourdin2000numerical">Bourdin,
+Francfort, and Marigo (<a href="#ref-bourdin2000numerical"
+role="doc-biblioref">2000</a>)</span> relies on the following total
+energy <span class="math inline">\(\mathcal{E}(u, d) =
+\mathcal{E}_\text{pot}(u,d)+\mathcal{E}_\text{frac}(d)\)</span> where
+the potential and fracture energies respectively read as:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathcal{E}_\text{pot}(u,d) &amp;= \int_\Omega g(d)\dfrac{1}{2}\boldsymbol{\varepsilon}:\mathbb{C}:\boldsymbol{\varepsilon}\,\text{dx}- W_{ext}(u) \\
-\mathcal{E}_\text{frac}(d) &amp;= \dfrac{G_c}{c_w} \int_{\Omega}\left( \frac{w(d)}{\ell_0} + \ell_0 \|\nabla d\|^2 \right)\,\text{dx}
+\mathcal{E}_\text{pot}(u,d) &amp;= \int_\Omega
+g(d)\dfrac{1}{2}\boldsymbol{\varepsilon}:\mathbb{C}:\boldsymbol{\varepsilon}\,\text{dx}-
+W_{ext}(u) \\
+\mathcal{E}_\text{frac}(d) &amp;= \dfrac{G_c}{c_w} \int_{\Omega}\left(
+\frac{w(d)}{\ell_0} + \ell_0 \|\nabla d\|^2 \right)\,\text{dx}
 \end{aligned}
 \]</span></p>
 <p>in which</p>
 <ul>
-<li><span class="math inline">\(u\)</span> is the displacement field and <span class="math inline">\(W_{ext}(u)\)</span> is the work of external forces</li>
-<li><span class="math inline">\(d\in[0;1]\)</span> is a continuous field representing the fracture location (<span class="math inline">\(d=1\)</span>) in a <em>smeared</em> fashion</li>
-<li><span class="math inline">\(\ell_0\)</span> is a small regularization length-scale parameter</li>
-<li><span class="math inline">\(g(d)\)</span> is continuous strictly-decreasing degradation function</li>
-<li><span class="math inline">\(w(d)\)</span> a continuous strictly-increasing function</li>
-<li><span class="math inline">\(c_w\)</span> a numerical constant associated with <span class="math inline">\(w\)</span></li>
+<li><span class="math inline">\(u\)</span> is the displacement field and
+<span class="math inline">\(W_{ext}(u)\)</span> is the work of external
+forces</li>
+<li><span class="math inline">\(d\in[0;1]\)</span> is a continuous field
+representing the fracture location (<span
+class="math inline">\(d=1\)</span>) in a <em>smeared</em> fashion</li>
+<li><span class="math inline">\(\ell_0\)</span> is a small
+regularization length-scale parameter</li>
+<li><span class="math inline">\(g(d)\)</span> is continuous
+strictly-decreasing degradation function</li>
+<li><span class="math inline">\(w(d)\)</span> a continuous
+strictly-increasing function</li>
+<li><span class="math inline">\(c_w\)</span> a numerical constant
+associated with <span class="math inline">\(w\)</span></li>
 </ul>
 <blockquote>
-<p>This formulation exhibits extremely strong links with damage gradient models <span class="citation" data-cites="pham2011gradient"><a href="#ref-pham2011gradient" role="doc-biblioref">Pham et al.</a> (<a href="#ref-pham2011gradient" role="doc-biblioref">2011</a>)</span> so &gt; that <span class="math inline">\(d\)</span> is often referred to as a damage variable.</p>
+<p>This formulation exhibits extremely strong links with damage gradient
+models <span class="citation" data-cites="pham2011gradient">Pham et al.
+(<a href="#ref-pham2011gradient" role="doc-biblioref">2011</a>)</span>
+so &gt; that <span class="math inline">\(d\)</span> is often referred to
+as a damage variable.</p>
 </blockquote>
-<p>Solutions to the quasi-static evolution at discrete time steps <span class="math inline">\((u_n,d_n)\)</span> are obtained from a global energy minimum principle on both variables with an additional irreversibility constraint <span class="math inline">\(d_n\geq d_{n-1}\)</span> for the damage variable.</p>
-<p>This original formulation does not distinguish between tensile and compressive stress states, yielding spurious crack formation in compressive regions. A commonly used remedy consists in splitting the energy density <span class="math inline">\(\psi\)</span> into a positive (associated with tension states) and negative (compressive states) part and apply the degradation function only on the positive part i.e.:</p>
+<p>Solutions to the quasi-static evolution at discrete time steps <span
+class="math inline">\((u_n,d_n)\)</span> are obtained from a global
+energy minimum principle on both variables with an additional
+irreversibility constraint <span class="math inline">\(d_n\geq
+d_{n-1}\)</span> for the damage variable.</p>
+<p>This original formulation does not distinguish between tensile and
+compressive stress states, yielding spurious crack formation in
+compressive regions. A commonly used remedy consists in splitting the
+energy density <span class="math inline">\(\psi\)</span> into a positive
+(associated with tension states) and negative (compressive states) part
+and apply the degradation function only on the positive part i.e.:</p>
 <p><span class="math display">\[
-\mathcal{E}_{pot}(u,d) = \int_\Omega \left(g(d)\psi^+(\boldsymbol{\varepsilon})+\psi^-(\boldsymbol{\varepsilon})\right) \,\text{dx}- W_{ext}(u)
+\mathcal{E}_{pot}(u,d) = \int_\Omega
+\left(g(d)\psi^+(\boldsymbol{\varepsilon})+\psi^-(\boldsymbol{\varepsilon})\right)
+\,\text{dx}- W_{ext}(u)
 \]</span></p>
-<p>Different choices of this splitting exist and we use in this demo the volumetric/deviatoric splitting introduced in <span class="citation" data-cites="amor2009regularized"><a href="#ref-amor2009regularized" role="doc-biblioref">Amor, Marigo, and Maurini</a> (<a href="#ref-amor2009regularized" role="doc-biblioref">2009</a>)</span>:</p>
+<p>Different choices of this splitting exist and we use in this demo the
+volumetric/deviatoric splitting introduced in <span class="citation"
+data-cites="amor2009regularized">Amor, Marigo, and Maurini (<a
+href="#ref-amor2009regularized"
+role="doc-biblioref">2009</a>)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \psi^+(\boldsymbol{\varepsilon}) &amp;= \dfrac{1}{2}\kappa \langle
 \operatorname{tr}(\boldsymbol{\varepsilon})\rangle_+^2 + \mu
 \operatorname{dev}(\boldsymbol{\varepsilon}):\operatorname{dev}(\boldsymbol{\varepsilon})\\
 \psi^-(\boldsymbol{\varepsilon}) &amp;=
-\dfrac{1}{2}\kappa \langle \operatorname{tr}(\boldsymbol{\varepsilon})\rangle_-^2
+\dfrac{1}{2}\kappa \langle
+\operatorname{tr}(\boldsymbol{\varepsilon})\rangle_-^2
 \end{aligned}
 \]</span></p>
-<p>where <span class="math inline">\(\langle \star \rangle_\pm\)</span> denotes the positive/negative part function, <span class="math inline">\(\operatorname{dev}\)</span> is the deviatoric operator and <span class="math inline">\(\kappa=\lambda+\dfrac{2}{3}\mu\)</span> stands for the compression modulus. Note that we also provide an implementation of the spectral splitting introduced by <span class="citation" data-cites="miehe2010phase"><a href="#ref-miehe2010phase" role="doc-biblioref">Miehe, Hofacker, and Welschinger</a> (<a href="#ref-miehe2010phase" role="doc-biblioref">2010</a>)</span> in the <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/blob/master/demos/phase_field/PhaseFieldDisplacementSpectralSplit.mfront"><code>PhaseFieldDisplacementSpectralSplit.mfront</code> file</a></p>
-<p>A classical choice for the degradation function is <span class="math inline">\(g(d)=(1-d)^2 + k_\text{res}\)</span> where <span class="math inline">\(k_\text{res} \ll 1\)</span> is a residual stiffness avoiding singular stiffness in the fully damaged state. As regards the fracture energy density, two choices originating from the work of Ambrosio and Tortorelli (AT) are widely used, namely:</p>
+<p>where <span class="math inline">\(\langle \star \rangle_\pm\)</span>
+denotes the positive/negative part function, <span
+class="math inline">\(\operatorname{dev}\)</span> is the deviatoric
+operator and <span
+class="math inline">\(\kappa=\lambda+\dfrac{2}{3}\mu\)</span> stands for
+the compression modulus. Note that we also provide an implementation of
+the spectral splitting introduced by <span class="citation"
+data-cites="miehe2010phase">Miehe, Hofacker, and Welschinger (<a
+href="#ref-miehe2010phase" role="doc-biblioref">2010</a>)</span> in the
+<a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/blob/master/demos/phase_field/PhaseFieldDisplacementSpectralSplit.mfront"><code>PhaseFieldDisplacementSpectralSplit.mfront</code>
+file</a></p>
+<p>A classical choice for the degradation function is <span
+class="math inline">\(g(d)=(1-d)^2 + k_\text{res}\)</span> where <span
+class="math inline">\(k_\text{res} \ll 1\)</span> is a residual
+stiffness avoiding singular stiffness in the fully damaged state. As
+regards the fracture energy density, two choices originating from the
+work of Ambrosio and Tortorelli (AT) are widely used, namely:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \text{AT2 model:} \quad &amp; w(d) = d^2, \quad c_w=2\\
 \text{AT1 model:} \quad &amp; w(d) = d, \quad c_w=\dfrac{8}{3}
 \end{aligned}
 \]</span></p>
-<p>in which the constant <span class="math inline">\(c_w\)</span> is chosen so that analytical localized solution profiles correspond to a dissipated precisely equal to <span class="math inline">\(G_c\)</span>.</p>
+<p>in which the constant <span class="math inline">\(c_w\)</span> is
+chosen so that analytical localized solution profiles correspond to a
+dissipated precisely equal to <span
+class="math inline">\(G_c\)</span>.</p>
 <p>In this demo we will use the AT2 model.</p>
-<h1 id="numerical-resolution-techniques">Numerical resolution techniques</h1>
-<p>A classical approach for computing the solution at load increment <span class="math inline">\(n\)</span> is to resort to a so-called <em>alternate minimization</em> scheme which involves the following steps embedded in an iterative procedure:</p>
+<h1 id="numerical-resolution-techniques">Numerical resolution
+techniques</h1>
+<p>A classical approach for computing the solution at load increment
+<span class="math inline">\(n\)</span> is to resort to a so-called
+<em>alternate minimization</em> scheme which involves the following
+steps embedded in an iterative procedure:</p>
 <p><span class="math display">\[\begin{align}
-u^k &amp;= \mathrm{arg min}_u \mathcal{E}(u, d^{k-1}) \tag{$u$-problem}\\
-d^k &amp;= \mathrm{arg min}_{d \text{ s.t. } d_{n-1} \leq d} \mathcal{E}(u^k, d) \tag{$d$-problem}
+u^k &amp;= \mathrm{arg min}_u \mathcal{E}(u, d^{k-1})
+\tag{$u$-problem}\\
+d^k &amp;= \mathrm{arg min}_{d \text{ s.t. } d_{n-1} \leq d}
+\mathcal{E}(u^k, d) \tag{$d$-problem}
 \end{align}\]</span></p>
 <p>until convergence.</p>
-<p>The first step (<span class="math inline">\(u\)</span>-problem) of this staggered solution scheme therefore involves solving the following non-linear mechanical problem at fixed damage:</p>
+<p>The first step (<span class="math inline">\(u\)</span>-problem) of
+this staggered solution scheme therefore involves solving the following
+non-linear mechanical problem at fixed damage:</p>
 <p><span class="math display">\[
-\textrm{Find } u\in V_u \text{ s.t. } \int_\Omega \boldsymbol{\sigma}(u,d_{k-1}):\operatorname{sym}\nabla \widehat{u} \,\text{dx} = W_{ext}(\widehat{u}) \quad \forall \widehat{u}\in V_u
+\textrm{Find } u\in V_u \text{ s.t. } \int_\Omega
+\boldsymbol{\sigma}(u,d_{k-1}):\operatorname{sym}\nabla \widehat{u}
+\,\text{dx} = W_{ext}(\widehat{u}) \quad \forall \widehat{u}\in V_u
 \]</span></p>
-<p>with <span class="math inline">\(\boldsymbol{\sigma}(u,d)=g(d)\dfrac{\partial \psi^+}{\partial \boldsymbol{\varepsilon}}(u)+\dfrac{\partial \psi^-}{\partial \boldsymbol{\varepsilon}}(u)\)</span>.</p>
-<p>The second step (<span class="math inline">\(d\)</span>-problem) amounts to solving a variational inequality problem due to the presence of the irreversibility constraint <span class="math inline">\(d_{n-1} \leq d\)</span>. A simple way of enforcing, implicitly, this irreversibility constraint has been proposed in <span class="citation" data-cites="miehe2010phase"><a href="#ref-miehe2010phase" role="doc-biblioref">Miehe, Hofacker, and Welschinger</a> (<a href="#ref-miehe2010phase" role="doc-biblioref">2010</a>)</span> by resorting to a so-called <em>history function</em> which correspond to the maximal value of the tensile energy density <span class="math inline">\(\psi^+\)</span> over the past loading history:</p>
+<p>with <span
+class="math inline">\(\boldsymbol{\sigma}(u,d)=g(d)\dfrac{\partial
+\psi^+}{\partial \boldsymbol{\varepsilon}}(u)+\dfrac{\partial
+\psi^-}{\partial \boldsymbol{\varepsilon}}(u)\)</span>.</p>
+<p>The second step (<span class="math inline">\(d\)</span>-problem)
+amounts to solving a variational inequality problem due to the presence
+of the irreversibility constraint <span class="math inline">\(d_{n-1}
+\leq d\)</span>. A simple way of enforcing, implicitly, this
+irreversibility constraint has been proposed in <span class="citation"
+data-cites="miehe2010phase">Miehe, Hofacker, and Welschinger (<a
+href="#ref-miehe2010phase" role="doc-biblioref">2010</a>)</span> by
+resorting to a so-called <em>history function</em> which correspond to
+the maximal value of the tensile energy density <span
+class="math inline">\(\psi^+\)</span> over the past loading history:</p>
 <p><span class="math display">\[
 H = \max_{m \leq n}\{\psi^+(\boldsymbol{\varepsilon}_m)\}
 \]</span></p>
-<p>Technically, the irreversibility constraint is dropped and the current tensile energy <span class="math inline">\(\psi^+\)</span> is substituted by <span class="math inline">\(H\)</span> in the <span class="math inline">\(d\)</span>-problem. The optimality condition therefore yields the following variational problem:</p>
+<p>Technically, the irreversibility constraint is dropped and the
+current tensile energy <span class="math inline">\(\psi^+\)</span> is
+substituted by <span class="math inline">\(H\)</span> in the <span
+class="math inline">\(d\)</span>-problem. The optimality condition
+therefore yields the following variational problem:</p>
 <p><span class="math display">\[
-\textrm{Find } d\in V_d \text{ s.t. } \int_\Omega \left(g&#39;(d)H\widehat{d}+\dfrac{G_c}{\ell_0c_w}\left(w&#39;(d)\widehat{d} + 2\ell_0^2 \nabla d \cdot \nabla \widehat{d}\right)\right) \,\text{dx} = 0 \quad \forall \widehat{d}\in V_d
+\textrm{Find } d\in V_d \text{ s.t. } \int_\Omega
+\left(g&#39;(d)H\widehat{d}+\dfrac{G_c}{\ell_0c_w}\left(w&#39;(d)\widehat{d}
++ 2\ell_0^2 \nabla d \cdot \nabla \widehat{d}\right)\right) \,\text{dx}
+= 0 \quad \forall \widehat{d}\in V_d
 \]</span></p>
 <blockquote>
-<p>Note that this approach loses the original variational for of the phase-field formulation. In particular, no theoretical results establishing the equivalence with the original constrained minimization problem exist. This approach is however widespread due to its simplicity.</p>
+<p>Note that this approach loses the original variational for of the
+phase-field formulation. In particular, no theoretical results
+establishing the equivalence with the original constrained minimization
+problem exist. This approach is however widespread due to its
+simplicity.</p>
 </blockquote>
-<h1 id="mfront-behaviour-for-the-displacement-problem">MFront behaviour for the displacement problem</h1>
-<p>For the retained choice of models, the stress/strain constitutive equation at fixed damage reads as:</p>
+<h1 id="mfront-behaviour-for-the-displacement-problem">MFront behaviour
+for the displacement problem</h1>
+<p>For the retained choice of models, the stress/strain constitutive
+equation at fixed damage reads as:</p>
 <p><span class="math display">\[
-\boldsymbol{\sigma}(\boldsymbol{\varepsilon},d)=((1-d)^2+k_\text{res})\left(\kappa \langle \operatorname{tr}(\boldsymbol{\varepsilon})\rangle_+\textbf{I} + 2\mu \operatorname{dev}(\boldsymbol{\varepsilon})\right)+\kappa \langle \operatorname{tr}(\boldsymbol{\varepsilon})\rangle_- \textbf{I}
+\boldsymbol{\sigma}(\boldsymbol{\varepsilon},d)=((1-d)^2+k_\text{res})\left(\kappa
+\langle \operatorname{tr}(\boldsymbol{\varepsilon})\rangle_+\textbf{I} +
+2\mu \operatorname{dev}(\boldsymbol{\varepsilon})\right)+\kappa \langle
+\operatorname{tr}(\boldsymbol{\varepsilon})\rangle_- \textbf{I}
 \]</span></p>
-<p>The stress is here explicitly computed from the strain (as in the <a href="https://thelfer.github.io/mgis/web/mgis_fenics_nonlinear_heat_transfer.html">non-linear heat transfer demo</a>) so that we use the <code>DefaultDSL</code>. Material properties are defined, the history function and positive energy density are decleared as (internal) state variables whereas the damage field is declared as an external state variable.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultDSL;</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Jérémy Bleyer, Thomas Helfer;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="er">08</span> / <span class="bn">04</span> / <span class="dv">2020</span>;</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour PhaseFieldDisplacementDeviatoricSplit;</span>
+<p>The stress is here explicitly computed from the strain (as in the <a
+href="https://thelfer.github.io/mgis/web/mgis_fenics_nonlinear_heat_transfer.html">non-linear
+heat transfer demo</a>) so that we use the <code>DefaultDSL</code>.
+Material properties are defined, the history function and positive
+energy density are decleared as (internal) state variables whereas the
+damage field is declared as an external state variable.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultDSL<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Jérémy Bleyer<span class="op">,</span> Thomas Helfer<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">0</span><span class="er">8</span> <span class="op">/</span> <span class="bn">04</span> <span class="op">/</span> <span class="dv">2020</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour PhaseFieldDisplacementDeviatoricSplit<span class="op">;</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress Yg;</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Yg.setGlossaryName(<span class="st">&quot;YoungModulus&quot;</span>);</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real ν;</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ν.setGlossaryName(<span class="st">&quot;PoissonRatio&quot;</span>);</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress Yg<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Yg<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;YoungModulus&quot;</span><span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real ν<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ν<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;PoissonRatio&quot;</span><span class="op">);</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real kres = <span class="fl">1e-6</span>;</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>kres.setEntryName(<span class="st">&quot;ResidualStiffness&quot;</span>);</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real kres <span class="op">=</span> <span class="fl">1e-6</span><span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>kres<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;ResidualStiffness&quot;</span><span class="op">);</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real H;</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>H.setEntryName(<span class="st">&quot;HistoryFunction&quot;</span>);</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real H<span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>H<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;HistoryFunction&quot;</span><span class="op">);</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real Ψ₊;</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Ψ₊.setEntryName(<span class="st">&quot;PositiveEnergyDensity&quot;</span>);</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StateVariable real Ψ₊<span class="op">;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Ψ₊<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;PositiveEnergyDensity&quot;</span><span class="op">);</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable real d;</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>d.setGlossaryName(<span class="st">&quot;Damage&quot;</span>);</span></code></pre></div>
-<p>We now write the behaviour and provide consistent tangent operators for the problem at fixed damage i.e. the tangent operator is actually the secant operator for the coupled <span class="math inline">\((u,d)\)</span> problem.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ProvidesSymmetricTangentOperator;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable real d<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>d<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;Damage&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>We now write the behaviour and provide consistent tangent operators
+for the problem at fixed damage i.e. the tangent operator is actually
+the secant operator for the coupled <span
+class="math inline">\((u,d)\)</span> problem.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ProvidesSymmetricTangentOperator<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator <span class="op">{</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// update the damage</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">d_</span> = d + dd;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">d_</span> <span class="op">=</span> d <span class="op">+</span> dd<span class="op">;</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// lame coefficients</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ = computeLambda(Yg, ν);</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ = computeMu(Yg, ν);</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ <span class="op">=</span> computeLambda<span class="op">(</span>Yg<span class="op">,</span> ν<span class="op">);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ <span class="op">=</span> computeMu<span class="op">(</span>Yg<span class="op">,</span> ν<span class="op">);</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// compression modulus</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> κ = λ + <span class="dv">2</span> / <span class="dv">3</span> ⋅ μ;</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> κ <span class="op">=</span> λ <span class="op">+</span> <span class="dv">2</span> <span class="op">/</span> <span class="dv">3</span> ⋅ μ<span class="op">;</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">// computation of the stress, positive energy density and consistent</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// tangent operator</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ε = eval(eto + deto);</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="fu">tr</span> = trace(ε);</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> εᵈ = deviator(ε);</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ε <span class="op">=</span> eval<span class="op">(</span>eto <span class="op">+</span> deto<span class="op">);</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="fu">tr</span> <span class="op">=</span> trace<span class="op">(</span>ε<span class="op">);</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> εᵈ <span class="op">=</span> deviator<span class="op">(</span>ε<span class="op">);</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// energy density</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> tr_p = max(<span class="fu">tr</span>, strain(<span class="dv">0</span>));</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> tr_n = <span class="fu">tr</span> - tr_p;</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  Ψ₊ = (κ / <span class="dv">2</span>) ⋅ (tr_p) ⋅ (tr_p) + μ ⋅ (εᵈ | εᵈ);</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> tr_p <span class="op">=</span> max<span class="op">(</span><span class="fu">tr</span><span class="op">,</span> strain<span class="op">(</span><span class="dv">0</span><span class="op">));</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> tr_n <span class="op">=</span> <span class="fu">tr</span> <span class="op">-</span> tr_p<span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  Ψ₊ <span class="op">=</span> <span class="op">(</span>κ <span class="op">/</span> <span class="dv">2</span><span class="op">)</span> ⋅ <span class="op">(</span>tr_p<span class="op">)</span> ⋅ <span class="op">(</span>tr_p<span class="op">)</span> <span class="op">+</span> μ ⋅ <span class="op">(</span>εᵈ <span class="op">|</span> εᵈ<span class="op">);</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">// history function</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  H = max(H, Ψ₊);</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  H <span class="op">=</span> max<span class="op">(</span>H<span class="op">,</span> Ψ₊<span class="op">);</span></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">// degradation function</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> gᵈ = (<span class="dv">1</span> - <span class="va">d_</span>) ⋅ (<span class="dv">1</span> - <span class="va">d_</span>) + kres; </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> gᵈ <span class="op">=</span> <span class="op">(</span><span class="dv">1</span> <span class="op">-</span> <span class="va">d_</span><span class="op">)</span> ⋅ <span class="op">(</span><span class="dv">1</span> <span class="op">-</span> <span class="va">d_</span><span class="op">)</span> <span class="op">+</span> kres<span class="op">;</span> </span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">// stress</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  σ = κ ⋅ (gᵈ ⋅ tr_p + tr_n) ⋅ I₂ + <span class="dv">2</span> ⋅ μ ⋅ gᵈ ⋅ εᵈ;</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  σ <span class="op">=</span> κ ⋅ <span class="op">(</span>gᵈ ⋅ tr_p <span class="op">+</span> tr_n<span class="op">)</span> ⋅ I₂ <span class="op">+</span> <span class="dv">2</span> ⋅ μ ⋅ gᵈ ⋅ εᵈ<span class="op">;</span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="co">// consistent tangent operator (secant one here)</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="va">computeTangentOperator_</span>) {</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static_cast</span>&lt;<span class="dt">void</span>&gt;(smt);</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">tr</span> &gt;= <span class="dv">0</span>) {</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>      ∂σ∕∂Δεᵗᵒ = gᵈ ⋅ (κ ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ μ ⋅ Stensor4::K());</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>      ∂σ∕∂Δεᵗᵒ = κ ⋅ (I₂ ⊗ I₂) + gᵈ ⋅ <span class="dv">2</span> ⋅ μ ⋅  Stensor4::K();</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Integrator</span></span></code></pre></div>
-<p>note that we used <code>Stensor4::K()</code> in the above definition, which correspond to <span class="math inline">\(\mathbb{K} = \mathbb{I}-\dfrac{1}{3}\mathbf{I}\otimes\mathbf{I}\)</span>, the projection operator on the deviatoric space <span class="math inline">\(\mathbb{K}:\boldsymbol{\varepsilon}= \operatorname{dev}(\boldsymbol{\varepsilon})\)</span>.</p>
-<p>Finally, we compute the internal stored energy using <code>@InternalEnergy</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InternalEnergy {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> gᵈ = ((<span class="dv">1</span> - d) ⋅ (<span class="dv">1</span> - d)) + kres;</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  Psi_s = gᵈ ⋅ Ψ₊;</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<h1 id="mfront-behaviour-for-the-damage-problem">MFront behaviour for the damage problem</h1>
-<p>The damage problem variational form using the history function approach for the AT2 model writes:</p>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span><span class="va">computeTangentOperator_</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static_cast</span><span class="op">&lt;</span><span class="dt">void</span><span class="op">&gt;(</span>smt<span class="op">);</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="fu">tr</span> <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>      ∂σ∕∂Δεᵗᵒ <span class="op">=</span> gᵈ ⋅ <span class="op">(</span>κ ⋅ <span class="op">(</span>I₂ ⊗ I₂<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span> ⋅ μ ⋅ Stensor4<span class="op">::</span>K<span class="op">());</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>      ∂σ∕∂Δεᵗᵒ <span class="op">=</span> κ ⋅ <span class="op">(</span>I₂ ⊗ I₂<span class="op">)</span> <span class="op">+</span> gᵈ ⋅ <span class="dv">2</span> ⋅ μ ⋅  Stensor4<span class="op">::</span>K<span class="op">();</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// end of @Integrator</span></span></code></pre></div>
+<p>note that we used <code>Stensor4::K()</code> in the above definition,
+which correspond to <span class="math inline">\(\mathbb{K} =
+\mathbb{I}-\dfrac{1}{3}\mathbf{I}\otimes\mathbf{I}\)</span>, the
+projection operator on the deviatoric space <span
+class="math inline">\(\mathbb{K}:\boldsymbol{\varepsilon}=
+\operatorname{dev}(\boldsymbol{\varepsilon})\)</span>.</p>
+<p>Finally, we compute the internal stored energy using
+<code>@InternalEnergy</code>:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InternalEnergy <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> gᵈ <span class="op">=</span> <span class="op">((</span><span class="dv">1</span> <span class="op">-</span> d<span class="op">)</span> ⋅ <span class="op">(</span><span class="dv">1</span> <span class="op">-</span> d<span class="op">))</span> <span class="op">+</span> kres<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  Psi_s <span class="op">=</span> gᵈ ⋅ Ψ₊<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h1 id="mfront-behaviour-for-the-damage-problem">MFront behaviour for
+the damage problem</h1>
+<p>The damage problem variational form using the history function
+approach for the AT2 model writes:</p>
 <p><span class="math display">\[
-\textrm{Find } d\in V_d \text{ s.t. } \int_\Omega \left(\dfrac{G_c}{\ell_0}\left(\ell_0^2 \nabla d \cdot \nabla \widehat{d} +  d \widehat{d}\right) - 2H(1-d)\widehat{d}\right) \,\text{dx} = 0 \quad \forall \widehat{d}\in V_d  
+\textrm{Find } d\in V_d \text{ s.t. } \int_\Omega
+\left(\dfrac{G_c}{\ell_0}\left(\ell_0^2 \nabla d \cdot \nabla
+\widehat{d} +  d \widehat{d}\right) - 2H(1-d)\widehat{d}\right)
+\,\text{dx} = 0 \quad \forall \widehat{d}\in V_d  
 \]</span></p>
-<p>which can therefore be rewritten as follows to fit the standard format using pairs of flux/gradient variables:</p>
+<p>which can therefore be rewritten as follows to fit the standard
+format using pairs of flux/gradient variables:</p>
 <p><span class="math display">\[
-\textrm{Find } d\in V_d \text{ s.t. } \int_\Omega (\mathbf{q}\cdot \nabla \widehat{d} + Y\widehat{d})\,\text{dx}  = 0 \quad \forall \widehat{d}\in V_d  
+\textrm{Find } d\in V_d \text{ s.t. } \int_\Omega (\mathbf{q}\cdot
+\nabla \widehat{d} + Y\widehat{d})\,\text{dx}  = 0 \quad \forall
+\widehat{d}\in V_d  
 \]</span></p>
-<p>where <span class="math inline">\(\mathbf{q} = G_c \ell_0 \nabla d\)</span> is the dual “flux”-like variable associated with the damage gradient <span class="math inline">\(\mathbf{g} =\nabla d\)</span> and <span class="math inline">\(Y=\left(\dfrac{G_c}{\ell_0}+2H\right)d-2H\)</span> is the dual “flux”-like variable associated with the damage itself, interpreted (up to a change of sign) as an energy release rate.</p>
+<p>where <span class="math inline">\(\mathbf{q} = G_c \ell_0 \nabla
+d\)</span> is the dual “flux”-like variable associated with the damage
+gradient <span class="math inline">\(\mathbf{g} =\nabla d\)</span> and
+<span
+class="math inline">\(Y=\left(\dfrac{G_c}{\ell_0}+2H\right)d-2H\)</span>
+is the dual “flux”-like variable associated with the damage itself,
+interpreted (up to a change of sign) as an energy release rate.</p>
 <blockquote>
-<p>Note that the following equivalent reformulation would have also been possible:</p>
+<p>Note that the following equivalent reformulation would have also been
+possible:</p>
 <p><span class="math display">\[
-\textrm{Find } d\in V_d \text{ s.t. } \int_\Omega (\mathbf{q}\cdot \nabla \widehat{d} + Y&#39;\widehat{d})\,\text{dx} - \int_\Omega 2H\widehat{d}\,\text{dx} = 0 \quad \forall \widehat{d}\in V_d  
+\textrm{Find } d\in V_d \text{ s.t. } \int_\Omega (\mathbf{q}\cdot
+\nabla \widehat{d} + Y&#39;\widehat{d})\,\text{dx} - \int_\Omega
+2H\widehat{d}\,\text{dx} = 0 \quad \forall \widehat{d}\in V_d  
 \]</span></p>
-<p>with here <span class="math inline">\(Y&#39;= \left(\dfrac{G_c}{\ell_0}+2H\right)d\)</span>. The second linear term in the above variational form is interpreted here as a source term and would have been added to the problem formulation using the <code>set_loading</code> method.</p>
+<p>with here <span class="math inline">\(Y&#39;=
+\left(\dfrac{G_c}{\ell_0}+2H\right)d\)</span>. The second linear term in
+the above variational form is interpreted here as a source term and
+would have been added to the problem formulation using the
+<code>set_loading</code> method.</p>
 </blockquote>
-<p>This formulation readily translates into the <code>PhaseFieldDamage.mfront</code> script:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultGenericBehaviour;</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour PhaseFieldDamage;</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Jérémy Bleyer;</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="bn">07</span> / <span class="bn">04</span> / <span class="dv">2020</span>;</span>
+<p>This formulation readily translates into the
+<code>PhaseFieldDamage.mfront</code> script:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultGenericBehaviour<span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour PhaseFieldDamage<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Jérémy Bleyer<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="bn">07</span> <span class="op">/</span> <span class="bn">04</span> <span class="op">/</span> <span class="dv">2020</span><span class="op">;</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient real d;</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>d.setGlossaryName(<span class="st">&quot;Damage&quot;</span>);</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux real Y;</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>Y.setEntryName(<span class="st">&quot;EnergyRelease&quot;</span>);</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient real d<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>d<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;Damage&quot;</span><span class="op">);</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux real Y<span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>Y<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;EnergyRelease&quot;</span><span class="op">);</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient TVector g;</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>g.setEntryName(<span class="st">&quot;DamageGradient&quot;</span>);</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux TVector q;</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>q.setEntryName(<span class="st">&quot;DualDamageGradient&quot;</span>);</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient TVector g<span class="op">;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>g<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;DamageGradient&quot;</span><span class="op">);</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux TVector q<span class="op">;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>q<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;DualDamageGradient&quot;</span><span class="op">);</span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperatorBlock ∂q∕∂Δg;</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalTangentOperatorBlock ∂Y∕∂Δd;</span></code></pre></div>
-<p>where the pairs <span class="math inline">\((Y,d)\)</span> and <span class="math inline">\((\mathbf{q},\mathbf{g})\)</span> of dual variables have been defined using the <code>DefaultGenericBehaviour</code> and the corresponding required tangent operator blocks <code>∂q∕∂Δg</code> and <code>∂Y∕∂Δd</code> have been defined.</p>
-<p>Material properties <span class="math inline">\(G_c\)</span> and <span class="math inline">\(\ell_0\)</span> are now defined and we declare the history function <span class="math inline">\(H\)</span> as an external state variable.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real l₀;</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>l₀.setEntryName(<span class="st">&quot;RegularizationLength&quot;</span>);</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real Gc;</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>Gc.setEntryName(<span class="st">&quot;FractureEnergy&quot;</span>);</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperatorBlock ∂q∕∂Δg<span class="op">;</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalTangentOperatorBlock ∂Y∕∂Δd<span class="op">;</span></span></code></pre></div>
+<p>where the pairs <span class="math inline">\((Y,d)\)</span> and <span
+class="math inline">\((\mathbf{q},\mathbf{g})\)</span> of dual variables
+have been defined using the <code>DefaultGenericBehaviour</code> and the
+corresponding required tangent operator blocks <code>∂q∕∂Δg</code> and
+<code>∂Y∕∂Δd</code> have been defined.</p>
+<p>Material properties <span class="math inline">\(G_c\)</span> and
+<span class="math inline">\(\ell_0\)</span> are now defined and we
+declare the history function <span class="math inline">\(H\)</span> as
+an external state variable.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real l₀<span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>l₀<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;RegularizationLength&quot;</span><span class="op">);</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real Gc<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>Gc<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;FractureEnergy&quot;</span><span class="op">);</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable real H;</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>H.setEntryName(<span class="st">&quot;HistoryFunction&quot;</span>);</span></code></pre></div>
-<p>Finally, the integrator writes the linear behaviour and defines the expressions for the tangent operator blocks and we also compute the dissipated fracture energy density:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ProvidesTangentOperator;</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable real H<span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>H<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;HistoryFunction&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>Finally, the integrator writes the linear behaviour and defines the
+expressions for the tangent operator blocks and we also compute the
+dissipated fracture energy density:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ProvidesTangentOperator<span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator <span class="op">{</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// remove useless warnings, as we always compute the tangent operator</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">static_cast</span>&lt;<span class="dt">void</span>&gt;(<span class="va">computeTangentOperator_</span>);</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  ∂q∕∂Δg = Gc*l₀* tmatrix&lt;N, N, real&gt;::Id();</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  ∂Y∕∂Δd = Gc/l₀+<span class="dv">2</span>*H;</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  q = Gc*l₀*(g+Δg);</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  Y = ∂Y∕∂Δd ⋅ (d+Δd)-<span class="dv">2</span>*H;</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">static_cast</span><span class="op">&lt;</span><span class="dt">void</span><span class="op">&gt;(</span><span class="va">computeTangentOperator_</span><span class="op">);</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  ∂q∕∂Δg <span class="op">=</span> Gc<span class="op">*</span>l₀<span class="op">*</span> tmatrix<span class="op">&lt;</span>N<span class="op">,</span> N<span class="op">,</span> real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  ∂Y∕∂Δd <span class="op">=</span> Gc<span class="op">/</span>l₀<span class="op">+</span><span class="dv">2</span><span class="op">*</span>H<span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  q <span class="op">=</span> Gc<span class="op">*</span>l₀<span class="op">*(</span>g<span class="op">+</span>Δg<span class="op">);</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  Y <span class="op">=</span> ∂Y∕∂Δd ⋅ <span class="op">(</span>d<span class="op">+</span>Δd<span class="op">)-</span><span class="dv">2</span><span class="op">*</span>H<span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DissipatedEnergy{</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>Psi_d = Gc/<span class="dv">2</span>/l₀*(d*d + l₀*l₀*(g|g));</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DissipatedEnergy<span class="op">{</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>Psi_d <span class="op">=</span> Gc<span class="op">/</span><span class="dv">2</span><span class="op">/</span>l₀<span class="op">*(</span>d<span class="op">*</span>d <span class="op">+</span> l₀<span class="op">*</span>l₀<span class="op">*(</span>g<span class="op">|</span>g<span class="op">));</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h1 id="fenics-implementation">FEniCS implementation</h1>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dolfin <span class="im">import</span> <span class="op">*</span></span>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dolfin <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mshr <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mgis.fenics <span class="im">as</span> mf</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -415,8 +600,17 @@ H = \max_{m \leq n}\{\psi^+(\boldsymbol{\varepsilon}_m)\}
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> Function(Vd, name<span class="op">=</span><span class="st">&quot;Damage&quot;</span>)</span>
 <span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>dold <span class="op">=</span> Function(Vd, name<span class="op">=</span><span class="st">&quot;Previous damage&quot;</span>)</span>
 <span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>bcd <span class="op">=</span> DirichletBC(Vd, Constant(<span class="fl">0.</span>), internal)</span></code></pre></div>
-<p>We now define the displacement <span class="math inline">\(u\)</span>-problem by loading the <code>PhaseFieldDisplacement</code> behaviour. Since the damage variable has been declared as an external state variable for this problem, we must register it with the damage field <code>d</code>. We also retrieve the <code>HistoryFunction</code> internal state variable <code>H</code> which will then be used as an external state variable for the damage problem. We finally recall that automatic registration of the strain is used here.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>E, nu <span class="op">=</span> <span class="dv">200</span>, <span class="fl">0.2</span></span>
+<p>We now define the displacement <span
+class="math inline">\(u\)</span>-problem by loading the
+<code>PhaseFieldDisplacement</code> behaviour. Since the damage variable
+has been declared as an external state variable for this problem, we
+must register it with the damage field <code>d</code>. We also retrieve
+the <code>HistoryFunction</code> internal state variable <code>H</code>
+which will then be used as an external state variable for the damage
+problem. We finally recall that automatic registration of the strain is
+used here.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>E, nu <span class="op">=</span> <span class="dv">200</span>, <span class="fl">0.2</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>material_u <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;./src/libBehaviour.so&quot;</span>,</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;PhaseFieldDisplacementDeviatoricSplit&quot;</span>,</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                                      hypothesis<span class="op">=</span><span class="st">&quot;plane_strain&quot;</span>,</span>
@@ -426,8 +620,16 @@ H = \max_{m \leq n}\{\psi^+(\boldsymbol{\varepsilon}_m)\}
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>problem_u.register_external_state_variable(<span class="st">&quot;Damage&quot;</span>, d)</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> problem_u.get_state_variable(<span class="st">&quot;HistoryFunction&quot;</span>)</span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>problem_u.solver.parameters[<span class="st">&quot;report&quot;</span>] <span class="op">=</span> <span class="va">False</span></span></code></pre></div>
-<p>Similarly, the damage problem is defined from the <code>PhaseFieldDamage</code> behaviour. The latter is a generalized behaviour which involves two gradients (as discussed in <a href="#mfront-behaviour-for-the-damage-problem">the corresponding section</a>) which must be registered with their corresponding UFL representations. As mentioned before, for this behaviour <code>HistoryFunction</code> is an external state variable which is now registered as being <code>H</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Gc, l0 <span class="op">=</span> <span class="fl">1.</span>, <span class="fl">0.02</span></span>
+<p>Similarly, the damage problem is defined from the
+<code>PhaseFieldDamage</code> behaviour. The latter is a generalized
+behaviour which involves two gradients (as discussed in <a
+href="#mfront-behaviour-for-the-damage-problem">the corresponding
+section</a>) which must be registered with their corresponding UFL
+representations. As mentioned before, for this behaviour
+<code>HistoryFunction</code> is an external state variable which is now
+registered as being <code>H</code>.</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Gc, l0 <span class="op">=</span> <span class="fl">1.</span>, <span class="fl">0.02</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>material_d <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;./src/libBehaviour.so&quot;</span>,</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;PhaseFieldDamage&quot;</span>,</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                                      hypothesis<span class="op">=</span><span class="st">&quot;plane_strain&quot;</span>,</span>
@@ -439,9 +641,23 @@ H = \max_{m \leq n}\{\psi^+(\boldsymbol{\varepsilon}_m)\}
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>problem_d.register_gradient(<span class="st">&quot;DamageGradient&quot;</span>, grad(d))</span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>problem_d.register_external_state_variable(<span class="st">&quot;HistoryFunction&quot;</span>, H)</span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>problem_d.solver.parameters[<span class="st">&quot;report&quot;</span>] <span class="op">=</span> <span class="va">False</span></span></code></pre></div>
-<p>We now implement the load-stepping procedure and, for each load step, the alternate minimization algorithm between the <span class="math inline">\(u\)</span>-problem and the <span class="math inline">\(d\)</span>-problem. The alternate minimization iterations are stopped when $|d-d_{old}|_ $ between two consecutive damage fields.</p>
-<p>After convergence of an alternate minimization step, we compute the vertical force acting on the top surface. For this purpose, we previously defined a function <code>v</code> with a vertical component equal to 1 on the top boundary and zero everywhere. The action of the residual form in this field is precisely the resulting vertical force of the imposed boundary conditions. We also compute the total stored and dissipated energy. The former has been defined in <code>PhaseFieldDisplacement.mfront</code> and the second in <code>PhaseFieldDamage.mfront</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tol, Nitermax <span class="op">=</span> <span class="fl">1e-3</span>, <span class="dv">500</span></span>
+<p>We now implement the load-stepping procedure and, for each load step,
+the alternate minimization algorithm between the <span
+class="math inline">\(u\)</span>-problem and the <span
+class="math inline">\(d\)</span>-problem. The alternate minimization
+iterations are stopped when $|d-d_{old}|_ $ between two consecutive
+damage fields.</p>
+<p>After convergence of an alternate minimization step, we compute the
+vertical force acting on the top surface. For this purpose, we
+previously defined a function <code>v</code> with a vertical component
+equal to 1 on the top boundary and zero everywhere. The action of the
+residual form in this field is precisely the resulting vertical force of
+the imposed boundary conditions. We also compute the total stored and
+dissipated energy. The former has been defined in
+<code>PhaseFieldDisplacement.mfront</code> and the second in
+<code>PhaseFieldDamage.mfront</code>.</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tol, Nitermax <span class="op">=</span> <span class="fl">1e-3</span>, <span class="dv">500</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>loading <span class="op">=</span> np.concatenate((np.linspace(<span class="dv">0</span>, <span class="fl">70e-3</span>, <span class="dv">6</span>),</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                          np.linspace(<span class="fl">70e-3</span>, <span class="fl">125e-3</span>, <span class="dv">26</span>)[<span class="dv">1</span>:]))</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> loading.shape[<span class="dv">0</span>]</span>
@@ -474,8 +690,16 @@ H = \max_{m \leq n}\{\psi^+(\boldsymbol{\varepsilon}_m)\}
 <span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    p<span class="op">=</span>plot(d, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    plt.colorbar(p)</span>
 <span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    plt.savefig(<span class="st">&quot;./results/phase_field_</span><span class="sc">{:04d}</span><span class="st">.png&quot;</span>.<span class="bu">format</span>(i), dpi<span class="op">=</span><span class="dv">400</span>)  </span></code></pre></div>
-<p>Load-displacement and energy evolution curves show that there is a phase of brutal crack nucleation followed by a more stable crack propagation phase towards the plate boundaries. The solution vertical symmetry is lost in the last load steps when approaching the plate boundaries as already mentioned in <span class="citation" data-cites="bourdin2000numerical"><a href="#ref-bourdin2000numerical" role="doc-biblioref">Bourdin, Francfort, and Marigo</a> (<a href="#ref-bourdin2000numerical" role="doc-biblioref">2000</a>)</span>.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib notebook</span>
+<p>Load-displacement and energy evolution curves show that there is a
+phase of brutal crack nucleation followed by a more stable crack
+propagation phase towards the plate boundaries. The solution vertical
+symmetry is lost in the last load steps when approaching the plate
+boundaries as already mentioned in <span class="citation"
+data-cites="bourdin2000numerical">Bourdin, Francfort, and Marigo (<a
+href="#ref-bourdin2000numerical"
+role="doc-biblioref">2000</a>)</span>.</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib notebook</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.plot(loading, results[:, <span class="dv">0</span>], <span class="st">&quot;-o&quot;</span>)</span>
@@ -494,24 +718,43 @@ H = \max_{m \leq n}\{\psi^+(\boldsymbol{\varepsilon}_m)\}
 <p><img src="img/PhaseField-FU.png" style="width:75.0%" /></p>
 <p><img src="img/PhaseField-Energy.png" style="width:75.0%" /></p>
 <h1 class="unnumbered" id="bibliography">References</h1>
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-ambrosio1990approximation" class="csl-entry" role="doc-biblioentry">
-Ambrosio, Luigi, and Vincenzo Maria Tortorelli. 1990. <span>“Approximation of Functional Depending on Jumps by Elliptic Functional via t-Convergence.”</span> <em>Communications on Pure and Applied Mathematics</em> 43 (8): 999–1036.
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-ambrosio1990approximation" class="csl-entry"
+role="listitem">
+Ambrosio, Luigi, and Vincenzo Maria Tortorelli. 1990.
+<span>“Approximation of Functional Depending on Jumps by Elliptic
+Functional via t-Convergence.”</span> <em>Communications on Pure and
+Applied Mathematics</em> 43 (8): 999–1036.
 </div>
-<div id="ref-amor2009regularized" class="csl-entry" role="doc-biblioentry">
-Amor, Hanen, Jean-Jacques Marigo, and Corrado Maurini. 2009. <span>“Regularized Formulation of the Variational Brittle Fracture with Unilateral Contact: Numerical Experiments.”</span> <em>Journal of the Mechanics and Physics of Solids</em> 57 (8): 1209–29.
+<div id="ref-amor2009regularized" class="csl-entry" role="listitem">
+Amor, Hanen, Jean-Jacques Marigo, and Corrado Maurini. 2009.
+<span>“Regularized Formulation of the Variational Brittle Fracture with
+Unilateral Contact: Numerical Experiments.”</span> <em>Journal of the
+Mechanics and Physics of Solids</em> 57 (8): 1209–29.
 </div>
-<div id="ref-bourdin2000numerical" class="csl-entry" role="doc-biblioentry">
-Bourdin, Blaise, Gilles A Francfort, and Jean-Jacques Marigo. 2000. <span>“Numerical Experiments in Revisited Brittle Fracture.”</span> <em>Journal of the Mechanics and Physics of Solids</em> 48 (4): 797–826.
+<div id="ref-bourdin2000numerical" class="csl-entry" role="listitem">
+Bourdin, Blaise, Gilles A Francfort, and Jean-Jacques Marigo. 2000.
+<span>“Numerical Experiments in Revisited Brittle Fracture.”</span>
+<em>Journal of the Mechanics and Physics of Solids</em> 48 (4): 797–826.
 </div>
-<div id="ref-francfort1998revisiting" class="csl-entry" role="doc-biblioentry">
-Francfort, Gilles A, and J-J Marigo. 1998. <span>“Revisiting Brittle Fracture as an Energy Minimization Problem.”</span> <em>Journal of the Mechanics and Physics of Solids</em> 46 (8): 1319–42.
+<div id="ref-francfort1998revisiting" class="csl-entry" role="listitem">
+Francfort, Gilles A, and J-J Marigo. 1998. <span>“Revisiting Brittle
+Fracture as an Energy Minimization Problem.”</span> <em>Journal of the
+Mechanics and Physics of Solids</em> 46 (8): 1319–42.
 </div>
-<div id="ref-miehe2010phase" class="csl-entry" role="doc-biblioentry">
-Miehe, Christian, Martina Hofacker, and Fabian Welschinger. 2010. <span>“A Phase Field Model for Rate-Independent Crack Propagation: Robust Algorithmic Implementation Based on Operator Splits.”</span> <em>Computer Methods in Applied Mechanics and Engineering</em> 199 (45-48): 2765–78.
+<div id="ref-miehe2010phase" class="csl-entry" role="listitem">
+Miehe, Christian, Martina Hofacker, and Fabian Welschinger. 2010.
+<span>“A Phase Field Model for Rate-Independent Crack Propagation:
+Robust Algorithmic Implementation Based on Operator Splits.”</span>
+<em>Computer Methods in Applied Mechanics and Engineering</em> 199
+(45-48): 2765–78.
 </div>
-<div id="ref-pham2011gradient" class="csl-entry" role="doc-biblioentry">
-Pham, Kim, Hanen Amor, Jean-Jacques Marigo, and Corrado Maurini. 2011. <span>“Gradient Damage Models and Their Use to Approximate Brittle Fracture.”</span> <em>International Journal of Damage Mechanics</em> 20 (4): 618–52.
+<div id="ref-pham2011gradient" class="csl-entry" role="listitem">
+Pham, Kim, Hanen Amor, Jean-Jacques Marigo, and Corrado Maurini. 2011.
+<span>“Gradient Damage Models and Their Use to Approximate Brittle
+Fracture.”</span> <em>International Journal of Damage Mechanics</em> 20
+(4): 618–52.
 </div>
 </div>
 </body>

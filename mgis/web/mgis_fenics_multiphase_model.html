@@ -17,8 +17,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -27,7 +28,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -51,11 +52,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -64,14 +65,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -81,7 +82,9 @@
             <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -171,176 +174,318 @@ true
 <!--
 pandoc --pdf-engine=xelatex -F pandoc-crossref -F pandoc-citeproc --highlight-style=tango  mgis_fenics_multiphase_model.md -o mgis_fenics_multiphase_model.pdf
 -->
-<p>This demo explores the full capability of <code>MFront</code>’s recent extension to handling generalized behaviours, namely involving different pairs of fluxes and gradients, as well as <code>FEniCS</code> versatility to solve generic PDEs.</p>
-<p>This will be illustrated on a generalized continuum model called <em>multiphase model</em> in the context of fiber-reinforced materials <span class="citation" data-cites="bleyer2018multiphase">(<a href="#ref-bleyer2018multiphase" role="doc-biblioref">Bleyer 2018</a>)</span>.</p>
+<p>This demo explores the full capability of <code>MFront</code>’s
+recent extension to handling generalized behaviours, namely involving
+different pairs of fluxes and gradients, as well as <code>FEniCS</code>
+versatility to solve generic PDEs.</p>
+<p>This will be illustrated on a generalized continuum model called
+<em>multiphase model</em> in the context of fiber-reinforced materials
+<span class="citation" data-cites="bleyer2018multiphase">(<a
+href="#ref-bleyer2018multiphase" role="doc-biblioref">Bleyer
+2018</a>)</span>.</p>
 <blockquote>
 <p><strong>Source files:</strong></p>
 <ul>
-<li>Jupyter notebook: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/multiphase_model/mgis_fenics_multiphase_model.ipynb">mgis_fenics_multiphase_model.ipynb</a></li>
-<li>Python file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/multiphase_model/mgis_fenics_multiphase_model.py">mgis_fenics_multiphase_model.py</a></li>
-<li>MFront behaviour file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/multiphase_model/MultiphaseModel.mfront">MultiphaseModel.mfront</a></li>
+<li>Jupyter notebook: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/multiphase_model/mgis_fenics_multiphase_model.ipynb">mgis_fenics_multiphase_model.ipynb</a></li>
+<li>Python file: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/multiphase_model/mgis_fenics_multiphase_model.py">mgis_fenics_multiphase_model.py</a></li>
+<li>MFront behaviour file: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/multiphase_model/MultiphaseModel.mfront">MultiphaseModel.mfront</a></li>
 </ul>
 </blockquote>
-<h1 id="a-quick-primer-on-the-multiphase-model">A quick primer on the multiphase model</h1>
+<h1 id="a-quick-primer-on-the-multiphase-model">A quick primer on the
+multiphase model</h1>
 <p><img src="img/multiphase_kinematics.svg" style="width:75.0%" /></p>
-<p>The multiphase model is a higher-grade (i.e. with enhanced kinematics) generalized continuum which represents a biphasic material (the main application being fiber-reinforced materials) by a superposition of two phases (say <em>matrix</em> and <em>fiber</em> phases), each possessing their own kinematics and in mutual interaction. Each phase kinematics is described by a displacement field <span class="math inline">\(\boldsymbol{U}^1\)</span> and <span class="math inline">\(\boldsymbol{U}^2\)</span> for the matrix and fiber phase respectively.</p>
-<p>In the present case, each phase is a standard Cauchy continuum but other variants, including fiber bending effects for instance, exist, see <span class="citation" data-cites="debuhan2017elastic"><a href="#ref-debuhan2017elastic" role="doc-biblioref">De Buhan, Bleyer, and Hassen</a> (<a href="#ref-debuhan2017elastic" role="doc-biblioref">2017</a>)</span> for more details.</p>
+<p>The multiphase model is a higher-grade (i.e. with enhanced
+kinematics) generalized continuum which represents a biphasic material
+(the main application being fiber-reinforced materials) by a
+superposition of two phases (say <em>matrix</em> and <em>fiber</em>
+phases), each possessing their own kinematics and in mutual interaction.
+Each phase kinematics is described by a displacement field <span
+class="math inline">\(\boldsymbol{U}^1\)</span> and <span
+class="math inline">\(\boldsymbol{U}^2\)</span> for the matrix and fiber
+phase respectively.</p>
+<p>In the present case, each phase is a standard Cauchy continuum but
+other variants, including fiber bending effects for instance, exist, see
+<span class="citation" data-cites="debuhan2017elastic">De Buhan, Bleyer,
+and Hassen (<a href="#ref-debuhan2017elastic"
+role="doc-biblioref">2017</a>)</span> for more details.</p>
 <ul>
-<li><p><strong>Generalized strains</strong>: infinitesimal strain in each phase <span class="math inline">\(\boldsymbol{\varepsilon}^j=\nabla^s \boldsymbol{U}^j\)</span> and relative displacement between both phases <span class="math inline">\(\boldsymbol{V}= \boldsymbol{U}^2-\boldsymbol{U}^1\)</span></p></li>
-<li><p><strong>Generalized stresses</strong>: partial stress <span class="math inline">\(\boldsymbol{\sigma}^j\)</span> in both phases and interaction force <span class="math inline">\(\boldsymbol{I}\)</span> (exerted by phase 2 over phase 1)</p></li>
+<li><p><strong>Generalized strains</strong>: infinitesimal strain in
+each phase <span
+class="math inline">\(\boldsymbol{\varepsilon}^j=\nabla^s
+\boldsymbol{U}^j\)</span> and relative displacement between both phases
+<span class="math inline">\(\boldsymbol{V}=
+\boldsymbol{U}^2-\boldsymbol{U}^1\)</span></p></li>
+<li><p><strong>Generalized stresses</strong>: partial stress <span
+class="math inline">\(\boldsymbol{\sigma}^j\)</span> in both phases and
+interaction force <span class="math inline">\(\boldsymbol{I}\)</span>
+(exerted by phase 2 over phase 1)</p></li>
 <li><p><strong>Equilibrium equations</strong>:</p></li>
 </ul>
 <p><span class="math display">\[\begin{align}
-\operatorname{div}\boldsymbol{\sigma}^1 +\rho_1F + \boldsymbol{I}&amp;=  0 \label{multiphase-eq1}\\
-\operatorname{div}\boldsymbol{\sigma}^2 + \rho_2F - \boldsymbol{I}&amp;= 0 \label{multiphase-eq2}
+\operatorname{div}\boldsymbol{\sigma}^1 +\rho_1F +
+\boldsymbol{I}&amp;=  0 \label{multiphase-eq1}\\
+\operatorname{div}\boldsymbol{\sigma}^2 + \rho_2F - \boldsymbol{I}&amp;=
+0 \label{multiphase-eq2}
 \end{align}\]</span></p>
 <ul>
 <li><strong>Traction boundary conditions</strong>:</li>
 </ul>
 <p><span class="math display">\[\begin{align}
-\boldsymbol{\sigma}^1\cdot\boldsymbol{t}&amp;= \boldsymbol{n}^1 \text{ on }\partial \Omega_{T} \\
-\boldsymbol{\sigma}^2\cdot\boldsymbol{t}&amp;= \boldsymbol{n}^2 \text{ on } \partial \Omega_{T} 
+\boldsymbol{\sigma}^1\cdot\boldsymbol{t}&amp;= \boldsymbol{n}^1 \text{
+on }\partial \Omega_{T} \\
+\boldsymbol{\sigma}^2\cdot\boldsymbol{t}&amp;= \boldsymbol{n}^2 \text{
+on } \partial \Omega_{T}
 \end{align}\]</span></p>
 <ul>
 <li><strong>Deformation work density</strong>:</li>
 </ul>
 <p><span class="math display">\[\begin{equation}
-w_{\text{def}} = \boldsymbol{\sigma}^1:\boldsymbol{\varepsilon}^1 + \boldsymbol{\sigma}^2:\boldsymbol{\varepsilon}^2+ \boldsymbol{I}\cdot\boldsymbol{V}
+w_{\text{def}} = \boldsymbol{\sigma}^1:\boldsymbol{\varepsilon}^1 +
+\boldsymbol{\sigma}^2:\boldsymbol{\varepsilon}^2+
+\boldsymbol{I}\cdot\boldsymbol{V}
 \end{equation}\]</span></p>
 <ul>
-<li>General form of the <strong>constitutive equations</strong> based on a convex free energy density <span class="math inline">\(\psi\)</span>:</li>
+<li>General form of the <strong>constitutive equations</strong> based on
+a convex free energy density <span
+class="math inline">\(\psi\)</span>:</li>
 </ul>
 <p><span class="math display">\[\begin{align}
-\boldsymbol{\sigma}^1 &amp;= \dfrac{\partial \psi}{\partial \boldsymbol{\varepsilon}^1}(\boldsymbol{\varepsilon}^1,\boldsymbol{\varepsilon}^2,\boldsymbol{V}) \\
-\boldsymbol{\sigma}^2 &amp;= \dfrac{\partial \psi}{\partial \boldsymbol{\varepsilon}^2}(\boldsymbol{\varepsilon}^1,\boldsymbol{\varepsilon}^2,\boldsymbol{V})\\
-\boldsymbol{I}&amp;= \dfrac{\partial \psi}{\partial \boldsymbol{V}}(\boldsymbol{\varepsilon}^1,\boldsymbol{\varepsilon}^2,\boldsymbol{V})
+\boldsymbol{\sigma}^1 &amp;= \dfrac{\partial \psi}{\partial
+\boldsymbol{\varepsilon}^1}(\boldsymbol{\varepsilon}^1,\boldsymbol{\varepsilon}^2,\boldsymbol{V})
+\\
+\boldsymbol{\sigma}^2 &amp;= \dfrac{\partial \psi}{\partial
+\boldsymbol{\varepsilon}^2}(\boldsymbol{\varepsilon}^1,\boldsymbol{\varepsilon}^2,\boldsymbol{V})\\
+\boldsymbol{I}&amp;= \dfrac{\partial \psi}{\partial
+\boldsymbol{V}}(\boldsymbol{\varepsilon}^1,\boldsymbol{\varepsilon}^2,\boldsymbol{V})
 \end{align}\]</span></p>
-<p>which will be particularized for the present demo to the following <em>elastic behaviour</em>:</p>
+<p>which will be particularized for the present demo to the following
+<em>elastic behaviour</em>:</p>
 <p><span class="math display">\[\begin{align*}
-\boldsymbol{\sigma}^1 &amp;= \mathbb{D}^{11}:\boldsymbol{\varepsilon}^1+\mathbb{D}^{12}:\boldsymbol{\varepsilon}^2\\
-\boldsymbol{\sigma}^2 &amp;= (\mathbb{D}^{12}){}^\text{T}:\boldsymbol{\varepsilon}^1+\mathbb{D}^{22}:\boldsymbol{\varepsilon}^2\\
+\boldsymbol{\sigma}^1 &amp;=
+\mathbb{D}^{11}:\boldsymbol{\varepsilon}^1+\mathbb{D}^{12}:\boldsymbol{\varepsilon}^2\\
+\boldsymbol{\sigma}^2 &amp;=
+(\mathbb{D}^{12}){}^\text{T}:\boldsymbol{\varepsilon}^1+\mathbb{D}^{22}:\boldsymbol{\varepsilon}^2\\
 \boldsymbol{I}&amp;= \boldsymbol{\kappa}\cdot \boldsymbol{V}
-\end{align*}\]</span> in which <span class="math inline">\(\mathbb{D}^{ij}\)</span> are partial stiffness tensors and <span class="math inline">\(\kappa\)</span> can be seen as an interaction stiffness between both phases.</p>
+\end{align*}\]</span> in which <span
+class="math inline">\(\mathbb{D}^{ij}\)</span> are partial stiffness
+tensors and <span class="math inline">\(\kappa\)</span> can be seen as
+an interaction stiffness between both phases.</p>
 <h1 id="mfront-implementation"><code>MFront</code> implementation</h1>
-<p>The <code>MFront</code> implementation expands upon the detailed <code>MFront</code> implementation of the <a href="nonlinear_heat_transfer.html">stationnary heat transfer demo</a>. Again, the <code>DefaultGenericBehaviour</code> is used here and specify that the following implementation will only handle the 2D plane strain case.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultGenericBehaviour;</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour MultiphaseModel;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Jeremy Bleyer;</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="bn">04</span>/<span class="bn">04</span>/<span class="dv">2020</span>;</span>
+<p>The <code>MFront</code> implementation expands upon the detailed
+<code>MFront</code> implementation of the <a
+href="nonlinear_heat_transfer.html">stationnary heat transfer demo</a>.
+Again, the <code>DefaultGenericBehaviour</code> is used here and specify
+that the following implementation will only handle the 2D plane strain
+case.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultGenericBehaviour<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour MultiphaseModel<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Jeremy Bleyer<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="bn">04</span><span class="op">/</span><span class="bn">04</span><span class="op">/</span><span class="dv">2020</span><span class="op">;</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses {PlaneStrain};</span></code></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses <span class="op">{</span>PlaneStrain<span class="op">};</span></span></code></pre></div>
 <h2 id="fluxgradient-dual-pairs">Flux/Gradient dual pairs</h2>
-<p>The three pairs of generalized flux/gradient of the multiphase model are then defined, namely <span class="math inline">\((\boldsymbol{\sigma}^1,\boldsymbol{\varepsilon}^1)\)</span>, <span class="math inline">\((\boldsymbol{\sigma}^2,\boldsymbol{\varepsilon}^2)\)</span> and <span class="math inline">\((\boldsymbol{I},\boldsymbol{V})\)</span>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient StrainStensor e₁;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>e₁.setEntryName(<span class="st">&quot;MatrixStrain&quot;</span>);</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux StressStensor σ₁;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>σ₁.setEntryName(<span class="st">&quot;MatrixStress&quot;</span>);</span>
+<p>The three pairs of generalized flux/gradient of the multiphase model
+are then defined, namely <span
+class="math inline">\((\boldsymbol{\sigma}^1,\boldsymbol{\varepsilon}^1)\)</span>,
+<span
+class="math inline">\((\boldsymbol{\sigma}^2,\boldsymbol{\varepsilon}^2)\)</span>
+and <span
+class="math inline">\((\boldsymbol{I},\boldsymbol{V})\)</span>:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient StrainStensor e₁<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>e₁<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;MatrixStrain&quot;</span><span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux StressStensor σ₁<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>σ₁<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;MatrixStress&quot;</span><span class="op">);</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient StrainStensor e₂;</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>e₂.setEntryName(<span class="st">&quot;FiberStrain&quot;</span>);</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux StressStensor σ₂;</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>σ₂.setEntryName(<span class="st">&quot;FiberStress&quot;</span>);</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient StrainStensor e₂<span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>e₂<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;FiberStrain&quot;</span><span class="op">);</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux StressStensor σ₂<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>σ₂<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;FiberStress&quot;</span><span class="op">);</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient TVector V;</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>V.setEntryName(<span class="st">&quot;RelativeDisplacement&quot;</span>);</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux TVector I;</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>I.setEntryName(<span class="st">&quot;InteractionForce&quot;</span>);</span></code></pre></div>
-<p>We now declare the various tangent operator blocks which will be needed to express the generalized tangent operator. Of the nine possible blocks, only 5 are needed here since the partial stresses do not depend on the relative displacement and, similarly, the interaction force does not depend on the phase strains:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperatorBlocks{∂σ₁∕∂Δe₁,∂σ₁∕∂Δe₂,∂σ₂∕∂Δe₁,∂σ₂∕∂Δe₂,∂I∕∂ΔV};</span></code></pre></div>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient TVector V<span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>V<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;RelativeDisplacement&quot;</span><span class="op">);</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux TVector I<span class="op">;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>I<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;InteractionForce&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>We now declare the various tangent operator blocks which will be
+needed to express the generalized tangent operator. Of the nine possible
+blocks, only 5 are needed here since the partial stresses do not depend
+on the relative displacement and, similarly, the interaction force does
+not depend on the phase strains:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperatorBlocks<span class="op">{</span>∂σ₁∕∂Δe₁<span class="op">,</span>∂σ₁∕∂Δe₂<span class="op">,</span>∂σ₂∕∂Δe₁<span class="op">,</span>∂σ₂∕∂Δe₂<span class="op">,</span>∂I∕∂ΔV<span class="op">};</span></span></code></pre></div>
 <h3 id="defining-material-properties">Defining material properties</h3>
-<p>We consider the case of a 2D plane strain bilayered material made of isotropic materials for both the matrix and fiber phases. In addition to the four material constants need for both constituents, the volume fraction of both phases (here we ask for the volume fraction <span class="math inline">\(\rho\)</span> of the fiber phase) and the size <span class="math inline">\(s\)</span> of the material unit cell (i.e. the spacing between two consecutive matrix layers for instance) are the two other parameters characterizing the multiphase elastic model.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress Y1;</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Y1.setEntryName(<span class="st">&quot;MatrixYoungModulus&quot;</span>);</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real nu1;</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>nu1.setEntryName(<span class="st">&quot;MatrixPoissonRatio&quot;</span>);</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress Y2;</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>Y2.setEntryName(<span class="st">&quot;FiberYoungModulus&quot;</span>);</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real nu2;</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>nu2.setEntryName(<span class="st">&quot;FiberPoissonRatio&quot;</span>);</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real ρ;</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>ρ.setEntryName(<span class="st">&quot;FiberVolumeFraction&quot;</span>);</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real s;</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>s.setEntryName(<span class="st">&quot;Size&quot;</span>);</span></code></pre></div>
-<h2 id="generalized-elastic-behaviour">Generalized elastic behaviour</h2>
-<p>It has been shown in <span class="citation" data-cites="bleyer2018multiphase"><a href="#ref-bleyer2018multiphase" role="doc-biblioref">Bleyer</a> (<a href="#ref-bleyer2018multiphase" role="doc-biblioref">2018</a>)</span> that, for materials made of two constituents, the partial stiffness tensors <span class="math inline">\(\mathbb{D}^{ij}\)</span> can be expressed as functions of the material individual stiffness <span class="math inline">\(\mathbb{C}^1,\mathbb{C}^2\)</span> and the macroscopic stiffness <span class="math inline">\(\mathbb{C}^{hom}\)</span> of the composite (obtained from classical homogenization theory) as follows:</p>
+<p>We consider the case of a 2D plane strain bilayered material made of
+isotropic materials for both the matrix and fiber phases. In addition to
+the four material constants need for both constituents, the volume
+fraction of both phases (here we ask for the volume fraction <span
+class="math inline">\(\rho\)</span> of the fiber phase) and the size
+<span class="math inline">\(s\)</span> of the material unit cell
+(i.e. the spacing between two consecutive matrix layers for instance)
+are the two other parameters characterizing the multiphase elastic
+model.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress Y1<span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Y1<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;MatrixYoungModulus&quot;</span><span class="op">);</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real nu1<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>nu1<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;MatrixPoissonRatio&quot;</span><span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty stress Y2<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>Y2<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;FiberYoungModulus&quot;</span><span class="op">);</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real nu2<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>nu2<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;FiberPoissonRatio&quot;</span><span class="op">);</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real ρ<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>ρ<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;FiberVolumeFraction&quot;</span><span class="op">);</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaterialProperty real s<span class="op">;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;Size&quot;</span><span class="op">);</span></span></code></pre></div>
+<h2 id="generalized-elastic-behaviour">Generalized elastic
+behaviour</h2>
+<p>It has been shown in <span class="citation"
+data-cites="bleyer2018multiphase">Bleyer (<a
+href="#ref-bleyer2018multiphase" role="doc-biblioref">2018</a>)</span>
+that, for materials made of two constituents, the partial stiffness
+tensors <span class="math inline">\(\mathbb{D}^{ij}\)</span> can be
+expressed as functions of the material individual stiffness <span
+class="math inline">\(\mathbb{C}^1,\mathbb{C}^2\)</span> and the
+macroscopic stiffness <span
+class="math inline">\(\mathbb{C}^{hom}\)</span> of the composite
+(obtained from classical homogenization theory) as follows:</p>
 <p><span class="math display">\[\begin{align*}
-\mathbb{D}^{11} &amp;= \phi_1\mathbb{C}^1-\mathbb{C}^1:[\![\mathbb{C}]\!]^{-1}:\Delta\mathbb{C}:[\![\mathbb{C}]\!]^{-1}:\mathbb{C}^1\\ 
-\mathbb{D}^{22} &amp;= \phi_2\mathbb{C}^2-\mathbb{C}^2:[\![\mathbb{C}]\!]^{-1}:\Delta\mathbb{C}:[\![\mathbb{C}]\!]^{-1}:\mathbb{C}^2\\ 
-\mathbb{D}^{12} &amp;= \mathbb{C}^1:[\![\mathbb{C}]\!]^{-1}:\Delta\mathbb{C}:[\![\mathbb{C}]\!]^{-1}:\mathbb{C}^2
+\mathbb{D}^{11} &amp;=
+\phi_1\mathbb{C}^1-\mathbb{C}^1:[\![\mathbb{C}]\!]^{-1}:\Delta\mathbb{C}:[\![\mathbb{C}]\!]^{-1}:\mathbb{C}^1\\
+\mathbb{D}^{22} &amp;=
+\phi_2\mathbb{C}^2-\mathbb{C}^2:[\![\mathbb{C}]\!]^{-1}:\Delta\mathbb{C}:[\![\mathbb{C}]\!]^{-1}:\mathbb{C}^2\\
+\mathbb{D}^{12} &amp;=
+\mathbb{C}^1:[\![\mathbb{C}]\!]^{-1}:\Delta\mathbb{C}:[\![\mathbb{C}]\!]^{-1}:\mathbb{C}^2
 \end{align*}\]</span></p>
-<p>with <span class="math inline">\(\phi_1=1-\rho\)</span>, <span class="math inline">\(\phi_2 = \rho\)</span> are the phases volume fractions, <span class="math inline">\([\![\mathbb{C}]\!]=\mathbb{C}^2-\mathbb{C}^1\)</span> and <span class="math inline">\(\Delta\mathbb{C}= \phi_1\mathbb{C}^1+\phi_2\mathbb{C}^2-\mathbb{C}^{hom}\)</span>. They satisfy the following property <span class="math inline">\(\mathbb{D}^{11}+\mathbb{D}^{22}+\mathbb{D}^{12}+(\mathbb{D}^{21}){}^\text{T}=\mathbb{C}^{hom}\)</span>.</p>
-<p>In the present case of a 2D bilayered material made of isotropic constituents, the macroscopic stiffness is given by <span class="citation" data-cites="debuhan2017elastic"><a href="#ref-debuhan2017elastic" role="doc-biblioref">De Buhan, Bleyer, and Hassen</a> (<a href="#ref-debuhan2017elastic" role="doc-biblioref">2017</a>)</span>:</p>
+<p>with <span class="math inline">\(\phi_1=1-\rho\)</span>, <span
+class="math inline">\(\phi_2 = \rho\)</span> are the phases volume
+fractions, <span
+class="math inline">\([\![\mathbb{C}]\!]=\mathbb{C}^2-\mathbb{C}^1\)</span>
+and <span class="math inline">\(\Delta\mathbb{C}=
+\phi_1\mathbb{C}^1+\phi_2\mathbb{C}^2-\mathbb{C}^{hom}\)</span>. They
+satisfy the following property <span
+class="math inline">\(\mathbb{D}^{11}+\mathbb{D}^{22}+\mathbb{D}^{12}+(\mathbb{D}^{21}){}^\text{T}=\mathbb{C}^{hom}\)</span>.</p>
+<p>In the present case of a 2D bilayered material made of isotropic
+constituents, the macroscopic stiffness is given by <span
+class="citation" data-cites="debuhan2017elastic">De Buhan, Bleyer, and
+Hassen (<a href="#ref-debuhan2017elastic"
+role="doc-biblioref">2017</a>)</span>:</p>
 <p><span class="math display">\[\begin{equation}
 \mathbb{C}^{hom} = \begin{bmatrix}
-\left\langle E_\text{oe}\right\rangle - \left\langle\lambda^2/E_\text{oe}\right\rangle+\left\langle\lambda/E_\text{oe}\right\rangle^2/\left\langle 1/E_\text{oe}\right\rangle &amp; \left\langle\lambda/E_\text{oe}\right\rangle/\left\langle 1/E_\text{oe}\right\rangle &amp; \left\langle\lambda/E_\text{oe}\right\rangle/\left\langle 1/E_\text{oe}\right\rangle &amp; 0 \\
-\left\langle\lambda/E_\text{oe}\right\rangle/\left\langle 1/E_\text{oe}\right\rangle &amp; 1/\left\langle 1/E_\text{oe}\right\rangle &amp; \left\langle\lambda\right\rangle &amp; 0 \\
-\left\langle\lambda/E_\text{oe}\right\rangle/\left\langle 1/E_\text{oe}\right\rangle &amp; \left\langle\lambda\right\rangle &amp; \left\langle E_\text{oe}\right\rangle &amp; 0 \\
+\left\langle E_\text{oe}\right\rangle -
+\left\langle\lambda^2/E_\text{oe}\right\rangle+\left\langle\lambda/E_\text{oe}\right\rangle^2/\left\langle
+1/E_\text{oe}\right\rangle &amp;
+\left\langle\lambda/E_\text{oe}\right\rangle/\left\langle
+1/E_\text{oe}\right\rangle &amp;
+\left\langle\lambda/E_\text{oe}\right\rangle/\left\langle
+1/E_\text{oe}\right\rangle &amp; 0 \\
+\left\langle\lambda/E_\text{oe}\right\rangle/\left\langle
+1/E_\text{oe}\right\rangle &amp; 1/\left\langle
+1/E_\text{oe}\right\rangle &amp; \left\langle\lambda\right\rangle &amp;
+0 \\
+\left\langle\lambda/E_\text{oe}\right\rangle/\left\langle
+1/E_\text{oe}\right\rangle &amp; \left\langle\lambda\right\rangle &amp;
+\left\langle E_\text{oe}\right\rangle &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 2/\left\langle 1/\mu\right\rangle
 \end{bmatrix}_{(xx,yy,zz,xy)}
 \end{equation}\]</span></p>
-<p>where <span class="math inline">\(\left\langle\star\right\rangle=\phi_1\star_1+\phi_2\star_2\)</span> denotes the averaging operator and <span class="math inline">\(E_\text{oe}=\lambda+2\mu\)</span> is the oedometric modulus.</p>
-<p>As regards the interaction stiffness tensor, it is obtained from the resolution of an auxiliary homogenization problem formulated on the heterogeneous material unit cell. In the present case, one obtains <span class="citation" data-cites="bleyer2018multiphase"><a href="#ref-bleyer2018multiphase" role="doc-biblioref">Bleyer</a> (<a href="#ref-bleyer2018multiphase" role="doc-biblioref">2018</a>)</span>:</p>
+<p>where <span
+class="math inline">\(\left\langle\star\right\rangle=\phi_1\star_1+\phi_2\star_2\)</span>
+denotes the averaging operator and <span
+class="math inline">\(E_\text{oe}=\lambda+2\mu\)</span> is the
+oedometric modulus.</p>
+<p>As regards the interaction stiffness tensor, it is obtained from the
+resolution of an auxiliary homogenization problem formulated on the
+heterogeneous material unit cell. In the present case, one obtains <span
+class="citation" data-cites="bleyer2018multiphase">Bleyer (<a
+href="#ref-bleyer2018multiphase"
+role="doc-biblioref">2018</a>)</span>:</p>
 <p><span class="math display">\[\begin{equation}
 \boldsymbol{\kappa}= \begin{bmatrix}
 \dfrac{12}{\left\langle\mu\right\rangle s^2} &amp; 0 \\
 0 &amp; \dfrac{12}{\left\langle E_\text{oe}\right\rangle s^2}
 \end{bmatrix}_{(x,y)}
 \end{equation}\]</span></p>
-<p>These relations are all implemented in the behaviour <code>@Integrator</code> which also defines the required tangent blocks. <code>MFront</code> linear algebra on fourth-order tensor makes the implementation very easy and Unicode support provides much more readable code.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ProvidesTangentOperator;</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator {</span>
+<p>These relations are all implemented in the behaviour
+<code>@Integrator</code> which also defines the required tangent blocks.
+<code>MFront</code> linear algebra on fourth-order tensor makes the
+implementation very easy and Unicode support provides much more readable
+code.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ProvidesTangentOperator<span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator <span class="op">{</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// remove useless warnings, as we always compute the tangent operator</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">static_cast</span>&lt;<span class="dt">void</span>&gt;(<span class="va">computeTangentOperator_</span>);</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">static_cast</span><span class="op">&lt;</span><span class="dt">void</span><span class="op">&gt;(</span><span class="va">computeTangentOperator_</span><span class="op">);</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ₁ = computeLambda(Y1,nu1);</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ₁ = computeMu(Y1,nu1);</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ₂ = computeLambda(Y2,nu2);</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ₂ = computeMu(Y2,nu2);</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Eₒₑ¹ = λ₁+<span class="dv">2</span>*μ₁;</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Eₒₑ² = λ₂+<span class="dv">2</span>*μ₂;</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Eₒₑ = (<span class="dv">1</span>-ρ)*Eₒₑ¹ + ρ*Eₒₑ²;</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> iEₒₑ = (<span class="dv">1</span>-ρ)/Eₒₑ¹ + ρ/Eₒₑ²;</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ = (<span class="dv">1</span>-ρ)*λ₁ + ρ*λ₂;</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λiEₒₑ = (<span class="dv">1</span>-ρ)*λ₁/Eₒₑ¹ + ρ*λ₂/Eₒₑ²;</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ<span class="dv">2</span><span class="bu">i</span><span class="er">E</span>ₒₑ = (<span class="dv">1</span>-ρ)*λ₁*λ₁/Eₒₑ¹ + ρ*λ₂*λ₂/Eₒₑ²;</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> iμ = (<span class="dv">1</span>-ρ)/μ₁ + ρ/μ₂;</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> C₁₁₁₁ʰᵒᵐ = Eₒₑ - λ<span class="dv">2</span><span class="bu">i</span><span class="er">E</span>ₒₑ + λiEₒₑ*λiEₒₑ/iEₒₑ;</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> C₁₁₂₂ʰᵒᵐ = λiEₒₑ/iEₒₑ;</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> Stensor4 Cʰᵒᵐ = {</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>      C₁₁₁₁ʰᵒᵐ , C₁₁₂₂ʰᵒᵐ, C₁₁₂₂ʰᵒᵐ, <span class="fl">0.</span>, <span class="co">//</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>      C₁₁₂₂ʰᵒᵐ, <span class="dv">1</span>/iEₒₑ, λ, <span class="fl">0.</span>, <span class="co">//</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>      C₁₁₂₂ʰᵒᵐ, λ, Eₒₑ, <span class="fl">0.</span>, <span class="co">//</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>      <span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>, <span class="dv">2</span>/iμ</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  };</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> C¹ = λ₁ ⋅ (I₂ ⊗ I₂) + <span class="dv">2</span> ⋅ μ₁ ⋅ I₄;</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> C² = λ₂ ⋅ (I₂⊗I₂) + <span class="dv">2</span> ⋅ μ₂ ⋅ I₄;</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> iΔC = invert(C²-C¹);</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Cᵃᵛᵍ = (<span class="dv">1</span>-ρ)⋅C¹ + ρ⋅C²;</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> H = iΔC ⋅ (Cᵃᵛᵍ-Cʰᵒᵐ) ⋅ iΔC;</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> D¹¹ = (<span class="dv">1</span>-ρ)⋅C¹-(C¹ ⋅ H ⋅ C¹);</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> D²² = ρ⋅C²-(C² ⋅ H ⋅ C²);</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> D¹² = C¹ ⋅ H ⋅ C²;</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>  ∂σ₁∕∂Δe₁ = D¹¹;</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  ∂σ₁∕∂Δe₂ = D¹²;</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  ∂σ₂∕∂Δe₁ = transpose(D¹²);</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  ∂σ₂∕∂Δe₂ = D²²;</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>  σ₁ = ∂σ₁∕∂Δe₁ ⋅ (e₁ + Δe₁) + ∂σ₁∕∂Δe₂ ⋅ (e₂ + Δe₂);</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>  σ₂ = ∂σ₂∕∂Δe₁ ⋅ (e₁ + Δe₁) + ∂σ₂∕∂Δe₂ ⋅ (e₂ + Δe₂);</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ₁ <span class="op">=</span> computeLambda<span class="op">(</span>Y1<span class="op">,</span>nu1<span class="op">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ₁ <span class="op">=</span> computeMu<span class="op">(</span>Y1<span class="op">,</span>nu1<span class="op">);</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ₂ <span class="op">=</span> computeLambda<span class="op">(</span>Y2<span class="op">,</span>nu2<span class="op">);</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ₂ <span class="op">=</span> computeMu<span class="op">(</span>Y2<span class="op">,</span>nu2<span class="op">);</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Eₒₑ¹ <span class="op">=</span> λ₁<span class="op">+</span><span class="dv">2</span><span class="op">*</span>μ₁<span class="op">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Eₒₑ² <span class="op">=</span> λ₂<span class="op">+</span><span class="dv">2</span><span class="op">*</span>μ₂<span class="op">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Eₒₑ <span class="op">=</span> <span class="op">(</span><span class="dv">1</span><span class="op">-</span>ρ<span class="op">)*</span>Eₒₑ¹ <span class="op">+</span> ρ<span class="op">*</span>Eₒₑ²<span class="op">;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> iEₒₑ <span class="op">=</span> <span class="op">(</span><span class="dv">1</span><span class="op">-</span>ρ<span class="op">)/</span>Eₒₑ¹ <span class="op">+</span> ρ<span class="op">/</span>Eₒₑ²<span class="op">;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ <span class="op">=</span> <span class="op">(</span><span class="dv">1</span><span class="op">-</span>ρ<span class="op">)*</span>λ₁ <span class="op">+</span> ρ<span class="op">*</span>λ₂<span class="op">;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λiEₒₑ <span class="op">=</span> <span class="op">(</span><span class="dv">1</span><span class="op">-</span>ρ<span class="op">)*</span>λ₁<span class="op">/</span>Eₒₑ¹ <span class="op">+</span> ρ<span class="op">*</span>λ₂<span class="op">/</span>Eₒₑ²<span class="op">;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ<span class="dv">2</span><span class="bu">i</span><span class="er">E</span>ₒₑ <span class="op">=</span> <span class="op">(</span><span class="dv">1</span><span class="op">-</span>ρ<span class="op">)*</span>λ₁<span class="op">*</span>λ₁<span class="op">/</span>Eₒₑ¹ <span class="op">+</span> ρ<span class="op">*</span>λ₂<span class="op">*</span>λ₂<span class="op">/</span>Eₒₑ²<span class="op">;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> iμ <span class="op">=</span> <span class="op">(</span><span class="dv">1</span><span class="op">-</span>ρ<span class="op">)/</span>μ₁ <span class="op">+</span> ρ<span class="op">/</span>μ₂<span class="op">;</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> C₁₁₁₁ʰᵒᵐ <span class="op">=</span> Eₒₑ <span class="op">-</span> λ<span class="dv">2</span><span class="bu">i</span><span class="er">E</span>ₒₑ <span class="op">+</span> λiEₒₑ<span class="op">*</span>λiEₒₑ<span class="op">/</span>iEₒₑ<span class="op">;</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> C₁₁₂₂ʰᵒᵐ <span class="op">=</span> λiEₒₑ<span class="op">/</span>iEₒₑ<span class="op">;</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> Stensor4 Cʰᵒᵐ <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>      C₁₁₁₁ʰᵒᵐ <span class="op">,</span> C₁₁₂₂ʰᵒᵐ<span class="op">,</span> C₁₁₂₂ʰᵒᵐ<span class="op">,</span> <span class="fl">0.</span><span class="op">,</span> <span class="co">//</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>      C₁₁₂₂ʰᵒᵐ<span class="op">,</span> <span class="dv">1</span><span class="op">/</span>iEₒₑ<span class="op">,</span> λ<span class="op">,</span> <span class="fl">0.</span><span class="op">,</span> <span class="co">//</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>      C₁₁₂₂ʰᵒᵐ<span class="op">,</span> λ<span class="op">,</span> Eₒₑ<span class="op">,</span> <span class="fl">0.</span><span class="op">,</span> <span class="co">//</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>      <span class="fl">0.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">,</span> <span class="dv">2</span><span class="op">/</span>iμ</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="op">};</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> C¹ <span class="op">=</span> λ₁ ⋅ <span class="op">(</span>I₂ ⊗ I₂<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span> ⋅ μ₁ ⋅ I₄<span class="op">;</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> C² <span class="op">=</span> λ₂ ⋅ <span class="op">(</span>I₂⊗I₂<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span> ⋅ μ₂ ⋅ I₄<span class="op">;</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> iΔC <span class="op">=</span> invert<span class="op">(</span>C²<span class="op">-</span>C¹<span class="op">);</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> Cᵃᵛᵍ <span class="op">=</span> <span class="op">(</span><span class="dv">1</span><span class="op">-</span>ρ<span class="op">)</span>⋅C¹ <span class="op">+</span> ρ⋅C²<span class="op">;</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> H <span class="op">=</span> iΔC ⋅ <span class="op">(</span>Cᵃᵛᵍ<span class="op">-</span>Cʰᵒᵐ<span class="op">)</span> ⋅ iΔC<span class="op">;</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> D¹¹ <span class="op">=</span> <span class="op">(</span><span class="dv">1</span><span class="op">-</span>ρ<span class="op">)</span>⋅C¹<span class="op">-(</span>C¹ ⋅ H ⋅ C¹<span class="op">);</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> D²² <span class="op">=</span> ρ⋅C²<span class="op">-(</span>C² ⋅ H ⋅ C²<span class="op">);</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> D¹² <span class="op">=</span> C¹ ⋅ H ⋅ C²<span class="op">;</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>  ∂σ₁∕∂Δe₁ <span class="op">=</span> D¹¹<span class="op">;</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  ∂σ₁∕∂Δe₂ <span class="op">=</span> D¹²<span class="op">;</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  ∂σ₂∕∂Δe₁ <span class="op">=</span> transpose<span class="op">(</span>D¹²<span class="op">);</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  ∂σ₂∕∂Δe₂ <span class="op">=</span> D²²<span class="op">;</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>  σ₁ <span class="op">=</span> ∂σ₁∕∂Δe₁ ⋅ <span class="op">(</span>e₁ <span class="op">+</span> Δe₁<span class="op">)</span> <span class="op">+</span> ∂σ₁∕∂Δe₂ ⋅ <span class="op">(</span>e₂ <span class="op">+</span> Δe₂<span class="op">);</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>  σ₂ <span class="op">=</span> ∂σ₂∕∂Δe₁ ⋅ <span class="op">(</span>e₁ <span class="op">+</span> Δe₁<span class="op">)</span> <span class="op">+</span> ∂σ₂∕∂Δe₂ ⋅ <span class="op">(</span>e₂ <span class="op">+</span> Δe₂<span class="op">);</span></span>
 <span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> κʰ = <span class="dv">12</span>/iμ/s/s; <span class="co">// horizontal interaction stiffness</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> κᵛ = <span class="dv">12</span>/iEₒₑ/s/s; <span class="co">// vertical interaction stiffness</span></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> tmatrix&lt;N, N, real&gt; κ = {</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>      κʰ, <span class="fl">0.</span>, </span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>      <span class="fl">0.</span>, κᵛ</span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  };</span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>  ∂I∕∂ΔV = κ;</span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>  I = κ ⋅ (V + ΔV);</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> κʰ <span class="op">=</span> <span class="dv">12</span><span class="op">/</span>iμ<span class="op">/</span>s<span class="op">/</span>s<span class="op">;</span> <span class="co">// horizontal interaction stiffness</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> κᵛ <span class="op">=</span> <span class="dv">12</span><span class="op">/</span>iEₒₑ<span class="op">/</span>s<span class="op">/</span>s<span class="op">;</span> <span class="co">// vertical interaction stiffness</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> tmatrix<span class="op">&lt;</span>N<span class="op">,</span> N<span class="op">,</span> real<span class="op">&gt;</span> κ <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>      κʰ<span class="op">,</span> <span class="fl">0.</span><span class="op">,</span> </span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>      <span class="fl">0.</span><span class="op">,</span> κᵛ</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  <span class="op">};</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>  ∂I∕∂ΔV <span class="op">=</span> κ<span class="op">;</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>  I <span class="op">=</span> κ ⋅ <span class="op">(</span>V <span class="op">+</span> ΔV<span class="op">);</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h1 id="fenics-implementation"><code>FEniCS</code> implementation</h1>
-<h2 id="geometry-and-generalized-boundary-conditions">Geometry and generalized boundary conditions</h2>
-<p>We consider a rectangular domain with a standard <span class="math inline">\(P_1\)</span> Lagrange interpolation for both displacement fields <span class="math inline">\(\boldsymbol{U}^1,\boldsymbol{U}^2\)</span>. The total mixed function space <code>V</code> is therefore made of two vectorial <span class="math inline">\(P_1\)</span> Lagrange elementary spaces. The same boundary conditions will be applied for both phases: fixed vertical displacement on the bottom boundary, imposed vertical displacement on the top boundary and fixed horizontal displacement on the left boundary. The considered problem corresponds to the pure compression of a multilayered block, an example treated in the previously mentioned references.</p>
-<p>In such a problem, both phase strains are uniform along the vertical direction solution but vary along the horizontal direction due to a boundary layer effect appearing near the right free-edge. Such a feature cannot be captured by a classical Cauchy continuum but is well reproduced by the multiphase model.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib notebook</span>
+<h2 id="geometry-and-generalized-boundary-conditions">Geometry and
+generalized boundary conditions</h2>
+<p>We consider a rectangular domain with a standard <span
+class="math inline">\(P_1\)</span> Lagrange interpolation for both
+displacement fields <span
+class="math inline">\(\boldsymbol{U}^1,\boldsymbol{U}^2\)</span>. The
+total mixed function space <code>V</code> is therefore made of two
+vectorial <span class="math inline">\(P_1\)</span> Lagrange elementary
+spaces. The same boundary conditions will be applied for both phases:
+fixed vertical displacement on the bottom boundary, imposed vertical
+displacement on the top boundary and fixed horizontal displacement on
+the left boundary. The considered problem corresponds to the pure
+compression of a multilayered block, an example treated in the
+previously mentioned references.</p>
+<p>In such a problem, both phase strains are uniform along the vertical
+direction solution but vary along the horizontal direction due to a
+boundary layer effect appearing near the right free-edge. Such a feature
+cannot be captured by a classical Cauchy continuum but is well
+reproduced by the multiphase model.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib notebook</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dolfin <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mgis.fenics <span class="im">as</span> mf</span>
@@ -373,9 +518,21 @@ w_{\text{def}} = \boldsymbol{\sigma}^1:\boldsymbol{\varepsilon}^1 + \boldsymbol{
 <span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>facets <span class="op">=</span> MeshFunction(<span class="st">&quot;size_t&quot;</span>, mesh, <span class="dv">1</span>)</span>
 <span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> Measure(<span class="st">&quot;ds&quot;</span>, subdomain_data<span class="op">=</span>facets)</span></code></pre></div>
-<h2 id="generalized-gradients-registration">Generalized gradients registration</h2>
-<p>After having defined the <code>MFrontNonlinearMaterial</code> and <code>MFrontNonlinearProblem</code> instances, one must register the UFL expression of the gradients defined in the <code>MFront</code> file since, in this case, automatic registration is not available for this specific model. The matrix (resp. fiber) strains <span class="math inline">\(\boldsymbol{\varepsilon}^1\)</span> (resp. <span class="math inline">\(\boldsymbol{\varepsilon}^2\)</span>) is simply given by <code>sym(grad(u1))</code> (resp. <code>sym(grad(u2))</code>) whereas the relative displacement <span class="math inline">\(\boldsymbol{V}\)</span> is the vector <code>u2-u1</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mat_prop <span class="op">=</span> {<span class="st">&quot;MatrixYoungModulus&quot;</span>: <span class="fl">10.</span>,</span>
+<h2 id="generalized-gradients-registration">Generalized gradients
+registration</h2>
+<p>After having defined the <code>MFrontNonlinearMaterial</code> and
+<code>MFrontNonlinearProblem</code> instances, one must register the UFL
+expression of the gradients defined in the <code>MFront</code> file
+since, in this case, automatic registration is not available for this
+specific model. The matrix (resp. fiber) strains <span
+class="math inline">\(\boldsymbol{\varepsilon}^1\)</span> (resp. <span
+class="math inline">\(\boldsymbol{\varepsilon}^2\)</span>) is simply
+given by <code>sym(grad(u1))</code> (resp. <code>sym(grad(u2))</code>)
+whereas the relative displacement <span
+class="math inline">\(\boldsymbol{V}\)</span> is the vector
+<code>u2-u1</code>:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mat_prop <span class="op">=</span> {<span class="st">&quot;MatrixYoungModulus&quot;</span>: <span class="fl">10.</span>,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;MatrixPoissonRatio&quot;</span>: <span class="fl">0.45</span>,</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;FiberYoungModulus&quot;</span>: <span class="dv">10000</span>,</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;FiberPoissonRatio&quot;</span>: <span class="fl">0.3</span>,</span>
@@ -396,9 +553,21 @@ w_{\text{def}} = \boldsymbol{\sigma}^1:\boldsymbol{\varepsilon}^1 + \boldsymbol{
 <pre><code>Automatic registration of &#39;Temperature&#39; as a Constant value = 293.15.
 
 (1, True)</code></pre>
-<h2 id="comparison-with-an-analytical-solution">Comparison with an analytical solution</h2>
-<p>We compare the horizontal displacements in both phases with respect to known analytical solutions for this problem in the case of very stiff inclusions <span class="math inline">\(E_2 \gg E_1\)</span> in small volume fraction <span class="math inline">\(\eta \ll 1\)</span> (see <span class="citation" data-cites="debuhan2017elastic"><a href="#ref-debuhan2017elastic" role="doc-biblioref">De Buhan, Bleyer, and Hassen</a> (<a href="#ref-debuhan2017elastic" role="doc-biblioref">2017</a>)</span>). Note that the more complete solution for the general case can be found in <span class="citation" data-cites="bleyer2018multiphase"><a href="#ref-bleyer2018multiphase" role="doc-biblioref">Bleyer</a> (<a href="#ref-bleyer2018multiphase" role="doc-biblioref">2018</a>)</span>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, width, <span class="dv">21</span>)</span>
+<h2 id="comparison-with-an-analytical-solution">Comparison with an
+analytical solution</h2>
+<p>We compare the horizontal displacements in both phases with respect
+to known analytical solutions for this problem in the case of very stiff
+inclusions <span class="math inline">\(E_2 \gg E_1\)</span> in small
+volume fraction <span class="math inline">\(\eta \ll 1\)</span> (see
+<span class="citation" data-cites="debuhan2017elastic">De Buhan, Bleyer,
+and Hassen (<a href="#ref-debuhan2017elastic"
+role="doc-biblioref">2017</a>)</span>). Note that the more complete
+solution for the general case can be found in <span class="citation"
+data-cites="bleyer2018multiphase">Bleyer (<a
+href="#ref-bleyer2018multiphase"
+role="doc-biblioref">2018</a>)</span>.</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, width, <span class="dv">21</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.array([u(xi, height<span class="op">/</span><span class="dv">2</span>)[<span class="dv">0</span>] <span class="cf">for</span> xi <span class="kw">in</span> x]), <span class="st">&quot;ob&quot;</span>, label<span class="op">=</span><span class="vs">r&quot;$u_x^\textrm</span><span class="sc">{matrix}</span><span class="vs">$ (FE)&quot;</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.array([u(xi, height<span class="op">/</span><span class="dv">2</span>)[<span class="dv">2</span>] <span class="cf">for</span> xi <span class="kw">in</span> x]), <span class="st">&quot;or&quot;</span>, label<span class="op">=</span><span class="vs">r&quot;$u_x^\textrm</span><span class="sc">{fiber}</span><span class="vs">$ (FE)&quot;</span>)</span>
@@ -426,15 +595,22 @@ w_{\text{def}} = \boldsymbol{\sigma}^1:\boldsymbol{\varepsilon}^1 + \boldsymbol{
 <span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
 <span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
 <figure>
-<img src="img/MultiphaseModelComparison.png" style="width:75.0%" alt="Comparison of the FEniCS results with analytical results" /><figcaption aria-hidden="true">Comparison of the FEniCS results with analytical results</figcaption>
+<img src="img/MultiphaseModelComparison.png" style="width:75.0%"
+alt="Comparison of the FEniCS results with analytical results" />
+<figcaption aria-hidden="true">Comparison of the FEniCS results with
+analytical results</figcaption>
 </figure>
 <h1 class="unnumbered" id="bibliography">References</h1>
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-bleyer2018multiphase" class="csl-entry" role="doc-biblioentry">
-Bleyer, Jeremy. 2018. <span>“Multiphase Continuum Models for Fiber-Reinforced Materials.”</span> <em>Journal of the Mechanics and Physics of Solids</em> 121: 198–233.
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-bleyer2018multiphase" class="csl-entry" role="listitem">
+Bleyer, Jeremy. 2018. <span>“Multiphase Continuum Models for
+Fiber-Reinforced Materials.”</span> <em>Journal of the Mechanics and
+Physics of Solids</em> 121: 198–233.
 </div>
-<div id="ref-debuhan2017elastic" class="csl-entry" role="doc-biblioentry">
-De Buhan, Patrick, Jérémy Bleyer, and Ghazi Hassen. 2017. <em>Elastic, Plastic and Yield Design of Reinforced Structures</em>. Elsevier.
+<div id="ref-debuhan2017elastic" class="csl-entry" role="listitem">
+De Buhan, Patrick, Jérémy Bleyer, and Ghazi Hassen. 2017. <em>Elastic,
+Plastic and Yield Design of Reinforced Structures</em>. Elsevier.
 </div>
 </div>
 </body>

@@ -15,8 +15,9 @@
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span { line-height: 1.25; }
       pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
       code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
@@ -25,7 +26,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -49,11 +50,11 @@
       }
       code span.al { color: #ef2929; } /* Alert */
       code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
+      code span.at { color: #204a87; } /* Attribute */
       code span.bn { color: #0000cf; } /* BaseN */
       code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
       code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
+      code span.cn { color: #8f5902; } /* Constant */
       code span.co { color: #8f5902; font-style: italic; } /* Comment */
       code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
       code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -62,14 +63,14 @@
       code span.er { color: #a40000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
       code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
       code span.im { } /* Import */
       code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
       code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
       code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
       code span.ot { color: #8f5902; } /* Other */
       code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
       code span.ss { color: #4e9a06; } /* SpecialString */
       code span.st { color: #4e9a06; } /* String */
       code span.va { color: #000000; } /* Variable */
@@ -79,7 +80,9 @@
             <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
           </head>
   <body>
     <!--[if lt IE 7]>
@@ -163,119 +166,217 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</a>
+<li><a
+href="#description-of-the-non-linear-constitutive-heat-transfer-law"
+id="toc-description-of-the-non-linear-constitutive-heat-transfer-law">Description
+of the non-linear constitutive heat transfer law</a>
 <ul>
-<li><a href="#expression-of-the-thermal-conductivity">Expression of the thermal conductivity</a></li>
-<li><a href="#derivatives">Derivatives</a></li>
+<li><a href="#expression-of-the-thermal-conductivity"
+id="toc-expression-of-the-thermal-conductivity">Expression of the
+thermal conductivity</a></li>
+<li><a href="#derivatives" id="toc-derivatives">Derivatives</a></li>
 </ul></li>
-<li><a href="#mfront-implementation"><code>MFront</code>’ implementation</a>
+<li><a href="#mfront-implementation"
+id="toc-mfront-implementation"><code>MFront</code>’ implementation</a>
 <ul>
-<li><a href="#choice-of-the-the-domain-specific-language">Choice of the the domain specific language</a></li>
-<li><a href="#some-metadata">Some metadata</a></li>
-<li><a href="#gradients-and-fluxes">Gradients and fluxes</a></li>
-<li><a href="#tangent-operator-blocks">Tangent operator blocks</a></li>
-<li><a href="#parameters">Parameters</a></li>
-<li><a href="#local-variable">Local variable</a></li>
-<li><a href="#integration-of-the-behaviour">Integration of the behaviour</a></li>
-<li><a href="#tangent-operator">Tangent operator</a></li>
+<li><a href="#choice-of-the-the-domain-specific-language"
+id="toc-choice-of-the-the-domain-specific-language">Choice of the the
+domain specific language</a></li>
+<li><a href="#some-metadata" id="toc-some-metadata">Some
+metadata</a></li>
+<li><a href="#gradients-and-fluxes"
+id="toc-gradients-and-fluxes">Gradients and fluxes</a></li>
+<li><a href="#tangent-operator-blocks"
+id="toc-tangent-operator-blocks">Tangent operator blocks</a></li>
+<li><a href="#parameters" id="toc-parameters">Parameters</a></li>
+<li><a href="#local-variable" id="toc-local-variable">Local
+variable</a></li>
+<li><a href="#integration-of-the-behaviour"
+id="toc-integration-of-the-behaviour">Integration of the
+behaviour</a></li>
+<li><a href="#tangent-operator" id="toc-tangent-operator">Tangent
+operator</a></li>
 </ul></li>
-<li><a href="#fenics-implementation"><code>FEniCS</code> implementation</a>
+<li><a href="#fenics-implementation"
+id="toc-fenics-implementation"><code>FEniCS</code> implementation</a>
 <ul>
-<li><a href="#loading-the-material-behaviour">Loading the material behaviour</a></li>
-<li><a href="#non-linear-problem-definition">Non-linear problem definition</a></li>
-<li><a href="#variable-registration">Variable registration</a></li>
-<li><a href="#problem-resolution">Problem resolution</a></li>
+<li><a href="#loading-the-material-behaviour"
+id="toc-loading-the-material-behaviour">Loading the material
+behaviour</a></li>
+<li><a href="#non-linear-problem-definition"
+id="toc-non-linear-problem-definition">Non-linear problem
+definition</a></li>
+<li><a href="#variable-registration"
+id="toc-variable-registration">Variable registration</a></li>
+<li><a href="#problem-resolution" id="toc-problem-resolution">Problem
+resolution</a></li>
 </ul></li>
 </ul>
 </div>
 <blockquote>
 <p><strong>Source files:</strong></p>
 <ul>
-<li>Jupyter notebook: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/nonlinear_heat_transfer/mgis_fenics_nonlinear_heat_transfer.ipynb">mgis_fenics_nonlinear_heat_transfer.ipynb</a></li>
-<li>Python file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/nonlinear_heat_transfer/mgis_fenics_nonlinear_heat_transfer.py">mgis_fenics_nonlinear_heat_transfer.py</a></li>
-<li>MFront behaviour file: <a href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/nonlinear_heat_transfer/StationaryHeatTransfer.mfront">StationaryHeatTransfer.mfront</a></li>
+<li>Jupyter notebook: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/nonlinear_heat_transfer/mgis_fenics_nonlinear_heat_transfer.ipynb">mgis_fenics_nonlinear_heat_transfer.ipynb</a></li>
+<li>Python file: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/nonlinear_heat_transfer/mgis_fenics_nonlinear_heat_transfer.py">mgis_fenics_nonlinear_heat_transfer.py</a></li>
+<li>MFront behaviour file: <a
+href="https://gitlab.enpc.fr/navier-fenics/mgis-fenics-demos/raw/master/demos/nonlinear_heat_transfer/StationaryHeatTransfer.mfront">StationaryHeatTransfer.mfront</a></li>
 </ul>
 </blockquote>
-<h1 id="description-of-the-non-linear-constitutive-heat-transfer-law">Description of the non-linear constitutive heat transfer law</h1>
-<p>The thermal material is described by the following non linear Fourier Law:</p>
+<h1
+id="description-of-the-non-linear-constitutive-heat-transfer-law">Description
+of the non-linear constitutive heat transfer law</h1>
+<p>The thermal material is described by the following non linear Fourier
+Law:</p>
 <p><span class="math display">\[
 \mathbf{j}=-k\left(T\right)\,\mathbf{\nabla} T
 \]</span></p>
-<p>where <span class="math inline">\(\mathbf{j}\)</span> is the heat flux and <span class="math inline">\(\mathbf{\nabla} T\)</span> is the temperature gradient.</p>
-<h2 id="expression-of-the-thermal-conductivity">Expression of the thermal conductivity</h2>
+<p>where <span class="math inline">\(\mathbf{j}\)</span> is the heat
+flux and <span class="math inline">\(\mathbf{\nabla} T\)</span> is the
+temperature gradient.</p>
+<h2 id="expression-of-the-thermal-conductivity">Expression of the
+thermal conductivity</h2>
 <p>The thermal conductivity is assumed to be given by:</p>
 <p><span class="math display">\[
-k\left(T\right)={\displaystyle \frac{\displaystyle 1}{\displaystyle A+B\,T}}
+k\left(T\right)={\displaystyle \frac{\displaystyle 1}{\displaystyle
+A+B\,T}}
 \]</span></p>
-<p>This expression accounts for the phononic contribution to the thermal conductivity.</p>
+<p>This expression accounts for the phononic contribution to the thermal
+conductivity.</p>
 <h2 id="derivatives">Derivatives</h2>
-<p>As discussed below, the consistent linearisation of the heat transfer equilibrium requires to compute:</p>
+<p>As discussed below, the consistent linearisation of the heat transfer
+equilibrium requires to compute:</p>
 <ul>
-<li>the derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \mathbf{j}}{\displaystyle \partial \mathbf{\nabla} T}}\)</span> of the heat flux with respect to the temperature gradient. <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \mathbf{j}}{\displaystyle \partial \mathbf{\nabla} T}}\)</span> is given by: <span class="math display">\[
-  {\displaystyle \frac{\displaystyle \partial \mathbf{j}}{\displaystyle \partial \mathbf{\nabla} T}}=-k\left(T\right)\,\matrix{I}
+<li>the derivative <span class="math inline">\({\displaystyle
+\frac{\displaystyle \partial \mathbf{j}}{\displaystyle \partial
+\mathbf{\nabla} T}}\)</span> of the heat flux with respect to the
+temperature gradient. <span class="math inline">\({\displaystyle
+\frac{\displaystyle \partial \mathbf{j}}{\displaystyle \partial
+\mathbf{\nabla} T}}\)</span> is given by: <span class="math display">\[
+  {\displaystyle \frac{\displaystyle \partial \mathbf{j}}{\displaystyle
+\partial \mathbf{\nabla} T}}=-k\left(T\right)\,\matrix{I}
 \]</span></li>
-<li>the derivative <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \mathbf{j}}{\displaystyle \partial T}}\)</span> of the heat flux with respect to the temperature. <span class="math inline">\({\displaystyle \frac{\displaystyle \partial \mathbf{j}}{\displaystyle \partial T}}\)</span> is given by: <span class="math display">\[
-  {\displaystyle \frac{\displaystyle \partial \mathbf{j}}{\displaystyle \partial T}}=-{\displaystyle \frac{\displaystyle \partial k\left(T\right)}{\displaystyle \partial T}}\,\mathbf{\nabla} T=B\,k^{2}\,\mathbf{\nabla} T
+<li>the derivative <span class="math inline">\({\displaystyle
+\frac{\displaystyle \partial \mathbf{j}}{\displaystyle \partial
+T}}\)</span> of the heat flux with respect to the temperature. <span
+class="math inline">\({\displaystyle \frac{\displaystyle \partial
+\mathbf{j}}{\displaystyle \partial T}}\)</span> is given by: <span
+class="math display">\[
+  {\displaystyle \frac{\displaystyle \partial \mathbf{j}}{\displaystyle
+\partial T}}=-{\displaystyle \frac{\displaystyle \partial
+k\left(T\right)}{\displaystyle \partial T}}\,\mathbf{\nabla}
+T=B\,k^{2}\,\mathbf{\nabla} T
 \]</span></li>
 </ul>
 <h1 id="mfront-implementation"><code>MFront</code>’ implementation</h1>
-<h2 id="choice-of-the-the-domain-specific-language">Choice of the the domain specific language</h2>
-<p>Every <code>MFront</code> file is handled by a domain specific language (DSL), which aims at providing the most suitable abstraction for a particular choice of behaviour and integration algorithm. See <code>mfront mfront --list-dsl</code> for a list of the available DSLs.</p>
-<p>The name of DSL’s handling generic behaviours ends with <code>GenericBehaviour</code>. The first part of a DSL’s name is related to the integration algorithm used.</p>
-<p>In the case of this non linear transfer behaviour, the heat flux is explicitly computed from the temperature and the temperature gradient. The <code>DefaultGenericBehaviour</code> is the most suitable choice:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultGenericBehaviour;</span></code></pre></div>
+<h2 id="choice-of-the-the-domain-specific-language">Choice of the the
+domain specific language</h2>
+<p>Every <code>MFront</code> file is handled by a domain specific
+language (DSL), which aims at providing the most suitable abstraction
+for a particular choice of behaviour and integration algorithm. See
+<code>mfront mfront --list-dsl</code> for a list of the available
+DSLs.</p>
+<p>The name of DSL’s handling generic behaviours ends with
+<code>GenericBehaviour</code>. The first part of a DSL’s name is related
+to the integration algorithm used.</p>
+<p>In the case of this non linear transfer behaviour, the heat flux is
+explicitly computed from the temperature and the temperature gradient.
+The <code>DefaultGenericBehaviour</code> is the most suitable
+choice:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL DefaultGenericBehaviour<span class="op">;</span></span></code></pre></div>
 <h2 id="some-metadata">Some metadata</h2>
-<p>The following lines define the name of the behaviour, the name of the author and the date of its writing:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour StationaryHeatTransfer;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">15</span>/<span class="bn">02</span>/<span class="dv">2019</span>;</span></code></pre></div>
+<p>The following lines define the name of the behaviour, the name of the
+author and the date of its writing:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour StationaryHeatTransfer<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Thomas Helfer<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">15</span><span class="op">/</span><span class="bn">02</span><span class="op">/</span><span class="dv">2019</span><span class="op">;</span></span></code></pre></div>
 <h2 id="gradients-and-fluxes">Gradients and fluxes</h2>
-<p>Generic behaviours relate pairs of gradients and fluxes. Gradients and fluxes are declared independently but the first declared gradient is assumed to be conjugated with the first declared fluxes and so on…</p>
-<p>The temperature gradient is declared as follows (note that Unicode characters are supported):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient TemperatureGradient ∇T;</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>∇T.setGlossaryName(<span class="st">&quot;TemperatureGradient&quot;</span>);</span></code></pre></div>
-<p>Note that we associated to <code>∇T</code> the glossary name <code>TemperatureGradient</code>. This is helpful for the calling code.</p>
+<p>Generic behaviours relate pairs of gradients and fluxes. Gradients
+and fluxes are declared independently but the first declared gradient is
+assumed to be conjugated with the first declared fluxes and so on…</p>
+<p>The temperature gradient is declared as follows (note that Unicode
+characters are supported):</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Gradient TemperatureGradient ∇T<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>∇T<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;TemperatureGradient&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>Note that we associated to <code>∇T</code> the glossary name
+<code>TemperatureGradient</code>. This is helpful for the calling
+code.</p>
 <p>After this declaration, the following variables will be defined:</p>
 <ul>
-<li>The temperature gradient <code>∇T</code> at the beginning of the time step.</li>
-<li>The increment of the temperature gradient <code>Δ∇T</code> over the time step.</li>
+<li>The temperature gradient <code>∇T</code> at the beginning of the
+time step.</li>
+<li>The increment of the temperature gradient <code>Δ∇T</code> over the
+time step.</li>
 </ul>
 <p>The heat flux is then declared as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux HeatFlux j;</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>j.setGlossaryName(<span class="st">&quot;HeatFlux&quot;</span>);</span></code></pre></div>
-<p>In the following code blocks, <code>j</code> will be the heat flux at the end of the time step.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Flux HeatFlux j<span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>j<span class="op">.</span>setGlossaryName<span class="op">(</span><span class="st">&quot;HeatFlux&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>In the following code blocks, <code>j</code> will be the heat flux at
+the end of the time step.</p>
 <h2 id="tangent-operator-blocks">Tangent operator blocks</h2>
-<p>By default, the derivatives of the gradients with respect to the fluxes are declared. Thus the variable <code>∂j∕∂Δ∇T</code> is automatically declared.</p>
-<p>However, as discussed in the next section, the consistent linearisation of the thermal equilibrium requires to return the derivate of the heat flux with respect to the increment of the temperature (or equivalently with respect to the temperature at the end of the time step).</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalTangentOperatorBlock ∂j∕∂ΔT;</span></code></pre></div>
+<p>By default, the derivatives of the gradients with respect to the
+fluxes are declared. Thus the variable <code>∂j∕∂Δ∇T</code> is
+automatically declared.</p>
+<p>However, as discussed in the next section, the consistent
+linearisation of the thermal equilibrium requires to return the derivate
+of the heat flux with respect to the increment of the temperature (or
+equivalently with respect to the temperature at the end of the time
+step).</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalTangentOperatorBlock ∂j∕∂ΔT<span class="op">;</span></span></code></pre></div>
 <h2 id="parameters">Parameters</h2>
-<p>The <code>A</code> and <code>B</code> coefficients that appears in the definition of the thermal conductivity are declared as parameters:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real A = <span class="fl">0.0375</span>;</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real B = <span class="fl">2.165e-4</span>;</span></code></pre></div>
-<p>Parameters are stored globally and can be modified from the calling solver or from <code>python</code> in the case of the coupling with <code>FEniCS</code> discussed below.</p>
+<p>The <code>A</code> and <code>B</code> coefficients that appears in
+the definition of the thermal conductivity are declared as
+parameters:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real A <span class="op">=</span> <span class="fl">0.0375</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real B <span class="op">=</span> <span class="fl">2.165e-4</span><span class="op">;</span></span></code></pre></div>
+<p>Parameters are stored globally and can be modified from the calling
+solver or from <code>python</code> in the case of the coupling with
+<code>FEniCS</code> discussed below.</p>
 <h2 id="local-variable">Local variable</h2>
 <p>A local variable is accessible in each code blocks.</p>
-<p>Here, we declare the thermal conductivity <code>k</code> as a local variable in order to be able to compute its value during the behaviour integration and to reuse this value when computing the tangent operator.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable thermalconductivity k;</span></code></pre></div>
+<p>Here, we declare the thermal conductivity <code>k</code> as a local
+variable in order to be able to compute its value during the behaviour
+integration and to reuse this value when computing the tangent
+operator.</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable thermalconductivity k<span class="op">;</span></span></code></pre></div>
 <h2 id="integration-of-the-behaviour">Integration of the behaviour</h2>
-<p>The behaviour integration is straightforward: one starts to compute the temperature at the end of the time step, then we compute the thermal conductivity (at the end of the time step) and the heat flux using the temperature gradient (at the end of the time step).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator{</span>
+<p>The behaviour integration is straightforward: one starts to compute
+the temperature at the end of the time step, then we compute the thermal
+conductivity (at the end of the time step) and the heat flux using the
+temperature gradient (at the end of the time step).</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator<span class="op">{</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// temperature at the end of the time step</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> T_ = T + ΔT;</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> T_ <span class="op">=</span> T <span class="op">+</span> ΔT<span class="op">;</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// thermal conductivity</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  k = <span class="dv">1</span> / (A + B ⋅ T_);</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  k <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> <span class="op">(</span>A <span class="op">+</span> B ⋅ T_<span class="op">);</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// heat flux</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  j = -k ⋅ (∇T + Δ∇T);</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @Integrator</span></span></code></pre></div>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  j <span class="op">=</span> <span class="op">-</span>k ⋅ <span class="op">(</span>∇T <span class="op">+</span> Δ∇T<span class="op">);</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// end of @Integrator</span></span></code></pre></div>
 <h2 id="tangent-operator">Tangent operator</h2>
 <p>The computation of the tangent operator blocks is equally simple:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator {</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  ∂j∕∂Δ∇T = -k ⋅ tmatrix&lt;N, N, real&gt;::Id();</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  ∂j∕∂ΔT  =  B ⋅ k ⋅ k ⋅ (∇T + Δ∇T);</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>} <span class="co">// end of @TangentOperator </span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator <span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  ∂j∕∂Δ∇T <span class="op">=</span> <span class="op">-</span>k ⋅ tmatrix<span class="op">&lt;</span>N<span class="op">,</span> N<span class="op">,</span> real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  ∂j∕∂ΔT  <span class="op">=</span>  B ⋅ k ⋅ k ⋅ <span class="op">(</span>∇T <span class="op">+</span> Δ∇T<span class="op">);</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// end of @TangentOperator </span></span></code></pre></div>
 <h1 id="fenics-implementation"><code>FEniCS</code> implementation</h1>
-<p>We consider a rectanglar domain with imposed temperatures <code>Tl</code> (resp. <code>Tr</code>) on the left (resp. right) boundaries. We want to solve for the temperature field <code>T</code> inside the domain using a <span class="math inline">\(P^1\)</span>-interpolation. We initialize the temperature at value <code>Tl</code> throughout the domain.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib notebook</span>
+<p>We consider a rectanglar domain with imposed temperatures
+<code>Tl</code> (resp. <code>Tr</code>) on the left (resp. right)
+boundaries. We want to solve for the temperature field <code>T</code>
+inside the domain using a <span
+class="math inline">\(P^1\)</span>-interpolation. We initialize the
+temperature at value <code>Tl</code> throughout the domain.</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib notebook</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dolfin <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mgis.fenics <span class="im">as</span> mf</span>
@@ -298,54 +399,130 @@ k\left(T\right)={\displaystyle \frac{\displaystyle 1}{\displaystyle A+B\,T}}
 <span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>bc <span class="op">=</span> [DirichletBC(V, Constant(Tl), left),</span>
 <span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>      DirichletBC(V, Constant(Tr), right)]</span></code></pre></div>
-<h2 id="loading-the-material-behaviour">Loading the material behaviour</h2>
-<p>We use the <code>MFrontNonlinearMaterial</code> class for describing the material behaviour. The first argument corresponds to the path where material librairies have been compiled, the second correspond to the name of the behaviour (declared with <code>@Behaviour</code>). Finally, the modelling hypothesis is specified (default behaviour is <code>"3d"</code>).</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>material <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;./src/libBehaviour.so&quot;</span>,</span>
+<h2 id="loading-the-material-behaviour">Loading the material
+behaviour</h2>
+<p>We use the <code>MFrontNonlinearMaterial</code> class for describing
+the material behaviour. The first argument corresponds to the path where
+material librairies have been compiled, the second correspond to the
+name of the behaviour (declared with <code>@Behaviour</code>). Finally,
+the modelling hypothesis is specified (default behaviour is
+<code>"3d"</code>).</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>material <span class="op">=</span> mf.MFrontNonlinearMaterial(<span class="st">&quot;./src/libBehaviour.so&quot;</span>,</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;StationaryHeatTransfer&quot;</span>,</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                                      hypothesis<span class="op">=</span><span class="st">&quot;plane_strain&quot;</span>)</span></code></pre></div>
-<p>The <code>MFront</code> behaviour declares the field <code>"TemperatureGradient"</code> as a Gradient variable, with its associated Flux called <code>"HeatFlux"</code>. We can check that the <code>material</code> object retrieves <code>MFront</code>’s gradient and flux names, as well as the different tangent operator blocks which have been defined, namely <code>dj_ddgT</code> and <code>dj_ddT</code> in the present case:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(material.get_gradient_names())</span>
+<p>The <code>MFront</code> behaviour declares the field
+<code>"TemperatureGradient"</code> as a Gradient variable, with its
+associated Flux called <code>"HeatFlux"</code>. We can check that the
+<code>material</code> object retrieves <code>MFront</code>’s gradient
+and flux names, as well as the different tangent operator blocks which
+have been defined, namely <code>dj_ddgT</code> and <code>dj_ddT</code>
+in the present case:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(material.get_gradient_names())</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(material.get_flux_names())</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>([<span class="st">&quot;d</span><span class="sc">{}</span><span class="st">_d</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="op">*</span>t) <span class="cf">for</span> t <span class="kw">in</span> material.get_tangent_block_names()])</span></code></pre></div>
 <pre><code>[&#39;TemperatureGradient&#39;]
 [&#39;HeatFlux&#39;]
 [&#39;dHeatFlux_dTemperatureGradient&#39;, &#39;dHeatFlux_dTemperature&#39;]</code></pre>
-<h2 id="non-linear-problem-definition">Non-linear problem definition</h2>
-<p>When defining the non-linear problem, we will specify the boundary conditions and the requested quadrature degree which will control the number of quadrature points used in each cell to compute the non-linear constitutive law. Here, we specify a quadrature of degree 2 (i.e. 3 Gauss points for a triangular element).</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>problem <span class="op">=</span> mf.MFrontNonlinearProblem(T, material, quadrature_degree<span class="op">=</span><span class="dv">2</span>, bcs<span class="op">=</span>bc)</span></code></pre></div>
+<h2 id="non-linear-problem-definition">Non-linear problem
+definition</h2>
+<p>When defining the non-linear problem, we will specify the boundary
+conditions and the requested quadrature degree which will control the
+number of quadrature points used in each cell to compute the non-linear
+constitutive law. Here, we specify a quadrature of degree 2 (i.e. 3
+Gauss points for a triangular element).</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>problem <span class="op">=</span> mf.MFrontNonlinearProblem(T, material, quadrature_degree<span class="op">=</span><span class="dv">2</span>, bcs<span class="op">=</span>bc)</span></code></pre></div>
 <h2 id="variable-registration">Variable registration</h2>
-<p>The <code>MFront</code> behaviour implicitly declares the temperature as an external state variable called <code>"Temperature"</code>. We must therefore associate this external state variable to a known mechanical field. This can be achieved explicitly using the <code>register_external_state_variable</code> method. In the present case, this can be done automatically since the name of the unknown temperature field matches the <a href="http://tfel.sourceforge.net/glossary.html">TFEL Glossary</a> name <code>"Temperature"</code> which is a predefined external state variable. In this case, the following message will be printed:</p>
+<p>The <code>MFront</code> behaviour implicitly declares the temperature
+as an external state variable called <code>"Temperature"</code>. We must
+therefore associate this external state variable to a known mechanical
+field. This can be achieved explicitly using the
+<code>register_external_state_variable</code> method. In the present
+case, this can be done automatically since the name of the unknown
+temperature field matches the <a
+href="http://tfel.sourceforge.net/glossary.html">TFEL Glossary</a> name
+<code>"Temperature"</code> which is a predefined external state
+variable. In this case, the following message will be printed:</p>
 <pre><code>Automatic registration of &#39;Temperature&#39; as an external state variable.</code></pre>
-<p>For problems in which the temperature only acts as a parameter (no jacobian blocks with respect to the temperature), the temperature can be automatically registered as a constant value (<span class="math inline">\(293.15 \text{ K}\)</span> by default) or to any other (<code>dolfin.Constant</code>, <code>float</code> or <code>dolfin.Function</code>) value using the <code>register_external_state_variable</code> method.</p>
-<p>In the <code>FEniCS</code> interface, we instantiate the main mechanical unknown, here the temperature field <code>T</code> which has to be named <code>"Temperature"</code> in order to match <code>MFront</code>’s predefined name. Using another name than this will later result in an error saying:</p>
+<p>For problems in which the temperature only acts as a parameter (no
+jacobian blocks with respect to the temperature), the temperature can be
+automatically registered as a constant value (<span
+class="math inline">\(293.15 \text{ K}\)</span> by default) or to any
+other (<code>dolfin.Constant</code>, <code>float</code> or
+<code>dolfin.Function</code>) value using the
+<code>register_external_state_variable</code> method.</p>
+<p>In the <code>FEniCS</code> interface, we instantiate the main
+mechanical unknown, here the temperature field <code>T</code> which has
+to be named <code>"Temperature"</code> in order to match
+<code>MFront</code>’s predefined name. Using another name than this will
+later result in an error saying:</p>
 <pre><code>ValueError: &#39;Temperature&#39; could not be associated with a registered gradient or a known state variable.</code></pre>
-<p>Finally, we need to associate to <code>MFront</code> gradient object the corresponding UFL expression as a function of the unknown field <code>T</code>. To do so, we use the <code>register_gradient</code> method linking <code>MFront</code> <code>"TemperatureGradient"</code> object to the UFL expression <code>grad(T)</code>.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>problem.register_gradient(<span class="st">&quot;TemperatureGradient&quot;</span>, grad(T))</span></code></pre></div>
-<p>Similarly to the case of external state variables, common gradient expressions for some <a href="http://tfel.sourceforge.net/glossary.html">TFEL Glossary</a> names have been already predefined which avoid calling explicitly the <code>register_gradient</code> method. Predefined expressions can be obtained from:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mf.list_predefined_gradients()</span></code></pre></div>
+<p>Finally, we need to associate to <code>MFront</code> gradient object
+the corresponding UFL expression as a function of the unknown field
+<code>T</code>. To do so, we use the <code>register_gradient</code>
+method linking <code>MFront</code> <code>"TemperatureGradient"</code>
+object to the UFL expression <code>grad(T)</code>.</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>problem.register_gradient(<span class="st">&quot;TemperatureGradient&quot;</span>, grad(T))</span></code></pre></div>
+<p>Similarly to the case of external state variables, common gradient
+expressions for some <a
+href="http://tfel.sourceforge.net/glossary.html">TFEL Glossary</a> names
+have been already predefined which avoid calling explicitly the
+<code>register_gradient</code> method. Predefined expressions can be
+obtained from:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mf.list_predefined_gradients()</span></code></pre></div>
 <pre><code>&#39;TFEL gradient name&#39;   (Available hypotheses)
 ---------------------------------------------
 &#39;Strain&#39;               (&#39;Tridimensional&#39;, &#39;PlaneStrain&#39;, &#39;Axisymmetrical&#39;)
 &#39;TemperatureGradient&#39;  (&#39;Tridimensional&#39;, &#39;PlaneStrain&#39;, &#39;Axisymmetrical&#39;)
 &#39;DeformationGradient&#39;  (&#39;Tridimensional&#39;, &#39;PlaneStrain&#39;, &#39;Axisymmetrical&#39;)</code></pre>
-<p>We can see that the name <code>"Temperature Gradient"</code> is in fact a predefined gradient. Omitting calling the <code>register_gradient</code> method will in this case print the following message upon calling <code>solve</code>:</p>
+<p>We can see that the name <code>"Temperature Gradient"</code> is in
+fact a predefined gradient. Omitting calling the
+<code>register_gradient</code> method will in this case print the
+following message upon calling <code>solve</code>:</p>
 <pre><code>Automatic registration of &#39;TemperatureGradient&#39; as grad(Temperature).</code></pre>
-<p>meaning that a predefined gradient name has been found and registered as the UFL expression <span class="math inline">\(\nabla T\)</span>. &gt; Note that automatic registration is not supported when using mixed function spaces.</p>
+<p>meaning that a predefined gradient name has been found and registered
+as the UFL expression <span class="math inline">\(\nabla T\)</span>.
+&gt; Note that automatic registration is not supported when using mixed
+function spaces.</p>
 <h2 id="problem-resolution">Problem resolution</h2>
-<p>No external loading has been specified so that the residual form is automatically defined as: <span class="math display">\[\begin{equation}
-F(\widehat{T}) = \int_\Omega \mathbf{j}\cdot \nabla \widehat{T} \text{dx} = 0 \quad \forall \widehat{T}
+<p>No external loading has been specified so that the residual form is
+automatically defined as: <span class="math display">\[\begin{equation}
+F(\widehat{T}) = \int_\Omega \mathbf{j}\cdot \nabla \widehat{T}
+\text{dx} = 0 \quad \forall \widehat{T}
 \end{equation}\]</span></p>
-<p>From the two tangent operator blocks <code>dj_ddgT</code> and <code>dj_ddT</code>, it will automatically be deduced that the heat flux <span class="math inline">\(\mathbf{j}\)</span> is a function of both the temperature gradient <span class="math inline">\(\mathbf{g}=\nabla T\)</span> and the temperature itself i.e. <span class="math inline">\(\mathbf{j}=\mathbf{j}(\mathbf{g}, T)\)</span>. The following tangent bilinear form will therefore be used when solving the above non-linear problem:</p>
+<p>From the two tangent operator blocks <code>dj_ddgT</code> and
+<code>dj_ddT</code>, it will automatically be deduced that the heat flux
+<span class="math inline">\(\mathbf{j}\)</span> is a function of both
+the temperature gradient <span class="math inline">\(\mathbf{g}=\nabla
+T\)</span> and the temperature itself i.e. <span
+class="math inline">\(\mathbf{j}=\mathbf{j}(\mathbf{g}, T)\)</span>. The
+following tangent bilinear form will therefore be used when solving the
+above non-linear problem:</p>
 <p><span class="math display">\[\begin{equation}
-a_\text{tangent}(\widehat{T},T^*) = \int_{\Omega} \nabla \widehat{T}\cdot\left(\dfrac{\partial \mathbf{j}}{\partial \mathbf{g}}\cdot \nabla T^*+\dfrac{\partial \mathbf{j}}{\partial T}\cdot T^*\right) \text{dx}
+a_\text{tangent}(\widehat{T},T^*) = \int_{\Omega} \nabla
+\widehat{T}\cdot\left(\dfrac{\partial \mathbf{j}}{\partial
+\mathbf{g}}\cdot \nabla T^*+\dfrac{\partial \mathbf{j}}{\partial T}\cdot
+T^*\right) \text{dx}
 \end{equation}\]</span></p>
-<p>We finally solve the non-linear problem using a default Newton non-linear solver. The <code>solve</code> method returns the number of Newton iterations (4 in the present case) and converged status .</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>problem.solve(T.vector())</span></code></pre></div>
+<p>We finally solve the non-linear problem using a default Newton
+non-linear solver. The <code>solve</code> method returns the number of
+Newton iterations (4 in the present case) and converged status .</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>problem.solve(T.vector())</span></code></pre></div>
 <pre><code>Automatic registration of &#39;Temperature&#39; as an external state variable.
 
 (4, True)</code></pre>
-<p>We finally check that the thermal conductivity coefficient <span class="math inline">\(k\)</span>, computed from the ratio between the horizontal heat flux and temperature gradient matches the temperature-dependent expressions implemented in the <code>MFront</code> behaviour.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> problem.fluxes[<span class="st">&quot;HeatFlux&quot;</span>].function</span>
+<p>We finally check that the thermal conductivity coefficient <span
+class="math inline">\(k\)</span>, computed from the ratio between the
+horizontal heat flux and temperature gradient matches the
+temperature-dependent expressions implemented in the <code>MFront</code>
+behaviour.</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> problem.fluxes[<span class="st">&quot;HeatFlux&quot;</span>].function</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> problem.gradients[<span class="st">&quot;TemperatureGradient&quot;</span>].function</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>k_gauss <span class="op">=</span> <span class="op">-</span>j.vector().get_local()[::<span class="dv">2</span>]<span class="op">/</span>g.vector().get_local()[::<span class="dv">2</span>]</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>T_gauss <span class="op">=</span> problem.state_variables[<span class="st">&quot;external&quot;</span>][<span class="st">&quot;Temperature&quot;</span>].function.vector().get_local()</span>

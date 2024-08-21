@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Description of behaviour ChemicalReaction7</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+                <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	    <li><a href="index.html">Overview</a></li>
+        <li><a>Documentation</a>
+      	  <ul>
+	        <li><a href="install.html">Installation guide</a></li>
+	        <li><a href="creating-derived-project.html">Creating derived project</a></li>
+	        <li><a href="cmake-infrastructure.html">CMake infrastructure</a></li>
+	        <li><a href="best-practices.html">Best practices</a></li>
+            <li><a href="contributing.html">Contributing</a></li>
+            <li><a>Tutorials</a>
+                <ul>
+                <li><a href="SmallStrainUmatWrapper.html">Small-strain UMAT wrapper</a></li>
+                </ul>
+            </li>
+	      </ul>
+        </li>
+        <li><a>Materials</a>
+          <ul>
+             <li><a>Concrete</a>
+                <ul>
+                   <li><a>Behaviours</a>
+                     <ul>
+                       <li><a href="Burger_EDF_CIWAP_2021.html">Burger_EDF_CIWAP_2021</a></li>
+                     </ul>
+                   </li>
+                </ul>
+             </li>
+             <li><a>Crushed Salt</a>
+                <ul>
+                   <li><a>Behaviours</a>
+                     <ul>
+                       <li><a href="CrushedSaltKorthausBehaviour.html">Korthaus' behaviour</a></li>
+                     </ul>
+                   </li>
+                </ul>
+             </li>
+          </ul>
+        </li>
+        <li><a>Behaviours</a>
+          <ul>
+             <li><a>Plasticity</a>
+                <ul>
+                  <li><a href="SemiImplicitModifiedCamClay_OpenGeoSys2020.html">SemiImplicitModifiedCamClay_OpenGeoSys2020</a></li>
+                </ul>
+             </li>
+          </ul>
+        </li>
+        <li><a>Getting Help</a>
+      	  <ul>
+	        <li><a href="https://github.com/thelfer/MFrontGallery/discussions">Forum</a></li>
+	        <li><a href="faq.html">FAQ</a></li>
+	        <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	      </ul>
+       </li>
+        <li><a>About</a>
+      	  <ul>
+	        <li><a href="contributors.html">Contributors</a></li>
+	      </ul>
+       </li>
+      </ul><br>
+    </header>
+
+<div id="header">
+<h1 class="title">Description of behaviour ChemicalReaction7</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">09 / 07 / 2022</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#list-of-supported-hypotheses"
+id="toc-list-of-supported-hypotheses">List of supported
+Hypotheses</a></li>
+<li><a href="#variables" id="toc-variables">Variables</a>
+<ul>
+<li><a href="#state-variables" id="toc-state-variables">State
+variables</a></li>
+<li><a href="#external-state-variables"
+id="toc-external-state-variables">External state variables</a></li>
+<li><a href="#parameters" id="toc-parameters">Parameters</a></li>
+<li><a href="#local-variables" id="toc-local-variables">Local
+variables</a></li>
+</ul></li>
+</ul>
+</div>
+<p>No description specified</p>
+<h2 id="list-of-supported-hypotheses">List of supported Hypotheses</h2>
+<ul>
+<li>AxisymmetricalGeneralisedPlaneStrain</li>
+<li>Axisymmetrical</li>
+<li>PlaneStrain</li>
+<li>GeneralisedPlaneStrain</li>
+<li>Tridimensional</li>
+</ul>
+<h1 id="variables">Variables</h1>
+<h2 id="state-variables">State variables</h2>
+<ul>
+<li>MolarConcentrationOfSpeciesA:
+<ul>
+<li>variable name: ca</li>
+<li>variable type:
+tfel::math::quantity&lt;numeric_type,0,0,0,0,0,0,1&gt;</li>
+<li>description: molar concentration of species A</li>
+</ul></li>
+<li>MolarConcentrationOfSpeciesB:
+<ul>
+<li>variable name: cb</li>
+<li>variable type:
+tfel::math::quantity&lt;numeric_type,0,0,0,0,0,0,1&gt;</li>
+<li>description: molar concentration of species B</li>
+</ul></li>
+</ul>
+<h2 id="external-state-variables">External state variables</h2>
+<ul>
+<li>Temperature:
+<ul>
+<li>variable name: T</li>
+<li>variable type: temperature</li>
+<li>description: the temperature</li>
+</ul></li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>epsilon:
+<ul>
+<li>variable type: NumericType</li>
+<li>description: value used to stop the iteration of the implicit
+algorithm</li>
+<li>default value: 1e-14</li>
+</ul></li>
+<li>theta:
+<ul>
+<li>variable type: NumericType</li>
+<li>description: theta value used by the implicit scheme</li>
+<li>default value: 0.5</li>
+</ul></li>
+<li>ReferenceReactionRateCoefficientAB:
+<ul>
+<li>variable name: k01</li>
+<li>variable type: frequency</li>
+<li>default value: 0.0183775</li>
+</ul></li>
+<li>ReferenceReactionRateCoefficientBA:
+<ul>
+<li>variable name: k02</li>
+<li>variable type: frequency</li>
+<li>description: reference rate coefficient of the reaction transforming
+species B to species A</li>
+<li>default value: 0.010132</li>
+</ul></li>
+<li>ActivationTemperatureAB:
+<ul>
+<li>variable name: Ta1</li>
+<li>variable type: temperature</li>
+<li>description: activation temperature reaction transforming species B
+to species A</li>
+<li>default value: 3000</li>
+</ul></li>
+<li>ActivationTemperatureBA:
+<ul>
+<li>variable name: Ta2</li>
+<li>variable type: temperature</li>
+<li>description: activation temperature reaction transforming species B
+to species A</li>
+<li>default value: 1500</li>
+</ul></li>
+<li>minimal_time_step_scaling_factor:
+<ul>
+<li>variable type: real</li>
+<li>description: minimal value for the time step scaling factor</li>
+<li>default value: 0.1</li>
+</ul></li>
+<li>maximal_time_step_scaling_factor:
+<ul>
+<li>variable type: real</li>
+<li>description: maximal value for the time step scaling factor</li>
+<li>default value: 1.79769e+308</li>
+</ul></li>
+<li>numerical_jacobian_epsilon:
+<ul>
+<li>variable type: NumericType</li>
+<li>description: perturbation value used to compute a numerical
+approximation of the jacobian</li>
+<li>default value: 1e-15</li>
+</ul></li>
+<li>iterMax:
+<ul>
+<li>variable type: ushort</li>
+<li>description: maximum number of iterations allowed</li>
+<li>default value: 100</li>
+</ul></li>
+</ul>
+<h2 id="local-variables">Local variables</h2>
+<ul>
+<li><p>sum:</p>
+<ul>
+<li>variable type:
+tfel::math::quantity&lt;numeric_type,0,0,0,0,0,0,1&gt;</li>
+<li>description: sum of the molar concentrations of species A and B</li>
+</ul></li>
+<li><p>k1_mts:</p>
+<ul>
+<li>variable type: frequency</li>
+<li>description: * reaction rate coefficient of the reaction
+transforming species A to species</li>
+</ul></li>
+<li><p>B at the middle of the time step</p></li>
+<li><p>k2_mts:</p>
+<ul>
+<li>variable type: frequency</li>
+<li>description: * reaction rate coefficient of the reaction
+transforming species B to species</li>
+</ul></li>
+<li><p>A at the middle of the time step</p></li>
+</ul>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

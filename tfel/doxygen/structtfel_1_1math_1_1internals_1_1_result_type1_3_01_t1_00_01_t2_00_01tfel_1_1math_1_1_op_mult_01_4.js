@@ -1,0 +1,4 @@
+var structtfel_1_1math_1_1internals_1_1_result_type1_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_mult_01_4 =
+[
+    [ "type", "structtfel_1_1math_1_1internals_1_1_result_type1_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_mult_01_4.html#aa6195ce38dcad2623cd60b45bad3b8f3", null ]
+];

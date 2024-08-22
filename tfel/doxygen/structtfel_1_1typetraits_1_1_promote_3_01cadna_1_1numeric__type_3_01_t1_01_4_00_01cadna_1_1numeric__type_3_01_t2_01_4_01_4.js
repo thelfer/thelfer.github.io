@@ -1,0 +1,4 @@
+var structtfel_1_1typetraits_1_1_promote_3_01cadna_1_1numeric__type_3_01_t1_01_4_00_01cadna_1_1numeric__type_3_01_t2_01_4_01_4 =
+[
+    [ "type", "structtfel_1_1typetraits_1_1_promote_3_01cadna_1_1numeric__type_3_01_t1_01_4_00_01cadna_1_1numeric__type_3_01_t2_01_4_01_4.html#ab87aec36cd356cf585f2a1602a1d6b06", null ]
+];

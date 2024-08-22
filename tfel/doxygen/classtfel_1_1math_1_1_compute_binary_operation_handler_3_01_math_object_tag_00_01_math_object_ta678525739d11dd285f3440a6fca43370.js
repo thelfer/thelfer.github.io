@@ -1,0 +1,5 @@
+var classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_math_object_tag_00_01_math_object_ta678525739d11dd285f3440a6fca43370 =
+[
+    [ "Handle", "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_math_object_tag_00_01_math_object_ta678525739d11dd285f3440a6fca43370.html#a3ecefcd76f5bc5269ad286539fe807c1", null ],
+    [ "Result", "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_math_object_tag_00_01_math_object_ta678525739d11dd285f3440a6fca43370.html#a2abdd894c304ae69f6d710eacede457d", null ]
+];

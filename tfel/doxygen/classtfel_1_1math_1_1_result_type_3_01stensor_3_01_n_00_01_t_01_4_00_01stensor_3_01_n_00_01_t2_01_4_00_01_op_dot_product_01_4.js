@@ -1,0 +1,4 @@
+var classtfel_1_1math_1_1_result_type_3_01stensor_3_01_n_00_01_t_01_4_00_01stensor_3_01_n_00_01_t2_01_4_00_01_op_dot_product_01_4 =
+[
+    [ "type", "classtfel_1_1math_1_1_result_type_3_01stensor_3_01_n_00_01_t_01_4_00_01stensor_3_01_n_00_01_t2_01_4_00_01_op_dot_product_01_4.html#a82916b0528e3b09ee4b14d36a782341c", null ]
+];

@@ -1,0 +1,7 @@
+var structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_math_object_tag_00b703abb03566e06b31c98c29770e7d11 =
+[
+    [ "DummyHandle", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_math_object_tag_00066dae1694a3ab9f1aed320e0b58701e.html", null ],
+    [ "Handle", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_math_object_tag_00b703abb03566e06b31c98c29770e7d11.html#af8ba40221a65779efee2a50a1d7898dc", null ],
+    [ "MathObjectTagTypeB", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_math_object_tag_00b703abb03566e06b31c98c29770e7d11.html#a2d67bc7fe9bacc0ccc088b369043182b", null ],
+    [ "Result", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_math_object_tag_00b703abb03566e06b31c98c29770e7d11.html#a968f1b5bbf4799f9016a638bcebcd447", null ]
+];

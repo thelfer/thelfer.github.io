@@ -1,0 +1,5 @@
+var structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure_1_1_sliding_systems_interaction =
+[
+    [ "g1", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure_1_1_sliding_systems_interaction.html#aa40f1d5b21ce8a7ecb9e58bfd2a518f7", null ],
+    [ "g2", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure_1_1_sliding_systems_interaction.html#a26d4ce8148ab388243258489e8f25aa9", null ]
+];

@@ -1,0 +1,4 @@
+var classtfel_1_1math_1_1_result_type_3_01tensor_3_01_n_00_01_t_01_4_00_01stensor_3_01_n_00_01_t2_01_4_00_01_op_diadic_product_01_4 =
+[
+    [ "type", "classtfel_1_1math_1_1_result_type_3_01tensor_3_01_n_00_01_t_01_4_00_01stensor_3_01_n_00_01_t2_01_4_00_01_op_diadic_product_01_4.html#a9393a0ecb9cc5613955885b35544f257", null ]
+];

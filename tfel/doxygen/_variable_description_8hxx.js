@@ -1,0 +1,25 @@
+var _variable_description_8hxx =
+[
+    [ "VariableDescription", "structmfront_1_1_variable_description.html", "structmfront_1_1_variable_description" ],
+    [ "VariableDescriptionContainer", "structmfront_1_1_variable_description_container.html", "structmfront_1_1_variable_description_container" ],
+    [ "VarContainer", "_variable_description_8hxx.html#af57293a292505942e5dcd42149817fff", null ],
+    [ "VarHandler", "_variable_description_8hxx.html#ac14e4994078c9ba950e27558af93eabc", null ],
+    [ "checkAndCompletePhysicalBoundsDeclaration", "_variable_description_8hxx.html#a92c8d350752cb0f457d5a3623c2e69f9", null ],
+    [ "checkAndCompletePhysicalBoundsDeclaration", "_variable_description_8hxx.html#a0d1a4bdd2d4f8ecc81b6a28d2ca3eee5", null ],
+    [ "findByExternalName", "_variable_description_8hxx.html#abaa9900b002ea1601dd12ddf3fabbb8b", null ],
+    [ "getIncrementSymbol", "_variable_description_8hxx.html#a7fea4c5164c361faefe633695d6a18e1", null ],
+    [ "getIncrementSymbols", "_variable_description_8hxx.html#a483eb6a5c7e8ca882de4fbb138079df7", null ],
+    [ "getOffset", "_variable_description_8hxx.html#a68938de59c162d033eb660ee4666cc70", null ],
+    [ "getSymbol", "_variable_description_8hxx.html#aa55dca2f470dd0206fedd88a95962090", null ],
+    [ "getSymbols", "_variable_description_8hxx.html#a7bcdaf4d538d58f40ecd06ff1586e909", null ],
+    [ "getTimeDerivativeSymbol", "_variable_description_8hxx.html#a2099d790aea6b6088098a2e54965b7d6", null ],
+    [ "getTimeDerivativeSymbols", "_variable_description_8hxx.html#a44d93b9eb707d1b02c51b8fd30d3270f", null ],
+    [ "getTypeSize", "_variable_description_8hxx.html#a48a1614edab2ab6fe607f42d5079930e", null ],
+    [ "getTypeSize", "_variable_description_8hxx.html#a9480b09fe7d0d115542a7e89aee276b3", null ],
+    [ "hasBounds", "_variable_description_8hxx.html#af39ab3f99649ecc8813a0ad46c824459", null ],
+    [ "hasBounds", "_variable_description_8hxx.html#a5d51285a40ee07f9e48e9352b2cfec5d", null ],
+    [ "hasBounds", "_variable_description_8hxx.html#ae64d1e6787e57312af863c5bfe6776c8", null ],
+    [ "hasPhysicalBounds", "_variable_description_8hxx.html#a55b4c3112eca7131d291f5f78cbac51f", null ],
+    [ "hasPhysicalBounds", "_variable_description_8hxx.html#a2e70fa44b1baf7c4cfdff2ff45c88f6a", null ],
+    [ "hasPhysicalBounds", "_variable_description_8hxx.html#a4338e1f5c1a194fe2eb5bf8972e87d95", null ]
+];

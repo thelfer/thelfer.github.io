@@ -1,0 +1,5 @@
+var structepx_1_1_europlexus_tangent_operator_type_3_01epx_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_i_o_u_r_00_01_n_01_4 =
+[
+    [ "type", "structepx_1_1_europlexus_tangent_operator_type_3_01epx_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_i_o_u_r_00_01_n_01_4.html#a2ccc6f9e3b44bc60950bb48fc9693435", null ],
+    [ "view_type", "structepx_1_1_europlexus_tangent_operator_type_3_01epx_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_i_o_u_r_00_01_n_01_4.html#ae9e9cc0fd89173cf4e5cd51863f58e2f", null ]
+];

@@ -1,0 +1,5 @@
+var classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_t2to_t2_tag_00_01_s_t2to_t2_tag_00_01_a_00_01_b_00_01_op_mult_01_4 =
+[
+    [ "Handle", "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_t2to_t2_tag_00_01_s_t2to_t2_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#add831eee5dea01d433cdd5e778d6efc1", null ],
+    [ "Result", "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_t2to_t2_tag_00_01_s_t2to_t2_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#a9360818deede29a3a2b6933e9b4c3184", null ]
+];

@@ -1,0 +1,5 @@
+var classtfel_1_1math_1_1_compute_unary_result___3_01_array_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4 =
+[
+    [ "Handle", "classtfel_1_1math_1_1_compute_unary_result___3_01_array_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html#ae0961c40da26eabee483279d9dbc4df2", null ],
+    [ "Result", "classtfel_1_1math_1_1_compute_unary_result___3_01_array_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html#afe8a1cafb115f4b9a8559def071d1b8d", null ]
+];

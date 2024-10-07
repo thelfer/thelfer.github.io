@@ -1,0 +1,5 @@
+var _logarithmic_strain_compute_axial_strain_increment_elastic_prediction_8ixx =
+[
+    [ "LIB_TFEL_MATERIAL_LOGARITHMICSTRAINCOMPUTEAXIALSTRAININCREMENTELASTICPREDICTION_IXX", "_logarithmic_strain_compute_axial_strain_increment_elastic_prediction_8ixx.html#a9e97a0bb3c061063881991b544448c80", null ],
+    [ "computeAxialStrainIncrementElasticPrediction", "_logarithmic_strain_compute_axial_strain_increment_elastic_prediction_8ixx.html#ac15f042a38e4881ba0aff234fe2f6093", null ]
+];

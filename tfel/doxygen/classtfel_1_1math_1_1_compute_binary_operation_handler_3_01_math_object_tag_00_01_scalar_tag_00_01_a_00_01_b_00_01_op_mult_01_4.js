@@ -1,0 +1,5 @@
+var classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_math_object_tag_00_01_scalar_tag_00_01_a_00_01_b_00_01_op_mult_01_4 =
+[
+    [ "Handle", "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_math_object_tag_00_01_scalar_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#ad9e186003610577dcbf6a7d2c31bc785", null ],
+    [ "Result", "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_math_object_tag_00_01_scalar_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#ad316276c90c8263a4857894220e5833b", null ]
+];

@@ -1,0 +1,4 @@
+var classtfel_1_1math_1_1_unary_result_type_3_01qt_3_01_unit_00_01long_01double_01_4_00_01_power_3_01_n_00_01_d_01_4_01_4 =
+[
+    [ "type", "classtfel_1_1math_1_1_unary_result_type_3_01qt_3_01_unit_00_01long_01double_01_4_00_01_power_3_01_n_00_01_d_01_4_01_4.html#ab93bb9c6e1ace1d2f97e69c034262524", null ]
+];

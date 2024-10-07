@@ -1,0 +1,4 @@
+var classtfel_1_1math_1_1_unary_result_type_3_01_quantity_3_01_unit_00_01_value_type_00_01_ownershipb69fc3de39c43c03d2898f76bfe45909 =
+[
+    [ "type", "classtfel_1_1math_1_1_unary_result_type_3_01_quantity_3_01_unit_00_01_value_type_00_01_ownershipb69fc3de39c43c03d2898f76bfe45909.html#afd22fe5fbb493c5f0d12daa57dfc4b43", null ]
+];

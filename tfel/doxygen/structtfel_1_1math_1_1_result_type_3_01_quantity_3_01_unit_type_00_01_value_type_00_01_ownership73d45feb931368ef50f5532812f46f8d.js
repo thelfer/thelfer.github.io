@@ -1,0 +1,4 @@
+var structtfel_1_1math_1_1_result_type_3_01_quantity_3_01_unit_type_00_01_value_type_00_01_ownership73d45feb931368ef50f5532812f46f8d =
+[
+    [ "type", "structtfel_1_1math_1_1_result_type_3_01_quantity_3_01_unit_type_00_01_value_type_00_01_ownership73d45feb931368ef50f5532812f46f8d.html#a5bef8f973785a3de33386b4ef2b98c76", null ]
+];

@@ -1,0 +1,5 @@
+var structmfront_1_1_generic_behaviour_m_test_file_generator_1_1_behaviour_variables_description_1_1_variable_description =
+[
+    [ "name", "structmfront_1_1_generic_behaviour_m_test_file_generator_1_1_behaviour_variables_description_1_1_variable_description.html#a92845fdd57e2a5667fc4f590c5b8bfb9", null ],
+    [ "type", "structmfront_1_1_generic_behaviour_m_test_file_generator_1_1_behaviour_variables_description_1_1_variable_description.html#af8b0166c04c3e1a086d81d3074f252dc", null ]
+];

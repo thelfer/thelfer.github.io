@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>How to implement an hyperelastic behaviour in MFront</title>
+    <title>How to implement a hyperelastic behaviour in MFront</title>
         <meta name="author" content="Thomas Helfer" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
@@ -270,7 +270,7 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">How to implement an hyperelastic behaviour in
+<h1 class="title">How to implement a hyperelastic behaviour in
 MFront</h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">15/12/2016</h3>
@@ -371,7 +371,7 @@ class="math display">\[
 \partial \underline{C}}} &amp;= I_{1}\,\underline{I}-\underline{C}\\
 {\displaystyle \frac{\displaystyle \partial I_{3}}{\displaystyle
 \partial \underline{C}}} &amp;=
-\underline{C}^{2}-I_{1}\,C+I_{2}\,\underline{I} \\
+\underline{C}^{2}-I_{1}\,\underline{C}+I_{2}\,\underline{I} \\
 \end{aligned}
 \right.
 \]</span></p>
@@ -382,7 +382,7 @@ class="math display">\[
 \left\{
 \begin{aligned}
 {\displaystyle \frac{\displaystyle \partial^{2} I_{1}}{\displaystyle
-\partial \underline{C}^{2}}} &amp;= 0\\
+\partial \underline{C}^{2}}} &amp;= \underline{0}\\
 {\displaystyle \frac{\displaystyle \partial^{2} I_{2}}{\displaystyle
 \partial \underline{C}^{2}}} &amp;=
 \underline{I}\otimes\underline{I}-\underline{\underline{\mathbf{I}}}\\
@@ -400,10 +400,10 @@ term can be computed using the
 <code>computeDeterminantSecondDerivative</code> function.</p>
 <h1 id="a-second-class-of-hyperelastic-behaviours">A second class of
 hyperelastic behaviours</h1>
-<p>More precisely, we consider an hyperelastic behaviour whose potential
+<p>More precisely, we consider a hyperelastic behaviour whose potential
 <span class="math inline">\(W\)</span> is decomposed in an volumetric
-part <span class="math inline">\(W^{\text{v}}\)</span> and an isochoric
-part <span class="math inline">\(W^{\text{i}}\)</span>:</p>
+part <span class="math inline">\(W^{v}\)</span> and an isochoric
+part <span class="math inline">\(W^{i}\)</span>:</p>
 <p><span class="math display">\[
 W{\left(\underline{C}\right)}=W^{v}{\left(J\right)}+W^{i}{\left(\bar{I}_{1},\bar{I}_{2}\right)}
 \]</span></p>
@@ -532,7 +532,7 @@ W^{v}}{\displaystyle \partial \underline{C}}}+2{\displaystyle
 \]</span></p>
 <p>where <span class="math inline">\(\underline{S}^{v}=2\,{\displaystyle
 \frac{\displaystyle \partial W^{v}}{\displaystyle \partial
-\underline{C}}}\)</span> is the volumetric part of the the second
+\underline{C}}}\)</span> is the volumetric part of the second
 Piola-Kirchhoff stress and <span
 class="math inline">\(\underline{S}^{i}=2\,{\displaystyle
 \frac{\displaystyle \partial W^{i}}{\displaystyle \partial
@@ -606,7 +606,7 @@ W^{i}}{\displaystyle \partial \underline{C}}}=2\,{\displaystyle
 class="math display">\[
 \begin{aligned}
 {\displaystyle \frac{\displaystyle \partial^{2}
-\underline{S}^{i}}{\displaystyle \partial C^{2}}}=&amp;
+\underline{S}^{i}}{\displaystyle \partial \underline{C}^{2}}}=&amp;
 2\,{\displaystyle \frac{\displaystyle \partial^{2} W^{i}}{\displaystyle
 \partial \bar{I}_{1}^{2}}}\,{\displaystyle \frac{\displaystyle \partial
 \bar{I}_{1}}{\displaystyle \partial \underline{C}}}\otimes{\displaystyle
@@ -642,11 +642,7 @@ developments is available on a <a href="signorini.html">dedicated
 page</a>.</p>
 <h1 id="odgen-hyperelastic-behaviours">Odgen Hyperelastic
 behaviours</h1>
-<p>We now consider another class of hyperelastic behaviour of the form:
-More precisely, we consider an hyperelastic behaviour whose potential
-<span class="math inline">\(W\)</span> is decomposed in an volumetric
-part <span class="math inline">\(W^{\text{v}}\)</span> and an isochoric
-part <span class="math inline">\(W^{\text{i}}\)</span>:</p>
+<p>We now consider another class of hyperelastic behaviour of the form:</p>
 <p><span class="math display">\[
 W{\left(\underline{C}\right)}=W^{v}{\left(J\right)}+\bar{W}^{i}{\left(\bar{\lambda}_{1},\bar{\lambda}_{2},\bar{\lambda}_{3}\right)}
 \]</span></p>
@@ -673,10 +669,10 @@ Odgen-type form:</p>
 \]</span></p>
 <p>with <span
 class="math inline">\(f{\left(\lambda_{1},\lambda_{2},\lambda_{3}\right)}=\lambda_{1}^{\alpha_{p}/2}+\lambda_{2}^{\alpha_{p}/2}+\lambda_{3}^{\alpha_{p}/2}\)</span></p>
-<p>Let us focus on the contribution <span
-class="math inline">\(\underline{S}_{p}^{i}\)</span> of <span
-class="math inline">\(W^{i}_{p}\)</span> to the second Piola Kirchoff
-stress: <span class="math display">\[
+<p>Let us focus on the contribution of <span
+class="math inline">\(W^{i}_{p}\)</span> to the second Piola-Kirchhoff
+stress <span
+class="math inline">\(\underline{S}_{p}^{i}\)</span>: <span class="math display">\[
 \begin{aligned}
 \underline{S}_{p}^{i}=2\,{\displaystyle \frac{\displaystyle \partial
 \bar{W}^{i}_{p}}{\displaystyle \partial \underline{C}}}=
@@ -727,13 +723,13 @@ f}{\displaystyle \partial \underline{C}^{2}}}
 \]</span></p>
 <p>where <span
 class="math inline">\({\left(\underline{n}_{i}\right)}_{i\in
-\{1,2,3\}}\)</span> are the eigentenseurs of the right Cauchy
+\{1,2,3\}}\)</span> are the eigentensors of the right Cauchy
 tensor.</p>
 <p>Computing <span class="math inline">\({\displaystyle
 \frac{\displaystyle \partial^{2} f}{\displaystyle \partial
-\underline{C}^{2}}}\)</span> is a non trivial task as one have to take
-care of the cases where two eigenvalues are equal and repeatedly use the
-Hospital rule to pass to the limit. For this reason, it is much easier
+\underline{C}^{2}}}\)</span> is a non trivial task as one has to take
+care of the cases where two eigenvalues are equal and repeatedly use
+L'Hospital's rule to pass to the limit. For this reason, it is much easier
 to use the <code>computeIsotropicFunctionAndDerivative</code> static
 method of the <code>stensor</code> class.</p>
 <p>An implementation of the Ogden behaviour based on the previous

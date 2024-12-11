@@ -176,6 +176,8 @@
 		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
 		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -199,6 +201,7 @@
 		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -351,12 +354,12 @@ class. Those class are meant to interpret the input file.</li>
 describing a test case, the generator generates the input file for its
 target.</li>
 </ul>
-<p>This utility thus proceeds by following those three steps:</p>
+<p>This utility thus proceeds by following these three steps:</p>
 <ol type="1">
 <li>The input file, written in a JSON-like format, is read.</li>
-<li>The extracted data are passed to the the test case specified in the
-input file. The test case interprets the data in a form ready to be used
-by generators.</li>
+<li>The extracted data is passed to the test case specified in the input
+file. The test case interprets the data in a form ready to be used by
+generators.</li>
 <li>The generators are called.</li>
 </ol>
 <h1 id="usage">Usage</h1>
@@ -384,7 +387,7 @@ Possible choices are: <code>quiet</code>, <code>level0</code>,
 <p>It associates the name to a value as follows:</p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>name<span class="op">:</span> <span class="st">&quot;ssna303&quot;</span></span></code></pre></div>
-<p>A value can be a string, a floatting-point value, a integer, a
+<p>A value can be a string, a floating-point value, an integer, a
 boolean, an evolution and a list of times. Values are separated by a
 comma <code>,</code>.</p>
 <h3 id="times">Times</h3>
@@ -402,11 +405,14 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#c
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  file<span class="op">:</span> <span class="st">&quot;data.txt&quot;</span><span class="op">,</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  values<span class="op">:</span> <span class="dv">1</span><span class="op">}</span></span></code></pre></div>
 <p>The <code>file</code> field gives the name of the external file. The
-<code>values</code> field can be: - a positive integer specifying in
-which column the times values are read. - a string giving a formula
-allowing to interpret the external files. For example, the formula
-<code>$1*60</code> multiplies the first column by <span
-class="math inline">\(60\)</span>.</p>
+<code>values</code> field can be:</p>
+<ul>
+<li>a positive integer specifying in which column the time values are
+read.</li>
+<li>a string giving a formula allowing to interpret the external files.
+For example, the formula <code>$1*60</code> multiplies the first column
+by <span class="math inline">\(60\)</span>.</li>
+</ul>
 <h3 id="evolutions">Evolutions</h3>
 <p>Evolutions may be specified using:</p>
 <ol type="1">
@@ -435,7 +441,7 @@ formula).</p>
 <h3 id="variables-expected-by-standard-test-case">Variables expected by
 standard test case</h3>
 <p>Test cases shall inherit from the <code>TestCaseBase</code> class
-which expects the follwing variables to be defined:</p>
+which expects the following variables to be defined:</p>
 <ul>
 <li><code>name</code> (type <code>string</code>, mandatory): name
 associated with the test case.</li>

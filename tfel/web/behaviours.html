@@ -175,6 +175,8 @@
 		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
 		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -198,6 +200,7 @@
 		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -339,12 +342,12 @@
 <h3 class="date">15/10/2014</h3>
 </div>
 <h1 id="overview">Overview</h1>
-<p>Versatility of general purpose mechanical solver mainly relies on its
-ability to let the user define the material behaviour.
+<p>The versatility of a general purpose mechanical solver mainly relies
+on its ability to let the user define the material behaviour.
 <code>MFront</code> provides a high level language to write mechanical
 behaviours.</p>
-<p>It can be compared to the <code>ZebFront</code> tool developped by
-the Centre des Matériaux de Mines ParisTech as part of the Zset software
+<p>It can be compared to the <code>ZebFront</code> tool developed by the
+Centre des Matériaux de Mines ParisTech as part of the Zset software
 <span class="citation"
 data-cites="foerch_polymorphic_1997 besson_object-oriented_1998-1 northwest_numerics_and_modeling_inc._zebfront_2014">[see
 <a href="#ref-foerch_polymorphic_1997" role="doc-biblioref">1</a>, <a
@@ -352,15 +355,15 @@ href="#ref-besson_object-oriented_1998-1" role="doc-biblioref">2</a>, <a
 href="#ref-northwest_numerics_and_modeling_inc._zebfront_2014"
 role="doc-biblioref">3</a>]</span>. One major difference between
 <code>ZebFront</code> and <code>MFront</code> is the programming
-techniques used: <code>ZebFront</code> mostly relies on object oriented
+techniques used: <code>ZebFront</code> mostly relies on object-oriented
 techniques where <code>MFront</code> relies on generic programming
 leading to almost orthogonal design choices.</p>
 <p>Three kind of mechanical behaviours are currently considered with
 <code>MFront</code>: small and finite strain behaviours and cohesive
 zone models.</p>
 <h2 id="mechanical-behaviour-role">Mechanical behaviour role</h2>
-<p>We now precise the role of the mechanical behaviours in standard
-displacement-based finite element solver <span class="citation"
+<p>We now specify the role of the mechanical behaviour in standard
+displacement-based finite element solvers <span class="citation"
 data-cites="zienkiewicz_finite_1977 besson_mecanique_2001 edf_algorithme_2013">[see
 <a href="#ref-zienkiewicz_finite_1977" role="doc-biblioref">4</a>, <a
 href="#ref-besson_mecanique_2001" role="doc-biblioref">5</a>, <a
@@ -370,25 +373,25 @@ behaviours for the rest of this document.</p>
 <p>At each time step, the following resolution procedure is used:</p>
 <ol type="1">
 <li>a prediction of the displacement is made. Such a prediction may use
-the derivate of the stress tensor with respect of the strain tensor
+the derivative of the stress tensor with respect to the strain tensor
 <span class="math inline">\({\displaystyle \frac{\displaystyle \partial
 \underline{\sigma}}{\displaystyle \partial
 \underline{\epsilon}^{\mathrm{to}}}}\)</span> or an approximation of it.
 This prediction step will not be discussed in this article but can also
 be handled by behaviour implementations made with
 <code>MFront</code>;</li>
-<li>an iterative process similar to the Newton-Raphson algorithm used to
-find a displacement that will satisfy the mechanical equilibrium. Given
-an estimation of the displacement at the end the time step, one computes
-at each integration point an estimation of the increment of the
+<li>an iterative process similar to the Newton-Raphson algorithm is used
+to find a displacement that will satisfy the mechanical equilibrium.
+Given an estimation of the displacement at the end the time step, one
+computes at each integration point an estimation of the increment of the
 deformation tensor <span
 class="math inline">\(\Delta\,\underline{\epsilon}^{\mathrm{to}}\)</span>.
 The mechanical behaviour is then called and provides an associated
 estimation of the stress tensor <span
 class="math inline">\(\underline{\sigma}\)</span> and the values of some
-internal state variables <span class="math inline">\(Y_{i}\)</span>. In
+internal state variables <span class="math inline">\(Y_{i}\)</span>. If
 the solver requires it, the mechanical behaviour may also provide an
-estimation of the tangent consistant operator <span
+estimation of the tangent consistent operator <span
 class="math inline">\({\displaystyle \frac{\displaystyle \partial
 \Delta\,\underline{\sigma}}{\displaystyle \partial
 \Delta\,\underline{\epsilon}^{\mathrm{to}}}}\)</span> (see <span
@@ -404,7 +407,7 @@ which is used to estimate a more accurate displacement field.</li>
 \mathcal{F}\left(\left.\underline{\sigma}\right|_{t},\left.Y_{i}\right|_{t},\Delta\,\underline{\epsilon}^{\mathrm{to}},\Delta\,t,\ldots\right)
 \]</span></p>
 <p>The dots <span class="math inline">\(\ldots\)</span> means that the
-behaviour may also depend of external state variables evolutions with
+behaviour may also depend on external state variables evolutions with
 time, namely the temperature, the irradiation damage, and so on.</p>
 <h2
 id="isotropic-j_2-plasticviscoplastic-behaviours.-example-of-finite-strain-pre--and-post-processing">Isotropic
@@ -454,7 +457,7 @@ and provides:</p>
 <li>optimised implementations of the behaviour for various modelling
 hypotheses (axisymmetrical generalised plane strain, plane strain, plane
 stress, generalised plane strain, axisymmetry, tridimensional) thanks to
-template metaprogramming and template specialisations. An small overview
+template metaprogramming and template specializations. A small overview
 of the programming techniques used can be found in the description of
 the <a href="tfel-math.html">TFEL/Math library</a>.</li>
 <li>the computation of the prediction operator;</li>
@@ -463,7 +466,7 @@ states variables, etc… that can be retrieved dynamically (For the sake
 of simplicity, no glossary name was specified in this example). This
 mechanism is typically used by solvers based on the <a
 href="https://thelfer.github.io/mgis/web/index.html"><code>MGIS</code>
-libray</a> appropriately call the behaviour;</li>
+libray</a> appropriately calling the behaviour;</li>
 <li>the computation of a tangent matrix operator (various choice are
 possible: elastic, secant, consistent);</li>
 <li>dynamically loadable functions allowing the user to change various
@@ -479,10 +482,10 @@ manner to dynamically modify a behaviour (almost no runtime cost).</li>
 <p>Local divergence of the implicit algorithm can be handled through an
 appropriate substepping procedure. This feature is not enabled by
 default, but appropriate keywords gives to the end user explicit control
-on this procedure.</p>
+over this procedure.</p>
 <h3 id="finite-strain-strategies">Finite strain strategies</h3>
 <p>If not handled directly by the calling code, appropriate pre- and
-post-processings allowing the use of small strain behaviours in finite
+post-processing allowing the use of small strain behaviours in finite
 strain computations can be generated. Two lagrangian finite strain
 strategies are currently available:</p>
 <ol type="1">
@@ -504,7 +507,7 @@ logarithmic strains has several advantages:
 <ol type="i">
 <li>it preserves the small-strain classical meaning of the variables,
 which is truly appreciated by engineers;</li>
-<li>it may can also be used for arbitrary complex models (kinematic
+<li>it can also be used for arbitrary complex models (kinematic
 hardening, initial or induced anisotropy, etc.).</li>
 </ol></li>
 </ol>
@@ -519,7 +522,7 @@ title="Von Mises stress" alt="Von Mises stress" />
 class="math inline">\(H\)</span> and <span
 class="math inline">\(\sigma_{0}\)</span> of the behaviour must be
 identified on tests implying finite strains. As an additional remark,
-the results found using logarithmic strains were remarkably closed to
+the results found using logarithmic strains were remarkably close to
 those obtained by the classical formulation based on an <span
 class="math inline">\(F_{e}\,F_{p}\)</span> decomposition proposed by
 Simo and Miehe (see <span class="citation"
@@ -533,9 +536,9 @@ class="math inline">\(J_{2}\)</span> plastic and viscoplastic behaviours
 presented in the previous paragraph, <code>MFront</code> also provides
 several general-purpose domain specific languages:</p>
 <ol type="1">
-<li>the <code>Default</code> domain specific language allows the user
-the write its own integration algorithm. This is very useful for
-explicit behaviours such as the classical cohesive zone model <span
+<li>the <code>Default</code> domain specific language allows the user to
+write its own integration algorithm. This is very useful for explicit
+behaviours such as the classical cohesive zone model <span
 class="citation" data-cites="tvergaard_effect_1990">[see <a
 href="#ref-tvergaard_effect_1990"
 role="doc-biblioref">13</a>]</span>.</li>
@@ -586,7 +589,7 @@ anisotropic materials is given below:</p>
 <div class="sourceCode" id="OrthotropicCreep"><pre
 class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="OrthotropicCreep-1"><a href="#OrthotropicCreep-1"></a><span class="er">@</span>DSL    RungeKutta<span class="op">;</span>              <span class="co">// domain specific language</span></span>
 <span id="OrthotropicCreep-2"><a href="#OrthotropicCreep-2"></a><span class="er">@</span>Behaviour OrthotropicCreep<span class="op">;</span>     <span class="co">// name of the behaviour</span></span>
-<span id="OrthotropicCreep-3"><a href="#OrthotropicCreep-3"></a><span class="er">@</span>OrthotropicBehaviour<span class="op">;</span>           <span class="co">// treating an orthotropic behaviou</span></span>
+<span id="OrthotropicCreep-3"><a href="#OrthotropicCreep-3"></a><span class="er">@</span>OrthotropicBehaviour<span class="op">;</span>           <span class="co">// treating an orthotropic behaviour</span></span>
 <span id="OrthotropicCreep-4"><a href="#OrthotropicCreep-4"></a><span class="er">@</span>RequireStiffnessTensor<span class="op">;</span>         <span class="co">// requires the stiffness tensor to be computed</span></span>
 <span id="OrthotropicCreep-5"><a href="#OrthotropicCreep-5"></a><span class="er">@</span>StateVariable Stensor evp<span class="op">;</span>      <span class="co">// viscoplastic strain</span></span>
 <span id="OrthotropicCreep-6"><a href="#OrthotropicCreep-6"></a><span class="er">@</span>StateVariable strain p<span class="op">;</span>         <span class="co">// Equivalent viscoplastic strain</span></span>
@@ -707,16 +710,17 @@ this algorithm is as easy as using the domain specific languages based
 on <code>RungeKutta</code> algorithm. It can be considered as a first
 step toward an implicit implementation with an analytical jacobian
 matrix.</li>
-<li><code>Broyden</code> algorithms which do not require to computation
+<li><code>Broyden</code> algorithms which do not require the computation
 of the jacobian matrix: these algorithms update an approximation of the
 jacobian matrix (first Broyden algorithm) or its inverse (second Broyden
 algorithm) at each iteration. The first Broyden algorithm can sometimes
-be interesting as one may compute analitically some part of the jacobian
+be interesting as one may compute analytically some part of the jacobian
 matrix and let the algorithm compute the other parts. If the computation
 of those other parts takes a significant amount of CPU time, this
-algorithm can in same cases outperfom the Newton-Raphson algorithm.</li>
+algorithm can in same cases outperform the Newton-Raphson
+algorithm.</li>
 <li><code>PowellDogLeg_XX</code> algorithm, where <code>XX</code> is one
-of the previous algorithm. Those trust-region algorithms implements the
+of the previous algorithm. Those trust-region algorithms implement the
 classical Powell dogleg method <span class="citation"
 data-cites="chen_modification_1981">[see <a
 href="#ref-chen_modification_1981" role="doc-biblioref">15</a>]</span>

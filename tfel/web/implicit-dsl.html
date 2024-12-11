@@ -176,6 +176,8 @@
 		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
 		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -199,6 +201,7 @@
 		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -354,8 +357,6 @@ class="toc-section-number">2.1</span> Notes about updating auxiliary
 state variable or local variables in the <code>Integrator</code> code
 blocks when the numerical evaluation of the jacobian is
 requested</a></li>
-<li><a href="#homotopy" id="toc-homotopy"><span
-class="toc-section-number">2.2</span> Homotopy</a></li>
 </ul></li>
 <li><a href="#computation-of-the-consistent-tangent-operator"
 id="toc-computation-of-the-consistent-tangent-operator"><span
@@ -377,7 +378,7 @@ class="toc-section-number">3.1.2</span> Discussion</a></li>
 <li><a
 href="#simplication-of-the-equation-eqtangent_operatorconsistent_tangent_operator-in-common-cases"
 id="toc-simplication-of-the-equation-eqtangent_operatorconsistent_tangent_operator-in-common-cases"><span
-class="toc-section-number">3.1.3</span> Simplication of the Equation (8)
+class="toc-section-number">3.1.3</span> Simplication of the Equation (5)
 in common cases</a></li>
 </ul></li>
 <li><a href="#sec:tangent_operator:generalised_behaviours"
@@ -465,7 +466,7 @@ step: <span class="math display">\[
 \]</span></li>
 </ul>
 <p>An implicit scheme turns this ordinary differential equation into a
-non linear system of equations whose unknowns are is increment <span
+non-linear system of equations whose unknown is the increment <span
 class="math inline">\(\Delta\,Y\)</span> over a time step <span
 class="math inline">\(\Delta\,t\)</span>:</p>
 <p><span class="math display">\[
@@ -479,7 +480,7 @@ F{\left(\Delta\,\vec{Y},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}=0
 \qquad{(1)}\]</span></span></p>
 <p>Equation (1) implicitly defines <span
 class="math inline">\(\Delta\,\vec{Y}\)</span> as an implicit function
-of the increment of the increment of the strain tensor <span
+of the increment of the strain tensor <span
 class="math inline">\(\Delta\underline{\varepsilon}^{\mathrm{to}}\)</span>
 and may be rewritten as:</p>
 <p><span id="eq:tangent_operator:implicit_system2"><span
@@ -506,7 +507,7 @@ and the associated code blocks.</figcaption>
 <li><code>LevenbergMarquardt</code></li>
 <li><code>LevenbergMarquardt_NumericalJacobian</code></li>
 </ul>
-<p>Thoses algorithms are described in the documention of the <a
+<p>Those algorithms are described in the documentation of the <a
 href="tfel-math.html"><code>TFEL/Math</code> library</a>. The main steps
 of those algorithms and the associated code blocks are depicted in
 Figure 1.</p>
@@ -521,7 +522,7 @@ in the <code>@UpdateAuxiliaryStateVariables</code> code block which is
 only called once the convergence is reached.</p>
 <p>However, if the jacobian matrix is computed numerically (at least
 partially), such updates could be wrong, because they can be based on
-the perturbated values of the unknowns.</p>
+the perturbed values of the unknowns.</p>
 <p>Since <code>TFEL 3.1</code>, this can be circumvented by testing the
 value of the <code>perturbatedSystemEvaluation</code> boolean value as
 follows:</p>
@@ -541,78 +542,72 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#c
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// end of @Integrator</span></span></code></pre></div>
 <p>In many cases, rather than updating auxiliary variables during the
-Newton iterations, it can be more pratical to compute its increment,
-defined in by local variable and to update the auxiliary variable in the
+Newton iterations, it can be more practical to compute its increment,
+defined by a local variable and to update the auxiliary variable in the
 <code>@UpdateAuxiliaryStateVariables</code> code block. The previous
 trick can be used in this case in a straightforward manner.</p>
-<h2 data-number="2.2" id="homotopy"><span
-class="header-section-number">2.2</span> Homotopy</h2>
-<p>In Equation (1), the parameter <code>theta</code> is considered
-fixed. If this parameter varies, the solution <span
-class="math inline">\(\Delta\,\vec{Y}\)</span> of the implicit system
-changes, which can be written as follows:</p>
-<p><span id="eq:mfront:implicit_dsl:homotopy"><span
-class="math display">\[
-F{\left(\Delta\,\vec{Y}{\left(\theta\right)},\theta\right)}=0
-\qquad{(3)}\]</span></span></p>
-<p>Using the implicit function theorem, one can evaluate the sensibility
-of the solution with respect to <span
-class="math inline">\(\theta\)</span> as follows:</p>
-<p><span id="eq:mfront:implicit_dsl:homotopy2"><span
-class="math display">\[
-{\displaystyle \frac{\displaystyle \partial
-\Delta\,\vec{Y}}{\displaystyle \partial \theta}} =
--{\left({\displaystyle \frac{\displaystyle \partial F}{\displaystyle
-\partial \Delta\,\vec{Y}}}\right)}^{-1}\,{\displaystyle
-\frac{\displaystyle \partial F}{\displaystyle \partial \theta}} =
--J^{-1}\,{\displaystyle \frac{\displaystyle \partial F}{\displaystyle
-\partial \theta}}
-\qquad{(4)}\]</span></span></p>
-<p>where <span class="math inline">\(J={\displaystyle
-\frac{\displaystyle \partial F}{\displaystyle \partial
-\Delta\,\vec{Y}}}\)</span> is the jacobian of the implicit system.</p>
-<p>Equation (4) shows that <span
-class="math inline">\(\Delta\,\vec{Y}\)</span> is a smooth function of
-<span class="math inline">\(\theta\)</span> as long as the jacobian is
-invertible which is the requirements of most algorithms available.</p>
-<p>Equation (4) could be integrated using an explicit algorithm and
-theorically find <span
-class="math inline">\(\Delta\,\vec{Y}{\left(\theta\right)}\)</span> to
-the Implicit System (1) if <span
-class="math inline">\(\Delta\,\vec{Y}{\left(0\right)}\)</span> is
-known.</p>
-<blockquote>
-<p><strong>Note</strong></p>
-<p>Equation (4) can be integrated as follows:</p>
-<p><span id="eq:mfront:implicit_dsl:homotopy3"><span
-class="math display">\[
-\Delta\,\vec{Y}{\left(\theta\right)} =
-\Delta\,\vec{Y}{\left(0\right)}-\int_{0}^{\theta}J^{-1}\,{\displaystyle
-\frac{\displaystyle \partial F}{\displaystyle \partial
-\Theta}}\,{{\mathrm{d}}}\,\Theta
-\qquad{(5)}\]</span></span></p>
-</blockquote>
-<p>For time dependent behaviours, Equation (3) is trival to solve for
-<span class="math inline">\(\theta=0\)</span>, <span
-class="math inline">\(\Delta\,\vec{Y}{\left(0\right)}\)</span>
-corresponds to the fully explicit Euler approximation:</p>
-<p><span class="math display">\[
-\Delta\,\vec{Y}{\left(0\right)} =
-G{\left({\left.\vec{Y}\right|_{t}},t\right)}\,\Delta\,t
-\]</span></p>
-<p>The case of time independent behaviours is more involved. Let us
+<!--
+## Homotopy
+
+In Equation @eq:tangent_operator:implicit_system, the parameter `theta`
+is considered fixed. If this parameter varies, the solution
+\(\Delta\,\vec{Y}\) of the implicit system changes, which can be written
+as follows:
+
+\[
+F\paren{\Delta\,\vec{Y}\paren{\theta},\theta}=0
+\]{#eq:mfront:implicit_dsl:homotopy}
+
+Using the implicit function theorem, one can evaluate the sensitivity of
+the solution with respect to \(\theta\) as follows:
+
+\[
+\deriv{\Delta\,\vec{Y}}{\theta} = -\paren{\deriv{F}{\Delta\,\vec{Y}}}^{-1}\,\deriv{F}{\theta} = -J^{-1}\,\deriv{F}{\theta}
+\]{#eq:mfront:implicit_dsl:homotopy2}
+
+where \(J=\deriv{F}{\Delta\,\vec{Y}}\) is the jacobian of the implicit system.
+
+Equation @eq:mfront:implicit_dsl:homotopy2 shows that
+\(\Delta\,\vec{Y}\) is a smooth function of \(\theta\) as long as the
+jacobian is invertible which is the requirements of most algorithms
+available.
+
+Equation @eq:mfront:implicit_dsl:homotopy2 could be integrated using an
+explicit algorithm and theoretically find
+\(\Delta\,\vec{Y}\paren{\theta}\) to the Implicit System
+@eq:tangent_operator:implicit_system if \(\Delta\,\vec{Y}\paren{0}\) is
+known.
+
+> **Note**
+> 
+> Equation @eq:mfront:implicit_dsl:homotopy2 can be integrated
+>  as follows:
+> 
+> \[
+> \Delta\,\vec{Y}\paren{\theta} = \Delta\,\vec{Y}\paren{0}-\int_{0}^{\theta}J^{-1}\,\deriv{F}{\Theta}\,\dtot\,\Theta
+> \]{#eq:mfront:implicit_dsl:homotopy3}
+
+For time dependent behaviours, Equation @eq:mfront:implicit_dsl:homotopy
+is trivial to solve for \(\theta=0\), \(\Delta\,\vec{Y}\paren{0}\)
+corresponds to the fully explicit Euler approximation:
+
+\[
+\Delta\,\vec{Y}\paren{0} = G\paren{\bts{\vec{Y}},t}\,\Delta\,t
+\]
+
+The case of time independent behaviours is more involved. Let us
 consider for instance, a plastic behaviour with isotropic hardening for
-which the implicit equation <span class="math inline">\(f_{p}\)</span>
-associated with the plastic multiplier <span
-class="math inline">\(p\)</span> is:</p>
-<p><span class="math display">\[
-f_{p} =
-{\left.\seq\right|_{t+\theta\,\Delta\,t}}-R{\left({\left.p\right|_{t+\theta\,\Delta\,t}}\right)}
-\]</span></p>
-<p>In this case, the derivatives <span
-class="math inline">\(f_{p}\)</span> with respect to the internal state
-variables are null for <span
-class="math inline">\(\theta=0\)</span>.</p>
+which the implicit equation \(f_{p}\) associated with the plastic
+multiplier \(p\) is:
+
+\[
+f_{p} = \mts{\seq}-R\paren{\mts{p}}
+\]
+
+In this case, the derivatives \(f_{p}\) with respect to the internal
+state variables are null for \(\theta=0\).
+
+-->
 <h1 data-number="3"
 id="computation-of-the-consistent-tangent-operator"><span
 class="header-section-number">3</span> Computation of the consistent
@@ -627,8 +622,8 @@ the state variables satisfies the following implicit system:</p>
 <p><span id="eq:tangent_operator:small_strain:implicit_system"><span
 class="math display">\[
 F{\left(\Delta\,\vec{Y},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}=0
-\qquad{(6)}\]</span></span></p>
-<p>Equation (6) implicitly defines <span
+\qquad{(3)}\]</span></span></p>
+<p>Equation (3) implicitly defines <span
 class="math inline">\(\Delta\,\vec{Y}\)</span> as an implicit function
 of the increment of the increment of the strain tensor <span
 class="math inline">\(\Delta\underline{\varepsilon}^{\mathrm{to}}\)</span>
@@ -636,9 +631,9 @@ and may be rewritten as:</p>
 <p><span id="eq:tangent_operator:small_strain:implicit_system2"><span
 class="math display">\[
 \vec{F}{\left(\Delta\,\vec{Y}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)},\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}=0
-\qquad{(7)}\]</span></span></p>
+\qquad{(4)}\]</span></span></p>
 <p>The stress tensor <span
-class="math inline">\(\underline{\sigma}\)</span> are assumed to be an
+class="math inline">\(\underline{\sigma}\)</span> is assumed to be an
 explicit function of the integration variables <span
 class="math inline">\({\left.\vec{Y}\right|_{t+\Delta\,t}}\)</span> at
 the end of the time step and the total strain <span
@@ -704,11 +699,11 @@ class="math display">\[
 \Delta\,\vec{Y}}}\,J^{-1}\,{\displaystyle \frac{\displaystyle \partial
 \vec{F}}{\displaystyle \partial
 \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
-\qquad{(8)}\]</span></span></p>
+\qquad{(5)}\]</span></span></p>
 <h3 data-number="3.1.2" id="sec:tangent_operator:discussion"><span
 class="header-section-number">3.1.2</span> Discussion</h3>
-<p>Equation (8) may be extented almost directly to generalised
-behaviours. However, direct usage of Equation (8) has several practical
+<p>Equation (5) may be extented almost directly to generalised
+behaviours. However, direct usage of Equation (5) has several practical
 disadvantages:</p>
 <ul>
 <li>The matrix <span class="math inline">\({\displaystyle
@@ -719,7 +714,7 @@ stress <span class="math inline">\(\underline{\sigma}\)</span> only
 depends on the elastic strain <span
 class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span>. In
 many behaviours, the elastic strain <span
-class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> are
+class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> is
 only a small subset of the integration variables <span
 class="math inline">\(\vec{Y}\)</span>.</li>
 <li>It requires to invert the jacobian matrix.</li>
@@ -731,14 +726,14 @@ class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{to}}\)</span>
 commonly only appears in the implicit equation describing the split of
 the strain.</li>
 </ul>
-<p>Hence, a computation of the consistent tangent based on Equation (8)
-may imply a significant performance hit which can be avoided in many
-most common cases, as discussed in the following section.</p>
+<p>Hence, a computation of the consistent tangent based on Equation (5)
+may imply a significant performance hit which can be avoided in most
+common cases, as discussed in the following section.</p>
 <h3 data-number="3.1.3"
 id="simplication-of-the-equation-eqtangent_operatorconsistent_tangent_operator-in-common-cases"><span
 class="header-section-number">3.1.3</span> Simplication of the Equation
-(8) in common cases</h3>
-<p>Equation (8) can be simplified if the following assumptions are
+(5) in common cases</h3>
+<p>Equation (5) can be simplified if the following assumptions are
 made:</p>
 <ul>
 <li>The integration variable <span
@@ -788,14 +783,14 @@ class="math display">\[
 \vdots\\
   0&amp; 0 &amp; 0 &amp; 0&amp; 0 &amp;0 \\
 \end{pmatrix}
-\qquad{(9)}\]</span></span></li>
+\qquad{(6)}\]</span></span></li>
 <li>The stress tensor only depends on the elastic strain <span
 class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span>
 through the Hooke law: <span
 id="eq:tangent_operator:small_strain:common_case:hooke_law"><span
 class="math display">\[
 {\left.\underline{\sigma}\right|_{t+\Delta\,t}}={\left.\underline{\underline{\mathbf{D}}}\right|_{t+\Delta\,t}}\,\colon\,{\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t+\Delta\,t}}
-\qquad{(10)}\]</span></span> The expression of the consistent tangent
+\qquad{(7)}\]</span></span> The expression of the consistent tangent
 operator is then: <span
 id="eq:tangent_operator:small_strain:common_case:consistent_tangent_operator"><span
 class="math display">\[
@@ -805,7 +800,7 @@ class="math display">\[
 \frac{\displaystyle
 \mathrm{d}\Delta\,\underline{\varepsilon}^{\mathrm{el}}}{\displaystyle
 \mathrm{d}\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
-\qquad{(11)}\]</span></span></li>
+\qquad{(8)}\]</span></span></li>
 </ul>
 <p>Those assumptions are more or the less the basis upon which various
 bricks in <code>MFront</code> are built (<a
@@ -814,13 +809,13 @@ href="https://thelfer.github.io/tfel/web/HookeStressPotential.html"><code>Standa
 href="https://thelfer.github.io/tfel/web/StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoplasticity</code></a>,
 <a
 href="https://thelfer.github.io/tfel/web/DDIF2Brick.html"><code>DDIF2</code></a>).</p>
-<p>Thanks to Equation (9), one sees that the product <span
+<p>Thanks to Equation (6), one sees that the product <span
 class="math inline">\(-J^{-1}\,{\displaystyle \frac{\displaystyle
 \partial \vec{F}}{\displaystyle \partial
 \Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\)</span> only contains
-the the <span class="math inline">\(6\)</span> first columns of the
-<span class="math inline">\(J^{-1}\)</span>. This allows identifying
-<span class="math inline">\({\displaystyle \frac{\displaystyle
+the <span class="math inline">\(6\)</span> first columns of the <span
+class="math inline">\(J^{-1}\)</span>. This allows identifying <span
+class="math inline">\({\displaystyle \frac{\displaystyle
 \mathrm{d}\Delta\,\underline{\varepsilon}^{\mathrm{el}}}{\displaystyle
 \mathrm{d}\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}\)</span> with
 the <span class="math inline">\(6\times 6\)</span> upper-left submatrx
@@ -833,14 +828,14 @@ this submatrix:</p>
 \mathrm{d}\Delta\,\underline{\varepsilon}^{\mathrm{el}}}{\displaystyle
 \mathrm{d}\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}
 \]</span></p>
-<p>Thanks to Equation (11), the consistent tangent operator finally
+<p>Thanks to Equation (8), the consistent tangent operator finally
 reads:</p>
 <p><span id="eq:tangent_operator:small_strain:common_cases"><span
 class="math display">\[
 {\displaystyle \frac{\displaystyle
 \mathrm{d}\underline{\sigma}}{\displaystyle
 \mathrm{d}\Delta\,\underline{\varepsilon}^{\mathrm{to}}}}={\left.\underline{\underline{\mathbf{D}}}\right|_{t+\Delta\,t}}\,\cdot\,J_{\underline{\varepsilon}^{\mathrm{el}}}^{-1}
-\qquad{(12)}\]</span></span></p>
+\qquad{(9)}\]</span></span></p>
 <h4 data-number="3.1.3.1"
 id="sec:tangent_operator:getPartialTangentOperator"><span
 class="header-section-number">3.1.3.1</span> The
@@ -899,7 +894,7 @@ behaviours</h2>
 <h3 data-number="3.2.1" id="discussion"><span
 class="header-section-number">3.2.1</span> Discussion</h3>
 <p>In Section 3.1.2, we discussed various drawbacks of a direct use of
-Equation (8).</p>
+Equation (5).</p>
 <p>The equivalent of the consistent tangent operator for generalised
 behaviours are so called tangent operator blocks which can be:</p>
 <ul>
@@ -949,7 +944,7 @@ decomposed by blocks:</p>
 {\displaystyle \frac{\displaystyle \partial f_{y_{n}}}{\displaystyle
 \partial \Delta\, X}} \\
 \end{pmatrix}
-\qquad{(13)}\]</span></span></p>
+\qquad{(10)}\]</span></span></p>
 <p>where <span
 class="math inline">\({\left(y_{1},\cdots\,y_{n}\right)}\)</span>
 denotes the set of integration variables, i.e.:</p>
@@ -966,7 +961,7 @@ f_{y_{1}}\\
 f_{y_{n}}
 \end{pmatrix}
 \]</span></p>
-<p>The advantage of the Decomposition (13) is that each blocks <span
+<p>The advantage of the Decomposition (10) is that each blocks <span
 class="math inline">\({\displaystyle \frac{\displaystyle \partial
 f_{y_{i}}}{\displaystyle \partial \Delta\, X}}\)</span> is a tensorial
 object that can be computed using the facilities offered by
@@ -1193,7 +1188,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#c
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>In <code>MFront</code>, the integration variables refers
+<li id="fn1"><p>In <code>MFront</code>, the integration variables refer
 to variables which are part of the implicit systems, i.e. variables the
 increments of which are the solutions of the implicit system. A state
 variable, declared with <code>@StateVariable</code> keyword, is saved
@@ -1202,13 +1197,13 @@ integration variables. An auxiliary state variable, declared with
 <code>@AuxiliaryStateVariable</code> keyword, is also saved from one
 step to the other, but is not added to the list of the integration
 variables. The <code>@IntegrationVariable</code> keyword allows to
-append a variable to the integration variables but its value wil not be
+append a variable to the integration variables but its value will not be
 saved from one step to the other.<a href="#fnref1" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>This assumes that the damage <span
-class="math inline">\(d\)</span> is the second integration variables.<a
+class="math inline">\(d\)</span> is the second integration variable.<a
 href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>This code uses the fact the state variables have been
+<li id="fn3"><p>This code uses the fact that state variables have been
 updated to their values at the end of the time step before the call to
 <code>@TangentOperator</code> code block.<a href="#fnref3"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>

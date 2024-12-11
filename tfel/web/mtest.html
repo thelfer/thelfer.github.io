@@ -177,6 +177,8 @@
 		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
 		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -200,6 +202,7 @@
 		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -342,14 +345,14 @@
 <h3 class="date">August 19, 2014</h3>
 </div>
 <h1 id="overview">Overview</h1>
-<p><code>MFront</code> comes with an handy easy-to-use tool called
+<p><code>MFront</code> comes with a handy and easy-to-use tool called
 <code>MTest</code>. This tool handles two types of computations:</p>
 <ul>
 <li>The description of a single material point.</li>
-<li>The description of a pipe, submitted to variaous kinds of
+<li>The description of a pipe, subject to various kinds of
 loadings.</li>
 </ul>
-<p>From various benchmarcks, this tool has been found much faster (from
+<p>From various benchmarks, this tool has been found much faster (from
 ten to several hundred times depending on the test case) than using a
 full-fledged finite element solver such as <code>Cast3M</code> or
 <code>Code_Aster</code>.</p>
@@ -389,7 +392,7 @@ keyword. If this keyword is specific to the simulation of a pipe, use
 <h1 id="material-point">Material point</h1>
 <p><code>MTest</code> can test the local behaviour of a material, by
 imposing independent constraints on each component of the driving
-variables (or deformation gradient or or the stress. It equivalent to
+variables (or deformation gradient or the stress). It is equivalent to
 the <code>SIMU_POINT_MAT</code> operator available within the
 <code>Code-Aster</code> finite element solver <span class="citation"
 data-cites="edf_macro-commande_2013">[1]</span> or to the
@@ -400,7 +403,7 @@ as a stage implying strain localisation is not reached: tensile,
 compressive or shear tests driven by stresses or deformations, pipe
 loaded by internal or external pressure, test, etc.</p>
 <p><code>MTest</code> generates a text file containing the evolution of
-the strains (for small strains behaviours), the stresses an the state
+the strains (for small strains behaviours), the stresses and the state
 variables during the loading history. Other <code>MTest</code>
 functionalities include:</p>
 <ul>
@@ -427,14 +430,14 @@ variables) to reference or analytical results. <code>MTest</code>
 automatically generates XML file using the <a
 href="http://junit.org">JUnit</a> format. Those files can be used for
 reporting using the <a href="http://jenkins-ci.org/">Jenkins continuous
-integration application</a> This functionality is central in the
-assurance quality procedure of <code>MFront</code>.</li>
+integration application</a>. This functionality is central in the
+quality assurance procedure of <code>MFront</code>.</li>
 </ul>
 <p>Through an appropriate option, a behaviour implementation generated
 through <code>MFront</code> may create an <code>MTest</code> file in
-case of integration failure: this <code>MTest</code> file only describe
+case of integration failure: this <code>MTest</code> file only describes
 the failed time step with the appropriate initial conditions. This
-feature is particularly useful to analyse the failure of large
+feature is particularly useful to analyze the failure of large
 simulations which may happen after several hours of computations.</p>
 <h2 id="example">Example</h2>
 <div class="sourceCode" id="MTestPlasticity"><pre
@@ -575,7 +578,7 @@ With this policy, one can thus only approach the failure time, but never
 go beyond.</li>
 <li><code>FreezeState</code> (or
 <code>FreezeStateUntilEndOfComputation</code>): if a failure is
-detected, the state of the structure is freezed and do not evolve. No
+detected, the state of the structure is frozen and does not evolve. No
 equilibrium is performed, the behaviour is no more called and
 <code>PipeTest</code> will output the same results again and again until
 the end of computation. This option may be useful when optimizing
@@ -603,7 +606,7 @@ defined. This variable must be equal to <code>inner_boundary</code> or
 <code>OxidationLength</code>. The values of the material properties and
 external state variables passed to an oxidation model are computed on
 the boundary on which the model is defined.</p>
-<p>The definition of a least one oxidation model automatically defines
+<p>The definition of at least one oxidation model automatically defines
 an evolution named <code>OxidationStatus</code> which states if an
 integration point is inside an oxidation layer.</p>
 <h3 id="example-of-usage-1">Example of usage</h3>

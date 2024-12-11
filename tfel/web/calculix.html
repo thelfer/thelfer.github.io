@@ -176,6 +176,8 @@
 		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
 		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -199,6 +201,7 @@
 		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -359,7 +362,7 @@ different interfaces:</p>
 <li>The native <code>CalculiX</code> interface.</li>
 <li>The <code>ABAQUS</code> <code>umat</code> routines for linear
 materials (small strain analyses).</li>
-<li>The <code>ABAQUSNL</code> <code>umat</code> routines for non linear
+<li>The <code>ABAQUSNL</code> <code>umat</code> routines for non-linear
 materials (finite strain analyses).</li>
 </ul>
 <p>There are two ways of introducing user-defined mechanical
@@ -415,12 +418,12 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> libCALCULIXBEHAVIOUR.so :  CHABOCHE</span></code></pre></div>
 <p>The <code>libCALCULIXBEHAVIOUR.so</code> is generated in the
 <code>src</code> subdirectory. This library shall be copied in a
-location where the dynamic loade can find it. Another solution is to add
+location where the dynamic load can find it. Another solution is to add
 the <code>src</code> directory to the <code>LD_LIBRARY_PATH</code> as
 follows:</p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export LD_LIBRARY_PATH=<span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/src:<span class="va">$LD_LIBRARY_PATH</span></span></code></pre></div>
-<p>An template for the behaviour declaration has been generated in the
+<p>A template for the behaviour declaration has been generated in the
 <code>calculix</code> subdirectory.</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">** </span></span>
@@ -453,7 +456,7 @@ convention (the leading <code>lib</code> and the <code>.so</code>
 extension). <strong>The base name of the library and the name of the
 function must be upper-cased</strong>. This is due to the way
 <code>CalculiX</code> interprets the input file.</p>
-<p>The material name can optionally ends with an identifier beginning by
+<p>The material name can optionally end with an identifier beginning by
 the <code>@</code> character. This character can be followed by any
 character and is used to declare two distinct materials based on the
 same external behaviour having different material coefficients. For
@@ -476,7 +479,7 @@ a small strain behaviour in finite strain analysis</h3>
 strain by the Green-Lagrange strain and interprets the output of the
 behaviour as the second Piola-Kirchhoff stress. This allows small strain
 behaviours to be used in the context of finite rotations and this
-procedures is equivalent to the <code>FiniteRotationSmallStrain</code>
+procedure is equivalent to the <code>FiniteRotationSmallStrain</code>
 introduced by <code>MFront</code> in most interfaces. However, this
 procedure is said to be limited to small strain because the trace of the
 Green-Lagrange strain is not related to the change of volume, which is
@@ -485,7 +488,7 @@ small strain: indeed, even though the plastic strain is traceless, the
 plastic flow will not be <em>isochoric</em>.</p>
 <p>The situation is quite different in the <code>ABAQUSNL</code>
 interface where the Hencky strain (logarithmic strain) is used (see
-below): the trace of the logarithimc strain is directly linked to the
+below): the trace of the logarithmic strain is directly linked to the
 change of volume.</p>
 <p>This situation is also different from the strategy used in
 <code>Abaqus/Standard</code> which tries to integrate the behaviour in
@@ -593,8 +596,8 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#c
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span></span></code></pre></div>
 </blockquote>
 <blockquote>
-<p>Another solution is to desactive checks (for <code>TFEL</code>
-greater than 3.1) like this:</p>
+<p>Another solution is to deactive checks (for <code>TFEL</code> greater
+than 3.1) like this:</p>
 <div class="sourceCode" id="cb9"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">-D</span> MFRONT_ABAQUS_NORUNTIMECHECKS <span class="at">--interface</span><span class="op">=</span>abaqus SaintVenantKirchhoffElasticity.mfront</span></code></pre></div>
 </blockquote>
@@ -658,7 +661,7 @@ class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb10-
 <p><strong>Named state variables</strong></p>
 <p><code>MFront</code> generates an example showing how to use the
 behaviour in <code>Abaqus/Standard</code>. Such example names each state
-variables, which is usefull for post-processing. However this feature is
+variables, which is useful for post-processing. However, this feature is
 currently not supported by <code>CalculiX</code>.</p>
 </blockquote>
 <h1 id="known-issues">Known issues</h1>
@@ -674,7 +677,7 @@ materials. This is not what consistent with <code>Abaqus/Standard</code>
 which passes the number of state variables of the material.</p>
 <p>The same remarks applies to the number of the material properties
 (<code>NPROPS</code> argument).</p>
-<p>This issue can be circumvent by disabling checks in
+<p>This issue can be circumvented by disabling checks in
 <code>MFront</code>:</p>
 <blockquote>
 <div class="sourceCode" id="cb11"><pre
@@ -690,7 +693,7 @@ to circumvent this issue.</p>
 <h1 id="benchmarks">Benchmarks</h1>
 <h2 id="small-strain">Small strain</h2>
 <p><img src="img/CalculiXBenchmarkSmallStrain.png" /></p>
-<p>This example describes an tensile test on an AE specimen using an <a
+<p>This example describes a tensile test on an AE specimen using an <a
 href="gallery/plasticity/IsotropicLinearKinematicHardeningPlasticity.mfront">isotropic
 linear hardening plasticity behaviour</a> depicted on the previous
 figure.</p>
@@ -723,16 +726,16 @@ in the following table:</p>
 </tr>
 </tbody>
 </table>
-<p>Those figures shows that using the <code>MFront</code> implementation
+<p>Those figures show that using the <code>MFront</code> implementation
 is <span class="math inline">\(4.9\%\)</span> slower. Using the
 <code>callgrind</code> profiling tool of <code>valgrind</code>
-framework, one can see that more time is spend in looking for function
+framework, one can see that more time is spent in looking for function
 <code>calculix_searchExternalBehaviours</code> than in the behaviour
 integration: <span class="math inline">\(2.65\%\)</span> of the time vs
 <span class="math inline">\(1.66\%\)</span> !</p>
-<p>This is du to the mostly non intrusive way of introducing external
+<p>This is du to the mostly non-intrusive way of introducing external
 behaviours in <code>CalculiX</code>. This additional cost could totally
-disapear with a more clever and intrusive development.</p>
+disappear with a more clever and intrusive development.</p>
 <p>If those 2.65% are removed from the total computational time, the
 <code>MFront</code> only causes to a <span
 class="math inline">\(2.3\%\)</span> slow down, which is acceptable.</p>

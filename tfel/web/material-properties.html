@@ -178,6 +178,8 @@
 		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
 		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -201,6 +203,7 @@
 		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -521,9 +524,9 @@ describe the current thermodynamical state of the material.</p>
 <p>Compared to behaviours, which often require to solve a system of
 ordinary differential equations to describe the evolution of the state
 variables describing the material, material properties are conceptually
-much simpler. However, their implementations, while straightforward,
-allow to introduce some key concepts of <code>MFront</code>, making a
-perfect introduction for beginners.</p>
+much simpler. However, their implementation, while straightforward,
+allows to introduce some key concepts of <code>MFront</code>, making it
+a perfect introduction for beginners.</p>
 <p>This tutorial considers the example of the Young’s modulus of uranium
 dioxide, which can be represented, according to Martin <span
 class="citation" data-cites="martin_elastic_1989">[<a
@@ -560,7 +563,7 @@ editor.</p>
 <blockquote>
 <p><strong>About editing <code>MFront</code> files</strong></p>
 <p>Most text editors have special modes for <code>C++</code>
-highlighting and we strongly recommand to associate files with the
+highlighting and we strongly recommend to associate files with the
 extension <code>.mfront</code> with <code>C++</code> mode.</p>
 <p>Note that an experimental text editor called <code>tfel-editor</code>
 with specific support for <code>MFront</code> is also available here: <a
@@ -579,7 +582,7 @@ now be used to generate a <code>python</code> module in two steps:</p>
 done by the following call to the <code>mfront</code> executable:</p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--interface</span><span class="op">=</span>python YoungModulus.mfront</span></code></pre></div>
-<p><code>MFront</code> will generally generate two sub-directory named
+<p><code>MFront</code> will generally generate two subdirectory named
 respectively <code>include</code> and <code>src</code>.</p></li>
 <li><p>Compile the generated sources in shared libraries (here a single
 <code>python</code> module):</p>
@@ -810,8 +813,8 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href=
 <h2 data-number="3.2" id="changing-the-name-of-the-output"><span
 class="header-section-number">3.2</span> Changing the name of the
 output</h2>
-<p><code>res</code> is a poor name for the ouput variable. It can be
-changed using the <code>@Ouput</code> keyword as follows:</p>
+<p><code>res</code> is a poor name for the output variable. It can be
+changed using the <code>@Output</code> keyword as follows:</p>
 <div class="sourceCode" id="cb16"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Output E<span class="op">;</span></span></code></pre></div>
 <p>As a consequence, the name body of the function must be changed to
@@ -829,7 +832,7 @@ class="header-section-number">3.3.1</span> Physical bounds</h3>
 inappropriately. For example, one may request the value of the Young’s
 modulus for a negative temperature, something which in our opinion shall
 lead to an error to indicate to the user that something very wrong is
-happening their code.</p>
+happening in their code.</p>
 <p>Indeed, many quantities are intrinsically bounded. In our example,
 the temperature (in Kelvin) can’t be negative and the porosity shall be
 bounded in the range <span class="math inline">\([0:1]\)</span>. Those
@@ -843,15 +846,15 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#
 <p>where the <code>*</code> character means infinity (and is followed by
 an open-bracket).</p>
 <p>A violation of the physical bounds is <strong>always</strong> a cause
-for the calculation stop and the return of an error.</p>
+for the calculation to stop and the return of an error.</p>
 <h3 data-number="3.3.2" id="standard-bounds"><span
 class="header-section-number">3.3.2</span> Standard bounds</h3>
 <p>Another issue is the fact that the considered material property is
-only reliable on a limited range of temperature and porosity. Outside of
-this domain of validity, the prediction may become inaccurate.</p>
+only reliable over a limited range of temperature and porosity. Outside
+of this domain of validity, the prediction may become inaccurate.</p>
 <p>This domain of validity is described in <code>MFront</code> by
 (standard) bounds, introduced by the <code>@Bounds</code> keyword.</p>
-<p>In our example, the prediction are considered reliable for
+<p>In our example, the prediction is considered reliable for
 temperatures in the range <span
 class="math inline">\([273.15:2610.15]\)</span>:</p>
 <div class="sourceCode" id="cb19"><pre
@@ -863,7 +866,7 @@ how to treat an out-of-bounds evaluation:</p>
 <li><code>Warning</code>: the user shall be informed but the computation
 is performed as usual. How the user is informed depends on the interface
 considered,</li>
-<li><code>Strict</code>: the computation are stopped and an error is
+<li><code>Strict</code>: the computation is stopped and an error is
 reported. The mechanism used to stop the computation depends on the
 interface considered.</li>
 </ul>
@@ -899,8 +902,8 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href=
 <span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> build_identifier              : string specifying a build identifier.</span>
 <span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">This</span> option shall only be specified on the command line.</span></code></pre></div>
 </blockquote>
-<p>We do not recommend to hard coding DSL options in the source file as
-<code>MFront</code> files must be sharable across different users which
+<p>We do not recommend hard coding DSL options in the source file as
+<code>MFront</code> files must be shareable across different users which
 may have different needs.</p>
 <h4 data-number="3.3.2.2"
 id="changing-the-default-policy-with-command-line--"><span
@@ -921,16 +924,15 @@ While most users may want to control the out-of-bounds policy at
 runtime, this may not be compatible with quality assurance in safety
 critical studies.</p>
 <p>Consider a nuclear fuel performance code which delivers a set of
-well-qualified material properties to its users. The developpers of the
-fuel performance code must guarantee the proper the usage of their code.
-In particular, the material properties must be used inside their
-validity domain. A <code>Strict</code> policy may be a convenient
-choice.</p>
+well-qualified material properties to its users. The developers of the
+fuel performance code must guarantee the proper usage of their code. In
+particular, the material properties must be used inside their validity
+domain. A <code>Strict</code> policy may be a convenient choice.</p>
 <p>Users shall thus not be able to use the code outside its validation
-domain without explicit stating it in their input files using a specific
-keyword. In this case, the developpers of the fuel performance code are
-no more responsible of the results obtained and may explicitly state it
-in the result files by a warning (for example).</p>
+domain without explicitly stating it in their input files using a
+specific keyword. In this case, the developers of the fuel performance
+code are no longer responsible for the results obtained and may
+explicitly state it in the result files by a warning (for example).</p>
 </blockquote>
 <h3 data-number="3.3.3" id="testing-in-python"><span
 class="header-section-number">3.3.3</span> Testing in
@@ -1003,16 +1005,16 @@ out-of-bounds policy.</p>
 id="documenting-the-variables-for-the-calling-solvers"><span
 class="header-section-number">3.4</span> Documenting the variables for
 the calling solvers</h2>
-<p>The names of the inputs variables are very generic and not
+<p>The names of the input variables are very generic and not
 self-explanatory. For example, nothing indicates to the reader that
 <code>f</code> stands for the porosity of the material. More precisely,
-<code>MFront</code> exports information about the material property that
-can be used by the calling solver. Among others, these information
-include the name of the inputs and the name of the output, as well as
+<code>MFront</code> exports information about the material properties
+that can be used by the calling solver. Among others, this information
+includes the name of the inputs and the name of the output, as well as a
 description of those variables.</p>
 <p>To emphasize this point, let us consider a handy tool called <a
 href="mfront-query.html"><code>mfront-query</code></a> which can be used
-to request all kind of information about an <code>MFront</code> file
+to request all kinds of information about an <code>MFront</code> file
 from the command line. Using <code>mfront-query</code> to list the
 inputs of this implementation leads to this disappointing and unuseful
 result:</p>
@@ -1029,10 +1031,10 @@ the solver that will use it.</p>
 <h3 data-number="3.4.1" id="about-using-explicit-variable-names"><span
 class="header-section-number">3.4.1</span> About using explicit variable
 names</h3>
-<p>A first idea to solve this issue would be to used explicit variable
+<p>A first idea to solve this issue would be to use explicit variable
 names such as <code>Temperature</code> or <code>Porosity</code>, instead
 of <code>T</code> and <code>f</code> respectively. However, this
-solution rapidely becomes cumbersome in practice. We do not recommend
+solution rapidly becomes cumbersome in practice. We do not recommend
 this solution.</p>
 <h3 data-number="3.4.2" id="about-standard-c-comments"><span
 class="header-section-number">3.4.2</span> About standard C++
@@ -1097,7 +1099,7 @@ document it using <code>doxygen</code>-like comments.</p>
 </blockquote>
 <h2 data-number="3.5" id="parameters"><span
 class="header-section-number">3.5</span> Parameters</h2>
-<p>Sensitivity analysis, uncertainties propagations, re-identification,
+<p>Sensitivity analysis, uncertainty propagation, re-identification,
 require to be able to modify the coefficients of the material
 property.</p>
 <p><code>MFront</code> introduces the concept of <em>parameters</em>: a
@@ -1134,7 +1136,7 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href=
 <div class="sourceCode" id="cb36"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>parameter <span class="ex">name</span><span class="op">&gt;</span> <span class="op">&lt;</span>new parameter value<span class="op">&gt;</span></span></code></pre></div>
 <p>For example, the file
-<code>UO2_YoungModulus_Martin1989-parameters.txt</code> may looks
+<code>UO2_YoungModulus_Martin1989-parameters.txt</code> may look
 like:</p>
 <div class="sourceCode" id="cb37"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new material parameters</span></span>
@@ -1178,8 +1180,8 @@ boolean DSL option:</p>
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>python                            <span class="dt">\</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">--dsl-option</span><span class="op">=</span>parameters_initialization_from_file:false <span class="dt">\</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>         UO2_YoungModulus_Martini1989.mfront</span></code></pre></div>
-<p>This option has mostly been introduced to let solver developpers have
-control on the users ability to modify parameters of well-qualified
+<p>This option has mostly been introduced to let solver developers have
+control over the users’ ability to modify parameters of well-qualified
 material properties: if such parameter is modified, strict quality
 assurance of the solver is compromised.</p>
 <h4 data-number="3.5.1.4"
@@ -1212,15 +1214,15 @@ keywords respectively.</p>
 <p>For example, those information can be added as follows:</p>
 <div class="sourceCode" id="cb41"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author   T<span class="op">.</span> Helfer<span class="op">;</span>  <span class="co">// author name</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date     <span class="bn">04</span><span class="op">/</span><span class="bn">04</span><span class="op">/</span><span class="dv">2014</span><span class="op">;</span> <span class="co">// implentation date</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description          <span class="co">// detailled description</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date     <span class="bn">04</span><span class="op">/</span><span class="bn">04</span><span class="op">/</span><span class="dv">2014</span><span class="op">;</span> <span class="co">// implementation date</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description          <span class="co">// detailed description</span></span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  The elastic constants of polycrystalline UO2 <span class="kw">and</span></span>
 <span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">(</span>U<span class="op">,</span> Pu<span class="op">)</span> mixed oxides<span class="op">:</span> a review <span class="kw">and</span> recommendations</span>
 <span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  Martin<span class="op">,</span> DG</span>
 <span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  High Temperatures<span class="op">.</span> High Pressures<span class="op">,</span> <span class="dv">1989</span></span>
 <span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<p>Those information will be exported by <code>MFront</code> and can be
+<p>This information will be exported by <code>MFront</code> and can be
 retrieved by the calling solver.</p>
 <h2 data-number="3.7" id="sec:mfront:material_properties:types"><span
 class="header-section-number">3.7</span> Explicit coding: add types and
@@ -1268,9 +1270,9 @@ type used by the interface.</p>
 <p>The keyword <code>@UseQT</code> allows the usage of quantities,
 i.e. floating point values associated with units. Quantities allow the
 compiler to perform <em>dimensional analysis</em> at compile-time.</p>
-<p>It must clearly emphasized that quantities are only used
-<em>inside</em> the body of the function and does not change the
-interface of the generated functions.</p>
+<p>It must be clearly emphasized that quantities are only used
+<em>inside</em> the body of the function and do not change the interface
+of the generated functions.</p>
 <p>Note that quantities are implemented by the <code>TFEL/Math</code>
 library and supported in <code>MFront</code> only since Version 4.0.</p>
 <h4 data-number="3.7.4.1"
@@ -1446,7 +1448,7 @@ argument of the material property,</li>
 values of the arguments set by the <code>setVariableValue</code>
 method,</li>
 <li><code>getParametersNames</code>, which returns the names of the
-parameters of material property,</li>
+parameters of the material property,</li>
 <li><code>setParameter</code> which allows to change the value of a
 parameter.</li>
 </ul>
@@ -1484,7 +1486,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a h
 class="header-section-number">4.4</span> The <code>mfm</code>
 utility</h2>
 <p>Once a shared library has been generated by <code>MFront</code>, it
-is convenient to be able to analyse its content rapidly. This can be
+is convenient to be able to analyze its content rapidly. This can be
 done in <code>python</code> and <code>C++</code> using the
 <code>tfel::system::ExternalLibraryManager</code> class.</p>
 <p>The <code>mfm</code> utility is a small command-line program built on
@@ -1516,7 +1518,7 @@ id="sec:mfront:material_properties:compiling_errors"><span
 class="header-section-number">6.1</span> About the analysis of errors
 generated by <code>MFront</code> or the <code>C++</code> compiler</h2>
 <p>As described in Section 2.2, the <code>MFront</code> file is first
-parsed, interperted by <code>MFront</code> and used to generate a set of
+parsed, interpreted by <code>MFront</code> and used to generate a set of
 <code>C++</code> source files. In a second step, those <code>C++</code>
 source files are compiled by a <code>C++</code> compiler into a shared
 library.</p>
@@ -1595,14 +1597,14 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb65-1"><a href=
 <span id="cb65-19"><a href="#cb65-19" aria-hidden="true" tabindex="-1"></a><span class="co">### Name of the generated functions or classes</span></span>
 <span id="cb65-20"><a href="#cb65-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb65-21"><a href="#cb65-21" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> names of the generated functions or classes depend on the law name</span>
-<span id="cb65-22"><a href="#cb65-22" aria-hidden="true" tabindex="-1"></a><span class="fu">as</span> specifified with the <span class="kw">`</span><span class="ex">@Law</span><span class="kw">`</span> keyword but may also include the</span>
+<span id="cb65-22"><a href="#cb65-22" aria-hidden="true" tabindex="-1"></a><span class="fu">as</span> specified with the <span class="kw">`</span><span class="ex">@Law</span><span class="kw">`</span> keyword but may also include the</span>
 <span id="cb65-23"><a href="#cb65-23" aria-hidden="true" tabindex="-1"></a><span class="ex">material</span> name, as specified by the <span class="kw">`</span><span class="ex">@MaterialLaw</span><span class="kw">`</span> keyword.</span></code></pre></div>
 <h3 data-number="6.1.2"
 id="example-of-an-error-generated-by-the-c-compiler"><span
 class="header-section-number">6.1.2</span> Example of an error generated
 by the <code>C++</code> compiler</h3>
 <p>Assume that one forgets to declare the porosity <span
-class="math inline">\(f\)</span>. This error will not detected by
+class="math inline">\(f\)</span>. This error will not be detected by
 <code>MFront</code> but by the <code>C++</code> compiler as illustrated
 below:</p>
 <div class="sourceCode" id="cb66"><pre

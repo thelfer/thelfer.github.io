@@ -174,6 +174,8 @@
 		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
 		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -197,6 +199,7 @@
 		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -405,7 +408,7 @@ keyword</a></li>
 <p>The <code>@Author</code> keyword is used to give the name of the
 person who wrote the <code>mfront</code> file.</p>
 <p>All the following words are appended to the author’s name up to a
-final semi-colon.</p>
+final semicolon.</p>
 <p>Note: The name of the person who formulated the material property,
 behaviour or model shall be given in the description section (see the
 <code>@Description</code> keyword).</p>
@@ -419,7 +422,7 @@ validity of the law.</p>
 keyword in and an interval. The interval may contain the infinity,
 represented by the ’*’ character.</p>
 <h2 id="effect">Effect</h2>
-<p>What happens if a variable if found to be out of its bounds depends
+<p>What happens if a variable is found to be out of its bounds depends
 on the interface used. Most interfaces let the user choose one of three
 following policies:</p>
 <ul>
@@ -441,7 +444,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#c
 <code>--list-dsl</code> option of <code>mfront</code>:</p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-dsl</span></span></code></pre></div>
-<p>As the time of writting this notice, the following dsl’s are
+<p>As the time of writing this notice, the following dsl’s are
 available:</p>
 <ul>
 <li><code>DefaultDSL</code>: this parser is the most generic one as it
@@ -460,7 +463,7 @@ as a state variable</li>
 based on a theta method. Unlike <code>Implicit</code>, the elastic
 strain is not automatically defined as a state variable.</li>
 <li><code>ImplicitFiniteStrain</code>: this parser provides a generic
-integrator based on a theta method..</li>
+integrator based on a theta method.</li>
 <li><code>IsotropicMisesCreep</code>: this parser is used for standard
 creep behaviours of the form <span
 class="math inline">\(\dot{p}=f(s)\)</span> where <span
@@ -492,7 +495,7 @@ class="math inline">\(p\)</span> is the equivalent plastic strain and
 based on one of the many Runge-Kutta algorithm.</li>
 </ul>
 <h2 id="dsl-options">DSL options</h2>
-<p>A DSL’ behaviour may be changed using options defined either in the
+<p>A DSL’s behaviour may be changed using options defined either in the
 <code>MFront</code> file using a JSON-like syntax or as a command line
 argument.</p>
 <p>The options related to a specific <code>DSL</code> can be retrieved
@@ -540,14 +543,14 @@ shall rather be defined on the command line.</li>
 <li><code>parameters_as_static_variables</code> (boolean), which states
 if parameters shall be treated as static variables.</li>
 <li><code>parameters_initialization_from_file</code> (boolean), which
-states if parameters can be modified from a external state file. This
+states if parameters can be modified from an external state file. This
 feature is only implemented by a few interfaces and is enabled by
 default.</li>
 <li><code>default_out_of_bounds_policy</code> (string), which selects
 the default out of bounds policy. Allowed values ar <code>None</code>
 (the default), <code>Warning</code> or <code>Strict</code>.</li>
 <li><code>out_of_bounds_policy_runtime_modification</code> (boolean),
-which states if the out of bounds policy can be changed at runtime. By
+which states if the out-of-bounds policy can be changed at runtime. By
 default, this option is <code>true</code>.</li>
 </ul>
 <h3 id="options-common-to-all-dsls-related-to-behaviours">Options common
@@ -567,7 +570,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#c
 <p>The <code>@Date</code> keyword allows the user to precise when the
 mfront file was written.</p>
 <p>All the following words are appended to the date up to a final
-semi-colon.</p>
+semicolon.</p>
 <h2 id="example-3">Example</h2>
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">2008</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">17</span><span class="op">;</span></span></code></pre></div>
@@ -635,7 +638,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#
 <p>The <code>@Interface</code> keyword let the user specify interfaces
 to be used. The keyword is followed by a list of interface name,
 separated by commas.</p>
-<p>Using this keyword is considered a bad pratice. The user shall use
+<p>Using this keyword is considered a bad practice. The user shall use
 the <code>--interface</code> command line argument to specify which
 interface shall be used.</p>
 <h2 id="example-7">Example</h2>
@@ -645,7 +648,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#
 <p>The keyword <code>@Law</code> is not documented yet</p>
 <h1 id="the-library-keyword">The <code>@Library</code> keyword</h1>
 <p>The <code>@Library</code> keyword let the user specify part of the
-generated libary name. This keyword is followed by the name of
+generated library name. This keyword is followed by the name of
 library.</p>
 <p>This name must be a valid C++ identifier. The following characters
 are legal as the first character of an identifier, or any subsequent
@@ -719,7 +722,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#
 keyword</h1>
 <p>The <code>@MaterialLaw</code> keyword imports the definition of a
 material law defined in a mfront file and compiles, as part of the
-current library, an function using the <code>mfront</code> interface.
+current library, a function using the <code>mfront</code> interface.
 This function is available in every standard code blocks.</p>
 <p>The <code>@MaterialLaw</code> keyword is followed by a string or an
 array of string identifying <code>mfront</code> files.</p>
@@ -768,7 +771,7 @@ physical domain of a variable.</p>
 name, the keyword in and an interval. The interval may contain the
 infinity, represented by the ’*’ character.</p>
 <h2 id="effect-1">Effect</h2>
-<p>In implicit schemes, if physical bounds are set on a integration
+<p>In implicit schemes, if physical bounds are set on an integration
 variable, this variable is bounded to satisfy them during the internal
 iterations.</p>
 <p>If a variable is found to be out of its physical bounds, the
@@ -836,11 +839,11 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#
 <h1 id="the-unitsystem-keyword">The <code>@UnitSystem</code>
 keyword</h1>
 <p>The <code>@UnitSystem</code> keyword declares that the state
-variables, external state variables an parameters are expressed in a
+variables, external state variables and parameters are expressed in a
 given unit system. In the current version of <code>MFront</code>, the
 only supported unit system is the international system of units, denoted
 <code>SI</code>.</p>
-<p>One advantage of declaring an unit system is that physical bounds of
+<p>One advantage of declaring a unit system is that physical bounds of
 variables associated with a glossary entry can automatically be declared
 by <code>MFront</code>.</p>
 <p>For instance the declaration of the physical bounds for the

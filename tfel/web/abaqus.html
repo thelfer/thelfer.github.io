@@ -177,6 +177,8 @@
 		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
 		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -200,6 +202,7 @@
 		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -394,7 +397,7 @@ ones are the following:</p>
 <li>For <code>Abaqus/Standard</code>, small strain isotropic behaviour
 can be used in finite strain analyses “out of the box”. However, if a
 behaviour is meant to be used only for finite strain analyses, we
-recommend using <strong>one one of the finite strain strategies
+recommend using <strong>one of the finite strain strategies
 available</strong> (See the <code>@AbaqusFiniteStrainStrategy</code>
 keyword and the section dedicated to finite strain strategies below).
 The <code>Native</code> finite strain strategy will use the
@@ -449,15 +452,15 @@ computations) files for the <code>Abaqus/Explicit</code> solver</li>
 </ul>
 <p>The user must launch <code>Abaqus/Standard</code> or
 <code>Abaqus/Explicit</code> with one of the previous generic files as
-an external user file. Those files handles the loading of
+an external user file. Those files handle the loading of
 <code>MFront</code> shared libraries <em>using the material name</em>:
 the name of the material shall thus define the function to be called and
 the library in which this function is implemented.</p>
 <p>The function name includes the modelling hypothesis, see below. An
-identifier can <em>optionnaly</em> be added to reuse the same behaviour
+identifier can <em>optionally</em> be added to reuse the same behaviour
 for several material (with different material properties for instance).
 The identifier is discarded in the <code>umat.cpp</code>,
-<code>vumat-sp.cpp</code> and and <code>vumat-dp.cpp</code> files.</p>
+<code>vumat-sp.cpp</code> and <code>vumat-dp.cpp</code> files.</p>
 <p>Thus, the material name in <code>Abaqus/Standard</code> and
 <code>Abaqus/Explicit</code> is expected to have the following form:
 <code>LIBRARY_FUNCTION_HYPOTHESIS_IDENTIFIER</code>.</p>
@@ -562,7 +565,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a hr
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>usub_lib_dir<span class="op">=</span><span class="st">&#39;&lt;path_to_mfront_generated_libraries&gt;:&lt;path_to_mfront&gt;/lib&#39;</span></span></code></pre></div>
 <p>The last line define a set of paths where shared libraries will be
 searched for, which is useful if one does not want to install
-<code>TFEL</code> and <code>MFront</code> on in system wide path (such
+<code>TFEL</code> and <code>MFront</code> on in system-wide path (such
 as <code>/usr/</code>) or modify the <code>LD_LIBRARY_PATH</code>
 environment variable. One can also specify a shared directory (on a NFS
 file system for example) to access material behaviours shared among a
@@ -623,7 +626,7 @@ variables.</li>
 <p>For <code>Abaqus/Standard</code>, small and finite strain behaviours
 are supported. <strong>For orthotropic finite strain behaviours, one
 must use the <code>MFront</code> orthotropy management policy</strong>.
-The reason of this choices is given below.</p>
+The reason of these choices is given below.</p>
 <p>For <code>Abaqus/Explicit</code>, only finite strain are supported.
 Small strain behaviours can be used using one of the finite strain
 strategies available.</p>
@@ -722,7 +725,7 @@ strain assumptions.</p>
 incompressible flows are characterized by a deviatoric logarithmic
 strain tensor, which is the exact transposition of the property used in
 small strain behaviours to handle plastic incompressibility. This means
-that all valid consistutive equations for small strain behaviours can be
+that all valid constitutive equations for small strain behaviours can be
 automatically reused in finite strain analysis. This does <em>not</em>
 mean that a behaviour identified under the small strain assumptions can
 be directly used in a finite strain analysis: the identification would
@@ -803,7 +806,7 @@ dissipated energies through the <code>@InternalEnergy</code> and
 <code>SSE</code> output and the dissipated energy is returned in the
 <code>SPD</code> output.</p>
 <p>In <code>Abaqus/Explicit</code>, the stored energy is returned in the
-<code>enerInternNew</code> variable and the the dissipated energy is
+<code>enerInternNew</code> variable and the dissipated energy is
 returned in the <code>enerInelasNew</code> output.</p>
 <h3 id="a">A</h3>
 <!-- - Internal energy per unit mass -->
@@ -999,7 +1002,7 @@ moduli is awkward and is not currently supported by
 <h4 id="relation-with-other-moduli">Relation with other moduli</h4>
 <p>The previous relation can be used to relate to other moduli. See the
 section describing the isotropic case for details.</p>
-<h1 id="biblography">Biblography</h1>
+<h1 id="bibliography">Bibliography</h1>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-doghri_mechanics_2000" class="csl-entry" role="listitem">

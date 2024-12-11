@@ -174,6 +174,8 @@
 		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
 		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -197,6 +199,7 @@
 		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -473,9 +476,9 @@ keyword</a></li>
 <li><a href="#the-stressepsilon-keyword"
 id="toc-the-stressepsilon-keyword">The <code>@StressEpsilon</code>
 keyword</a></li>
-<li><a href="#the-tangentoperatorcomparisoncriterium-keyword"
-id="toc-the-tangentoperatorcomparisoncriterium-keyword">The
-<code>@TangentOperatorComparisonCriterium</code> keyword</a></li>
+<li><a href="#the-tangentoperatorcomparisoncriterion-keyword"
+id="toc-the-tangentoperatorcomparisoncriterion-keyword">The
+<code>@TangentOperatorComparisoncriterion</code> keyword</a></li>
 <li><a href="#the-test-keyword" id="toc-the-test-keyword">The
 <code>@Test</code> keyword</a></li>
 <li><a href="#example-function-4" id="toc-example-function-4">Example
@@ -503,9 +506,9 @@ id="toc-the-usecastemaccelerationalgorithm-keyword">The
 <h1 id="the-accelerationalgorithm-keyword">The
 <code>@AccelerationAlgorithm</code> keyword</h1>
 <p>The <code>@AccelerationAlgorithm</code> keyword is used to give the
-name of the acceeleration algorithm used to accelerate the convergence
+name of the acceleration algorithm used to accelerate the convergence
 toward equilibrium.</p>
-<p>The follwing algorithm are available:</p>
+<p>The following algorithm are available:</p>
 <ul>
 <li><code>Cast3M</code></li>
 <li><code>Secant</code></li>
@@ -530,7 +533,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#c
 <p>The <code>@Author</code> keyword is used give the name of the person
 who wrote the mtest file.</p>
 <p>All the following words are appended to the author’s name up to a
-final semi-colon.</p>
+final semicolon.</p>
 <h2 id="example-2">Example:</h2>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author Éric Brunon<span class="op">;</span></span></code></pre></div>
@@ -567,7 +570,7 @@ algorithm.</p>
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>CastemAccelerationTrigger <span class="dv">4</span><span class="op">;</span></span></code></pre></div>
 <h1 id="the-cohesiveforce-keyword">The <code>@CohesiveForce</code>
 keyword</h1>
-<p>The <code>@CohesiveForce</code> let the user specifiy the inital
+<p>The <code>@CohesiveForce</code> let the user specify the initial
 value of the cohesive forces.</p>
 <p>This keyword is followed by an array. The size of this array must be
 equal to the number of components of symmetric tensors for the modelling
@@ -581,13 +584,13 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#c
 <p>The global algorithm uses two criteria to check if a satisfying
 equilibrium has been found: one on opening displacements, the other on
 cohesive forces.</p>
-<p>This criterium on cohesive forces checks that the residual of the
-Newton algorithm is low enought. By default, this value is equal to
+<p>This criterion on cohesive forces checks that the residual of the
+Newton algorithm is low enough. By default, this value is equal to
 1.e-3, which is a convenient value if cohesive force are expressed in
 Newton.</p>
-<p>The <code>@CohesiveEpsilon</code> let the user specifiy the criterium
-value used for the criterium on cohesive force.</p>
-<p>It is followed by the criterium value.</p>
+<p>The <code>@CohesiveEpsilon</code> let the user specify the criterion
+value used for the criterion on cohesive force.</p>
+<p>It is followed by the criterion value.</p>
 <h2 id="example-7">Example</h2>
 <div class="sourceCode" id="cb8"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>CohesiveForce <span class="fl">1.e2</span><span class="op">;</span></span></code></pre></div>
@@ -602,7 +605,7 @@ approximation can be adjusted by the
 <code>@NumericalTangentOperatorPerturbationValue</code>.</p>
 <p>The value used for to compare the tangent operator given by the
 behaviour to a numerical approximation can be adjusted by the
-<code>@TangentOperatorComparisonCriterium</code>.</p>
+<code>@TangentOperatorComparisoncriterion</code>.</p>
 <h2 id="example-8">Example</h2>
 <div class="sourceCode" id="cb9"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>CompareToNumericalTangentOperator <span class="kw">true</span><span class="op">;</span></span></code></pre></div>
@@ -610,16 +613,16 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#c
 <p>The <code>@Date</code> keyword allows the user to precise when the
 mtest file was written.</p>
 <p>All the following words are appended to the date up to a final
-semi-colon.</p>
+semicolon.</p>
 <h2 id="example-9">Example</h2>
 <div class="sourceCode" id="cb10"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="dv">2008</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">17</span><span class="op">;</span></span></code></pre></div>
 <h1 id="the-deformationgradient-keyword">The
 <code>@DeformationGradient</code> keyword</h1>
-<p>The <code>@DeformationGradient</code> let the user specifiy the
-inital value of the deformation gradient.</p>
+<p>The <code>@DeformationGradient</code> let the user specify the
+initial value of the deformation gradient.</p>
 <p>This keyword is followed by an array. The size of this array must be
-equal to the number of components of (non symmetric) tensors for the
+equal to the number of components of (non-symmetric) tensors for the
 modelling hypothesis considered (see the
 <code>@ModellingHypothesis</code> keyword).</p>
 <h2 id="example-10">Example</h2>
@@ -630,12 +633,12 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#
 <p>The global algorithm uses two criteria to check if a satisfying
 equilibrium has been found: one on deformation gradient, the other on
 stresses.</p>
-<p>This criterium on the deformation gradient checks if two successives
-estimate of the strains are close enough. By default, the criterium
+<p>This criterion on the deformation gradient checks if two successive
+estimate of the strains are close enough. By default, the criterion
 value used is 1.e-12;</p>
-<p>The <code>@SDeformationGradient</code> let the user specifiy the
-criterium value used for the criterium on strains.</p>
-<p>It is followed by the criterium value.</p>
+<p>The <code>@SDeformationGradient</code> let the user specify the
+criterion value used for the criterion on strains.</p>
+<p>It is followed by the criterion value.</p>
 <h2 id="example-11">Example</h2>
 <div class="sourceCode" id="cb12"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DeformationGradient <span class="fl">1.e-12</span><span class="op">;</span></span></code></pre></div>
@@ -663,15 +666,15 @@ yet</p>
 <p>This keyword may have one option, which is the way the evolution will
 be defined. Two values are accepted: <code>evolution</code> and
 <code>function</code>. If no option is specified, the
-<code>evolution</code> option is choosen.</p>
+<code>evolution</code> option is chosen.</p>
 <p>After the option, the name of evolution, which shall be given as
 string, is expected.</p>
 <p>If the <code>evolution</code> option has been selected, the user may
 specify a constant evolution by simply giving its value. Otherwise,
-complex evolutions can be build using a associative array where the key
-is the time and the value the value of the evolution. Between two times,
-the values will be interpolated linearly. Prior the first declared time
-given, the value corresponding the this first time is used. After the
+complex evolutions can be build using an associative array where the key
+is the time and the value of the evolution. Between two times, the
+values will be interpolated linearly. Prior to the first declared time
+given, the value corresponding to this first time is used. After the
 last time given, the value corresponding this last time is used.</p>
 <p>If the <code>function</code> option has been selected, a string is
 expected which wil be interpreted as a function of time. The time is
@@ -695,15 +698,15 @@ which is generally defined by default by behaviour interfaces.</p>
 <p>This keyword may have one option, which is the way the evolution will
 be defined. Two values are accepted: <code>evolution</code> and
 <code>function</code>. If no option is specified, the
-<code>evolution</code> option is choosen.</p>
+<code>evolution</code> option is chosen.</p>
 <p>After the option, the name of the external state variable, which
 shall be given as string, is expected.</p>
 <p>If the <code>evolution</code> option has been selected, the user may
 specify a constant evolution by simply giving its value. Otherwise,
-complex evolutions can be build using a associative array where the key
-is the time and the value the value of the evolution. Between two times,
-the values will be interpolated linearly. Prior the first declared time
-given, the value corresponding the this first time is used. After the
+complex evolutions can be build using an associative array where the key
+is the time and the value of the evolution. Between two times, the
+values will be interpolated linearly. Prior to the first declared time
+given, the value corresponding to this first time is used. After the
 last time given, the value corresponding this last time is used.</p>
 <p>If the <code>function</code> option has been selected, a string is
 expected which wil be interpreted as a function of time. The time is
@@ -746,7 +749,7 @@ evolution of a component of the strains.</p>
 <p>This keyword may have one option, which is the way the evolution will
 be defined. Two values are accepted: <code>evolution</code> and
 <code>function</code>. If no option is specified, the
-<code>evolution</code> option is choosen.</p>
+<code>evolution</code> option is chosen.</p>
 <p>After the option, the name of the component of the strains, which
 shall be given as string, is expected.</p>
 <p>According to the modelling hypothesis selected (see the
@@ -762,10 +765,10 @@ names are accepted:</p>
 </ul>
 <p>If the <code>evolution</code> option has been selected, the user may
 specify a constant evolution by simply giving its value. Otherwise,
-complex evolutions can be build using a associative array where the key
-is the time and the value the value of the evolution. Between two times,
-the values will be interpolated linearly. Prior the first declared time
-given, the value corresponding the this first time is used. After the
+complex evolutions can be build using an associative array where the key
+is the time and the value of the evolution. Between two times, the
+values will be interpolated linearly. Prior to the first declared time
+given, the value corresponding to this first time is used. After the
 last time given, the value corresponding this last time is used.</p>
 <p>If the <code>function</code> option has been selected, a string is
 expected which is interpreted as a function of time. The current time is
@@ -806,10 +809,10 @@ names are accepted:</p>
 </ul>
 <p>If the <code>evolution</code> option has been selected, the user may
 specify a constant evolution by simply giving its value. Otherwise,
-complex evolutions can be build using a associative array where the key
-is the time and the value the value of the evolution. Between two times,
-the values will be interpolated linearly. Prior the first declared time
-given, the value corresponding the this first time is used. After the
+complex evolutions can be build using an associative array where the key
+is the time and the value of the evolution. Between two times, the
+values will be interpolated linearly. Prior to the first declared time
+given, the value corresponding to this first time is used. After the
 last time given, the value corresponding this last time is used.</p>
 <p>If the <code>function</code> option has been selected, a string is
 expected which is interpreted as a function of time. The current time is
@@ -839,7 +842,7 @@ integer parameter of the behaviour.</p>
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IntegerParameter <span class="ch">&#39;i</span><span class="er">ter</span><span class="ch">&#39;</span> <span class="dv">12</span><span class="op">;</span></span></code></pre></div>
 <h1 id="the-internalstatevariable-keyword">The
 <code>@InternalStateVariable</code> keyword</h1>
-<p>The <code>@InternalStateVariable</code> keyword defines the inital
+<p>The <code>@InternalStateVariable</code> keyword defines the initial
 value of a state variable.</p>
 <p>This keyword must be followed by the name of the internal state
 variable considered, given as a string.</p>
@@ -1013,7 +1016,7 @@ keyword</h1>
 yet</p>
 <h1 id="the-rotationmatrix-keyword">The <code>@RotationMatrix</code>
 keyword</h1>
-<p>The <code>@RotationMatrix</code> let the user specifiy a rotation
+<p>The <code>@RotationMatrix</code> let the user specify a rotation
 matrix, so that the principal directions of the material are different
 from those used for the resolution and the boundary conditions.</p>
 <p>This keyword is followed by an array of array reprensentig a 3x3
@@ -1025,7 +1028,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb38-1"><a href="#
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>                 <span class="op">{</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">1</span><span class="op">}};</span></span></code></pre></div>
 <h1 id="the-stiffnessmatrixtype-keyword">The
 <code>@StiffnessMatrixType</code> keyword</h1>
-<p>The <code>@StiffnessMatrixType</code> keyword let the user specifiy
+<p>The <code>@StiffnessMatrixType</code> keyword let the user specify
 choose type of stiffness matrix that shall be given by the mechanical
 behaviour and that will be used by the resolution algorithm.</p>
 <p>This keyword is followed by a string. The following values are
@@ -1043,7 +1046,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb39-1"><a href="#
 <code>@StiffnessUpdatePolicy</code> keyword</h1>
 <p>This keyword is not yet implemented.</p>
 <h1 id="the-strain-keyword">The <code>@Strain</code> keyword</h1>
-<p>The <code>@Strain</code> let the user specifiy the inital value of
+<p>The <code>@Strain</code> let the user specify the initial value of
 the strains.</p>
 <p>This keyword is followed by an array. The size of this array must be
 equal to the number of components of symmetric tensors for the modelling
@@ -1067,17 +1070,17 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb40-1"><a href="#
 keyword</h1>
 <p>The global algorithm uses two criteria to check if a satisfying
 equilibrium has been found: one on strains, the other on stresses.</p>
-<p>This criterium on strains checks if two successives estimate of the
-strains are close enough. By default, the criterium value used is
+<p>This criterion on strains checks if two successive estimate of the
+strains are close enough. By default, the criterion value used is
 1.e-12;</p>
-<p>The <code>@StrainEpsilon</code> let the user specifiy the criterium
-value used for the criterium on strains.</p>
-<p>It is followed by the criterium value.</p>
+<p>The <code>@StrainEpsilon</code> let the user specify the criterion
+value used for the criterion on strains.</p>
+<p>It is followed by the criterion value.</p>
 <h2 id="example-25">Example</h2>
 <div class="sourceCode" id="cb41"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StrainEpsilon <span class="fl">1.e-12</span><span class="op">;</span></span></code></pre></div>
 <h1 id="the-stress-keyword">The <code>@Stress</code> keyword</h1>
-<p>The <code>@Stress</code> let the user specifiy the inital value of
+<p>The <code>@Stress</code> let the user specify the initial value of
 the stresses.</p>
 <p>This keyword is followed by an array. The size of this array must be
 equal to the number of components of symmetric tensors for the modelling
@@ -1093,18 +1096,18 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb42-1"><a href="#
 keyword</h1>
 <p>The global algorithm uses two criteria to check if a satisfying
 equilibrium has been found: one on strains, the other on stresses.</p>
-<p>This criterium on stresses checks that the residual of the Newton
-Algorithm is low enought. By default, this value is equal to 1.e-3,
-which is a convenient value if stresses are expressed in Pa.</p>
-<p>The <code>@StressEpsilon</code> keyword let the user specifiy the
-criterium value used for the criterium on stressess.</p>
-<p>It is followed by the criterium value.</p>
+<p>This criterion on stresses checks that the residual of the Newton
+Algorithm is low enough. By default, this value is equal to 1.e-3, which
+is a convenient value if stresses are expressed in Pa.</p>
+<p>The <code>@StressEpsilon</code> keyword let the user specify the
+criterion value used for the criterion on stresses.</p>
+<p>It is followed by the criterion value.</p>
 <h2 id="example-27">Example</h2>
 <div class="sourceCode" id="cb43"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StressEpsilon <span class="fl">1.e2</span><span class="op">;</span></span></code></pre></div>
-<h1 id="the-tangentoperatorcomparisoncriterium-keyword">The
-<code>@TangentOperatorComparisonCriterium</code> keyword</h1>
-<p>The keyword <code>@TangentOperatorComparisonCriterium</code> is not
+<h1 id="the-tangentoperatorcomparisoncriterion-keyword">The
+<code>@TangentOperatorComparisoncriterion</code> keyword</h1>
+<p>The keyword <code>@TangentOperatorComparisoncriterion</code> is not
 documented yet</p>
 <h1 id="the-test-keyword">The <code>@Test</code> keyword</h1>
 <p>The <code>@Test</code> keyword allows the user to add a test on the
@@ -1112,31 +1115,31 @@ results. Two types of tests are supported, <code>function</code> or
 <code>file</code>. The tests are executed at the end of each time
 step.</p>
 <p>This keyword is followed by the type of the test.</p>
-<p>If the type of the test is <code>function</code>, two syntaxs are
+<p>If the type of the test is <code>function</code>, two syntaxes are
 allowed. In the first one, three arguments are expected: the name of the
-tested variable, a function of time given the exepected value, a
-criterium value used for the comparison. In the second syntax, two
-arguments are exepected: an map which associates the name of a tested
+tested variable, a function of time given the expected value, a
+criterion value used for the comparison. In the second syntax, two
+arguments are expected: a map which associates the name of a tested
 variable to a function of time given the expected value of this variable
-and a criterium value used for the comparison. The functions may
-explicitly depend of time through the variable <code>t</code>.</p>
+and a criterion value used for the comparison. The functions may
+explicitly depend on time through the variable <code>t</code>.</p>
 <p>If the type of the test is <code>file</code>, the expected values are
 read in the columns of a text file. The name of the text file shall be
-given and then two syntaxs are allowed. In the first one, three
+given and then two syntaxes are allowed. In the first one, three
 arguments are expected: the name of the tested variable, a column number
-and a criterium value used for the comparison. In the second syntax, two
-arguments are exepected: an map which associates the name of a tested
-variable to a column number and a criterium value used for the
-comparison. In each cases, the values given by the n+1 line shall
-corresponds the values expected after the n period.</p>
-<p>The comparisons are made using an absolute criterium. The names of
-the componenents of the strains begins with E. The name of the
-components of the stresses begins with S. The name of the components of
-symmetric tensor internal state variables begins with the name of the
-internal state variables. The name of the components of symmetric
-tensors are obtained by suffixing their name according to the modelling
-hypothesis used (see the <code>@ModellingHypothesis</code> keyword). For
-example, the components of the strains are:</p>
+and a criterion value used for the comparison. In the second syntax, two
+arguments are expected: a map which associates the name of a tested
+variable to a column number and a criterion value used for the
+comparison. In each case, the values given by the n+1 line shall
+correspond to the values expected after the n period.</p>
+<p>The comparisons are made using an absolute criterion. The names of
+the components of the strains begins with E. The name of the components
+of the stresses begins with S. The name of the components of symmetric
+tensor internal state variables begins with the name of the internal
+state variables. The name of the components of symmetric tensors are
+obtained by suffixing their name according to the modelling hypothesis
+used (see the <code>@ModellingHypothesis</code> keyword). For example,
+the components of the strains are:</p>
 <ul>
 <li>AxisymmetricalGeneralisedPlaneStrain : ERR EZZ ETT</li>
 <li>Axisymmetrical : ERR EZZ ETT ERZ</li>
@@ -1170,7 +1173,7 @@ yet</p>
 <h1 id="the-times-keyword">The <code>@Times</code> keyword</h1>
 <p>The <code>@Times</code> keywords let the user specify a list of times
 used for the computations.</p>
-<p>This keywords is followed by an array describing intervals of times.
+<p>This keyword is followed by an array describing intervals of times.
 By default, one time step is used to go from a given time to the next
 one. The keyword ‘in’ allows the user to divide an interval into a given
 number of smaller intervals.</p>
@@ -1180,7 +1183,7 @@ described in a totally independent manner (see the
 <code>@ImposedStrain</code>, the <code>@ImposedStress</code> and the
 <code>@ExternalStateVariable</code> keywords).</p>
 <h2 id="note-5">Note</h2>
-<p>In case of non convergence, the algorithm handles time sub steppings.
+<p>In case of non convergence, the algorithm handles time sub stepping.
 See the <code>@MaximumNumberOfSubSteps</code> for details.</p>
 <h2 id="example-28">Example</h2>
 <div class="sourceCode" id="cb47"><pre

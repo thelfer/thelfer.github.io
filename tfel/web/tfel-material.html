@@ -175,6 +175,8 @@
 		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
 		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -198,6 +200,7 @@
 		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -362,6 +365,17 @@ class="math inline">\(\pi\)</span>-plane</a></li>
 <li><a href="#orthotropic-axes-convention"
 id="toc-orthotropic-axes-convention">Orthotropic axes
 convention</a></li>
+<li><a href="#homogeneisation"
+id="toc-homogeneisation">Homogeneisation</a>
+<ul>
+<li><a href="#eshelby-tensors" id="toc-eshelby-tensors">Eshelby
+tensors</a></li>
+<li><a href="#strain-localisation-tensors"
+id="toc-strain-localisation-tensors">Strain localisation
+tensors</a></li>
+<li><a href="#homogenization-schemes"
+id="toc-homogenization-schemes">Homogenization schemes</a></li>
+</ul></li>
 </ul>
 </div>
 <h1 id="equivalent-stress">Equivalent stress</h1>
@@ -541,7 +555,7 @@ conventions:</p>
 xx &amp; yy &amp; zz &amp; xy &amp; xz &amp; yz
 \end{pmatrix}
 \]</span></p>
-<p>Therefore, if one wants to uses coeficients <span
+<p>Therefore, if one wants to use coefficients <span
 class="math inline">\(c^{B}\)</span> given by Barlat, one shall call
 this function as follows:</p>
 <div class="sourceCode" id="cb4"><pre
@@ -551,9 +565,9 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#c
 <p>The <code>TFEL/Material</code> library also provide an overload of
 the <code>makeBarlatLinearTransformation</code> which template
 parameters are the modelling hypothesis and the orthotropic axis
-conventions. The purpose of this overload is to swap appriopriate
+conventions. The purpose of this overload is to swap appropriate
 coefficients to get a consistent definition of the linear
-transforamtions for all the modelling hypotheses.</p>
+transformations for all the modelling hypotheses.</p>
 <h1 id="general-functionalities">General functionalities</h1>
 <h2 id="computation-of-the-inverse-of-the-langevin-function">Computation
 of the inverse of the Langevin function</h2>
@@ -618,7 +632,7 @@ expression is of order <span class="math inline">\(19\)</span>.</li>
 <p>The <code>computeApproximateInverseLangevinFunction</code> computes
 one approximation of the inverse Langevin function and the
 <code>computeApproximateInverseLangevinFunctionAndDerivative</code>
-function computes ne approximation of the inverse Langevin function and
+function computes an approximation of the inverse Langevin function and
 its derivative. These functions have two template parameters: the
 approximation selected and the numeric type to be used. By default, the
 <code>JEDYNAK_2015</code> approximation is used and the numeric type can
@@ -684,7 +698,7 @@ vectors: <span class="math display">\[
 \end{pmatrix}
 \]</span></p>
 <p>This plane is used to characterize the iso-values of equivalent
-stresses which are not sensitive to the hydrostatic pression.</p>
+stresses which are not sensitive to the hydrostatic pressure.</p>
 <p>Various functions are available:</p>
 <ul>
 <li><code>projectOnPiPlane</code>: this function projects a stress state
@@ -695,7 +709,7 @@ class="math inline">\(\pi\)</span>-plane.</li>
 </ul>
 <h1 id="orthotropic-axes-convention">Orthotropic axes convention</h1>
 <p>Most finite element solver can’t have a unique definition of the
-orthotropic axes valied for all the modelling hypotheses.</p>
+orthotropic axes valid for all the modelling hypotheses.</p>
 <p>For example, one can define a pipe using the following axes
 definition:</p>
 <ul>
@@ -742,7 +756,7 @@ style="width:50.0%" alt="The Plate orthotropic axes convention" />
 <figcaption aria-hidden="true">The <code>Plate</code> orthotropic axes
 convention</figcaption>
 </figure>
-<p>If we were to model plates, a appropriate convention is the
+<p>If we were to model plates, an appropriate convention is the
 following:</p>
 <ul>
 <li>The first material axis is the rolling direction</li>
@@ -757,6 +771,92 @@ class="math inline">\(2D\)</span> plane stress, <span
 class="math inline">\(2D\)</span> plane strain and <span
 class="math inline">\(2D\)</span> generalized plane strain modelling
 hypotheses.</p>
+<h1 id="homogeneisation">Homogeneisation</h1>
+<p>The homogenization functions are part of the namespace
+<code>tfel::material::homogenization</code>. A specialization for
+elasticity is defined:
+<code>tfel::material::homogenization::elasticity</code>.</p>
+<h2 id="eshelby-tensors">Eshelby tensors</h2>
+<p>The header <code>Eshelby.hxx</code> introduces the function
+<code>computeEshelbyTensor</code> which computes the Eshelby tensor of
+an ellipsoid. If we consider a constant stress-free strain <span
+class="math inline">\(\underline{\varepsilon}^\mathrm{T}\)</span>
+filling an ellipsoidal volume embedded in an infinite homogeneous medium
+whose elasticity is <span
+class="math inline">\(\underline{C}_0\)</span>, the strain tensor inside
+the ellipsoid is given by</p>
+<p><span
+class="math inline">\(\underline{\varepsilon}=\underline{S}_0:\underline{\varepsilon}^\mathrm{T}\)</span>.</p>
+<p>where <span class="math inline">\(\underline{S}_0\)</span> is the
+Eshelby tensor. Note that it is related to the Hill tensor (P_0) by</p>
+<p><span
+class="math inline">\(\underline{P}_0=\underline{S}_0:\underline{C}_0^{-1}\)</span></p>
+<p>which gives the strain tensor inside the ellipsoid as a function of
+the polarization tensor <span class="math inline">\(\underline{\tau }=
+-\underline{C}_0:\underline{\varepsilon}^\mathrm{T}\)</span> :</p>
+<p><span
+class="math inline">\(\underline{\varepsilon}=-\underline{P}_0:\underline{\tau}\)</span>.</p>
+<p>The function <code>computeEshelbyTensor</code> computes the Eshelby
+tensor of an ellipsoid whose semi-axis lengths are <code>a</code>,
+<code>b</code>, <code>c</code>, embedded in an isotropic matrix. It
+returns an object of <code>type st2tost2&lt;3u,real&gt;</code>, which is
+the fourth-order Eshelby tensor, in a basis which is adapted to the
+ellipsoid.</p>
+<p>There is also <code>computeSphereEshelbyTensor</code>,
+<code>computeAxisymmetricalEshelbyTensor</code>, and also
+<code>computeCircularCylinderEshelbyTensor</code> and
+<code>computeEllipticCylinderEshelbyTensor</code> for plane strain
+elasticity.</p>
+<p>The expressions can be found in <span class="citation"
+data-cites="torquato_2002">[5]</span> for the axisymmetrical ellipsoid
+and in <span class="citation" data-cites="eshelby_1957">[6]</span> for
+other cases.</p>
+<p>When two axes are very close, the formulas for three different axes
+are numerically instable, hence a parameter is introduced to switch to
+the formulas suited for the perfect axisymmetrical case. This parameter
+can be modified by the user, it is called <code>precf</code> when using
+<code>float</code>, <code>precd</code> for <code>double</code>, and
+<code>precld</code>. for <code>long double</code>. In the same way, the
+formulas for the axisymmetrical case are instable when the aspect ratio
+is near one, so a parameter allows to switch to the formula for a
+sphere.</p>
+<h2 id="strain-localisation-tensors">Strain localisation tensors</h2>
+<p>The header <code>Eshelby.hxx</code> also introduces three functions
+that compute the strain localisation tensor of an ellipsoid. If we
+consider an ellipsoid whose elasticity is <span
+class="math inline">\(\underline{C}_i\)</span>, embedded in an infinite
+homogeneous medium whose elasticity is <span
+class="math inline">\(\underline{C}_0\)</span>, submitted to a external
+uniform strain field at infinity <span
+class="math inline">\(\underline{E}\)</span>, the strain field within
+the ellipsoid is uniform and given by</p>
+<p><span class="math inline">\(\underline{\varepsilon }=
+\underline{A}:\underline{E}\)</span></p>
+<p>where <span class="math inline">\(\underline{A}\)</span> is the
+localisation tensor.</p>
+<p>Three functions are implemented for the different possible shapes :
+<code>computeEllipsoidLocalisationTensor</code>,
+<code>computeAxisymmetricalEllipsoidLocalisationTensor</code> and
+<code>computeSphereLocalisationTensor</code>. The ellipsoid is
+parametrized by its semi-axis lengths <span
+class="math inline">\(a,b,c\)</span> but also by its axis orientations.
+The functions then return the localisation tensors taking into account
+the orientations.</p>
+<h2 id="homogenization-schemes">Homogenization schemes</h2>
+<p>Different schemes are implemented and return the homogenized
+stiffness of the material. The scheme available are Mori-Tanaka scheme
+and dilute scheme. The available functions are
+<code>computeMoriTanakaScheme</code>, <code>computeDiluteScheme</code>,
+computeSphereDiluteScheme, computeSphereMoriTanakaScheme.</p>
+<p>If a distribution of ellipsoids is considered, three types of
+distributions are considered : isotropic, transverse isotropic and with
+unique orientation. The corresponding functions are
+<code>computeIsotropicDiluteScheme</code>,
+<code>computeTransverseIsotropicDiluteScheme</code>,
+<code>computeOrientedDiluteScheme</code>,
+<code>computeIsotropicMoriTanakaScheme</code>,
+<code>computeTransverseIsotropicMoriTanakaScheme</code> and
+<code>computeOrientedMoriTanakaScheme</code>.</p>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-barlat_linear_2005" class="csl-entry" role="listitem">
@@ -804,6 +904,22 @@ DOI <a
 href="https://doi.org/10.1007/s00397-014-0802-2">10.1007/s00397-014-0802-2</a>.
 Available from: <a
 href="https://doi.org/10.1007/s00397-014-0802-2">https://doi.org/10.1007/s00397-014-0802-2</a></div>
+</div>
+<div id="ref-torquato_2002" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline"><span class="smallcaps">Torquato</span>,
+Salvatore. <a href="https://doi.org/10.1007/978-1-4757-6355-3">Random
+heterogeneous materials. Microstructure and macroscopic properties</a>.
+Springer, 2002. </div>
+</div>
+<div id="ref-eshelby_1957" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline"><span class="smallcaps">Eshelby</span>, John
+Douglas. The determination of the elastic field of an ellipsoidal
+inclusion, and related problems. <em>Proceedings of the Royal Society
+A</em>. 1957. Vol. 241, no. 1226. DOI <a
+href="https://doi.org/10.1098/rspa.1957.0133">10.1098/rspa.1957.0133</a>.
+</div>
 </div>
 </div>
     <script>

@@ -175,6 +175,8 @@
 		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
 		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -198,6 +200,7 @@
 		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -486,7 +489,7 @@ for this specific modelling hypothesis.</li>
 class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mtest</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> mtest.Behaviour(<span class="st">&#39;aster&#39;</span>,<span class="st">&#39;libAsterBehaviour.so&#39;</span>,<span class="st">&#39;asterplasticity&#39;</span>,<span class="st">&#39;PlaneStrain&#39;</span>)</span></code></pre></div>
 <h2 id="methods-available">Methods available</h2>
-<p>The following methods are avaiable:</p>
+<p>The following methods are available:</p>
 <ul>
 <li><code>getBehaviourType</code>: Return the behaviour type. The value
 returned has the following meaning:
@@ -643,13 +646,13 @@ at the beginning and at the end of the time step.</p>
 <p>The <code>MTestCurrentState</code> class provides the following
 fields:</p>
 <ul>
-<li><code>u_1</code>: values of the unknows (driving variables and
+<li><code>u_1</code>: values of the unknowns (driving variables and
 lagrange multipliers) at the beginning of the previous time step. This
 information is used for extrapolation the unknowns evolution over the
 time step.</li>
-<li><code>u0</code>: values of the unknows (driving variables and
+<li><code>u0</code>: values of the unknowns (driving variables and
 lagrange multipliers) at the beginning of the current time step.</li>
-<li><code>u1</code>: values of the unknows (driving variables and
+<li><code>u1</code>: values of the unknowns (driving variables and
 lagrange multipliers) at the end of the current time step.</li>
 <li><code>s_1</code>: values of the forces (thermodynamic forces and
 dual of the lagrange multipliers) at the beginning of the previous time
@@ -790,15 +793,15 @@ all the test cases handled by <code>MTest</code>, in the current and
 future versions of <code>TFEL</code>.</p>
 <p>The <code>StudyCurrentState</code> provides the following fields:</p>
 <ul>
-<li><code>u_1</code>: values of the unknows (driving variables and
+<li><code>u_1</code>: values of the unknowns (driving variables and
 lagrange multipliers) at the beginning of the previous time step. This
 information is used for extrapolation the unknowns evolution over the
 time step.</li>
-<li><code>u0</code>: values of the unknows (driving variables and
+<li><code>u0</code>: values of the unknowns (driving variables and
 lagrange multipliers) at the beginning of the current time step.</li>
-<li><code>u1</code>: values of the unknows (driving variables and
+<li><code>u1</code>: values of the unknowns (driving variables and
 lagrange multipliers) at the end of the current time step.</li>
-<li><code>u10</code>: values of the unknows (driving variables and
+<li><code>u10</code>: values of the unknowns (driving variables and
 lagrange multipliers) at the previous iteration.</li>
 <li><code>period</code>: total number of time steps done so far.</li>
 <li><code>iterations</code>: total number of iterations done so
@@ -915,7 +918,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a h
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="bu">max</span>([cs.getInternalStateVariableValue(<span class="st">&#39;EquivalentPlasticStrain&#39;</span>) <span class="cf">for</span> cs <span class="kw">in</span> scs.istates])</span></code></pre></div>
 <h4 id="modifying-the-values-of-the-internal-state-variables">Modifying
 the values of the internal state variables</h4>
-<p>Sometimes, it can be usefull to modify the values of the internal
+<p>Sometimes, it can be useful to modify the values of the internal
 state variables during the computation. This can</p>
 <p>The internal state variables are stored in the <code>iv_1</code>,
 <code>iv0</code> and <code>iv1</code> fields. Access to those variables

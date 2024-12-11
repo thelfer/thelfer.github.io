@@ -113,6 +113,8 @@
 		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
 		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -136,6 +138,7 @@
 		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -283,13 +286,13 @@
 id="fuel-performance-codes-based-on-the-cast3m-finite-element-solver">Fuel
 performance codes based on the <code>Cast3M</code> finite element
 solver</h2>
-<p>Numerous performances assessments were made within the PLEIADES
+<p>Numerous performance assessments were made within the PLEIADES
 platform : replacing fortran implementations by their
 <code>MFront</code> counterparts led to significant improvements, from
 <span class="math inline">\(30\%\)</span> to <span
 class="math inline">\(50\%\)</span> of the total computational times of
 some fuel performance codes developed in the platform.</p>
-<p>This improvements were mainly due to fact that the behaviour
+<p>These improvements were mainly due to fact that the behaviour
 integration schemes changed from explicit Runge-Kutta schemes to
 implicit ones. The main benefit of <code>MFront</code> was to grant
 users an easier access to the implicit schemes.</p>
@@ -302,7 +305,7 @@ implementations of mechanical behaviours were developed in
 <code>Cyrano3</code> fuel performance code <span class="citation"
 data-cites="thouvenin_edf_2010">[see 1]</span> for both isotropic and
 orthotropic materials : numerical integration boils down to solving a
-scalar non linear equation in both cases and provides the consistent
+scalar non-linear equation in both cases and provides the consistent
 tangent operator.</p>
 <p>The figure below compares the total computational times of a native
 implementation of a cladding behaviour to its equivalent
@@ -391,7 +394,7 @@ class="math inline">\(29m30s\)</span></td>
 src="img/Behaviour-img6.png" /></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">FCC homogeneized polycrystals 30 grains
+<td style="text-align: center;">FCC homogenized polycrystals 30 grains
 <span class="citation"
 data-cites="berveiller_extension_1978 edf_comportements_2013-1">[7, see
 9]</span>, unit testing</td>
@@ -422,10 +425,10 @@ generally using an implicit scheme in both cases. Without discussing the
 very details of each test performed, several general conclusions can be
 drawn:</p>
 <ul>
-<li>native implementations offers superior performances in the case of
+<li>native implementations offer superior performances in the case of
 simple explicit behaviours (Mazars damaging behaviour <span
 class="citation" data-cites="mazars_new_2014">[see 4]</span>) in the
-case of isotropic behaviours that can be reduce to one scalar equations
+case of isotropic behaviours that can be reduced to one scalar equations
 <span class="citation" data-cites="chaboche_integration_1996">[see
 11]</span>. For explicit behaviours, the difference will be reduced by
 the development of an optimised treatment of <code>MFront</code>
@@ -433,8 +436,8 @@ behaviours. In the second case, the difference can be explained by the
 fact that the Code-Aster implementations uses the Brent algorithm <span
 class="citation" data-cites="brent_algorithms_1973">[see 12]</span>
 which clearly outperforms the standard Newton method. The availability
-of this algorithm in <code>MFront</code> is planed.</li>
-<li>for more complex behaviours, <code>MFront</code> implementation are
+of this algorithm in <code>MFront</code> is planned.</li>
+<li>for more complex behaviours, <code>MFront</code> implementation is
 on par or outperforms the native implementations.</li>
 </ul>
 <p>For a given behaviour, the development time was found significantly

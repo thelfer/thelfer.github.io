@@ -176,6 +176,8 @@
 		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
 		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -199,6 +201,7 @@
 		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -381,9 +384,13 @@ criteria</a></li>
 id="toc-list-of-available-isotropic-hardening-rules"><span
 class="toc-section-number">2.4</span> List of available isotropic
 hardening rules</a></li>
+<li><a href="#sec:rate_sensitivity_factors"
+id="toc-sec:rate_sensitivity_factors"><span
+class="toc-section-number">2.5</span> List of rate sensitivity
+factors</a></li>
 <li><a href="#list-of-available-kinematic-hardening-rules"
 id="toc-list-of-available-kinematic-hardening-rules"><span
-class="toc-section-number">2.5</span> List of available kinematic
+class="toc-section-number">2.6</span> List of available kinematic
 hardening rules</a></li>
 </ul></li>
 <li><a href="#references" id="toc-references">References</a></li>
@@ -1454,22 +1461,108 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<h2 data-number="2.5"
+<h3 data-number="2.4.7"
+id="strain-rate-sensitive-isotropic-hardening-rule"><span
+class="header-section-number">2.4.7</span> Strain rate sensitive
+isotropic hardening rule</h3>
+<p>The <code>StrainRateSensitive</code> isotropic hardening rule is
+defined by: <span class="math display">\[
+R{\left(p, \dot{p}\right)} =
+R_{0}{\left(p\right)}\,R_{rs}{\left(\dot{p}\right)},
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(R_{0}{\left(p\right)}\)</span> is the
+yield radius corresponding to an infinitly slow loading. It can be built
+by summing any isotropic hardening rule already implemented in the
+`StandardElastoViscoPlasticity brick.</li>
+<li><span class="math inline">\(R_{rs}{\left(\dot{p}\right)}\)</span> is
+a correction describing the strain rate sensitivity. <span
+class="math inline">\(R_{rs}{\left(0\right)}\)</span> must be equal to
+1.</li>
+</ul>
+<p>This isotropic hardening rule can be parametrised using the following
+options:</p>
+<ul>
+<li><code>rate_independent_isotropic_hardening</code>: this option
+introduces a contribution to <span
+class="math inline">\(R_{0}{\left(p\right)}\)</span>. This option can be
+repeated multiple times.</li>
+<li><code>rate_sensitivity_factor</code>: this option introduces the
+rate sensivity factor <span
+class="math inline">\(R_{rs}{\left(\dot{p}\right)}\)</span>. The list of
+available rate sensivity factors is given in section 2.5.</li>
+</ul>
+<h4 data-number="2.4.7.1" id="example-of-usage-3"><span
+class="header-section-number">2.4.7.1</span> Example of usage</h4>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">210e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;StrainRateSensitive&quot;</span> <span class="op">{</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>      rate_independent_isotropic_hardening <span class="op">:</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;Swift&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="st">&quot;alpha * Ks * (p0s ** ns)&quot;</span><span class="op">,</span> p0 <span class="op">:</span> <span class="st">&quot;p0s&quot;</span><span class="op">,</span> n <span class="op">:</span> <span class="st">&quot;ns&quot;</span><span class="op">},</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>      rate_independent_isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>        R0 <span class="op">:</span> <span class="st">&quot;(1 - alpha) * Q1 * (1 - Q2)&quot;</span><span class="op">,</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        Rinf <span class="op">:</span> <span class="st">&quot;(1 - alpha) * Q1&quot;</span><span class="op">,</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        b <span class="op">:</span> <span class="st">&quot;Q3&quot;</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>      <span class="op">},</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>      rate_sensitivity_factor <span class="op">:</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;CowperSymonds&quot;</span> <span class="op">{</span>dp0 <span class="op">:</span> <span class="st">&quot;dp0cs&quot;</span><span class="op">,</span> n <span class="op">:</span> <span class="st">&quot;ncs&quot;</span><span class="op">,</span> Rs_eps <span class="op">:</span> <span class="fl">1e-8</span><span class="op">}</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h2 data-number="2.5" id="sec:rate_sensitivity_factors"><span
+class="header-section-number">2.5</span> List of rate sensitivity
+factors</h2>
+<h3 data-number="2.5.1"
+id="cowper-symondss-rate-sensitivity-factors"><span
+class="header-section-number">2.5.1</span> Cowper-Symonds’s rate
+sensitivity factors</h3>
+<p><span class="math display">\[
+R_{rs}{\left(\dot{p}\right)}=1+A\,\left(\frac{\dot{p}}{\dot{p}_{0}}\right)^{n}
+\]</span></p>
+<p><span class="math display">\[
+R_{rs}{\left(\dot{p}\right)}=1+
+\left\{
+\begin{aligned}
+R_{\epsilon}\,\left(\frac{\dot{p}}{\dot{p}_{\epsilon}}\right)
+&amp;&amp;\text{if}&amp;&amp;\dot{p}&lt;\dot{p}_{\epsilon}\\
+A\,\left(\frac{\dot{p}}{\dot{p}_{0}}\right)^{n}
+&amp;&amp;\text{if}&amp;&amp;\dot{p}\geq\dot{p}_{\epsilon}
+\end{aligned}
+\right.
+\]</span></p>
+<h3 data-number="2.5.2"
+id="johnson-cooks-rate-sensitivity-factors"><span
+class="header-section-number">2.5.2</span> Johnson-Cook’s rate
+sensitivity factors</h3>
+<p><span class="math display">\[
+R_{rs}{\left(\dot{p}\right)}=1+
+\left\{
+\begin{aligned}
+0                                         &amp;&amp;\text{if}&amp;&amp;\dot{p}&lt;\dot{p}_{0}\\
+A\,\log\left(\frac{\dot{p}}{\dot{p}_{0}}\right)&amp;&amp;\text{if}&amp;&amp;\dot{p}\geq\dot{p}_{0}
+\end{aligned}
+\right.
+\]</span></p>
+<h2 data-number="2.6"
 id="list-of-available-kinematic-hardening-rules"><span
-class="header-section-number">2.5</span> List of available kinematic
+class="header-section-number">2.6</span> List of available kinematic
 hardening rules</h2>
-<h3 data-number="2.5.1" id="the-prager-kinematic-hardening-rule"><span
-class="header-section-number">2.5.1</span> The <code>Prager</code>
+<h3 data-number="2.6.1" id="the-prager-kinematic-hardening-rule"><span
+class="header-section-number">2.6.1</span> The <code>Prager</code>
 kinematic hardening rule</h3>
-<h4 data-number="2.5.1.1" id="example-13"><span
-class="header-section-number">2.5.1.1</span> Example</h4>
+<h4 data-number="2.6.1.1" id="example-13"><span
+class="header-section-number">2.6.1.1</span> Example</h4>
 <p>The following code can be added in a block defining an inelastic
 flow:</p>
-<div class="sourceCode" id="cb20"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Prager&quot;</span> <span class="op">{</span>C <span class="op">:</span> <span class="fl">33e6</span><span class="op">},</span></span></code></pre></div>
-<h3 data-number="2.5.2"
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Prager&quot;</span> <span class="op">{</span>C <span class="op">:</span> <span class="fl">33e6</span><span class="op">},</span></span></code></pre></div>
+<h3 data-number="2.6.2"
 id="the-armstrong-frederick-kinematic-hardening-rule"><span
-class="header-section-number">2.5.2</span> The
+class="header-section-number">2.6.2</span> The
 <code>Armstrong-Frederick</code> kinematic hardening rule</h3>
 <p>The <code>Armstrong-Frederick</code> kinematic hardening rule can be
 described as follows (see <span class="citation"
@@ -1484,15 +1577,15 @@ role="doc-biblioref">8</a>]</span>): <span class="math display">\[
 \end{aligned}
 \right.
 \]</span></p>
-<h4 data-number="2.5.2.1" id="example-14"><span
-class="header-section-number">2.5.2.1</span> Example</h4>
+<h4 data-number="2.6.2.1" id="example-14"><span
+class="header-section-number">2.6.2.1</span> Example</h4>
 <p>The following code can be added in a block defining an inelastic
 flow:</p>
-<div class="sourceCode" id="cb21"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Armstrong-Frederick&quot;</span> <span class="op">{</span>C <span class="op">:</span> <span class="fl">1.5e9</span><span class="op">,</span> D <span class="op">:</span> <span class="dv">5</span><span class="op">}</span></span></code></pre></div>
-<h3 data-number="2.5.3"
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Armstrong-Frederick&quot;</span> <span class="op">{</span>C <span class="op">:</span> <span class="fl">1.5e9</span><span class="op">,</span> D <span class="op">:</span> <span class="dv">5</span><span class="op">}</span></span></code></pre></div>
+<h3 data-number="2.6.3"
 id="the-burlet-cailletaud-kinematic-hardening-rule"><span
-class="header-section-number">2.5.3</span> The
+class="header-section-number">2.6.3</span> The
 <code>Burlet-Cailletaud</code> kinematic hardening rule</h3>
 <p>The <code>Burlet-Cailletaud</code> kinematic hardening rule is
 defined as follows (see <span class="citation"
@@ -1509,15 +1602,15 @@ role="doc-biblioref">9</a>]</span>):</p>
 \end{aligned}
 \right.
 \]</span></p>
-<h4 data-number="2.5.3.1" id="example-15"><span
-class="header-section-number">2.5.3.1</span> Example</h4>
+<h4 data-number="2.6.3.1" id="example-15"><span
+class="header-section-number">2.6.3.1</span> Example</h4>
 <p>The following code can be added in a block defining an inelastic
 flow:</p>
-<div class="sourceCode" id="cb22"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Burlet-Cailletaud&quot;</span> <span class="op">{</span>C <span class="op">:</span> <span class="fl">250e7</span><span class="op">,</span> D <span class="op">:</span> <span class="dv">100</span><span class="op">,</span> eta <span class="op">:</span> <span class="dv">0</span><span class="op">}</span></span></code></pre></div>
-<h3 data-number="2.5.4"
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Burlet-Cailletaud&quot;</span> <span class="op">{</span>C <span class="op">:</span> <span class="fl">250e7</span><span class="op">,</span> D <span class="op">:</span> <span class="dv">100</span><span class="op">,</span> eta <span class="op">:</span> <span class="dv">0</span><span class="op">}</span></span></code></pre></div>
+<h3 data-number="2.6.4"
 id="the-chaboche-2012-kinematic-hardening-rule"><span
-class="header-section-number">2.5.4</span> The
+class="header-section-number">2.6.4</span> The
 <code>Chaboche 2012</code> kinematic hardening rule</h3>
 <p>The <code>Chaboche 2012</code> kinematic hardening rule is defined as
 follows (see <span class="citation"
@@ -1544,20 +1637,20 @@ class="math inline">\(\Psi^{\left(\underline{X}\right)}\left(\underline{X}\right
 \frac{\left&lt;D\,J\left(\underline{a}\right)-\frac{3}{2}\omega\right&gt;^{m}}{1-\omega}\,
 \frac{1}{\left(D\,J\left(\underline{a}\right)\right)^{m}}\)</span></li>
 </ul>
-<h4 data-number="2.5.4.1" id="example-16"><span
-class="header-section-number">2.5.4.1</span> Example</h4>
+<h4 data-number="2.6.4.1" id="example-16"><span
+class="header-section-number">2.6.4.1</span> Example</h4>
 <p>The following code can be added in a block defining an inelastic
 flow:</p>
-<div class="sourceCode" id="cb23"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Chaboche 2012&quot;</span> <span class="op">{</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>      C <span class="op">:</span> <span class="fl">250e7</span><span class="op">,</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>      D <span class="op">:</span> <span class="dv">100</span><span class="op">,</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>      m <span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>      w <span class="op">:</span> <span class="fl">0.6</span><span class="op">,</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div>
-<h3 data-number="2.5.5"
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;Chaboche 2012&quot;</span> <span class="op">{</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>      C <span class="op">:</span> <span class="fl">250e7</span><span class="op">,</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>      D <span class="op">:</span> <span class="dv">100</span><span class="op">,</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>      m <span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>      w <span class="op">:</span> <span class="fl">0.6</span><span class="op">,</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div>
+<h3 data-number="2.6.5"
 id="delobelle-robinet-schaffler-drs-kinematic-hardening-rule"><span
-class="header-section-number">2.5.5</span> Delobelle-Robinet-Schaffler
+class="header-section-number">2.6.5</span> Delobelle-Robinet-Schaffler
 (DRS) kinematic hardening rule</h3>
 <p>The Delobelle-Robinet-Schaffler (DRS) kinematic hardening rule has
 been introduced to describe orthotropic viscoplasticity of Zircaloy
@@ -1588,18 +1681,18 @@ class="math inline">\(6\)</span> components (see <a
 href="tensors.html">this page</a> for details).</p>
 <p>The <code>f</code> and <code>a0</code> parameters are optional and
 defaults to <span class="math inline">\(1\)</span>.</p>
-<h4 data-number="2.5.5.1" id="example-17"><span
-class="header-section-number">2.5.5.1</span> Example</h4>
-<div class="sourceCode" id="cb24"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;DRS&quot;</span> <span class="op">{</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>      C <span class="op">:</span> <span class="fl">150.e9</span><span class="op">,</span>  <span class="co">// kinematic moduli</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>      D <span class="op">:</span> <span class="fl">1e2</span><span class="op">,</span>    <span class="co">// back-strain callback coefficient</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>      f <span class="op">:</span> <span class="dv">10</span><span class="op">,</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>      m <span class="op">:</span> <span class="dv">5</span><span class="op">,</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>      Ec <span class="op">:</span> <span class="op">{</span><span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>      Rs <span class="op">:</span> <span class="op">{</span><span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.63</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>      Rd <span class="op">:</span> <span class="op">{</span><span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}</span>  <span class="co">//</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span></code></pre></div>
+<h4 data-number="2.6.5.1" id="example-17"><span
+class="header-section-number">2.6.5.1</span> Example</h4>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>    kinematic_hardening <span class="op">:</span> <span class="st">&quot;DRS&quot;</span> <span class="op">{</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>      C <span class="op">:</span> <span class="fl">150.e9</span><span class="op">,</span>  <span class="co">// kinematic moduli</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>      D <span class="op">:</span> <span class="fl">1e2</span><span class="op">,</span>    <span class="co">// back-strain callback coefficient</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>      f <span class="op">:</span> <span class="dv">10</span><span class="op">,</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>      m <span class="op">:</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>      Ec <span class="op">:</span> <span class="op">{</span><span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>      Rs <span class="op">:</span> <span class="op">{</span><span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.63</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>      Rd <span class="op">:</span> <span class="op">{</span><span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="fl">0.33</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}</span>  <span class="co">//</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span></code></pre></div>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-monerie_overall_2006" class="csl-entry" role="listitem">

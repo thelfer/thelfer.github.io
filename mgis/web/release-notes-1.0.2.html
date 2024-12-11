@@ -3,14 +3,14 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en_EN" xml:lang="en_EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>MFrontGenericInterfaceSupport Version 1.1.1</title>
+    <title>MFrontGenericInterfaceSupport Version 1.0.2</title>
         <meta name="author" content="Thomas Helfer" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
@@ -104,53 +104,24 @@
     </header>
     <br></br>
 <div id="header">
-<h1 class="title">MFrontGenericInterfaceSupport Version 1.1.1</h1>
+<h1 class="title">MFrontGenericInterfaceSupport Version 1.0.2</h1>
 <h2 class="author">Thomas Helfer</h2>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#issues-solved" id="toc-issues-solved">Issues solved</a>
+<li><a href="#issues-fixed" id="toc-issues-fixed">Issues fixed</a>
 <ul>
-<li><a href="#issue-46-memory-leakage-in-python-bindings"
-id="toc-issue-46-memory-leakage-in-python-bindings">Issue #46: Memory
-leakage in python bindings</a></li>
-<li><a
-href="#issue-45-stored-and-dissipated-energies-are-not-updated-properly-when-updating-the-materialdatamanager"
-id="toc-issue-45-stored-and-dissipated-energies-are-not-updated-properly-when-updating-the-materialdatamanager">Issue
-#45: Stored and dissipated energies are not updated properly when
-updating the <code>MaterialDataManager</code></a></li>
+<li><a href="#issue-140-compilation-fails-with-clang-19"
+id="toc-issue-140-compilation-fails-with-clang-19">Issue 140:
+Compilation fails with <code>clang-19</code></a></li>
 </ul></li>
 </ul>
 </div>
-<p>Version 1.1.1 is mostly a bug fix release of the 1.1 release.</p>
-<h1 id="issues-solved">Issues solved</h1>
-<h2 id="issue-46-memory-leakage-in-python-bindings">Issue #46: Memory
-leakage in python bindings</h2>
-<p>The trouble is in the <code>mgis_convert_to_span</code> function
-which relies on the <code>PyArray_FROM_OTF</code> function to retrieve
-the data associated with an <code>numpy</code> array. I misread the
-documentation of this function and though it only retrieves the pointer
-of the <code>numpy</code> object, but it does more:</p>
-<ul>
-<li>if its argument is a <code>numpy</code> array it increases the
-internal counter.</li>
-<li>if it is not, it tries to convert the object in a new
-<code>numpy</code> array.</li>
-</ul>
-<p>In both cases, the counter of the returned object must be decreased
-at the end of the function, which was not done. Hence the memory
-leak.</p>
-<p>For details, see <a
-href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/46"
-class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/46</a>.</p>
-<h2
-id="issue-45-stored-and-dissipated-energies-are-not-updated-properly-when-updating-the-materialdatamanager">Issue
-#45: Stored and dissipated energies are not updated properly when
-updating the <code>MaterialDataManager</code></h2>
-<p>The stored and dissipated energies were not updated when updating the
-<code>MaterialDataManager</code>.</p>
-<p>For details, see <a
-href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/45"
-class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/45</a>.</p>
+<h1 id="issues-fixed">Issues fixed</h1>
+<h2 id="issue-140-compilation-fails-with-clang-19">Issue 140:
+Compilation fails with <code>clang-19</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/140"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/140</a>.</p>
 </body>
 </html>

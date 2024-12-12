@@ -362,10 +362,9 @@ New <code>TFEL/Math</code> features</a>
 <li><a href="#tiny-matrices-product"
 id="toc-tiny-matrices-product"><span
 class="toc-section-number">2.1</span> Tiny matrices product</a></li>
-<li><a href="#symmetric-tensor-eigen-values-and-eigen-vectors"
-id="toc-symmetric-tensor-eigen-values-and-eigen-vectors"><span
-class="toc-section-number">2.2</span> Symmetric tensor eigen values and
-eigen vectors</a></li>
+<li><a href="#sec:tfel-5.0.0:tfel-math:eigensolvers"
+id="toc-sec:tfel-5.0.0:tfel-math:eigensolvers"><span
+class="toc-section-number">2.2</span> New solver eigen solver</a></li>
 </ul></li>
 <li><a href="#new-tfelmaterial-features"
 id="toc-new-tfelmaterial-features"><span
@@ -382,11 +381,15 @@ class="toc-section-number">4</span> MFront</a>
 id="toc-improvements-to-the-materialproperty-dsl"><span
 class="toc-section-number">4.1</span> Improvements to the
 <code>MaterialProperty</code> DSL</a></li>
+<li><a href="#improvements-to-the-standardelastoviscoplasticity-brick"
+id="toc-improvements-to-the-standardelastoviscoplasticity-brick"><span
+class="toc-section-number">4.2</span> Improvements to the
+<code>StandardElastoViscoPlasticity</code> brick</a></li>
 <li><a href="#new-dsl-options" id="toc-new-dsl-options"><span
-class="toc-section-number">4.2</span> New DSL options</a></li>
+class="toc-section-number">4.3</span> New DSL options</a></li>
 <li><a href="#generic-interface-improvements"
 id="toc-generic-interface-improvements"><span
-class="toc-section-number">4.3</span> <code>generic</code> interface
+class="toc-section-number">4.4</span> <code>generic</code> interface
 improvements</a></li>
 </ul></li>
 <li><a href="#documentation" id="toc-documentation"><span
@@ -449,10 +452,104 @@ Support for <code>C++</code> digit separator</a></li>
 </ul></li>
 </ul>
 </div>
-<p>&lt;–! Ubuntu 22.04 LTS | gcc 11.4.0 | 100% | clang 18.1.8 | 99% |
-clang 19.1.0 | 99% | intel 2024.2.1 | 99% Fedora 41 | gcc 14.2.1 | 100%
-| clang 17.0.6 | 99% Debian 12 [ gcc 12.2.0 | 100% Ubuntu 24.04 LTS |
-gcc 13.2.0 | 100% –&gt;</p>
+<p>There are currently <span class="math inline">\(20\,315\)</span> unit
+tests.</p>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 25%" />
+<col style="width: 30%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Operating system</th>
+<th style="text-align: center;">Compiler</th>
+<th style="text-align: center;">Configuration</th>
+<th style="text-align: center;">Successful Tests</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Ubuntu 22.04 LTS</td>
+<td style="text-align: center;">gcc 11.4.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">gcc 11.4.0</td>
+<td style="text-align: center;">Release + fast-math</td>
+<td style="text-align: center;">99%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">gcc 11.4.0</td>
+<td style="text-align: center;">Debug</td>
+<td style="text-align: center;">99%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">clang 18.1.8</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;">99%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">clang 19.1.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;">99%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">clang 19.1.0</td>
+<td style="text-align: center;">Debug</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">intel 2024.2.1</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;">99%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Fedora 41</td>
+<td style="text-align: center;">gcc 14.2.1</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">clang 17.0.6</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;">99%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Debian 12</td>
+<td style="text-align: center;">gcc 12.2.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Ubuntu 24.04 LTS</td>
+<td style="text-align: center;">gcc 13.2.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Mac Os</td>
+<td style="text-align: center;">gcc</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Windows 10</td>
+<td style="text-align: center;">Visual Studio 2022</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;">95%</td>
+</tr>
+</tbody>
+</table>
 <h1 data-number="1" id="new-tfelutilities-features"><span
 class="header-section-number">1</span> New <code>TFEL/Utilities</code>
 features</h1>
@@ -491,16 +588,9 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#c
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> m2 <span class="op">=</span> tmatrix<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;{</span><span class="dv">4</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span>  <span class="co">//</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                                     <span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> m3 <span class="op">=</span> m1 <span class="op">*</span> m2<span class="op">;</span></span></code></pre></div>
-<h2 data-number="2.2"
-id="symmetric-tensor-eigen-values-and-eigen-vectors"><span
-class="header-section-number">2.2</span> Symmetric tensor eigen values
-and eigen vectors</h2>
-<ul>
-<li>New eigen solvers have been introduced.</li>
-</ul>
-<h3 data-number="2.2.1" id="sec:tfel-5.0.0:tfel-math:eigensolvers"><span
-class="header-section-number">2.2.1</span> New eigen solvers</h3>
-<p>New eigen solver based on Harari analytical solution have been
+<h2 data-number="2.2" id="sec:tfel-5.0.0:tfel-math:eigensolvers"><span
+class="header-section-number">2.2</span> New solver eigen solver</h2>
+<p>A new eigen solver based on Harari’s analytical solution have been
 introduced for symmetric tensors. The computation of eigen values is
 done with Harari’s algorithm <span class="citation"
 data-cites="harari_computation_2023">[<a
@@ -580,8 +670,8 @@ methods as illustrated in the code below:</p>
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tmatrix<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;</span> m2<span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;</span>    vp2<span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>tie<span class="op">(</span>vp<span class="op">,</span>m<span class="op">)=</span>s<span class="op">.</span>computeEigenVectors<span class="op">&lt;</span>stensor<span class="op">::</span>HARARIEIGENSOLVER<span class="op">&gt;();</span></span></code></pre></div>
-<h4 data-number="2.2.1.1" id="some-benchmarks"><span
-class="header-section-number">2.2.1.1</span> Some benchmarks</h4>
+<h4 data-number="2.2.0.1" id="some-benchmarks"><span
+class="header-section-number">2.2.0.1</span> Some benchmarks</h4>
 <div id="tbl:comp_eigensolvers_float">
 <table>
 <caption>Table 2: Test on <span class="math inline">\(10^{6}\)</span>
@@ -948,20 +1038,110 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#c
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  values<span class="op">:</span> <span class="op">{</span> <span class="fl">293.15</span> <span class="op">:</span> <span class="fl">240e9</span><span class="op">,</span> <span class="fl">693.15</span> <span class="op">:</span> <span class="fl">180e9</span><span class="op">,</span> <span class="fl">893.15</span> <span class="op">:</span> <span class="fl">170e9</span> <span class="op">},</span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  interpolation <span class="op">:</span> <span class="st">&quot;linear&quot;</span></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<h2 data-number="4.2" id="new-dsl-options"><span
-class="header-section-number">4.2</span> New DSL options</h2>
-<h3 data-number="4.2.1" id="the-disable_runtime_checks-option"><span
-class="header-section-number">4.2.1</span> The
+<h2 data-number="4.2"
+id="improvements-to-the-standardelastoviscoplasticity-brick"><span
+class="header-section-number">4.2</span> Improvements to the
+<code>StandardElastoViscoPlasticity</code> brick</h2>
+<h3 data-number="4.2.1"
+id="strain-rate-sensitive-isotropic-hardening-rule"><span
+class="header-section-number">4.2.1</span> Strain rate sensitive
+isotropic hardening rule</h3>
+<p>The <code>StrainRateSensitive</code> isotropic hardening rule is
+defined by: <span class="math display">\[
+R{\left(p, \dot{p}\right)} =
+R_{0}{\left(p\right)}\,R_{rs}{\left(\dot{p}\right)},
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(R_{0}{\left(p\right)}\)</span> is the
+yield radius corresponding to an infinitly slow loading. It can be built
+by summing any isotropic hardening rule already implemented in the
+`StandardElastoViscoPlasticity brick.</li>
+<li><span class="math inline">\(R_{rs}{\left(\dot{p}\right)}\)</span> is
+a correction describing the strain rate sensitivity. <span
+class="math inline">\(R_{rs}{\left(0\right)}\)</span> must be equal to
+1.</li>
+</ul>
+<p>This isotropic hardening rule can be parametrised using the following
+options:</p>
+<ul>
+<li><code>rate_independent_isotropic_hardening</code>: this option
+introduces a contribution to <span
+class="math inline">\(R_{0}{\left(p\right)}\)</span>. This option can be
+repeated multiple times.</li>
+<li><code>rate_sensitivity_factor</code>: this option introduces the
+rate sensivity factor <span
+class="math inline">\(R_{rs}{\left(\dot{p}\right)}\)</span>. The list of
+available rate sensivity factors is given in section 4.2.1.2.</li>
+</ul>
+<h4 data-number="4.2.1.1" id="example-of-usage-1"><span
+class="header-section-number">4.2.1.1</span> Example of usage</h4>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> <span class="st">&quot;Hooke&quot;</span> <span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">210e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;StrainRateSensitive&quot;</span> <span class="op">{</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      rate_independent_isotropic_hardening <span class="op">:</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;Swift&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="st">&quot;alpha * Ks * (p0s ** ns)&quot;</span><span class="op">,</span> p0 <span class="op">:</span> <span class="st">&quot;p0s&quot;</span><span class="op">,</span> n <span class="op">:</span> <span class="st">&quot;ns&quot;</span><span class="op">},</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      rate_independent_isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        R0 <span class="op">:</span> <span class="st">&quot;(1 - alpha) * Q1 * (1 - Q2)&quot;</span><span class="op">,</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        Rinf <span class="op">:</span> <span class="st">&quot;(1 - alpha) * Q1&quot;</span><span class="op">,</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        b <span class="op">:</span> <span class="st">&quot;Q3&quot;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      <span class="op">},</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      rate_sensitivity_factor <span class="op">:</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;CowperSymonds&quot;</span> <span class="op">{</span>dp0 <span class="op">:</span> <span class="st">&quot;dp0cs&quot;</span><span class="op">,</span> n <span class="op">:</span> <span class="st">&quot;ncs&quot;</span><span class="op">,</span> Rs_eps <span class="op">:</span> <span class="fl">1e-8</span><span class="op">}</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h4 data-number="4.2.1.2" id="sec:rate_sensitivity_factors"><span
+class="header-section-number">4.2.1.2</span> List of rate sensitivity
+factors</h4>
+<ul>
+<li><p>Cowper-Symonds’s rate sensitivity factor: <span
+class="math display">\[
+R_{rs}{\left(\dot{p}\right)}=1+A\,\left(\frac{\dot{p}}{\dot{p}_{0}}\right)^{n}
+\]</span> When the exponent <span class="math inline">\(n\)</span> is
+lower than one, the following regularised version, based on the user
+defined value <span class="math inline">\(R_{\epsilon}\)</span> is
+available: <span class="math display">\[
+R_{rs}{\left(\dot{p}\right)}=1+
+\left\{
+  \begin{aligned}
+  R_{\epsilon}\,\left(\frac{\dot{p}}{\dot{p}_{\epsilon}}\right)
+&amp;&amp;\text{if}&amp;&amp;\dot{p}&lt;\dot{p}_{\epsilon}\\
+  A\,\left(\frac{\dot{p}}{\dot{p}_{0}}\right)^{n}
+&amp;&amp;\text{if}&amp;&amp;\dot{p}\geq\dot{p}_{\epsilon}
+\end{aligned}
+\right.
+\]</span> where <span class="math inline">\(\dot{p}_{\epsilon}\)</span>
+is such that <span class="math inline">\(R_{\epsilon} =
+A\,\left(\frac{\dot{p}_{\epsilon}}{\dot{p}_{0}}\right)^{n}\)</span></p></li>
+<li><p>Johnson-Cook’s rate sensitivity factor: <span
+class="math display">\[
+R_{rs}{\left(\dot{p}\right)}=1+
+\left\{
+  \begin{aligned}
+  0 &amp;&amp;\text{if}&amp;&amp;\dot{p}&lt;\dot{p}_{0}\\
+  A\,\log\left(\frac{\dot{p}}{\dot{p}_{0}}\right)&amp;&amp;\text{if}&amp;&amp;\dot{p}\geq\dot{p}_{0}
+  \end{aligned}
+\right.
+\]</span></p></li>
+</ul>
+<h2 data-number="4.3" id="new-dsl-options"><span
+class="header-section-number">4.3</span> New DSL options</h2>
+<h3 data-number="4.3.1" id="the-disable_runtime_checks-option"><span
+class="header-section-number">4.3.1</span> The
 <code>disable_runtime_checks</code> option</h3>
 <p>If this option is set to <code>true</code>, interfaces may disable as
 much runtime checks as possible. Those runtime checks include checking
 standard bounds and physical bounds for instance.</p>
-<h2 data-number="4.3" id="generic-interface-improvements"><span
-class="header-section-number">4.3</span> <code>generic</code> interface
+<h2 data-number="4.4" id="generic-interface-improvements"><span
+class="header-section-number">4.4</span> <code>generic</code> interface
 improvements</h2>
-<h3 data-number="4.3.1"
+<h3 data-number="4.4.1"
 id="the-selectedmodellinghypothesis-and-selectedmodellinghypotheses-keywords"><span
-class="header-section-number">4.3.1</span> The
+class="header-section-number">4.4.1</span> The
 <code>@SelectedModellingHypothesis</code> and
 <code>@SelectedModellingHypotheses</code> keywords</h3>
 <p>The <code>@SelectedModellingHypothesis</code> and
@@ -972,13 +1152,13 @@ which modelling hypotheses will be generated.</p>
 respectively.</p>
 <p>The selected modelling hypotheses must be a sub-set of the modelling
 hypotheses supported by the behaviour.</p>
-<h4 data-number="4.3.1.1" id="example-of-usage-1"><span
-class="header-section-number">4.3.1.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront <span class="op">--</span>obuild <span class="op">--</span>interface<span class="op">=</span>generic <span class="op">--</span><span class="er">@</span>SelectedModellingHypothesis<span class="op">=</span>PlaneStrain Plasticity<span class="op">.</span>mfront</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Treating target <span class="op">:</span> all</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>The following library has been built <span class="op">:</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> libBehaviour<span class="op">.</span>so <span class="op">:</span>  Plasticity_PlaneStrain</span></code></pre></div>
+<h4 data-number="4.4.1.1" id="example-of-usage-2"><span
+class="header-section-number">4.4.1.1</span> Example of usage</h4>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> mfront <span class="op">--</span>obuild <span class="op">--</span>interface<span class="op">=</span>generic <span class="op">--</span><span class="er">@</span>SelectedModellingHypothesis<span class="op">=</span>PlaneStrain Plasticity<span class="op">.</span>mfront</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Treating target <span class="op">:</span> all</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>The following library has been built <span class="op">:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> libBehaviour<span class="op">.</span>so <span class="op">:</span>  Plasticity_PlaneStrain</span></code></pre></div>
 <h1 data-number="5" id="documentation"><span
 class="header-section-number">5</span> Documentation</h1>
 <p>The page <a href="libraries_usage.html">Libaries usage in C++</a>
@@ -993,8 +1173,8 @@ class="header-section-number">6.1</span> Issue 535: [mfront-doc] add
 support for material properties</h2>
 <p>Allows mfront-doc to be used with the <code>MaterialLaw</code> DSL.
 Example of use:</p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-doc T91MartensiticSteel_gamma1_ROUX2007.mfront</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-doc T91MartensiticSteel_gamma1_ROUX2007.mfront</span></code></pre></div>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/535"
 class="uri">https://github.com/thelfer/tfel/issues/535</a></p>
@@ -1022,14 +1202,14 @@ id="issue-585-mfront-allow-to-override-inputs-in-material-properties"><span
 class="header-section-number">6.3</span> Issue 585: <a
 href="#mfront">mfront</a> Allow to override inputs in material
 properties</h2>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--state-variables</span> Inconel600_YoungModulus.mfront </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Temperature <span class="er">(</span><span class="ex">TK</span><span class="kw">)</span><span class="bu">:</span> the temperature</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> Inconel600_YoungModulus.mfront</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--state-variables</span> <span class="at">--dsl-option</span><span class="op">=</span><span class="st">&#39;overriding_parameters:{&quot;TK&quot;: 400}}&#39;</span> Inconel600_YoungModulus.mfront</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> <span class="at">--dsl-option</span><span class="op">=</span><span class="st">&#39;overriding_parameters:{&quot;TK&quot;: 400}}&#39;</span> Inconel600_YoungModulus.mfront</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Temperature <span class="er">(</span><span class="ex">TK</span><span class="kw">)</span><span class="bu">:</span> the temperature</span></code></pre></div>
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--state-variables</span> Inconel600_YoungModulus.mfront </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Temperature <span class="er">(</span><span class="ex">TK</span><span class="kw">)</span><span class="bu">:</span> the temperature</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> Inconel600_YoungModulus.mfront</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--state-variables</span> <span class="at">--dsl-option</span><span class="op">=</span><span class="st">&#39;overriding_parameters:{&quot;TK&quot;: 400}}&#39;</span> Inconel600_YoungModulus.mfront</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--parameters</span> <span class="at">--dsl-option</span><span class="op">=</span><span class="st">&#39;overriding_parameters:{&quot;TK&quot;: 400}}&#39;</span> Inconel600_YoungModulus.mfront</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Temperature <span class="er">(</span><span class="ex">TK</span><span class="kw">)</span><span class="bu">:</span> the temperature</span></code></pre></div>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/585"
 class="uri">https://github.com/thelfer/tfel/issues/585</a></p>

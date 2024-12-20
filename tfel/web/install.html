@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -231,6 +232,12 @@
 		<li><a>Versions 5.0.x</a>
 		  <ul>
 		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -321,8 +328,8 @@
 	</li>
 	<li><a>Contributing</a>
 	  <ul>
-	    <li><a href="svn.html">Access to source repositories</a></li>
-	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -519,8 +526,8 @@ compilers suite</a>.</li>
 class="header-section-number">1.2</span> Third party libraries</h2>
 <p><code>TFEL</code> has been designed to have no dependencies to third
 parties libraries with the very exception of the <a
-href="http://www.boost.org">Boost.Python</a> library used to create the
-optional bindings for the <a
+href="https://github.com/pybind/pybind11">pybind11</a> library used to
+create optional bindings for the <a
 href="https://www.python.org/"><code>Python</code></a> language.</p>
 <h2 data-number="1.3" id="third-party-tools"><span
 class="header-section-number">1.3</span> Third party tools</h2>
@@ -594,8 +601,9 @@ use the <code>-Denable-python=ON</code> option.</li>
 <li>To enable bindings for the <a
 href="https://www.python.org/"><code>Python</code></a> language, notably
 for the <code>MTest</code> tool, one may use the
-<code>-Denable-python-bindings=ON</code> option. This requires the <a
-href="http://www.boost.org">Boost.Python</a> to be available.</li>
+<code>-Denable-python-bindings=ON</code> option. This requires <a
+href="https://github.com/pybind/pybind11">pybind11</a> to be
+available.</li>
 </ul>
 <p>Some default compiler settings are detected by <code>cmake</code>,
 depending on your system. To explicitly specify the compilers to be
@@ -744,9 +752,9 @@ project</a>, e.g. with <code>OpenGeoSys</code>, <code>FEniCS</code>,
 <code>MoFEM</code>, etc…</p>
 <p>The compilation requires that <code>gcc</code>, <code>git</code> and
 <code>python3</code> are installed, as well as the python module
-<code>numpy</code> and the <code>libboost</code> library to build the
+<code>numpy</code> and the <code>pybind11</code> library to build the
 <code>python</code> bindings. Those packages can be installed using:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt install python3 python3-numpy libboost-all-dev cmake g++ gfortran</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt install python3 python3-numpy pybind11-dev cmake g++ gfortran</span></code></pre></div>
 <p>The next step is to get the <code>TFEL</code> source code:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd <span class="op">&lt;</span>where_you_want_to_download_the_source<span class="op">&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> TFEL <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> TFEL</span>

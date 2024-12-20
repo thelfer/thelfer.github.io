@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -10,10 +11,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Access to TFEL sources</title>
-        <meta name="author" content="Helfer Thomas" />
-            <meta name="date" content="2016-08-03" />
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <title>contributing</title>
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
       pre > code.sourceCode { white-space: pre; position: relative; }
@@ -232,6 +231,12 @@
 		<li><a>Versions 5.0.x</a>
 		  <ul>
 		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -322,8 +327,8 @@
 	</li>
 	<li><a>Contributing</a>
 	  <ul>
-	    <li><a href="svn.html">Access to source repositories</a></li>
-	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -338,59 +343,150 @@
 	</li>
       </ul>
     </header>
-<div id="header">
-<h1 class="title">Access to TFEL sources</h1>
-<h2 class="author">Helfer Thomas</h2>
-<h3 class="date">August 3, 2016</h3>
-</div>
-<p><code>TFEL</code> is developed using the <a
-href="https://subversion.apache.org/"><code>Apache Subversion</code></a>
-open source version control system held on a <code>CEA</code> private
-server. <code>CEA</code> traditional partners (<code>EDF</code> and
-<code>Areva</code>) can request an account on this server to access the
-<code>TFEL</code> repository.</p>
-<p>As we do wish that many people get involved in
-<code>TFEL/MFront</code> usage and development, the
-<code>subversion</code> repository used by CEA and EDF is also
-synchronized with a public <code>GitHub</code> repository:</p>
-<p><a href="https://github.com/thelfer/tfel"
-class="uri">https://github.com/thelfer/tfel</a></p>
-<p>All the branches, commit descriptions and history of TFEL are
-available. This repository is <em>read-only</em>.</p>
-<h1 id="access-subversion-repository-readwrite">Access Subversion
-repository (read/write)</h1>
-<p>The <code>TFEL</code> repository is accessible at: <a
-href="https://svn-pleiades.cea.fr/SVN/TFEL"
-class="uri">https://svn-pleiades.cea.fr/SVN/TFEL</a></p>
-<p>This server is used for historical and practical reasons.</p>
-<p>This server is not meant to receive a wide number of contributors, so
-the access is currently restricted. Access can be granted by the <script
+<h1 id="contributing-to-tfel">Contributing to <code>TFEL</code></h1>
+<p>Contributions to <code>TFEL</code> are greatly appreciated.</p>
+<p>Please take a moment to review this document in order to make the
+contribution process easy and effective for everyone involved.</p>
+<p>Following these guidelines helps to communicate that you respect the
+time of the developers managing and developing this open source project.
+In return, they should reciprocate that respect in addressing your issue
+or assessing patches and features.</p>
+<h2 id="using-the-issue-tracker">Using the issue tracker</h2>
+<p>The <a href="https://github.com/thelfer/tfel/issues">issue
+tracker</a> is the preferred channel for <a href="#bugs">bug
+reports</a>, <a href="#features">features requests</a> and <a
+href="#pull-requests">submitting pull requests</a>, but please respect
+the following restrictions:</p>
+<ul>
+<li>Please <strong>do not</strong> use the issue tracker for personal
+support requests (contact directly the authors <script
 type="text/javascript">
 <!--
 h='&#x63;&#x65;&#x61;&#46;&#102;&#114;';a='&#64;';n='&#116;&#102;&#x65;&#108;&#x2d;&#x63;&#x6f;&#110;&#116;&#x61;&#x63;&#116;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#80;&#76;&#x45;&#x49;&#x41;&#68;&#x45;&#x53;&#32;&#112;&#114;&#x6f;&#106;&#x65;&#x63;&#116;&#32;&#x6d;&#x61;&#110;&#x61;&#x67;&#x65;&#114;'+'<\/'+'a'+'>');
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
 // -->
-</script><noscript>&#80;&#76;&#x45;&#x49;&#x41;&#68;&#x45;&#x53;&#32;&#112;&#114;&#x6f;&#106;&#x65;&#x63;&#116;&#32;&#x6d;&#x61;&#110;&#x61;&#x67;&#x65;&#114;&#32;&#40;&#116;&#102;&#x65;&#108;&#x2d;&#x63;&#x6f;&#110;&#116;&#x61;&#x63;&#116;&#32;&#x61;&#116;&#32;&#x63;&#x65;&#x61;&#32;&#100;&#x6f;&#116;&#32;&#102;&#114;&#x29;</noscript>.</p>
-<p>We may consider moving to another server if the number of
-contributors grows significantly.</p>
-<h2 id="access-through-a-proxy">Access through a proxy</h2>
-<p>If you want to use the <code>svn</code> command line through a
-network using a proxy, you must edit your <code>servers</code>
-configuration file to indicate which proxy to use (see the subversion <a
-href="http://subversion.apache.org/faq.html#proxy">FAQ</a> for
-details).</p>
-<p>The files location depends on your operating system. On Linux or Unix
-it is located in the directory <code>~/.subversion</code>. On Windows it
-is in <code>%APPDATA%\Subversion</code> (Try
-<code>echo %APPDATA%</code>, note this is a hidden directory.).</p>
-<p>You shall then add the following lines to this file:</p>
-<div class="sourceCode" id="svn-proxy"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="svn-proxy-1"><a href="#svn-proxy-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[global]</span> </span>
-<span id="svn-proxy-2"><a href="#svn-proxy-2" aria-hidden="true" tabindex="-1"></a><span class="ex">http-proxy-host</span> = XXXXX </span>
-<span id="svn-proxy-3"><a href="#svn-proxy-3" aria-hidden="true" tabindex="-1"></a><span class="ex">http-proxy-port</span> = XXXXX</span>
-<span id="svn-proxy-4"><a href="#svn-proxy-4" aria-hidden="true" tabindex="-1"></a><span class="ex">http-proxy-username</span> = XXXXX</span>
-<span id="svn-proxy-5"><a href="#svn-proxy-5" aria-hidden="true" tabindex="-1"></a><span class="ex">http-proxy-password</span> = XXXXX</span></code></pre></div>
-<!-- Local IspellDict: english -->
+</script><noscript>&#116;&#102;&#x65;&#108;&#x2d;&#x63;&#x6f;&#110;&#116;&#x61;&#x63;&#116;&#32;&#x61;&#116;&#32;&#x63;&#x65;&#x61;&#32;&#100;&#x6f;&#116;&#32;&#102;&#114;</noscript></li>
+</ul>
+<h2 id="bug-reports">Bug reports</h2>
+<p>A bug is a <em>demonstrable problem</em> that is caused by the code
+in the repository. Good bug reports are extremely helpful - thank
+you!</p>
+<p>Guidelines for bug reports:</p>
+<ol type="1">
+<li><p><strong>Use the GitHub issue search</strong>: check if the issue
+has already been reported.</p></li>
+<li><p><strong>Check if the issue has been fixed</strong>: try to
+reproduce it using the latest <code>master</code> or development branch
+in the repository.</p></li>
+<li><p><strong>Isolate the problem</strong>: ideally create a [reduced
+test case].</p></li>
+</ol>
+<p>A good bug report shouldn’t leave others needing to chase you up for
+more information. Please try to be as detailed as possible in your
+report. What is your environment? What steps will reproduce the issue?
+What compiler(s) and OS experience the problem? What would you expect to
+be the outcome? All these details will help people to fix any potential
+bugs.</p>
+<p>Example:</p>
+<blockquote>
+<p>Short and descriptive example bug report title</p>
+<p>A summary of the issue, versions of <code>TFEL/MFront</code> used and
+the OS/compiler environment in which it occurs. If suitable, include the
+steps required to reproduce the bug.</p>
+<ol type="1">
+<li>This is the first step</li>
+<li>This is the second step</li>
+<li>Further steps, etc.</li>
+</ol>
+<p>Any other information you want to share that is relevant to the issue
+being reported. This might include the lines of code that you have
+identified as causing the bug, and potential solutions (and your
+opinions on their merits).</p>
+</blockquote>
+<h2 id="feature-requests">Feature requests</h2>
+<p>Feature requests are welcome. But take a moment to find out whether
+your idea fits with the scope and aims of the project. It’s up to
+<em>you</em> to make a strong case to convince the project’s developers
+of the merits of this feature. Please provide as much detail and context
+as possible.</p>
+<h2 id="pull-requests">Pull requests</h2>
+<p>Good pull requests - patches, improvements, new features - are a
+fantastic help. They should remain focused in scope and avoid containing
+unrelated commits.</p>
+<p><strong>Please ask first</strong> before embarking on any significant
+pull request (e.g. implementing features, refactoring code, porting to a
+different language), otherwise you risk spending a lot of time working
+on something that the project’s developers might not want to merge into
+the project.</p>
+<p>Please adhere to the coding conventions used throughout a project
+(indentation, accurate comments, etc.) and any other requirements (such
+as test coverage).</p>
+<p>Adhering to the following this process is the best way to get your
+work included in the project:</p>
+<ol type="1">
+<li><p><a href="http://help.github.com/fork-a-repo/">Fork</a> the
+project, clone your fork, and configure the remotes:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone your fork of the repo into the current directory</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/<span class="op">&lt;</span>your-username<span class="op">&gt;</span>/tfel.git</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to the newly cloned directory</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> tfel</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the original repo to a remote called &quot;upstream&quot;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream https://github.com/thelfer/tfel.git</span></code></pre></div></li>
+<li><p>If you cloned a while ago, get the latest changes from
+upstream:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout master</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream master</span></code></pre></div></li>
+<li><p>Create a new topic branch (off the main project development
+branch) to contain your feature, change, or fix:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> <span class="op">&lt;</span>topic-branch-name<span class="op">&gt;</span></span></code></pre></div></li>
+<li><p>Commit your changes in logical chunks. Please adhere to these <a
+href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">git
+commit message guidelines</a> or your code is unlikely be merged into
+the main project. Use Git’s <a
+href="https://help.github.com/articles/interactive-rebase">interactive
+rebase</a> feature to tidy up your commits before making them
+public.</p></li>
+<li><p>Locally merge (or rebase) the upstream development branch into
+your topic branch:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="pp">[--</span><span class="ss">rebase</span><span class="pp">]</span> upstream master</span></code></pre></div></li>
+<li><p>Push your topic branch up to your fork:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin <span class="op">&lt;</span>topic-branch-name<span class="op">&gt;</span></span></code></pre></div></li>
+<li><p><a
+href="https://help.github.com/articles/using-pull-requests/">Open a Pull
+Request</a> with a clear title and description.</p></li>
+</ol>
+<p><strong>IMPORTANT</strong>: By submitting a patch, you agree to allow
+the project owners to license your work under the the terms of the
+<em>LGPL License</em>.</p>
+<!--
+This file is merely a copy of the `CONTRIBUTING.md` file of the
+html5boilerplate project
+
+Copyright (c) HTML5 Boilerplate
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

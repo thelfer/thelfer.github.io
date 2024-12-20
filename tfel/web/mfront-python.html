@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -231,6 +232,12 @@
 		<li><a>Versions 5.0.x</a>
 		  <ul>
 		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -321,8 +328,8 @@
 	</li>
 	<li><a>Contributing</a>
 	  <ul>
-	    <li><a href="svn.html">Access to source repositories</a></li>
-	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -439,11 +446,11 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a hr
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># a deeper look at the 3D case</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> bd.getBehaviourData(ModellingHypothesis.TRIDIMENSIONAL)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> <span class="st">&quot;List of material properties in 3D:</span><span class="ch">\n</span><span class="st">&quot;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;List of material properties in 3D:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> mp <span class="kw">in</span> d.getMaterialProperties():</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;- &quot;</span><span class="op">+</span>mp.<span class="bu">type</span><span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span>mp.name<span class="op">+</span><span class="st">&quot; as &quot;</span><span class="op">+</span>d.getExternalName(mp.name))</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">List of state variables in 3D:</span><span class="ch">\n</span><span class="st">&quot;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">List of state variables in 3D:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> iv <span class="kw">in</span> d.getPersistentVariables():</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;- &quot;</span><span class="op">+</span>iv.<span class="bu">type</span><span class="op">+</span><span class="st">&quot; &quot;</span><span class="op">+</span>iv.name<span class="op">+</span><span class="st">&quot; as &quot;</span><span class="op">+</span>d.getExternalName(iv.name))</span></code></pre></div>
 <p>The main class used for analysing <code>MFront</code> file is the

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -231,6 +232,12 @@
 		<li><a>Versions 5.0.x</a>
 		  <ul>
 		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -321,8 +328,8 @@
 	</li>
 	<li><a>Contributing</a>
 	  <ul>
-	    <li><a href="svn.html">Access to source repositories</a></li>
-	    <li><a href="devel.html">Development guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -570,33 +577,32 @@ the unsigned short parameters.</li>
 <h1 id="the-mtest-class">The <code>MTest</code> class</h1>
 <p>Here is a first example of the <code>MTest</code> class usage:</p>
 <div class="sourceCode" id="cb6"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> std</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.tests</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mtest <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> MTest()</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>umax <span class="op">=</span> <span class="fl">3.e-6</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>setVerboseMode(VerboseLevel.VERBOSE_LEVEL2)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>m.setPredictionPolicy(PredictionPolicy.LINEARPREDICTION)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>m.setBehaviour(<span class="st">&quot;umat&quot;</span>,<span class="st">&quot;src/libUmatBehaviour.so&quot;</span>,<span class="st">&quot;umattvergaard&quot;</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;NormalStiffness&#39;</span>,<span class="fl">2.e16</span>)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;TangentialStiffness&#39;</span>,<span class="fl">2.e16</span>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;MassDensity&#39;</span>,<span class="fl">0.</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;NormalThermalExpansion&#39;</span>,<span class="fl">0.</span>)</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;MaximumStress&#39;</span>,<span class="fl">200.e6</span>)</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;MaximumOpeningDisplacement&#39;</span>,<span class="fl">3.e-6</span>)</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>m.setExternalStateVariable(<span class="st">&quot;Temperature&quot;</span>,<span class="fl">293.15</span>)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>m.setImposedOpeningDisplacement(<span class="st">&#39;Un&#39;</span>,{<span class="fl">0.</span>:<span class="fl">0.</span>,<span class="fl">1800.</span>:umax<span class="op">/</span><span class="dv">2</span>,</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>                      <span class="fl">2400.</span>:<span class="fl">0.</span>,<span class="dv">2600</span>:<span class="op">-</span><span class="fl">1.e-8</span>,<span class="dv">3000</span>:<span class="fl">0.</span>,</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>                      <span class="fl">3600.</span>:umax})</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>m.setTimes([<span class="fl">3.6</span><span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">1001</span>)])</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>m.setOutputFileName(<span class="st">&quot;castemtvergaard.res&quot;</span>)</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>m.execute()</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.tests</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mtest <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> MTest()</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>umax <span class="op">=</span> <span class="fl">3.e-6</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>setVerboseMode(VerboseLevel.VERBOSE_LEVEL2)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>m.setPredictionPolicy(PredictionPolicy.LINEARPREDICTION)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>m.setBehaviour(<span class="st">&quot;umat&quot;</span>,<span class="st">&quot;src/libUmatBehaviour.so&quot;</span>,<span class="st">&quot;umattvergaard&quot;</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;NormalStiffness&#39;</span>,<span class="fl">2.e16</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;TangentialStiffness&#39;</span>,<span class="fl">2.e16</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;MassDensity&#39;</span>,<span class="fl">0.</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;NormalThermalExpansion&#39;</span>,<span class="fl">0.</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;MaximumStress&#39;</span>,<span class="fl">200.e6</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;MaximumOpeningDisplacement&#39;</span>,<span class="fl">3.e-6</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>m.setExternalStateVariable(<span class="st">&quot;Temperature&quot;</span>,<span class="fl">293.15</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>m.setImposedOpeningDisplacement(<span class="st">&#39;Un&#39;</span>,{<span class="fl">0.</span>:<span class="fl">0.</span>,<span class="fl">1800.</span>:umax<span class="op">/</span><span class="dv">2</span>,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                      <span class="fl">2400.</span>:<span class="fl">0.</span>,<span class="dv">2600</span>:<span class="op">-</span><span class="fl">1.e-8</span>,<span class="dv">3000</span>:<span class="fl">0.</span>,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>                      <span class="fl">3600.</span>:umax})</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>m.setTimes([<span class="fl">3.6</span><span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">1001</span>)])</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>m.setOutputFileName(<span class="st">&quot;castemtvergaard.res&quot;</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>m.execute()</span></code></pre></div>
 <p>This example shows that there is almost a one to one mapping between
 the keywords used in <code>mtest</code> input file and the methods of
 the <code>MTest</code> class.</p>
@@ -733,36 +739,35 @@ more in depth below.</p>
 <h1 id="the-pipetest-class">The <code>PipeTest</code> class</h1>
 <p>Here is an example:</p>
 <div class="sourceCode" id="cb8"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> std</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.tests</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mtest <span class="im">import</span> PipeTest,StudyCurrentState,SolverWorkSpace, <span class="op">\</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    setVerboseMode, VerboseLevel</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>setVerboseMode(VerboseLevel.VERBOSE_QUIET)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> PipeTest()</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># geometry and meshing</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>t.setInnerRadius(<span class="fl">4.2e-3</span>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>t.setOuterRadius(<span class="fl">4.7e-3</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>t.setNumberOfElements(<span class="dv">10</span>)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>t.setElementType(<span class="st">&#39;Linear&#39;</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co"># modelling hypothesis</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>t.setAxialLoading(<span class="st">&#39;None&#39;</span>)</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>t.performSmallStrainAnalysis()</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>t.setTimes([<span class="dv">0</span>,<span class="dv">1</span>])</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>t.setInnerPressureEvolution(<span class="fl">1.5e6</span>)</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>t.setOuterPressureEvolution({<span class="dv">0</span>:<span class="fl">1.5e6</span>,<span class="dv">1</span>:<span class="fl">10e6</span>})</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>t.setBehaviour(<span class="st">&#39;castem&#39;</span>,<span class="st">&#39;../../src/libUmatBehaviour.so&#39;</span>,<span class="st">&#39;umatelasticity&#39;</span>)</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;YoungModulus&#39;</span>,<span class="fl">150e9</span>)</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;PoissonRatio&#39;</span>,<span class="fl">0.3</span>)</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>t.setExternalStateVariable(<span class="st">&#39;Temperature&#39;</span>,<span class="fl">293.15</span>)</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>t.setOutputFileName(<span class="st">&quot;pipe.res&quot;</span>)</span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>t.execute()</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.tests</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mtest <span class="im">import</span> PipeTest,StudyCurrentState,SolverWorkSpace, <span class="op">\</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    setVerboseMode, VerboseLevel</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>setVerboseMode(VerboseLevel.VERBOSE_QUIET)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> PipeTest()</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># geometry and meshing</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>t.setInnerRadius(<span class="fl">4.2e-3</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>t.setOuterRadius(<span class="fl">4.7e-3</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>t.setNumberOfElements(<span class="dv">10</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>t.setElementType(<span class="st">&#39;Linear&#39;</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># modelling hypothesis</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>t.setAxialLoading(<span class="st">&#39;None&#39;</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>t.performSmallStrainAnalysis()</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>t.setTimes([<span class="dv">0</span>,<span class="dv">1</span>])</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>t.setInnerPressureEvolution(<span class="fl">1.5e6</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>t.setOuterPressureEvolution({<span class="dv">0</span>:<span class="fl">1.5e6</span>,<span class="dv">1</span>:<span class="fl">10e6</span>})</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>t.setBehaviour(<span class="st">&#39;castem&#39;</span>,<span class="st">&#39;../../src/libUmatBehaviour.so&#39;</span>,<span class="st">&#39;umatelasticity&#39;</span>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;YoungModulus&#39;</span>,<span class="fl">150e9</span>)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;PoissonRatio&#39;</span>,<span class="fl">0.3</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>t.setExternalStateVariable(<span class="st">&#39;Temperature&#39;</span>,<span class="fl">293.15</span>)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>t.setOutputFileName(<span class="st">&quot;pipe.res&quot;</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>t.execute()</span></code></pre></div>
 <h2
 id="the-studycurrentstate-structurecurrentstate-and-currentstate-classes">The
 <code>StudyCurrentState</code>, <code>StructureCurrentState</code> and

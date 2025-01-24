@@ -1,0 +1,745 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Release notes of the 5.1 version of TFEL, MFront and MTest</title>
+        <meta name="author" content="Thomas Helfer, Antoine Martin" />
+            <meta name="date" content="2025-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel/">Github repository</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/releases">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.9</a></li>
+		    <li><a href="release-notes-3.0.10.html">Version 3.0.10</a></li>
+		    <li><a href="release-notes-3.0.11.html">Version 3.0.11</a></li>
+		    <li><a href="release-notes-3.0.12.html">Version 3.0.12</a></li>
+		    <li><a href="release-notes-3.0.13.html">Version 3.0.13</a></li>
+		    <li><a href="release-notes-3.0.14.html">Version 3.0.14</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		    <li><a href="release-notes-3.1.8.html">Version 3.1.8</a></li>
+		    <li><a href="release-notes-3.1.9.html">Version 3.1.9</a></li>
+		    <li><a href="release-notes-3.1.10.html">Version 3.1.10</a></li>
+		    <li><a href="release-notes-3.1.11.html">Version 3.1.11</a></li>
+		    <li><a href="release-notes-3.1.12.html">Version 3.1.12</a></li>
+		    <li><a href="release-notes-3.1.13.html">Version 3.1.13</a></li>
+		    <li><a href="release-notes-3.1.14.html">Version 3.1.14</a></li>
+		    <li><a href="release-notes-3.1.15.html">Version 3.1.15</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.5</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.6</a></li>
+		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
+		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
+		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
+		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
+		    <li><a href="release-notes-3.4.3.html">Version 3.4.3</a></li>
+		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
+		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
+		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		    <li><a href="release-notes-4.0.1.html">Version 4.0.1</a></li>
+		    <li><a href="release-notes-4.0.2.html">Version 4.0.2</a></li>
+		    <li><a href="release-notes-4.0.3.html">Version 4.0.3</a></li>
+		    <li><a href="release-notes-4.0.4.html">Version 4.0.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.1.html">Version 4.1.0</a></li>
+		    <li><a href="release-notes-4.1.1.html">Version 4.1.1</a></li>
+		    <li><a href="release-notes-4.1.2.html">Version 4.1.2</a></li>
+		    <li><a href="release-notes-4.1.3.html">Version 4.1.3</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.2.html">Version 4.2.0</a></li>
+		    <li><a href="release-notes-4.2.1.html">Version 4.2.1</a></li>
+		    <li><a href="release-notes-4.2.2.html">Version 4.2.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+<!--	    
+	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
+-->
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The Implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-material-property-interface.html">Generic interface for material properties</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic interface for behaviours</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="libraries_usage.html">Usage of the TFEL libraries in C++</a></li>
+		<li><a href="tfel-math.html">TFEL/Math</a></li>
+		<li><a href="tfel-material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+	        <li><a href="Default-keywords.html">Default</a></li>
+	        <li><a href="DefaultCZM-keywords.html">DefaultCZM</a></li>
+	        <li><a href="DefaultFiniteStrain-keywords.html">DefaultFiniteStrain</a></li>
+	        <li><a href="DefaultGenericBehaviour-keywords.html">DefaultGenericBehaviour</a></li>
+	        <li><a href="DefaultModel-keywords.html">DefaultModel</a></li>
+	        <li><a href="Implicit-keywords.html">Implicit</a></li>
+	        <li><a href="ImplicitCZM-keywords.html">ImplicitCZM</a></li>
+	        <li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li>
+	        <li><a href="ImplicitGenericBehaviour-keywords.html">ImplicitGenericBehaviour</a></li>
+	        <li><a href="ImplicitModel-keywords.html">ImplicitModel</a></li>
+	        <li><a href="ImplicitII-keywords.html">ImplicitII</a></li>
+	        <li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li>
+	        <li><a href="IsotropicMisesPlasticFlow-keywords.html">IsotropicMisesPlasticFlow</a></li>
+	        <li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li>
+	        <li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li>
+	        <li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li>
+	        <li><a href="MaterialProperty-keywords.html">MaterialProperty</a></li>
+	        <li><a href="Model-keywords.html">Model</a></li>
+	        <li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li>
+	        <li><a href="RungeKutta-keywords.html">RungeKutta</a></li>
+	        <li><a href="RungeKuttaFiniteStrain-keywords.html">RungeKuttaFiniteStrain</a></li>
+	        <li><a href="RungeKuttaGenericBehaviour-keywords.html">RungeKuttaGenericBehaviour</a></li>
+	        <li><a href="RungeKuttaModel-keywords.html">RungeKuttaModel</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">Release notes of the 5.1 version of <code>TFEL</code>,
+<code>MFront</code> and <code>MTest</code></h1>
+<h2 class="author">Thomas Helfer, Antoine Martin</h2>
+<h3 class="date">2025</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#known-incompatibilities"
+id="toc-known-incompatibilities"><span
+class="toc-section-number">1</span> Known incompatibilities</a></li>
+<li><a href="#new-features-in-the-tfel-libraries"
+id="toc-new-features-in-the-tfel-libraries"><span
+class="toc-section-number">2</span> New features in the
+<code>TFEL</code> libraries</a>
+<ul>
+<li><a href="#environment" id="toc-environment"><span
+class="toc-section-number">2.1</span> Environment</a></li>
+<li><a href="#tfel-config" id="toc-tfel-config"><span
+class="toc-section-number">2.2</span> <code>tfel-config</code></a></li>
+<li><a href="#python-bindings" id="toc-python-bindings"><span
+class="toc-section-number">2.3</span> Python bindings</a></li>
+</ul></li>
+<li><a href="#new-features-in-mfront"
+id="toc-new-features-in-mfront"><span
+class="toc-section-number">3</span> New features in
+<code>MFront</code></a>
+<ul>
+<li><a href="#warnings" id="toc-warnings"><span
+class="toc-section-number">3.1</span> Warnings</a></li>
+<li><a
+href="#calling-an-external-behaviour-the-behaviourvariable-keyword"
+id="toc-calling-an-external-behaviour-the-behaviourvariable-keyword"><span
+class="toc-section-number">3.2</span> Calling an external behaviour: the
+<code>@BehaviourVariable</code> keyword</a></li>
+<li><a href="#new-command-line-arguments"
+id="toc-new-command-line-arguments"><span
+class="toc-section-number">3.3</span> New command line
+arguments</a></li>
+</ul></li>
+<li><a href="#new-features-in-mfront-query"
+id="toc-new-features-in-mfront-query"><span
+class="toc-section-number">4</span> New features in
+<code>mfront-query</code></a>
+<ul>
+<li><a href="#new-command-line-arguments-1"
+id="toc-new-command-line-arguments-1"><span
+class="toc-section-number">4.1</span> New command line
+arguments</a></li>
+</ul></li>
+<li><a href="#issues-fixed" id="toc-issues-fixed"><span
+class="toc-section-number">5</span> Issues fixed</a>
+<ul>
+<li><a href="#issue-677tfel-config-add-a-python-module-suffix-option"
+id="toc-issue-677tfel-config-add-a-python-module-suffix-option"><span
+class="toc-section-number">5.1</span> Issue 677:[tfel-config] add a
+python-module-suffix option</a></li>
+<li><a
+href="#issue-676-always-prefer-the-versioned-tfelhome-environment-variable"
+id="toc-issue-676-always-prefer-the-versioned-tfelhome-environment-variable"><span
+class="toc-section-number">5.2</span> Issue 676: Always prefer the
+versioned <code>TFELHOME</code> environment variable</a></li>
+<li><a
+href="#issue-674-python-bindings-add-option-to-disable-the-modication-of-the-names-of-python-modules-by-the-tfel_append_version-and-tfel_version_flavour"
+id="toc-issue-674-python-bindings-add-option-to-disable-the-modication-of-the-names-of-python-modules-by-the-tfel_append_version-and-tfel_version_flavour"><span
+class="toc-section-number">5.3</span> Issue 674: [python-bindings] Add
+option to disable the modication of the names of python modules by the
+<code>TFEL_APPEND_VERSION</code> and
+<code>TFEL_VERSION_FLAVOUR</code></a></li>
+<li><a
+href="#issue-673-tfel-config-add-the-ability-to-define-an-environment-variable-associated-with-the-tfels-version-and-flavour"
+id="toc-issue-673-tfel-config-add-the-ability-to-define-an-environment-variable-associated-with-the-tfels-version-and-flavour"><span
+class="toc-section-number">5.4</span> Issue 673: [tfel-config] Add the
+ability to define an environment variable associated with the
+<code>TFEL</code>’s version and flavour</a></li>
+<li><a
+href="#issue-672-python-bindings-fix-python-modules-names-when-tfel_append_version-or-tfel_version_flavour-is-defined"
+id="toc-issue-672-python-bindings-fix-python-modules-names-when-tfel_append_version-or-tfel_version_flavour-is-defined"><span
+class="toc-section-number">5.5</span> Issue 672: python bindings fix
+python modules names when <code>TFEL_APPEND_VERSION</code> or
+<code>TFEL_VERSION_FLAVOUR</code> is defined</a></li>
+<li><a
+href="#issue-667-reduce-the-size-of-files-paths-in-sources-to-fit-in-windowss-max_path-limit"
+id="toc-issue-667-reduce-the-size-of-files-paths-in-sources-to-fit-in-windowss-max_path-limit"><span
+class="toc-section-number">5.6</span> Issue 667: Reduce the size of
+files paths in sources to fit in <code>Windows</code>’s
+<code>MAX_PATH</code> limit</a></li>
+<li><a href="#issue-666-doc-add-contributing-file-remove-devel.md"
+id="toc-issue-666-doc-add-contributing-file-remove-devel.md"><span
+class="toc-section-number">5.7</span> Issue 666: [doc] Add CONTRIBUTING
+file, remove devel.md</a></li>
+<li><a href="#issue-654-add-powershell-environment-script"
+id="toc-issue-654-add-powershell-environment-script"><span
+class="toc-section-number">5.8</span> Issue 654: Add PowerShell
+environment script</a></li>
+<li><a href="#issue-294-python-bindings-evaluate-port-to-pybind"
+id="toc-issue-294-python-bindings-evaluate-port-to-pybind"><span
+class="toc-section-number">5.9</span> Issue 294: [python-bindings]
+Evaluate port to <code>pybind</code></a></li>
+</ul></li>
+</ul>
+</div>
+<h1 data-number="1" id="known-incompatibilities"><span
+class="header-section-number">1</span> Known incompatibilities</h1>
+<p>When compiling with option <code>TFEL_APPEND_VERSION</code> set to
+<code>ON</code> or when defining the string variable
+<code>TFEL_VERSION_FLAVOUR</code>, the <code>python</code> modules are
+now modified to reflect those information. This old behaviour can be
+restored by setting the <code>unversioned-python-module-names</code>
+option to <code>ON</code>.</p>
+<h1 data-number="2" id="new-features-in-the-tfel-libraries"><span
+class="header-section-number">2</span> New features in the
+<code>TFEL</code> libraries</h1>
+<h2 data-number="2.1" id="environment"><span
+class="header-section-number">2.1</span> Environment</h2>
+<p>This version now supports a new environment variable to specify the
+<code>TFEL</code> installation directory that always supersedes the
+<code>TFELHOME</code> environment variable. The name of this variable
+depends on the version of the project, the fact that a development
+version has been compiled and the flavour (optionally specified with the
+<code>cmake</code> variable <code>TFEL_VERSION_FLAVOUR</code>). The name
+of this variable can be retrieved with the <code>--tfel-home</code>
+option of <code>tfel-config</code> described below.</p>
+<h2 data-number="2.2" id="tfel-config"><span
+class="header-section-number">2.2</span> <code>tfel-config</code></h2>
+<h3 data-number="2.2.1" id="registry-key-option"><span
+class="header-section-number">2.2.1</span> <code>--registry-key</code>
+option</h3>
+<p>On <code>Windows</code>, the <code>--registry-key</code> option
+returns the registry key which is used to determine the TFEL’s
+installation path.</p>
+<h3 data-number="2.2.2" id="tfel-home-option"><span
+class="header-section-number">2.2.2</span> <code>--tfel-home</code>
+option</h3>
+<p>The <code>--tfel-home</code> option returns the environment variable
+in which the TFEL’s installation path shall be defined.</p>
+<h4 data-number="2.2.2.1" id="example-of-usage"><span
+class="header-section-number">2.2.2.1</span> Example of usage</h4>
+<pre><code>$ tfel-config-5.2.0-dev-release --tfel-home
+TFELHOME_5_2_0_dev_release</code></pre>
+<h3 data-number="2.2.3" id="python-module-suffix-option"><span
+class="header-section-number">2.2.3</span>
+<code>--python-module-suffix</code> option</h3>
+<p>This option return the suffix of the <code>python</code> module. Such
+suffix is not empty only the following conditions are met:</p>
+<ul>
+<li><code>TFEL</code> has been compiled with option
+<code>TFEL_APPEND_VERSION</code> set to <code>ON</code> and or with the
+string variable <code>TFEL_VERSION_FLAVOUR</code> defined,</li>
+<li>the <code>unversioned-python-module-names</code> option has been set
+to <code>ON</code> (the default value if <code>OFF</code>).</li>
+</ul>
+<p>The option <code>--python-module-suffix</code> is only available if
+the python bindings is available.</p>
+<h4 data-number="2.2.3.1" id="example-of-usage-1"><span
+class="header-section-number">2.2.3.1</span> Example of usage</h4>
+<pre><code>$ tfel-config-5.1.0-release --python-module-suffix
+5_1_0_release</code></pre>
+<h2 data-number="2.3" id="python-bindings"><span
+class="header-section-number">2.3</span> Python bindings</h2>
+<p>Python bindings are now generated using the <a
+href="https://github.com/pybind/pybind11"><code>pybind11</code></a>
+library.</p>
+<h1 data-number="3" id="new-features-in-mfront"><span
+class="header-section-number">3</span> New features in
+<code>MFront</code></h1>
+<p>This version introduces the following main features in
+<code>MFront</code>:</p>
+<ul>
+<li>warnings on potential misuses or known bad practices,</li>
+<li>the ability to call other behaviour from a behaviour.</li>
+</ul>
+<h2 data-number="3.1" id="warnings"><span
+class="header-section-number">3.1</span> Warnings</h2>
+<p>Many warnings have been added to detect potential misuses of
+<code>MFront</code> or known bad practices.</p>
+<h3 data-number="3.1.1" id="activating-and-desactivating-warnings"><span
+class="header-section-number">3.1.1</span> Activating and desactivating
+warnings</h3>
+<p>Reporting warnings is activated by default and can be disabled by
+passing the command line argument <code>--report-warnings=false</code>
+to <code>MFront</code>.</p>
+<p>Warnings are associated with keywords and code blocks. Warnings can
+be disabled by appending the <code>safe</code> option to them. For
+instance, in an implicit DSL, specifying a convergence threshold greater
+than <span class="math inline">\(10^{-10}\)</span> is considered to
+loose in most cases and thus triggers a warning. This warning can be
+disabled as follows:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon<span class="op">&lt;</span>safe<span class="op">&gt;</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
+<p>This <code>safe</code> option can be ignored by passing the
+<code>--ignore-safe</code> command line argument to <code>MFront</code>.
+This argument is useful when analysing an existing file (written by
+another person) to question implementation choices.</p>
+<h3 data-number="3.1.2" id="warnings-added-to-all-dsls"><span
+class="header-section-number">3.1.2</span> Warnings added to all
+DSLs</h3>
+<h3 data-number="3.1.3" id="warnings-added-to-isotropic-dsls"><span
+class="header-section-number">3.1.3</span> Warnings added to isotropic
+DSLs</h3>
+<h4 data-number="3.1.3.1"
+id="warnings-related-to-the-implementation-of-the-flow-rules"><span
+class="header-section-number">3.1.3.1</span> Warnings related to the
+implementation of the flow rule(s)</h4>
+<p>A warning is reported if the implementation of the flow rule(s)
+contains:</p>
+<ul>
+<li>the time increment <code>dt</code>,</li>
+<li>the strain <code>eto</code> at the beginning of the time step,</li>
+<li>the strain increment <code>deto</code>,</li>
+<li>the stress <code>sig</code>,</li>
+<li>the <code>theta</code> parameter,</li>
+<li>the increment of the external state variable.</li>
+</ul>
+<h4 data-number="3.1.3.2"
+id="warnings-related-to-the-convergence-threshold"><span
+class="header-section-number">3.1.3.2</span> Warnings related to the
+convergence threshold</h4>
+<ul>
+<li>using the default value of the convergence threshold</li>
+<li>specifying a value of the convergence threshold too low</li>
+<li>specifying a value of the convergence threshold too high</li>
+</ul>
+<h3 data-number="3.1.4" id="warnings-added-to-implicit-dsls"><span
+class="header-section-number">3.1.4</span> Warnings added to implicit
+DSLs</h3>
+<h4 data-number="3.1.4.1"
+id="warnings-related-to-the-convergence-threshold-1"><span
+class="header-section-number">3.1.4.1</span> Warnings related to the
+convergence threshold</h4>
+<ul>
+<li>using the default value of the convergence threshold</li>
+<li>specifying a value of the convergence threshold too low</li>
+<li>specifying a value of the convergence threshold too high</li>
+</ul>
+<h4 data-number="3.1.4.2"
+id="warnings-related-to-the-perturbation-value-used-to-compute-a-numerical-approximation-of-the-jacobian"><span
+class="header-section-number">3.1.4.2</span> Warnings related to the
+perturbation value used to compute a numerical approximation of the
+jacobian</h4>
+<h4 data-number="3.1.4.3"
+id="warnings-related-to-the-convergence-threshold-2"><span
+class="header-section-number">3.1.4.3</span> Warnings related to the
+convergence threshold</h4>
+<ul>
+<li>using the default value</li>
+<li>specifying a value too low</li>
+<li>specifying a value too high</li>
+</ul>
+<h2 data-number="3.2"
+id="calling-an-external-behaviour-the-behaviourvariable-keyword"><span
+class="header-section-number">3.2</span> Calling an external behaviour:
+the <code>@BehaviourVariable</code> keyword</h2>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>BehaviourVariable first_phase_plastic_behaviour <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  file<span class="op">:</span> <span class="st">&quot;Plasticity.mfront&quot;</span><span class="op">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  variables_suffix<span class="op">:</span> <span class="st">&quot;1&quot;</span><span class="op">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  external_names_prefix<span class="op">:</span> <span class="st">&quot;FirstPhase&quot;</span><span class="op">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  store_gradients<span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  store_thermodynamic_forces<span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  shared_material_properties<span class="op">:</span> <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">},</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  shared_external_state_variables<span class="op">:</span> <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">}</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h2 data-number="3.3" id="new-command-line-arguments"><span
+class="header-section-number">3.3</span> New command line arguments</h2>
+<p>The following command line arguments are now supported:</p>
+<ul>
+<li><code>--report-warnings</code>: this command line argument enables
+or disables the reporting of warnings:
+<ul>
+<li><code>--report-warnings</code> or
+<code>--report-warnings=true</code> enable the reporting of warnings
+(which is the default behaviour of <code>MFront</code>).</li>
+<li><code>--report-warnings=false</code> disables the reporting of
+warnings.</li>
+</ul></li>
+<li><code>--warning-error</code>: this command line argument allows to
+treat warnings as errors.
+<ul>
+<li><code>--warning-error</code> or <code>--warning-error=true</code>
+turns warnings into errors.</li>
+<li><code>--warning-error=false</code> does not turn warnings into
+errors (which is the default behaviour of <code>MFront</code>).</li>
+</ul></li>
+<li><code>-Werror</code> is equivalent to
+<code>--warning-error=true</code>.</li>
+<li><code>-ignore-safe</code> allows to ignore the <code>safe</code>
+option of keywords and code blocks.</li>
+</ul>
+<h1 data-number="4" id="new-features-in-mfront-query"><span
+class="header-section-number">4</span> New features in
+<code>mfront-query</code></h1>
+<h2 data-number="4.1" id="new-command-line-arguments-1"><span
+class="header-section-number">4.1</span> New command line arguments</h2>
+<p>The following command line arguments are now supported:</p>
+<ul>
+<li><code>--report-warnings</code>: this command line argument enables
+or disables the reporting of warnings:
+<ul>
+<li><code>--report-warnings</code> or
+<code>--report-warnings=true</code> enable the reporting of warnings
+(which is the default behaviour of <code>mfront-query</code>).</li>
+<li><code>--report-warnings=false</code> disables the reporting of
+warnings.</li>
+</ul></li>
+<li><code>--warning-error</code>: this command line argument allows to
+treat warnings as errors.
+<ul>
+<li><code>--warning-error</code> or <code>--warning-error=true</code>
+turns warnings into errors.</li>
+<li><code>--warning-error=false</code> does not turn warnings into
+errors (which is the default behaviour of
+<code>mfront-query</code>).</li>
+</ul></li>
+<li><code>-Werror</code> is equivalent to
+<code>--warning-error=true</code>.</li>
+</ul>
+<h1 data-number="5" id="issues-fixed"><span
+class="header-section-number">5</span> Issues fixed</h1>
+<h2 data-number="5.1"
+id="issue-677tfel-config-add-a-python-module-suffix-option"><span
+class="header-section-number">5.1</span> Issue 677:[tfel-config] add a
+python-module-suffix option</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/677"
+class="uri">https://github.com/thelfer/tfel/issues/677</a></p>
+<h2 data-number="5.2"
+id="issue-676-always-prefer-the-versioned-tfelhome-environment-variable"><span
+class="header-section-number">5.2</span> Issue 676: Always prefer the
+versioned <code>TFELHOME</code> environment variable</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/676"
+class="uri">https://github.com/thelfer/tfel/issues/676</a></p>
+<h2 data-number="5.3"
+id="issue-674-python-bindings-add-option-to-disable-the-modication-of-the-names-of-python-modules-by-the-tfel_append_version-and-tfel_version_flavour"><span
+class="header-section-number">5.3</span> Issue 674: [python-bindings]
+Add option to disable the modication of the names of python modules by
+the <code>TFEL_APPEND_VERSION</code> and
+<code>TFEL_VERSION_FLAVOUR</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/674"
+class="uri">https://github.com/thelfer/tfel/issues/674</a></p>
+<h2 data-number="5.4"
+id="issue-673-tfel-config-add-the-ability-to-define-an-environment-variable-associated-with-the-tfels-version-and-flavour"><span
+class="header-section-number">5.4</span> Issue 673: [tfel-config] Add
+the ability to define an environment variable associated with the
+<code>TFEL</code>’s version and flavour</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/673"
+class="uri">https://github.com/thelfer/tfel/issues/673</a></p>
+<h2 data-number="5.5"
+id="issue-672-python-bindings-fix-python-modules-names-when-tfel_append_version-or-tfel_version_flavour-is-defined"><span
+class="header-section-number">5.5</span> Issue 672: <a
+href="#python-bindings">python bindings</a> fix python modules names
+when <code>TFEL_APPEND_VERSION</code> or
+<code>TFEL_VERSION_FLAVOUR</code> is defined</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/672"
+class="uri">https://github.com/thelfer/tfel/issues/672</a></p>
+<h2 data-number="5.6"
+id="issue-667-reduce-the-size-of-files-paths-in-sources-to-fit-in-windowss-max_path-limit"><span
+class="header-section-number">5.6</span> Issue 667: Reduce the size of
+files paths in sources to fit in <code>Windows</code>’s
+<code>MAX_PATH</code> limit</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/667"
+class="uri">https://github.com/thelfer/tfel/issues/667</a></p>
+<h2 data-number="5.7"
+id="issue-666-doc-add-contributing-file-remove-devel.md"><span
+class="header-section-number">5.7</span> Issue 666: [doc] Add
+CONTRIBUTING file, remove devel.md</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/666"
+class="uri">https://github.com/thelfer/tfel/issues/666</a></p>
+<h2 data-number="5.8"
+id="issue-654-add-powershell-environment-script"><span
+class="header-section-number">5.8</span> Issue 654: Add PowerShell
+environment script</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/654"
+class="uri">https://github.com/thelfer/tfel/issues/654</a></p>
+<h2 data-number="5.9"
+id="issue-294-python-bindings-evaluate-port-to-pybind"><span
+class="header-section-number">5.9</span> Issue 294: [python-bindings]
+Evaluate port to <code>pybind</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/293"
+class="uri">https://github.com/thelfer/tfel/issues/293</a></p>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

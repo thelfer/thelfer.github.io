@@ -11,12 +11,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>MFront, a code generation tool dedicated to material knowledge</title>
-        <meta name="author" content="Helfer Thomas, Jean-Michel Proix" />
-            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <title>Release notes of the 4.1.4 version of TFEL, MFront and MTest</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2025-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
-                <link rel="stylesheet" href=" css/slideshow.css" />
-        <link rel="stylesheet" href="css/normalize.css"/>
+                <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
         <script
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -283,113 +283,34 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">MFront, a code generation tool dedicated to material
-knowledge</h1>
-<h2 class="author">Helfer Thomas, Jean-Michel Proix</h2>
-<h3 class="date">15/08/2014</h3>
+<h1 class="title">Release notes of the 4.1.4 version of
+<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">2025</h3>
 </div>
-<div id="slideshow">
-<p><ul class="slides">
-<li><img src="img/AnsysTwistOfABar.svg" width="620" height="320" alt="Torsional twist of a notched bar using an Hosford plastic behaviour with a bilinear hardening law. Alex Grishin. Ansys MAPDL. 2020." /></li>
-<li><img src="img/AbdominalMusclesModelling2019.png" width="620" height="320" alt="Abdominal muscles modelling by Lluís Tuset, Gerard Fortuny, Joan Herrero, Dolors Puigjaner, Josep M. López." /></li>
-<li><img src="img/PSACylinderHeadDesign.png" width="620" height="320" alt="This PSA study by Agathe Forré et al. deals with the Thermal-Mechanical Fatigue design of automotive cylinder heads." /></li>
-<li>
-<video style="display:block; margin: 0 auto;" width="640" height="320" controls>
-<source src="media/DeepDrawing.mp4" type="video/mp4"> Your browser does
-not support the video tag. </video> </li>
-<li><img src="img/JUSM18_RDEGEILH_Fissuration_culasses.png" width="620" height="320" alt="Cylinder heads cracking of 900 MWe reactors back- up diesel generators" /></li>
-<li><img src="img/CalculiX_MFRONT_WSL.png" width="620" height="320" alt="CalculiX and MFront in the bConverged environment" /></li>
-<li><img src="img/VeRCoRs.png" width="620" height="320" alt="Simulation of the VeRCoRs mock-up of a nuclear building" /></li>
-<li><img src="img/AbaqusFLD.png" width="620" height="320" alt="Simulation of a Punching test" /></li>
-<li><img src="img/BrittleFracturePhaseField.png" width="620" height="320" alt="Phase field modelling of brittle fracture" /></li>
-<li><img src="img/FuelRod-ddif2.png" width="620" height="320" alt="Fuel pellet cracking" /></li>
-<li><img src="img/172_5pc.png" width="620" height="320" alt="Polycrystals computation" /></li>
-<li><img src="img/VoidsGrowth.png" width="620" height="320" alt="Void growth" /></li>
-<li><img src="img/AMITEX_FFTP_sig1.png" width="620" height="320" alt="Polycrystals computation based on FFT" /></li>
-<li><img src="img/hsnv125.png" width="620" height="320" alt="Unit testing of a Chaboche-like viscoplastic beahviour" /></li>
-</ul> <span class="arrow previous"></span> <span
-class="arrow next"></span></p>
+<div id="TOC">
+<ul>
+<li><a href="#issues-fixed" id="toc-issues-fixed"><span
+class="toc-section-number">1</span> Issues fixed</a>
+<ul>
+<li><a
+href="#issue-681-mfront-external-models-declared-by-model-are-evaluated-twice"
+id="toc-issue-681-mfront-external-models-declared-by-model-are-evaluated-twice"><span
+class="toc-section-number">1.1</span> Issue 681: [mfront] External
+models (declared by <code>@Model</code>) are evaluated twice</a></li>
+</ul></li>
+</ul>
 </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script src="js/slideshow.js"></script>
-<h1 id="overview">Overview</h1>
-<p><code>TFEL</code> is a collaborative development of <a
-href="http://www.cea.fr/english-portal"
-title="Commissariat à l&#39;énergie atomique">CEA</a> and <a
-href="http://www.edf.com/" title="Électricité de France">EDF</a>.</p>
-<p><code>MFront</code> is a code generator which translates a set of
-closely related domain specific languages into plain <a
-href="http://isocpp.org/">C++</a> on top of the <code>TFEL</code>
-library. Those languages cover three kinds of material knowledge:</p>
-<ul>
-<li><a href="material-properties.html">material properties</a> (for
-instance the Young’s modulus, the thermal conductivity, etc.)</li>
-<li><a href="behaviours.html">mechanical behaviours</a>. Numerical
-performance of generated mechanical behaviours were given a particular
-attention. <a href="benchmarks.html">Various benchmarks</a> show that
-<code>MFront</code> implementations are competitive with native
-implementations available in the <code>Cast3M</code>,
-<code>Code-Aster</code>, <code>Abaqus Standard</code> and
-<code>Cyrano3</code> solvers.</li>
-<li><a href="models.html">simple point-wise models</a>, such as material
-swelling used in fuel performance codes.</li>
-</ul>
-<p>A set of interfaces are provided for various solvers:</p>
-<ul>
-<li>the <a href="http://www-cast3m.cea.fr"><code>Cast3M</code></a>
-finite element solver. This interface is described <a
-href="castem.html">here</a>.</li>
-<li>the <a href="http://www.code-aster.org"><code>Code_Aster</code></a>
-finite element solver. This interface is described <a
-href="aster.html">here</a></li>
-<li>the <a
-href="http://europlexus.jrc.ec.europa.eu/"><code>Europlexus</code></a>
-finite element solver. This interface is described <a
-href="epx.html">here</a></li>
-<li>the <a
-href="http://www.3ds.com/products-services/simulia/products/abaqus/abaqusstandard/"><code>Abaqus Standard</code></a>
-finite element solver. This interface is described <a
-href="abaqus.html">here</a>.</li>
-<li>the <a
-href="http://www.3ds.com/products-services/simulia/products/abaqus/abaqusexplicit/"><code>Abaqus Explicit</code></a>
-finite element solver. This interface is described <a
-href="abaqus.html">here</a>.</li>
-<li>the <a href="http://www.calculix.de/"><code>CalculiX</code></a>
-finite element solver. This interface is described <a
-href="calculix.html">here</a>.</li>
-<li>the <a
-href="https://www.ansys.com/"><code>ANSYS Mechanical APDL</code></a>
-finite element solver. This interface is described <a
-href="ansys.html">here</a>.</li>
-<li>the <a
-href="http://www.zset-software.com/products/zebulon"><code>ZeBuLoN</code></a>
-finite element solver. This interface is described <a
-href="zmat.html">here</a>.</li>
-<li>the <code>TMFFT</code> and the <a
-href="https://amitexfftp.github.io/AMITEX/"><code>AMITEX_FFTP</code></a>
-Fast Fourier Transform solvers developed internally at <a
-href="http://www.cea.fr/english-portal"
-title="Commissariat à l&#39;énergie atomique">CEA</a>. Note that <a
-href="http://www.maisondelasimulation.fr/projects/amitex/html/"><code>AMITEX_FFTP</code></a>
-is distributed under a free license for research and education purpose.
-Those solvers reuse the interface developed for the <a
-href="http://www-cast3m.cea.fr"><code>Cast3M</code></a> finite element
-solver.</li>
-</ul>
-<p>For material properties, various interfaces are also provided and
-cover the following languages: <code>C</code>, <code>C++</code>,
-<code>python</code>, <code>fortran</code>, etc.</p>
-<h1 id="history">History</h1>
-<ul>
-<li>Versions prior to 0.1 were developed by T. Helfer as an independent
-project.</li>
-<li>Starting with version 1.0, TFEL was developed as a sub-project of
-the PLEIADES platform.</li>
-<li>Versions higher than 2.0 are open-source and distributed under the
-<a href="https://gnu.org/licenses/gpl.html"
-title="GNU General Public License">GPL</a> license.</li>
-</ul>
-<!-- Local IspellDict: english -->
+<p>The page describes the new functionalities of Version 4.1.4 of the
+<code>TFEL</code> project.</p>
+<h1 data-number="1" id="issues-fixed"><span
+class="header-section-number">1</span> Issues fixed</h1>
+<h2 data-number="1.1"
+id="issue-681-mfront-external-models-declared-by-model-are-evaluated-twice"><span
+class="header-section-number">1.1</span> Issue 681: [mfront] External
+models (declared by <code>@Model</code>) are evaluated twice</h2>
+<p>For more details, see
+&lt;https://github.com/thelfer/tfel/issues/681.</p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -221,6 +221,7 @@
 		    <li><a href="release-notes-4.1.1.html">Version 4.1.1</a></li>
 		    <li><a href="release-notes-4.1.2.html">Version 4.1.2</a></li>
 		    <li><a href="release-notes-4.1.3.html">Version 4.1.3</a></li>
+		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -363,7 +364,8 @@ class="toc-section-number">2</span> New features in the
 <ul>
 <li><a href="#environment" id="toc-environment"><span
 class="toc-section-number">2.1</span> Environment</a></li>
-<li><a href="#tfel-config" id="toc-tfel-config"><span
+<li><a href="#sec:tfel_5.1:tfel_config"
+id="toc-sec:tfel_5.1:tfel_config"><span
 class="toc-section-number">2.2</span> <code>tfel-config</code></a></li>
 <li><a href="#python-bindings" id="toc-python-bindings"><span
 class="toc-section-number">2.3</span> Python bindings</a></li>
@@ -394,55 +396,73 @@ class="toc-section-number">4</span> New features in
 id="toc-new-command-line-arguments-1"><span
 class="toc-section-number">4.1</span> New command line
 arguments</a></li>
+<li><a href="#new-keywords" id="toc-new-keywords"><span
+class="toc-section-number">4.2</span> New keywords</a></li>
 </ul></li>
 <li><a href="#issues-fixed" id="toc-issues-fixed"><span
 class="toc-section-number">5</span> Issues fixed</a>
 <ul>
+<li><a
+href="#issue-685-tfel-config-add-support-for-tfelconfig-tfelmfront-and-tfelmtest"
+id="toc-issue-685-tfel-config-add-support-for-tfelconfig-tfelmfront-and-tfelmtest"><span
+class="toc-section-number">5.1</span> Issue 685: [tfel-config] Add
+support for <code>TFELConfig</code>, <code>TFELMFront</code> and
+<code>TFELMTest</code></a></li>
+<li><a
+href="#issue-684-mfront-add-support-for-includes-link-and-tfellibraries-to-the-model-dsl"
+id="toc-issue-684-mfront-add-support-for-includes-link-and-tfellibraries-to-the-model-dsl"><span
+class="toc-section-number">5.2</span> Issue 684: [mfront] Add support
+for <code>@Includes</code>, <code>@Link</code> and
+<code>@TFELLibraries</code> to the `Model DSL</a></li>
+<li><a href="#issue-683-using-tfel-librairies-in-material-properties"
+id="toc-issue-683-using-tfel-librairies-in-material-properties"><span
+class="toc-section-number">5.3</span> Issue 683: Using <code>TFEL</code>
+librairies in material properties</a></li>
 <li><a href="#issue-677tfel-config-add-a-python-module-suffix-option"
 id="toc-issue-677tfel-config-add-a-python-module-suffix-option"><span
-class="toc-section-number">5.1</span> Issue 677:[tfel-config] add a
+class="toc-section-number">5.4</span> Issue 677:[tfel-config] add a
 python-module-suffix option</a></li>
 <li><a
 href="#issue-676-always-prefer-the-versioned-tfelhome-environment-variable"
 id="toc-issue-676-always-prefer-the-versioned-tfelhome-environment-variable"><span
-class="toc-section-number">5.2</span> Issue 676: Always prefer the
+class="toc-section-number">5.5</span> Issue 676: Always prefer the
 versioned <code>TFELHOME</code> environment variable</a></li>
 <li><a
 href="#issue-674-python-bindings-add-option-to-disable-the-modication-of-the-names-of-python-modules-by-the-tfel_append_version-and-tfel_version_flavour"
 id="toc-issue-674-python-bindings-add-option-to-disable-the-modication-of-the-names-of-python-modules-by-the-tfel_append_version-and-tfel_version_flavour"><span
-class="toc-section-number">5.3</span> Issue 674: [python-bindings] Add
+class="toc-section-number">5.6</span> Issue 674: [python-bindings] Add
 option to disable the modication of the names of python modules by the
 <code>TFEL_APPEND_VERSION</code> and
 <code>TFEL_VERSION_FLAVOUR</code></a></li>
 <li><a
 href="#issue-673-tfel-config-add-the-ability-to-define-an-environment-variable-associated-with-the-tfels-version-and-flavour"
 id="toc-issue-673-tfel-config-add-the-ability-to-define-an-environment-variable-associated-with-the-tfels-version-and-flavour"><span
-class="toc-section-number">5.4</span> Issue 673: [tfel-config] Add the
+class="toc-section-number">5.7</span> Issue 673: [tfel-config] Add the
 ability to define an environment variable associated with the
 <code>TFEL</code>’s version and flavour</a></li>
 <li><a
 href="#issue-672-python-bindings-fix-python-modules-names-when-tfel_append_version-or-tfel_version_flavour-is-defined"
 id="toc-issue-672-python-bindings-fix-python-modules-names-when-tfel_append_version-or-tfel_version_flavour-is-defined"><span
-class="toc-section-number">5.5</span> Issue 672: python bindings fix
+class="toc-section-number">5.8</span> Issue 672: python bindings fix
 python modules names when <code>TFEL_APPEND_VERSION</code> or
 <code>TFEL_VERSION_FLAVOUR</code> is defined</a></li>
 <li><a
 href="#issue-667-reduce-the-size-of-files-paths-in-sources-to-fit-in-windowss-max_path-limit"
 id="toc-issue-667-reduce-the-size-of-files-paths-in-sources-to-fit-in-windowss-max_path-limit"><span
-class="toc-section-number">5.6</span> Issue 667: Reduce the size of
+class="toc-section-number">5.9</span> Issue 667: Reduce the size of
 files paths in sources to fit in <code>Windows</code>’s
 <code>MAX_PATH</code> limit</a></li>
 <li><a href="#issue-666-doc-add-contributing-file-remove-devel.md"
 id="toc-issue-666-doc-add-contributing-file-remove-devel.md"><span
-class="toc-section-number">5.7</span> Issue 666: [doc] Add CONTRIBUTING
+class="toc-section-number">5.10</span> Issue 666: [doc] Add CONTRIBUTING
 file, remove devel.md</a></li>
 <li><a href="#issue-654-add-powershell-environment-script"
 id="toc-issue-654-add-powershell-environment-script"><span
-class="toc-section-number">5.8</span> Issue 654: Add PowerShell
+class="toc-section-number">5.11</span> Issue 654: Add PowerShell
 environment script</a></li>
 <li><a href="#issue-294-python-bindings-evaluate-port-to-pybind"
 id="toc-issue-294-python-bindings-evaluate-port-to-pybind"><span
-class="toc-section-number">5.9</span> Issue 294: [python-bindings]
+class="toc-section-number">5.12</span> Issue 294: [python-bindings]
 Evaluate port to <code>pybind</code></a></li>
 </ul></li>
 </ul>
@@ -468,7 +488,7 @@ version has been compiled and the flavour (optionally specified with the
 <code>cmake</code> variable <code>TFEL_VERSION_FLAVOUR</code>). The name
 of this variable can be retrieved with the <code>--tfel-home</code>
 option of <code>tfel-config</code> described below.</p>
-<h2 data-number="2.2" id="tfel-config"><span
+<h2 data-number="2.2" id="sec:tfel_5.1:tfel_config"><span
 class="header-section-number">2.2</span> <code>tfel-config</code></h2>
 <h3 data-number="2.2.1" id="registry-key-option"><span
 class="header-section-number">2.2.1</span> <code>--registry-key</code>
@@ -499,8 +519,25 @@ to <code>ON</code> (the default value if <code>OFF</code>).</li>
 </ul>
 <p>The option <code>--python-module-suffix</code> is only available if
 the python bindings is available.</p>
-<h4 data-number="2.2.3.1" id="example-of-usage-1"><span
-class="header-section-number">2.2.3.1</span> Example of usage</h4>
+<h3 data-number="2.2.4" id="config"><span
+class="header-section-number">2.2.4</span> <code>--config</code></h3>
+<p>This option requests flags associated with the
+<code>TFELConfig</code> library.</p>
+<h3 data-number="2.2.5" id="mfront-log-stream"><span
+class="header-section-number">2.2.5</span>
+<code>--mfront-log-stream</code></h3>
+<p>This option requests flags associated with the
+<code>MFrontLogStream</code> library.</p>
+<h3 data-number="2.2.6" id="mfront"><span
+class="header-section-number">2.2.6</span> <code>--mfront</code></h3>
+<p>This option requests flags associated with the
+<code>TFELMFront</code> library.</p>
+<h3 data-number="2.2.7" id="mtest"><span
+class="header-section-number">2.2.7</span> <code>--mtest</code></h3>
+<p>This option requests flags associated with the <code>TFELMTest</code>
+library.</p>
+<h4 data-number="2.2.7.1" id="example-of-usage-1"><span
+class="header-section-number">2.2.7.1</span> Example of usage</h4>
 <pre><code>$ tfel-config-5.1.0-release --python-module-suffix
 5_1_0_release</code></pre>
 <h2 data-number="2.3" id="python-bindings"><span
@@ -662,73 +699,115 @@ errors (which is the default behaviour of
 <li><code>-Werror</code> is equivalent to
 <code>--warning-error=true</code>.</li>
 </ul>
+<h2 data-number="4.2" id="new-keywords"><span
+class="header-section-number">4.2</span> New keywords</h2>
+<h3 data-number="4.2.1" id="tfellibraries"><span
+class="header-section-number">4.2.1</span>
+<code>@TFELLibraries</code></h3>
+<p>The <code>@TFELLibraries</code> keyword let the user specify TFEL
+libraries to link with. This keyword must be followed by an array of
+strings.</p>
+<p>The following libraries are available: <code>Config</code>,
+<code>Exception</code>, <code>Glossary</code>, <code>Tests</code>,
+<code>UnicodeSupport</code>, <code>Utilities</code>,
+<code>System</code>, <code>Math</code>, <code>MathCubicSpline</code>,
+<code>MathKriging</code>, <code>MathParser</code>, <code>NUMODIS</code>,
+<code>Material</code>, <code>MFront</code>, <code>MTest</code>.</p>
+<h4 data-number="4.2.1.1" id="example-of-usage-2"><span
+class="header-section-number">4.2.1.1</span> Example of usage</h4>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TFELLibraries <span class="op">{</span><span class="st">&quot;MathParser&quot;</span><span class="op">};</span></span></code></pre></div>
 <h1 data-number="5" id="issues-fixed"><span
 class="header-section-number">5</span> Issues fixed</h1>
 <h2 data-number="5.1"
+id="issue-685-tfel-config-add-support-for-tfelconfig-tfelmfront-and-tfelmtest"><span
+class="header-section-number">5.1</span> Issue 685: [tfel-config] Add
+support for <code>TFELConfig</code>, <code>TFELMFront</code> and
+<code>TFELMTest</code></h2>
+<p>This feature is described in Section 2.2.</p>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/685"
+class="uri">https://github.com/thelfer/tfel/issues/685</a></p>
+<h2 data-number="5.2"
+id="issue-684-mfront-add-support-for-includes-link-and-tfellibraries-to-the-model-dsl"><span
+class="header-section-number">5.2</span> Issue 684: [mfront] Add support
+for <code>@Includes</code>, <code>@Link</code> and
+<code>@TFELLibraries</code> to the `Model DSL</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/684"
+class="uri">https://github.com/thelfer/tfel/issues/684</a></p>
+<h2 data-number="5.3"
+id="issue-683-using-tfel-librairies-in-material-properties"><span
+class="header-section-number">5.3</span> Issue 683: Using
+<code>TFEL</code> librairies in material properties</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/683"
+class="uri">https://github.com/thelfer/tfel/issues/683</a></p>
+<h2 data-number="5.4"
 id="issue-677tfel-config-add-a-python-module-suffix-option"><span
-class="header-section-number">5.1</span> Issue 677:[tfel-config] add a
+class="header-section-number">5.4</span> Issue 677:[tfel-config] add a
 python-module-suffix option</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/677"
 class="uri">https://github.com/thelfer/tfel/issues/677</a></p>
-<h2 data-number="5.2"
+<h2 data-number="5.5"
 id="issue-676-always-prefer-the-versioned-tfelhome-environment-variable"><span
-class="header-section-number">5.2</span> Issue 676: Always prefer the
+class="header-section-number">5.5</span> Issue 676: Always prefer the
 versioned <code>TFELHOME</code> environment variable</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/676"
 class="uri">https://github.com/thelfer/tfel/issues/676</a></p>
-<h2 data-number="5.3"
+<h2 data-number="5.6"
 id="issue-674-python-bindings-add-option-to-disable-the-modication-of-the-names-of-python-modules-by-the-tfel_append_version-and-tfel_version_flavour"><span
-class="header-section-number">5.3</span> Issue 674: [python-bindings]
+class="header-section-number">5.6</span> Issue 674: [python-bindings]
 Add option to disable the modication of the names of python modules by
 the <code>TFEL_APPEND_VERSION</code> and
 <code>TFEL_VERSION_FLAVOUR</code></h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/674"
 class="uri">https://github.com/thelfer/tfel/issues/674</a></p>
-<h2 data-number="5.4"
+<h2 data-number="5.7"
 id="issue-673-tfel-config-add-the-ability-to-define-an-environment-variable-associated-with-the-tfels-version-and-flavour"><span
-class="header-section-number">5.4</span> Issue 673: [tfel-config] Add
+class="header-section-number">5.7</span> Issue 673: [tfel-config] Add
 the ability to define an environment variable associated with the
 <code>TFEL</code>’s version and flavour</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/673"
 class="uri">https://github.com/thelfer/tfel/issues/673</a></p>
-<h2 data-number="5.5"
+<h2 data-number="5.8"
 id="issue-672-python-bindings-fix-python-modules-names-when-tfel_append_version-or-tfel_version_flavour-is-defined"><span
-class="header-section-number">5.5</span> Issue 672: <a
+class="header-section-number">5.8</span> Issue 672: <a
 href="#python-bindings">python bindings</a> fix python modules names
 when <code>TFEL_APPEND_VERSION</code> or
 <code>TFEL_VERSION_FLAVOUR</code> is defined</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/672"
 class="uri">https://github.com/thelfer/tfel/issues/672</a></p>
-<h2 data-number="5.6"
+<h2 data-number="5.9"
 id="issue-667-reduce-the-size-of-files-paths-in-sources-to-fit-in-windowss-max_path-limit"><span
-class="header-section-number">5.6</span> Issue 667: Reduce the size of
+class="header-section-number">5.9</span> Issue 667: Reduce the size of
 files paths in sources to fit in <code>Windows</code>’s
 <code>MAX_PATH</code> limit</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/667"
 class="uri">https://github.com/thelfer/tfel/issues/667</a></p>
-<h2 data-number="5.7"
+<h2 data-number="5.10"
 id="issue-666-doc-add-contributing-file-remove-devel.md"><span
-class="header-section-number">5.7</span> Issue 666: [doc] Add
+class="header-section-number">5.10</span> Issue 666: [doc] Add
 CONTRIBUTING file, remove devel.md</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/666"
 class="uri">https://github.com/thelfer/tfel/issues/666</a></p>
-<h2 data-number="5.8"
+<h2 data-number="5.11"
 id="issue-654-add-powershell-environment-script"><span
-class="header-section-number">5.8</span> Issue 654: Add PowerShell
+class="header-section-number">5.11</span> Issue 654: Add PowerShell
 environment script</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/654"
 class="uri">https://github.com/thelfer/tfel/issues/654</a></p>
-<h2 data-number="5.9"
+<h2 data-number="5.12"
 id="issue-294-python-bindings-evaluate-port-to-pybind"><span
-class="header-section-number">5.9</span> Issue 294: [python-bindings]
+class="header-section-number">5.12</span> Issue 294: [python-bindings]
 Evaluate port to <code>pybind</code></h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/293"

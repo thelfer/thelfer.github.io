@@ -144,6 +144,7 @@
 		    <li><a href="release-notes-3.0.12.html">Version 3.0.12</a></li>
 		    <li><a href="release-notes-3.0.13.html">Version 3.0.13</a></li>
 		    <li><a href="release-notes-3.0.14.html">Version 3.0.14</a></li>
+		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -180,6 +181,7 @@
 		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
 		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
 		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
+		    <li><a href="release-notes-3.2.12.html">Version 3.2.12</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.3.x</a>
@@ -204,6 +206,7 @@
 		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
 		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
+		    <li><a href="release-notes-3.4.8.html">Version 3.4.8</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -213,6 +216,7 @@
 		    <li><a href="release-notes-4.0.2.html">Version 4.0.2</a></li>
 		    <li><a href="release-notes-4.0.3.html">Version 4.0.3</a></li>
 		    <li><a href="release-notes-4.0.4.html">Version 4.0.4</a></li>
+		    <li><a href="release-notes-4.0.5.html">Version 4.0.5</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.1.x</a>
@@ -229,6 +233,7 @@
 		    <li><a href="release-notes-4.2.html">Version 4.2.0</a></li>
 		    <li><a href="release-notes-4.2.1.html">Version 4.2.1</a></li>
 		    <li><a href="release-notes-4.2.2.html">Version 4.2.2</a></li>
+		    <li><a href="release-notes-4.2.3.html">Version 4.2.3</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 5.0.x</a>
@@ -356,7 +361,11 @@
 <ul>
 <li><a href="#known-incompatibilities"
 id="toc-known-incompatibilities"><span
-class="toc-section-number">1</span> Known incompatibilities</a></li>
+class="toc-section-number">1</span> Known incompatibilities</a>
+<ul>
+<li><a href="#internal-api-changes" id="toc-internal-api-changes"><span
+class="toc-section-number">1.1</span> Internal API changes</a></li>
+</ul></li>
 <li><a href="#new-features-in-the-tfel-libraries"
 id="toc-new-features-in-the-tfel-libraries"><span
 class="toc-section-number">2</span> New features in the
@@ -367,102 +376,168 @@ class="toc-section-number">2.1</span> Environment</a></li>
 <li><a href="#sec:tfel_5.1:tfel_config"
 id="toc-sec:tfel_5.1:tfel_config"><span
 class="toc-section-number">2.2</span> <code>tfel-config</code></a></li>
+</ul></li>
+<li><a href="#new-tfelmaterial-features"
+id="toc-new-tfelmaterial-features"><span
+class="toc-section-number">3</span> New <code>TFEL/Material</code>
+features</a>
+<ul>
+<li><a href="#homogenization" id="toc-homogenization"><span
+class="toc-section-number">3.1</span> Homogenization</a></li>
 <li><a href="#python-bindings" id="toc-python-bindings"><span
-class="toc-section-number">2.3</span> Python bindings</a></li>
+class="toc-section-number">3.2</span> Python bindings</a></li>
 </ul></li>
 <li><a href="#new-features-in-mfront"
 id="toc-new-features-in-mfront"><span
-class="toc-section-number">3</span> New features in
+class="toc-section-number">4</span> New features in
 <code>MFront</code></a>
 <ul>
 <li><a href="#warnings" id="toc-warnings"><span
-class="toc-section-number">3.1</span> Warnings</a></li>
+class="toc-section-number">4.1</span> Warnings</a></li>
 <li><a
 href="#calling-an-external-behaviour-the-behaviourvariable-keyword"
 id="toc-calling-an-external-behaviour-the-behaviourvariable-keyword"><span
-class="toc-section-number">3.2</span> Calling an external behaviour: the
+class="toc-section-number">4.2</span> Calling an external behaviour: the
 <code>@BehaviourVariable</code> keyword</a></li>
 <li><a href="#new-command-line-arguments"
 id="toc-new-command-line-arguments"><span
-class="toc-section-number">3.3</span> New command line
+class="toc-section-number">4.3</span> New command line
 arguments</a></li>
+<li><a href="#new-features-in-isotropic-dsls"
+id="toc-new-features-in-isotropic-dsls"><span
+class="toc-section-number">4.4</span> New features in isotropic
+DSLs</a></li>
 </ul></li>
 <li><a href="#new-features-in-mfront-query"
 id="toc-new-features-in-mfront-query"><span
-class="toc-section-number">4</span> New features in
+class="toc-section-number">5</span> New features in
 <code>mfront-query</code></a>
 <ul>
 <li><a href="#new-command-line-arguments-1"
 id="toc-new-command-line-arguments-1"><span
-class="toc-section-number">4.1</span> New command line
+class="toc-section-number">5.1</span> New command line
 arguments</a></li>
 <li><a href="#new-keywords" id="toc-new-keywords"><span
-class="toc-section-number">4.2</span> New keywords</a></li>
+class="toc-section-number">5.2</span> New keywords</a></li>
 </ul></li>
 <li><a href="#issues-fixed" id="toc-issues-fixed"><span
-class="toc-section-number">5</span> Issues fixed</a>
+class="toc-section-number">6</span> Issues fixed</a>
 <ul>
+<li><a
+href="#issue-661-mfront-allow-to-use-isotropic-hardening-rules-in-isotropic-dsls"
+id="toc-issue-661-mfront-allow-to-use-isotropic-hardening-rules-in-isotropic-dsls"><span
+class="toc-section-number">6.1</span> Issue 661: [mfront] Allow to use
+isotropic hardening rules in isotropic DSLs</a></li>
+<li><a
+href="#issue-702-mfront-add-a-warning-if-an-auxiliary-state-variable-not-computed-by-an-external-point-wise-model-is-used-in-a-flowrule-block-in-isotropic-dsls"
+id="toc-issue-702-mfront-add-a-warning-if-an-auxiliary-state-variable-not-computed-by-an-external-point-wise-model-is-used-in-a-flowrule-block-in-isotropic-dsls"><span
+class="toc-section-number">6.2</span> Issue 702: [mfront] Add a warning
+if an auxiliary state variable not computed by an external point-wise
+model is used in a <code>@FlowRule</code> block in isotropic
+DSLs</a></li>
+<li><a
+href="#issue-696-calculix-interface-add-support-for-the-generatemtestfileonfailure-keyword"
+id="toc-issue-696-calculix-interface-add-support-for-the-generatemtestfileonfailure-keyword"><span
+class="toc-section-number">6.3</span> Issue #696: [calculix-interface]
+add support for the <code>@GenerateMTestFileOnFailure</code>
+keyword</a></li>
+<li><a
+href="#issue-695-aster-interface-add-support-for-the-generatemtestfileonfailure-keyword"
+id="toc-issue-695-aster-interface-add-support-for-the-generatemtestfileonfailure-keyword"><span
+class="toc-section-number">6.4</span> Issue #695: [aster-interface] add
+support for the <code>@GenerateMTestFileOnFailure</code>
+keyword</a></li>
+<li><a
+href="#issue-694-ansys-interface-add-support-for-the-generatemtestfileonfailure-keyword"
+id="toc-issue-694-ansys-interface-add-support-for-the-generatemtestfileonfailure-keyword"><span
+class="toc-section-number">6.5</span> Issue #694: [ansys-interface] add
+support for the <code>@GenerateMTestFileOnFailure</code>
+keyword</a></li>
+<li><a
+href="#issue-692-mfront-add-warning-when-interface-specific-keywords-are-not-restricted-to-the-corresponding-interface"
+id="toc-issue-692-mfront-add-warning-when-interface-specific-keywords-are-not-restricted-to-the-corresponding-interface"><span
+class="toc-section-number">6.6</span> Issue #692: [mfront] add warning
+when interface specific keywords are not restricted to the corresponding
+interface</a></li>
+<li><a
+href="#issue-690-castem-add-a-warning-when-the-maximum-number-of-sub-steppings-is-too-high"
+id="toc-issue-690-castem-add-a-warning-when-the-maximum-number-of-sub-steppings-is-too-high"><span
+class="toc-section-number">6.7</span> Issue #690: [castem] Add a warning
+when the maximum number of sub steppings is too high</a></li>
+<li><a
+href="#issue-689-implicit-dsl-add-warning-when-using-auxiliary-state-variables-not-computed-by-external-point-wise-models-in-computestress-and-computefinalstress"
+id="toc-issue-689-implicit-dsl-add-warning-when-using-auxiliary-state-variables-not-computed-by-external-point-wise-models-in-computestress-and-computefinalstress"><span
+class="toc-section-number">6.8</span> Issue #689: [implicit-dsl] Add
+warning when using auxiliary state variables (not computed by external
+point-wise models) in <code>@ComputeStress</code> and
+<code>@ComputeFinalStress</code></a></li>
 <li><a
 href="#issue-685-tfel-config-add-support-for-tfelconfig-tfelmfront-and-tfelmtest"
 id="toc-issue-685-tfel-config-add-support-for-tfelconfig-tfelmfront-and-tfelmtest"><span
-class="toc-section-number">5.1</span> Issue 685: [tfel-config] Add
+class="toc-section-number">6.9</span> Issue 685: [tfel-config] Add
 support for <code>TFELConfig</code>, <code>TFELMFront</code> and
 <code>TFELMTest</code></a></li>
 <li><a
 href="#issue-684-mfront-add-support-for-includes-link-and-tfellibraries-to-the-model-dsl"
 id="toc-issue-684-mfront-add-support-for-includes-link-and-tfellibraries-to-the-model-dsl"><span
-class="toc-section-number">5.2</span> Issue 684: [mfront] Add support
+class="toc-section-number">6.10</span> Issue 684: [mfront] Add support
 for <code>@Includes</code>, <code>@Link</code> and
 <code>@TFELLibraries</code> to the `Model DSL</a></li>
 <li><a href="#issue-683-using-tfel-librairies-in-material-properties"
 id="toc-issue-683-using-tfel-librairies-in-material-properties"><span
-class="toc-section-number">5.3</span> Issue 683: Using <code>TFEL</code>
-librairies in material properties</a></li>
+class="toc-section-number">6.11</span> Issue 683: Using
+<code>TFEL</code> librairies in material properties</a></li>
 <li><a href="#issue-677tfel-config-add-a-python-module-suffix-option"
 id="toc-issue-677tfel-config-add-a-python-module-suffix-option"><span
-class="toc-section-number">5.4</span> Issue 677:[tfel-config] add a
+class="toc-section-number">6.12</span> Issue 677:[tfel-config] add a
 python-module-suffix option</a></li>
 <li><a
 href="#issue-676-always-prefer-the-versioned-tfelhome-environment-variable"
 id="toc-issue-676-always-prefer-the-versioned-tfelhome-environment-variable"><span
-class="toc-section-number">5.5</span> Issue 676: Always prefer the
+class="toc-section-number">6.13</span> Issue 676: Always prefer the
 versioned <code>TFELHOME</code> environment variable</a></li>
 <li><a
 href="#issue-674-python-bindings-add-option-to-disable-the-modication-of-the-names-of-python-modules-by-the-tfel_append_version-and-tfel_version_flavour"
 id="toc-issue-674-python-bindings-add-option-to-disable-the-modication-of-the-names-of-python-modules-by-the-tfel_append_version-and-tfel_version_flavour"><span
-class="toc-section-number">5.6</span> Issue 674: [python-bindings] Add
+class="toc-section-number">6.14</span> Issue 674: [python-bindings] Add
 option to disable the modication of the names of python modules by the
 <code>TFEL_APPEND_VERSION</code> and
 <code>TFEL_VERSION_FLAVOUR</code></a></li>
 <li><a
 href="#issue-673-tfel-config-add-the-ability-to-define-an-environment-variable-associated-with-the-tfels-version-and-flavour"
 id="toc-issue-673-tfel-config-add-the-ability-to-define-an-environment-variable-associated-with-the-tfels-version-and-flavour"><span
-class="toc-section-number">5.7</span> Issue 673: [tfel-config] Add the
+class="toc-section-number">6.15</span> Issue 673: [tfel-config] Add the
 ability to define an environment variable associated with the
 <code>TFEL</code>’s version and flavour</a></li>
 <li><a
 href="#issue-672-python-bindings-fix-python-modules-names-when-tfel_append_version-or-tfel_version_flavour-is-defined"
 id="toc-issue-672-python-bindings-fix-python-modules-names-when-tfel_append_version-or-tfel_version_flavour-is-defined"><span
-class="toc-section-number">5.8</span> Issue 672: python bindings fix
+class="toc-section-number">6.16</span> Issue 672: python bindings fix
 python modules names when <code>TFEL_APPEND_VERSION</code> or
 <code>TFEL_VERSION_FLAVOUR</code> is defined</a></li>
 <li><a
 href="#issue-667-reduce-the-size-of-files-paths-in-sources-to-fit-in-windowss-max_path-limit"
 id="toc-issue-667-reduce-the-size-of-files-paths-in-sources-to-fit-in-windowss-max_path-limit"><span
-class="toc-section-number">5.9</span> Issue 667: Reduce the size of
+class="toc-section-number">6.17</span> Issue 667: Reduce the size of
 files paths in sources to fit in <code>Windows</code>’s
 <code>MAX_PATH</code> limit</a></li>
 <li><a href="#issue-666-doc-add-contributing-file-remove-devel.md"
 id="toc-issue-666-doc-add-contributing-file-remove-devel.md"><span
-class="toc-section-number">5.10</span> Issue 666: [doc] Add CONTRIBUTING
+class="toc-section-number">6.18</span> Issue 666: [doc] Add CONTRIBUTING
 file, remove devel.md</a></li>
 <li><a href="#issue-654-add-powershell-environment-script"
 id="toc-issue-654-add-powershell-environment-script"><span
-class="toc-section-number">5.11</span> Issue 654: Add PowerShell
+class="toc-section-number">6.19</span> Issue 654: Add PowerShell
 environment script</a></li>
+<li><a
+href="#issue-640-mfront-only-point-wise-models-defined-by-model-dsl-can-be-embedded-in-behaviours-using-the-model-keyword"
+id="toc-issue-640-mfront-only-point-wise-models-defined-by-model-dsl-can-be-embedded-in-behaviours-using-the-model-keyword"><span
+class="toc-section-number">6.20</span> Issue 640: [mfront] Only
+point-wise models defined by <code>Model</code> DSL can be embedded in
+behaviours using the <code>@Model</code> keyword</a></li>
 <li><a href="#issue-294-python-bindings-evaluate-port-to-pybind"
 id="toc-issue-294-python-bindings-evaluate-port-to-pybind"><span
-class="toc-section-number">5.12</span> Issue 294: [python-bindings]
+class="toc-section-number">6.21</span> Issue 294: [python-bindings]
 Evaluate port to <code>pybind</code></a></li>
 </ul></li>
 </ul>
@@ -475,6 +550,13 @@ class="header-section-number">1</span> Known incompatibilities</h1>
 now modified to reflect those information. This old behaviour can be
 restored by setting the <code>unversioned-python-module-names</code>
 option to <code>ON</code>.</p>
+<h2 data-number="1.1" id="internal-api-changes"><span
+class="header-section-number">1.1</span> Internal API changes</h2>
+<p><code>IsotropicHardeningRule::computeElasticLimitAndDerivative</code>
+now returns the derivative of the elastic limit (computed at the middle
+of the time step) with respect to the equivalent plastic strain at the
+middle of the time step rather than the derivative with respect to the
+increment of the equivalent plastic strain.</p>
 <h1 data-number="2" id="new-features-in-the-tfel-libraries"><span
 class="header-section-number">2</span> New features in the
 <code>TFEL</code> libraries</h1>
@@ -503,8 +585,8 @@ option</h3>
 in which the TFEL’s installation path shall be defined.</p>
 <h4 data-number="2.2.2.1" id="example-of-usage"><span
 class="header-section-number">2.2.2.1</span> Example of usage</h4>
-<pre><code>$ tfel-config-5.2.0-dev-release --tfel-home
-TFELHOME_5_2_0_dev_release</code></pre>
+<pre><code>$ tfel-config-5.1.0-dev-release --tfel-home
+TFELHOME_5_1_0_dev_release</code></pre>
 <h3 data-number="2.2.3" id="python-module-suffix-option"><span
 class="header-section-number">2.2.3</span>
 <code>--python-module-suffix</code> option</h3>
@@ -540,13 +622,36 @@ library.</p>
 class="header-section-number">2.2.7.1</span> Example of usage</h4>
 <pre><code>$ tfel-config-5.1.0-release --python-module-suffix
 5_1_0_release</code></pre>
-<h2 data-number="2.3" id="python-bindings"><span
-class="header-section-number">2.3</span> Python bindings</h2>
+<h1 data-number="3" id="new-tfelmaterial-features"><span
+class="header-section-number">3</span> New <code>TFEL/Material</code>
+features</h1>
+<h2 data-number="3.1" id="homogenization"><span
+class="header-section-number">3.1</span> Homogenization</h2>
+<h3 data-number="3.1.1"
+id="ellipsoidal-inclusion-embedded-in-anisotropic-matrix"><span
+class="header-section-number">3.1.1</span> Ellipsoidal inclusion
+embedded in anisotropic matrix</h3>
+<p>When <span class="math inline">\(\tenseur C_0\)</span> is
+anisotropic, the Eshelby tensor can be computed with
+<code>computeAnisotropicEshelbyTensor</code> in 3D and
+<code>computePlainStrainAnisotropicEshelbyTensor</code> in 2D. There are
+also <code>computeAnisotropicHillTensor</code>,
+<code>computePlainStrainAnisotropicHillTensor</code>, and also
+<code>computeAnisotropicLocalisationTensor</code> and
+<code>computePlainStrainAnisotropicLocalisationTensor</code>.</p>
+<h3 data-number="3.1.2" id="homogenization-bounds"><span
+class="header-section-number">3.1.2</span> Homogenization bounds</h3>
+<p>Different homogenization bounds are implemented. The available
+functions are <code>computeVoigtStiffness</code>,
+<code>computeReussStiffness</code>,
+<code>computeIsotropicHashinShtrikmanBounds</code>.</p>
+<h2 data-number="3.2" id="python-bindings"><span
+class="header-section-number">3.2</span> Python bindings</h2>
 <p>Python bindings are now generated using the <a
 href="https://github.com/pybind/pybind11"><code>pybind11</code></a>
 library.</p>
-<h1 data-number="3" id="new-features-in-mfront"><span
-class="header-section-number">3</span> New features in
+<h1 data-number="4" id="new-features-in-mfront"><span
+class="header-section-number">4</span> New features in
 <code>MFront</code></h1>
 <p>This version introduces the following main features in
 <code>MFront</code>:</p>
@@ -554,12 +659,12 @@ class="header-section-number">3</span> New features in
 <li>warnings on potential misuses or known bad practices,</li>
 <li>the ability to call other behaviour from a behaviour.</li>
 </ul>
-<h2 data-number="3.1" id="warnings"><span
-class="header-section-number">3.1</span> Warnings</h2>
+<h2 data-number="4.1" id="warnings"><span
+class="header-section-number">4.1</span> Warnings</h2>
 <p>Many warnings have been added to detect potential misuses of
 <code>MFront</code> or known bad practices.</p>
-<h3 data-number="3.1.1" id="activating-and-desactivating-warnings"><span
-class="header-section-number">3.1.1</span> Activating and desactivating
+<h3 data-number="4.1.1" id="activating-and-desactivating-warnings"><span
+class="header-section-number">4.1.1</span> Activating and desactivating
 warnings</h3>
 <p>Reporting warnings is activated by default and can be disabled by
 passing the command line argument <code>--report-warnings=false</code>
@@ -576,15 +681,24 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#c
 <code>--ignore-safe</code> command line argument to <code>MFront</code>.
 This argument is useful when analysing an existing file (written by
 another person) to question implementation choices.</p>
-<h3 data-number="3.1.2" id="warnings-added-to-all-dsls"><span
-class="header-section-number">3.1.2</span> Warnings added to all
+<h3 data-number="4.1.2" id="warnings-added-to-all-dsls"><span
+class="header-section-number">4.1.2</span> Warnings added to all
 DSLs</h3>
-<h3 data-number="3.1.3" id="warnings-added-to-isotropic-dsls"><span
-class="header-section-number">3.1.3</span> Warnings added to isotropic
+<h3 data-number="4.1.3" id="warnings-added-to-isotropic-dsls"><span
+class="header-section-number">4.1.3</span> Warnings added to isotropic
 DSLs</h3>
-<h4 data-number="3.1.3.1"
+<h4 data-number="4.1.3.1"
+id="warnings-related-to-the-convergence-threshold"><span
+class="header-section-number">4.1.3.1</span> Warnings related to the
+convergence threshold</h4>
+<ul>
+<li>using the default value of the convergence threshold</li>
+<li>specifying a value of the convergence threshold too low</li>
+<li>specifying a value of the convergence threshold too high</li>
+</ul>
+<h4 data-number="4.1.3.2"
 id="warnings-related-to-the-implementation-of-the-flow-rules"><span
-class="header-section-number">3.1.3.1</span> Warnings related to the
+class="header-section-number">4.1.3.2</span> Warnings related to the
 implementation of the flow rule(s)</h4>
 <p>A warning is reported if the implementation of the flow rule(s)
 contains:</p>
@@ -594,46 +708,98 @@ contains:</p>
 <li>the strain increment <code>deto</code>,</li>
 <li>the stress <code>sig</code>,</li>
 <li>the <code>theta</code> parameter,</li>
-<li>the increment of the external state variable.</li>
+<li>the increment of the external state variable,</li>
+<li>an auxiliary state variable not computed by an external point-wise
+model (see the <code>@Model</code> keyword).</li>
 </ul>
-<h4 data-number="3.1.3.2"
-id="warnings-related-to-the-convergence-threshold"><span
-class="header-section-number">3.1.3.2</span> Warnings related to the
-convergence threshold</h4>
-<ul>
-<li>using the default value of the convergence threshold</li>
-<li>specifying a value of the convergence threshold too low</li>
-<li>specifying a value of the convergence threshold too high</li>
-</ul>
-<h3 data-number="3.1.4" id="warnings-added-to-implicit-dsls"><span
-class="header-section-number">3.1.4</span> Warnings added to implicit
-DSLs</h3>
-<h4 data-number="3.1.4.1"
+<h4 data-number="4.1.3.3"
 id="warnings-related-to-the-convergence-threshold-1"><span
-class="header-section-number">3.1.4.1</span> Warnings related to the
+class="header-section-number">4.1.3.3</span> Warnings related to the
 convergence threshold</h4>
 <ul>
 <li>using the default value of the convergence threshold</li>
 <li>specifying a value of the convergence threshold too low</li>
 <li>specifying a value of the convergence threshold too high</li>
 </ul>
-<h4 data-number="3.1.4.2"
+<h3 data-number="4.1.4" id="warnings-added-to-implicit-dsls"><span
+class="header-section-number">4.1.4</span> Warnings added to implicit
+DSLs</h3>
+<h4 data-number="4.1.4.1"
+id="warnings-related-to-the-convergence-threshold-2"><span
+class="header-section-number">4.1.4.1</span> Warnings related to the
+convergence threshold</h4>
+<ul>
+<li>using the default value of the convergence threshold</li>
+<li>specifying a value of the convergence threshold too low</li>
+<li>specifying a value of the convergence threshold too high</li>
+</ul>
+<h4 data-number="4.1.4.2"
+id="warnings-related-to-the-computation-of-the-thermodynamic-forces"><span
+class="header-section-number">4.1.4.2</span> Warnings related to the
+computation of the thermodynamic forces</h4>
+<ul>
+<li>using the <span class="math inline">\(\theta\)</span>
+(i.e. <code>theta</code>) or the <code>iterMax</code> parameter.</li>
+<li>using the time increment <span class="math inline">\(\Delta\,
+t\)</span>.</li>
+<li>using the increment of a gradient, integration variable or external
+state variable, or the increment of an auxiliary state variable computed
+by a point-wise model (see the <code>@Model</code> keyword).</li>
+<li>using an auxiliary state variable which is not computed by a
+point-wise model.</li>
+</ul>
+<h3 data-number="4.1.5" id="warnings-added-to-interfaces"><span
+class="header-section-number">4.1.5</span> Warnings added to
+interfaces</h3>
+<h4 data-number="4.1.5.1"
+id="warnings-added-to-the-cast3m-interface"><span
+class="header-section-number">4.1.5.1</span> Warnings added to the
+<code>Cast3M</code> interface</h4>
+<ul>
+<li>using a maximum number of substepping greater than 3.</li>
+<li>not restricting the following keywords to the <code>Cast3M</code>
+interface, which is a portability issue as the behaviour can’t be
+compiled with other interfaces:
+<code>@CastemGenerateMTestFileOnFailure</code>,
+<code>@UMATGenerateMTestFileOnFailure</code>,
+<code>@CastemUseTimeSubStepping</code>,
+<code>@UMATUseTimeSubStepping</code>,
+<code>@CastemMaximumSubStepping</code>,
+<code>@UMATMaximumSubStepping</code>,
+<code>@CastemDoSubSteppingOnInvalidResults</code>,
+<code>@UMATDoSubSteppingOnInvalidResults</code>,
+<code>@CastemFiniteStrainStrategy</code>,
+<code>@UMATFiniteStrainStrategy</code>,
+<code>@CastemFiniteStrainStrategies</code> and
+<code>@UMATFiniteStrainStrategies</code>.</li>
+</ul>
+<h4 data-number="4.1.5.2"
+id="warnings-added-to-the-generic-interface"><span
+class="header-section-number">4.1.5.2</span> Warnings added to the
+<code>generic</code> interface</h4>
+<ul>
+<li>not restricting the keyword
+<code>@GenericInterfaceGenerateMTestFileOnFailure</code> to the
+<code>generic</code> interface, which is a portability issue as the
+behaviour can’t be compiled with other interfaces.</li>
+</ul>
+<h4 data-number="4.1.5.3"
 id="warnings-related-to-the-perturbation-value-used-to-compute-a-numerical-approximation-of-the-jacobian"><span
-class="header-section-number">3.1.4.2</span> Warnings related to the
+class="header-section-number">4.1.5.3</span> Warnings related to the
 perturbation value used to compute a numerical approximation of the
 jacobian</h4>
-<h4 data-number="3.1.4.3"
-id="warnings-related-to-the-convergence-threshold-2"><span
-class="header-section-number">3.1.4.3</span> Warnings related to the
+<h4 data-number="4.1.5.4"
+id="warnings-related-to-the-convergence-threshold-3"><span
+class="header-section-number">4.1.5.4</span> Warnings related to the
 convergence threshold</h4>
 <ul>
 <li>using the default value</li>
 <li>specifying a value too low</li>
 <li>specifying a value too high</li>
 </ul>
-<h2 data-number="3.2"
+<h2 data-number="4.2"
 id="calling-an-external-behaviour-the-behaviourvariable-keyword"><span
-class="header-section-number">3.2</span> Calling an external behaviour:
+class="header-section-number">4.2</span> Calling an external behaviour:
 the <code>@BehaviourVariable</code> keyword</h2>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>BehaviourVariable first_phase_plastic_behaviour <span class="op">{</span></span>
@@ -645,8 +811,33 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#c
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  shared_material_properties<span class="op">:</span> <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">},</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  shared_external_state_variables<span class="op">:</span> <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">}</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<h2 data-number="3.3" id="new-command-line-arguments"><span
-class="header-section-number">3.3</span> New command line arguments</h2>
+<h3 data-number="4.2.1" id="behaviour-variable-factories"><span
+class="header-section-number">4.2.1</span> Behaviour variable
+factories</h3>
+<h3 data-number="4.2.2" id="extension-of-the-model-keyword"><span
+class="header-section-number">4.2.2</span> Extension of the
+<code>@Model</code> keyword</h3>
+<p>In previous versions, the <code>@Model</code> keyword allowed to call
+from a behaviour point-wise models using the historical
+<code>Model</code> DSL.</p>
+<p>The <code>@Model</code> keyword now allows to use point-wise models
+implemented using the following DSLs: <code>DefaultModel</code>,
+<code>RungeKuttaModel</code> and <code>ImplicitModel</code>. In this
+case, a behaviour variable factory is automatically associated with the
+point-wise models which shares all its material properties and external
+state variables with the calling behaviour. Every persistent variables
+of the point-wise model are declared as auxiliary state variables. For
+each persistent variable of the point-wise model, a local variable meant
+to contain the increment of this variable over the time step is
+declared.</p>
+<p>Point-wise models are called at the initialization stage of the
+behaviour. The auxiliary state variables associated with the point-wise
+models are updated at beginning of the
+<code>updateAuxiliarySateVariables</code> method <strong>before</strong>
+any user defined code (see the
+<code>@UpdateAuxiliaryStateVariables</code> keyword).</p>
+<h2 data-number="4.3" id="new-command-line-arguments"><span
+class="header-section-number">4.3</span> New command line arguments</h2>
 <p>The following command line arguments are now supported:</p>
 <ul>
 <li><code>--report-warnings</code>: this command line argument enables
@@ -671,11 +862,55 @@ errors (which is the default behaviour of <code>MFront</code>).</li>
 <li><code>-ignore-safe</code> allows to ignore the <code>safe</code>
 option of keywords and code blocks.</li>
 </ul>
-<h1 data-number="4" id="new-features-in-mfront-query"><span
-class="header-section-number">4</span> New features in
+<h2 data-number="4.4" id="new-features-in-isotropic-dsls"><span
+class="header-section-number">4.4</span> New features in isotropic
+DSLs</h2>
+<h3 data-number="4.4.1" id="predefined-isotropic-hardening-rules"><span
+class="header-section-number">4.4.1</span> Predefined isotropic
+hardening rules</h3>
+<p>The <code>@IsotropicHardeningRule</code> and
+<code>@IsotropicHardeningRules</code> allow to use the isotropic
+hardening rules available in the <a
+href="StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code>
+brick</a>.</p>
+<h4 data-number="4.4.1.1" id="example-of-usage-2"><span
+class="header-section-number">4.4.1.1</span> Example of usage</h4>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IsotropicHardeningRule <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>flow_id <span class="op">:</span> <span class="dv">0</span><span class="op">,</span> R0 <span class="op">:</span> <span class="fl">125e6</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="fl">500e6</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">20</span><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IsotropicHardeningRules<span class="op">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  flow_id <span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">125e6</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="fl">500e6</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">20</span><span class="op">},</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">50e6</span><span class="op">}</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h4 data-number="4.4.1.2"
+id="automatic-declaration-of-the-flow-rule-in-the-isotropicplasticmisesflow-dsl"><span
+class="header-section-number">4.4.1.2</span> Automatic declaration of
+the flow rule in the <code>IsotropicPlasticMisesFlow</code> DSL</h4>
+<p>If an isotropic hardening rule is defined in the
+<code>IsotropicPlasticMisesFlow</code> DSL, and if no flow rule is
+defined, the following flow rule is automatically defined:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FlowRule <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  f <span class="op">=</span> seq <span class="op">-</span> R<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  df_dseq <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  df_dp <span class="op">=</span> <span class="op">-</span>dR_dp<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h4 data-number="4.4.1.3" id="available-isotropic-hardening-rules"><span
+class="header-section-number">4.4.1.3</span> Available isotropic
+hardening rules</h4>
+<p>The following flow rules are currently available: <code>Data</code>,
+<code>Linear</code>, <code>Power</code>,
+<code>StrainRateSensitive</code>, <code>Swift</code>,
+<code>UserDefined</code>, and <code>Voce</code>.</p>
+<p>This list can be retrieved as follows:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-isotropic-hardening-rules</span></span></code></pre></div>
+<h1 data-number="5" id="new-features-in-mfront-query"><span
+class="header-section-number">5</span> New features in
 <code>mfront-query</code></h1>
-<h2 data-number="4.1" id="new-command-line-arguments-1"><span
-class="header-section-number">4.1</span> New command line arguments</h2>
+<h2 data-number="5.1" id="new-command-line-arguments-1"><span
+class="header-section-number">5.1</span> New command line arguments</h2>
 <p>The following command line arguments are now supported:</p>
 <ul>
 <li><code>--report-warnings</code>: this command line argument enables
@@ -699,10 +934,10 @@ errors (which is the default behaviour of
 <li><code>-Werror</code> is equivalent to
 <code>--warning-error=true</code>.</li>
 </ul>
-<h2 data-number="4.2" id="new-keywords"><span
-class="header-section-number">4.2</span> New keywords</h2>
-<h3 data-number="4.2.1" id="tfellibraries"><span
-class="header-section-number">4.2.1</span>
+<h2 data-number="5.2" id="new-keywords"><span
+class="header-section-number">5.2</span> New keywords</h2>
+<h3 data-number="5.2.1" id="tfellibraries"><span
+class="header-section-number">5.2.1</span>
 <code>@TFELLibraries</code></h3>
 <p>The <code>@TFELLibraries</code> keyword let the user specify TFEL
 libraries to link with. This keyword must be followed by an array of
@@ -713,101 +948,178 @@ strings.</p>
 <code>System</code>, <code>Math</code>, <code>MathCubicSpline</code>,
 <code>MathKriging</code>, <code>MathParser</code>, <code>NUMODIS</code>,
 <code>Material</code>, <code>MFront</code>, <code>MTest</code>.</p>
-<h4 data-number="4.2.1.1" id="example-of-usage-2"><span
-class="header-section-number">4.2.1.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TFELLibraries <span class="op">{</span><span class="st">&quot;MathParser&quot;</span><span class="op">};</span></span></code></pre></div>
-<h1 data-number="5" id="issues-fixed"><span
-class="header-section-number">5</span> Issues fixed</h1>
-<h2 data-number="5.1"
+<h4 data-number="5.2.1.1" id="example-of-usage-3"><span
+class="header-section-number">5.2.1.1</span> Example of usage</h4>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TFELLibraries <span class="op">{</span><span class="st">&quot;MathParser&quot;</span><span class="op">};</span></span></code></pre></div>
+<h1 data-number="6" id="issues-fixed"><span
+class="header-section-number">6</span> Issues fixed</h1>
+<h2 data-number="6.1"
+id="issue-661-mfront-allow-to-use-isotropic-hardening-rules-in-isotropic-dsls"><span
+class="header-section-number">6.1</span> Issue 661: [mfront] Allow to
+use isotropic hardening rules in isotropic DSLs</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/661"
+class="uri">https://github.com/thelfer/tfel/issues/661</a></p>
+<h2 data-number="6.2"
+id="issue-702-mfront-add-a-warning-if-an-auxiliary-state-variable-not-computed-by-an-external-point-wise-model-is-used-in-a-flowrule-block-in-isotropic-dsls"><span
+class="header-section-number">6.2</span> Issue 702: [mfront] Add a
+warning if an auxiliary state variable not computed by an external
+point-wise model is used in a <code>@FlowRule</code> block in isotropic
+DSLs</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/702"
+class="uri">https://github.com/thelfer/tfel/issues/702</a></p>
+<p>￼ ## Issue #697: [cyrano] Add a warning when the maximum number of
+sub steppings is too high</p>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/697"
+class="uri">https://github.com/thelfer/tfel/issues/697</a></p>
+<h2 data-number="6.3"
+id="issue-696-calculix-interface-add-support-for-the-generatemtestfileonfailure-keyword"><span
+class="header-section-number">6.3</span> Issue #696:
+[calculix-interface] add support for the
+<code>@GenerateMTestFileOnFailure</code> keyword</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/696"
+class="uri">https://github.com/thelfer/tfel/issues/696</a></p>
+<h2 data-number="6.4"
+id="issue-695-aster-interface-add-support-for-the-generatemtestfileonfailure-keyword"><span
+class="header-section-number">6.4</span> Issue #695: [aster-interface]
+add support for the <code>@GenerateMTestFileOnFailure</code>
+keyword</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/695"
+class="uri">https://github.com/thelfer/tfel/issues/695</a></p>
+<h2 data-number="6.5"
+id="issue-694-ansys-interface-add-support-for-the-generatemtestfileonfailure-keyword"><span
+class="header-section-number">6.5</span> Issue #694: [ansys-interface]
+add support for the <code>@GenerateMTestFileOnFailure</code>
+keyword</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/694"
+class="uri">https://github.com/thelfer/tfel/issues/694</a></p>
+<h2 data-number="6.6"
+id="issue-692-mfront-add-warning-when-interface-specific-keywords-are-not-restricted-to-the-corresponding-interface"><span
+class="header-section-number">6.6</span> Issue #692: [mfront] add
+warning when interface specific keywords are not restricted to the
+corresponding interface</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/692"
+class="uri">https://github.com/thelfer/tfel/issues/692</a></p>
+<h2 data-number="6.7"
+id="issue-690-castem-add-a-warning-when-the-maximum-number-of-sub-steppings-is-too-high"><span
+class="header-section-number">6.7</span> Issue #690: [castem] Add a
+warning when the maximum number of sub steppings is too high</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/690"
+class="uri">https://github.com/thelfer/tfel/issues/690</a></p>
+<h2 data-number="6.8"
+id="issue-689-implicit-dsl-add-warning-when-using-auxiliary-state-variables-not-computed-by-external-point-wise-models-in-computestress-and-computefinalstress"><span
+class="header-section-number">6.8</span> Issue #689: [implicit-dsl] Add
+warning when using auxiliary state variables (not computed by external
+point-wise models) in <code>@ComputeStress</code> and
+<code>@ComputeFinalStress</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/689"
+class="uri">https://github.com/thelfer/tfel/issues/689</a></p>
+<h2 data-number="6.9"
 id="issue-685-tfel-config-add-support-for-tfelconfig-tfelmfront-and-tfelmtest"><span
-class="header-section-number">5.1</span> Issue 685: [tfel-config] Add
+class="header-section-number">6.9</span> Issue 685: [tfel-config] Add
 support for <code>TFELConfig</code>, <code>TFELMFront</code> and
 <code>TFELMTest</code></h2>
 <p>This feature is described in Section 2.2.</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/685"
 class="uri">https://github.com/thelfer/tfel/issues/685</a></p>
-<h2 data-number="5.2"
+<h2 data-number="6.10"
 id="issue-684-mfront-add-support-for-includes-link-and-tfellibraries-to-the-model-dsl"><span
-class="header-section-number">5.2</span> Issue 684: [mfront] Add support
-for <code>@Includes</code>, <code>@Link</code> and
+class="header-section-number">6.10</span> Issue 684: [mfront] Add
+support for <code>@Includes</code>, <code>@Link</code> and
 <code>@TFELLibraries</code> to the `Model DSL</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/684"
 class="uri">https://github.com/thelfer/tfel/issues/684</a></p>
-<h2 data-number="5.3"
+<h2 data-number="6.11"
 id="issue-683-using-tfel-librairies-in-material-properties"><span
-class="header-section-number">5.3</span> Issue 683: Using
+class="header-section-number">6.11</span> Issue 683: Using
 <code>TFEL</code> librairies in material properties</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/683"
 class="uri">https://github.com/thelfer/tfel/issues/683</a></p>
-<h2 data-number="5.4"
+<h2 data-number="6.12"
 id="issue-677tfel-config-add-a-python-module-suffix-option"><span
-class="header-section-number">5.4</span> Issue 677:[tfel-config] add a
+class="header-section-number">6.12</span> Issue 677:[tfel-config] add a
 python-module-suffix option</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/677"
 class="uri">https://github.com/thelfer/tfel/issues/677</a></p>
-<h2 data-number="5.5"
+<h2 data-number="6.13"
 id="issue-676-always-prefer-the-versioned-tfelhome-environment-variable"><span
-class="header-section-number">5.5</span> Issue 676: Always prefer the
+class="header-section-number">6.13</span> Issue 676: Always prefer the
 versioned <code>TFELHOME</code> environment variable</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/676"
 class="uri">https://github.com/thelfer/tfel/issues/676</a></p>
-<h2 data-number="5.6"
+<h2 data-number="6.14"
 id="issue-674-python-bindings-add-option-to-disable-the-modication-of-the-names-of-python-modules-by-the-tfel_append_version-and-tfel_version_flavour"><span
-class="header-section-number">5.6</span> Issue 674: [python-bindings]
+class="header-section-number">6.14</span> Issue 674: [python-bindings]
 Add option to disable the modication of the names of python modules by
 the <code>TFEL_APPEND_VERSION</code> and
 <code>TFEL_VERSION_FLAVOUR</code></h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/674"
 class="uri">https://github.com/thelfer/tfel/issues/674</a></p>
-<h2 data-number="5.7"
+<h2 data-number="6.15"
 id="issue-673-tfel-config-add-the-ability-to-define-an-environment-variable-associated-with-the-tfels-version-and-flavour"><span
-class="header-section-number">5.7</span> Issue 673: [tfel-config] Add
+class="header-section-number">6.15</span> Issue 673: [tfel-config] Add
 the ability to define an environment variable associated with the
 <code>TFEL</code>’s version and flavour</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/673"
 class="uri">https://github.com/thelfer/tfel/issues/673</a></p>
-<h2 data-number="5.8"
+<h2 data-number="6.16"
 id="issue-672-python-bindings-fix-python-modules-names-when-tfel_append_version-or-tfel_version_flavour-is-defined"><span
-class="header-section-number">5.8</span> Issue 672: <a
+class="header-section-number">6.16</span> Issue 672: <a
 href="#python-bindings">python bindings</a> fix python modules names
 when <code>TFEL_APPEND_VERSION</code> or
 <code>TFEL_VERSION_FLAVOUR</code> is defined</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/672"
 class="uri">https://github.com/thelfer/tfel/issues/672</a></p>
-<h2 data-number="5.9"
+<h2 data-number="6.17"
 id="issue-667-reduce-the-size-of-files-paths-in-sources-to-fit-in-windowss-max_path-limit"><span
-class="header-section-number">5.9</span> Issue 667: Reduce the size of
+class="header-section-number">6.17</span> Issue 667: Reduce the size of
 files paths in sources to fit in <code>Windows</code>’s
 <code>MAX_PATH</code> limit</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/667"
 class="uri">https://github.com/thelfer/tfel/issues/667</a></p>
-<h2 data-number="5.10"
+<h2 data-number="6.18"
 id="issue-666-doc-add-contributing-file-remove-devel.md"><span
-class="header-section-number">5.10</span> Issue 666: [doc] Add
+class="header-section-number">6.18</span> Issue 666: [doc] Add
 CONTRIBUTING file, remove devel.md</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/666"
 class="uri">https://github.com/thelfer/tfel/issues/666</a></p>
-<h2 data-number="5.11"
+<h2 data-number="6.19"
 id="issue-654-add-powershell-environment-script"><span
-class="header-section-number">5.11</span> Issue 654: Add PowerShell
+class="header-section-number">6.19</span> Issue 654: Add PowerShell
 environment script</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/654"
 class="uri">https://github.com/thelfer/tfel/issues/654</a></p>
-<h2 data-number="5.12"
+<h2 data-number="6.20"
+id="issue-640-mfront-only-point-wise-models-defined-by-model-dsl-can-be-embedded-in-behaviours-using-the-model-keyword"><span
+class="header-section-number">6.20</span> Issue 640: [mfront] Only
+point-wise models defined by <code>Model</code> DSL can be embedded in
+behaviours using the <code>@Model</code> keyword</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/640"
+class="uri">https://github.com/thelfer/tfel/issues/640</a></p>
+<h2 data-number="6.21"
 id="issue-294-python-bindings-evaluate-port-to-pybind"><span
-class="header-section-number">5.12</span> Issue 294: [python-bindings]
+class="header-section-number">6.21</span> Issue 294: [python-bindings]
 Evaluate port to <code>pybind</code></h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/293"

@@ -1,8 +1,8 @@
 var structtfel_1_1math_1_1_tiny_runge_kutta_solver_base =
 [
     [ "SolutionType", "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#ae97ff455e65c55a8025ab5f96ac05dc4", null ],
-    [ "getTimeIncrement", "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#ad05a90843c0b9e3cda3e3d27d2a5d4e6", null ],
-    [ "getValue", "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#aad8ec1bc03dee44cde0bac1828d32a55", null ],
+    [ "getTimeIncrement", "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#af7fe311b886c07acbb694fbbe5f82eff", null ],
+    [ "getValue", "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a2901bc41a55e8cf38039bd3137153f31", null ],
     [ "setCriterionValue", "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a19c18d24431345a56b0657574213f533", null ],
     [ "setFinalTime", "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a5ed83148e6c222ba90e8e648bf474e0e", null ],
     [ "setInitialTime", "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#ae4c601f0f158cd3bd759284b351173cd", null ],

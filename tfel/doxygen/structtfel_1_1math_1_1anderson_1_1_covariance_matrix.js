@@ -12,11 +12,9 @@ var structtfel_1_1math_1_1anderson_1_1_covariance_matrix =
     [ "getSize", "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a0041aa60c673dbe1a591ca0af69d41d8", null ],
     [ "GSFactorD", "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a75902cbe69571b48e7961f6f6025a09d", null ],
     [ "resize", "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a7da773706789820b49e168ba510de982", null ],
-    [ "shift", "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a9a8cbb300e996836d6ebd313b7eac3f2", null ],
     [ "weightsGSchmidtD", "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a238ec14adc9423ffb1a46535a2e96b74", null ],
     [ "a", "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#ab0871dbf5ea4e2528757074601b3d87f", null ],
     [ "C", "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#aec9af203cce176cb1b4e6caada6228bc", null ],
     [ "N", "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a59394fb4f6b797baf81226f01291343c", null ],
-    [ "ne", "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#adbfca9e7d161ddbbf46cddba5e3ca234", null ],
     [ "Nmax", "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a7116f4bc0de3cf75efc09ff3823f3df4", null ]
 ];

@@ -1,9 +1,9 @@
 var structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule =
 [
     [ "~DelobelleRobinetSchafflerKinematicHardeningRule", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a9c7b741ad76fbccd895adfb3e9faa811", null ],
-    [ "buildBackStrainImplicitEquations", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a62cecdd711a8d15bc97c35496db6f7bc", null ],
+    [ "buildBackStrainImplicitEquations", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a4b37c2e25d4c62173b83a06ef78da17f", null ],
     [ "endTreatment", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#acc90ca058bdd0872848dac28030d5b76", null ],
-    [ "getOptions", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a5eea1db80d651188682d65e9b28b3687", null ],
+    [ "getOptions", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a2952e4d18dc849a261cec5857aa69d65", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a398ff227bd677b89b6097d083af450f9", null ],
     [ "a0", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a15018aa8cf7e3afdbcabeac23b6c5776", null ],
     [ "D", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#af71fcfe2745bf3dc4583bc780d9a1613", null ],

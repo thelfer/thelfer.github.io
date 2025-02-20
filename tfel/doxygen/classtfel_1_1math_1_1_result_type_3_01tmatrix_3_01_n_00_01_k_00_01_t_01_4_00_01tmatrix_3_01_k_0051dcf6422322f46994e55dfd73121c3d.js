@@ -1,4 +1,0 @@
-var classtfel_1_1math_1_1_result_type_3_01tmatrix_3_01_n_00_01_k_00_01_t_01_4_00_01tmatrix_3_01_k_0051dcf6422322f46994e55dfd73121c3d =
-[
-    [ "type", "classtfel_1_1math_1_1_result_type_3_01tmatrix_3_01_n_00_01_k_00_01_t_01_4_00_01tmatrix_3_01_k_0051dcf6422322f46994e55dfd73121c3d.html#aed1d60c812b1e43343ef0d88cfbb8aae", null ]
-];

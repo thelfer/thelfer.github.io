@@ -1,26 +1,11 @@
 var structnumodis_1_1_cubic =
 [
-    [ "Cubic", "structnumodis_1_1_cubic.html#ae40cf508c1e99d0f8d971bfbd0f082c9", null ],
-    [ "Cubic", "structnumodis_1_1_cubic.html#a9e5d7ea57ce48c336ef994f64fa4a00c", null ],
-    [ "Cubic", "structnumodis_1_1_cubic.html#a91ae4413dd0d00b1e8b8fb154c018d0f", null ],
-    [ "~Cubic", "structnumodis_1_1_cubic.html#af4879f641ca88e4fa285e8758edde7f0", null ],
-    [ "burgers_vector", "structnumodis_1_1_cubic.html#a167b5256a5bb9738135e530e8eb9e955", null ],
     [ "CrossProduct", "structnumodis_1_1_cubic.html#abb4f793cd60e25c47172035adb7f74d0", null ],
-    [ "CrossProduct", "structnumodis_1_1_cubic.html#acf350f00e397337606eed9baeb1df758", null ],
     [ "CrossProduct", "structnumodis_1_1_cubic.html#a879b057dd1ca2f52cfc08d5e2c832a03", null ],
-    [ "direction", "structnumodis_1_1_cubic.html#a1b0987938ac5d7bcc30b2436138e2cf1", null ],
-    [ "GenerateEquivalentIndices", "structnumodis_1_1_cubic.html#af0217b3da34a9078aed08967bb00aae5", null ],
     [ "GenerateOrthogonalVector", "structnumodis_1_1_cubic.html#ab9a3f4b2efadb076beb54e26131b3a0a", null ],
-    [ "getNsymmetries", "structnumodis_1_1_cubic.html#a33b36bd49e132b7d286798eb535b0f46", null ],
-    [ "Init", "structnumodis_1_1_cubic.html#a669b7a294c8bb06d7bc15386e014569f", null ],
-    [ "Norm2", "structnumodis_1_1_cubic.html#a1483c46f7f69aa32afab99d44b128eb0", null ],
-    [ "normal", "structnumodis_1_1_cubic.html#adcb88b62dc620eb0ebce180990b3ddd7", null ],
     [ "SameBurgersFamily", "structnumodis_1_1_cubic.html#ad7de875481f9d3d90f30007d08cd9911", null ],
-    [ "SameGlideSystem", "structnumodis_1_1_cubic.html#ad7e2107a2f871bcbf32829c483463635", null ],
     [ "SamePlaneFamily", "structnumodis_1_1_cubic.html#ab75c19f40ae906010044a8945bc11038", null ],
     [ "ScalProduct", "structnumodis_1_1_cubic.html#a66c63c1feb7c80c13bc37170255be6d7", null ],
     [ "ScalProduct", "structnumodis_1_1_cubic.html#adfb80fd853e402cb7dae9aad6db85d82", null ],
-    [ "ScalProduct", "structnumodis_1_1_cubic.html#a328b05072f3a2c447a3441789ab29561", null ],
-    [ "Symmetry", "structnumodis_1_1_cubic.html#ab8a69157cda4e84bedc21b0bcbdcafee", null ],
-    [ "Symmetry", "structnumodis_1_1_cubic.html#a65c65f6b3986c9690c34e1364d9b00d4", null ]
+    [ "ScalProduct", "structnumodis_1_1_cubic.html#a328b05072f3a2c447a3441789ab29561", null ]
 ];

@@ -1,4 +1,0 @@
-var classtfel_1_1math_1_1_compute_binary_operation_result_3_01_tensor_tag_00_01_scalar_tag_00_01tens6d25d6270a86d768820fab315999b845 =
-[
-    [ "type", "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_tensor_tag_00_01_scalar_tag_00_01tens6d25d6270a86d768820fab315999b845.html#a11f39d062f223d0c490eb7949df1f5b4", null ]
-];

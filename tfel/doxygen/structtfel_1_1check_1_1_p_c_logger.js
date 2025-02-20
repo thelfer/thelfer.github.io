@@ -10,8 +10,7 @@ var structtfel_1_1check_1_1_p_c_logger =
     [ "addMessage", "structtfel_1_1check_1_1_p_c_logger.html#a4e75fef452008bdb840cf9551fe3f314", null ],
     [ "addSimpleTestResult", "structtfel_1_1check_1_1_p_c_logger.html#a6d83c74ec258c22b2a678db87260fb36", null ],
     [ "addTestResult", "structtfel_1_1check_1_1_p_c_logger.html#a1636640a5f3770eb486be8c83d4e82e2", null ],
-    [ "operator=", "structtfel_1_1check_1_1_p_c_logger.html#a8d733615b498d6776cccdb40ca74845b", null ],
-    [ "operator=", "structtfel_1_1check_1_1_p_c_logger.html#ae4bc1900c5b71ddba52bfc27ac23f17d", null ],
-    [ "reportSkippedTest", "structtfel_1_1check_1_1_p_c_logger.html#a7fa3aae7648c962538b4bc18f2c7c75d", null ],
-    [ "terminate", "structtfel_1_1check_1_1_p_c_logger.html#ad602883440075fea84a214d6d2bc43f0", null ]
+    [ "operator=", "structtfel_1_1check_1_1_p_c_logger.html#ab3b7d7e769972c674d84ae3ddcc70ec6", null ],
+    [ "operator=", "structtfel_1_1check_1_1_p_c_logger.html#af5f49d62df773112196e51bd5721b3ad", null ],
+    [ "reportSkippedTest", "structtfel_1_1check_1_1_p_c_logger.html#a7fa3aae7648c962538b4bc18f2c7c75d", null ]
 ];

@@ -1,4 +1,0 @@
-var classtfel_1_1math_1_1_unary_result_type_3_01tmatrix_3_01_n_00_01_m_00_01_t_01_4_00_01_op_neg_01_4 =
-[
-    [ "type", "classtfel_1_1math_1_1_unary_result_type_3_01tmatrix_3_01_n_00_01_m_00_01_t_01_4_00_01_op_neg_01_4.html#af34bf27f5db4cffe5f757f2793c0224c", null ]
-];

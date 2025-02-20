@@ -1,6 +1,6 @@
 var _unicode_support_8hxx =
 [
-    [ "UnicodeCharacterDescription", "structtfel_1_1unicode_1_1_unicode_character_description.html", "structtfel_1_1unicode_1_1_unicode_character_description" ],
+    [ "tfel::unicode::UnicodeCharacterDescription", "structtfel_1_1unicode_1_1_unicode_character_description.html", "structtfel_1_1unicode_1_1_unicode_character_description" ],
     [ "UnicodeCharacterCategory", "_unicode_support_8hxx.html#af54e50760f1dc6d64b2f2cb0de46677d", [
       [ "MATHEMATICAL_SYMBOL", "_unicode_support_8hxx.html#af54e50760f1dc6d64b2f2cb0de46677da8033bb72955356d7ad6e65dd1570c172", null ],
       [ "MATHEMATICAL_OPERATOR", "_unicode_support_8hxx.html#af54e50760f1dc6d64b2f2cb0de46677da00318414351dfbc5ee818f2b356bb710", null ],
@@ -15,5 +15,5 @@ var _unicode_support_8hxx =
       [ "ARABIC_NUMBER_SUBSCRIPT", "_unicode_support_8hxx.html#af54e50760f1dc6d64b2f2cb0de46677dafa91c434a291ce9187547b4073897b77", null ]
     ] ],
     [ "getMangledString", "_unicode_support_8hxx.html#a2d58e4f0e5af83502d210f2bd9f7c752", null ],
-    [ "getSupportedUnicodeCharactersDescriptions", "_unicode_support_8hxx.html#aec5afd65d9ca5cda8061b8eea9363794", null ]
+    [ "getSupportedUnicodeCharactersDescriptions", "_unicode_support_8hxx.html#a7362a6f00645dd1482b8bf35097d2e21", null ]
 ];

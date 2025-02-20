@@ -1,4 +1,0 @@
-var structtfel_1_1math_1_1internals_1_1_result_type1_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_div_01_4 =
-[
-    [ "type", "structtfel_1_1math_1_1internals_1_1_result_type1_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_div_01_4.html#a766e498d93509df91dc34d19768a7cc9", null ]
-];

@@ -12,7 +12,6 @@ var _f_s_e_s_2_utilities_8hxx =
     [ "at", "_f_s_e_s_2_utilities_8hxx.html#afc0561809990db38311e880bdbce767f", null ],
     [ "at", "_f_s_e_s_2_utilities_8hxx.html#a30aa25d23f6345e7eacd3a768bc159db", null ],
     [ "fill", "_f_s_e_s_2_utilities_8hxx.html#a5b41837e7200f62f80e1b6cadb7ab2b4", null ],
-    [ "is_negligible", "_f_s_e_s_2_utilities_8hxx.html#aacdf7517b966d7528b522d1ecbfb22fa", null ],
     [ "sort", "_f_s_e_s_2_utilities_8hxx.html#a84435c990e8476f0e0b38ca6d30a6163", null ],
     [ "square", "_f_s_e_s_2_utilities_8hxx.html#a19426815b6131044d6e761c1893ed602", null ]
 ];

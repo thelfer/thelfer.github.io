@@ -1,8 +1,4 @@
 var structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_vector_tag_00_01_a_00_01_b_00_01_op_mult_01_4 =
 [
-    [ "DummyHandle", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_vector_tag_00_01_aacd611d194eace726070c251dc266569.html", null ],
-    [ "Handle", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_vector_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#a72c9c1f157d8897678a3c6be071fbee4", null ],
-    [ "MatrixTypeA", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_vector_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#a725493b4d56d4c3a17e997eb7d01cb14", null ],
-    [ "Result", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_vector_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#ac8b7d5948053952a4821f640cc70b3ea", null ],
-    [ "VectorTypeB", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_vector_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#a4a57cf7e13118ca808560318e1c63cdb", null ]
+    [ "DummyHandle", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_vector_tag_00_01_aacd611d194eace726070c251dc266569.html", null ]
 ];

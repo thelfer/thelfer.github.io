@@ -5,7 +5,7 @@ var structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential =
     [ "completeVariableDeclaration", "structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#a671f026b3cff72abe08857d1a752d688", null ],
     [ "endTreatment", "structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#a366cfcec6e7c3dee9bfb37d4aeba65d8", null ],
     [ "getName", "structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#ae8a4ede6d04a826c6c3a241e133a1877", null ],
-    [ "getOptions", "structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#ac2e4c5415e79786db72ea6c530a61808", null ],
+    [ "getOptions", "structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#abbf0936bd2a8de845b8ae69e9101f807", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#aebb5ad8ad3d4aa1d057ecc1891b1e8a1", null ],
     [ "algorithm", "structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#aadb2830261e352f8831337ee3a504d62", null ],
     [ "firstConvergeOnDamage", "structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#a7e58405252e239d66d714a6e48888926", null ],

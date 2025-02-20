@@ -5,7 +5,7 @@ var structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow =
     [ "computeFlowRateAndDerivative", "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a3fca80c0e0f8ed0107b0d1f97b2d8187", null ],
     [ "describesStrainHardeningExplicitly", "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a8b50580a88ded843b006348b6f5904c9", null ],
     [ "endTreatment", "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#ad0a676e8a735f5db60106775d578fe04", null ],
-    [ "getOptions", "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a71426ceadab9774fbf55ed6cc3cbe627", null ],
+    [ "getOptions", "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a7fe21e0938447ec525787a74cb85163e", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a196ddb3684a3e238aeba83ad0a54dfa3", null ],
     [ "A", "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a3f4102e7c1158d5f8eb60601dd6070fd", null ],
     [ "K", "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a24f355d8c043c75171bf25dff1684066", null ],

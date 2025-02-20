@@ -1,8 +1,8 @@
 var _integrate_8hxx =
 [
-    [ "InternalEnergyComputer", "structmfront_1_1gb_1_1_internal_energy_computer.html", null ],
-    [ "DissipatedEnergyComputer", "structmfront_1_1gb_1_1_dissipated_energy_computer.html", null ],
-    [ "DoNothingEnergyComputer", "structmfront_1_1gb_1_1_do_nothing_energy_computer.html", null ],
+    [ "mfront::gb::InternalEnergyComputer", "structmfront_1_1gb_1_1_internal_energy_computer.html", null ],
+    [ "mfront::gb::DissipatedEnergyComputer", "structmfront_1_1gb_1_1_dissipated_energy_computer.html", null ],
+    [ "mfront::gb::DoNothingEnergyComputer", "structmfront_1_1gb_1_1_do_nothing_energy_computer.html", null ],
     [ "FiniteStrainTangentOperator", "_integrate_8hxx.html#a97a070a5816775c463336769835e685b", null ],
     [ "StressMeasure", "_integrate_8hxx.html#ad4210e6cbe62a07fb8d88f4318d65e74", [
       [ "PK1", "_integrate_8hxx.html#ad4210e6cbe62a07fb8d88f4318d65e74ac34dd77ffb9238275b93ea1897664a7e", null ],

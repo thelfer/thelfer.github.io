@@ -1,7 +1,7 @@
 var _variable_description_8hxx =
 [
-    [ "VariableDescription", "structmfront_1_1_variable_description.html", "structmfront_1_1_variable_description" ],
-    [ "VariableDescriptionContainer", "structmfront_1_1_variable_description_container.html", "structmfront_1_1_variable_description_container" ],
+    [ "mfront::VariableDescription", "structmfront_1_1_variable_description.html", "structmfront_1_1_variable_description" ],
+    [ "mfront::VariableDescriptionContainer", "structmfront_1_1_variable_description_container.html", "structmfront_1_1_variable_description_container" ],
     [ "VarContainer", "_variable_description_8hxx.html#af57293a292505942e5dcd42149817fff", null ],
     [ "VarHandler", "_variable_description_8hxx.html#ac14e4994078c9ba950e27558af93eabc", null ],
     [ "checkAndCompletePhysicalBoundsDeclaration", "_variable_description_8hxx.html#a92c8d350752cb0f457d5a3623c2e69f9", null ],

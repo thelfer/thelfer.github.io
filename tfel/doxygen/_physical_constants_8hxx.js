@@ -1,7 +1,7 @@
 var _physical_constants_8hxx =
 [
-    [ "PhysicalConstants< NumericType, true >", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4" ],
-    [ "PhysicalConstants< NumericType, false >", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html", null ],
+    [ "tfel::PhysicalConstants< NumericType, true >", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4" ],
+    [ "tfel::PhysicalConstants< NumericType, false >", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html", null ],
     [ "a", "_physical_constants_8hxx.html#a727fa06a1568fd766ebf2deea0f73976", null ],
     [ "AtomicMassConstant", "_physical_constants_8hxx.html#ad1bd7f3b79cdfcb91295dbdbe7994c24", null ],
     [ "AvogadroConstant", "_physical_constants_8hxx.html#aa866bc20c33e7f1a377de2abb583f0b5", null ],

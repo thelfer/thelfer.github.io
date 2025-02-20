@@ -1,6 +1,5 @@
 var _i_e_e_e754_8ixx =
 [
-    [ "LIB_TFEL_MATH_IEEE754_IXX", "_i_e_e_e754_8ixx.html#a1de6731baf4fd724bab6388d915143b8", null ],
     [ "fpclassify", "_i_e_e_e754_8ixx.html#a77f402fb715379ca1752b14e314f8dfc", null ],
     [ "fpclassify", "_i_e_e_e754_8ixx.html#add4cffb31c0fb5e82030fe9a3efc4063", null ],
     [ "isfinite", "_i_e_e_e754_8ixx.html#a0226d7f8106bc6889f0500ab747fb766", null ],

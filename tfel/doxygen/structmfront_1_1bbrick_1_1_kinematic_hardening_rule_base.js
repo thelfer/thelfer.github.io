@@ -7,8 +7,8 @@ var structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base =
     [ "generateImplicitEquationDerivatives", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#aedeaeeb694d00ddaa725b1e322c51cc7", null ],
     [ "getBackStrainVariable", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#acdf216bb1c14e2f669ee6acfc6c5d673", null ],
     [ "getBackStressDerivative", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae8fee4824a0ae31f3760dec220d6cd2a", null ],
-    [ "getKinematicHardeningsVariables", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#af4d04bca2a3e43b7b35e841deaefecc3", null ],
-    [ "getOptions", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#a74ae08a6f68b3c9d448163b18e36ebae", null ],
+    [ "getKinematicHardeningsVariables", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#a54738f9b6d327e38d22c8b8dd38d0833", null ],
+    [ "getOptions", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#a2e33522e704b994c82ed2319a2f785aa", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae2617a5e2b0b5dd98156a16d5fd74a13", null ],
     [ "C", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#acdda244515315882bf50dbeb8a12634f", null ]
 ];

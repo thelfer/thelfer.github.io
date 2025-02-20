@@ -1,5 +1,0 @@
-var classtfel_1_1math_1_1_compute_unary_result___3_01_matrix_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4 =
-[
-    [ "Handle", "classtfel_1_1math_1_1_compute_unary_result___3_01_matrix_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html#a974bdf4e531250a06f56fcc980339a47", null ],
-    [ "Result", "classtfel_1_1math_1_1_compute_unary_result___3_01_matrix_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html#a104eb580fa49911abd18eeb299cf137c", null ]
-];

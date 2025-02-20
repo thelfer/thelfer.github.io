@@ -1,7 +1,5 @@
 var structmtest_1_1_u_anderson_acceleration_algorithm =
 [
-    [ "Field", "structmtest_1_1_u_anderson_acceleration_algorithm.html#a5f90d9d87118caa6d407b688d376c8cc", null ],
-    [ "UAnderson", "structmtest_1_1_u_anderson_acceleration_algorithm.html#a95e63af489c583f83c1c699985eb95ed", null ],
     [ "UAndersonAccelerationAlgorithm", "structmtest_1_1_u_anderson_acceleration_algorithm.html#a022b9d3f710af864508ab0886b2443eb", null ],
     [ "~UAndersonAccelerationAlgorithm", "structmtest_1_1_u_anderson_acceleration_algorithm.html#a9e73941b53554cf4001f2791f6b58b63", null ],
     [ "execute", "structmtest_1_1_u_anderson_acceleration_algorithm.html#a865aab1b305fe22e349904815df3effd", null ],
@@ -13,6 +11,5 @@ var structmtest_1_1_u_anderson_acceleration_algorithm =
     [ "a", "structmtest_1_1_u_anderson_acceleration_algorithm.html#a4ca1cee259bb819d6c5b2f78e769180e", null ],
     [ "alMax", "structmtest_1_1_u_anderson_acceleration_algorithm.html#a1e8868a1d890682039a30dcbcb7e7abf", null ],
     [ "Nmax", "structmtest_1_1_u_anderson_acceleration_algorithm.html#a593b3ce19d868c45a6840446180e9441", null ],
-    [ "uN", "structmtest_1_1_u_anderson_acceleration_algorithm.html#a3988edc3f1d6e4a6e88c33113673520a", null ],
     [ "uO", "structmtest_1_1_u_anderson_acceleration_algorithm.html#a5db9c23524493e24404c2967efe2c8fe", null ]
 ];

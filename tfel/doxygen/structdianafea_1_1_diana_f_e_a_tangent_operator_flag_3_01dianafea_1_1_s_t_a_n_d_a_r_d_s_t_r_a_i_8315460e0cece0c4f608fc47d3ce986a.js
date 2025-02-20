@@ -1,5 +1,0 @@
-var structdianafea_1_1_diana_f_e_a_tangent_operator_flag_3_01dianafea_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_8315460e0cece0c4f608fc47d3ce986a =
-[
-    [ "MechanicalBehaviourBase", "structdianafea_1_1_diana_f_e_a_tangent_operator_flag_3_01dianafea_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_8315460e0cece0c4f608fc47d3ce986a.html#aecc5b35ccd9693f5dc77a73762533d16", null ],
-    [ "TangentOperatorTraits", "structdianafea_1_1_diana_f_e_a_tangent_operator_flag_3_01dianafea_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_8315460e0cece0c4f608fc47d3ce986a.html#a7b2d51e5d34f77f39b6368c3ca2207e5", null ]
-];

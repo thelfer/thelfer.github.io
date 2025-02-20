@@ -6,8 +6,6 @@ var structmtest_1_1_imposed_gradient =
     [ "checkConvergence", "structmtest_1_1_imposed_gradient.html#a79cb3811058b047bebf26c4fa2ac2bd0", null ],
     [ "getFailedCriteriaDiagnostic", "structmtest_1_1_imposed_gradient.html#ad418fc96b2a4c5174a739f526c986b18", null ],
     [ "getNumberOfLagrangeMultipliers", "structmtest_1_1_imposed_gradient.html#ace6b2091a9cba448ab31d7a3a3ed1456", null ],
-    [ "operator=", "structmtest_1_1_imposed_gradient.html#a49ead2e41675573c9b7ff049f323d885", null ],
-    [ "operator=", "structmtest_1_1_imposed_gradient.html#ae8dbc77b854127c3cbea5eeabe2c54ed", null ],
     [ "setValues", "structmtest_1_1_imposed_gradient.html#a03a0516d675f7eb4065401927c0bff02", null ],
     [ "c", "structmtest_1_1_imposed_gradient.html#adce1bd546afe9a31831114a17c9ac678", null ],
     [ "eev", "structmtest_1_1_imposed_gradient.html#a642bd317dcb3d47ae567f62afeeec358", null ]

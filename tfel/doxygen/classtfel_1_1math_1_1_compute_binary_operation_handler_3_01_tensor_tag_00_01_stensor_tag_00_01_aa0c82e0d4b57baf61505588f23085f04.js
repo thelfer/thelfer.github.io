@@ -1,5 +1,0 @@
-var classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_tensor_tag_00_01_stensor_tag_00_01_aa0c82e0d4b57baf61505588f23085f04 =
-[
-    [ "Handle", "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_tensor_tag_00_01_stensor_tag_00_01_aa0c82e0d4b57baf61505588f23085f04.html#ab87e892028e50743f7d371a489dbeb31", null ],
-    [ "Result", "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_tensor_tag_00_01_stensor_tag_00_01_aa0c82e0d4b57baf61505588f23085f04.html#a79a159681a83f668d483f5ed8dd81cc4", null ]
-];

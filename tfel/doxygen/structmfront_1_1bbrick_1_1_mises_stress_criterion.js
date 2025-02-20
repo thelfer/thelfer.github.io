@@ -6,7 +6,7 @@ var structmfront_1_1bbrick_1_1_mises_stress_criterion =
     [ "computeNormal", "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a46a1847021fdc0415b5ca18ed877adc9", null ],
     [ "computeNormalDerivative", "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#ab52cce46e977591c40d6294df2a566a5", null ],
     [ "getPorosityEffectOnEquivalentPlasticStrain", "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a3b69ce3b0c70f96545735b123f5d0174", null ],
-    [ "getSupportedBehaviourSymmetries", "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#acd00d67c7f9c0c1ef91a3daa192bfa9f", null ],
+    [ "getSupportedBehaviourSymmetries", "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#af802577d9d16875925e30dcffaee7b7f", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a21ed029f1ba5d139dd6b3146deef4ef0", null ],
     [ "isCoupledWithPorosityEvolution", "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#ae15b6a90e2a52f5cc8acb43959cff340", null ],
     [ "isNormalDeviatoric", "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a51e025f3da8959230d5114a6c455a340", null ]

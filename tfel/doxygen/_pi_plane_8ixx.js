@@ -1,8 +1,7 @@
 var _pi_plane_8ixx =
 [
-    [ "LIB_TFEL_MATERIAL_PIPLANE_IXX", "_pi_plane_8ixx.html#a168a40c9b45e3e4a03afe78da4ee3dff", null ],
-    [ "buildFromPiPlane", "_pi_plane_8ixx.html#adb6a9971d1971257d0787787bf094679", null ],
-    [ "projectOnPiPlane", "_pi_plane_8ixx.html#a858e3918c099dd82a21fe481641e5070", null ],
-    [ "projectOnPiPlane", "_pi_plane_8ixx.html#ae6e1bda06cbe68e83c2f953627a7ab21", null ],
-    [ "projectOnPiPlane", "_pi_plane_8ixx.html#af5f9d7140eb13ae9e6d8804d596ddb7a", null ]
+    [ "buildFromPiPlane", "_pi_plane_8ixx.html#ac2e7b1ec2d23efdbfbee85268b708a7b", null ],
+    [ "projectOnPiPlane", "_pi_plane_8ixx.html#af960023bff84665415954d3bf9077a80", null ],
+    [ "projectOnPiPlane", "_pi_plane_8ixx.html#a21e3b98632f5faa7e74148ce8d0df2cb", null ],
+    [ "projectOnPiPlane", "_pi_plane_8ixx.html#ab180058c45d14a7879fe9456e23c7119", null ]
 ];

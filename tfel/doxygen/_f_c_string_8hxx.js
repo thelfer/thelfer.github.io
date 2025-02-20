@@ -1,7 +1,7 @@
 var _f_c_string_8hxx =
 [
-    [ "CStringNarrowedView", "structtfel_1_1utilities_1_1_c_string_narrowed_view.html", "structtfel_1_1utilities_1_1_c_string_narrowed_view" ],
-    [ "basic_fcstring", "structtfel_1_1utilities_1_1basic__fcstring.html", "structtfel_1_1utilities_1_1basic__fcstring" ],
+    [ "tfel::utilities::CStringNarrowedView< N, CharT >", "structtfel_1_1utilities_1_1_c_string_narrowed_view.html", null ],
+    [ "tfel::utilities::basic_fcstring< N, CharT, Traits >", "structtfel_1_1utilities_1_1basic__fcstring.html", "structtfel_1_1utilities_1_1basic__fcstring" ],
     [ "fcstring", "_f_c_string_8hxx.html#af3e1d3d7b2d2012e6705c2b825469154", null ],
     [ "narrow", "_f_c_string_8hxx.html#a3dec55fa90c4de3846c364dfa2da67bb", null ],
     [ "operator!=", "_f_c_string_8hxx.html#a59afd46cfed138a67b2f25b9d8e4a0a7", null ],

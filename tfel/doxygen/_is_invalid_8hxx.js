@@ -1,5 +1,5 @@
 var _is_invalid_8hxx =
 [
-    [ "IsInvalid", "structtfel_1_1typetraits_1_1_is_invalid.html", null ],
-    [ "isInvalid", "_is_invalid_8hxx.html#a1e069fe747aa3eed6aaa71bb85041870", null ]
+    [ "tfel::typetraits::IsInvalid< T >", "structtfel_1_1typetraits_1_1_is_invalid.html", null ],
+    [ "isInvalid", "_is_invalid_8hxx.html#af0be9be3a591abae2d29680f57e5d96b", null ]
 ];

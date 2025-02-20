@@ -10,8 +10,8 @@ var structmtest_1_1_current_state =
     [ "CurrentState", "structmtest_1_1_current_state.html#a99579d4e3be91270abbaffec6054bf83", null ],
     [ "CurrentState", "structmtest_1_1_current_state.html#afad23638025427fcf50f3c3f81d20e3e", null ],
     [ "~CurrentState", "structmtest_1_1_current_state.html#afc58b0e0c289e8fd4091176de3e308f5", null ],
-    [ "operator=", "structmtest_1_1_current_state.html#a5662f33467fb7b6d62c84cc9a7471112", null ],
-    [ "operator=", "structmtest_1_1_current_state.html#a34b192569e135b8d03b40d95517771eb", null ],
+    [ "operator=", "structmtest_1_1_current_state.html#a55a6f0d1aafabb64a769507a96e1d9b4", null ],
+    [ "operator=", "structmtest_1_1_current_state.html#ac99a1388e15c013f1d6029bcac0b1105", null ],
     [ "behaviour", "structmtest_1_1_current_state.html#ae90fb42e686e743f6a280f43b0f729d2", null ],
     [ "de0", "structmtest_1_1_current_state.html#af434c5f300ae3cf85642a8e7bd6f3c94", null ],
     [ "de1", "structmtest_1_1_current_state.html#a3298e40cfbd159af4e64cfb4b260d142", null ],
@@ -27,12 +27,10 @@ var structmtest_1_1_current_state =
     [ "iv_1", "structmtest_1_1_current_state.html#af0d46491bacfd8087ab89127719e8609", null ],
     [ "mprops1", "structmtest_1_1_current_state.html#a64c9454d873a5edfcc73c8c6b018f6e0", null ],
     [ "packaging_info", "structmtest_1_1_current_state.html#ad1295b1b59670f68968bf7021313f57b", null ],
-    [ "position", "structmtest_1_1_current_state.html#a801ff49ca9cd792001df9c9757336bdf", null ],
     [ "r", "structmtest_1_1_current_state.html#a78812082990c799ca802f5c6462ac5b5", null ],
     [ "s0", "structmtest_1_1_current_state.html#a608b4d5a44d8893e9a551fe8488d3d78", null ],
     [ "s1", "structmtest_1_1_current_state.html#aa9bbe5634f490ea38a026a1075377583", null ],
     [ "s_1", "structmtest_1_1_current_state.html#a2ff8f3b9ebf5d3e718201d20081c8c2e", null ],
     [ "se0", "structmtest_1_1_current_state.html#a9d5c480fd3682b3acd8fa775a4347a8b", null ],
-    [ "se1", "structmtest_1_1_current_state.html#a81236d6495078831c6b4274b44d2b876", null ],
-    [ "Tref", "structmtest_1_1_current_state.html#a17b7773aebf8d99c294cf64c0c824ee0", null ]
+    [ "se1", "structmtest_1_1_current_state.html#a81236d6495078831c6b4274b44d2b876", null ]
 ];

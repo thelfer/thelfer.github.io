@@ -1,11 +1,5 @@
 var structmtest_1_1_solver_options =
 [
-    [ "SolverOptions", "structmtest_1_1_solver_options.html#a7ad38eed84fce9a807b6130d1729abfe", null ],
-    [ "SolverOptions", "structmtest_1_1_solver_options.html#ac8e3a85c35365cc859d6f562c0d840b9", null ],
-    [ "SolverOptions", "structmtest_1_1_solver_options.html#a2ca3b9475cd3902197f0c92ed7e382ab", null ],
-    [ "~SolverOptions", "structmtest_1_1_solver_options.html#a83bc5ccf0d173a021aa7871b565b1754", null ],
-    [ "operator=", "structmtest_1_1_solver_options.html#a514983d8034bc726d1045d6263b9a849", null ],
-    [ "operator=", "structmtest_1_1_solver_options.html#acbc1b86c735707e0b26a6fb2ac6a75bb", null ],
     [ "aa", "structmtest_1_1_solver_options.html#a8ae51520a3501224a2061af7bf7f5c9f", null ],
     [ "dynamic_time_step_scaling", "structmtest_1_1_solver_options.html#a111ee215787e21b2b9e6ee02bb1dc75b", null ],
     [ "eeps", "structmtest_1_1_solver_options.html#ac6d1548171759eec139167d256ee82a5", null ],

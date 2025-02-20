@@ -11,6 +11,6 @@ var structmfront_1_1bbrick_1_1_isotropic_hardening_rule =
     [ "computeElasticLimitAndDerivative", "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#aeb02496311b0f4fa1d95d15962a9fd8c", null ],
     [ "computeElasticPrediction", "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#aba28f923de1952bff0bff0a1bfb7044b", null ],
     [ "endTreatment", "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#aa23f06da5003c274ad748d713e1f7a09", null ],
-    [ "getOptions", "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a113d5f24002de3cef36b242b73754e89", null ],
+    [ "getOptions", "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a22520b60c21100d765fad34535d4984b", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#aa30de209ab4bbdf3bff574b093c1f21c", null ]
 ];

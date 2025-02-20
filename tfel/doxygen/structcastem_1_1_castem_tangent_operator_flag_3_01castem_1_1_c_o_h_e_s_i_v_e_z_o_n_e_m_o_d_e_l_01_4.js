@@ -1,5 +1,0 @@
-var structcastem_1_1_castem_tangent_operator_flag_3_01castem_1_1_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_01_4 =
-[
-    [ "MechanicalBehaviourBase", "structcastem_1_1_castem_tangent_operator_flag_3_01castem_1_1_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_01_4.html#a338c86de49444d08e848c2b2b0b71cf3", null ],
-    [ "TangentOperatorTraits", "structcastem_1_1_castem_tangent_operator_flag_3_01castem_1_1_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_01_4.html#a5a61364933b0341445c1a191fb17bcc6", null ]
-];

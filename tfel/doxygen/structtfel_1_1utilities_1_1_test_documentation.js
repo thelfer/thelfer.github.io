@@ -1,11 +1,6 @@
 var structtfel_1_1utilities_1_1_test_documentation =
 [
-    [ "TestDocumentation", "structtfel_1_1utilities_1_1_test_documentation.html#af115fb98b3b788ed79ffd5ec381318a5", null ],
-    [ "TestDocumentation", "structtfel_1_1utilities_1_1_test_documentation.html#a88cdd047e2d416b720f54ed632812da6", null ],
-    [ "TestDocumentation", "structtfel_1_1utilities_1_1_test_documentation.html#af44027d6003d723d6260fe0204bace0b", null ],
     [ "~TestDocumentation", "structtfel_1_1utilities_1_1_test_documentation.html#a5c5d9804c8e9590595be7b3033a42bae", null ],
-    [ "operator=", "structtfel_1_1utilities_1_1_test_documentation.html#aa6bcae70e4bb3eee0aa65b717e26997f", null ],
-    [ "operator=", "structtfel_1_1utilities_1_1_test_documentation.html#aa124ebdaeb0e9d41881820efb79463a3", null ],
     [ "author", "structtfel_1_1utilities_1_1_test_documentation.html#ad033422eb70350bbbb7bbb5562c30aad", null ],
     [ "date", "structtfel_1_1utilities_1_1_test_documentation.html#a289743a74c3ec39ded67163ea12f6882", null ],
     [ "descriptions", "structtfel_1_1utilities_1_1_test_documentation.html#a61bfea6f88603ffbae1968bb46b3d23b", null ],

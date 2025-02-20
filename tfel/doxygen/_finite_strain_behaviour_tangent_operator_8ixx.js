@@ -1,10 +1,9 @@
 var _finite_strain_behaviour_tangent_operator_8ixx =
 [
-    [ "FiniteStrainBehaviourTangentOperatorConverterBase", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_converter_base.html", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_converter_base" ],
-    [ "LIB_TFEL_MATERIAL_FINITESTRAINBEHAVIOURTANGENTOPERATOR_IXX", "_finite_strain_behaviour_tangent_operator_8ixx.html#ae78cb176e1b1b5f02fc10b8c1e1b208b", null ],
+    [ "tfel::material::FiniteStrainBehaviourTangentOperatorConverterBase< ResultFlag, SourceFlag >", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_converter_base.html", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_converter_base" ],
     [ "TFEL_MATERIAL_FINITESTRAINBEHAVIOURTANGENTOPERATORCONVERTER", "_finite_strain_behaviour_tangent_operator_8ixx.html#ada68d1bd6284d121fa16688bd1587e0e", null ],
-    [ "convert", "_finite_strain_behaviour_tangent_operator_8ixx.html#a5eb9eed209461fa5c98230346cc96443", null ],
-    [ "convert", "_finite_strain_behaviour_tangent_operator_8ixx.html#ac3849331cfa3651e585afae4d25f9790", null ],
+    [ "convert", "_finite_strain_behaviour_tangent_operator_8ixx.html#aaac7b96f03239a63ba6e3e7cb28c0ef0", null ],
+    [ "convert", "_finite_strain_behaviour_tangent_operator_8ixx.html#a4c5b080d5f42fcd9be66526f529e26fd", null ],
     [ "TFEL_MATERIAL_FINITESTRAINBEHAVIOURTANGENTOPERATORCONVERTER", "_finite_strain_behaviour_tangent_operator_8ixx.html#ade82373a9e3a563d1e174293bcdef34b", null ],
     [ "TFEL_MATERIAL_FINITESTRAINBEHAVIOURTANGENTOPERATORCONVERTER", "_finite_strain_behaviour_tangent_operator_8ixx.html#a87a63d513aac394d66ca1e96b814e560", null ],
     [ "TFEL_MATERIAL_FINITESTRAINBEHAVIOURTANGENTOPERATORCONVERTER", "_finite_strain_behaviour_tangent_operator_8ixx.html#acb35b9e3a7f998cd69a9a1262c81e009", null ],

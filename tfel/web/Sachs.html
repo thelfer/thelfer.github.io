@@ -1,0 +1,659 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Implementation of Sachs/Reuss homogenization scheme with a BehaviourVariable</title>
+        <meta name="author" content="Helfer Thomas/Martin Antoine" />
+            <meta name="date" content="2025-02-06" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel/">Github repository</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/releases">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.9</a></li>
+		    <li><a href="release-notes-3.0.10.html">Version 3.0.10</a></li>
+		    <li><a href="release-notes-3.0.11.html">Version 3.0.11</a></li>
+		    <li><a href="release-notes-3.0.12.html">Version 3.0.12</a></li>
+		    <li><a href="release-notes-3.0.13.html">Version 3.0.13</a></li>
+		    <li><a href="release-notes-3.0.14.html">Version 3.0.14</a></li>
+		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		    <li><a href="release-notes-3.1.8.html">Version 3.1.8</a></li>
+		    <li><a href="release-notes-3.1.9.html">Version 3.1.9</a></li>
+		    <li><a href="release-notes-3.1.10.html">Version 3.1.10</a></li>
+		    <li><a href="release-notes-3.1.11.html">Version 3.1.11</a></li>
+		    <li><a href="release-notes-3.1.12.html">Version 3.1.12</a></li>
+		    <li><a href="release-notes-3.1.13.html">Version 3.1.13</a></li>
+		    <li><a href="release-notes-3.1.14.html">Version 3.1.14</a></li>
+		    <li><a href="release-notes-3.1.15.html">Version 3.1.15</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.5</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.6</a></li>
+		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
+		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
+		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
+		    <li><a href="release-notes-3.2.12.html">Version 3.2.12</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
+		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
+		    <li><a href="release-notes-3.3.7.html">Version 3.3.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
+		    <li><a href="release-notes-3.4.3.html">Version 3.4.3</a></li>
+		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
+		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
+		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
+		    <li><a href="release-notes-3.4.8.html">Version 3.4.8</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		    <li><a href="release-notes-4.0.1.html">Version 4.0.1</a></li>
+		    <li><a href="release-notes-4.0.2.html">Version 4.0.2</a></li>
+		    <li><a href="release-notes-4.0.3.html">Version 4.0.3</a></li>
+		    <li><a href="release-notes-4.0.4.html">Version 4.0.4</a></li>
+		    <li><a href="release-notes-4.0.5.html">Version 4.0.5</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.1.html">Version 4.1.0</a></li>
+		    <li><a href="release-notes-4.1.1.html">Version 4.1.1</a></li>
+		    <li><a href="release-notes-4.1.2.html">Version 4.1.2</a></li>
+		    <li><a href="release-notes-4.1.3.html">Version 4.1.3</a></li>
+		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.2.html">Version 4.2.0</a></li>
+		    <li><a href="release-notes-4.2.1.html">Version 4.2.1</a></li>
+		    <li><a href="release-notes-4.2.2.html">Version 4.2.2</a></li>
+		    <li><a href="release-notes-4.2.3.html">Version 4.2.3</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+<!--	    
+	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
+-->
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The Implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-material-property-interface.html">Generic interface for material properties</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic interface for behaviours</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="libraries_usage.html">Usage of the TFEL libraries in C++</a></li>
+		<li><a href="tfel-math.html">TFEL/Math</a></li>
+		<li><a href="tfel-material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+	        <li><a href="Default-keywords.html">Default</a></li>
+	        <li><a href="DefaultCZM-keywords.html">DefaultCZM</a></li>
+	        <li><a href="DefaultFiniteStrain-keywords.html">DefaultFiniteStrain</a></li>
+	        <li><a href="DefaultGenericBehaviour-keywords.html">DefaultGenericBehaviour</a></li>
+	        <li><a href="DefaultModel-keywords.html">DefaultModel</a></li>
+	        <li><a href="Implicit-keywords.html">Implicit</a></li>
+	        <li><a href="ImplicitCZM-keywords.html">ImplicitCZM</a></li>
+	        <li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li>
+	        <li><a href="ImplicitGenericBehaviour-keywords.html">ImplicitGenericBehaviour</a></li>
+	        <li><a href="ImplicitModel-keywords.html">ImplicitModel</a></li>
+	        <li><a href="ImplicitII-keywords.html">ImplicitII</a></li>
+	        <li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li>
+	        <li><a href="IsotropicMisesPlasticFlow-keywords.html">IsotropicMisesPlasticFlow</a></li>
+	        <li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li>
+	        <li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li>
+	        <li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li>
+	        <li><a href="MaterialProperty-keywords.html">MaterialProperty</a></li>
+	        <li><a href="Model-keywords.html">Model</a></li>
+	        <li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li>
+	        <li><a href="RungeKutta-keywords.html">RungeKutta</a></li>
+	        <li><a href="RungeKuttaFiniteStrain-keywords.html">RungeKuttaFiniteStrain</a></li>
+	        <li><a href="RungeKuttaGenericBehaviour-keywords.html">RungeKuttaGenericBehaviour</a></li>
+	        <li><a href="RungeKuttaModel-keywords.html">RungeKuttaModel</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">Implementation of Sachs/Reuss homogenization scheme
+with a BehaviourVariable</h1>
+<h2 class="author">Helfer Thomas/Martin Antoine</h2>
+<h3 class="date">February 6, 2025</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#sachs-homogenization-scheme"
+id="toc-sachs-homogenization-scheme">Sachs homogenization
+scheme</a></li>
+<li><a href="#resolution-of-the-non-linear-system"
+id="toc-resolution-of-the-non-linear-system">Resolution of the
+non-linear system</a></li>
+<li><a href="#implementation-in-mfront"
+id="toc-implementation-in-mfront">Implementation in MFront</a></li>
+<li><a href="#results" id="toc-results">Results</a></li>
+</ul>
+</div>
+<p>We present here an implementation of Sachs homogenization scheme
+<span class="citation" data-cites="sachs_1928">[1]</span> using
+<code>BehaviourVariable</code> keyword. This implementation allows using
+arbitrary local behaviours on each phase, providing that the local
+tangent operators are always invertible.</p>
+<p>This tutorial first recalls the presentation of <code>Sachs</code>
+scheme, which introduces the unknown stress, uniform in the composite
+material. This unknown leads to an unusual stress-driven problem, and
+here the residues of the non-linear system are scaled with a reference
+stress, in order that the Jacobian matrix remains well-conditioned. This
+matrix remains theoretically invertible for some conditions on local
+behaviours (positive work hardening, no damage…).</p>
+<h1 id="sachs-homogenization-scheme">Sachs homogenization scheme</h1>
+Sachs/Reuss scheme makes the hypothesis of a uniform stress <span
+class="math inline">\(\underline{\Sigma}\)</span> in the heterogeneous
+material:
+<span class="math display">\[\begin{aligned}
+    \underline{\sigma}^i &amp;= \underline{\Sigma }\\
+  \end{aligned}\]</span>
+where <span class="math inline">\(\underline{\sigma}^i\)</span> stress
+field in phase <span class="math inline">\(i\)</span>. The macroscopic
+strain <span class="math inline">\(\underline{E}\)</span> is defined as
+the average of strain field: dans le volume élémentaire représentatif
+(VER) :
+<span class="math display">\[\begin{aligned}
+    \underline{E} &amp;= \sum_{i=1}^{N}f_i\,\underline{\varepsilon}^i \\
+  \end{aligned}\]</span>
+where <span class="math inline">\(N\)</span> is the number of phases,
+<span class="math inline">\(f_i\)</span> is the volume fraction of phase
+<span class="math inline">\(i\)</span> and <span
+class="math inline">\(\underline{\varepsilon}^i\)</span> is the strain
+field in phase <span class="math inline">\(i\)</span> (given by the
+behaviour law). We can show that the macroscopic tangent operator is
+given by
+<span class="math display">\[\begin{aligned}
+    \dfrac{\mathrm{d}\underline{\Sigma}}{\mathrm{d}\underline{E}}   &amp;=
+\left({\displaystyle \frac{\displaystyle \partial
+\underline{E}}{\displaystyle \partial
+\underline{\Sigma}}}\right)^{-1}=\left(\sum_{i=1}^{N}f_i\,{\displaystyle
+\frac{\displaystyle \partial \underline{\varepsilon}^i}{\displaystyle
+\partial
+\underline{\Sigma}}}\right)^{-1}=\left(\sum_{i=1}^{N}f_i\,\left({\displaystyle
+\frac{\displaystyle \partial \underline{\sigma}^i}{\displaystyle
+\partial \underline{\varepsilon}^i}}\right)^{-1}\right)^{-1}\\
+  \end{aligned}\]</span>
+<h1 id="resolution-of-the-non-linear-system">Resolution of the
+non-linear system</h1>
+<p>The time interval is discretized and the unknowns are the increments
+of the variables. The problem to solve is the following:</p>
+<p><span class="math inline">\(\left\{ \begin{aligned}
+&amp;\Delta\underline{\Sigma }-
+\Delta\underline{\sigma}^i\left(\underline{\varepsilon}^i,\Delta\underline{\varepsilon}^i\right)=
+0 \qquad \forall i\\
+&amp;\Delta\underline{E}-\sum_{i=1}^{N}f_i\,\Delta\underline{\varepsilon}^i
+= 0\\  \end{aligned}\right.\)</span></p>
+<p>whose unknowns are <span
+class="math inline">\(\Delta\underline{\varepsilon}^i\)</span> and <span
+class="math inline">\(\Delta \underline{\Sigma}\)</span>. We will use a
+Newton-Raphson algorithm to solve this system.</p>
+<p>In <code>MFront</code>, we will do that with the
+<code>Implicit</code> <code>DSL</code>. We only have to precise the
+residues and the jacobian matrix. The residues are given by</p>
+<p><span class="math inline">\(\left\{ \begin{aligned}
+&amp;f_{\underline{\varepsilon}^i} =\left(\Delta\underline{\Sigma }-
+\Delta\underline{\sigma}^i\left(\underline{\varepsilon}^i,\Delta\underline{\varepsilon}^i\right)\right)/\sigma_{0}
+\qquad \forall i\\ &amp;f_{\underline{E}} =
+\Delta\underline{E}-\sum_{i=1}^{N}f_i\,\Delta\underline{\varepsilon}^i  \end{aligned}\right.\)</span></p>
+<p>where <span class="math inline">\(\sigma_{0}\)</span> is a parameter
+that give the same dimension and magnitude to the residues. The jacobian
+matrix is:</p>
+<p><span class="math inline">\(\left\{ \begin{aligned}
+&amp;{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^i}}{\displaystyle \partial
+\Delta\underline{\varepsilon}^j}} =-
+\delta_{ij}\frac{1}{\sigma_0}{\displaystyle \frac{\displaystyle \partial
+\underline{\sigma}^j}{\displaystyle \partial
+\underline{\varepsilon}^j}}\left(\underline{\varepsilon}^i,\Delta\underline{\varepsilon}^i\right)
+\qquad \forall i,j\\ &amp;{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\varepsilon}^i}}{\displaystyle \partial
+\Delta\underline{\Sigma}}} = \underline{\mathbf{I}}/\sigma_{0} \qquad
+\forall i\\ &amp;{\displaystyle \frac{\displaystyle \partial
+f_{\underline{E}}}{\displaystyle \partial
+\Delta\underline{\varepsilon}^i}} = -f_i\,\underline{\mathbf{I}} \qquad
+\forall i\\ &amp;{\displaystyle \frac{\displaystyle \partial
+f_{\underline{E}}}{\displaystyle \partial \Delta\underline{\Sigma}}} =
+\underline{\mathbf{0}}  \end{aligned}\right.\)</span></p>
+<h1 id="implementation-in-mfront">Implementation in MFront</h1>
+<p>As for Taylor’s scheme, we will use <code>BehaviourVariable</code>
+for the integration of local behaviours. The integration of global
+behavior, which requires solving a non-linear equation, will be done
+with the <code>Implicit</code> <code>DSL</code>.</p>
+<p>The step of creating a <code>BehaviourVariable</code> which allows
+the behaviour to be integrated on each phase is done in the same way as
+what was described for <a href="Taylor.html">Taylor scheme</a>. The
+corresponding local behaviours must be implemented before in
+<code>.mfront</code> auxiliary files.</p>
+<p>For the example, and for simplicity, we will assume that we have 2
+phases whose behaviour is elastoplastic with a Von Mises criterion with
+linear isotropic hardening. Material parameters are different between
+phases and the behaviour is implemented in a file
+<code>Plasticity.mfront</code>.</p>
+<p>In <code>Sachs.mfront</code>, we use an <code>Implicit</code>
+<code>DSL</code>, with a Newton-Raphson algorithm:</p>
+<div class="sourceCode" id="Sachs"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Sachs-1"><a href="#Sachs-1"></a><span class="er">@</span>DSL Implicit<span class="op">;</span></span>
+<span id="Sachs-2"><a href="#Sachs-2"></a><span class="er">@</span>Behaviour Sachs<span class="op">;</span></span>
+<span id="Sachs-3"><a href="#Sachs-3"></a></span>
+<span id="Sachs-4"><a href="#Sachs-4"></a><span class="er">@</span>Algorithm NewtonRaphson<span class="op">;</span></span>
+<span id="Sachs-5"><a href="#Sachs-5"></a><span class="er">@</span>Epsilon <span class="fl">1.e-14</span><span class="op">;</span></span></code></pre></div>
+<p>Here is the creation of a <code>BehaviourVariable</code> :</p>
+<div class="sourceCode" id="Sachs"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Sachs-1"><a href="#Sachs-1"></a><span class="er">@</span>BehaviourVariable b1 <span class="op">{</span></span>
+<span id="Sachs-2"><a href="#Sachs-2"></a>file<span class="op">:</span> <span class="st">&quot;Plasticity.mfront&quot;</span><span class="op">,</span></span>
+<span id="Sachs-3"><a href="#Sachs-3"></a>variables_suffix<span class="op">:</span> <span class="st">&quot;1&quot;</span><span class="op">,</span></span>
+<span id="Sachs-4"><a href="#Sachs-4"></a>store_gradients<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="Sachs-5"><a href="#Sachs-5"></a>store_thermodynamic_forces<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="Sachs-6"><a href="#Sachs-6"></a>external_names_prefix<span class="op">:</span> <span class="st">&quot;FirstPhase&quot;</span><span class="op">,</span></span>
+<span id="Sachs-7"><a href="#Sachs-7"></a>shared_external_state_variables<span class="op">:</span> <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">}</span></span>
+<span id="Sachs-8"><a href="#Sachs-8"></a><span class="op">};</span></span></code></pre></div>
+<p>Note here, we add the line <code>store_gradients: false,</code>
+because we want define the variable <code>eto1</code> as
+<code>StateVariable</code>. In the case of Taylor scheme, the
+<code>store_gradients</code> option was equal to <code>true</code>,
+which had the same effect than writing
+<code>@AuxiliaryStateVariable StrainStensor eto1;</code> which we don’t
+want here. The same goes for phase 2. We also write
+<code>store_thermodynamic_forces: false,</code> because here the
+macroscopic stress is equal to the local stress.</p>
+<p>Local strain increments are defined as <code>StateVariable</code>,
+and macroscopic stress is defined as <code>IntegrationVariable</code>.
+Indeed, this latter stress does not necessitate to be saved from a time
+step to the other, because there is also a variable <code>sig</code>
+defined.</p>
+<div class="sourceCode" id="State"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="State-1"><a href="#State-1"></a><span class="er">@</span>StateVariable StrainStensor eto2<span class="op">;</span></span>
+<span id="State-2"><a href="#State-2"></a>eto2<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;SecondPhaseTotalStrain&quot;</span><span class="op">);</span></span>
+<span id="State-3"><a href="#State-3"></a><span class="er">@</span>StateVariable StrainStensor eto1<span class="op">;</span></span>
+<span id="State-4"><a href="#State-4"></a>eto1<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;FirstPhaseTotalStrain&quot;</span><span class="op">);</span></span>
+<span id="State-5"><a href="#State-5"></a></span>
+<span id="State-6"><a href="#State-6"></a><span class="er">@</span>IntegrationVariable StressStensor Sig<span class="op">;</span></span>
+<span id="State-7"><a href="#State-7"></a>Sig<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;MacroscopicStress&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>Given that the tangent operators of each phase are needed for the
+computation of the macroscopic tangent operator, we define local
+variables:</p>
+<div class="sourceCode" id="Local"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Local-1"><a href="#Local-1"></a><span class="er">@</span>LocalVariable StiffnessTensor Dt1<span class="op">;</span></span>
+<span id="Local-2"><a href="#Local-2"></a><span class="er">@</span>LocalVariable StiffnessTensor Dt2<span class="op">;</span></span></code></pre></div>
+<p>Implementation of the <code>@Integrator</code> block is the
+following:</p>
+<div class="sourceCode" id="Integrator"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="er">@</span>Integrator<span class="op">{</span></span>
+<span id="Integrator-2"><a href="#Integrator-2"></a>  initialize<span class="op">(</span>b1<span class="op">);</span></span>
+<span id="Integrator-3"><a href="#Integrator-3"></a>  b1<span class="op">.</span>deto<span class="op">=</span>deto1<span class="op">;</span></span>
+<span id="Integrator-4"><a href="#Integrator-4"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> b1_smflag <span class="op">=</span> TangentOperatorTraits<span class="op">&lt;</span>MechanicalBehaviourBase<span class="op">::</span>STANDARDSTRAINBASEDBEHAVIOUR<span class="op">&gt;::</span>STANDARDTANGENTOPERATOR<span class="op">;</span></span>
+<span id="Integrator-5"><a href="#Integrator-5"></a>  <span class="at">const</span> <span class="kw">auto</span> r1 <span class="op">=</span> b1<span class="op">.</span>integrate<span class="op">(</span>b1_smflag<span class="op">,</span>CONSISTENTTANGENTOPERATOR<span class="op">);</span></span>
+<span id="Integrator-6"><a href="#Integrator-6"></a>  Dt1 <span class="op">=</span> b1<span class="op">.</span>getTangentOperator<span class="op">();</span></span>
+<span id="Integrator-7"><a href="#Integrator-7"></a>  </span>
+<span id="Integrator-8"><a href="#Integrator-8"></a>  initialize<span class="op">(</span>b2<span class="op">);</span></span>
+<span id="Integrator-9"><a href="#Integrator-9"></a>  b2<span class="op">.</span>deto<span class="op">=</span>deto2<span class="op">;</span></span>
+<span id="Integrator-10"><a href="#Integrator-10"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> b2_smflag <span class="op">=</span> TangentOperatorTraits<span class="op">&lt;</span>MechanicalBehaviourBase<span class="op">::</span>STANDARDSTRAINBASEDBEHAVIOUR<span class="op">&gt;::</span>STANDARDTANGENTOPERATOR<span class="op">;</span></span>
+<span id="Integrator-11"><a href="#Integrator-11"></a>  <span class="at">const</span> <span class="kw">auto</span> r2 <span class="op">=</span> b2<span class="op">.</span>integrate<span class="op">(</span>b2_smflag<span class="op">,</span>CONSISTENTTANGENTOPERATOR<span class="op">);</span></span>
+<span id="Integrator-12"><a href="#Integrator-12"></a>  Dt2 <span class="op">=</span> b2<span class="op">.</span>getTangentOperator<span class="op">();</span></span>
+<span id="Integrator-13"><a href="#Integrator-13"></a>  </span>
+<span id="Integrator-14"><a href="#Integrator-14"></a>  <span class="kw">auto</span> dsig1 <span class="op">=</span>b1<span class="op">.</span>sig<span class="op">-</span>sig<span class="op">;</span></span>
+<span id="Integrator-15"><a href="#Integrator-15"></a>  <span class="kw">auto</span> dsig2 <span class="op">=</span>b2<span class="op">.</span>sig<span class="op">-</span>sig<span class="op">;</span></span>
+<span id="Integrator-16"><a href="#Integrator-16"></a>  </span>
+<span id="Integrator-17"><a href="#Integrator-17"></a>  feto1<span class="op">=(</span>dSig<span class="op">-</span>dsig1<span class="op">)/</span>sig_0<span class="op">;</span></span>
+<span id="Integrator-18"><a href="#Integrator-18"></a>  feto2<span class="op">=(</span>dSig<span class="op">-</span>dsig2<span class="op">)/</span>sig_0<span class="op">;</span></span>
+<span id="Integrator-19"><a href="#Integrator-19"></a>  fSig<span class="op">=</span>deto<span class="op">-(</span><span class="dv">1</span><span class="op">-</span>f<span class="op">)*</span>deto1<span class="op">-</span>f<span class="op">*</span>deto2<span class="op">;</span></span>
+<span id="Integrator-20"><a href="#Integrator-20"></a>  <span class="kw">auto</span> Id<span class="op">=</span>st2tost2<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="Integrator-21"><a href="#Integrator-21"></a>  <span class="kw">auto</span> Null<span class="op">=</span> Stensor4<span class="op">{</span>real<span class="op">{}};</span></span>
+<span id="Integrator-22"><a href="#Integrator-22"></a>  dfeto1_ddeto1 <span class="op">=</span> <span class="op">-</span>Dt1<span class="op">/</span>sig_0<span class="op">;</span></span>
+<span id="Integrator-23"><a href="#Integrator-23"></a>  dfeto1_ddSig <span class="op">=</span> Id<span class="op">/</span>sig_0<span class="op">;</span></span>
+<span id="Integrator-24"><a href="#Integrator-24"></a>  dfeto2_ddeto2 <span class="op">=</span> <span class="op">-</span>Dt2<span class="op">/</span>sig_0<span class="op">;</span></span>
+<span id="Integrator-25"><a href="#Integrator-25"></a>  dfeto2_ddSig <span class="op">=</span> Id<span class="op">/</span>sig_0<span class="op">;</span></span>
+<span id="Integrator-26"><a href="#Integrator-26"></a>  dfSig_ddeto1 <span class="op">=</span> <span class="op">-(</span><span class="dv">1</span><span class="op">-</span>f<span class="op">)*</span>Id<span class="op">;</span></span>
+<span id="Integrator-27"><a href="#Integrator-27"></a>  dfSig_ddeto2 <span class="op">=</span> <span class="op">-</span>f<span class="op">*</span>Id<span class="op">;</span></span>
+<span id="Integrator-28"><a href="#Integrator-28"></a>  dfSig_ddSig <span class="op">=</span> Null<span class="op">;</span></span>
+<span id="Integrator-29"><a href="#Integrator-29"></a><span class="op">}</span></span></code></pre></div>
+<p>We can see that we start with the integration of the local
+behaviours.</p>
+<p>However, compared to Taylor’s scheme, we add
+<code>initialize(b1)</code> (resp. <code>initialize(b2)</code>) before
+the integration. In fact, it is equivalent to:</p>
+<div class="sourceCode" id="init"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="init-1"><a href="#init-1"></a>b1<span class="op">.</span>eel<span class="op">=</span>eel1<span class="op">;</span></span>
+<span id="init-2"><a href="#init-2"></a>b1<span class="op">.</span>p<span class="op">=</span>p1<span class="op">;</span></span></code></pre></div>
+<p>(and it also ensures <code>b1.eto=eto1</code>). It was done
+automatically in the case of Taylor scheme, but here, as the
+<code>store_gradients</code> option is <code>false</code> for both
+phases, it is no more automatic. Furthermore, the gradient
+<code>b1.deto</code> (resp. <code>b2.deto</code>) is initialized to
+<code>deto1</code> (resp. <code>deto2</code>), which is the increment of
+the <code>StateVariable</code> <code>eto1</code> (resp.
+<code>eto2</code>) (which will be updated at each iteration of the
+Newton-Raphson).</p>
+<p>We also recover the tangent operator on each phase.</p>
+<p>Then, we indicate the residues and the Jacobian. To define the
+residues <code>feto1</code> (resp. <code>feto2</code>), we need the
+stress increments <code>dsig1</code> (resp. <code>dsig2</code>), which
+we obtain as a difference between the stress <code>b1.sig</code> (resp.
+<code>b2.sig</code>) obtained at the end of the local integration, and
+the stress <code>sig</code> (resp. <code>sig</code>).</p>
+<p>Warning: if the instruction
+<code>updateAuxiliaryStateVariables(b1);</code> is given in the
+<code>@Integrator</code> block, then the update of <code>eel1</code> to
+<code>b1.eel</code> and <code>p1</code> to <code>b1.p</code> will take
+place at the end of each iteration of the Newton-Raphson (which will be
+incorrect), and not at the end of the time step (which is correct).</p>
+<p>Note that the following parameters had been defined before the
+integrator block:</p>
+<div class="sourceCode" id="fraction"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="fraction-1"><a href="#fraction-1"></a><span class="er">@</span>Parameter stress sig_0<span class="op">=</span><span class="fl">1e11</span><span class="op">;</span></span>
+<span id="fraction-2"><a href="#fraction-2"></a></span>
+<span id="fraction-3"><a href="#fraction-3"></a><span class="er">@</span>MaterialProperty real f<span class="op">;</span></span>
+<span id="fraction-4"><a href="#fraction-4"></a>f<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;FirstPhaseFraction&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>Finally, macroscopic stress is given by</p>
+<div class="sourceCode" id="FinalStress"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="FinalStress-1"><a href="#FinalStress-1"></a><span class="er">@</span>ComputeFinalStress<span class="op">{</span></span>
+<span id="FinalStress-2"><a href="#FinalStress-2"></a>sig <span class="op">+=</span> dSig<span class="op">;</span></span>
+<span id="FinalStress-3"><a href="#FinalStress-3"></a><span class="op">}</span></span></code></pre></div>
+<p>Note that <code>Sig</code> is not saved from a time step to the
+other, so that its value shall not be used to compute <code>sig</code>,
+but we use its increment <code>dSig</code> instead.</p>
+<p>Finally, macroscopic tangent operator is given by</p>
+<div class="sourceCode" id="TangentOperator"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="TangentOperator-1"><a href="#TangentOperator-1"></a><span class="er">@</span>TangentOperator<span class="op">{</span></span>
+<span id="TangentOperator-2"><a href="#TangentOperator-2"></a>  <span class="kw">auto</span> iDt1<span class="op">=</span> invert<span class="op">(</span>Dt1<span class="op">);</span></span>
+<span id="TangentOperator-3"><a href="#TangentOperator-3"></a>  <span class="kw">auto</span> iDt2<span class="op">=</span> invert<span class="op">(</span>Dt2<span class="op">);</span></span>
+<span id="TangentOperator-4"><a href="#TangentOperator-4"></a>  Dt <span class="op">=</span> invert<span class="op">(</span>f<span class="op">*</span>iDt1<span class="op">+(</span><span class="dv">1</span><span class="op">-</span>f<span class="op">)*</span>iDt2<span class="op">);</span></span>
+<span id="TangentOperator-5"><a href="#TangentOperator-5"></a><span class="op">}</span></span></code></pre></div>
+<h1 id="results">Results</h1>
+<p>We here use MTest to simulate a uniaxial tensile test.</p>
+<p>MTest file (<code>Sachs.mtest</code>) is the following:</p>
+<div class="sourceCode" id="Sachs_mtest"><pre
+class="sourceCode numberSource mtest numberLines"><code class="sourceCode"><span id="Sachs_mtest-1"><a href="#Sachs_mtest-1"></a>@ModellingHypothesis &#39;Tridimensional&#39;;</span>
+<span id="Sachs_mtest-2"><a href="#Sachs_mtest-2"></a>@Behaviour&lt;Generic&gt; &#39;src/libBehaviour.so&#39; &#39;Sachs&#39;;</span>
+<span id="Sachs_mtest-3"><a href="#Sachs_mtest-3"></a>@MaterialProperty&lt;constant&gt; &#39;FirstPhaseYoungModulus&#39;     60.e9;</span>
+<span id="Sachs_mtest-4"><a href="#Sachs_mtest-4"></a>@MaterialProperty&lt;constant&gt; &#39;FirstPhasePoissonRatio&#39;       0.3;</span>
+<span id="Sachs_mtest-5"><a href="#Sachs_mtest-5"></a>@MaterialProperty&lt;constant&gt; &#39;H1&#39;                4.e9;</span>
+<span id="Sachs_mtest-6"><a href="#Sachs_mtest-6"></a>@MaterialProperty&lt;constant&gt; &#39;s01&#39;               60.e6;</span>
+<span id="Sachs_mtest-7"><a href="#Sachs_mtest-7"></a>@MaterialProperty&lt;constant&gt; &#39;SecondPhaseYoungModulus&#39;     50.e9;</span>
+<span id="Sachs_mtest-8"><a href="#Sachs_mtest-8"></a>@MaterialProperty&lt;constant&gt; &#39;SecondPhasePoissonRatio&#39;       0.3;</span>
+<span id="Sachs_mtest-9"><a href="#Sachs_mtest-9"></a>@MaterialProperty&lt;constant&gt; &#39;H2&#39;                2.e9;</span>
+<span id="Sachs_mtest-10"><a href="#Sachs_mtest-10"></a>@MaterialProperty&lt;constant&gt; &#39;s02&#39;               50.e6;</span>
+<span id="Sachs_mtest-11"><a href="#Sachs_mtest-11"></a>@MaterialProperty&lt;constant&gt; &#39;PhaseFraction&#39; 0.5;</span>
+<span id="Sachs_mtest-12"><a href="#Sachs_mtest-12"></a>@ExternalStateVariable &#39;Temperature&#39; 293.15;</span>
+<span id="Sachs_mtest-13"><a href="#Sachs_mtest-13"></a>@ImposedStrain &#39;EXX&#39; {0 : 0, 1 : 5e-3};</span>
+<span id="Sachs_mtest-14"><a href="#Sachs_mtest-14"></a>@Times {0.,1 in 50};</span></code></pre></div>
+<p>The axial stress (uniform in the VER) is shown below as a function of
+the macroscopic axial strain, as a function of the axial strain of phase
+1, and as a function of axial strain of phase 2.</p>
+<figure>
+<img src="./img/Sachs_test.png"
+alt="Macroscopic stress as a function of local and macroscopic strains, uniaxial tensile test, Sachs scheme" />
+<figcaption aria-hidden="true">Macroscopic stress as a function of local
+and macroscopic strains, uniaxial tensile test, Sachs
+scheme</figcaption>
+</figure>
+<p>We can see, as expected, that at a given stress value, the
+macroscopic strain is an average of local strains. When the macroscopic
+stress reaches the yield stress of one of the phases, the evolution of
+this phase becomes plastic, and this has repercussions on the
+macroscopic strain and on the other phase. The second phase becomes
+plastic later.</p>
+<!-- Local IspellDict: english -->
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-sachs_1928" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Sachs</span>, G. Zur
+ableitung einer fließbedingung. <em>Zeitschrift des Vereines Deutscher
+Ingenieure</em>. 1928. DOI <a
+href="https://doi.org/10.1007/978-3-642-92045-5_12">10.1007/978-3-642-92045-5_12</a>.
+</div>
+</div>
+</div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

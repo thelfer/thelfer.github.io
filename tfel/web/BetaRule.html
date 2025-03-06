@@ -1,0 +1,786 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Implementation of Cailletaud’s beta rule for homogenization</title>
+        <meta name="author" content="Helfer Thomas/Martin Antoine" />
+            <meta name="date" content="2025-02-10" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mtest.html">mtest</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel/">Github repository</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/releases">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.9</a></li>
+		    <li><a href="release-notes-3.0.10.html">Version 3.0.10</a></li>
+		    <li><a href="release-notes-3.0.11.html">Version 3.0.11</a></li>
+		    <li><a href="release-notes-3.0.12.html">Version 3.0.12</a></li>
+		    <li><a href="release-notes-3.0.13.html">Version 3.0.13</a></li>
+		    <li><a href="release-notes-3.0.14.html">Version 3.0.14</a></li>
+		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		    <li><a href="release-notes-3.1.8.html">Version 3.1.8</a></li>
+		    <li><a href="release-notes-3.1.9.html">Version 3.1.9</a></li>
+		    <li><a href="release-notes-3.1.10.html">Version 3.1.10</a></li>
+		    <li><a href="release-notes-3.1.11.html">Version 3.1.11</a></li>
+		    <li><a href="release-notes-3.1.12.html">Version 3.1.12</a></li>
+		    <li><a href="release-notes-3.1.13.html">Version 3.1.13</a></li>
+		    <li><a href="release-notes-3.1.14.html">Version 3.1.14</a></li>
+		    <li><a href="release-notes-3.1.15.html">Version 3.1.15</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.5</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.6</a></li>
+		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
+		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
+		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
+		    <li><a href="release-notes-3.2.12.html">Version 3.2.12</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
+		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
+		    <li><a href="release-notes-3.3.7.html">Version 3.3.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
+		    <li><a href="release-notes-3.4.3.html">Version 3.4.3</a></li>
+		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
+		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
+		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
+		    <li><a href="release-notes-3.4.8.html">Version 3.4.8</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		    <li><a href="release-notes-4.0.1.html">Version 4.0.1</a></li>
+		    <li><a href="release-notes-4.0.2.html">Version 4.0.2</a></li>
+		    <li><a href="release-notes-4.0.3.html">Version 4.0.3</a></li>
+		    <li><a href="release-notes-4.0.4.html">Version 4.0.4</a></li>
+		    <li><a href="release-notes-4.0.5.html">Version 4.0.5</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.1.html">Version 4.1.0</a></li>
+		    <li><a href="release-notes-4.1.1.html">Version 4.1.1</a></li>
+		    <li><a href="release-notes-4.1.2.html">Version 4.1.2</a></li>
+		    <li><a href="release-notes-4.1.3.html">Version 4.1.3</a></li>
+		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.2.html">Version 4.2.0</a></li>
+		    <li><a href="release-notes-4.2.1.html">Version 4.2.1</a></li>
+		    <li><a href="release-notes-4.2.2.html">Version 4.2.2</a></li>
+		    <li><a href="release-notes-4.2.3.html">Version 4.2.3</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+<!--	    
+	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
+-->
+	    <li><a>Behaviours</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The Implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+    		    <li><a href="epx.html">EUROPLEXUS</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-material-property-interface.html">Generic interface for material properties</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic interface for behaviours</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="libraries_usage.html">Usage of the TFEL libraries in C++</a></li>
+		<li><a href="tfel-math.html">TFEL/Math</a></li>
+		<li><a href="tfel-material.html">TFEL/Material</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a>MFront keywords</a>
+	      <ul>
+	        <li><a href="Default-keywords.html">Default</a></li>
+	        <li><a href="DefaultCZM-keywords.html">DefaultCZM</a></li>
+	        <li><a href="DefaultFiniteStrain-keywords.html">DefaultFiniteStrain</a></li>
+	        <li><a href="DefaultGenericBehaviour-keywords.html">DefaultGenericBehaviour</a></li>
+	        <li><a href="DefaultModel-keywords.html">DefaultModel</a></li>
+	        <li><a href="Implicit-keywords.html">Implicit</a></li>
+	        <li><a href="ImplicitCZM-keywords.html">ImplicitCZM</a></li>
+	        <li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li>
+	        <li><a href="ImplicitGenericBehaviour-keywords.html">ImplicitGenericBehaviour</a></li>
+	        <li><a href="ImplicitModel-keywords.html">ImplicitModel</a></li>
+	        <li><a href="ImplicitII-keywords.html">ImplicitII</a></li>
+	        <li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li>
+	        <li><a href="IsotropicMisesPlasticFlow-keywords.html">IsotropicMisesPlasticFlow</a></li>
+	        <li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li>
+	        <li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li>
+	        <li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li>
+	        <li><a href="MaterialProperty-keywords.html">MaterialProperty</a></li>
+	        <li><a href="Model-keywords.html">Model</a></li>
+	        <li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li>
+	        <li><a href="RungeKutta-keywords.html">RungeKutta</a></li>
+	        <li><a href="RungeKuttaFiniteStrain-keywords.html">RungeKuttaFiniteStrain</a></li>
+	        <li><a href="RungeKuttaGenericBehaviour-keywords.html">RungeKuttaGenericBehaviour</a></li>
+	        <li><a href="RungeKuttaModel-keywords.html">RungeKuttaModel</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	    <li><a href="physical-constants.html">Physical constants</a></li>
+	    <li><a href="glossary.html">Glossary</a></li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">Implementation of Cailletaud’s beta rule for
+homogenization</h1>
+<h2 class="author">Helfer Thomas/Martin Antoine</h2>
+<h3 class="date">February 10, 2025</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#theoretical-background"
+id="toc-theoretical-background">Theoretical background</a>
+<ul>
+<li><a href="#cailletauds-beta-rule"
+id="toc-cailletauds-beta-rule">Cailletaud’s beta rule</a></li>
+<li><a href="#resolution-of-the-non-linear-system"
+id="toc-resolution-of-the-non-linear-system">Resolution of the
+non-linear system</a></li>
+<li><a href="#consistent-tangent-operator"
+id="toc-consistent-tangent-operator">Consistent tangent
+operator</a></li>
+</ul></li>
+<li><a href="#implementation-in-mfront"
+id="toc-implementation-in-mfront">Implementation in MFront</a>
+<ul>
+<li><a href="#implementation-of-cailletauds-beta-rule"
+id="toc-implementation-of-cailletauds-beta-rule">Implementation of
+Cailletaud’s beta rule</a></li>
+</ul></li>
+<li><a href="#results" id="toc-results">Results</a></li>
+</ul>
+</div>
+<p>This tutorial explains how to implement Cailletaud’s <span
+class="math inline">\(\beta\)</span>-rule <span class="citation"
+data-cites="cailletaud_pilvin_1994">[1]</span> in the context of
+elasto-viscoplastic composites using an arbitrary local flow function.
+In this tutorial, a local behaviour of Meric-Cailletaud type <span
+class="citation" data-cites="meric_single_1991">[2]</span> is
+proposed.</p>
+<p>Here, the implementation of this homogenization scheme requires the
+local tangent operators, obtained via the integration of a local
+<code>Behaviour</code>.</p>
+<p>We first recall Cailletaud’s <span
+class="math inline">\(\beta\)</span>-rule and present the non-linear
+system derived from it. We then implement it in <code>MFront</code> and
+explain how to use the keyword <code>@BehaviourVariable</code> for the
+integration of the local behaviours.</p>
+<h1 id="theoretical-background">Theoretical background</h1>
+<h2 id="cailletauds-beta-rule">Cailletaud’s beta rule</h2>
+We consider a composite made of <span class="math inline">\(N\)</span>
+phases indexed by <span class="math inline">\(i\)</span>. Cailletaud’s
+<span class="math inline">\(\beta\)</span>-rule was proposed in the
+context of elasto-viscoplastic composites for which strain partition is
+assumed:
+<span class="math display">\[\begin{aligned}
+  \underline{\epsilon}^{\mathrm{to}}_i=\underline{\epsilon}^{\mathrm{el}}_i+\underline{\epsilon}^{\mathrm{vp}}_i
+\\
+\end{aligned}\]</span>
+where the strain <span
+class="math inline">\(\underline{\epsilon}^{\mathrm{el}}_i\)</span> is
+given by Hooke’s law:
+<span class="math display">\[\begin{aligned}
+  \underline{\epsilon}^{\mathrm{el}}_i=\underline{\mathbf{S}}_i\mathbin{\mathord{:}}\underline{\sigma}_i
+\\
+\end{aligned}\]</span>
+where <span class="math inline">\(\underline{\mathbf{S}}_i\)</span> is a
+fourth-rank compliance tensor and <span
+class="math inline">\(\underline{\sigma}_i\)</span> is the stress field;
+and where the viscoplastic strain <span
+class="math inline">\(\underline{\epsilon}^{\mathrm{vp}}_i\)</span> is
+given by the following flow rule:
+<span class="math display">\[\begin{aligned}
+  \underline{\dot{\epsilon}}^{\mathrm{vp}}_i=f_i(\underline{\sigma}_i)
+\\
+\end{aligned}\]</span>
+<p>where <span class="math inline">\(f_i\)</span> is a non-linear
+function.</p>
+Assuming that <span class="math inline">\(\phi_i\)</span> is volume
+fraction of phase <span class="math inline">\(i\)</span>, the
+macroscopic strain field is defined as
+<span class="math display">\[\begin{aligned}
+\underline{E}= \sum_\alpha \phi_i \underline{\epsilon}^{\mathrm{to}}_i
+\\
+\end{aligned}\]</span>
+<p>and is given as a parameter.</p>
+In this context, the proposition of Cailletaud is to introduce an
+internal variable <span
+class="math inline">\(\underline{\beta}_i\)</span> on each phase, whose
+evolution is given by
+<span class="math display">\[\begin{aligned}
+\underline{\dot{\beta}}_i=
+\underline{\dot{\epsilon}}^{\mathrm{vp}}_i-D\,||\underline{\dot{\epsilon}}^{\mathrm{vp}}_i||\,\underline{\dot{\beta}}_i
+\\
+\end{aligned}\]</span>
+where <span class="math inline">\(D\in\mathbb R\)</span> is a parameter
+and
+<span class="math display">\[\begin{aligned}
+  ||\underline{\dot{\epsilon}}^{\mathrm{vp}}_i||=\sqrt{\dfrac 23
+\underline{\dot{\epsilon}}^{\mathrm{vp}}_i\mathbin{\mathord{:}}\underline{\dot{\epsilon}}^{\mathrm{vp}}_i}.
+\\
+\end{aligned}\]</span>
+The localisation relation is also proposed:
+<span class="math display">\[\begin{aligned}
+\underline{\sigma}_i= \underline{\Sigma}+
+c\,(\underline{B}-\underline{\beta}_i) \\
+\end{aligned}\]</span>
+where <span class="math inline">\(c\)</span> is a real parameter, <span
+class="math inline">\(\underline{B}\)</span> is a macroscopic variable:
+<span class="math display">\[\begin{aligned}
+\underline{B}= \sum_i \phi_i\underline{\beta}_i\\
+\end{aligned}\]</span>
+and <span class="math inline">\(\underline{\Sigma}\)</span> is the
+macroscopic stress, which verifies (by averaging the localisation
+relation)
+<span class="math display">\[\begin{aligned}
+\underline{\Sigma}= \sum_i \phi_i\underline{\sigma}_i\\
+\end{aligned}\]</span>
+<h2 id="resolution-of-the-non-linear-system">Resolution of the
+non-linear system</h2>
+<p>We discretize the time interval and look for the increment of the
+variables. We choose <span
+class="math inline">\(\Delta\underline{\epsilon}^{\mathrm{to}}_i\)</span>,
+<span class="math inline">\(\Delta{\underline{\beta}}_i\)</span> and
+<span class="math inline">\(\Delta{\underline{\Sigma}}\)</span> as
+unknowns of our non-linear system:</p>
+<p><span class="math inline">\(\left\{ \begin{aligned}
+&amp;\sum_{i=1}^{N}\phi_i\,\Delta\underline{\epsilon}^{\mathrm{to}}_i -
+\Delta\underline{E} = 0\\
+&amp;\Delta{\underline{\sigma}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)-\Delta{\underline{\Sigma}}-
+c\,(\Delta\underline{B}-\Delta\underline{\beta}_i) = 0\qquad\forall i\\
+&amp;\Delta\underline{\beta}_i -
+\Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)+
+D\,||\Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)||\,(\underline{\beta}_i+\theta\Delta\underline{\beta}_i)=0\qquad\forall
+i\\  \end{aligned}\right.\)</span></p>
+<p>where the following auxiliary variable is introduced:</p>
+<p><span class="math inline">\(\begin{aligned} &amp;\Delta\underline{B}
+=
+\sum_{i=1}^{N}\phi_i\,\Delta\underline{\beta}_i\\  \end{aligned}\)</span>
+and where <span
+class="math inline">\(\Delta{\underline{\sigma}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)\)</span>
+and <span
+class="math inline">\(\Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)\)</span>
+are obtained with the integration of the local behaviours. Note that the
+local elastic strain can also be computed with this local
+integration.</p>
+<p>To solve this non-linear problem in <code>MFront</code>, we use the
+<code>ImplicitII</code> <code>DSL</code> (because we do not consider
+<span class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span>
+as an integration variable). We only have to precise the residues and
+the Jacobian matrix. The residues are:</p>
+<p><span class="math inline">\(\left\{ \begin{aligned}
+&amp;f_{\underline{E}}=\sum_{i=1}^{N}\phi_i\,\Delta\underline{\epsilon}^{\mathrm{to}}_i
+- \Delta\underline{E}\\ &amp;f_{\underline{\epsilon}^{\mathrm{to}}_i}
+=\frac{1}{\sigma_0}\left[\Delta{\underline{\sigma}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)-\Delta{\underline{\Sigma}}-
+c\,(\Delta\underline{B}-\Delta\underline{\beta}_i)\right] \qquad \forall
+i\\ &amp;f_{\underline{\beta}_i} =\Delta\underline{\beta}_i -
+\Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)+D\,||\Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)||\,(\underline{\beta}_i+\theta\Delta\underline{\beta}_i)
+\qquad \forall i\\  \end{aligned}\right.\)</span></p>
+<p>where <span class="math inline">\(\sigma_{0}\)</span> is a parameter
+that give the same dimension and magnitude to the residues. The jacobian
+matrix is given by</p>
+<p><span class="math inline">\(\left\{ \begin{aligned}
+&amp;{\displaystyle \frac{\displaystyle \partial
+f_{\underline{E}}}{\displaystyle \partial \Delta{\underline{\Sigma}}}} =
+\underline{\mathbf{0}}\\ &amp;{\displaystyle \frac{\displaystyle
+\partial f_{\underline{E}}}{\displaystyle \partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_j}} =
+\phi_j\underline{\mathbf{I}}\qquad \forall j\\ &amp;{\displaystyle
+\frac{\displaystyle \partial f_{\underline{E}}}{\displaystyle \partial
+\Delta{\underline{\beta}}_j}} = \underline{\mathbf{0}}\qquad \forall j\\
+&amp;{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\epsilon}^{\mathrm{to}}_i}}{\displaystyle \partial
+\Delta{\underline{\Sigma}}}} =
+-\frac{1}{\sigma_0}\underline{\mathbf{I}}\qquad \forall i\\
+&amp;{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\epsilon}^{\mathrm{to}}_i}}{\displaystyle \partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_j}} =
+\frac{\delta_{ij}}{\sigma_0}\,{\displaystyle \frac{\displaystyle
+\partial \underline{\sigma}_j}{\displaystyle \partial
+\underline{\epsilon}^{\mathrm{to}}_j}}\left(\underline{\epsilon}^{\mathrm{to}}_j,\Delta\underline{\epsilon}^{\mathrm{to}}_j\right)\qquad\forall
+i,j\\ &amp;{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\epsilon}^{\mathrm{to}}_i}}{\displaystyle \partial
+\Delta{\underline{\beta}}_j}} =
+\frac{c}{\sigma_0}\,(\delta_{ij}-\phi_j)\underline{\mathbf{I}}\qquad
+\forall i,j\\ &amp;{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\beta}_i}}{\displaystyle \partial
+\Delta{\underline{\Sigma}}}} = \underline{\mathbf{0}}\qquad \forall i\\
+&amp;{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\beta}_i}}{\displaystyle \partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_j}} =
+-\delta_{ij}\,{\displaystyle \frac{\displaystyle \partial
+\underline{\sigma}_j}{\displaystyle \partial
+\underline{\epsilon}^{\mathrm{to}}_j}}\left(\underline{\epsilon}^{\mathrm{to}}_j,\Delta\underline{\epsilon}^{\mathrm{to}}_j\right)+D\,(\underline{\beta}_i+\theta\Delta\underline{\beta}_i)\otimes{\displaystyle
+\frac{\displaystyle \partial
+||\Delta\underline{\epsilon}^{\mathrm{vp}}_i||}{\displaystyle \partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_j}}\qquad \forall i,j\\
+&amp;{\displaystyle \frac{\displaystyle \partial
+f_{\underline{\beta}_i}}{\displaystyle \partial
+\Delta{\underline{\beta}}_j}} =
+\left(1+\theta\,D\,||\Delta\underline{\epsilon}^{\mathrm{vp}}_i||\right)\,\delta_{ij}\,\underline{\mathbf{I}}
+\qquad \forall i,j\\  \end{aligned}\right.\)</span></p>
+<p>where <span
+class="math inline">\(||\Delta\underline{\epsilon}^{\mathrm{vp}}_i||\)</span>
+is used for <span
+class="math inline">\(||\Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)||\)</span>.
+Moreover,</p>
+<p><span class="math inline">\(\left\{  \begin{aligned}  {\displaystyle
+\frac{\displaystyle \partial
+||\Delta\underline{\epsilon}^{\mathrm{vp}}_i||}{\displaystyle \partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_j}}&amp;=\frac
+23\delta_{ij}{\displaystyle \frac{\displaystyle
+\Delta\underline{\epsilon}^{\mathrm{vp}}_i}{\displaystyle
+||\Delta\underline{\epsilon}^{\mathrm{vp}}_i||}}\mathbin{\mathord{:}}{\displaystyle
+\frac{\displaystyle \partial
+\Delta\underline{\epsilon}^{\mathrm{vp}}_i}{\displaystyle \partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_j}}\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)\\  &amp;=\frac
+23\delta_{ij}{\displaystyle \frac{\displaystyle
+\Delta\underline{\epsilon}^{\mathrm{vp}}_i}{\displaystyle
+||\Delta\underline{\epsilon}^{\mathrm{vp}}_i||}}\mathbin{\mathord{:}}\left({\displaystyle
+\frac{\displaystyle \partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_i}{\displaystyle \partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_j}}-{\displaystyle
+\frac{\displaystyle \partial
+\Delta\underline{\epsilon}^{\mathrm{el}}_i}{\displaystyle \partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_j}}\right)\\  &amp;=\frac
+23\delta_{ij}{\displaystyle \frac{\displaystyle
+\Delta\underline{\epsilon}^{\mathrm{vp}}_i}{\displaystyle
+||\Delta\underline{\epsilon}^{\mathrm{vp}}_i||}}\mathbin{\mathord{:}}\left(\delta_{ij}\underline{\mathbf{I}}-\delta_{ij}\underline{\mathbf{S}}_j\mathbin{\mathord{:}}{\displaystyle
+\frac{\displaystyle \partial \Delta{\underline{\sigma}}_j}{\displaystyle
+\partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_j}}\right)\\  \end{aligned}\right.\)</span></p>
+<p>We can see the term <span class="math inline">\({\displaystyle
+\frac{\displaystyle \partial \Delta{\underline{\sigma}}_j}{\displaystyle
+\partial \Delta\underline{\epsilon}^{\mathrm{to}}_j}}\)</span>, that
+will be provided by the local integration.</p>
+<h2 id="consistent-tangent-operator">Consistent tangent operator</h2>
+We can also compute the tangent operator with a method similar as the
+method explained in the <a href="./implicit-dsl.html">Implicit DSL</a>
+documentation. We define <span class="math inline">\(\Delta Y\)</span>
+such as
+<span class="math display">\[\begin{aligned}
+\Delta G_i = (\Delta\underline{\epsilon}^{\mathrm{to}}_i,
+\Delta{\underline{\beta}}_i)\\
+\Delta Y = (\Delta{\underline{\Sigma}},\Delta G_1,...,\Delta G_N)\\
+\end{aligned}\]</span>
+and <span
+class="math inline">\(H_i=(f_{\underline{\epsilon}^{\mathrm{to}}_i},f_{\underline{\beta}_i})\)</span>
+and <span
+class="math inline">\(F=(f_{\underline{E}},H_1,...,H_N)\)</span> so that
+<span class="math display">\[\begin{aligned}
+  F(\Delta\underline{E},\Delta Y(\Delta\underline{E}))&amp;=0\\
+\end{aligned}\]</span>
+<p>Hence, the following equality is still verified:</p>
+<span class="math display">\[\begin{aligned}
+  {\displaystyle \frac{\displaystyle \partial \Delta Y}{\displaystyle
+\partial \Delta\underline{E}}}&amp;=-\mathbf{J}^{-1}\cdot{\displaystyle
+\frac{\displaystyle \partial F}{\displaystyle \partial \Delta
+\underline{E}}}\\
+\end{aligned}\]</span>
+<p>where <span class="math inline">\(\mathbf{J}={\displaystyle
+\frac{\displaystyle \partial F}{\displaystyle \partial \Delta
+Y}}\)</span> is the Jacobian of the system.</p>
+<p>Given the form of <span class="math inline">\({\displaystyle
+\frac{\displaystyle \partial F}{\displaystyle \partial \Delta
+\underline{E}}}\)</span>, <span class="math inline">\({\displaystyle
+\frac{\displaystyle \partial \Delta{\underline{\Sigma}}}{\displaystyle
+\partial \Delta\underline{E}}}\)</span> can be retrieved from the <span
+class="math inline">\(6\times 6\)</span> upper-left submatrix of <span
+class="math inline">\(\mathbf{J}^{-1}\)</span>.</p>
+<h1 id="implementation-in-mfront">Implementation in MFront</h1>
+<p>The implementation requires the integration of the local behaviours.
+These are carried out via the <code>@BehaviourVariable</code> keyword.
+The implementation of the local behaviour is explained <a
+href="./MericCailletaudSingleCrystalPlasticity.html">here</a>.</p>
+<p>All files
+<code>MericCailletaudSingleCrystalViscoPlasticity.mfront</code>,
+<code>BetaRule.mfront</code> and <code>BetaRule.mtest</code> can be
+downloaded <a href="./downloads/BetaRule.zip">here</a>.</p>
+<h2 id="implementation-of-cailletauds-beta-rule">Implementation of
+Cailletaud’s beta rule</h2>
+<p>For the example, we assume that the composites is made of only 2
+phases. We hence define the integration variables:</p>
+<div class="sourceCode" id="BetaRule"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="BetaRule-1"><a href="#BetaRule-1"></a><span class="er">@</span>StateVariable Stensor Sig<span class="op">;</span></span>
+<span id="BetaRule-2"><a href="#BetaRule-2"></a>Sig<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;MacroscopicStress&quot;</span><span class="op">);</span></span>
+<span id="BetaRule-3"><a href="#BetaRule-3"></a><span class="er">@</span>StateVariable Stensor eto1<span class="op">;</span></span>
+<span id="BetaRule-4"><a href="#BetaRule-4"></a>eto1<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;FirstPhaseTotalStrain&quot;</span><span class="op">);</span></span>
+<span id="BetaRule-5"><a href="#BetaRule-5"></a><span class="er">@</span>StateVariable Stensor eto2<span class="op">;</span></span>
+<span id="BetaRule-6"><a href="#BetaRule-6"></a>eto2<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;SecondPhaseTotalStrain&quot;</span><span class="op">);</span></span>
+<span id="BetaRule-7"><a href="#BetaRule-7"></a><span class="er">@</span>StateVariable Stensor beta1<span class="op">;</span></span>
+<span id="BetaRule-8"><a href="#BetaRule-8"></a>beta1<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;FirstPhaseBetaStrain&quot;</span><span class="op">);</span></span>
+<span id="BetaRule-9"><a href="#BetaRule-9"></a><span class="er">@</span>StateVariable Stensor beta2<span class="op">;</span></span>
+<span id="BetaRule-10"><a href="#BetaRule-10"></a>beta2<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;SecondPhaseBetaStrain&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>and we define the local behaviours with
+<code>@BehaviourVariable</code>:</p>
+<div class="sourceCode" id="BetaRule"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="BetaRule-1"><a href="#BetaRule-1"></a><span class="er">@</span>BehaviourVariable b1 <span class="op">{</span></span>
+<span id="BetaRule-2"><a href="#BetaRule-2"></a>file<span class="op">:</span> <span class="st">&quot;MericCailletaudSingleCrystalViscoPlasticity.mfront&quot;</span><span class="op">,</span></span>
+<span id="BetaRule-3"><a href="#BetaRule-3"></a>variables_suffix<span class="op">:</span> <span class="st">&quot;1&quot;</span><span class="op">,</span></span>
+<span id="BetaRule-4"><a href="#BetaRule-4"></a>store_gradients<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="BetaRule-5"><a href="#BetaRule-5"></a>external_names_prefix<span class="op">:</span> <span class="st">&quot;FirstPhase&quot;</span><span class="op">,</span></span>
+<span id="BetaRule-6"><a href="#BetaRule-6"></a>shared_external_state_variables<span class="op">:</span> <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">}</span></span>
+<span id="BetaRule-7"><a href="#BetaRule-7"></a><span class="op">};</span></span></code></pre></div>
+<p>(the same for phase 2).</p>
+<p>We note that the <code>gradients</code> are not stored because the
+<code>StateVariable</code> <code>eto1</code> (resp. <code>eto2</code>)
+are defined.</p>
+<p>The integration of the local behaviour is performed as follows:</p>
+<div class="sourceCode" id="BetaRule"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="BetaRule-1"><a href="#BetaRule-1"></a>  initialize<span class="op">(</span>b1<span class="op">);</span></span>
+<span id="BetaRule-2"><a href="#BetaRule-2"></a>  b1<span class="op">.</span>eto<span class="op">=</span>eto1<span class="op">;</span></span>
+<span id="BetaRule-3"><a href="#BetaRule-3"></a>  b1<span class="op">.</span>deto<span class="op">=</span>deto1<span class="op">;</span></span>
+<span id="BetaRule-4"><a href="#BetaRule-4"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> b1_smflag <span class="op">=</span> TangentOperatorTraits<span class="op">&lt;</span>MechanicalBehaviourBase<span class="op">::</span>STANDARDSTRAINBASEDBEHAVIOUR<span class="op">&gt;::</span>STANDARDTANGENTOPERATOR<span class="op">;</span></span>
+<span id="BetaRule-5"><a href="#BetaRule-5"></a>  <span class="at">const</span> <span class="kw">auto</span> r1 <span class="op">=</span> b1<span class="op">.</span>integrate<span class="op">(</span>b1_smflag<span class="op">,</span>CONSISTENTTANGENTOPERATOR<span class="op">);</span></span>
+<span id="BetaRule-6"><a href="#BetaRule-6"></a>  StiffnessTensor Dt1 <span class="op">=</span> b1<span class="op">.</span>getTangentOperator<span class="op">();</span></span></code></pre></div>
+<p>and the following variables are stored:</p>
+<div class="sourceCode" id="BetaRule"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="BetaRule-1"><a href="#BetaRule-1"></a>  <span class="kw">auto</span> dsig1<span class="op">=</span>b1<span class="op">.</span>sig<span class="op">-</span>sig1<span class="op">;</span></span>
+<span id="BetaRule-2"><a href="#BetaRule-2"></a>  <span class="kw">auto</span> deel1<span class="op">=</span>b1<span class="op">.</span>eel<span class="op">-</span>eel1<span class="op">;</span></span>
+<span id="BetaRule-3"><a href="#BetaRule-3"></a>  <span class="kw">auto</span> devp1<span class="op">=</span>deto1<span class="op">-</span>deel1<span class="op">;</span></span>
+<span id="BetaRule-4"><a href="#BetaRule-4"></a>  <span class="kw">auto</span> ndevp_1<span class="op">=</span>sqrt<span class="op">(</span>real<span class="op">(</span><span class="dv">2</span><span class="op">)/</span><span class="dv">3</span><span class="op">*</span>devp1<span class="op">|</span>devp1<span class="op">);</span></span>
+<span id="BetaRule-5"><a href="#BetaRule-5"></a>  <span class="kw">auto</span> beta_mts_1<span class="op">=</span>beta1<span class="op">+</span>theta<span class="op">*</span>dbeta1<span class="op">;</span></span></code></pre></div>
+<p>The same goes for phase 2. Here are the residues:</p>
+<div class="sourceCode" id="BetaRule"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="BetaRule-1"><a href="#BetaRule-1"></a>  <span class="co">//residues</span></span>
+<span id="BetaRule-2"><a href="#BetaRule-2"></a>  <span class="kw">auto</span> dB<span class="op">=(</span><span class="dv">1</span><span class="op">-</span>f<span class="op">)*</span>dbeta1<span class="op">+</span>f<span class="op">*</span>dbeta2<span class="op">;</span></span>
+<span id="BetaRule-3"><a href="#BetaRule-3"></a>  fSig <span class="op">=</span> <span class="op">-</span>deto<span class="op">+</span> <span class="op">(</span><span class="dv">1</span><span class="op">-</span>f<span class="op">)*</span>deto1<span class="op">+</span>f<span class="op">*</span>deto2<span class="op">;</span></span>
+<span id="BetaRule-4"><a href="#BetaRule-4"></a>  feto1 <span class="op">=</span> <span class="op">(</span>dsig1<span class="op">-</span>dSig<span class="op">-</span>c<span class="op">*(</span>dB<span class="op">-</span>dbeta1<span class="op">))/</span>sig_0<span class="op">;</span></span>
+<span id="BetaRule-5"><a href="#BetaRule-5"></a>  feto2 <span class="op">=</span> <span class="op">(</span>dsig2<span class="op">-</span>dSig<span class="op">-</span>c<span class="op">*(</span>dB<span class="op">-</span>dbeta2<span class="op">))/</span>sig_0<span class="op">;</span></span>
+<span id="BetaRule-6"><a href="#BetaRule-6"></a>  fbeta1 <span class="op">=</span> dbeta1<span class="op">-</span>devp1<span class="op">+</span>DD<span class="op">*</span>ndevp_1<span class="op">*</span>beta_mts_1<span class="op">;</span></span>
+<span id="BetaRule-7"><a href="#BetaRule-7"></a>  fbeta2 <span class="op">=</span> dbeta2<span class="op">-</span>devp2<span class="op">+</span>DD<span class="op">*</span>ndevp_2<span class="op">*</span>beta_mts_2<span class="op">;</span></span></code></pre></div>
+<p>and the terms of the analytical jacobian:</p>
+<div class="sourceCode" id="BetaRule"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="BetaRule-1"><a href="#BetaRule-1"></a>  <span class="co">//jacobian matrix</span></span>
+<span id="BetaRule-2"><a href="#BetaRule-2"></a>  <span class="kw">auto</span> Null <span class="op">=</span> Stensor4<span class="op">{</span>real<span class="op">{}};</span></span>
+<span id="BetaRule-3"><a href="#BetaRule-3"></a>  dfSig_ddSig<span class="op">=</span>Null<span class="op">;</span></span>
+<span id="BetaRule-4"><a href="#BetaRule-4"></a>  dfSig_ddeto1 <span class="op">=</span> <span class="op">(</span><span class="dv">1</span><span class="op">-</span>f<span class="op">)*</span>Id<span class="op">;</span></span>
+<span id="BetaRule-5"><a href="#BetaRule-5"></a>  dfSig_ddeto2 <span class="op">=</span> f<span class="op">*</span>Id<span class="op">;</span></span>
+<span id="BetaRule-6"><a href="#BetaRule-6"></a>  </span>
+<span id="BetaRule-7"><a href="#BetaRule-7"></a>  dfeto1_ddSig <span class="op">=</span> <span class="op">-</span>Id<span class="op">/</span>sig_0<span class="op">;</span></span>
+<span id="BetaRule-8"><a href="#BetaRule-8"></a>  dfeto2_ddSig <span class="op">=</span> <span class="op">-</span>Id<span class="op">/</span>sig_0<span class="op">;</span></span>
+<span id="BetaRule-9"><a href="#BetaRule-9"></a>  </span>
+<span id="BetaRule-10"><a href="#BetaRule-10"></a>  dfeto1_ddeto1 <span class="op">=</span> Dt1<span class="op">/</span>sig_0<span class="op">;</span></span>
+<span id="BetaRule-11"><a href="#BetaRule-11"></a>  dfeto2_ddeto2 <span class="op">=</span> Dt2<span class="op">/</span>sig_0<span class="op">;</span></span>
+<span id="BetaRule-12"><a href="#BetaRule-12"></a>  </span>
+<span id="BetaRule-13"><a href="#BetaRule-13"></a>  dfeto1_ddbeta1 <span class="op">=</span> c<span class="op">/</span>sig_0<span class="op">*</span>f<span class="op">*</span>Id<span class="op">;</span></span>
+<span id="BetaRule-14"><a href="#BetaRule-14"></a>  dfeto1_ddbeta2 <span class="op">=</span> <span class="op">-</span>c<span class="op">/</span>sig_0<span class="op">*</span>f<span class="op">*</span>Id<span class="op">;</span></span>
+<span id="BetaRule-15"><a href="#BetaRule-15"></a>  dfeto2_ddbeta1 <span class="op">=</span> c<span class="op">/</span>sig_0<span class="op">*(</span>f<span class="op">-</span><span class="dv">1</span><span class="op">)*</span>Id<span class="op">;</span></span>
+<span id="BetaRule-16"><a href="#BetaRule-16"></a>  dfeto2_ddbeta2 <span class="op">=</span> c<span class="op">/</span>sig_0<span class="op">*(</span><span class="dv">1</span><span class="op">-</span>f<span class="op">)*</span>Id<span class="op">;</span></span>
+<span id="BetaRule-17"><a href="#BetaRule-17"></a>  </span>
+<span id="BetaRule-18"><a href="#BetaRule-18"></a>  dfbeta1_ddeto1 <span class="op">=</span> <span class="op">-(</span>Id<span class="op">-</span>S1<span class="op">*</span>Dt1<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>DD<span class="op">/</span><span class="dv">3</span><span class="op">*</span>Stensor4<span class="op">(</span>beta_mts_1<span class="op">^</span>devp1<span class="op">)*</span>Stensor4<span class="op">(</span>Id<span class="op">-</span>S1<span class="op">*</span>Dt1<span class="op">)/</span>max<span class="op">(</span>ndevp_1<span class="op">,</span>eeps<span class="op">);</span></span>
+<span id="BetaRule-19"><a href="#BetaRule-19"></a>  dfbeta2_ddeto2 <span class="op">=</span> <span class="op">-(</span>Id<span class="op">-</span>S2<span class="op">*</span>Dt2<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>DD<span class="op">/</span><span class="dv">3</span><span class="op">*</span>Stensor4<span class="op">(</span>beta_mts_2<span class="op">^</span>devp2<span class="op">)*</span>Stensor4<span class="op">(</span>Id<span class="op">-</span>S2<span class="op">*</span>Dt2<span class="op">)/</span>max<span class="op">(</span>ndevp_2<span class="op">,</span>eeps<span class="op">);</span></span>
+<span id="BetaRule-20"><a href="#BetaRule-20"></a>  </span>
+<span id="BetaRule-21"><a href="#BetaRule-21"></a>  dfbeta1_ddbeta1 <span class="op">=</span>Id<span class="op">+</span> theta<span class="op">*</span>DD<span class="op">*</span>ndevp_1<span class="op">*</span>Id<span class="op">;</span></span>
+<span id="BetaRule-22"><a href="#BetaRule-22"></a>  dfbeta2_ddbeta2 <span class="op">=</span>Id<span class="op">+</span> theta<span class="op">*</span>DD<span class="op">*</span>ndevp_2<span class="op">*</span>Id<span class="op">;</span></span></code></pre></div>
+<p>Note that <code>S1</code> and <code>S2</code> are the compliance
+tensors of each phase and were defined by the elastic coefficients of
+each phase. The computation of the stress and of the tangent operator is
+straightforward:</p>
+<div class="sourceCode" id="BetaRule"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="BetaRule-1"><a href="#BetaRule-1"></a><span class="er">@</span>ComputeFinalStress<span class="op">{</span></span>
+<span id="BetaRule-2"><a href="#BetaRule-2"></a>  sig <span class="op">+=</span> dSig<span class="op">;</span></span>
+<span id="BetaRule-3"><a href="#BetaRule-3"></a><span class="op">}</span></span>
+<span id="BetaRule-4"><a href="#BetaRule-4"></a></span>
+<span id="BetaRule-5"><a href="#BetaRule-5"></a><span class="er">@</span>TangentOperator<span class="op">{</span></span>
+<span id="BetaRule-6"><a href="#BetaRule-6"></a>  Stensor4 iJs<span class="op">;</span></span>
+<span id="BetaRule-7"><a href="#BetaRule-7"></a>  getPartialJacobianInvert<span class="op">(</span>iJs<span class="op">);</span></span>
+<span id="BetaRule-8"><a href="#BetaRule-8"></a>  Dt<span class="op">=</span>iJs<span class="op">;</span></span>
+<span id="BetaRule-9"><a href="#BetaRule-9"></a><span class="op">}</span></span></code></pre></div>
+<p>Note that <code>getPartialJacobianInvert(iJs)</code> permits to
+obtain the 6x6 left-upper part of the inverse of the Jacobian. The
+left-upper part is associated with the first integration variable
+declared (here <code>Sig</code>).</p>
+<h1 id="results">Results</h1>
+<p>We used <code>MTest</code> to carry out simulations of an uniaxial
+tensile test on a two-grain polycrystal. The first phase is stiffer than
+the second, and we also choose for the example a different Norton
+exponent between the phases. The following values are given by the
+<code>mtest</code> file:</p>
+<div class="sourceCode" id="BetaRule"><pre
+class="sourceCode numberSource mtest numberLines"><code class="sourceCode"><span id="BetaRule-1"><a href="#BetaRule-1"></a>@ModellingHypothesis &#39;Tridimensional&#39;;</span>
+<span id="BetaRule-2"><a href="#BetaRule-2"></a>@Behaviour&lt;Generic&gt; &#39;src/libBehaviour.so&#39; &#39;BetaRuleBehaviour&#39;;</span>
+<span id="BetaRule-3"><a href="#BetaRule-3"></a>@MaterialProperty&lt;constant&gt; &#39;FirstPhaseFraction&#39; 0.5;</span>
+<span id="BetaRule-4"><a href="#BetaRule-4"></a>@MaterialProperty&lt;constant&gt; &#39;E_1&#39;               208000;</span>
+<span id="BetaRule-5"><a href="#BetaRule-5"></a>@MaterialProperty&lt;constant&gt; &#39;nu_1&#39;               0.3;</span>
+<span id="BetaRule-6"><a href="#BetaRule-6"></a>@MaterialProperty&lt;constant&gt; &#39;mu_1&#39;               80000;</span>
+<span id="BetaRule-7"><a href="#BetaRule-7"></a>@MaterialProperty&lt;constant&gt; &#39;E_2&#39;               104000;</span>
+<span id="BetaRule-8"><a href="#BetaRule-8"></a>@MaterialProperty&lt;constant&gt; &#39;nu_2&#39;               0.3;</span>
+<span id="BetaRule-9"><a href="#BetaRule-9"></a>@MaterialProperty&lt;constant&gt; &#39;mu_2&#39;               40000;</span>
+<span id="BetaRule-10"><a href="#BetaRule-10"></a>@MaterialProperty&lt;constant&gt; &#39;tau01&#39;               36.;</span>
+<span id="BetaRule-11"><a href="#BetaRule-11"></a>@MaterialProperty&lt;constant&gt; &#39;tau02&#39;               25.;</span>
+<span id="BetaRule-12"><a href="#BetaRule-12"></a>@MaterialProperty&lt;constant&gt; &#39;n1&#39;               10.;</span>
+<span id="BetaRule-13"><a href="#BetaRule-13"></a>@MaterialProperty&lt;constant&gt; &#39;n2&#39;               5.;</span>
+<span id="BetaRule-14"><a href="#BetaRule-14"></a>@ExternalStateVariable &#39;Temperature&#39; 293.15;</span>
+<span id="BetaRule-15"><a href="#BetaRule-15"></a>@ImposedStrain &#39;EXX&#39; {0 : 0, 5 :1e-2};</span>
+<span id="BetaRule-16"><a href="#BetaRule-16"></a>@Times {0, 3 in 400};</span></code></pre></div>
+<p>Note that the elastic behaviours are isotropic for the example. (the
+file is available in the <a href="downloads/BetaRule.zip">archive</a>).
+We plotted here the macroscopic and local behaviours (<span
+class="math inline">\(\underline{\sigma}_i\)</span> as a function of
+<span class="math inline">\(\underline{\epsilon}_i\)</span>).</p>
+<figure>
+<img src="./img/BetaRule.png"
+alt="Macroscopic stress as a function of local strain, uniaxial tensile test, Cailletaud’s beta rule" />
+<figcaption aria-hidden="true">Macroscopic stress as a function of local
+strain, uniaxial tensile test, Cailletaud’s beta rule</figcaption>
+</figure>
+<!-- Local IspellDict: english -->
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-cailletaud_pilvin_1994" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Cailletaud</span>,
+Georges and <span class="smallcaps">Pilvin</span>, Philippe. Utilisation
+de modèles polycristallins pour le calcul par éléments finis. <em>Revue
+européenne des éléments finis</em>. 1994. Vol. 3, p. 515–541. </div>
+</div>
+<div id="ref-meric_single_1991" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline"><span class="smallcaps">Méric</span>, L. and
+<span class="smallcaps">Cailletaud</span>, Georges. Single crystal
+modelling for structural calculations. <em>Journal of Engineering
+Material and Technology</em>. January 1991. Vol. 113, p. 171–182. </div>
+</div>
+</div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

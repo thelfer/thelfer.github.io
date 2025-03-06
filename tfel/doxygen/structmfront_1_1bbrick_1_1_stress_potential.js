@@ -12,9 +12,9 @@ var structmfront_1_1bbrick_1_1_stress_potential =
     [ "generateImplicitEquationDerivatives", "structmfront_1_1bbrick_1_1_stress_potential.html#a5e998866b65c228bf83efa32e80ecfb7", null ],
     [ "getEquivalentStressLowerBound", "structmfront_1_1bbrick_1_1_stress_potential.html#a75fc3289411ea5b73726ade864f41a52", null ],
     [ "getName", "structmfront_1_1bbrick_1_1_stress_potential.html#abe35dfd1637c49e2781faf94b55fb98f", null ],
-    [ "getOptions", "structmfront_1_1bbrick_1_1_stress_potential.html#a90b5ee5265d19d8469940d3c9d3736c2", null ],
-    [ "getStressDerivatives", "structmfront_1_1bbrick_1_1_stress_potential.html#a4635bdf0303f69511821be610759f891", null ],
+    [ "getOptions", "structmfront_1_1bbrick_1_1_stress_potential.html#a830a9991354243fe7e87583df6a5e835", null ],
+    [ "getStressDerivatives", "structmfront_1_1bbrick_1_1_stress_potential.html#aacce7973bbffba4788c67b13ac116f8d", null ],
     [ "getStressNormalisationFactor", "structmfront_1_1bbrick_1_1_stress_potential.html#a41bd4cb705faa06b0f29b2bd212451c0", null ],
-    [ "getSupportedModellingHypotheses", "structmfront_1_1bbrick_1_1_stress_potential.html#a6d9e25182203e91849dd589117c3486a", null ],
+    [ "getSupportedModellingHypotheses", "structmfront_1_1bbrick_1_1_stress_potential.html#a52d21cc00908be4b8e9cb904bd4f9528", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_stress_potential.html#afd7f30f6a8946b9f2076c13d6fa51138", null ]
 ];

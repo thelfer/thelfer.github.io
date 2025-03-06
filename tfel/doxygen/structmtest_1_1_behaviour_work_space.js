@@ -1,11 +1,7 @@
 var structmtest_1_1_behaviour_work_space =
 [
     [ "BehaviourWorkSpace", "structmtest_1_1_behaviour_work_space.html#a41a6ffaae4eca6d71f2df24878f14e53", null ],
-    [ "BehaviourWorkSpace", "structmtest_1_1_behaviour_work_space.html#a7a130e7b955b9b4a2e477c154895fa70", null ],
-    [ "BehaviourWorkSpace", "structmtest_1_1_behaviour_work_space.html#adcc59b34b97f483ee6de1ca76ec6afed", null ],
     [ "~BehaviourWorkSpace", "structmtest_1_1_behaviour_work_space.html#a937ea88d58150a0747b14baef3b1f528", null ],
-    [ "operator=", "structmtest_1_1_behaviour_work_space.html#a1f2f867215c6dba79f4b7e69ae34c015", null ],
-    [ "operator=", "structmtest_1_1_behaviour_work_space.html#af7cedcf6186ff10d82d6b03a37f288b6", null ],
     [ "cs", "structmtest_1_1_behaviour_work_space.html#a82be76fd3e5fdce0b155417f6026f694", null ],
     [ "D", "structmtest_1_1_behaviour_work_space.html#aa859c44e2e394fcfcbc1ba266a64971d", null ],
     [ "e0", "structmtest_1_1_behaviour_work_space.html#a8bc1e52d547f69d53fe3ea67e89f2095", null ],

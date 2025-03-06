@@ -1,6 +1,6 @@
 var _base_type_8hxx =
 [
-    [ "BaseType", "structtfel_1_1typetraits_1_1_base_type.html", "structtfel_1_1typetraits_1_1_base_type" ],
+    [ "tfel::typetraits::BaseType< T >", "structtfel_1_1typetraits_1_1_base_type.html", "structtfel_1_1typetraits_1_1_base_type" ],
     [ "TFEL_MATH_BASETYPE", "_base_type_8hxx.html#af9c095f2e358f65e4e657bde375a9fe8", null ],
     [ "base_type", "_base_type_8hxx.html#a30eeb1d2ba39137579bef92548c75bef", null ],
     [ "TFEL_MATH_BASETYPE", "_base_type_8hxx.html#a908e476135a850e456285384b69eb4c1", null ],

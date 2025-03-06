@@ -1,4 +1,0 @@
-var structansys_1_1_ansys_compute_stiffness_tensor_3_01ansys_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_ae8df2b8ea2f499c05e9beff86fe9f2bf =
-[
-    [ "ModellingHypothesisToSpaceDimension", "structansys_1_1_ansys_compute_stiffness_tensor_3_01ansys_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_ae8df2b8ea2f499c05e9beff86fe9f2bf.html#a2bfad3bf3512b216f8d33f3c9c0b06db", null ]
-];

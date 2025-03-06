@@ -1,4 +1,0 @@
-var structtfel_1_1math_1_1_result_type_3_01_quantity_3_01_unit_type_00_01_value_type_00_01_ownership05c8ae73377b5d6ab444cda441ff7b47 =
-[
-    [ "type", "structtfel_1_1math_1_1_result_type_3_01_quantity_3_01_unit_type_00_01_value_type_00_01_ownership05c8ae73377b5d6ab444cda441ff7b47.html#a13ed2ca3d6b89ca02531cd035133b184", null ]
-];

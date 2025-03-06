@@ -1,4 +1,0 @@
-var classtfel_1_1math_1_1_result_type_3_01stensor_3_01_n_00_01_t_01_4_00_01stensor_3_01_n_00_01_t2_0b335bb17f35cb9beb6dc8e4321e2e831 =
-[
-    [ "type", "classtfel_1_1math_1_1_result_type_3_01stensor_3_01_n_00_01_t_01_4_00_01stensor_3_01_n_00_01_t2_0b335bb17f35cb9beb6dc8e4321e2e831.html#ade69842c728aa7618906f6f7f9b81b49", null ]
-];

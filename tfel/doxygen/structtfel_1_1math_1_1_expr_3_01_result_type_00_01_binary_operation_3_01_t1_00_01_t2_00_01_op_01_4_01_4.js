@@ -7,14 +7,7 @@ var structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_
     [ "rhs_type", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#adcbac7d37405b91a85cd7872df4134a5", null ],
     [ "size_type", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#a94982b7cf1ad3a11bda69fe6eeef6154", null ],
     [ "value_type", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#afab86af85a5476af536b7cda9bf7cc0c", null ],
-    [ "Expr", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#a8db97a916aa5c972998e5b9ee0942abb", null ],
-    [ "Expr", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#a069bbb1b13cce02b2db385e7fb36fbfc", null ],
-    [ "Expr", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#a710902dc0c0d72df3081c293ebe9f89e", null ],
-    [ "Expr", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#abae0680807bb507c8d66e5aecb085d97", null ],
-    [ "operator()", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#a9d3510b85b38fad3e1f256e0e10de387", null ],
-    [ "operator=", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#a504846a3ecac65c9ae4cdf55b5988fc1", null ],
-    [ "operator=", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#afd83717ba07c38a1ce7a52a805fe5709", null ],
-    [ "operator[]", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#a1e5746cc4b05c00d9ddfc213708231e3", null ],
-    [ "a", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#abca209b1c8d1307caad8f8232424c24e", null ],
-    [ "b", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#a3787ace4f21a7a0b4c87277fd4042f6e", null ]
+    [ "Expr", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#ab6bd9ec5b7dca82e3b8c610e457d483f", null ],
+    [ "operator()", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#a66a3177d0fce51b337a8f2b5dd8bb6fc", null ],
+    [ "operator[]", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#a3f313ad2e518e3d1e6329dab11263cdd", null ]
 ];

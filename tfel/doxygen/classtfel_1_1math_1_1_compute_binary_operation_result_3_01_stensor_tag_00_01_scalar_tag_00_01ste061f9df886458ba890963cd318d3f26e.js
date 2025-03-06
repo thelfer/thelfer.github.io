@@ -1,4 +1,0 @@
-var classtfel_1_1math_1_1_compute_binary_operation_result_3_01_stensor_tag_00_01_scalar_tag_00_01ste061f9df886458ba890963cd318d3f26e =
-[
-    [ "type", "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_stensor_tag_00_01_scalar_tag_00_01ste061f9df886458ba890963cd318d3f26e.html#a0dc3bafd622293849d08e4a7127e3455", null ]
-];

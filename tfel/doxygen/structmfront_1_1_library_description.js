@@ -8,8 +8,8 @@ var structmfront_1_1_library_description =
     [ "LibraryDescription", "structmfront_1_1_library_description.html#a57b58262db4e5ec106ac8ee6721da2cc", null ],
     [ "LibraryDescription", "structmfront_1_1_library_description.html#a5447ff896023707e01bd128ebdaa60c1", null ],
     [ "~LibraryDescription", "structmfront_1_1_library_description.html#ab97890fb9ed36adfa019edf262f21f82", null ],
-    [ "operator=", "structmfront_1_1_library_description.html#ad1e9675ed81cf91e7c2e25e3d937c530", null ],
-    [ "operator=", "structmfront_1_1_library_description.html#a2845d07035ca4407d66c2fd33654dfd3", null ],
+    [ "operator=", "structmfront_1_1_library_description.html#ae878b17c3bd33aaf0ae32356b4f06ffc", null ],
+    [ "operator=", "structmfront_1_1_library_description.html#a409ca2290ca34c10eadd698aa968d6f4", null ],
     [ "epts", "structmfront_1_1_library_description.html#a4793b00793751a595575593e07103f0d", null ],
     [ "type", "structmfront_1_1_library_description.html#a7977f91255abf8abd20601110ba70928", null ]
 ];

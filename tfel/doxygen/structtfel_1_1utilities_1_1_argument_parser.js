@@ -7,7 +7,7 @@ var structtfel_1_1utilities_1_1_argument_parser =
     [ "ArgumentParser", "structtfel_1_1utilities_1_1_argument_parser.html#ac666d199ed8d68b6b3b2ac5e5bb444fa", null ],
     [ "ArgumentParser", "structtfel_1_1utilities_1_1_argument_parser.html#a1e6bc1509c67dab02bea9c9defe2cea1", null ],
     [ "~ArgumentParser", "structtfel_1_1utilities_1_1_argument_parser.html#a87756cef78c82376c2dac1a05f2fe4a2", null ],
-    [ "getRegistredCallBacks", "structtfel_1_1utilities_1_1_argument_parser.html#ae2123d3d51564acb4c794838bccef628", null ],
+    [ "getRegistredCallBacks", "structtfel_1_1utilities_1_1_argument_parser.html#ae087a14620fb2ffe5878b62a53054b03", null ],
     [ "getUsageDescription", "structtfel_1_1utilities_1_1_argument_parser.html#a5b5912b43d6a00a30c1c295185a4f299", null ],
     [ "getVersionDescription", "structtfel_1_1utilities_1_1_argument_parser.html#aba94c5b329a4db37f303ae7d54c921f5", null ],
     [ "parseArguments", "structtfel_1_1utilities_1_1_argument_parser.html#a01f5a678848dd5a25e5ab9aebd8162c3", null ],

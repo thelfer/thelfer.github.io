@@ -13,6 +13,6 @@ var structmfront_1_1_supported_types =
     [ "SupportedTypes", "structmfront_1_1_supported_types.html#a7b36faf833ed56f49c53e8de7b20bb3c", null ],
     [ "SupportedTypes", "structmfront_1_1_supported_types.html#af3b070fe3e2f4d4cfb83575fb53eaed8", null ],
     [ "~SupportedTypes", "structmfront_1_1_supported_types.html#af06af1df09cec34a04ce878d8ac9f0b5", null ],
-    [ "operator=", "structmfront_1_1_supported_types.html#af8bee09b59a6aefde3651f88c2563756", null ],
-    [ "operator=", "structmfront_1_1_supported_types.html#a1412ff04c08bf9a30037804e7a69af61", null ]
+    [ "operator=", "structmfront_1_1_supported_types.html#af2c496e1651edea778c79b374cdbe438", null ],
+    [ "operator=", "structmfront_1_1_supported_types.html#a70e5e8dd79f51a95e4634d9e91ab1927", null ]
 ];

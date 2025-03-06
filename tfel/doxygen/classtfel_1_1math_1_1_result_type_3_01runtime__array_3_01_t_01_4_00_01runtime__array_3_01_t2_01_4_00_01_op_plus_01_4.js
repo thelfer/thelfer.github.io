@@ -1,4 +1,0 @@
-var classtfel_1_1math_1_1_result_type_3_01runtime__array_3_01_t_01_4_00_01runtime__array_3_01_t2_01_4_00_01_op_plus_01_4 =
-[
-    [ "type", "classtfel_1_1math_1_1_result_type_3_01runtime__array_3_01_t_01_4_00_01runtime__array_3_01_t2_01_4_00_01_op_plus_01_4.html#a76dca362d130bfc5a9412cc8e26ff725", null ]
-];

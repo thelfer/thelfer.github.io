@@ -1,7 +1,7 @@
 var _system_error_8hxx =
 [
-    [ "SystemError", "structtfel_1_1system_1_1_system_error.html", "structtfel_1_1system_1_1_system_error" ],
-    [ "PosixError", "structtfel_1_1system_1_1_posix_error.html", "structtfel_1_1system_1_1_posix_error" ],
+    [ "tfel::system::SystemError", "structtfel_1_1system_1_1_system_error.html", null ],
+    [ "tfel::system::PosixError< N >", "structtfel_1_1system_1_1_posix_error.html", null ],
     [ "E2BIGError", "_system_error_8hxx.html#ac4269d5cc9826987f9820071a7c7487e", null ],
     [ "EACCESError", "_system_error_8hxx.html#a724119f3072276775ec09ef7ebef6780", null ],
     [ "EAGAINError", "_system_error_8hxx.html#ad560204341c9b933eefe541f3c94c530", null ],

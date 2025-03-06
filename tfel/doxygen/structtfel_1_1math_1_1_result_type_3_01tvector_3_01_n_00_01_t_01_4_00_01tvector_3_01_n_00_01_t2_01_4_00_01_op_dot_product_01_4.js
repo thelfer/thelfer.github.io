@@ -1,4 +1,0 @@
-var structtfel_1_1math_1_1_result_type_3_01tvector_3_01_n_00_01_t_01_4_00_01tvector_3_01_n_00_01_t2_01_4_00_01_op_dot_product_01_4 =
-[
-    [ "type", "structtfel_1_1math_1_1_result_type_3_01tvector_3_01_n_00_01_t_01_4_00_01tvector_3_01_n_00_01_t2_01_4_00_01_op_dot_product_01_4.html#aadb70f6b94a8c94c196da0b2d2564453", null ]
-];

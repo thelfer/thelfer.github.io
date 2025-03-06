@@ -11,10 +11,10 @@ var structtfel_1_1tests_1_1_test_result =
     [ "begin", "structtfel_1_1tests_1_1_test_result.html#ae6ca4614a03668f94fb573b81490fd94", null ],
     [ "duration", "structtfel_1_1tests_1_1_test_result.html#a452b5dc3ded6373f094335808e1a995d", null ],
     [ "end", "structtfel_1_1tests_1_1_test_result.html#a66d6d8f149c4779e83bf50575a3cf4e2", null ],
-    [ "getDescription", "structtfel_1_1tests_1_1_test_result.html#a461f418d54ab013eb6af75bc8d882613", null ],
-    [ "getFailureDescription", "structtfel_1_1tests_1_1_test_result.html#a21ca6c468448355fded1fe0446a32842", null ],
-    [ "operator=", "structtfel_1_1tests_1_1_test_result.html#a430eb6283cb66e1409f88c9b17999040", null ],
-    [ "operator=", "structtfel_1_1tests_1_1_test_result.html#acc84cd42db7d474f250edf127f2cedd9", null ],
+    [ "getDescription", "structtfel_1_1tests_1_1_test_result.html#a8e1471f9413f50a957793290c163e2f9", null ],
+    [ "getFailureDescription", "structtfel_1_1tests_1_1_test_result.html#a57ad4cbe6fe8b41800730e4a930a340d", null ],
+    [ "operator=", "structtfel_1_1tests_1_1_test_result.html#a5e5bd108f32c09d7f45b04d2fa221807", null ],
+    [ "operator=", "structtfel_1_1tests_1_1_test_result.html#ad1665c670a02c59609663b5da0ab4f1f", null ],
     [ "setTestDuration", "structtfel_1_1tests_1_1_test_result.html#a46ade35b6a8c7d1e2e53b8e46c5c16e6", null ],
     [ "success", "structtfel_1_1tests_1_1_test_result.html#a9d84a3768ef9e0bfd367538c023dc4cc", null ]
 ];

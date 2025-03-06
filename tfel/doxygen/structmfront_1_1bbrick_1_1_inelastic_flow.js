@@ -9,7 +9,7 @@ var structmfront_1_1bbrick_1_1_inelastic_flow =
     [ "completeVariableDeclaration", "structmfront_1_1bbrick_1_1_inelastic_flow.html#a7d4734693996b26fce20ea2ae06f00fa", null ],
     [ "computeInitialActivationState", "structmfront_1_1bbrick_1_1_inelastic_flow.html#a43bdbfb2f007d59b430a2aecc2d64b1d", null ],
     [ "endTreatment", "structmfront_1_1bbrick_1_1_inelastic_flow.html#a2a9d090a515d51507af2b41e87e0f7b4", null ],
-    [ "getOptions", "structmfront_1_1bbrick_1_1_inelastic_flow.html#a36adaf145aa99c6f285425b90a3bbc99", null ],
+    [ "getOptions", "structmfront_1_1bbrick_1_1_inelastic_flow.html#a8b8cf04621d825eacef97333012a2d10", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_inelastic_flow.html#ad58e81ab4d945bf1beb1ff74af998adf", null ],
     [ "isCoupledWithPorosityEvolution", "structmfront_1_1bbrick_1_1_inelastic_flow.html#a505a44e43ad3942ad2a309acfac0461d", null ],
     [ "requiresActivationState", "structmfront_1_1bbrick_1_1_inelastic_flow.html#a6ceab0406d58d010af609cd401f30781", null ],

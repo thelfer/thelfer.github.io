@@ -1,6 +1,6 @@
 var _test_proxy_8hxx =
 [
-    [ "TestProxy", "structtfel_1_1tests_1_1_test_proxy.html", "structtfel_1_1tests_1_1_test_proxy" ],
+    [ "tfel::tests::TestProxy< TestType >", "structtfel_1_1tests_1_1_test_proxy.html", "structtfel_1_1tests_1_1_test_proxy" ],
     [ "TFEL_PP_DO_JOIN", "_test_proxy_8hxx.html#a7a9fa4f10f7ca2078bef709eb164bae5", null ],
     [ "TFEL_PP_DO_JOIN2", "_test_proxy_8hxx.html#af6c8991d5ccdee35884e40e5ffc1db69", null ],
     [ "TFEL_PP_JOIN", "_test_proxy_8hxx.html#abcaa1acece826da222066a031bf6957c", null ],

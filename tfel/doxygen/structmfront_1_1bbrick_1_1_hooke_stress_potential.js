@@ -8,5 +8,5 @@ var structmfront_1_1bbrick_1_1_hooke_stress_potential =
     [ "declareComputeStressForIsotropicBehaviour", "structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a201d17794d0f39b4960915e3288095a1", null ],
     [ "declareComputeStressWhenStiffnessTensorIsDefined", "structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a8419c540f2e2176b4ee3ee133dc612e8", null ],
     [ "generateImplicitEquationDerivatives", "structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a30798594997254ddc97b5d365b473d2d", null ],
-    [ "getStressDerivatives", "structmfront_1_1bbrick_1_1_hooke_stress_potential.html#acb86f75d63e35630d59cc81dad0a5d25", null ]
+    [ "getStressDerivatives", "structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a78ba1a4265733839212c0a031fa1697a", null ]
 ];

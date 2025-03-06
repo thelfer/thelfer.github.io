@@ -1,5 +1,0 @@
-var structaster_1_1_aster_tangent_operator_flag_3_01aster_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_e0e70815bc40b8729900e00178ceaaa8 =
-[
-    [ "MechanicalBehaviourBase", "structaster_1_1_aster_tangent_operator_flag_3_01aster_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_e0e70815bc40b8729900e00178ceaaa8.html#ad21234605bf073fca9203b28c9f93117", null ],
-    [ "TangentOperatorTraits", "structaster_1_1_aster_tangent_operator_flag_3_01aster_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_e0e70815bc40b8729900e00178ceaaa8.html#a76c6b043ba5d38a0ada042e9edf70b71", null ]
-];

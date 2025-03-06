@@ -10,8 +10,7 @@ var structmtest_1_1_non_linear_constraint =
     [ "eval", "structmtest_1_1_non_linear_constraint.html#ad7e52b423d701dbfca60832bbdc2744f", null ],
     [ "getFailedCriteriaDiagnostic", "structmtest_1_1_non_linear_constraint.html#a33dcd527833608b2197a20cb77bef544", null ],
     [ "getNumberOfLagrangeMultipliers", "structmtest_1_1_non_linear_constraint.html#addeae44e6578fbb55fc0792115e1f475", null ],
-    [ "operator=", "structmtest_1_1_non_linear_constraint.html#acb2efccd6faf14c36c08077ab761df53", null ],
-    [ "operator=", "structmtest_1_1_non_linear_constraint.html#ab641f08f6395e2af15c165cbcb3e18ec", null ],
+    [ "operator=", "structmtest_1_1_non_linear_constraint.html#afd315b0db16bef46a065812f8e72dab2", null ],
     [ "setValues", "structmtest_1_1_non_linear_constraint.html#a386748ac6d985cbdb492ab740773a220", null ],
     [ "b", "structmtest_1_1_non_linear_constraint.html#a4e4beb8b3eebbe0c75251a80549e5189", null ],
     [ "c", "structmtest_1_1_non_linear_constraint.html#ae95c427ccdedc2a5d8173e720b47a962", null ]

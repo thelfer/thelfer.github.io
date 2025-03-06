@@ -1,7 +1,5 @@
 var structmtest_1_1_f_anderson_acceleration_algorithm =
 [
-    [ "FAnderson", "structmtest_1_1_f_anderson_acceleration_algorithm.html#acfb42b138eedcc4bc0bd4dfc7690f188", null ],
-    [ "Field", "structmtest_1_1_f_anderson_acceleration_algorithm.html#a707e08f23ecca6bcf92830be615051f3", null ],
     [ "FAndersonAccelerationAlgorithm", "structmtest_1_1_f_anderson_acceleration_algorithm.html#a96db7bf15084ad9ab56386c6ef61ed0e", null ],
     [ "~FAndersonAccelerationAlgorithm", "structmtest_1_1_f_anderson_acceleration_algorithm.html#a8c312a60760b24ed472c39a0e7c6d4bc", null ],
     [ "execute", "structmtest_1_1_f_anderson_acceleration_algorithm.html#aa8a2dadb61722bcce69292e266667e55", null ],

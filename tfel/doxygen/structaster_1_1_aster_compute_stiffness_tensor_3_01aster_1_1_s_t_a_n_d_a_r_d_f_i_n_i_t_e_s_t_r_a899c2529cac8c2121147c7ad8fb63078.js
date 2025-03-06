@@ -1,4 +1,0 @@
-var structaster_1_1_aster_compute_stiffness_tensor_3_01aster_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a899c2529cac8c2121147c7ad8fb63078 =
-[
-    [ "ModellingHypothesisToSpaceDimension", "structaster_1_1_aster_compute_stiffness_tensor_3_01aster_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a899c2529cac8c2121147c7ad8fb63078.html#adcc8d3cfe80568368f4426b4a1c84a13", null ]
-];

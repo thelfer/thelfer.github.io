@@ -1,4 +1,0 @@
-var classtfel_1_1math_1_1_compute_binary_operation_result_3_01_scalar_tag_00_01_vector_tag_00_01_sca156a13e775864b55b51497c1b6ef0211 =
-[
-    [ "type", "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_scalar_tag_00_01_vector_tag_00_01_sca156a13e775864b55b51497c1b6ef0211.html#a053c8ac29483cfbd4a9c6eb4c29c1430", null ]
-];

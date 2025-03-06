@@ -1,4 +1,0 @@
-var classtfel_1_1math_1_1_unary_result_type_3_01qt_3_01_unit_00_01_complex_3_01double_01_4_01_4_00_061d6b5a193fd75b770af8793d45c486d =
-[
-    [ "type", "classtfel_1_1math_1_1_unary_result_type_3_01qt_3_01_unit_00_01_complex_3_01double_01_4_01_4_00_061d6b5a193fd75b770af8793d45c486d.html#aef982a01cf05b98fcf5fd047fc41cbf1", null ]
-];

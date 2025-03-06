@@ -1,6 +1,6 @@
 var _cazacu2004_isotropic_yield_criterion_8hxx =
 [
-    [ "computeCazacu2004IsotropicStressCriterion", "_cazacu2004_isotropic_yield_criterion_8hxx.html#aa983f93963250bb4e43e40243ca8c107", null ],
-    [ "computeCazacu2004IsotropicStressCriterionNormal", "_cazacu2004_isotropic_yield_criterion_8hxx.html#aa1efaaf8c8b66b51f277610b35d577b9", null ],
-    [ "computeCazacu2004IsotropicStressCriterionSecondDerivative", "_cazacu2004_isotropic_yield_criterion_8hxx.html#a8cb7aec5ae590005642e01cbe7279ec4", null ]
+    [ "computeCazacu2004IsotropicStressCriterion", "_cazacu2004_isotropic_yield_criterion_8hxx.html#aa06615079ec51281c0ed20318f090536", null ],
+    [ "computeCazacu2004IsotropicStressCriterionNormal", "_cazacu2004_isotropic_yield_criterion_8hxx.html#ab2f4b149a65bd5f9d43eb678c7c2ee2f", null ],
+    [ "computeCazacu2004IsotropicStressCriterionSecondDerivative", "_cazacu2004_isotropic_yield_criterion_8hxx.html#aa30e6103904fe390cac31900474e4140", null ]
 ];

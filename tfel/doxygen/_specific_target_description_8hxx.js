@@ -1,6 +1,6 @@
 var _specific_target_description_8hxx =
 [
-    [ "SpecificTargetDescription", "structmfront_1_1_specific_target_description.html", "structmfront_1_1_specific_target_description" ],
-    [ "operator<<", "_specific_target_description_8hxx.html#af7ba4a7384294ae8b04933048cfd658f", null ],
-    [ "read", "_specific_target_description_8hxx.html#a2959bc26d843d96ef1376be34b9016f2", null ]
+    [ "mfront::SpecificTargetDescription", "structmfront_1_1_specific_target_description.html", "structmfront_1_1_specific_target_description" ],
+    [ "operator<<", "_specific_target_description_8hxx.html#ac965fa11a81d87e1adf0be3584b17a7c", null ],
+    [ "read", "_specific_target_description_8hxx.html#ab230ebbc6e7275edc5b0b29aaf2f130f", null ]
 ];

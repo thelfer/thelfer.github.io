@@ -4,9 +4,9 @@ var structmfront_1_1_behaviour_interface_base =
     [ "ModellingHypothesis", "structmfront_1_1_behaviour_interface_base.html#a95e4e7c0cc62aacb05a2645a9ed37b9f", null ],
     [ "BehaviourInterfaceBase", "structmfront_1_1_behaviour_interface_base.html#aabdd67ba377607a6fcbc936ea64dde2e", null ],
     [ "~BehaviourInterfaceBase", "structmfront_1_1_behaviour_interface_base.html#a493221ec86d3abb23ce41cdbd8dff980", null ],
-    [ "buildMaterialPropertiesList", "structmfront_1_1_behaviour_interface_base.html#a5c38ceb143e4ddb67a04516e888b342c", null ],
-    [ "checkIfAxialDeformationGradientIsDefinedAndGetItsOffset", "structmfront_1_1_behaviour_interface_base.html#a68a39735e4a450ca33b06604fcff6f7a", null ],
-    [ "checkIfAxialStrainIsDefinedAndGetItsOffset", "structmfront_1_1_behaviour_interface_base.html#a8b8a495deb506d7155ad9f6052584979", null ],
+    [ "buildMaterialPropertiesList", "structmfront_1_1_behaviour_interface_base.html#a3d9c6fe9fde6ca5b833bd793b3acd5da", null ],
+    [ "checkIfAxialDeformationGradientIsDefinedAndGetItsOffset", "structmfront_1_1_behaviour_interface_base.html#aaca8e53b902aadd2ee499d049b0bef57", null ],
+    [ "checkIfAxialStrainIsDefinedAndGetItsOffset", "structmfront_1_1_behaviour_interface_base.html#a6570f7c3bec75b67cbbc4a684318e676", null ],
     [ "getFunctionNameBasis", "structmfront_1_1_behaviour_interface_base.html#a733bf403b2c6069548cf688ed3200cdf", null ],
     [ "getHeaderGuard", "structmfront_1_1_behaviour_interface_base.html#aa8aeee5310d9daac7cc45115fc041cc5", null ],
     [ "getInterfaceVersion", "structmfront_1_1_behaviour_interface_base.html#a35104f327b354b3891ef531339d8396a", null ],
@@ -16,10 +16,6 @@ var structmfront_1_1_behaviour_interface_base =
     [ "shallGenerateMTestFileOnFailure", "structmfront_1_1_behaviour_interface_base.html#a931ec203d1032dbeeea18944284d61e2", null ],
     [ "writeBehaviourInitializeFunctions", "structmfront_1_1_behaviour_interface_base.html#abeffda2d8b1b5bd1f404c265ef194691", null ],
     [ "writeBehaviourPostProcessings", "structmfront_1_1_behaviour_interface_base.html#ae1a3abe1105172f98dd260da956f90de", null ],
-    [ "writeGetOutOfBoundsPolicyFunctionImplementation", "structmfront_1_1_behaviour_interface_base.html#a57b44aafb862ca8139e28f89aafef3aa", null ],
-    [ "writeSetOutOfBoundsPolicyFunctionDeclaration", "structmfront_1_1_behaviour_interface_base.html#a11b6148c53eded3744eb18dbcf5bd500", null ],
-    [ "writeSetOutOfBoundsPolicyFunctionImplementation", "structmfront_1_1_behaviour_interface_base.html#accf302e8c7050c6327fccf22f7f36e68", null ],
-    [ "writeSetParametersFunctionsDeclarations", "structmfront_1_1_behaviour_interface_base.html#a782b803e751fdf98764f70a1cd4a34cb", null ],
     [ "writeSetParametersFunctionsImplementations", "structmfront_1_1_behaviour_interface_base.html#a919cf9c09570b832e24cd8d88c3be1f9", null ],
     [ "writeVisibilityDefines", "structmfront_1_1_behaviour_interface_base.html#ada5b8106906ff87d2abc02a7fd7736d6", null ]
 ];

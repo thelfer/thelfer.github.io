@@ -1,5 +1,0 @@
-var classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_t2to_s_t2_tag_00_01_t2to_t2_tag_00_01_a_00_01_b_00_01_op_mult_01_4 =
-[
-    [ "Handle", "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_t2to_s_t2_tag_00_01_t2to_t2_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#aeae8e82dd4138c029fc4f7598b80e728", null ],
-    [ "Result", "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_t2to_s_t2_tag_00_01_t2to_t2_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#a256e40e4449dce265acc3a5d22b5d8e8", null ]
-];

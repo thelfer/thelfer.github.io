@@ -7,6 +7,6 @@ var structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy =
     [ "proxy", "structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html#a1f4489f8adadb6bc86e583eb91c1c3d6", null ],
     [ "operator const value_type", "structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html#a20b1edf12a379fc0b59193a7675ac45c", null ],
     [ "operator&", "structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html#a59e28a38e76fb3a8ef60f5712cfaa65e", null ],
-    [ "operator=", "structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html#a00f69dfb180554626b76f7aca3b21c54", null ],
-    [ "operator=", "structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html#aee717d0b0975f979ef8d1310b240c42f", null ]
+    [ "operator=", "structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html#aa064061a5aa9ec838db20239c26e873c", null ],
+    [ "operator=", "structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html#a385cb3a5db645df98f5ce6dbb5426302", null ]
 ];

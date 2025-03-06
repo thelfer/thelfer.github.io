@@ -1,0 +1,4 @@
+var _finite_strain_behaviour_tangent_operator_conversion_path_8hxx =
+[
+    [ "mfront::FiniteStrainBehaviourTangentOperatorConversionPath", "structmfront_1_1_finite_strain_behaviour_tangent_operator_conversion_path.html", "structmfront_1_1_finite_strain_behaviour_tangent_operator_conversion_path" ]
+];

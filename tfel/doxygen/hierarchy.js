@@ -1,25 +1,25 @@
 var hierarchy =
 [
     [ "tfel::utilities::internals:: GenTypeSpecializedMethods", null, [
-      [ "tfel::utilities::GenTypeBase< BehaviourType >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
-      [ "tfel::utilities::GenTypeBase< tfel::meta::GenerateTypeList< tfel::math::t2tot2< N, StressType >, tfel::math::t2tost2< N, StressType >, tfel::math::st2tost2< N, StressType >, tfel::math::t2tot2< N, StressType > *, tfel::math::t2tost2< N, StressType > *, tfel::math::st2tost2< N, StressType > * >::type >", "structtfel_1_1utilities_1_1_gen_type_base.html", [
-        [ "tfel::material::FiniteStrainBehaviourTangentOperator< N, StressType >", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html", null ]
-      ] ],
-      [ "tfel::utilities::GenTypeBase< StressFreeExpansionHandlerTypes >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
-      [ "tfel::utilities::GenTypeBase< system3d, system4d >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
-      [ "tfel::utilities::GenTypeBase< unsigned int, std::string >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
-      [ "tfel::utilities::GenTypeBase< bool >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
-      [ "tfel::utilities::GenTypeBase< std::vector< tfel::material::SlipSystemsDescription::system3d >, std::vector< tfel::material::SlipSystemsDescription::system4d > >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
       [ "tfel::utilities::GenTypeBase< EvolutionTypes >", "structtfel_1_1utilities_1_1_gen_type_base.html", [
         [ "mfmtg::Evolution", "structmfmtg_1_1_evolution.html", null ]
       ] ],
       [ "tfel::utilities::GenTypeBase< TimesTypes >", "structtfel_1_1utilities_1_1_gen_type_base.html", [
         [ "mfmtg::Times", "structmfmtg_1_1_times.html", null ]
       ] ],
-      [ "tfel::utilities::GenTypeBase< MaterialPropertyTypes >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
+      [ "tfel::utilities::GenTypeBase< tfel::meta::GenerateTypeList< tfel::math::t2tot2< N, StressType >, tfel::math::t2tost2< N, StressType >, tfel::math::st2tost2< N, StressType >, tfel::math::t2tot2< N, StressType > *, tfel::math::t2tost2< N, StressType > *, tfel::math::st2tost2< N, StressType > * >::type >", "structtfel_1_1utilities_1_1_gen_type_base.html", [
+        [ "tfel::material::FiniteStrainBehaviourTangentOperator< N, StressType >", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html", null ]
+      ] ],
       [ "tfel::utilities::GenTypeBase< DataTypes >", "structtfel_1_1utilities_1_1_gen_type_base.html", [
         [ "tfel::utilities::Data", "structtfel_1_1utilities_1_1_data.html", null ]
       ] ],
+      [ "tfel::utilities::GenTypeBase< unsigned int, std::string >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
+      [ "tfel::utilities::GenTypeBase< StressFreeExpansionHandlerTypes >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
+      [ "tfel::utilities::GenTypeBase< BehaviourType >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
+      [ "tfel::utilities::GenTypeBase< bool >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
+      [ "tfel::utilities::GenTypeBase< MaterialPropertyTypes >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
+      [ "tfel::utilities::GenTypeBase< std::vector< tfel::material::SlipSystemsDescription::system3d >, std::vector< tfel::material::SlipSystemsDescription::system4d > >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
+      [ "tfel::utilities::GenTypeBase< system3d, system4d >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
       [ "tfel::utilities::GenTypeBase< List >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ]
     ] ],
     [ "AsterOrthotropicFiniteStrainBehaviourDispatcher:: type", null, [
@@ -130,11 +130,21 @@ var hierarchy =
           [ "mfront::LSDYNAInterface", "structmfront_1_1_l_s_d_y_n_a_interface.html", null ]
         ] ]
       ] ],
+      [ "mfront::MFrontBehaviourInterface", "structmfront_1_1_m_front_behaviour_interface.html", null ],
       [ "mfront::ZMATInterface", "structmfront_1_1_z_m_a_t_interface.html", null ]
     ] ],
     [ "mfront::AbstractDSL", "structmfront_1_1_abstract_d_s_l.html", [
       [ "mfront::AbstractBehaviourDSL", "structmfront_1_1_abstract_behaviour_d_s_l.html", [
         [ "mfront::BehaviourDSLCommon", "structmfront_1_1_behaviour_d_s_l_common.html", [
+          [ "mfront::BehaviourDSLBase< DefaultDSLBase >", "structmfront_1_1_behaviour_d_s_l_base.html", [
+            [ "mfront::DefaultDSLBase", "structmfront_1_1_default_d_s_l_base.html", [
+              [ "mfront::DefaultCZMDSL", "structmfront_1_1_default_c_z_m_d_s_l.html", null ],
+              [ "mfront::DefaultDSL", "structmfront_1_1_default_d_s_l.html", null ],
+              [ "mfront::DefaultFiniteStrainDSL", "structmfront_1_1_default_finite_strain_d_s_l.html", null ],
+              [ "mfront::DefaultGenericBehaviourDSL", "structmfront_1_1_default_generic_behaviour_d_s_l.html", null ],
+              [ "mfront::DefaultModelDSL", "structmfront_1_1_default_model_d_s_l.html", null ]
+            ] ]
+          ] ],
           [ "mfront::BehaviourDSLBase< ImplicitDSLBase >", "structmfront_1_1_behaviour_d_s_l_base.html", [
             [ "mfront::ImplicitDSLBase", "structmfront_1_1_implicit_d_s_l_base.html", [
               [ "mfront::ImplicitCZMDSL", "structmfront_1_1_implicit_c_z_m_d_s_l.html", null ],
@@ -143,15 +153,6 @@ var hierarchy =
               [ "mfront::ImplicitFiniteStrainDSL", "structmfront_1_1_implicit_finite_strain_d_s_l.html", null ],
               [ "mfront::ImplicitGenericBehaviourDSL", "structmfront_1_1_implicit_generic_behaviour_d_s_l.html", null ],
               [ "mfront::ImplicitModelDSL", "structmfront_1_1_implicit_model_d_s_l.html", null ]
-            ] ]
-          ] ],
-          [ "mfront::BehaviourDSLBase< DefaultDSLBase >", "structmfront_1_1_behaviour_d_s_l_base.html", [
-            [ "mfront::DefaultDSLBase", "structmfront_1_1_default_d_s_l_base.html", [
-              [ "mfront::DefaultCZMDSL", "structmfront_1_1_default_c_z_m_d_s_l.html", null ],
-              [ "mfront::DefaultDSL", "structmfront_1_1_default_d_s_l.html", null ],
-              [ "mfront::DefaultFiniteStrainDSL", "structmfront_1_1_default_finite_strain_d_s_l.html", null ],
-              [ "mfront::DefaultGenericBehaviourDSL", "structmfront_1_1_default_generic_behaviour_d_s_l.html", null ],
-              [ "mfront::DefaultModelDSL", "structmfront_1_1_default_model_d_s_l.html", null ]
             ] ]
           ] ],
           [ "mfront::BehaviourDSLBase< IsotropicBehaviourDSLBase >", "structmfront_1_1_behaviour_d_s_l_base.html", [
@@ -313,8 +314,8 @@ var hierarchy =
           [ "mfront::MaterialPropertyDocumentationGenerator", "structmfront_1_1_material_property_documentation_generator.html", null ]
         ] ]
       ] ],
-      [ "tfel::utilities::ArgumentParserBase< TestDocMain >", "structtfel_1_1utilities_1_1_argument_parser_base.html", [
-        [ "tfel::utilities::TestDocMain", "structtfel_1_1utilities_1_1_test_doc_main.html", null ]
+      [ "tfel::utilities::ArgumentParserBase< MFront >", "structtfel_1_1utilities_1_1_argument_parser_base.html", [
+        [ "mfront::MFront", "structmfront_1_1_m_front.html", null ]
       ] ],
       [ "tfel::utilities::ArgumentParserBase< QueryHandlerBase >", "structtfel_1_1utilities_1_1_argument_parser_base.html", [
         [ "mfront::QueryHandlerBase", "structmfront_1_1_query_handler_base.html", [
@@ -323,18 +324,18 @@ var hierarchy =
           [ "mfront::ModelQuery", "structmfront_1_1_model_query.html", null ]
         ] ]
       ] ],
-      [ "tfel::utilities::ArgumentParserBase< MFront >", "structtfel_1_1utilities_1_1_argument_parser_base.html", [
-        [ "mfront::MFront", "structmfront_1_1_m_front.html", null ]
+      [ "tfel::utilities::ArgumentParserBase< TestDocMain >", "structtfel_1_1utilities_1_1_argument_parser_base.html", [
+        [ "tfel::utilities::TestDocMain", "structtfel_1_1utilities_1_1_test_doc_main.html", null ]
       ] ],
       [ "tfel::utilities::ArgumentParserBase< Child >", "structtfel_1_1utilities_1_1_argument_parser_base.html", null ]
     ] ],
     [ "std::array", null, [
       [ "tfel::utilities::basic_fcstring< N, CharT, Traits >", "structtfel_1_1utilities_1_1basic__fcstring.html", null ]
     ] ],
-    [ "tfel::math::ArrayConceptBase< T >", "structtfel_1_1math_1_1_array_concept_base.html", null ],
-    [ "tfel::math::ArrayConceptBase< fsarray< N, double > >", "structtfel_1_1math_1_1_array_concept_base.html", [
+    [ "tfel::math::ArrayConceptBase< T >", "structtfel_1_1math_1_1_array_concept_base.html", [
       [ "tfel::math::fsarray< N, ValueType >", "structtfel_1_1math_1_1fsarray.html", null ]
     ] ],
+    [ "tfel::math::ArrayConceptBase< fsarray< N, double > >", "structtfel_1_1math_1_1_array_concept_base.html", null ],
     [ "tfel::math::ArrayConceptBase< runtime_array< ValueType > >", "structtfel_1_1math_1_1_array_concept_base.html", [
       [ "tfel::math::runtime_array< ValueType >", "structtfel_1_1math_1_1runtime__array.html", null ]
     ] ],
@@ -441,6 +442,7 @@ var hierarchy =
     [ "mfront::BehaviourInterfaceFactory", "structmfront_1_1_behaviour_interface_factory.html", null ],
     [ "mfront::BehaviourInterfaceProxy< Interface >", "structmfront_1_1_behaviour_interface_proxy.html", null ],
     [ "mfront::BehaviourProfiler", "structmfront_1_1_behaviour_profiler.html", null ],
+    [ "mfront::BehaviourVariableDescription", "structmfront_1_1_behaviour_variable_description.html", null ],
     [ "mfront::GenericBehaviourMTestFileGenerator::BehaviourVariablesDescription", "structmfront_1_1_generic_behaviour_m_test_file_generator_1_1_behaviour_variables_description.html", null ],
     [ "mtest::BehaviourWorkSpace", "structmtest_1_1_behaviour_work_space.html", null ],
     [ "tfel::math::BinaryOperation< T1, T2, Op >", "structtfel_1_1math_1_1_binary_operation.html", null ],
@@ -473,8 +475,6 @@ var hierarchy =
       [ "tfel::material::BoundsCheck< 2u >", "structtfel_1_1material_1_1_bounds_check_3_012u_01_4.html", null ],
       [ "tfel::material::BoundsCheck< 3u >", "structtfel_1_1material_1_1_bounds_check_3_013u_01_4.html", null ]
     ] ],
-    [ "tfel::python::internals::build_python_tuple< Types >", "structtfel_1_1python_1_1internals_1_1build__python__tuple.html", null ],
-    [ "tfel::python::internals::build_tuple< Types >", "structtfel_1_1python_1_1internals_1_1build__tuple.html", null ],
     [ "tfel::math::internals::BuildDerivativeViewFromTinyMatrix< M, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_build_derivative_view_from_tiny_matrix.html", null ],
     [ "tfel::math::internals::BuildDerivativeViewFromTinyMatrixImplementation< is_function_type_scalar, is_variable_type_scalar, M, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_build_derivative_view_from_tiny_matrix_implementation.html", null ],
     [ "tfel::math::internals::BuildDerivativeViewFromTinyMatrixImplementation< false, true, M, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_build_derivative_view_from_tiny_matrix_implementation_3_01fab41805e18a88ca5d89950cbb288ad5ec.html", null ],
@@ -534,13 +534,13 @@ var hierarchy =
     [ "castem::CastemComputeThermalExpansionCoefficientTensor< castem::STANDARDSTRAINBASEDBEHAVIOUR, tfel::material::ModellingHypothesis::TRIDIMENSIONAL, ORTHOTROPIC >", "structcastem_1_1_castem_compute_thermal_expansion_coefficient_tensor_3_01castem_1_1_s_t_a_n_d_a_e7000ccd792f9bbc459dfaabd0ea40dc.html", null ],
     [ "castem::CastemFiniteStrain", "structcastem_1_1_castem_finite_strain.html", null ],
     [ "castem::CastemInterfaceExceptions", "structcastem_1_1_castem_interface_exceptions.html", [
-      [ "castem::CastemBehaviourHandler< STANDARDFINITESTRAINBEHAVIOUR, tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structcastem_1_1_castem_behaviour_handler.html", [
-        [ "castem::CastemOrthotropicFiniteStrainBehaviourHandler2D< tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structcastem_1_1_castem_orthotropic_finite_strain_behaviour_handler2_d_3_01tfel_1_1material_1_1_41dab0866aefa75092bab109c89e3b7c.html", null ]
-      ] ],
       [ "castem::CastemBehaviourHandler< STANDARDFINITESTRAINBEHAVIOUR, H, Behaviour >", "structcastem_1_1_castem_behaviour_handler.html", [
         [ "castem::CastemOrthotropicFiniteStrainBehaviourHandler1D< H, Behaviour >", "structcastem_1_1_castem_orthotropic_finite_strain_behaviour_handler1_d.html", null ],
         [ "castem::CastemOrthotropicFiniteStrainBehaviourHandler2D< H, Behaviour >", "structcastem_1_1_castem_orthotropic_finite_strain_behaviour_handler2_d.html", null ],
         [ "castem::CastemOrthotropicFiniteStrainBehaviourHandler3D< H, Behaviour >", "structcastem_1_1_castem_orthotropic_finite_strain_behaviour_handler3_d.html", null ]
+      ] ],
+      [ "castem::CastemBehaviourHandler< STANDARDFINITESTRAINBEHAVIOUR, tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structcastem_1_1_castem_behaviour_handler.html", [
+        [ "castem::CastemOrthotropicFiniteStrainBehaviourHandler2D< tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structcastem_1_1_castem_orthotropic_finite_strain_behaviour_handler2_d_3_01tfel_1_1material_1_1_41dab0866aefa75092bab109c89e3b7c.html", null ]
       ] ],
       [ "castem::CastemBehaviourHandler< STANDARDSTRAINBASEDBEHAVIOUR, H, Behaviour >", "structcastem_1_1_castem_behaviour_handler.html", [
         [ "castem::CastemOrthotropicSmallStrainBehaviourHandler1D< H, Behaviour >", "structcastem_1_1_castem_orthotropic_small_strain_behaviour_handler1_d.html", null ],
@@ -550,11 +550,11 @@ var hierarchy =
       [ "castem::CastemBehaviourHandler< STANDARDSTRAINBASEDBEHAVIOUR, tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structcastem_1_1_castem_behaviour_handler.html", [
         [ "castem::CastemOrthotropicSmallStrainBehaviourHandler2D< tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structcastem_1_1_castem_orthotropic_small_strain_behaviour_handler2_d_3_01tfel_1_1material_1_1_m4cc821e9c84d07314142e2e9ad67f0b9.html", null ]
       ] ],
-      [ "castem::CastemCohesiveZoneModelInterfaceDispatch2D< tfel::material::ModellingHypothesis::PLANESTRAIN, Behaviour >", "structcastem_1_1_castem_cohesive_zone_model_interface_dispatch2_d.html", [
-        [ "castem::CastemInterfaceDispatch< COHESIVEZONEMODEL, tfel::material::ModellingHypothesis::PLANESTRAIN, Behaviour >", "structcastem_1_1_castem_interface_dispatch_3_01_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_01tfel_1_1mb9047aeec389dc723ff0870bd1c9a6f7.html", null ]
-      ] ],
       [ "castem::CastemCohesiveZoneModelInterfaceDispatch2D< tfel::material::ModellingHypothesis::AXISYMMETRICAL, Behaviour >", "structcastem_1_1_castem_cohesive_zone_model_interface_dispatch2_d.html", [
         [ "castem::CastemInterfaceDispatch< COHESIVEZONEMODEL, tfel::material::ModellingHypothesis::AXISYMMETRICAL, Behaviour >", "structcastem_1_1_castem_interface_dispatch_3_01_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_01tfel_1_1m20beadea3e5dde04d3146b73c2cbaf6c.html", null ]
+      ] ],
+      [ "castem::CastemCohesiveZoneModelInterfaceDispatch2D< tfel::material::ModellingHypothesis::PLANESTRAIN, Behaviour >", "structcastem_1_1_castem_cohesive_zone_model_interface_dispatch2_d.html", [
+        [ "castem::CastemInterfaceDispatch< COHESIVEZONEMODEL, tfel::material::ModellingHypothesis::PLANESTRAIN, Behaviour >", "structcastem_1_1_castem_interface_dispatch_3_01_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_01tfel_1_1mb9047aeec389dc723ff0870bd1c9a6f7.html", null ]
       ] ],
       [ "castem::CastemBehaviourHandler< type, H, Behaviour >", "structcastem_1_1_castem_behaviour_handler.html", [
         [ "castem::CastemIsotropicBehaviourHandlerBase< COHESIVEZONEMODEL, H, Behaviour >", "structcastem_1_1_castem_isotropic_behaviour_handler_base.html", [
@@ -614,7 +614,15 @@ var hierarchy =
     [ "castem::CastemUnSupportedCaseHandler", "structcastem_1_1_castem_un_supported_case_handler.html", [
       [ "castem::CastemOrthotropicBehaviourHandler< type, H, Behaviour >", "structcastem_1_1_castem_orthotropic_behaviour_handler.html", null ]
     ] ],
+    [ "mfront::CheckInitializeMethodsOptions", "structmfront_1_1_check_initialize_methods_options.html", null ],
     [ "tfel::material::CheckThermalDataValidity< Behaviour >", "structtfel_1_1material_1_1_check_thermal_data_validity.html", null ],
+    [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, Type >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html", null ],
+    [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, numeric_type< MathObjectType > >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html", [
+      [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, MathObjectType >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_math_object_type_01_4.html", null ]
+    ] ],
+    [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, std::decay_t< T > >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html", [
+      [ "tfel::math::CheckUnitCompatibility< Unit, T >", "structtfel_1_1math_1_1_check_unit_compatibility.html", null ]
+    ] ],
     [ "tfel::system::ChildProcess", "structtfel_1_1system_1_1_child_process.html", null ],
     [ "tfel::typetraits::internals::ChooseType< A, B, A_is_signed, B_is_signed >", "structtfel_1_1typetraits_1_1internals_1_1_choose_type.html", null ],
     [ "tfel::typetraits::internals::ChooseType< A, B, false, false >", "structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01false_00_01false_01_4.html", null ],
@@ -731,7 +739,9 @@ var hierarchy =
     [ "tfel::math::ComputeBinaryOperationResult< VectorTag, ScalarTag, vector< T >, Scal, OpDiv >", "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_vector_tag_00_01_scalar_tag_00_01vectce63a8be576f1bfc5b9458fe1247036f.html", null ],
     [ "tfel::math::ComputeBinaryOperationResult< VectorTag, ScalarTag, vector< T >, Scal, OpMult >", "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_vector_tag_00_01_scalar_tag_00_01vectd84c33b7f473ed499f3fff15d42a3ad2.html", null ],
     [ "tfel::math::ComputeBinaryResult< A, B, Op >", "classtfel_1_1math_1_1_compute_binary_result.html", null ],
-    [ "tfel::material::ComputeElasticStiffnessBase< short, typename >", "structtfel_1_1material_1_1_compute_elastic_stiffness_base.html", null ],
+    [ "tfel::material::ComputeElasticStiffnessBase< short, typename >", "structtfel_1_1material_1_1_compute_elastic_stiffness_base.html", [
+      [ "tfel::material::computeElasticStiffness< ModellingHypothesisToSpaceDimension< H >::value, tfel::math::base_type< T > >", "structtfel_1_1material_1_1compute_elastic_stiffness.html", null ]
+    ] ],
     [ "tfel::material::ComputeElasticStiffnessBase< 1u, T >", "structtfel_1_1material_1_1_compute_elastic_stiffness_base_3_011u_00_01_t_01_4.html", null ],
     [ "tfel::material::ComputeElasticStiffnessBase< 2u, T >", "structtfel_1_1material_1_1_compute_elastic_stiffness_base_3_012u_00_01_t_01_4.html", null ],
     [ "tfel::material::ComputeElasticStiffnessBase< 3u, T >", "structtfel_1_1material_1_1_compute_elastic_stiffness_base_3_013u_00_01_t_01_4.html", null ],
@@ -746,6 +756,7 @@ var hierarchy =
         [ "tfel::material::computeUnalteredElasticStiffness< N, T >", "structtfel_1_1material_1_1compute_unaltered_elastic_stiffness.html", null ]
       ] ]
     ] ],
+    [ "tfel::material::ComputeElasticStiffnessBase< N, tfel::math::base_type< tfel::math::base_type< T > > >", "structtfel_1_1material_1_1_compute_elastic_stiffness_base.html", null ],
     [ "tfel::material::internals::ComputeHillTensor< Hypothesis, OrthotropicAxesConvention, typename >", "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor.html", null ],
     [ "tfel::material::internals::ComputeHillTensorBase< short, typename >", "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_base.html", null ],
     [ "tfel::material::internals::ComputeHillTensorBase< 1u, real >", "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_base_3_011u_00_01real_01_4.html", null ],
@@ -833,98 +844,191 @@ var hierarchy =
         [ "tfel::math::ConstFixedSizeArrayBase< Child, ArrayPolicyType >", "structtfel_1_1math_1_1_const_fixed_size_array_base.html", null ],
         [ "tfel::math::ConstRuntimeArrayBase< Child, ArrayPolicyType >", "structtfel_1_1math_1_1_const_runtime_array_base.html", null ]
       ] ],
+      [ "tfel::math::ConstArraySTLCompatibilityLayer< GenericFixedSizeConstArrayView< ArrayPolicy >, ArrayPolicy >", "structtfel_1_1math_1_1_const_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tvector< N, T >, FixedSizeVectorPolicy< N, T >, getArrayPolicySize< FixedSizeVectorPolicy< N, T > >() >, FixedSizeVectorPolicy< N, T > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< N, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< N, double >::type > >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< N, double >::type > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< M, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< M, double >::type > >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< M, double >::type > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< vector< double >, RuntimeVectorArrayPolicy< double > >, RuntimeVectorArrayPolicy< double > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< FixedSizeArrayDerivative< Array1, Array2 >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy >, getArrayPolicySize< FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >() >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< Child, ArrayPolicy, getArrayPolicySize< ArrayPolicy >() >, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< Child, ArrayPolicy >, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
       [ "tfel::math::MutableArraySTLCompatibilityLayer< Child, ArrayPolicyType >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", [
         [ "tfel::math::MutableFixedSizeArrayBase< Child, ArrayPolicyType >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", [
-          [ "tfel::math::GenericFixedSizeArray< st2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
-            [ "tfel::math::st2tost2< N, ValueType >", "structtfel_1_1math_1_1st2tost2.html", null ]
-          ] ],
-          [ "tfel::math::GenericFixedSizeArray< tvector< N, double >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
-            [ "tfel::math::tvector< N, ValueType >", "structtfel_1_1math_1_1tvector.html", null ]
-          ] ],
-          [ "tfel::math::GenericFixedSizeArray< tensor< N, ValueType >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
-            [ "tfel::math::tensor< N, ValueType >", "structtfel_1_1math_1_1tensor.html", null ]
-          ] ],
+          [ "tfel::math::GenericFixedSizeArray< tvector< N, T >, FixedSizeVectorPolicy< N, T > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
           [ "tfel::math::GenericFixedSizeArray< FixedSizeArrayDerivative< Array1, Array2 >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
             [ "tfel::math::FixedSizeArrayDerivative< Array1, Array2 >", "structtfel_1_1math_1_1_fixed_size_array_derivative.html", null ]
           ] ],
-          [ "tfel::math::GenericFixedSizeArray< t2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
-            [ "tfel::math::t2tot2< N, ValueType >", "structtfel_1_1math_1_1t2tot2.html", null ]
-          ] ],
-          [ "tfel::math::GenericFixedSizeArray< stensor< N, ValueType >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
-            [ "tfel::math::stensor< N, ValueType >", "structtfel_1_1math_1_1stensor.html", null ]
-          ] ],
-          [ "tfel::math::GenericFixedSizeArray< tmatrix< N, M, double >, FixedSizeRowMajorMatrixPolicy< N, M, double > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
-            [ "tfel::math::tmatrix< 3u, 3u >", "structtfel_1_1math_1_1tmatrix.html", null ],
-            [ "tfel::math::tmatrix< N, M, ValueType >", "structtfel_1_1math_1_1tmatrix.html", null ]
+          [ "tfel::math::GenericFixedSizeArray< tvector< N, unsigned short >, FixedSizeVectorPolicy< N, unsigned short > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< fsarray< N, double >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< st2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
+            [ "tfel::math::st2tost2< N, ValueType >", "structtfel_1_1math_1_1st2tost2.html", null ]
           ] ],
           [ "tfel::math::GenericFixedSizeArray< st2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
             [ "tfel::math::st2tot2< N, ValueType >", "structtfel_1_1math_1_1st2tot2.html", null ]
           ] ],
-          [ "tfel::math::GenericFixedSizeArray< fsarray< N, double >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
-            [ "tfel::math::fsarray< N, ValueType >", "structtfel_1_1math_1_1fsarray.html", null ]
+          [ "tfel::math::GenericFixedSizeArray< stensor< N, ValueType >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
+            [ "tfel::math::stensor< N, ValueType >", "structtfel_1_1math_1_1stensor.html", null ]
           ] ],
           [ "tfel::math::GenericFixedSizeArray< t2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
             [ "tfel::math::t2tost2< N, ValueType >", "structtfel_1_1math_1_1t2tost2.html", null ]
+          ] ],
+          [ "tfel::math::GenericFixedSizeArray< t2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
+            [ "tfel::math::t2tot2< N, ValueType >", "structtfel_1_1math_1_1t2tot2.html", null ]
+          ] ],
+          [ "tfel::math::GenericFixedSizeArray< tensor< N, ValueType >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
+            [ "tfel::math::tensor< N, ValueType >", "structtfel_1_1math_1_1tensor.html", null ]
+          ] ],
+          [ "tfel::math::GenericFixedSizeArray< tmatrix< N, M, double >, FixedSizeRowMajorMatrixPolicy< N, M, double > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< tvector< N, double >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< tmatrix< N, M, real >, FixedSizeRowMajorMatrixPolicy< N, M, real > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< tvector< N, BarlatBaseType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< tvector< N, BarlatInvertStressType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< tensor< N, real >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< tvector< N, real >, FixedSizeVectorPolicy< N, real > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< st2tost2< N, real >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< tvector< N, tfel::math::tensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< tvector< N, tfel::math::stensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< tvector< N, NumericType >, FixedSizeVectorPolicy< N, NumericType > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< tmatrix< N, M, NumericType >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", null ],
+          [ "tfel::math::GenericFixedSizeArray< Child, ArrayPolicy, N >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
+            [ "tfel::math::st2tost2< 2u, real >", "structtfel_1_1math_1_1st2tost2.html", null ],
+            [ "tfel::math::st2tost2< 3u, real >", "structtfel_1_1math_1_1st2tost2.html", null ],
+            [ "tfel::math::tensor< 1u, real >", "structtfel_1_1math_1_1tensor.html", null ],
+            [ "tfel::math::tensor< 2u, real >", "structtfel_1_1math_1_1tensor.html", null ],
+            [ "tfel::math::tmatrix< 3u, 3u >", "structtfel_1_1math_1_1tmatrix.html", null ],
+            [ "tfel::math::tmatrix< 3u, 3u, real >", "structtfel_1_1math_1_1tmatrix.html", null ],
+            [ "tfel::math::tmatrix< 12, 12, real >", "structtfel_1_1math_1_1tmatrix.html", null ],
+            [ "tfel::math::tmatrix< N, N, NumericType >", "structtfel_1_1math_1_1tmatrix.html", null ],
+            [ "tfel::math::tvector< N, T >", "structtfel_1_1math_1_1tvector.html", null ],
+            [ "tfel::math::tvector< N, unsigned short >", "structtfel_1_1math_1_1tvector.html", [
+              [ "tfel::math::TinyPermutation< N >", "structtfel_1_1math_1_1_tiny_permutation.html", null ]
+            ] ],
+            [ "tfel::math::tvector< 3u, BarlatBaseType< StressStensor > >", "structtfel_1_1math_1_1tvector.html", null ],
+            [ "tfel::math::tvector< 6u, BarlatInvertStressType< StressStensor > >", "structtfel_1_1math_1_1tvector.html", null ],
+            [ "tfel::math::tvector< 9u, BarlatInvertStressType< StressStensor > >", "structtfel_1_1math_1_1tvector.html", null ],
+            [ "tfel::math::tvector< 3u, real >", "structtfel_1_1math_1_1tvector.html", null ],
+            [ "tfel::math::tvector< Nss, tfel::math::tensor< 3u, real > >", "structtfel_1_1math_1_1tvector.html", null ],
+            [ "tfel::math::tvector< Nss, tfel::math::stensor< 3u, real > >", "structtfel_1_1math_1_1tvector.html", null ],
+            [ "tfel::math::tvector< N, NumericType >", "structtfel_1_1math_1_1tvector.html", null ],
+            [ "tfel::math::fsarray< N, ValueType >", "structtfel_1_1math_1_1fsarray.html", null ],
+            [ "tfel::math::tmatrix< N, M, ValueType >", "structtfel_1_1math_1_1tmatrix.html", null ],
+            [ "tfel::math::tvector< N, ValueType >", "structtfel_1_1math_1_1tvector.html", null ]
           ] ]
         ] ]
       ] ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< vector< T >, RuntimeVectorArrayPolicy< T > >, RuntimeVectorArrayPolicy< T > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tvector< N, unsigned short >, FixedSizeVectorPolicy< N, unsigned short >, getArrayPolicySize< FixedSizeVectorPolicy< N, unsigned short > >() >, FixedSizeVectorPolicy< N, unsigned short > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< fsarray< N, double >, FixedSizeVectorPolicy< N, double >, getArrayPolicySize< FixedSizeVectorPolicy< N, double > >() >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< matrix< ValueType >, RuntimeRowMajorMatrixArrayPolicy< ValueType > >, RuntimeRowMajorMatrixArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< runtime_array< ValueType >, RuntimeVectorArrayPolicy< ValueType > >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< st2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< st2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< stensor< N, ValueType >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< t2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< t2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tensor< N, ValueType >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tmatrix< N, M, double >, FixedSizeRowMajorMatrixPolicy< N, M, double >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, double > >() >, FixedSizeRowMajorMatrixPolicy< N, M, double > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tvector< N, double >, FixedSizeVectorPolicy< N, double >, getArrayPolicySize< FixedSizeVectorPolicy< N, double > >() >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< vector< ValueType >, RuntimeVectorArrayPolicy< ValueType > >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< vector< real >, RuntimeVectorArrayPolicy< real > >, RuntimeVectorArrayPolicy< real > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< matrix< real >, RuntimeRowMajorMatrixArrayPolicy< real > >, RuntimeRowMajorMatrixArrayPolicy< real > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tmatrix< N, M, real >, FixedSizeRowMajorMatrixPolicy< N, M, real >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, real > >() >, FixedSizeRowMajorMatrixPolicy< N, M, real > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< vector< size_type >, RuntimeVectorArrayPolicy< size_type > >, RuntimeVectorArrayPolicy< size_type > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< vector< mtest::CurrentState >, RuntimeVectorArrayPolicy< mtest::CurrentState > >, RuntimeVectorArrayPolicy< mtest::CurrentState > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tvector< N, BarlatBaseType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > >, getArrayPolicySize< FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > > >() >, FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tvector< N, BarlatInvertStressType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > >, getArrayPolicySize< FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > > >() >, FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tensor< N, real >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real >, getArrayPolicySize< FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real > >() >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tvector< N, real >, FixedSizeVectorPolicy< N, real >, getArrayPolicySize< FixedSizeVectorPolicy< N, real > >() >, FixedSizeVectorPolicy< N, real > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< st2tost2< N, real >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tvector< N, tfel::math::tensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > >, getArrayPolicySize< FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > > >() >, FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tvector< N, tfel::math::stensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > >, getArrayPolicySize< FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > > >() >, FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< vector< tfel::math::vector< tfel::math::stensor > >, RuntimeVectorArrayPolicy< tfel::math::vector< tfel::math::stensor > > >, RuntimeVectorArrayPolicy< tfel::math::vector< tfel::math::stensor > > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tvector< N, NumericType >, FixedSizeVectorPolicy< N, NumericType >, getArrayPolicySize< FixedSizeVectorPolicy< N, NumericType > >() >, FixedSizeVectorPolicy< N, NumericType > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tmatrix< N, M, NumericType >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >() >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< vector< std::shared_ptr< tfel::math::parser::ExternalFunction > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
       [ "tfel::math::ConstArraySTLCompatibilityLayer< Child, ArrayPolicy >", "structtfel_1_1math_1_1_const_array_s_t_l_compatibility_layer.html", [
         [ "tfel::math::ConstFixedSizeArrayBase< GenericFixedSizeConstArrayView< ArrayPolicy >, ArrayPolicy >", "structtfel_1_1math_1_1_const_fixed_size_array_base.html", [
           [ "tfel::math::GenericFixedSizeConstArrayView< ArrayPolicy >", "structtfel_1_1math_1_1_generic_fixed_size_const_array_view.html", null ]
         ] ]
       ] ],
       [ "tfel::math::MutableArraySTLCompatibilityLayer< Child, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", [
-        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< Child, ArrayPolicy, getArrayPolicySize< ArrayPolicy >() >, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", [
-          [ "tfel::math::GenericFixedSizeArray< Child, ArrayPolicy, N >", "structtfel_1_1math_1_1_generic_fixed_size_array.html", [
-            [ "tfel::math::st2tost2< 2u, real >", "structtfel_1_1math_1_1st2tost2.html", null ],
-            [ "tfel::math::st2tost2< 3u, real >", "structtfel_1_1math_1_1st2tost2.html", null ],
-            [ "tfel::math::tensor< 1u, real >", "structtfel_1_1math_1_1tensor.html", null ],
-            [ "tfel::math::tensor< 2u, real >", "structtfel_1_1math_1_1tensor.html", null ],
-            [ "tfel::math::tmatrix< 3u, 3u, real >", "structtfel_1_1math_1_1tmatrix.html", null ],
-            [ "tfel::math::tmatrix< 12, 12, real >", "structtfel_1_1math_1_1tmatrix.html", null ],
-            [ "tfel::math::tmatrix< N, N, NumericType >", "structtfel_1_1math_1_1tmatrix.html", null ],
-            [ "tfel::math::tvector< N, NumericType >", "structtfel_1_1math_1_1tvector.html", null ],
-            [ "tfel::math::tvector< 6u, BarlatInvertStressType< StressStensor > >", "structtfel_1_1math_1_1tvector.html", null ],
-            [ "tfel::math::tvector< N, T >", "structtfel_1_1math_1_1tvector.html", null ],
-            [ "tfel::math::tvector< 3u, real >", "structtfel_1_1math_1_1tvector.html", null ],
-            [ "tfel::math::tvector< N, unsigned short >", "structtfel_1_1math_1_1tvector.html", [
-              [ "tfel::math::TinyPermutation< N >", "structtfel_1_1math_1_1_tiny_permutation.html", null ]
-            ] ],
-            [ "tfel::math::tvector< 3u, BarlatBaseType< StressStensor > >", "structtfel_1_1math_1_1tvector.html", null ],
-            [ "tfel::math::tvector< 9u, BarlatInvertStressType< StressStensor > >", "structtfel_1_1math_1_1tvector.html", null ],
-            [ "tfel::math::tvector< Nss, tfel::math::tensor< 3u, real > >", "structtfel_1_1math_1_1tvector.html", null ],
-            [ "tfel::math::tvector< Nss, tfel::math::stensor< 3u, real > >", "structtfel_1_1math_1_1tvector.html", null ]
-          ] ]
-        ] ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, T >, FixedSizeVectorPolicy< N, T >, getArrayPolicySize< FixedSizeVectorPolicy< N, T > >() >, FixedSizeVectorPolicy< N, T > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< FixedSizeArrayDerivative< Array1, Array2 >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy >, getArrayPolicySize< FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >() >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< Child, ArrayPolicy, getArrayPolicySize< ArrayPolicy >() >, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, unsigned short >, FixedSizeVectorPolicy< N, unsigned short >, getArrayPolicySize< FixedSizeVectorPolicy< N, unsigned short > >() >, FixedSizeVectorPolicy< N, unsigned short > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< fsarray< N, double >, FixedSizeVectorPolicy< N, double >, getArrayPolicySize< FixedSizeVectorPolicy< N, double > >() >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< st2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< st2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< stensor< N, ValueType >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< t2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< t2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tensor< N, ValueType >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tmatrix< N, M, double >, FixedSizeRowMajorMatrixPolicy< N, M, double >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, double > >() >, FixedSizeRowMajorMatrixPolicy< N, M, double > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, double >, FixedSizeVectorPolicy< N, double >, getArrayPolicySize< FixedSizeVectorPolicy< N, double > >() >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tmatrix< N, M, real >, FixedSizeRowMajorMatrixPolicy< N, M, real >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, real > >() >, FixedSizeRowMajorMatrixPolicy< N, M, real > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, BarlatBaseType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > >, getArrayPolicySize< FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > > >() >, FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, BarlatInvertStressType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > >, getArrayPolicySize< FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > > >() >, FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tensor< N, real >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real >, getArrayPolicySize< FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real > >() >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, real >, FixedSizeVectorPolicy< N, real >, getArrayPolicySize< FixedSizeVectorPolicy< N, real > >() >, FixedSizeVectorPolicy< N, real > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< st2tost2< N, real >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, tfel::math::tensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > >, getArrayPolicySize< FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > > >() >, FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, tfel::math::stensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > >, getArrayPolicySize< FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > > >() >, FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, NumericType >, FixedSizeVectorPolicy< N, NumericType >, getArrayPolicySize< FixedSizeVectorPolicy< N, NumericType > >() >, FixedSizeVectorPolicy< N, NumericType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tmatrix< N, M, NumericType >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >() >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< N, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< N, double >::type > >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< N, double >::type > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< M, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< M, double >::type > >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< M, double >::type > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< double >, RuntimeVectorArrayPolicy< double > >, RuntimeVectorArrayPolicy< double > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
         [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< Child, ArrayPolicy >, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", [
           [ "tfel::math::GenericRuntimeArray< Child, ArrayPolicy >", "structtfel_1_1math_1_1_generic_runtime_array.html", [
             [ "tfel::math::matrix< real >", "structtfel_1_1math_1_1matrix.html", null ],
-            [ "tfel::math::vector< real >", "structtfel_1_1math_1_1vector.html", null ],
-            [ "tfel::math::vector< double >", "structtfel_1_1math_1_1vector.html", null ],
-            [ "tfel::math::vector< tfel::math::vector< tfel::math::stensor > >", "structtfel_1_1math_1_1vector.html", null ],
-            [ "tfel::math::vector< typename tfel::math::KrigingVariable< M, double >::type >", "structtfel_1_1math_1_1vector.html", null ],
             [ "tfel::math::vector< typename tfel::math::KrigingVariable< N, double >::type >", "structtfel_1_1math_1_1vector.html", null ],
+            [ "tfel::math::vector< typename tfel::math::KrigingVariable< M, double >::type >", "structtfel_1_1math_1_1vector.html", null ],
+            [ "tfel::math::vector< double >", "structtfel_1_1math_1_1vector.html", null ],
             [ "tfel::math::vector< T >", "structtfel_1_1math_1_1vector.html", [
               [ "tfel::math::Permutation< T >", "structtfel_1_1math_1_1_permutation.html", null ]
             ] ],
-            [ "tfel::math::vector< std::shared_ptr< tfel::math::parser::ExternalFunction > >", "structtfel_1_1math_1_1vector.html", null ],
-            [ "tfel::math::vector< mtest::CurrentState >", "structtfel_1_1math_1_1vector.html", null ]
+            [ "tfel::math::vector< real >", "structtfel_1_1math_1_1vector.html", null ],
+            [ "tfel::math::vector< size_type >", "structtfel_1_1math_1_1vector.html", null ],
+            [ "tfel::math::vector< mtest::CurrentState >", "structtfel_1_1math_1_1vector.html", null ],
+            [ "tfel::math::vector< tfel::math::vector< tfel::math::stensor > >", "structtfel_1_1math_1_1vector.html", null ],
+            [ "tfel::math::vector< std::shared_ptr< tfel::math::parser::ExternalFunction > >", "structtfel_1_1math_1_1vector.html", null ]
           ] ]
         ] ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< T >, RuntimeVectorArrayPolicy< T > >, RuntimeVectorArrayPolicy< T > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< matrix< ValueType >, RuntimeRowMajorMatrixArrayPolicy< ValueType > >, RuntimeRowMajorMatrixArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< runtime_array< ValueType >, RuntimeVectorArrayPolicy< ValueType > >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< ValueType >, RuntimeVectorArrayPolicy< ValueType > >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< real >, RuntimeVectorArrayPolicy< real > >, RuntimeVectorArrayPolicy< real > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< matrix< real >, RuntimeRowMajorMatrixArrayPolicy< real > >, RuntimeRowMajorMatrixArrayPolicy< real > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< size_type >, RuntimeVectorArrayPolicy< size_type > >, RuntimeVectorArrayPolicy< size_type > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< mtest::CurrentState >, RuntimeVectorArrayPolicy< mtest::CurrentState > >, RuntimeVectorArrayPolicy< mtest::CurrentState > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< tfel::math::vector< tfel::math::stensor > >, RuntimeVectorArrayPolicy< tfel::math::vector< tfel::math::stensor > > >, RuntimeVectorArrayPolicy< tfel::math::vector< tfel::math::stensor > > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< std::shared_ptr< tfel::math::parser::ExternalFunction > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
         [ "tfel::math::MutableRuntimeArrayBase< Child, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", [
-          [ "tfel::math::GenericRuntimeArray< vector< ValueType >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_generic_runtime_array.html", [
-            [ "tfel::math::vector< ValueType >", "structtfel_1_1math_1_1vector.html", [
-              [ "tfel::math::Permutation< size_type >", "structtfel_1_1math_1_1_permutation.html", null ]
-            ] ]
-          ] ],
+          [ "tfel::math::GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< N, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< N, double >::type > >", "structtfel_1_1math_1_1_generic_runtime_array.html", null ],
+          [ "tfel::math::GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< M, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< M, double >::type > >", "structtfel_1_1math_1_1_generic_runtime_array.html", null ],
+          [ "tfel::math::GenericRuntimeArray< vector< double >, RuntimeVectorArrayPolicy< double > >", "structtfel_1_1math_1_1_generic_runtime_array.html", null ],
+          [ "tfel::math::GenericRuntimeArray< vector< T >, RuntimeVectorArrayPolicy< T > >", "structtfel_1_1math_1_1_generic_runtime_array.html", null ],
           [ "tfel::math::GenericRuntimeArray< matrix< ValueType >, RuntimeRowMajorMatrixArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_generic_runtime_array.html", [
             [ "tfel::math::matrix< ValueType >", "structtfel_1_1math_1_1matrix.html", null ]
           ] ],
           [ "tfel::math::GenericRuntimeArray< runtime_array< ValueType >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_generic_runtime_array.html", [
             [ "tfel::math::runtime_array< ValueType >", "structtfel_1_1math_1_1runtime__array.html", null ]
-          ] ]
+          ] ],
+          [ "tfel::math::GenericRuntimeArray< vector< ValueType >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_generic_runtime_array.html", [
+            [ "tfel::math::vector< ValueType >", "structtfel_1_1math_1_1vector.html", [
+              [ "tfel::math::Permutation< size_type >", "structtfel_1_1math_1_1_permutation.html", null ]
+            ] ]
+          ] ],
+          [ "tfel::math::GenericRuntimeArray< vector< real >, RuntimeVectorArrayPolicy< real > >", "structtfel_1_1math_1_1_generic_runtime_array.html", null ],
+          [ "tfel::math::GenericRuntimeArray< matrix< real >, RuntimeRowMajorMatrixArrayPolicy< real > >", "structtfel_1_1math_1_1_generic_runtime_array.html", null ],
+          [ "tfel::math::GenericRuntimeArray< vector< size_type >, RuntimeVectorArrayPolicy< size_type > >", "structtfel_1_1math_1_1_generic_runtime_array.html", null ],
+          [ "tfel::math::GenericRuntimeArray< vector< mtest::CurrentState >, RuntimeVectorArrayPolicy< mtest::CurrentState > >", "structtfel_1_1math_1_1_generic_runtime_array.html", null ],
+          [ "tfel::math::GenericRuntimeArray< vector< tfel::math::vector< tfel::math::stensor > >, RuntimeVectorArrayPolicy< tfel::math::vector< tfel::math::stensor > > >", "structtfel_1_1math_1_1_generic_runtime_array.html", null ],
+          [ "tfel::math::GenericRuntimeArray< vector< std::shared_ptr< tfel::math::parser::ExternalFunction > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >", "structtfel_1_1math_1_1_generic_runtime_array.html", null ]
         ] ]
-      ] ]
+      ] ],
+      [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, NumericType >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_numeric_type_01_4.html", null ]
     ] ],
     [ "tfel::check::Configuration", "structtfel_1_1check_1_1_configuration.html", null ],
     [ "tfel::check::ConfigurationManager", "structtfel_1_1check_1_1_configuration_manager.html", null ],
@@ -936,56 +1040,151 @@ var hierarchy =
     [ "mfront::BehaviourDescription::ConstantMaterialProperty", "structmfront_1_1_behaviour_description_1_1_constant_material_property.html", null ],
     [ "tfel::math::ConstArrayCommonMethods< Child, ArrayPolicyType >", "structtfel_1_1math_1_1_const_array_common_methods.html", [
       [ "tfel::math::ConstFixedSizeArrayBase< GenericFixedSizeConstArrayView< ArrayPolicy >, ArrayPolicy >", "structtfel_1_1math_1_1_const_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tvector< N, T >, FixedSizeVectorPolicy< N, T >, getArrayPolicySize< FixedSizeVectorPolicy< N, T > >() >, FixedSizeVectorPolicy< N, T > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< N, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< N, double >::type > >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< N, double >::type > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< M, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< M, double >::type > >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< M, double >::type > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< vector< double >, RuntimeVectorArrayPolicy< double > >, RuntimeVectorArrayPolicy< double > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< FixedSizeArrayDerivative< Array1, Array2 >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy >, getArrayPolicySize< FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >() >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< Child, ArrayPolicy, getArrayPolicySize< ArrayPolicy >() >, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< Child, ArrayPolicy >, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
       [ "tfel::math::MutableArrayCommonMethods< Child, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", [
         [ "tfel::math::MutableRuntimeArrayBase< Child, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ]
       ] ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< vector< T >, RuntimeVectorArrayPolicy< T > >, RuntimeVectorArrayPolicy< T > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tvector< N, unsigned short >, FixedSizeVectorPolicy< N, unsigned short >, getArrayPolicySize< FixedSizeVectorPolicy< N, unsigned short > >() >, FixedSizeVectorPolicy< N, unsigned short > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< fsarray< N, double >, FixedSizeVectorPolicy< N, double >, getArrayPolicySize< FixedSizeVectorPolicy< N, double > >() >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< matrix< ValueType >, RuntimeRowMajorMatrixArrayPolicy< ValueType > >, RuntimeRowMajorMatrixArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< runtime_array< ValueType >, RuntimeVectorArrayPolicy< ValueType > >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< st2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< st2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< stensor< N, ValueType >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< t2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< t2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tensor< N, ValueType >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tmatrix< N, M, double >, FixedSizeRowMajorMatrixPolicy< N, M, double >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, double > >() >, FixedSizeRowMajorMatrixPolicy< N, M, double > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tvector< N, double >, FixedSizeVectorPolicy< N, double >, getArrayPolicySize< FixedSizeVectorPolicy< N, double > >() >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< vector< ValueType >, RuntimeVectorArrayPolicy< ValueType > >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< vector< real >, RuntimeVectorArrayPolicy< real > >, RuntimeVectorArrayPolicy< real > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< matrix< real >, RuntimeRowMajorMatrixArrayPolicy< real > >, RuntimeRowMajorMatrixArrayPolicy< real > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tmatrix< N, M, real >, FixedSizeRowMajorMatrixPolicy< N, M, real >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, real > >() >, FixedSizeRowMajorMatrixPolicy< N, M, real > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< vector< size_type >, RuntimeVectorArrayPolicy< size_type > >, RuntimeVectorArrayPolicy< size_type > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< vector< mtest::CurrentState >, RuntimeVectorArrayPolicy< mtest::CurrentState > >, RuntimeVectorArrayPolicy< mtest::CurrentState > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tvector< N, BarlatBaseType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > >, getArrayPolicySize< FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > > >() >, FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tvector< N, BarlatInvertStressType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > >, getArrayPolicySize< FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > > >() >, FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tensor< N, real >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real >, getArrayPolicySize< FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real > >() >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tvector< N, real >, FixedSizeVectorPolicy< N, real >, getArrayPolicySize< FixedSizeVectorPolicy< N, real > >() >, FixedSizeVectorPolicy< N, real > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< st2tost2< N, real >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tvector< N, tfel::math::tensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > >, getArrayPolicySize< FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > > >() >, FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tvector< N, tfel::math::stensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > >, getArrayPolicySize< FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > > >() >, FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< vector< tfel::math::vector< tfel::math::stensor > >, RuntimeVectorArrayPolicy< tfel::math::vector< tfel::math::stensor > > >, RuntimeVectorArrayPolicy< tfel::math::vector< tfel::math::stensor > > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tvector< N, NumericType >, FixedSizeVectorPolicy< N, NumericType >, getArrayPolicySize< FixedSizeVectorPolicy< N, NumericType > >() >, FixedSizeVectorPolicy< N, NumericType > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericFixedSizeArray< tmatrix< N, M, NumericType >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >() >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
+      [ "tfel::math::MutableArrayCommonMethods< GenericRuntimeArray< vector< std::shared_ptr< tfel::math::parser::ExternalFunction > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", null ],
       [ "tfel::math::ConstFixedSizeArrayBase< Child, ArrayPolicyType >", "structtfel_1_1math_1_1_const_fixed_size_array_base.html", null ],
       [ "tfel::math::ConstRuntimeArrayBase< Child, ArrayPolicyType >", "structtfel_1_1math_1_1_const_runtime_array_base.html", null ],
       [ "tfel::math::MutableArrayCommonMethods< Child, ArrayPolicyType >", "structtfel_1_1math_1_1_mutable_array_common_methods.html", [
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, T >, FixedSizeVectorPolicy< N, T >, getArrayPolicySize< FixedSizeVectorPolicy< N, T > >() >, FixedSizeVectorPolicy< N, T > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< FixedSizeArrayDerivative< Array1, Array2 >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy >, getArrayPolicySize< FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >() >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
         [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< Child, ArrayPolicy, getArrayPolicySize< ArrayPolicy >() >, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, unsigned short >, FixedSizeVectorPolicy< N, unsigned short >, getArrayPolicySize< FixedSizeVectorPolicy< N, unsigned short > >() >, FixedSizeVectorPolicy< N, unsigned short > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< fsarray< N, double >, FixedSizeVectorPolicy< N, double >, getArrayPolicySize< FixedSizeVectorPolicy< N, double > >() >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< st2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< st2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< stensor< N, ValueType >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< t2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< t2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tensor< N, ValueType >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tmatrix< N, M, double >, FixedSizeRowMajorMatrixPolicy< N, M, double >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, double > >() >, FixedSizeRowMajorMatrixPolicy< N, M, double > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, double >, FixedSizeVectorPolicy< N, double >, getArrayPolicySize< FixedSizeVectorPolicy< N, double > >() >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tmatrix< N, M, real >, FixedSizeRowMajorMatrixPolicy< N, M, real >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, real > >() >, FixedSizeRowMajorMatrixPolicy< N, M, real > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, BarlatBaseType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > >, getArrayPolicySize< FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > > >() >, FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, BarlatInvertStressType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > >, getArrayPolicySize< FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > > >() >, FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tensor< N, real >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real >, getArrayPolicySize< FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real > >() >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, real >, FixedSizeVectorPolicy< N, real >, getArrayPolicySize< FixedSizeVectorPolicy< N, real > >() >, FixedSizeVectorPolicy< N, real > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< st2tost2< N, real >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, tfel::math::tensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > >, getArrayPolicySize< FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > > >() >, FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, tfel::math::stensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > >, getArrayPolicySize< FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > > >() >, FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, NumericType >, FixedSizeVectorPolicy< N, NumericType >, getArrayPolicySize< FixedSizeVectorPolicy< N, NumericType > >() >, FixedSizeVectorPolicy< N, NumericType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tmatrix< N, M, NumericType >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >() >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< N, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< N, double >::type > >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< N, double >::type > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< M, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< M, double >::type > >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< M, double >::type > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< double >, RuntimeVectorArrayPolicy< double > >, RuntimeVectorArrayPolicy< double > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
         [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< Child, ArrayPolicy >, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< T >, RuntimeVectorArrayPolicy< T > >, RuntimeVectorArrayPolicy< T > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< matrix< ValueType >, RuntimeRowMajorMatrixArrayPolicy< ValueType > >, RuntimeRowMajorMatrixArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< runtime_array< ValueType >, RuntimeVectorArrayPolicy< ValueType > >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< ValueType >, RuntimeVectorArrayPolicy< ValueType > >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< real >, RuntimeVectorArrayPolicy< real > >, RuntimeVectorArrayPolicy< real > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< matrix< real >, RuntimeRowMajorMatrixArrayPolicy< real > >, RuntimeRowMajorMatrixArrayPolicy< real > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< size_type >, RuntimeVectorArrayPolicy< size_type > >, RuntimeVectorArrayPolicy< size_type > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< mtest::CurrentState >, RuntimeVectorArrayPolicy< mtest::CurrentState > >, RuntimeVectorArrayPolicy< mtest::CurrentState > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< tfel::math::vector< tfel::math::stensor > >, RuntimeVectorArrayPolicy< tfel::math::vector< tfel::math::stensor > > >, RuntimeVectorArrayPolicy< tfel::math::vector< tfel::math::stensor > > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+        [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< std::shared_ptr< tfel::math::parser::ExternalFunction > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
         [ "tfel::math::MutableFixedSizeArrayBase< Child, ArrayPolicyType >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ]
       ] ]
     ] ],
+    [ "tfel::math::ConstArrayCommonMethods< Child, ArrayPolicy >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< Child, ArrayPolicy, getArrayPolicySize< ArrayPolicy >() >, ArrayPolicy >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< FixedSizeArrayDerivative< Array1, Array2 >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy >, getArrayPolicySize< FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >() >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< fsarray< N, double >, FixedSizeVectorPolicy< N, double >, getArrayPolicySize< FixedSizeVectorPolicy< N, double > >() >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< st2tost2< N, real >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< st2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< st2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< stensor< N, ValueType >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< t2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< t2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tensor< N, real >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real >, getArrayPolicySize< FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real > >() >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tensor< N, ValueType >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tmatrix< N, M, double >, FixedSizeRowMajorMatrixPolicy< N, M, double >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, double > >() >, FixedSizeRowMajorMatrixPolicy< N, M, double > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tmatrix< N, M, NumericType >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >() >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tmatrix< N, M, real >, FixedSizeRowMajorMatrixPolicy< N, M, real >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, real > >() >, FixedSizeRowMajorMatrixPolicy< N, M, real > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tvector< N, BarlatBaseType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > >, getArrayPolicySize< FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > > >() >, FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tvector< N, BarlatInvertStressType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > >, getArrayPolicySize< FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > > >() >, FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tvector< N, double >, FixedSizeVectorPolicy< N, double >, getArrayPolicySize< FixedSizeVectorPolicy< N, double > >() >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tvector< N, NumericType >, FixedSizeVectorPolicy< N, NumericType >, getArrayPolicySize< FixedSizeVectorPolicy< N, NumericType > >() >, FixedSizeVectorPolicy< N, NumericType > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tvector< N, real >, FixedSizeVectorPolicy< N, real >, getArrayPolicySize< FixedSizeVectorPolicy< N, real > >() >, FixedSizeVectorPolicy< N, real > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tvector< N, T >, FixedSizeVectorPolicy< N, T >, getArrayPolicySize< FixedSizeVectorPolicy< N, T > >() >, FixedSizeVectorPolicy< N, T > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tvector< N, tfel::math::stensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > >, getArrayPolicySize< FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > > >() >, FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tvector< N, tfel::math::tensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > >, getArrayPolicySize< FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > > >() >, FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeArray< tvector< N, unsigned short >, FixedSizeVectorPolicy< N, unsigned short >, getArrayPolicySize< FixedSizeVectorPolicy< N, unsigned short > >() >, FixedSizeVectorPolicy< N, unsigned short > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericFixedSizeConstArrayView< ArrayPolicy >, ArrayPolicy >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< Child, ArrayPolicy >, ArrayPolicy >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< matrix< real >, RuntimeRowMajorMatrixArrayPolicy< real > >, RuntimeRowMajorMatrixArrayPolicy< real > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< matrix< ValueType >, RuntimeRowMajorMatrixArrayPolicy< ValueType > >, RuntimeRowMajorMatrixArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< runtime_array< ValueType >, RuntimeVectorArrayPolicy< ValueType > >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< vector< double >, RuntimeVectorArrayPolicy< double > >, RuntimeVectorArrayPolicy< double > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< vector< mtest::CurrentState >, RuntimeVectorArrayPolicy< mtest::CurrentState > >, RuntimeVectorArrayPolicy< mtest::CurrentState > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< vector< real >, RuntimeVectorArrayPolicy< real > >, RuntimeVectorArrayPolicy< real > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< vector< size_type >, RuntimeVectorArrayPolicy< size_type > >, RuntimeVectorArrayPolicy< size_type > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< vector< std::shared_ptr< tfel::math::parser::ExternalFunction > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< vector< T >, RuntimeVectorArrayPolicy< T > >, RuntimeVectorArrayPolicy< T > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< vector< tfel::math::vector< tfel::math::stensor > >, RuntimeVectorArrayPolicy< tfel::math::vector< tfel::math::stensor > > >, RuntimeVectorArrayPolicy< tfel::math::vector< tfel::math::stensor > > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< M, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< M, double >::type > >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< M, double >::type > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< N, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< N, double >::type > >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< N, double >::type > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
+    [ "tfel::math::ConstArrayCommonMethods< GenericRuntimeArray< vector< ValueType >, RuntimeVectorArrayPolicy< ValueType > >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_const_array_common_methods.html", null ],
     [ "tfel::math::ConstArrayWithContiguousDataSTLCompatibilityLayer< Child, ArrayPolicy >", "structtfel_1_1math_1_1_const_array_with_contiguous_data_s_t_l_compatibility_layer.html", [
+      [ "tfel::math::MutableArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< ST2toST2ResultType > >, FixedSizeVectorPolicy< N, numeric_type< ST2toST2ResultType > > >", "structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< ST2toT2ResultType > >, FixedSizeVectorPolicy< N, numeric_type< ST2toT2ResultType > > >", "structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< StensorResultType > >, FixedSizeVectorPolicy< N, numeric_type< StensorResultType > > >", "structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< T2toST2ResultType > >, FixedSizeVectorPolicy< N, numeric_type< T2toST2ResultType > > >", "structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< T2toST2Type > >, FixedSizeVectorPolicy< N, numeric_type< T2toST2Type > > >", "structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< T2toT2ResultType > >, FixedSizeVectorPolicy< N, numeric_type< T2toT2ResultType > > >", "structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::MutableArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< TensorResultType > >, FixedSizeVectorPolicy< N, numeric_type< TensorResultType > > >", "structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
       [ "tfel::math::MutableArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, ValueType >, FixedSizeVectorPolicy< N, ValueType > >", "structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html", [
         [ "tfel::math::array_holder< N, ValueType >", "structtfel_1_1math_1_1array__holder.html", null ]
       ] ],
       [ "tfel::math::MutableArrayWithContiguousDataSTLCompatibilityLayer< Child, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html", [
-        [ "tfel::math::array_holder< 54u, numeric_type< T2toST2Type > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< T2toST2Type, LeftCauchyGreenTensorDerivativeExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_type_00_01_left_cauchy_green_tensor_derivative_expr_3_013u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< T2toST2Type, RightCauchyGreenTensorDerivativeExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_type_00_01_right_cauchy_green_tensor_derivative_expr_3_013u_01_4_01_4.html", null ]
-        ] ],
-        [ "tfel::math::array_holder< 9u, numeric_type< T2toST2Type > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< T2toST2Type, LeftCauchyGreenTensorDerivativeExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_type_00_01_left_cauchy_green_tensor_derivative_expr_3_011u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< T2toST2Type, RightCauchyGreenTensorDerivativeExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_type_00_01_right_cauchy_green_tensor_derivative_expr_3_011u_01_4_01_4.html", null ]
-        ] ],
-        [ "tfel::math::array_holder< 6u, numeric_type< StensorResultType > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< StensorResultType, T2toST2TensorProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_t2to_s_t2_tensor_product_expr_3_013u_01_4_01_4.html", null ]
-        ] ],
-        [ "tfel::math::array_holder< 54u, numeric_type< ST2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< ST2toT2ResultType, StensorProductLeftDerivativeExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_stensor_product_left_derivative_expr_3_013u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< ST2toT2ResultType, StensorProductRightDerivativeExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_stensor_product_right_derivative_expr_3_013u_01_4_01_4.html", null ]
-        ] ],
-        [ "tfel::math::array_holder< 25u, numeric_type< T2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< T2toT2ResultType, TensorProductLeftDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_left_derivative_expr_3_012u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< T2toT2ResultType, TensorProductRightDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html", null ]
-        ] ],
-        [ "tfel::math::array_holder< TensorDimeToSize< getSpaceDimension< ST2toT2ResultType >()>::value *StensorDimeToSize< getSpaceDimension< ST2toT2ResultType >()>::value, numeric_type< ST2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< ST2toT2ResultType, ST2toT2ST2toST2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_s_t2to_t2_s_t2to_s_t2_product_expr_3_011u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< ST2toT2ResultType, ST2toT2ST2toST2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_s_t2to_t2_s_t2to_s_t2_product_expr_3_012u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< ST2toT2ResultType, ST2toT2ST2toST2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_s_t2to_t2_s_t2to_s_t2_product_expr_3_013u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< ST2toT2ResultType, T2toT2ST2toT2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_t2to_t2_s_t2to_t2_product_expr_3_011u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< ST2toT2ResultType, T2toT2ST2toT2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_t2to_t2_s_t2to_t2_product_expr_3_012u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< ST2toT2ResultType, T2toT2ST2toT2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_t2to_t2_s_t2to_t2_product_expr_3_013u_01_4_01_4.html", null ]
-        ] ],
         [ "tfel::math::array_holder< 9u, numeric_type< ST2toST2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
           [ "tfel::math::Expr< ST2toST2ResultType, ConvertT2toST2ToST2toST2Expr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_convert_t2to_s_t2_to_s_t2to_s_t2_expr_3_011u_01_4_01_4.html", null ],
           [ "tfel::math::Expr< ST2toST2ResultType, StensorSquareDerivativeExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_stensor_square_derivative_expr_3_011u_01_4_01_4.html", null ]
         ] ],
-        [ "tfel::math::array_holder< 20u, numeric_type< T2toST2Type > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< T2toST2Type, LeftCauchyGreenTensorDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_type_00_01_left_cauchy_green_tensor_derivative_expr_3_012u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< T2toST2Type, RightCauchyGreenTensorDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_type_00_01_right_cauchy_green_tensor_derivative_expr_3_012u_01_4_01_4.html", null ]
+        [ "tfel::math::array_holder< 16u, numeric_type< ST2toST2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< ST2toST2ResultType, ConvertT2toST2ToST2toST2Expr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_convert_t2to_s_t2_to_s_t2to_s_t2_expr_3_012u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< ST2toST2ResultType, StensorSquareDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_stensor_square_derivative_expr_3_012u_01_4_01_4.html", null ]
+        ] ],
+        [ "tfel::math::array_holder< 36u, numeric_type< ST2toST2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< ST2toST2ResultType, ConvertT2toST2ToST2toST2Expr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_convert_t2to_s_t2_to_s_t2to_s_t2_expr_3_013u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< ST2toST2ResultType, StensorSquareDerivativeExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_stensor_square_derivative_expr_3_013u_01_4_01_4.html", null ]
         ] ],
         [ "tfel::math::array_holder< StensorDimeToSize< getSpaceDimension< ST2toST2ResultType >()>::value *StensorDimeToSize< getSpaceDimension< ST2toST2ResultType >()>::value, numeric_type< ST2toST2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
           [ "tfel::math::Expr< ST2toST2ResultType, ST2toST2ST2toST2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_s_t2to_s_t2_s_t2to_s_t2_product_expr_3_011u_01_4_01_4.html", null ],
@@ -995,9 +1194,65 @@ var hierarchy =
           [ "tfel::math::Expr< ST2toST2ResultType, T2toST2ST2toT2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_t2to_s_t2_s_t2to_t2_product_expr_3_012u_01_4_01_4.html", null ],
           [ "tfel::math::Expr< ST2toST2ResultType, T2toST2ST2toT2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_t2to_s_t2_s_t2to_t2_product_expr_3_013u_01_4_01_4.html", null ]
         ] ],
-        [ "tfel::math::array_holder< 36u, numeric_type< ST2toST2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< ST2toST2ResultType, ConvertT2toST2ToST2toST2Expr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_convert_t2to_s_t2_to_s_t2to_s_t2_expr_3_013u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< ST2toST2ResultType, StensorSquareDerivativeExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_stensor_square_derivative_expr_3_013u_01_4_01_4.html", null ]
+        [ "tfel::math::array_holder< TensorDimeToSize< getSpaceDimension< ST2toT2ResultType >()>::value *StensorDimeToSize< getSpaceDimension< ST2toT2ResultType >()>::value, numeric_type< ST2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< ST2toT2ResultType, ST2toT2ST2toST2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_s_t2to_t2_s_t2to_s_t2_product_expr_3_011u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< ST2toT2ResultType, ST2toT2ST2toST2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_s_t2to_t2_s_t2to_s_t2_product_expr_3_012u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< ST2toT2ResultType, ST2toT2ST2toST2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_s_t2to_t2_s_t2to_s_t2_product_expr_3_013u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< ST2toT2ResultType, T2toT2ST2toT2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_t2to_t2_s_t2to_t2_product_expr_3_011u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< ST2toT2ResultType, T2toT2ST2toT2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_t2to_t2_s_t2to_t2_product_expr_3_012u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< ST2toT2ResultType, T2toT2ST2toT2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_t2to_t2_s_t2to_t2_product_expr_3_013u_01_4_01_4.html", null ]
+        ] ],
+        [ "tfel::math::array_holder< 9u, numeric_type< ST2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< ST2toT2ResultType, StensorProductLeftDerivativeExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_stensor_product_left_derivative_expr_3_011u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< ST2toT2ResultType, StensorProductRightDerivativeExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_stensor_product_right_derivative_expr_3_011u_01_4_01_4.html", null ]
+        ] ],
+        [ "tfel::math::array_holder< 20u, numeric_type< ST2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< ST2toT2ResultType, StensorProductLeftDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_stensor_product_left_derivative_expr_3_012u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< ST2toT2ResultType, StensorProductRightDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_stensor_product_right_derivative_expr_3_012u_01_4_01_4.html", null ]
+        ] ],
+        [ "tfel::math::array_holder< 54u, numeric_type< ST2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< ST2toT2ResultType, StensorProductLeftDerivativeExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_stensor_product_left_derivative_expr_3_013u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< ST2toT2ResultType, StensorProductRightDerivativeExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_stensor_product_right_derivative_expr_3_013u_01_4_01_4.html", null ]
+        ] ],
+        [ "tfel::math::array_holder< StensorDimeToSize< getSpaceDimension< StensorResultType >()>::value, numeric_type< StensorResultType > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< StensorResultType, ST2toST2StensorProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_s_t2to_s_t2_stensor_product_expr_3_011u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< StensorResultType, ST2toST2StensorProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_s_t2to_s_t2_stensor_product_expr_3_012u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< StensorResultType, ST2toST2StensorProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_s_t2to_s_t2_stensor_product_expr_3_013u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< StensorResultType, StensorST2toST2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_011u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< StensorResultType, StensorST2toST2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_012u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< StensorResultType, StensorST2toST2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_013u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< StensorResultType, TensorST2toT2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_tensor_s_t2to_t2_product_expr_3_011u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< StensorResultType, TensorST2toT2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_tensor_s_t2to_t2_product_expr_3_012u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< StensorResultType, TensorST2toT2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_tensor_s_t2to_t2_product_expr_3_013u_01_4_01_4.html", null ]
+        ] ],
+        [ "tfel::math::array_holder< 3u, numeric_type< StensorResultType > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< StensorResultType, T2toST2TensorProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_t2to_s_t2_tensor_product_expr_3_011u_01_4_01_4.html", null ]
+        ] ],
+        [ "tfel::math::array_holder< 4u, numeric_type< StensorResultType > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< StensorResultType, T2toST2TensorProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_t2to_s_t2_tensor_product_expr_3_012u_01_4_01_4.html", null ]
+        ] ],
+        [ "tfel::math::array_holder< 6u, numeric_type< StensorResultType > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< StensorResultType, T2toST2TensorProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_t2to_s_t2_tensor_product_expr_3_013u_01_4_01_4.html", null ]
+        ] ],
+        [ "tfel::math::array_holder< StensorDimeToSize< getSpaceDimension< T2toST2ResultType >()>::value *TensorDimeToSize< getSpaceDimension< T2toST2ResultType >()>::value, numeric_type< T2toST2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< T2toST2ResultType, ST2toST2T2toST2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_result_type_00_01_s_t2to_s_t2_t2to_s_t2_product_expr_3_011u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< T2toST2ResultType, ST2toST2T2toST2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_result_type_00_01_s_t2to_s_t2_t2to_s_t2_product_expr_3_012u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< T2toST2ResultType, ST2toST2T2toST2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_result_type_00_01_s_t2to_s_t2_t2to_s_t2_product_expr_3_013u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< T2toST2ResultType, T2toST2T2toT2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_result_type_00_01_t2to_s_t2_t2to_t2_product_expr_3_011u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< T2toST2ResultType, T2toST2T2toT2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_result_type_00_01_t2to_s_t2_t2to_t2_product_expr_3_012u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< T2toST2ResultType, T2toST2T2toT2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_result_type_00_01_t2to_s_t2_t2to_t2_product_expr_3_013u_01_4_01_4.html", null ]
+        ] ],
+        [ "tfel::math::array_holder< 9u, numeric_type< T2toST2Type > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< T2toST2Type, LeftCauchyGreenTensorDerivativeExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_type_00_01_left_cauchy_green_tensor_derivative_expr_3_011u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< T2toST2Type, RightCauchyGreenTensorDerivativeExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_type_00_01_right_cauchy_green_tensor_derivative_expr_3_011u_01_4_01_4.html", null ]
+        ] ],
+        [ "tfel::math::array_holder< 20u, numeric_type< T2toST2Type > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< T2toST2Type, LeftCauchyGreenTensorDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_type_00_01_left_cauchy_green_tensor_derivative_expr_3_012u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< T2toST2Type, RightCauchyGreenTensorDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_type_00_01_right_cauchy_green_tensor_derivative_expr_3_012u_01_4_01_4.html", null ]
+        ] ],
+        [ "tfel::math::array_holder< 54u, numeric_type< T2toST2Type > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< T2toST2Type, LeftCauchyGreenTensorDerivativeExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_type_00_01_left_cauchy_green_tensor_derivative_expr_3_013u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< T2toST2Type, RightCauchyGreenTensorDerivativeExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_type_00_01_right_cauchy_green_tensor_derivative_expr_3_013u_01_4_01_4.html", null ]
         ] ],
         [ "tfel::math::array_holder< TensorDimeToSize< getSpaceDimension< T2toT2ResultType >()>::value *TensorDimeToSize< getSpaceDimension< T2toT2ResultType >()>::value, numeric_type< T2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
           [ "tfel::math::Expr< T2toT2ResultType, ST2toT2T2toST2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_s_t2to_t2_t2to_s_t2_product_expr_3_011u_01_4_01_4.html", null ],
@@ -1007,24 +1262,13 @@ var hierarchy =
           [ "tfel::math::Expr< T2toT2ResultType, T2toT2T2toT2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_t2to_t2_t2to_t2_product_expr_3_012u_01_4_01_4.html", null ],
           [ "tfel::math::Expr< T2toT2ResultType, T2toT2T2toT2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_t2to_t2_t2to_t2_product_expr_3_013u_01_4_01_4.html", null ]
         ] ],
-        [ "tfel::math::array_holder< 3u, numeric_type< StensorResultType > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< StensorResultType, T2toST2TensorProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_t2to_s_t2_tensor_product_expr_3_011u_01_4_01_4.html", null ]
+        [ "tfel::math::array_holder< 9u, numeric_type< T2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< T2toT2ResultType, TensorProductLeftDerivativeExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_left_derivative_expr_3_011u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< T2toT2ResultType, TensorProductRightDerivativeExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_011u_01_4_01_4.html", null ]
         ] ],
-        [ "tfel::math::array_holder< 9u, numeric_type< ST2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< ST2toT2ResultType, StensorProductLeftDerivativeExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_stensor_product_left_derivative_expr_3_011u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< ST2toT2ResultType, StensorProductRightDerivativeExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_stensor_product_right_derivative_expr_3_011u_01_4_01_4.html", null ]
-        ] ],
-        [ "tfel::math::array_holder< 16u, numeric_type< ST2toST2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< ST2toST2ResultType, ConvertT2toST2ToST2toST2Expr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_convert_t2to_s_t2_to_s_t2to_s_t2_expr_3_012u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< ST2toST2ResultType, StensorSquareDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_stensor_square_derivative_expr_3_012u_01_4_01_4.html", null ]
-        ] ],
-        [ "tfel::math::array_holder< StensorDimeToSize< getSpaceDimension< T2toST2ResultType >()>::value *TensorDimeToSize< getSpaceDimension< T2toST2ResultType >()>::value, numeric_type< T2toST2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< T2toST2ResultType, ST2toST2T2toST2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_result_type_00_01_s_t2to_s_t2_t2to_s_t2_product_expr_3_011u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< T2toST2ResultType, ST2toST2T2toST2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_result_type_00_01_s_t2to_s_t2_t2to_s_t2_product_expr_3_012u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< T2toST2ResultType, ST2toST2T2toST2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_result_type_00_01_s_t2to_s_t2_t2to_s_t2_product_expr_3_013u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< T2toST2ResultType, T2toST2T2toT2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_result_type_00_01_t2to_s_t2_t2to_t2_product_expr_3_011u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< T2toST2ResultType, T2toST2T2toT2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_result_type_00_01_t2to_s_t2_t2to_t2_product_expr_3_012u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< T2toST2ResultType, T2toST2T2toT2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_s_t2_result_type_00_01_t2to_s_t2_t2to_t2_product_expr_3_013u_01_4_01_4.html", null ]
+        [ "tfel::math::array_holder< 25u, numeric_type< T2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
+          [ "tfel::math::Expr< T2toT2ResultType, TensorProductLeftDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_left_derivative_expr_3_012u_01_4_01_4.html", null ],
+          [ "tfel::math::Expr< T2toT2ResultType, TensorProductRightDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html", null ]
         ] ],
         [ "tfel::math::array_holder< 81u, numeric_type< T2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
           [ "tfel::math::Expr< T2toT2ResultType, TensorProductLeftDerivativeExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_left_derivative_expr_3_013u_01_4_01_4.html", null ],
@@ -1043,31 +1287,17 @@ var hierarchy =
           [ "tfel::math::Expr< TensorResultType, TensorT2toT2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_tensor_result_type_00_01_tensor_t2to_t2_product_expr_3_011u_01_4_01_4.html", null ],
           [ "tfel::math::Expr< TensorResultType, TensorT2toT2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_tensor_result_type_00_01_tensor_t2to_t2_product_expr_3_012u_01_4_01_4.html", null ],
           [ "tfel::math::Expr< TensorResultType, TensorT2toT2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_tensor_result_type_00_01_tensor_t2to_t2_product_expr_3_013u_01_4_01_4.html", null ]
-        ] ],
-        [ "tfel::math::array_holder< StensorDimeToSize< getSpaceDimension< StensorResultType >()>::value, numeric_type< StensorResultType > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< StensorResultType, ST2toST2StensorProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_s_t2to_s_t2_stensor_product_expr_3_011u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< StensorResultType, ST2toST2StensorProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_s_t2to_s_t2_stensor_product_expr_3_012u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< StensorResultType, ST2toST2StensorProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_s_t2to_s_t2_stensor_product_expr_3_013u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< StensorResultType, StensorST2toST2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_011u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< StensorResultType, StensorST2toST2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_012u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< StensorResultType, StensorST2toST2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_013u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< StensorResultType, TensorST2toT2ProductExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_tensor_s_t2to_t2_product_expr_3_011u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< StensorResultType, TensorST2toT2ProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_tensor_s_t2to_t2_product_expr_3_012u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< StensorResultType, TensorST2toT2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_tensor_s_t2to_t2_product_expr_3_013u_01_4_01_4.html", null ]
-        ] ],
-        [ "tfel::math::array_holder< 20u, numeric_type< ST2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< ST2toT2ResultType, StensorProductLeftDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_stensor_product_left_derivative_expr_3_012u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< ST2toT2ResultType, StensorProductRightDerivativeExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_t2_result_type_00_01_stensor_product_right_derivative_expr_3_012u_01_4_01_4.html", null ]
-        ] ],
-        [ "tfel::math::array_holder< 9u, numeric_type< T2toT2ResultType > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< T2toT2ResultType, TensorProductLeftDerivativeExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_left_derivative_expr_3_011u_01_4_01_4.html", null ],
-          [ "tfel::math::Expr< T2toT2ResultType, TensorProductRightDerivativeExpr< 1u > >", "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_011u_01_4_01_4.html", null ]
-        ] ],
-        [ "tfel::math::array_holder< 4u, numeric_type< StensorResultType > >", "structtfel_1_1math_1_1array__holder.html", [
-          [ "tfel::math::Expr< StensorResultType, T2toST2TensorProductExpr< 2u > >", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_t2to_s_t2_tensor_product_expr_3_012u_01_4_01_4.html", null ]
         ] ]
       ] ]
     ] ],
+    [ "tfel::math::ConstArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< ST2toST2ResultType > >, FixedSizeVectorPolicy< N, numeric_type< ST2toST2ResultType > > >", "structtfel_1_1math_1_1_const_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
+    [ "tfel::math::ConstArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< ST2toT2ResultType > >, FixedSizeVectorPolicy< N, numeric_type< ST2toT2ResultType > > >", "structtfel_1_1math_1_1_const_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
+    [ "tfel::math::ConstArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< StensorResultType > >, FixedSizeVectorPolicy< N, numeric_type< StensorResultType > > >", "structtfel_1_1math_1_1_const_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
+    [ "tfel::math::ConstArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< T2toST2ResultType > >, FixedSizeVectorPolicy< N, numeric_type< T2toST2ResultType > > >", "structtfel_1_1math_1_1_const_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
+    [ "tfel::math::ConstArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< T2toST2Type > >, FixedSizeVectorPolicy< N, numeric_type< T2toST2Type > > >", "structtfel_1_1math_1_1_const_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
+    [ "tfel::math::ConstArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< T2toT2ResultType > >, FixedSizeVectorPolicy< N, numeric_type< T2toT2ResultType > > >", "structtfel_1_1math_1_1_const_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
+    [ "tfel::math::ConstArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, numeric_type< TensorResultType > >, FixedSizeVectorPolicy< N, numeric_type< TensorResultType > > >", "structtfel_1_1math_1_1_const_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
+    [ "tfel::math::ConstArrayWithContiguousDataSTLCompatibilityLayer< array_holder< N, ValueType >, FixedSizeVectorPolicy< N, ValueType > >", "structtfel_1_1math_1_1_const_array_with_contiguous_data_s_t_l_compatibility_layer.html", null ],
     [ "tfel::math::ConstArrayWithoutContiguousDataSTLCompatibilityLayer< Child, ArrayPolicy >", "structtfel_1_1math_1_1_const_array_without_contiguous_data_s_t_l_compatibility_layer.html", [
       [ "tfel::math::MutableArrayWithoutContiguousDataSTLCompatibilityLayer< Child, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_array_without_contiguous_data_s_t_l_compatibility_layer.html", null ]
     ] ],
@@ -1271,8 +1501,8 @@ var hierarchy =
     [ "epx::EuroplexusBehaviourHandler< H, Behaviour >::DoNothingInitializer", "structepx_1_1_europlexus_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
+    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -1298,6 +1528,7 @@ var hierarchy =
     [ "tfel::math::ComputeUnaryResult_< TensorTag, UnaryOperatorTag, A, OpNeg >::DummyHandle", "structtfel_1_1math_1_1_compute_unary_result___3_01_tensor_tag_00_01_unary_operator_tag_00_01_a_03e8041f47bb57ab6694a0fd44bc8591a.html", null ],
     [ "mfront::gb::ElasticMaterialPropertiesNumber< Hypothesis, bool >", "structmfront_1_1gb_1_1_elastic_material_properties_number.html", null ],
     [ "mfront::gb::ElasticMaterialPropertiesNumber< H, true >", "structmfront_1_1gb_1_1_elastic_material_properties_number_3_01_h_00_01true_01_4.html", null ],
+    [ "tfel::material::homogenization::elasticity::EllipsoidMeanLocalisator< N, real, StressType, LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_ellipsoid_mean_localisator.html", null ],
     [ "tfel::system::EmptyBinaryReader< T >", "structtfel_1_1system_1_1_empty_binary_reader.html", null ],
     [ "tfel::system::EmptyBinaryWriter< T >", "structtfel_1_1system_1_1_empty_binary_writer.html", null ],
     [ "tfel::meta::EmptyClass", "structtfel_1_1meta_1_1_empty_class.html", null ],
@@ -1607,69 +1838,69 @@ var hierarchy =
     ] ],
     [ "tfel::math::parser::ExternalCFunction< N >", "structtfel_1_1math_1_1parser_1_1_external_c_function.html", null ],
     [ "tfel::math::parser::ExternalCFunctionException", "structtfel_1_1math_1_1parser_1_1_external_c_function_exception.html", [
-      [ "tfel::math::parser::ExternalCFunctionBase< 3u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
-        [ "tfel::math::parser::ExternalCFunction< 3u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_013u_01_4.html", null ]
-      ] ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 2u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
-        [ "tfel::math::parser::ExternalCFunction< 2u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_012u_01_4.html", null ]
-      ] ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 1u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
-        [ "tfel::math::parser::ExternalCFunction< 1u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_011u_01_4.html", null ]
-      ] ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 15u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
-        [ "tfel::math::parser::ExternalCFunction< 15u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0115u_01_4.html", null ]
-      ] ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 14u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
-        [ "tfel::math::parser::ExternalCFunction< 14u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0114u_01_4.html", null ]
-      ] ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 13u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
-        [ "tfel::math::parser::ExternalCFunction< 13u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0113u_01_4.html", null ]
-      ] ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 12u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
-        [ "tfel::math::parser::ExternalCFunction< 12u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0112u_01_4.html", null ]
-      ] ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 9u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
-        [ "tfel::math::parser::ExternalCFunction< 9u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_019u_01_4.html", null ]
+      [ "tfel::math::parser::ExternalCFunctionBase< 10u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
+        [ "tfel::math::parser::ExternalCFunction< 10u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0110u_01_4.html", null ]
       ] ],
       [ "tfel::math::parser::ExternalCFunctionBase< 11u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
         [ "tfel::math::parser::ExternalCFunction< 11u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0111u_01_4.html", null ]
       ] ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 8u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
-        [ "tfel::math::parser::ExternalCFunction< 8u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_018u_01_4.html", null ]
+      [ "tfel::math::parser::ExternalCFunctionBase< 12u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
+        [ "tfel::math::parser::ExternalCFunction< 12u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0112u_01_4.html", null ]
       ] ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 10u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
-        [ "tfel::math::parser::ExternalCFunction< 10u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0110u_01_4.html", null ]
+      [ "tfel::math::parser::ExternalCFunctionBase< 13u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
+        [ "tfel::math::parser::ExternalCFunction< 13u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0113u_01_4.html", null ]
       ] ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 7u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
-        [ "tfel::math::parser::ExternalCFunction< 7u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_017u_01_4.html", null ]
+      [ "tfel::math::parser::ExternalCFunctionBase< 14u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
+        [ "tfel::math::parser::ExternalCFunction< 14u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0114u_01_4.html", null ]
       ] ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 6u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
-        [ "tfel::math::parser::ExternalCFunction< 6u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_016u_01_4.html", null ]
+      [ "tfel::math::parser::ExternalCFunctionBase< 15u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
+        [ "tfel::math::parser::ExternalCFunction< 15u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0115u_01_4.html", null ]
       ] ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 5u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
-        [ "tfel::math::parser::ExternalCFunction< 5u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_015u_01_4.html", null ]
+      [ "tfel::math::parser::ExternalCFunctionBase< 1u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
+        [ "tfel::math::parser::ExternalCFunction< 1u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_011u_01_4.html", null ]
+      ] ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 2u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
+        [ "tfel::math::parser::ExternalCFunction< 2u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_012u_01_4.html", null ]
+      ] ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 3u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
+        [ "tfel::math::parser::ExternalCFunction< 3u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_013u_01_4.html", null ]
       ] ],
       [ "tfel::math::parser::ExternalCFunctionBase< 4u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
         [ "tfel::math::parser::ExternalCFunction< 4u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_014u_01_4.html", null ]
       ] ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 5u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
+        [ "tfel::math::parser::ExternalCFunction< 5u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_015u_01_4.html", null ]
+      ] ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 6u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
+        [ "tfel::math::parser::ExternalCFunction< 6u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_016u_01_4.html", null ]
+      ] ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 7u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
+        [ "tfel::math::parser::ExternalCFunction< 7u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_017u_01_4.html", null ]
+      ] ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 8u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
+        [ "tfel::math::parser::ExternalCFunction< 8u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_018u_01_4.html", null ]
+      ] ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 9u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", [
+        [ "tfel::math::parser::ExternalCFunction< 9u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_3_019u_01_4.html", null ]
+      ] ],
       [ "tfel::math::parser::ExternalCFunctionBase< N >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ]
     ] ],
     [ "tfel::math::parser::ExternalFunction", "structtfel_1_1math_1_1parser_1_1_external_function.html", [
-      [ "tfel::math::parser::ExternalCFunctionBase< 3u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 2u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 1u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 15u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 14u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 13u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 12u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 9u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 11u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 8u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
       [ "tfel::math::parser::ExternalCFunctionBase< 10u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 7u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 6u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
-      [ "tfel::math::parser::ExternalCFunctionBase< 5u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 11u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 12u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 13u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 14u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 15u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 1u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 2u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 3u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
       [ "tfel::math::parser::ExternalCFunctionBase< 4u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 5u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 6u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 7u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 8u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
+      [ "tfel::math::parser::ExternalCFunctionBase< 9u >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
       [ "tfel::math::Evaluator", "structtfel_1_1math_1_1_evaluator.html", null ],
       [ "tfel::math::parser::ConstantExternalFunction", "structtfel_1_1math_1_1parser_1_1_constant_external_function.html", null ],
       [ "tfel::math::parser::ExternalCFunctionBase< N >", "structtfel_1_1math_1_1parser_1_1_external_c_function_base.html", null ],
@@ -1696,6 +1927,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "mfront::BehaviourDescription::ExternalMFrontMaterialProperty", "structmfront_1_1_behaviour_description_1_1_external_m_front_material_property.html", null ],
+    [ "mfront::BehaviourDescription::ExternalModelBasedOnBehaviourVariableFactory", "structmfront_1_1_behaviour_description_1_1_external_model_based_on_behaviour_variable_factory.html", null ],
     [ "mfront::MTestFileGeneratorBase::ExternalStateVariable", "structmfront_1_1_m_test_file_generator_base_1_1_external_state_variable.html", null ],
     [ "abaqus::ExtractAndConvertTangentOperator< H >", "structabaqus_1_1_extract_and_convert_tangent_operator.html", null ],
     [ "ansys::ExtractAndConvertTangentOperator< H >", "structansys_1_1_extract_and_convert_tangent_operator.html", null ],
@@ -1717,6 +1949,7 @@ var hierarchy =
       [ "tfel::math::FactorizedKriging1D3D", "structtfel_1_1math_1_1_factorized_kriging1_d3_d.html", null ]
     ] ],
     [ "std::false_type", null, [
+      [ "tfel::math::internal::UnitConceptImplementation< T >", "structtfel_1_1math_1_1internal_1_1_unit_concept_implementation.html", null ],
       [ "tfel::math::internals::HasConceptTag< T, typename >", "structtfel_1_1math_1_1internals_1_1_has_concept_tag.html", null ],
       [ "tfel::math::internals::HasIndexingPolicyTraits< T, typename >", "structtfel_1_1math_1_1internals_1_1_has_indexing_policy_traits.html", null ],
       [ "tfel::math::internals::IsQuantity< T >", "structtfel_1_1math_1_1internals_1_1_is_quantity.html", null ],
@@ -1758,10 +1991,10 @@ var hierarchy =
     [ "tfel::math::FixedSizeArrayDerivativeTraits< View< FixedSizeArrayDerivative< Array1, Array2 > > >", "structtfel_1_1math_1_1_fixed_size_array_derivative_traits_3_01_view_3_01_fixed_size_array_deriva4db8ecf16f9a4b74faa2a4378274b870.html", null ],
     [ "tfel::math::FixedSizeIndexingPoliciesCartesianProduct< IndexingPolicy1, IndexingPolicy2, Stride >", "structtfel_1_1math_1_1_fixed_size_indexing_policies_cartesian_product.html", null ],
     [ "tfel::math::FixedSizeRowMajorMatrixIndexingPolicy< SizeType, N, M, Stride >", "structtfel_1_1math_1_1_fixed_size_row_major_matrix_indexing_policy.html", null ],
-    [ "tfel::math::FixedSizeVectorIndexingPolicy< SizeType, N, Stride >", "structtfel_1_1math_1_1_fixed_size_vector_indexing_policy.html", null ],
-    [ "tfel::math::FixedSizeVectorIndexingPolicy< SizeType, N, getViewsArrayMinimalStride< MappedType >() >", "structtfel_1_1math_1_1_fixed_size_vector_indexing_policy.html", [
+    [ "tfel::math::FixedSizeVectorIndexingPolicy< SizeType, N, Stride >", "structtfel_1_1math_1_1_fixed_size_vector_indexing_policy.html", [
       [ "tfel::math::ViewsFixedSizeVectorIndexingPolicy< MappedType, SizeType, N, Stride >", "structtfel_1_1math_1_1_views_fixed_size_vector_indexing_policy.html", null ]
     ] ],
+    [ "tfel::math::FixedSizeVectorIndexingPolicy< SizeType, N, getViewsArrayMinimalStride< MappedType >() >", "structtfel_1_1math_1_1_fixed_size_vector_indexing_policy.html", null ],
     [ "tfel::fsalgo::for_each< N >", "structtfel_1_1fsalgo_1_1for__each.html", null ],
     [ "numodis::FrankRead", "structnumodis_1_1_frank_read.html", null ],
     [ "tfel::math::internals::FSESAnalyticalSymmetricEigensolver2x2< real >", "structtfel_1_1math_1_1internals_1_1_f_s_e_s_analytical_symmetric_eigensolver2x2.html", null ],
@@ -1859,12 +2092,47 @@ var hierarchy =
       [ "tfel::math::IndexingPoliciesCompatiblityCheck< RuntimeVectorIndexingPolicy, RuntimeVectorIndexingPolicy >", "structtfel_1_1math_1_1_indexing_policies_compatiblity_check_3_01_runtime_vector_indexing_policy_9f841585a390d8fe5e4dec250903fa52.html", null ]
     ] ],
     [ "ArrayPolicy::IndexingPolicy", null, [
+      [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< N, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< N, double >::type > >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< N, double >::type > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+      [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< typename tfel::math::KrigingVariable< M, double >::type >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< M, double >::type > >, RuntimeVectorArrayPolicy< typename tfel::math::KrigingVariable< M, double >::type > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+      [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< double >, RuntimeVectorArrayPolicy< double > >, RuntimeVectorArrayPolicy< double > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
       [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< Child, ArrayPolicy >, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+      [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< T >, RuntimeVectorArrayPolicy< T > >, RuntimeVectorArrayPolicy< T > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+      [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< matrix< ValueType >, RuntimeRowMajorMatrixArrayPolicy< ValueType > >, RuntimeRowMajorMatrixArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+      [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< runtime_array< ValueType >, RuntimeVectorArrayPolicy< ValueType > >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+      [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< ValueType >, RuntimeVectorArrayPolicy< ValueType > >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+      [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< real >, RuntimeVectorArrayPolicy< real > >, RuntimeVectorArrayPolicy< real > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+      [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< matrix< real >, RuntimeRowMajorMatrixArrayPolicy< real > >, RuntimeRowMajorMatrixArrayPolicy< real > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+      [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< size_type >, RuntimeVectorArrayPolicy< size_type > >, RuntimeVectorArrayPolicy< size_type > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+      [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< mtest::CurrentState >, RuntimeVectorArrayPolicy< mtest::CurrentState > >, RuntimeVectorArrayPolicy< mtest::CurrentState > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+      [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< tfel::math::vector< tfel::math::stensor > >, RuntimeVectorArrayPolicy< tfel::math::vector< tfel::math::stensor > > >, RuntimeVectorArrayPolicy< tfel::math::vector< tfel::math::stensor > > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
+      [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< std::shared_ptr< tfel::math::parser::ExternalFunction > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ],
       [ "tfel::math::MutableRuntimeArrayBase< Child, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ]
     ] ],
     [ "ArrayPolicyType::IndexingPolicy", null, [
       [ "tfel::math::ConstFixedSizeArrayBase< GenericFixedSizeConstArrayView< ArrayPolicy >, ArrayPolicy >", "structtfel_1_1math_1_1_const_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, T >, FixedSizeVectorPolicy< N, T >, getArrayPolicySize< FixedSizeVectorPolicy< N, T > >() >, FixedSizeVectorPolicy< N, T > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< FixedSizeArrayDerivative< Array1, Array2 >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy >, getArrayPolicySize< FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >() >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
       [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< Child, ArrayPolicy, getArrayPolicySize< ArrayPolicy >() >, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, unsigned short >, FixedSizeVectorPolicy< N, unsigned short >, getArrayPolicySize< FixedSizeVectorPolicy< N, unsigned short > >() >, FixedSizeVectorPolicy< N, unsigned short > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< fsarray< N, double >, FixedSizeVectorPolicy< N, double >, getArrayPolicySize< FixedSizeVectorPolicy< N, double > >() >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< st2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< st2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< stensor< N, ValueType >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >() >, FixedSizeVectorPolicy< StensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< t2tost2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< t2tot2< N, ValueType >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeRowMajorMatrixPolicy< TensorDimeToSize< N >::value, TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tensor< N, ValueType >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType >, getArrayPolicySize< FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >() >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, ValueType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tmatrix< N, M, double >, FixedSizeRowMajorMatrixPolicy< N, M, double >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, double > >() >, FixedSizeRowMajorMatrixPolicy< N, M, double > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, double >, FixedSizeVectorPolicy< N, double >, getArrayPolicySize< FixedSizeVectorPolicy< N, double > >() >, FixedSizeVectorPolicy< N, double > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tmatrix< N, M, real >, FixedSizeRowMajorMatrixPolicy< N, M, real >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, real > >() >, FixedSizeRowMajorMatrixPolicy< N, M, real > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, BarlatBaseType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > >, getArrayPolicySize< FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > > >() >, FixedSizeVectorPolicy< N, BarlatBaseType< StressStensor > > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, BarlatInvertStressType< StressStensor > >, FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > >, getArrayPolicySize< FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > > >() >, FixedSizeVectorPolicy< N, BarlatInvertStressType< StressStensor > > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tensor< N, real >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real >, getArrayPolicySize< FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real > >() >, FixedSizeVectorPolicy< TensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, real >, FixedSizeVectorPolicy< N, real >, getArrayPolicySize< FixedSizeVectorPolicy< N, real > >() >, FixedSizeVectorPolicy< N, real > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< st2tost2< N, real >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real > >() >, FixedSizeRowMajorMatrixPolicy< StensorDimeToSize< N >::value, StensorDimeToSize< N >::value, real > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, tfel::math::tensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > >, getArrayPolicySize< FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > > >() >, FixedSizeVectorPolicy< N, tfel::math::tensor< 3u, real > > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, tfel::math::stensor< 3u, real > >, FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > >, getArrayPolicySize< FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > > >() >, FixedSizeVectorPolicy< N, tfel::math::stensor< 3u, real > > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, NumericType >, FixedSizeVectorPolicy< N, NumericType >, getArrayPolicySize< FixedSizeVectorPolicy< N, NumericType > >() >, FixedSizeVectorPolicy< N, NumericType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
+      [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tmatrix< N, M, NumericType >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >() >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
       [ "tfel::math::ConstFixedSizeArrayBase< Child, ArrayPolicyType >", "structtfel_1_1math_1_1_const_fixed_size_array_base.html", null ],
       [ "tfel::math::ConstRuntimeArrayBase< Child, ArrayPolicyType >", "structtfel_1_1math_1_1_const_runtime_array_base.html", null ],
       [ "tfel::math::MutableFixedSizeArrayBase< Child, ArrayPolicyType >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ]
@@ -1886,7 +2154,6 @@ var hierarchy =
     [ "mfront::bbrick::InelasticFlowFactory", "structmfront_1_1bbrick_1_1_inelastic_flow_factory.html", null ],
     [ "tfel::fsalgo::inner_product< N >", "structtfel_1_1fsalgo_1_1inner__product.html", null ],
     [ "mfmtg::InputFileGeneratorFactory", "structmfmtg_1_1_input_file_generator_factory.html", null ],
-    [ "tfel::python::internals::integer_sequence<... >", "structtfel_1_1python_1_1internals_1_1integer__sequence.html", null ],
     [ "tfel::math::parser::IntegerExpr", "structtfel_1_1math_1_1parser_1_1_integer_expr.html", [
       [ "tfel::math::IntegerEvaluator::TBinaryOperation::BinaryOperation< Op >", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_binary_operation_1_1_binary_operation.html", null ],
       [ "tfel::math::IntegerEvaluator::TNegation::Negation", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_negation_1_1_negation.html", null ],
@@ -1951,9 +2218,6 @@ var hierarchy =
     [ "tfel::fsalgo::iota< N >", "structtfel_1_1fsalgo_1_1iota.html", null ],
     [ "tfel::fsalgo::iota< 0u >", "structtfel_1_1fsalgo_1_1iota_3_010u_01_4.html", null ],
     [ "numodis::IPlane", "structnumodis_1_1_i_plane.html", null ],
-    [ "tfel::python::internals::is_convertible_to_tuple< Types >", "structtfel_1_1python_1_1internals_1_1is__convertible__to__tuple.html", null ],
-    [ "tfel::python::internals::is_convertible_to_tuple< T >", "structtfel_1_1python_1_1internals_1_1is__convertible__to__tuple_3_01_t_01_4.html", null ],
-    [ "tfel::python::internals::is_convertible_to_tuple< T, Types... >", "structtfel_1_1python_1_1internals_1_1is__convertible__to__tuple_3_01_t_00_01_types_8_8_8_01_4.html", null ],
     [ "tfel::typetraits::internals::IsAssignableTo< T1, T2 >", "structtfel_1_1typetraits_1_1internals_1_1_is_assignable_to.html", null ],
     [ "tfel::typetraits::IsAssignableTo< A, B >", "structtfel_1_1typetraits_1_1_is_assignable_to.html", null ],
     [ "tfel::typetraits::IsAssignableTo< cadna::numeric_type< T1 >, cadna::numeric_type< T2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01cadna_1_1numeric__type_3_01_t1_01_4_00_01cadna00080c0aa566ae1242c1236099e0c74b.html", null ],
@@ -1997,6 +2261,7 @@ var hierarchy =
       [ "mfront::bbrick::DataIsotropicHardeningRule", "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html", null ],
       [ "mfront::bbrick::LinearIsotropicHardeningRule", "structmfront_1_1bbrick_1_1_linear_isotropic_hardening_rule.html", null ],
       [ "mfront::bbrick::PowerIsotropicHardeningRule", "structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html", null ],
+      [ "mfront::bbrick::StrainRateSensitiveIsotropicHardeningRule", "structmfront_1_1bbrick_1_1_strain_rate_sensitive_isotropic_hardening_rule.html", null ],
       [ "mfront::bbrick::SwiftIsotropicHardeningRule", "structmfront_1_1bbrick_1_1_swift_isotropic_hardening_rule.html", null ],
       [ "mfront::bbrick::UserDefinedIsotropicHardeningRule", "structmfront_1_1bbrick_1_1_user_defined_isotropic_hardening_rule.html", null ],
       [ "mfront::bbrick::VoceIsotropicHardeningRule", "structmfront_1_1bbrick_1_1_voce_isotropic_hardening_rule.html", null ]
@@ -2036,20 +2301,35 @@ var hierarchy =
     ] ],
     [ "mfront::bbrick::KinematicHardeningRuleFactory", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_factory.html", null ],
     [ "tfel::math::parser::KrigedFunctionBase", "structtfel_1_1math_1_1parser_1_1_kriged_function_base.html", null ],
-    [ "tfel::math::KrigingDefaultModel< N, T, NM >", "structtfel_1_1math_1_1_kriging_default_model.html", null ],
-    [ "tfel::math::KrigingDefaultModel< N, double >", "structtfel_1_1math_1_1_kriging_default_model.html", [
+    [ "tfel::math::KrigingDefaultModel< N, T, NM >", "structtfel_1_1math_1_1_kriging_default_model.html", [
+      [ "tfel::math::Kriging< 1u, double >", "structtfel_1_1math_1_1_kriging.html", [
+        [ "tfel::math::Kriging1D", "structtfel_1_1math_1_1_kriging1_d.html", null ]
+      ] ],
       [ "tfel::math::Kriging< 2u, double >", "structtfel_1_1math_1_1_kriging.html", [
         [ "tfel::math::Kriging2D", "structtfel_1_1math_1_1_kriging2_d.html", null ]
       ] ],
       [ "tfel::math::Kriging< 3u, double >", "structtfel_1_1math_1_1_kriging.html", [
         [ "tfel::math::Kriging3D", "structtfel_1_1math_1_1_kriging3_d.html", null ]
       ] ],
-      [ "tfel::math::Kriging< 1u, double >", "structtfel_1_1math_1_1_kriging.html", [
-        [ "tfel::math::Kriging1D", "structtfel_1_1math_1_1_kriging1_d.html", null ]
-      ] ],
       [ "tfel::math::Kriging< N, T, Model >", "structtfel_1_1math_1_1_kriging.html", null ]
     ] ],
-    [ "tfel::math::KrigingDefaultNuggetModel< N, T >", "structtfel_1_1math_1_1_kriging_default_nugget_model.html", null ],
+    [ "tfel::math::KrigingDefaultModel< 1u, double >", "structtfel_1_1math_1_1_kriging_default_model.html", [
+      [ "tfel::math::KrigingModelAdaptator< KrigingDefaultModel< 1u, double > >", "structtfel_1_1math_1_1_kriging_model_adaptator.html", null ]
+    ] ],
+    [ "tfel::math::KrigingDefaultModel< 2u, double >", "structtfel_1_1math_1_1_kriging_default_model.html", [
+      [ "tfel::math::KrigingModelAdaptator< KrigingDefaultModel< 2u, double > >", "structtfel_1_1math_1_1_kriging_model_adaptator.html", null ]
+    ] ],
+    [ "tfel::math::KrigingDefaultModel< 3u, double >", "structtfel_1_1math_1_1_kriging_default_model.html", [
+      [ "tfel::math::KrigingModelAdaptator< KrigingDefaultModel< 3u, double > >", "structtfel_1_1math_1_1_kriging_model_adaptator.html", null ]
+    ] ],
+    [ "tfel::math::KrigingDefaultModel< M, double >", "structtfel_1_1math_1_1_kriging_default_model.html", [
+      [ "tfel::math::KrigingModelAdaptator< KrigingDefaultModel< M, double > >", "structtfel_1_1math_1_1_kriging_model_adaptator.html", null ]
+    ] ],
+    [ "tfel::math::KrigingDefaultModel< N, double >", "structtfel_1_1math_1_1_kriging_default_model.html", null ],
+    [ "tfel::math::KrigingDefaultNuggetModel< N, T >", "structtfel_1_1math_1_1_kriging_default_nugget_model.html", [
+      [ "tfel::math::KrigingPieceWiseLinearModel1D< double >", "structtfel_1_1math_1_1_kriging_piece_wise_linear_model1_d.html", null ]
+    ] ],
+    [ "tfel::math::KrigingDefaultNuggetModel< 1u, double >", "structtfel_1_1math_1_1_kriging_default_nugget_model.html", null ],
     [ "tfel::math::KrigingDefaultNuggetModel< 1u, T >", "structtfel_1_1math_1_1_kriging_default_nugget_model.html", [
       [ "tfel::math::KrigingPieceWiseLinearModel1D< T >", "structtfel_1_1math_1_1_kriging_piece_wise_linear_model1_d.html", null ]
     ] ],
@@ -2145,8 +2425,6 @@ var hierarchy =
     [ "tfel::math::LUDecomp< use_exceptions, perfom_runtime_checks >", "structtfel_1_1math_1_1_l_u_decomp.html", null ],
     [ "tfel::math::LUSolve", "structtfel_1_1math_1_1_l_u_solve.html", null ],
     [ "mfront::SearchPathsHandler::MadnexPath", "structmfront_1_1_search_paths_handler_1_1_madnex_path.html", null ],
-    [ "tfel::python::internals::make_integer_sequence< N, S >", "structtfel_1_1python_1_1internals_1_1make__integer__sequence.html", null ],
-    [ "tfel::python::internals::make_integer_sequence< 0, S... >", "structtfel_1_1python_1_1internals_1_1make__integer__sequence_3_010_00_01_s_8_8_8_01_4.html", null ],
     [ "tfel::math::internals::MakeConstViewReference< T >", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference.html", null ],
     [ "tfel::math::internals::MakeConstViewReference< Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference_3_01_quantity_3_01_unit_type_00_0186076dae8a7dab984498ac418c8262f1.html", null ],
     [ "tfel::math::MakeQuantityReferenceType< QuantityType >", "structtfel_1_1math_1_1_make_quantity_reference_type.html", null ],
@@ -2158,8 +2436,6 @@ var hierarchy =
     [ "std::map", null, [
       [ "tfel::math::parser::ExternalFunctionManager", "structtfel_1_1math_1_1parser_1_1_external_function_manager.html", null ]
     ] ],
-    [ "tfel::python::map_from_python_dict< K, V >", "structtfel_1_1python_1_1map__from__python__dict.html", null ],
-    [ "tfel::python::map_to_python_dict< K, V >", "structtfel_1_1python_1_1map__to__python__dict.html", null ],
     [ "mfront::bbrick::PorosityNucleationModelBase::MaterialCoefficientDescription", "structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html", null ],
     [ "mfront::MaterialKnowledgeDescription", "structmfront_1_1_material_knowledge_description.html", [
       [ "mfront::BehaviourData", "structmfront_1_1_behaviour_data.html", null ],
@@ -2175,11 +2451,11 @@ var hierarchy =
     [ "mfront::MaterialPropertyInterfaceProxy< Interface >", "structmfront_1_1_material_property_interface_proxy.html", null ],
     [ "tfel::math::MathObjectTraitsBase< ValueType, SizeType >", "structtfel_1_1math_1_1_math_object_traits_base.html", null ],
     [ "tfel::math::MathObjectTraitsBase< ArrayPolicyType::value_type, ArrayPolicyType::IndexingPolicy::size_type >", "structtfel_1_1math_1_1_math_object_traits_base.html", [
-      [ "tfel::math::MathObjectTraitsFromArrayPolicy< RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_math_object_traits_from_array_policy.html", [
-        [ "tfel::math::MathObjectTraits< runtime_array< ValueType > >", "structtfel_1_1math_1_1_math_object_traits_3_01runtime__array_3_01_value_type_01_4_01_4.html", null ]
-      ] ],
       [ "tfel::math::MathObjectTraitsFromArrayPolicy< FixedSizeArrayDerivative< Array1, Array2 >::array_policy >", "structtfel_1_1math_1_1_math_object_traits_from_array_policy.html", [
         [ "tfel::math::MathObjectTraits< FixedSizeArrayDerivative< Array1, Array2 > >", "structtfel_1_1math_1_1_math_object_traits_3_01_fixed_size_array_derivative_3_01_array1_00_01_array2_01_4_01_4.html", null ]
+      ] ],
+      [ "tfel::math::MathObjectTraitsFromArrayPolicy< RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_math_object_traits_from_array_policy.html", [
+        [ "tfel::math::MathObjectTraits< runtime_array< ValueType > >", "structtfel_1_1math_1_1_math_object_traits_3_01runtime__array_3_01_value_type_01_4_01_4.html", null ]
       ] ],
       [ "tfel::math::MathObjectTraitsFromArrayPolicy< ArrayPolicyType >", "structtfel_1_1math_1_1_math_object_traits_from_array_policy.html", null ]
     ] ],
@@ -2212,20 +2488,22 @@ var hierarchy =
     [ "fses::MatrixAccess< T[N][M]>", "structfses_1_1_matrix_access_3_01_t_0f_n_0e_0f_m_0e_4.html", null ],
     [ "tfel::math::MatrixConceptBase< MatrixType >", "structtfel_1_1math_1_1_matrix_concept_base.html", [
       [ "tfel::math::matrix< real >", "structtfel_1_1math_1_1matrix.html", null ],
+      [ "tfel::math::tmatrix< 3u, 3u >", "structtfel_1_1math_1_1tmatrix.html", null ],
       [ "tfel::math::tmatrix< 3u, 3u, real >", "structtfel_1_1math_1_1tmatrix.html", null ],
       [ "tfel::math::tmatrix< 12, 12, real >", "structtfel_1_1math_1_1tmatrix.html", null ],
-      [ "tfel::math::tmatrix< N, N, NumericType >", "structtfel_1_1math_1_1tmatrix.html", null ]
+      [ "tfel::math::tmatrix< N, N, NumericType >", "structtfel_1_1math_1_1tmatrix.html", null ],
+      [ "tfel::math::tmatrix< N, M, ValueType >", "structtfel_1_1math_1_1tmatrix.html", null ]
     ] ],
     [ "tfel::math::MatrixConceptBase< Expr< tmatrix< 3u, 3u, numeric_type< TensorType > >, MatrixViewFromTensorExpr< TensorType > > >", "structtfel_1_1math_1_1_matrix_concept_base.html", [
       [ "tfel::math::Expr< tmatrix< 3u, 3u, numeric_type< TensorType > >, MatrixViewFromTensorExpr< TensorType > >", "structtfel_1_1math_1_1_expr_3_01tmatrix_3_013u_00_013u_00_01numeric__type_3_01_tensor_type_01_4_0dbb3e0acd2a635f8343ce465cee3a2d.html", null ]
     ] ],
+    [ "tfel::math::MatrixConceptBase< matrix< real > >", "structtfel_1_1math_1_1_matrix_concept_base.html", null ],
     [ "tfel::math::MatrixConceptBase< matrix< ValueType > >", "structtfel_1_1math_1_1_matrix_concept_base.html", [
       [ "tfel::math::matrix< ValueType >", "structtfel_1_1math_1_1matrix.html", null ]
     ] ],
-    [ "tfel::math::MatrixConceptBase< tmatrix< N, M, double > >", "structtfel_1_1math_1_1_matrix_concept_base.html", [
-      [ "tfel::math::tmatrix< 3u, 3u >", "structtfel_1_1math_1_1tmatrix.html", null ],
-      [ "tfel::math::tmatrix< N, M, ValueType >", "structtfel_1_1math_1_1tmatrix.html", null ]
-    ] ],
+    [ "tfel::math::MatrixConceptBase< tmatrix< N, M, double > >", "structtfel_1_1math_1_1_matrix_concept_base.html", null ],
+    [ "tfel::math::MatrixConceptBase< tmatrix< N, M, NumericType > >", "structtfel_1_1math_1_1_matrix_concept_base.html", null ],
+    [ "tfel::math::MatrixConceptBase< tmatrix< N, M, real > >", "structtfel_1_1math_1_1_matrix_concept_base.html", null ],
     [ "tfel::math::MatrixMatrixHandle< AType, BType, A, B >", "classtfel_1_1math_1_1_matrix_matrix_handle.html", null ],
     [ "tfel::math::MatrixMatrixHandle< tmatrix< N, K, T >, tmatrix< K, M, T2 >, A, B >", "classtfel_1_1math_1_1_matrix_matrix_handle_3_01tmatrix_3_01_n_00_01_k_00_01_t_01_4_00_01tmatrix_04d58ba599e0dbfe628022b1134e9331.html", null ],
     [ "tfel::math::MatrixTag", "structtfel_1_1math_1_1_matrix_tag.html", null ],
@@ -2420,8 +2698,6 @@ var hierarchy =
       [ "tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy >", "structtfel_1_1math_1_1_quantity.html", null ]
     ] ],
     [ "mtest::PipeTest::OxidationModel", "structmtest_1_1_pipe_test_1_1_oxidation_model.html", null ],
-    [ "tfel::python::pair_from_python_tuple< T1, T2 >", "structtfel_1_1python_1_1pair__from__python__tuple.html", null ],
-    [ "tfel::python::pair_to_python_tuple< T1, T2 >", "structtfel_1_1python_1_1pair__to__python__tuple.html", null ],
     [ "mfront::PathSpecifier", "structmfront_1_1_path_specifier.html", null ],
     [ "tfel::check::PCILogDriver", "structtfel_1_1check_1_1_p_c_i_log_driver.html", [
       [ "tfel::check::PCJUnitDriver", "structtfel_1_1check_1_1_p_c_j_unit_driver.html", null ],
@@ -2649,13 +2925,22 @@ var hierarchy =
     [ "tfel::math::ScalarNewtonRaphsonParameters< NumericType, IndexType >", "structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html", null ],
     [ "tfel::math::ScalarObjectOperation< T1, T2, Op >", "structtfel_1_1math_1_1_scalar_object_operation.html", null ],
     [ "tfel::math::ScalarTag", "structtfel_1_1math_1_1_scalar_tag.html", null ],
-    [ "tfel::config::ScalarTypes< T, use_quantities >", "structtfel_1_1config_1_1_scalar_types.html", null ],
-    [ "tfel::config::ScalarTypes< double, true >", "structtfel_1_1config_1_1_scalar_types.html", [
+    [ "tfel::config::ScalarTypes< T, use_quantities >", "structtfel_1_1config_1_1_scalar_types.html", [
+      [ "tfel::config::Types< MathObjectTraits< Type >::dime, base_type< numeric_type< Type > >, isQuantity< numeric_type< Type > >()>", "structtfel_1_1config_1_1_types.html", [
+        [ "tfel::math::TypeRebind< Type >", "structtfel_1_1math_1_1_type_rebind.html", null ]
+      ] ],
       [ "tfel::config::Types< N, T, use_quantities >", "structtfel_1_1config_1_1_types.html", null ]
     ] ],
+    [ "tfel::config::ScalarTypes< base_type< numeric_type< Type > >, isQuantity< numeric_type< Type > >()>", "structtfel_1_1config_1_1_scalar_types.html", [
+      [ "tfel::math::ScalarTypeRebind< Type >", "structtfel_1_1math_1_1_scalar_type_rebind.html", null ]
+    ] ],
+    [ "tfel::config::ScalarTypes< base_type< numeric_type< Type > >, true >", "structtfel_1_1config_1_1_scalar_types.html", null ],
+    [ "tfel::config::ScalarTypes< double, true >", "structtfel_1_1config_1_1_scalar_types.html", null ],
     [ "tfel::config::ScalarTypes< T, false >", "structtfel_1_1config_1_1_scalar_types_3_01_t_00_01false_01_4.html", [
       [ "tfel::config::Types< N, T, false >", "structtfel_1_1config_1_1_types_3_01_n_00_01_t_00_01false_01_4.html", null ]
     ] ],
+    [ "tfel::math::internals::ScalarViewImplementation< ScalarType, isQt >", "structtfel_1_1math_1_1internals_1_1_scalar_view_implementation.html", null ],
+    [ "tfel::math::internals::ScalarViewImplementation< ScalarType, true >", "structtfel_1_1math_1_1internals_1_1_scalar_view_implementation_3_01_scalar_type_00_01true_01_4.html", null ],
     [ "mfront::SearchPathsHandler", "structmfront_1_1_search_paths_handler.html", null ],
     [ "selectViewArrayBase", null, [
       [ "tfel::math::View< MappedType, IndexingPolicyType >", "structtfel_1_1math_1_1_view.html", null ]
@@ -2737,6 +3022,7 @@ var hierarchy =
     [ "tfel::math::ST2toST2ConceptBase< Expr< ST2toST2ResultType, T2toST2ST2toT2ProductExpr< 3u > > >", "structtfel_1_1math_1_1_s_t2to_s_t2_concept_base.html", [
       [ "tfel::math::Expr< ST2toST2ResultType, T2toST2ST2toT2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_t2to_s_t2_s_t2to_t2_product_expr_3_013u_01_4_01_4.html", null ]
     ] ],
+    [ "tfel::math::ST2toST2ConceptBase< st2tost2< N, real > >", "structtfel_1_1math_1_1_s_t2to_s_t2_concept_base.html", null ],
     [ "tfel::math::ST2toST2ConceptBase< st2tost2< N, ValueType > >", "structtfel_1_1math_1_1_s_t2to_s_t2_concept_base.html", [
       [ "tfel::math::st2tost2< N, ValueType >", "structtfel_1_1math_1_1st2tost2.html", null ]
     ] ],
@@ -2788,57 +3074,61 @@ var hierarchy =
     [ "tfel::math::ST2toT2StensorProductExpr< N >", "structtfel_1_1math_1_1_s_t2to_t2_stensor_product_expr.html", null ],
     [ "tfel::math::ST2toT2T2toST2ProductExpr< N >", "structtfel_1_1math_1_1_s_t2to_t2_t2to_s_t2_product_expr.html", null ],
     [ "tfel::math::ST2toT2Tag", "structtfel_1_1math_1_1_s_t2to_t2_tag.html", null ],
+    [ "StackAllocatedTinyBroyden2SolverWorkspace", null, [
+      [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, StackAllocatedTinyBroyden2SolverWorkspace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", null ]
+    ] ],
+    [ "StackAllocatedTinyBroydenSolverWorkspace", null, [
+      [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, StackAllocatedTinyBroydenSolverWorkspace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", null ]
+    ] ],
+    [ "StackAllocatedTinyLevenbergMarquardtSolverWorkspace", null, [
+      [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, StackAllocatedTinyLevenbergMarquardtSolverWorkspace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", null ]
+    ] ],
+    [ "StackAllocatedTinyNewtonRaphsonSolverWorkspace", null, [
+      [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, StackAllocatedTinyNewtonRaphsonSolverWorkspace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", null ]
+    ] ],
+    [ "StackAllocatedTinyNonLinearSolverWorkspace", null, [
+      [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", [
+        [ "tfel::math::TinyBroyden2Solver< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_broyden2_solver.html", null ],
+        [ "tfel::math::TinyBroydenSolver< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_broyden_solver.html", null ],
+        [ "tfel::math::TinyLevenbergMarquardtSolver< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_levenberg_marquardt_solver.html", null ],
+        [ "tfel::math::TinyNewtonRaphsonSolver< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_newton_raphson_solver.html", null ],
+        [ "tfel::math::TinyPowellDogLegBroydenSolver< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html", null ],
+        [ "tfel::math::TinyPowellDogLegNewtonRaphsonSolver< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html", null ]
+      ] ]
+    ] ],
     [ "tfel::math::StackAllocatedTinyNonLinearSolverWorkspace< N, NumericType >", "structtfel_1_1math_1_1_stack_allocated_tiny_non_linear_solver_workspace.html", [
-      [ "tfel::math::StackAllocatedTinyBroyden2SolverWorkspace< N, NumericType >", "structtfel_1_1math_1_1_stack_allocated_tiny_broyden2_solver_workspace.html", [
-        [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, StackAllocatedTinyBroyden2SolverWorkspace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", [
-          [ "tfel::math::TinyBroyden2Solver< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_broyden2_solver.html", null ]
-        ] ]
-      ] ],
-      [ "tfel::math::StackAllocatedTinyBroydenSolverWorkspace< N, NumericType >", "structtfel_1_1math_1_1_stack_allocated_tiny_broyden_solver_workspace.html", [
-        [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, StackAllocatedTinyBroydenSolverWorkspace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", [
-          [ "tfel::math::TinyBroydenSolver< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_broyden_solver.html", null ]
-        ] ]
-      ] ],
-      [ "tfel::math::StackAllocatedTinyLevenbergMarquardtSolverWorkspace< N, NumericType >", "structtfel_1_1math_1_1_stack_allocated_tiny_levenberg_marquardt_solver_workspace.html", [
-        [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, StackAllocatedTinyLevenbergMarquardtSolverWorkspace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", [
-          [ "tfel::math::TinyLevenbergMarquardtSolver< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_levenberg_marquardt_solver.html", null ]
-        ] ]
-      ] ],
-      [ "tfel::math::StackAllocatedTinyNewtonRaphsonSolverWorkspace< N, NumericType >", "structtfel_1_1math_1_1_stack_allocated_tiny_newton_raphson_solver_workspace.html", [
-        [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, StackAllocatedTinyNewtonRaphsonSolverWorkspace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", [
-          [ "tfel::math::TinyNewtonRaphsonSolver< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_newton_raphson_solver.html", null ]
-        ] ]
-      ] ],
-      [ "tfel::math::StackAllocatedTinyPowellDogLegBroydenSolverWorkspace< N, NumericType >", "structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_broyden_solver_workspace.html", [
-        [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, StackAllocatedTinyPowellDogLegBroydenSolverWorkspace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", [
-          [ "tfel::math::TinyPowellDogLegBroydenSolver< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html", null ]
-        ] ]
-      ] ],
-      [ "tfel::math::StackAllocatedTinyPowellDogLegNewtonRaphsonSolverWorkspace< N, NumericType >", "structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_newton_raphson_solver_workspace.html", [
-        [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, StackAllocatedTinyPowellDogLegNewtonRaphsonSolverWorkspace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", [
-          [ "tfel::math::TinyPowellDogLegNewtonRaphsonSolver< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html", null ]
-        ] ]
-      ] ],
-      [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, ExternalWorkSpace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", null ]
+      [ "tfel::math::StackAllocatedTinyBroyden2SolverWorkspace< N, NumericType >", "structtfel_1_1math_1_1_stack_allocated_tiny_broyden2_solver_workspace.html", null ],
+      [ "tfel::math::StackAllocatedTinyBroydenSolverWorkspace< N, NumericType >", "structtfel_1_1math_1_1_stack_allocated_tiny_broyden_solver_workspace.html", null ],
+      [ "tfel::math::StackAllocatedTinyLevenbergMarquardtSolverWorkspace< N, NumericType >", "structtfel_1_1math_1_1_stack_allocated_tiny_levenberg_marquardt_solver_workspace.html", null ],
+      [ "tfel::math::StackAllocatedTinyNewtonRaphsonSolverWorkspace< N, NumericType >", "structtfel_1_1math_1_1_stack_allocated_tiny_newton_raphson_solver_workspace.html", null ],
+      [ "tfel::math::StackAllocatedTinyPowellDogLegBroydenSolverWorkspace< N, NumericType >", "structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_broyden_solver_workspace.html", null ],
+      [ "tfel::math::StackAllocatedTinyPowellDogLegNewtonRaphsonSolverWorkspace< N, NumericType >", "structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_newton_raphson_solver_workspace.html", null ]
+    ] ],
+    [ "StackAllocatedTinyPowellDogLegBroydenSolverWorkspace", null, [
+      [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, StackAllocatedTinyPowellDogLegBroydenSolverWorkspace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", null ]
+    ] ],
+    [ "StackAllocatedTinyPowellDogLegNewtonRaphsonSolverWorkspace", null, [
+      [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, StackAllocatedTinyPowellDogLegNewtonRaphsonSolverWorkspace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", null ]
     ] ],
     [ "tfel::math::StandardArrayPolicyAliases< ValueType >", "structtfel_1_1math_1_1_standard_array_policy_aliases.html", [
-      [ "tfel::math::StandardArrayPolicy< ValueType, RuntimeRowMajorMatrixIndexingPolicy >", "structtfel_1_1math_1_1_standard_array_policy.html", [
-        [ "tfel::math::RuntimeRowMajorMatrixArrayPolicy< ValueType >", "structtfel_1_1math_1_1_runtime_row_major_matrix_array_policy.html", null ]
-      ] ],
-      [ "tfel::math::StandardArrayPolicy< ValueType, FixedSizeVectorIndexingPolicy< unsigned short, N > >", "structtfel_1_1math_1_1_standard_array_policy.html", [
-        [ "tfel::math::FixedSizeVectorPolicy< N, ValueType >", "structtfel_1_1math_1_1_fixed_size_vector_policy.html", null ]
+      [ "tfel::math::StandardArrayPolicy< result_type< ArrayPolicy1::value_type, ArrayPolicy2::value_type, OpDiv >, FixedSizeIndexingPoliciesCartesianProduct< ArrayPolicy1::IndexingPolicy, ArrayPolicy2::IndexingPolicy > >", "structtfel_1_1math_1_1_standard_array_policy.html", [
+        [ "tfel::math::FixedSizeArrayDerivativePolicy< ArrayPolicy1, ArrayPolicy2 >", "structtfel_1_1math_1_1_fixed_size_array_derivative_policy.html", null ]
       ] ],
       [ "tfel::math::StandardArrayPolicy< ValueType, FixedSizeRowMajorMatrixIndexingPolicy< unsigned short, N, M > >", "structtfel_1_1math_1_1_standard_array_policy.html", [
         [ "tfel::math::FixedSizeRowMajorMatrixPolicy< N, M, ValueType >", "structtfel_1_1math_1_1_fixed_size_row_major_matrix_policy.html", null ]
       ] ],
-      [ "tfel::math::StandardArrayPolicy< result_type< ArrayPolicy1::value_type, ArrayPolicy2::value_type, OpDiv >, FixedSizeIndexingPoliciesCartesianProduct< ArrayPolicy1::IndexingPolicy, ArrayPolicy2::IndexingPolicy > >", "structtfel_1_1math_1_1_standard_array_policy.html", [
-        [ "tfel::math::FixedSizeArrayDerivativePolicy< ArrayPolicy1, ArrayPolicy2 >", "structtfel_1_1math_1_1_fixed_size_array_derivative_policy.html", null ]
+      [ "tfel::math::StandardArrayPolicy< ValueType, FixedSizeVectorIndexingPolicy< unsigned short, N > >", "structtfel_1_1math_1_1_standard_array_policy.html", [
+        [ "tfel::math::FixedSizeVectorPolicy< N, ValueType >", "structtfel_1_1math_1_1_fixed_size_vector_policy.html", null ]
+      ] ],
+      [ "tfel::math::StandardArrayPolicy< ValueType, RuntimeRowMajorMatrixIndexingPolicy >", "structtfel_1_1math_1_1_standard_array_policy.html", [
+        [ "tfel::math::RuntimeRowMajorMatrixArrayPolicy< ValueType >", "structtfel_1_1math_1_1_runtime_row_major_matrix_array_policy.html", null ]
       ] ],
       [ "tfel::math::StandardArrayPolicy< ValueType, RuntimeVectorIndexingPolicy >", "structtfel_1_1math_1_1_standard_array_policy.html", [
         [ "tfel::math::RuntimeVectorArrayPolicy< ValueType >", "structtfel_1_1math_1_1_runtime_vector_array_policy.html", null ]
       ] ],
       [ "tfel::math::StandardArrayPolicy< ValueType, IndexingPolicyType >", "structtfel_1_1math_1_1_standard_array_policy.html", null ]
     ] ],
+    [ "tfel::math::StandardArrayPolicyAliases< result_type< ArrayPolicy1::value_type, ArrayPolicy2::value_type, OpDiv > >", "structtfel_1_1math_1_1_standard_array_policy_aliases.html", null ],
     [ "tfel::math::parser::StandardBinaryFunctionBase", "structtfel_1_1math_1_1parser_1_1_standard_binary_function_base.html", [
       [ "tfel::math::parser::StandardBinaryFunction< f >", "structtfel_1_1math_1_1parser_1_1_standard_binary_function.html", null ]
     ] ],
@@ -2918,7 +3208,7 @@ var hierarchy =
     [ "tfel::math::StensorConceptBase< stensor< N, ValueType > >", "structtfel_1_1math_1_1_stensor_concept_base.html", [
       [ "tfel::math::stensor< N, ValueType >", "structtfel_1_1math_1_1stensor.html", null ]
     ] ],
-    [ "StensorDimeToSize", "class_stensor_dime_to_size.html", null ],
+    [ "tfel::math::StensorDimeToSize< N >", "structtfel_1_1math_1_1_stensor_dime_to_size.html", null ],
     [ "tfel::math::internals::StensorEigenSolver< EigenSolver, N, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver.html", null ],
     [ "tfel::math::internals::StensorEigenSolver< stensor_common::FSESANALYTICALEIGENSOLVER, 2u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_a_n_a_l77382d9afd34dbdef14c3c2d0c6c5994.html", [
       [ "tfel::math::internals::StensorEigenSolver< stensor_common::FSESCUPPENEIGENSOLVER, 2u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_c_u_p_pcf9b8ef75a4b61c029c79c20057d14e5.html", null ],
@@ -2938,7 +3228,7 @@ var hierarchy =
     ] ],
     [ "tfel::math::StensorProductLeftDerivativeExpr< N >", "structtfel_1_1math_1_1_stensor_product_left_derivative_expr.html", null ],
     [ "tfel::math::StensorProductRightDerivativeExpr< N >", "structtfel_1_1math_1_1_stensor_product_right_derivative_expr.html", null ],
-    [ "StensorSizeToDime", "class_stensor_size_to_dime.html", null ],
+    [ "tfel::math::StensorSizeToDime< N >", "structtfel_1_1math_1_1_stensor_size_to_dime.html", null ],
     [ "tfel::math::StensorSquareDerivativeExpr< N >", "structtfel_1_1math_1_1_stensor_square_derivative_expr.html", null ],
     [ "tfel::math::StensorST2toST2ProductExpr< N >", "structtfel_1_1math_1_1_stensor_s_t2to_s_t2_product_expr.html", null ],
     [ "tfel::math::StensorSymmetricProductDerivative< N, T >", "structtfel_1_1math_1_1_stensor_symmetric_product_derivative.html", null ],
@@ -2958,6 +3248,11 @@ var hierarchy =
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::StiffnessOperatorInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_stiffness_operator_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::StiffnessOperatorInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_stiffness_operator_initializer.html", null ],
     [ "castem::CastemBehaviourHandler< type, H, Behaviour >::StiffnessTensorInitializer", "structcastem_1_1_castem_behaviour_handler_1_1_stiffness_tensor_initializer.html", null ],
+    [ "mfront::bbrick::StrainRateSensitivityFactor", "structmfront_1_1bbrick_1_1_strain_rate_sensitivity_factor.html", [
+      [ "mfront::bbrick::CowperSymondsStrainRateSensitivityFactor", "structmfront_1_1bbrick_1_1_cowper_symonds_strain_rate_sensitivity_factor.html", null ],
+      [ "mfront::bbrick::JohnsonCookStrainRateSensitivityFactor", "structmfront_1_1bbrick_1_1_johnson_cook_strain_rate_sensitivity_factor.html", null ]
+    ] ],
+    [ "mfront::bbrick::StrainRateSensitivityFactorFactory", "structmfront_1_1bbrick_1_1_strain_rate_sensitivity_factor_factory.html", null ],
     [ "tfel::system::stream_traits< T >", "structtfel_1_1system_1_1stream__traits.html", null ],
     [ "tfel::system::stream_traits< rfstream >", "structtfel_1_1system_1_1stream__traits_3_01rfstream_01_4.html", null ],
     [ "tfel::system::stream_traits< rstreamView< is > >", "structtfel_1_1system_1_1stream__traits_3_01rstream_view_3_01is_01_4_01_4.html", null ],
@@ -3182,6 +3477,7 @@ var hierarchy =
     [ "tfel::math::TensorConceptBase< Expr< TensorResultType, TensorT2toT2ProductExpr< 3u > > >", "structtfel_1_1math_1_1_tensor_concept_base.html", [
       [ "tfel::math::Expr< TensorResultType, TensorT2toT2ProductExpr< 3u > >", "structtfel_1_1math_1_1_expr_3_01_tensor_result_type_00_01_tensor_t2to_t2_product_expr_3_013u_01_4_01_4.html", null ]
     ] ],
+    [ "tfel::math::TensorConceptBase< tensor< N, real > >", "structtfel_1_1math_1_1_tensor_concept_base.html", null ],
     [ "tfel::math::TensorConceptBase< tensor< N, ValueType > >", "structtfel_1_1math_1_1_tensor_concept_base.html", [
       [ "tfel::math::tensor< N, ValueType >", "structtfel_1_1math_1_1tensor.html", null ]
     ] ],
@@ -3189,10 +3485,10 @@ var hierarchy =
     [ "tfel::math::internals::TensorConceptMatrixAccessOperator< 1u >", "structtfel_1_1math_1_1internals_1_1_tensor_concept_matrix_access_operator_3_011u_01_4.html", null ],
     [ "tfel::math::internals::TensorConceptMatrixAccessOperator< 2u >", "structtfel_1_1math_1_1internals_1_1_tensor_concept_matrix_access_operator_3_012u_01_4.html", null ],
     [ "tfel::math::internals::TensorConceptMatrixAccessOperator< 3u >", "structtfel_1_1math_1_1internals_1_1_tensor_concept_matrix_access_operator_3_013u_01_4.html", null ],
-    [ "TensorDimeToSize", "class_tensor_dime_to_size.html", null ],
+    [ "tfel::math::TensorDimeToSize< N >", "structtfel_1_1math_1_1_tensor_dime_to_size.html", null ],
     [ "tfel::math::TensorProductLeftDerivativeExpr< N >", "structtfel_1_1math_1_1_tensor_product_left_derivative_expr.html", null ],
     [ "tfel::math::TensorProductRightDerivativeExpr< N >", "structtfel_1_1math_1_1_tensor_product_right_derivative_expr.html", null ],
-    [ "TensorSizeToDime", "class_tensor_size_to_dime.html", null ],
+    [ "tfel::math::TensorSizeToDime< N >", "structtfel_1_1math_1_1_tensor_size_to_dime.html", null ],
     [ "tfel::math::TensorST2toT2ProductExpr< N >", "structtfel_1_1math_1_1_tensor_s_t2to_t2_product_expr.html", null ],
     [ "tfel::math::TensorT2toT2ProductExpr< N >", "structtfel_1_1math_1_1_tensor_t2to_t2_product_expr.html", null ],
     [ "tfel::math::TensorTag", "structtfel_1_1math_1_1_tensor_tag.html", null ],
@@ -3282,7 +3578,9 @@ var hierarchy =
     [ "mfront::BehaviourProfiler::Timer", "structmfront_1_1_behaviour_profiler_1_1_timer.html", null ],
     [ "mfmtg::TimesFromFile", "structmfmtg_1_1_times_from_file.html", null ],
     [ "tfel::math::TinyMatrixInvert< N, T >", "structtfel_1_1math_1_1_tiny_matrix_invert.html", null ],
-    [ "tfel::math::TinyMatrixSolveBase< N, T, use_exceptions, perform_runtime_checks >", "structtfel_1_1math_1_1_tiny_matrix_solve_base.html", null ],
+    [ "tfel::math::TinyMatrixSolveBase< N, T, use_exceptions, perform_runtime_checks >", "structtfel_1_1math_1_1_tiny_matrix_solve_base.html", [
+      [ "tfel::math::TinyMatrixSolve< N, T, use_exceptions, perform_runtime_checks >", "structtfel_1_1math_1_1_tiny_matrix_solve.html", null ]
+    ] ],
     [ "tfel::math::TinyMatrixSolveBase< 1u, T, use_exceptions, perform_runtime_checks >", "structtfel_1_1math_1_1_tiny_matrix_solve_base.html", [
       [ "tfel::math::TinyMatrixSolve< 1u, T, use_exceptions, perform_runtime_checks >", "structtfel_1_1math_1_1_tiny_matrix_solve_3_011u_00_01_t_00_01use__exceptions_00_01perform__runtime__checks_01_4.html", null ]
     ] ],
@@ -3292,15 +3590,13 @@ var hierarchy =
     [ "tfel::math::TinyMatrixSolveBase< 3u, T, use_exceptions, perform_runtime_checks >", "structtfel_1_1math_1_1_tiny_matrix_solve_base.html", [
       [ "tfel::math::TinyMatrixSolve< 3u, T, use_exceptions, perform_runtime_checks >", "structtfel_1_1math_1_1_tiny_matrix_solve_3_013u_00_01_t_00_01use__exceptions_00_01perform__runtime__checks_01_4.html", null ]
     ] ],
-    [ "tfel::math::TinyMatrixSolveBase< N, T, true, false >", "structtfel_1_1math_1_1_tiny_matrix_solve_base.html", [
-      [ "tfel::math::TinyMatrixSolve< N, T, use_exceptions, perform_runtime_checks >", "structtfel_1_1math_1_1_tiny_matrix_solve.html", null ]
-    ] ],
+    [ "tfel::math::TinyMatrixSolveBase< N, T, true, false >", "structtfel_1_1math_1_1_tiny_matrix_solve_base.html", null ],
     [ "tfel::math::TinyNewtonRaphson< N, T, Func >", "classtfel_1_1math_1_1_tiny_newton_raphson.html", null ],
-    [ "tfel::math::TinyRungeKuttaSolverBase< N, ScalarType >", "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html", null ],
-    [ "tfel::math::TinyRungeKuttaSolverBase< N, double >", "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html", [
+    [ "tfel::math::TinyRungeKuttaSolverBase< N, ScalarType >", "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html", [
       [ "tfel::math::RungeKutta42< N, Child, ScalarType >", "structtfel_1_1math_1_1_runge_kutta42.html", null ],
       [ "tfel::math::RungeKutta54< N, Child, Scalar >", "structtfel_1_1math_1_1_runge_kutta54.html", null ]
     ] ],
+    [ "tfel::math::TinyRungeKuttaSolverBase< N, double >", "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html", null ],
     [ "tfel::meta::TL", "structtfel_1_1meta_1_1_t_l.html", [
       [ "tfel::meta::TLE", "structtfel_1_1meta_1_1_t_l_e.html", null ],
       [ "tfel::meta::TLNode< T, U >", "structtfel_1_1meta_1_1_t_l_node.html", null ]
@@ -3356,6 +3652,7 @@ var hierarchy =
     [ "tfel::fsalgo::transform< 0u >", "structtfel_1_1fsalgo_1_1transform_3_010u_01_4.html", null ],
     [ "numodis::TripleNode", "structnumodis_1_1_triple_node.html", null ],
     [ "std::true_type", null, [
+      [ "tfel::math::internal::UnitConceptImplementation< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > > >", "structtfel_1_1math_1_1internal_1_1_unit_concept_implementation_3_01_unit_3_01std_1_1integral__co6b985afcf3d7c717feb87ca5c848a021.html", null ],
       [ "tfel::math::internals::HasConceptTag< T, std::void_t< typename T::ConceptTag > >", "structtfel_1_1math_1_1internals_1_1_has_concept_tag_3_01_t_00_01std_1_1void__t_3_01typename_01_t_1_1_concept_tag_01_4_01_4.html", null ],
       [ "tfel::math::internals::HasIndexingPolicyTraits< T, std::void_t< typename T::indexing_policy > >", "structtfel_1_1math_1_1internals_1_1_has_indexing_policy_traits_3_01_t_00_01std_1_1void__t_3_01tya780bbb1c3ba45843bb44c873f7fbb6d.html", null ],
       [ "tfel::math::internals::IsQuantity< Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1math_1_1internals_1_1_is_quantity_3_01_quantity_3_01_unit_type_00_01_value_type_00_01_ownership_policy_01_4_01_4.html", null ],
@@ -3364,8 +3661,6 @@ var hierarchy =
     ] ],
     [ "std::tuple_element< I, tfel::math::fsarray< N, ValueType > >", "structstd_1_1tuple__element_3_01_i_00_01tfel_1_1math_1_1fsarray_3_01_n_00_01_value_type_01_4_01_4.html", null ],
     [ "std::tuple_element< I, tfel::math::tvector< N, ValueType > >", "structstd_1_1tuple__element_3_01_i_00_01tfel_1_1math_1_1tvector_3_01_n_00_01_value_type_01_4_01_4.html", null ],
-    [ "tfel::python::internals::tuple_from_python_tuple< Types >", "structtfel_1_1python_1_1internals_1_1tuple__from__python__tuple.html", null ],
-    [ "tfel::python::internals::tuple_to_python_tuple< Types >", "structtfel_1_1python_1_1internals_1_1tuple__to__python__tuple.html", null ],
     [ "AsterOrthotropicSmallStrainBehaviourDispatcher::type", null, [
       [ "aster::AsterOrthotropicBehaviourHandler< STANDARDSTRAINBASEDBEHAVIOUR, H, Behaviour >", "structaster_1_1_aster_orthotropic_behaviour_handler_3_01_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_beccae56fc2bb7d2820f22f30f870c49d.html", null ]
     ] ],
@@ -3464,15 +3759,17 @@ var hierarchy =
     [ "tfel::math::UnaryResultType< Complex< double >, Power< N, D > >", "classtfel_1_1math_1_1_unary_result_type_3_01_complex_3_01double_01_4_00_01_power_3_01_n_00_01_d_01_4_01_4.html", null ],
     [ "tfel::math::UnaryResultType< Complex< float >, Power< N, D > >", "classtfel_1_1math_1_1_unary_result_type_3_01_complex_3_01float_01_4_00_01_power_3_01_n_00_01_d_01_4_01_4.html", null ],
     [ "tfel::math::UnaryResultType< Complex< long double >, Power< N, D > >", "classtfel_1_1math_1_1_unary_result_type_3_01_complex_3_01long_01double_01_4_00_01_power_3_01_n_00_01_d_01_4_01_4.html", null ],
+    [ "tfel::math::UnaryResultType< double, Power< N, D > >", "structtfel_1_1math_1_1_unary_result_type_3_01double_00_01_power_3_01_n_00_01_d_01_4_01_4.html", null ],
     [ "tfel::math::UnaryResultType< FixedSizeArrayDerivative< Array1, Array2 >, OpNeg >", "classtfel_1_1math_1_1_unary_result_type_3_01_fixed_size_array_derivative_3_01_array1_00_01_array2_01_4_00_01_op_neg_01_4.html", null ],
+    [ "tfel::math::UnaryResultType< float, Power< N, D > >", "structtfel_1_1math_1_1_unary_result_type_3_01float_00_01_power_3_01_n_00_01_d_01_4_01_4.html", null ],
     [ "tfel::math::UnaryResultType< fsarray< N, T >, OpNeg >", "structtfel_1_1math_1_1_unary_result_type_3_01fsarray_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html", null ],
+    [ "tfel::math::UnaryResultType< long double, Power< N, D > >", "structtfel_1_1math_1_1_unary_result_type_3_01long_01double_00_01_power_3_01_n_00_01_d_01_4_01_4.html", null ],
     [ "tfel::math::UnaryResultType< qt< Unit, Complex< double > >, Power< N, D > >", "classtfel_1_1math_1_1_unary_result_type_3_01qt_3_01_unit_00_01_complex_3_01double_01_4_01_4_00_061d6b5a193fd75b770af8793d45c486d.html", null ],
     [ "tfel::math::UnaryResultType< qt< Unit, Complex< float > >, Power< N, D > >", "classtfel_1_1math_1_1_unary_result_type_3_01qt_3_01_unit_00_01_complex_3_01float_01_4_01_4_00_01_power_3_01_n_00_01_d_01_4_01_4.html", null ],
     [ "tfel::math::UnaryResultType< qt< Unit, Complex< long double > >, Power< N, D > >", "classtfel_1_1math_1_1_unary_result_type_3_01qt_3_01_unit_00_01_complex_3_01long_01double_01_4_015cb1689c54c69868d2635b7dded33ef6.html", null ],
     [ "tfel::math::UnaryResultType< qt< Unit, double >, Power< N, D > >", "classtfel_1_1math_1_1_unary_result_type_3_01qt_3_01_unit_00_01double_01_4_00_01_power_3_01_n_00_01_d_01_4_01_4.html", null ],
     [ "tfel::math::UnaryResultType< qt< Unit, float >, Power< N, D > >", "classtfel_1_1math_1_1_unary_result_type_3_01qt_3_01_unit_00_01float_01_4_00_01_power_3_01_n_00_01_d_01_4_01_4.html", null ],
     [ "tfel::math::UnaryResultType< qt< Unit, long double >, Power< N, D > >", "classtfel_1_1math_1_1_unary_result_type_3_01qt_3_01_unit_00_01long_01double_01_4_00_01_power_3_01_n_00_01_d_01_4_01_4.html", null ],
-    [ "tfel::math::UnaryResultType< Quantity< Unit, ValueType, OwnershipPolicy >, Power< N, D > >", "classtfel_1_1math_1_1_unary_result_type_3_01_quantity_3_01_unit_00_01_value_type_00_01_ownershipb69fc3de39c43c03d2898f76bfe45909.html", null ],
     [ "tfel::math::UnaryResultType< runtime_array< T >, OpNeg >", "structtfel_1_1math_1_1_unary_result_type_3_01runtime__array_3_01_t_01_4_00_01_op_neg_01_4.html", null ],
     [ "tfel::math::UnaryResultType< st2tost2< N, T >, OpNeg >", "classtfel_1_1math_1_1_unary_result_type_3_01st2tost2_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html", null ],
     [ "tfel::math::UnaryResultType< st2tot2< N, T >, OpNeg >", "classtfel_1_1math_1_1_unary_result_type_3_01st2tot2_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html", null ],
@@ -3516,33 +3813,48 @@ var hierarchy =
       [ "mfront::StaticVariableDescriptionContainer", "structmfront_1_1_static_variable_description_container.html", null ],
       [ "mfront::VariableDescriptionContainer", "structmfront_1_1_variable_description_container.html", null ]
     ] ],
-    [ "tfel::python::vector_from_python_list< T >", "structtfel_1_1python_1_1vector__from__python__list.html", null ],
-    [ "tfel::python::vector_to_python_list< T >", "structtfel_1_1python_1_1vector__to__python__list.html", null ],
     [ "fses::VectorAccess< VectorType >", "structfses_1_1_vector_access.html", null ],
     [ "fses::VectorAccess< std::array< T, N > >", "structfses_1_1_vector_access_3_01std_1_1array_3_01_t_00_01_n_01_4_01_4.html", null ],
     [ "fses::VectorAccess< T[N]>", "structfses_1_1_vector_access_3_01_t_0f_n_0e_4.html", null ],
     [ "tfel::math::VectorConceptBase< T >", "structtfel_1_1math_1_1_vector_concept_base.html", [
-      [ "tfel::math::tvector< N, NumericType >", "structtfel_1_1math_1_1tvector.html", null ],
-      [ "tfel::math::tvector< 6u, BarlatInvertStressType< StressStensor > >", "structtfel_1_1math_1_1tvector.html", null ],
       [ "tfel::math::tvector< N, T >", "structtfel_1_1math_1_1tvector.html", null ],
-      [ "tfel::math::tvector< 3u, real >", "structtfel_1_1math_1_1tvector.html", null ],
       [ "tfel::math::tvector< N, unsigned short >", "structtfel_1_1math_1_1tvector.html", null ],
       [ "tfel::math::tvector< 3u, BarlatBaseType< StressStensor > >", "structtfel_1_1math_1_1tvector.html", null ],
+      [ "tfel::math::tvector< 6u, BarlatInvertStressType< StressStensor > >", "structtfel_1_1math_1_1tvector.html", null ],
       [ "tfel::math::tvector< 9u, BarlatInvertStressType< StressStensor > >", "structtfel_1_1math_1_1tvector.html", null ],
+      [ "tfel::math::tvector< 3u, real >", "structtfel_1_1math_1_1tvector.html", null ],
       [ "tfel::math::tvector< Nss, tfel::math::tensor< 3u, real > >", "structtfel_1_1math_1_1tvector.html", null ],
       [ "tfel::math::tvector< Nss, tfel::math::stensor< 3u, real > >", "structtfel_1_1math_1_1tvector.html", null ],
-      [ "tfel::math::vector< real >", "structtfel_1_1math_1_1vector.html", null ],
-      [ "tfel::math::vector< double >", "structtfel_1_1math_1_1vector.html", null ],
-      [ "tfel::math::vector< tfel::math::vector< tfel::math::stensor > >", "structtfel_1_1math_1_1vector.html", null ],
-      [ "tfel::math::vector< typename tfel::math::KrigingVariable< M, double >::type >", "structtfel_1_1math_1_1vector.html", null ],
+      [ "tfel::math::tvector< N, NumericType >", "structtfel_1_1math_1_1tvector.html", null ],
       [ "tfel::math::vector< typename tfel::math::KrigingVariable< N, double >::type >", "structtfel_1_1math_1_1vector.html", null ],
+      [ "tfel::math::vector< typename tfel::math::KrigingVariable< M, double >::type >", "structtfel_1_1math_1_1vector.html", null ],
+      [ "tfel::math::vector< double >", "structtfel_1_1math_1_1vector.html", null ],
       [ "tfel::math::vector< T >", "structtfel_1_1math_1_1vector.html", null ],
+      [ "tfel::math::vector< real >", "structtfel_1_1math_1_1vector.html", null ],
+      [ "tfel::math::vector< size_type >", "structtfel_1_1math_1_1vector.html", null ],
+      [ "tfel::math::vector< mtest::CurrentState >", "structtfel_1_1math_1_1vector.html", null ],
+      [ "tfel::math::vector< tfel::math::vector< tfel::math::stensor > >", "structtfel_1_1math_1_1vector.html", null ],
       [ "tfel::math::vector< std::shared_ptr< tfel::math::parser::ExternalFunction > >", "structtfel_1_1math_1_1vector.html", null ],
-      [ "tfel::math::vector< mtest::CurrentState >", "structtfel_1_1math_1_1vector.html", null ]
-    ] ],
-    [ "tfel::math::VectorConceptBase< tvector< N, double > >", "structtfel_1_1math_1_1_vector_concept_base.html", [
       [ "tfel::math::tvector< N, ValueType >", "structtfel_1_1math_1_1tvector.html", null ]
     ] ],
+    [ "tfel::math::VectorConceptBase< tvector< N, BarlatBaseType< StressStensor > > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< tvector< N, BarlatInvertStressType< StressStensor > > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< tvector< N, double > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< tvector< N, NumericType > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< tvector< N, real > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< tvector< N, T > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< tvector< N, tfel::math::stensor< 3u, real > > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< tvector< N, tfel::math::tensor< 3u, real > > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< tvector< N, unsigned short > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< vector< double > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< vector< mtest::CurrentState > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< vector< real > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< vector< size_type > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< vector< std::shared_ptr< tfel::math::parser::ExternalFunction > > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< vector< T > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< vector< tfel::math::vector< tfel::math::stensor > > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< vector< typename tfel::math::KrigingVariable< M, double >::type > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
+    [ "tfel::math::VectorConceptBase< vector< typename tfel::math::KrigingVariable< N, double >::type > >", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
     [ "tfel::math::VectorConceptBase< vector< ValueType > >", "structtfel_1_1math_1_1_vector_concept_base.html", [
       [ "tfel::math::vector< ValueType >", "structtfel_1_1math_1_1vector.html", null ]
     ] ],
@@ -3554,10 +3866,10 @@ var hierarchy =
     [ "tfel::math::VectorTag", "structtfel_1_1math_1_1_vector_tag.html", null ],
     [ "tfel::math::VectorVectorDotProduct", "structtfel_1_1math_1_1_vector_vector_dot_product.html", null ],
     [ "tfel::math::ViewArrayPolicy< ValueType, IndexingPolicyType >", "structtfel_1_1math_1_1_view_array_policy.html", null ],
-    [ "tfel::math::internals::ViewsArrayBase< is_scalar, MappedType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1internals_1_1_views_array_base.html", null ],
-    [ "tfel::math::internals::ViewsArrayBase< isScalar< MappedType >(), MappedType, typename tfel::math::internals::ViewsArrayDefaultViewIndexingPolicy< isScalar< MappedType >(), MappedType >::type >", "structtfel_1_1math_1_1internals_1_1_views_array_base.html", [
+    [ "tfel::math::internals::ViewsArrayBase< is_scalar, MappedType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1internals_1_1_views_array_base.html", [
       [ "tfel::math::ViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1_views_array.html", null ]
     ] ],
+    [ "tfel::math::internals::ViewsArrayBase< isScalar< MappedType >(), MappedType, typename tfel::math::internals::ViewsArrayDefaultViewIndexingPolicy< isScalar< MappedType >(), MappedType >::type >", "structtfel_1_1math_1_1internals_1_1_views_array_base.html", null ],
     [ "tfel::math::internals::ViewsArrayBase< true, MappedType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1internals_1_1_views_array_base_3_01true_00_01_mapped_type_00_01_view_indexing_policy_type_01_4.html", null ],
     [ "tfel::math::internals::ViewsArrayDefaultViewIndexingPolicy< is_scalar, MappedType >", "structtfel_1_1math_1_1internals_1_1_views_array_default_view_indexing_policy.html", null ],
     [ "tfel::math::internals::ViewsArrayDefaultViewIndexingPolicy< true, MappedType >", "structtfel_1_1math_1_1internals_1_1_views_array_default_view_indexing_policy_3_01true_00_01_mapped_type_01_4.html", null ],

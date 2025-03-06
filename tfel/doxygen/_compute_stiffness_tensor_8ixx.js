@@ -1,10 +1,9 @@
 var _compute_stiffness_tensor_8ixx =
 [
-    [ "LIB_MFRONT_GENERIC_COMPUTESTIFFNESSTENSOR_IXX", "_compute_stiffness_tensor_8ixx.html#aee154e7ae8f5c0777f127281251026c6", null ],
-    [ "computeOrthotropicAlteredElasticStiffnessTensor", "_compute_stiffness_tensor_8ixx.html#a3ed22eba1feffb6333398719ef43e451", null ],
-    [ "computeOrthotropicAlteredElasticStiffnessTensor", "_compute_stiffness_tensor_8ixx.html#a20a16300e62d98058c7eaefd9a4fb9fc", null ],
-    [ "computeOrthotropicAlteredElasticStiffnessTensor", "_compute_stiffness_tensor_8ixx.html#a79b4d0c870832093235115a3449c91ac", null ],
-    [ "computeOrthotropicUnAlteredElasticStiffnessTensor", "_compute_stiffness_tensor_8ixx.html#a747385a6dda45d568c8a062386d21562", null ],
-    [ "computeOrthotropicUnAlteredElasticStiffnessTensor", "_compute_stiffness_tensor_8ixx.html#a0f581d3a1c8969166da65556d19b7707", null ],
-    [ "computeOrthotropicUnAlteredElasticStiffnessTensor", "_compute_stiffness_tensor_8ixx.html#a18a97c701e91e60aad12bb71341836cb", null ]
+    [ "computeOrthotropicAlteredElasticStiffnessTensor", "_compute_stiffness_tensor_8ixx.html#a39d86cc84c2fb5418615bb48fc1b078a", null ],
+    [ "computeOrthotropicAlteredElasticStiffnessTensor", "_compute_stiffness_tensor_8ixx.html#a2827b5768dc09cf33816693fc42eaa89", null ],
+    [ "computeOrthotropicAlteredElasticStiffnessTensor", "_compute_stiffness_tensor_8ixx.html#abc59b74d52713217118a24d64e58b893", null ],
+    [ "computeOrthotropicUnAlteredElasticStiffnessTensor", "_compute_stiffness_tensor_8ixx.html#a206dc9d7fa39f0f87df44488a18d02c2", null ],
+    [ "computeOrthotropicUnAlteredElasticStiffnessTensor", "_compute_stiffness_tensor_8ixx.html#a55bf275777f369340be78b0f7c1d4050", null ],
+    [ "computeOrthotropicUnAlteredElasticStiffnessTensor", "_compute_stiffness_tensor_8ixx.html#a2bce928f584d7561fa88eefe4e1f2112", null ]
 ];

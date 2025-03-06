@@ -1,5 +1,0 @@
-var structaster_1_1_aster_tangent_operator_type_3_01aster_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_570bc53173f01fc6dd295575fc371bc1 =
-[
-    [ "type", "structaster_1_1_aster_tangent_operator_type_3_01aster_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_570bc53173f01fc6dd295575fc371bc1.html#a9075d57777fbe7cec15135d0aa691fc2", null ],
-    [ "view_type", "structaster_1_1_aster_tangent_operator_type_3_01aster_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_570bc53173f01fc6dd295575fc371bc1.html#a59ae752fcb7beebb83868cb74ef1a68c", null ]
-];

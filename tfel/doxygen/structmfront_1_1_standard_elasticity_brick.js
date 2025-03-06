@@ -6,8 +6,7 @@ var structmfront_1_1_standard_elasticity_brick =
     [ "endTreatment", "structmfront_1_1_standard_elasticity_brick.html#a1f1e97b07d2c79a2b7cfe02536e2725e", null ],
     [ "getDescription", "structmfront_1_1_standard_elasticity_brick.html#a1546710ab403e288869d610ae0e7fc33", null ],
     [ "getName", "structmfront_1_1_standard_elasticity_brick.html#ae336c43d61591bc0a5d10f3362ff4fc9", null ],
-    [ "getOptions", "structmfront_1_1_standard_elasticity_brick.html#a6854d8b2525e54f83f1c0bbf176a1bbc", null ],
-    [ "getSupportedModellingHypotheses", "structmfront_1_1_standard_elasticity_brick.html#a0fe59bd2270a27687cbdacbafe657a2f", null ],
-    [ "initialize", "structmfront_1_1_standard_elasticity_brick.html#ac26369951297376009d2c0316432f051", null ],
-    [ "hooke", "structmfront_1_1_standard_elasticity_brick.html#a520b09a514a5648855323b82638fa2cf", null ]
+    [ "getOptions", "structmfront_1_1_standard_elasticity_brick.html#ac31162421f4cb7802212b3e90e2c5cc1", null ],
+    [ "getSupportedModellingHypotheses", "structmfront_1_1_standard_elasticity_brick.html#aaeb8d782af2f64deefd6f8571d1fb1de", null ],
+    [ "initialize", "structmfront_1_1_standard_elasticity_brick.html#ac26369951297376009d2c0316432f051", null ]
 ];

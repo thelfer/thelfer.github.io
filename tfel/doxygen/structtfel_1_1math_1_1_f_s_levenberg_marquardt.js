@@ -1,8 +1,8 @@
 var structtfel_1_1math_1_1_f_s_levenberg_marquardt =
 [
-    [ "Parameter", "structtfel_1_1math_1_1_f_s_levenberg_marquardt.html#a6821db3575b1a5db6d0bf56fde589a9e", null ],
-    [ "PtrFun", "structtfel_1_1math_1_1_f_s_levenberg_marquardt.html#a686cc938b6e2111e1d198b84df21dbdd", null ],
-    [ "Variable", "structtfel_1_1math_1_1_f_s_levenberg_marquardt.html#a3d2104b2e0ffc3435028397053e0dc9d", null ],
+    [ "Parameter", "structtfel_1_1math_1_1_f_s_levenberg_marquardt.html#a5065ba544c3d25d9677b6a97664b44ce", null ],
+    [ "PtrFun", "structtfel_1_1math_1_1_f_s_levenberg_marquardt.html#aa658c71b06d6d4734c19724bd043550b", null ],
+    [ "Variable", "structtfel_1_1math_1_1_f_s_levenberg_marquardt.html#a07a130bee948b0a042b0bcffd8850dc3", null ],
     [ "FSLevenbergMarquardt", "structtfel_1_1math_1_1_f_s_levenberg_marquardt.html#a237cc0f7e9c4525bc99bdb868a4c151a", null ],
     [ "addData", "structtfel_1_1math_1_1_f_s_levenberg_marquardt.html#ac11fe805f2eb8fea21d49b3968a3d328", null ],
     [ "execute", "structtfel_1_1math_1_1_f_s_levenberg_marquardt.html#a678e06a338f2bc845d6910c5b6930816", null ],

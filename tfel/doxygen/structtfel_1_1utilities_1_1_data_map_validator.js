@@ -5,8 +5,7 @@ var structtfel_1_1utilities_1_1_data_map_validator =
     [ "DataMapValidator", "structtfel_1_1utilities_1_1_data_map_validator.html#aba15da33b2c9dc63d382a767a887e45c", null ],
     [ "DataMapValidator", "structtfel_1_1utilities_1_1_data_map_validator.html#a82b36c600578eb695e735bfc36c4f280", null ],
     [ "~DataMapValidator", "structtfel_1_1utilities_1_1_data_map_validator.html#af7b5bfaf0a69e7b41a190418d6ea2586", null ],
-    [ "addDataValidator", "structtfel_1_1utilities_1_1_data_map_validator.html#ac4a456a423b364f37b1096a6f22aded4", null ],
-    [ "operator=", "structtfel_1_1utilities_1_1_data_map_validator.html#accbf9e4f7847f3c0ad2a4268876950c8", null ],
-    [ "operator=", "structtfel_1_1utilities_1_1_data_map_validator.html#a9db94ea64ef30901d0cc225dfb9443f7", null ],
-    [ "validate", "structtfel_1_1utilities_1_1_data_map_validator.html#aca35c9a6a1420f9466495daf9bd3a329", null ]
+    [ "operator=", "structtfel_1_1utilities_1_1_data_map_validator.html#aa6503cfc15b404e15c1cf5ad583b7fcc", null ],
+    [ "operator=", "structtfel_1_1utilities_1_1_data_map_validator.html#acffffd3e2908dc8ad925de08ee88ce40", null ],
+    [ "validate", "structtfel_1_1utilities_1_1_data_map_validator.html#afefedc157789d247f61ceae5992f2dec", null ]
 ];

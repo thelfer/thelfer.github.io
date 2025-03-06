@@ -1,6 +1,6 @@
 var _material_knowledge_description_8hxx =
 [
-    [ "MaterialKnowledgeDescription", "structmfront_1_1_material_knowledge_description.html", "structmfront_1_1_material_knowledge_description" ],
+    [ "mfront::MaterialKnowledgeDescription", "structmfront_1_1_material_knowledge_description.html", "structmfront_1_1_material_knowledge_description" ],
     [ "allowRuntimeModificationOfTheOutOfBoundsPolicy", "_material_knowledge_description_8hxx.html#a16ae595425168d2652e53ddd0c9786d3", null ],
     [ "allowsParametersInitializationFromFile", "_material_knowledge_description_8hxx.html#a03f2d6f2941541fff020756922899863", null ],
     [ "areParametersTreatedAsStaticVariables", "_material_knowledge_description_8hxx.html#a4b8fd2a7fc06151ed727703b7d7dff5a", null ],

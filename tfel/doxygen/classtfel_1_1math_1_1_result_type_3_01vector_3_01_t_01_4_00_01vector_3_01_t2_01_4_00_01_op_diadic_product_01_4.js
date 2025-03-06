@@ -1,4 +1,0 @@
-var classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_diadic_product_01_4 =
-[
-    [ "type", "classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_diadic_product_01_4.html#a72b80da79d803b795e436750b9043a05", null ]
-];

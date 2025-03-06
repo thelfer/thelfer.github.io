@@ -1,4 +1,0 @@
-var classtfel_1_1math_1_1_result_type_3_01stensor_3_01_n_00_01_t_01_4_00_01tensor_3_01_n_00_01_t2_01_4_00_01_op_mult_01_4 =
-[
-    [ "type", "classtfel_1_1math_1_1_result_type_3_01stensor_3_01_n_00_01_t_01_4_00_01tensor_3_01_n_00_01_t2_01_4_00_01_op_mult_01_4.html#a9b672da4112b6abf75a8173bca55948f", null ]
-];

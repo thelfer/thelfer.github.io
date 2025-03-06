@@ -1,4 +1,0 @@
-var structtfel_1_1config_1_1internals_1_1_thermal_conductivity_matrix_type_3_011u_00_01_t_00_01use__qt_01_4 =
-[
-    [ "type", "structtfel_1_1config_1_1internals_1_1_thermal_conductivity_matrix_type_3_011u_00_01_t_00_01use__qt_01_4.html#a04bf34a70e4f987d57dc5a86290dc738", null ]
-];

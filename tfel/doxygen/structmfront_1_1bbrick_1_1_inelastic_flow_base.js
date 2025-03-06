@@ -14,7 +14,7 @@ var structmfront_1_1bbrick_1_1_inelastic_flow_base =
     [ "computeInitialActivationState", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a5430287235bd66807c4f56f9ce645063", null ],
     [ "contributesToPorosityGrowth", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a928f60072f5464f6f81aaf0d386f564e", null ],
     [ "endTreatment", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#abe2eb20a295fe2f064c8f1233ed08b99", null ],
-    [ "getOptions", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a012ee72fc0abb284ebfbae73e5ba6641", null ],
+    [ "getOptions", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a2b9e704556e401c25156db403b843c4a", null ],
     [ "getPorosityEffectOnEquivalentPlasticStrain", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#af1a10cea3ee1189e4dee2eb8194732e4", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a879a897db3746f2fedf15ce712a74233", null ],
     [ "isCoupledWithPorosityEvolution", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a64ddce1dd113d82c551e5d85004bda66", null ],

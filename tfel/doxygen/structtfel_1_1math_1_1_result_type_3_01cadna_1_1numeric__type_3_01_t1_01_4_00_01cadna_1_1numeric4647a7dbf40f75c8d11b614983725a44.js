@@ -1,5 +1,0 @@
-var structtfel_1_1math_1_1_result_type_3_01cadna_1_1numeric__type_3_01_t1_01_4_00_01cadna_1_1numeric4647a7dbf40f75c8d11b614983725a44 =
-[
-    [ "dispatch", "structtfel_1_1math_1_1_result_type_3_01cadna_1_1numeric__type_3_01_t1_01_4_00_01cadna_1_1numeric4647a7dbf40f75c8d11b614983725a44.html#a31cedf6acad59c88aba0662e5bbbb7fd", null ],
-    [ "type", "structtfel_1_1math_1_1_result_type_3_01cadna_1_1numeric__type_3_01_t1_01_4_00_01cadna_1_1numeric4647a7dbf40f75c8d11b614983725a44.html#ae17f501f733c36c22ecb296dbed5ba6f", null ]
-];

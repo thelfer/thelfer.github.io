@@ -5,7 +5,7 @@ var _cazacu2001_yield_criterion_8hxx =
     [ "Cazacu2001StressNormalType", "_cazacu2001_yield_criterion_8hxx.html#a82e3ea90470f99924782fe954692a8c6", null ],
     [ "Cazacu2001StressSecondDerivativeType", "_cazacu2001_yield_criterion_8hxx.html#a08597265ce65a47d1cb12a0b66b1b199", null ],
     [ "Cazacu2001StressType", "_cazacu2001_yield_criterion_8hxx.html#a2cf39397ab07e3bdc67562f0de508f2f", null ],
-    [ "computeCazacu2001StressCriterion", "_cazacu2001_yield_criterion_8hxx.html#a2dc71a9632ea26958375b312cc15387e", null ],
-    [ "computeCazacu2001StressCriterionNormal", "_cazacu2001_yield_criterion_8hxx.html#a58fc16fb7751112944957fa4f962ced0", null ],
-    [ "computeCazacu2001StressCriterionSecondDerivative", "_cazacu2001_yield_criterion_8hxx.html#a777054bb1226f0d45ee7d7bd6a763b6c", null ]
+    [ "computeCazacu2001StressCriterion", "_cazacu2001_yield_criterion_8hxx.html#a04eb37427764f9d842dea3c143cb3e1a", null ],
+    [ "computeCazacu2001StressCriterionNormal", "_cazacu2001_yield_criterion_8hxx.html#af4cf9b40f73cb56ec03b1c2cf0ac87c6", null ],
+    [ "computeCazacu2001StressCriterionSecondDerivative", "_cazacu2001_yield_criterion_8hxx.html#af9ecf0f29397247569b6d9377a9245ae", null ]
 ];

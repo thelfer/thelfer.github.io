@@ -1,25 +1,12 @@
 var structnumodis_1_1_i_burgers =
 [
-    [ "size_type", "structnumodis_1_1_i_burgers.html#aa6a395034900bbda2e5ac133333cd16d", null ],
-    [ "IBurgers", "structnumodis_1_1_i_burgers.html#aa436679fdf7c89e7b1202ccc3c774cf7", null ],
-    [ "IBurgers", "structnumodis_1_1_i_burgers.html#a503a238beff043cf54f4065e71662e92", null ],
-    [ "~IBurgers", "structnumodis_1_1_i_burgers.html#a2f30c4ab6c054a641ca8f4f0f2f538e5", null ],
     [ "IBurgers", "structnumodis_1_1_i_burgers.html#ab5bff521ca02fb169732e5ecda7026c5", null ],
     [ "IBurgers", "structnumodis_1_1_i_burgers.html#adbfa6c2c023d167a1892b700ae813f50", null ],
-    [ "getIndex", "structnumodis_1_1_i_burgers.html#af9ed903ae685a7f8d0db04c82976db70", null ],
+    [ "getIndex", "structnumodis_1_1_i_burgers.html#ab4078181ac13a029397e0a35e07cdaf5", null ],
     [ "getIndex", "structnumodis_1_1_i_burgers.html#aa481a810089c1a96d34e9d12a19f3a78", null ],
     [ "getNindices", "structnumodis_1_1_i_burgers.html#a242c446c20729dee3336df1a1c07f3b3", null ],
     [ "IsNull", "structnumodis_1_1_i_burgers.html#ae464af71b4ad08cdbf89c9601dda0dbd", null ],
-    [ "operator+", "structnumodis_1_1_i_burgers.html#a09288a86a6581ee5cc37a9107a14e098", null ],
-    [ "operator+=", "structnumodis_1_1_i_burgers.html#a2e409ee186827876d323f7ed2db519c6", null ],
-    [ "operator-", "structnumodis_1_1_i_burgers.html#a5c64172b2670cff83ef184c4bc2d7c86", null ],
-    [ "operator-=", "structnumodis_1_1_i_burgers.html#a2ea49d0b957e02e94c4b56c8b6f4a41a", null ],
-    [ "operator/=", "structnumodis_1_1_i_burgers.html#abe4e6fac4f86dc7a5b5c00765db1a304", null ],
-    [ "operator=", "structnumodis_1_1_i_burgers.html#aecb3230f1473873933077c5eb5c7de94", null ],
-    [ "operator[]", "structnumodis_1_1_i_burgers.html#aace6a9c40e2e5866d981a62ab5f1e8b1", null ],
     [ "operator[]", "structnumodis_1_1_i_burgers.html#a28292d8010a55344d96c33654cb10b65", null ],
     [ "setIBurgers", "structnumodis_1_1_i_burgers.html#a56d10c5ebe3c7faad0e9d971e55b938d", null ],
-    [ "Coincide", "structnumodis_1_1_i_burgers.html#aae31d1236e80655db1a6c0354e150718", null ],
-    [ "operator<<", "structnumodis_1_1_i_burgers.html#a9dfa87c8baffb62111c3bf4ec3b71530", null ],
     [ "_index", "structnumodis_1_1_i_burgers.html#a3d85f742a244eeb5bfcf412ee5f02c56", null ]
 ];

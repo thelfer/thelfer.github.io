@@ -5,7 +5,7 @@ var structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows =
     [ "computeFlowRateAndDerivative", "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a46874d0c3e30a1701f7dce0bee32adea", null ],
     [ "describesStrainHardeningExplicitly", "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a7dcbd1699dd9c820a9f7d9ee910dd062", null ],
     [ "endTreatment", "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a5387e396ca29e9207d04583ac74ff5f3", null ],
-    [ "getOptions", "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a51654b26c990fb8bd31c52c21998bfbd", null ],
+    [ "getOptions", "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a454c22665139a4e2df5377c6a14b4ab6", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#ad04cb2c31a03fab7b2361c3a31919392", null ],
     [ "A", "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#acbb4e06818aec51e91da04f8c017fc99", null ],
     [ "K", "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a0780a3cbb0a1cb969bb513d8eff44beb", null ],

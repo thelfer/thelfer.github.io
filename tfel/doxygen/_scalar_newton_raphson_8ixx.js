@@ -1,6 +1,5 @@
 var _scalar_newton_raphson_8ixx =
 [
-    [ "LIB_TFEL_MATH_SCALARNEWTONRAPHSON_IXX", "_scalar_newton_raphson_8ixx.html#a408d6942ef336bab80d54e56ec465f36", null ],
-    [ "scalarNewtonRaphson", "_scalar_newton_raphson_8ixx.html#a4acecfed63f80323d4d1f3a13da6b9e0", null ],
-    [ "scalarNewtonRaphson", "_scalar_newton_raphson_8ixx.html#ad8f0b6160cbd1f54871cb5ef925b936e", null ]
+    [ "scalarNewtonRaphson", "_scalar_newton_raphson_8ixx.html#aa642c46411862f6136a50ed47f81e4c9", null ],
+    [ "scalarNewtonRaphson", "_scalar_newton_raphson_8ixx.html#a2d7fa46212b04e93bff1499af8e403b1", null ]
 ];

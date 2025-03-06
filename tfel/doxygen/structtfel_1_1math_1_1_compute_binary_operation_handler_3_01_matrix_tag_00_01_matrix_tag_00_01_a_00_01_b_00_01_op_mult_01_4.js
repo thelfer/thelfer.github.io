@@ -1,8 +1,4 @@
 var structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_matrix_tag_00_01_a_00_01_b_00_01_op_mult_01_4 =
 [
-    [ "DummyHandle", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_matrix_tag_00_01_a404695a19cedd02b6c49b3c8e726f504.html", null ],
-    [ "Handle", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_matrix_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#ac0ec19b0665d37f598cd109af4aa8599", null ],
-    [ "MatrixTypeA", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_matrix_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#afc8a2ef67dfab57f3163e73afa694232", null ],
-    [ "MatrixTypeB", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_matrix_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#a191a8843ffe1a294885980c920bd062c", null ],
-    [ "Result", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_matrix_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html#a7e3b7761e07a384420aafd994453e6df", null ]
+    [ "DummyHandle", "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_matrix_tag_00_01_a404695a19cedd02b6c49b3c8e726f504.html", null ]
 ];

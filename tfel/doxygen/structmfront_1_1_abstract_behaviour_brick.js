@@ -13,8 +13,8 @@ var structmfront_1_1_abstract_behaviour_brick =
     [ "endTreatment", "structmfront_1_1_abstract_behaviour_brick.html#a37fdd3f97b57b1c24326654f7e04e33d", null ],
     [ "getDescription", "structmfront_1_1_abstract_behaviour_brick.html#ae3c8c7df5ecb046d1770f4300678f8c9", null ],
     [ "getName", "structmfront_1_1_abstract_behaviour_brick.html#a6390ae4a4120cbf7f369595d4cc4a16f", null ],
-    [ "getOptions", "structmfront_1_1_abstract_behaviour_brick.html#ab706b79326b703aef50dfb5c0592aa50", null ],
-    [ "getSupportedModellingHypotheses", "structmfront_1_1_abstract_behaviour_brick.html#a9c1c6b7ce63a69ee2e138dffca23cd6a", null ],
+    [ "getOptions", "structmfront_1_1_abstract_behaviour_brick.html#a0067528500e1d61b5e334c0d1ecca1d6", null ],
+    [ "getSupportedModellingHypotheses", "structmfront_1_1_abstract_behaviour_brick.html#a2943bd5ecc5831a87446d53adbec9581", null ],
     [ "initialize", "structmfront_1_1_abstract_behaviour_brick.html#ab499e77788d59ded7b11e97c6dfd38c8", null ],
-    [ "treatKeyword", "structmfront_1_1_abstract_behaviour_brick.html#ab8c141ef1aca4fb452f1514626b28360", null ]
+    [ "treatKeyword", "structmfront_1_1_abstract_behaviour_brick.html#a6b8bbe3dec157c9b6e5ca5294cbe1a3f", null ]
 ];

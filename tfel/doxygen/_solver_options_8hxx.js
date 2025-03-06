@@ -1,6 +1,6 @@
 var _solver_options_8hxx =
 [
-    [ "SolverOptions", "structmtest_1_1_solver_options.html", "structmtest_1_1_solver_options" ],
+    [ "mtest::SolverOptions", "structmtest_1_1_solver_options.html", "structmtest_1_1_solver_options" ],
     [ "PredictionPolicy", "_solver_options_8hxx.html#ae1be4e758e0ed732b6c81c08d49a86ce", [
       [ "NOPREDICTION", "_solver_options_8hxx.html#ae1be4e758e0ed732b6c81c08d49a86cea30ce190765b5ce0d91a154846c132aa4", null ],
       [ "LINEARPREDICTION", "_solver_options_8hxx.html#ae1be4e758e0ed732b6c81c08d49a86cea2c0953ed75e32bbaee7062a4b28d28bf", null ],

@@ -8,8 +8,5 @@ var structmtest_1_1_irons_tuck_acceleration_algorithm =
     [ "postExecuteTasks", "structmtest_1_1_irons_tuck_acceleration_algorithm.html#a9e1bb4e0dbdb498d01983f23c19b5d21", null ],
     [ "preExecuteTasks", "structmtest_1_1_irons_tuck_acceleration_algorithm.html#ad45d87b506d9b1eecc2da3ea2abf333a", null ],
     [ "setParameter", "structmtest_1_1_irons_tuck_acceleration_algorithm.html#ac646fa3fc63e4a286e7ff1d3ad107c7d", null ],
-    [ "ita_dr", "structmtest_1_1_irons_tuck_acceleration_algorithm.html#aa0302fdc87d5458cab4cfd7a2c24d748", null ],
-    [ "ita_r0", "structmtest_1_1_irons_tuck_acceleration_algorithm.html#a93c2fe7d64f88c1b43deca10641eb627", null ],
-    [ "ita_r1", "structmtest_1_1_irons_tuck_acceleration_algorithm.html#a46ad09d5f1a050064c0c9cd3637f2755", null ],
     [ "itat", "structmtest_1_1_irons_tuck_acceleration_algorithm.html#a9da6250041a040d99ffcebf03285f9bc", null ]
 ];

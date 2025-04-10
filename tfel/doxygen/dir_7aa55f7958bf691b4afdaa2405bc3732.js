@@ -49,8 +49,6 @@ var dir_7aa55f7958bf691b4afdaa2405bc3732 =
     [ "CyranoEvolution.hxx", "_cyrano_evolution_8hxx.html", "_cyrano_evolution_8hxx" ],
     [ "CyranoMaterialProperty.hxx", "_cyrano_material_property_8hxx.html", "_cyrano_material_property_8hxx" ],
     [ "DianaFEASmallStrainBehaviour.hxx", "_diana_f_e_a_small_strain_behaviour_8hxx.html", "_diana_f_e_a_small_strain_behaviour_8hxx" ],
-    [ "EuroplexusFiniteStrainBehaviour.hxx", "_europlexus_finite_strain_behaviour_8hxx.html", "_europlexus_finite_strain_behaviour_8hxx" ],
-    [ "EuroplexusStandardBehaviour.hxx", "_europlexus_standard_behaviour_8hxx.html", "_europlexus_standard_behaviour_8hxx" ],
     [ "Evolution.hxx", "mtest_2include_2_m_test_2_evolution_8hxx.html", "mtest_2include_2_m_test_2_evolution_8hxx" ],
     [ "FAndersonAccelerationAlgorithm.hxx", "_f_anderson_acceleration_algorithm_8hxx.html", "_f_anderson_acceleration_algorithm_8hxx" ],
     [ "FunctionEvolution.hxx", "_function_evolution_8hxx.html", "_function_evolution_8hxx" ],

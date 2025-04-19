@@ -71,8 +71,6 @@ var namespacemfront =
     [ "DSLBase", "structmfront_1_1_d_s_l_base.html", "structmfront_1_1_d_s_l_base" ],
     [ "DSLFactory", "structmfront_1_1_d_s_l_factory.html", "structmfront_1_1_d_s_l_factory" ],
     [ "DSLProxy", "structmfront_1_1_d_s_l_proxy.html", "structmfront_1_1_d_s_l_proxy" ],
-    [ "EuroplexusInterface", "structmfront_1_1_europlexus_interface.html", "structmfront_1_1_europlexus_interface" ],
-    [ "EuroplexusSymbolsGenerator", "structmfront_1_1_europlexus_symbols_generator.html", "structmfront_1_1_europlexus_symbols_generator" ],
     [ "ExcelMaterialPropertyInterface", "structmfront_1_1_excel_material_property_interface.html", "structmfront_1_1_excel_material_property_interface" ],
     [ "ExcelMaterialPropertyInternalInterface", "structmfront_1_1_excel_material_property_internal_interface.html", "structmfront_1_1_excel_material_property_internal_interface" ],
     [ "ExecutableDescription", "structmfront_1_1_executable_description.html", "structmfront_1_1_executable_description" ],

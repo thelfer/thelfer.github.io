@@ -7,7 +7,6 @@ var namespaces_dup =
     [ "castem", "namespacecastem.html", "namespacecastem" ],
     [ "cyrano", "namespacecyrano.html", "namespacecyrano" ],
     [ "dianafea", "namespacedianafea.html", "namespacedianafea" ],
-    [ "epx", "namespaceepx.html", "namespaceepx" ],
     [ "mfront", "namespacemfront.html", "namespacemfront" ],
     [ "mtest", "namespacemtest.html", "namespacemtest" ],
     [ "tfel", "namespacetfel.html", "namespacetfel" ],

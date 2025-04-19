@@ -45,7 +45,6 @@ var structtfel_1_1system_1_1_external_library_manager =
     [ "getDescription", "structtfel_1_1system_1_1_external_library_manager.html#a084afb885e427362bb66cec8d0665af9", null ],
     [ "getDianaFEAExternalBehaviourFunction", "structtfel_1_1system_1_1_external_library_manager.html#a0e9d0c024f13c2d2d5bbbb441e840df5", null ],
     [ "getEntryPoints", "structtfel_1_1system_1_1_external_library_manager.html#a78c14c5fac26fee2c98eb6060120fa97", null ],
-    [ "getEuroplexusFunction", "structtfel_1_1system_1_1_external_library_manager.html#ad410616e51a12e1548a0716bacb4d24e", null ],
     [ "getFortranFunction0", "structtfel_1_1system_1_1_external_library_manager.html#af4e49faacfaf8281a40dd358bc9e875f", null ],
     [ "getFortranFunction1", "structtfel_1_1system_1_1_external_library_manager.html#a04a6b91593f56d392c46e80372d98f8e", null ],
     [ "getFortranFunction10", "structtfel_1_1system_1_1_external_library_manager.html#ad3d0b1c212a144e1ed6b01acd8c0882b", null ],

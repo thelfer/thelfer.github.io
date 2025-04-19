@@ -53,8 +53,6 @@ var namespacemtest =
     [ "CyranoEvolution", "structmtest_1_1_cyrano_evolution.html", "structmtest_1_1_cyrano_evolution" ],
     [ "CyranoMaterialProperty", "structmtest_1_1_cyrano_material_property.html", "structmtest_1_1_cyrano_material_property" ],
     [ "DianaFEASmallStrainBehaviour", "structmtest_1_1_diana_f_e_a_small_strain_behaviour.html", "structmtest_1_1_diana_f_e_a_small_strain_behaviour" ],
-    [ "EuroplexusFiniteStrainBehaviour", "structmtest_1_1_europlexus_finite_strain_behaviour.html", "structmtest_1_1_europlexus_finite_strain_behaviour" ],
-    [ "EuroplexusStandardBehaviour", "structmtest_1_1_europlexus_standard_behaviour.html", "structmtest_1_1_europlexus_standard_behaviour" ],
     [ "Evolution", "structmtest_1_1_evolution.html", "structmtest_1_1_evolution" ],
     [ "FAndersonAccelerationAlgorithm", "structmtest_1_1_f_anderson_acceleration_algorithm.html", "structmtest_1_1_f_anderson_acceleration_algorithm" ],
     [ "FunctionEvolution", "structmtest_1_1_function_evolution.html", "structmtest_1_1_function_evolution" ],

@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Implementation of Cailletaud’s beta rule for homogenization</title>
+    <title>Implementation of Cailletaud-Pilvin beta rule for homogenization</title>
         <meta name="author" content="Helfer Thomas/Martin Antoine" />
             <meta name="date" content="2025-02-10" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -274,7 +274,6 @@
 		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
 		    <li><a href="aster.html">Code-Aster</a></li>
     		    <li><a href="abaqus.html">Abaqus</a></li>
-    		    <li><a href="epx.html">EUROPLEXUS</a></li>
 		    <li><a href="zmat.html">ZeBuLoN</a></li>
    		    <li><a href="calculix.html">CalculiX</a></li>
 		    <!-- <li><a >TMFFT</a></li> -->
@@ -353,7 +352,7 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Implementation of Cailletaud’s beta rule for
+<h1 class="title">Implementation of Cailletaud-Pilvin beta rule for
 homogenization</h1>
 <h2 class="author">Helfer Thomas/Martin Antoine</h2>
 <h3 class="date">February 10, 2025</h3>
@@ -363,8 +362,9 @@ homogenization</h1>
 <li><a href="#theoretical-background"
 id="toc-theoretical-background">Theoretical background</a>
 <ul>
-<li><a href="#cailletauds-beta-rule"
-id="toc-cailletauds-beta-rule">Cailletaud’s beta rule</a></li>
+<li><a href="#cailletaud-pilvin-beta-rule"
+id="toc-cailletaud-pilvin-beta-rule">Cailletaud-Pilvin beta
+rule</a></li>
 <li><a href="#resolution-of-the-non-linear-system"
 id="toc-resolution-of-the-non-linear-system">Resolution of the
 non-linear system</a></li>
@@ -373,16 +373,23 @@ id="toc-consistent-tangent-operator">Consistent tangent
 operator</a></li>
 </ul></li>
 <li><a href="#implementation-in-mfront"
-id="toc-implementation-in-mfront">Implementation in MFront</a>
-<ul>
-<li><a href="#implementation-of-cailletauds-beta-rule"
-id="toc-implementation-of-cailletauds-beta-rule">Implementation of
-Cailletaud’s beta rule</a></li>
-</ul></li>
+id="toc-implementation-in-mfront">Implementation in MFront</a></li>
 <li><a href="#results" id="toc-results">Results</a></li>
+<li><a href="#implementation-with-static-condensation"
+id="toc-implementation-with-static-condensation">Implementation with
+static condensation</a>
+<ul>
+<li><a href="#non-linear-system" id="toc-non-linear-system">Non-linear
+system</a></li>
+<li><a href="#static-condensation" id="toc-static-condensation">Static
+condensation</a></li>
+<li><a href="#computation-of-the-macroscopic-tangent-operator"
+id="toc-computation-of-the-macroscopic-tangent-operator">Computation of
+the macroscopic tangent operator</a></li>
+</ul></li>
 </ul>
 </div>
-<p>This tutorial explains how to implement Cailletaud’s <span
+<p>This tutorial explains how to implement Cailletaud-Pilvin <span
 class="math inline">\(\beta\)</span>-rule <span class="citation"
 data-cites="cailletaud_pilvin_1994">[1]</span> in the context of
 elasto-viscoplastic composites using an arbitrary local flow function.
@@ -392,18 +399,18 @@ proposed.</p>
 <p>Here, the implementation of this homogenization scheme requires the
 local tangent operators, obtained via the integration of a local
 <code>Behaviour</code>.</p>
-<p>We first recall Cailletaud’s <span
+<p>We first recall Cailletaud-Pilvin <span
 class="math inline">\(\beta\)</span>-rule and present the non-linear
 system derived from it. We then implement it in <code>MFront</code> and
 explain how to use the keyword <code>@BehaviourVariable</code> for the
 integration of the local behaviours.</p>
 <h1 id="theoretical-background">Theoretical background</h1>
-<h2 id="cailletauds-beta-rule">Cailletaud’s beta rule</h2>
+<h2 id="cailletaud-pilvin-beta-rule">Cailletaud-Pilvin beta rule</h2>
 We consider a composite made of <span class="math inline">\(N\)</span>
-phases indexed by <span class="math inline">\(i\)</span>. Cailletaud’s
-<span class="math inline">\(\beta\)</span>-rule was proposed in the
-context of elasto-viscoplastic composites for which strain partition is
-assumed:
+phases indexed by <span class="math inline">\(i\)</span>.
+Cailletaud-Pilvin <span class="math inline">\(\beta\)</span>-rule was
+proposed in the context of elasto-viscoplastic composites for which
+strain partition is assumed:
 <span class="math display">\[\begin{aligned}
   \underline{\epsilon}^{\mathrm{to}}_i=\underline{\epsilon}^{\mathrm{el}}_i+\underline{\epsilon}^{\mathrm{vp}}_i
 \\
@@ -431,14 +438,12 @@ Assuming that <span class="math inline">\(\phi_i\)</span> is volume
 fraction of phase <span class="math inline">\(i\)</span>, the
 macroscopic strain field is defined as
 <span class="math display">\[\begin{aligned}
-\underline{E}= \sum_\alpha \phi_i \underline{\epsilon}^{\mathrm{to}}_i
-\\
+\underline{E}= \sum_i \phi_i \underline{\epsilon}^{\mathrm{to}}_i \\
 \end{aligned}\]</span>
 <p>and is given as a parameter.</p>
-In this context, the proposition of Cailletaud is to introduce an
-internal variable <span
-class="math inline">\(\underline{\beta}_i\)</span> on each phase, whose
-evolution is given by
+In this context, the proposition is to introduce an internal variable
+<span class="math inline">\(\underline{\beta}_i\)</span> on each phase,
+whose evolution is given by
 <span class="math display">\[\begin{aligned}
 \underline{\dot{\beta}}_i=
 \underline{\dot{\epsilon}}^{\mathrm{vp}}_i-D\,||\underline{\dot{\epsilon}}^{\mathrm{vp}}_i||\,\underline{\beta}_i
@@ -473,12 +478,12 @@ non-linear system</h2>
 variables. We choose <span
 class="math inline">\(\Delta\underline{\epsilon}^{\mathrm{to}}_i\)</span>,
 <span class="math inline">\(\Delta{\underline{\beta}}_i\)</span> and
-<span class="math inline">\(\Delta{\underline{\Sigma}}\)</span> as
+<span class="math inline">\(\Delta{\underline{\sigma}}\)</span> as
 unknowns of our non-linear system:</p>
 <p><span class="math inline">\(\left\{ \begin{aligned}
 &amp;\sum_{i=1}^{N}\phi_i\,\Delta\underline{\epsilon}^{\mathrm{to}}_i -
 \Delta\underline{E} = 0\\
-&amp;\Delta{\underline{\sigma}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)-\Delta{\underline{\Sigma}}-
+&amp;\Delta{\underline{\sigma}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)-\Delta{\underline{\sigma}}-
 c\,(\Delta\underline{B}-\Delta\underline{\beta}_i) = 0\qquad\forall i\\
 &amp;\Delta\underline{\beta}_i -
 \Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)+
@@ -492,8 +497,10 @@ and where <span
 class="math inline">\(\Delta{\underline{\sigma}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)\)</span>
 and <span
 class="math inline">\(\Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)\)</span>
-are obtained with the integration of the local behaviours. Note that the
-local elastic strain can also be computed with this local
+are obtained with the integration of the local behaviours. Indeed, we
+have <span
+class="math inline">\(\Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)=\Delta\underline{\epsilon}^{\mathrm{to}}_i-\underline{S}_i\mathbin{\mathord{:}}\Delta{\underline{\sigma}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)\)</span>.
+Note that the local elastic strain can also be computed with this local
 integration.</p>
 <p>To solve this non-linear problem in <code>MFront</code>, we use the
 <code>ImplicitII</code> <code>DSL</code> (because we do not consider
@@ -503,7 +510,7 @@ the Jacobian matrix. The residues are:</p>
 <p><span class="math inline">\(\left\{ \begin{aligned}
 &amp;f_{\underline{E}}=\sum_{i=1}^{N}\phi_i\,\Delta\underline{\epsilon}^{\mathrm{to}}_i
 - \Delta\underline{E}\\ &amp;f_{\underline{\epsilon}^{\mathrm{to}}_i}
-=\frac{1}{\sigma_0}\left[\Delta{\underline{\sigma}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)-\Delta{\underline{\Sigma}}-
+=\frac{1}{\sigma_0}\left[\Delta{\underline{\sigma}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)-\Delta{\underline{\sigma}}-
 c\,(\Delta\underline{B}-\Delta\underline{\beta}_i)\right] \qquad \forall
 i\\ &amp;f_{\underline{\beta}_i} =\Delta\underline{\beta}_i -
 \Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)+D\,||\Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)||\,(\underline{\beta}_i+\theta\Delta\underline{\beta}_i)
@@ -513,7 +520,7 @@ that give the same dimension and magnitude to the residues. The jacobian
 matrix is given by</p>
 <p><span class="math inline">\(\left\{ \begin{aligned}
 &amp;{\displaystyle \frac{\displaystyle \partial
-f_{\underline{E}}}{\displaystyle \partial \Delta{\underline{\Sigma}}}} =
+f_{\underline{E}}}{\displaystyle \partial \Delta{\underline{\sigma}}}} =
 \underline{\mathbf{0}}\\ &amp;{\displaystyle \frac{\displaystyle
 \partial f_{\underline{E}}}{\displaystyle \partial
 \Delta\underline{\epsilon}^{\mathrm{to}}_j}} =
@@ -522,7 +529,7 @@ f_{\underline{E}}}{\displaystyle \partial \Delta{\underline{\Sigma}}}} =
 \Delta{\underline{\beta}}_j}} = \underline{\mathbf{0}}\qquad \forall j\\
 &amp;{\displaystyle \frac{\displaystyle \partial
 f_{\underline{\epsilon}^{\mathrm{to}}_i}}{\displaystyle \partial
-\Delta{\underline{\Sigma}}}} =
+\Delta{\underline{\sigma}}}} =
 -\frac{1}{\sigma_0}\underline{\mathbf{I}}\qquad \forall i\\
 &amp;{\displaystyle \frac{\displaystyle \partial
 f_{\underline{\epsilon}^{\mathrm{to}}_i}}{\displaystyle \partial
@@ -536,7 +543,7 @@ f_{\underline{\epsilon}^{\mathrm{to}}_i}}{\displaystyle \partial
 \frac{c}{\sigma_0}\,(\delta_{ij}-\phi_j)\underline{\mathbf{I}}\qquad
 \forall i,j\\ &amp;{\displaystyle \frac{\displaystyle \partial
 f_{\underline{\beta}_i}}{\displaystyle \partial
-\Delta{\underline{\Sigma}}}} = \underline{\mathbf{0}}\qquad \forall i\\
+\Delta{\underline{\sigma}}}} = \underline{\mathbf{0}}\qquad \forall i\\
 &amp;{\displaystyle \frac{\displaystyle \partial
 f_{\underline{\beta}_i}}{\displaystyle \partial
 \Delta\underline{\epsilon}^{\mathrm{to}}_j}} =
@@ -593,7 +600,7 @@ such as
 <span class="math display">\[\begin{aligned}
 \Delta G_i = (\Delta\underline{\epsilon}^{\mathrm{to}}_i,
 \Delta{\underline{\beta}}_i)\\
-\Delta Y = (\Delta{\underline{\Sigma}},\Delta G_1,...,\Delta G_N)\\
+\Delta Y = (\Delta{\underline{\sigma}},\Delta G_1,...,\Delta G_N)\\
 \end{aligned}\]</span>
 and <span
 class="math inline">\(H_i=(f_{\underline{\epsilon}^{\mathrm{to}}_i},f_{\underline{\beta}_i})\)</span>
@@ -615,7 +622,7 @@ Y}}\)</span> is the Jacobian of the system.</p>
 <p>Given the form of <span class="math inline">\({\displaystyle
 \frac{\displaystyle \partial F}{\displaystyle \partial \Delta
 \underline{E}}}\)</span>, <span class="math inline">\({\displaystyle
-\frac{\displaystyle \partial \Delta{\underline{\Sigma}}}{\displaystyle
+\frac{\displaystyle \partial \Delta{\underline{\sigma}}}{\displaystyle
 \partial \Delta\underline{E}}}\)</span> can be retrieved from the <span
 class="math inline">\(6\times 6\)</span> upper-left submatrix of <span
 class="math inline">\(\mathbf{J}^{-1}\)</span>.</p>
@@ -628,8 +635,6 @@ href="./MericCailletaudSingleCrystalPlasticity.html">here</a>.</p>
 <code>MericCailletaudSingleCrystalViscoPlasticity.mfront</code>,
 <code>BetaRule.mfront</code> and <code>BetaRule.mtest</code> can be
 downloaded <a href="./downloads/BetaRule.zip">here</a>.</p>
-<h2 id="implementation-of-cailletauds-beta-rule">Implementation of
-Cailletaud’s beta rule</h2>
 <p>For the example, we assume that the composites is made of only 2
 phases. We hence define the integration variables:</p>
 <div class="sourceCode" id="BetaRule"><pre
@@ -753,10 +758,235 @@ class="math inline">\(\underline{\sigma}_i\)</span> as a function of
 <span class="math inline">\(\underline{\epsilon}_i\)</span>).</p>
 <figure>
 <img src="./img/BetaRule.png"
-alt="Macroscopic stress as a function of local strain, uniaxial tensile test, Cailletaud’s beta rule" />
+alt="Macroscopic stress as a function of local strain, uniaxial tensile test, Cailletaud-Pilvin beta rule" />
 <figcaption aria-hidden="true">Macroscopic stress as a function of local
-strain, uniaxial tensile test, Cailletaud’s beta rule</figcaption>
+strain, uniaxial tensile test, Cailletaud-Pilvin beta rule</figcaption>
 </figure>
+<h1 id="implementation-with-static-condensation">Implementation with
+static condensation</h1>
+<p>When a huge number of phases are involved in the microstructure, the
+non-linear system previously presented becomes huge and the static
+condensation permits to handle this high number of unknowns. Indeed, the
+linear system resolved at each step of the Newton algorithm is reduced
+by using only the macroscopic variables <span
+class="math inline">\(\Delta\underline{B}\)</span> and <span
+class="math inline">\(\Delta\underline{\Sigma}\)</span> as unknowns in
+this system. The increments of the local unknowns are deduced
+afterwards.</p>
+<h2 id="non-linear-system">Non-linear system</h2>
+We first choose our unknowns to be <span
+class="math inline">\(\Delta\underline{B}\)</span>, <span
+class="math inline">\(\Delta\underline{\Sigma}\)</span>, <span
+class="math inline">\(\Delta\underline{\epsilon}^{\mathrm{to}}_i\)</span>
+and <span class="math inline">\(\Delta\underline{\beta}_i\)</span>. The
+corresponding residues are
+<span class="math display">\[\begin{aligned}
+&amp;\underline{r}_{\underline{B}}=\Delta\underline{B}-\sum_i f_i
+\Delta\underline{\beta}_i\\
+&amp;\underline{r}_{\underline{E}}=\sum_i f_i
+\Delta\underline{\epsilon}^{\mathrm{to}}_i-\Delta\underline{E}\\
+&amp;\underline{r}_{\underline{\epsilon}_i}=\frac{1}{\sigma_0}\left[\Delta{\underline{\sigma}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)-\Delta\underline{\Sigma  }-
+c\,(\Delta\underline{B}-\Delta\underline{\beta}_i)\right]\qquad (\forall
+\alpha)\\
+&amp;\underline{r}_{\underline{\beta}_i}=\Delta\underline{\beta}_i-\Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)+D\,||\Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)||\,\underline{\beta}_i\qquad
+(\forall \alpha)\\
+\end{aligned}\]</span>
+<h2 id="static-condensation">Static condensation</h2>
+<p>Here we want to reduce our system and choose <span
+class="math inline">\(\Delta\underline{B}\)</span>, <span
+class="math inline">\(\Delta\underline{\Sigma}\)</span> as the main
+unkonwns.</p>
+<p>To that extent, we first express the Newton-Raphson increments <span
+class="math inline">\(\delta\Delta\underline{\epsilon}^{\mathrm{to}}_i\)</span>
+and <span class="math inline">\(\delta\Delta\underline{\beta}_i\)</span>
+as functions of the increments <span
+class="math inline">\(\delta\Delta\underline{B}\)</span> and <span
+class="math inline">\(\delta\Delta\underline{\Sigma}\)</span>. We
+have</p>
+<p><span
+class="math inline">\(-\underline{r}_{\underline{\epsilon}_i}=\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{B}}\mathbin{\mathord{:}}\delta\Delta\underline{B}+\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{\Sigma}}\mathbin{\mathord{:}}\delta\Delta\underline{\Sigma}+\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{\beta}_i}\mathbin{\mathord{:}}\delta\Delta\underline{\beta}_i+\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{\epsilon}_i}\mathbin{\mathord{:}}\delta\Delta\underline{\epsilon}^{\mathrm{to}}_i\)</span></p>
+<p>with</p>
+<span class="math display">\[\begin{aligned}
+&amp;\dfrac{\partial \underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{B}}=-\frac{c}{\sigma_0}\,\underline{\mathbf{I}},
+\qquad\qquad
+\dfrac{\partial \underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{\Sigma}}=-\frac{1}{\sigma_0}\,\underline{\mathbf{I}} \\
+&amp;\dfrac{\partial \underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{\beta}_i}
+=\frac{c}{\sigma_0}\,\underline{\mathbf{I}},\qquad\qquad
+\dfrac{\partial \underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_i}
+=\frac{1}{\sigma_0}\,\dfrac{\partial\Delta{\underline{\sigma}}_i}{\partial\Delta\underline{\epsilon}^{\mathrm{to}}_i}
+\\
+\end{aligned}\]</span>
+<p>Let us now do the same with the second residue:</p>
+<p><span
+class="math inline">\(-\underline{r}_{\underline{\beta}_i}=\dfrac{\partial
+\underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\beta}_i}\mathbin{\mathord{:}}\delta\Delta\underline{\beta}_i+\dfrac{\partial
+\underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_i}\mathbin{\mathord{:}}\delta\Delta\underline{\epsilon}^{\mathrm{to}}_i\)</span></p>
+with
+<span class="math display">\[\begin{aligned}
+&amp;\dfrac{\partial \underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\beta}_i}
+=\left(1+\theta\,D\,||\Delta\underline{\epsilon}^{\mathrm{vp}}_i||\right)\underline{\mathbf{I}}\\
+&amp;\dfrac{\partial \underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_i} = \left(\frac
+{2D}3\,{\underline{\beta}_i|}_{t+\theta\Delta
+t}\otimes\underline{n}_i-\underline{\mathbf{I}}\right)\mathbin{\mathord{:}}\dfrac{\partial\underline{\epsilon}^{\mathrm{vp}}_i}{\partial\Delta\underline{\epsilon}^{\mathrm{to}}_i},\qquad\underline{n}_i&amp;=\dfrac{\Delta\underline{\epsilon}^{\mathrm{vp}}_i}{||\Delta\underline{\epsilon}^{\mathrm{vp}}_i||}\\
+\end{aligned}\]</span>
+<p>and <span class="math inline">\(\underline{\mathbf{I}}\)</span> is
+the fourth-rank identity tensor.</p>
+<p>Due to its form, <span class="math inline">\(\dfrac{\partial
+\underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\beta}_i}\)</span> is invertible. Hence,</p>
+<p><span
+class="math inline">\(\delta\Delta\underline{\beta}_i=-\left(\dfrac{\partial
+\underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\beta}_i}\right)^{-1}\mathbin{\mathord{:}}\left[\underline{r}_{\underline{\beta}_i}+\dfrac{\partial
+\underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\epsilon}^{\mathrm{to}}_i}\mathbin{\mathord{:}}\delta\Delta\underline{\epsilon}^{\mathrm{to}}_i\right]\)</span></p>
+<p>and this can be put into the residue <span
+class="math inline">\(r_{\underline{\epsilon}_i}\)</span>:</p>
+<p><span
+class="math inline">\(-\underline{r}_{\underline{\epsilon}_i}-\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{B}}\mathbin{\mathord{:}}\delta\Delta\underline{B}-\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{\Sigma}}\mathbin{\mathord{:}}\delta\Delta\underline{\Sigma}=\underline{\mathbf{a}}_i\mathbin{\mathord{:}}\delta\Delta\underline{\varepsilon}_i+\underline{b}_i\)</span></p>
+<p>with <span
+class="math inline">\(\underline{\mathbf{a}}_i=-\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{\beta}_i}\mathbin{\mathord{:}}\left(\dfrac{\partial
+\underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\beta}_i}\right)^{-1}\mathbin{\mathord{:}}\dfrac{\partial
+\underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\epsilon}_i}+\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{\epsilon}_i},\qquad \underline{b}_i = -\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{\beta}_i}\mathbin{\mathord{:}}\left(\dfrac{\partial
+\underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\beta}_i}\right)^{-1}\mathbin{\mathord{:}}\underline{r}_{\underline{\beta}_i}\)</span></p>
+<p>Here, if <span
+class="math inline">\(\underline{\mathbf{a}}_i\)</span> is not
+invertible, this means that the Newton-Raphson algorithm will fail to
+solve the non-linear system, which is independent from the static
+condensation. Hence, we assume <span
+class="math inline">\(\underline{a}_i\)</span> is invertible and we
+write</p>
+<p><span
+class="math inline">\(\delta\Delta\underline{\epsilon}^{\mathrm{to}}_i=\underline{\mathbf{a}}_i^{-1}\mathbin{\mathord{:}}\left[-\underline{r}_{\underline{\epsilon}_i}-\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{B}}\mathbin{\mathord{:}}\delta\Delta\underline{B}-\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{\Sigma}}\mathbin{\mathord{:}}\delta\Delta\underline{\Sigma}-\underline{b}_i\right]\)</span></p>
+<p><span
+class="math inline">\(\delta\Delta\underline{\epsilon}^{\mathrm{to}}_i,\delta\Delta\underline{\beta}_i\)</span>
+can then be expressed as functions of <span
+class="math inline">\(\delta\Delta\underline{B}\)</span>, <span
+class="math inline">\(\delta\Delta\underline{\Sigma}\)</span> via the
+‘decondensation relations’.</p>
+<p>Coming back to the residue <span
+class="math inline">\(\underline{r}_{\underline{E}}\)</span> and <span
+class="math inline">\(\underline{r}_{\underline{B}}\)</span>:</p>
+<span class="math display">\[\begin{aligned}
+-\underline{r}_{\underline{E}}&amp;=\sum_i f_i
+\delta\Delta\underline{\epsilon}^{\mathrm{to}}_i\\
+-\underline{r}_{\underline{B}}&amp;=\delta\Delta\underline{B}-\sum_i f_i
+\delta\Delta\underline{\beta}_i\\
+\end{aligned}\]</span>
+<p>and replacing <span
+class="math inline">\(\delta\Delta\underline{\epsilon}^{\mathrm{to}}_i\)</span>
+and <span class="math inline">\(\delta\Delta\underline{\beta}_i\)</span>
+by their expressions,</p>
+<p><span class="math display">\[\begin{equation}
+\begin{pmatrix}
+\underline{\mathbf{P}}&amp;\underline{\mathbf{Q}}\\
+\underline{\mathbf{R}}&amp;\underline{\mathbf{S}}\\
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\delta\Delta\underline{\Sigma}\\
+\delta\Delta\underline{B}
+\end{pmatrix}
+=
+\begin{pmatrix}
+-\underline{r}_{\underline{E}}-\underline{T}\\
+-\underline{r}_{\underline{B}}-\underline{U}
+\end{pmatrix}
+\end{equation}\]</span> where</p>
+<span class="math display">\[\begin{aligned}
+\underline{\mathbf{P}}&amp;=-\sum_i
+f_i\underline{\mathbf{a}}_i^{-1}\mathbin{\mathord{:}}\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{\Sigma}},\qquad\underline{\mathbf{Q}}=-\sum_i
+f_i\underline{\mathbf{a}}_i^{-1}\mathbin{\mathord{:}}\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial \Delta\underline{B}}\\
+\underline{\mathbf{R}}&amp;=-\sum_i f_i \left(\dfrac{\partial
+\underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\beta}_i}\right)^{-1}\mathbin{\mathord{:}}\dfrac{\partial
+\underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\epsilon}_i}\mathbin{\mathord{:}}\underline{\mathbf{a}}_i^{-1}\mathbin{\mathord{:}}\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial
+\Delta\underline{\Sigma}}\\
+\underline{\mathbf{S}}&amp;=\underline{I}-\sum_i
+f_i\left(\dfrac{\partial \underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\beta}_i}\right)^{-1}\mathbin{\mathord{:}}\dfrac{\partial
+\underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\epsilon}_i}\mathbin{\mathord{:}}\underline{\mathbf{a}}_i^{-1}\mathbin{\mathord{:}}\dfrac{\partial
+\underline{r}_{\underline{\epsilon}_i}}{\partial \Delta\underline{B}}\\
+\underline{T}&amp;=-\sum_i
+f_i\underline{\mathbf{a}}_i^{-1}\mathbin{\mathord{:}}\left(\underline{r}_{\underline{\varepsilon}_i}+\underline{b}_i\right),\qquad\underline{U}=\sum_i
+f_i \left(\dfrac{\partial \underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\beta}_i}\right)^{-1}\mathbin{\mathord{:}}\left[\underline{r}_{\underline{\beta}_i}-\dfrac{\partial
+\underline{r}_{\underline{\beta}_i}}{\partial
+\Delta\underline{\epsilon}_i}\mathbin{\mathord{:}}\underline{\mathbf{a}}_i^{-1}\mathbin{\mathord{:}}\left(\underline{r}_{\underline{\varepsilon}_i}+\underline{b}_i\right)\right]\\
+\end{aligned}\]</span>
+<p>We can see that <span
+class="math inline">\(\delta\Delta\underline{\Sigma}\)</span> and <span
+class="math inline">\(\delta\Delta\underline{B}\)</span> are solutions
+of a <span class="math inline">\(12\times 12\)</span> linear system,
+whose matrix is the jacobian matrix, noted <span
+class="math inline">\(\underline{J}\)</span> in the following. Here
+again, the existence of a unique solution to this system is strongly
+correlated to the convergence of the global Newton-Raphson algorithm,
+convergence which is independent to the static condensation.</p>
+<h2 id="computation-of-the-macroscopic-tangent-operator">Computation of
+the macroscopic tangent operator</h2>
+<p>The computation of the tangent operator is similar as above. Indeed,
+we can define <span class="math inline">\(\Delta \underline{Y}=(\Delta
+\underline{\Sigma},\Delta \underline{B})\)</span>, and <span
+class="math inline">\(\underline{R}=(\underline{r}_{\underline{E}},\underline{r}_{\underline{B}})\)</span>
+so that for every <span
+class="math inline">\(\Delta\underline{E}\)</span>, <span
+class="math display">\[\begin{equation}
+  \underline{R}(\Delta\underline{E},\Delta
+\underline{Y}(\Delta\underline{E}))=0,\qquad\text{and then\ \ }
+  \dfrac{\partial \Delta \underline{Y}}{\partial
+\Delta\underline{E}}=-\mathbf{J}^{-1}\cdot\dfrac{\partial
+\underline{R}}{\partial \Delta \underline{E}}
+\end{equation}\]</span> where <span
+class="math inline">\(\mathbf{J}=\dfrac{\partial \underline{R}}{\partial
+\Delta \underline{Y}}\)</span> is the jacobian matrix previously
+defined. Because <span class="math inline">\(\dfrac{\partial
+\underline{R}}{\partial \Delta
+\underline{E}}=(-\underline{\mathbf{I}},\underline{\mathbf{0}})\)</span>,
+we can state that <span
+class="math inline">\(\dfrac{\partial\underline{\Sigma}}{\partial\underline{E}}\)</span>
+is equal to the <span class="math inline">\(6\times 6\)</span>
+upper-left submatrix of <span
+class="math inline">\(\mathbf{J}^{-1}\)</span>.</p>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-cailletaud_pilvin_1994" class="csl-entry" role="listitem">

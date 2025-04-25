@@ -8,6 +8,7 @@ var _data_8hxx =
     [ "DataMap", "_data_8hxx.html#a9f8fccb5eab542fcfe15ebd521fdbfb9", null ],
     [ "DataTypes", "_data_8hxx.html#a9a5a2eb6070860c23e59f235b64c9428", null ],
     [ "isDataType", "_data_8hxx.html#ad79df9178912dacda5b646c92188f289", null ],
+    [ "check_keys", "_data_8hxx.html#ad7f7016461ac552473bbe06106d0f6c3", null ],
     [ "contains", "_data_8hxx.html#a383b493269845a5a94395e32abbb4fb5", null ],
     [ "convert", "_data_8hxx.html#adc8aa1be76817e4e85629b8fa7ebd44f", null ],
     [ "extract", "_data_8hxx.html#aece30a89c8c61e239f01076c54588d3e", null ],

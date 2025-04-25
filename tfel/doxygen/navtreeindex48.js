@@ -1,5 +1,12 @@
 var NAVTREEINDEX48 =
 {
+"structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#a6c1e45ebae4e5446a460b03d0e5f1b29":[7,0,10,0,4,1],
+"structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#a6f62ea6ab703d5b85f5e76594bd52dde":[7,0,10,0,4,5],
+"structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#a83ea0e948f2ff8a0b88df532bafee31c":[7,0,10,0,4,3],
+"structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#a8a636e0d7018c8be9a87103122eb0974":[7,0,10,0,4,10],
+"structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#abb9709745644c40a916c2fb75b649d96":[7,0,10,0,4,12],
+"structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#af06cdfd09c13d1d6087ab95788d95883":[7,0,10,0,4,4],
+"structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#af1d65b86c20e0a813f49561e0ac84e2c":[7,0,10,0,4,8],
 "structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html":[7,0,10,0,5],
 "structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a0352598689c046a6f15b1d4f21e9b4f7":[7,0,10,0,5,2],
 "structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a0a266f23b6d196b2c68f04e617b725a2":[7,0,10,0,5,9],
@@ -242,12 +249,5 @@ var NAVTREEINDEX48 =
 "structmfront_1_1bbrick_1_1_inelastic_flow_factory.html#a1b41cb664a01cae4ef27f2a135383f46":[7,0,10,0,23,1],
 "structmfront_1_1bbrick_1_1_inelastic_flow_factory.html#a37a95811a4869947cf38d4809ec7b153":[7,0,10,0,23,2],
 "structmfront_1_1bbrick_1_1_inelastic_flow_factory.html#a4cb4327f61ad77552f72516ebc2fa6ca":[7,0,10,0,23,3],
-"structmfront_1_1bbrick_1_1_inelastic_flow_factory.html#a57bd1ecc3840c4bdd36c83ef2085e13e":[7,0,10,0,23,0],
-"structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html":[7,0,10,0,24],
-"structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a076503064632ccfb0911ce851440b163":[7,0,10,0,24,5],
-"structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a21307d8b7eabad8e40402d2b68dab1d2":[7,0,10,0,24,2],
-"structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a22520b60c21100d765fad34535d4984b":[7,0,10,0,24,11],
-"structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a3ef336e5b694f645e93ee4b80a0f26c9":[7,0,10,0,24,3],
-"structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a8000b3c8561c14faf20eed5010dfb6c7":[7,0,10,0,24,0],
-"structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a9ee1316fc50349efe3096571a19caef5":[7,0,10,0,24,4]
+"structmfront_1_1bbrick_1_1_inelastic_flow_factory.html#a57bd1ecc3840c4bdd36c83ef2085e13e":[7,0,10,0,23,0]
 };

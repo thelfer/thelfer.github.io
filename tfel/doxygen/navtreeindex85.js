@@ -1,5 +1,7 @@
 var NAVTREEINDEX85 =
 {
+"structtfel_1_1system_1_1_external_material_knowledge_description.html#a4f152f1321d890e6ac6d7f51c338cbbc":[7,0,14,8,29,4],
+"structtfel_1_1system_1_1_external_material_knowledge_description.html#a533b343e60f2d93ee40ff7cd15f6a61f":[7,0,14,8,29,7],
 "structtfel_1_1system_1_1_external_material_knowledge_description.html#a542cc2bbfa1488f735996b56660c14fe":[7,0,14,8,29,8],
 "structtfel_1_1system_1_1_external_material_knowledge_description.html#a579efca3a729de41cf6d5dc03d057c4d":[7,0,14,8,29,5],
 "structtfel_1_1system_1_1_external_material_knowledge_description.html#a5b96f0fab1ffcc814b184caee60546c8":[7,0,14,8,29,16],
@@ -247,7 +249,5 @@ var NAVTREEINDEX85 =
 "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1tmatrix_3_01_n_00_01_m_00_01_t37f047bd1efe535e0fc81f632db85462.html":[7,0,14,10,24],
 "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1tvector_3_01_n_00_01_t2_01_4_03e944522e68bca84cb81290beefdce6d.html":[7,0,14,10,25],
 "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1vector_3_01_value_type_01_4_0060b14d73ecc6690fe4e668f2fe2f377b.html":[7,0,14,10,26],
-"structtfel_1_1typetraits_1_1_is_complex.html":[7,0,14,10,31],
-"structtfel_1_1typetraits_1_1_is_complex_3_01cadna_1_1numeric__type_3_01_t_01_4_01_4.html":[7,0,14,10,32],
-"structtfel_1_1typetraits_1_1_is_complex_3_01const_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_9fd8c359fa1e177fd9761aced08a4d85.html":[7,0,14,10,33]
+"structtfel_1_1typetraits_1_1_is_complex.html":[7,0,14,10,31]
 };

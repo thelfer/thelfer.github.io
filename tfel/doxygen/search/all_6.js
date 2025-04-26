@@ -143,7 +143,7 @@ var searchData=
   ['boundscheck_3c_202u_20_3e_140',['BoundsCheck&lt; 2u &gt;',['../structtfel_1_1material_1_1_bounds_check_3_012u_01_4.html',1,'tfel::material']]],
   ['boundscheck_3c_203u_20_3e_141',['BoundsCheck&lt; 3u &gt;',['../structtfel_1_1material_1_1_bounds_check_3_013u_01_4.html',1,'tfel::material']]],
   ['boundscheckbase_142',['BoundsCheckBase',['../structtfel_1_1material_1_1_bounds_check_base.html',1,'tfel::material']]],
-  ['boundstype_143',['boundstype',['../structmfront_1_1_variable_bounds_description.html#a717ded1ded8da8f800a1d58feafab7fe',1,'mfront::VariableBoundsDescription::BoundsType'],['../structmfront_1_1_variable_bounds_description.html#a48e7db329efa660fdbc7027e2bf6fc5b',1,'mfront::VariableBoundsDescription::boundsType']]],
+  ['boundstype_143',['boundstype',['../structmfront_1_1_variable_bounds_description.html#a48e7db329efa660fdbc7027e2bf6fc5b',1,'mfront::VariableBoundsDescription::boundsType'],['../structmfront_1_1_variable_bounds_description.html#a717ded1ded8da8f800a1d58feafab7fe',1,'mfront::VariableBoundsDescription::BoundsType']]],
   ['bricks_144',['bricks',['../structmfront_1_1_behaviour_d_s_l_common.html#a6e68acf3d61235dd30da808efbecc7b6',1,'mfront::BehaviourDSLCommon']]],
   ['brickutilities_2ehxx_145',['BrickUtilities.hxx',['../_brick_utilities_8hxx.html',1,'']]],
   ['brickutilities_2eixx_146',['BrickUtilities.ixx',['../_brick_utilities_8ixx.html',1,'']]],

@@ -25,6 +25,7 @@ var structmfront_1_1bbrick_1_1_inelastic_flow_base =
     [ "cosine_check_maximum_iteration_factor", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a495cc378185d87671beaa0b64f1d7c90", null ],
     [ "cosine_check_minimum_iteration_factor", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a671dd3335adc47b51a66729def827c19", null ],
     [ "cosine_threshold", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a79a868ddd962018d01cb20b9b448a2ad", null ],
+    [ "equivalent_strain_external_name", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a4f89df6854a92bd6634f891de740b91c", null ],
     [ "fc", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#aa128e20c4392c3b9320caba75b4c087e", null ],
     [ "ihrs", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#ace40c01e3e816e9e3e2835459a2e27f6", null ],
     [ "khrs", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a96c75e1d099e3f9ea20b97338ff41555", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX85 =
 {
+"structtfel_1_1system_1_1_external_material_knowledge_description.html#a30305997d0debe8408d1209809d0e33c":[7,0,14,8,29,13],
 "structtfel_1_1system_1_1_external_material_knowledge_description.html#a3c74d7087fbdac49a87461475697c03c":[7,0,14,8,29,6],
 "structtfel_1_1system_1_1_external_material_knowledge_description.html#a47e1db0c8f564b1ee43b1948d3e81172":[7,0,14,8,29,2],
 "structtfel_1_1system_1_1_external_material_knowledge_description.html#a4f152f1321d890e6ac6d7f51c338cbbc":[7,0,14,8,29,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX85 =
 "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1t2tost2_3_01_n_00_01_t2_01_4_06b16cfe3c3f0c4c3d71dfa3fb6d6dea3.html":[7,0,14,10,21],
 "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1t2tot2_3_01_n_00_01_t2_01_4_00848f252b5cd46b21a2bef8732360a8a6.html":[7,0,14,10,22],
 "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1tensor_3_01_n_00_01_t2_01_4_004c8fc4db6b6d41f876222c1e80d65e47.html":[7,0,14,10,23],
-"structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1tmatrix_3_01_n_00_01_m_00_01_t37f047bd1efe535e0fc81f632db85462.html":[7,0,14,10,24],
-"structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1tvector_3_01_n_00_01_t2_01_4_03e944522e68bca84cb81290beefdce6d.html":[7,0,14,10,25]
+"structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1tmatrix_3_01_n_00_01_m_00_01_t37f047bd1efe535e0fc81f632db85462.html":[7,0,14,10,24]
 };

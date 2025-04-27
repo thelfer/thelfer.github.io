@@ -1,5 +1,7 @@
 var NAVTREEINDEX49 =
 {
+"structmfront_1_1bbrick_1_1_inelastic_flow_factory.html#a1b41cb664a01cae4ef27f2a135383f46":[7,0,10,0,23,1],
+"structmfront_1_1bbrick_1_1_inelastic_flow_factory.html#a37a95811a4869947cf38d4809ec7b153":[7,0,10,0,23,2],
 "structmfront_1_1bbrick_1_1_inelastic_flow_factory.html#a4cb4327f61ad77552f72516ebc2fa6ca":[7,0,10,0,23,3],
 "structmfront_1_1bbrick_1_1_inelastic_flow_factory.html#a57bd1ecc3840c4bdd36c83ef2085e13e":[7,0,10,0,23,0],
 "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html":[7,0,10,0,24],
@@ -247,7 +249,5 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#a706326e61a712d8dbd0a8e905246f760":[7,0,10,0,48,5],
 "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#a75d94e394e544a50e944ed23121abb54":[7,0,10,0,48,1],
 "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#a865db5ce7a8264a7db658c33a38ce568":[7,0,10,0,48,6],
-"structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#aa8602c813404abf663364a76c3e7a46b":[7,0,10,0,48,3],
-"structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#ab3f52c2f23e9740cd9109da2ea6e1cb6":[7,0,10,0,48,2],
-"structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#abe7f4712bcb5f423501720105f3a48e6":[7,0,10,0,48,8]
+"structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#aa8602c813404abf663364a76c3e7a46b":[7,0,10,0,48,3]
 };

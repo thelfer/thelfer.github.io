@@ -33,6 +33,8 @@ var structmfront_1_1bbrick_1_1_inelastic_flow_base =
     [ "porosity_evolution_explicitely_handled", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#aa0ef4cff5d615583af68445803ce6ca2", null ],
     [ "save_porosity_increase", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#afbe0512ef25468bc8b10f46d9f8cfcfa", null ],
     [ "save_stress_criterion", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a3571c21511caa65a17e7344d9dbaf1d5", null ],
+    [ "save_yield_surface_radius", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a12ab89f6f086be8f4ecd600aae2e2835", null ],
     [ "sc", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#adcbc1c336d53e0bda9e1e7d0c1f79db3", null ],
-    [ "stress_criterion_external_name", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#ae930ea6e3a406a8954a56c197931d0e6", null ]
+    [ "stress_criterion_external_name", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#ae930ea6e3a406a8954a56c197931d0e6", null ],
+    [ "yield_surface_radius_external_name", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#aaf42f9756cf48d01af0424feba3ec2d6", null ]
 ];

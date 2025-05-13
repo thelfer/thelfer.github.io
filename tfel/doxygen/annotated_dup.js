@@ -1023,6 +1023,7 @@ var annotated_dup =
       [ "material", "namespacetfel_1_1material.html", [
         [ "homogenization", null, [
           [ "elasticity", null, [
+            [ "Distribution", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_distribution.html", null ],
             [ "EllipsoidMeanLocalisator", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_ellipsoid_mean_localisator.html", null ]
           ] ]
         ] ],

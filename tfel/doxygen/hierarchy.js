@@ -1481,6 +1481,7 @@ var hierarchy =
     [ "abaqus::AbaqusExplicitInterface< H, T, Behaviour >::DissipatedEnergyComputer", "structabaqus_1_1_abaqus_explicit_interface_1_1_dissipated_energy_computer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DissipatedEnergyComputer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_dissipated_energy_computer.html", null ],
     [ "mfront::gb::DissipatedEnergyComputer", "structmfront_1_1gb_1_1_dissipated_energy_computer.html", null ],
+    [ "tfel::material::homogenization::elasticity::Distribution< real, LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_distribution.html", null ],
     [ "tfel::fsalgo::internals::do_loop< I, N >", "structtfel_1_1fsalgo_1_1internals_1_1do__loop.html", null ],
     [ "tfel::fsalgo::internals::do_loop< N, N >", "structtfel_1_1fsalgo_1_1internals_1_1do__loop_3_01_n_00_01_n_01_4.html", null ],
     [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >::Integrator::DoNothingEnergyComputer", "structabaqus_1_1_abaqus_behaviour_handler_1_1_integrator_1_1_do_nothing_energy_computer.html", null ],

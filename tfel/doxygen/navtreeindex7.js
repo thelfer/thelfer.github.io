@@ -1,5 +1,13 @@
 var NAVTREEINDEX7 =
 {
+"_orthotropic_stress_linear_transformation_8hxx.html":[8,0,0,3,4,67],
+"_orthotropic_stress_linear_transformation_8hxx.html#a63900f74af5bc06178dcc70b74a0dd1b":[8,0,0,3,4,67,2],
+"_orthotropic_stress_linear_transformation_8hxx.html#ab1a7ec098b71da33b7dc965e5d67ff16":[8,0,0,3,4,67,1],
+"_orthotropic_stress_linear_transformation_8hxx.html#acd07432ab99a7d57b10f9baa4da2696e":[8,0,0,3,4,67,0],
+"_orthotropic_stress_linear_transformation_8hxx.html#af98ef6f264279da7473b9d25fcdb7ae6":[8,0,0,3,4,67,3],
+"_orthotropic_stress_linear_transformation_8ixx.html":[8,0,0,3,4,68],
+"_orthotropic_stress_linear_transformation_8ixx.html#a90da2d00d4ba329630b038dddb755f53":[8,0,0,3,4,68,13],
+"_orthotropic_stress_linear_transformation_8ixx.html#aa5a47d56606be5b0745ec4dc6507f23d":[8,0,0,3,4,68,18],
 "_orthotropic_stress_linear_transformation_8ixx.html#abdba3ad93db31f37fa92b56a42aef47a":[8,0,0,3,4,68,12],
 "_orthotropic_stress_linear_transformation_8ixx.html#ae7c5fc84656d8bad264e509940e6f224":[8,0,0,3,4,68,14],
 "_orthotropic_stress_linear_transformation_8ixx.html#af039f12d68eee1b6a654e0acb078cb3b":[8,0,0,3,4,68,15],
@@ -241,13 +249,5 @@ var NAVTREEINDEX7 =
 "_single_structure_scheme_8hxx.html":[8,0,5,0,0,86],
 "_single_structure_scheme_parser_8hxx.html":[8,0,5,0,0,87],
 "_slip_systems_description_8hxx.html":[8,0,0,3,4,81],
-"_small_strain_tridimensional_behaviour_wrapper_8hxx.html":[8,0,5,0,0,88],
-"_solver_8hxx.html":[8,0,5,0,0,89],
-"_solver_options_8hxx.html":[8,0,5,0,0,90],
-"_solver_options_8hxx.html#a254111f5dcf79b5c0d89cad608f8f177":[8,0,5,0,0,90,3],
-"_solver_options_8hxx.html#a254111f5dcf79b5c0d89cad608f8f177adaa9ea2c00ec1f7237c61796a9fb1928":[8,0,5,0,0,90,3,2],
-"_solver_options_8hxx.html#a254111f5dcf79b5c0d89cad608f8f177ae14489e607315143cf44f0ed024d816d":[8,0,5,0,0,90,3,0],
-"_solver_options_8hxx.html#a254111f5dcf79b5c0d89cad608f8f177ae23203cda787920aedbb3b242ea38b0d":[8,0,5,0,0,90,3,1],
-"_solver_options_8hxx.html#a254111f5dcf79b5c0d89cad608f8f177aeb45979c545e5419034647c2a6013bfe":[8,0,5,0,0,90,3,3],
-"_solver_options_8hxx.html#ae1be4e758e0ed732b6c81c08d49a86ce":[8,0,5,0,0,90,1]
+"_small_strain_tridimensional_behaviour_wrapper_8hxx.html":[8,0,5,0,0,88]
 };

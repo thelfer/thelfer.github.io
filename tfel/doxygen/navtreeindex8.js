@@ -1,9 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"_solver_8hxx.html":[8,0,5,0,0,89],
-"_solver_options_8hxx.html":[8,0,5,0,0,90],
-"_solver_options_8hxx.html#a254111f5dcf79b5c0d89cad608f8f177":[8,0,5,0,0,90,3],
-"_solver_options_8hxx.html#a254111f5dcf79b5c0d89cad608f8f177adaa9ea2c00ec1f7237c61796a9fb1928":[8,0,5,0,0,90,3,2],
 "_solver_options_8hxx.html#a254111f5dcf79b5c0d89cad608f8f177ae14489e607315143cf44f0ed024d816d":[8,0,5,0,0,90,3,0],
 "_solver_options_8hxx.html#a254111f5dcf79b5c0d89cad608f8f177ae23203cda787920aedbb3b242ea38b0d":[8,0,5,0,0,90,3,1],
 "_solver_options_8hxx.html#a254111f5dcf79b5c0d89cad608f8f177aeb45979c545e5419034647c2a6013bfe":[8,0,5,0,0,90,3,3],
@@ -27,7 +23,6 @@ var NAVTREEINDEX8 =
 "_solver_work_space_8hxx.html#af2d9d4e72e668600916d2105ea73520d":[8,0,5,0,0,91,1],
 "_sort_eigen_values_8hxx.html":[8,0,0,3,5,17,0,6],
 "_sort_eigen_vectors_8hxx.html":[8,0,0,3,5,17,0,7],
-"_spatial_grad_type_8hxx.html":[8,0,0,3,0,0,4],
 "_specific_target_description_8hxx.html":[8,0,2,0,0,193],
 "_specific_target_description_8hxx.html#ab230ebbc6e7275edc5b0b29aaf2f130f":[8,0,2,0,0,193,2],
 "_specific_target_description_8hxx.html#ac965fa11a81d87e1adf0be3584b17a7c":[8,0,2,0,0,193,1],
@@ -246,8 +241,13 @@ var NAVTREEINDEX8 =
 "_t_f_e_l_math_concepts.html#IndexingPolicy":[1,0,1],
 "_t_f_e_l_math_concepts.html#StandardArrayPolicies":[1,0,0,0],
 "_t_f_e_l_types_8hxx.html":[8,0,0,3,0,4],
-"_t_f_e_l_types_internals_8hxx.html":[8,0,0,3,0,0,6],
+"_t_f_e_l_types_internals_8hxx.html":[8,0,0,3,0,0,0],
 "_t_matrix_t_matrix_expr_8hxx.html":[8,0,0,3,5,8,7],
 "_t_matrix_t_vector_expr_8hxx.html":[8,0,0,3,5,8,8],
-"_t_vector_t_matrix_expr_8hxx.html":[8,0,0,3,5,8,9]
+"_t_vector_t_matrix_expr_8hxx.html":[8,0,0,3,5,8,9],
+"_targets_description_8hxx.html":[8,0,2,0,0,199],
+"_targets_description_8hxx.html#a2959bc26d843d96ef1376be34b9016f2":[8,0,2,0,0,199,4],
+"_targets_description_8hxx.html#a52e8e0e717df9694a1eb87461e5d20c9":[8,0,2,0,0,199,2],
+"_targets_description_8hxx.html#a8ba13d8532f943f5c56744d78f71e9d3":[8,0,2,0,0,199,1],
+"_targets_description_8hxx.html#ac978189af6e0f182c8cc7653d8a3e0f9":[8,0,2,0,0,199,3]
 };

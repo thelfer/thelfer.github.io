@@ -1,8 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"_orthotropic_stress_linear_transformation_8hxx.html":[8,0,0,3,4,67],
-"_orthotropic_stress_linear_transformation_8hxx.html#a63900f74af5bc06178dcc70b74a0dd1b":[8,0,0,3,4,67,2],
-"_orthotropic_stress_linear_transformation_8hxx.html#ab1a7ec098b71da33b7dc965e5d67ff16":[8,0,0,3,4,67,1],
 "_orthotropic_stress_linear_transformation_8hxx.html#acd07432ab99a7d57b10f9baa4da2696e":[8,0,0,3,4,67,0],
 "_orthotropic_stress_linear_transformation_8hxx.html#af98ef6f264279da7473b9d25fcdb7ae6":[8,0,0,3,4,67,3],
 "_orthotropic_stress_linear_transformation_8ixx.html":[8,0,0,3,4,68],
@@ -101,7 +98,6 @@ var NAVTREEINDEX7 =
 "_porosity_nucleation_model_8hxx.html":[8,0,2,0,0,3,40],
 "_porosity_nucleation_model_base_8hxx.html":[8,0,2,0,0,3,41],
 "_porosity_nucleation_model_factory_8hxx.html":[8,0,2,0,0,3,42],
-"_position_type_8hxx.html":[8,0,0,3,0,0,3],
 "_powell_dog_leg_algorithm_base_8hxx.html":[8,0,2,0,0,183],
 "_power_function_8hxx.html":[8,0,0,3,5,11,33],
 "_power_isotropic_hardening_rule_8hxx.html":[8,0,2,0,0,3,43],
@@ -249,5 +245,9 @@ var NAVTREEINDEX7 =
 "_single_structure_scheme_8hxx.html":[8,0,5,0,0,86],
 "_single_structure_scheme_parser_8hxx.html":[8,0,5,0,0,87],
 "_slip_systems_description_8hxx.html":[8,0,0,3,4,81],
-"_small_strain_tridimensional_behaviour_wrapper_8hxx.html":[8,0,5,0,0,88]
+"_small_strain_tridimensional_behaviour_wrapper_8hxx.html":[8,0,5,0,0,88],
+"_solver_8hxx.html":[8,0,5,0,0,89],
+"_solver_options_8hxx.html":[8,0,5,0,0,90],
+"_solver_options_8hxx.html#a254111f5dcf79b5c0d89cad608f8f177":[8,0,5,0,0,90,3],
+"_solver_options_8hxx.html#a254111f5dcf79b5c0d89cad608f8f177adaa9ea2c00ec1f7237c61796a9fb1928":[8,0,5,0,0,90,3,2]
 };

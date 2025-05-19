@@ -40,6 +40,7 @@ var dir_9c6f9dfbe000c54e72b60c70482b6bf0 =
     [ "IsotropicEshelbyTensor.ixx", "_isotropic_eshelby_tensor_8ixx.html", "_isotropic_eshelby_tensor_8ixx" ],
     [ "IsotropicLinearFourierHookLaw.hxx", "_isotropic_linear_fourier_hook_law_8hxx.html", "_isotropic_linear_fourier_hook_law_8hxx" ],
     [ "IsotropicLinearFourierLaw.hxx", "_isotropic_linear_fourier_law_8hxx.html", "_isotropic_linear_fourier_law_8hxx" ],
+    [ "IsotropicModuli.hxx", "_isotropic_moduli_8hxx.html", "_isotropic_moduli_8hxx" ],
     [ "IsotropicPlasticity.hxx", "_isotropic_plasticity_8hxx.html", "_isotropic_plasticity_8hxx" ],
     [ "IsotropicPlasticity.ixx", "_isotropic_plasticity_8ixx.html", "_isotropic_plasticity_8ixx" ],
     [ "Lame.hxx", "_lame_8hxx.html", "_lame_8hxx" ],

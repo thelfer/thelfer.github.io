@@ -1138,9 +1138,6 @@ var annotated_dup =
         [ "GursonTvergaardNeedleman1982StressCriterionParameters", "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html", "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters" ],
         [ "IsotropicLinearFourierHookLaw", "classtfel_1_1material_1_1_isotropic_linear_fourier_hook_law.html", null ],
         [ "IsotropicLinearFourierLaw", "classtfel_1_1material_1_1_isotropic_linear_fourier_law.html", "classtfel_1_1material_1_1_isotropic_linear_fourier_law" ],
-        [ "IsotropicModuli", "structtfel_1_1material_1_1_isotropic_moduli.html", null ],
-        [ "KGModuli", "structtfel_1_1material_1_1_k_g_moduli.html", null ],
-        [ "LambdaMuModuli", "structtfel_1_1material_1_1_lambda_mu_moduli.html", null ],
         [ "LogarithmicStrainHandler", "structtfel_1_1material_1_1_logarithmic_strain_handler.html", null ],
         [ "LogarithmicStrainHandler< 1u, StressType >", "structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html", "structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4" ],
         [ "LogarithmicStrainHandler< 2u, StressType >", "structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html", "structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4" ],
@@ -1189,8 +1186,7 @@ var annotated_dup =
         [ "TangentOperatorTraits< MechanicalBehaviourBase::STANDARDFINITESTRAINBEHAVIOUR >", "structtfel_1_1material_1_1_tangent_operator_traits_3_01_mechanical_behaviour_base_1_1_s_t_a_n_d_e4079c363cc9cc01d207ee5f8c9ad98d.html", "structtfel_1_1material_1_1_tangent_operator_traits_3_01_mechanical_behaviour_base_1_1_s_t_a_n_d_e4079c363cc9cc01d207ee5f8c9ad98d" ],
         [ "ThermalBehaviour", "classtfel_1_1material_1_1_thermal_behaviour.html", null ],
         [ "ThermalBehaviourData", "classtfel_1_1material_1_1_thermal_behaviour_data.html", null ],
-        [ "ThermoMechanicalBehaviour", "classtfel_1_1material_1_1_thermo_mechanical_behaviour.html", null ],
-        [ "YoungNuModuli", "structtfel_1_1material_1_1_young_nu_moduli.html", null ]
+        [ "ThermoMechanicalBehaviour", "classtfel_1_1material_1_1_thermo_mechanical_behaviour.html", null ]
       ] ],
       [ "math", "namespacetfel_1_1math.html", [
         [ "anderson", null, [

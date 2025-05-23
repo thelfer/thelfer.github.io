@@ -1,6 +1,6 @@
 var _linear_homogenization_bounds_8hxx =
 [
-    [ "computeIsotropicHashinShtrikmanBounds", "_linear_homogenization_bounds_8hxx.html#a4b4982e2650ae3ea04f82cce17244550", null ],
-    [ "computeReussStiffness", "_linear_homogenization_bounds_8hxx.html#a8db93907d2ea21f6305adba2cdb374e0", null ],
-    [ "computeVoigtStiffness", "_linear_homogenization_bounds_8hxx.html#a59764c8dba61192ded25d3b09367751f", null ]
+    [ "computeIsotropicHashinShtrikmanBounds", "_linear_homogenization_bounds_8hxx.html#a4dd5ff638e53881f3aa623a9fbc10cd2", null ],
+    [ "computeReussStiffness", "_linear_homogenization_bounds_8hxx.html#aa24774caa1dde5ffa8d220d3dfb6864a", null ],
+    [ "computeVoigtStiffness", "_linear_homogenization_bounds_8hxx.html#a61d0ced99fbc961b67669f6bac0e0928", null ]
 ];

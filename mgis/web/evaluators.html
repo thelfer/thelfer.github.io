@@ -10,9 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>MFrontGenericInterfaceSupport Version 3.0</title>
+    <title>Evaluators and modifiers</title>
         <meta name="author" content="Thomas Helfer" />
-            <meta name="date" content="2024-01-01" />
+            <meta name="date" content="2025-01-01" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
@@ -117,28 +117,88 @@
     </header>
     <br></br>
 <div id="header">
-<h1 class="title">MFrontGenericInterfaceSupport Version 3.0</h1>
+<h1 class="title">Evaluators and modifiers</h1>
 <h2 class="author">Thomas Helfer</h2>
-<h3 class="date">2024</h3>
+<h3 class="date">2025</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#known-incompatibilites"
-id="toc-known-incompatibilites">Known incompatibilites</a></li>
-<li><a href="#new-features" id="toc-new-features">New features</a>
+<li><a href="#evaluators" id="toc-evaluators">Evaluators</a>
 <ul>
-<li><a href="#port-to-c-20" id="toc-port-to-c-20">Port to
-<code>C++-20</code></a></li>
+<li><a href="#unary-modifiers" id="toc-unary-modifiers">Unary
+modifiers</a>
+<ul>
+<li><a href="#tensors" id="toc-tensors">Tensors</a></li>
+<li><a href="#modifiers-dedicated-to-mechanics"
+id="toc-modifiers-dedicated-to-mechanics">Modifiers dedicated to
+mechanics</a></li>
+</ul></li>
+<li><a href="#binary-modifiers" id="toc-binary-modifiers">Binary
+modifiers</a>
+<ul>
+<li><a href="#binary-modifiers-on-tensor-valuated-evaluators"
+id="toc-binary-modifiers-on-tensor-valuated-evaluators">Binary modifiers
+on tensor-valuated evaluators</a></li>
+<li><a href="#binary-modifiers-dedicated-to-mechanics"
+id="toc-binary-modifiers-dedicated-to-mechanics">Binary modifiers
+dedicated to mechanics</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
-<p>Version 3.0.0 has been released on December, 17th 2024. The version
-has been release with Version 5.0.0 of the <code>TFEL</code>
-project.</p>
-<h1 id="known-incompatibilites">Known incompatibilites</h1>
-<p>The class <code>mgis::span</code> has been removed in favor of its
-standard counterpart.</p>
-<h1 id="new-features">New features</h1>
-<h2 id="port-to-c-20">Port to <code>C++-20</code></h2>
+<h1 id="evaluators">Evaluators</h1>
+<h2 id="unary-modifiers">Unary modifiers</h2>
+<ul>
+<li><code>view</code></li>
+<li><code>negate</code></li>
+</ul>
+<h4 id="modifierss-generators">Modifiers’s generators</h4>
+<ul>
+<li><code>multiply_by_scalar</code></li>
+<li><code>divide_by_scalar</code></li>
+</ul>
+<h3 id="tensors">Tensors</h3>
+<h4 id="views">Views</h4>
+<ul>
+<li><code>as_stensor</code></li>
+<li><code>as_tensor</code></li>
+<li><code>as_fsarray</code></li>
+<li><code>as_tvector</code></li>
+<li><code>as_matrix</code></li>
+</ul>
+<h4 id="modifiers-on-tensor-valuated-evaluators">Modifiers on
+tensor-valuated evaluators</h4>
+<ul>
+<li><code>eigen_values</code></li>
+<li><code>trace</code></li>
+<li><code>det</code></li>
+</ul>
+<h3 id="modifiers-dedicated-to-mechanics">Modifiers dedicated to
+mechanics</h3>
+<ul>
+<li><code>hydrostatic_stress</code></li>
+<li><code>vmis</code></li>
+<li><code>principal_stress</code></li>
+</ul>
+<h2 id="binary-modifiers">Binary modifiers</h2>
+<ul>
+<li><code>add</code></li>
+<li><code>substract</code></li>
+<li><code>multiply</code></li>
+<li><code>divide</code></li>
+<li><code>mean_value</code></li>
+<li><code>inner_product</code></li>
+</ul>
+<h3 id="binary-modifiers-on-tensor-valuated-evaluators">Binary modifiers
+on tensor-valuated evaluators</h3>
+<ul>
+<li><code>rotate</code></li>
+<li><code>rotate_backwards</code></li>
+</ul>
+<h3 id="binary-modifiers-dedicated-to-mechanics">Binary modifiers
+dedicated to mechanics</h3>
+<ul>
+<li><code>from_pk1_to_cauchy</code></li>
+</ul>
 </body>
 </html>

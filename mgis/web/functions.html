@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Functions</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2025-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
+        <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="index.html">Overview</a></li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="https://www.theoj.org/joss-papers/joss.02003/10.21105.joss.02003.pdf"> JOSS paper</a></li>
+	    <li><a href="bindings-cxx.html">Description of the C++ library</a></li>
+	    <li><a href="install.html">Installation guide</a></li>
+	    <!-- <li><a>Bindings</a> -->
+	    <!-- 	<ul> -->
+	    <!-- 	</ul> -->
+	    <!-- </li> -->
+	    <li><a href="mgis_fenics.html">mgis.fenics</a>
+	      <ul>
+		<li><a href="mgis_fenics.html">Overview of mgis.fenics</a></li>
+		<li><a href="mgis_fenics_nonlinear_heat_transfer.html">Stationnary non-linear heat transfer</a></li>
+		<li><a href="mgis_fenics_nonlinear_heat_transfer_3D.html">Stationnary non-linear heat transfer: 3D problem and performance comparisons</a></li>
+		<li><a href="mgis_fenics_heat_equation_phase_change.html">Transient heat equation with phase change</a></li>
+		<li><a href="mgis_fenics_monolithic_transient_thermoelasticity.html">Monolithic transient thermoelasticity</a></li>
+		<li><a href="mgis_fenics_small_strain_elastoplasticity.html">Small-strain von Mises elastoplasticity</a></li>
+		<li><a href="mgis_fenics_finite_strain_elastoplasticity.html">Finite-strain elastoplasticity within the logarithmic strain framework</a></li>
+		<li><a href="mgis_fenics_multiphase_model.html">Multiphase model for fiber-reinforced materials</a></li>
+		<li><a href="mgis_fenics_phase_field.html">Phase-field approach to brittle fracture</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Release notes</a>
+	      <ul>
+		<li><a>Version 1.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-1.0.2.html">Version 1.0.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Version 1.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-1.1.html">Version 1.1</a></li>
+		    <li><a href="release-notes-1.1.1.html">Version 1.1.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Version 1.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-1.2.html">Version 1.2</a></li>
+		    <li><a href="release-notes-1.2.1.html">Version 1.2.1</a></li>
+		    <li><a href="release-notes-1.2.2.html">Version 1.2.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Version 2.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-2.0.html">Version 2.0</a></li>
+		    <li><a href="release-notes-2.1.html">Version 2.1</a></li>
+		    <li><a href="release-notes-2.2.html">Version 2.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Version 3.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Version 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>Specific topics</a>
+	      <ul>
+		<li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
+		<li><a href="functions.html">Functions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues">Forum</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+<div id="header">
+<h1 class="title">Functions</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">2025</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#an-overview-of-mgisfunction"
+id="toc-an-overview-of-mgisfunction">An overview of
+<code>MGIS/Function</code></a></li>
+<li><a href="#discretization-spaces"
+id="toc-discretization-spaces">Discretization spaces</a>
+<ul>
+<li><a href="#c-concepts-defined-mgisfunction"
+id="toc-c-concepts-defined-mgisfunction"><code>C++</code> Concepts
+defined <code>MGIS/Function</code></a></li>
+</ul></li>
+<li><a href="#functions" id="toc-functions">Functions</a>
+<ul>
+<li><a href="#c-concepts-defined-mgisfunction-1"
+id="toc-c-concepts-defined-mgisfunction-1"><code>C++</code> Concepts
+defined <code>MGIS/Function</code></a></li>
+<li><a href="#point-major-or-field-major-storage"
+id="toc-point-major-or-field-major-storage">Point-major or field major
+storage</a></li>
+</ul></li>
+<li><a href="#the-function-class" id="toc-the-function-class">The
+<code>Function</code> class</a></li>
+<li><a href="#the-functionview-class"
+id="toc-the-functionview-class">The <code>FunctionView</code>
+class</a></li>
+</ul>
+</div>
+<p>Functions, called fields in other contexts, describe a mapping
+between elements of a (discretization) space to values. Those elements
+can be associated to quadrature points (also called integration points),
+vertices (nodes), facets, cells, voxels, depending on the discretization
+method considered.</p>
+<h1 id="an-overview-of-mgisfunction">An overview of
+<code>MGIS/Function</code></h1>
+<p>Let us consider a function <code>pk1</code> returning the first
+Piola-Kirchhoff stress in the material frame, <code>MGIS/Function</code>
+allows to create an <strong>evaluator</strong> of the Cauchy stress in
+the global frame as follows:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> Ft  <span class="op">=</span> F <span class="op">|</span> as_tensor<span class="op">&lt;</span><span class="dv">3</span><span class="op">&gt;;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> sig_ev <span class="op">=</span> pk1 <span class="op">|</span> as_tensor<span class="op">&lt;</span><span class="dv">3</span><span class="op">&gt;</span> <span class="op">|</span> from_pk1_to_cauchy<span class="op">(</span>Ft<span class="op">)</span> <span class="op">|</span> rotate_backwards<span class="op">(</span>R<span class="op">);</span></span></code></pre></div>
+<p>where <code>F</code> is an evaluator the deformation gradient in the
+material frame, <code>R</code> is the rotation matrix from the global
+frame to the material frame (a function returning a different rotation
+matrix for each element can also be used).</p>
+<p>This evaluator, named <code>sig_ev</code>, only describes the
+operations to be performed to calculate the Cauchy stress and does not
+make any calculation at this stage. <code>as_tensor&lt;3&gt;</code>,
+<code>from_pk1_to_cauchy</code> and the object returned by
+<code>rotate_backwards(R)</code> are called <em>modifiers</em> in
+<code>MGIS/Function</code>. The available operators are described in <a
+href="evaluators.html">this page</a>. The pipe operator <code>|</code>
+is used to chain the operations.</p>
+<p>Hence, the following operations are chained:</p>
+<ul>
+<li>interpret the values returned by <code>pk1</code> as tridimensional
+tensors provided by the <code>TFEL/Math</code> library,</li>
+<li>compute the Cauchy stress in the material frame,</li>
+<li>rotate the Cauchy stress in the global frame by using the transpose
+of the rotation matrix <code>R</code>.</li>
+</ul>
+<p><code>sig_ev</code>exposes the same space as the <code>pk1</code>
+function (accessible from the <code>getSpace</code> method) and the same
+call operators (<code>4</code> sig_evnatures are possible).</p>
+<p>For instance, if the values of <code>pk1</code> can be retrieved by
+using indexes (that are not necessarily integers) associated with the
+elements of the space, then the values of the Cauchy stress can be
+retrieved by the same indexes. Hence, if i is such an index,
+<code>pk1(i)</code> returns the first Piola-Kirchhoff stress in the
+material frame, and <code>sig_ev(i)</code> returns the Cauchy stress in
+the global frame.</p>
+<p>For spaces with very simple structure, <code>MGIS/Function</code>
+provides algorithms, such as the <code>assign</code> algorithm which
+allows to assign the values of an evaluator to a function. Let
+<code>sig</code> be a function, the following code assigns the values
+calculated by <code>sig_ev</code></p>
+<p><code>MGIS/Function</code> are a set of algorithms, evaluators and
+modifiers used to operate and calculate values on functions.</p>
+<h1 id="discretization-spaces">Discretization spaces</h1>
+<p>The description of a discretization space is dependent of the solver
+considered.</p>
+<p>A space must provide a way to iterate over its elements:</p>
+<ul>
+<li>in many cases, iterating over all the elements require a simple
+loop. Such a case is called an <em>element space</em> in
+<code>MGIS/Function</code> and each element is associated with a single
+index. The index type is often an integer, but this is sometimes not the
+case. <code>MGIS/Function</code> assumes that a function defined on an
+element space can return the values associated with an element using its
+index.</li>
+<li>quadrature points deserve a special treatment as they are generally
+considered as part of a cell (or finite element). In such a case,
+iterating over all integrations points require a loop over the finite
+elements and an inner loop over the integration points of this element.
+A quadrature point is then associated with two indexes, one for the
+cell, the other being an index inside the element. Such a space is
+called <em>quadrature space</em> in <code>MGIS/Function</code>.
+<code>MGIS/Function</code> assumes that a function defined on a
+quadrature space can return the values associated with an quadrature
+point using its indexes.</li>
+</ul>
+<blockquote>
+<p><strong>Notes</strong></p>
+<p>A space describing quadrature points can be either an <em>element
+space</em> and/or a quadrature space.</p>
+</blockquote>
+<h2 id="c-concepts-defined-mgisfunction"><code>C++</code> Concepts
+defined <code>MGIS/Function</code></h2>
+<p>In order to adapt to the structures used by as many solvers as
+possible, spaces in <code>mgis</code> are defined using a set of
+<code>C++</code> concepts: <code>SpaceConcept</code>,
+<code>ElementSpaceConcept</code>, <code>QuadratureSpaceConcept</code>,
+<code>FunctionalSpace</code>, <code>LinearElementSpaceConcept</code> and
+<code>LinearQuadratureSpaceConcept</code>.</p>
+<p>Let <code>SpaceType</code> be a type.</p>
+<ul>
+<li><code>SpaceType</code> satisfies the <code>SpaceConcept</code>
+concept if:
+<ul>
+<li>it exposes an integral type named <code>size_type</code> and a
+<code>size</code> method (returning a <code>size_type</code>). This
+method shall return the total number of elements in the discretization
+space.</li>
+</ul></li>
+<li><code>SpaceType</code> satisfies the
+<code>ElementSpaceConcept</code> concept if:
+<ul>
+<li>it exposes an <code>element_index_type</code> type.</li>
+</ul></li>
+<li><code>SpaceType</code> satisfies the
+<code>LinearElementSpaceConcept</code> concept if:
+<ul>
+<li>it satisfies the <code>ElementSpaceConcept</code>,</li>
+<li>it exposes a boolean value named
+<code>linear_element_indexing</code> which must be
+<code>true</code>,</li>
+<li>elements of the space are indexed by integers ranging from from 0 to
+<code>size()-1</code>. The <code>element_index_type</code> must be
+identical to <code>size_type</code>.</li>
+</ul></li>
+<li><code>SpaceType</code> satisfies the
+<code>QuadratureSpaceConcept</code> concept if:
+<ul>
+<li>it satisfies the <code>SpaceConcept</code>,</li>
+<li>it exposes a method named <code>getNumberOfCells</code> which
+returns a <code>size_type</code>,</li>
+<li>it exposes an <code>cell_index_type</code> type,</li>
+<li>it exposes an <code>quadrature_point_index_type</code> type. In
+<code>MGIS/Function</code>, this type must be an integer type,</li>
+<li>it exposes a method named <code>getNumberOfQuadraturePoints</code>
+which returns the number of quadrature points of a given cell.</li>
+</ul></li>
+<li><code>SpaceType</code> satisfies the
+<code>LinearQuadratureSpaceConcept</code> concept if:
+<ul>
+<li>it satisfies the <code>QuadratureSpaceConcept</code>,</li>
+<li>it exposes a boolean value named <code>cell_element_indexing</code>
+which must be <code>true</code>,</li>
+<li>cells of the space are indexed by integers ranging from from 0 to
+<code>getNumberOfCells()-1</code>. The <code>cell_index_type</code> must
+be identical to <code>size_type</code>,</li>
+<li>it exposes a method <code>getQuadraturePointOffset</code> which must
+be a bijection between all valid cell and quadrature points indices and
+the range <code>[0:size()-1]</code>.</li>
+</ul></li>
+</ul>
+<p>A functional space is either an element space and/or a quadrature
+space.</p>
+<h1 id="functions">Functions</h1>
+<h2 id="c-concepts-defined-mgisfunction-1"><code>C++</code> Concepts
+defined <code>MGIS/Function</code></h2>
+<p>In order to adapt to the structures used by as many solvers as
+possible, spaces in <code>mgis</code> are defined using a set of
+<code>C++</code> concepts: <code>FunctionConcept</code>,
+<code>ElementFunctionConcept</code>,
+<code>QuadratureFunctionConcept</code>.</p>
+<h2 id="point-major-or-field-major-storage">Point-major or field major
+storage</h2>
+<p>see [petscsection_2025] for a discussion.</p>
+<h1 id="the-function-class">The <code>Function</code> class</h1>
+<h1 id="the-functionview-class">The <code>FunctionView</code> class</h1>
+</body>
+</html>

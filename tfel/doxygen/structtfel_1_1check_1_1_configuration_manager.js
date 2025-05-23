@@ -10,5 +10,6 @@ var structtfel_1_1check_1_1_configuration_manager =
     [ "getConfiguration", "structtfel_1_1check_1_1_configuration_manager.html#a0dbdf8d50500ebcfd371c0be63bcf6fc", null ],
     [ "getConfigurationManager", "structtfel_1_1check_1_1_configuration_manager.html#a2ce195d3931e6fcc3a42bd6cf26c06c6", null ],
     [ "operator=", "structtfel_1_1check_1_1_configuration_manager.html#a705b5c6e29d6cc4c3eb0b93647252fe1", null ],
-    [ "operator=", "structtfel_1_1check_1_1_configuration_manager.html#af26fcf1418ebd49c99ce5d051bb7bffe", null ]
+    [ "operator=", "structtfel_1_1check_1_1_configuration_manager.html#af26fcf1418ebd49c99ce5d051bb7bffe", null ],
+    [ "setDiscardCommandsFailure", "structtfel_1_1check_1_1_configuration_manager.html#a3fba5a5be4f21957eeb42f158f8b2b5e", null ]
 ];

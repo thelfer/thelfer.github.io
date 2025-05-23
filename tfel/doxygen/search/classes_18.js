@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zmatinterface_0',['zmatinterface',['../structmfront_1_1_z_m_a_t_interface.html',1,'mfront::ZMATInterface'],['../structzmat_1_1_z_m_a_t_interface.html',1,'zmat::ZMATInterface']]]
+  ['youngnumoduli_0',['YoungNuModuli',['../structtfel_1_1material_1_1_young_nu_moduli.html',1,'tfel::material']]]
 ];

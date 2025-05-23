@@ -40,7 +40,6 @@ var _brick_utilities_8hxx =
     [ "generateMaterialPropertyInitializationCode", "_brick_utilities_8hxx.html#aa188c63c533a84f4283967c791b8b9da", null ],
     [ "getArrayOfBehaviourDescriptionMaterialProperties", "_brick_utilities_8hxx.html#ac843728a904a234afdb5dd79fe848bbb", null ],
     [ "getArrayOfBehaviourDescriptionMaterialProperties", "_brick_utilities_8hxx.html#a1d7e016f808fc54ce64e4de046d38de7", null ],
-    [ "getBehaviourDescriptionMaterialProperty", "_brick_utilities_8hxx.html#af7a93217011124ec6d2c2e01a7370291", null ],
     [ "getBrokenTest", "_brick_utilities_8hxx.html#a74ccef7fa3c85d3268da0fbaea4a8633", null ],
     [ "getMiddleOfTimeStepModifier", "_brick_utilities_8hxx.html#a6c9dbd8e0fc2593afdd49ddb6916e4b9", null ],
     [ "handleEigenSolverOption", "_brick_utilities_8hxx.html#a7576fe5ef0dcee4e9a9df1601e7cbdac", null ]

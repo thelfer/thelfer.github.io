@@ -153,6 +153,15 @@ typedef <a class="el" href="namespacetfel_1_1math.html#af3f6a2b6fd43605cbd137447
 <tr class="memitem:a17fcb3cb20e5890d9c2e0744cacce847 inherit pub_types_structtfel_1_1config_1_1_scalar_types" id="r_a17fcb3cb20e5890d9c2e0744cacce847"><td class="memItemLeft" align="right" valign="top">
 typedef <a class="el" href="namespacetfel_1_1math.html#af3f6a2b6fd43605cbd137447c18f655c">tfel::math::qt</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, base_type&lt; numeric_type&lt; Type &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>stress</b></td></tr>
 <tr class="separator:a17fcb3cb20e5890d9c2e0744cacce847 inherit pub_types_structtfel_1_1config_1_1_scalar_types"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab008b59650570e378024afc67a16433c inherit pub_types_structtfel_1_1config_1_1_scalar_types" id="r_ab008b59650570e378024afc67a16433c"><td class="memItemLeft" align="right" valign="top">
+typedef <a class="el" href="namespacetfel_1_1math.html#af3f6a2b6fd43605cbd137447c18f655c">tfel::math::qt</a>&lt; <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">tfel::math::GenerateUnit</a>&lt;-1, 1, 2, 0, 0, 0, 0 &gt;::type, base_type&lt; numeric_type&lt; Type &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>compliance</b></td></tr>
+<tr class="separator:ab008b59650570e378024afc67a16433c inherit pub_types_structtfel_1_1config_1_1_scalar_types"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a7325e779b09016e07220fef533c488 inherit pub_types_structtfel_1_1config_1_1_scalar_types" id="r_a2a7325e779b09016e07220fef533c488"><td class="memItemLeft" align="right" valign="top">
+typedef <a class="el" href="namespacetfel_1_1math.html#af3f6a2b6fd43605cbd137447c18f655c">tfel::math::qt</a>&lt; <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">tfel::math::GenerateUnit</a>&lt; 1, -1, -1, 0, 0, 0, 0 &gt;::type, base_type&lt; numeric_type&lt; Type &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>viscosity</b></td></tr>
+<tr class="separator:a2a7325e779b09016e07220fef533c488 inherit pub_types_structtfel_1_1config_1_1_scalar_types"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3328c30e0762290ec1595981ceaf143 inherit pub_types_structtfel_1_1config_1_1_scalar_types" id="r_ae3328c30e0762290ec1595981ceaf143"><td class="memItemLeft" align="right" valign="top">
+typedef <a class="el" href="namespacetfel_1_1math.html#af3f6a2b6fd43605cbd137447c18f655c">tfel::math::qt</a>&lt; <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">tfel::math::GenerateUnit</a>&lt;-1, 1, 1, 0, 0, 0, 0 &gt;::type, base_type&lt; numeric_type&lt; Type &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>viscouscompliance</b></td></tr>
+<tr class="separator:ae3328c30e0762290ec1595981ceaf143 inherit pub_types_structtfel_1_1config_1_1_scalar_types"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe2ecdcfe9e0c0ad49a5ed1d05d6f7e9 inherit pub_types_structtfel_1_1config_1_1_scalar_types" id="r_abe2ecdcfe9e0c0ad49a5ed1d05d6f7e9"><td class="memItemLeft" align="right" valign="top">
 typedef <a class="el" href="namespacetfel_1_1math.html#af3f6a2b6fd43605cbd137447c18f655c">tfel::math::qt</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#ad33ab965026243f903ae1ebbf5147fdc">tfel::math::unit::StressRate</a>, base_type&lt; numeric_type&lt; Type &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>stressrate</b></td></tr>
 <tr class="separator:abe2ecdcfe9e0c0ad49a5ed1d05d6f7e9 inherit pub_types_structtfel_1_1config_1_1_scalar_types"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -180,9 +189,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>thermalconductivity<
 struct tfel::math::ScalarTypeRebind&lt; Type &gt;</div><p>this struct exposes standard scalar types compatible with its argument. The exposed types use quantities if the argument does. </p>
 <p>Let us consider the following function:</p>
 <div class="fragment"><div class="line"><span class="keyword">template</span> &lt;tfel::math::ScalarConcept StressType&gt;</div>
-<div class="line"><a class="code hl_struct" href="structstd_1_1complex.html">StressType</a> computeLambda(</div>
-<div class="line"> <span class="keyword">const</span> <a class="code hl_struct" href="structstd_1_1complex.html">StressType</a>&amp; <a class="code hl_struct" href="structstd_1_1complex.html">young</a>,</div>
-<div class="line"> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code hl_struct" href="structstd_1_1complex.html">tfel::math::ScalarTypeRebind&lt;StressType&gt;::real</a>&amp; <a class="code hl_struct" href="structstd_1_1complex.html">nu</a>);</div>
+<div class="line">StressType computeLambda(</div>
+<div class="line"> <span class="keyword">const</span> StressType&amp; young,</div>
+<div class="line"> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code hl_struct" href="structstd_1_1complex.html">tfel::math::ScalarTypeRebind&lt;StressType&gt;::real</a>&amp; nu);</div>
 <div class="ttc" id="astructstd_1_1complex_html"><div class="ttname"><a href="structstd_1_1complex.html">std::complex</a></div><div class="ttdef"><b>Definition</b> Forward/Complex.hxx:31</div></div>
 </div><!-- fragment --><p>This code takes one template parameter, <code>StressType</code>, which must satisfies the <code>ScalarConcept</code> concept. Here, the type of the second parameter is deduced for <code>StressType</code>:</p>
 <ul>
@@ -198,7 +207,7 @@ struct tfel::math::ScalarTypeRebind&lt; Type &gt;</div><p>this struct exposes st
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><a class="el" href="namespacetfel_1_1math.html">math</a></li><li class="navelem"><a class="el" href="structtfel_1_1math_1_1_scalar_type_rebind.html">ScalarTypeRebind</a></li>
-    <li class="footer">Generated on Fri May 23 2025 20:23:34 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue May 27 2025 06:46:01 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

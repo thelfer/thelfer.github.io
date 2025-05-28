@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -144,6 +143,7 @@
 		    <li><a href="release-notes-3.0.13.html">Version 3.0.13</a></li>
 		    <li><a href="release-notes-3.0.14.html">Version 3.0.14</a></li>
 		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
+		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -240,6 +240,7 @@
 		  <ul>
 		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
 		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		    <li><a href="release-notes-5.0.2.html">Version 5.0.2</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 5.1.x</a>
@@ -379,8 +380,7 @@ class="math inline">\(\pi\)</span>-plane</a></li>
 <li><a href="#orthotropic-axes-convention"
 id="toc-orthotropic-axes-convention">Orthotropic axes
 convention</a></li>
-<li><a href="#homogeneisation"
-id="toc-homogeneisation">Homogeneisation</a>
+<li><a href="#homogenization" id="toc-homogenization">Homogenization</a>
 <ul>
 <li><a href="#eshelby-tensors" id="toc-eshelby-tensors">Eshelby
 tensors</a></li>
@@ -392,6 +392,8 @@ id="toc-homogenization-schemes">Homogenization schemes</a></li>
 <li><a href="#homogenization-bounds"
 id="toc-homogenization-bounds">Homogenization bounds</a></li>
 </ul></li>
+<li><a href="#isotropic-elastic-moduli"
+id="toc-isotropic-elastic-moduli">Isotropic elastic moduli</a></li>
 </ul>
 </div>
 <h1 id="equivalent-stress">Equivalent stress</h1>
@@ -787,7 +789,7 @@ class="math inline">\(2D\)</span> plane stress, <span
 class="math inline">\(2D\)</span> plane strain and <span
 class="math inline">\(2D\)</span> generalized plane strain modelling
 hypotheses.</p>
-<h1 id="homogeneisation">Homogeneisation</h1>
+<h1 id="homogenization">Homogenization</h1>
 <p>The homogenization functions are part of the namespace
 <code>tfel::material::homogenization</code>. A specialization for
 elasticity is defined:
@@ -873,37 +875,52 @@ functions are introduced by the header
 <h2 id="homogenization-schemes">Homogenization schemes</h2>
 <p>Different schemes are implemented and return the homogenized
 stiffness of the material. These schemes are introduced by the header
-<code>LinearHomogenizationSchemes.hxx</code>. The available schemes are:
-- Mori-Tanaka scheme - dilute scheme - Ponte Castaneda and Willis
-scheme</p>
+<code>LinearHomogenizationSchemes.hxx</code>. The available schemes
+are:</p>
+<ul>
+<li>Mori-Tanaka scheme</li>
+<li>dilute scheme</li>
+<li>Ponte Castaneda and Willis scheme</li>
+</ul>
 <p>Each scheme is based on the average of the localisation tensor <span
 class="math inline">\(\underline{A}\)</span> defined above. This average
 is computed assuming different distributions of orientations of
-ellipsoids. Hence different cases are considered: - spheres (no
-orientations) - oriented ellipsoids (two vectors <span
+ellipsoids. Hence different cases are considered:</p>
+<ul>
+<li>spheres (no orientations)</li>
+<li>oriented ellipsoids (two vectors <span
 class="math inline">\(\underline{n}_a,\underline{n}_b\)</span> define
-the orientation) - uniform isotropic distribution of orientations -
-transverse isotropic distribution of orientations (one axis <span
+the orientation)</li>
+<li>uniform isotropic distribution of orientations</li>
+<li>transverse isotropic distribution of orientations (one axis <span
 class="math inline">\(\underline{n}_a\)</span> of the ellipsoid is
-fixed, the others are uniformly distributed in the transverse plane)</p>
-<p>Hence, the available functions are: -
-<code>computeSphereDiluteScheme</code> -
-<code>computeSphereMoriTanakaScheme</code> -
-<code>computeOrientedDiluteScheme</code> -
-<code>computeOrientedMoriTanakaScheme</code> -
-<code>computeOrientedPCWScheme</code> -
-<code>computeIsotropicDiluteScheme</code> -
-<code>computeIsotropicMoriTanakaScheme</code> -
-<code>computeIsotropicPCWScheme</code> -
-<code>computeTransverseIsotropicDiluteScheme</code> -
-<code>computeTransverseIsotropicMoriTanakaScheme</code> -
-<code>computeTransverseIsotropicPCWScheme</code></p>
+fixed, the others are uniformly distributed in the transverse
+plane)</li>
+</ul>
+<p>Hence, the available functions are:</p>
+<ul>
+<li><code>computeSphereDiluteScheme</code></li>
+<li><code>computeSphereMoriTanakaScheme</code></li>
+<li><code>computeOrientedDiluteScheme</code></li>
+<li><code>computeOrientedMoriTanakaScheme</code></li>
+<li><code>computeOrientedPCWScheme</code></li>
+<li><code>computeIsotropicDiluteScheme</code></li>
+<li><code>computeIsotropicMoriTanakaScheme</code></li>
+<li><code>computeIsotropicPCWScheme</code></li>
+<li><code>computeTransverseIsotropicDiluteScheme</code></li>
+<li><code>computeTransverseIsotropicMoriTanakaScheme</code></li>
+<li><code>computeTransverseIsotropicPCWScheme</code></li>
+</ul>
 <p>Because the functions are based on the average of the localisation
 tensor <span class="math inline">\(\underline{A}\)</span> associated
 with each distribution, a <code>Base</code> function is also defined for
 each scheme, that only takes in argument the average of the localisation
-tensor: - <code>computeMoriTanakaScheme</code> -
-<code>computeDiluteScheme</code> - <code>computePCWScheme</code></p>
+tensor:</p>
+<ul>
+<li><code>computeMoriTanakaScheme</code></li>
+<li><code>computeDiluteScheme</code></li>
+<li><code>computePCWScheme</code></li>
+</ul>
 <p>For special case of Ponte-Castaneda and Willis scheme, a
 <code>Distribution</code> object must be created. It is defined by two
 vectors <span
@@ -912,10 +929,32 @@ lengths <span class="math inline">\(a,b,c\)</span> that define the
 ellipsoid which defines the distribution.</p>
 <h2 id="homogenization-bounds">Homogenization bounds</h2>
 <p>Different bounds are implemented and are introduced by the header
-<code>LinearHomogenizationBounds.hxx</code>. The available bounds are: -
-Voigt bound (<code>computeVoigtStiffness</code>) - Reuss bound
-(<code>computeReussStiffness</code>) - Hashin-Shtrikman bounds
-(<code>computeIsotropicHashinShtrikmanBounds</code>)</p>
+<code>LinearHomogenizationBounds.hxx</code>. The available bounds
+are:</p>
+<ul>
+<li>Voigt bound (<code>computeVoigtStiffness</code>)</li>
+<li>Reuss bound (<code>computeReussStiffness</code>)</li>
+<li>Hashin-Shtrikman bounds
+(<code>computeIsotropicHashinShtrikmanBounds</code>)</li>
+</ul>
+<h1 id="isotropic-elastic-moduli">Isotropic elastic moduli</h1>
+<p>A <code>struct</code> <code>IsotropicModuli</code> is defined in the
+header “IsotropicModuli.hxx” for the elastic moduli of an isotropic
+material. Three children <code>struct</code> are defined:</p>
+<ul>
+<li><code>KGModuli</code> (for bulk and shear moduli)</li>
+<li><code>YoungNuModuli</code> (for Young modulus and Poisson
+ratio)</li>
+<li><code>LambdaMuModuli</code> (for Lame moduli)</li>
+</ul>
+<p>Each <code>struct</code> has methods which permit to convert the
+moduli:</p>
+<ul>
+<li><code>ToYoungNu()</code></li>
+<li><code>ToLambdaMu()</code></li>
+<li><code>ToKG()</code> These methods all return <code>std::pair</code>
+objects.</li>
+</ul>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-barlat_linear_2005" class="csl-entry" role="listitem">

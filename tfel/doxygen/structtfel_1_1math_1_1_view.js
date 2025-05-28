@@ -8,7 +8,7 @@ var structtfel_1_1math_1_1_view =
     [ "View", "structtfel_1_1math_1_1_view.html#a891db766b3ccfe35681425da6474eb88", null ],
     [ "~View", "structtfel_1_1math_1_1_view.html#acb753f885c8d5b4378f779cdbc7f16a3", null ],
     [ "data", "structtfel_1_1math_1_1_view.html#a8ca7190d03c02e24f32ddd7366d05700", null ],
-    [ "data", "structtfel_1_1math_1_1_view.html#a39e5cfecf400b6bb14b7065b2d01c46e", null ],
+    [ "data", "structtfel_1_1math_1_1_view.html#a365ef8fc9dff051dd7bdad17b572e973", null ],
     [ "operator=", "structtfel_1_1math_1_1_view.html#a32cf30b2d11cabc307299b6e72420c22", null ],
     [ "operator=", "structtfel_1_1math_1_1_view.html#a2b84d58cc939ed9ec2c4ff9074d65fd9", null ],
     [ "operator=", "structtfel_1_1math_1_1_view.html#a8643d2764bcd8fa54d7e3c2c151cb12f", null ],

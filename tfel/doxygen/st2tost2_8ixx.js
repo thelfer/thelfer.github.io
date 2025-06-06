@@ -7,6 +7,6 @@ var st2tost2_8ixx =
     [ "invert", "st2tost2_8ixx.html#aaf781d1dc48149816684f2b17fd397cf", null ],
     [ "pull_back", "st2tost2_8ixx.html#aa84c860d13a565b167b765848b4a3adf", null ],
     [ "push_forward", "st2tost2_8ixx.html#a5a52112e55f70e1648968ebe5a52f550", null ],
-    [ "setComponent", "st2tost2_8ixx.html#a2795a0d39ce6dbe551db94c67811b890", null ],
+    [ "setComponent", "st2tost2_8ixx.html#a87e659d37ce08d8d822e800736eeca7a", null ],
     [ "VoigtIndex", "st2tost2_8ixx.html#a2b78ec031008d412fb7660f3dae40e2b", null ]
 ];

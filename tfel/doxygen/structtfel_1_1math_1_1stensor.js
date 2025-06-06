@@ -22,6 +22,6 @@ var structtfel_1_1math_1_1stensor =
     [ "import", "structtfel_1_1math_1_1stensor.html#ab1cc033f4dd29efa74bf20bb9fde53b2", null ],
     [ "importTab", "structtfel_1_1math_1_1stensor.html#aabc0665ac33c88b203d806043eb1c3da", null ],
     [ "importVoigt", "structtfel_1_1math_1_1stensor.html#ae1ecc020305ed0ab753ce17756e7a8f1", null ],
-    [ "setComponent", "structtfel_1_1math_1_1stensor.html#a7ea43ace12646fd492f8bb247f847f80", null ],
+    [ "setComponent", "structtfel_1_1math_1_1stensor.html#a2f4bc60fa8fa964919aa383c4984fbdb", null ],
     [ "write", "structtfel_1_1math_1_1stensor.html#a956db3d7bd8fe6ae91a67392e6d84fd2", null ]
 ];

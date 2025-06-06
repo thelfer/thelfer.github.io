@@ -889,7 +889,7 @@ var namespacetfel_1_1math =
     [ "scalarNewtonRaphson", "namespacetfel_1_1math.html#a20914f79c160ff2569da26bfd9c2db67", null ],
     [ "scalarNewtonRaphson", "namespacetfel_1_1math.html#aa642c46411862f6136a50ed47f81e4c9", null ],
     [ "scalarNewtonRaphson", "namespacetfel_1_1math.html#a2d7fa46212b04e93bff1499af8e403b1", null ],
-    [ "setComponent", "namespacetfel_1_1math.html#a2795a0d39ce6dbe551db94c67811b890", null ],
+    [ "setComponent", "namespacetfel_1_1math.html#a87e659d37ce08d8d822e800736eeca7a", null ],
     [ "sigmaeq", "namespacetfel_1_1math.html#a206e778a81e828ec311ba77fb8cb3e25", null ],
     [ "slice", "namespacetfel_1_1math.html#ab4817d67586485015954ed112cdbe061", null ],
     [ "slice", "namespacetfel_1_1math.html#a1db734623544b4da9c5d2f206597c64b", null ],

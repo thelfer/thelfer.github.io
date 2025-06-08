@@ -1,11 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"_variable_description_8hxx.html#ac14e4994078c9ba950e27558af93eabc":[8,0,2,0,0,207,3],
-"_variable_description_8hxx.html#ae64d1e6787e57312af863c5bfe6776c8":[8,0,2,0,0,207,18],
-"_variable_description_8hxx.html#af39ab3f99649ecc8813a0ad46c824459":[8,0,2,0,0,207,16],
-"_variable_description_8hxx.html#af57293a292505942e5dcd42149817fff":[8,0,2,0,0,207,2],
-"_variable_description_8ixx.html":[8,0,2,0,0,208],
-"_variable_description_base_8hxx.html":[8,0,2,0,0,209],
 "_variable_description_base_8hxx.html#a530994abef4813f78623463dd330f40f":[8,0,2,0,0,209,1],
 "_vect3_8hxx.html":[8,0,0,2,16],
 "_vector_concept_8hxx.html":[8,0,0,3,5,21,4],
@@ -249,5 +243,11 @@ var NAVTREEINDEX10 =
 "classtfel_1_1math_1_1_compute_unary_result___3_01_matrix_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[7,0,14,6,109],
 "classtfel_1_1math_1_1_compute_unary_result___3_01_matrix_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[5,0,9,1,106],
 "classtfel_1_1math_1_1_compute_unary_result___3_01_vector_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[5,0,9,1,114],
-"classtfel_1_1math_1_1_compute_unary_result___3_01_vector_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[7,0,14,6,117]
+"classtfel_1_1math_1_1_compute_unary_result___3_01_vector_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[7,0,14,6,117],
+"classtfel_1_1math_1_1_matrix_matrix_handle.html":[5,0,9,1,373],
+"classtfel_1_1math_1_1_matrix_matrix_handle.html":[7,0,14,6,376],
+"classtfel_1_1math_1_1_matrix_matrix_handle_3_01tmatrix_3_01_n_00_01_k_00_01_t_01_4_00_01tmatrix_04d58ba599e0dbfe628022b1134e9331.html":[7,0,14,6,377],
+"classtfel_1_1math_1_1_matrix_matrix_handle_3_01tmatrix_3_01_n_00_01_k_00_01_t_01_4_00_01tmatrix_04d58ba599e0dbfe628022b1134e9331.html":[5,0,9,1,374],
+"classtfel_1_1math_1_1_matrix_vector_handle.html":[5,0,9,1,376],
+"classtfel_1_1math_1_1_matrix_vector_handle.html":[7,0,14,6,379]
 };

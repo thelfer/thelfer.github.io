@@ -18,10 +18,8 @@ var structtfel_1_1math_1_1stensor =
     [ "computeIsotropicFunctionDerivative", "structtfel_1_1math_1_1stensor.html#ab64caec567598337694a9bfb62f437a8", null ],
     [ "copy", "structtfel_1_1math_1_1stensor.html#a613e59fb895d2082c2b28dd2feb03092", null ],
     [ "exportTab", "structtfel_1_1math_1_1stensor.html#a2bd91d0cc22c49852d0b3808665fa440", null ],
-    [ "getComponent", "structtfel_1_1math_1_1stensor.html#aed0be8b206fafbb8be5371b4ccfac46d", null ],
     [ "import", "structtfel_1_1math_1_1stensor.html#ab1cc033f4dd29efa74bf20bb9fde53b2", null ],
     [ "importTab", "structtfel_1_1math_1_1stensor.html#aabc0665ac33c88b203d806043eb1c3da", null ],
     [ "importVoigt", "structtfel_1_1math_1_1stensor.html#ae1ecc020305ed0ab753ce17756e7a8f1", null ],
-    [ "setComponent", "structtfel_1_1math_1_1stensor.html#a2f4bc60fa8fa964919aa383c4984fbdb", null ],
     [ "write", "structtfel_1_1math_1_1stensor.html#a956db3d7bd8fe6ae91a67392e6d84fd2", null ]
 ];

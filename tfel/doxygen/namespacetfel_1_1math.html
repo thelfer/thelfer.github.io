@@ -4907,9 +4907,11 @@ requires (ScalarConcept&lt;T&gt; || MathObjectConcept&lt;T&gt;)</div>
 <div class="line"> <span class="keyword">const</span> StressType&amp; young,</div>
 <div class="line"> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code hl_struct" href="structstd_1_1complex.html">tfel::math::ScalarTypeRebind&lt;StressType&gt;::real</a>&amp; nu)</div>
 <div class="line"> <span class="keyword">requires</span>(</div>
-<div class="line">     <a class="code hl_typedef" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">tfel::math::checkUnitCompatibility&lt;tfel::math::unit::Stress, StressType&gt;</a>());</div>
-<div class="ttc" id="anamespacetfel_1_1math_html_a037360e732078b2d8b6bee5f80a0c819"><div class="ttname"><a href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">tfel::math::Complex</a></div><div class="ttdeci">std::complex&lt; ValueType &gt; Complex</div><div class="ttdoc">an alias std::complex.</div><div class="ttdef"><b>Definition</b> Forward/Complex.hxx:47</div></div>
+<div class="line">     <a class="code hl_function" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt;<a class="code hl_struct" href="structtfel_1_1math_1_1_unit.html">tfel::math::unit::Stress</a>,</div>
+<div class="line">StressType&gt;()); </div>
+<div class="ttc" id="anamespacetfel_1_1math_html_a8d7e56abbf07c901ded6a6cf432ef1d0"><div class="ttname"><a href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a></div><div class="ttdeci">constexpr bool checkUnitCompatibility()</div><div class="ttdoc">this function checks if the given type matches the given unit if it built on top of a quantity....</div><div class="ttdef"><b>Definition</b> types.ixx:41</div></div>
 <div class="ttc" id="astructstd_1_1complex_html"><div class="ttname"><a href="structstd_1_1complex.html">std::complex</a></div><div class="ttdef"><b>Definition</b> Forward/Complex.hxx:31</div></div>
+<div class="ttc" id="astructtfel_1_1math_1_1_unit_html"><div class="ttname"><a href="structtfel_1_1math_1_1_unit.html">tfel::math::Unit</a></div><div class="ttdoc">structure describing an unit</div><div class="ttdef"><b>Definition</b> Forward/qt.hxx:57</div></div>
 </div><!-- fragment --><p>Thanks to the <code>checkUnitCompatibility</code> function, this function only compiles if <code>StressType</code> either:</p>
 <ul>
 <li>maches <code>qt&lt;Stress, NumericType&gt;</code>, where <code>NumericType</code> is a plain old floatting point type such as <code>double</code>, <code>float</code> or <code>long double</code>.</li>
@@ -11164,7 +11166,8 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a78e6e124b6c3ec6286d482
 \[ A::B=\sum_{i,j} A_{ij}B_{ji}\]
 </p>
 <p> in Voigt notation, which also corresponds to </p><p class="formulaDsp">
-\[ A::B=\sum_{i,j,k,l}A_{ijkl}B_{lkji}=\sum_{i,j,k,l}A_{ijkl}B_{klij}\]
+\[
+A::B=\sum_{i,j,k,l}A_{ijkl}B_{lkji}=\sum_{i,j,k,l}A_{ijkl}B_{klij}\]
 </p>
  <dl class="section return"><dt>Returns</dt><dd>the quadruple contraction scalar </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -12428,9 +12431,10 @@ template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6b
 \[ Tr\left(A\right)=\sum_i A_{ii}\]
 </p>
 <p> in Voigt notation, which also corresponds to </p><p class="formulaDsp">
-\[ Tr\left(A\right)=I::A=\frac{1}{2}\sum_{i,j}(A_{ijij}+A_{ijji})\]
+\[
+Tr\left(A\right)=I::A=\frac{1}{2}\sum_{i,j}(A_{ijij}+A_{ijji})\]
 </p>
- <dl class="section return"><dt>Returns</dt><dd>the trace </dd></dl>
+ <dl class="section return"><dt>Returns</dt><dd>the trace</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td><code><a class="el" href="structtfel_1_1math_1_1st2tost2.html" title="linear operator on symmetric tensors.">st2tost2</a></code> </td></tr>
@@ -12752,7 +12756,7 @@ template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6b
 <p> is usually the last component of the vector </p><p class="formulaDsp">
 \[\varepsilon\]
 </p>
-<p> in the usual Voigt notation, but here it is situated as the fourth component, in order that the vector in dimension 2 is just a truncation of the vector in dimension 3. </p><dl class="section return"><dt>Returns</dt><dd>an unsigned short </dd></dl>
+<p> in the usual Voigt notation, but here it is situated as the fourth component, in order that the vector in dimension 2 is just a truncation of the vector in dimension 3. </p><dl class="section return"><dt>Returns</dt><dd>an unsigned short</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">i,j</td><td>unsigned short </td></tr>
@@ -12768,7 +12772,7 @@ template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6b
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><a class="el" href="namespacetfel_1_1math.html">math</a></li>
-    <li class="footer">Generated on Tue Jun 17 2025 21:56:12 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sun Jun 22 2025 19:56:26 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

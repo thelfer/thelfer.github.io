@@ -1,5 +1,7 @@
 var NAVTREEINDEX49 =
 {
+"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a4f89df6854a92bd6634f891de740b91c":[7,0,10,0,22,21],
+"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a509df085e28292bde85e27133a78dd71":[7,0,10,0,22,6],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a5430287235bd66807c4f56f9ce645063":[7,0,10,0,22,7],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a64ddce1dd113d82c551e5d85004bda66":[7,0,10,0,22,13],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a671dd3335adc47b51a66729def827c19":[7,0,10,0,22,19],
@@ -247,7 +249,5 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential.html":[7,0,10,0,45],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential.html#ac5334323923a2480bd3cb8ffd37b096a":[7,0,10,0,45,0],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential.html#acaa987125238b1521cd43675b6525f73":[7,0,10,0,45,1],
-"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html":[7,0,10,0,46],
-"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a16628bb1c74254e3fe6e244cf158f4bc":[7,0,10,0,46,0],
-"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a1de295c5206534467e4728487d2e482d":[7,0,10,0,46,1]
+"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html":[7,0,10,0,46]
 };

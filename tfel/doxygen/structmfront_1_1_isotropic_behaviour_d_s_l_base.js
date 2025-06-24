@@ -19,6 +19,7 @@ var structmfront_1_1_isotropic_behaviour_d_s_l_base =
     [ "treatIsotropicHardeningRule", "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#ab735d7434ee0d4b4bb2fb197668e6d5a", null ],
     [ "treatIsotropicHardeningRules", "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a583255f1dc2fef0f514697fff768cfd6", null ],
     [ "treatIterMax", "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#ab89c1ea421f1abf57aed135d26a36aaf", null ],
+    [ "treatPredictor", "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a747e398e4a6de1029efe1eabc87cfa95", null ],
     [ "treatTheta", "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a87fe194fbbdfeb5e2152cf97adf9ef5a", null ],
     [ "ihrs", "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a48d0fdd481febbd25f1063f8ff966578", null ]
 ];

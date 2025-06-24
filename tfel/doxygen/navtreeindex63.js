@@ -1,5 +1,7 @@
 var NAVTREEINDEX63 =
 {
+"structnumodis_1_1math_1_1_abs.html#a488c5056fac45077e40f81cfaa576c3f":[7,0,12,0,0,1],
+"structstd_1_1complex.html":[7,0,13,0],
 "structstd_1_1numeric__limits_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value_type_00_01_ownership_policy_01_4_01_4.html":[7,0,13,1],
 "structstd_1_1tuple__element_3_01_i_00_01tfel_1_1math_1_1fsarray_3_01_n_00_01_value_type_01_4_01_4.html":[7,0,13,2],
 "structstd_1_1tuple__element_3_01_i_00_01tfel_1_1math_1_1fsarray_3_01_n_00_01_value_type_01_4_01_4.html#ac30fdd8acc848087e6e7eb0374aae43c":[7,0,13,2,0],
@@ -14,8 +16,8 @@ var NAVTREEINDEX63 =
 "structtfel_01_1_1math_1_1_op_mult.html":[7,0,15,0,4],
 "structtfel_01_1_1math_1_1_op_neg.html":[7,0,15,0,5],
 "structtfel_01_1_1math_1_1_op_plus.html":[7,0,15,0,6],
-"structtfel_1_1_physical_constants.html":[7,0,14,13],
 "structtfel_1_1_physical_constants.html":[5,0,9,2],
+"structtfel_1_1_physical_constants.html":[7,0,14,13],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[5,0,9,3],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[7,0,14,14],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[5,0,9,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX63 =
 "structtfel_1_1fsalgo_1_1generate.html":[7,0,14,3,17],
 "structtfel_1_1fsalgo_1_1inner__product.html":[7,0,14,3,18],
 "structtfel_1_1fsalgo_1_1internals_1_1do__loop.html":[7,0,14,3,0,0],
-"structtfel_1_1fsalgo_1_1internals_1_1do__loop.html#ae5bfde3f311bf116e036ebc50d0957ec":[7,0,14,3,0,0,0],
-"structtfel_1_1fsalgo_1_1internals_1_1do__loop_3_01_n_00_01_n_01_4.html":[7,0,14,3,0,1],
-"structtfel_1_1fsalgo_1_1internals_1_1do__loop_3_01_n_00_01_n_01_4.html#a9810a6b77563eaee84a7b6ea35765ddb":[7,0,14,3,0,1,0]
+"structtfel_1_1fsalgo_1_1internals_1_1do__loop.html#ae5bfde3f311bf116e036ebc50d0957ec":[7,0,14,3,0,0,0]
 };

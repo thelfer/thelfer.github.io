@@ -1,5 +1,7 @@
 var NAVTREEINDEX48 =
 {
+"structmfront_1_1bbrick_1_1_burlet_cailletaud_kinematic_hardening_rule.html":[7,0,10,0,2],
+"structmfront_1_1bbrick_1_1_burlet_cailletaud_kinematic_hardening_rule.html#a145fb99e2d484e5fca83ce6de39e997b":[7,0,10,0,2,0],
 "structmfront_1_1bbrick_1_1_burlet_cailletaud_kinematic_hardening_rule.html#a5e99ef4830c084918a020ee1cb56002e":[7,0,10,0,2,5],
 "structmfront_1_1bbrick_1_1_burlet_cailletaud_kinematic_hardening_rule.html#a75eb62191ff52442c695ea5ac56aff50":[7,0,10,0,2,6],
 "structmfront_1_1bbrick_1_1_burlet_cailletaud_kinematic_hardening_rule.html#a7b868460a1729a68f1d47fbcf9126498":[7,0,10,0,2,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX48 =
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a1402aa8057b9e05df27582ca45be36b6":[7,0,10,0,22,2],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a2b9e704556e401c25156db403b843c4a":[7,0,10,0,22,10],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a3571c21511caa65a17e7344d9dbaf1d5":[7,0,10,0,22,29],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a495cc378185d87671beaa0b64f1d7c90":[7,0,10,0,22,18],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a4f89df6854a92bd6634f891de740b91c":[7,0,10,0,22,21],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a509df085e28292bde85e27133a78dd71":[7,0,10,0,22,6]
+"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a495cc378185d87671beaa0b64f1d7c90":[7,0,10,0,22,18]
 };

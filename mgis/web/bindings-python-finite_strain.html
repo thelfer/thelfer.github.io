@@ -172,7 +172,6 @@
 	    <li><a>Specific topics</a>
 	      <ul>
 		<li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
-		<li><a href="functions.html">Functions</a></li>
 	      </ul>
 	    </li>
 	    <li><a href="faq.html">FAQ</a></li>
@@ -325,6 +324,31 @@ for illustration purposes. For simplicity, we will impose the same
 strain <span class="math inline">\(\epsilon\)</span> for all points,
 yielding the same response for all points but different strain values
 could also be considered for the different material points.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>To treat a batch of integration points, we rely on the
+<code>MaterialDataManager</code> class. This is the most commonly used
+class in <code>python</code>.</p>
+<p>In contrast, in solvers developped using a compiled language like
+<code>C++</code>, <code>fortran</code> and <code>C</code>, most
+developers wants more control on how memory is handled. In this case,
+<code>mgis</code> provides the <code>BehaviourData</code> and
+<code>BehaviourDataView</code> classes which are suitable to deal with a
+single integraiton point.</p>
+<p>Those various solutions are described in depth in the <a
+href="bindings-cxx.html"><code>C++</code> tutorial</a>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>This tutorial aims at illustrating how to use <code>MGIS</code> in
+<code>python</code> on a simple example.</p>
+<p>To describe a single integration point, the usage of the
+<code>mtest</code> module (provided by the <code>TFEL</code> project if
+the <code>python</code> bindings are enabled) is strongly advocated.</p>
+<p>See <a
+href="https://thelfer.github.io/tfel/web/mtest-python.html">this
+page</a> for details.</p>
+</blockquote>
 <h1 id="implementation">Implementation</h1>
 <h2 id="compiling-the-behaviour">Compiling the behaviour</h2>
 <p>First, we call the
@@ -345,7 +369,18 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a hr
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode txt"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Treating target : all</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>The following library has been built :</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>- libBehaviour.so :  LogarithmicStrainPlasticity_AxisymmetricalGeneralisedPlaneStrain LogarithmicStrainPlasticity_Axisymmetrical LogarithmicStrainPlasticity_PlaneStrain LogarithmicStrainPlasticity_GeneralisedPlaneStrain LogarithmicStrainPlasticity_Tridimensional SmallStrainPlasticity_AxisymmetricalGeneralisedPlaneStrain SmallStrainPlasticity_Axisymmetrical SmallStrainPlasticity_PlaneStrain SmallStrainPlasticity_GeneralisedPlaneStrain SmallStrainPlasticity_Tridimensional</span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>- libBehaviour.so :  LogarithmicStrainPlasticity_AxisymmetricalGeneralisedPlaneStrain LogarithmicStrainPlasticity_Axisymmetrical LogarithmicStrainPlasticity_PlaneStrain LogarithmicStrainPlasticity_GeneralisedPlaneStrain LogarithmicStrainPlasticity_Tridimensional</span></code></pre></div>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>If the <code>TFEL</code> project (which provides <code>MFront</code>)
+has been compiled with the <code>python</code> bindings enabled, then
+the <code>mfront</code> <code>python</code> module provides a more
+direct way of compiling <code>MFront</code> behaviours, allowing to
+retrieve the name of the generated libraries and behaviours.</p>
+<p>See <a
+href="https://thelfer.github.io/tfel/web/mfront-python.html">this
+page</a> for details about the <code>mfront</code> module.</p>
+</blockquote>
 <h2 id="loading-the-behaviour">Loading the behaviour</h2>
 <p>We first need to choose the modeling hypothesis. Here, we will work
 with 3D states and thus choose the <code>Tridimensional</code>
@@ -365,22 +400,25 @@ class="math inline">\(\boldsymbol{S}\)</span>.</p>
 <p>We choose the PK1 stress <span
 class="math inline">\(\boldsymbol{P}\)</span> here. Similarly, we can
 ask for specific variants of the tangent operators such as:</p>
-<p><span class="math display">\[
-\begin{align*}
-\texttt{DCAUCHY\_DF}/\texttt{DSIG\_DF}:\qquad &amp;
-\dfrac{\partial\boldsymbol{\sigma}}{\partial \boldsymbol{F}}\\
-\texttt{DPK1\_DF}:\qquad &amp; \dfrac{\partial\boldsymbol{P}}{\partial
-\boldsymbol{F}}\\
-\texttt{DS\_DEGL}:\qquad &amp; \dfrac{\partial\boldsymbol{S}}{\partial
-\boldsymbol{E}^\text{GL}}\\
-\texttt{DTAU\_DDF}:\qquad &amp;
-\dfrac{\partial\boldsymbol{\tau}}{\partial \boldsymbol{D}}\\
-\end{align*}
-\]</span></p>
+<ul>
+<li><code>DCAUCHY_DF</code>/<code>DSIG_DF</code>: <span
+class="math inline">\(\dfrac{\partial\boldsymbol{\sigma}}{\partial
+\boldsymbol{F}}\)</span>,</li>
+<li><code>DPK1_DF</code>: <span
+class="math inline">\(\dfrac{\partial\boldsymbol{P}}{\partial
+\boldsymbol{F}}\)</span>,</li>
+<li><code>DS_DEGL</code>: <span
+class="math inline">\(\dfrac{\partial\boldsymbol{S}}{\partial
+\boldsymbol{E}^\text{GL}}\)</span>,</li>
+<li><code>DTAU_DDF</code>: <span
+class="math inline">\(\dfrac{\partial\boldsymbol{\tau}}{\partial
+\boldsymbol{D}}\)</span>.</li>
+</ul>
 <p>where <span class="math inline">\(\boldsymbol{E}^\text{GL}\)</span>
 is the Green-Lagrange strain, <span
 class="math inline">\(\boldsymbol{\tau}\)</span> the Kirchhoff stress
-and $ $ the deformation rate gradient.</p>
+and <span class="math inline">\(\boldsymbol{D}\)</span> the deformation
+rate gradient.</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lib_path <span class="op">=</span> <span class="st">&quot;src/libBehaviour.so&quot;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> mgis_bv.Hypothesis.Tridimensional</span>
@@ -401,50 +439,65 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a hr
 class="sourceCode txt"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Finite strain behaviour detected.</span></code></pre></div>
 <p>The <code>Behaviour</code> object now contains several information
 about the behaviour implementation such as names and types of gradients
-and thermodynamic forces and external or internal state variables. Here,
-we work with a purely mechanical behaviour so that gradients consist
-only of the total deformation gradient <code>DeformationGradient</code>.
-The resulting thermodynamic stress is
-<code>FirstPiolaKirchhoffStress</code>. By default,
-<code>Temperature</code> is always declared as an external state
-variable by MFront. Finally, since we are dealing with an elastoplastic
-behaviour with isotropic hardening, the internal state variables are the
+and thermodynamic forces and external or internal state variables.</p>
+<p>Here, we work with a purely mechanical behaviour so that gradients
+consist only of the total deformation gradient
+<code>DeformationGradient</code>. The resulting thermodynamic stress is
+<code>FirstPiolaKirchhoffStress</code>.</p>
+<p>By default, <code>Temperature</code> is always declared as an
+external state variable by MFront.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The automatic declaration of the <code>Temperature</code> comes from
+the fact that many solvers adopted the <code>UMAT</code> interface which
+treats the temperature specifically.</p>
+<p>If portability is not an issue (the <code>generic</code> interface is
+the only one that supports this feature), the automatic declaration can
+be disabled by modifying the declaration of the domain specific language
+in the <code>MFront</code> file as follows:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit<span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  automatic_declaration_of_the_temperature_as_first_external_state_variable<span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</blockquote>
+<p>Finally, since we are dealing with an elastoplastic behaviour with
+isotropic hardening, the internal state variables are the
 <code>ElasticStrain</code> and the <code>EquivalentPlasticStrain</code>.
 The former is a symmetric tensor whereas the latter is only a
 scalar.</p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Kinematic type:&quot;</span>, behaviour.getKinematic())</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Gradient names:&quot;</span>,[s.name <span class="cf">for</span> s <span class="kw">in</span> behaviour.gradients])</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Thermodynamic forces names:&quot;</span>, [s.name <span class="cf">for</span> s <span class="kw">in</span> behaviour.thermodynamic_forces])</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;External state variable names:&quot;</span>,  [s.name <span class="cf">for</span> s <span class="kw">in</span> behaviour.external_state_variables])</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Internal state variable names:&quot;</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    [s.name <span class="cf">for</span> s <span class="kw">in</span> behaviour.internal_state_variables],</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Internal state variable types:&quot;</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    [s.<span class="bu">type</span> <span class="cf">for</span> s <span class="kw">in</span> behaviour.internal_state_variables],</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre
-class="sourceCode txt"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Kinematic type: F_CAUCHY</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Gradient names: [&#39;DeformationGradient&#39;]</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Thermodynamic forces names: [&#39;FirstPiolaKirchhoffStress&#39;]</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>External state variable names: [&#39;Temperature&#39;]</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>Internal state variable names: [&#39;ElasticStrain&#39;, &#39;EquivalentPlasticStrain&#39;]</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>Internal state variable types: [mgis.behaviour.VariableType.STENSOR, mgis.behaviour.VariableType.SCALAR]</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Kinematic type:&quot;</span>, behaviour.getKinematic())</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Gradient names:&quot;</span>,[s.name <span class="cf">for</span> s <span class="kw">in</span> behaviour.gradients])</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Thermodynamic forces names:&quot;</span>, [s.name <span class="cf">for</span> s <span class="kw">in</span> behaviour.thermodynamic_forces])</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;External state variable names:&quot;</span>,  [s.name <span class="cf">for</span> s <span class="kw">in</span> behaviour.external_state_variables])</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Internal state variable names:&quot;</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    [s.name <span class="cf">for</span> s <span class="kw">in</span> behaviour.internal_state_variables],</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Internal state variable types:&quot;</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    [s.<span class="bu">type</span> <span class="cf">for</span> s <span class="kw">in</span> behaviour.internal_state_variables],</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Kinematic type: F_CAUCHY</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Gradient names: [&#39;DeformationGradient&#39;]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Thermodynamic forces names: [&#39;FirstPiolaKirchhoffStress&#39;]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>External state variable names: [&#39;Temperature&#39;]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Internal state variable names: [&#39;ElasticStrain&#39;, &#39;EquivalentPlasticStrain&#39;]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>Internal state variable types: [mgis.behaviour.VariableType.STENSOR, mgis.behaviour.VariableType.SCALAR]</span></code></pre></div>
 <p>The size of these different quantities can be checked. Non-symmetric
 tensors in 3D are represented here as arrays of size 9, see <a
 href="https://thelfer.github.io/tfel/web/tensors.html">Tensors in
 MFront</a>.</p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> behaviour.gradients <span class="op">+</span> behaviour.thermodynamic_forces <span class="op">+</span> behaviour.internal_state_variables: </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>s<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> is of size </span><span class="sc">{</span>mgis_bv<span class="sc">.</span>getVariableSize(s, hypothesis)<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre
-class="sourceCode txt"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>DeformationGradient is of size 9</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>FirstPiolaKirchhoffStress is of size 9</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ElasticStrain is of size 6</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>EquivalentPlasticStrain is of size 1</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> behaviour.gradients <span class="op">+</span> behaviour.thermodynamic_forces <span class="op">+</span> behaviour.internal_state_variables: </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>s<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> is of size </span><span class="sc">{</span>mgis_bv<span class="sc">.</span>getVariableSize(s, hypothesis)<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>DeformationGradient is of size 9</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>FirstPiolaKirchhoffStress is of size 9</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ElasticStrain is of size 6</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>EquivalentPlasticStrain is of size 1</span></code></pre></div>
 <p>For more complex behaviours, different “blocks” of tangent operators
 can be declared and computed. The names of the tangent blocks can be
 retrieved as shown below. Here, we have a simple mechanical behaviour so
@@ -452,30 +505,30 @@ that the only tangent operator is the tangent stiffness <span
 class="math inline">\(\boldsymbol{C}_\text{tang} = \dfrac{\partial
 \boldsymbol{P}}{\partial \boldsymbol{F}}\)</span>, as specified
 earlier.</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Tangent operator block names:&quot;</span>,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    [<span class="ss">f&quot;d</span><span class="sc">{</span>s[<span class="dv">0</span>]<span class="sc">.</span>name<span class="sc">}</span><span class="ss">_d</span><span class="sc">{</span>s[<span class="dv">1</span>]<span class="sc">.</span>name<span class="sc">}</span><span class="ss">&quot;</span> <span class="cf">for</span> s <span class="kw">in</span> behaviour.tangent_operator_blocks],</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div class="sourceCode" id="cb10"><pre
-class="sourceCode txt"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Tangent operator block names: [&#39;dFirstPiolaKirchhoffStress_dDeformationGradient&#39;]</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Tangent operator block names:&quot;</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    [<span class="ss">f&quot;d</span><span class="sc">{</span>s[<span class="dv">0</span>]<span class="sc">.</span>name<span class="sc">}</span><span class="ss">_d</span><span class="sc">{</span>s[<span class="dv">1</span>]<span class="sc">.</span>name<span class="sc">}</span><span class="ss">&quot;</span> <span class="cf">for</span> s <span class="kw">in</span> behaviour.tangent_operator_blocks],</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Tangent operator block names: [&#39;dFirstPiolaKirchhoffStress_dDeformationGradient&#39;]</span></code></pre></div>
 <p>Finally, names of material properties can also be retrieved easily as
 follows:</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Material property names:&quot;</span>,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    [s.name <span class="cf">for</span> s <span class="kw">in</span> behaviour.material_properties],</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre
-class="sourceCode txt"><code class="sourceCode default"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Material property names: [&#39;InitialYieldStress&#39;, &#39;FinalYieldStress&#39;, &#39;HardeningCoefficient&#39;]</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Material property names:&quot;</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    [s.name <span class="cf">for</span> s <span class="kw">in</span> behaviour.material_properties],</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Material property names: [&#39;InitialYieldStress&#39;, &#39;FinalYieldStress&#39;, &#39;HardeningCoefficient&#39;]</span></code></pre></div>
 <p>Other informations such as behaviour material symmetry or predefined
 parameters can also be obtained as follows:</p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(behaviour.symmetry)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(behaviour.parameters)</span></code></pre></div>
 <div class="sourceCode" id="cb14"><pre
-class="sourceCode txt"><code class="sourceCode default"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Isotropic</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>[&#39;epsilon&#39;, &#39;theta&#39;, &#39;YoungModulus&#39;, &#39;PoissonRatio&#39;, &#39;RelativeValueForTheEquivalentStressLowerBoundDefinition&#39;, &#39;minimal_time_step_scaling_factor&#39;, &#39;maximal_time_step_scaling_factor&#39;, &#39;numerical_jacobian_epsilon&#39;]</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(behaviour.symmetry)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(behaviour.parameters)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Isotropic</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>[&#39;epsilon&#39;, &#39;theta&#39;, &#39;YoungModulus&#39;, &#39;PoissonRatio&#39;, &#39;RelativeValueForTheEquivalentStressLowerBoundDefinition&#39;, &#39;minimal_time_step_scaling_factor&#39;, &#39;maximal_time_step_scaling_factor&#39;, &#39;numerical_jacobian_epsilon&#39;]</span></code></pre></div>
 <h2 id="setting-up-the-material-data-manager">Setting up the material
 data manager</h2>
 <p>The material data manager will be the data structure which will hold
@@ -483,9 +536,9 @@ the information about the mechanical state and tangent operator for a
 single or a batch of integration points during a given time step. We
 first set up the data manager by declaring the number of integration
 points we want to handle.</p>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ngauss <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> mgis_bv.MaterialDataManager(behaviour, ngauss)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ngauss <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> mgis_bv.MaterialDataManager(behaviour, ngauss)</span></code></pre></div>
 <p>Values at the beginning of the time step will be stored in
 <code>data.s0</code>. This object is a <code>StateManager</code> which
 holds values of the gradients, thermodynamic forces and internal state
@@ -499,50 +552,50 @@ zero.</p>
 <p>We see below that <code>data.s0.gradients</code> is of shape
 <code>ngauss x 9</code> corresponding to the 9 components of the
 <code>ngauss</code> integration points.</p>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Gradients:&quot;</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;  Beginning of time step:</span><span class="ch">\n</span><span class="st">&quot;</span>, data.s0.gradients)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;  End of time step:</span><span class="ch">\n</span><span class="st">&quot;</span>, data.s1.gradients)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Thermodynamic forces:&quot;</span>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;  Beginning of time step:</span><span class="ch">\n</span><span class="st">&quot;</span>, data.s0.thermodynamic_forces)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;  End of time step:</span><span class="ch">\n</span><span class="st">&quot;</span>, data.s1.thermodynamic_forces)</span></code></pre></div>
 <div class="sourceCode" id="cb17"><pre
-class="sourceCode txt"><code class="sourceCode default"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Gradients:</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  Beginning of time step:</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a> [[1. 1. 1. 0. 0. 0. 0. 0. 0.]</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a> [1. 1. 1. 0. 0. 0. 0. 0. 0.]</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a> [1. 1. 1. 0. 0. 0. 0. 0. 0.]]</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  End of time step:</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a> [[1. 1. 1. 0. 0. 0. 0. 0. 0.]</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a> [1. 1. 1. 0. 0. 0. 0. 0. 0.]</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a> [1. 1. 1. 0. 0. 0. 0. 0. 0.]]</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>Thermodynamic forces:</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  Beginning of time step:</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a> [[0. 0. 0. 0. 0. 0. 0. 0. 0.]</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0. 0. 0.]</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0. 0. 0.]]</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  End of time step:</span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a> [[0. 0. 0. 0. 0. 0. 0. 0. 0.]</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0. 0. 0.]</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0. 0. 0.]]</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Gradients:&quot;</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;  Beginning of time step:</span><span class="ch">\n</span><span class="st">&quot;</span>, data.s0.gradients)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;  End of time step:</span><span class="ch">\n</span><span class="st">&quot;</span>, data.s1.gradients)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Thermodynamic forces:&quot;</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;  Beginning of time step:</span><span class="ch">\n</span><span class="st">&quot;</span>, data.s0.thermodynamic_forces)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;  End of time step:</span><span class="ch">\n</span><span class="st">&quot;</span>, data.s1.thermodynamic_forces)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Gradients:</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  Beginning of time step:</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a> [[1. 1. 1. 0. 0. 0. 0. 0. 0.]</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a> [1. 1. 1. 0. 0. 0. 0. 0. 0.]</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a> [1. 1. 1. 0. 0. 0. 0. 0. 0.]]</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  End of time step:</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a> [[1. 1. 1. 0. 0. 0. 0. 0. 0.]</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a> [1. 1. 1. 0. 0. 0. 0. 0. 0.]</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a> [1. 1. 1. 0. 0. 0. 0. 0. 0.]]</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>Thermodynamic forces:</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  Beginning of time step:</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a> [[0. 0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0. 0. 0.]]</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  End of time step:</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a> [[0. 0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0. 0. 0.]]</span></code></pre></div>
 <p>Conversely, internal state variables are of shape
 <code>ngauss x 7</code> with components of <code>ElasticStrain</code>
 and <code>EquivalentPlasticStrain</code> being concatenated.</p>
-<div class="sourceCode" id="cb18"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Internal state variables:&quot;</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;  Beginning of time step:</span><span class="ch">\n</span><span class="st">&quot;</span>, data.s0.internal_state_variables)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;  End of time step:</span><span class="ch">\n</span><span class="st">&quot;</span>, data.s1.internal_state_variables)</span></code></pre></div>
 <div class="sourceCode" id="cb19"><pre
-class="sourceCode txt"><code class="sourceCode default"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Internal state variables:</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  Beginning of time step:</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a> [[0. 0. 0. 0. 0. 0. 0.]</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0.]</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0.]]</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  End of time step:</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a> [[0. 0. 0. 0. 0. 0. 0.]</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0.]</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0.]]</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Internal state variables:&quot;</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;  Beginning of time step:</span><span class="ch">\n</span><span class="st">&quot;</span>, data.s0.internal_state_variables)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;  End of time step:</span><span class="ch">\n</span><span class="st">&quot;</span>, data.s1.internal_state_variables)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>Internal state variables:</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  Beginning of time step:</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a> [[0. 0. 0. 0. 0. 0. 0.]</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0.]</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0.]]</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  End of time step:</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a> [[0. 0. 0. 0. 0. 0. 0.]</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0.]</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a> [0. 0. 0. 0. 0. 0. 0.]]</span></code></pre></div>
 <h2 id="declare-material-properties">Declare material properties</h2>
 <p>In order to perform the behaviour integration, we need to declare the
 values for the material properties which are yet unspecified. We also
@@ -551,13 +604,13 @@ practice. Note that we can declare different values at the beginning and
 at the end of the time step, although here we use the same values.
 Finally, we would also apply different values for the different
 integration points, if needed.</p>
-<div class="sourceCode" id="cb20"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> state_manager <span class="kw">in</span> [data.s0, data.s1]:</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    mgis_bv.setMaterialProperty(state_manager, <span class="st">&quot;InitialYieldStress&quot;</span>, <span class="fl">250e6</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    mgis_bv.setMaterialProperty(state_manager, <span class="st">&quot;FinalYieldStress&quot;</span>, <span class="fl">400e6</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    mgis_bv.setMaterialProperty(state_manager, <span class="st">&quot;HardeningCoefficient&quot;</span>, <span class="fl">1000.</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    mgis_bv.setExternalStateVariable(state_manager, <span class="st">&quot;Temperature&quot;</span>, <span class="fl">293.15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> state_manager <span class="kw">in</span> [data.s0, data.s1]:</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    mgis_bv.setMaterialProperty(state_manager, <span class="st">&quot;InitialYieldStress&quot;</span>, <span class="fl">250e6</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    mgis_bv.setMaterialProperty(state_manager, <span class="st">&quot;FinalYieldStress&quot;</span>, <span class="fl">400e6</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    mgis_bv.setMaterialProperty(state_manager, <span class="st">&quot;HardeningCoefficient&quot;</span>, <span class="fl">1000.</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    mgis_bv.setExternalStateVariable(state_manager, <span class="st">&quot;Temperature&quot;</span>, <span class="fl">293.15</span>)</span></code></pre></div>
 <h2
 id="defining-the-load-stepping-scheme-and-the-nonlinear-system">Defining
 the load-stepping scheme and the nonlinear system</h2>
@@ -565,98 +618,102 @@ the load-stepping scheme and the nonlinear system</h2>
 strain. The value of the time step <code>dt</code> must be provided but
 is irrelevant here since we are dealing with a rate-independent
 behaviour.</p>
-<div class="sourceCode" id="cb21"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># strain history</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>eps_max <span class="op">=</span> <span class="fl">3e-3</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>eps_list <span class="op">=</span> np.concatenate((np.linspace(<span class="dv">0</span>, eps_max, N), np.linspace(eps_max, <span class="op">-</span>eps_max, N), np.linspace(<span class="op">-</span>eps_max, <span class="dv">0</span>, N))<span class="op">*</span><span class="dv">2</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>lambda_list <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> eps_list</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># strain history</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>eps_max <span class="op">=</span> <span class="fl">3e-3</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>eps_list <span class="op">=</span> np.concatenate((np.linspace(<span class="dv">0</span>, eps_max, N), np.linspace(eps_max, <span class="op">-</span>eps_max, N), np.linspace(<span class="op">-</span>eps_max, <span class="dv">0</span>, N))<span class="op">*</span><span class="dv">2</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>lambda_list <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> eps_list</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
 <p>We now implement the expression of the global residual <span
 class="math inline">\(\boldsymbol{R}\)</span> and its jacobian <span
 class="math inline">\(\boldsymbol{J}\)</span>. As stresses are expressed
 here in Pa, we use a scaling of <code>1e-9</code> to scale the stress
 components to values close to strain values.</p>
-<div class="sourceCode" id="cb22"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>stress_scaling <span class="op">=</span> <span class="fl">1e-9</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> residual(F, P, lamb):</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.concatenate((F[:, [<span class="dv">0</span>]] <span class="op">-</span> lamb, P[:, <span class="dv">1</span>:] <span class="op">*</span> stress_scaling), axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> jacobian(F, P, Ct):</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    Jac <span class="op">=</span> np.zeros((ngauss, <span class="dv">9</span>, <span class="dv">9</span>))</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    Jac[:,<span class="dv">0</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    Jac[:,<span class="dv">1</span>:,:] <span class="op">=</span> Ct[:,<span class="dv">1</span>:,:]<span class="op">*</span>stress_scaling</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Jac</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>stress_scaling <span class="op">=</span> <span class="fl">1e-9</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> residual(F, P, lamb):</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.concatenate((F[:, [<span class="dv">0</span>]] <span class="op">-</span> lamb, P[:, <span class="dv">1</span>:] <span class="op">*</span> stress_scaling), axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> jacobian(F, P, Ct):</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    Jac <span class="op">=</span> np.zeros((ngauss, <span class="dv">9</span>, <span class="dv">9</span>))</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    Jac[:,<span class="dv">0</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    Jac[:,<span class="dv">1</span>:,:] <span class="op">=</span> Ct[:,<span class="dv">1</span>:,:]<span class="op">*</span>stress_scaling</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Jac</span></code></pre></div>
 <p>Integration of the material behaviour will be done by specifying that
 we want to compute the consistent tangent operator. We then implement
-the time stepping loop and the Newton-Raphson resolution. We recall that
-the values of the total deformation gradient are all assumed to be
-unknown and will be stored in the <code>F</code> variable, the latter
-being initialized with the deformation gradient values at the beginning
-of the time step. During a Newton-Raphson iteration, the deformation
-gradient values at the end of the time step are updated with the current
-value for <code>F</code>. Then, integration is performed using
-<code>mgis_bv.integrate</code>. Next, we retrieve the new value for the
-stress, stored in <code>P</code> and of the tangent operator, stored in
-<code>Ct</code>. We evaluate the residual <span
+the time stepping loop and the Newton-Raphson resolution.</p>
+<p>We recall that the values of the total deformation gradient are all
+assumed to be unknown and will be stored in the <code>F</code> variable,
+the latter being initialized with the deformation gradient values at the
+beginning of the time step.</p>
+<p>During a Newton-Raphson iteration, the deformation gradient values at
+the end of the time step are updated with the current value for
+<code>F</code>.</p>
+<p>Then, integration is performed using
+<code>mgis_bv.integrate</code>.</p>
+<p>Next, we retrieve the new value for the stress, stored in
+<code>P</code> and of the tangent operator, stored in <code>Ct</code>.
+We evaluate the residual <span
 class="math inline">\(\boldsymbol{R}\)</span> and perform the Newton
 correction to <code>eps</code> by solving the jacobian system (in the
-least square sense as discussed above). Finally, we report the
-horizontal stress value at the first integration point (we can check
-that all <code>ngauss</code> points give the same value). Before going
-to the next load step, the computed state must be updated using
-<code>mgis_bv.update(data)</code> which copies the computed state
-<code>s1</code> into <code>s0</code>.</p>
-<div class="sourceCode" id="cb23"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>integration_type <span class="op">=</span> mgis_bv.IntegrationType.IntegrationWithConsistentTangentOperator</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>rtol <span class="op">=</span> <span class="fl">1e-8</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>atol <span class="op">=</span> <span class="fl">1e-8</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>niter_max <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>Sxx <span class="op">=</span> np.zeros_like(lambda_list)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, lamb_imposed <span class="kw">in</span> <span class="bu">enumerate</span>(lambda_list):</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    F <span class="op">=</span> np.copy(data.s0.gradients)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    P <span class="op">=</span> np.copy(data.s0.thermodynamic_forces)</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Newton-Raphson solve</span></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    nres <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    nres0 <span class="op">=</span> <span class="bu">max</span>(np.linalg.norm(residual(F, P, lamb_imposed),axis<span class="op">=</span><span class="dv">1</span>))</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    niter <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (nres <span class="op">&gt;</span> <span class="bu">max</span>(atol, rtol<span class="op">*</span>nres0)) <span class="kw">and</span> (niter <span class="op">&lt;</span> niter_max):</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>        data.s1.gradients[:] <span class="op">=</span> F</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>        integration_status <span class="op">=</span> mgis_bv.integrate(data, integration_type, dt, <span class="dv">0</span>, data.n)</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> integration_status <span class="op">&gt;</span> <span class="dv">0</span>, <span class="st">&quot;Behaviour integration has failed.&quot;</span></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>        P <span class="op">=</span> data.s1.thermodynamic_forces</span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>        Ct <span class="op">=</span> data.K</span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>        res <span class="op">=</span> residual(F, P, lamb_imposed)</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>        nres <span class="op">=</span> <span class="bu">max</span>(np.linalg.norm(res, axis<span class="op">=</span><span class="dv">1</span>))</span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># print(f&quot;Iteration {niter}, residual = {nres}&quot;)</span></span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>        Jac <span class="op">=</span> jacobian(F, P, Ct)</span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(ngauss):</span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>            F[k,:] <span class="op">+=</span> np.linalg.lstsq(Jac[k,:,:], <span class="op">-</span>res[k,:])[<span class="dv">0</span>]</span>
-<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>        niter <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>    Sxx[i] <span class="op">=</span> data.s1.thermodynamic_forces[<span class="dv">0</span>, <span class="dv">0</span>]</span>
-<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>    mgis_bv.update(data)</span></code></pre></div>
+least square sense as discussed above).</p>
+<p>Finally, we report the horizontal stress value at the first
+integration point (we can check that all <code>ngauss</code> points give
+the same value).</p>
+<p>Before going to the next load step, the computed state must be
+updated using <code>mgis_bv.update(data)</code> which copies the
+computed state <code>s1</code> into <code>s0</code>.</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>integration_type <span class="op">=</span> mgis_bv.IntegrationType.IntegrationWithConsistentTangentOperator</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>rtol <span class="op">=</span> <span class="fl">1e-8</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>atol <span class="op">=</span> <span class="fl">1e-8</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>niter_max <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>Sxx <span class="op">=</span> np.zeros_like(lambda_list)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, lamb_imposed <span class="kw">in</span> <span class="bu">enumerate</span>(lambda_list):</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    F <span class="op">=</span> np.copy(data.s0.gradients)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    P <span class="op">=</span> np.copy(data.s0.thermodynamic_forces)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Newton-Raphson solve</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    nres <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    nres0 <span class="op">=</span> <span class="bu">max</span>(np.linalg.norm(residual(F, P, lamb_imposed),axis<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    niter <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (nres <span class="op">&gt;</span> <span class="bu">max</span>(atol, rtol<span class="op">*</span>nres0)) <span class="kw">and</span> (niter <span class="op">&lt;</span> niter_max):</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>        data.s1.gradients[:] <span class="op">=</span> F</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>        integration_status <span class="op">=</span> mgis_bv.integrate(data, integration_type, dt, <span class="dv">0</span>, data.n)</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> integration_status <span class="op">&gt;</span> <span class="dv">0</span>, <span class="st">&quot;Behaviour integration has failed.&quot;</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>        P <span class="op">=</span> data.s1.thermodynamic_forces</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>        Ct <span class="op">=</span> data.K</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>        res <span class="op">=</span> residual(F, P, lamb_imposed)</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>        nres <span class="op">=</span> <span class="bu">max</span>(np.linalg.norm(res, axis<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># print(f&quot;Iteration {niter}, residual = {nres}&quot;)</span></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>        Jac <span class="op">=</span> jacobian(F, P, Ct)</span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(ngauss):</span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>            F[k,:] <span class="op">+=</span> np.linalg.lstsq(Jac[k,:,:], <span class="op">-</span>res[k,:])[<span class="dv">0</span>]</span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>        niter <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>    Sxx[i] <span class="op">=</span> data.s1.thermodynamic_forces[<span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>    mgis_bv.update(data)</span></code></pre></div>
 <p>Plotting the horizontal stress strain evolutions shows the expected
 behaviour with a first yielding at 250 MPa and a saturation at 400 MPa
 in both tension and compression. Note that we do not observe much
 difference here compared to the small-strain case because of the chosen
 material properties and strain levels.</p>
-<div class="sourceCode" id="cb24"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r&quot;Horizontal elongation $F_</span><span class="sc">{xx}</span><span class="vs">-1$&quot;</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r&quot;Horizontal nominal stress $P_</span><span class="sc">{xx}</span><span class="vs">$ [MPa]&quot;</span>)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>plt.plot(eps_list, Sxx<span class="op">*</span><span class="fl">1e-6</span>, <span class="st">&#39;-o&#39;</span>)</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="fl">1.2</span><span class="op">*</span>eps_max, <span class="fl">1.2</span><span class="op">*</span>eps_max)</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">500</span>, <span class="dv">500</span>)</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r&quot;Horizontal elongation $F_</span><span class="sc">{xx}</span><span class="vs">-1$&quot;</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r&quot;Horizontal nominal stress $P_</span><span class="sc">{xx}</span><span class="vs">$ [MPa]&quot;</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>plt.plot(eps_list, Sxx<span class="op">*</span><span class="fl">1e-6</span>, <span class="st">&#39;-o&#39;</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="fl">1.2</span><span class="op">*</span>eps_max, <span class="fl">1.2</span><span class="op">*</span>eps_max)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">500</span>, <span class="dv">500</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
 <figure>
 <img src="img/bindings-python-finite_strain.png" alt="png" />
 <figcaption aria-hidden="true">png</figcaption>

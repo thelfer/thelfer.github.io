@@ -226,6 +226,7 @@
 		    <li><a href="release-notes-4.1.2.html">Version 4.1.2</a></li>
 		    <li><a href="release-notes-4.1.3.html">Version 4.1.3</a></li>
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
+		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -542,11 +543,15 @@ surface</figcaption>
 <p>The plastic potential differs from the yield surface in order to more
 accurately estimate dilatancy, but has an analogous structure:</p>
 <p><span id="eq:plastic_potential"><span class="math display">\[
-    G_\mathrm{F} = \frac{I_1}{3} \sin \psi + \sqrt{J_2 K_G^2 + a^2
-\tan^2 \phi \cos^2 \psi} - c \cos \psi
+    G_\mathrm{F} = \frac{I_1}{3} \sin \psi + \sqrt{J_2 K_G^2 + a_G^2
+\sin^2 \psi} - c \cos \psi
 \qquad{(4)}\]</span></span></p>
 <p>where <span class="math inline">\(\psi\)</span> is the dilatancy
-angle. <span class="math inline">\(K_G\)</span>, <span
+angle and</p>
+<p><span class="math display">\[
+    a_G = \frac{c}{\tan\psi} - \frac{c}{\tan\phi} + a
+\]</span></p>
+<p><span class="math inline">\(K_G\)</span>, <span
 class="math inline">\(A_G\)</span> and <span
 class="math inline">\(B_G\)</span> follow from (2) and (3) by
 substituting the friction angle with the dilatancy angle :</p>
@@ -580,16 +585,7 @@ K_G(\theta) = \begin{cases}
 3 \theta_\mathrm{T}}
 \end{aligned}
 \]</span></p>
-<p>Equation ((4)) can be written as follow:</p>
-<p><span id="eq:plastic_potential2"><span class="math display">\[
-    G_\mathrm{F} = \frac{I_1}{3} \sin \psi + \sqrt{J_2 K_G^2 + a_G^2
-\sin^2 \psi} - c \cos \psi
-\qquad{(5)}\]</span></span></p>
-<p>with</p>
-<p><span class="math display">\[
-a_G = a \dfrac{\tan \phi}{\tan \psi}
-\]</span></p>
-<p>this formulation allows the use of the
+<p>This formulation allows the use of the
 <code>StandardElastoViscoplasticity</code> brick (see the last
 part).</p>
 <h2 id="plastic-flow-rule">Plastic flow rule</h2>
@@ -660,7 +656,7 @@ f_{\underline{\varepsilon}^{\mathrm{el}}}}{\displaystyle \partial
 {\displaystyle \frac{\displaystyle \partial f_{p}}{\displaystyle
 \partial \Delta\,p}} \\
 \end{pmatrix}
-\qquad{(6)}\]</span></span></p>
+\qquad{(5)}\]</span></span></p>
 <p>The expression of the previous terms is given by:</p>
 <p><span class="math display">\[
 \left\{
@@ -838,7 +834,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  cos_6_lodeT <span class="op">=</span> cos<span class="op">(</span><span class="fl">6.</span> <span class="op">*</span> lodeT<span class="op">);</span></span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  sin_6_lodeT <span class="op">=</span> sin<span class="op">(</span><span class="fl">6.</span> <span class="op">*</span> lodeT<span class="op">);</span></span>
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  tan_3_lodeT <span class="op">=</span> tan<span class="op">(</span><span class="fl">3.</span> <span class="op">*</span> lodeT<span class="op">);</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  a_G <span class="op">=</span> <span class="op">(</span>a <span class="op">*</span> tan<span class="op">(</span>phi<span class="op">))</span> <span class="op">/</span> tan<span class="op">(</span>psi<span class="op">)</span></span></code></pre></div>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  a_G <span class="op">=</span> <span class="op">(</span>psi <span class="op">!=</span> <span class="fl">0.</span> <span class="op">&amp;&amp;</span> phi <span class="op">!=</span> <span class="fl">0.</span><span class="op">)</span> <span class="op">?</span> <span class="op">(</span>c <span class="op">/</span> tan<span class="op">(</span>psi<span class="op">)</span> <span class="op">-</span> c <span class="op">/</span> tan<span class="op">(</span>phi<span class="op">)</span> <span class="op">+</span> a<span class="op">)</span> <span class="op">:</span> a<span class="op">;</span></span></code></pre></div>
 <p>Then the <code>computeElasticPrediction</code> method (introducted
 with the <code>StandardElasticity</code> brick) is used to compute <span
 class="math inline">\(\sigma^{el}\)</span></p>
@@ -1089,7 +1085,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb28-1"><a href="#
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    dflam_ddlam <span class="op">=</span> strain<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    dflam_ddeel <span class="op">=</span> theta <span class="op">*</span> <span class="op">(</span>nF <span class="op">|</span> D<span class="op">)</span> <span class="op">/</span> D<span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    np <span class="op">=</span> n<span class="op">;</span></span></code></pre></div>
-<p>The Jacobian can now be computed (see (6))</p>
+<p>The Jacobian can now be computed (see (5))</p>
 <h1 id="verification">Verification</h1>
 <figure id="fig:MC_stress_paths">
 <img src="img/MohrCoulombPiPlane.svg"
@@ -1193,7 +1189,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb29-1"><a href="#
 <span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real a_G<span class="op">;</span></span>
 <span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitLocalVariables <span class="op">{</span></span>
-<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>  a_G <span class="op">=</span> <span class="op">(</span>a <span class="op">*</span> tan<span class="op">((</span>phi<span class="op">*</span>pi<span class="op">)/</span><span class="dv">180</span><span class="op">))</span> <span class="op">/</span> tan<span class="op">((</span>psi<span class="op">*</span>pi<span class="op">)/</span><span class="dv">180</span><span class="op">);</span></span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>  a_G <span class="op">=</span> <span class="op">(</span>psi <span class="op">!=</span> <span class="fl">0.</span> <span class="op">&amp;&amp;</span> phi <span class="op">!=</span> <span class="fl">0.</span><span class="op">)</span> <span class="op">?</span> c <span class="op">/</span> tan<span class="op">((</span>psi<span class="op">*</span>pi<span class="op">)/</span><span class="dv">180</span><span class="op">)</span> <span class="op">-</span> c <span class="op">/</span> tan<span class="op">((</span>phi<span class="op">*</span>pi<span class="op">)/</span><span class="dv">180</span><span class="op">)</span> <span class="op">+</span> a <span class="op">:</span> a<span class="op">;</span></span>
 <span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="at">const</span> <span class="kw">auto</span> u <span class="op">=</span> MohrCoulombParameters<span class="op">&lt;</span>StressStensor<span class="op">&gt;::</span>DEGREE<span class="op">;</span></span>
 <span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>  pf <span class="op">=</span> makeMohrCoulombParameters<span class="op">&lt;</span>StressStensor<span class="op">,</span> u<span class="op">&gt;(</span>c<span class="op">,</span> phi<span class="op">,</span> lodeT<span class="op">,</span> a<span class="op">);</span></span>
 <span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>  pg <span class="op">=</span> makeMohrCoulombParameters<span class="op">&lt;</span>StressStensor<span class="op">,</span> u<span class="op">&gt;(</span>c<span class="op">,</span> psi<span class="op">,</span> lodeT<span class="op">,</span> a_G<span class="op">);</span></span>

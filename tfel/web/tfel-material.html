@@ -226,6 +226,7 @@
 		    <li><a href="release-notes-4.1.2.html">Version 4.1.2</a></li>
 		    <li><a href="release-notes-4.1.3.html">Version 4.1.3</a></li>
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
+		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -804,16 +805,19 @@ whose elasticity is <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span>, the
 strain tensor inside the ellipsoid is given by</p>
 <p><span
-class="math inline">\(\underline{\varepsilon}=\underline{S}_0:\underline{\varepsilon}^\mathrm{T}\)</span>.</p>
-<p>where <span class="math inline">\(\underline{S}_0\)</span> is the
-Eshelby tensor. Note that it is related to the Hill tensor (P_0) by</p>
+class="math inline">\(\underline{\varepsilon}=\underline{\underline{\mathbf{S}}}_0:\underline{\varepsilon}^\mathrm{T}\)</span>.</p>
+<p>where <span
+class="math inline">\(\underline{\underline{\mathbf{S}}}_0\)</span> is
+the Eshelby tensor. Note that it is related to the Hill tensor (P_0)
+by</p>
 <p><span
-class="math inline">\(\underline{P}_0=\underline{S}_0:\underline{C}_0^{-1}\)</span></p>
+class="math inline">\(\underline{\underline{\mathbf{P}}}_0=\underline{\underline{\mathbf{S}}}_0:\underline{\underline{\mathbf{C}}}_0^{-1}\)</span></p>
 <p>which gives the strain tensor inside the ellipsoid as a function of
 the polarization tensor <span class="math inline">\(\underline{\tau }=
--\underline{C}_0:\underline{\varepsilon}^\mathrm{T}\)</span> :</p>
+-\underline{\underline{\mathbf{C}}}_0:\underline{\varepsilon}^\mathrm{T}\)</span>
+:</p>
 <p><span
-class="math inline">\(\underline{\varepsilon}=-\underline{P}_0:\underline{\tau}\)</span>.</p>
+class="math inline">\(\underline{\varepsilon}=-\underline{\underline{\mathbf{P}}}_0:\underline{\tau}\)</span>.</p>
 <p>The function <code>computeEshelbyTensor</code> computes the Eshelby
 tensor of an ellipsoid whose semi-axis lengths are <code>a</code>,
 <code>b</code>, <code>c</code>, embedded in an isotropic matrix. It
@@ -838,7 +842,8 @@ can be modified by the user, it is called <code>precf</code> when using
 formulas for the axisymmetrical case are instable when the aspect ratio
 is near one, so a parameter allows to switch to the formula for a
 sphere.</p>
-<p>When <span class="math inline">\(\underline{C}_0\)</span> is
+<p>When <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span> is
 anisotropic, the Eshelby tensor can be computed with
 <code>computeAnisotropicEshelbyTensor</code> in 3D and
 <code>computePlainStrainAnisotropicEshelbyTensor</code> in 2D. There are
@@ -850,15 +855,16 @@ are introduced by the header
 <p>The header <code>IsotropicEshelbyTensor.hxx</code> also introduces
 three functions that compute the strain localisation tensor of an
 ellipsoid. If we consider an ellipsoid whose elasticity is <span
-class="math inline">\(\underline{C}_i\)</span>, embedded in an infinite
-homogeneous medium whose elasticity is <span
-class="math inline">\(\underline{C}_0\)</span>, submitted to a external
-uniform strain field at infinity <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}_i\)</span>,
+embedded in an infinite homogeneous medium whose elasticity is <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span>,
+submitted to a external uniform strain field at infinity <span
 class="math inline">\(\underline{E}\)</span>, the strain field within
 the ellipsoid is uniform and given by</p>
 <p><span class="math inline">\(\underline{\varepsilon }=
-\underline{A}:\underline{E}\)</span></p>
-<p>where <span class="math inline">\(\underline{A}\)</span> is the
+\underline{\underline{\mathbf{A}}}:\underline{E}\)</span></p>
+<p>where <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}\)</span> is the
 localisation tensor.</p>
 <p>Three functions are implemented for the different possible shapes :
 <code>computeEllipsoidLocalisationTensor</code>,
@@ -952,9 +958,9 @@ moduli:</p>
 <ul>
 <li><code>ToYoungNu()</code></li>
 <li><code>ToLambdaMu()</code></li>
-<li><code>ToKG()</code> These methods all return <code>std::pair</code>
-objects.</li>
+<li><code>ToKG()</code></li>
 </ul>
+<p>These methods all return <code>std::pair</code> objects.</p>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-barlat_linear_2005" class="csl-entry" role="listitem">

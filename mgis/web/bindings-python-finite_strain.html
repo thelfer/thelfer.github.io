@@ -172,6 +172,7 @@
 	    <li><a>Specific topics</a>
 	      <ul>
 		<li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
+		<li><a href="functions.html">Functions</a></li>
 	      </ul>
 	    </li>
 	    <li><a href="faq.html">FAQ</a></li>
@@ -237,7 +238,7 @@ class="math inline">\(\boldsymbol{H}=\boldsymbol{H}^\text{e}+\boldsymbol{H}^\tex
 instead of the linearized strain (<span
 class="math inline">\(\boldsymbol{\varepsilon}=\boldsymbol{\varepsilon}^\text{e}+\boldsymbol{\varepsilon}^\text{p}\)</span>).
 The small-strain elastoplastic component is the same as in the companion
-<a href="mgis_small_strain.ipynb">small-strain demo</a>.</p>
+<a href="bindings-python-small_strain.html">small-strain demo</a>.</p>
 <p>The following implementation shows:</p>
 <ul>
 <li>how to read information from the compiled behaviour, such as the
@@ -412,13 +413,14 @@ class="math inline">\(\dfrac{\partial\boldsymbol{S}}{\partial
 \boldsymbol{E}^\text{GL}}\)</span>,</li>
 <li><code>DTAU_DDF</code>: <span
 class="math inline">\(\dfrac{\partial\boldsymbol{\tau}}{\partial
-\boldsymbol{D}}\)</span>.</li>
+\Delta\,\boldsymbol{F}}\)</span>.</li>
 </ul>
 <p>where <span class="math inline">\(\boldsymbol{E}^\text{GL}\)</span>
 is the Green-Lagrange strain, <span
 class="math inline">\(\boldsymbol{\tau}\)</span> the Kirchhoff stress
-and <span class="math inline">\(\boldsymbol{D}\)</span> the deformation
-rate gradient.</p>
+and <span class="math inline">\(\Delta\,\boldsymbol{F}\)</span> is given
+by <span
+class="math inline">\(\left.\boldsymbol{F}\right|_{t+dt}\,\cdot\,\left.\boldsymbol{F}\right|_{t}^{-1}\)</span>.</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lib_path <span class="op">=</span> <span class="st">&quot;src/libBehaviour.so&quot;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> mgis_bv.Hypothesis.Tridimensional</span>

@@ -1,5 +1,8 @@
 var _string_algorithms_8hxx =
 [
+    [ "convert", "_string_algorithms_8hxx.html#acbd931a6166c8d630f25aa0f4e650126", null ],
+    [ "convert", "_string_algorithms_8hxx.html#a22b23e4dcda3d941270d1737ab2167ec", null ],
+    [ "convert", "_string_algorithms_8hxx.html#a90671a3d7f3546be0d771d58174fb015", null ],
     [ "convert", "_string_algorithms_8hxx.html#aff637b5857cbba1b928f34478f0e26c2", null ],
     [ "convert", "_string_algorithms_8hxx.html#a8fcc95ab9133342d432b21014557c0b2", null ],
     [ "convert", "_string_algorithms_8hxx.html#a460118e76f6bc5a909fa9cfb1e3ae354", null ],

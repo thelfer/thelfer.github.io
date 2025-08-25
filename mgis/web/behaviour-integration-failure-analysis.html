@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Analysing failure of behaviour integration</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2025-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
+        <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="index.html">Overview</a></li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="https://www.theoj.org/joss-papers/joss.02003/10.21105.joss.02003.pdf"> JOSS paper</a></li>
+	    <li><a href="bindings-cxx.html">Description of the C++ library</a></li>
+	    <li><a href="install.html">Installation guide</a></li>
+	    <li><a>Bindings</a>
+	        <ul>
+		  <li><a>python</a>
+	            <ul>
+		       <li><a href="bindings-python-finite_strain.html">Interacting with a finite-strain `MFront` behaviour</a></li>
+		       <li><a href="bindings-python-small_strain.html">Interacting with a small-strain `MFront` behaviour</a></li>
+	            </ul>
+                   </li>
+	        </ul>
+	    </li>
+	    <li><a href="mgis_fenics.html">mgis.fenics</a>
+	      <ul>
+		<li><a href="mgis_fenics.html">Overview of mgis.fenics</a></li>
+		<li><a href="mgis_fenics_nonlinear_heat_transfer.html">Stationnary non-linear heat transfer</a></li>
+		<li><a href="mgis_fenics_nonlinear_heat_transfer_3D.html">Stationnary non-linear heat transfer: 3D problem and performance comparisons</a></li>
+		<li><a href="mgis_fenics_heat_equation_phase_change.html">Transient heat equation with phase change</a></li>
+		<li><a href="mgis_fenics_monolithic_transient_thermoelasticity.html">Monolithic transient thermoelasticity</a></li>
+		<li><a href="mgis_fenics_small_strain_elastoplasticity.html">Small-strain von Mises elastoplasticity</a></li>
+		<li><a href="mgis_fenics_finite_strain_elastoplasticity.html">Finite-strain elastoplasticity within the logarithmic strain framework</a></li>
+		<li><a href="mgis_fenics_multiphase_model.html">Multiphase model for fiber-reinforced materials</a></li>
+		<li><a href="mgis_fenics_phase_field.html">Phase-field approach to brittle fracture</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Release notes</a>
+	      <ul>
+		<li><a>Version 1.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-1.0.2.html">Version 1.0.2</a></li>
+		  </ul>
+		</li>
+		<li><a>Version 1.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-1.1.html">Version 1.1</a></li>
+		    <li><a href="release-notes-1.1.1.html">Version 1.1.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Version 1.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-1.2.html">Version 1.2</a></li>
+		    <li><a href="release-notes-1.2.1.html">Version 1.2.1</a></li>
+		    <li><a href="release-notes-1.2.2.html">Version 1.2.2</a></li>
+		    <li><a href="release-notes-1.2.3.html">Version 1.2.3</a></li>
+		  </ul>
+		</li>
+		<li><a>Version 2.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-2.0.html">Version 2.0</a></li>
+		    <li><a href="release-notes-2.0.1.html">Version 2.0.1</a></li>
+		  </ul>
+		<li><a>Version 2.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-2.1.html">Version 2.1</a></li>
+		  </ul>
+		<li><a>Version 2.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-2.2.html">Version 2.2</a></li>
+		    <li><a href="release-notes-2.2.1.html">Version 2.2.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Version 3.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Version 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a>Specific topics</a>
+	      <ul>
+		<li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
+		<li><a href="behaviour-integration-failure-analysis.html">Analysing failure of behaviour integration</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues">Forum</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+    <br></br>
+<div id="header">
+<h1 class="title">Analysing failure of behaviour integration</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">2025</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#the-integrate_debug-functions"
+id="toc-the-integrate_debug-functions">The <code>integrate_debug</code>
+functions</a>
+<ul>
+<li><a href="#examples-of-usage" id="toc-examples-of-usage">Examples of
+usage</a></li>
+<li><a href="#sec:mgis:integration_failure:default_analyser"
+id="toc-sec:mgis:integration_failure:default_analyser">Description of
+the default analyser</a>
+<ul>
+<li><a href="#example-of-generated-file"
+id="toc-example-of-generated-file">Example of generated file</a></li>
+<li><a href="#sec:mgis:integration_failure:default_output_file_name"
+id="toc-sec:mgis:integration_failure:default_output_file_name">Changing
+the generator of the output file name</a></li>
+</ul></li>
+<li><a href="#sec:mgis:integration_failure:custom_analyser"
+id="toc-sec:mgis:integration_failure:custom_analyser">The
+<code>BehaviourIntegrationFailureAnalyser</code> interface</a></li>
+</ul></li>
+</ul>
+</div>
+<p>This section describes the features available to analyse the failure
+of the integration of a behaviour at one integration point.</p>
+<h1 id="the-integrate_debug-functions">The <code>integrate_debug</code>
+functions</h1>
+<p>The <code>integrate_debug</code> function are small wrappers around
+the <code>integrate</code> functions which, in case of integration
+failure, calls a user defined analyser or the default one.</p>
+<h2 id="examples-of-usage">Examples of usage</h2>
+<p>The <code>integrate_debug</code> functions are direct substitutes for
+the <code>integrate</code> functions and have the same prototypes, when
+the default analyser is used. The following snippet shows how to call it
+using a behaviour data view <code>v</code> and a behaviour
+<code>b</code>:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> r <span class="op">=</span> integrate_debug<span class="op">(</span>v<span class="op">,</span> b<span class="op">);</span></span></code></pre></div>
+<p>See Section 1.2 for a description of the default analyser.</p>
+<p>The user may pass his own analyser, the type of which must inherit
+from the <code>BehaviourIntegrationFailureAnalyser</code> interface,
+describe below, as an extra argument, as follows:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> a <span class="op">=</span> CustomAnalyser<span class="op">{};</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> r <span class="op">=</span> integrate_debug<span class="op">(</span>v<span class="op">,</span> b<span class="op">,</span> a<span class="op">);</span></span></code></pre></div>
+<p>See Section 1.3 for details.</p>
+<h2 id="sec:mgis:integration_failure:default_analyser">Description of
+the default analyser</h2>
+<p>The default analyser generates one file per integration failure
+containing the information required to re-run the simulation, using <a
+href="https://thelfer.github.io/tfel/web/mtest.html"><code>MTest</code></a>
+for instance.</p>
+<p>By default, a markdown file is generated. Other formats may be
+supported in the future.</p>
+<p>By default, the file name is composed by the name of the function
+implementing the behaviour (for the considered modelling hypothesis), a
+unique identifier (a number starting from zero and incremented for each
+integration failure report) and an extension. See Section 1.2.2 for
+details.</p>
+<h3 id="example-of-generated-file">Example of generated file</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Behaviour description</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>library:/home/th202608/codes/mgis/master/src/build/tests/libBehaviourTest.so</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>behaviour: NortonFailure</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>function: NortonFailure_Tridimensional</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># State at the beginning of the time step</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Gradients</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Strain (Stensor): {0, 0, 0, 0, 0, 0}</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Thermodynamic forces</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Stress (Stensor): {0, 0, 0, 0, 0, 0}</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Internal state variables</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ElasticStrain (Stensor): {0, 0, 0, 0, 0, 0}</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>EquivalentViscoplasticStrain (Scalar): 0</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## External state variables</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Temperature (Scalar): 293.15</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu"># State at the end of the time step</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Gradients</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Strain (Stensor): {5e-05, 0, 0, 0, 0, 0}</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Thermodynamic forces</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Stress (Stensor): {0, 0, 0, 0, 0, 0}</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Internal state variables</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ElasticStrain (Stensor): {0, 0, 0, 0, 0, 0}</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>EquivalentViscoplasticStrain (Scalar): 0</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## External state variables</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Temperature (Scalar): 293.15</span></code></pre></div>
+<h3 id="sec:mgis:integration_failure:default_output_file_name">Changing
+the generator of the output file name</h3>
+<p>The output file name is generated by the
+<code>getBehaviourIntegrationFailureAnalysisFileName</code> function
+which takes the behaviour’s function as first argument and the file
+extension as second argument.</p>
+<p>The behaviour of the
+<code>getBehaviourIntegrationFailureAnalysisFileName</code> function can
+be altered using the
+<code>setBehaviourIntegrationFailureAnalysisFileNameGenerator</code>
+which takes a <code>std::function</code> as first argument. This
+function can be useful in MPI computations to distinguish the various
+processes.</p>
+<h4 id="example-of-usage">Example of usage</h4>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> g <span class="op">=</span> <span class="op">[](</span><span class="bu">std::</span>string_view b<span class="op">,</span> <span class="bu">std::</span>string_view n<span class="op">,</span> <span class="bu">std::</span>string_view e<span class="op">){</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> r<span class="op">;</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  MPI_Comm_rank<span class="op">(</span>MPI_COMM_WORLD<span class="op">,</span> <span class="op">&amp;</span>r<span class="op">);</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">std::</span>string<span class="op">{</span>b<span class="op">}</span> <span class="op">+</span> <span class="ch">&#39;-&#39;</span> <span class="op">+</span> <span class="bu">std::</span>to_string<span class="op">(</span>r<span class="op">)</span> <span class="op">+</span> <span class="ch">&#39;-&#39;</span> <span class="op">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>         <span class="bu">std::</span>string<span class="op">(</span>id<span class="op">)</span> <span class="op">+</span> <span class="st">&quot;.&quot;</span> <span class="op">+</span> <span class="bu">std::</span>string<span class="op">{</span>ext<span class="op">};</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>setBehaviourIntegrationFailureAnalysisFileNameGenerator<span class="op">(</span>g<span class="op">);</span></span></code></pre></div>
+<h2 id="sec:mgis:integration_failure:custom_analyser">The
+<code>BehaviourIntegrationFailureAnalyser</code> interface</h2>
+<p>The <code>BehaviourIntegrationFailureAnalyser</code> interface is
+defined as follows:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> MGIS_EXPORT BehaviourIntegrationFailureAnalyser <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">virtual</span> <span class="dt">void</span> analyse<span class="op">(</span><span class="at">const</span> Behaviour<span class="op">&amp;,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">const</span> BehaviourData<span class="op">&amp;)</span> <span class="at">const</span> <span class="kw">noexcept</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">virtual</span> <span class="dt">void</span> analyse<span class="op">(</span><span class="at">const</span> Behaviour<span class="op">&amp;,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">const</span> BehaviourDataView<span class="op">&amp;)</span> <span class="at">const</span> <span class="kw">noexcept</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">virtual</span> <span class="dt">bool</span> shallCopyBehaviourDataBeforeIntegration<span class="op">()</span> <span class="at">const</span> <span class="kw">noexcept</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">virtual</span> <span class="op">~</span>BehaviourIntegrationFailureAnalyser<span class="op">()</span> <span class="kw">noexcept</span><span class="op">;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">};</span></span></code></pre></div>
+<p>The two <code>analyse</code> functions do the actual work. The one
+effectively called depends on the value returned by the
+<code>shallCopyBehaviourDataBeforeIntegration</code> method.</p>
+<p>If the <code>shallCopyBehaviourDataBeforeIntegration</code> return
+<code>true</code>, the behaviour data view passed to the
+<code>integrate_debug</code> function is copied before integrating the
+behaviour using <code>integrate</code>:</p>
+<ul>
+<li>Copying has a significant overhead and is normally not required for
+correctly written behaviours but data corruption may occur, so copying
+is safer.</li>
+<li>Without copying, calling <code>integrate_debug</code> shall be
+almost as efficient than calling <code>integrate</code>.</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The default analyser does a copy of the data, which indeed incurs an
+overhead.</p>
+</blockquote>
+</body>
+</html>

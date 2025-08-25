@@ -15,7 +15,71 @@
             <meta name="date" content="2025-01-01" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
-                <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="/home/th202608/codes/mgis/master/src/MFrontGenericInterfaceSupport/docs/web/css/main.css" />
         <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
         <script
@@ -81,6 +145,7 @@
 		<li><a>Version 2.0.x</a>
 		  <ul>
 		    <li><a href="release-notes-2.0.html">Version 2.0</a></li>
+		    <li><a href="release-notes-2.0.1.html">Version 2.0.1</a></li>
 		  </ul>
 		<li><a>Version 2.1.x</a>
 		  <ul>
@@ -137,12 +202,18 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#evaluators" id="toc-evaluators">Evaluators</a>
-<ul>
 <li><a href="#unary-modifiers" id="toc-unary-modifiers">Unary
 modifiers</a>
 <ul>
-<li><a href="#tensors" id="toc-tensors">Tensors</a></li>
+<li><a href="#modifierss-generators"
+id="toc-modifierss-generators">Modifiers’s generators</a></li>
+<li><a href="#tensors" id="toc-tensors">Tensors</a>
+<ul>
+<li><a href="#views" id="toc-views">Views</a></li>
+<li><a href="#modifiers-on-tensor-valuated-evaluators"
+id="toc-modifiers-on-tensor-valuated-evaluators">Modifiers on
+tensor-valuated evaluators</a></li>
+</ul></li>
 <li><a href="#modifiers-dedicated-to-mechanics"
 id="toc-modifiers-dedicated-to-mechanics">Modifiers dedicated to
 mechanics</a></li>
@@ -157,22 +228,49 @@ on tensor-valuated evaluators</a></li>
 id="toc-binary-modifiers-dedicated-to-mechanics">Binary modifiers
 dedicated to mechanics</a></li>
 </ul></li>
-</ul></li>
 </ul>
 </div>
-<h1 id="evaluators">Evaluators</h1>
-<h2 id="unary-modifiers">Unary modifiers</h2>
+<p>Evaluators and modifiers are two of the main concepts of
+<code>MGIS/Function</code> (see <a href="functions.html">this page</a>
+for an introduction).</p>
+<h1 id="unary-modifiers">Unary modifiers</h1>
 <ul>
-<li><code>view</code></li>
-<li><code>negate</code></li>
+<li><p><code>view</code>: the <code>view</code> modifier takes a dynamic
+function or evaluator and return an evaluator with a fixed number of
+components. The <code>view</code> modifier takes the expected number of
+components as argument.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// take a view on some values with a runtime size</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> f <span class="op">=</span> FunctionEvaluator<span class="op">&lt;</span>BasicLinearSpace<span class="op">&gt;(</span>space<span class="op">,</span> values<span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">// make a view with a fixed number of components and apply the `transform` modifier</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e <span class="op">=</span> view<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>f<span class="op">)</span> <span class="op">|</span> transform<span class="op">([](</span><span class="at">const</span> real x<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> x <span class="op">*</span> x<span class="op">;</span> <span class="op">});</span></span></code></pre></div></li>
+<li><p><code>negate</code>: the <code>view</code> modifier takes an
+evaluator which returns opposite values of the initial evaluator.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> f <span class="op">=</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    FunctionEvaluator<span class="op">&lt;</span>BasicLinearSpace<span class="op">&gt;(</span>space<span class="op">,</span> values<span class="op">,</span> <span class="dv">2</span><span class="op">)</span> <span class="op">|</span> as_tvector<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> n <span class="op">=</span> f <span class="op">|</span> negate<span class="op">;</span></span></code></pre></div></li>
 </ul>
-<h4 id="modifierss-generators">Modifiers’s generators</h4>
+<h3 id="modifierss-generators">Modifiers’s generators</h3>
 <ul>
-<li><code>multiply_by_scalar</code></li>
-<li><code>divide_by_scalar</code></li>
+<li><p><code>multiply_by_scalar</code>: the
+<code>multiply_by_scalar</code> takes an real number <span
+class="math inline">\(alpha\)</span> and returns a modifier which takes
+an evaluator and returns an evaluator which multiplies the values of the
+original evaluator bu <span class="math inline">\(\alpha\)</span>:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e <span class="op">=</span> f <span class="op">|</span> multiply_by_scalar<span class="op">(</span><span class="dv">4</span><span class="op">);</span></span></code></pre></div></li>
+<li><p><code>divide_by_scalar</code>: the <code>divide_by_scalar</code>
+takes an real number <span class="math inline">\(alpha\)</span> and
+returns a modifier which takes an evaluator and returns an evaluator
+which divides the values of the original evaluator bu <span
+class="math inline">\(\alpha\)</span>:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e <span class="op">=</span> f <span class="op">|</span> divide_by_scalar<span class="op">(</span><span class="dv">4</span><span class="op">);</span></span></code></pre></div></li>
 </ul>
-<h3 id="tensors">Tensors</h3>
-<h4 id="views">Views</h4>
+<h2 id="tensors">Tensors</h2>
+<p>This section is devoted to modifiers related to tensors.</p>
+<h3 id="views">Views</h3>
 <ul>
 <li><code>as_stensor</code></li>
 <li><code>as_tensor</code></li>
@@ -180,21 +278,21 @@ dedicated to mechanics</a></li>
 <li><code>as_tvector</code></li>
 <li><code>as_matrix</code></li>
 </ul>
-<h4 id="modifiers-on-tensor-valuated-evaluators">Modifiers on
-tensor-valuated evaluators</h4>
+<h3 id="modifiers-on-tensor-valuated-evaluators">Modifiers on
+tensor-valuated evaluators</h3>
 <ul>
 <li><code>eigen_values</code></li>
 <li><code>trace</code></li>
 <li><code>det</code></li>
 </ul>
-<h3 id="modifiers-dedicated-to-mechanics">Modifiers dedicated to
-mechanics</h3>
+<h2 id="modifiers-dedicated-to-mechanics">Modifiers dedicated to
+mechanics</h2>
 <ul>
 <li><code>hydrostatic_stress</code></li>
 <li><code>vmis</code></li>
 <li><code>principal_stress</code></li>
 </ul>
-<h2 id="binary-modifiers">Binary modifiers</h2>
+<h1 id="binary-modifiers">Binary modifiers</h1>
 <ul>
 <li><code>add</code></li>
 <li><code>substract</code></li>
@@ -203,14 +301,14 @@ mechanics</h3>
 <li><code>mean_value</code></li>
 <li><code>inner_product</code></li>
 </ul>
-<h3 id="binary-modifiers-on-tensor-valuated-evaluators">Binary modifiers
-on tensor-valuated evaluators</h3>
+<h2 id="binary-modifiers-on-tensor-valuated-evaluators">Binary modifiers
+on tensor-valuated evaluators</h2>
 <ul>
 <li><code>rotate</code></li>
 <li><code>rotate_backwards</code></li>
 </ul>
-<h3 id="binary-modifiers-dedicated-to-mechanics">Binary modifiers
-dedicated to mechanics</h3>
+<h2 id="binary-modifiers-dedicated-to-mechanics">Binary modifiers
+dedicated to mechanics</h2>
 <ul>
 <li><code>from_pk1_to_cauchy</code></li>
 </ul>

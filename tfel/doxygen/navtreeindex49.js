@@ -1,5 +1,11 @@
 var NAVTREEINDEX49 =
 {
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#ad7414457b0b1f9ec378bba4ec9bd4821":[7,0,10,0,21,5],
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#afe764e77f95ccc495394706df95f7b8b":[7,0,10,0,21,15],
+"structmfront_1_1bbrick_1_1_inelastic_flow_base.html":[7,0,10,0,22],
+"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a0e1e55991752aaea3456a72c5f430231":[7,0,10,0,22,16],
+"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a12ab89f6f086be8f4ecd600aae2e2835":[7,0,10,0,22,30],
+"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a1402aa8057b9e05df27582ca45be36b6":[7,0,10,0,22,2],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a2b9e704556e401c25156db403b843c4a":[7,0,10,0,22,10],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a3571c21511caa65a17e7344d9dbaf1d5":[7,0,10,0,22,29],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a495cc378185d87671beaa0b64f1d7c90":[7,0,10,0,22,18],
@@ -243,11 +249,5 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html#a22fed542da3aaa35f420a19021996be2":[7,0,10,0,43,1],
 "structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html#aed62f52365e4522497c03b158d090965":[7,0,10,0,43,0],
 "structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html":[7,0,10,0,44],
-"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a7bcd581ad8fcf2fec8f5c79cd368b992":[7,0,10,0,44,2],
-"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a7d161e3dc1ad237a290bb93be9c35521":[7,0,10,0,44,4],
-"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a955c15124f2fb0c160916d0ad88bfa9f":[7,0,10,0,44,1],
-"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#acc6fab7ab23313e560b018b21261ca23":[7,0,10,0,44,5],
-"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#adf41b80871661b748f504517d62c4e1b":[7,0,10,0,44,0],
-"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#ae8f50c394cc8221a6499a2816aff1706":[7,0,10,0,44,3],
-"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential.html":[7,0,10,0,45]
+"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a7bcd581ad8fcf2fec8f5c79cd368b992":[7,0,10,0,44,2]
 };

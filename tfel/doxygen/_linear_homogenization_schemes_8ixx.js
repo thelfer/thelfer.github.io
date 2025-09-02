@@ -1,6 +1,6 @@
 var _linear_homogenization_schemes_8ixx =
 [
-    [ "tfel::material::homogenization::elasticity::EllipsoidMeanLocalisator< N, real, StressType, LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_ellipsoid_mean_localisator.html", null ],
+    [ "tfel::material::homogenization::elasticity::EllipsoidMeanLocalisator< N, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_ellipsoid_mean_localisator.html", null ],
     [ "computeDiluteScheme", "_linear_homogenization_schemes_8ixx.html#a98921c3d70215225567a6a60a05e7dcd", null ],
     [ "computeIsotropicDiluteScheme", "_linear_homogenization_schemes_8ixx.html#aae79889bb88ce78fa9476739f290e3d8", null ],
     [ "computeIsotropicDiluteScheme", "_linear_homogenization_schemes_8ixx.html#ae42616485e058303f9195251848a5d0c", null ],

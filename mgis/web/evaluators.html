@@ -272,45 +272,71 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#c
 <p>This section is devoted to modifiers related to tensors.</p>
 <h3 id="views">Views</h3>
 <ul>
-<li><code>as_stensor</code></li>
-<li><code>as_tensor</code></li>
-<li><code>as_fsarray</code></li>
-<li><code>as_tvector</code></li>
-<li><code>as_matrix</code></li>
+<li><p><code>as_scalar</code>: create an evaluator which returns a
+scalar.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s <span class="op">=</span> f <span class="op">|</span> as_scalar<span class="op">;</span></span></code></pre></div></li>
+<li><p><code>as_stensor</code>: create an evaluator which returns
+symmetric tensorial values. This modifier takes an integer as template
+parameter, the space dimension.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> trace_values <span class="op">=</span> f2 <span class="op">|</span> as_stensor<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;</span> <span class="op">|</span> trace<span class="op">;</span></span></code></pre></div></li>
+<li><p><code>as_tensor</code>: create an evaluator which returns
+unsymmetric tensorial values. This modifier takes an integer as template
+parameter, the space dimension.</p></li>
+<li><p><code>as_fsarray</code>: create an evaluator which returns an
+(finite size) array. This modifier takes an integer as template
+parameter, the size of the array.</p></li>
+<li><p><code>as_tvector</code>: create an evaluator which returns
+vectorial values. This modifier takes an integer as template parameter,
+the size of the vector.</p></li>
+<li><p><code>as_matrix</code>: create an evaluator which returns matrix
+values. This modifier takes two integers as template parameters: the
+number of rows and the number of columns.</p></li>
 </ul>
 <h3 id="modifiers-on-tensor-valuated-evaluators">Modifiers on
 tensor-valuated evaluators</h3>
 <ul>
-<li><code>eigen_values</code></li>
-<li><code>trace</code></li>
-<li><code>det</code></li>
+<li><code>eigen_values</code>: modifier creating an evaluator of the
+eigen values. The evaluator on input must return symmetric tensor
+values.</li>
+<li><code>trace</code>:</li>
+<li><code>det</code>:</li>
 </ul>
 <h2 id="modifiers-dedicated-to-mechanics">Modifiers dedicated to
 mechanics</h2>
 <ul>
-<li><code>hydrostatic_stress</code></li>
-<li><code>vmis</code></li>
-<li><code>principal_stress</code></li>
+<li><p><code>hydrostatic_stress</code>: modifier creating an evaluator
+of the hydrostatic pressure <span class="math inline">\(p\)</span>
+defined as:</p>
+<p><span class="math display">\[
+p = \mathrm{trace}\left(\underline{\sigma}\right/3
+\]</span></p></li>
+<li><p><code>vmis</code>: modifier creating an evaluator of the von
+Mises stress.</p></li>
+<li><p><code>principal_stress</code>: modifier creating an evaluator of
+the principal stress. This is an alias for the <code>eigen_values</code>
+modifier</p></li>
 </ul>
 <h1 id="binary-modifiers">Binary modifiers</h1>
 <ul>
-<li><code>add</code></li>
-<li><code>substract</code></li>
-<li><code>multiply</code></li>
-<li><code>divide</code></li>
-<li><code>mean_value</code></li>
-<li><code>inner_product</code></li>
+<li><code>add</code>:</li>
+<li><code>substract</code>:</li>
+<li><code>multiply</code>:</li>
+<li><code>divide</code>:</li>
+<li><code>mean_value</code>:</li>
+<li><code>inner_product</code>:</li>
 </ul>
 <h2 id="binary-modifiers-on-tensor-valuated-evaluators">Binary modifiers
 on tensor-valuated evaluators</h2>
 <ul>
-<li><code>rotate</code></li>
-<li><code>rotate_backwards</code></li>
+<li><code>rotate</code>:</li>
+<li><code>rotate_backwards</code>:</li>
 </ul>
 <h2 id="binary-modifiers-dedicated-to-mechanics">Binary modifiers
 dedicated to mechanics</h2>
 <ul>
-<li><code>from_pk1_to_cauchy</code></li>
+<li><code>from_pk1_to_cauchy</code>:</li>
 </ul>
 </body>
 </html>

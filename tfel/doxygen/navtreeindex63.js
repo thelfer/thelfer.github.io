@@ -1,5 +1,7 @@
 var NAVTREEINDEX63 =
 {
+"structnumodis_1_1_i_direction.html#a7b8f981b459fc8ed1a6d62a34cce1319":[7,0,12,10,1],
+"structnumodis_1_1_i_direction.html#a84b622f9ad09549bafa76cd146160480":[7,0,12,10,0],
 "structnumodis_1_1_i_direction.html#aa8232d59a9dafc27e9041dfbc7e816ad":[7,0,12,10,7],
 "structnumodis_1_1_i_direction.html#acb1abef62da1c480f13f9b52f84f9d53":[7,0,12,10,5],
 "structnumodis_1_1_i_direction.html#ad0f951d205bc7cf993a42a363d43a170":[7,0,12,10,2],
@@ -46,12 +48,12 @@ var NAVTREEINDEX63 =
 "structtfel_01_1_1math_1_1_op_mult.html":[7,0,15,0,4],
 "structtfel_01_1_1math_1_1_op_neg.html":[7,0,15,0,5],
 "structtfel_01_1_1math_1_1_op_plus.html":[7,0,15,0,6],
-"structtfel_1_1_physical_constants.html":[7,0,14,13],
 "structtfel_1_1_physical_constants.html":[5,0,9,2],
-"structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[7,0,14,14],
+"structtfel_1_1_physical_constants.html":[7,0,14,13],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[5,0,9,3],
-"structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[7,0,14,15],
+"structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[7,0,14,14],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[5,0,9,4],
+"structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[7,0,14,15],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#aefcf0e8fe8660279958df843f42bdf25":[5,0,9,4,0],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#aefcf0e8fe8660279958df843f42bdf25":[7,0,14,15,0],
 "structtfel_1_1check_1_1_absolute_comparison.html":[7,0,14,0,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX63 =
 "structtfel_1_1config_1_1internals_1_1_position_type_3_01_n_00_01_t_00_01false_01_4.html":[7,0,14,1,0,13],
 "structtfel_1_1config_1_1internals_1_1_spatial_grad_type.html":[7,0,14,1,0,14],
 "structtfel_1_1config_1_1internals_1_1_spatial_grad_type_3_011u_00_01_t_00_01false_01_4.html":[7,0,14,1,0,15],
-"structtfel_1_1config_1_1internals_1_1_spatial_grad_type_3_011u_00_01_t_00_01use__qt_01_4.html":[7,0,14,1,0,16],
-"structtfel_1_1config_1_1internals_1_1_spatial_grad_type_3_01_n_00_01_t_00_01false_01_4.html":[7,0,14,1,0,17],
-"structtfel_1_1config_1_1internals_1_1_temperature_gradient_type.html":[7,0,14,1,0,18]
+"structtfel_1_1config_1_1internals_1_1_spatial_grad_type_3_011u_00_01_t_00_01use__qt_01_4.html":[7,0,14,1,0,16]
 };

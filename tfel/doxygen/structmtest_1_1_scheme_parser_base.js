@@ -1,6 +1,5 @@
 var structmtest_1_1_scheme_parser_base =
 [
-    [ "CallBack", "structmtest_1_1_scheme_parser_base.html#afe21e2a2a1fe260b76175f06c096400d", null ],
     [ "ExternalFunctionManager", "structmtest_1_1_scheme_parser_base.html#ab231a2aece8b414b3e2c2f7dfdc7e1c4", null ],
     [ "tokens_iterator", "structmtest_1_1_scheme_parser_base.html#aec6e5408637205e35216014f0bafc1b8", null ],
     [ "SchemeParserBase", "structmtest_1_1_scheme_parser_base.html#a48a50721eabee485591f560409e7de8e", null ],
@@ -46,7 +45,6 @@ var structmtest_1_1_scheme_parser_base =
     [ "readUntilEndOfInstruction", "structmtest_1_1_scheme_parser_base.html#a79d912b161f095bb88ef02b2284534bc", null ],
     [ "registerCallBacks", "structmtest_1_1_scheme_parser_base.html#afc87922822e5bb41ea822d1387aad173", null ],
     [ "treatKeyword", "structmtest_1_1_scheme_parser_base.html#af708524f0de48eaf22cb788d87c4e9ca", null ],
-    [ "callbacks", "structmtest_1_1_scheme_parser_base.html#ae9f51a9090e7e90bd6b6c21e92d4dc87", null ],
     [ "externalFunctions", "structmtest_1_1_scheme_parser_base.html#a39e7a310140ae373dc55858281d21c55", null ],
     [ "file", "structmtest_1_1_scheme_parser_base.html#ab8197494eec7fbb28572d9049e4029d5", null ]
 ];

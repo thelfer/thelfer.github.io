@@ -1,5 +1,7 @@
 var NAVTREEINDEX12 =
 {
+"dir_0fd795973971206094b5d6e985ee0f7d.html":[8,0,0,2],
+"dir_158daa182ecda6a1dd19c6536109660c.html":[8,0,8,0],
 "dir_1bea9c750bd25caa7c6988ddc68a74cd.html":[8,0,0,3,7],
 "dir_26d26d0fd19dfa58746f7deb2824c351.html":[8,0,0,1],
 "dir_2ac233450942c757ff2eafe6c6d33e15.html":[8,0,3,0,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX12 =
 "include_2_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a40fcab695c46d1b07c2102427e0d7b10":[8,0,0,3,4,61,3],
 "include_2_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a4f491037cf51fcec70265e9c0dc64c5a":[8,0,0,3,4,61,8],
 "include_2_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a53478c744340e203175742f224cec960":[8,0,0,3,4,61,11],
-"include_2_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a609c0142bbfb1b53b938bc14a8bda0ca":[8,0,0,3,4,61,6],
-"include_2_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a68903b7d67cd1d3564a218a7bebf57f8":[8,0,0,3,4,61,13],
-"include_2_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a6f152af5faea9c89e6af245b2b1ac856":[8,0,0,3,4,61,10]
+"include_2_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a609c0142bbfb1b53b938bc14a8bda0ca":[8,0,0,3,4,61,6]
 };

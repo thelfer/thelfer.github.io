@@ -1023,8 +1023,29 @@ var annotated_dup =
       [ "material", "namespacetfel_1_1material.html", [
         [ "homogenization", null, [
           [ "elasticity", null, [
+            [ "AnisotropicLocalisationTensor", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_anisotropic_localisation_tensor.html", null ],
+            [ "AnisotropicLocalisationTensor< 2u, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_anisotropic_localisation_tensor_3_012u_00_01_stress_type_01_4.html", null ],
+            [ "AnisotropicLocalisationTensor< 3u, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_anisotropic_localisation_tensor_3_013u_00_01_stress_type_01_4.html", null ],
+            [ "Disk", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_disk.html", null ],
             [ "Distribution", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_distribution.html", null ],
-            [ "EllipsoidMeanLocalisator", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_ellipsoid_mean_localisator.html", null ]
+            [ "Ellipse", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_ellipse.html", null ],
+            [ "Ellipsoid", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_ellipsoid.html", null ],
+            [ "EllipsoidMeanLocalisator", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_ellipsoid_mean_localisator.html", null ],
+            [ "HomogenizationScheme", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_homogenization_scheme.html", null ],
+            [ "Inclusion", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion.html", null ],
+            [ "InclusionDistribution", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion_distribution.html", null ],
+            [ "IsotropicDistribution", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_isotropic_distribution.html", null ],
+            [ "IsotropicLocalisationTensor", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_isotropic_localisation_tensor.html", null ],
+            [ "IsotropicLocalisationTensor< 2u, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_isotropic_localisation_tensor_3_012u_00_01_stress_type_01_4.html", null ],
+            [ "IsotropicLocalisationTensor< 3u, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_isotropic_localisation_tensor_3_013u_00_01_stress_type_01_4.html", null ],
+            [ "Microstructure", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_microstructure.html", null ],
+            [ "OrientedDistribution", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_oriented_distribution.html", null ],
+            [ "ParticulateMicrostructure", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_particulate_microstructure.html", null ],
+            [ "Phase", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase.html", null ],
+            [ "Sphere", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_sphere.html", null ],
+            [ "SphereDistribution", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_sphere_distribution.html", null ],
+            [ "Spheroid", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_spheroid.html", null ],
+            [ "TransverseIsotropicDistribution", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_transverse_isotropic_distribution.html", null ]
           ] ]
         ] ],
         [ "internals", "namespacetfel_1_1material_1_1internals.html", [

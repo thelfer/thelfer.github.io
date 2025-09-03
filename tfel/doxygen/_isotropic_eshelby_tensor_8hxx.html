@@ -109,6 +109,7 @@ $(document).ready(function(){initNavTree('_isotropic_eshelby_tensor_8hxx.html','
 <div class="textblock"><code>#include &quot;<a class="el" href="st2tost2_8hxx.html">TFEL/Math/st2tost2.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_stiffness_tensor_8hxx.html">TFEL/Material/StiffnessTensor.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_isotropic_moduli_8hxx.html">TFEL/Material/IsotropicModuli.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_localisation_tensor_8hxx.html">TFEL/Material/LocalisationTensor.hxx</a>&quot;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
 <code>#include &quot;<a class="el" href="_isotropic_eshelby_tensor_8ixx.html">TFEL/Material/IsotropicEshelbyTensor.ixx</a>&quot;</code><br />
 </div><table class="memberdecls">
@@ -123,12 +124,20 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a87865a396492d3dfb898bdc34de4a4f9" id="r_a87865a396492d3dfb898bdc34de4a4f9"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
-<tr class="memitem:a87865a396492d3dfb898bdc34de4a4f9"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 2u, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#a87865a396492d3dfb898bdc34de4a4f9">tfel::material::homogenization::elasticity::computeCircularCylinderEshelbyTensor</a> (const real &amp;)</td></tr>
-<tr class="separator:a87865a396492d3dfb898bdc34de4a4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07c3640cb58a5130cf3ce02e9f0bea01" id="r_a07c3640cb58a5130cf3ce02e9f0bea01"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
-<tr class="memitem:a07c3640cb58a5130cf3ce02e9f0bea01"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 2u, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#a07c3640cb58a5130cf3ce02e9f0bea01">tfel::material::homogenization::elasticity::computeEllipticCylinderEshelbyTensor</a> (const real &amp;, const real &amp;)</td></tr>
-<tr class="separator:a07c3640cb58a5130cf3ce02e9f0bea01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefb7e0701ad837daec76097bf3f6f4fc" id="r_aefb7e0701ad837daec76097bf3f6f4fc"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
+<tr class="memitem:aefb7e0701ad837daec76097bf3f6f4fc"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 2u, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#aefb7e0701ad837daec76097bf3f6f4fc">tfel::material::homogenization::elasticity::computeDiskPlaneStrainEshelbyTensor</a> (const real &amp;)</td></tr>
+<tr class="separator:aefb7e0701ad837daec76097bf3f6f4fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaccbc550f02e661989b49ec8cc63808f" id="r_aaccbc550f02e661989b49ec8cc63808f"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
+requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</td></tr>
+<tr class="memitem:aaccbc550f02e661989b49ec8cc63808f"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 2u, types::compliance&lt; StressType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#aaccbc550f02e661989b49ec8cc63808f">tfel::material::homogenization::elasticity::computeDiskPlaneStrainHillTensor</a> (const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;)</td></tr>
+<tr class="separator:aaccbc550f02e661989b49ec8cc63808f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11f00f42e92d4478decdc2eb47f39404" id="r_a11f00f42e92d4478decdc2eb47f39404"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
+<tr class="memitem:a11f00f42e92d4478decdc2eb47f39404"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 2u, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#a11f00f42e92d4478decdc2eb47f39404">tfel::material::homogenization::elasticity::computePlaneStrainEshelbyTensor</a> (const real &amp;, const real &amp;)</td></tr>
+<tr class="separator:a11f00f42e92d4478decdc2eb47f39404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20f1299683f6eaf1a83b4ac7a28ca3c6" id="r_a20f1299683f6eaf1a83b4ac7a28ca3c6"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
+requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</td></tr>
+<tr class="memitem:a20f1299683f6eaf1a83b4ac7a28ca3c6"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 2u, types::compliance&lt; StressType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#a20f1299683f6eaf1a83b4ac7a28ca3c6">tfel::material::homogenization::elasticity::computePlaneStrainHillTensor</a> (const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;, const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 2u, types::real&lt; StressType &gt; &gt; &amp;, const types::length&lt; StressType &gt; &amp;, const types::length&lt; StressType &gt; &amp;)</td></tr>
+<tr class="separator:a20f1299683f6eaf1a83b4ac7a28ca3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac161c768a6242dbf1a288b8b4e218392" id="r_ac161c768a6242dbf1a288b8b4e218392"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
 <tr class="memitem:ac161c768a6242dbf1a288b8b4e218392"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#ac161c768a6242dbf1a288b8b4e218392">tfel::material::homogenization::elasticity::computeSphereEshelbyTensor</a> (const real &amp;)</td></tr>
 <tr class="separator:ac161c768a6242dbf1a288b8b4e218392"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,30 +172,6 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</td></tr>
 <tr class="memitem:aa6c7ff004cb1c6e8adba4f043ae66a68"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, types::compliance&lt; StressType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#aa6c7ff004cb1c6e8adba4f043ae66a68">tfel::material::homogenization::elasticity::computeHillPolarisationTensor</a> (const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;, const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;, const types::length&lt; StressType &gt; &amp;, const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;, const types::length&lt; StressType &gt; &amp;, const types::length&lt; StressType &gt; &amp;, const types::real&lt; StressType &gt;=types::real&lt; StressType &gt;{8e-3}, const types::real&lt; StressType &gt;=types::real&lt; StressType &gt;{1.5e-4}, const types::real&lt; StressType &gt;=types::real&lt; StressType &gt;{1e-5})</td></tr>
 <tr class="separator:aa6c7ff004cb1c6e8adba4f043ae66a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0198d153f72afd3dc80ca389ddf2711a" id="r_a0198d153f72afd3dc80ca389ddf2711a"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
-requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt;<a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</td></tr>
-<tr class="memitem:a0198d153f72afd3dc80ca389ddf2711a"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, types::real&lt; StressType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#a0198d153f72afd3dc80ca389ddf2711a">tfel::material::homogenization::elasticity::computeSphereLocalisationTensor</a> (const StressType &amp;, const types::real&lt; StressType &gt; &amp;, const StressType &amp;, const types::real&lt; StressType &gt; &amp;)</td></tr>
-<tr class="separator:a0198d153f72afd3dc80ca389ddf2711a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7071810e7a3d6f7cc2b5993dcc3cffd3" id="r_a7071810e7a3d6f7cc2b5993dcc3cffd3"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
-requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt;<a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</td></tr>
-<tr class="memitem:a7071810e7a3d6f7cc2b5993dcc3cffd3"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, types::real&lt; StressType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#a7071810e7a3d6f7cc2b5993dcc3cffd3">tfel::material::homogenization::elasticity::computeSphereLocalisationTensor</a> (const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;, const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;)</td></tr>
-<tr class="separator:a7071810e7a3d6f7cc2b5993dcc3cffd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39b1b8e2fd7eac10102b15264910121e" id="r_a39b1b8e2fd7eac10102b15264910121e"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
-requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</td></tr>
-<tr class="memitem:a39b1b8e2fd7eac10102b15264910121e"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, types::real&lt; StressType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#a39b1b8e2fd7eac10102b15264910121e">tfel::material::homogenization::elasticity::computeAxisymmetricalEllipsoidLocalisationTensor</a> (const StressType &amp;, const types::real&lt; StressType &gt; &amp;, const StressType &amp;, const types::real&lt; StressType &gt; &amp;, const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;, const types::real&lt; StressType &gt; &amp;)</td></tr>
-<tr class="separator:a39b1b8e2fd7eac10102b15264910121e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8085475ba270c974b188cdf0aa328f98" id="r_a8085475ba270c974b188cdf0aa328f98"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
-requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</td></tr>
-<tr class="memitem:a8085475ba270c974b188cdf0aa328f98"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, types::real&lt; StressType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#a8085475ba270c974b188cdf0aa328f98">tfel::material::homogenization::elasticity::computeAxisymmetricalEllipsoidLocalisationTensor</a> (const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;, const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;, const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;, const types::real&lt; StressType &gt; &amp;)</td></tr>
-<tr class="separator:a8085475ba270c974b188cdf0aa328f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39c9b0c49d968bcaee9d9f9d12d25ab6" id="r_a39c9b0c49d968bcaee9d9f9d12d25ab6"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
-requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</td></tr>
-<tr class="memitem:a39c9b0c49d968bcaee9d9f9d12d25ab6"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, types::real&lt; StressType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#a39c9b0c49d968bcaee9d9f9d12d25ab6">tfel::material::homogenization::elasticity::computeEllipsoidLocalisationTensor</a> (const StressType &amp;, const types::real&lt; StressType &gt; &amp;, const StressType &amp;, const types::real&lt; StressType &gt; &amp;, const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;, const types::length&lt; StressType &gt; &amp;, const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;, const types::length&lt; StressType &gt; &amp;, const types::length&lt; StressType &gt; &amp;)</td></tr>
-<tr class="separator:a39c9b0c49d968bcaee9d9f9d12d25ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8037634e353f581bf75b4ba5787270f5" id="r_a8037634e353f581bf75b4ba5787270f5"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
-requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</td></tr>
-<tr class="memitem:a8037634e353f581bf75b4ba5787270f5"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, types::real&lt; StressType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#a8037634e353f581bf75b4ba5787270f5">tfel::material::homogenization::elasticity::computeEllipsoidLocalisationTensor</a> (const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;, const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;, const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;, const types::length&lt; StressType &gt; &amp;, const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;, const types::length&lt; StressType &gt; &amp;, const types::length&lt; StressType &gt; &amp;)</td></tr>
-<tr class="separator:a8037634e353f581bf75b4ba5787270f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file declares the Eshelby tensor for an ellipsoidal inclusion embedded in an isotropic matrix. </p>
@@ -194,138 +179,6 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 <dl class="section date"><dt>Date</dt><dd>15 October 2024 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2006-2018 CEA/DEN, EDF R&amp;D. All rights reserved. This project is publicly released under either the GNU GPL Licence with linking exception or the CECILL-A licence. A copy of thoses licences are delivered with the sources of TFEL. CEA or EDF may also distribute this project under specific licensing conditions. </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a8085475ba270c974b188cdf0aa328f98" name="a8085475ba270c974b188cdf0aa328f98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8085475ba270c974b188cdf0aa328f98">&#9670;&#160;</a></span>computeAxisymmetricalEllipsoidLocalisationTensor() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
-requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</div>
-      <table class="memname">
-        <tr>
-          <td class="memname">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, types::real&lt; StressType &gt; &gt; tfel::material::homogenization::elasticity::computeAxisymmetricalEllipsoidLocalisationTensor </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>IM0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>IM_i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>n_a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::real&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>e</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function is an overload of computeAxisymmetricalEllipsoidLocalisationTensor with elastic moduli of IsotropicModuli&lt;StressType&gt; type </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2 </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
-    <tr><td class="paramname">StressType</td><td>type of the elastic constants related to the matrix and the ellipsoid</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">IM0</td><td>isotropic moduli of the matrix</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">IM_i</td><td>isotropic moduli of the inclusions</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">n_a</td><td>direction of the axis of the ellipsoid (whose semi-length is \(a\)) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>length of semi-axis relative to the direction \(n_a\) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a39b1b8e2fd7eac10102b15264910121e" name="a39b1b8e2fd7eac10102b15264910121e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39b1b8e2fd7eac10102b15264910121e">&#9670;&#160;</a></span>computeAxisymmetricalEllipsoidLocalisationTensor() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
-requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</div>
-      <table class="memname">
-        <tr>
-          <td class="memname">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, types::real&lt; StressType &gt; &gt; tfel::material::homogenization::elasticity::computeAxisymmetricalEllipsoidLocalisationTensor </td>
-          <td>(</td>
-          <td class="paramtype">const StressType &amp;&#160;</td>
-          <td class="paramname"><em>young</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::real&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>nu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const StressType &amp;&#160;</td>
-          <td class="paramname"><em>young_i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::real&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>nu_i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>n_a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::real&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>e</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function builds the strain localisation tensor of an axisymmetrical ellipsoid with a general elasticity, embedded in an isotropic matrix. The ellipsoid also has a specific orientation given by the vector \(n_a\), axis of the ellipsoid, whose semi-length is \(a\). </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2 </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
-    <tr><td class="paramname">StressType</td><td>type of the elastic constants related to the matrix and the ellipsoid </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">young,nu</td><td>Young modulus and Poisson's ratio of the matrix </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">young_i,nu_i</td><td>Young modulus and Poisson's ratio of the inclusions </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">n_a</td><td>direction of the axis of the ellipsoid (whose semi-length is \(a\)) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>length of semi-axis relative to the direction \(n_a\) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a3e407b730e125760016eb4f69a87a88c" name="a3e407b730e125760016eb4f69a87a88c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3e407b730e125760016eb4f69a87a88c">&#9670;&#160;</a></span>computeAxisymmetricalEshelbyTensor()</h2>
 
@@ -445,7 +298,6 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 <p>This function is an overload of computeAxisymmetricalHillPolarisationTensor with elastic moduli of IsotropicModuli&lt;StressType&gt; type </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2&lt;3u,compliance&lt;StressType&gt;&gt; </dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
     <tr><td class="paramname">StressType</td><td>type of the elastic constants </td></tr>
   </table>
   </dd>
@@ -520,7 +372,6 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 <p>This function builds the Hill tensor of an axisymmetrical ellipsoid embedded in an isotropic matrix. The function takes into account the orientation of the ellipsoid. </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2&lt;3u,compliance&lt;StressType&gt;&gt; </dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
     <tr><td class="paramname">StressType</td><td>type of the elastic constants </td></tr>
   </table>
   </dd>
@@ -538,8 +389,8 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 
 </div>
 </div>
-<a id="a87865a396492d3dfb898bdc34de4a4f9" name="a87865a396492d3dfb898bdc34de4a4f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87865a396492d3dfb898bdc34de4a4f9">&#9670;&#160;</a></span>computeCircularCylinderEshelbyTensor()</h2>
+<a id="aefb7e0701ad837daec76097bf3f6f4fc" name="aefb7e0701ad837daec76097bf3f6f4fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefb7e0701ad837daec76097bf3f6f4fc">&#9670;&#160;</a></span>computeDiskPlaneStrainEshelbyTensor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -547,7 +398,7 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 template&lt;typename real &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 2u, real &gt; tfel::material::homogenization::elasticity::computeCircularCylinderEshelbyTensor </td>
+          <td class="memname">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 2u, real &gt; tfel::material::homogenization::elasticity::computeDiskPlaneStrainEshelbyTensor </td>
           <td>(</td>
           <td class="paramtype">const real &amp;&#160;</td>
           <td class="paramname"><em>nu</em></td><td>)</td>
@@ -571,8 +422,8 @@ template&lt;typename real &gt; </div>
 
 </div>
 </div>
-<a id="a8037634e353f581bf75b4ba5787270f5" name="a8037634e353f581bf75b4ba5787270f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8037634e353f581bf75b4ba5787270f5">&#9670;&#160;</a></span>computeEllipsoidLocalisationTensor() <span class="overload">[1/2]</span></h2>
+<a id="aaccbc550f02e661989b49ec8cc63808f" name="aaccbc550f02e661989b49ec8cc63808f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaccbc550f02e661989b49ec8cc63808f">&#9670;&#160;</a></span>computeDiskPlaneStrainHillTensor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -581,216 +432,24 @@ template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfe
 requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</div>
       <table class="memname">
         <tr>
-          <td class="memname">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, types::real&lt; StressType &gt; &gt; tfel::material::homogenization::elasticity::computeEllipsoidLocalisationTensor </td>
+          <td class="memname">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 2u, types::compliance&lt; StressType &gt; &gt; tfel::material::homogenization::elasticity::computeDiskPlaneStrainHillTensor </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>IM0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>IM_0</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>IM_i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>n_a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::length&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>n_b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::length&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::length&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>c</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is an overload of computeEllipsoidLocalisationTensor with elastic moduli of IsotropicModuli&lt;StressType&gt; type </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2, which is the fourth-order localisation tensor \(A\) </dd></dl>
+<p>This function builds the Hill tensor of a circular cylinder embedded in an isotropic matrix, considering a PLANE STRAIN modelling hypothesis. The Hill tensor gives the opposite of the uniform strain in the ellipsoid as a function of the imposed polarisation. </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2&lt;2u,compliance&gt; </dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
-    <tr><td class="paramname">StressType</td><td>type of the elastic constants related to the matrix and the ellipsoid </td></tr>
-    <tr><td class="paramname">LengthType</td><td>type of the dimensions of the ellipsoid </td></tr>
+    <tr><td class="paramname">StressType</td><td>type of the elastic constants </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">IM0</td><td>isotropic moduli of the matrix </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">IM_i</td><td>isotropic moduli of the inclusions </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">n_a</td><td>direction of the principal axis whose length is \(a\) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>length of semi-axis relative to the direction \(n_a\) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">n_b</td><td>direction of the principal axis whose length is \(b\) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>length of semi-axis relative to the direction \(n_b\) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>length of the remaining semi-axis </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a39c9b0c49d968bcaee9d9f9d12d25ab6" name="a39c9b0c49d968bcaee9d9f9d12d25ab6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39c9b0c49d968bcaee9d9f9d12d25ab6">&#9670;&#160;</a></span>computeEllipsoidLocalisationTensor() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
-requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</div>
-      <table class="memname">
-        <tr>
-          <td class="memname">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, types::real&lt; StressType &gt; &gt; tfel::material::homogenization::elasticity::computeEllipsoidLocalisationTensor </td>
-          <td>(</td>
-          <td class="paramtype">const StressType &amp;&#160;</td>
-          <td class="paramname"><em>young</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::real&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>nu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const StressType &amp;&#160;</td>
-          <td class="paramname"><em>young_i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::real&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>nu_i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>n_a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::length&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>n_b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::length&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::length&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>c</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function builds the strain localisation tensor of a general ellipsoid with a general elasticity, embedded in an isotropic matrix. The localisation tensor \(A\) is defined as follows : </p><p class="formulaDsp">
-\[\epsilon =
-A:E_0\]
-</p>
-<p> where \(E_0\) is the uniform strain tensor imposed at infinity, and \(\epsilon\) is the strain tensor solution of Eshelby problem for the ellipsoid. The ellipsoid also has a specific orientation given by the vectors \(n_a\), \(n_b\), which provides a direct local basis \((n_a,n_b,n_c)\). The elasticity \(C_i\) is specified in this local basis. </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2, which is the fourth-order localisation tensor \(A\) (in the global basis). </dd>
-<dd>
-an object of type st2tost2 </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
-    <tr><td class="paramname">StressType</td><td>type of the elastic constants related to the matrix and the ellipsoid </td></tr>
-    <tr><td class="paramname">LengthType</td><td>type of the dimensions of the ellipsoid </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">young,nu</td><td>Young modulus and Poisson's ratio of the matrix </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">C_i</td><td>elasticity of the inclusions </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">n_a</td><td>direction of the principal axis whose length is \(a\) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>length of semi-axis relative to the direction \(n_a\) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">n_b</td><td>direction of the principal axis whose length is \(b\) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>length of semi-axis relative to the direction \(n_b\) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>length of the remaining semi-axis </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a07c3640cb58a5130cf3ce02e9f0bea01" name="a07c3640cb58a5130cf3ce02e9f0bea01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07c3640cb58a5130cf3ce02e9f0bea01">&#9670;&#160;</a></span>computeEllipticCylinderEshelbyTensor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename real &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 2u, real &gt; tfel::material::homogenization::elasticity::computeEllipticCylinderEshelbyTensor </td>
-          <td>(</td>
-          <td class="paramtype">const real &amp;&#160;</td>
-          <td class="paramname"><em>nu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const real &amp;&#160;</td>
-          <td class="paramname"><em>e</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function builds the Eshelby tensor of an elliptic cylinder embedded in an isotropic matrix, considering a PLANE STRAIN modelling hypothesis The function returns the Eshelby tensor in the basis (e1,e2) where e1 corresponds to the biggest axis </p><dl class="section return"><dt>Returns</dt><dd>an object of type <a class="el" href="structtfel_1_1math_1_1st2tost2.html">st2tost2&lt;2u,real&gt;</a> </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">nu</td><td>Poisson's ratio of the matrix </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>aspect ratio of the elliptic basis </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">IM_0</td><td>Isotropic Moduli of the matrix </td></tr>
   </table>
   </dd>
 </dl>
@@ -856,13 +515,6 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
       </table>
 </div><div class="memdoc">
 <p>This function builds the Eshelby tensor of a general ellipsoid embedded in an isotropic matrix. The function returns the Eshelby tensor in the basis (e1,e2,e3) where e1 (resp. e2, e3) is aligned with the axis with the first (resp. the second and third) biggest length </p><dl class="section return"><dt>Returns</dt><dd>an object of type <a class="el" href="structtfel_1_1math_1_1st2tost2.html">st2tost2&lt;3u,real&gt;</a> </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
-    <tr><td class="paramname">LengthType</td><td>type of the dimensions of the ellipsoid </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">nu</td><td>Poisson's ratio of the matrix </td></tr>
@@ -950,8 +602,6 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 <p>This function is an overload of computeHillPolarisationTensor with elastic moduli of IsotropicModuli&lt;StressType&gt; type </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2&lt;3u,compliance&lt;StressType&gt;&gt; </dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
-    <tr><td class="paramname">LengthType</td><td>type of the dimensions of the ellipsoid </td></tr>
     <tr><td class="paramname">StressType</td><td>type of the elastic constants </td></tr>
   </table>
   </dd>
@@ -1044,8 +694,6 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 <p>This function builds the Hill tensor of a general ellipsoid embedded in an isotropic matrix. The function takes into account the orientation of the ellipsoid. </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2&lt;3u,compliance&lt;StressType&gt;&gt; </dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
-    <tr><td class="paramname">LengthType</td><td>type of the dimensions of the ellipsoid </td></tr>
     <tr><td class="paramname">StressType</td><td>type of the elastic constants </td></tr>
   </table>
   </dd>
@@ -1060,6 +708,109 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
     <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>length of semi-axis relative to the direction \(n_b\) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>length of the remaining semi-axis </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">precf,precd,precld</td><td>default arguments which aim at preventing the numerical instability of the formula when the ellipsoid is almost axisymmetrical. When the absolute value of (a-b)/c (or (a-c)/b or (b-c)/a) is below precf (resp. precd, precld) for real=float (resp. real= double, long double), the returned tensor is computeAxisymmetricalHillTensor. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a11f00f42e92d4478decdc2eb47f39404" name="a11f00f42e92d4478decdc2eb47f39404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11f00f42e92d4478decdc2eb47f39404">&#9670;&#160;</a></span>computePlaneStrainEshelbyTensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename real &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 2u, real &gt; tfel::material::homogenization::elasticity::computePlaneStrainEshelbyTensor </td>
+          <td>(</td>
+          <td class="paramtype">const real &amp;&#160;</td>
+          <td class="paramname"><em>nu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real &amp;&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function builds the Eshelby tensor of an elliptic cylinder embedded in an isotropic matrix, considering a PLANE STRAIN modelling hypothesis The function returns the Eshelby tensor in the basis (e1,e2) where e1 corresponds to the biggest axis </p><dl class="section return"><dt>Returns</dt><dd>an object of type <a class="el" href="structtfel_1_1math_1_1st2tost2.html">st2tost2&lt;2u,real&gt;</a> </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">real</td><td>underlying type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">nu</td><td>Poisson's ratio of the matrix </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>aspect ratio of the elliptic basis </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a20f1299683f6eaf1a83b4ac7a28ca3c6" name="a20f1299683f6eaf1a83b4ac7a28ca3c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20f1299683f6eaf1a83b4ac7a28ca3c6">&#9670;&#160;</a></span>computePlaneStrainHillTensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
+requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</div>
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 2u, types::compliance&lt; StressType &gt; &gt; tfel::material::homogenization::elasticity::computePlaneStrainHillTensor </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>IM_0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 2u, types::real&lt; StressType &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>n_a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const types::length&lt; StressType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const types::length&lt; StressType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function builds the Hill tensor of an elliptic cylinder embedded in an isotropic matrix, considering a PLANE STRAIN modelling hypothesis. The Hill tensor gives the opposite of the uniform strain in the ellipsoid as a function of the imposed polarisation. </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2&lt;2u,compliance&gt; </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">StressType</td><td>type of the elastic constants </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">IM_0</td><td>Isotropic Moduli of the matrix </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n_a</td><td>direction of the principal axis whose length is \(a\) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>length of semi-axis relative to the direction \(n_a\) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>length of semi-axis relative to the other direction </td></tr>
   </table>
   </dd>
 </dl>
@@ -1120,7 +871,6 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 <p>This function is an overload of computeSphereHillPolarisationTensor with elastic moduli of IsotropicModuli&lt;StressType&gt; type </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2&lt;3u,compliance&lt;StressType&gt;&gt; </dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
     <tr><td class="paramname">StressType</td><td>type of the elastic constants </td></tr>
   </table>
   </dd>
@@ -1165,7 +915,6 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 <p>This function builds the Hill tensor of a sphere embedded in an isotropic matrix. </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2&lt;3u,compliance&lt;StressType&gt;&gt; </dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
     <tr><td class="paramname">StressType</td><td>type of the elastic constants </td></tr>
   </table>
   </dd>
@@ -1180,117 +929,13 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 
 </div>
 </div>
-<a id="a7071810e7a3d6f7cc2b5993dcc3cffd3" name="a7071810e7a3d6f7cc2b5993dcc3cffd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7071810e7a3d6f7cc2b5993dcc3cffd3">&#9670;&#160;</a></span>computeSphereLocalisationTensor() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
-requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt;<a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</div>
-      <table class="memname">
-        <tr>
-          <td class="memname">TFEL_HOST_DEVICE tfel::math:: st2tost2&lt; 3u, types::real&lt; StressType &gt; &gt; tfel::material::homogenization::elasticity::computeSphereLocalisationTensor </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>IM0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>IM_i</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function is an overload of computeSphereLocalisationTensor with elastic moduli of IsotropicModuli&lt;StressType&gt; type </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2 </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
-    <tr><td class="paramname">StressType</td><td>type of the elastic constants related to the matrix and the ellipsoid </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">IM0</td><td>isotropic moduli of the matrix </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">IM_i</td><td>isotropic moduli of the inclusions </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a0198d153f72afd3dc80ca389ddf2711a" name="a0198d153f72afd3dc80ca389ddf2711a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0198d153f72afd3dc80ca389ddf2711a">&#9670;&#160;</a></span>computeSphereLocalisationTensor() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
-requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt;<a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</div>
-      <table class="memname">
-        <tr>
-          <td class="memname">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, types::real&lt; StressType &gt; &gt; tfel::material::homogenization::elasticity::computeSphereLocalisationTensor </td>
-          <td>(</td>
-          <td class="paramtype">const StressType &amp;&#160;</td>
-          <td class="paramname"><em>young</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::real&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>nu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const StressType &amp;&#160;</td>
-          <td class="paramname"><em>young_i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const types::real&lt; StressType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>nu_i</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function builds the strain localisation tensor of a sphere with a general elasticity, embedded in an isotropic matrix. </p><dl class="section return"><dt>Returns</dt><dd>an object of type st2tost2 </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">real</td><td>underlying type </td></tr>
-    <tr><td class="paramname">StressType</td><td>type of the elastic constants related to the matrix and the ellipsoid </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">young,nu</td><td>Young modulus and Poisson's ratio of the matrix </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">young_i,nu_i</td><td>Young modulus and Poisson's ratio of the inclusions </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f1614b9bfb736e18e5ccdeb7e67f6541.html">TFEL</a></li><li class="navelem"><a class="el" href="dir_9c6f9dfbe000c54e72b60c70482b6bf0.html">Material</a></li><li class="navelem"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html">IsotropicEshelbyTensor.hxx</a></li>
-    <li class="footer">Generated on Wed Sep 3 2025 06:41:33 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Sep 3 2025 06:47:39 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

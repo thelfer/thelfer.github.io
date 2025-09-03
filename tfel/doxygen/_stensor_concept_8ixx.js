@@ -5,6 +5,5 @@ var _stensor_concept_8ixx =
     [ "computeDeviatorDeterminantDerivative", "_stensor_concept_8ixx.html#a025d9f67f4a9f3e9e93601967489236e", null ],
     [ "deviator", "_stensor_concept_8ixx.html#acaee5f634156ab68de31b27ec181d09e", null ],
     [ "sigmaeq", "_stensor_concept_8ixx.html#a206e778a81e828ec311ba77fb8cb3e25", null ],
-    [ "trace", "_stensor_concept_8ixx.html#aa6fef83d25b2b1d6fbc562246c71ffdd", null ],
-    [ "VoigtIndex", "_stensor_concept_8ixx.html#ab7bbd7923cdb906e1045d4b7422a76c7", null ]
+    [ "trace", "_stensor_concept_8ixx.html#aa6fef83d25b2b1d6fbc562246c71ffdd", null ]
 ];

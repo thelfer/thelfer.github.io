@@ -13,6 +13,5 @@ var _stensor_concept_8hxx =
     [ "getStensorSize", "_stensor_concept_8hxx.html#a1dac85eb9e4a0729f98d4307357a577f", null ],
     [ "implementsStensorConcept", "_stensor_concept_8hxx.html#aa9c5158c760918c5deb630d1e8f33fec", null ],
     [ "sigmaeq", "_stensor_concept_8hxx.html#a206e778a81e828ec311ba77fb8cb3e25", null ],
-    [ "trace", "_stensor_concept_8hxx.html#aa6fef83d25b2b1d6fbc562246c71ffdd", null ],
-    [ "VoigtIndex", "_stensor_concept_8hxx.html#ab7bbd7923cdb906e1045d4b7422a76c7", null ]
+    [ "trace", "_stensor_concept_8hxx.html#aa6fef83d25b2b1d6fbc562246c71ffdd", null ]
 ];

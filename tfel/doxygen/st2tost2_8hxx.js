@@ -15,6 +15,5 @@ var st2tost2_8hxx =
     [ "pull_back", "st2tost2_8hxx.html#aa84c860d13a565b167b765848b4a3adf", null ],
     [ "push_forward", "st2tost2_8hxx.html#a5a52112e55f70e1648968ebe5a52f550", null ],
     [ "setComponent", "st2tost2_8hxx.html#a87e659d37ce08d8d822e800736eeca7a", null ],
-    [ "st2tost2", "st2tost2_8hxx.html#adf53f435672deac6c3cdcb05a3f5929d", null ],
-    [ "VoigtIndex", "st2tost2_8hxx.html#a2b78ec031008d412fb7660f3dae40e2b", null ]
+    [ "st2tost2", "st2tost2_8hxx.html#adf53f435672deac6c3cdcb05a3f5929d", null ]
 ];

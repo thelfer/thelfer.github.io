@@ -15,7 +15,7 @@ var searchData=
   ['enumbinarywriter_12',['EnumBinaryWriter',['../structtfel_1_1system_1_1_enum_binary_writer.html',1,'tfel::system']]],
   ['equal_13',['equal',['../structtfel_1_1fsalgo_1_1equal.html',1,'tfel::fsalgo']]],
   ['error_14',['error',['../structaster_1_1_aster_behaviour_handler_1_1_error.html',1,'aster::AsterBehaviourHandler&lt; H, Behaviour &gt;::Error'],['../structcastem_1_1_castem_behaviour_handler_1_1_error.html',1,'castem::CastemBehaviourHandler&lt; type, H, Behaviour &gt;::Error'],['../structcyrano_1_1_cyrano_behaviour_handler_1_1_error.html',1,'cyrano::CyranoBehaviourHandler&lt; H, Behaviour &gt;::Error']]],
-  ['eshelbytolerances_15',['EshelbyTolerances',['../structtfel_1_1math_1_1_eshelby_tolerances.html',1,'tfel::math']]],
+  ['eshelbytolerances_15',['EshelbyTolerances',['../structtfel_1_1material_1_1_eshelby_tolerances.html',1,'tfel::material']]],
   ['evaluator_16',['Evaluator',['../structtfel_1_1math_1_1_evaluator.html',1,'tfel::math']]],
   ['evaluatorbase_17',['EvaluatorBase',['../structtfel_1_1math_1_1parser_1_1_evaluator_base.html',1,'tfel::math::parser']]],
   ['evaluatorfunction1p1v_18',['EvaluatorFunction1P1V',['../structtfel_1_1math_1_1parser_1_1_evaluator_function1_p1_v.html',1,'tfel::math::parser']]],

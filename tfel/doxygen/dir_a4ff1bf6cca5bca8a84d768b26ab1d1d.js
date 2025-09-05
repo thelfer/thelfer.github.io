@@ -27,6 +27,5 @@ var dir_a4ff1bf6cca5bca8a84d768b26ab1d1d =
     [ "ResultType.hxx", "_result_type_8hxx.html", "_result_type_8hxx" ],
     [ "RunTimeCheck.hxx", "_run_time_check_8hxx.html", "_run_time_check_8hxx" ],
     [ "StridedRandomAccessIterator.hxx", "_strided_random_access_iterator_8hxx.html", "_strided_random_access_iterator_8hxx" ],
-    [ "Tolerances.hxx", "_tolerances_8hxx.html", "_tolerances_8hxx" ],
     [ "UnaryResultType.hxx", "_unary_result_type_8hxx.html", "_unary_result_type_8hxx" ]
 ];

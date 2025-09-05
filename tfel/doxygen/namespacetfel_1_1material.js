@@ -25,6 +25,7 @@ var namespacetfel_1_1material =
     [ "computeUnalteredElasticStiffness", "structtfel_1_1material_1_1compute_unaltered_elastic_stiffness.html", null ],
     [ "DDIF2Base", "structtfel_1_1material_1_1_d_d_i_f2_base.html", null ],
     [ "DivergenceException", "structtfel_1_1material_1_1_divergence_exception.html", null ],
+    [ "EshelbyTolerances", "structtfel_1_1material_1_1_eshelby_tolerances.html", null ],
     [ "FiniteStrainBehaviourTangentOperator", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator" ],
     [ "FiniteStrainBehaviourTangentOperatorBase", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base" ],
     [ "FiniteStrainBehaviourTangentOperatorConverter", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_converter.html", null ],

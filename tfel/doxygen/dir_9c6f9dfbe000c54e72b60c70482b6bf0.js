@@ -22,6 +22,7 @@ var dir_9c6f9dfbe000c54e72b60c70482b6bf0 =
     [ "Drucker1949YieldCriterion.ixx", "_drucker1949_yield_criterion_8ixx.html", "_drucker1949_yield_criterion_8ixx" ],
     [ "Eshelby.hxx", "_eshelby_8hxx.html", null ],
     [ "EshelbyBasedHomogenization.hxx", "_eshelby_based_homogenization_8hxx.html", null ],
+    [ "EshelbyTolerances.hxx", "_eshelby_tolerances_8hxx.html", "_eshelby_tolerances_8hxx" ],
     [ "FiniteStrainBehaviourTangentOperator.hxx", "_finite_strain_behaviour_tangent_operator_8hxx.html", "_finite_strain_behaviour_tangent_operator_8hxx" ],
     [ "FiniteStrainBehaviourTangentOperator.ixx", "_finite_strain_behaviour_tangent_operator_8ixx.html", "_finite_strain_behaviour_tangent_operator_8ixx" ],
     [ "FiniteStrainBehaviourTangentOperatorBase.hxx", "_finite_strain_behaviour_tangent_operator_base_8hxx.html", "_finite_strain_behaviour_tangent_operator_base_8hxx" ],

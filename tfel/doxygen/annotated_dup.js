@@ -1661,6 +1661,7 @@ var annotated_dup =
         [ "dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
         [ "DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
         [ "EmptyRunTimeProperties", "structtfel_1_1math_1_1_empty_run_time_properties.html", null ],
+        [ "EshelbyTolerances", "structtfel_1_1math_1_1_eshelby_tolerances.html", null ],
         [ "Evaluator", "structtfel_1_1math_1_1_evaluator.html", "structtfel_1_1math_1_1_evaluator" ],
         [ "Expr", "structtfel_1_1math_1_1_expr.html", "structtfel_1_1math_1_1_expr" ],
         [ "Expr< ResultType, BinaryOperation< T1, T2, Op > >", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4" ],

@@ -3,6 +3,7 @@ var dir_a4ff1bf6cca5bca8a84d768b26ab1d1d =
     [ "Abs.hxx", "_abs_8hxx.html", "_abs_8hxx" ],
     [ "AbsCompare.hxx", "_abs_compare_8hxx.html", "_abs_compare_8hxx" ],
     [ "BasicOperations.hxx", "_basic_operations_8hxx.html", "_basic_operations_8hxx" ],
+    [ "Compare.hxx", "_compare_8hxx.html", null ],
     [ "Complex.hxx", "_general_2_complex_8hxx.html", "_general_2_complex_8hxx" ],
     [ "ComputeBinaryResult.hxx", "_compute_binary_result_8hxx.html", "_compute_binary_result_8hxx" ],
     [ "ComputeObjectTag.hxx", "_compute_object_tag_8hxx.html", "_compute_object_tag_8hxx" ],
@@ -26,5 +27,6 @@ var dir_a4ff1bf6cca5bca8a84d768b26ab1d1d =
     [ "ResultType.hxx", "_result_type_8hxx.html", "_result_type_8hxx" ],
     [ "RunTimeCheck.hxx", "_run_time_check_8hxx.html", "_run_time_check_8hxx" ],
     [ "StridedRandomAccessIterator.hxx", "_strided_random_access_iterator_8hxx.html", "_strided_random_access_iterator_8hxx" ],
+    [ "Tolerances.hxx", "_tolerances_8hxx.html", "_tolerances_8hxx" ],
     [ "UnaryResultType.hxx", "_unary_result_type_8hxx.html", "_unary_result_type_8hxx" ]
 ];

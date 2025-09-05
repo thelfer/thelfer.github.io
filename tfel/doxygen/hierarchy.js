@@ -1522,8 +1522,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
+    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -1609,6 +1609,7 @@ var hierarchy =
     [ "aster::AsterBehaviourHandler< H, Behaviour >::Error", "structaster_1_1_aster_behaviour_handler_1_1_error.html", null ],
     [ "castem::CastemBehaviourHandler< type, H, Behaviour >::Error", "structcastem_1_1_castem_behaviour_handler_1_1_error.html", null ],
     [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::Error", "structcyrano_1_1_cyrano_behaviour_handler_1_1_error.html", null ],
+    [ "tfel::math::EshelbyTolerances< NumericType >", "structtfel_1_1math_1_1_eshelby_tolerances.html", null ],
     [ "tfel::math::parser::EvaluatorBase", "structtfel_1_1math_1_1parser_1_1_evaluator_base.html", [
       [ "tfel::math::Evaluator", "structtfel_1_1math_1_1_evaluator.html", null ],
       [ "tfel::math::IntegerEvaluator", "structtfel_1_1math_1_1_integer_evaluator.html", null ]

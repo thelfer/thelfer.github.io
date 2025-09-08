@@ -3,7 +3,6 @@ var dir_a4ff1bf6cca5bca8a84d768b26ab1d1d =
     [ "Abs.hxx", "_abs_8hxx.html", "_abs_8hxx" ],
     [ "AbsCompare.hxx", "_abs_compare_8hxx.html", "_abs_compare_8hxx" ],
     [ "BasicOperations.hxx", "_basic_operations_8hxx.html", "_basic_operations_8hxx" ],
-    [ "Compare.hxx", "_compare_8hxx.html", null ],
     [ "Complex.hxx", "_general_2_complex_8hxx.html", "_general_2_complex_8hxx" ],
     [ "ComputeBinaryResult.hxx", "_compute_binary_result_8hxx.html", "_compute_binary_result_8hxx" ],
     [ "ComputeObjectTag.hxx", "_compute_object_tag_8hxx.html", "_compute_object_tag_8hxx" ],

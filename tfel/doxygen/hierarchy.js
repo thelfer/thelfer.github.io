@@ -1609,7 +1609,6 @@ var hierarchy =
     [ "aster::AsterBehaviourHandler< H, Behaviour >::Error", "structaster_1_1_aster_behaviour_handler_1_1_error.html", null ],
     [ "castem::CastemBehaviourHandler< type, H, Behaviour >::Error", "structcastem_1_1_castem_behaviour_handler_1_1_error.html", null ],
     [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::Error", "structcyrano_1_1_cyrano_behaviour_handler_1_1_error.html", null ],
-    [ "tfel::material::EshelbyTolerances", "structtfel_1_1material_1_1_eshelby_tolerances.html", null ],
     [ "tfel::math::parser::EvaluatorBase", "structtfel_1_1math_1_1parser_1_1_evaluator_base.html", [
       [ "tfel::math::Evaluator", "structtfel_1_1math_1_1_evaluator.html", null ],
       [ "tfel::math::IntegerEvaluator", "structtfel_1_1math_1_1_integer_evaluator.html", null ]

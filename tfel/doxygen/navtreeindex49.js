@@ -1,5 +1,7 @@
 var NAVTREEINDEX49 =
 {
+"structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a24f355d8c043c75171bf25dff1684066":[7,0,10,0,20,8],
+"structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a37a356a01bd05faf7a481134ff12cdaa":[7,0,10,0,20,0],
 "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a3f4102e7c1158d5f8eb60601dd6070fd":[7,0,10,0,20,7],
 "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a3fca80c0e0f8ed0107b0d1f97b2d8187":[7,0,10,0,20,2],
 "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a7fe21e0938447ec525787a74cb85163e":[7,0,10,0,20,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#a28997dc2fcbccfb7de8fe963e2477c29":[7,0,10,0,39,3],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#a74d5bca4c82b8c92e9f0fa36fde3d0f0":[7,0,10,0,39,1],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#ac4889359b1326f05f59f6f49d532d11e":[7,0,10,0,39,2],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#adfcdb4dd5145b7ab1fa3608416e256e1":[7,0,10,0,39,0],
-"structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html":[7,0,10,0,40],
-"structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html#a0b588c0356507274c9c7343c447e4fd2":[7,0,10,0,40,3]
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#adfcdb4dd5145b7ab1fa3608416e256e1":[7,0,10,0,39,0]
 };

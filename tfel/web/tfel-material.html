@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -209,6 +210,7 @@
 		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
 		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		    <li><a href="release-notes-3.4.8.html">Version 3.4.8</a></li>
+		    <li><a href="release-notes-3.4.9.html">Version 3.4.9</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -384,6 +386,8 @@ class="math inline">\(\pi\)</span>-plane</a></li>
 <li><a href="#orthotropic-axes-convention"
 id="toc-orthotropic-axes-convention">Orthotropic axes
 convention</a></li>
+<li><a href="#isotropic-elastic-moduli"
+id="toc-isotropic-elastic-moduli">Isotropic elastic moduli</a></li>
 <li><a href="#homogenization" id="toc-homogenization">Homogenization</a>
 <ul>
 <li><a href="#eshelby-tensors" id="toc-eshelby-tensors">Eshelby
@@ -391,13 +395,15 @@ tensors</a></li>
 <li><a href="#strain-localisation-tensors"
 id="toc-strain-localisation-tensors">Strain localisation
 tensors</a></li>
-<li><a href="#homogenization-schemes"
-id="toc-homogenization-schemes">Homogenization schemes</a></li>
+<li><a href="#homogenization-schemes-for-biphasic-microstructures"
+id="toc-homogenization-schemes-for-biphasic-microstructures">Homogenization
+schemes for biphasic microstructures</a></li>
 <li><a href="#homogenization-bounds"
 id="toc-homogenization-bounds">Homogenization bounds</a></li>
+<li><a href="#homogenization-of-general-microstructures"
+id="toc-homogenization-of-general-microstructures">Homogenization of
+general microstructures</a></li>
 </ul></li>
-<li><a href="#isotropic-elastic-moduli"
-id="toc-isotropic-elastic-moduli">Isotropic elastic moduli</a></li>
 </ul>
 </div>
 <h1 id="equivalent-stress">Equivalent stress</h1>
@@ -793,6 +799,29 @@ class="math inline">\(2D\)</span> plane stress, <span
 class="math inline">\(2D\)</span> plane strain and <span
 class="math inline">\(2D\)</span> generalized plane strain modelling
 hypotheses.</p>
+<h1 id="isotropic-elastic-moduli">Isotropic elastic moduli</h1>
+<p>A <code>struct</code> <code>IsotropicModuli</code> is defined in the
+header “IsotropicModuli.hxx” for the elastic moduli of an isotropic
+material. Three children <code>struct</code> are defined:</p>
+<ul>
+<li><code>KGModuli</code> (for bulk and shear moduli)</li>
+<li><code>YoungNuModuli</code> (for Young modulus and Poisson
+ratio)</li>
+<li><code>LambdaMuModuli</code> (for Lame moduli)</li>
+</ul>
+<p>Each <code>struct</code> has methods which permit to convert the
+moduli:</p>
+<ul>
+<li><code>ToYoungNu()</code></li>
+<li><code>ToLambdaMu()</code></li>
+<li><code>ToKG()</code></li>
+</ul>
+<p>These methods all return <code>std::pair</code> objects.</p>
+<p>Moreover, a function <code>isIsotropic</code> returns a
+<code>boolean</code> which states if a <code>st2tost2</code> object is
+an isotropic tensor. A function <code>computeKappaMu</code> also
+projects a <code>st2tost2</code> object on the space of isotropic
+tensors and returns the corresponding moduli.</p>
 <h1 id="homogenization">Homogenization</h1>
 <p>The homogenization functions are part of the namespace
 <code>tfel::material::homogenization</code>. A specialization for
@@ -839,19 +868,17 @@ other cases.</p>
 <p>When two axes are very close, the formulas for three different axes
 are numerically instable, hence a parameter is introduced to switch to
 the formulas suited for the perfect axisymmetrical case. This parameter
-can be modified by the user, it is called <code>precf</code> when using
-<code>float</code>, <code>precd</code> for <code>double</code>, and
-<code>precld</code>. for <code>long double</code>. In the same way, the
-formulas for the axisymmetrical case are instable when the aspect ratio
-is near one, so a parameter allows to switch to the formula for a
+can be modified by the user, it is called precision. In the same way,
+the formulas for the axisymmetrical case are instable when the aspect
+ratio is near one, so a parameter allows to switch to the formula for a
 sphere.</p>
 <p>When <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span> is
 anisotropic, the Eshelby tensor can be computed with
 <code>computeAnisotropicEshelbyTensor</code> in 3D and
-<code>computePlainStrainAnisotropicEshelbyTensor</code> in 2D. There are
+<code>computePlaneStrainAnisotropicEshelbyTensor</code> in 2D. There are
 also <code>computeAnisotropicHillTensor</code> and
-<code>computePlainStrainAnisotropicHillTensor</code>. These functions
+<code>computePlaneStrainAnisotropicHillTensor</code>. These functions
 are introduced by the header
 <code>AnisotropicEshelbyTensor.hxx</code>.</p>
 <h2 id="strain-localisation-tensors">Strain localisation tensors</h2>
@@ -878,10 +905,12 @@ class="math inline">\(a,b,c\)</span> but also by its axis orientations.
 The functions then return the localisation tensors taking into account
 the orientations. There are also, when the medium is anisotropic,
 <code>computeAnisotropicLocalisationTensor</code> and
-<code>computePlainStrainAnisotropicLocalisationTensor</code>. These
+<code>computePlaneStrainAnisotropicLocalisationTensor</code>. These
 functions are introduced by the header
 <code>AnisotropicEshelbyTensor.hxx</code>.</p>
-<h2 id="homogenization-schemes">Homogenization schemes</h2>
+<h2
+id="homogenization-schemes-for-biphasic-microstructures">Homogenization
+schemes for biphasic microstructures</h2>
 <p>Different schemes are implemented and return the homogenized
 stiffness of the material. These schemes are introduced by the header
 <code>LinearHomogenizationSchemes.hxx</code>. The available schemes
@@ -936,6 +965,9 @@ vectors <span
 class="math inline">\(\underline{n}_a,\underline{n}_b\)</span> and three
 lengths <span class="math inline">\(a,b,c\)</span> that define the
 ellipsoid which defines the distribution.</p>
+<p>A tutorial on the computation of homogenized schemes for biphasic
+particulate microstructures is available <a
+href="BiphasicLinearHomogenization.html">here</a>.</p>
 <h2 id="homogenization-bounds">Homogenization bounds</h2>
 <p>Different bounds are implemented and are introduced by the header
 <code>LinearHomogenizationBounds.hxx</code>. The available bounds
@@ -946,24 +978,86 @@ are:</p>
 <li>Hashin-Shtrikman bounds
 (<code>computeIsotropicHashinShtrikmanBounds</code>)</li>
 </ul>
-<h1 id="isotropic-elastic-moduli">Isotropic elastic moduli</h1>
-<p>A <code>struct</code> <code>IsotropicModuli</code> is defined in the
-header “IsotropicModuli.hxx” for the elastic moduli of an isotropic
-material. Three children <code>struct</code> are defined:</p>
+<h2 id="homogenization-of-general-microstructures">Homogenization of
+general microstructures</h2>
+<p>It is possible to create <code>ParticulateMicrostructure</code>
+objects for homogenization of general matrix-inclusion
+microstructures.</p>
+<h3 id="the-particulatemicrostructure-class">The
+<code>ParticulateMicrostructure</code> class</h3>
+<p>The class <code>ParticulateMicrostructure</code> is available in 3d
+an 2d via a template parameter:
+<code>ParticulateMicrostructure&lt;N,StressType&gt;</code> with
+<code>N</code> the dimension. For the details, see the file
+‘MicrostructureDescription.hxx’.</p>
+<p>A ParticulateMicrostructure consists on a matrix, in which are
+embedded several <code>InclusionDistribution</code>, which represent
+distributions of inclusions.</p>
+<h4 id="the-inclusiondistribution-class">The
+<code>InclusionDistribution</code> class</h4>
+<p>A <code>InclusionDistribution</code> is an abstract class which
+represents a distribution of inclusions. The
+<code>InclusionDistribution</code> class is in fact a child of a more
+generic class which represents a phase: <code>Phase</code>. The
+<code>Phase</code> class has only two attributes:</p>
 <ul>
-<li><code>KGModuli</code> (for bulk and shear moduli)</li>
-<li><code>YoungNuModuli</code> (for Young modulus and Poisson
-ratio)</li>
-<li><code>LambdaMuModuli</code> (for Lame moduli)</li>
+<li><code>fraction</code> (the volume fraction of the phase)</li>
+<li><code>stiffness</code> (a <code>st2tost2</code> object).</li>
 </ul>
-<p>Each <code>struct</code> has methods which permit to convert the
-moduli:</p>
+<p>There are 4 childs of <code>InclusionDistribution</code>:</p>
 <ul>
-<li><code>ToYoungNu()</code></li>
-<li><code>ToLambdaMu()</code></li>
-<li><code>ToKG()</code></li>
+<li><code>SphereDistribution</code> (distribution of spheres)</li>
+<li><code>IsotropicDistribution</code> (isotropic distribution of
+ellipsoids)</li>
+<li><code>TransverseDistribution</code> (transverse isotropic
+distribution of ellipsoids)</li>
+<li><code>OrientedDistribution</code> (aligned distribution of
+ellipsoids)</li>
 </ul>
-<p>These methods all return <code>std::pair</code> objects.</p>
+<p>The <code>Inclusion</code> is a geometrical object which is
+characterized by its unique attribute: <code>semiLengths</code>. It is a
+<code>std::array</code> of <code>N</code> lengths, which are the
+semi-lengths of the ellipsoid/ellipse, where <code>N</code> is the
+dimension considered (2 or 3). Hence, <code>Inclusion</code> has two
+template parameters: <code>Inclusion&lt;N,LengthType&gt;</code>. Some
+particular <code>Inclusion</code> objects are also defined:</p>
+<ul>
+<li><code>Ellipsoid</code> (very general 3d <code>Inclusion</code> with
+3 semi-lengths)</li>
+<li><code>Spheroid</code> (3d <code>Inclusion</code> with the last two
+semi-lengths identical)</li>
+<li><code>Sphere</code> (3d <code>Inclusion</code> with 3 semi-lengths
+equal to unity)</li>
+<li><code>Ellipse</code> (general 2d <code>Inclusion</code> with two
+semi-lengths)</li>
+<li><code>Disk</code> (2d <code>Inclusion</code> with 2 semi-lengths
+equal to unity)</li>
+</ul>
+<p>The method <code>computeMeanLocalisator</code> of the
+<code>InclusionDistribution</code> class returns the average strain
+localisator of the distribution of inclusions, when embedded in a given
+matrix.</p>
+<h4 id="description-of-a-particulatemicrostructure">Description of a
+<code>ParticulateMicrostructure</code></h4>
+<p>Hence, the <code>ParticulateMicrostructure</code> has three
+attributes:</p>
+<ul>
+<li><code>number_of_phases</code></li>
+<li><code>matrixPhase</code></li>
+<li><code>inclusionPhases</code></li>
+</ul>
+<p>The <code>matrixPhase</code> is of type <code>Phase</code>.</p>
+<p>The <code>inclusionPhases</code> is a <code>std::vector</code> of
+pointers on <code>InclusionDistribution</code> objects (which represent
+the distributions of inclusions).</p>
+<p>The <code>ParticulateMicrostructure</code> has also methods (see
+‘MicrostructureDescription.hxx’ for details):</p>
+<ul>
+<li>addInclusionPhase</li>
+<li>removeInclusionPhase</li>
+<li>get_number_of_phases, get_matrix_fraction, get_matrix_elasticity,
+get_inclusionPhase</li>
+</ul>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-barlat_linear_2005" class="csl-entry" role="listitem">

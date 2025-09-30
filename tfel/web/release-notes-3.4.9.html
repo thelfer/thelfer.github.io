@@ -5,16 +5,16 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Release notes</title>
-        <meta name="author" content="Helfer Thomas" />
-            <meta name="date" content="2015-04-21" />
+    <title>Release notes of the 3.4.9 version of TFEL, MFront and MTest</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2024-11-12" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
@@ -295,167 +295,34 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Release notes</h1>
-<h2 class="author">Helfer Thomas</h2>
-<h3 class="date">April 21, 2015</h3>
+<h1 class="title">Release notes of the 3.4.9 version of
+<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">11/12/2024</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#versions-2.0.x" id="toc-versions-2.0.x">Versions
-2.0.x</a></li>
-<li><a href="#versions-2.1.x" id="toc-versions-2.1.x">Versions
-2.1.x</a></li>
-<li><a href="#versions-3.x" id="toc-versions-3.x">Versions 3.x</a></li>
-<li><a href="#references" id="toc-references">References</a></li>
+<li><a href="#issues-fixed" id="toc-issues-fixed"><span
+class="toc-section-number">1</span> Issues fixed</a>
+<ul>
+<li><a href="#issue-834-mfront-fix-invalid-test-in-plasticinelasticflow"
+id="toc-issue-834-mfront-fix-invalid-test-in-plasticinelasticflow"><span
+class="toc-section-number">1.1</span> Issue 834: [mfront] fix invalid
+test in <code>PlasticInelasticFlow</code></a></li>
+</ul></li>
 </ul>
 </div>
-<h1 id="versions-2.0.x">Versions 2.0.x</h1>
-<h2 id="version-2.0.0">Version 2.0.0</h2>
-<p>First open-source version.</p>
-<h2 id="version-2.0.1">Version 2.0.1</h2>
-<p>Minor fixes.</p>
-<h2 id="version-2.0.2">Version 2.0.2</h2>
-<ul>
-<li>The multiplication of two symmetric tensors has been corrected. In
-previous versions, the result was though to be symmetric, which is
-obviously wrong. The static methods <code>tpld</code> et
-<code>tprd</code> were removed from the <code>st2tost2</code> class and
-added to the <code>st2tot2</code> class. Such modification leads to
-small changes in the results of finite strain single crystal
-behaviours.</li>
-<li>The parallel compilation could fail on the documentation generation
-<a href="http://www.cmake.org/"><code>cmake</code></a>: this is now
-fixed.</li>
-<li>In the results files of <a href="mtest.html"><code>mtest</code></a>,
-the name of the driving variables and the thermodynamic forces are
-appropriately changed for more clarity.</li>
-<li>A new finite strain strategy named <code>log1D</code> was added to
-the <code>castem</code> interface. This interface allow the use of the
-logarithmic strain formalism in mono-dimensional fuel performance codes.
-See <span class="citation" data-cites="helfer_extension_2015">[1]</span>
-for details.</li>
-</ul>
-<h2 id="version-2.0.3-9092015">Version 2.0.3 (9/09/2015)</h2>
-<ul>
-<li>Fix of a minor bug in the <code>CxxTokenizer</code> class which was
-appears when using the <a
-href="http://libcxx.llvm.org/"><code>clang</code>
-<code>libc++</code></a> standard library. This prevented many
-<code>MTest</code> tests to work on <a
-href="http://www.apple.com/fr/osx/">Mac OS X</a>.</li>
-<li>Fix of <a href="https://sourceforge.net/p/tfel/tickets/9/">Ticket
-#9</a></li>
-<li>Fix of <a href="https://sourceforge.net/p/tfel/tickets/10/">Ticket
-#10</a></li>
-<li>Fix of <a href="https://sourceforge.net/p/tfel/tickets/11/">Ticket
-#11</a></li>
-<li>The class <code>ExternalBehaviourDescription</code> was
-introduced</li>
-<li>The <code>AxialGrowth</code> entry was added to the glossary</li>
-</ul>
-<p>A full description of the 2.0.3 release can be found <a
-href="documents/tfel/tfel-2.0.3.pdf">here</a> (in french).</p>
-<h2 id="version-2.0.4-22092015">Version 2.0.4 (22/09/2015)</h2>
-<h3 id="improvements">Improvements</h3>
-<ul>
-<li><p>Improved MTest python bindings: new wrapped methods
-<code>setStrain</code>, <code>setDeformationGradient</code>,
-<code>setOpeningDisplacement</code>, <code>setStress</code>,
-<code>setCohesiveForce</code>, <code>setStrainEpsilon</code>, etc.). See
-also <a href="https://sourceforge.net/p/tfel/tickets/32/">Ticket
-#32</a>.</p></li>
-<li><p>New entries in glossary: <code>Emissivity</code> and
-<code>HeatTransfertCoefficient</code></p></li>
-<li><p>Better support for the clang compiler.</p></li>
-<li><p>in <code>TFEL/Math</code>, add the
-<code>t2tot2::transpose_derivative</code> method which compute the
-derivative of the transpose of a tensor with respect to this
-tensor.</p></li>
-<li><p>in <code>MFront</code>, the keyword <code>@DSL</code> is now on
-alias for <code>@Parser</code></p></li>
-<li><p>in <code>MTest</code>, the rotation matrix relating the reference
-frame to the material frame can now be defined using either the Euler
-angles or the Miller indices:</p>
-<p>Example: <code>@RotationMatrix&lt;Miller&gt; {1,5,9};</code></p></li>
-</ul>
-<h3 id="fixes">Fixes</h3>
-<ul>
-<li>Fix of <a href="https://sourceforge.net/p/tfel/tickets/12/">Ticket
-#12</a>: consistent tangent operator was not correctly converted in
-<code>MTestAsterFiniteStrainBehaviour</code>.</li>
-<li>Fix of <a href="https://sourceforge.net/p/tfel/tickets/15/">Ticket
-#15</a>: the definition of the <code>F77_FUNC</code> macros when using
-<code>CMake</code> is now more portable.</li>
-<li>Fix of <a href="https://sourceforge.net/p/tfel/tickets/18/">Ticket
-#18</a>: the altered stiffness tensor in plane stress was not correctly
-computed (corrections in the
-<code>UMATComputeOrthotropicPlaneStressUnAlteredStiffnessTensor</code>,
-and
-<code>AsterComputeOrthotropicPlaneStressAlteredStiffnessTensor</code>
-classes)</li>
-<li>Fix a small typo in the <code>MonoCrystal_DD_CC_Irradiation</code>
-when defining the convergence criterion value
-(<code>@Epsilon 1.e-0; -&gt;   @Epsilon 1.e-10;</code>)</li>
-<li>Fix of <a href="https://sourceforge.net/p/tfel/tickets/21/">Ticket
-#21</a>: the <code>t2tot2::trpd</code> method used to call the
-<code>TensorProductLeftDerivative</code> class rather than the
-<code>TensorProductRightDerivative</code> class.</li>
-<li>Fix of <a href="https://sourceforge.net/p/tfel/tickets/22/">Ticket
-#22</a>: a typo leading to incorrect results was fixed.</li>
-<li>Fix of <a href="https://sourceforge.net/p/tfel/tickets/25/">Ticket
-#25</a>: the initial value of the driving variable were not written when
-generating a <code>MTest</code> file in case of integration failure (see
-the <code>UMATGenerateMTestFileOnFailure</code> and
-<code>AsterGenerateMTestFileOnFailure</code> keywords for details).</li>
-<li>Fix of <a href="https://sourceforge.net/p/tfel/tickets/27/">Ticket
-#27</a>: in <code>tfel-config</code>, add missing dependencies of
-<code>TFELMaterial</code> to <code>TFELUtilities</code>.</li>
-<li>Fix of <a href="https://sourceforge.net/p/tfel/tickets/30/">Ticket
-#30</a>: the <code>CxxTokenizer::stripComments</code> method was
-corrected to correctly handle the case where the first token of a file
-is a comment.</li>
-<li>Fix of <a href="https://sourceforge.net/p/tfel/tickets/32/">Ticket
-#32</a>: some methods of the <code>MTest</code> class were not wrapped
-in <code>python</code>.</li>
-</ul>
-<h2 id="version-2.0.5">Version 2.0.5</h2>
-<ul>
-<li><a href="release-notes-2.0.5.html">release notes of version
-2.0.5</a></li>
-</ul>
-<h1 id="versions-2.1.x">Versions 2.1.x</h1>
-<p>The 2.1.x versions will be the last versions based build on
-C++98.</p>
-<h1 id="versions-3.x">Versions 3.x</h1>
-<h2 id="versions-3.0.x">Versions 3.0.x</h2>
-<ul>
-<li><a href="release-notes-3.0.html">release notes of version
-3.0.0</a></li>
-<li><a href="release-notes-3.0.1.html">release notes of version
-3.0.1</a></li>
-<li><a href="release-notes-3.0.2.html">release notes of version
-3.0.2</a></li>
-</ul>
-<h2 id="versions-3.1.x">Versions 3.1.x</h2>
-<ul>
-<li><a href="release-notes-3.1.html">release notes of version
-3.1.0</a></li>
-</ul>
-<h1 id="references">References</h1>
-<!-- Local IspellDict: english -->
-<div id="refs" class="references csl-bib-body" role="list">
-<div id="ref-helfer_extension_2015" class="csl-entry" role="listitem">
-<div class="csl-left-margin">1. </div><div
-class="csl-right-inline"><span class="smallcaps">Helfer</span>, Thomas.
-Extension of monodimensional fuel performance codes to finite strain
-analysis using a <span>Lagrangian</span> logarithmic strain framework.
-<em>Nuclear Engineering and Design</em>. July 2015. Vol. 288, p. 75–81.
-DOI <a
-href="https://doi.org/10.1016/j.nucengdes.2015.02.010">10.1016/j.nucengdes.2015.02.010</a>.
-Available from: <a
-href="http://www.sciencedirect.com/science/article/pii/S0029549315000928">http://www.sciencedirect.com/science/article/pii/S0029549315000928</a></div>
-</div>
-</div>
+<p>The page describes the new functionalities of Version 3.4.9 of the
+<code>TFEL</code> project.</p>
+<h1 data-number="1" id="issues-fixed"><span
+class="header-section-number">1</span> Issues fixed</h1>
+<h2 data-number="1.1"
+id="issue-834-mfront-fix-invalid-test-in-plasticinelasticflow"><span
+class="header-section-number">1.1</span> Issue 834: [mfront] fix invalid
+test in <code>PlasticInelasticFlow</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/834"
+class="uri">https://github.com/thelfer/tfel/issues/834</a></p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

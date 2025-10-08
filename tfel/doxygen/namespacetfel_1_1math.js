@@ -895,6 +895,7 @@ var namespacetfel_1_1math =
     [ "slice", "namespacetfel_1_1math.html#a1db734623544b4da9c5d2f206597c64b", null ],
     [ "slice", "namespacetfel_1_1math.html#a86a6c7993dd592c621855e42ac7302f1", null ],
     [ "slice", "namespacetfel_1_1math.html#a3916e3b8d0a89eb66013c3fd2ec3257d", null ],
+    [ "sortEigenValues", "namespacetfel_1_1math.html#a902f4948b7f2a315902749a2e240dc32", null ],
     [ "square", "namespacetfel_1_1math.html#a0460ddc823ad19dd571d12c67b227824", null ],
     [ "square_root", "namespacetfel_1_1math.html#a14ef56da14652c580893f90b165ae591", null ],
     [ "squaredFischerBurmeisterFunction", "namespacetfel_1_1math.html#a6373c72a52fe938120ffcfb6a6952789", null ],

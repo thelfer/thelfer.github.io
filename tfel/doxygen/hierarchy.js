@@ -1919,6 +1919,7 @@ var hierarchy =
     ] ],
     [ "std::false_type", null, [
       [ "tfel::math::internal::UnitConceptImplementation< T >", "structtfel_1_1math_1_1internal_1_1_unit_concept_implementation.html", null ],
+      [ "tfel::math::internals::ExpressionTest< Type >", "structtfel_1_1math_1_1internals_1_1_expression_test.html", null ],
       [ "tfel::math::internals::HasConceptTag< T, typename >", "structtfel_1_1math_1_1internals_1_1_has_concept_tag.html", null ],
       [ "tfel::math::internals::HasIndexingPolicyTraits< T, typename >", "structtfel_1_1math_1_1internals_1_1_has_indexing_policy_traits.html", null ],
       [ "tfel::math::internals::IsQuantity< T >", "structtfel_1_1math_1_1internals_1_1_is_quantity.html", null ],
@@ -1975,6 +1976,7 @@ var hierarchy =
     [ "mfront::ModelDescription::Function", "structmfront_1_1_model_description_1_1_function.html", null ],
     [ "tfel::math::parser::FunctionBase", "structtfel_1_1math_1_1parser_1_1_function_base.html", null ],
     [ "mtest::GasEquationOfState", "structmtest_1_1_gas_equation_of_state.html", null ],
+    [ "tfel::math::GaussKronrodQuadrature", "structtfel_1_1math_1_1_gauss_kronrod_quadrature.html", null ],
     [ "castem::CastemBehaviourHandler< type, H, Behaviour >::GeneralConsistentTangentOperatorComputer", "structcastem_1_1_castem_behaviour_handler_1_1_general_consistent_tangent_operator_computer.html", null ],
     [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::GeneralConsistentTangentOperatorComputer", "structcyrano_1_1_cyrano_behaviour_handler_1_1_general_consistent_tangent_operator_computer.html", null ],
     [ "tfel::fsalgo::generate< N >", "structtfel_1_1fsalgo_1_1generate.html", null ],
@@ -2612,6 +2614,7 @@ var hierarchy =
     [ "mfront::NonLinearSystemSolverFactory", "structmfront_1_1_non_linear_system_solver_factory.html", null ],
     [ "mfront::BehaviourData::NullExpansion", "structmfront_1_1_behaviour_data_1_1_null_expansion.html", null ],
     [ "std::numeric_limits< tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structstd_1_1numeric__limits_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value_type_00_01_ownership_policy_01_4_01_4.html", null ],
+    [ "tfel::math::GaussKronrodQuadrature::NumericalParameters< real >", "structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html", null ],
     [ "tfel::math::ObjectScalarOperation< T1, T2, Op >", "structtfel_1_1math_1_1_object_scalar_operation.html", null ],
     [ "tfel::math::OpAnd< a, b >", "structtfel_1_1math_1_1_op_and.html", null ],
     [ "tfel::math::parser::OpAnd", "structtfel_1_1math_1_1parser_1_1_op_and.html", null ],
@@ -3653,6 +3656,7 @@ var hierarchy =
     [ "numodis::TripleNode", "structnumodis_1_1_triple_node.html", null ],
     [ "std::true_type", null, [
       [ "tfel::math::internal::UnitConceptImplementation< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > > >", "structtfel_1_1math_1_1internal_1_1_unit_concept_implementation_3_01_unit_3_01std_1_1integral__co6b985afcf3d7c717feb87ca5c848a021.html", null ],
+      [ "tfel::math::internals::ExpressionTest< Expr< ResultType, Operation > >", "structtfel_1_1math_1_1internals_1_1_expression_test_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html", null ],
       [ "tfel::math::internals::HasConceptTag< T, std::void_t< typename T::ConceptTag > >", "structtfel_1_1math_1_1internals_1_1_has_concept_tag_3_01_t_00_01std_1_1void__t_3_01typename_01_t_1_1_concept_tag_01_4_01_4.html", null ],
       [ "tfel::math::internals::HasIndexingPolicyTraits< T, std::void_t< typename T::indexing_policy > >", "structtfel_1_1math_1_1internals_1_1_has_indexing_policy_traits_3_01_t_00_01std_1_1void__t_3_01tya780bbb1c3ba45843bb44c873f7fbb6d.html", null ],
       [ "tfel::math::internals::IsQuantity< Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1math_1_1internals_1_1_is_quantity_3_01_quantity_3_01_unit_type_00_01_value_type_00_01_ownership_policy_01_4_01_4.html", null ],

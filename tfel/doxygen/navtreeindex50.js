@@ -1,5 +1,10 @@
 var NAVTREEINDEX50 =
 {
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#a8b99f81789d5630dc71e2705c664095e":[7,0,10,0,38,0,1],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#a8c2aa6988d7419b118cb87a06f811414":[7,0,10,0,38,0,2],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#acf6b1bf4f03db7ad35312dabff3f9b9b":[7,0,10,0,38,0,0],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html":[7,0,10,0,39],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#a28997dc2fcbccfb7de8fe963e2477c29":[7,0,10,0,39,3],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#a74d5bca4c82b8c92e9f0fa36fde3d0f0":[7,0,10,0,39,1],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#ac4889359b1326f05f59f6f49d532d11e":[7,0,10,0,39,2],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#adfcdb4dd5145b7ab1fa3608416e256e1":[7,0,10,0,39,0],
@@ -244,10 +249,5 @@ var NAVTREEINDEX50 =
 "structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01false_00_01es_00_01true_00_01bs_01_4.html":[7,0,10,1,16],
 "structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01true_00_01es_00_01false_00_01bs_01_4.html":[7,0,10,1,17],
 "structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01true_00_01es_00_01true_00_01bs_01_4.html":[7,0,10,1,18],
-"structmtest_1_1_abaqus_explicit_behaviour.html":[7,0,11,0],
-"structmtest_1_1_abaqus_explicit_behaviour.html":[5,0,8,0],
-"structmtest_1_1_abaqus_explicit_behaviour.html#a2d52a1000290ae1d131ab8c4d85a70d2":[7,0,11,0,1],
-"structmtest_1_1_abaqus_explicit_behaviour.html#a2d52a1000290ae1d131ab8c4d85a70d2":[5,0,8,0,1],
-"structmtest_1_1_abaqus_explicit_behaviour.html#a3e2758baab17791676341d42b0796816":[5,0,8,0,10],
-"structmtest_1_1_abaqus_explicit_behaviour.html#a3e2758baab17791676341d42b0796816":[7,0,11,0,10]
+"structmtest_1_1_abaqus_explicit_behaviour.html":[5,0,8,0]
 };

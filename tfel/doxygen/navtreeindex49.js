@@ -1,5 +1,10 @@
 var NAVTREEINDEX49 =
 {
+"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a8dd874386589572af7c2669d0b557107":[7,0,10,0,19,3],
+"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a9ae6982fe1d958c8c38297edce72d52a":[7,0,10,0,19,11],
+"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#aa125f8edec73145d28782757886156d1":[7,0,10,0,19,0],
+"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#ab2b5c525a24f3248968cb2ed9d185854":[7,0,10,0,19,7],
+"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#ab42b72e3413033f28fa8e618dffc19dd":[7,0,10,0,19,2],
 "structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#ae403a6b9b8f95c598181e0ee234461c8":[7,0,10,0,19,5],
 "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html":[7,0,10,0,20],
 "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a196ddb3684a3e238aeba83ad0a54dfa3":[7,0,10,0,20,6],
@@ -244,10 +249,5 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#aa860e14647f374a30c921ab7903a4822":[7,0,10,0,38,10],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#ac124df6c516c2964bf24acce391ecc8f":[7,0,10,0,38,4],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#aef94e859953cbb9826342fc97ddf1ddb":[7,0,10,0,38,2],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html":[7,0,10,0,38,0],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#a8b99f81789d5630dc71e2705c664095e":[7,0,10,0,38,0,1],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#a8c2aa6988d7419b118cb87a06f811414":[7,0,10,0,38,0,2],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#acf6b1bf4f03db7ad35312dabff3f9b9b":[7,0,10,0,38,0,0],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html":[7,0,10,0,39],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#a28997dc2fcbccfb7de8fe963e2477c29":[7,0,10,0,39,3]
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html":[7,0,10,0,38,0]
 };

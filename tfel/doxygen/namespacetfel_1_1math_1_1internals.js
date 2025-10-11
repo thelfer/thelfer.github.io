@@ -26,6 +26,8 @@ var namespacetfel_1_1math_1_1internals =
     [ "DSIG_DF_to_DPK1_DF_Converter< 1u >", "structtfel_1_1math_1_1internals_1_1_d_s_i_g___d_f__to___d_p_k1___d_f___converter_3_011u_01_4.html", null ],
     [ "DSIG_DF_to_DPK1_DF_Converter< 2u >", "structtfel_1_1math_1_1internals_1_1_d_s_i_g___d_f__to___d_p_k1___d_f___converter_3_012u_01_4.html", null ],
     [ "DSIG_DF_to_DPK1_DF_Converter< 3u >", "structtfel_1_1math_1_1internals_1_1_d_s_i_g___d_f__to___d_p_k1___d_f___converter_3_013u_01_4.html", null ],
+    [ "ExpressionTest", "structtfel_1_1math_1_1internals_1_1_expression_test.html", null ],
+    [ "ExpressionTest< Expr< ResultType, Operation > >", "structtfel_1_1math_1_1internals_1_1_expression_test_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html", null ],
     [ "FSESAnalyticalSymmetricEigensolver2x2", "structtfel_1_1math_1_1internals_1_1_f_s_e_s_analytical_symmetric_eigensolver2x2.html", null ],
     [ "FSESAnalyticalSymmetricEigensolver3x3", "structtfel_1_1math_1_1internals_1_1_f_s_e_s_analytical_symmetric_eigensolver3x3.html", null ],
     [ "GteSymmetricEigensolver3x3", "structtfel_1_1math_1_1internals_1_1_gte_symmetric_eigensolver3x3.html", null ],

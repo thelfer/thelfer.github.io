@@ -66,6 +66,7 @@ var NAVTREEINDEX4 =
 "_g_system_8hxx.html":[8,0,0,2,8],
 "_gas_equation_of_state_8hxx.html":[8,0,5,0,0,52],
 "_gauss_kronrod_quadrature_8hxx.html":[8,0,0,3,5,11,0],
+"_gauss_kronrod_quadrature_8hxx.html#a01491806c80b084cf41d69ef38bf3f00":[8,0,0,3,5,11,0,2],
 "_gauss_kronrod_quadrature_8ixx.html":[8,0,0,3,5,11,1],
 "_gen_type_base_8hxx.html":[8,0,0,3,11,12],
 "_gen_type_base_8hxx.html#a052505a4b79eaa09acee5e022597613c":[8,0,0,3,11,12,13],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "_integrate_8hxx.html#aa9d41d713dac6538b384644d65748606":[8,0,2,0,0,8,5,17],
 "_integrate_8hxx.html#abbe66061794951d2b0ec90823ee2ce96":[8,0,2,0,0,8,5,15],
 "_integrate_8hxx.html#ac9338208755be207f4f70c318cd5724a":[8,0,2,0,0,8,5,5],
-"_integrate_8hxx.html#ad4210e6cbe62a07fb8d88f4318d65e74":[8,0,2,0,0,8,5,4],
-"_integrate_8hxx.html#ad4210e6cbe62a07fb8d88f4318d65e74a1d7257ddc990b833a97c2ad49706761c":[8,0,2,0,0,8,5,4,3]
+"_integrate_8hxx.html#ad4210e6cbe62a07fb8d88f4318d65e74":[8,0,2,0,0,8,5,4]
 };

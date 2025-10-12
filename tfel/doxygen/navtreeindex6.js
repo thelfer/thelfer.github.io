@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"_linearization_8hxx.html":[8,0,7,0,0,0,8],
 "_local_data_structure_8hxx.html":[8,0,2,0,0,134],
 "_localisation_tensor_8hxx.html":[8,0,0,3,4,49],
 "_localisation_tensor_8hxx.html#a0198d153f72afd3dc80ca389ddf2711a":[8,0,0,3,4,49,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "_no_interpolation_8hxx.html":[8,0,7,0,0,0,10],
 "_non_linear_constraint_8hxx.html":[8,0,5,0,0,68],
 "_non_linear_system_solver_8hxx.html":[8,0,2,0,0,174],
-"_non_linear_system_solver_base_8hxx.html":[8,0,2,0,0,175],
-"_non_linear_system_solver_factory_8hxx.html":[8,0,2,0,0,176]
+"_non_linear_system_solver_base_8hxx.html":[8,0,2,0,0,175]
 };

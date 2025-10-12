@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"_runge_kutta4_8ixx.html":[8,0,0,3,5,15,1],
 "_runge_kutta54_8hxx.html":[8,0,0,3,5,55],
 "_runge_kutta54_8ixx.html":[8,0,0,3,5,15,3],
 "_runge_kutta_code_generator_base_8hxx.html":[8,0,2,0,0,185],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "_system_error_8hxx.html#a60fba3e2fb6981c516b32dd870dc99b1":[8,0,0,3,7,25,28],
 "_system_error_8hxx.html#a61cd86804f9b45a9be45fb675554eb6a":[8,0,0,3,7,25,24],
 "_system_error_8hxx.html#a6b48dafea07f2d9991f7fa80069cf173":[8,0,0,3,7,25,13],
-"_system_error_8hxx.html#a71b56b67db39c5b02fdd49dacbd72380":[8,0,0,3,7,25,33],
-"_system_error_8hxx.html#a724119f3072276775ec09ef7ebef6780":[8,0,0,3,7,25,3]
+"_system_error_8hxx.html#a71b56b67db39c5b02fdd49dacbd72380":[8,0,0,3,7,25,33]
 };

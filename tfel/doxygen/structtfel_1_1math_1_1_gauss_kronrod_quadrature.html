@@ -104,6 +104,11 @@ $(document).ready(function(){initNavTree('structtfel_1_1math_1_1_gauss_kronrod_q
   <div class="headertitle"><div class="title">tfel::math::GaussKronrodQuadrature Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>class implementing numerical integration using the Gauss-Kronrod's quadrature adaptative scheme.  
+ <a href="structtfel_1_1math_1_1_gauss_kronrod_quadrature.html#details">More...</a></p>
+
+<p><code>#include &lt;/home/runner/work/tfel/tfel/include/TFEL/Math/NumericalIntegration/GaussKronrodQuadrature.hxx&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -118,9 +123,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aba00b1adc3efb05dc4a058ca2f97be3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf082da855db4a93df0769460ad60860" id="r_adf082da855db4a93df0769460ad60860"><td class="memTemplParams" colspan="2">template&lt;ScalarConcept real, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> FunctionType &gt; </td></tr>
 <tr class="memitem:adf082da855db4a93df0769460ad60860"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature.html#adf082da855db4a93df0769460ad60860">operator()</a> (const FunctionType &amp;f, const real a, const real b) const <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a>(std::is_nothrow_invocable_v&lt; FunctionType, real &gt;) -&gt; std::optional&lt; std::tuple&lt; <a class="el" href="namespacetfel_1_1math.html#a148d63c9fac3faf5a99af96ffdb36664">tfel::math::result_type</a>&lt; real, std::invoke_result_t&lt; FunctionType, real &gt;, OpMult &gt;, <a class="el" href="namespacetfel_1_1math.html#a148d63c9fac3faf5a99af96ffdb36664">tfel::math::result_type</a>&lt; real, <a class="el" href="namespacetfel_1_1math.html#a269ae6d80236c1e3a8f97af7c50997e9">numeric_type</a>&lt; std::invoke_result_t&lt; FunctionType, real &gt; &gt;, OpMult &gt; &gt; &gt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">requires</a>(std::is_invocable_v&lt; FunctionType, real &gt;)</td></tr>
+<tr class="memdesc:adf082da855db4a93df0769460ad60860"><td class="mdescLeft">&#160;</td><td class="mdescRight">integration of a function without refinement using 15pts Kronrod's quadrature rule. Error is estimated by comparison with 7pts Gauss' quadature rule.  <br /></td></tr>
 <tr class="separator:adf082da855db4a93df0769460ad60860"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>class implementing numerical integration using the Gauss-Kronrod's quadrature adaptative scheme. </p>
+<p>This scheme is described in depth here: <a href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Kronrod_quadrature_formula">https://en.wikipedia.org/wiki/Gauss%E2%80%93Kronrod_quadrature_formula</a></p>
+<dl class="section note"><dt>Note</dt><dd>The implementation is strongly inspired by the one of the boost/math library </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="adf082da855db4a93df0769460ad60860" name="adf082da855db4a93df0769460ad60860"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf082da855db4a93df0769460ad60860">&#9670;&#160;</a></span>operator()() <span class="overload">[1/2]</span></h2>
 
@@ -170,14 +180,17 @@ template&lt;ScalarConcept real, <a class="el" href="namespacetfel_1_1math.html#a
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>integration of a function without refinement using 15pts Kronrod's quadrature rule. Error is estimated by comparison with 7pts Gauss' quadature rule. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>function to be integrated </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>first bound </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>second bound </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>second bound</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>an optional tuple containing the value of the integral estimated using 15pts Kronrod's quadrature rule and an estimation of the quadrature error. </dd></dl>
 
 </div>
 </div>
@@ -254,7 +267,7 @@ template&lt;ScalarConcept real, <a class="el" href="namespacetfel_1_1math.html#a
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><a class="el" href="namespacetfel_1_1math.html">math</a></li><li class="navelem"><a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature.html">GaussKronrodQuadrature</a></li>
-    <li class="footer">Generated on Sun Oct 12 2025 12:12:03 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sun Oct 12 2025 12:14:41 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

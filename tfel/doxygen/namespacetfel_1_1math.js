@@ -919,5 +919,6 @@ var namespacetfel_1_1math =
     [ "tresca", "namespacetfel_1_1math.html#a268dbabb67297dd7c6805a96ad313f6c", null ],
     [ "tresca", "namespacetfel_1_1math.html#a0a6a818d3f33afa7e28e7b5791ee2f49", null ],
     [ "unsyme", "namespacetfel_1_1math.html#a945fad6d857e8151f4d000c668ed5f93", null ],
-    [ "VoigtIndex", "namespacetfel_1_1math.html#ab7bbd7923cdb906e1045d4b7422a76c7", null ]
+    [ "VoigtIndex", "namespacetfel_1_1math.html#ab7bbd7923cdb906e1045d4b7422a76c7", null ],
+    [ "gauss_kronrod_integrate", "namespacetfel_1_1math.html#a01491806c80b084cf41d69ef38bf3f00", null ]
 ];

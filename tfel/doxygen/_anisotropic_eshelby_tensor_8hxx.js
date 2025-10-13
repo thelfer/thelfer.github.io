@@ -4,7 +4,7 @@ var _anisotropic_eshelby_tensor_8hxx =
     [ "computeAnisotropicHillTensor", "_anisotropic_eshelby_tensor_8hxx.html#adc0cc9e86814f6ebc25d436b263a1d12", null ],
     [ "computeAnisotropicLocalisationTensor", "_anisotropic_eshelby_tensor_8hxx.html#aa8f87820c4f3e9f7f086240940ae28d9", null ],
     [ "computeGeneralAnisotropicLocalisationTensor", "_anisotropic_eshelby_tensor_8hxx.html#afc781c92a588d7271057bf164cf9f3ad", null ],
-    [ "computePlaneStrainAnisotropicEshelbyTensor", "_anisotropic_eshelby_tensor_8hxx.html#a844050b7efd3c03091283481dea1d792", null ],
-    [ "computePlaneStrainAnisotropicHillTensor", "_anisotropic_eshelby_tensor_8hxx.html#ab2845149673cc17bed7f50c4ab345d17", null ],
+    [ "computePlaneStrainAnisotropicEshelbyTensor", "_anisotropic_eshelby_tensor_8hxx.html#a43efe174a0feea69e3e6ac5329bdb6cd", null ],
+    [ "computePlaneStrainAnisotropicHillTensor", "_anisotropic_eshelby_tensor_8hxx.html#abe875d235f5e465e33328f26ee38648f", null ],
     [ "computePlaneStrainAnisotropicLocalisationTensor", "_anisotropic_eshelby_tensor_8hxx.html#afde7f0423d79da7c9136c418d8fc2f23", null ]
 ];

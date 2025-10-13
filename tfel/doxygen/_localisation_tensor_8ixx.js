@@ -10,6 +10,6 @@ var _localisation_tensor_8ixx =
     [ "computeEllipsoidLocalisationTensor", "_localisation_tensor_8ixx.html#a39c9b0c49d968bcaee9d9f9d12d25ab6", null ],
     [ "computeIsotropicLocalisationTensor", "_localisation_tensor_8ixx.html#a38208aae0ca9eb14d6f6e2b8a421a01d", null ],
     [ "computePlaneStrainLocalisationTensor", "_localisation_tensor_8ixx.html#ac04cd63d62b02ccfc74c62c80988db42", null ],
-    [ "computeSphereLocalisationTensor", "_localisation_tensor_8ixx.html#a414608b23c161e1aeeb9f332c966c785", null ],
+    [ "computeSphereLocalisationTensor", "_localisation_tensor_8ixx.html#a7d4ba72a4527b1ce342dbc7e7e381849", null ],
     [ "computeSphereLocalisationTensor", "_localisation_tensor_8ixx.html#a0198d153f72afd3dc80ca389ddf2711a", null ]
 ];

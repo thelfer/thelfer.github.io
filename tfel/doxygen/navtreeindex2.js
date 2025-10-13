@@ -1,7 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"_chu_needleman1980_strain_based_nucleation_model_8ixx.html#a67ab4ed94bd042a4f3e82370146674c8":[8,0,0,3,4,12,1],
-"_chu_needleman1980_strain_based_nucleation_model_8ixx.html#ab7ed32449018ae79b2564b8f38789e0e":[8,0,0,3,4,12,2],
 "_chu_needleman1980_strain_based_porosity_nucleation_model_8hxx.html":[8,0,2,0,0,3,9],
 "_chu_needleman1980_stress_based_nucleation_model_8hxx.html":[8,0,0,3,4,13],
 "_chu_needleman1980_stress_based_nucleation_model_8hxx.html#a221fc314d750e17f30a03fdbdacbec6a":[8,0,0,3,4,13,5],
@@ -249,5 +247,7 @@ var NAVTREEINDEX2 =
 "_data_8hxx.html#ad7f7016461ac552473bbe06106d0f6c3":[8,0,0,3,11,8,8],
 "_data_8hxx.html#adc8aa1be76817e4e85629b8fa7ebd44f":[8,0,0,3,11,8,10],
 "_data_8hxx.html#ae805acac2b670ba9d3aac7e11ea45817":[8,0,0,3,11,8,15],
-"_data_8hxx.html#aece30a89c8c61e239f01076c54588d3e":[8,0,0,3,11,8,11]
+"_data_8hxx.html#aece30a89c8c61e239f01076c54588d3e":[8,0,0,3,11,8,11],
+"_data_8ixx.html":[8,0,0,3,11,9],
+"_data_8ixx.html#a6fadc7df39761ec762b76d632c1208d6":[8,0,0,3,11,9,9]
 };

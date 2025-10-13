@@ -1,6 +1,7 @@
 var _microstructure_linear_homogenization_8ixx =
 [
-    [ "computeDilute", "_microstructure_linear_homogenization_8ixx.html#a694139e8d095e26e7703849b62b3fe51", null ],
-    [ "computeMoriTanaka", "_microstructure_linear_homogenization_8ixx.html#aea428a7853bb1856bf60331bbefd3993", null ],
-    [ "computeSelfConsistent", "_microstructure_linear_homogenization_8ixx.html#a6d49bbc3749b11a4dfb800542ecbfedb", null ]
+    [ "tfel::material::homogenization::elasticity::HomogenizationScheme< N, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_homogenization_scheme.html", null ],
+    [ "computeDilute", "_microstructure_linear_homogenization_8ixx.html#a763f7c84a9055f61df9ae3a77fffc058", null ],
+    [ "computeMoriTanaka", "_microstructure_linear_homogenization_8ixx.html#ab536f81b052d943ef54231f12cd0e948", null ],
+    [ "computeSelfConsistent", "_microstructure_linear_homogenization_8ixx.html#acbe38c61cf8078372eb6780489cdb2ae", null ]
 ];

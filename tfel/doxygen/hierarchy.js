@@ -2051,13 +2051,16 @@ var hierarchy =
     [ "dianafea::ImportThermodynamicForces< H >", "structdianafea_1_1_import_thermodynamic_forces.html", null ],
     [ "tfel::material::homogenization::elasticity::Inclusion< N, LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion.html", null ],
     [ "tfel::material::homogenization::elasticity::Inclusion< 2u, LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion.html", [
-      [ "tfel::material::homogenization::elasticity::Disk< LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_disk.html", null ],
-      [ "tfel::material::homogenization::elasticity::Ellipse< LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_ellipse.html", null ]
+      [ "tfel::material::homogenization::elasticity::Ellipse< LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_ellipse.html", [
+        [ "tfel::material::homogenization::elasticity::Disk< LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_disk.html", null ]
+      ] ]
     ] ],
     [ "tfel::material::homogenization::elasticity::Inclusion< 3u, LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion.html", [
-      [ "tfel::material::homogenization::elasticity::Ellipsoid< LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_ellipsoid.html", null ],
-      [ "tfel::material::homogenization::elasticity::Sphere< LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_sphere.html", null ],
-      [ "tfel::material::homogenization::elasticity::Spheroid< LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_spheroid.html", null ]
+      [ "tfel::material::homogenization::elasticity::Ellipsoid< LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_ellipsoid.html", [
+        [ "tfel::material::homogenization::elasticity::Spheroid< LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_spheroid.html", [
+          [ "tfel::material::homogenization::elasticity::Sphere< LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_sphere.html", null ]
+        ] ]
+      ] ]
     ] ],
     [ "tfel::math::IndexingPoliciesCompatiblityCheckBase< IndexingPolicy1, IndexingPolicy2 >", "structtfel_1_1math_1_1_indexing_policies_compatiblity_check_base.html", [
       [ "tfel::math::IndexingPoliciesCompatiblityCheck< IndexingPolicy1, IndexingPolicy2 >", "structtfel_1_1math_1_1_indexing_policies_compatiblity_check.html", null ]

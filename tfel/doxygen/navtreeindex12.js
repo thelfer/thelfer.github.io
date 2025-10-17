@@ -246,8 +246,8 @@ var NAVTREEINDEX12 =
 "include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd":[8,0,0,0,0,0],
 "include_2_cyrano_2_material_property_8hxx.html":[8,0,0,0,1],
 "include_2_cyrano_2_material_property_8hxx.html#ad441054c2d53a90469a7f2d1b15e0019":[8,0,0,0,1,0],
-"include_2_cyrano_2_types_8hxx.html":[8,0,0,0,4],
-"include_2_cyrano_2_types_8hxx.html#ae0739d5c3a87cc19dec118becec41859":[8,0,0,0,4,0],
+"include_2_cyrano_2types_8hxx.html":[8,0,0,0,4],
+"include_2_cyrano_2types_8hxx.html#ae0739d5c3a87cc19dec118becec41859":[8,0,0,0,4,0],
 "include_2_n_u_m_o_d_i_s_2_config_8hxx.html":[8,0,0,2,3],
 "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html":[8,0,0,3,4,27]
 };

@@ -399,14 +399,15 @@ implemented via the <code>DSL</code> <code>@MaterialLaw</code>.</p>
 <ul>
 <li>Dilute scheme</li>
 <li>Mori-Tanaka scheme</li>
+<li>PCW scheme</li>
 <li>Voigt and Reuss bounds</li>
 <li>Isotropic Hashin-Shtrikman bounds</li>
 </ul>
-<p>For dilute scheme and Mori-Tanaka scheme, the following assumptions
-are made:</p>
+<p>For dilute scheme, Mori-Tanaka scheme and PCW scheme, the following
+assumptions are made:</p>
 <ul>
 <li>the microstructure is biphasic</li>
-<li>the phases are isotropic</li>
+<li>the phases are locally isotropic</li>
 <li>one phase is a matrix, the other is made by inclusions</li>
 <li>the shape of inclusions can be spherical, spheroidal, ellipsoidal,
 otherwise the mean strain localisator (for a single inclusion problem)
@@ -457,9 +458,10 @@ included:</p>
 class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="biphasic-1"><a href="#biphasic-1"></a><span class="er">@</span>TFELLibraries <span class="op">{</span><span class="st">&quot;Material&quot;</span><span class="op">};</span></span>
 <span id="biphasic-2"><a href="#biphasic-2"></a></span>
 <span id="biphasic-3"><a href="#biphasic-3"></a><span class="er">@</span>Includes<span class="op">{</span></span>
-<span id="biphasic-4"><a href="#biphasic-4"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/LinearHomogenizationSchemes.hxx&quot;</span></span>
-<span id="biphasic-5"><a href="#biphasic-5"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/LinearHomogenizationBounds.hxx&quot;</span></span>
-<span id="biphasic-6"><a href="#biphasic-6"></a><span class="op">}</span></span></code></pre></div>
+<span id="biphasic-4"><a href="#biphasic-4"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/IsotropicModuli.hxx&quot;</span></span>
+<span id="biphasic-5"><a href="#biphasic-5"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/LinearHomogenizationSchemes.hxx&quot;</span></span>
+<span id="biphasic-6"><a href="#biphasic-6"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/LinearHomogenizationBounds.hxx&quot;</span></span>
+<span id="biphasic-7"><a href="#biphasic-7"></a><span class="op">}</span></span></code></pre></div>
 <p>Note that <code>@TFELLibraries</code> lets the user specify a
 <code>TFEL</code> library to link with. The header
 <code>LinearHomogenizationSchemes.hxx</code> is needed for dilute scheme
@@ -476,12 +478,12 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 <div class="sourceCode" id="biphasic"><pre
 class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="biphasic-1"><a href="#biphasic-1"></a><span class="er">@</span>Function<span class="op">{</span></span>
 <span id="biphasic-2"><a href="#biphasic-2"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
-<span id="biphasic-3"><a href="#biphasic-3"></a><span class="bu">std::</span>pair<span class="op">&lt;</span>stress<span class="op">,</span>real<span class="op">&gt;</span> pa<span class="op">;</span></span>
+<span id="biphasic-3"><a href="#biphasic-3"></a>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;</span> kg<span class="op">;</span></span>
 <span id="biphasic-4"><a href="#biphasic-4"></a><span class="cf">if</span> <span class="op">(</span>scheme<span class="op">==</span>real<span class="op">(</span><span class="dv">0</span><span class="op">)){</span></span>
-<span id="biphasic-5"><a href="#biphasic-5"></a>pa<span class="op">=</span>computeSphereDiluteScheme<span class="op">&lt;</span>real<span class="op">,</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">);</span></span>
+<span id="biphasic-5"><a href="#biphasic-5"></a>kg<span class="op">=</span>computeSphereDiluteScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">);</span></span>
 <span id="biphasic-6"><a href="#biphasic-6"></a><span class="op">}</span></span>
 <span id="biphasic-7"><a href="#biphasic-7"></a><span class="cf">if</span> <span class="op">(</span>scheme<span class="op">==</span>real<span class="op">(</span><span class="dv">1</span><span class="op">)){</span></span>
-<span id="biphasic-8"><a href="#biphasic-8"></a>pa<span class="op">=</span>computeSphereMoriTanakaScheme<span class="op">&lt;</span>real<span class="op">,</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">);</span></span>
+<span id="biphasic-8"><a href="#biphasic-8"></a>kg<span class="op">=</span>computeSphereMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">);</span></span>
 <span id="biphasic-9"><a href="#biphasic-9"></a><span class="op">};</span></span>
 <span id="biphasic-10"><a href="#biphasic-10"></a><span class="cf">if</span> <span class="op">(</span>scheme<span class="op">==</span>real<span class="op">(</span><span class="dv">2</span><span class="op">)){</span></span>
 <span id="biphasic-11"><a href="#biphasic-11"></a><span class="bu">std::</span>array<span class="op">&lt;</span>real<span class="op">,</span><span class="dv">2</span><span class="op">&gt;</span> tab_f<span class="op">={</span><span class="dv">1</span><span class="op">-</span>f<span class="op">,</span>f<span class="op">};</span></span>
@@ -491,28 +493,28 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 <span id="biphasic-15"><a href="#biphasic-15"></a><span class="kw">auto</span> mu0<span class="op">=</span>E0<span class="op">/</span><span class="dv">2</span><span class="op">/(</span><span class="dv">1</span><span class="op">+</span>nu0<span class="op">);</span></span>
 <span id="biphasic-16"><a href="#biphasic-16"></a><span class="kw">auto</span> mui<span class="op">=</span>Ei<span class="op">/</span><span class="dv">2</span><span class="op">/(</span><span class="dv">1</span><span class="op">+</span>nui<span class="op">);</span></span>
 <span id="biphasic-17"><a href="#biphasic-17"></a><span class="bu">std::</span>array<span class="op">&lt;</span>stress<span class="op">,</span><span class="dv">2</span><span class="op">&gt;</span> tab_mu<span class="op">={</span>mu0<span class="op">,</span>mui<span class="op">};</span></span>
-<span id="biphasic-18"><a href="#biphasic-18"></a><span class="kw">auto</span> pa2<span class="op">=</span>computeIsotropicHashinShtrikmanBounds<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span>real<span class="op">,</span>stress<span class="op">&gt;(</span>tab_f<span class="op">,</span>tab_k<span class="op">,</span>tab_mu<span class="op">);</span></span>
+<span id="biphasic-18"><a href="#biphasic-18"></a><span class="kw">auto</span> pa2<span class="op">=</span>computeIsotropicHashinShtrikmanBounds<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>tab_f<span class="op">,</span>tab_k<span class="op">,</span>tab_mu<span class="op">);</span></span>
 <span id="biphasic-19"><a href="#biphasic-19"></a><span class="kw">auto</span> UB<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>pa2<span class="op">);</span></span>
-<span id="biphasic-20"><a href="#biphasic-20"></a><span class="kw">auto</span> kh<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span>UB<span class="op">);</span></span>
-<span id="biphasic-21"><a href="#biphasic-21"></a><span class="kw">auto</span> muh<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>UB<span class="op">);</span></span>
-<span id="biphasic-22"><a href="#biphasic-22"></a><span class="kw">auto</span> Eh<span class="op">=</span><span class="dv">9</span><span class="op">*</span>kh<span class="op">*</span>muh<span class="op">/(</span>muh<span class="op">+</span><span class="dv">3</span><span class="op">*</span>kh<span class="op">);</span></span>
-<span id="biphasic-23"><a href="#biphasic-23"></a><span class="kw">auto</span> nuh<span class="op">=(</span><span class="dv">3</span><span class="op">*</span>kh<span class="op">-</span><span class="dv">2</span><span class="op">*</span>muh<span class="op">)/</span><span class="dv">2</span><span class="op">/(</span><span class="dv">3</span><span class="op">*</span>kh<span class="op">+</span>muh<span class="op">);</span></span>
-<span id="biphasic-24"><a href="#biphasic-24"></a>pa<span class="op">={</span>Eh<span class="op">,</span>nuh<span class="op">};</span></span>
-<span id="biphasic-25"><a href="#biphasic-25"></a><span class="op">};</span></span>
-<span id="biphasic-26"><a href="#biphasic-26"></a>E<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span>pa<span class="op">);</span></span>
-<span id="biphasic-27"><a href="#biphasic-27"></a><span class="op">}</span></span></code></pre></div>
-<p>Hence, <code>pa</code> is a <code>std::pair</code> that returns the
-Young homogenized modulus and the homogenized Poisson ratio. The
-computation of dilute scheme and Mori-Tanaka scheme are
+<span id="biphasic-20"><a href="#biphasic-20"></a><span class="kw">auto</span> kh<span class="op">=</span>UB<span class="op">.</span>kappa<span class="op">;</span></span>
+<span id="biphasic-21"><a href="#biphasic-21"></a><span class="kw">auto</span> muh<span class="op">=</span>UB<span class="op">.</span>mu<span class="op">;</span></span>
+<span id="biphasic-22"><a href="#biphasic-22"></a>kg<span class="op">=</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>kh<span class="op">,</span>muh<span class="op">);</span></span>
+<span id="biphasic-23"><a href="#biphasic-23"></a><span class="kw">auto</span> Enu<span class="op">=</span>kg<span class="op">.</span>ToYoungNu<span class="op">();</span></span>
+<span id="biphasic-24"><a href="#biphasic-24"></a><span class="op">};</span></span>
+<span id="biphasic-25"><a href="#biphasic-25"></a>E<span class="op">=</span>Enu<span class="op">.</span>young<span class="op">;</span></span>
+<span id="biphasic-26"><a href="#biphasic-26"></a><span class="op">}</span></span></code></pre></div>
+<p>Hence, <code>Enu</code> is a <code>YoungNuModuli</code> which
+contains the Young homogenized modulus and the homogenized Poisson
+ratio. The computation of dilute scheme and Mori-Tanaka scheme are
 straightforward.</p>
 <p>The function <code>computeIsotropicHashinShtrikmanBounds</code>
 necessitates to give the arrays of volume fractions <code>tab_f</code>,
 bulk moduli <code>tab_k</code> and shear moduli <code>tab_mu</code>. The
-function returns a pair of pair. The first pair is lower HS bound, the
-second is upper HS bound (that we want here). Each bound is a pair whose
-first element is the bulk modulus, and whose second element is the shear
-modulus. The function is also available for plain strain elasticity (the
-first template argument is the dimension).</p>
+function returns a <code>pair</code> of <code>KGModuli</code>. The first
+pair is lower HS bound, the second is upper HS bound (that we want
+here). Each bound is <code>KGModuli</code> whose <code>kappa</code>
+attribute is the bulk modulus, and whose <code>mu</code> attribute is
+the shear modulus. The function is also available for plain strain
+elasticity (the first template argument is the dimension).</p>
 <h2 id="results">Results</h2>
 <p>We choose <code>interface</code> <code>python</code> to compute the
 schemes for a volume fraction of spheres which goes from 0 to 1.</p>
@@ -586,16 +588,16 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 <span id="biphasic-3"><a href="#biphasic-3"></a>tfel<span class="op">::</span>math<span class="op">::</span>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;</span> n_b<span class="op">={</span><span class="dv">0</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">0</span><span class="op">};</span></span>
 <span id="biphasic-4"><a href="#biphasic-4"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
 <span id="biphasic-5"><a href="#biphasic-5"></a><span class="cf">if</span> <span class="op">(</span>distrib<span class="op">==</span>real<span class="op">(</span><span class="dv">0</span><span class="op">)){</span></span>
-<span id="biphasic-6"><a href="#biphasic-6"></a><span class="kw">auto</span> pa <span class="op">=</span> computeIsotropicMoriTanakaScheme<span class="op">&lt;</span>real<span class="op">,</span>stress<span class="op">,</span>length<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
-<span id="biphasic-7"><a href="#biphasic-7"></a>E1<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span>pa<span class="op">);</span></span>
+<span id="biphasic-6"><a href="#biphasic-6"></a><span class="kw">auto</span> Enu <span class="op">=</span> computeIsotropicMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="biphasic-7"><a href="#biphasic-7"></a>E1<span class="op">=</span>Enu<span class="op">.</span>young<span class="op">;</span></span>
 <span id="biphasic-8"><a href="#biphasic-8"></a><span class="op">}</span></span>
 <span id="biphasic-9"><a href="#biphasic-9"></a><span class="cf">if</span> <span class="op">(</span>distrib<span class="op">==</span>real<span class="op">(</span><span class="dv">1</span><span class="op">)){</span></span>
-<span id="biphasic-10"><a href="#biphasic-10"></a><span class="kw">auto</span> Chom<span class="op">=</span>computeTransverseIsotropicMoriTanakaScheme<span class="op">&lt;</span>real<span class="op">,</span>stress<span class="op">,</span>length<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="biphasic-10"><a href="#biphasic-10"></a><span class="kw">auto</span> Chom<span class="op">=</span>computeTransverseIsotropicMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
 <span id="biphasic-11"><a href="#biphasic-11"></a><span class="kw">auto</span> Shom<span class="op">=</span>invert<span class="op">(</span>Chom<span class="op">);</span></span>
 <span id="biphasic-12"><a href="#biphasic-12"></a>E1<span class="op">=</span><span class="dv">1</span><span class="op">/</span>Shom<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">);</span></span>
 <span id="biphasic-13"><a href="#biphasic-13"></a><span class="op">}</span></span>
 <span id="biphasic-14"><a href="#biphasic-14"></a><span class="cf">if</span> <span class="op">(</span>distrib<span class="op">==</span>real<span class="op">(</span><span class="dv">2</span><span class="op">)){</span></span>
-<span id="biphasic-15"><a href="#biphasic-15"></a><span class="kw">auto</span> Chom<span class="op">=</span>computeOrientedMoriTanakaScheme<span class="op">&lt;</span>real<span class="op">,</span>stress<span class="op">,</span>length<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="biphasic-15"><a href="#biphasic-15"></a><span class="kw">auto</span> Chom<span class="op">=</span>computeOrientedMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
 <span id="biphasic-16"><a href="#biphasic-16"></a><span class="kw">auto</span> Shom<span class="op">=</span>invert<span class="op">(</span>Chom<span class="op">);</span></span>
 <span id="biphasic-17"><a href="#biphasic-17"></a>E1<span class="op">=</span><span class="dv">1</span><span class="op">/</span>Shom<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">);</span></span>
 <span id="biphasic-18"><a href="#biphasic-18"></a><span class="op">}</span></span>

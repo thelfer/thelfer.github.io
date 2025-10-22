@@ -424,8 +424,13 @@ documentation</a></li>
 </ul></li>
 <li><a href="#final-install" id="toc-final-install"><span
 class="toc-section-number">6</span> Final install</a></li>
+<li><a
+href="#scripts-to-define-environment-variables-for-tfel-to-work-properly"
+id="toc-scripts-to-define-environment-variables-for-tfel-to-work-properly"><span
+class="toc-section-number">7</span> Scripts to define environment
+variables for <code>TFEL</code> to work properly</a></li>
 <li><a href="#sec:QuickUbuntu" id="toc-sec:QuickUbuntu"><span
-class="toc-section-number">7</span> A Quick installation procedure on
+class="toc-section-number">8</span> A Quick installation procedure on
 <code>Ubuntu</code></a></li>
 </ul>
 </div>
@@ -488,7 +493,7 @@ adapted to other versions of <code>MinGW</code>, without requiring
 <p>The creation of binary packages are detailed <a
 href="packages.html">here</a>.</p>
 <p>A quick way of installing <code>TFEL</code> on <code>Ubuntu</code>
-systems is given in Section 7.</p>
+systems is given in Section 8.</p>
 <p><code>TFEL</code> is known to work on standard architectures
 implemented by the Intel and AMD processors, either 32 or 64 bits. As no
 specific instructions relative to the underlying architecture is used in
@@ -574,13 +579,14 @@ directory</h2>
 sources.</p>
 <p>In the following, we use the following convention:</p>
 <ul>
-<li><code>$srcdir</code> points to the directory that actually contains
-the sources files.</li>
-<li><code>$prefix</code> points to the final installation
+<li><code>&lt;srcdir&gt;</code> refers to the directory that actually
+contains the sources files.</li>
+<li><code>&lt;install_prefix&gt;</code> refers to the final installation
 directory.</li>
 </ul>
-<p>Both <code>$srcdir</code> and <code>$prefix</code> must contain an
-<em>absolute</em> path.</p>
+<p>Both <code>&lt;srcdir&gt;</code> and
+<code>&lt;install_prefix&gt;</code> must contain an <em>absolute</em>
+path.</p>
 <h2 data-number="3.2" id="using-the-cmake-build-system"><span
 class="header-section-number">3.2</span> Using the <code>cmake</code>
 build system</h2>
@@ -594,7 +600,7 @@ available on your system:</p>
 class="sourceCode bash"><code class="sourceCode bash"><span id="cmake-version-1"><a href="#cmake-version-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--version</span></span></code></pre></div>
 <p>A typical usage of <code>cmake</code> is the following:</p>
 <div class="sourceCode" id="building"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="building-1"><a href="#building-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="va">$srcdir</span> <span class="at">-DCMAKE_BUILD_TYPE</span><span class="op">=</span>Release <span class="at">-Dlocal-castem-header</span><span class="op">=</span>ON <span class="at">-Denable-fortran</span><span class="op">=</span>ON <span class="at">-Denable-aster</span><span class="op">=</span>ON <span class="at">-DCMAKE_INSTALL_PREFIX</span><span class="op">=</span><span class="va">$prefix</span></span></code></pre></div>
+class="sourceCode bash"><code class="sourceCode bash"><span id="building-1"><a href="#building-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="op">&lt;</span>srcdir<span class="op">&gt;</span> -DCMAKE_BUILD_TYPE=Release <span class="at">-Dlocal-castem-header</span><span class="op">=</span>ON <span class="at">-Denable-fortran</span><span class="op">=</span>ON <span class="at">-Denable-aster</span><span class="op">=</span>ON <span class="at">-DCMAKE_INSTALL_PREFIX</span><span class="op">=&lt;</span>install_prefix<span class="op">&gt;</span></span></code></pre></div>
 <p>This will build <code>TFEL</code> with the support of interfaces for
 the <a href="http://www-cast3m.cea.fr/">Cast3M</a> and <a
 href="http://www.code-aster.org">Code-Aster</a> finite element
@@ -632,7 +638,7 @@ standard)</li>
 href="https://software.intel.com/en-us/c-compilers">Intel compilers
 suite</a>:</p>
 <div class="sourceCode" id="building-icpc"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="building-icpc-1"><a href="#building-icpc-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> CXX=icpc CC=icc FC=ifort F77=ifort cmake <span class="va">$srcdir</span> <span class="at">-DCMAKE_BUILD_TYPE</span><span class="op">=</span>Release <span class="at">-Dlocal-castem-header</span><span class="op">=</span>ON <span class="at">-Denable-fortran</span><span class="op">=</span>ON <span class="at">-Denable-aster</span><span class="op">=</span>ON <span class="at">-DCMAKE_INSTALL_PREFIX</span><span class="op">=</span><span class="va">$prefix</span></span></code></pre></div>
+class="sourceCode bash"><code class="sourceCode bash"><span id="building-icpc-1"><a href="#building-icpc-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> CXX=icpc CC=icc FC=ifort F77=ifort cmake <span class="op">&lt;</span>srcdir<span class="op">&gt;</span> -DCMAKE_BUILD_TYPE=Release <span class="at">-Dlocal-castem-header</span><span class="op">=</span>ON <span class="at">-Denable-fortran</span><span class="op">=</span>ON <span class="at">-Denable-aster</span><span class="op">=</span>ON <span class="at">-DCMAKE_INSTALL_PREFIX</span><span class="op">=&lt;</span>install_prefix<span class="op">&gt;</span></span></code></pre></div>
 <h3 data-number="3.2.1"
 id="controlling-the-generation-of-the-documentation"><span
 class="header-section-number">3.2.1</span> Controlling the generation of
@@ -749,12 +755,45 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="building-html-1"
 <h1 data-number="6" id="final-install"><span
 class="header-section-number">6</span> Final install</h1>
 <p>To install <code>TFEL</code> binaries and libraries in the directory
-pointed by <code>$prefix</code>, just type:</p>
+pointed by <code>&lt;install_prefix&gt;</code>, just type:</p>
 <div class="sourceCode" id="building-install"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="building-install-1"><a href="#building-install-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make install</span></code></pre></div>
 <p>The previous command also installs the documentation if built.</p>
-<h1 data-number="7" id="sec:QuickUbuntu"><span
-class="header-section-number">7</span> A Quick installation procedure on
+<h1 data-number="7"
+id="scripts-to-define-environment-variables-for-tfel-to-work-properly"><span
+class="header-section-number">7</span> Scripts to define environment
+variables for <code>TFEL</code> to work properly</h1>
+<p>Depending on the system and compilation options, some of following
+variables shall be set for <code>TFEL</code> to work properly after the
+installation: <code>TFELHOME</code>, <code>PATH</code>,
+<code>LD_LIBRARY_PATH</code> and <code>PYTHONPATH</code>.</p>
+<p><code>TFEL</code> installs automatically the following files in the
+installation directory:</p>
+<ul>
+<li><p><code>&lt;install_prefix&gt;/share/tfel/env/env.sh</code> for
+<code>UNIX</code> systems and the <code>bash</code> shell. This file
+shall be used as follows:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> source <span class="op">&lt;</span>install_prefix<span class="op">&gt;</span>/share/tfel/env/env.sh</span></code></pre></div></li>
+<li><p><code>&lt;install_prefix&gt;\share\tfel\env\env.ps1</code> for
+<code>PowerShell</code> shell under <code>Windows</code>. This file
+shall be used as follows:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> .<span class="dt">\&lt;</span>install_prefix<span class="op">&gt;</span><span class="dt">\s</span>hare\tfel\env\env.ps1</span></code></pre></div></li>
+<li><p><code>&lt;install_prefix&gt;\share\tfel\env\env.bat</code> for
+the historical <code>cmd</code> shell under <code>Windows</code>. This
+file shall be used as follows:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> call <span class="op">&lt;</span>install_prefix<span class="op">&gt;</span><span class="dt">\s</span>hare\tfel\env\env.bat</span></code></pre></div></li>
+</ul>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>Those variables are not required if <code>TFEL</code> is installed
+system-wide (for instance in <code>/usr/local</code>) and that the
+<code>TFEL</code>’s binaries are not relocated.</p>
+</blockquote>
+<h1 data-number="8" id="sec:QuickUbuntu"><span
+class="header-section-number">8</span> A Quick installation procedure on
 <code>Ubuntu</code></h1>
 <p>The following steps show a quick way of installing <code>TFEL</code>
 on <code>Ubuntu</code> systems. The configuration described in this
@@ -767,34 +806,37 @@ project</a>, e.g. with <code>OpenGeoSys</code>, <code>FEniCS</code>,
 <code>python3</code> are installed, as well as the python module
 <code>numpy</code> and the <code>pybind11</code> library to build the
 <code>python</code> bindings. Those packages can be installed using:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt install python3 python3-numpy pybind11-dev cmake g++ gfortran</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt install python3 python3-numpy pybind11-dev cmake g++ gfortran</span></code></pre></div>
 <p>The next step is to get the <code>TFEL</code> source code:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd <span class="op">&lt;</span>where_you_want_to_download_the_source<span class="op">&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> TFEL <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> TFEL</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone https://github.com/thelfer/tfel.git</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd <span class="op">&lt;</span>where_you_want_to_download_the_source<span class="op">&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> TFEL <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> TFEL</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone https://github.com/thelfer/tfel.git</span></code></pre></div>
 <p>This will download the current development version of
 <code>TFEL</code>.</p>
 <p>Then we create a <code>build</code> directory and call
 <code>ccmake</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir build <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> build</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ccmake ../tfel</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir build <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> build</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ccmake ../tfel</span></code></pre></div>
 <p><code>ccmake</code> allows to select various options. In this
 tutorial, we choose the following options:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="ex">CMAKE_INSTALL_PREFIX</span>    ~/.local</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">TFEL_APPEND_VERSION</span>           ON</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enable-numpy-support</span>          ON</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enable-python</span>                 ON</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enable-python-bindings</span>        ON</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  <span class="ex">CMAKE_INSTALL_PREFIX</span>    ~/.local</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">TFEL_APPEND_VERSION</span>           ON</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enable-numpy-support</span>          ON</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enable-python</span>                 ON</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enable-python-bindings</span>        ON</span></code></pre></div>
 <p>The <code>TFEL_APPEND_VERSION</code> allows to install different
 versions of <code>TFEL</code> at the same location.</p>
 <p>Then configure twice <code>[c]</code>,<code>[c]</code> and generate
 <code>[g]</code>. Once done, just type:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make install</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make install</span></code></pre></div>
 <p>Finally, add the paths in your local <code>.bashrc</code> file:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="va">$PATH</span>:~/.local/bin</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">LD_LIBRARY_PATH</span><span class="op">=</span><span class="va">${LD_LIBRARY_PATH}</span>:~/.local/lib</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PYTHONPATH</span><span class="op">=</span><span class="va">${PYTHONPATH}</span>:~/.local/lib/python3.8/site-packages</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="va">$PATH</span>:~/.local/bin</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">LD_LIBRARY_PATH</span><span class="op">=</span><span class="va">${LD_LIBRARY_PATH}</span>:~/.local/lib</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PYTHONPATH</span><span class="op">=</span><span class="va">${PYTHONPATH}</span>:~/.local/lib/python3.8/site-packages</span></code></pre></div>
 <p>Now you can use the local <code>TFEL</code> binaries such as
 <code>mfront-X.Y.Z-dev</code> and <code>mtest-X.Y.Z-dev</code> or define
 some global alias names for them.</p>

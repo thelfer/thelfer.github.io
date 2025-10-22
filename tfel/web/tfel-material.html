@@ -390,14 +390,15 @@ convention</a></li>
 id="toc-isotropic-elastic-moduli">Isotropic elastic moduli</a></li>
 <li><a href="#homogenization" id="toc-homogenization">Homogenization</a>
 <ul>
-<li><a href="#eshelby-tensors" id="toc-eshelby-tensors">Eshelby
-tensors</a></li>
-<li><a href="#strain-localisation-tensors"
-id="toc-strain-localisation-tensors">Strain localisation
-tensors</a></li>
-<li><a href="#homogenization-schemes-for-biphasic-microstructures"
-id="toc-homogenization-schemes-for-biphasic-microstructures">Homogenization
-schemes for biphasic microstructures</a></li>
+<li><a href="#eshelby-hill-and-localisation-tensors"
+id="toc-eshelby-hill-and-localisation-tensors">Eshelby, Hill and
+localisation tensors</a></li>
+<li><a href="#computation-in-anisotropic-reference-medium"
+id="toc-computation-in-anisotropic-reference-medium">Computation in
+anisotropic reference medium</a></li>
+<li><a href="#homogenization-schemes-for-biphasic-media"
+id="toc-homogenization-schemes-for-biphasic-media">Homogenization
+schemes for biphasic media</a></li>
 <li><a href="#homogenization-bounds"
 id="toc-homogenization-bounds">Homogenization bounds</a></li>
 <li><a href="#homogenization-of-general-microstructures"
@@ -800,38 +801,63 @@ class="math inline">\(2D\)</span> plane strain and <span
 class="math inline">\(2D\)</span> generalized plane strain modelling
 hypotheses.</p>
 <h1 id="isotropic-elastic-moduli">Isotropic elastic moduli</h1>
-<p>A <code>struct</code> <code>IsotropicModuli</code> is defined in the
-header “IsotropicModuli.hxx” for the elastic moduli of an isotropic
-material. Three children <code>struct</code> are defined:</p>
+<p>Three data structures are defined to represent the isotropic moduli
+of an isotropic material:</p>
 <ul>
-<li><code>KGModuli</code> (for bulk and shear moduli)</li>
-<li><code>YoungNuModuli</code> (for Young modulus and Poisson
-ratio)</li>
-<li><code>LambdaMuModuli</code> (for Lame moduli)</li>
+<li><code>KGModuli</code> (attributes:
+<code>kappa</code>,<code>mu</code>)</li>
+<li><code>YoungNuModuli</code> (attributes:
+<code>young</code>,<code>nu</code>)</li>
+<li><code>LambdaMuModuli</code> (attributes:
+<code>lambda</code>,<code>mu</code>)</li>
 </ul>
-<p>Each <code>struct</code> has methods which permit to convert the
-moduli:</p>
-<ul>
-<li><code>ToYoungNu()</code></li>
-<li><code>ToLambdaMu()</code></li>
-<li><code>ToKG()</code></li>
-</ul>
-<p>These methods all return <code>std::pair</code> objects.</p>
-<p>Moreover, a function <code>isIsotropic</code> returns a
-<code>boolean</code> which states if a <code>st2tost2</code> object is
-an isotropic tensor. A function <code>computeKappaMu</code> also
-projects a <code>st2tost2</code> object on the space of isotropic
-tensors and returns the corresponding moduli.</p>
+<p>It can be constructed as follows:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG <span class="op">=</span> KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>ka<span class="op">,</span>mu<span class="op">);</span></span></code></pre></div>
+<p>And its attributes can be recovered as follows:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> K <span class="op">=</span> KG<span class="op">.</span>kappa<span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> G <span class="op">=</span> KG<span class="op">.</span>mu<span class="op">;</span></span></code></pre></div>
+<p>It can be converted to the other describing isotropic moduli as
+follows:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> Enu <span class="op">=</span> KG<span class="op">.</span>ToYoungNu<span class="op">();</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> LambdaMu <span class="op">=</span> KG<span class="op">.</span>ToLambdaMu<span class="op">();</span></span></code></pre></div>
+<p>Moreover, some useful functions allow to go from one to another:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C <span class="op">=</span> computeIsotropicStiffnessTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>Enu<span class="op">);</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG <span class="op">=</span> computeKGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C<span class="op">);</span></span></code></pre></div>
+<p>Note that <code>computeKGModuli</code> makes a projection on the
+fourth-order tensors <span
+class="math inline">\(\underline{\underline{\mathbf{J}}}\)</span> and
+<span class="math inline">\(\underline{\underline{\mathbf{K}}}\)</span>
+if <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}\)</span> is not
+isotropic. It can be check that <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}\)</span> is
+isotropic by doing</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> eps <span class="op">=</span> <span class="fl">1e-6</span><span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">bool</span> <span class="op">=</span> isIsotropic<span class="op">(</span>C<span class="op">,</span>eps<span class="op">);</span></span></code></pre></div>
+<p>Here, <code>isIsotropic</code> first projects <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}\)</span> on the
+isotropic basis, and constructs the isotropized of <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}\)</span>. Then,
+it computes the relative difference between <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}\)</span> and
+its isotropized, by using the <span
+class="math inline">\(L2\)</span>-norm. This difference is compared to
+the tolerance <code>eps</code>.</p>
 <h1 id="homogenization">Homogenization</h1>
 <p>The homogenization functions are part of the namespace
 <code>tfel::material::homogenization</code>. A specialization for
 elasticity is defined:
 <code>tfel::material::homogenization::elasticity</code>.</p>
-<h2 id="eshelby-tensors">Eshelby tensors</h2>
-<p>The header <code>IsotropicEshelbyTensor.hxx</code> introduces the
-function <code>computeEshelbyTensor</code> which computes the Eshelby
-tensor of an ellipsoid. If we consider a constant stress-free strain
-<span class="math inline">\(\underline{\varepsilon}^\mathrm{T}\)</span>
+<h2 id="eshelby-hill-and-localisation-tensors">Eshelby, Hill and
+localisation tensors</h2>
+<h3 id="definitions">Definitions</h3>
+<p>If we consider a constant stress-free strain <span
+class="math inline">\(\underline{\varepsilon}^\mathrm{T}\)</span>
 filling an ellipsoidal volume embedded in an infinite homogeneous medium
 whose elasticity is <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span>, the
@@ -840,51 +866,22 @@ strain tensor inside the ellipsoid is given by</p>
 class="math inline">\(\underline{\varepsilon}=\underline{\underline{\mathbf{S}}}_0:\underline{\varepsilon}^\mathrm{T}\)</span>.</p>
 <p>where <span
 class="math inline">\(\underline{\underline{\mathbf{S}}}_0\)</span> is
-the Eshelby tensor. Note that it is related to the Hill tensor (P_0)
-by</p>
-<p><span
-class="math inline">\(\underline{\underline{\mathbf{P}}}_0=\underline{\underline{\mathbf{S}}}_0:\underline{\underline{\mathbf{C}}}_0^{-1}\)</span></p>
-<p>which gives the strain tensor inside the ellipsoid as a function of
-the polarization tensor <span class="math inline">\(\underline{\tau }=
+the Eshelby tensor. The Hill tensor <span
+class="math inline">\(\underline{\underline{\mathbf{P}}}_0\)</span>
+gives the strain tensor inside the ellipsoid as a function of the
+polarization tensor <span class="math inline">\(\underline{\tau }=
 -\underline{\underline{\mathbf{C}}}_0:\underline{\varepsilon}^\mathrm{T}\)</span>
 :</p>
 <p><span
 class="math inline">\(\underline{\varepsilon}=-\underline{\underline{\mathbf{P}}}_0:\underline{\tau}\)</span>.</p>
-<p>The function <code>computeEshelbyTensor</code> computes the Eshelby
-tensor of an ellipsoid whose semi-axis lengths are <code>a</code>,
-<code>b</code>, <code>c</code>, embedded in an isotropic matrix. It
-returns an object of <code>type st2tost2&lt;3u,real&gt;</code>, which is
-the fourth-order Eshelby tensor, in a basis which is adapted to the
-ellipsoid.</p>
-<p>There is also <code>computeSphereEshelbyTensor</code>,
-<code>computeAxisymmetricalEshelbyTensor</code>, and also
-<code>computeCircularCylinderEshelbyTensor</code> and
-<code>computeEllipticCylinderEshelbyTensor</code> for plane strain
-elasticity.</p>
-<p>The expressions can be found in <span class="citation"
-data-cites="torquato_2002">[5]</span> for the axisymmetrical ellipsoid
-and in <span class="citation" data-cites="eshelby_1957">[6]</span> for
-other cases.</p>
-<p>When two axes are very close, the formulas for three different axes
-are numerically instable, hence a parameter is introduced to switch to
-the formulas suited for the perfect axisymmetrical case. This parameter
-can be modified by the user, it is called precision. In the same way,
-the formulas for the axisymmetrical case are instable when the aspect
-ratio is near one, so a parameter allows to switch to the formula for a
-sphere.</p>
-<p>When <span
-class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span> is
-anisotropic, the Eshelby tensor can be computed with
-<code>computeAnisotropicEshelbyTensor</code> in 3D and
-<code>computePlaneStrainAnisotropicEshelbyTensor</code> in 2D. There are
-also <code>computeAnisotropicHillTensor</code> and
-<code>computePlaneStrainAnisotropicHillTensor</code>. These functions
-are introduced by the header
-<code>AnisotropicEshelbyTensor.hxx</code>.</p>
-<h2 id="strain-localisation-tensors">Strain localisation tensors</h2>
-<p>The header <code>IsotropicEshelbyTensor.hxx</code> also introduces
-three functions that compute the strain localisation tensor of an
-ellipsoid. If we consider an ellipsoid whose elasticity is <span
+<p>Note that <span
+class="math inline">\(\quad\underline{\underline{\mathbf{P}}}_0=\underline{\underline{\mathbf{S}}}_0:\underline{\underline{\mathbf{C}}}_0^{-1}\)</span></p>
+<p>The expressions of Eshelby tensor can be found in <span
+class="citation" data-cites="torquato_2002">[5]</span> for the
+spheroidal inclusions and in <span class="citation"
+data-cites="eshelby_1957">[6]</span> for the general ellipsoid (three
+different semi-axes).</p>
+<p>Now if we consider an ellipsoid whose elasticity is <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}_i\)</span>,
 embedded in an infinite homogeneous medium whose elasticity is <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span>,
@@ -895,26 +892,123 @@ the ellipsoid is uniform and given by</p>
 \underline{\underline{\mathbf{A}}}:\underline{E}\)</span></p>
 <p>where <span
 class="math inline">\(\underline{\underline{\mathbf{A}}}\)</span> is the
-localisation tensor.</p>
-<p>Three functions are implemented for the different possible shapes :
-<code>computeEllipsoidLocalisationTensor</code>,
-<code>computeAxisymmetricalEllipsoidLocalisationTensor</code> and
-<code>computeSphereLocalisationTensor</code>. The ellipsoid is
-parametrized by its semi-axis lengths <span
-class="math inline">\(a,b,c\)</span> but also by its axis orientations.
-The functions then return the localisation tensors taking into account
-the orientations. There are also, when the medium is anisotropic,
-<code>computeAnisotropicLocalisationTensor</code> and
-<code>computePlaneStrainAnisotropicLocalisationTensor</code>. These
-functions are introduced by the header
-<code>AnisotropicEshelbyTensor.hxx</code>.</p>
-<h2
-id="homogenization-schemes-for-biphasic-microstructures">Homogenization
-schemes for biphasic microstructures</h2>
-<p>Different schemes are implemented and return the homogenized
-stiffness of the material. These schemes are introduced by the header
-<code>LinearHomogenizationSchemes.hxx</code>. The available schemes
-are:</p>
+strain localisation (or concentration) tensor.</p>
+<h3 id="computation-in-isotropic-reference-medium">Computation in
+isotropic reference medium</h3>
+<h4 id="eshelby-and-hill-tensors">Eshelby and Hill tensors</h4>
+<p>The header <code>IsotropicEshelbyTensor.hxx</code> introduces the
+computation of the Eshelby tensors and Hill tensors of general
+ellipsoids embedded in an isotropic medium.</p>
+<p>We can compute the Hill tensors as follows:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0 <span class="op">=</span> computeSphereHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">);</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_axi <span class="op">=</span> computeAxisymmetricalHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>n_a<span class="op">,</span>e<span class="op">);</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_ellipsoid <span class="op">=</span> computeHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
+<p>Here, the first line compute the Hill tensor for a sphere. The second
+one computes the Hill tensor for an axisymmetrical ellipsoid (or
+spheroidal inclusion). The user must provides the normal vector
+<code>n_a</code> for the axis, and <code>e</code> for the aspect ratio.
+The third line computes the Hill tensor of a more general ellipsoid
+whose semi-axis lengths are
+<code>a</code>,<code>b</code>,<code>c</code>. The axis <code>a</code> is
+related to direction given by <code>n_a</code> and <code>b</code> is
+related to the direction given by <code>n_b</code>, which must be normal
+to <code>n_a</code>.</p>
+<p>An <code>IsotropicModuli</code> can also be passed for the
+elasticity, as follows:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IM0<span class="op">=</span>YoungNuModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">);</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0 <span class="op">=</span> computeSphereHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">);</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_axi <span class="op">=</span> computeAxisymmetricalHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>n_a<span class="op">,</span>e<span class="op">);</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_ellipsoid <span class="op">=</span> computeHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
+<p>The Eshelby tensors can be computed as follows:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0 <span class="op">=</span> computeSphereEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>nu0<span class="op">);</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0_axi <span class="op">=</span> computeAxisymmetricalEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>nu0<span class="op">,</span>e<span class="op">);</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0_ellipsoid <span class="op">=</span> computeEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>nu0<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
+<p>Note that the Eshelby tensors are not related to a basis, so that it
+is recommended to use the Hill tensors instead. In 2 dimensional
+framework, Eshelby tensors and Hill tensors are computed as follows:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0_D <span class="op">=</span> computeDiskPlaneStrainEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>nu0<span class="op">);</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0_C <span class="op">=</span> computePlaneStrainEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>nu0<span class="op">,</span>e<span class="op">);</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IM0<span class="op">=</span>YoungNuModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">);</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_D <span class="op">=</span> computeDiskPlaneStrainHillTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">);</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_C <span class="op">=</span> computePlaneStrainHillTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">);</span></span></code></pre></div>
+<p>The <code>computeDiskPlaneStrain</code> refers to a disk in plane
+strain framework, whereas the <code>computePlaneStrain</code> refers to
+an ellipse oriented by <code>n_a</code>, in a plane strain
+framework.</p>
+<h4 id="localisation-or-concentration-tensors">Localisation (or
+concentration) tensors</h4>
+<p>The header <code>LocalisationTensor.hxx</code> also introduces the
+computation of the strain localisation tensors of an ellipsoid. These
+localisation tensors can be computed as follows:</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A <span class="op">=</span> computeSphereLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">);</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_axi <span class="op">=</span> computeAxisymmetricalLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>n_a<span class="op">,</span>e<span class="op">);</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_ellipsoid <span class="op">=</span> computeLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
+<p>Here, the subscript <code>i</code> refers to the inclusion. Here
+again, an <code>IsotropicModuli</code> can be passed for the elasticity,
+as follows:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IM0<span class="op">=</span>YoungNuModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">);</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IMi<span class="op">=</span>YoungNuModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>Ei<span class="op">,</span>nui<span class="op">);</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A <span class="op">=</span> computeSphereLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>IMi<span class="op">);</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_axi <span class="op">=</span> computeAxisymmetricalLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>e<span class="op">);</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_ellipsoid <span class="op">=</span> computeLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
+<p>Note that if the elasticity of the inclusion is not isotropic, an
+anisotropic elasticity <code>C_i</code> can be provided, assuming that
+this elasticiy is expressed in the same basis as the one defined by
+<code>n_a,n_b</code> (the local basis of the inclusion):</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_aniso <span class="op">=</span> computeLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>C_i<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
+<p>In 2 dimensional framework, localisation tensors are computed as
+follows:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_D <span class="op">=</span> computeDiskPlaneStrainLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>C_i<span class="op">);</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_C <span class="op">=</span> computePlaneStrainLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>C_i<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">);</span></span></code></pre></div>
+<h2 id="computation-in-anisotropic-reference-medium">Computation in
+anisotropic reference medium</h2>
+<p>The header <code>AnisotropicEshelbyTensor.hxx</code> introduces the
+computation of the Eshelby tensors and Hill tensors of general
+ellipsoids embedded in an anisotropic medium.</p>
+<p>These tensors can be computed as follows:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0 <span class="op">=</span> computeAnisotropicHillTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_2d <span class="op">=</span> computePlaneStrainAnisotropicHillTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">);</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0 <span class="op">=</span> computeAnisotropicEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0_2d <span class="op">=</span> computePlaneStrainAnisotropicEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">);</span></span></code></pre></div>
+<p>The tensors are computed via an integration on a bi-dimensional
+domain. The integration is iterative, and the user can provide the
+number of iterations (basically, it corresponds to the number of
+subdivisions in each domain direction). Hence, more iterations lead to a
+more accurate results, but longer to compute. The default number of
+iterations is <code>12</code>, but is is recommended to increase it for
+sharp ellipsoids:</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="bu">std::</span>size_t it <span class="op">=</span> <span class="dv">10</span><span class="op">;</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0 <span class="op">=</span> computeAnisotropicHillTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">,</span><span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+<p>The localisation tensors are introduced in the same header
+<code>AnisotropicEshelbyTensor.hxx</code>. We can do as follows:</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A <span class="op">=</span> computeAnisotropicLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0_glob<span class="op">,</span>Ci_loc<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_2d <span class="op">=</span> computePlaneStrainAnisotropicLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0_glob<span class="op">,</span>Ci_loc<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">);</span></span></code></pre></div>
+<p>The user must provide the elasticity of the inclusion as a
+<code>st2tost2</code> <code>Ci_loc</code>, and if it is not isotropic,
+it must be provided in the local basis defined by
+<code>n_a,n_b</code>.</p>
+<h2 id="homogenization-schemes-for-biphasic-media">Homogenization
+schemes for biphasic media</h2>
+<p>Different classical mean-field homogenization schemes are implemented
+for biphasic media. These schemes are introduced by the header
+<code>LinearHomogenizationSchemes.hxx</code>. They only deal with
+isotropic matrices and locally isotropic inclusions (for anisotropic
+matrices or inclusions, see the section “Homogenization of general
+microstructures”).</p>
+<p>The available schemes are:</p>
 <ul>
 <li>Mori-Tanaka scheme</li>
 <li>dilute scheme</li>
@@ -922,50 +1016,74 @@ are:</p>
 </ul>
 <p>Each scheme is based on the average of the localisation tensor <span
 class="math inline">\(\underline{A}\)</span> defined above. This average
-is computed assuming different distributions of orientations of
-ellipsoids. Hence different cases are considered:</p>
+is computed assuming different distributions of ellipsoids. Hence
+different cases are considered:</p>
 <ul>
 <li>spheres (no orientations)</li>
 <li>oriented ellipsoids (two vectors <span
 class="math inline">\(\underline{n}_a,\underline{n}_b\)</span> define
 the orientation)</li>
-<li>uniform isotropic distribution of orientations</li>
+<li>uniform isotropic distribution of orientations (the ellipsoids have
+no preferential orientation)</li>
 <li>transverse isotropic distribution of orientations (one axis <span
 class="math inline">\(\underline{n}_a\)</span> of the ellipsoid is
 fixed, the others are uniformly distributed in the transverse
 plane)</li>
 </ul>
-<p>Hence, the available functions are:</p>
-<ul>
-<li><code>computeSphereDiluteScheme</code></li>
-<li><code>computeSphereMoriTanakaScheme</code></li>
-<li><code>computeOrientedDiluteScheme</code></li>
-<li><code>computeOrientedMoriTanakaScheme</code></li>
-<li><code>computeOrientedPCWScheme</code></li>
-<li><code>computeIsotropicDiluteScheme</code></li>
-<li><code>computeIsotropicMoriTanakaScheme</code></li>
-<li><code>computeIsotropicPCWScheme</code></li>
-<li><code>computeTransverseIsotropicDiluteScheme</code></li>
-<li><code>computeTransverseIsotropicMoriTanakaScheme</code></li>
-<li><code>computeTransverseIsotropicPCWScheme</code></li>
-</ul>
-<p>Because the functions are based on the average of the localisation
+<p>Hence we can compute the homogenized stiffness returned by the
+available schemes. For example, for the distribution of spheres:</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IM0<span class="op">=</span>YoungNuModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">);</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IMi<span class="op">=</span>YoungNuModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>Ei<span class="op">,</span>nui<span class="op">);</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG_DS <span class="op">=</span> computeSphereDiluteScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">);</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG_MT <span class="op">=</span> computeSphereMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">);</span></span></code></pre></div>
+<p>Note that the two above schemes return a <code>KGModuli</code> object
+(see <a href="tfel-material.html#isotropic-elastic-moduli">above</a>).
+Also, <code>f</code> is the volume fraction, and the subscript
+<code>0</code> refers to the matrix, and the subscript <code>i</code>
+refers to the inclusion.</p>
+<p>For the oriented inclusions, we can do:</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_DS <span class="op">=</span> computeOrientedDiluteScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_MT <span class="op">=</span> computeOrientedMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_PCW <span class="op">=</span> computeOrientedPCWScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">,</span>D<span class="op">);</span></span></code></pre></div>
+<p>Here, the three above schemes return <code>st2tost2</code> objects.
+Note that <code>PCW</code> refers to the Ponte-Castaneda and Willis
+scheme. For this scheme, a <code>Distribution</code> object must be
+created by the user. It is defined by two vectors <span
+class="math inline">\(\underline{n}_a,\underline{n}_b\)</span> and three
+lengths <span class="math inline">\(a,b,c\)</span> that define the
+ellipsoid which defines the distribution:</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>Distribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> D <span class="op">=</span> <span class="op">{.</span>n_a <span class="op">=</span> n_a<span class="op">,</span> <span class="op">.</span>a <span class="op">=</span> a<span class="op">,</span> <span class="op">.</span>n_b <span class="op">=</span> n_b<span class="op">,</span> <span class="op">.</span>b <span class="op">=</span> b<span class="op">,</span> <span class="op">.</span>c <span class="op">=</span> c<span class="op">};</span></span></code></pre></div>
+<p>For the isotropic distribution of ellipsoids, we can do:</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG_DS <span class="op">=</span> computeIsotropicDiluteScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG_MT <span class="op">=</span> computeIsotropicMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_PCW <span class="op">=</span> computeIsotropicPCWScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">,</span>D<span class="op">);</span></span></code></pre></div>
+<p>Here, the two first schemes return <code>KGModuli</code> objects,
+whereas <code>computeIsotropicPCWScheme</code> returns a
+<code>st2tost2</code> object. For this latter case, the ellipsoids have
+indeed a uniform isotropic distribution of orientations, but the user
+might use a non-isotropic <code>Distribution D</code>. And finally, we
+can consider a transverse isotropic distribution of inclusions:</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_DS <span class="op">=</span> computeTransverseIsotropicDiluteScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_MT <span class="op">=</span> computeTransverseIsotropicMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_PCW <span class="op">=</span> computeTransverseIsotropicPCWScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">,</span>D<span class="op">);</span></span></code></pre></div>
+<p>Here, the three above schemes return <code>st2tost2</code> objects.
+Because the functions are based on the average of the localisation
 tensor <span class="math inline">\(\underline{A}\)</span> associated
 with each distribution, a <code>Base</code> function is also defined for
 each scheme, that only takes in argument the average of the localisation
-tensor:</p>
-<ul>
-<li><code>computeMoriTanakaScheme</code></li>
-<li><code>computeDiluteScheme</code></li>
-<li><code>computePCWScheme</code></li>
-</ul>
-<p>For special case of Ponte-Castaneda and Willis scheme, a
-<code>Distribution</code> object must be created. It is defined by two
-vectors <span
-class="math inline">\(\underline{n}_a,\underline{n}_b\)</span> and three
-lengths <span class="math inline">\(a,b,c\)</span> that define the
-ellipsoid which defines the distribution.</p>
-<p>A tutorial on the computation of homogenized schemes for biphasic
+tensor <code>A_av</code>. We then can compute a homogenized stiffness
+with a very general averaged localisator:</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_DS <span class="op">=</span> computeDiluteScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>A_av<span class="op">);</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_MT <span class="op">=</span> computeMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>A_av<span class="op">);</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_PCW <span class="op">=</span> computePCWScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>A_av<span class="op">,</span>D<span class="op">);</span></span></code></pre></div>
+<p>Here, the three above schemes return <code>st2tost2</code> objects. A
+tutorial on the computation of homogenized schemes for biphasic
 particulate microstructures is available <a
 href="BiphasicLinearHomogenization.html">here</a>.</p>
 <h2 id="homogenization-bounds">Homogenization bounds</h2>
@@ -973,74 +1091,25 @@ href="BiphasicLinearHomogenization.html">here</a>.</p>
 <code>LinearHomogenizationBounds.hxx</code>. The available bounds
 are:</p>
 <ul>
-<li>Voigt bound (<code>computeVoigtStiffness</code>)</li>
-<li>Reuss bound (<code>computeReussStiffness</code>)</li>
-<li>Hashin-Shtrikman bounds
-(<code>computeIsotropicHashinShtrikmanBounds</code>)</li>
+<li>Voigt bound</li>
+<li>Reuss bound</li>
+<li>Hashin-Shtrikman bounds</li>
 </ul>
 <h2 id="homogenization-of-general-microstructures">Homogenization of
 general microstructures</h2>
-<p>It is possible to create <code>ParticulateMicrostructure</code>
-objects for homogenization of general matrix-inclusion
-microstructures.</p>
+<p>A <code>ParticulateMicrostructure</code> object can be created for
+homogenization of general matrix-inclusion microstructures.</p>
 <h3 id="the-particulatemicrostructure-class">The
-<code>ParticulateMicrostructure</code> class</h3>
-<p>The class <code>ParticulateMicrostructure</code> is available in 3d
-an 2d via a template parameter:
-<code>ParticulateMicrostructure&lt;N,StressType&gt;</code> with
+<code>ParticulateMicrostructure class</code></h3>
+<p>The <code>ParticulateMicrostructure class</code> is available in 3d
+an 2d via 2 template parameters:
+<code>ParticulateMicrostructure&lt;N,stress&gt;</code> with
 <code>N</code> the dimension. For the details, see the file
-‘MicrostructureDescription.hxx’.</p>
+‘MicrostructureDescription.hxx’ which introduces the
+<code>class</code>.</p>
 <p>A ParticulateMicrostructure consists on a matrix, in which are
-embedded several <code>InclusionDistribution</code>, which represent
-distributions of inclusions.</p>
-<h4 id="the-inclusiondistribution-class">The
-<code>InclusionDistribution</code> class</h4>
-<p>A <code>InclusionDistribution</code> is an abstract class which
-represents a distribution of inclusions. The
-<code>InclusionDistribution</code> class is in fact a child of a more
-generic class which represents a phase: <code>Phase</code>. The
-<code>Phase</code> class has only two attributes:</p>
-<ul>
-<li><code>fraction</code> (the volume fraction of the phase)</li>
-<li><code>stiffness</code> (a <code>st2tost2</code> object).</li>
-</ul>
-<p>There are 4 childs of <code>InclusionDistribution</code>:</p>
-<ul>
-<li><code>SphereDistribution</code> (distribution of spheres)</li>
-<li><code>IsotropicDistribution</code> (isotropic distribution of
-ellipsoids)</li>
-<li><code>TransverseDistribution</code> (transverse isotropic
-distribution of ellipsoids)</li>
-<li><code>OrientedDistribution</code> (aligned distribution of
-ellipsoids)</li>
-</ul>
-<p>The <code>Inclusion</code> is a geometrical object which is
-characterized by its unique attribute: <code>semiLengths</code>. It is a
-<code>std::array</code> of <code>N</code> lengths, which are the
-semi-lengths of the ellipsoid/ellipse, where <code>N</code> is the
-dimension considered (2 or 3). Hence, <code>Inclusion</code> has two
-template parameters: <code>Inclusion&lt;N,LengthType&gt;</code>. Some
-particular <code>Inclusion</code> objects are also defined:</p>
-<ul>
-<li><code>Ellipsoid</code> (very general 3d <code>Inclusion</code> with
-3 semi-lengths)</li>
-<li><code>Spheroid</code> (3d <code>Inclusion</code> with the last two
-semi-lengths identical)</li>
-<li><code>Sphere</code> (3d <code>Inclusion</code> with 3 semi-lengths
-equal to unity)</li>
-<li><code>Ellipse</code> (general 2d <code>Inclusion</code> with two
-semi-lengths)</li>
-<li><code>Disk</code> (2d <code>Inclusion</code> with 2 semi-lengths
-equal to unity)</li>
-</ul>
-<p>The method <code>computeMeanLocalisator</code> of the
-<code>InclusionDistribution</code> class returns the average strain
-localisator of the distribution of inclusions, when embedded in a given
-matrix.</p>
-<h4 id="description-of-a-particulatemicrostructure">Description of a
-<code>ParticulateMicrostructure</code></h4>
-<p>Hence, the <code>ParticulateMicrostructure</code> has three
-attributes:</p>
+embedded several distributions of inclusions. The class has three
+(private) attributes:</p>
 <ul>
 <li><code>number_of_phases</code></li>
 <li><code>matrixPhase</code></li>
@@ -1050,13 +1119,93 @@ attributes:</p>
 <p>The <code>inclusionPhases</code> is a <code>std::vector</code> of
 pointers on <code>InclusionDistribution</code> objects (which represent
 the distributions of inclusions).</p>
-<p>The <code>ParticulateMicrostructure</code> has also methods (see
-‘MicrostructureDescription.hxx’ for details):</p>
+<h4 id="the-phase-class">The <code>Phase</code> class</h4>
+<p>The <code>Phase class</code> is very simple. It has two
+attributes:</p>
 <ul>
-<li>addInclusionPhase</li>
-<li>removeInclusionPhase</li>
-<li>get_number_of_phases, get_matrix_fraction, get_matrix_elasticity,
-get_inclusionPhase</li>
+<li><code>fraction</code> (<code>real</code> type)</li>
+<li><code>stiffness</code> (<code>st2tost2</code> type)</li>
+</ul>
+<p>and one method: <code>is_isotropic()</code> which returns a
+<code>bool</code> stating if the phase is considered isotropic or not.
+The value of this <code>bool</code> depends on the way the
+<code>Phase</code> was constructed. By doing</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C0<span class="op">=</span>tfel<span class="op">::</span>math<span class="op">::</span>st2tost2<span class="op">&lt;</span>stress<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>Phase<span class="op">&lt;</span>stress<span class="op">&gt;</span> ph<span class="op">(</span>f<span class="op">,</span>C0<span class="op">);</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> ph<span class="op">.</span>is_isotropic<span class="op">();</span></span></code></pre></div>
+<p><code>b</code> will have the value <code>false</code>, whereas by
+doing</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>k<span class="op">,</span>g<span class="op">);</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>Phase<span class="op">&lt;</span>stress<span class="op">&gt;</span> ph<span class="op">(</span>f<span class="op">,</span>KG<span class="op">);</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> ph<span class="op">.</span>is_isotropic<span class="op">();</span></span></code></pre></div>
+<p><code>b</code> will have the value <code>true</code>.</p>
+<h4 id="the-inclusiondistribution-class">The
+<code>InclusionDistribution class</code></h4>
+<p>The <code>InclusionDistribution class</code> is an abstract class
+which represents a distribution of inclusions. It is a child of the
+<code>Phase class</code>. There are 4 child <code>class</code> of the
+<code>InclusionDistribution class</code>:</p>
+<ul>
+<li><code>SphereDistribution</code> (distribution of spheres)</li>
+<li><code>IsotropicDistribution</code> (isotropic distribution of
+ellipsoids)</li>
+<li><code>TransverseDistribution</code> (transverse isotropic
+distribution of ellipsoids)</li>
+<li><code>OrientedDistribution</code> (aligned distribution of
+ellipsoids)</li>
+</ul>
+<p>Each <code>class</code> has a unique attribute <code>inclusion</code>
+(which is of type <code>Inclusion</code>, see below), and a method,
+<code>computeMeanLocalisator</code>, which computes the average of the
+localisation tensor on the distribution. This function is mainly used in
+the computation of the homogenization schemes (see below).</p>
+<p>These <code>class</code> are currently available in 3d only.</p>
+<h4 id="the-inclusion-class">The <code>Inclusion class</code></h4>
+<p>The <code>Inclusion class</code> is characterized by its unique
+attribute: <code>semiLengths</code>. It is a <code>std::array</code> of
+<code>N</code> lengths, which are the semi-lengths of the
+ellipsoid/ellipse, where <code>N</code> is the dimension considered (2
+or 3). Hence, <code>Inclusion</code> has two template parameters:
+<code>Inclusion&lt;N,LengthType&gt;</code>. Some particular
+<code>Inclusion</code> objects are also defined:</p>
+<ul>
+<li><code>Ellipsoid</code> (child of <code>Inclusion</code> in 3d)</li>
+<li><code>Spheroid</code> (child of <code>Ellipsoid</code> with the last
+two semi-lengths identical)</li>
+<li><code>Sphere</code> (child of <code>Spheroid</code> with 3
+semi-lengths equal to unity)</li>
+</ul>
+<h4 id="methods-of-the-particulatemicrostructure-class">Methods of the
+<code>ParticulateMicrostructure class</code></h4>
+<p>The <code>ParticulateMicrostructure</code> has the following methods
+(see ‘MicrostructureDescription.hxx’ for details):</p>
+<ul>
+<li><code>addInclusionPhase</code></li>
+<li><code>removeInclusionPhase</code></li>
+<li><code>replaceMatrixPhase</code></li>
+<li><code>get_number_of_phases</code>, <code>get_matrix_fraction</code>,
+<code>get_matrix_elasticity</code>, <code>is_isotropic_matrix</code>,
+<code>get_inclusionPhase</code></li>
+</ul>
+<h3 id="homogenization-schemes">Homogenization schemes</h3>
+<p>The file <code>MicrostructureLinearHomogenization.ixx</code>
+introduces the <code>HomogenizationScheme class</code> which has three
+attributes:</p>
+<ul>
+<li><code>homogenized_stiffness</code></li>
+<li><code>effective_polarisation</code></li>
+<li><code>mean_strain_localisation_tensors</code></li>
+</ul>
+<p>In the same file are introduced some functions which take a
+<code>ParticulateMicrostructure</code> as an argument and returns a
+<code>HomogenizationScheme</code> object. Three schemes are
+available:</p>
+<ul>
+<li>dilute scheme</li>
+<li>Mori-Tanaka scheme</li>
+<li>Self-Consistent scheme</li>
 </ul>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references csl-bib-body" role="list">

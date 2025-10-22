@@ -9,5 +9,5 @@ var dir_a51c1666a3e10c743de99e6c27e195a0 =
     [ "LogarithmicStrainIntegrate.hxx", "_logarithmic_strain_integrate_8hxx.html", "_logarithmic_strain_integrate_8hxx" ],
     [ "StandardFiniteStrainBehaviourIntegrate.hxx", "_standard_finite_strain_behaviour_integrate_8hxx.html", "_standard_finite_strain_behaviour_integrate_8hxx" ],
     [ "State.hxx", "_state_8hxx.html", "_state_8hxx" ],
-    [ "Types.hxx", "mfront_2include_2_m_front_2_generic_behaviour_2types_8hxx.html", "mfront_2include_2_m_front_2_generic_behaviour_2types_8hxx" ]
+    [ "Types.hxx", "mfront_2include_2_m_front_2_generic_behaviour_2_types_8hxx.html", "mfront_2include_2_m_front_2_generic_behaviour_2_types_8hxx" ]
 ];

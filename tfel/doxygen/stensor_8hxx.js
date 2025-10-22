@@ -22,6 +22,7 @@ var stensor_8hxx =
     [ "logarithm", "stensor_8hxx.html#a242f3d04cd23539e1733b397e4a4abcb", null ],
     [ "negative_part", "stensor_8hxx.html#abdfee6c644dab03052bebfdc47294939", null ],
     [ "positive_part", "stensor_8hxx.html#ac3f3382e34785290ef5f0eaa7428f207", null ],
+    [ "sortEigenValues", "stensor_8hxx.html#a902f4948b7f2a315902749a2e240dc32", null ],
     [ "square", "stensor_8hxx.html#a0460ddc823ad19dd571d12c67b227824", null ],
     [ "square_root", "stensor_8hxx.html#a14ef56da14652c580893f90b165ae591", null ],
     [ "symmetric_product", "stensor_8hxx.html#aef247e98628ab9ce09e134cc4414e78d", null ],

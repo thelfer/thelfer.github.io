@@ -11,6 +11,7 @@ var dir_a2e59eb61bdee22280b7d9c8cef44a72 =
     [ "Matrix", "dir_c9d0028e4c01fce48764360a98267494.html", "dir_c9d0028e4c01fce48764360a98267494" ],
     [ "Minimization", "dir_80295cd2749e17c6e5508547da12e55d.html", "dir_80295cd2749e17c6e5508547da12e55d" ],
     [ "NonLinearSolvers", "dir_eabfda8d658fcfd67fdcce1c169938d9.html", "dir_eabfda8d658fcfd67fdcce1c169938d9" ],
+    [ "NumericalIntegration", "dir_9615004366527f05daeef85ae7cc1fcc.html", "dir_9615004366527f05daeef85ae7cc1fcc" ],
     [ "Parser", "dir_dbb33c708bcc01430520458c9fe37e22.html", "dir_dbb33c708bcc01430520458c9fe37e22" ],
     [ "QR", "dir_64f585d1df601828c34abf9d230d1058.html", "dir_64f585d1df601828c34abf9d230d1058" ],
     [ "Quantity", "dir_ecfea2fffea88ace6efc77564881528a.html", "dir_ecfea2fffea88ace6efc77564881528a" ],
@@ -73,7 +74,7 @@ var dir_a2e59eb61bdee22280b7d9c8cef44a72 =
     [ "TinyPowellDogLegNewtonRaphsonSolver.hxx", "_tiny_powell_dog_leg_newton_raphson_solver_8hxx.html", "_tiny_powell_dog_leg_newton_raphson_solver_8hxx" ],
     [ "tmatrix.hxx", "tmatrix_8hxx.html", "tmatrix_8hxx" ],
     [ "tvector.hxx", "tvector_8hxx.html", "tvector_8hxx" ],
-    [ "types.hxx", "include_2_t_f_e_l_2_math_2_types_8hxx.html", "include_2_t_f_e_l_2_math_2_types_8hxx" ],
+    [ "types.hxx", "include_2_t_f_e_l_2_math_2types_8hxx.html", "include_2_t_f_e_l_2_math_2types_8hxx" ],
     [ "types.ixx", "types_8ixx.html", "types_8ixx" ],
     [ "vector.hxx", "vector_8hxx.html", "vector_8hxx" ]
 ];

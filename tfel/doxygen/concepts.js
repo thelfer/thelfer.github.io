@@ -3,6 +3,7 @@ var concepts =
     [ "tfel", "namespacetfel.html", [
       [ "math", "namespacetfel_1_1math.html", [
         [ "ArrayConcept", "concepttfel_1_1math_1_1_array_concept.html", null ],
+        [ "ExpressionConcept", "concepttfel_1_1math_1_1_expression_concept.html", null ],
         [ "UnitConcept", "concepttfel_1_1math_1_1_unit_concept.html", null ],
         [ "ScalarConcept", "concepttfel_1_1math_1_1_scalar_concept.html", null ],
         [ "MathObjectConcept", "concepttfel_1_1math_1_1_math_object_concept.html", null ],

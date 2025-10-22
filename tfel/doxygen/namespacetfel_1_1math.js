@@ -200,8 +200,8 @@ var namespacetfel_1_1math =
     [ "DiadicProductOperation", "structtfel_1_1math_1_1_diadic_product_operation.html", null ],
     [ "DifferenceRandomAccessIterator", "structtfel_1_1math_1_1_difference_random_access_iterator.html", "structtfel_1_1math_1_1_difference_random_access_iterator" ],
     [ "DifferenceRandomAccessIteratorBase", "structtfel_1_1math_1_1_difference_random_access_iterator_base.html", null ],
-    [ "DotProduct", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "dotProduct", "structtfel_1_1math_1_1dot_product.html", null ],
+    [ "DotProduct", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "EmptyRunTimeProperties", "structtfel_1_1math_1_1_empty_run_time_properties.html", null ],
@@ -309,6 +309,7 @@ var namespacetfel_1_1math =
     [ "FSLevenbergMarquardt", "structtfel_1_1math_1_1_f_s_levenberg_marquardt.html", "structtfel_1_1math_1_1_f_s_levenberg_marquardt" ],
     [ "FSLevenbergMarquardtVariable", "structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable.html", "structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable" ],
     [ "FSLevenbergMarquardtVariable< 1u, T >", "structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable_3_011u_00_01_t_01_4.html", "structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable_3_011u_00_01_t_01_4" ],
+    [ "GaussKronrodQuadrature", "structtfel_1_1math_1_1_gauss_kronrod_quadrature.html", "structtfel_1_1math_1_1_gauss_kronrod_quadrature" ],
     [ "GenerateUnit", "structtfel_1_1math_1_1_generate_unit.html", "structtfel_1_1math_1_1_generate_unit" ],
     [ "GenericFixedSizeArray", "structtfel_1_1math_1_1_generic_fixed_size_array.html", "structtfel_1_1math_1_1_generic_fixed_size_array" ],
     [ "GenericFixedSizeConstArrayView", "structtfel_1_1math_1_1_generic_fixed_size_const_array_view.html", "structtfel_1_1math_1_1_generic_fixed_size_const_array_view" ],
@@ -649,6 +650,7 @@ var namespacetfel_1_1math =
     [ "ViewsArray", "structtfel_1_1math_1_1_views_array.html", "structtfel_1_1math_1_1_views_array" ],
     [ "ViewsFixedSizeVectorIndexingPolicy", "structtfel_1_1math_1_1_views_fixed_size_vector_indexing_policy.html", null ],
     [ "ArrayConcept", "concepttfel_1_1math_1_1_array_concept.html", null ],
+    [ "ExpressionConcept", "concepttfel_1_1math_1_1_expression_concept.html", null ],
     [ "UnitConcept", "concepttfel_1_1math_1_1_unit_concept.html", null ],
     [ "ScalarConcept", "concepttfel_1_1math_1_1_scalar_concept.html", null ],
     [ "MathObjectConcept", "concepttfel_1_1math_1_1_math_object_concept.html", null ],
@@ -895,6 +897,7 @@ var namespacetfel_1_1math =
     [ "slice", "namespacetfel_1_1math.html#a1db734623544b4da9c5d2f206597c64b", null ],
     [ "slice", "namespacetfel_1_1math.html#a86a6c7993dd592c621855e42ac7302f1", null ],
     [ "slice", "namespacetfel_1_1math.html#a3916e3b8d0a89eb66013c3fd2ec3257d", null ],
+    [ "sortEigenValues", "namespacetfel_1_1math.html#a902f4948b7f2a315902749a2e240dc32", null ],
     [ "square", "namespacetfel_1_1math.html#a0460ddc823ad19dd571d12c67b227824", null ],
     [ "square_root", "namespacetfel_1_1math.html#a14ef56da14652c580893f90b165ae591", null ],
     [ "squaredFischerBurmeisterFunction", "namespacetfel_1_1math.html#a6373c72a52fe938120ffcfb6a6952789", null ],
@@ -916,5 +919,6 @@ var namespacetfel_1_1math =
     [ "tresca", "namespacetfel_1_1math.html#a268dbabb67297dd7c6805a96ad313f6c", null ],
     [ "tresca", "namespacetfel_1_1math.html#a0a6a818d3f33afa7e28e7b5791ee2f49", null ],
     [ "unsyme", "namespacetfel_1_1math.html#a945fad6d857e8151f4d000c668ed5f93", null ],
-    [ "VoigtIndex", "namespacetfel_1_1math.html#ab7bbd7923cdb906e1045d4b7422a76c7", null ]
+    [ "VoigtIndex", "namespacetfel_1_1math.html#ab7bbd7923cdb906e1045d4b7422a76c7", null ],
+    [ "gauss_kronrod_integrate", "namespacetfel_1_1math.html#a01491806c80b084cf41d69ef38bf3f00", null ]
 ];

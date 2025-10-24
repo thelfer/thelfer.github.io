@@ -1,6 +1,5 @@
 var NAVTREEINDEX67 =
 {
-"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#a585b6deb7b57265332eb386fe40b9616":[5,0,9,0,95,0],
 "structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#ac24c0e376708200623bf11b6cf09a1dd":[7,0,14,5,95,2],
 "structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#ac24c0e376708200623bf11b6cf09a1dd":[5,0,9,0,95,2],
 "structtfel_1_1material_1_1_rousselier_tanguy_besson2002_stress_criterion_parameters.html":[7,0,14,5,96],
@@ -249,5 +248,6 @@ var NAVTREEINDEX67 =
 "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i.html":[5,0,9,0,0,35],
 "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i.html":[7,0,14,5,1,35],
 "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i_3_01_modelling_1ede495ab181d9d69cf0b25800a845b2.html":[5,0,9,0,0,37],
-"structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i_3_01_modelling_1ede495ab181d9d69cf0b25800a845b2.html":[7,0,14,5,1,37]
+"structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i_3_01_modelling_1ede495ab181d9d69cf0b25800a845b2.html":[7,0,14,5,1,37],
+"structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i_3_01_modelling_28e8c3318fdcedac3e484dbdc796c742.html":[5,0,9,0,0,36]
 };

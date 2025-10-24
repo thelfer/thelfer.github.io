@@ -1,6 +1,5 @@
 var NAVTREEINDEX49 =
 {
-"structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a66698cbe230386dcab65768cc304b15c":[7,0,10,0,18,2],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a718a1de8587a9e18f2cd74053f42a068":[7,0,10,0,18,12],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a90b0a969aa1d8abc9008a370ea81846d":[7,0,10,0,18,3],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a9470ad55abf3e42c0271cb6923cc4655":[7,0,10,0,18,5],
@@ -249,5 +248,6 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_plastic_inelastic_flow.html#a8670972fdcf0164257370fcfc0a334ab":[7,0,10,0,36,5],
 "structmfront_1_1bbrick_1_1_plastic_inelastic_flow.html#a89f0ed059b3e9968d20cde3de1bd545c":[7,0,10,0,36,0],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model.html":[7,0,10,0,37],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model.html#a131b281938d8c2333ebaacf7fc644e5f":[7,0,10,0,37,1]
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model.html#a131b281938d8c2333ebaacf7fc644e5f":[7,0,10,0,37,1],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model.html#a1b785c9931bbf66a371aa270655db2ed":[7,0,10,0,37,4]
 };

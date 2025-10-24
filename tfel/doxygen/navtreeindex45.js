@@ -1,6 +1,5 @@
 var NAVTREEINDEX45 =
 {
-"structmfront_1_1_runge_kutta_code_generator_base.html#a047d6a03c99d1818f13004c6dfda6117":[7,0,10,167,1],
 "structmfront_1_1_runge_kutta_code_generator_base.html#a047d6a03c99d1818f13004c6dfda6117":[5,0,7,165,1],
 "structmfront_1_1_runge_kutta_code_generator_base.html#a2443f786670098d0fc22c201009be74a":[7,0,10,167,3],
 "structmfront_1_1_runge_kutta_code_generator_base.html#a2443f786670098d0fc22c201009be74a":[5,0,7,165,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX45 =
 "structmfront_1_1_supported_types.html#af0c073c65b52897d70ed509cdac576b0a360c1c2e5a94024b969b9ea7ac1a9fb2":[5,0,7,179,3,1],
 "structmfront_1_1_supported_types.html#af0c073c65b52897d70ed509cdac576b0a360c1c2e5a94024b969b9ea7ac1a9fb2":[7,0,10,181,3,1],
 "structmfront_1_1_supported_types.html#af0c073c65b52897d70ed509cdac576b0a81659677244f34f07642c03591534166":[7,0,10,181,3,2],
-"structmfront_1_1_supported_types.html#af0c073c65b52897d70ed509cdac576b0a81659677244f34f07642c03591534166":[5,0,7,179,3,2]
+"structmfront_1_1_supported_types.html#af0c073c65b52897d70ed509cdac576b0a81659677244f34f07642c03591534166":[5,0,7,179,3,2],
+"structmfront_1_1_supported_types.html#af0c073c65b52897d70ed509cdac576b0a940787348e94e09b6b6fd4207a3e884b":[7,0,10,181,3,3]
 };

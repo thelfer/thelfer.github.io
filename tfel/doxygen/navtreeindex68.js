@@ -1,6 +1,5 @@
 var NAVTREEINDEX68 =
 {
-"structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i_3_01_modelling_28e8c3318fdcedac3e484dbdc796c742.html":[5,0,9,0,0,36],
 "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i_3_01_modelling_28e8c3318fdcedac3e484dbdc796c742.html":[7,0,14,5,1,36],
 "structtfel_1_1material_1_1internals_1_1_inverse_langevin_function.html":[5,0,9,0,0,38],
 "structtfel_1_1material_1_1internals_1_1_inverse_langevin_function.html":[7,0,14,5,1,38],
@@ -249,5 +248,6 @@ var NAVTREEINDEX68 =
 "structtfel_1_1math_1_1_concept_rebind_3_01_s_t2to_s_t2_tag_00_01_t_01_4.html#af94fbd114d17ccbb2980e55363f78368":[7,0,14,6,122,0],
 "structtfel_1_1math_1_1_concept_rebind_3_01_s_t2to_s_t2_tag_00_01_t_01_4.html#af94fbd114d17ccbb2980e55363f78368":[5,0,9,1,119,0],
 "structtfel_1_1math_1_1_concept_rebind_3_01_s_t2to_t2_tag_00_01_type_01_4.html":[5,0,9,1,120],
-"structtfel_1_1math_1_1_concept_rebind_3_01_s_t2to_t2_tag_00_01_type_01_4.html":[7,0,14,6,123]
+"structtfel_1_1math_1_1_concept_rebind_3_01_s_t2to_t2_tag_00_01_type_01_4.html":[7,0,14,6,123],
+"structtfel_1_1math_1_1_concept_rebind_3_01_stensor_tag_00_01_type_01_4.html":[5,0,9,1,121]
 };

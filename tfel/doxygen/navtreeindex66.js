@@ -1,6 +1,5 @@
 var NAVTREEINDEX66 =
 {
-"structtfel_1_1material_1_1_mechanical_behaviour.html#a5d58f2f126341b110553eb8324cc500f":[7,0,14,5,60,0],
 "structtfel_1_1material_1_1_mechanical_behaviour.html#a70c272cfad46cab7c52ca605cf82e3b2":[7,0,14,5,60,7],
 "structtfel_1_1material_1_1_mechanical_behaviour.html#a70c272cfad46cab7c52ca605cf82e3b2":[5,0,9,0,60,7],
 "structtfel_1_1material_1_1_mechanical_behaviour.html#a7b68ac4ac10ade04d7d07d85c3deadeb":[5,0,9,0,60,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX66 =
 "structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#a3588d43d60cf6674d3adc7c585422b1a":[7,0,14,5,95,1],
 "structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#a560f3f031c3ffe5018d1eeeaaf9909fa":[7,0,14,5,95,3],
 "structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#a560f3f031c3ffe5018d1eeeaaf9909fa":[5,0,9,0,95,3],
-"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#a585b6deb7b57265332eb386fe40b9616":[7,0,14,5,95,0]
+"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#a585b6deb7b57265332eb386fe40b9616":[7,0,14,5,95,0],
+"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#a585b6deb7b57265332eb386fe40b9616":[5,0,9,0,95,0]
 };

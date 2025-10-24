@@ -1,6 +1,5 @@
 var NAVTREEINDEX50 =
 {
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model.html#a1b785c9931bbf66a371aa270655db2ed":[7,0,10,0,37,4],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model.html#a1bc047fc26653b218944131c90e10806":[7,0,10,0,37,6],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model.html#a514fc3e4e9f53f7332b9a9d9fd89edb4":[7,0,10,0,37,2],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model.html#a5c4bd31aaeec4765fa12053322cce3f5":[7,0,10,0,37,5],
@@ -249,5 +248,6 @@ var NAVTREEINDEX50 =
 "structmfront_1_1bbrick_1_1_voce_isotropic_hardening_rule.html#a9821a897002d22c2e5a466ba4c90a963":[7,0,10,0,63,6],
 "structmfront_1_1bbrick_1_1_voce_isotropic_hardening_rule.html#ad0445f3db76b60446780d79a21538ba6":[7,0,10,0,63,3],
 "structmfront_1_1bbrick_1_1_voce_isotropic_hardening_rule.html#ad9427e473937a236a0af84bfa33efd85":[7,0,10,0,63,2],
-"structmfront_1_1bbrick_1_1_voce_isotropic_hardening_rule.html#aec90c2e6276f83523457a4af5e657993":[7,0,10,0,63,1]
+"structmfront_1_1bbrick_1_1_voce_isotropic_hardening_rule.html#aec90c2e6276f83523457a4af5e657993":[7,0,10,0,63,1],
+"structmfront_1_1gb_1_1_dissipated_energy_computer.html":[7,0,10,1,0]
 };

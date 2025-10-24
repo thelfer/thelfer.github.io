@@ -1,6 +1,5 @@
 var NAVTREEINDEX38 =
 {
-"structmfront_1_1_global_domain_specific_language_options_manager.html#a5c2af0dbc888a3f3e418f20e6a510213":[5,0,7,89,10],
 "structmfront_1_1_global_domain_specific_language_options_manager.html#a5c2af0dbc888a3f3e418f20e6a510213":[7,0,10,91,10],
 "structmfront_1_1_global_domain_specific_language_options_manager.html#a6c11c53523194544367bb2c0ffea2b02":[5,0,7,89,4],
 "structmfront_1_1_global_domain_specific_language_options_manager.html#a6c11c53523194544367bb2c0ffea2b02":[7,0,10,91,4],
@@ -249,5 +248,6 @@ var NAVTREEINDEX38 =
 "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a3252e80aacc43a8842c583c081ab3dc3":[7,0,10,104,13],
 "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a3252e80aacc43a8842c583c081ab3dc3":[5,0,7,102,13],
 "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a397407eccf23e3ca5fff58a9ba126233":[5,0,7,102,6],
-"structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a397407eccf23e3ca5fff58a9ba126233":[7,0,10,104,6]
+"structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a397407eccf23e3ca5fff58a9ba126233":[7,0,10,104,6],
+"structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a3e01dd4a238cf4b461778a5647680ee1":[5,0,7,102,9]
 };

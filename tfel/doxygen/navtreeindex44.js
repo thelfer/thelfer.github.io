@@ -1,6 +1,5 @@
 var NAVTREEINDEX44 =
 {
-"structmfront_1_1_non_linear_system_solver.html#a90573e59db7da6400473e930a0369fa4":[7,0,10,151,3],
 "structmfront_1_1_non_linear_system_solver.html#a90573e59db7da6400473e930a0369fa4":[5,0,7,149,3],
 "structmfront_1_1_non_linear_system_solver.html#a916175251ea7e8466d9a6edecc51b9db":[5,0,7,149,18],
 "structmfront_1_1_non_linear_system_solver.html#a916175251ea7e8466d9a6edecc51b9db":[7,0,10,151,18],
@@ -249,5 +248,6 @@ var NAVTREEINDEX44 =
 "structmfront_1_1_query_handler_base.html#aee84af1596a680486991b0331d61efdf":[7,0,10,166,19],
 "structmfront_1_1_query_handler_base.html#aee84af1596a680486991b0331d61efdf":[5,0,7,164,19],
 "structmfront_1_1_runge_kutta_code_generator_base.html":[5,0,7,165],
-"structmfront_1_1_runge_kutta_code_generator_base.html":[7,0,10,167]
+"structmfront_1_1_runge_kutta_code_generator_base.html":[7,0,10,167],
+"structmfront_1_1_runge_kutta_code_generator_base.html#a047d6a03c99d1818f13004c6dfda6117":[7,0,10,167,1]
 };

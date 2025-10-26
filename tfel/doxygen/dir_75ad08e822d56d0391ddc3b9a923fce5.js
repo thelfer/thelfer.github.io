@@ -5,6 +5,7 @@ var dir_75ad08e822d56d0391ddc3b9a923fce5 =
     [ "ArrayConcept.hxx", "_array_concept_8hxx.html", "_array_concept_8hxx" ],
     [ "ArrayPolicies.hxx", "_array_policies_8hxx.html", "_array_policies_8hxx" ],
     [ "ArrayPolicies.ixx", "_array_policies_8ixx.html", "_array_policies_8ixx" ],
+    [ "CoalescedView.hxx", "_coalesced_view_8hxx.html", "_coalesced_view_8hxx" ],
     [ "ConstFixedSizeArrayBase.hxx", "_const_fixed_size_array_base_8hxx.html", "_const_fixed_size_array_base_8hxx" ],
     [ "ConstFixedSizeArrayBase.ixx", "_const_fixed_size_array_base_8ixx.html", null ],
     [ "ConstRuntimeArrayBase.hxx", "_const_runtime_array_base_8hxx.html", "_const_runtime_array_base_8hxx" ],

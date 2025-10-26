@@ -7,5 +7,6 @@ var _indexing_policies_8hxx =
     [ "checkIndexingPoliciesRuntimeCompatiblity", "_indexing_policies_8hxx.html#a86f4c774c2ed2c960998d725f66e5bc3", null ],
     [ "checkIndicesValiditity", "_indexing_policies_8hxx.html#a502607da1808ed67a3b7ccc8df130b8a", null ],
     [ "hasIndexingPolicy", "_indexing_policies_8hxx.html#a47905a618a92208a4361c75a14396c5b", null ],
-    [ "haveIndexingPoliciesTheSameMemoryLayout", "_indexing_policies_8hxx.html#af40f1fa3fc3abde6fd905241a0083aad", null ]
+    [ "haveIndexingPoliciesTheSameMemoryLayout", "_indexing_policies_8hxx.html#af40f1fa3fc3abde6fd905241a0083aad", null ],
+    [ "indexing_policy_size", "_indexing_policies_8hxx.html#a6e37bef81b04bcc53e11d0ce8f3c32ae", null ]
 ];

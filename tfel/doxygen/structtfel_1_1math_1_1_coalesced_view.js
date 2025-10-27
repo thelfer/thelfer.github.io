@@ -4,6 +4,7 @@ var structtfel_1_1math_1_1_coalesced_view =
     [ "const_data_pointer_type", "structtfel_1_1math_1_1_coalesced_view.html#a8d84b5eec473535966531928a60b2701", null ],
     [ "data_pointer_type", "structtfel_1_1math_1_1_coalesced_view.html#ac19974d612ffca38e062494e5f43e255", null ],
     [ "indexing_policy", "structtfel_1_1math_1_1_coalesced_view.html#a29b78eb266de64ab4d163100b7fcd081", null ],
+    [ "CoalescedView", "structtfel_1_1math_1_1_coalesced_view.html#ac3f65fc87b1c70b8a69967b3a153330a", null ],
     [ "CoalescedView", "structtfel_1_1math_1_1_coalesced_view.html#aa4237c93f4687f8b7cb7cb195e2f7fef", null ],
     [ "CoalescedView", "structtfel_1_1math_1_1_coalesced_view.html#a835b9f21df5e33dcf322834b5ac287c0", null ],
     [ "CoalescedView", "structtfel_1_1math_1_1_coalesced_view.html#ae9762dfe7d0b10a4157ab6a03f8f566a", null ],

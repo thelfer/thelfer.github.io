@@ -120,6 +120,8 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacetfel_1_1material" id="r_namespacetfel_1_1material"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material.html">tfel::material</a></td></tr>
 <tr class="memdesc:namespacetfel_1_1material"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains classes and functions related to mechanics and material description. The functionalities included in this namespace includes: <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacetfel_1_1material_1_1homogenization_1_1elasticity_1_1internals" id="r_namespacetfel_1_1material_1_1homogenization_1_1elasticity_1_1internals"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material_1_1homogenization_1_1elasticity_1_1internals.html">tfel::material::homogenization::elasticity::internals</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -160,7 +162,7 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 <tr class="memitem:a8b677a5a43ae4565b9e4ab74e207ad58"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, types::compliance&lt; StressType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8hxx.html#a8b677a5a43ae4565b9e4ab74e207ad58">tfel::material::homogenization::elasticity::computeAxisymmetricalHillPolarisationTensor</a> (const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;, const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, types::real&lt; StressType &gt; &gt; &amp;, const types::real&lt; StressType &gt; &amp;, const <a class="el" href="namespacetfel_1_1math.html#aee110500aba43bd0fc73c7a5ecd510e9">tfel::math::base_type</a>&lt; StressType &gt;=tfel::material::EshelbyTolerances::get&lt; <a class="el" href="namespacetfel_1_1math.html#aee110500aba43bd0fc73c7a5ecd510e9">tfel::math::base_type</a>&lt; StressType &gt; &gt;())</td></tr>
 <tr class="separator:a8b677a5a43ae4565b9e4ab74e207ad58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a723b1b78f0e43677db858183c9434680" id="r_a723b1b78f0e43677db858183c9434680"><td class="memTemplParams" colspan="2">template&lt;typename LengthType &gt; </td></tr>
-<tr class="memitem:a723b1b78f0e43677db858183c9434680"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE std::array&lt; std::size_t, 3 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_isotropic_eshelby_tensor_8ixx.html#a723b1b78f0e43677db858183c9434680">tfel::material::homogenization::elasticity::internals::sortEllipsoidLengths</a> (const LengthType &amp;a, const LengthType &amp;b, const LengthType &amp;c)</td></tr>
+<tr class="memitem:a723b1b78f0e43677db858183c9434680"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE std::array&lt; std::size_t, 3 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material_1_1homogenization_1_1elasticity_1_1internals.html#a723b1b78f0e43677db858183c9434680">tfel::material::homogenization::elasticity::internals::sortEllipsoidLengths</a> (const LengthType &amp;a, const LengthType &amp;b, const LengthType &amp;c)</td></tr>
 <tr class="separator:a723b1b78f0e43677db858183c9434680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f8d2226ee1f337fe9ae608c638bdc06" id="r_a1f8d2226ee1f337fe9ae608c638bdc06"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
 requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt;<a class="el" href="_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28">tfel::math::unit::Stress</a>, StressType&gt;())</td></tr>
@@ -865,62 +867,13 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 
 </div>
 </div>
-<a id="a723b1b78f0e43677db858183c9434680" name="a723b1b78f0e43677db858183c9434680"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a723b1b78f0e43677db858183c9434680">&#9670;&#160;</a></span>sortEllipsoidLengths()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LengthType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">TFEL_HOST_DEVICE std::array&lt; std::size_t, 3 &gt; tfel::material::homogenization::elasticity::internals::sortEllipsoidLengths </td>
-          <td>(</td>
-          <td class="paramtype">const LengthType &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const LengthType &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const LengthType &amp;&#160;</td>
-          <td class="paramname"><em>c</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function takes a,b,c and returns the indices of the lengths (a,b,c) sorted from the biggest to the smallest </p><dl class="section return"><dt>Returns</dt><dd>an object of type std::array&lt;int,3&gt; </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">LengthType</td><td>type of the lengths</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">nu</td><td>Poisson's ratio of the matrix </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f1614b9bfb736e18e5ccdeb7e67f6541.html">TFEL</a></li><li class="navelem"><a class="el" href="dir_9c6f9dfbe000c54e72b60c70482b6bf0.html">Material</a></li><li class="navelem"><a class="el" href="_isotropic_eshelby_tensor_8ixx.html">IsotropicEshelbyTensor.ixx</a></li>
-    <li class="footer">Generated on Mon Oct 27 2025 11:53:28 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Oct 27 2025 15:57:38 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

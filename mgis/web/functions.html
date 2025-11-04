@@ -225,6 +225,15 @@ function-major storage</a></li>
 <li><a href="#the-functionview-class"
 id="toc-the-functionview-class">The <code>FunctionView</code>
 class</a></li>
+<li><a href="#tensorial-functions"
+id="toc-tensorial-functions">Tensorial functions</a>
+<ul>
+<li><a href="#the-tensorview-class" id="toc-the-tensorview-class">The
+<code>TensorView</code> class</a></li>
+<li><a href="#the-coalescedmemoryaccesstensorview-class"
+id="toc-the-coalescedmemoryaccesstensorview-class">The
+<code>CoalescedMemoryAccessTensorView</code> class</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">References</a></li>
 </ul>
@@ -413,6 +422,8 @@ given component of the function are stored continuously):</p>
 | Element 1 || Element 2 || ....... || Element N |......| Element 1 || Element 2 || ....... || Element N |
 +-----------++-----------++---------++-----------+------+-----------++-----------++---------++-----------+</code></pre></li>
 </ul>
+<p>Non interleaved storage allows coalescent memory accesses, which may
+be beneficial on some architectures, including GPUs.</p>
 <p>In a element-major pattern, values usually are stored as follows:</p>
 <pre><code>| &lt;------------------ Element 1 ------------------&gt; | .... | &lt;------------------- Element N -----------------&gt; |
 +------------++------------++---------++------------+      +------------++------------++---------++------------+
@@ -481,6 +492,38 @@ be given at runtime.</li>
 <p>The <code>FunctionView</code> class matches the
 <code>FunctionEvaluator</code> concept (See Section 1 and <a
 href="evaluators.html">this page</a> for details).</p>
+<h2 id="tensorial-functions">Tensorial functions</h2>
+<h3 id="the-tensorview-class">The <code>TensorView</code> class</h3>
+<p>The <code>TensorView</code> class allows to make views which returns
+tensorial objects from functions returning data in contiguous
+memory.</p>
+<p>A <code>TensorView</code> is generally created by combining a
+<code>FunctionView</code> which a modifier such as
+<code>as_stensor</code> (See <a href="evaluators.html">this page</a> for
+details).</p>
+<h3 id="the-coalescedmemoryaccesstensorview-class">The
+<code>CoalescedMemoryAccessTensorView</code> class</h3>
+<p>Coalescent memory access refers to an access pattern where each
+components of a function is accessed through its dedicated memory
+location (see the non-interleaved storage pattern described
+previously).</p>
+<p>The <code>CoalescedMemoryAccessTensorView</code> class allows to make
+a tensorial function view from scalar function view on each components,
+as follows:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>real values<span class="op">[</span><span class="dv">8</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span>  <span class="co">// components XX</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">2</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span>  <span class="co">// components YY</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">3</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span>  <span class="co">// components ZZ</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">4</span><span class="op">,</span> <span class="dv">40</span><span class="op">};</span> <span class="co">// components XY</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> ne <span class="op">=</span> <span class="dt">size_type</span> <span class="op">{</span> <span class="dv">2</span> <span class="op">};</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> space <span class="op">=</span> BasicLinearSpace<span class="op">{</span>ne<span class="op">};</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> c_xx <span class="op">=</span> ScalarFunctionView<span class="op">{</span>space<span class="op">,</span> <span class="bu">std::</span>span<span class="op">{</span>values<span class="op">,</span> ne<span class="op">}};</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> c_yy <span class="op">=</span> ScalarFunctionView<span class="op">{</span>space<span class="op">,</span> <span class="bu">std::</span>span<span class="op">{</span>values <span class="op">+</span> ne<span class="op">,</span> ne<span class="op">}};</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> c_zz <span class="op">=</span> ScalarFunctionView<span class="op">{</span>space<span class="op">,</span> <span class="bu">std::</span>span<span class="op">{</span>values <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> ne<span class="op">,</span> ne<span class="op">}};</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> c_xy <span class="op">=</span> ScalarFunctionView<span class="op">{</span>space<span class="op">,</span> <span class="bu">std::</span>span<span class="op">{</span>values <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> ne<span class="op">,</span> ne<span class="op">}};</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> f <span class="op">=</span> CoalescedMemoryAccessTensorView<span class="op">&lt;</span>BasicLinearSpace<span class="op">,</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                                         tfel<span class="op">::</span>math<span class="op">::</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="op">,</span> real<span class="op">&gt;&gt;{</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>            <span class="bu">std::</span>array<span class="op">{</span>c_xx<span class="op">,</span> c_yy<span class="op">,</span> c_zz<span class="op">,</span> c_xy<span class="op">}};</span></span></code></pre></div>
 <h1 class="unnumbered" id="bibliography">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="list">

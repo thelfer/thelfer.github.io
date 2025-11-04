@@ -404,6 +404,10 @@ create tensorial objects</a></li>
 id="toc-sorting-eigenvalues-in-ascendingdescending-order"><span
 class="toc-section-number">3.3</span> Sorting eigenvalues in
 ascending/descending order</a></li>
+<li><a href="#views-of-tensorial-objects-with-coalescent-memory-access"
+id="toc-views-of-tensorial-objects-with-coalescent-memory-access"><span
+class="toc-section-number">3.4</span> Views of tensorial objects with
+coalescent memory access</a></li>
 </ul></li>
 <li><a href="#new-tfelmaterial-features"
 id="toc-new-tfelmaterial-features"><span
@@ -879,6 +883,24 @@ matrix giving the eigen tensors must be the identity.</li>
 <li>in <code>2D</code>, only the inplane eigenvalues can be sorted: the
 third eigenvalue is always given by the out of plane direction.</li>
 </ul>
+<h2 data-number="3.4"
+id="views-of-tensorial-objects-with-coalescent-memory-access"><span
+class="header-section-number">3.4</span> Views of tensorial objects with
+coalescent memory access</h2>
+<p>The <code>View</code> class allows to interpret a contiguous memory
+area as a tensorial object. Such views are not efficient on GPUs where
+coalescent memory access are preferable. The newly introduced
+<code>CoalescedView</code> class offers a solution to this issue.</p>
+<p>A coalesced view is initialized by an array of pointers to the
+components of the mapped object, as illustrated in the following
+snippet:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> values<span class="op">[</span><span class="dv">8</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">40</span><span class="op">};</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>array ptrs<span class="op">{&amp;</span>values<span class="op">[</span><span class="dv">0</span><span class="op">],</span> <span class="op">&amp;</span>values<span class="op">[</span><span class="dv">2</span><span class="op">],</span> <span class="op">&amp;</span>values<span class="op">[</span><span class="dv">4</span><span class="op">],</span> <span class="op">&amp;</span>values<span class="op">[</span><span class="dv">6</span><span class="op">]};</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> s1 <span class="op">=</span> map<span class="op">&lt;</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;&gt;(</span>ptrs<span class="op">);</span></span></code></pre></div>
+<p>In this snippet, the components of the symmetric tensor
+<code>s1</code> are not stored continuously but each component is
+associated to an independent pointer.</p>
 <h1 data-number="4" id="new-tfelmaterial-features"><span
 class="header-section-number">4</span> New <code>TFEL/Material</code>
 features</h1>
@@ -978,8 +1000,8 @@ instance, in an implicit DSL, specifying a convergence threshold greater
 than <span class="math inline">\(10^{-10}\)</span> is considered to
 loose in most cases and thus triggers a warning. This warning can be
 disabled as follows:</p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon<span class="op">&lt;</span>safe<span class="op">&gt;</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon<span class="op">&lt;</span>safe<span class="op">&gt;</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
 <p>This <code>safe</code> option can be ignored by passing the
 <code>--ignore-safe</code> command line argument to <code>MFront</code>.
 This argument is useful when analysing an existing file (written by
@@ -1167,16 +1189,16 @@ convergence threshold</h4>
 id="calling-an-external-behaviour-the-behaviourvariable-keyword"><span
 class="header-section-number">5.2</span> Calling an external behaviour:
 the <code>@BehaviourVariable</code> keyword</h2>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>BehaviourVariable first_phase_plastic_behaviour <span class="op">{</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  file<span class="op">:</span> <span class="st">&quot;Plasticity.mfront&quot;</span><span class="op">,</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  variables_suffix<span class="op">:</span> <span class="st">&quot;1&quot;</span><span class="op">,</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  external_names_prefix<span class="op">:</span> <span class="st">&quot;FirstPhase&quot;</span><span class="op">,</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  store_gradients<span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  store_thermodynamic_forces<span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  shared_material_properties<span class="op">:</span> <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">},</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  shared_external_state_variables<span class="op">:</span> <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">}</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>BehaviourVariable first_phase_plastic_behaviour <span class="op">{</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  file<span class="op">:</span> <span class="st">&quot;Plasticity.mfront&quot;</span><span class="op">,</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  variables_suffix<span class="op">:</span> <span class="st">&quot;1&quot;</span><span class="op">,</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  external_names_prefix<span class="op">:</span> <span class="st">&quot;FirstPhase&quot;</span><span class="op">,</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  store_gradients<span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  store_thermodynamic_forces<span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  shared_material_properties<span class="op">:</span> <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">},</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  shared_external_state_variables<span class="op">:</span> <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">}</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h3 data-number="5.2.1" id="behaviour-variable-factories"><span
 class="header-section-number">5.2.1</span> Behaviour variable
 factories</h3>
@@ -1251,10 +1273,10 @@ declaration of the elastic strain and switches to this incremental form
 to compute the stress.</p>
 <h4 data-number="5.5.1.1" id="example-of-usage-3"><span
 class="header-section-number">5.5.1.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL IsotropicStrainHardeningMisesCreep<span class="op">{</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  use_stress_update_algorithm <span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL IsotropicStrainHardeningMisesCreep<span class="op">{</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  use_stress_update_algorithm <span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h3 data-number="5.5.2" id="predefined-isotropic-hardening-rules"><span
 class="header-section-number">5.5.2</span> Predefined isotropic
 hardening rules</h3>
@@ -1265,14 +1287,14 @@ href="StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlastici
 brick</a>.</p>
 <h4 data-number="5.5.2.1" id="example-of-usage-4"><span
 class="header-section-number">5.5.2.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IsotropicHardeningRule <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>flow_id <span class="op">:</span> <span class="dv">0</span><span class="op">,</span> R0 <span class="op">:</span> <span class="fl">125e6</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="fl">500e6</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">20</span><span class="op">};</span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IsotropicHardeningRules<span class="op">{</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  flow_id <span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">125e6</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="fl">500e6</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">20</span><span class="op">},</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">50e6</span><span class="op">}</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IsotropicHardeningRule <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>flow_id <span class="op">:</span> <span class="dv">0</span><span class="op">,</span> R0 <span class="op">:</span> <span class="fl">125e6</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="fl">500e6</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">20</span><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IsotropicHardeningRules<span class="op">{</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  flow_id <span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">125e6</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="fl">500e6</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">20</span><span class="op">},</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">50e6</span><span class="op">}</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h4 data-number="5.5.2.2"
 id="automatic-declaration-of-the-flow-rule-in-the-isotropicplasticmisesflow-dsl"><span
 class="header-section-number">5.5.2.2</span> Automatic declaration of
@@ -1280,12 +1302,12 @@ the flow rule in the <code>IsotropicPlasticMisesFlow</code> DSL</h4>
 <p>If an isotropic hardening rule is defined in the
 <code>IsotropicPlasticMisesFlow</code> DSL, and if no flow rule is
 defined, the following flow rule is automatically defined:</p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FlowRule <span class="op">{</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  f <span class="op">=</span> seq <span class="op">-</span> R<span class="op">;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  df_dseq <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  df_dp <span class="op">=</span> <span class="op">-</span>dR_dp<span class="op">;</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FlowRule <span class="op">{</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  f <span class="op">=</span> seq <span class="op">-</span> R<span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  df_dseq <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  df_dp <span class="op">=</span> <span class="op">-</span>dR_dp<span class="op">;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h4 data-number="5.5.2.3" id="available-isotropic-hardening-rules"><span
 class="header-section-number">5.5.2.3</span> Available isotropic
 hardening rules</h4>
@@ -1294,8 +1316,8 @@ hardening rules</h4>
 <code>StrainRateSensitive</code>, <code>Swift</code>,
 <code>UserDefined</code>, and <code>Voce</code>.</p>
 <p>This list can be retrieved as follows:</p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-isotropic-hardening-rules</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-isotropic-hardening-rules</span></span></code></pre></div>
 <h3 data-number="5.5.3"
 id="add-support-for-the-predictor-code-block"><span
 class="header-section-number">5.5.3</span> Add support for the
@@ -1304,10 +1326,10 @@ class="header-section-number">5.5.3</span> Add support for the
 guess for the (visco-)plastic strain increments.</p>
 <h4 data-number="5.5.3.1" id="example-of-usage-5"><span
 class="header-section-number">5.5.3.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Predictor<span class="op">{</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a> dp <span class="op">=</span> sqrt<span class="op">(</span>deto<span class="op">|</span> deto<span class="op">);</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Predictor<span class="op">{</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a> dp <span class="op">=</span> sqrt<span class="op">(</span>deto<span class="op">|</span> deto<span class="op">);</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h2 data-number="5.6"
 id="extensions-of-the-standardelastoviscoplasticity-brick"><span
 class="header-section-number">5.6</span> Extensions of the
@@ -1321,15 +1343,15 @@ equilvaent strain with the <code>equivalent_strain_external_name</code>
 option.</p>
 <h4 data-number="5.6.1.1" id="example-of-usage-6"><span
 class="header-section-number">5.6.1.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> Hooke<span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">33e6</span><span class="op">,</span> H <span class="op">:</span> <span class="fl">438e6</span><span class="op">},</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    equivalent_strain_external_name <span class="op">:</span> <span class="st">&quot;CumulatedEquivalentPlasticStrain&quot;</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> Hooke<span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">33e6</span><span class="op">,</span> H <span class="op">:</span> <span class="fl">438e6</span><span class="op">},</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    equivalent_strain_external_name <span class="op">:</span> <span class="st">&quot;CumulatedEquivalentPlasticStrain&quot;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h3 data-number="5.6.2"
 id="sec:tfel:5.1:StandardElastoViscoPlasticity:saving_stress_criterion"><span
 class="header-section-number">5.6.2</span> Saving the stress
@@ -1344,16 +1366,16 @@ inelastic flow. This name can be changed using the
 <code>stress_criterion_external_name</code> option.</p>
 <h4 data-number="5.6.2.1" id="example-of-usage-7"><span
 class="header-section-number">5.6.2.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb17"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> Hooke<span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">33e6</span><span class="op">,</span> H <span class="op">:</span> <span class="fl">438e6</span><span class="op">},</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    stress_criterion_external_name <span class="op">:</span> <span class="st">&quot;StressCriterion&quot;</span><span class="op">,</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    save_stress_criterion <span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> Hooke<span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">33e6</span><span class="op">,</span> H <span class="op">:</span> <span class="fl">438e6</span><span class="op">},</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    stress_criterion_external_name <span class="op">:</span> <span class="st">&quot;StressCriterion&quot;</span><span class="op">,</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    save_stress_criterion <span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h3 data-number="5.6.3"
 id="sec:tfel:5.1:StandardElastoViscoPlasticity:saving_yield_surface_radius"><span
 class="header-section-number">5.6.3</span> Saving yield radius</h3>
@@ -1367,16 +1389,16 @@ inelastic flow. This name can be changed using the
 <code>yield_surface_radius_external_name</code> option.</p>
 <h4 data-number="5.6.3.1" id="example-of-usage-8"><span
 class="header-section-number">5.6.3.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb18"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> Hooke<span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">33e6</span><span class="op">,</span> H <span class="op">:</span> <span class="fl">438e6</span><span class="op">},</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    yield_surface_radius_external_name <span class="op">:</span> <span class="st">&quot;CurrentYieldStrength&quot;</span><span class="op">,</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    save_yield_surface_radius <span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> Hooke<span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">33e6</span><span class="op">,</span> H <span class="op">:</span> <span class="fl">438e6</span><span class="op">},</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    yield_surface_radius_external_name <span class="op">:</span> <span class="st">&quot;CurrentYieldStrength&quot;</span><span class="op">,</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    save_yield_surface_radius <span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h3 data-number="5.6.4"
 id="sec:tfel:5.1:StandardElastoViscoPlasticity:saving_thermal_expansion"><span
 class="header-section-number">5.6.4</span> Saving the thermal
@@ -1391,15 +1413,15 @@ For an isotropic thermal expansion, this variable is a scalar. For an
 orthotropic material, this variable is an array of (3) scalars.</p>
 <h4 data-number="5.6.4.1" id="example-of-usage-9"><span
 class="header-section-number">5.6.4.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb19"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> Hooke<span class="op">{</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">,</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    thermal_expansion <span class="op">:</span> <span class="fl">1e-5</span><span class="op">,</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    save_thermal_expansion <span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> Hooke<span class="op">{</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">,</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    thermal_expansion <span class="op">:</span> <span class="fl">1e-5</span><span class="op">,</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    save_thermal_expansion <span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h2 data-number="5.7" id="uniform-syntaxes"><span
 class="header-section-number">5.7</span> Uniform syntaxes</h2>
 <h3 data-number="5.7.1"
@@ -1411,11 +1433,11 @@ class="header-section-number">5.7.1</span> Uniform syntax for
 <code>@ComputeStiffnessTensor</code> now accept the same options than
 the stress potentials deriving from the
 <code>HookeStressPotentialBase</code>:</p>
-<div class="sourceCode" id="cb20"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ElasticMaterialProperties<span class="op">{</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  young_modulus<span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  poisson_ratio<span class="op">:</span> <span class="fl">0.3</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ElasticMaterialProperties<span class="op">{</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  young_modulus<span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  poisson_ratio<span class="op">:</span> <span class="fl">0.3</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h3 data-number="5.7.2"
 id="uniform-syntax-for-computethermalexpansion"><span
 class="header-section-number">5.7.2</span> Uniform syntax for
@@ -1423,23 +1445,23 @@ class="header-section-number">5.7.2</span> Uniform syntax for
 <p>The <code>@ComputeThermalExpansion</code> keyword now accepts the
 same options than the stress potentials deriving from the
 <code>HookeStressPotentialBase</code>:</p>
-<div class="sourceCode" id="cb21"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeThermalExpansion<span class="op">{</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  thermal_expansion1<span class="op">:</span> <span class="fl">1.e-5</span><span class="op">,</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  thermal_expansion2<span class="op">:</span> <span class="fl">0.2e-5</span><span class="op">,</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  thermal_expansion3<span class="op">:</span> <span class="fl">1.2e-5</span><span class="op">,</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  thermal_expansion_reference_temperature<span class="op">:</span> <span class="fl">293.15</span><span class="op">,</span> </span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  initial_geometry_reference_temperature<span class="op">:</span> <span class="fl">293.15</span><span class="op">,</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  save_thermal_expansion<span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeThermalExpansion<span class="op">{</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  thermal_expansion1<span class="op">:</span> <span class="fl">1.e-5</span><span class="op">,</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  thermal_expansion2<span class="op">:</span> <span class="fl">0.2e-5</span><span class="op">,</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  thermal_expansion3<span class="op">:</span> <span class="fl">1.2e-5</span><span class="op">,</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  thermal_expansion_reference_temperature<span class="op">:</span> <span class="fl">293.15</span><span class="op">,</span> </span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  initial_geometry_reference_temperature<span class="op">:</span> <span class="fl">293.15</span><span class="op">,</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  save_thermal_expansion<span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h3 data-number="5.7.3" id="uniform-syntax-for-hilltensor"><span
 class="header-section-number">5.7.3</span> Uniform syntax for
 <code>@HillTensor</code></h3>
 <p>The <code>@HillTensor</code> keyword now accepts the same options
 than the Hill’s stress criterion available in the
 <code>StandardElastoViscoPlasticity</code> brick:</p>
-<div class="sourceCode" id="cb22"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>HillTensor H <span class="op">{</span>F<span class="op">:</span> <span class="fl">0.371</span><span class="op">,</span> G<span class="op">:</span> <span class="fl">0.629</span><span class="op">,</span> H<span class="op">:</span> <span class="fl">4.052</span><span class="op">,</span> L<span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span> M<span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span> N<span class="op">:</span> <span class="fl">1.5</span><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>HillTensor H <span class="op">{</span>F<span class="op">:</span> <span class="fl">0.371</span><span class="op">,</span> G<span class="op">:</span> <span class="fl">0.629</span><span class="op">,</span> H<span class="op">:</span> <span class="fl">4.052</span><span class="op">,</span> L<span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span> M<span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span> N<span class="op">:</span> <span class="fl">1.5</span><span class="op">};</span></span></code></pre></div>
 <h1 data-number="6" id="new-features-in-mfront-query"><span
 class="header-section-number">6</span> New features in
 <code>mfront-query</code></h1>
@@ -1512,8 +1534,8 @@ strings.</p>
 <code>Material</code>, <code>MFront</code>, <code>MTest</code>.</p>
 <h4 data-number="7.2.1.1" id="example-of-usage-11"><span
 class="header-section-number">7.2.1.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb24"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TFELLibraries <span class="op">{</span><span class="st">&quot;MathParser&quot;</span><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TFELLibraries <span class="op">{</span><span class="st">&quot;MathParser&quot;</span><span class="op">};</span></span></code></pre></div>
 <h2 data-number="7.3" id="new-tutorials"><span
 class="header-section-number">7.3</span> New tutorials</h2>
 <p>New tutorials on implementation of homogenization schemes for

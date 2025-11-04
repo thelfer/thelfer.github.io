@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Analysis of simulation’s results exported in VTK with python and MGIS</title>
+        <meta name="author" content="Jérémy Hure, Thomas Helfer" />
+            <meta name="date" content="2026-03-11" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	    <li><a href="index.html">Overview</a></li>
+        <li><a>Documentation</a>
+      	  <ul>
+           <li><a href="install.html">Installation guide</a></li>
+            <li><a>Tutorials</a>
+                <ul>
+                <li><a href="analysis_python.html">Analysis of simulation's results exported in VTK with python and MGIS</a></li>
+                </ul>
+            </li>
+           <li><a href="contributing.html">Contributing</a></li>
+           </ul>
+        </li>
+        <li><a>Getting Help</a>
+      	  <ul>
+	        <li><a href="https://github.com/thelfer/FailureCriteria/discussions">Forum</a></li>
+	        <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	      </ul>
+       </li>
+        <li><a>About</a>
+      	  <ul>
+	        <li><a href="contributors.html">Contributors</a></li>
+	      </ul>
+       </li>
+      </ul><br>
+    </header>
+
+<div id="header">
+<h1 class="title">Analysis of simulation’s results exported in VTK with
+python and MGIS</h1>
+<h2 class="author">Jérémy Hure, Thomas Helfer</h2>
+<h3 class="date">03/11/2026</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#description" id="toc-description">Description</a>
+<ul>
+<li><a href="#description-of-the-rice-tracey-failure-criterion"
+id="toc-description-of-the-rice-tracey-failure-criterion">Description of
+the Rice-Tracey failure criterion</a>
+<ul>
+<li><a href="#mfront-implementation"
+id="toc-mfront-implementation"><code>MFront</code>
+implementation</a></li>
+<li><a href="#material-properties" id="toc-material-properties">Material
+properties</a></li>
+<li><a href="#external-state-variables"
+id="toc-external-state-variables">External state variables</a></li>
+<li><a href="#internal-state-variables"
+id="toc-internal-state-variables">Internal state variables</a></li>
+</ul></li>
+<li><a href="#description-of-the-results-to-be-analysed"
+id="toc-description-of-the-results-to-be-analysed">Description of the
+results to be analysed</a></li>
+</ul></li>
+<li><a href="#implementation-in-python"
+id="toc-implementation-in-python">Implementation in
+<code>python</code></a>
+<ul>
+<li><a href="#importing-python-modules"
+id="toc-importing-python-modules">Importing <code>python</code>
+modules</a></li>
+<li><a href="#main-parameters-defining-the-post-processing"
+id="toc-main-parameters-defining-the-post-processing">Main parameters
+defining the post-processing</a></li>
+<li><a href="#creation-of-the-vtk-reader-and-listing-results-files"
+id="toc-creation-of-the-vtk-reader-and-listing-results-files">Creation
+of the VTK reader and listing results files</a></li>
+<li><a href="#loading-the-post-processing"
+id="toc-loading-the-post-processing">Loading the
+post-processing</a></li>
+<li><a href="#creation-of-the-material-data-manager"
+id="toc-creation-of-the-material-data-manager">Creation of the material
+data manager</a></li>
+<li><a href="#creation-of-res-array"
+id="toc-creation-of-res-array">Creation of <code>res</code>
+array</a></li>
+<li><a href="#initialization-of-the-material-properties"
+id="toc-initialization-of-the-material-properties">Initialization of the
+material properties</a></li>
+<li><a href="#integration-of-the-post-processing-over-all-time-steps"
+id="toc-integration-of-the-post-processing-over-all-time-steps">Integration
+of the post-processing over all time steps</a></li>
+<li><a href="#saving-the-res-array" id="toc-saving-the-res-array">Saving
+the <code>res</code> array</a></li>
+</ul></li>
+<li><a href="#references" id="toc-references">References</a></li>
+</ul>
+</div>
+<p>This tutorial shows how to use the failure criteria provided by the
+<code>FailureCriteria</code> project to analyse the results of a
+simulation exported in <code>VTK</code> with the failure criterion
+proposed by Rice and Tracey <span class="citation"
+data-cites="rice_ductile_1969">[<a href="#ref-rice_ductile_1969"
+role="doc-biblioref">1</a>]</span> using <code>python</code> and
+<code>MGIS</code>.</p>
+<h1 id="description">Description</h1>
+<h2 id="description-of-the-rice-tracey-failure-criterion">Description of
+the Rice-Tracey failure criterion</h2>
+<h3 id="mfront-implementation"><code>MFront</code> implementation</h3>
+<p>The Rice-Tracey failure criterion is implemented in the file
+<code>DuctileDamageIndicator_RiceTracey1969.mfront</code>.</p>
+<h3 id="material-properties">Material properties</h3>
+<p>The implementation declares two material properties that will have to
+be defined in the post-processing script:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--material-properties</span> src/DuctileDamageIndicator_RiceTracey1969.mfront </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> D1</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> D2</span></code></pre></div>
+<h3 id="external-state-variables">External state variables</h3>
+<p>The implementation declares two external state variables that will
+have to be extracted from the results of the simulation in the
+post-processing script:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--external-state-variables</span> src/DuctileDamageIndicator_RiceTracey1969.mfront </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> EquivalentPlasticStrain <span class="er">(</span><span class="ex">p</span><span class="kw">)</span><span class="bu">:</span> the equivalent plastic strain</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Stress <span class="er">(</span><span class="ex">sig</span><span class="kw">)</span><span class="bu">:</span> the stress tensor</span></code></pre></div>
+<h3 id="internal-state-variables">Internal state variables</h3>
+<p>The implementation compute an unique state result, named
+<code>DamageIndicator</code>:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--persistent-variables</span> src/DuctileDamageIndicator_RiceTracey1969.mfront </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> DamageIndicator <span class="er">(</span><span class="ex">di</span><span class="kw">)</span></span></code></pre></div>
+<h2 id="description-of-the-results-to-be-analysed">Description of the
+results to be analysed</h2>
+<p>For each time step, a <code>vtu</code> file has been generated. In
+our example, the names of those files matches the pattern
+<code>Results.XXXX.vtu</code> where <code>XXXX</code> denotes the time
+step number. Those <code>vtu</code> files contains a certain number of
+data that will be used for the post-processing.</p>
+<h1 id="implementation-in-python">Implementation in
+<code>python</code></h1>
+<p>The main implementation follows the following main steps:</p>
+<ol type="1">
+<li>Create a <code>VTK</code> reader and list all the <code>vtu</code>
+files,</li>
+<li>Load the post-processing as an <code>MGIS</code>’s model,</li>
+<li>Create a <code>MaterialDataManager</code> to store the internal
+state variables of the post-processing and integrating the
+post-processing over each time steps,</li>
+<li>Initialize the material properties used by the post-processing</li>
+<li>Create a <code>NumPy</code> array named <code>res</code> to store
+the maximum value of the damage indicator over all integration points
+for all time steps.</li>
+<li>Iterate over all the results files, extract the external state
+variables used by the post-processing and integrate the post-processing
+to compute the damage indicator. The <code>res</code> array is then
+updated. On demand, the damage indicator is saved in a dedicated
+<code>vtu</code> file.</li>
+<li>The <code>res</code> array is saved in a <code>txt</code> file.</li>
+</ol>
+<h2 id="importing-python-modules">Importing <code>python</code>
+modules</h2>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> vtk</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vtk.util.numpy_support <span class="im">import</span> vtk_to_numpy</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vtk.numpy_interface <span class="im">import</span> dataset_adapter <span class="im">as</span> dsa</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mgis.behaviour <span class="im">as</span> mgis_bv</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mgis.model</span></code></pre></div>
+<h2 id="main-parameters-defining-the-post-processing">Main parameters
+defining the post-processing</h2>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;LibraryPath&quot;</span>: <span class="st">&quot;src/libBehaviour.so&quot;</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Law&quot;</span>: <span class="st">&quot;DuctileDamageIndicator_RiceTracey1969&quot;</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Hypothesis&quot;</span>: <span class="st">&quot;Tridimensional&quot;</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>material_properties <span class="op">=</span> {<span class="st">&quot;D1&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;D2&quot;</span>: <span class="dv">1</span>}</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> {<span class="st">&quot;OutputData&quot;</span>: <span class="st">&quot;DamageIndicator&quot;</span>, <span class="st">&quot;VtkOutput&quot;</span>: <span class="st">&quot;true&quot;</span>, <span class="st">&quot;VtkFormat&quot;</span>: <span class="st">&quot;ascii&quot;</span>}</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;PrefixFiles&quot;</span>: <span class="st">&quot;Results&quot;</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Components&quot;</span>: {<span class="st">&quot;Stress&quot;</span>: <span class="st">&quot;SIG&quot;</span>, <span class="st">&quot;EquivalentPlasticStrain&quot;</span>: <span class="st">&quot;P&quot;</span>},</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;StressNotation&quot;</span>: <span class="st">&quot;Mandel&quot;</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Timestep&quot;</span>: <span class="dv">1</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 id="creation-of-the-vtk-reader-and-listing-results-files">Creation
+of the VTK reader and listing results files</h2>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> vtk.vtkXMLUnstructuredGridReader()</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">sorted</span>(glob.glob(data[<span class="st">&quot;PrefixFiles&quot;</span>] <span class="op">+</span> <span class="st">&quot;*vtu&quot;</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> f:</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(<span class="st">&quot;vtu files not found&quot;</span>)</span></code></pre></div>
+<h2 id="loading-the-post-processing">Loading the post-processing</h2>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">match</span> model[<span class="st">&quot;Hypothesis&quot;</span>]:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">&quot;Tridimensional&quot;</span>:</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        h <span class="op">=</span> mgis_bv.Hypothesis.Tridimensional</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">&quot;GeneralisedPlaneStrain&quot;</span>:</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        h <span class="op">=</span> mgis_bv.Hypothesis.GeneralisedPlaneStrain</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">&quot;PlaneStrain&quot;</span>:</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        h <span class="op">=</span> mgis_bv.Hypothesis.PlaneStrain</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">&quot;Axisymmetrical&quot;</span>:</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        h <span class="op">=</span> mgis_bv.Hypothesis.Axisymmetrical</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">&quot;AxisymmetricalGeneralisedPlaneStrain&quot;</span>:</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        h <span class="op">=</span> mgis_bv.Hypothesis.AxisymmetricalGeneralisedPlaneStrain</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> _:</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">&quot;Bad hypothesis&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(model[<span class="st">&quot;LibraryPath&quot;</span>]):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(<span class="st">&quot;Library file not found&quot;</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>mm <span class="op">=</span> mgis.model.load(model[<span class="st">&quot;LibraryPath&quot;</span>], model[<span class="st">&quot;Law&quot;</span>], h)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>o <span class="op">=</span> mgis_bv.getVariableOffset(mm.isvs, output[<span class="st">&quot;OutputData&quot;</span>], h)</span></code></pre></div>
+<h2 id="creation-of-the-material-data-manager">Creation of the material
+data manager</h2>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>r.SetFileName(f[<span class="dv">0</span>])</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>r.Update()</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> mgis_bv.MaterialDataManager(mm, r.GetOutput().GetNumberOfPoints())</span></code></pre></div>
+<h2 id="creation-of-res-array">Creation of <code>res</code> array</h2>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> np.zeros([<span class="bu">len</span>(f), <span class="dv">1</span>])</span></code></pre></div>
+<h2 id="initialization-of-the-material-properties">Initialization of the
+material properties</h2>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pname, pval <span class="kw">in</span> material_properties.items():</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    mgis.behaviour.setMaterialProperty(m.s0, pname, pval)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    mgis.behaviour.setMaterialProperty(m.s1, pname, pval)</span></code></pre></div>
+<h2
+id="integration-of-the-post-processing-over-all-time-steps">Integration
+of the post-processing over all time steps</h2>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ifile, <span class="bu">file</span> <span class="kw">in</span> <span class="bu">enumerate</span>(f):</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    r.SetFileName(<span class="bu">file</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    r.Update()</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cm, cvtk <span class="kw">in</span> data[<span class="st">&quot;Components&quot;</span>].items():</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Get data</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> r.GetOutput().GetPointData().GetArray(cvtk)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Convert to numpy</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> vtk_to_numpy(d)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># MFront type stress components</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (cm <span class="op">==</span> <span class="st">&quot;Stress&quot;</span>) <span class="kw">and</span> (</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>            <span class="kw">not</span> (model[<span class="st">&quot;Hypothesis&quot;</span>] <span class="op">==</span> <span class="st">&quot;AxisymmetricalGeneralisedPlaneStrain&quot;</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>        ):</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (data[<span class="st">&quot;StressNotation&quot;</span>] <span class="op">==</span> <span class="st">&quot;Voigt&quot;</span>) <span class="kw">or</span> (</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>                data[<span class="st">&quot;StressNotation&quot;</span>] <span class="op">==</span> <span class="st">&quot;ReverseVoigt&quot;</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>            ):</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>                d[:, <span class="dv">3</span>:] <span class="op">*=</span> np.sqrt(<span class="dv">2</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (model[<span class="st">&quot;Hypothesis&quot;</span>] <span class="op">==</span> <span class="st">&quot;Tridimensional&quot;</span>) <span class="kw">and</span> (</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>                (data[<span class="st">&quot;StressNotation&quot;</span>] <span class="op">==</span> <span class="st">&quot;Voigt&quot;</span>)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>                <span class="kw">or</span> (data[<span class="st">&quot;StressNotation&quot;</span>] <span class="op">==</span> <span class="st">&quot;Mandel&quot;</span>)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>            ):</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>                d[:, [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]] <span class="op">=</span> d[:, [<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>]]</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># first iteration: set initial values (m.s0) equal to zero</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ifile <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>            mgis_bv.setExternalStateVariable(</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>                m.s0,</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>                cm,</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>                <span class="dv">0</span> <span class="op">*</span> d.reshape(d.size),</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>                mgis_bv.MaterialStateManagerStorageMode.LocalStorage,</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Set end of step values (m.s1)</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>        mgis_bv.setExternalStateVariable(</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>            m.s1,</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>            cm,</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>            d.reshape(d.size),</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>            mgis_bv.MaterialStateManagerStorageMode.LocalStorage,</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    mgis_bv.integrate(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>        m,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        mgis_bv.IntegrationType.IntegrationWithoutTangentOperator,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        data[<span class="st">&quot;Timestep&quot;</span>],</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="dv">0</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        m.n,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> m.s1.internal_state_variables[:, o]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    res[ifile] <span class="op">=</span> np.<span class="bu">max</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Output vtu with damage value</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> output[<span class="st">&quot;VtkOutput&quot;</span>]:</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Set mesh and writer</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        meshNew <span class="op">=</span> dsa.WrapDataObject(r.GetOutput())</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        meshNew.PointData.append(d, output[<span class="st">&quot;OutputData&quot;</span>])</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        w <span class="op">=</span> vtk.vtkXMLUnstructuredGridWriter()</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Set output file name</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        w.SetFileName(</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>            data[<span class="st">&quot;PrefixFiles&quot;</span>] <span class="op">+</span> <span class="st">&quot;_post&quot;</span> <span class="op">+</span> <span class="bu">file</span>.split(data[<span class="st">&quot;PrefixFiles&quot;</span>])[<span class="dv">1</span>]</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        w.SetInputData(meshNew.VTKObject)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> output[<span class="st">&quot;VtkFormat&quot;</span>] <span class="op">==</span> <span class="st">&quot;ascii&quot;</span>:</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>            w.SetDataModeToAscii()</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        w.Write()</span></code></pre></div>
+<h2 id="saving-the-res-array">Saving the <code>res</code> array</h2>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>np.savetxt(data[<span class="st">&quot;PrefixFiles&quot;</span>] <span class="op">+</span> <span class="st">&quot;_post.txt&quot;</span>, res)</span></code></pre></div>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-rice_ductile_1969" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Rice</span>, J. R. and
+<span class="smallcaps">Tracey</span>, D. M. On the ductile enlargement
+of voids in triaxial stress fields∗. <em>Journal of the Mechanics and
+Physics of Solids</em>. June 1969. Vol. 17, no. 3, p. 201–217. DOI <a
+href="https://doi.org/10.1016/0022-5096(69)90033-7">10.1016/0022-5096(69)90033-7</a>.
+Available from: <a
+href="https://linkinghub.elsevier.com/retrieve/pii/0022509669900337">https://linkinghub.elsevier.com/retrieve/pii/0022509669900337</a></div>
+</div>
+</div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

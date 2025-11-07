@@ -495,8 +495,8 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 <span id="biphasic-17"><a href="#biphasic-17"></a><span class="bu">std::</span>array<span class="op">&lt;</span>stress<span class="op">,</span><span class="dv">2</span><span class="op">&gt;</span> tab_mu<span class="op">={</span>mu0<span class="op">,</span>mui<span class="op">};</span></span>
 <span id="biphasic-18"><a href="#biphasic-18"></a><span class="kw">auto</span> pa2<span class="op">=</span>computeIsotropicHashinShtrikmanBounds<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>tab_f<span class="op">,</span>tab_k<span class="op">,</span>tab_mu<span class="op">);</span></span>
 <span id="biphasic-19"><a href="#biphasic-19"></a><span class="kw">auto</span> UB<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>pa2<span class="op">);</span></span>
-<span id="biphasic-20"><a href="#biphasic-20"></a><span class="kw">auto</span> kh<span class="op">=</span>UB<span class="op">.</span>kappa<span class="op">;</span></span>
-<span id="biphasic-21"><a href="#biphasic-21"></a><span class="kw">auto</span> muh<span class="op">=</span>UB<span class="op">.</span>mu<span class="op">;</span></span>
+<span id="biphasic-20"><a href="#biphasic-20"></a><span class="kw">auto</span> kh<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span>UB<span class="op">);</span></span>
+<span id="biphasic-21"><a href="#biphasic-21"></a><span class="kw">auto</span> muh<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>UB<span class="op">)</span></span>
 <span id="biphasic-22"><a href="#biphasic-22"></a>kg<span class="op">=</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>kh<span class="op">,</span>muh<span class="op">);</span></span>
 <span id="biphasic-23"><a href="#biphasic-23"></a><span class="kw">auto</span> Enu<span class="op">=</span>kg<span class="op">.</span>ToYoungNu<span class="op">();</span></span>
 <span id="biphasic-24"><a href="#biphasic-24"></a><span class="op">};</span></span>
@@ -509,12 +509,12 @@ straightforward.</p>
 <p>The function <code>computeIsotropicHashinShtrikmanBounds</code>
 necessitates to give the arrays of volume fractions <code>tab_f</code>,
 bulk moduli <code>tab_k</code> and shear moduli <code>tab_mu</code>. The
-function returns a <code>pair</code> of <code>KGModuli</code>. The first
-pair is lower HS bound, the second is upper HS bound (that we want
-here). Each bound is <code>KGModuli</code> whose <code>kappa</code>
-attribute is the bulk modulus, and whose <code>mu</code> attribute is
-the shear modulus. The function is also available for plain strain
-elasticity (the first template argument is the dimension).</p>
+function returns a <code>std::pair</code> of <code>std::pair</code>. The
+first pair is lower HS bound, the second is upper HS bound (that we want
+here). Each bound is <code>std::pair</code> whose first attribute is the
+bulk modulus, and whose second attribute is the shear modulus. The
+function is also available for plain strain elasticity (the first
+template argument is the dimension).</p>
 <h2 id="results">Results</h2>
 <p>We choose <code>interface</code> <code>python</code> to compute the
 schemes for a volume fraction of spheres which goes from 0 to 1.</p>

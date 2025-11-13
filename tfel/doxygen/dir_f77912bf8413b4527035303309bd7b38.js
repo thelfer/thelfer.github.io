@@ -152,6 +152,7 @@ var dir_f77912bf8413b4527035303309bd7b38 =
     [ "MFrontBase.hxx", "_m_front_base_8hxx.html", "_m_front_base_8hxx" ],
     [ "MFrontBehaviourInterface.hxx", "_m_front_behaviour_interface_8hxx.html", "_m_front_behaviour_interface_8hxx" ],
     [ "MFrontConfig.hxx", "_m_front_config_8hxx.html", null ],
+    [ "MFrontDatabase.hxx", "_m_front_database_8hxx.html", "_m_front_database_8hxx" ],
     [ "MFrontDebugMode.hxx", "_m_front_debug_mode_8hxx.html", "_m_front_debug_mode_8hxx" ],
     [ "MFrontHeader.hxx", "_m_front_header_8hxx.html", "_m_front_header_8hxx" ],
     [ "MFrontLock.hxx", "_m_front_lock_8hxx.html", "_m_front_lock_8hxx" ],

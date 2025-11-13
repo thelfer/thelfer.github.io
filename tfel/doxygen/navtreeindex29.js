@@ -1,5 +1,6 @@
 var NAVTREEINDEX29 =
 {
+"structmfront_1_1_behaviour_data.html#a3dbc7ceebd774579d5b78115c6b8785b":[5,0,7,21,79],
 "structmfront_1_1_behaviour_data.html#a3eb7e3ec1cbc5d940835bb9f78b21ea8":[5,0,7,21,60],
 "structmfront_1_1_behaviour_data.html#a3eb7e3ec1cbc5d940835bb9f78b21ea8":[7,0,10,23,60],
 "structmfront_1_1_behaviour_data.html#a423602d083ac6c9579c9a4bc8b27ce77":[5,0,7,21,81],
@@ -248,6 +249,5 @@ var NAVTREEINDEX29 =
 "structmfront_1_1_behaviour_description.html#a018b11f51aaaa861a635e470fd91f5c6":[7,0,10,24,22],
 "structmfront_1_1_behaviour_description.html#a02ec03538c141b7ffd950e97cc3a35dc":[7,0,10,24,149],
 "structmfront_1_1_behaviour_description.html#a02ec03538c141b7ffd950e97cc3a35dc":[5,0,7,22,149],
-"structmfront_1_1_behaviour_description.html#a034ad4c68d384d185e37f622de570d1c":[7,0,10,24,242],
-"structmfront_1_1_behaviour_description.html#a034ad4c68d384d185e37f622de570d1c":[5,0,7,22,242]
+"structmfront_1_1_behaviour_description.html#a034ad4c68d384d185e37f622de570d1c":[7,0,10,24,242]
 };

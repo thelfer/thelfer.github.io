@@ -10,5 +10,6 @@ var searchData=
   ['quantitytraits_7',['QuantityTraits',['../structtfel_1_1math_1_1_quantity_traits.html',1,'tfel::math']]],
   ['quantitytraits_3c_20quantity_3c_20quantityunittype_2c_20quantityvaluetype_2c_20quantityownershippolicy_20_3e_20_3e_8',['QuantityTraits&lt; Quantity&lt; QuantityUnitType, QuantityValueType, QuantityOwnershipPolicy &gt; &gt;',['../structtfel_1_1math_1_1_quantity_traits_3_01_quantity_3_01_quantity_unit_type_00_01_quantity_valu3f151d28c90bf326177b314b31786f75.html',1,'tfel::math']]],
   ['quantityvalueownershippolicy_9',['QuantityValueOwnershipPolicy',['../structtfel_1_1math_1_1internals_1_1_quantity_value_ownership_policy.html',1,'tfel::math::internals']]],
-  ['queryhandlerbase_10',['QueryHandlerBase',['../structmfront_1_1_query_handler_base.html',1,'mfront']]]
+  ['query_10',['Query',['../structmfront_1_1_m_front_database_1_1_query.html',1,'mfront::MFrontDatabase']]],
+  ['queryhandlerbase_11',['QueryHandlerBase',['../structmfront_1_1_query_handler_base.html',1,'mfront']]]
 ];

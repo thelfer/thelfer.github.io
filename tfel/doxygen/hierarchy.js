@@ -247,6 +247,8 @@ var hierarchy =
     [ "tfel::math::internals::AddUnit< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > >, Unit< std::integral_constant< int, O1 >, std::integral_constant< int, O2 >, std::integral_constant< int, O3 >, std::integral_constant< int, O4 >, std::integral_constant< int, O5 >, std::integral_constant< int, O6 >, std::integral_constant< int, O7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > > >", "structtfel_1_1math_1_1internals_1_1_add_unit_3_01_unit_3_01std_1_1integral__constant_3_01int_00_d0756212a6604fd858b959f2049c3f93.html", null ],
     [ "tfel::math::internals::AddUnit< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > >, Unit< std::integral_constant< int, O1 >, std::integral_constant< int, O2 >, std::integral_constant< int, O3 >, std::integral_constant< int, O4 >, std::integral_constant< int, O5 >, std::integral_constant< int, O6 >, std::integral_constant< int, O7 >, std::integral_constant< unsigned int, AP1 >, std::integral_constant< unsigned int, AP2 >, std::integral_constant< unsigned int, AP3 >, std::integral_constant< unsigned int, AP4 >, std::integral_constant< unsigned int, AP5 >, std::integral_constant< unsigned int, AP6 >, std::integral_constant< unsigned int, AP7 > > >", "structtfel_1_1math_1_1internals_1_1_add_unit_3_01_unit_3_01std_1_1integral__constant_3_01int_00_9b0816f3a9416e6f4d4151af6875e21b.html", null ],
     [ "tfel::math::AitkenAccelerationAlgorithm< NumericType, IndexType >", "structtfel_1_1math_1_1_aitken_acceleration_algorithm.html", null ],
+    [ "mfront::MFrontDatabase::AnalyseDirectoryOptions", "structmfront_1_1_m_front_database_1_1_analyse_directory_options.html", null ],
+    [ "mfront::MFrontDatabase::AnalyseDirectoryResults", "structmfront_1_1_m_front_database_1_1_analyse_directory_results.html", null ],
     [ "mfront::BehaviourDescription::AnalyticMaterialProperty", "structmfront_1_1_behaviour_description_1_1_analytic_material_property.html", null ],
     [ "tfel::math::AndersonBase< Field, real >", "structtfel_1_1math_1_1_anderson_base.html", [
       [ "tfel::math::FAnderson< Field, real >", "structtfel_1_1math_1_1_f_anderson.html", null ],
@@ -1603,6 +1605,7 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "mfront::MFrontDatabase::EntryPoint", "structmfront_1_1_m_front_database_1_1_entry_point.html", null ],
     [ "tfel::system::EnumBinaryReader< T >", "structtfel_1_1system_1_1_enum_binary_reader.html", null ],
     [ "tfel::system::EnumBinaryWriter< T >", "structtfel_1_1system_1_1_enum_binary_writer.html", null ],
     [ "tfel::fsalgo::equal< N >", "structtfel_1_1fsalgo_1_1equal.html", null ],
@@ -2351,6 +2354,7 @@ var hierarchy =
     [ "tfel::math::parser::LevenbergMarquardtExternalFunctionWrapper", "structtfel_1_1math_1_1parser_1_1_levenberg_marquardt_external_function_wrapper.html", null ],
     [ "tfel::math::LevenbergMarquardtFunctionWrapper< T >", "structtfel_1_1math_1_1_levenberg_marquardt_function_wrapper.html", null ],
     [ "tfel::math::LevenbergMarquardtFunctionWrapper< double >", "structtfel_1_1math_1_1_levenberg_marquardt_function_wrapper.html", null ],
+    [ "mfront::MFrontDatabase::AnalyseDirectoryResults::LibraryAnalysisFailureReport", "structmfront_1_1_m_front_database_1_1_analyse_directory_results_1_1_library_analysis_failure_report.html", null ],
     [ "tfel::system::LibraryInformation", "structtfel_1_1system_1_1_library_information.html", null ],
     [ "tfel::utilities::TextData::Line", "structtfel_1_1utilities_1_1_text_data_1_1_line.html", null ],
     [ "LinearInterpolation", "class_linear_interpolation.html", null ],
@@ -2533,6 +2537,7 @@ var hierarchy =
       [ "mfront::MFront", "structmfront_1_1_m_front.html", null ],
       [ "mfront::QueryHandlerBase", "structmfront_1_1_query_handler_base.html", null ]
     ] ],
+    [ "mfront::MFrontDatabase", "structmfront_1_1_m_front_database.html", null ],
     [ "mfront::MFrontHeader", "structmfront_1_1_m_front_header.html", null ],
     [ "mfront::MFrontLock", "structmfront_1_1_m_front_lock.html", null ],
     [ "mfront::MFrontLockGuard", "structmfront_1_1_m_front_lock_guard.html", null ],
@@ -2822,6 +2827,7 @@ var hierarchy =
     [ "tfel::math::QuantityTraits< typename >", "structtfel_1_1math_1_1_quantity_traits.html", null ],
     [ "tfel::math::QuantityTraits< Quantity< QuantityUnitType, QuantityValueType, QuantityOwnershipPolicy > >", "structtfel_1_1math_1_1_quantity_traits_3_01_quantity_3_01_quantity_unit_type_00_01_quantity_valu3f151d28c90bf326177b314b31786f75.html", null ],
     [ "tfel::math::internals::QuantityValueOwnershipPolicy< ValueType, AllowImplicitConversion >", "structtfel_1_1math_1_1internals_1_1_quantity_value_ownership_policy.html", null ],
+    [ "mfront::MFrontDatabase::Query", "structmfront_1_1_m_front_database_1_1_query.html", null ],
     [ "tfel::typetraits::RealPartType< T >", "structtfel_1_1typetraits_1_1_real_part_type.html", null ],
     [ "tfel::typetraits::RealPartType< const tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_real_part_type_3_01const_01tfel_1_1math_1_1_quantity_3_01_unit_type06bfe17f8b9907e94370130dabd28a13.html", null ],
     [ "tfel::typetraits::RealPartType< tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_real_part_type_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_v9b5beb0e49f0989314db31a07b38bc9b.html", null ],

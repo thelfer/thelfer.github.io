@@ -128,6 +128,7 @@ var namespacemfront =
     [ "MFront", "structmfront_1_1_m_front.html", "structmfront_1_1_m_front" ],
     [ "MFrontBase", "structmfront_1_1_m_front_base.html", "structmfront_1_1_m_front_base" ],
     [ "MFrontBehaviourInterface", "structmfront_1_1_m_front_behaviour_interface.html", "structmfront_1_1_m_front_behaviour_interface" ],
+    [ "MFrontDatabase", "structmfront_1_1_m_front_database.html", "structmfront_1_1_m_front_database" ],
     [ "MFrontGerminalModelInterface", "structmfront_1_1_m_front_germinal_model_interface.html", "structmfront_1_1_m_front_germinal_model_interface" ],
     [ "MFrontHeader", "structmfront_1_1_m_front_header.html", null ],
     [ "MFrontLock", "structmfront_1_1_m_front_lock.html", null ],

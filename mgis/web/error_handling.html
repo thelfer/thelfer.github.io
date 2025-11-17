@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Evaluators and modifiers</title>
+    <title>Error handling in MGIS</title>
         <meta name="author" content="Thomas Helfer" />
             <meta name="date" content="2025-01-01" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -199,147 +199,147 @@
     </header>
     <br></br>
 <div id="header">
-<h1 class="title">Evaluators and modifiers</h1>
+<h1 class="title">Error handling in <code>MGIS</code></h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">2025</h3>
 </div>
-<div id="TOC">
+<p>This section describes the error handling strategy introduced in
+<code>MGIS</code> Version 3.1.</p>
+<p>A function or a method using this error handling strategy is
+recognizable as follows:</p>
 <ul>
-<li><a href="#unary-modifiers" id="toc-unary-modifiers">Unary
-modifiers</a>
-<ul>
-<li><a href="#modifierss-generators"
-id="toc-modifierss-generators">Modifiers’s generators</a></li>
-<li><a href="#tensors" id="toc-tensors">Tensors</a>
-<ul>
-<li><a href="#views" id="toc-views">Views</a></li>
-<li><a href="#modifiers-on-tensor-valuated-evaluators"
-id="toc-modifiers-on-tensor-valuated-evaluators">Modifiers on
-tensor-valuated evaluators</a></li>
-</ul></li>
-<li><a href="#modifiers-dedicated-to-mechanics"
-id="toc-modifiers-dedicated-to-mechanics">Modifiers dedicated to
-mechanics</a></li>
-</ul></li>
-<li><a href="#binary-modifiers" id="toc-binary-modifiers">Binary
-modifiers</a>
-<ul>
-<li><a href="#binary-modifiers-on-tensor-valuated-evaluators"
-id="toc-binary-modifiers-on-tensor-valuated-evaluators">Binary modifiers
-on tensor-valuated evaluators</a></li>
-<li><a href="#binary-modifiers-dedicated-to-mechanics"
-id="toc-binary-modifiers-dedicated-to-mechanics">Binary modifiers
-dedicated to mechanics</a></li>
-</ul></li>
+<li>It must take a class derived from
+<code>AbstractErrorHandler&amp;</code> as its first parameter. Two main
+classes, derived from <code>AbstractErrorHandler&amp;</code>, are
+available: <code>ContractViolationHandler</code> and
+<code>Context</code>. Consequently, if a function has a
+<code>AbstractErrorHandler&amp;</code> as its first parameter, the
+reader knows that it may fail, and that the return type of the function
+should be interpreted according to the rule below.</li>
+<li>It returns a value that can be invalid. The most common return type
+is a boolean which indicates success (<code>true</code>) or failure
+(<code>false</code>).</li>
+<li>It must be declared <code>noexcept</code>.</li>
 </ul>
-</div>
-<p>Evaluators and modifiers are two of the main concepts of
-<code>MGIS/Function</code> (see <a href="functions.html">this page</a>
-for an introduction).</p>
-<h1 id="unary-modifiers">Unary modifiers</h1>
+<h1 id="returned-value-of-functions-or-methods-that-may-fail">Returned
+value of functions (or methods) that may fail</h1>
+<p>A function that may fail shall generally return either:</p>
 <ul>
-<li><p><code>view</code>: the <code>view</code> modifier takes a dynamic
-function or evaluator and return an evaluator with a fixed number of
-components. The <code>view</code> modifier takes the expected number of
-components as argument.</p>
+<li>a boolean associated with the success of the function, i.e. if a
+function returns <code>true</code>, it succed.</li>
+<li>an <code>std::optional</code> object holding the results if those
+results are stored on the stack.</li>
+<li>an <code>std::unique_ptr</code> or an <code>std::shared_ptr</code>
+object holding if those results are stored on the heap. In this case,
+the failure of the function is indicated by the fact that the underlying
+pointer is null.</li>
+</ul>
+<blockquote>
+<p>** Note **</p>
+<p>Those returned value shall be mandatory marked with the
+<code>[[nodiscard]]</code> attribute. However, this conflicts in many
+case with the <code>MGIS_EXPORT</code> attribute. This is a defect of
+<code>C++-20</code>.</p>
+</blockquote>
+<h1 id="reporting-error-to-end-user">Reporting error to end-user</h1>
+<p>The <code>Context</code> class inherits from the
+<code>ErrorBacktrace</code> class, which has been designed to store
+error messages in a hierarchical way from the lowest level of the code
+up to the highest level function. The <code>ErrorBacktrace</code> is
+meant to be used through the <code>Context</code> object which is passed
+as the first argument to most functions.</p>
+<p>The <code>ErrorBacktrace</code> class, and the <code>Context</code>
+class mostly provides the <code>registerErrorMessage</code> method that
+can register an error in the form of:</p>
+<ol type="1">
+<li>a -string</li>
+<li>a -string</li>
+<li>a couple of a function allowing to return an error message from an
+integer value. This kind of function is provided by many HPC
+libraries.</li>
+</ol>
+<p>For convenience, the <code>registerErrorMessage</code> always returns
+an invalid value, i.e. a value that is convertible to any of the
+returned type described in the previous section.</p>
+<p>The error messages are packed up to the moment when error(s) must be
+reported to the end-user. The error messages can then be retrieved by
+the <code>getErrorMessage</code> method (or
+<code>getRawErrorMessage</code>, see below).</p>
+<h2 id="source-location">Source location</h2>
+<p>In debug mode, the source location, as returned by the
+<code>std::source_location::current_location</code> method, is
+automatically added to the error message returned by the
+<code>getErrorMessage</code> method.</p>
+<p>Note that this feature is currently only supported by
+<code>gcc</code> compilers.</p>
+<p>In some cases, the source location is not meaningful. In this case,
+the <code>registerErrorMessageWithoutSourceLocation</code> method can be
+used.</p>
+<p>If the information about the source location are not wanted, the
+<code>getRawErrorMessage</code> method can be used.</p>
+<h2 id="warning-about-usage-of-c-strings">Warning about usage of
+<code>C</code>-strings</h2>
+<p>Note that in the case of a <code>C</code>-string, the string is not
+copied and only the pointer is stored. The developer must then ensure
+that this string is not destroyed. As a rule of thumb, this string shall
+belong to the data section of the binary.</p>
+<h2 id="warning-about-usage-of-c-strings-1">Warning about usage of
+<code>C++</code>-strings</h2>
+<p><code>C++</code>-strings are the best way to report context sensitive
+error message. However, to reduce code bloat, building a complex error
+message shall never be implemented in a template function: one shall
+create a dedicated non-template function implemented in a source
+file.</p>
+<h1 id="the-special-case-of-constructors">The special case of
+constructors</h1>
+<p>Constructors don’t return values. There are mostly two ways to handle
+failure in constructors:</p>
+<ul>
+<li>exceptions</li>
+<li>having a boolean data member stating if the object is valid (this
+strategy is used by the standard <code>iostream</code> library for
+instance).</li>
+</ul>
+<p>Here, we propose to use exceptions and to wrap constructors in
+dedicated functions.</p>
+<h2 id="the-raise-function">The <code>raise</code> function</h2>
+<p>The <code>raise</code> function is an utility function to throw
+exception in a safe way: building the exception is not done in the
+<code>throw</code> statement. This is required to avoid a potential
+undefined behaviour if the constructor of the exception throws.</p>
+<p>The type of the exception thrown is given by the first template
+argument of the <code>raise</code> function and defaults to
+<code>std::runtime_exception</code>.</p>
+<h2 id="the-construct-function">The <code>construct</code> function</h2>
+<p>The <code>construct</code> function calls the constructor of an
+object that may throw an exception and returns a
+<code>std::optional</code> object that holds the object if the call to
+the constructor did not throw an exception.</p>
+<p>If the constructor threw an exception, then the error message hold by
+the exception is registered in the instance of the
+<code>ErrorBacktrace</code> class which is passed as the first argument
+of the function and an empty optional object is returned.</p>
+<p>Aside from the first argument (a reference to an instance of the
+<code>ErrorBacktrace</code> class), all the other arguments are
+forwarded to the constructor of the object.</p>
+<h1
+id="interaction-with-an-external-library-that-may-use-exceptions">Interaction
+with an external library that may use exceptions</h1>
+<h2 id="the-registerexceptioninerrorbacktrace-function">The
+<code>registerExceptionInErrorBacktrace</code> function</h2>
+<p>Call to external libraries that relies on the usage of exceptions
+must be encapsulated in appropriate <code>try/catch</code> blocks as
+follows:</p>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// take a view on some values with a runtime size</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> f <span class="op">=</span> FunctionEvaluator<span class="op">&lt;</span>BasicLinearSpace<span class="op">&gt;(</span>space<span class="op">,</span> values<span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">// make a view with a fixed number of components and apply the `transform` modifier</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e <span class="op">=</span> view<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>f<span class="op">)</span> <span class="op">|</span> transform<span class="op">([](</span><span class="at">const</span> real x<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> x <span class="op">*</span> x<span class="op">;</span> <span class="op">});</span></span></code></pre></div></li>
-<li><p><code>negate</code>: the <code>view</code> modifier takes an
-evaluator which returns opposite values of the initial evaluator.</p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> f <span class="op">=</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    FunctionEvaluator<span class="op">&lt;</span>BasicLinearSpace<span class="op">&gt;(</span>space<span class="op">,</span> values<span class="op">,</span> <span class="dv">2</span><span class="op">)</span> <span class="op">|</span> as_tvector<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> n <span class="op">=</span> f <span class="op">|</span> negate<span class="op">;</span></span></code></pre></div></li>
-</ul>
-<h3 id="modifierss-generators">Modifiers’s generators</h3>
-<ul>
-<li><p><code>multiply_by_scalar</code>: the
-<code>multiply_by_scalar</code> takes an real number <span
-class="math inline">\(alpha\)</span> and returns a modifier which takes
-an evaluator and returns an evaluator which multiplies the values of the
-original evaluator bu <span class="math inline">\(\alpha\)</span>:</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e <span class="op">=</span> f <span class="op">|</span> multiply_by_scalar<span class="op">(</span><span class="dv">4</span><span class="op">);</span></span></code></pre></div></li>
-<li><p><code>divide_by_scalar</code>: the <code>divide_by_scalar</code>
-takes an real number <span class="math inline">\(alpha\)</span> and
-returns a modifier which takes an evaluator and returns an evaluator
-which divides the values of the original evaluator bu <span
-class="math inline">\(\alpha\)</span>:</p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e <span class="op">=</span> f <span class="op">|</span> divide_by_scalar<span class="op">(</span><span class="dv">4</span><span class="op">);</span></span></code></pre></div></li>
-</ul>
-<h2 id="tensors">Tensors</h2>
-<p>This section is devoted to modifiers related to tensors.</p>
-<h3 id="views">Views</h3>
-<ul>
-<li><p><code>as_scalar</code>: create an evaluator which returns a
-scalar.</p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s <span class="op">=</span> f <span class="op">|</span> as_scalar<span class="op">;</span></span></code></pre></div></li>
-<li><p><code>as_stensor</code>: create an evaluator which returns
-symmetric tensorial values. This modifier takes an integer as template
-parameter, the space dimension.</p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> trace_values <span class="op">=</span> f2 <span class="op">|</span> as_stensor<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;</span> <span class="op">|</span> trace<span class="op">;</span></span></code></pre></div></li>
-<li><p><code>as_tensor</code>: create an evaluator which returns
-unsymmetric tensorial values. This modifier takes an integer as template
-parameter, the space dimension.</p></li>
-<li><p><code>as_fsarray</code>: create an evaluator which returns an
-(finite size) array. This modifier takes an integer as template
-parameter, the size of the array.</p></li>
-<li><p><code>as_tvector</code>: create an evaluator which returns
-vectorial values. This modifier takes an integer as template parameter,
-the size of the vector.</p></li>
-<li><p><code>as_matrix</code>: create an evaluator which returns matrix
-values. This modifier takes two integers as template parameters: the
-number of rows and the number of columns.</p></li>
-</ul>
-<h3 id="modifiers-on-tensor-valuated-evaluators">Modifiers on
-tensor-valuated evaluators</h3>
-<ul>
-<li><code>eigen_values</code>: modifier creating an evaluator of the
-eigen values. The evaluator on input must return symmetric tensor
-values.</li>
-<li><code>trace</code>:</li>
-<li><code>det</code>:</li>
-</ul>
-<h2 id="modifiers-dedicated-to-mechanics">Modifiers dedicated to
-mechanics</h2>
-<ul>
-<li><p><code>hydrostatic_stress</code>: modifier creating an evaluator
-of the hydrostatic pressure <span class="math inline">\(p\)</span>
-defined as:</p>
-<p><span class="math display">\[
-p = \mathrm{trace}\left(\underline{\sigma}\right/3
-\]</span></p></li>
-<li><p><code>vmis</code>: modifier creating an evaluator of the von
-Mises stress.</p></li>
-<li><p><code>principal_stress</code>: modifier creating an evaluator of
-the principal stress. This is an alias for the <code>eigen_values</code>
-modifier</p></li>
-</ul>
-<h1 id="binary-modifiers">Binary modifiers</h1>
-<ul>
-<li><code>add</code>:</li>
-<li><code>substract</code>:</li>
-<li><code>multiply</code>:</li>
-<li><code>divide</code>:</li>
-<li><code>mean_value</code>:</li>
-<li><code>inner_product</code>:</li>
-</ul>
-<h2 id="binary-modifiers-on-tensor-valuated-evaluators">Binary modifiers
-on tensor-valuated evaluators</h2>
-<ul>
-<li><code>rotate</code>:</li>
-<li><code>rotate_backwards</code>:</li>
-</ul>
-<h2 id="binary-modifiers-dedicated-to-mechanics">Binary modifiers
-dedicated to mechanics</h2>
-<ul>
-<li><code>from_pk1_to_cauchy</code>:</li>
-</ul>
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span><span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">....</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span><span class="op">(...)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  registerExceptionInErrorBacktrace<span class="op">(</span>e<span class="op">);</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>The <code>registerExceptionInErrorBacktrace</code> is a
+Lippincott-like helper function which translate exceptions derived from
+<code>std::exception</code> into error messages.</p>
+<p>If the external library to be used, used another exception hierarchy,
+then appropriate versions of this helper function shall be created.</p>
 </body>
 </html>

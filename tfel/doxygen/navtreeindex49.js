@@ -1,6 +1,5 @@
 var NAVTREEINDEX49 =
 {
-"structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html#ae13c68b42e333c27e4ca0b411b6a088b":[7,0,10,0,10,6],
 "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html#af1a072555f6b746a4b1e28d52e94f001":[7,0,10,0,10,5],
 "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html":[7,0,10,0,12],
 "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a114819d5fea99af72cdb41c833bf6b97":[7,0,10,0,12,8],
@@ -249,5 +248,6 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_linear_isotropic_hardening_rule.html":[7,0,10,0,30],
 "structmfront_1_1bbrick_1_1_linear_isotropic_hardening_rule.html#a529355deda1cb4631ddf5cd6640b6abc":[7,0,10,0,30,2],
 "structmfront_1_1bbrick_1_1_linear_isotropic_hardening_rule.html#a545be219203390040825a211c79a839c":[7,0,10,0,30,1],
-"structmfront_1_1bbrick_1_1_linear_isotropic_hardening_rule.html#a73b47648cfa6913544244c181c151888":[7,0,10,0,30,4]
+"structmfront_1_1bbrick_1_1_linear_isotropic_hardening_rule.html#a73b47648cfa6913544244c181c151888":[7,0,10,0,30,4],
+"structmfront_1_1bbrick_1_1_linear_isotropic_hardening_rule.html#a73ca9db6b7bf50a4883cc4eb9363cf44":[7,0,10,0,30,0]
 };

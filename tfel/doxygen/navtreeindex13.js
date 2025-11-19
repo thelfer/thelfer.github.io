@@ -1,6 +1,5 @@
 var NAVTREEINDEX13 =
 {
-"globals_type.html":[8,1,2],
 "hierarchy.html":[7,2],
 "include_2_cyrano_2_behaviour_8hxx.html":[8,0,0,0,0],
 "include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd":[8,0,0,0,0,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX13 =
 "namespacemembers_func_r.html":[5,1,1,15],
 "namespacemembers_func_s.html":[5,1,1,16],
 "namespacemembers_func_t.html":[5,1,1,17],
-"namespacemembers_func_u.html":[5,1,1,18]
+"namespacemembers_func_u.html":[5,1,1,18],
+"namespacemembers_func_v.html":[5,1,1,19]
 };

@@ -1,7 +1,6 @@
 var _t_f_e_l_config_8hxx =
 [
     [ "TFEL_CONSTEXPR", "_t_f_e_l_config_8hxx.html#a92909eb7c6351594770e166ca3f73918", null ],
-    [ "TFEL_FE_INLINE", "_t_f_e_l_config_8hxx.html#a6828232e1b3ebc5b270fe44e9084ae30", null ],
     [ "TFEL_FSALGORITHM_INLINE", "_t_f_e_l_config_8hxx.html#a8d8f8101515501cc293365b0d5f21011", null ],
     [ "TFEL_INLINE", "_t_f_e_l_config_8hxx.html#a056eec702265d23879da122c91d06d75", null ],
     [ "TFEL_INLINE2", "_t_f_e_l_config_8hxx.html#a5d78d566790108a1fa1bab55a9249f36", null ],

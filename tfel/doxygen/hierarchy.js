@@ -1747,6 +1747,7 @@ var hierarchy =
     [ "ansys::ExportThermodynamicForces< H >", "structansys_1_1_export_thermodynamic_forces.html", null ],
     [ "calculix::ExportThermodynamicForces", "structcalculix_1_1_export_thermodynamic_forces.html", null ],
     [ "dianafea::ExportThermodynamicForces< H >", "structdianafea_1_1_export_thermodynamic_forces.html", null ],
+    [ "ansys::ExportThermodynamicForces< tfel::material::ModellingHypothesis::PLANESTRESS >", "structansys_1_1_export_thermodynamic_forces_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html", null ],
     [ "tfel::math::parser::Expr", "structtfel_1_1math_1_1parser_1_1_expr.html", [
       [ "tfel::math::parser::BinaryFunction", "structtfel_1_1math_1_1parser_1_1_binary_function.html", [
         [ "tfel::math::parser::StandardBinaryFunction< f >", "structtfel_1_1math_1_1parser_1_1_standard_binary_function.html", null ]
@@ -2041,6 +2042,7 @@ var hierarchy =
     [ "ansys::ImportGradients< H >", "structansys_1_1_import_gradients.html", null ],
     [ "calculix::ImportGradients", "structcalculix_1_1_import_gradients.html", null ],
     [ "dianafea::ImportGradients< H >", "structdianafea_1_1_import_gradients.html", null ],
+    [ "ansys::ImportGradients< tfel::material::ModellingHypothesis::PLANESTRESS >", "structansys_1_1_import_gradients_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html", null ],
     [ "ansys::ImportSymmetricTensor< N >", "structansys_1_1_import_symmetric_tensor.html", null ],
     [ "dianafea::ImportSymmetricTensor< N >", "structdianafea_1_1_import_symmetric_tensor.html", null ],
     [ "ansys::ImportSymmetricTensor< 1u >", "structansys_1_1_import_symmetric_tensor_3_011u_01_4.html", null ],
@@ -2052,6 +2054,7 @@ var hierarchy =
     [ "ansys::ImportThermodynamicForces< H >", "structansys_1_1_import_thermodynamic_forces.html", null ],
     [ "calculix::ImportThermodynamicForces", "structcalculix_1_1_import_thermodynamic_forces.html", null ],
     [ "dianafea::ImportThermodynamicForces< H >", "structdianafea_1_1_import_thermodynamic_forces.html", null ],
+    [ "ansys::ImportThermodynamicForces< tfel::material::ModellingHypothesis::PLANESTRESS >", "structansys_1_1_import_thermodynamic_forces_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html", null ],
     [ "tfel::material::homogenization::elasticity::Inclusion< N, LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion.html", null ],
     [ "tfel::material::homogenization::elasticity::Inclusion< 2u, LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion.html", [
       [ "tfel::material::homogenization::elasticity::Ellipse< LengthType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_ellipse.html", [

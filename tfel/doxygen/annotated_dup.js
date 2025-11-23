@@ -120,14 +120,17 @@ var annotated_dup =
       [ "ExportSymmetricTensor< 2u >", "structansys_1_1_export_symmetric_tensor_3_012u_01_4.html", null ],
       [ "ExportSymmetricTensor< 3u >", "structansys_1_1_export_symmetric_tensor_3_013u_01_4.html", null ],
       [ "ExportThermodynamicForces", "structansys_1_1_export_thermodynamic_forces.html", null ],
+      [ "ExportThermodynamicForces< tfel::material::ModellingHypothesis::PLANESTRESS >", "structansys_1_1_export_thermodynamic_forces_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html", null ],
       [ "ExtractAndConvertTangentOperator", "structansys_1_1_extract_and_convert_tangent_operator.html", null ],
       [ "ExtractAndConvertTangentOperator< tfel::material::ModellingHypothesis::PLANESTRESS >", "structansys_1_1_extract_and_convert_tangent_operator_3_01tfel_1_1material_1_1_modelling_hypothese0bfbdb71acc1955849f83b6f9767dd6.html", null ],
       [ "ImportGradients", "structansys_1_1_import_gradients.html", null ],
+      [ "ImportGradients< tfel::material::ModellingHypothesis::PLANESTRESS >", "structansys_1_1_import_gradients_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html", null ],
       [ "ImportSymmetricTensor", "structansys_1_1_import_symmetric_tensor.html", null ],
       [ "ImportSymmetricTensor< 1u >", "structansys_1_1_import_symmetric_tensor_3_011u_01_4.html", null ],
       [ "ImportSymmetricTensor< 2u >", "structansys_1_1_import_symmetric_tensor_3_012u_01_4.html", null ],
       [ "ImportSymmetricTensor< 3u >", "structansys_1_1_import_symmetric_tensor_3_013u_01_4.html", null ],
       [ "ImportThermodynamicForces", "structansys_1_1_import_thermodynamic_forces.html", null ],
+      [ "ImportThermodynamicForces< tfel::material::ModellingHypothesis::PLANESTRESS >", "structansys_1_1_import_thermodynamic_forces_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html", null ],
       [ "StressFreeExpansionHandlerType", "structansys_1_1_stress_free_expansion_handler_type.html", "structansys_1_1_stress_free_expansion_handler_type" ]
     ] ],
     [ "aster", "namespaceaster.html", [

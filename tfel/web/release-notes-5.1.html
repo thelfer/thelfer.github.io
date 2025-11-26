@@ -438,22 +438,20 @@ href="#calling-an-external-behaviour-the-behaviourvariable-keyword"
 id="toc-calling-an-external-behaviour-the-behaviourvariable-keyword"><span
 class="toc-section-number">5.2</span> Calling an external behaviour: the
 <code>@BehaviourVariable</code> keyword</a></li>
-<li><a href="#uniform-syntax" id="toc-uniform-syntax"><span
-class="toc-section-number">5.3</span> Uniform syntax</a></li>
 <li><a href="#new-command-line-arguments"
 id="toc-new-command-line-arguments"><span
-class="toc-section-number">5.4</span> New command line
+class="toc-section-number">5.3</span> New command line
 arguments</a></li>
 <li><a href="#new-features-in-isotropic-dsls"
 id="toc-new-features-in-isotropic-dsls"><span
-class="toc-section-number">5.5</span> New features in isotropic
+class="toc-section-number">5.4</span> New features in isotropic
 DSLs</a></li>
 <li><a href="#extensions-of-the-standardelastoviscoplasticity-brick"
 id="toc-extensions-of-the-standardelastoviscoplasticity-brick"><span
-class="toc-section-number">5.6</span> Extensions of the
+class="toc-section-number">5.5</span> Extensions of the
 <code>StandardElastoViscoPlasticity</code> brick</a></li>
 <li><a href="#uniform-syntaxes" id="toc-uniform-syntaxes"><span
-class="toc-section-number">5.7</span> Uniform syntaxes</a></li>
+class="toc-section-number">5.6</span> Uniform syntaxes</a></li>
 </ul></li>
 <li><a href="#new-features-in-mfront-query"
 id="toc-new-features-in-mfront-query"><span
@@ -1269,10 +1267,8 @@ models are updated at beginning of the
 <code>updateAuxiliarySateVariables</code> method <strong>before</strong>
 any user defined code (see the
 <code>@UpdateAuxiliaryStateVariables</code> keyword).</p>
-<h2 data-number="5.3" id="uniform-syntax"><span
-class="header-section-number">5.3</span> Uniform syntax</h2>
-<h2 data-number="5.4" id="new-command-line-arguments"><span
-class="header-section-number">5.4</span> New command line arguments</h2>
+<h2 data-number="5.3" id="new-command-line-arguments"><span
+class="header-section-number">5.3</span> New command line arguments</h2>
 <p>The following command line arguments are now supported:</p>
 <ul>
 <li><code>--report-warnings</code>: this command line argument enables
@@ -1297,11 +1293,11 @@ errors (which is the default behaviour of <code>MFront</code>).</li>
 <li><code>-ignore-safe</code> allows to ignore the <code>safe</code>
 option of keywords and code blocks.</li>
 </ul>
-<h2 data-number="5.5" id="new-features-in-isotropic-dsls"><span
-class="header-section-number">5.5</span> New features in isotropic
+<h2 data-number="5.4" id="new-features-in-isotropic-dsls"><span
+class="header-section-number">5.4</span> New features in isotropic
 DSLs</h2>
-<h3 data-number="5.5.1" id="stress-update-algorithm"><span
-class="header-section-number">5.5.1</span> Stress update algorithm</h3>
+<h3 data-number="5.4.1" id="stress-update-algorithm"><span
+class="header-section-number">5.4.1</span> Stress update algorithm</h3>
 <p>Isotropic DSLs all introduced the elastic strain as a state variable.
 When the elastic material properties are now to be constant in time,
 then the Hooke law can be written in an incremental form <span
@@ -1316,22 +1312,22 @@ the flow direction at the middle of the time step.</p>
 <p>The <code>use_stress_update_algorithm</code> DSL option prevents the
 declaration of the elastic strain and switches to this incremental form
 to compute the stress.</p>
-<h4 data-number="5.5.1.1" id="example-of-usage-4"><span
-class="header-section-number">5.5.1.1</span> Example of usage</h4>
+<h4 data-number="5.4.1.1" id="example-of-usage-4"><span
+class="header-section-number">5.4.1.1</span> Example of usage</h4>
 <div class="sourceCode" id="cb12"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL IsotropicStrainHardeningMisesCreep<span class="op">{</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  use_stress_update_algorithm <span class="op">:</span> <span class="kw">true</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<h3 data-number="5.5.2" id="predefined-isotropic-hardening-rules"><span
-class="header-section-number">5.5.2</span> Predefined isotropic
+<h3 data-number="5.4.2" id="predefined-isotropic-hardening-rules"><span
+class="header-section-number">5.4.2</span> Predefined isotropic
 hardening rules</h3>
 <p>The <code>@IsotropicHardeningRule</code> and
 <code>@IsotropicHardeningRules</code> allow to use the isotropic
 hardening rules available in the <a
 href="StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoPlasticity</code>
 brick</a>.</p>
-<h4 data-number="5.5.2.1" id="example-of-usage-5"><span
-class="header-section-number">5.5.2.1</span> Example of usage</h4>
+<h4 data-number="5.4.2.1" id="example-of-usage-5"><span
+class="header-section-number">5.4.2.1</span> Example of usage</h4>
 <div class="sourceCode" id="cb13"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>IsotropicHardeningRule <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>flow_id <span class="op">:</span> <span class="dv">0</span><span class="op">,</span> R0 <span class="op">:</span> <span class="fl">125e6</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="fl">500e6</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">20</span><span class="op">};</span></span></code></pre></div>
 <div class="sourceCode" id="cb14"><pre
@@ -1340,9 +1336,9 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">125e6</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="fl">500e6</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">20</span><span class="op">},</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="fl">50e6</span><span class="op">}</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<h4 data-number="5.5.2.2"
+<h4 data-number="5.4.2.2"
 id="automatic-declaration-of-the-flow-rule-in-the-isotropicplasticmisesflow-dsl"><span
-class="header-section-number">5.5.2.2</span> Automatic declaration of
+class="header-section-number">5.4.2.2</span> Automatic declaration of
 the flow rule in the <code>IsotropicPlasticMisesFlow</code> DSL</h4>
 <p>If an isotropic hardening rule is defined in the
 <code>IsotropicPlasticMisesFlow</code> DSL, and if no flow rule is
@@ -1353,8 +1349,8 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  df_dseq <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  df_dp <span class="op">=</span> <span class="op">-</span>dR_dp<span class="op">;</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<h4 data-number="5.5.2.3" id="available-isotropic-hardening-rules"><span
-class="header-section-number">5.5.2.3</span> Available isotropic
+<h4 data-number="5.4.2.3" id="available-isotropic-hardening-rules"><span
+class="header-section-number">5.4.2.3</span> Available isotropic
 hardening rules</h4>
 <p>The following flow rules are currently available: <code>Data</code>,
 <code>Linear</code>, <code>Power</code>,
@@ -1363,31 +1359,31 @@ hardening rules</h4>
 <p>This list can be retrieved as follows:</p>
 <div class="sourceCode" id="cb16"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--list-isotropic-hardening-rules</span></span></code></pre></div>
-<h3 data-number="5.5.3"
+<h3 data-number="5.4.3"
 id="add-support-for-the-predictor-code-block"><span
-class="header-section-number">5.5.3</span> Add support for the
+class="header-section-number">5.4.3</span> Add support for the
 <code>@Predictor</code> code block</h3>
 <p>The code block <code>@Predictor</code> allows to specify an intial
 guess for the (visco-)plastic strain increments.</p>
-<h4 data-number="5.5.3.1" id="example-of-usage-6"><span
-class="header-section-number">5.5.3.1</span> Example of usage</h4>
+<h4 data-number="5.4.3.1" id="example-of-usage-6"><span
+class="header-section-number">5.4.3.1</span> Example of usage</h4>
 <div class="sourceCode" id="cb17"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Predictor<span class="op">{</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a> dp <span class="op">=</span> sqrt<span class="op">(</span>deto<span class="op">|</span> deto<span class="op">);</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<h2 data-number="5.6"
+<h2 data-number="5.5"
 id="extensions-of-the-standardelastoviscoplasticity-brick"><span
-class="header-section-number">5.6</span> Extensions of the
+class="header-section-number">5.5</span> Extensions of the
 <code>StandardElastoViscoPlasticity</code> brick</h2>
-<h3 data-number="5.6.1"
+<h3 data-number="5.5.1"
 id="sec:tfel:5.1:StandardElastoViscoPlasticity:equivalent_strain_external_name"><span
-class="header-section-number">5.6.1</span> Changing the external name of
+class="header-section-number">5.5.1</span> Changing the external name of
 the equivalent strain</h3>
 <p>All inelastic flows now allows to change the external name of the
 equilvaent strain with the <code>equivalent_strain_external_name</code>
 option.</p>
-<h4 data-number="5.6.1.1" id="example-of-usage-7"><span
-class="header-section-number">5.6.1.1</span> Example of usage</h4>
+<h4 data-number="5.5.1.1" id="example-of-usage-7"><span
+class="header-section-number">5.5.1.1</span> Example of usage</h4>
 <div class="sourceCode" id="cb18"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> Hooke<span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
@@ -1397,9 +1393,9 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    equivalent_strain_external_name <span class="op">:</span> <span class="st">&quot;CumulatedEquivalentPlasticStrain&quot;</span></span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<h3 data-number="5.6.2"
+<h3 data-number="5.5.2"
 id="sec:tfel:5.1:StandardElastoViscoPlasticity:saving_stress_criterion"><span
-class="header-section-number">5.6.2</span> Saving the stress
+class="header-section-number">5.5.2</span> Saving the stress
 criterion</h3>
 <p>All inelastic flows now allows the save the value of the stress
 criterion at <span class="math inline">\(t+\theta\,\Delta\,t\)</span> in
@@ -1409,8 +1405,8 @@ a dedicated auxiliary state variable by setting the
 <code>EquivalentStress</code> + id, where id is the identifier of the
 inelastic flow. This name can be changed using the
 <code>stress_criterion_external_name</code> option.</p>
-<h4 data-number="5.6.2.1" id="example-of-usage-8"><span
-class="header-section-number">5.6.2.1</span> Example of usage</h4>
+<h4 data-number="5.5.2.1" id="example-of-usage-8"><span
+class="header-section-number">5.5.2.1</span> Example of usage</h4>
 <div class="sourceCode" id="cb19"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> Hooke<span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
@@ -1421,9 +1417,9 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    save_stress_criterion <span class="op">:</span> <span class="kw">true</span></span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<h3 data-number="5.6.3"
+<h3 data-number="5.5.3"
 id="sec:tfel:5.1:StandardElastoViscoPlasticity:saving_yield_surface_radius"><span
-class="header-section-number">5.6.3</span> Saving yield radius</h3>
+class="header-section-number">5.5.3</span> Saving yield radius</h3>
 <p>All inelastic flows now allows the save the value of the stress
 criterion at <span class="math inline">\(t+\theta\,\Delta\,t\)</span> in
 a dedicated auxiliary state variable by setting the
@@ -1432,8 +1428,8 @@ a dedicated auxiliary state variable by setting the
 <code>YieldSurfaceRadius</code> + id, where id is the identifier of the
 inelastic flow. This name can be changed using the
 <code>yield_surface_radius_external_name</code> option.</p>
-<h4 data-number="5.6.3.1" id="example-of-usage-9"><span
-class="header-section-number">5.6.3.1</span> Example of usage</h4>
+<h4 data-number="5.5.3.1" id="example-of-usage-9"><span
+class="header-section-number">5.5.3.1</span> Example of usage</h4>
 <div class="sourceCode" id="cb20"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> Hooke<span class="op">{</span>young_modulus <span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span> poisson_ratio <span class="op">:</span> <span class="fl">0.3</span><span class="op">},</span></span>
@@ -1444,9 +1440,9 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    save_yield_surface_radius <span class="op">:</span> <span class="kw">true</span></span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<h3 data-number="5.6.4"
+<h3 data-number="5.5.4"
 id="sec:tfel:5.1:StandardElastoViscoPlasticity:saving_thermal_expansion"><span
-class="header-section-number">5.6.4</span> Saving the thermal
+class="header-section-number">5.5.4</span> Saving the thermal
 expansion</h3>
 <p>The <code>save_thermal_expansion boolean</code> option has been
 introduced in all stress potentials deriving from
@@ -1456,8 +1452,8 @@ the time step shall be stored in an auxiliary state variable. The
 external name of this variable is <code>ComputedThermalExpansion</code>.
 For an isotropic thermal expansion, this variable is a scalar. For an
 orthotropic material, this variable is an array of (3) scalars.</p>
-<h4 data-number="5.6.4.1" id="example-of-usage-10"><span
-class="header-section-number">5.6.4.1</span> Example of usage</h4>
+<h4 data-number="5.5.4.1" id="example-of-usage-10"><span
+class="header-section-number">5.5.4.1</span> Example of usage</h4>
 <div class="sourceCode" id="cb21"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElastoViscoPlasticity<span class="op">{</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  stress_potential <span class="op">:</span> Hooke<span class="op">{</span></span>
@@ -1467,11 +1463,11 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    save_thermal_expansion <span class="op">:</span> <span class="kw">true</span></span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<h2 data-number="5.7" id="uniform-syntaxes"><span
-class="header-section-number">5.7</span> Uniform syntaxes</h2>
-<h3 data-number="5.7.1"
+<h2 data-number="5.6" id="uniform-syntaxes"><span
+class="header-section-number">5.6</span> Uniform syntaxes</h2>
+<h3 data-number="5.6.1"
 id="uniform-syntax-for-elasticmaterialproperties-and-computestiffnesstensor"><span
-class="header-section-number">5.7.1</span> Uniform syntax for
+class="header-section-number">5.6.1</span> Uniform syntax for
 <code>@ElasticMaterialProperties</code> and
 <code>@ComputeStiffnessTensor</code></h3>
 <p>The <code>@ElasticMaterialProperties</code> and
@@ -1483,9 +1479,9 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  young_modulus<span class="op">:</span> <span class="fl">150e9</span><span class="op">,</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  poisson_ratio<span class="op">:</span> <span class="fl">0.3</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<h3 data-number="5.7.2"
+<h3 data-number="5.6.2"
 id="uniform-syntax-for-computethermalexpansion"><span
-class="header-section-number">5.7.2</span> Uniform syntax for
+class="header-section-number">5.6.2</span> Uniform syntax for
 <code>@ComputeThermalExpansion</code></h3>
 <p>The <code>@ComputeThermalExpansion</code> keyword now accepts the
 same options than the stress potentials deriving from the
@@ -1499,8 +1495,8 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  initial_geometry_reference_temperature<span class="op">:</span> <span class="fl">293.15</span><span class="op">,</span></span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  save_thermal_expansion<span class="op">:</span> <span class="kw">true</span></span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<h3 data-number="5.7.3" id="uniform-syntax-for-hilltensor"><span
-class="header-section-number">5.7.3</span> Uniform syntax for
+<h3 data-number="5.6.3" id="uniform-syntax-for-hilltensor"><span
+class="header-section-number">5.6.3</span> Uniform syntax for
 <code>@HillTensor</code></h3>
 <p>The <code>@HillTensor</code> keyword now accepts the same options
 than the Hill’s stress criterion available in the
@@ -1704,7 +1700,7 @@ id="issue-763-personalize-names-of-equivalent-plastic-strain-in-standardelastovi
 class="header-section-number">9.11</span> Issue 763: Personalize names
 of equivalent plastic strain in
 <code>StandardElastoViscoPlasticity</code>’s inelastic_flow</h2>
-<p>This feature is described in Section 5.6.1.</p>
+<p>This feature is described in Section 5.5.1.</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/763"
 class="uri">https://github.com/thelfer/tfel/issues/763</a></p>
@@ -1713,7 +1709,7 @@ id="issue-762-save-the-isotropic_hardenings-threshold-stress-via-an-auxiliary-st
 class="header-section-number">9.12</span> Issue 762: Save the
 isotropic_hardening’s threshold stress via an auxiliary state variable
 using <code>StandardElastoViscoPlasticity</code>’s inelastic_flow</h2>
-<p>This feature is described in Section 5.6.3.</p>
+<p>This feature is described in Section 5.5.3.</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/762"
 class="uri">https://github.com/thelfer/tfel/issues/762</a></p>
@@ -1722,7 +1718,7 @@ id="issue-761-save-the-equivalent-stress-via-an-auxiliarystatevariable-using-sta
 class="header-section-number">9.13</span> Issue 761: Save the equivalent
 stress via an <code>@AuxiliaryStateVariable</code> using
 <code>StandardElastoViscoPlasticity</code>’s inelastic_flow</h2>
-<p>This feature is described in Section 5.6.2.</p>
+<p>This feature is described in Section 5.5.2.</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/761"
 class="uri">https://github.com/thelfer/tfel/issues/761</a></p>
@@ -1731,7 +1727,7 @@ id="issue-760-save-the-thermal-expansion-tensor-via-an-auxiliarystatevariable-us
 class="header-section-number">9.14</span> Issue 760: Save the thermal
 expansion tensor via an <code>@AuxiliaryStateVariable</code> using
 <code>StandardElastoViscoPlasticity</code>’s stress_potential</h2>
-<p>This feature is described in Section 5.6.4.</p>
+<p>This feature is described in Section 5.5.4.</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/760"
 class="uri">https://github.com/thelfer/tfel/issues/760</a></p>

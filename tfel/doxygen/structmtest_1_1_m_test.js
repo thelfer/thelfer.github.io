@@ -25,6 +25,7 @@ var structmtest_1_1_m_test =
     [ "name", "structmtest_1_1_m_test.html#a67128a6853bc43eb52941d6d6e04808e", null ],
     [ "postConvergence", "structmtest_1_1_m_test.html#ad606e9803fcac8d9a495bbbf8eb3262e", null ],
     [ "prepare", "structmtest_1_1_m_test.html#ac53cdc9b6c1ad51dc1e310d4458d1d17", null ],
+    [ "printLagrangeMultipliers", "structmtest_1_1_m_test.html#a56385305f34b752aeca49aa9ecf3ad55", null ],
     [ "printOutput", "structmtest_1_1_m_test.html#acab7b84e74c20228eca4767e0b8fe4e6", null ],
     [ "readInputFile", "structmtest_1_1_m_test.html#a989e3c428abc6c5e7cc1c52f74411c84", null ],
     [ "setCompareToNumericalTangentOperator", "structmtest_1_1_m_test.html#a04a00c066be29dbb42ddd2d651e5ac99", null ],
@@ -43,6 +44,7 @@ var structmtest_1_1_m_test =
     [ "isRmDefined", "structmtest_1_1_m_test.html#a872459d36722dc9162905c496fdae7c3", null ],
     [ "pv", "structmtest_1_1_m_test.html#ac84eab81c06342f10985030e1cfc2dbe", null ],
     [ "rm", "structmtest_1_1_m_test.html#adeb72394491c284e620f959e5f264141", null ],
+    [ "shallPrintLagrangeMultipliers", "structmtest_1_1_m_test.html#a103441bcf21f6c4a0a453f9587a4ebc4", null ],
     [ "tests", "structmtest_1_1_m_test.html#ae81d88e6fb2c1cfca22fe2a0a2f8d508", null ],
     [ "toeps", "structmtest_1_1_m_test.html#a80dcbc1d9f4dd383682053aaaefe4263", null ],
     [ "upostprocessings", "structmtest_1_1_m_test.html#a22ef2f338dff714a9a81f7b7b11aa522", null ]

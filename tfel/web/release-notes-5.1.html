@@ -109,6 +109,9 @@
 	      <ul>
 	        <li><a href="mfront-doc.html">mfront-doc</a></li>
 	        <li><a href="mtest.html">mtest</a></li>
+	        <ul>
+	        <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
+	        </ul>
 	        <li><a href="mfm.html">mfm</a></li>
 	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
 	        <li><a href="tfel-check.html">tfel-check</a></li>
@@ -452,6 +455,10 @@ class="toc-section-number">5.5</span> Extensions of the
 <code>StandardElastoViscoPlasticity</code> brick</a></li>
 <li><a href="#uniform-syntaxes" id="toc-uniform-syntaxes"><span
 class="toc-section-number">5.6</span> Uniform syntaxes</a></li>
+<li><a href="#new-keywords" id="toc-new-keywords"><span
+class="toc-section-number">5.7</span> New keywords</a></li>
+<li><a href="#new-tutorials" id="toc-new-tutorials"><span
+class="toc-section-number">5.8</span> New tutorials</a></li>
 </ul></li>
 <li><a href="#new-features-in-mfront-query"
 id="toc-new-features-in-mfront-query"><span
@@ -471,248 +478,259 @@ class="toc-section-number">7</span> New features in
 <li><a href="#discard-commands-failure"
 id="toc-discard-commands-failure"><span
 class="toc-section-number">7.1</span> Discard commands failure</a></li>
-<li><a href="#new-keywords" id="toc-new-keywords"><span
-class="toc-section-number">7.2</span> New keywords</a></li>
-<li><a href="#new-tutorials" id="toc-new-tutorials"><span
-class="toc-section-number">7.3</span> New tutorials</a></li>
+</ul></li>
+<li><a href="#new-features-in-mtest"
+id="toc-new-features-in-mtest"><span class="toc-section-number">8</span>
+New features in <code>MTest</code></a>
+<ul>
+<li><a href="#sec:tfel_5.1:mtest:print_lagrange_multipliers"
+id="toc-sec:tfel_5.1:mtest:print_lagrange_multipliers"><span
+class="toc-section-number">8.1</span> Print the value of lagrange
+multpliers associated with nonlinear constraints to the output
+file</a></li>
 </ul></li>
 <li><a href="#python-bindings-1" id="toc-python-bindings-1"><span
-class="toc-section-number">8</span> Python bindings</a>
+class="toc-section-number">9</span> Python bindings</a>
 <ul>
 <li><a href="#new-features-in-the-mfront-module"
 id="toc-new-features-in-the-mfront-module"><span
-class="toc-section-number">8.1</span> New features in the
+class="toc-section-number">9.1</span> New features in the
 <code>mfront</code> module</a></li>
 </ul></li>
 <li><a href="#issues-fixed" id="toc-issues-fixed"><span
-class="toc-section-number">9</span> Issues fixed</a>
+class="toc-section-number">10</span> Issues fixed</a>
 <ul>
+<li><a
+href="#issue-868-mtest-access-to-lagrange-multipliers-for-constraints"
+id="toc-issue-868-mtest-access-to-lagrange-multipliers-for-constraints"><span
+class="toc-section-number">10.1</span> Issue 868: [mtest] Access to
+Lagrange multipliers for constraints</a></li>
 <li><a
 href="#issue-849-tfelmath-add-function-to-sort-the-eigen-values-in-ascending-order"
 id="toc-issue-849-tfelmath-add-function-to-sort-the-eigen-values-in-ascending-order"><span
-class="toc-section-number">9.1</span> Issue 849: [TFEL/Math] add
+class="toc-section-number">10.2</span> Issue 849: [TFEL/Math] add
 function to sort the eigen values in ascending order</a></li>
 <li><a
 href="#issue-846-create-environment-files-for-sh-cmd-and-powershell"
 id="toc-issue-846-create-environment-files-for-sh-cmd-and-powershell"><span
-class="toc-section-number">9.2</span> Issue 846: Create environment
+class="toc-section-number">10.3</span> Issue 846: Create environment
 files for sh, cmd and powershell</a></li>
 <li><a href="#issue-741-add-support-for-flang"
 id="toc-issue-741-add-support-for-flang"><span
-class="toc-section-number">9.3</span> Issue 741: Add support for
+class="toc-section-number">10.4</span> Issue 741: Add support for
 <code>flang</code></a></li>
 <li><a
 href="#issue-822-calculix-interface-add-info-about-sdv-variables-in-the-generated-example-of-input-file"
 id="toc-issue-822-calculix-interface-add-info-about-sdv-variables-in-the-generated-example-of-input-file"><span
-class="toc-section-number">9.4</span> Issue 822: [calculix-interface]
+class="toc-section-number">10.5</span> Issue 822: [calculix-interface]
 add info about SDV variables in the generated example of input
 file</a></li>
 <li><a href="#issue-793-add-predictor-support-for-isotropic-dsls"
 id="toc-issue-793-add-predictor-support-for-isotropic-dsls"><span
-class="toc-section-number">9.5</span> Issue 793: add <span
+class="toc-section-number">10.6</span> Issue 793: add <span
 class="citation"
 data-cites="Predictor">[<strong>Predictor?</strong>]</span> support for
 isotropic DSLs</a></li>
 <li><a
 href="#issue-790-tfel-math-remove-stress-time-from-the-tfelmath-namespace"
 id="toc-issue-790-tfel-math-remove-stress-time-from-the-tfelmath-namespace"><span
-class="toc-section-number">9.6</span> Issue 790: [tfel-math] Remove
+class="toc-section-number">10.7</span> Issue 790: [tfel-math] Remove
 <code>Stress</code>, <code>Time</code> from the <code>tfel::math</code>
 namespace</a></li>
 <li><a
 href="#issue-789-mfront-advice-to-remove-include-and-src-in-case-of-compilation-error"
 id="toc-issue-789-mfront-advice-to-remove-include-and-src-in-case-of-compilation-error"><span
-class="toc-section-number">9.7</span> Issue 789: [mfront] advice to
+class="toc-section-number">10.8</span> Issue 789: [mfront] advice to
 remove include and src in case of compilation error</a></li>
 <li><a
 href="#issue-779-tfel-check-failure-during-parsing-step-if-a-symbolic-linked-was-not-correctly-generated"
 id="toc-issue-779-tfel-check-failure-during-parsing-step-if-a-symbolic-linked-was-not-correctly-generated"><span
-class="toc-section-number">9.8</span> Issue 779: [tfel-check] Failure
+class="toc-section-number">10.9</span> Issue 779: [tfel-check] Failure
 during parsing step if a symbolic linked was not correctly
 generated</a></li>
 <li><a
 href="#issue-778-tfel-check-add-an-option-to-return-a-failure-if-at-least-one-check-fails"
 id="toc-issue-778-tfel-check-add-an-option-to-return-a-failure-if-at-least-one-check-fails"><span
-class="toc-section-number">9.9</span> Issue 778: [tfel-check] Add an
+class="toc-section-number">10.10</span> Issue 778: [tfel-check] Add an
 option to return a failure if at least one check fails</a></li>
 <li><a
 href="#issue-777-tfel-check-clearer-message-if-a-directory-is-given-as-an-argument"
 id="toc-issue-777-tfel-check-clearer-message-if-a-directory-is-given-as-an-argument"><span
-class="toc-section-number">9.10</span> Issue 777: [tfel-check] Clearer
+class="toc-section-number">10.11</span> Issue 777: [tfel-check] Clearer
 message if a directory is given as an argument</a></li>
 <li><a
 href="#issue-763-personalize-names-of-equivalent-plastic-strain-in-standardelastoviscoplasticitys-inelastic_flow"
 id="toc-issue-763-personalize-names-of-equivalent-plastic-strain-in-standardelastoviscoplasticitys-inelastic_flow"><span
-class="toc-section-number">9.11</span> Issue 763: Personalize names of
+class="toc-section-number">10.12</span> Issue 763: Personalize names of
 equivalent plastic strain in
 <code>StandardElastoViscoPlasticity</code>’s inelastic_flow</a></li>
 <li><a
 href="#issue-762-save-the-isotropic_hardenings-threshold-stress-via-an-auxiliary-state-variable-using-standardelastoviscoplasticitys-inelastic_flow"
 id="toc-issue-762-save-the-isotropic_hardenings-threshold-stress-via-an-auxiliary-state-variable-using-standardelastoviscoplasticitys-inelastic_flow"><span
-class="toc-section-number">9.12</span> Issue 762: Save the
+class="toc-section-number">10.13</span> Issue 762: Save the
 isotropic_hardening’s threshold stress via an auxiliary state variable
 using <code>StandardElastoViscoPlasticity</code>’s
 inelastic_flow</a></li>
 <li><a
 href="#issue-761-save-the-equivalent-stress-via-an-auxiliarystatevariable-using-standardelastoviscoplasticitys-inelastic_flow"
 id="toc-issue-761-save-the-equivalent-stress-via-an-auxiliarystatevariable-using-standardelastoviscoplasticitys-inelastic_flow"><span
-class="toc-section-number">9.13</span> Issue 761: Save the equivalent
+class="toc-section-number">10.14</span> Issue 761: Save the equivalent
 stress via an <code>@AuxiliaryStateVariable</code> using
 <code>StandardElastoViscoPlasticity</code>’s inelastic_flow</a></li>
 <li><a
 href="#issue-760-save-the-thermal-expansion-tensor-via-an-auxiliarystatevariable-using-standardelastoviscoplasticitys-stress_potential"
 id="toc-issue-760-save-the-thermal-expansion-tensor-via-an-auxiliarystatevariable-using-standardelastoviscoplasticitys-stress_potential"><span
-class="toc-section-number">9.14</span> Issue 760: Save the thermal
+class="toc-section-number">10.15</span> Issue 760: Save the thermal
 expansion tensor via an <code>@AuxiliaryStateVariable</code> using
 <code>StandardElastoViscoPlasticity</code>’s stress_potential</a></li>
 <li><a href="#issue-739-mfront-depreciation-of-europlexus-interface"
 id="toc-issue-739-mfront-depreciation-of-europlexus-interface"><span
-class="toc-section-number">9.15</span> Issue 739: [mfront] Depreciation
+class="toc-section-number">10.16</span> Issue 739: [mfront] Depreciation
 of europlexus interface</a></li>
 <li><a
 href="#issue-708-add-support-for-hardening-modes-when-libc-is-used"
 id="toc-issue-708-add-support-for-hardening-modes-when-libc-is-used"><span
-class="toc-section-number">9.16</span> Issue 708: Add support for
+class="toc-section-number">10.17</span> Issue 708: Add support for
 hardening modes when <code>libc++</code> is used</a></li>
 <li><a
 href="#issue-724-mfront-add-support-for-non-constant-elastic-properties-in-the-stress-update-algorithm-of-the-isotropic-dsls"
 id="toc-issue-724-mfront-add-support-for-non-constant-elastic-properties-in-the-stress-update-algorithm-of-the-isotropic-dsls"><span
-class="toc-section-number">9.17</span> Issue 724: [mfront] Add support
+class="toc-section-number">10.18</span> Issue 724: [mfront] Add support
 for non constant elastic properties in the stress update algorithm of
 the isotropic DSLs</a></li>
 <li><a
 href="#issue-721-tfel-math-add-a-zero-method-to-create-tensorial-objects"
 id="toc-issue-721-tfel-math-add-a-zero-method-to-create-tensorial-objects"><span
-class="toc-section-number">9.18</span> Issue 721: [tfel-math] Add a
+class="toc-section-number">10.19</span> Issue 721: [tfel-math] Add a
 <code>zero</code> method to create tensorial objects</a></li>
 <li><a
 href="#issue-717-mfront-add-warning-if-the-increment-of-a-state-variable-is-not-used-in-integrator-for-the-implicit-dsls-and-the-default-dsls"
 id="toc-issue-717-mfront-add-warning-if-the-increment-of-a-state-variable-is-not-used-in-integrator-for-the-implicit-dsls-and-the-default-dsls"><span
-class="toc-section-number">9.19</span> Issue 717: [mfront] Add warning
+class="toc-section-number">10.20</span> Issue 717: [mfront] Add warning
 if the increment of a state variable is not used in
 <code>@Integrator</code> for the <code>Implicit</code> DSLs and the
 <code>Default</code> DSLs</a></li>
 <li><a
 href="#issue-698-mfront-add-a-stress-update-option-which-would-not-use-the-elastic-strain-as-a-state-variable-in-isotropic-dsls"
 id="toc-issue-698-mfront-add-a-stress-update-option-which-would-not-use-the-elastic-strain-as-a-state-variable-in-isotropic-dsls"><span
-class="toc-section-number">9.20</span> Issue 698: [mfront] Add a stress
+class="toc-section-number">10.21</span> Issue 698: [mfront] Add a stress
 update option which would not use the elastic strain as a state variable
 in Isotropic DSLs</a></li>
 <li><a
 href="#issue-661-mfront-allow-to-use-isotropic-hardening-rules-in-isotropic-dsls"
 id="toc-issue-661-mfront-allow-to-use-isotropic-hardening-rules-in-isotropic-dsls"><span
-class="toc-section-number">9.21</span> Issue 661: [mfront] Allow to use
+class="toc-section-number">10.22</span> Issue 661: [mfront] Allow to use
 isotropic hardening rules in isotropic DSLs</a></li>
 <li><a
 href="#issue-702-mfront-add-a-warning-if-an-auxiliary-state-variable-not-computed-by-an-external-point-wise-model-is-used-in-a-flowrule-block-in-isotropic-dsls"
 id="toc-issue-702-mfront-add-a-warning-if-an-auxiliary-state-variable-not-computed-by-an-external-point-wise-model-is-used-in-a-flowrule-block-in-isotropic-dsls"><span
-class="toc-section-number">9.22</span> Issue 702: [mfront] Add a warning
-if an auxiliary state variable not computed by an external point-wise
-model is used in a <code>@FlowRule</code> block in isotropic
+class="toc-section-number">10.23</span> Issue 702: [mfront] Add a
+warning if an auxiliary state variable not computed by an external
+point-wise model is used in a <code>@FlowRule</code> block in isotropic
 DSLs</a></li>
 <li><a
 href="#issue-696-calculix-interface-add-support-for-the-generatemtestfileonfailure-keyword"
 id="toc-issue-696-calculix-interface-add-support-for-the-generatemtestfileonfailure-keyword"><span
-class="toc-section-number">9.23</span> Issue #696: [calculix-interface]
+class="toc-section-number">10.24</span> Issue #696: [calculix-interface]
 add support for the <code>@GenerateMTestFileOnFailure</code>
 keyword</a></li>
 <li><a
 href="#issue-695-aster-interface-add-support-for-the-generatemtestfileonfailure-keyword"
 id="toc-issue-695-aster-interface-add-support-for-the-generatemtestfileonfailure-keyword"><span
-class="toc-section-number">9.24</span> Issue #695: [aster-interface] add
-support for the <code>@GenerateMTestFileOnFailure</code>
+class="toc-section-number">10.25</span> Issue #695: [aster-interface]
+add support for the <code>@GenerateMTestFileOnFailure</code>
 keyword</a></li>
 <li><a
 href="#issue-694-ansys-interface-add-support-for-the-generatemtestfileonfailure-keyword"
 id="toc-issue-694-ansys-interface-add-support-for-the-generatemtestfileonfailure-keyword"><span
-class="toc-section-number">9.25</span> Issue #694: [ansys-interface] add
-support for the <code>@GenerateMTestFileOnFailure</code>
+class="toc-section-number">10.26</span> Issue #694: [ansys-interface]
+add support for the <code>@GenerateMTestFileOnFailure</code>
 keyword</a></li>
 <li><a
 href="#issue-692-mfront-add-warning-when-interface-specific-keywords-are-not-restricted-to-the-corresponding-interface"
 id="toc-issue-692-mfront-add-warning-when-interface-specific-keywords-are-not-restricted-to-the-corresponding-interface"><span
-class="toc-section-number">9.26</span> Issue #692: [mfront] add warning
+class="toc-section-number">10.27</span> Issue #692: [mfront] add warning
 when interface specific keywords are not restricted to the corresponding
 interface</a></li>
 <li><a
 href="#issue-690-castem-add-a-warning-when-the-maximum-number-of-sub-steppings-is-too-high"
 id="toc-issue-690-castem-add-a-warning-when-the-maximum-number-of-sub-steppings-is-too-high"><span
-class="toc-section-number">9.27</span> Issue #690: [castem] Add a
+class="toc-section-number">10.28</span> Issue #690: [castem] Add a
 warning when the maximum number of sub steppings is too high</a></li>
 <li><a
 href="#issue-689-implicit-dsl-add-warning-when-using-auxiliary-state-variables-not-computed-by-external-point-wise-models-in-computestress-and-computefinalstress"
 id="toc-issue-689-implicit-dsl-add-warning-when-using-auxiliary-state-variables-not-computed-by-external-point-wise-models-in-computestress-and-computefinalstress"><span
-class="toc-section-number">9.28</span> Issue #689: [implicit-dsl] Add
+class="toc-section-number">10.29</span> Issue #689: [implicit-dsl] Add
 warning when using auxiliary state variables (not computed by external
 point-wise models) in <code>@ComputeStress</code> and
 <code>@ComputeFinalStress</code></a></li>
 <li><a
 href="#issue-685-tfel-config-add-support-for-tfelconfig-tfelmfront-and-tfelmtest"
 id="toc-issue-685-tfel-config-add-support-for-tfelconfig-tfelmfront-and-tfelmtest"><span
-class="toc-section-number">9.29</span> Issue 685: [tfel-config] Add
+class="toc-section-number">10.30</span> Issue 685: [tfel-config] Add
 support for <code>TFELConfig</code>, <code>TFELMFront</code> and
 <code>TFELMTest</code></a></li>
 <li><a
 href="#issue-684-mfront-add-support-for-includes-link-and-tfellibraries-to-the-model-dsl"
 id="toc-issue-684-mfront-add-support-for-includes-link-and-tfellibraries-to-the-model-dsl"><span
-class="toc-section-number">9.30</span> Issue 684: [mfront] Add support
+class="toc-section-number">10.31</span> Issue 684: [mfront] Add support
 for <code>@Includes</code>, <code>@Link</code> and
 <code>@TFELLibraries</code> to the `Model DSL</a></li>
 <li><a href="#issue-683-using-tfel-librairies-in-material-properties"
 id="toc-issue-683-using-tfel-librairies-in-material-properties"><span
-class="toc-section-number">9.31</span> Issue 683: Using
+class="toc-section-number">10.32</span> Issue 683: Using
 <code>TFEL</code> librairies in material properties</a></li>
 <li><a href="#issue-677tfel-config-add-a-python-module-suffix-option"
 id="toc-issue-677tfel-config-add-a-python-module-suffix-option"><span
-class="toc-section-number">9.32</span> Issue 677:[tfel-config] add a
+class="toc-section-number">10.33</span> Issue 677:[tfel-config] add a
 python-module-suffix option</a></li>
 <li><a
 href="#issue-676-always-prefer-the-versioned-tfelhome-environment-variable"
 id="toc-issue-676-always-prefer-the-versioned-tfelhome-environment-variable"><span
-class="toc-section-number">9.33</span> Issue 676: Always prefer the
+class="toc-section-number">10.34</span> Issue 676: Always prefer the
 versioned <code>TFELHOME</code> environment variable</a></li>
 <li><a
 href="#issue-674-python-bindings-add-option-to-disable-the-modication-of-the-names-of-python-modules-by-the-tfel_append_version-and-tfel_version_flavour"
 id="toc-issue-674-python-bindings-add-option-to-disable-the-modication-of-the-names-of-python-modules-by-the-tfel_append_version-and-tfel_version_flavour"><span
-class="toc-section-number">9.34</span> Issue 674: [python-bindings] Add
+class="toc-section-number">10.35</span> Issue 674: [python-bindings] Add
 option to disable the modication of the names of python modules by the
 <code>TFEL_APPEND_VERSION</code> and
 <code>TFEL_VERSION_FLAVOUR</code></a></li>
 <li><a
 href="#issue-673-tfel-config-add-the-ability-to-define-an-environment-variable-associated-with-the-tfels-version-and-flavour"
 id="toc-issue-673-tfel-config-add-the-ability-to-define-an-environment-variable-associated-with-the-tfels-version-and-flavour"><span
-class="toc-section-number">9.35</span> Issue 673: [tfel-config] Add the
+class="toc-section-number">10.36</span> Issue 673: [tfel-config] Add the
 ability to define an environment variable associated with the
 <code>TFEL</code>’s version and flavour</a></li>
 <li><a
 href="#issue-672-python-bindings-fix-python-modules-names-when-tfel_append_version-or-tfel_version_flavour-is-defined"
 id="toc-issue-672-python-bindings-fix-python-modules-names-when-tfel_append_version-or-tfel_version_flavour-is-defined"><span
-class="toc-section-number">9.36</span> Issue 672: python bindings fix
+class="toc-section-number">10.37</span> Issue 672: python bindings fix
 python modules names when <code>TFEL_APPEND_VERSION</code> or
 <code>TFEL_VERSION_FLAVOUR</code> is defined</a></li>
 <li><a
 href="#issue-667-reduce-the-size-of-files-paths-in-sources-to-fit-in-windowss-max_path-limit"
 id="toc-issue-667-reduce-the-size-of-files-paths-in-sources-to-fit-in-windowss-max_path-limit"><span
-class="toc-section-number">9.37</span> Issue 667: Reduce the size of
+class="toc-section-number">10.38</span> Issue 667: Reduce the size of
 files paths in sources to fit in <code>Windows</code>’s
 <code>MAX_PATH</code> limit</a></li>
 <li><a href="#issue-666-doc-add-contributing-file-remove-devel.md"
 id="toc-issue-666-doc-add-contributing-file-remove-devel.md"><span
-class="toc-section-number">9.38</span> Issue 666: [doc] Add CONTRIBUTING
-file, remove devel.md</a></li>
+class="toc-section-number">10.39</span> Issue 666: [doc] Add
+CONTRIBUTING file, remove devel.md</a></li>
 <li><a href="#issue-654-add-powershell-environment-script"
 id="toc-issue-654-add-powershell-environment-script"><span
-class="toc-section-number">9.39</span> Issue 654: Add PowerShell
+class="toc-section-number">10.40</span> Issue 654: Add PowerShell
 environment script</a></li>
 <li><a
 href="#issue-640-mfront-only-point-wise-models-defined-by-model-dsl-can-be-embedded-in-behaviours-using-the-model-keyword"
 id="toc-issue-640-mfront-only-point-wise-models-defined-by-model-dsl-can-be-embedded-in-behaviours-using-the-model-keyword"><span
-class="toc-section-number">9.40</span> Issue 640: [mfront] Only
+class="toc-section-number">10.41</span> Issue 640: [mfront] Only
 point-wise models defined by <code>Model</code> DSL can be embedded in
 behaviours using the <code>@Model</code> keyword</a></li>
 <li><a href="#issue-294-python-bindings-evaluate-port-to-pybind"
 id="toc-issue-294-python-bindings-evaluate-port-to-pybind"><span
-class="toc-section-number">9.41</span> Issue 294: [python-bindings]
+class="toc-section-number">10.42</span> Issue 294: [python-bindings]
 Evaluate port to <code>pybind</code></a></li>
 </ul></li>
 </ul>
@@ -735,6 +753,8 @@ option to <code>ON</code>.</li>
 <li>The definition of some unit class has (<code>Stress</code>,
 <code>Temperature</code>, etc..) have been moved from
 <code>tfel::math</code> to <code>tfel::math::unit</code>.</li>
+<li>By default, <code>gmake</code> is used on <code>FreeBSD</code> when
+using the <code>Makefile</code> generator of <code>MFront</code>.</li>
 </ul>
 <h2 data-number="1.1" id="internal-api-changes"><span
 class="header-section-number">1.1</span> Internal API changes</h2>
@@ -1503,6 +1523,34 @@ than the Hill’s stress criterion available in the
 <code>StandardElastoViscoPlasticity</code> brick:</p>
 <div class="sourceCode" id="cb24"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>HillTensor H <span class="op">{</span>F<span class="op">:</span> <span class="fl">0.371</span><span class="op">,</span> G<span class="op">:</span> <span class="fl">0.629</span><span class="op">,</span> H<span class="op">:</span> <span class="fl">4.052</span><span class="op">,</span> L<span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span> M<span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span> N<span class="op">:</span> <span class="fl">1.5</span><span class="op">};</span></span></code></pre></div>
+<h2 data-number="5.7" id="new-keywords"><span
+class="header-section-number">5.7</span> New keywords</h2>
+<h3 data-number="5.7.1" id="tfellibraries"><span
+class="header-section-number">5.7.1</span>
+<code>@TFELLibraries</code></h3>
+<p>The <code>@TFELLibraries</code> keyword let the user specify TFEL
+libraries to link with. This keyword must be followed by an array of
+strings.</p>
+<p>The following libraries are available: <code>Config</code>,
+<code>Exception</code>, <code>Glossary</code>, <code>Tests</code>,
+<code>UnicodeSupport</code>, <code>Utilities</code>,
+<code>System</code>, <code>Math</code>, <code>MathCubicSpline</code>,
+<code>MathKriging</code>, <code>MathParser</code>, <code>NUMODIS</code>,
+<code>Material</code>, <code>MFront</code>, <code>MTest</code>.</p>
+<h4 data-number="5.7.1.1" id="example-of-usage-11"><span
+class="header-section-number">5.7.1.1</span> Example of usage</h4>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TFELLibraries <span class="op">{</span><span class="st">&quot;MathParser&quot;</span><span class="op">};</span></span></code></pre></div>
+<h2 data-number="5.8" id="new-tutorials"><span
+class="header-section-number">5.8</span> New tutorials</h2>
+<p>New tutorials on implementation of homogenization schemes for
+biphasic linear elastic media are available in the gallery.</p>
+<p>New tutorials on implementation of homogenization schemes in
+non-linear elasticity are available in the gallery: Taylor scheme, Sachs
+scheme, <span class="math inline">\(\beta\)</span>-rule. These tutorials
+use the keyword <code>@BehaviourVariable</code> for the integration and
+the computation of tangent operator of the local behaviours. The
+implementation shows how to use any behaviour law on each phase.</p>
 <h1 data-number="6" id="new-features-in-mfront-query"><span
 class="header-section-number">6</span> New features in
 <code>mfront-query</code></h1>
@@ -1543,7 +1591,7 @@ to exit properly.</p>
 <p>This behavior can be controlled by the
 <code>--discard-commands-failure</code> which takes <code>true</code> or
 <code>false</code> as argument.</p>
-<h3 data-number="7.1.1" id="example-of-usage-11"><span
+<h3 data-number="7.1.1" id="example-of-usage-12"><span
 class="header-section-number">7.1.1</span> Example of usage</h3>
 <pre><code>$ tfel-check --discard-commands-failure=false
 entering directory &#39;/tmp/tests&#39;
@@ -1559,71 +1607,66 @@ entering directory &#39;/tmp/tests&#39;
 ** Compare-1 &#39;results.res&#39; and &#39;results.res&#39;, column &#39;1&#39;               [SUCCESS]
 * end of test &#39;./test.check&#39;                                           [SUCCESS]
 ====== </code></pre>
-<h2 data-number="7.2" id="new-keywords"><span
-class="header-section-number">7.2</span> New keywords</h2>
-<h3 data-number="7.2.1" id="tfellibraries"><span
-class="header-section-number">7.2.1</span>
-<code>@TFELLibraries</code></h3>
-<p>The <code>@TFELLibraries</code> keyword let the user specify TFEL
-libraries to link with. This keyword must be followed by an array of
-strings.</p>
-<p>The following libraries are available: <code>Config</code>,
-<code>Exception</code>, <code>Glossary</code>, <code>Tests</code>,
-<code>UnicodeSupport</code>, <code>Utilities</code>,
-<code>System</code>, <code>Math</code>, <code>MathCubicSpline</code>,
-<code>MathKriging</code>, <code>MathParser</code>, <code>NUMODIS</code>,
-<code>Material</code>, <code>MFront</code>, <code>MTest</code>.</p>
-<h4 data-number="7.2.1.1" id="example-of-usage-12"><span
-class="header-section-number">7.2.1.1</span> Example of usage</h4>
-<div class="sourceCode" id="cb26"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TFELLibraries <span class="op">{</span><span class="st">&quot;MathParser&quot;</span><span class="op">};</span></span></code></pre></div>
-<h2 data-number="7.3" id="new-tutorials"><span
-class="header-section-number">7.3</span> New tutorials</h2>
-<p>New tutorials on implementation of homogenization schemes for
-biphasic linear elastic media are available in the gallery.</p>
-<p>New tutorials on implementation of homogenization schemes in
-non-linear elasticity are available in the gallery: Taylor scheme, Sachs
-scheme, <span class="math inline">\(\beta\)</span>-rule. These tutorials
-use the keyword <code>@BehaviourVariable</code> for the integration and
-the computation of tangent operator of the local behaviours. The
-implementation shows how to use any behaviour law on each phase.</p>
-<h1 data-number="8" id="python-bindings-1"><span
-class="header-section-number">8</span> Python bindings</h1>
+<h1 data-number="8" id="new-features-in-mtest"><span
+class="header-section-number">8</span> New features in
+<code>MTest</code></h1>
+<h2 data-number="8.1"
+id="sec:tfel_5.1:mtest:print_lagrange_multipliers"><span
+class="header-section-number">8.1</span> Print the value of lagrange
+multpliers associated with nonlinear constraints to the output file</h2>
+<p>The <code>@PrintLagrangeMultipliers</code> keyword is followed by a
+boolean stating if the value of lagrange multpliers associated with
+nonlinear constraints shall be printed in the output file.</p>
+<h3 data-number="8.1.1" id="example-of-usage-13"><span
+class="header-section-number">8.1.1</span> Example of usage</h3>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>PrintLagrangeMultipliers <span class="kw">true</span><span class="op">;</span></span></code></pre></div>
+<h1 data-number="9" id="python-bindings-1"><span
+class="header-section-number">9</span> Python bindings</h1>
 <p>Python bindings are now generated using the <a
 href="https://github.com/pybind/pybind11"><code>pybind11</code></a>
 library.</p>
-<h2 data-number="8.1" id="new-features-in-the-mfront-module"><span
-class="header-section-number">8.1</span> New features in the
+<h2 data-number="9.1" id="new-features-in-the-mfront-module"><span
+class="header-section-number">9.1</span> New features in the
 <code>mfront</code> module</h2>
 <ul>
 <li>The <code>setDebugMode</code> function is now available.</li>
 </ul>
-<h1 data-number="9" id="issues-fixed"><span
-class="header-section-number">9</span> Issues fixed</h1>
-<h2 data-number="9.1"
+<h1 data-number="10" id="issues-fixed"><span
+class="header-section-number">10</span> Issues fixed</h1>
+<h2 data-number="10.1"
+id="issue-868-mtest-access-to-lagrange-multipliers-for-constraints"><span
+class="header-section-number">10.1</span> Issue 868: [mtest] Access to
+Lagrange multipliers for constraints</h2>
+<p>This feature is described in Section 8.1.</p>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/868"
+class="uri">https://github.com/thelfer/tfel/issues/868</a></p>
+<h2 data-number="10.2"
 id="issue-849-tfelmath-add-function-to-sort-the-eigen-values-in-ascending-order"><span
-class="header-section-number">9.1</span> Issue 849: [TFEL/Math] add
+class="header-section-number">10.2</span> Issue 849: [TFEL/Math] add
 function to sort the eigen values in ascending order</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/849"
 class="uri">https://github.com/thelfer/tfel/issues/849</a></p>
-<h2 data-number="9.2"
+<h2 data-number="10.3"
 id="issue-846-create-environment-files-for-sh-cmd-and-powershell"><span
-class="header-section-number">9.2</span> Issue 846: Create environment
+class="header-section-number">10.3</span> Issue 846: Create environment
 files for sh, cmd and powershell</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/846"
 class="uri">https://github.com/thelfer/tfel/issues/846</a></p>
-<h2 data-number="9.3" id="issue-741-add-support-for-flang"><span
-class="header-section-number">9.3</span> Issue 741: Add support for
+<h2 data-number="10.4" id="issue-741-add-support-for-flang"><span
+class="header-section-number">10.4</span> Issue 741: Add support for
 <code>flang</code></h2>
 <p>￼ For more details, see <a
 href="https://github.com/thelfer/tfel/issues/741"
 class="uri">https://github.com/thelfer/tfel/issues/741</a></p>
-<h2 data-number="9.4"
+<h2 data-number="10.5"
 id="issue-822-calculix-interface-add-info-about-sdv-variables-in-the-generated-example-of-input-file"><span
-class="header-section-number">9.4</span> Issue 822: [calculix-interface]
-add info about SDV variables in the generated example of input file</h2>
+class="header-section-number">10.5</span> Issue 822:
+[calculix-interface] add info about SDV variables in the generated
+example of input file</h2>
 <p>The list of internal state variables are now shown in the comment of
 the generated example of input file:</p>
 <pre><code>** 
@@ -1649,121 +1692,121 @@ the generated example of input file:</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/822"
 class="uri">https://github.com/thelfer/tfel/issues/822</a></p>
-<h2 data-number="9.5"
+<h2 data-number="10.6"
 id="issue-793-add-predictor-support-for-isotropic-dsls"><span
-class="header-section-number">9.5</span> Issue 793: add <span
+class="header-section-number">10.6</span> Issue 793: add <span
 class="citation" data-cites="Predictor">[<a href="#ref-Predictor"
 role="doc-biblioref"><strong>Predictor?</strong></a>]</span> support for
 isotropic DSLs</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/793"
 class="uri">https://github.com/thelfer/tfel/issues/793</a></p>
-<h2 data-number="9.6"
+<h2 data-number="10.7"
 id="issue-790-tfel-math-remove-stress-time-from-the-tfelmath-namespace"><span
-class="header-section-number">9.6</span> Issue 790: [tfel-math] Remove
+class="header-section-number">10.7</span> Issue 790: [tfel-math] Remove
 <code>Stress</code>, <code>Time</code> from the <code>tfel::math</code>
 namespace</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/790"
 class="uri">https://github.com/thelfer/tfel/issues/790</a></p>
-<h2 data-number="9.7"
+<h2 data-number="10.8"
 id="issue-789-mfront-advice-to-remove-include-and-src-in-case-of-compilation-error"><span
-class="header-section-number">9.7</span> Issue 789: [mfront] advice to
+class="header-section-number">10.8</span> Issue 789: [mfront] advice to
 remove include and src in case of compilation error</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/789"
 class="uri">https://github.com/thelfer/tfel/issues/789</a></p>
-<h2 data-number="9.8"
+<h2 data-number="10.9"
 id="issue-779-tfel-check-failure-during-parsing-step-if-a-symbolic-linked-was-not-correctly-generated"><span
-class="header-section-number">9.8</span> Issue 779: [tfel-check] Failure
-during parsing step if a symbolic linked was not correctly
+class="header-section-number">10.9</span> Issue 779: [tfel-check]
+Failure during parsing step if a symbolic linked was not correctly
 generated</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/779"
 class="uri">https://github.com/thelfer/tfel/issues/779</a>.</p>
-<h2 data-number="9.9"
+<h2 data-number="10.10"
 id="issue-778-tfel-check-add-an-option-to-return-a-failure-if-at-least-one-check-fails"><span
-class="header-section-number">9.9</span> Issue 778: [tfel-check] Add an
-option to return a failure if at least one check fails</h2>
+class="header-section-number">10.10</span> Issue 778: [tfel-check] Add
+an option to return a failure if at least one check fails</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/778"
 class="uri">https://github.com/thelfer/tfel/issues/778</a></p>
-<h2 data-number="9.10"
+<h2 data-number="10.11"
 id="issue-777-tfel-check-clearer-message-if-a-directory-is-given-as-an-argument"><span
-class="header-section-number">9.10</span> Issue 777: [tfel-check]
+class="header-section-number">10.11</span> Issue 777: [tfel-check]
 Clearer message if a directory is given as an argument</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/777"
 class="uri">https://github.com/thelfer/tfel/issues/777</a></p>
-<h2 data-number="9.11"
+<h2 data-number="10.12"
 id="issue-763-personalize-names-of-equivalent-plastic-strain-in-standardelastoviscoplasticitys-inelastic_flow"><span
-class="header-section-number">9.11</span> Issue 763: Personalize names
+class="header-section-number">10.12</span> Issue 763: Personalize names
 of equivalent plastic strain in
 <code>StandardElastoViscoPlasticity</code>’s inelastic_flow</h2>
 <p>This feature is described in Section 5.5.1.</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/763"
 class="uri">https://github.com/thelfer/tfel/issues/763</a></p>
-<h2 data-number="9.12"
+<h2 data-number="10.13"
 id="issue-762-save-the-isotropic_hardenings-threshold-stress-via-an-auxiliary-state-variable-using-standardelastoviscoplasticitys-inelastic_flow"><span
-class="header-section-number">9.12</span> Issue 762: Save the
+class="header-section-number">10.13</span> Issue 762: Save the
 isotropic_hardening’s threshold stress via an auxiliary state variable
 using <code>StandardElastoViscoPlasticity</code>’s inelastic_flow</h2>
 <p>This feature is described in Section 5.5.3.</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/762"
 class="uri">https://github.com/thelfer/tfel/issues/762</a></p>
-<h2 data-number="9.13"
+<h2 data-number="10.14"
 id="issue-761-save-the-equivalent-stress-via-an-auxiliarystatevariable-using-standardelastoviscoplasticitys-inelastic_flow"><span
-class="header-section-number">9.13</span> Issue 761: Save the equivalent
-stress via an <code>@AuxiliaryStateVariable</code> using
+class="header-section-number">10.14</span> Issue 761: Save the
+equivalent stress via an <code>@AuxiliaryStateVariable</code> using
 <code>StandardElastoViscoPlasticity</code>’s inelastic_flow</h2>
 <p>This feature is described in Section 5.5.2.</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/761"
 class="uri">https://github.com/thelfer/tfel/issues/761</a></p>
-<h2 data-number="9.14"
+<h2 data-number="10.15"
 id="issue-760-save-the-thermal-expansion-tensor-via-an-auxiliarystatevariable-using-standardelastoviscoplasticitys-stress_potential"><span
-class="header-section-number">9.14</span> Issue 760: Save the thermal
+class="header-section-number">10.15</span> Issue 760: Save the thermal
 expansion tensor via an <code>@AuxiliaryStateVariable</code> using
 <code>StandardElastoViscoPlasticity</code>’s stress_potential</h2>
 <p>This feature is described in Section 5.5.4.</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/760"
 class="uri">https://github.com/thelfer/tfel/issues/760</a></p>
-<h2 data-number="9.15"
+<h2 data-number="10.16"
 id="issue-739-mfront-depreciation-of-europlexus-interface"><span
-class="header-section-number">9.15</span> Issue 739: [mfront]
+class="header-section-number">10.16</span> Issue 739: [mfront]
 Depreciation of europlexus interface</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/739"
 class="uri">https://github.com/thelfer/tfel/issues/739</a></p>
-<h2 data-number="9.16"
+<h2 data-number="10.17"
 id="issue-708-add-support-for-hardening-modes-when-libc-is-used"><span
-class="header-section-number">9.16</span> Issue 708: Add support for
+class="header-section-number">10.17</span> Issue 708: Add support for
 hardening modes when <code>libc++</code> is used</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/708"
 class="uri">https://github.com/thelfer/tfel/issues/708</a></p>
-<h2 data-number="9.17"
+<h2 data-number="10.18"
 id="issue-724-mfront-add-support-for-non-constant-elastic-properties-in-the-stress-update-algorithm-of-the-isotropic-dsls"><span
-class="header-section-number">9.17</span> Issue 724: [mfront] Add
+class="header-section-number">10.18</span> Issue 724: [mfront] Add
 support for non constant elastic properties in the stress update
 algorithm of the isotropic DSLs</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/724"
 class="uri">https://github.com/thelfer/tfel/issues/724</a></p>
-<h2 data-number="9.18"
+<h2 data-number="10.19"
 id="issue-721-tfel-math-add-a-zero-method-to-create-tensorial-objects"><span
-class="header-section-number">9.18</span> Issue 721: [tfel-math] Add a
+class="header-section-number">10.19</span> Issue 721: [tfel-math] Add a
 <code>zero</code> method to create tensorial objects</h2>
 <p>This feature is described in Section 3.2.</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/721"
 class="uri">https://github.com/thelfer/tfel/issues/721</a></p>
-<h2 data-number="9.19"
+<h2 data-number="10.20"
 id="issue-717-mfront-add-warning-if-the-increment-of-a-state-variable-is-not-used-in-integrator-for-the-implicit-dsls-and-the-default-dsls"><span
-class="header-section-number">9.19</span> Issue 717: [mfront] Add
+class="header-section-number">10.20</span> Issue 717: [mfront] Add
 warning if the increment of a state variable is not used in
 <code>@Integrator</code> for the <code>Implicit</code> DSLs and the
 <code>Default</code> DSLs</h2>
@@ -1771,24 +1814,24 @@ warning if the increment of a state variable is not used in
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/717"
 class="uri">https://github.com/thelfer/tfel/issues/717</a></p>
-<h2 data-number="9.20"
+<h2 data-number="10.21"
 id="issue-698-mfront-add-a-stress-update-option-which-would-not-use-the-elastic-strain-as-a-state-variable-in-isotropic-dsls"><span
-class="header-section-number">9.20</span> Issue 698: [mfront] Add a
+class="header-section-number">10.21</span> Issue 698: [mfront] Add a
 stress update option which would not use the elastic strain as a state
 variable in Isotropic DSLs</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/698"
 class="uri">https://github.com/thelfer/tfel/issues/698</a></p>
-<h2 data-number="9.21"
+<h2 data-number="10.22"
 id="issue-661-mfront-allow-to-use-isotropic-hardening-rules-in-isotropic-dsls"><span
-class="header-section-number">9.21</span> Issue 661: [mfront] Allow to
+class="header-section-number">10.22</span> Issue 661: [mfront] Allow to
 use isotropic hardening rules in isotropic DSLs</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/661"
 class="uri">https://github.com/thelfer/tfel/issues/661</a></p>
-<h2 data-number="9.22"
+<h2 data-number="10.23"
 id="issue-702-mfront-add-a-warning-if-an-auxiliary-state-variable-not-computed-by-an-external-point-wise-model-is-used-in-a-flowrule-block-in-isotropic-dsls"><span
-class="header-section-number">9.22</span> Issue 702: [mfront] Add a
+class="header-section-number">10.23</span> Issue 702: [mfront] Add a
 warning if an auxiliary state variable not computed by an external
 point-wise model is used in a <code>@FlowRule</code> block in isotropic
 DSLs</h2>
@@ -1800,151 +1843,151 @@ sub steppings is too high</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/697"
 class="uri">https://github.com/thelfer/tfel/issues/697</a></p>
-<h2 data-number="9.23"
+<h2 data-number="10.24"
 id="issue-696-calculix-interface-add-support-for-the-generatemtestfileonfailure-keyword"><span
-class="header-section-number">9.23</span> Issue #696:
+class="header-section-number">10.24</span> Issue #696:
 [calculix-interface] add support for the
 <code>@GenerateMTestFileOnFailure</code> keyword</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/696"
 class="uri">https://github.com/thelfer/tfel/issues/696</a></p>
-<h2 data-number="9.24"
+<h2 data-number="10.25"
 id="issue-695-aster-interface-add-support-for-the-generatemtestfileonfailure-keyword"><span
-class="header-section-number">9.24</span> Issue #695: [aster-interface]
+class="header-section-number">10.25</span> Issue #695: [aster-interface]
 add support for the <code>@GenerateMTestFileOnFailure</code>
 keyword</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/695"
 class="uri">https://github.com/thelfer/tfel/issues/695</a></p>
-<h2 data-number="9.25"
+<h2 data-number="10.26"
 id="issue-694-ansys-interface-add-support-for-the-generatemtestfileonfailure-keyword"><span
-class="header-section-number">9.25</span> Issue #694: [ansys-interface]
+class="header-section-number">10.26</span> Issue #694: [ansys-interface]
 add support for the <code>@GenerateMTestFileOnFailure</code>
 keyword</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/694"
 class="uri">https://github.com/thelfer/tfel/issues/694</a></p>
-<h2 data-number="9.26"
+<h2 data-number="10.27"
 id="issue-692-mfront-add-warning-when-interface-specific-keywords-are-not-restricted-to-the-corresponding-interface"><span
-class="header-section-number">9.26</span> Issue #692: [mfront] add
+class="header-section-number">10.27</span> Issue #692: [mfront] add
 warning when interface specific keywords are not restricted to the
 corresponding interface</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/692"
 class="uri">https://github.com/thelfer/tfel/issues/692</a></p>
-<h2 data-number="9.27"
+<h2 data-number="10.28"
 id="issue-690-castem-add-a-warning-when-the-maximum-number-of-sub-steppings-is-too-high"><span
-class="header-section-number">9.27</span> Issue #690: [castem] Add a
+class="header-section-number">10.28</span> Issue #690: [castem] Add a
 warning when the maximum number of sub steppings is too high</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/690"
 class="uri">https://github.com/thelfer/tfel/issues/690</a></p>
-<h2 data-number="9.28"
+<h2 data-number="10.29"
 id="issue-689-implicit-dsl-add-warning-when-using-auxiliary-state-variables-not-computed-by-external-point-wise-models-in-computestress-and-computefinalstress"><span
-class="header-section-number">9.28</span> Issue #689: [implicit-dsl] Add
-warning when using auxiliary state variables (not computed by external
-point-wise models) in <code>@ComputeStress</code> and
+class="header-section-number">10.29</span> Issue #689: [implicit-dsl]
+Add warning when using auxiliary state variables (not computed by
+external point-wise models) in <code>@ComputeStress</code> and
 <code>@ComputeFinalStress</code></h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/689"
 class="uri">https://github.com/thelfer/tfel/issues/689</a></p>
-<h2 data-number="9.29"
+<h2 data-number="10.30"
 id="issue-685-tfel-config-add-support-for-tfelconfig-tfelmfront-and-tfelmtest"><span
-class="header-section-number">9.29</span> Issue 685: [tfel-config] Add
+class="header-section-number">10.30</span> Issue 685: [tfel-config] Add
 support for <code>TFELConfig</code>, <code>TFELMFront</code> and
 <code>TFELMTest</code></h2>
 <p>This feature is described in Section 2.4.</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/685"
 class="uri">https://github.com/thelfer/tfel/issues/685</a></p>
-<h2 data-number="9.30"
+<h2 data-number="10.31"
 id="issue-684-mfront-add-support-for-includes-link-and-tfellibraries-to-the-model-dsl"><span
-class="header-section-number">9.30</span> Issue 684: [mfront] Add
+class="header-section-number">10.31</span> Issue 684: [mfront] Add
 support for <code>@Includes</code>, <code>@Link</code> and
 <code>@TFELLibraries</code> to the `Model DSL</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/684"
 class="uri">https://github.com/thelfer/tfel/issues/684</a></p>
-<h2 data-number="9.31"
+<h2 data-number="10.32"
 id="issue-683-using-tfel-librairies-in-material-properties"><span
-class="header-section-number">9.31</span> Issue 683: Using
+class="header-section-number">10.32</span> Issue 683: Using
 <code>TFEL</code> librairies in material properties</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/683"
 class="uri">https://github.com/thelfer/tfel/issues/683</a></p>
-<h2 data-number="9.32"
+<h2 data-number="10.33"
 id="issue-677tfel-config-add-a-python-module-suffix-option"><span
-class="header-section-number">9.32</span> Issue 677:[tfel-config] add a
+class="header-section-number">10.33</span> Issue 677:[tfel-config] add a
 python-module-suffix option</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/677"
 class="uri">https://github.com/thelfer/tfel/issues/677</a></p>
-<h2 data-number="9.33"
+<h2 data-number="10.34"
 id="issue-676-always-prefer-the-versioned-tfelhome-environment-variable"><span
-class="header-section-number">9.33</span> Issue 676: Always prefer the
+class="header-section-number">10.34</span> Issue 676: Always prefer the
 versioned <code>TFELHOME</code> environment variable</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/676"
 class="uri">https://github.com/thelfer/tfel/issues/676</a></p>
-<h2 data-number="9.34"
+<h2 data-number="10.35"
 id="issue-674-python-bindings-add-option-to-disable-the-modication-of-the-names-of-python-modules-by-the-tfel_append_version-and-tfel_version_flavour"><span
-class="header-section-number">9.34</span> Issue 674: [python-bindings]
+class="header-section-number">10.35</span> Issue 674: [python-bindings]
 Add option to disable the modication of the names of python modules by
 the <code>TFEL_APPEND_VERSION</code> and
 <code>TFEL_VERSION_FLAVOUR</code></h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/674"
 class="uri">https://github.com/thelfer/tfel/issues/674</a></p>
-<h2 data-number="9.35"
+<h2 data-number="10.36"
 id="issue-673-tfel-config-add-the-ability-to-define-an-environment-variable-associated-with-the-tfels-version-and-flavour"><span
-class="header-section-number">9.35</span> Issue 673: [tfel-config] Add
+class="header-section-number">10.36</span> Issue 673: [tfel-config] Add
 the ability to define an environment variable associated with the
 <code>TFEL</code>’s version and flavour</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/673"
 class="uri">https://github.com/thelfer/tfel/issues/673</a></p>
-<h2 data-number="9.36"
+<h2 data-number="10.37"
 id="issue-672-python-bindings-fix-python-modules-names-when-tfel_append_version-or-tfel_version_flavour-is-defined"><span
-class="header-section-number">9.36</span> Issue 672: <a
+class="header-section-number">10.37</span> Issue 672: <a
 href="#python-bindings">python bindings</a> fix python modules names
 when <code>TFEL_APPEND_VERSION</code> or
 <code>TFEL_VERSION_FLAVOUR</code> is defined</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/672"
 class="uri">https://github.com/thelfer/tfel/issues/672</a></p>
-<h2 data-number="9.37"
+<h2 data-number="10.38"
 id="issue-667-reduce-the-size-of-files-paths-in-sources-to-fit-in-windowss-max_path-limit"><span
-class="header-section-number">9.37</span> Issue 667: Reduce the size of
+class="header-section-number">10.38</span> Issue 667: Reduce the size of
 files paths in sources to fit in <code>Windows</code>’s
 <code>MAX_PATH</code> limit</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/667"
 class="uri">https://github.com/thelfer/tfel/issues/667</a></p>
-<h2 data-number="9.38"
+<h2 data-number="10.39"
 id="issue-666-doc-add-contributing-file-remove-devel.md"><span
-class="header-section-number">9.38</span> Issue 666: [doc] Add
+class="header-section-number">10.39</span> Issue 666: [doc] Add
 CONTRIBUTING file, remove devel.md</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/666"
 class="uri">https://github.com/thelfer/tfel/issues/666</a></p>
-<h2 data-number="9.39"
+<h2 data-number="10.40"
 id="issue-654-add-powershell-environment-script"><span
-class="header-section-number">9.39</span> Issue 654: Add PowerShell
+class="header-section-number">10.40</span> Issue 654: Add PowerShell
 environment script</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/654"
 class="uri">https://github.com/thelfer/tfel/issues/654</a></p>
-<h2 data-number="9.40"
+<h2 data-number="10.41"
 id="issue-640-mfront-only-point-wise-models-defined-by-model-dsl-can-be-embedded-in-behaviours-using-the-model-keyword"><span
-class="header-section-number">9.40</span> Issue 640: [mfront] Only
+class="header-section-number">10.41</span> Issue 640: [mfront] Only
 point-wise models defined by <code>Model</code> DSL can be embedded in
 behaviours using the <code>@Model</code> keyword</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/640"
 class="uri">https://github.com/thelfer/tfel/issues/640</a></p>
-<h2 data-number="9.41"
+<h2 data-number="10.42"
 id="issue-294-python-bindings-evaluate-port-to-pybind"><span
-class="header-section-number">9.41</span> Issue 294: [python-bindings]
+class="header-section-number">10.42</span> Issue 294: [python-bindings]
 Evaluate port to <code>pybind</code></h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/293"

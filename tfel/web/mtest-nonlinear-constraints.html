@@ -5,82 +5,19 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>The mfm tool</title>
-        <meta name="author" content="Thomas Helfer" />
-            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <title>On physical interpretations of Lagrange multipliers for kinematic and static constraints in MTest</title>
+        <meta name="author" content="Mehran Ghasabeh, Thomas Helfer, Thomas Nagel" />
+            <meta name="date" content="2025-01-01" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
-            <style type="text/css">
-      pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { line-height: 1.25; }
-      pre > code.sourceCode > span:empty { height: 1.2em; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode > span { color: inherit; text-decoration: inherit; }
-      div.sourceCode { margin: 1em 0; }
-      pre.sourceCode { margin: 0; }
-      @media screen {
-      div.sourceCode { overflow: auto; }
-      }
-      @media print {
-      pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-      }
-      pre.numberSource code
-        { counter-reset: source-line 0; }
-      pre.numberSource code > span
-        { position: relative; left: -4em; counter-increment: source-line; }
-      pre.numberSource code > span > a:first-child::before
-        { content: counter(source-line);
-          position: relative; left: -1em; text-align: right; vertical-align: baseline;
-          border: none; display: inline-block;
-          -webkit-touch-callout: none; -webkit-user-select: none;
-          -khtml-user-select: none; -moz-user-select: none;
-          -ms-user-select: none; user-select: none;
-          padding: 0 4px; width: 4em;
-          color: #aaaaaa;
-        }
-      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-      div.sourceCode
-        {  background-color: #f8f8f8; }
-      @media screen {
-      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-      }
-      code span.al { color: #ef2929; } /* Alert */
-      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #204a87; } /* Attribute */
-      code span.bn { color: #0000cf; } /* BaseN */
-      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-      code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #8f5902; } /* Constant */
-      code span.co { color: #8f5902; font-style: italic; } /* Comment */
-      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-      code span.dt { color: #204a87; } /* DataType */
-      code span.dv { color: #0000cf; } /* DecVal */
-      code span.er { color: #a40000; font-weight: bold; } /* Error */
-      code span.ex { } /* Extension */
-      code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #204a87; font-weight: bold; } /* Function */
-      code span.im { } /* Import */
-      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-      code span.ot { color: #8f5902; } /* Other */
-      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
-      code span.ss { color: #4e9a06; } /* SpecialString */
-      code span.st { color: #4e9a06; } /* String */
-      code span.va { color: #000000; } /* Variable */
-      code span.vs { color: #4e9a06; } /* VerbatimString */
-      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-    </style>
-            <link rel="stylesheet" href="css/normalize.css"/>
+                <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
         <script
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -362,52 +299,265 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">The <code>mfm</code> tool</h1>
-<h2 class="author">Thomas Helfer</h2>
-<h3 class="date">30/08/2017</h3>
+<h1 class="title">On physical interpretations of Lagrange multipliers
+for kinematic and static constraints in MTest</h1>
+<h2 class="author">Mehran Ghasabeh, Thomas Helfer, Thomas Nagel</h2>
+<h3 class="date">2025</h3>
 </div>
-<p><code>mfm</code> is a tool that allows querying a library about the
-entry points defined by <code>MFront</code>. Depending on the interface,
-an entry point can be a class name, a function, a name of an entity that
-will be registered in an abstract factory when the library is loaded,
-etc…</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>aster ImplicitNorton.mfront </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Treating</span> target : all</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following library has been built :</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> libAsterBehaviour.so :  asterimplicitnorton</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">th202608@pleiades098:/tmp$</span> mfm src/libAsterBehaviour.so </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> asterimplicitnorton</span></code></pre></div>
-<h1 id="filters">Filters</h1>
-<p>The entry points can be filtered. The following filters are
-available:</p>
+<div id="TOC">
 <ul>
-<li><code>--filter-by-interface</code>.</li>
-<li><code>--filter-by-material</code></li>
-<li><code>--filter-by-name</code>.</li>
-<li><code>--filter-by-type</code>. This option can be followed by
-<code>material-property</code>, <code>behaviour</code> or
-<code>model</code></li>
-</ul>
-<p>Filters are based on case-insensitive regular expressions.</p>
-<h1 id="other-command-line-options">Other command line options</h1>
-<p>Apart from filters, <code>mfm</code> also have the following
-options:</p>
+<li><a href="#introduction" id="toc-introduction">Introduction</a></li>
+<li><a
+href="#example-caculation-of-pore-pressure-in-undrained-stress-paths-in-mtest"
+id="toc-example-caculation-of-pore-pressure-in-undrained-stress-paths-in-mtest">Example:
+Caculation of pore pressure in undrained stress paths in MTest</a>
 <ul>
-<li><code>--verbose</code>: set the verbosity level. The following
-values are accepted: <code>quiet</code>, <code>level0</code>,
-<code>level1</code>, <code>level2</code>, <code>debug</code>,
-<code>full</code>. If no value is given, <code>level1</code> is
-selected.</li>
-<li><code>--show-libs</code>: show library name in front of entry
-points.</li>
+<li><a href="#theory" id="toc-theory">Theory</a></li>
+<li><a href="#treatment-in-mfront"
+id="toc-treatment-in-mfront">Treatment in MFront</a></li>
+<li><a href="#verification" id="toc-verification">Verification</a></li>
+</ul></li>
 </ul>
-<h1 id="usage">Usage</h1>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfm <span class="at">--filter-by-material</span><span class="op">=</span><span class="st">&#39;M5&#39;</span> <span class="at">--filter-by-type</span><span class="op">=</span>material_property <span class="at">--filter-by-name</span><span class="op">=</span><span class="st">&#39;.*YoungModulus.*&#39;</span> <span class="at">--filter-by-interface</span><span class="op">=</span>castem <span class="at">--show-libs</span>  <span class="va">$(</span><span class="fu">find</span> . <span class="at">-type</span> f<span class="va">)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> ./lib/libM5MaterialProperties-castem.so: M5_YoungModulus</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> ./lib/libM5MaterialProperties-castem.so: M5_YoungModulus_Crocodile2015</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> ./lib/libM5MaterialProperties-castem.so: M5_YoungModulus_MATPRO2001</span></code></pre></div>
+</div>
+<h1 class="unnumbered" id="introduction">Introduction</h1>
+<p>In this manuscript, the derivation of the Lagrange multiplier in
+MTest is presented. The primary objective is to compute the pore
+pressure under undrained conditions through the Lagrange multiplier. The
+undrained condition leads to an effectively incompressible material
+response, characterised by zero volumetric strain. The Lagrange
+multiplier corresponding to the zero-volumetric-strain constraint is
+obtained by minimising the free energy function and can be interpreted
+as a pore pressure. The resulting pore pressure is then compared with
+the pore pressure computed using OpenGeoSys.</p>
+<p>In general, this approach can be used to interpret Lagrange
+multipliers associated with constraints physically.</p>
+<h1
+id="example-caculation-of-pore-pressure-in-undrained-stress-paths-in-mtest">Example:
+Caculation of pore pressure in undrained stress paths in MTest</h1>
+<h2 id="theory">Theory</h2>
+<p>In this document, the computation of the Lagrange multiplier <span
+class="math inline">\(\lambda\)</span> associated with the and its
+relation to the pore pressure <span class="math inline">\(p\)</span>
+developing in undrained compression tests is presented. The undrained
+condition refers to a loading process in which no fluid is allowed to
+enter or leave the porous medium, so the total fluid mass (or fluid
+content) in the system remains constant during deformation. As a result,
+changes in stress are accompanied by changes in pore pressure rather
+than fluid flow, leading to effective material properties that differ
+from drained ones. Hooke’s law for an isotropic elastic body,
+representing the strain-effective stress relations in the theory of
+poro-elasticity taking into account the effect of the pore pressure on
+total stress is given as follows (only normal components) : <span
+class="math display">\[
+\begin{aligned}
+    \varepsilon_{xx} &amp;= \frac{\sigma_{xx}}{E} -
+\frac{1-\nu}{E}\left( \sigma_{yy} + \sigma_{zz} \right) + \frac{\Delta\,
+p}{3H}, \\[1.5ex]
+    \varepsilon_{yy} &amp;= \frac{\sigma_{yy}}{E} -
+\frac{1-\nu}{E}\left( \sigma_{xx} + \sigma_{zz} \right) +
+\frac{\Delta\,p}{3H}, \\[1.5ex]
+    \varepsilon_{zz} &amp;= \frac{\sigma_{zz}}{E} -
+\frac{1-\nu}{E}\left( \sigma_{xx} + \sigma_{yy} \right) +
+\frac{\Delta\,p}{3H},
+\end{aligned}
+\]</span> where <span class="math inline">\(\dfrac{1}{H}\)</span> is an
+additional parameter that denotes the poroelastic expansion coefficient,
+and determined as: <span class="math display">\[
+    \cfrac{1}{H}= \cfrac{3 \left( 1 - 2\nu\right) \alpha}{2 \left( 1 +
+\nu\right) G} \quad \mathrm{with} \quad G = \frac{E}{2 \left( 1 +
+\nu\right)}
+    \label{H_coeff}
+\]</span></p>
+<p>Moreover, the variation in water content is given as a function of
+the volumetric strain as follows : <span class="math display">\[
+    \zeta = \alpha\, \mathrm{tr} \boldsymbol{\varepsilon}+ \cfrac{\Delta
+p}{Q},
+    \label{variation_in_water_content}
+\]</span> where <span class="math display">\[
+    \cfrac{1}{Q} = \cfrac{1}{R} - \cfrac{\alpha}{H}.    
+\]</span> It is a measure of the amount of water which can be forced
+into the soil under pressure while the volume of the soil is kept
+constant. <span class="math inline">\(Q\)</span> is called the Biot’s
+modulus in the literature .</p>
+<p>In a more standard notation, these constitutive relations are written
+as: <span class="math display">\[
+    \boldsymbol{\sigma} = \boldsymbol{\sigma}^{\mathrm{eff}}-\alpha p
+\boldsymbol{I} \quad \mathrm{with} \quad
+\boldsymbol{\sigma}^{\mathrm{eff}} = K\,\mathrm{tr}\left(
+\boldsymbol{\varepsilon }\right) +
+2\,G\,\boldsymbol{\varepsilon}^{\mathrm{dev}} \quad \mathrm{and} \quad
+\boldsymbol{\varepsilon}^{\mathrm{dev}} -
+\cfrac{\mathrm{tr}(\boldsymbol{\varepsilon})}{3}\,\boldsymbol{I},
+\]</span> by considering an effective free energy function of the form:
+<span class="math display">\[
+    \psi(\boldsymbol{\varepsilon}) = \cfrac{1}{2}\,K\,
+\mathrm{tr}^{2}\left(\boldsymbol{\varepsilon}\right) +
+G\,\boldsymbol{\varepsilon}^{\mathrm{dev}}:\boldsymbol{\varepsilon}^{\mathrm{dev}},
+\]</span> where the bulk and the shear moduli are calculated as: <span
+class="math display">\[
+    K = \cfrac{E}{3\,(1-2\,\nu)} \quad \mathrm{with} \quad
+G=\cfrac{E}{2\,\left( 1+\nu \right)}.
+\]</span></p>
+<p>We now consider an unconfined uniaxial compression test controlled by
+<span class="math inline">\(\varepsilon_{yy}=-\delta\,t\)</span> under
+undrained conditions and an incompressible fluid. This condition amounts
+to an isochoric test, so we need to enforce <span
+class="math inline">\(\epsilon:=\mathrm{tr}\varepsilon=0\)</span>. To
+obtain the Lagrange multiplier associated with material
+incompressibility, the stationary point of the energy complemented by
+two constraints and the work of the external stresses is sought: <span
+class="math display">\[
+    \varepsilon_{xx} + \varepsilon_{yy} + \varepsilon_{zz} = 0, \quad
+\mathrm{and} \quad \sigma_{xx} = \sigma_{zz}.
+\]</span> The Lagrangian of the system reads: <span
+class="math display">\[
+\mathcal{L}
+= \frac{1}{2}K\,\mathrm{tr}^{2}(\boldsymbol{\varepsilon})
++
+G\,\boldsymbol{\varepsilon}^{\mathrm{dev}}:\boldsymbol{\varepsilon}^{\mathrm{dev}}
+- \lambda_1\,\mathrm{tr}(\boldsymbol{\varepsilon})
+- \lambda_2 \left( \sigma_{xx} - \sigma_{zz} \right)
+- \boldsymbol{\sigma} : \boldsymbol{\varepsilon},
+\]</span> where <span class="math inline">\(\lambda_1\)</span>, <span
+class="math inline">\(\lambda_2\)</span> are the Lagrange multipliers
+associated with the volumetric strain constraint and the stress
+constraint, respectively. The stationarity conditions are obtained by
+taking the first variations of the Lagrangian with respect to the
+unknown strain components and the Lagrange multipliers.</p>
+<p>We introduce the deviatoric projector <span class="math display">\[
+\mathbf{A}
+= \mathbf{e}_x \otimes \mathbf{e}_x
+- \mathbf{e}_z \otimes \mathbf{e}_z,
+\qquad
+\sigma_{xx} - \sigma_{zz} = \boldsymbol{\sigma} : \mathbf{A}.
+\]</span></p>
+<p>The variation with respect to the strain tensor yields <span
+class="math display">\[
+\delta_\varepsilon \mathcal{L}
+= \left(
+K\,\mathrm{tr}(\boldsymbol{\varepsilon})\,\mathbf{I}
++ 2G\,\boldsymbol{\varepsilon}^{\mathrm{dev}}
+- \lambda_1\,\mathbf{I}
+- 2G\,\lambda_2\,\mathbf{A}
+- \boldsymbol{\sigma}
+\right) : \delta \boldsymbol{\varepsilon}
+= 0,
+\]</span> which must hold for all <span
+class="math inline">\(\delta\boldsymbol{\varepsilon}\)</span> and thus
+implies <span class="math display">\[
+K\,\mathrm{tr}(\boldsymbol{\varepsilon})\,\mathbf{I}
++ 2G\,\boldsymbol{\varepsilon}^{\mathrm{dev}}
+- \lambda_1\,\mathbf{I}
+- 2G\,\lambda_2\,\mathbf{A}
+- \boldsymbol{\sigma}
+= \mathbf{0}.
+\]</span></p>
+<p>The variations with respect to the Lagrange multipliers give the
+constraints <span class="math display">\[
+\delta_{\lambda_1} \mathcal{L}
+= -\mathrm{tr}(\boldsymbol{\varepsilon})\,\delta \lambda_1 = 0,
+\qquad
+\delta_{\lambda_2} \mathcal{L}
+= -(\sigma_{xx} - \sigma_{zz})\,\delta \lambda_2 = 0,
+\]</span> so that <span class="math display">\[
+\mathrm{tr}(\boldsymbol{\varepsilon}) = 0,
+\qquad
+\sigma_{xx} = \sigma_{zz}.
+\]</span></p>
+<p>From the stationarity condition with respect to <span
+class="math inline">\(\boldsymbol{\varepsilon}\)</span> we can express
+the (given) stress tensor as <span class="math display">\[
+\boldsymbol{\sigma}
+= K\,\mathrm{tr}(\boldsymbol{\varepsilon})\,\mathbf{I}
++ 2G\,\boldsymbol{\varepsilon}^{\mathrm{dev}}
+- \lambda_1\,\mathbf{I}
+- 2G\,\lambda_2\,\mathbf{A}.
+\]</span> Using the result of the first constraint, <span
+class="math inline">\(\mathrm{tr}(\boldsymbol{\varepsilon}) =
+0\)</span>, this simplifies to <span class="math display">\[
+\boldsymbol{\sigma}
+= 2G\,\boldsymbol{\varepsilon}^{\mathrm{dev}}
+- \lambda_1\,\mathbf{I}
+- 2G\,\lambda_2\,\mathbf{A}.
+\]</span></p>
+<p>For a uniaxial compression test with <span
+class="math inline">\(\varepsilon_{yy}\)</span> as the control variable,
+the volumetric constraint <span class="math display">\[
+\mathrm{tr}(\boldsymbol{\varepsilon}) =
+\varepsilon_{xx} + \varepsilon_{yy} + \varepsilon_{zz} = 0
+\]</span> together with the symmetry condition <span
+class="math inline">\(\varepsilon_{xx} = \varepsilon_{zz}\)</span>
+yields <span class="math display">\[
+\varepsilon_{xx} = \varepsilon_{zz}
+= -\frac{1}{2}\,\varepsilon_{yy}.
+\]</span></p>
+<p>Inserting this strain state into the stationarity condition <span
+class="math display">\[
+\sigma_{ij}
+= 2G\,\varepsilon_{ij}^{\mathrm{dev}}
+- \lambda_1\,\delta_{ij}
+- 2G\,\lambda_2\,A_{ij},
+\qquad
+A_{ij} = \mathrm{diag}(1,0,-1),
+\]</span> gives the componentwise relations <span
+class="math display">\[\begin{align}
+\sigma_{xx} &amp;= 2G\,\varepsilon_{xx} - \lambda_1 - 2G\,\lambda_2,\\
+\sigma_{yy} &amp;= 2G\,\varepsilon_{yy} - \lambda_1,\\
+\sigma_{zz} &amp;= 2G\,\varepsilon_{zz} - \lambda_1 + 2G\,\lambda_2.
+\end{align}\]</span></p>
+<p>The second constraint, <span class="math inline">\(\sigma_{xx} =
+\sigma_{zz}\)</span>, then reduces to <span class="math display">\[
+-2G\,\lambda_2 = +2G\,\lambda_2
+\qquad\Longrightarrow\qquad
+\lambda_2 = 0.
+\]</span></p>
+<p>For a uniaxial test the lateral stresses vanish, <span
+class="math display">\[
+\sigma_{xx} = \sigma_{zz} = 0.
+\]</span> Using <span class="math inline">\(\lambda_2=0\)</span> and
+<span class="math inline">\(\varepsilon_{xx} =
+-\tfrac12\varepsilon_{yy}\)</span> in <span
+class="math inline">\(\sigma_{xx} = 2G\varepsilon_{xx} -
+\lambda_1\)</span> gives <span class="math display">\[
+0 = 2G\!\left(-\frac{1}{2}\varepsilon_{yy}\right) - \lambda_1,
+\qquad\Longrightarrow\qquad
+\lambda_1 = -G\,\varepsilon_{yy}.
+\]</span></p>
+<p>Thus, the Lagrange multipliers for the uniaxial compression case are
+<span class="math display">\[
+\boxed{
+\lambda_1 = -G\,\varepsilon_{yy},
+\qquad
+\lambda_2 = 0.
+}
+\]</span></p>
+<p>Finally, the resulting axial stress follows as <span
+class="math display">\[
+\sigma_{yy}
+= 2G\,\varepsilon_{yy} - \lambda_1
+= 3G\,\varepsilon_{yy}.
+\]</span></p>
+<h2 id="treatment-in-mfront">Treatment in MFront</h2>
+<p>The Lagrange multiplier is then scaled by the factor of <span
+class="math inline">\(K+\cfrac{4\,G}{3}\)</span>, which is the first
+component of the tangent operator. Finally, we get: <span
+class="math display">\[
+    \lambda^{*}_1 = \cfrac{\lambda_1}{K + 4\,G/3}
+\]</span></p>
+<p>The Lagrange multiplier <span
+class="math inline">\(\lambda_1\)</span> represents the pore pressure
+under undrained conditions, i.e. <span
+class="math inline">\(p=\lambda_1\)</span>.</p>
+<h2 id="verification">Verification</h2>
+<p>The comparison between the pore pressure obtained with OGS and the
+Lagrange multiplier computed with MTest is presented in Figure 1.</p>
+<figure id="fig:undrained_pore_pressure">
+<img src="img/mtest-undrained_pore_pressure.svg" style="width:80.0%"
+alt="Undrained pore-pressure response under uniaxial compression, comparing numerical results from OGS and MTest." />
+<figcaption>Figure 1: Undrained pore-pressure response under uniaxial
+compression, comparing numerical results from OGS and
+MTest.</figcaption>
+</figure>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

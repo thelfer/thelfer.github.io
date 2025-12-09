@@ -15,7 +15,6 @@ var structmfront_1_1_variable_description =
     [ "getExternalName", "structmfront_1_1_variable_description.html#a09e9c451029f5b568a9bac9cc43b144a", null ],
     [ "getPhysicalBounds", "structmfront_1_1_variable_description.html#a7574f052e129fdb2520d729a531517dd", null ],
     [ "getPhysicalBounds", "structmfront_1_1_variable_description.html#a654bdecf559baceba07cf01681edc145", null ],
-    [ "getVariableTypeIdentifier", "structmfront_1_1_variable_description.html#a796d3c5662afe744c1fc3fcc6b3e4527", null ],
     [ "hasAttribute", "structmfront_1_1_variable_description.html#a4e0ef846f80f8a20b122e52c22d6f42f", null ],
     [ "hasBounds", "structmfront_1_1_variable_description.html#ae1cb021ebb5ec4937fd0049751201d43", null ],
     [ "hasBounds", "structmfront_1_1_variable_description.html#abde8f674739f749bcff9478985f8c75f", null ],

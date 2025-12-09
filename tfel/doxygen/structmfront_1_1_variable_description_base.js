@@ -8,6 +8,7 @@ var structmfront_1_1_variable_description_base =
     [ "~VariableDescriptionBase", "structmfront_1_1_variable_description_base.html#af1766a7638f490fb0a055d012b6dd703", null ],
     [ "getTypeFlag", "structmfront_1_1_variable_description_base.html#a72a7f1368631e3e64dcfcf5a82c55693", null ],
     [ "getTypeSize", "structmfront_1_1_variable_description_base.html#a5da75044584f8707f5c5d3c4c890ecf9", null ],
+    [ "getVariableTypeIdentifier", "structmfront_1_1_variable_description_base.html#afcdc516a5db71a77158c817765ee6a45", null ],
     [ "operator=", "structmfront_1_1_variable_description_base.html#a23452d26f14e0602a3b5bebd0fd592da", null ],
     [ "operator=", "structmfront_1_1_variable_description_base.html#adfce764c7a05d971daf545da2ee7ef98", null ],
     [ "arraySize", "structmfront_1_1_variable_description_base.html#a6f77609b34c39ba921569d4afd4be3aa", null ],

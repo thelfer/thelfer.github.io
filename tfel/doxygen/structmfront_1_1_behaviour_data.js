@@ -103,6 +103,7 @@ var structmfront_1_1_behaviour_data =
     [ "getStateVariableDescription", "structmfront_1_1_behaviour_data.html#a542f812235adceab01215e7f5cd62fcd", null ],
     [ "getStateVariableDescriptionByExternalName", "structmfront_1_1_behaviour_data.html#a71c666747df9ae06b83234bce92e57e4", null ],
     [ "getStateVariables", "structmfront_1_1_behaviour_data.html#a6c4347394c75304c18618d0485467183", null ],
+    [ "getStaticVariableDescription", "structmfront_1_1_behaviour_data.html#a2341b250608e847cec82f2345ef9ebea", null ],
     [ "getStaticVariables", "structmfront_1_1_behaviour_data.html#a89e8894c9994867acb29c0cde2131f63", null ],
     [ "getStressFreeExpansionDescriptions", "structmfront_1_1_behaviour_data.html#a54b5d3ea0f24613b9d012a439bacdce5", null ],
     [ "getSymbols", "structmfront_1_1_behaviour_data.html#a958987d4dc4b123b5674736746dfc14e", null ],

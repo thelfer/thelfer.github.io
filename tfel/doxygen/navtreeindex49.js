@@ -1,5 +1,11 @@
 var NAVTREEINDEX49 =
 {
+"structmfront_1_1bbrick_1_1_chu_needleman1980_strain_based_porosity_nucleation_model.html#a26eb8be8fe2b2cea176529f30b2fbfb9":[7,0,10,0,7,0],
+"structmfront_1_1bbrick_1_1_chu_needleman1980_strain_based_porosity_nucleation_model.html#a55cd92e6abb38befbe6db524405d67ef":[7,0,10,0,7,3],
+"structmfront_1_1bbrick_1_1_chu_needleman1980_strain_based_porosity_nucleation_model.html#a9dc46457dd95a195a922170bd154f06b":[7,0,10,0,7,1],
+"structmfront_1_1bbrick_1_1_chu_needleman1980_strain_based_porosity_nucleation_model.html#ad69145b6d87489965a70782a057b8970":[7,0,10,0,7,2],
+"structmfront_1_1bbrick_1_1_chu_needleman1980_stress_based_porosity_nucleation_model.html":[7,0,10,0,8],
+"structmfront_1_1bbrick_1_1_chu_needleman1980_stress_based_porosity_nucleation_model.html#a31029ba6bd013881b44314261cac839b":[7,0,10,0,8,2],
 "structmfront_1_1bbrick_1_1_chu_needleman1980_stress_based_porosity_nucleation_model.html#a61e5692f76dd6699fef98ea244f24071":[7,0,10,0,8,1],
 "structmfront_1_1bbrick_1_1_chu_needleman1980_stress_based_porosity_nucleation_model.html#a87904379e9f4d0c7e345553d62b40cad":[7,0,10,0,8,0],
 "structmfront_1_1bbrick_1_1_cowper_symonds_strain_rate_sensitivity_factor.html":[7,0,10,0,9],
@@ -243,11 +249,5 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_johnson_cook_strain_rate_sensitivity_factor.html#a6ce609271438a2b8bd99a69a4be9ef38":[7,0,10,0,26,7],
 "structmfront_1_1bbrick_1_1_johnson_cook_strain_rate_sensitivity_factor.html#a8ffa221f4b4f9fa4f0ba31efaa60d002":[7,0,10,0,26,4],
 "structmfront_1_1bbrick_1_1_johnson_cook_strain_rate_sensitivity_factor.html#a932da9d50ff0cda32cf96bb78880fcd7":[7,0,10,0,26,6],
-"structmfront_1_1bbrick_1_1_johnson_cook_strain_rate_sensitivity_factor.html#ae48f5263e42185eab4d9c1030440d32f":[7,0,10,0,26,5],
-"structmfront_1_1bbrick_1_1_johnson_cook_strain_rate_sensitivity_factor.html#ae96f3b996429194f12330f6665e42c36":[7,0,10,0,26,1],
-"structmfront_1_1bbrick_1_1_johnson_cook_strain_rate_sensitivity_factor.html#afa41c9bdc302c714d16952dfad5a50ad":[7,0,10,0,26,2],
-"structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html":[7,0,10,0,27],
-"structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#a207dbc7f6e878566e405cecd2448d4c9":[7,0,10,0,27,0],
-"structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#a410ce209124dae16d00883751f1f6569":[7,0,10,0,27,1],
-"structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#a61fc83741d0370001beca51ee155f2df":[7,0,10,0,27,16]
+"structmfront_1_1bbrick_1_1_johnson_cook_strain_rate_sensitivity_factor.html#ae48f5263e42185eab4d9c1030440d32f":[7,0,10,0,26,5]
 };

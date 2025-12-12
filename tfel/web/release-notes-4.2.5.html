@@ -3,16 +3,16 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Release notes of the 3.0.1 version of TFEL, MFront and MTest</title>
+    <title>Release notes of the 4.2.5 version of TFEL, MFront and MTest</title>
         <meta name="author" content="Thomas Helfer" />
-            <meta name="date" content="2017-01-01" />
+            <meta name="date" content="2025-01-01" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
@@ -307,64 +307,36 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Release notes of the 3.0.1 version of
+<h1 class="title">Release notes of the 4.2.5 version of
 <code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
 <h2 class="author">Thomas Helfer</h2>
-<h3 class="date">2017</h3>
+<h3 class="date">2025</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#overview-of-tfel-mfront-and-mtest"
-id="toc-overview-of-tfel-mfront-and-mtest">Overview of
-<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></a></li>
-<li><a href="#tickets-fixed" id="toc-tickets-fixed">Tickets fixed</a>
+<li><a href="#issues-fixed" id="toc-issues-fixed"><span
+class="toc-section-number">1</span> Issues fixed</a>
 <ul>
 <li><a
-href="#ticket-38-bad-normalisation-of-the-tensor-when-computing-eigenvalues"
-id="toc-ticket-38-bad-normalisation-of-the-tensor-when-computing-eigenvalues">Ticket
-38: Bad normalisation of the tensor when computing eigenvalues</a></li>
-<li><a
-href="#ticket-35-regression-when-using-castemfinitestrainstrategy-or-castemfinitestrainstrategies-in-the-castem-interface"
-id="toc-ticket-35-regression-when-using-castemfinitestrainstrategy-or-castemfinitestrainstrategies-in-the-castem-interface">Ticket
-#35: regression when using <code>@CastemFiniteStrainStrategy</code> or
-<code>@CastemFiniteStrainStrategies</code> in the <code>castem</code>
-interface</a></li>
+href="#issue-862-diana-interface-extension-of-diana-interface-to-support-2d-resolution"
+id="toc-issue-862-diana-interface-extension-of-diana-interface-to-support-2d-resolution"><span
+class="toc-section-number">1.1</span> Issue #862: [diana-interface]
+Extension of <code>DIANA</code> interface to support 2D
+resolution</a></li>
 </ul></li>
 </ul>
 </div>
-<h1 id="overview-of-tfel-mfront-and-mtest">Overview of
-<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
-<h1 id="tickets-fixed">Tickets fixed</h1>
-<h2
-id="ticket-38-bad-normalisation-of-the-tensor-when-computing-eigenvalues">Ticket
-38: Bad normalisation of the tensor when computing eigenvalues</h2>
-<p>Tensors are normalised when computing the eigenvalues. There was a
-mistake in the normalisation which can lead to severe numerical
-instabilities in some (rare) case.</p>
+<p>The page describes the new functionalities of Version 4.2.5 of the
+<code>TFEL</code> project.</p>
+<h1 data-number="1" id="issues-fixed"><span
+class="header-section-number">1</span> Issues fixed</h1>
+<h2 data-number="1.1"
+id="issue-862-diana-interface-extension-of-diana-interface-to-support-2d-resolution"><span
+class="header-section-number">1.1</span> Issue #862: [diana-interface]
+Extension of <code>DIANA</code> interface to support 2D resolution</h2>
 <p>For more details, see: <a
-href="https://sourceforge.net/p/tfel/tickets/38/"
-class="uri">https://sourceforge.net/p/tfel/tickets/38/</a></p>
-<h2
-id="ticket-35-regression-when-using-castemfinitestrainstrategy-or-castemfinitestrainstrategies-in-the-castem-interface">Ticket
-#35: regression when using <code>@CastemFiniteStrainStrategy</code> or
-<code>@CastemFiniteStrainStrategies</code> in the <code>castem</code>
-interface</h2>
-<p>When definining finite strain strategies in the <code>castem</code>
-interface, a regression was introduced in version <span
-class="math inline">\(3.0.0\)</span>, if only one finite strain strategy
-is defined: in this specific case, one define two behaviours (in fact
-the second is barely an alias for the first one):</p>
-<ul>
-<li>A first one having the base name of the behaviour
-(e.g. <code>umatnorton</code>).</li>
-<li>A second name having the base name of the behaviour following by the
-finite strain strategy (e.g. <code>umatnorton_ss</code>).</li>
-</ul>
-<p>The regression was that the <code>ModellingHypotheses</code> symbols
-was only defined for the second behaviour.</p>
-<p>For more details, see: <a
-href="https://sourceforge.net/p/tfel/tickets/35/"
-class="uri">https://sourceforge.net/p/tfel/tickets/35/</a></p>
+href="https://sourceforge.net/p/tfel/tickets/862/"
+class="uri">https://sourceforge.net/p/tfel/tickets/862/</a></p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

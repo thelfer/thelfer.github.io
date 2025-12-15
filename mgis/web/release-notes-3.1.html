@@ -227,7 +227,22 @@ usage</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#python-bindings" id="toc-python-bindings">Python
-bindings</a></li>
+bindings</a>
+<ul>
+<li><a href="#new-tutorials" id="toc-new-tutorials">New
+tutorials</a></li>
+</ul></li>
+<li><a href="#tested-configurations"
+id="toc-tested-configurations">Tested configurations</a>
+<ul>
+<li><a href="#github-actions" id="toc-github-actions">Github
+actions</a></li>
+<li><a href="#continuous-integration-provide-by-the-pleiades-project"
+id="toc-continuous-integration-provide-by-the-pleiades-project">Continuous
+integration provide by the <code>PLEIADES</code> project</a></li>
+</ul></li>
+<li><a href="#acknowledgements"
+id="toc-acknowledgements">Acknowledgements</a></li>
 <li><a href="#issues-fixed" id="toc-issues-fixed">Issues fixed</a>
 <ul>
 <li><a href="#issue-148-doc-better-document-rdt-usage"
@@ -239,6 +254,7 @@ document <code>rdt</code> usage</a></li>
 <p>This version is meant to be used with <code>TFEL</code> Version 5.1.
 This version is the first that can optionnaly use directly the
 <code>TFEL</code> libraries.</p>
+<p>This version was released on December 15, 2025.</p>
 <h1 id="the-mgisfunction-library">The <code>MGIS/Function</code>
 library</h1>
 <p>The main new feature of <code>MGIS</code> is the
@@ -343,6 +359,240 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a hr
 <p>Python bindings are now generated using the <a
 href="https://github.com/pybind/pybind11"><code>pybind11</code></a>
 library.</p>
+<h2 id="new-tutorials">New tutorials</h2>
+<p>Two tutorials show how to use the python bindings to interact with a
+finite-strain mechanical behaviour compiled with <code>MFront</code> and
+develop an alternative to <code>MTest</code>:</p>
+<ul>
+<li><a href="bindings-python-finite_strain.html">case of a finite strain
+behaviour</a></li>
+<li><a href="bindings-python-small_strain.html">case of a small strain
+behaviour</a></li>
+</ul>
+<h1 id="tested-configurations">Tested configurations</h1>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 19%" />
+<col style="width: 8%" />
+<col style="width: 11%" />
+<col style="width: 15%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><pre><code>System</code></pre></th>
+<th style="text-align: center;">Compiler</th>
+<th style="text-align: center;">Build type</th>
+<th style="text-align: center;">Options</th>
+<th style="text-align: center;">Generator</th>
+<th style="text-align: center;">Percentage of success</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Ubuntu 22.04.5 LTS (Jammy
+Jellyfish)</td>
+<td style="text-align: center;">gcc 11.4.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (76/76)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ubuntu 22.04.5 LTS (Jammy
+Jellyfish)</td>
+<td style="text-align: center;">gcc 11.4.0</td>
+<td style="text-align: center;">Debug</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (76/76)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Ubuntu 22.04.5 LTS (Jammy
+Jellyfish)</td>
+<td style="text-align: center;">gcc 11.4.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;">fast-math</td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (76/76)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ubuntu 22.04.5 LTS (Jammy
+Jellyfish)</td>
+<td style="text-align: center;">gcc 11.4.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Ninja</td>
+<td style="text-align: center;">100% (76/76)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Ubuntu 22.04.5 LTS (Jammy
+Jellyfish)</td>
+<td style="text-align: center;">gcc 14.2.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (76/76)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ubuntu 22.04.5 LTS (Jammy
+Jellyfish)</td>
+<td style="text-align: center;">gcc 15.1.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (76/76)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Ubuntu 22.04.5 LTS (Jammy
+Jellyfish)</td>
+<td style="text-align: center;">llvm 14.0.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (76/76)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ubuntu 22.04.5 LTS (Jammy
+Jellyfish)</td>
+<td style="text-align: center;">llvm 19.1.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (76/76)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Ubuntu 22.04.5 LTS (Jammy
+Jellyfish)</td>
+<td style="text-align: center;">llvm 21.0.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (32/32)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ubuntu 22.04.5 LTS (Jammy
+Jellyfish)</td>
+<td style="text-align: center;">llvm 21.0.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;">libc++</td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (32/32)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Ubuntu 22.04.5 LTS (Jammy
+Jellyfish)</td>
+<td style="text-align: center;">Intel 2024.2</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">98% (61/62)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ubuntu 22.04.5 LTS (Jammy
+Jellyfish)</td>
+<td style="text-align: center;">NVHPC 25.3</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">98% (61/62)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Windows 11</td>
+<td style="text-align: center;">Visual Studio 17.4</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">100% (46/46)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="github-actions">Github actions</h2>
+<p>Github actions allows to check compilation on Ubuntu (latest)
+<code>gcc</code> 13.3.0.</p>
+<h2
+id="continuous-integration-provide-by-the-pleiades-project">Continuous
+integration provide by the <code>PLEIADES</code> project</h2>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 12%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 17%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><pre><code>System</code></pre></th>
+<th style="text-align: center;">Compiler</th>
+<th style="text-align: center;">Build type</th>
+<th style="text-align: center;">Options</th>
+<th style="text-align: center;">Generator</th>
+<th style="text-align: center;">Percentage of success</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Ubuntu 24.04 LTS (Noble Numbat)</td>
+<td style="text-align: center;">gcc 13.3.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (62/62)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ubuntu 22.04.5 LTS (Jammy
+Jellyfish)</td>
+<td style="text-align: center;">gcc 11.4.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (62/62)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Debian 12.12 (bookworm)</td>
+<td style="text-align: center;">gcc 12.2.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (62/62)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Debian 11.11 (bullseye)</td>
+<td style="text-align: center;">gcc 11.3.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (62/62)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Debian 10.13 (buster)</td>
+<td style="text-align: center;">gcc 11.3.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (62/62)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Debian 9.13 (stretch)</td>
+<td style="text-align: center;">gcc 11.3.0</td>
+<td style="text-align: center;">Release</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unix Makefiles</td>
+<td style="text-align: center;">100% (62/62)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="acknowledgements">Acknowledgements</h1>
+<p>The authors are grateful to the many contributors to the
+<code>TFEL/MFront</code> project. This research was conducted in the
+framework of the PLEIADES project, which was supported financially by
+the CEA (Commissariat à l’Énergie Atomique et aux Énergies
+Alternatives), EDF (Électricité de France) and Framatome. Work on
+<code>MGIS/Function</code> was performed as part of the EURATOM OperaHPC
+Project co-funded by the European Union.</p>
 <h1 id="issues-fixed">Issues fixed</h1>
 <h2 id="issue-148-doc-better-document-rdt-usage">Issue 148: [doc] better
 document <code>rdt</code> usage</h2>

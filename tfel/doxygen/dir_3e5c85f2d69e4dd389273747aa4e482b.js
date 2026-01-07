@@ -19,5 +19,6 @@ var dir_3e5c85f2d69e4dd389273747aa4e482b =
     [ "RelativeComparison.hxx", "_relative_comparison_8hxx.html", "_relative_comparison_8hxx" ],
     [ "Test.hxx", "tfel-check_2include_2_t_f_e_l_2_check_2_test_8hxx.html", "tfel-check_2include_2_t_f_e_l_2_check_2_test_8hxx" ],
     [ "TestLauncher.hxx", "_test_launcher_8hxx.html", "_test_launcher_8hxx" ],
+    [ "TestLauncherV1.hxx", "_test_launcher_v1_8hxx.html", "_test_launcher_v1_8hxx" ],
     [ "TFELCheckConfig.hxx", "_t_f_e_l_check_config_8hxx.html", null ]
 ];

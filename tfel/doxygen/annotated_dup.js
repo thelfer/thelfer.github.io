@@ -949,7 +949,8 @@ var annotated_dup =
         [ "SplineInterpolation", "structtfel_1_1check_1_1_spline_interpolation.html", "structtfel_1_1check_1_1_spline_interpolation" ],
         [ "SplineLocalInterpolation", "structtfel_1_1check_1_1_spline_local_interpolation.html", "structtfel_1_1check_1_1_spline_local_interpolation" ],
         [ "Test", "structtfel_1_1check_1_1_test.html", "structtfel_1_1check_1_1_test" ],
-        [ "TestLauncher", "structtfel_1_1check_1_1_test_launcher.html", "structtfel_1_1check_1_1_test_launcher" ]
+        [ "TestLauncher", "structtfel_1_1check_1_1_test_launcher.html", "structtfel_1_1check_1_1_test_launcher" ],
+        [ "TestLauncherV1", "structtfel_1_1check_1_1_test_launcher_v1.html", "structtfel_1_1check_1_1_test_launcher_v1" ]
       ] ],
       [ "config", null, [
         [ "internals", null, [

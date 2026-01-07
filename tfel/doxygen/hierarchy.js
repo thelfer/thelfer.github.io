@@ -1381,6 +1381,7 @@ var hierarchy =
           ] ]
         ] ],
         [ "tfel::check::TestLauncher", "structtfel_1_1check_1_1_test_launcher.html", null ],
+        [ "tfel::check::TestLauncherV1", "structtfel_1_1check_1_1_test_launcher_v1.html", null ],
         [ "tfel::utilities::ParserBase", "structtfel_1_1utilities_1_1_parser_base.html", [
           [ "tfel::utilities::ConfigParser", "structtfel_1_1utilities_1_1_config_parser.html", null ],
           [ "tfel::utilities::TestDocParser", "structtfel_1_1utilities_1_1_test_doc_parser.html", null ]

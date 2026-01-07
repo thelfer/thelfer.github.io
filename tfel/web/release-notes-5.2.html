@@ -10,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Release notes of the 3.3.8 version of TFEL, MFront and MTest</title>
-        <meta name="author" content="Thomas Helfer" />
+    <title>Release notes of the 5.2 version of TFEL, MFront and MTest</title>
+        <meta name="author" content="Thomas Helfer, Antoine Martin" />
             <meta name="date" content="2025-01-01" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
@@ -313,20 +313,106 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Release notes of the 3.3.8 version of
-<code>TFEL</code>, <code>MFront</code> and <code>MTest</code></h1>
-<h2 class="author">Thomas Helfer</h2>
+<h1 class="title">Release notes of the 5.2 version of <code>TFEL</code>,
+<code>MFront</code> and <code>MTest</code></h1>
+<h2 class="author">Thomas Helfer, Antoine Martin</h2>
 <h3 class="date">2025</h3>
 </div>
-<p>The page describes the new functionalities of Version 3.3.8 of the
-<code>TFEL</code> project.</p>
-<p>This version was released on December 10, 2025 along with:</p>
+<div id="TOC">
 <ul>
-<li><a href="release-notes-3.0.16.html">Version 3.0.16</a>,</li>
-<li><a href="release-notes-3.1.16.html">Version 3.1.16</a>,</li>
-<li><a href="release-notes-3.2.13.html">Version 3.2.13</a>.</li>
+<li><a href="#new-features-in-tfel-check"
+id="toc-new-features-in-tfel-check"><span
+class="toc-section-number">1</span> New features in
+<code>tfel-check</code></a>
+<ul>
+<li><a href="#parallelization" id="toc-parallelization"><span
+class="toc-section-number">1.1</span> Parallelization</a></li>
+<li><a href="#new-features-in-tfelsystem"
+id="toc-new-features-in-tfelsystem"><span
+class="toc-section-number">1.2</span> New features in
+<code>TFEL/System</code></a></li>
+</ul></li>
+<li><a href="#acknowledgements" id="toc-acknowledgements"><span
+class="toc-section-number">2</span> Acknowledgements</a></li>
+<li><a href="#issues-fixed" id="toc-issues-fixed"><span
+class="toc-section-number">3</span> Issues fixed</a></li>
 </ul>
-<p>and inherits from all fixes from those releases.</p>
+</div>
+<p>The page describes the new functionalities of Version 5.2 of the
+<code>TFEL</code> project.</p>
+<h1 data-number="1" id="new-features-in-tfel-check"><span
+class="header-section-number">1</span> New features in
+<code>tfel-check</code></h1>
+<h2 data-number="1.1" id="parallelization"><span
+class="header-section-number">1.1</span> Parallelization</h2>
+<p>The commands described in different <code>.check</code> files can now
+be run in distinct processes.</p>
+<p>Note that the command described in a <code>.check</code> are still
+run sequentially.</p>
+<p>By default, as in previous versions, only one process is used.</p>
+<h3 data-number="1.1.1"
+id="specifying-the-number-of-jobs-run-simultaneously"><span
+class="header-section-number">1.1.1</span> Specifying the number of jobs
+run simultaneously</h3>
+<p>The command line argument <code>--jobs</code> (<code>-j</code>) allow
+specifying the number of jobs run simultaneously.</p>
+<p>In no option option is given to <code>--jobs</code>, the number of
+cores available is used, if the system provide this information.</p>
+<h4 data-number="1.1.1.1" id="limit-on-the-number-of-jobs"><span
+class="header-section-number">1.1.1.1</span> Limit on the number of
+jobs</h4>
+<p>By default, this number must be lower than the number of cores
+available. This limit can be discarded by
+passing<code>--discard-jobs-limit=true</code> to
+<code>tfel-check</code>.</p>
+<h3 data-number="1.1.2" id="caution"><span
+class="header-section-number">1.1.2</span> Caution</h3>
+<p>The user must take care that the commands described in
+<code>.check</code> files can be run in parallel.</p>
+<ul>
+<li>the jobs shall no exhaust memory.</li>
+<li>the jobs shall not access concurrently to the same resources.</li>
+</ul>
+<p>A typical example of conflict would be to have two
+<code>.check</code> files in the same directory that call
+<code>mfront</code> to build somes shared libraries: the two
+<code>MFront</code>’s processes may write concurrently files in the
+<code>src</code> and <code>include</code> directories, leading to an
+undefined behaviour.</p>
+<p>Another example would be to use <code>@CleanDirectories</code> and
+<code>@CleanFiles</code> commands inappropriately and erase data used by
+commands of other <code>.check</code> files.</p>
+<h2 data-number="1.2" id="new-features-in-tfelsystem"><span
+class="header-section-number">1.2</span> New features in
+<code>TFEL/System</code></h2>
+<h3 data-number="1.2.1" id="improvements-in-processmanager"><span
+class="header-section-number">1.2.1</span> Improvements in
+<code>ProcessManager</code></h3>
+<ul>
+<li>New overloads of the <code>createProcess</code> and
+<code>execute</code> methods allow specifying the directory where a
+command shall executed.</li>
+<li><code>ProcessManager</code> shall now work properly in a
+multithreaded context.</li>
+</ul>
+<h3 data-number="1.2.2" id="improvements-in-signalmanager"><span
+class="header-section-number">1.2.2</span> Improvements in
+<code>SignalManager</code></h3>
+<ul>
+<li><code>SignalManager</code> shall now work properly in a
+multithreaded context.</li>
+</ul>
+<h1 data-number="2" id="acknowledgements"><span
+class="header-section-number">2</span> Acknowledgements</h1>
+<p>The authors are grateful to the many contributors to the
+<code>TFEL/MFront</code> project. This research was conducted in the
+framework of the PLEIADES project, which was supported financially by
+the CEA (Commissariat à l’Énergie Atomique et aux Énergies
+Alternatives), EDF (Électricité de France) and Framatome. Homogenization
+developments were conducted within the framework of the AnoHonA ANR
+project (n° AAPG2023).</p>
+<h1 data-number="3" id="issues-fixed"><span
+class="header-section-number">3</span> Issues fixed</h1>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

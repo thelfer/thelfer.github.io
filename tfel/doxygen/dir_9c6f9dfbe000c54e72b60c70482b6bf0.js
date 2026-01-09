@@ -33,6 +33,8 @@ var dir_9c6f9dfbe000c54e72b60c70482b6bf0 =
     [ "HarmonicSumOfNortonHoffViscoplasticFlows.ixx", "_harmonic_sum_of_norton_hoff_viscoplastic_flows_8ixx.html", "_harmonic_sum_of_norton_hoff_viscoplastic_flows_8ixx" ],
     [ "Hill.hxx", "_hill_8hxx.html", "_hill_8hxx" ],
     [ "Hill.ixx", "_hill_8ixx.html", "_hill_8ixx" ],
+    [ "HomogenizationSecondMoments.hxx", "_homogenization_second_moments_8hxx.html", "_homogenization_second_moments_8hxx" ],
+    [ "HomogenizationSecondMoments.ixx", "_homogenization_second_moments_8ixx.html", "_homogenization_second_moments_8ixx" ],
     [ "Hosford1972YieldCriterion.hxx", "_hosford1972_yield_criterion_8hxx.html", "_hosford1972_yield_criterion_8hxx" ],
     [ "Hosford1972YieldCriterion.ixx", "_hosford1972_yield_criterion_8ixx.html", "_hosford1972_yield_criterion_8ixx" ],
     [ "InverseLangevinFunction.hxx", "_inverse_langevin_function_8hxx.html", "_inverse_langevin_function_8hxx" ],

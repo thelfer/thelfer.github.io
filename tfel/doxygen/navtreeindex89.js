@@ -1,7 +1,5 @@
 var NAVTREEINDEX89 =
 {
-"t2tot2_result_type_8hxx.html":[8,0,0,3,5,20,9],
-"tensor_8hxx.html":[8,0,0,3,5,63],
 "tensor_8hxx.html#a0e9ca3b85b6facfcbfd9235ebd8caa47":[8,0,0,3,5,63,9],
 "tensor_8hxx.html#a427438e754be327ae86c6f99bd52ffad":[8,0,0,3,5,63,6],
 "tensor_8hxx.html#a7cc94a60179bf1c77a18deb1ca120c7b":[8,0,0,3,5,63,7],

@@ -187,6 +187,7 @@
 		<li><a>Versions 5.1.x</a>
 		  <ul>
 		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
+		    <li><a href="release-notes-5.1.1.html">Version 5.1.1</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 5.2.x</a>
@@ -327,7 +328,15 @@
 <li><a href="#new-features-in-tfel-check"
 id="toc-new-features-in-tfel-check"><span
 class="toc-section-number">1</span> New features in
-<code>tfel-check</code></a></li>
+<code>tfel-check</code></a>
+<ul>
+<li><a href="#parallelization" id="toc-parallelization"><span
+class="toc-section-number">1.1</span> Parallelization</a></li>
+<li><a href="#new-features-in-tfelsystem"
+id="toc-new-features-in-tfelsystem"><span
+class="toc-section-number">1.2</span> New features in
+<code>TFEL/System</code></a></li>
+</ul></li>
 <li><a href="#acknowledgements" id="toc-acknowledgements"><span
 class="toc-section-number">2</span> Acknowledgements</a></li>
 <li><a href="#issues-fixed" id="toc-issues-fixed"><span
@@ -339,6 +348,65 @@ class="toc-section-number">3</span> Issues fixed</a></li>
 <h1 data-number="1" id="new-features-in-tfel-check"><span
 class="header-section-number">1</span> New features in
 <code>tfel-check</code></h1>
+<h2 data-number="1.1" id="parallelization"><span
+class="header-section-number">1.1</span> Parallelization</h2>
+<p>The commands described in different <code>.check</code> files can now
+be run in distinct processes.</p>
+<p>Note that the command described in a <code>.check</code> are still
+run sequentially.</p>
+<p>By default, as in previous versions, only one process is used.</p>
+<h3 data-number="1.1.1"
+id="specifying-the-number-of-jobs-run-simultaneously"><span
+class="header-section-number">1.1.1</span> Specifying the number of jobs
+run simultaneously</h3>
+<p>The command line argument <code>--jobs</code> (<code>-j</code>) allow
+specifying the number of jobs run simultaneously.</p>
+<p>If no option is given to <code>--jobs</code>, the number of available
+cores is used, if the system provide this information.</p>
+<h4 data-number="1.1.1.1" id="limit-on-the-number-of-jobs"><span
+class="header-section-number">1.1.1.1</span> Limit on the number of
+jobs</h4>
+<p>By default, this number must be lower than the number of cores
+available. This limit can be discarded by
+passing<code>--discard-jobs-limit=true</code> to
+<code>tfel-check</code>.</p>
+<h3 data-number="1.1.2" id="caution"><span
+class="header-section-number">1.1.2</span> Caution</h3>
+<p>The user must take care that the commands described in
+<code>.check</code> files can be run in parallel.</p>
+<ul>
+<li>the jobs shall no exhaust memory.</li>
+<li>the jobs shall not access concurrently to the same resources.</li>
+</ul>
+<p>A typical example of conflict would be to have two
+<code>.check</code> files in the same directory that call
+<code>mfront</code> to build somes shared libraries: the two
+<code>MFront</code>’s processes may write concurrently files in the
+<code>src</code> and <code>include</code> directories, leading to an
+undefined behaviour.</p>
+<p>Another example would be to use <code>@CleanDirectories</code> and
+<code>@CleanFiles</code> commands inappropriately and erase data used by
+commands of other <code>.check</code> files.</p>
+<h2 data-number="1.2" id="new-features-in-tfelsystem"><span
+class="header-section-number">1.2</span> New features in
+<code>TFEL/System</code></h2>
+<h3 data-number="1.2.1" id="improvements-in-processmanager"><span
+class="header-section-number">1.2.1</span> Improvements in
+<code>ProcessManager</code></h3>
+<ul>
+<li>New overloads of the <code>createProcess</code> and
+<code>execute</code> methods allow specifying the directory where a
+command shall be executed.</li>
+<li><code>ProcessManager</code> shall now work properly in a
+multithreaded context.</li>
+</ul>
+<h3 data-number="1.2.2" id="improvements-in-signalmanager"><span
+class="header-section-number">1.2.2</span> Improvements in
+<code>SignalManager</code></h3>
+<ul>
+<li><code>SignalManager</code> shall now work properly in a
+multithreaded context.</li>
+</ul>
 <h1 data-number="2" id="acknowledgements"><span
 class="header-section-number">2</span> Acknowledgements</h1>
 <p>The authors are grateful to the many contributors to the

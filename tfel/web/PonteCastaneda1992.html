@@ -1,0 +1,789 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Ponte-Castaneda variational bound for homogenization in non-linear elasticity</title>
+        <meta name="author" content="Antoine Martin" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel/">Github repository</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/releases">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.9</a></li>
+		    <li><a href="release-notes-3.0.10.html">Version 3.0.10</a></li>
+		    <li><a href="release-notes-3.0.11.html">Version 3.0.11</a></li>
+		    <li><a href="release-notes-3.0.12.html">Version 3.0.12</a></li>
+		    <li><a href="release-notes-3.0.13.html">Version 3.0.13</a></li>
+		    <li><a href="release-notes-3.0.14.html">Version 3.0.14</a></li>
+		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
+		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
+		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		    <li><a href="release-notes-3.1.8.html">Version 3.1.8</a></li>
+		    <li><a href="release-notes-3.1.9.html">Version 3.1.9</a></li>
+		    <li><a href="release-notes-3.1.10.html">Version 3.1.10</a></li>
+		    <li><a href="release-notes-3.1.11.html">Version 3.1.11</a></li>
+		    <li><a href="release-notes-3.1.12.html">Version 3.1.12</a></li>
+		    <li><a href="release-notes-3.1.13.html">Version 3.1.13</a></li>
+		    <li><a href="release-notes-3.1.14.html">Version 3.1.14</a></li>
+		    <li><a href="release-notes-3.1.15.html">Version 3.1.15</a></li>
+		    <li><a href="release-notes-3.1.16.html">Version 3.1.16</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.5</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.6</a></li>
+		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
+		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
+		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
+		    <li><a href="release-notes-3.2.12.html">Version 3.2.12</a></li>
+		    <li><a href="release-notes-3.2.13.html">Version 3.2.13</a></li>
+		    <li><a href="release-notes-3.2.14.html">Version 3.2.14</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
+		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
+		    <li><a href="release-notes-3.3.7.html">Version 3.3.7</a></li>
+		    <li><a href="release-notes-3.3.7.html">Version 3.3.8</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
+		    <li><a href="release-notes-3.4.3.html">Version 3.4.3</a></li>
+		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
+		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
+		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
+		    <li><a href="release-notes-3.4.8.html">Version 3.4.8</a></li>
+		    <li><a href="release-notes-3.4.9.html">Version 3.4.9</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		    <li><a href="release-notes-4.0.1.html">Version 4.0.1</a></li>
+		    <li><a href="release-notes-4.0.2.html">Version 4.0.2</a></li>
+		    <li><a href="release-notes-4.0.3.html">Version 4.0.3</a></li>
+		    <li><a href="release-notes-4.0.4.html">Version 4.0.4</a></li>
+		    <li><a href="release-notes-4.0.5.html">Version 4.0.5</a></li>
+		    <li><a href="release-notes-4.0.6.html">Version 4.0.6</a></li>
+		    <li><a href="release-notes-4.0.7.html">Version 4.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.1.html">Version 4.1.0</a></li>
+		    <li><a href="release-notes-4.1.1.html">Version 4.1.1</a></li>
+		    <li><a href="release-notes-4.1.2.html">Version 4.1.2</a></li>
+		    <li><a href="release-notes-4.1.3.html">Version 4.1.3</a></li>
+		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
+		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
+		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.2.html">Version 4.2.0</a></li>
+		    <li><a href="release-notes-4.2.1.html">Version 4.2.1</a></li>
+		    <li><a href="release-notes-4.2.2.html">Version 4.2.2</a></li>
+		    <li><a href="release-notes-4.2.3.html">Version 4.2.3</a></li>
+		    <li><a href="release-notes-4.2.4.html">Version 4.2.4</a></li>
+		    <li><a href="release-notes-4.2.5.html">Version 4.2.5</a></li>
+		    <li><a href="release-notes-4.2.6.html">Version 4.2.6</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		    <li><a href="release-notes-5.0.2.html">Version 5.0.2</a></li>
+		    <li><a href="release-notes-5.0.3.html">Version 5.0.3</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+<!--	    
+	    <li><a href="http://tfel.sourceforge.net/doxygen/index.html">Doxygen documentation</a></li>
+-->
+	    <li><a>MFront</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The Implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-material-property-interface.html">Generic interface for material properties</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic interface for behaviours</a></li>
+		  </ul>
+		</li>
+                 <li><a>MFront keywords</a>
+    	              <ul>
+    	        <li><a href="Default-keywords.html">Default</a></li>
+    	        <li><a href="DefaultCZM-keywords.html">DefaultCZM</a></li>
+    	        <li><a href="DefaultFiniteStrain-keywords.html">DefaultFiniteStrain</a></li>
+    	        <li><a href="DefaultGenericBehaviour-keywords.html">DefaultGenericBehaviour</a></li>
+    	        <li><a href="DefaultModel-keywords.html">DefaultModel</a></li>
+    	        <li><a href="Implicit-keywords.html">Implicit</a></li>
+    	        <li><a href="ImplicitCZM-keywords.html">ImplicitCZM</a></li>
+    	        <li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li>
+    	        <li><a href="ImplicitGenericBehaviour-keywords.html">ImplicitGenericBehaviour</a></li>
+    	        <li><a href="ImplicitModel-keywords.html">ImplicitModel</a></li>
+    	        <li><a href="ImplicitII-keywords.html">ImplicitII</a></li>
+    	        <li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li>
+    	        <li><a href="IsotropicMisesPlasticFlow-keywords.html">IsotropicMisesPlasticFlow</a></li>
+    	        <li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li>
+    	        <li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li>
+    	        <li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li>
+    	        <li><a href="MaterialProperty-keywords.html">MaterialProperty</a></li>
+    	        <li><a href="Model-keywords.html">Model</a></li>
+    	        <li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li>
+    	        <li><a href="RungeKutta-keywords.html">RungeKutta</a></li>
+    	        <li><a href="RungeKuttaFiniteStrain-keywords.html">RungeKuttaFiniteStrain</a></li>
+    	        <li><a href="RungeKuttaGenericBehaviour-keywords.html">RungeKuttaGenericBehaviour</a></li>
+    	        <li><a href="RungeKuttaModel-keywords.html">RungeKuttaModel</a></li>
+    	      </ul>
+                </li>
+	      </ul>
+	    </li>
+	    <li><a href="mtest.html">MTest</a>
+               <ul>
+	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
+              <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	      </ul>
+            </li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="libraries_usage.html">Usage of the TFEL libraries in C++</a></li>
+		<li><a href="tfel-math.html">TFEL/Math</a></li>
+                 <ul>
+		  <li><a href="tfel-math-numerical-integration.html">Numerical integeration</a></li>
+		  <li><a href="tfel-math-data-interpolation.html">Data interpolation</a></li>
+	        </ul>
+		<li><a href="tfel-material.html">TFEL/Material</a></li>
+                 <li><a href="glossary.html">Glossary</a></li>
+                 <li><a href="physical-constants.html">Physical constants</a></li>
+		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">Ponte-Castaneda variational bound for homogenization
+in non-linear elasticity</h1>
+<h2 class="author">Antoine Martin</h2>
+<h3 class="date">5/01/2026</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#ponte-castaneda-variational-bound"
+id="toc-ponte-castaneda-variational-bound">Ponte-Castaneda variational
+bound</a>
+<ul>
+<li><a href="#the-non-linear-homogenization-problem"
+id="toc-the-non-linear-homogenization-problem">The non-linear
+homogenization problem</a></li>
+<li><a href="#the-variational-bound" id="toc-the-variational-bound">The
+variational bound</a></li>
+<li><a href="#summary" id="toc-summary">Summary</a></li>
+<li><a href="#macroscopic-stress-and-tangent-operator"
+id="toc-macroscopic-stress-and-tangent-operator">Macroscopic stress and
+tangent operator</a></li>
+</ul></li>
+<li><a href="#implementation-in-mfront"
+id="toc-implementation-in-mfront">Implementation in MFront</a>
+<ul>
+<li><a href="#details-of-implementation"
+id="toc-details-of-implementation">Details of implementation</a></li>
+</ul></li>
+<li><a href="#results" id="toc-results">Results</a></li>
+</ul>
+</div>
+<p>We present here an implementation of Ponte-Castaneda variational
+bound in non-linear elasticity <span class="citation"
+data-cites="castaneda_new_1992">[<a href="#ref-castaneda_new_1992"
+role="doc-biblioref">1</a>]</span>. It deals with the homogenization of
+a composite made of a matrix and spherical inclusions. The two phases
+have a non-linear elastic behaviour. The variational bound from
+Ponte-Castaneda is based on the computation of the strain
+second-moments.</p>
+<p>This tutorial first recalls the scheme, and presents the
+implementation.</p>
+<h1 id="ponte-castaneda-variational-bound">Ponte-Castaneda variational
+bound</h1>
+<h2 id="the-non-linear-homogenization-problem">The non-linear
+homogenization problem</h2>
+The variational approach used by Ponte-Castaneda is based on the elastic
+potential <span class="math inline">\(w\)</span> which is of the form:
+<span class="math display">\[\begin{aligned}
+    w(\underline{\varepsilon})= \sum_{r=1}^{N}\chi_r\,w_r
+(\underline{\varepsilon})
+  \end{aligned}\]</span>
+<p>where <span class="math inline">\(N\)</span> is the number of phases
+and <span class="math inline">\(\chi_r\)</span> is characteristic
+function of phase <span class="math inline">\(r\)</span>.</p>
+The local potential <span class="math inline">\(w_r\)</span> is a
+non-linear function of the strain <span
+class="math inline">\(\underline{\varepsilon}\)</span>, but here we
+focus on potentials of the form
+<span class="math display">\[\begin{aligned}
+  w_r(\underline{\varepsilon})={\displaystyle \frac{\displaystyle
+9}{\displaystyle 2}} k_r\, \varepsilon_m^2+f_r
+(\varepsilon_{\mathrm{eq}}^2)
+  \end{aligned}\]</span>
+where
+<span class="math display">\[\begin{aligned}
+    \varepsilon_{\mathrm{eq}}= \sqrt{{\displaystyle \frac{\displaystyle
+2}{\displaystyle
+3}}\underline{\varepsilon}^d:\underline{\varepsilon}^d}\qquad\text{where}\quad
+\underline{\varepsilon}^d = \underline{\varepsilon}- {\displaystyle
+\frac{\displaystyle 1}{\displaystyle 3}}
+\mathrm{tr}\left(\underline{\varepsilon}\right)\underline{1}
+\qquad\text{and}\quad \varepsilon_m={\displaystyle \frac{\displaystyle
+1}{\displaystyle 3}} \mathrm{tr}\left(\underline{\varepsilon}\right)
+  \end{aligned}\]</span>
+In the variational approach, the homogenization problem is equivalent to
+a minimization problem:
+<span class="math display">\[\begin{aligned}
+    \underline{\varepsilon}=\underset{\underline{\varepsilon}\in\mathcal
+K(\overline{\underline{\varepsilon}})}{\textrm{argmin}} \langle
+w(\underline{\varepsilon})\rangle
+  \end{aligned}\]</span>
+<p>where the space of kinematically admissible fields <span
+class="math inline">\(\mathcal
+K(\overline{\underline{\varepsilon}})\)</span> is introduced depending
+on the boundary conditions used, and it makes intervene the loading
+<span class="math inline">\(\overline{\underline{\varepsilon}}\)</span>
+(which will be our total strain <span
+class="math inline">\(\texttt{eto}\)</span>). The <span
+class="math inline">\(\langle.\rangle\)</span> denotes the average on
+the representative volume element.</p>
+<h2 id="the-variational-bound">The variational bound</h2>
+Ponte-Castaneda’s idea is to use the dual function <span
+class="math inline">\(f_r^*\)</span> of <span
+class="math inline">\(f_r\)</span>, under an hypothesis of concavity of
+<span class="math inline">\(f_r\)</span>. Note that <span
+class="math inline">\(w_r\)</span> is convex relatively to <span
+class="math inline">\(\underline{\varepsilon}\)</span>, but the
+hypothesis is: <span class="math inline">\(f_r\)</span> concave
+relatively to <span
+class="math inline">\(\varepsilon_{\mathrm{eq}}^2\)</span>, which adds a
+supplementary restriction to the behaviour.
+<span class="math display">\[\begin{aligned}
+    w_r(\underline{\varepsilon})=\underset{\mu_0^r(\underline{x})}{\min}
+\left\{{\displaystyle \frac{\displaystyle 9}{\displaystyle 2}} k_r\,
+\varepsilon_m^2+{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}
+\mu_0^r(\underline{x})\,
+\varepsilon_{\mathrm{eq}}^2-f_r^*(\mu_0^r(\underline{x}))\right\}
+  \end{aligned}\]</span>
+where the dual function <span class="math inline">\(f_r^*\)</span> is
+defined as
+<span class="math display">\[\begin{aligned}
+    f_r^*(\mu_0)=\underset{e}{\min} \left\{\mu_0 e-f_r(e)\right\}
+  \end{aligned}\]</span>
+Considering uniform per phase shear moduli <span
+class="math inline">\(\mu_0^r\)</span> (also called the ‘secant
+moduli’), and after a few manipulations, Ponte-Castaneda arrives at the
+following bound on the effective energy <span
+class="math inline">\(W^{\mathrm{eff}}(\overline{\underline{\varepsilon}})\)</span>:
+<span class="math display">\[\begin{aligned}
+    W^{\mathrm{eff}}(\overline{\underline{\varepsilon}})=\underset{\underline{\varepsilon}\in\mathcal
+K(\overline{\underline{\varepsilon}})}{\textrm{min}} \langle
+w(\underline{\varepsilon})\rangle \leq
+\overline{w}(\overline{\underline{\varepsilon}})=\underset{\mu_0^r}{\min}
+\left\{W_0^{\mathrm{eff}}(\overline{\underline{\varepsilon}})-\sum_r
+c_r\, f_r^*(\mu_0^r)\right\}
+  \end{aligned}\]</span>
+<p>where <span class="math inline">\(c_r\)</span> is the volume fraction
+of phase <span class="math inline">\(r\)</span> and <span
+class="math inline">\(W_0^{\mathrm{eff}}(\overline{\underline{\varepsilon}})\)</span>
+is the effective energy relative to a ‘linear comparison composite’
+which is heterogeneous, and whose elastic moduli are the <span
+class="math inline">\(k_r\)</span> and the <span
+class="math inline">\(\mu_0^r\)</span>.</p>
+The stationarity conditions associated to the minimization on <span
+class="math inline">\(\mu_0^r\)</span> are:
+<span class="math display">\[\begin{aligned}
+    {\displaystyle \frac{\displaystyle \partial
+W_0^{\mathrm{eff}}}{\displaystyle \partial \mu_0^r}} =
+c_r\,{\displaystyle \frac{\displaystyle \partial f_r^*}{\displaystyle
+\partial \mu_0^r}}
+  \end{aligned}\]</span>
+which can be shown to be equivalent to
+<span class="math display">\[\begin{aligned}
+    \mu_0^r= {\displaystyle \frac{\displaystyle 2}{\displaystyle 3}}
+{\displaystyle \frac{\displaystyle \partial f_r}{\displaystyle \partial
+e}}\left(\langle \varepsilon_{\mathrm{eq}}^2\rangle_r\right)
+  \end{aligned}\]</span>
+where <span class="math inline">\(\varepsilon_{\mathrm{eq}}\)</span> is
+relative to <span class="math inline">\(\underline{\varepsilon}\)</span>
+solution of the homogenization problem:
+<span class="math display">\[\begin{aligned}
+    \mathrm{div}\left(3k_r\,\varepsilon_m\,\underline{1}+2\mu_0^r\,\underline{\varepsilon}^d\right)=0,\qquad\underline{\varepsilon}\in\mathcal
+K(\overline{\underline{\varepsilon}})
+  \end{aligned}\]</span>
+Besides, noting that
+<span class="math display">\[\begin{aligned}
+    W_0^{\mathrm{eff}}(\overline{\underline{\varepsilon}})=\sum_r
+c_r\,\left({\displaystyle \frac{\displaystyle 9}{\displaystyle 2}}
+k_r\,\langle\varepsilon_m^2\rangle_r+{\displaystyle \frac{\displaystyle
+3}{\displaystyle 2}} \mu_0^r\langle
+\varepsilon_{\mathrm{eq}}^2\rangle_r\right)
+  \end{aligned}\]</span>
+it follows that
+<span class="math display">\[\begin{aligned}
+    \langle \varepsilon_{\mathrm{eq}}^2\rangle_r= {\displaystyle
+\frac{\displaystyle 2}{\displaystyle 3c_r}}{\displaystyle
+\frac{\displaystyle \partial W_0^{\mathrm{eff}}}{\displaystyle \partial
+\mu_0^r}}
+  \end{aligned}\]</span>
+<h2 id="summary">Summary</h2>
+<p>The resolution hence consists in <span class="math display">\[
+\text{Find}\,e^r=\langle
+\varepsilon_{\mathrm{eq}}^2\rangle_r\,\text{such that}\quad\langle
+\varepsilon_{\mathrm{eq}}^2\rangle_r= {\displaystyle \frac{\displaystyle
+2}{\displaystyle 3c_r}}{\displaystyle \frac{\displaystyle \partial
+W_0^{\mathrm{eff}}}{\displaystyle \partial \mu_0^r}}
+\]</span> where <span class="math inline">\(W_0^{\mathrm{eff}}\)</span>
+is the effective energy of a linear comparison composite whose elastic
+moduli are <span class="math inline">\(k_r\)</span> annd <span
+class="math inline">\(\mu_0^r\)</span> such that: <span
+class="math display">\[
+\mu_0^r= {\displaystyle \frac{\displaystyle 2}{\displaystyle
+3}}{\displaystyle \frac{\displaystyle \partial f_r}{\displaystyle
+\partial e}}\left(\langle \varepsilon_{\mathrm{eq}}^2\rangle_r\right).
+\]</span></p>
+<h2 id="macroscopic-stress-and-tangent-operator">Macroscopic stress and
+tangent operator</h2>
+The macroscopic stress <span
+class="math inline">\(\overline{\underline{\sigma}}\)</span> is also
+shown to be (see <span class="citation"
+data-cites="ponte_castaneda_nonlinear_1998">[<a
+href="#ref-ponte_castaneda_nonlinear_1998"
+role="doc-biblioref">2</a>]</span>, eq. (4.41)):
+<span class="math display">\[\begin{aligned}
+    \underline{\sigma}={\displaystyle \frac{\displaystyle \partial
+\overline{w}}{\displaystyle \partial
+\overline{\underline{\varepsilon}}}}={\displaystyle \frac{\displaystyle
+\partial W_0^{\mathrm{eff}}}{\displaystyle \partial
+\overline{\underline{\varepsilon}}}}=\underline{\mathbf{C}}_0^{\mathrm{eff}}:\overline{\underline{\varepsilon}}
+  \end{aligned}\]</span>
+<p>where <span
+class="math inline">\(\underline{\mathbf{C}}_0^{\mathrm{eff}}\)</span>
+is the effective elasticity of the linear comparison composite. In our
+case, we use Hashin-Shtrikman bounds.</p>
+The tangent operator is given by
+<span class="math display">\[\begin{aligned}
+    \dfrac{\mathrm{d}\underline{\sigma}}{\mathrm{d}\overline{\underline{\varepsilon}}}=\underline{\mathbf{C}}_0^{\mathrm{eff}}+\dfrac{\mathrm{d}\underline{\mathbf{C}}_0^{\mathrm{eff}}}{\mathrm{d}\overline{\underline{\varepsilon}}}
+  \end{aligned}\]</span>
+<p>Here, the derivative of <span
+class="math inline">\(\underline{\mathbf{C}}_0^{\mathrm{eff}}\)</span>
+w.r.t. <span
+class="math inline">\(\overline{\underline{\varepsilon}}\)</span> can be
+computed by derivating the Hashin-Shtrikman moduli w.r.t. the secant
+moduli <span class="math inline">\(\mu_0^r\)</span> and the derivatives
+of these moduli w.r.t. <span
+class="math inline">\(\overline{\underline{\varepsilon}}\)</span>.
+However, it is tedious and in the implementation, we see that the
+convergence of the Newton Raphson algorithm is good if we only retain
+the first term <span
+class="math inline">\(\underline{\mathbf{C}}_0^{\mathrm{eff}}\)</span>
+in the tangent operator.</p>
+<h1 id="implementation-in-mfront">Implementation in MFront</h1>
+In the application of the implementation, we take the example of the
+following behaviour:
+<span class="math display">\[\begin{aligned}
+    w_r(\underline{\varepsilon})=\dfrac{9}{2}k_r\,\varepsilon_{m}^2+\dfrac{\sigma_r^0}{n+1}\,\varepsilon_{eq}^{n+1}
+  \end{aligned}\]</span>
+<p>where <span class="math inline">\(n\)</span> is between <span
+class="math inline">\(0\)</span> and <span
+class="math inline">\(1\)</span>, which means that <span
+class="math inline">\(f_r(e)=\dfrac{\sigma_r^0}{n+1}\,e^{\frac{n+1}2}\)</span>
+(note that the function <span class="math inline">\(f_r\)</span> is
+effectively concave relatively to <span
+class="math inline">\(e\)</span>, because <span
+class="math inline">\(0\lt n\leq 1\)</span>).</p>
+<p>Moreover, we make the choice of purely elastic inclusions. Hence,
+only the matrix is non-linear and has a secant modulus.</p>
+The unknowns of our non-linear problem are the <span
+class="math inline">\(e^r\)</span>. The secant moduli <span
+class="math inline">\(\mu_0^r\)</span> can be computed by derivation of
+the function <span class="math inline">\(f_r\)</span> which is given by
+the behaviour. In the precise case detailed above, we have
+<span class="math display">\[\begin{aligned}
+{\displaystyle \frac{\displaystyle \partial f_r}{\displaystyle \partial
+e}}(e)=\dfrac{\sigma_r^0}{2}\,e^{\frac{n-1}2}\qquad\text{and}\quad\mu_0^r=\dfrac{\sigma_r^0}{3}\,\left(e^r\right)^{\frac{n-1}2}
+\end{aligned}\]</span>
+Then, the effective energy of the linear comparison composite can be
+computed via a mean-field scheme. In our implementation, we proposed to
+use the Hashin-Shtrikman bound. The <span
+class="math inline">\(e^r\)</span> must then cancel the following
+residue:
+<span class="math display">\[\begin{aligned}
+r_{e^r}=e^r - {\displaystyle \frac{\displaystyle 2}{\displaystyle
+3\,c_r}}{\displaystyle \frac{\displaystyle \partial
+W_0^{\mathrm{eff}}}{\displaystyle \partial \mu_0^r}}
+\end{aligned}\]</span>
+<p>which means that we only need the derivative of the Hashin-Shtrikman
+bound. This will be given by the
+<code>tfel::material::homogenization</code> functionalities.</p>
+<h2 id="details-of-implementation">Details of implementation</h2>
+<p>All the files are available <a
+href="./downloads/PonteCastaneda1992.zip">here</a></p>
+<p>For the jacobian, we adopt the <code>Numerical Jacobian</code>, which
+means that the beginning of the <code>mfront</code> file reads:</p>
+<div class="sourceCode" id="Begin"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Begin-1"><a href="#Begin-1"></a><span class="er">@</span>DSL ImplicitII<span class="op">;</span></span>
+<span id="Begin-2"><a href="#Begin-2"></a><span class="er">@</span>Behaviour PC_VB_92<span class="op">;</span></span>
+<span id="Begin-3"><a href="#Begin-3"></a><span class="er">@</span>Author Martin Antoine<span class="op">;</span></span>
+<span id="Begin-4"><a href="#Begin-4"></a><span class="er">@</span>Date <span class="dv">12</span> <span class="op">/</span> <span class="dv">12</span> <span class="op">/</span> <span class="dv">25</span><span class="op">;</span></span>
+<span id="Begin-5"><a href="#Begin-5"></a><span class="er">@</span>Description<span class="op">{</span><span class="st">&quot;Ponte Castaneda second-order estimates for homogenization of non-linear elasticity (one potential), based on second-moments computation&quot;</span><span class="op">};</span></span>
+<span id="Begin-6"><a href="#Begin-6"></a><span class="er">@</span>UseQt <span class="kw">true</span><span class="op">;</span></span>
+<span id="Begin-7"><a href="#Begin-7"></a><span class="er">@</span>Algorithm NewtonRaphson_NumericalJacobian<span class="op">;</span></span>
+<span id="Begin-8"><a href="#Begin-8"></a><span class="er">@</span>PerturbationValueForNumericalJacobianComputation <span class="fl">1e-10</span><span class="op">;</span></span>
+<span id="Begin-9"><a href="#Begin-9"></a><span class="er">@</span>Epsilon <span class="fl">1e-12</span><span class="op">;</span></span></code></pre></div>
+<p>Moreover, the following libraries will be needed for computation of
+the stress and secant modulus:</p>
+<div class="sourceCode" id="Begin"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Begin-1"><a href="#Begin-1"></a><span class="er">@</span>TFELLibraries <span class="op">{</span><span class="st">&quot;Material&quot;</span><span class="op">};</span></span>
+<span id="Begin-2"><a href="#Begin-2"></a><span class="er">@</span>Includes<span class="op">{</span></span>
+<span id="Begin-3"><a href="#Begin-3"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/IsotropicModuli.hxx&quot;</span></span>
+<span id="Begin-4"><a href="#Begin-4"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/HomogenizationSecondMoments.hxx&quot;</span></span>
+<span id="Begin-5"><a href="#Begin-5"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/LinearHomogenizationBounds.hxx&quot;</span></span>
+<span id="Begin-6"><a href="#Begin-6"></a><span class="op">}</span></span></code></pre></div>
+<p>We define two state variables which are the averages (on each phase)
+of the squares of the equivalent strains, and correspond to the <span
+class="math inline">\(e^r\)</span>:</p>
+<div class="sourceCode" id="Begin"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Begin-1"><a href="#Begin-1"></a><span class="er">@</span>StateVariable real e_0<span class="op">;</span></span>
+<span id="Begin-2"><a href="#Begin-2"></a>e_0<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;MatrixSquaredEquivalentStrain&quot;</span><span class="op">);</span></span>
+<span id="Begin-3"><a href="#Begin-3"></a><span class="er">@</span>StateVariable real e_r<span class="op">;</span></span>
+<span id="Begin-4"><a href="#Begin-4"></a>e_r<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;InclusionSquaredEquivalentStrain&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>The secant moduli are computed by derivation of function <span
+class="math inline">\(f_r\)</span>, which is detailed above. Hence</p>
+<div class="sourceCode" id="Integrator"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="er">@</span>Integrator <span class="op">{</span></span>
+<span id="Integrator-2"><a href="#Integrator-2"></a><span class="co">//secant modulus/////////////////////////////////</span></span>
+<span id="Integrator-3"><a href="#Integrator-3"></a><span class="at">const</span> <span class="kw">auto</span> po <span class="op">=</span> <span class="bu">std::</span>pow<span class="op">(</span>max<span class="op">(</span>e_0<span class="op">+</span>de_0<span class="op">,</span>real<span class="op">(</span><span class="fl">1e-10</span><span class="op">)),</span><span class="fl">0.5</span><span class="op">*(</span><span class="va">n_</span><span class="op">-</span><span class="dv">1</span><span class="op">));</span></span>
+<span id="Integrator-4"><a href="#Integrator-4"></a><span class="at">const</span> <span class="kw">auto</span> mu0 <span class="op">=</span> sig0<span class="op">/</span><span class="fl">3.</span><span class="op">*</span>po<span class="op">;</span></span></code></pre></div>
+<p>The second moment is given by the function
+<code>computeMeanSquaredEquivalentStrain</code> (see <a
+href="tfel-material.html#second-moments-of-the-strains">documentation</a>):</p>
+<div class="sourceCode" id="Integrator"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="co">//second moments/////////////////////////////////</span></span>
+<span id="Integrator-2"><a href="#Integrator-2"></a><span class="at">const</span> <span class="kw">auto</span> em2 <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span>trace<span class="op">(</span>eto<span class="op">+</span>deto<span class="op">)/</span><span class="fl">3.</span><span class="op">;</span></span>
+<span id="Integrator-3"><a href="#Integrator-3"></a><span class="at">const</span> <span class="kw">auto</span> ed <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span>deviator<span class="op">(</span>eto<span class="op">+</span>deto<span class="op">);</span></span>
+<span id="Integrator-4"><a href="#Integrator-4"></a><span class="at">const</span> <span class="kw">auto</span> eeq2 <span class="op">=</span> <span class="fl">2.</span><span class="op">/</span><span class="fl">3.</span><span class="op">*(</span>ed<span class="op">|</span>ed<span class="op">);</span></span>
+<span id="Integrator-5"><a href="#Integrator-5"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">;</span></span>
+<span id="Integrator-6"><a href="#Integrator-6"></a><span class="at">const</span> <span class="kw">auto</span> kg0 <span class="op">=</span> KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>k_m<span class="op">,</span>mu0<span class="op">);</span></span>
+<span id="Integrator-7"><a href="#Integrator-7"></a><span class="at">const</span> <span class="kw">auto</span> kgr <span class="op">=</span> KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>kar<span class="op">,</span>mur<span class="op">);</span></span>
+<span id="Integrator-8"><a href="#Integrator-8"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
+<span id="Integrator-9"><a href="#Integrator-9"></a><span class="at">const</span> <span class="kw">auto</span> <span class="va">eeq2_</span> <span class="op">=</span> computeMeanSquaredEquivalentStrain<span class="op">(</span>kg0<span class="op">,</span>fr<span class="op">,</span>kgr<span class="op">,</span>em2<span class="op">,</span>eeq2<span class="op">);</span></span>
+<span id="Integrator-10"><a href="#Integrator-10"></a><span class="at">const</span> <span class="kw">auto</span> eeq20<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span><span class="va">eeq2_</span><span class="op">);</span></span>
+<span id="Integrator-11"><a href="#Integrator-11"></a><span class="at">const</span> <span class="kw">auto</span> eeq2r<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span><span class="va">eeq2_</span><span class="op">);</span></span></code></pre></div>
+<p>Now we can write the residues:</p>
+<div class="sourceCode" id="Integrator"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="co">//residues/////////////////////////////////////</span></span>
+<span id="Integrator-2"><a href="#Integrator-2"></a>fe_0 <span class="op">=</span> e_0<span class="op">+</span>de_0 <span class="op">-</span> eeq20<span class="op">;</span></span>
+<span id="Integrator-3"><a href="#Integrator-3"></a>fe_r <span class="op">=</span> e_r<span class="op">+</span>de_r <span class="op">-</span> eeq2r<span class="op">;</span></span></code></pre></div>
+<p>There is no jacobian because we use the
+<code>NumericalJacobian</code>. The macroscopic stress is given by the
+Hashin-Shtrikman lower bound (indeed, the lower bound is better suited
+for soft matrix and rigid inclusions):</p>
+<div class="sourceCode" id="Integrator"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="co">//sigma//////////////////////////////////////</span></span>
+<span id="Integrator-2"><a href="#Integrator-2"></a>vector<span class="op">&lt;</span>real<span class="op">&gt;</span> tab_f<span class="op">={</span><span class="dv">1</span><span class="op">-</span>fr<span class="op">,</span>fr<span class="op">};</span></span>
+<span id="Integrator-3"><a href="#Integrator-3"></a>vector<span class="op">&lt;</span>stress<span class="op">&gt;</span> tab_k <span class="op">=</span> <span class="op">{</span>k_m<span class="op">,</span>kar<span class="op">};</span></span>
+<span id="Integrator-4"><a href="#Integrator-4"></a>vector<span class="op">&lt;</span>stress<span class="op">&gt;</span> tab_mu <span class="op">=</span> <span class="op">{</span>mu0<span class="op">,</span>mur<span class="op">};</span></span>
+<span id="Integrator-5"><a href="#Integrator-5"></a><span class="at">const</span> <span class="kw">auto</span> HSB<span class="op">=</span>computeIsotropicHashinShtrikmanBounds<span class="op">&lt;</span><span class="dv">3</span><span class="op">,</span>stress<span class="op">&gt;(</span>tab_f<span class="op">,</span>tab_k<span class="op">,</span>tab_mu<span class="op">);</span></span>
+<span id="Integrator-6"><a href="#Integrator-6"></a><span class="at">const</span> <span class="kw">auto</span> LB<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span>HSB<span class="op">);</span></span>
+<span id="Integrator-7"><a href="#Integrator-7"></a><span class="at">const</span> <span class="kw">auto</span> kHS<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span>LB<span class="op">);</span></span>
+<span id="Integrator-8"><a href="#Integrator-8"></a><span class="at">const</span> <span class="kw">auto</span> muHS<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>LB<span class="op">);</span></span>
+<span id="Integrator-9"><a href="#Integrator-9"></a>Chom<span class="op">=</span><span class="dv">3</span><span class="op">*</span>kHS<span class="op">*</span>J<span class="op">+</span><span class="dv">2</span><span class="op">*</span>muHS<span class="op">*</span>K<span class="op">;</span></span>
+<span id="Integrator-10"><a href="#Integrator-10"></a>sig <span class="op">=</span> Chom<span class="op">*(</span>eto<span class="op">+</span>deto<span class="op">);</span></span>
+<span id="Integrator-11"><a href="#Integrator-11"></a><span class="op">}</span></span></code></pre></div>
+<p>(Note that <code>Chom</code> is the effective elastic tensor, defined
+here as a local variable). Afterwards, we can give the tangent
+operator:</p>
+<div class="sourceCode" id="tangent"><pre
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="tangent-1"><a href="#tangent-1"></a><span class="er">@</span>TangentOperator<span class="op">{</span></span>
+<span id="tangent-2"><a href="#tangent-2"></a>Dt<span class="op">=</span>Chom<span class="op">;</span></span>
+<span id="tangent-3"><a href="#tangent-3"></a><span class="op">}</span></span></code></pre></div>
+<h1 id="results">Results</h1>
+<p>We then use <code>MTest</code> to simulate a strain-imposed test.</p>
+<p>MTest file is the following:</p>
+<div class="sourceCode" id="PC_VB_92"><pre
+class="sourceCode numberSource mtest numberLines"><code class="sourceCode"><span id="PC_VB_92-1"><a href="#PC_VB_92-1"></a>@ModellingHypothesis &#39;Tridimensional&#39;;</span>
+<span id="PC_VB_92-2"><a href="#PC_VB_92-2"></a>@Behaviour&lt;Generic&gt; &#39;src/libBehaviour.so&#39; &#39;PC_VB_92&#39;;</span>
+<span id="PC_VB_92-3"><a href="#PC_VB_92-3"></a>@ExternalStateVariable &#39;Temperature&#39; {0 : 1000,1:1000};</span>
+<span id="PC_VB_92-4"><a href="#PC_VB_92-4"></a></span>
+<span id="PC_VB_92-5"><a href="#PC_VB_92-5"></a>@MaterialProperty&lt;constant&gt; &#39;sig0&#39;             1.e9;</span>
+<span id="PC_VB_92-6"><a href="#PC_VB_92-6"></a>@MaterialProperty&lt;constant&gt; &#39;n_&#39;               0.05;</span>
+<span id="PC_VB_92-7"><a href="#PC_VB_92-7"></a>@MaterialProperty&lt;constant&gt; &#39;k_m&#39;               1.e9;</span>
+<span id="PC_VB_92-8"><a href="#PC_VB_92-8"></a>@MaterialProperty&lt;constant&gt; &#39;kar&#39;               1.e15;</span>
+<span id="PC_VB_92-9"><a href="#PC_VB_92-9"></a>@MaterialProperty&lt;constant&gt; &#39;mur&#39;               1.e15;</span>
+<span id="PC_VB_92-10"><a href="#PC_VB_92-10"></a>@MaterialProperty&lt;constant&gt; &#39;fr&#39;               0.25;</span>
+<span id="PC_VB_92-11"><a href="#PC_VB_92-11"></a></span>
+<span id="PC_VB_92-12"><a href="#PC_VB_92-12"></a>@ImposedStrain &#39;EXX&#39; {0 : 0, 100 : 0.8660254};</span>
+<span id="PC_VB_92-13"><a href="#PC_VB_92-13"></a>@ImposedStrain &#39;EYY&#39; {0 : 0, 100 : -0.8660254};</span>
+<span id="PC_VB_92-14"><a href="#PC_VB_92-14"></a>@ImposedStrain &#39;EZZ&#39; {0 : 0, 100 : 0};</span>
+<span id="PC_VB_92-15"><a href="#PC_VB_92-15"></a>@ImposedStrain &#39;EXY&#39; {0 : 0, 100 : 0};</span>
+<span id="PC_VB_92-16"><a href="#PC_VB_92-16"></a>@ImposedStrain &#39;EXZ&#39; {0 : 0, 100 : 0};</span>
+<span id="PC_VB_92-17"><a href="#PC_VB_92-17"></a>@ImposedStrain &#39;EYZ&#39; {0 : 0, 100 : 0};</span>
+<span id="PC_VB_92-18"><a href="#PC_VB_92-18"></a>@Times {0.,10 in 100};</span></code></pre></div>
+<p>The macroscopic stress <span
+class="math inline">\(\sigma_{xx}\)</span> is represented below as a
+function of the macroscopic strain <span
+class="math inline">\(\varepsilon_{xx}\)</span>:</p>
+<figure>
+<img src="./img/PC_VB_92.png"
+alt="Macroscopic stress as function of the macroscopic strain" />
+<figcaption aria-hidden="true">Macroscopic stress as function of the
+macroscopic strain</figcaption>
+</figure>
+<p>We also plotted the behaviour of the matrix when there is no
+inclusions (it gives an idea of the reinforcement given by the
+inclusions).</p>
+<!-- Local IspellDict: english -->
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-castaneda_new_1992" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Castañeda</span>,
+P.Ponte. New variational principles in plasticity and their application
+to composite materials. <em>Journal of the Mechanics and Physics of
+Solids</em>. November 1992. Vol. 40, no. 8, p. 1757–1788. DOI <a
+href="https://doi.org/10.1016/0022-5096(92)90050-C">10.1016/0022-5096(92)90050-C</a>.
+Available from: <a
+href="https://linkinghub.elsevier.com/retrieve/pii/002250969290050C">https://linkinghub.elsevier.com/retrieve/pii/002250969290050C</a></div>
+</div>
+<div id="ref-ponte_castaneda_nonlinear_1998" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline"><span class="smallcaps">Ponte Castaneda</span>,
+Pedro and <span class="smallcaps">Suquet</span>, Pierre. Nonlinear
+composites. 1998. Advances in <span>Applied</span>
+<span>Mechanics</span>. ISBN 978-0-12-002034-8. </div>
+</div>
+</div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

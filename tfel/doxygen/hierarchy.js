@@ -1968,6 +1968,9 @@ var hierarchy =
     [ "tfel::math::FixedSizeVectorIndexingPolicy< SizeType, N, Stride >", "structtfel_1_1math_1_1_fixed_size_vector_indexing_policy.html", [
       [ "tfel::math::ViewsFixedSizeVectorIndexingPolicy< MappedType, SizeType, N, Stride >", "structtfel_1_1math_1_1_views_fixed_size_vector_indexing_policy.html", null ]
     ] ],
+    [ "tfel::math::FixedSizeVectorIndexingPolicy< SizeType, N, 1 >", "structtfel_1_1math_1_1_fixed_size_vector_indexing_policy.html", [
+      [ "tfel::math::StridedCoalescedViewsFixedSizeVectorIndexingPolicy< MappedType, SizeType, N >", "structtfel_1_1math_1_1_strided_coalesced_views_fixed_size_vector_indexing_policy.html", null ]
+    ] ],
     [ "tfel::math::FixedSizeVectorIndexingPolicy< SizeType, N, getViewsArrayMinimalStride< MappedType >() >", "structtfel_1_1math_1_1_fixed_size_vector_indexing_policy.html", null ],
     [ "tfel::fsalgo::for_each< N >", "structtfel_1_1fsalgo_1_1for__each.html", null ],
     [ "numodis::FrankRead", "structnumodis_1_1_frank_read.html", null ],
@@ -2071,7 +2074,8 @@ var hierarchy =
       ] ]
     ] ],
     [ "typename MappedType::indexing_policy", null, [
-      [ "tfel::math::CoalescedView< MappedType, IndexingPolicyType >", "structtfel_1_1math_1_1_coalesced_view.html", null ]
+      [ "tfel::math::CoalescedView< MappedType, IndexingPolicyType >", "structtfel_1_1math_1_1_coalesced_view.html", null ],
+      [ "tfel::math::StridedCoalescedView< MappedType, IndexingPolicyType >", "structtfel_1_1math_1_1_strided_coalesced_view.html", null ]
     ] ],
     [ "tfel::math::IndexingPoliciesCompatiblityCheckBase< IndexingPolicy1, IndexingPolicy2 >", "structtfel_1_1math_1_1_indexing_policies_compatiblity_check_base.html", [
       [ "tfel::math::IndexingPoliciesCompatiblityCheck< IndexingPolicy1, IndexingPolicy2 >", "structtfel_1_1math_1_1_indexing_policies_compatiblity_check.html", null ]
@@ -2218,6 +2222,7 @@ var hierarchy =
     [ "tfel::typetraits::IsAssignableTo< A, B >", "structtfel_1_1typetraits_1_1_is_assignable_to.html", null ],
     [ "tfel::typetraits::IsAssignableTo< cadna::numeric_type< T1 >, cadna::numeric_type< T2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01cadna_1_1numeric__type_3_01_t1_01_4_00_01cadna00080c0aa566ae1242c1236099e0c74b.html", null ],
     [ "tfel::typetraits::IsAssignableTo< MathObject, tfel::math::CoalescedView< MathObject2, IndexingPolicyType2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_math_object_00_01tfel_1_1math_1_1_coalesced_v42a9a0beacc8c8ccd87db444187d969e.html", null ],
+    [ "tfel::typetraits::IsAssignableTo< MathObject, tfel::math::StridedCoalescedView< MathObject2, IndexingPolicyType2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_math_object_00_01tfel_1_1math_1_1_strided_coa646c119238f0a615eca688870468d548.html", null ],
     [ "tfel::typetraits::IsAssignableTo< MathObject, tfel::math::View< MathObject2, IndexingPolicyType2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_math_object_00_01tfel_1_1math_1_1_view_3_01_md0266b3485fe6ba56cf4c6589c821b29.html", null ],
     [ "tfel::typetraits::IsAssignableTo< T1, cadna::numeric_type< T2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_t1_00_01cadna_1_1numeric__type_3_01_t2_01_4_01_4.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::CoalescedView< MathObject, IndexingPolicyType >, MathObject2 >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_coalesced_view_3_01_math_objecb5b69c67949aa89d40672477a9fd5a3.html", null ],
@@ -2226,6 +2231,7 @@ var hierarchy =
     [ "tfel::typetraits::IsAssignableTo< tfel::math::Expr< EvaluationResult, Operation >, DestinationType >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_expr_3_01_evaluation_result_0aa2c796ffa320d86073740cd9ceada2d.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::Expr< EvaluationResult, Operation >, EvaluationResult >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_expr_3_01_evaluation_result_0ff0694db7badc15bf4a46b3efb50ca0e.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::Expr< EvaluationResult, Operation >, tfel::math::CoalescedView< MathObject, IndexingPolicyType > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_expr_3_01_evaluation_result_0539f0815223afd78e21c78808b4d36a8.html", null ],
+    [ "tfel::typetraits::IsAssignableTo< tfel::math::Expr< EvaluationResult, Operation >, tfel::math::StridedCoalescedView< MathObject, IndexingPolicyType > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_expr_3_01_evaluation_result_050093bbd12c2eaa72d215bfd543d8c7b.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::Expr< EvaluationResult, Operation >, tfel::math::View< MathObject, IndexingPolicyType > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_expr_3_01_evaluation_result_0c38b47a81fb777f62eb8fdd8f70ae7e6.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::FixedSizeArrayDerivative< Array11, Array12 >, tfel::math::FixedSizeArrayDerivative< Array21, Array22 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_fixed_size_array_derivative_3b0616bd542046a5e9a12fb67c2512da4.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::fsarray< N, ValueType >, tfel::math::fsarray< N, ValueType2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1fsarray_3_01_n_00_01_value_typ94196d0bcac94dbae23cc17573410fb5.html", null ],
@@ -2235,6 +2241,8 @@ var hierarchy =
     [ "tfel::typetraits::IsAssignableTo< tfel::math::st2tost2< N, T2 >, tfel::math::st2tost2< N, T > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1st2tost2_3_01_n_00_01_t2_01_4_c68021afd225ebb23ff0c7b255412629.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::st2tot2< N, T2 >, tfel::math::st2tot2< N, T > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1st2tot2_3_01_n_00_01_t2_01_4_0b4e019f86d9e66cc3f94f958ccbe7436.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::stensor< N, T2 >, tfel::math::stensor< N, T > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1stensor_3_01_n_00_01_t2_01_4_09b356b79ec5326398858fabe7e4d4017.html", null ],
+    [ "tfel::typetraits::IsAssignableTo< tfel::math::StridedCoalescedView< MathObject, IndexingPolicyType >, MathObject2 >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_strided_coalesced_view_3_01_ma38481b016c1427cde8b12676d3f2279.html", null ],
+    [ "tfel::typetraits::IsAssignableTo< tfel::math::StridedCoalescedView< MathObject, IndexingPolicyType >, tfel::math::StridedCoalescedView< MathObject2, IndexingPolicyType2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_strided_coalesced_view_3_01_mbad8591bf860cb379c6a67ece7e14db8.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::t2tost2< N, T2 >, tfel::math::t2tost2< N, T > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1t2tost2_3_01_n_00_01_t2_01_4_06b16cfe3c3f0c4c3d71dfa3fb6d6dea3.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::t2tot2< N, T2 >, tfel::math::t2tot2< N, T > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1t2tot2_3_01_n_00_01_t2_01_4_00848f252b5cd46b21a2bef8732360a8a6.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::tensor< N, T2 >, tfel::math::tensor< N, T > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1tensor_3_01_n_00_01_t2_01_4_004c8fc4db6b6d41f876222c1e80d65e47.html", null ],
@@ -2486,6 +2494,7 @@ var hierarchy =
     [ "tfel::math::MathObjectTraitsBase< tfel::meta::InvalidType, tfel::meta::InvalidType >", "structtfel_1_1math_1_1_math_object_traits_base.html", [
       [ "tfel::math::MathObjectTraits< std::remove_cv_t< MappedType > >", "structtfel_1_1math_1_1_math_object_traits.html", [
         [ "tfel::math::MathObjectTraits< CoalescedView< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_math_object_traits_3_01_coalesced_view_3_01_mapped_type_00_01_indexing_policy_type_01_4_01_4.html", null ],
+        [ "tfel::math::MathObjectTraits< StridedCoalescedView< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_math_object_traits_3_01_strided_coalesced_view_3_01_mapped_type_00_01_indexing_policy_type_01_4_01_4.html", null ],
         [ "tfel::math::MathObjectTraits< View< MappedType, ArrayPolicy > >", "structtfel_1_1math_1_1_math_object_traits_3_01_view_3_01_mapped_type_00_01_array_policy_01_4_01_4.html", null ]
       ] ],
       [ "tfel::math::MathObjectTraits< ResultType >", "structtfel_1_1math_1_1_math_object_traits.html", [
@@ -2533,6 +2542,7 @@ var hierarchy =
     ] ],
     [ "tfel::material::MechanicalBehaviourTraits< Behaviour >", "structtfel_1_1material_1_1_mechanical_behaviour_traits.html", null ],
     [ "MemoryIndexingPolicyType", null, [
+      [ "tfel::math::StridedCoalescedViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1_strided_coalesced_views_array.html", null ],
       [ "tfel::math::ViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1_views_array.html", null ]
     ] ],
     [ "tfel::material::MetallicCFCGenericSlidingSystemsInteractionMatrix< NumType >", "structtfel_1_1material_1_1_metallic_c_f_c_generic_sliding_systems_interaction_matrix.html", null ],
@@ -2842,6 +2852,7 @@ var hierarchy =
     [ "tfel::math::ResultOfEvaluation< ObjectType >", "structtfel_1_1math_1_1_result_of_evaluation.html", null ],
     [ "tfel::math::ResultOfEvaluation< CoalescedView< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_result_of_evaluation_3_01_coalesced_view_3_01_mapped_type_00_01_indexing_policy_type_01_4_01_4.html", null ],
     [ "tfel::math::ResultOfEvaluation< Expr< ResultType, Operation > >", "structtfel_1_1math_1_1_result_of_evaluation_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html", null ],
+    [ "tfel::math::ResultOfEvaluation< StridedCoalescedView< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_result_of_evaluation_3_01_strided_coalesced_view_3_01_mapped_type_00_01_indexing_policy_type_01_4_01_4.html", null ],
     [ "tfel::math::ResultOfEvaluation< View< MappedType, ArrayPolicy > >", "structtfel_1_1math_1_1_result_of_evaluation_3_01_view_3_01_mapped_type_00_01_array_policy_01_4_01_4.html", null ],
     [ "tfel::math::ResultType< A, B, Op >", "structtfel_1_1math_1_1_result_type.html", null ],
     [ "tfel::math::internals::ResultType1< T1, T2, tfel::math::OpDiv >", "structtfel_1_1math_1_1internals_1_1_result_type1_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_div_01_4.html", null ],
@@ -3141,10 +3152,10 @@ var hierarchy =
       [ "tfel::math::StandardArrayPolicy< result_type< ArrayPolicy1::value_type, ArrayPolicy2::value_type, OpDiv >, FixedSizeIndexingPoliciesCartesianProduct< ArrayPolicy1::IndexingPolicy, ArrayPolicy2::IndexingPolicy > >", "structtfel_1_1math_1_1_standard_array_policy.html", [
         [ "tfel::math::FixedSizeArrayDerivativePolicy< ArrayPolicy1, ArrayPolicy2 >", "structtfel_1_1math_1_1_fixed_size_array_derivative_policy.html", null ]
       ] ],
-      [ "tfel::math::StandardArrayPolicy< ValueType, FixedSizeRowMajorMatrixIndexingPolicy< unsigned short, N, M > >", "structtfel_1_1math_1_1_standard_array_policy.html", [
+      [ "tfel::math::StandardArrayPolicy< ValueType, FixedSizeRowMajorMatrixIndexingPolicy< unsigned int, N, M > >", "structtfel_1_1math_1_1_standard_array_policy.html", [
         [ "tfel::math::FixedSizeRowMajorMatrixPolicy< N, M, ValueType >", "structtfel_1_1math_1_1_fixed_size_row_major_matrix_policy.html", null ]
       ] ],
-      [ "tfel::math::StandardArrayPolicy< ValueType, FixedSizeVectorIndexingPolicy< unsigned short, N > >", "structtfel_1_1math_1_1_standard_array_policy.html", [
+      [ "tfel::math::StandardArrayPolicy< ValueType, FixedSizeVectorIndexingPolicy< unsigned int, N > >", "structtfel_1_1math_1_1_standard_array_policy.html", [
         [ "tfel::math::FixedSizeVectorPolicy< N, ValueType >", "structtfel_1_1math_1_1_fixed_size_vector_policy.html", null ]
       ] ],
       [ "tfel::math::StandardArrayPolicy< ValueType, RuntimeRowMajorMatrixIndexingPolicy >", "structtfel_1_1math_1_1_standard_array_policy.html", [
@@ -3322,6 +3333,13 @@ var hierarchy =
       ] ]
     ] ],
     [ "mfront::bbrick::StressPotentialFactory", "structmfront_1_1bbrick_1_1_stress_potential_factory.html", null ],
+    [ "tfel::math::internals::StridedCoalescedViewsArrayBase< is_scalar, MappedType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html", [
+      [ "tfel::math::StridedCoalescedViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1_strided_coalesced_views_array.html", null ]
+    ] ],
+    [ "tfel::math::internals::StridedCoalescedViewsArrayBase< isScalar< MappedType >(), MappedType, typename tfel::math::internals::StridedCoalescedViewsArrayDefaultViewIndexingPolicy< isScalar< MappedType >(), MappedType >::type >", "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html", null ],
+    [ "tfel::math::internals::StridedCoalescedViewsArrayBase< true, MappedType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base_3_01true_00_01_mapped_typa6ea68aee97b0071904a85abcaaa5f10.html", null ],
+    [ "tfel::math::internals::StridedCoalescedViewsArrayDefaultViewIndexingPolicy< is_scalar, MappedType >", "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_default_view_indexing_policy.html", null ],
+    [ "tfel::math::internals::StridedCoalescedViewsArrayDefaultViewIndexingPolicy< true, MappedType >", "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_default_view_indexing_policy_3_01true_00_01_mapped_type_01_4.html", null ],
     [ "tfel::math::StridedRandomAccessIteratorBase", "structtfel_1_1math_1_1_strided_random_access_iterator_base.html", [
       [ "tfel::math::StridedRandomAccessIterator< iterator_base >", "structtfel_1_1math_1_1_strided_random_access_iterator.html", null ]
     ] ],
@@ -3714,6 +3732,9 @@ var hierarchy =
     ] ],
     [ "ConceptRebind::type", null, [
       [ "tfel::math::CoalescedView< MappedType, IndexingPolicyType >", "structtfel_1_1math_1_1_coalesced_view.html", null ]
+    ] ],
+    [ "ConceptRebind::type", null, [
+      [ "tfel::math::StridedCoalescedView< MappedType, IndexingPolicyType >", "structtfel_1_1math_1_1_strided_coalesced_view.html", null ]
     ] ],
     [ "std::conditional::type", null, [
       [ "tfel::system::BinaryReader< T >", "structtfel_1_1system_1_1_binary_reader.html", null ]

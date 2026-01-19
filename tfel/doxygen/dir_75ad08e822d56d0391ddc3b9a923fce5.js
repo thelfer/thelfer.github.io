@@ -31,9 +31,6 @@ var dir_75ad08e822d56d0391ddc3b9a923fce5 =
     [ "RuntimeIndexingPolicies.hxx", "_runtime_indexing_policies_8hxx.html", "_runtime_indexing_policies_8hxx" ],
     [ "StandardTemplateLibraryCompatibilityLayers.hxx", "_standard_template_library_compatibility_layers_8hxx.html", "_standard_template_library_compatibility_layers_8hxx" ],
     [ "StandardTemplateLibraryCompatibilityLayers.ixx", "_standard_template_library_compatibility_layers_8ixx.html", null ],
-    [ "StridedCoalescedView.hxx", "_strided_coalesced_view_8hxx.html", "_strided_coalesced_view_8hxx" ],
-    [ "StridedCoalescedViewsArray.hxx", "_strided_coalesced_views_array_8hxx.html", "_strided_coalesced_views_array_8hxx" ],
-    [ "StridedCoalescedViewsArrayIO.hxx", "_strided_coalesced_views_array_i_o_8hxx.html", null ],
     [ "View.hxx", "_view_8hxx.html", "_view_8hxx" ],
     [ "ViewsArray.hxx", "_views_array_8hxx.html", "_views_array_8hxx" ],
     [ "ViewsArrayIO.hxx", "_views_array_i_o_8hxx.html", null ]

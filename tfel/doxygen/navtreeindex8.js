@@ -219,6 +219,12 @@ var NAVTREEINDEX8 =
 "_stress_criterion_factory_8hxx.html":[8,0,2,0,0,3,59],
 "_stress_potential_8hxx.html":[8,0,2,0,0,3,60],
 "_stress_potential_factory_8hxx.html":[8,0,2,0,0,3,61],
+"_strided_coalesced_view_8hxx.html":[8,0,0,3,5,1,31],
+"_strided_coalesced_view_8hxx.html#ac12b8b26ab3829d6113bdbda05a40c2f":[8,0,0,3,5,1,31,1],
+"_strided_coalesced_views_array_8hxx.html":[8,0,0,3,5,1,32],
+"_strided_coalesced_views_array_8hxx.html#a28050a134851d8b835fdc304c9e83088":[8,0,0,3,5,1,32,6],
+"_strided_coalesced_views_array_8hxx.html#a766d61c8ea4290a43e53cbea867a79e8":[8,0,0,3,5,1,32,7],
+"_strided_coalesced_views_array_i_o_8hxx.html":[8,0,0,3,5,1,33],
 "_strided_random_access_iterator_8hxx.html":[8,0,0,3,5,5,26],
 "_string_algorithms_8hxx.html":[8,0,0,3,11,16],
 "_string_algorithms_8hxx.html#a1bda2826760e6b2302e8a8b4a858bdd0":[8,0,0,3,11,16,7],
@@ -243,11 +249,5 @@ var NAVTREEINDEX8 =
 "_study_current_state_8ixx.html":[8,0,5,0,0,97],
 "_study_parameter_8hxx.html":[8,0,5,0,0,98],
 "_supported_types_8hxx.html":[8,0,2,0,0,198],
-"_supported_types_8hxx.html#a02780b9599daa678096f6fceff95fd10":[8,0,2,0,0,198,11],
-"_supported_types_8hxx.html#a1c74ff8763acbb0c7b479d46fe3bf72d":[8,0,2,0,0,198,9],
-"_supported_types_8hxx.html#a47615ea5178ec0c28275f60de017205a":[8,0,2,0,0,198,5],
-"_supported_types_8hxx.html#a6f180eec85bbf4f73aa073a9b640e8a6":[8,0,2,0,0,198,4],
-"_supported_types_8hxx.html#a87b392fe4f0591e1677ea6def56c04bc":[8,0,2,0,0,198,10],
-"_supported_types_8hxx.html#aa0f6cce776d263f7a9fff167635b6593":[8,0,2,0,0,198,3],
-"_supported_types_8hxx.html#ac600be53a08964852dc4a5859857e6d6":[8,0,2,0,0,198,7]
+"_supported_types_8hxx.html#a02780b9599daa678096f6fceff95fd10":[8,0,2,0,0,198,11]
 };

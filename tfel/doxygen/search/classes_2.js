@@ -168,7 +168,7 @@ var searchData=
   ['closedpipetest_165',['ClosedPipeTest',['../structmfmtg_1_1_closed_pipe_test.html',1,'mfmtg']]],
   ['cmaterialpropertyinterface_166',['CMaterialPropertyInterface',['../structmfront_1_1_c_material_property_interface.html',1,'mfront']]],
   ['cmaterialpropertyinterfacebase_167',['CMaterialPropertyInterfaceBase',['../structmfront_1_1_c_material_property_interface_base.html',1,'mfront']]],
-  ['coalescedview_168',['CoalescedView',['../structtfel_1_1math_1_1_coalesced_view.html',1,'tfel::math']]],
+  ['coalescedviewbase_168',['CoalescedViewBase',['../structtfel_1_1math_1_1_coalesced_view_base.html',1,'tfel::math']]],
   ['codeblock_169',['CodeBlock',['../structmfront_1_1_code_block.html',1,'mfront']]],
   ['codeblockoptions_170',['CodeBlockOptions',['../structmfront_1_1_behaviour_d_s_l_common_1_1_code_block_options.html',1,'mfront::BehaviourDSLCommon']]],
   ['codeblockparseroptions_171',['CodeBlockParserOptions',['../structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html',1,'mfront::DSLBase']]],

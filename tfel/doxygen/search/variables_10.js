@@ -27,14 +27,15 @@ var searchData=
   ['prec_24',['prec',['../structtfel_1_1check_1_1_comparison.html#af9777ea53f2829f8d2120a5d0583d5cc',1,'tfel::check::Comparison']]],
   ['precision2_25',['precision2',['../structtfel_1_1check_1_1_comparison.html#a5f7f73d14780e36a84237af2c173e121',1,'tfel::check::Comparison']]],
   ['prefix_26',['prefix',['../structmfront_1_1_compiled_target_description_base.html#af0d5b2e26275c70d51fcf3382db75028',1,'mfront::CompiledTargetDescriptionBase::prefix'],['../structtfel_1_1utilities_1_1_generator_options.html#a12559541c95cfe4d303475f5f429edb4',1,'tfel::utilities::GeneratorOptions::prefix']]],
-  ['privatecode_27',['privatecode',['../structmfront_1_1_model_description.html#a4449a33b2ce6a8aeefb0bfc3d1b9468f',1,'mfront::ModelDescription::privateCode'],['../structmfront_1_1_material_property_description.html#a709163a64c144fac3ffd96542f97d350',1,'mfront::MaterialPropertyDescription::privateCode']]],
+  ['privatecode_27',['privatecode',['../structmfront_1_1_material_property_description.html#a709163a64c144fac3ffd96542f97d350',1,'mfront::MaterialPropertyDescription::privateCode'],['../structmfront_1_1_model_description.html#a4449a33b2ce6a8aeefb0bfc3d1b9468f',1,'mfront::ModelDescription::privateCode']]],
   ['processnewcorrection_28',['ProcessNewCorrection',['../structmfront_1_1_behaviour_data.html#ac362bdb845a60fcdaaf472086785c62a',1,'mfront::BehaviourData']]],
   ['processnewestimate_29',['ProcessNewEstimate',['../structmfront_1_1_behaviour_data.html#acbba5918a07423548f5e19ae8b58a1cf',1,'mfront::BehaviourData']]],
   ['profiling_30',['profiling',['../structmfront_1_1_behaviour_data.html#abaa6c325944a00be5d24b8cd3ef030a2',1,'mfront::BehaviourData']]],
   ['programname_31',['programName',['../structtfel_1_1utilities_1_1_argument_parser.html#a17fea2a93fedc28fd13afb7dfccc76ea',1,'tfel::utilities::ArgumentParser']]],
   ['props_32',['props',['../structabaqus_1_1_abaqus_explicit_data.html#a6d1d737e197bab5c91e620368a3e2a71',1,'abaqus::AbaqusExplicitData::props'],['../structlsdyna_1_1_l_s_d_y_n_a_explicit_data.html#ae6842ebd910d8a27cd6ed38a40ffb5a8',1,'lsdyna::LSDYNAExplicitData::props'],['../structansys_1_1_ansys_data.html#a24228d742c80cbc8b77f117243201cc5',1,'ansys::AnsysData::PROPS'],['../structdianafea_1_1_diana_f_e_a_data.html#ac261e0467f970968ea6e3bdcb3ded3fe',1,'dianafea::DianaFEAData::PROPS']]],
   ['pss_33',['pss',['../structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#af420843d62b8d99955463c437cb6d579',1,'mfront::bbrick::HookeStressPotentialBase']]],
-  ['ptrs_34',['ptrs',['../structtfel_1_1math_1_1_coalesced_view.html#a38276be4c4e9d9a207809d41648be12a',1,'tfel::math::CoalescedView']]],
-  ['purple_35',['Purple',['../structtfel_1_1utilities_1_1_terminal_colors.html#ab3d63674248f0fa1180b9d1b8efeb0e7',1,'tfel::utilities::TerminalColors']]],
-  ['pv_36',['pv',['../structmtest_1_1_m_test.html#ac84eab81c06342f10985030e1cfc2dbe',1,'mtest::MTest']]]
+  ['ptr_34',['ptr',['../structtfel_1_1math_1_1_strided_coalesced_access_policy.html#a2f9b6093946a0500fca8e4c037e3d68a',1,'tfel::math::StridedCoalescedAccessPolicy']]],
+  ['ptrs_35',['ptrs',['../structtfel_1_1math_1_1_default_coalesced_access_policy.html#a95d5334d14e894a5b8c65db0a378cf9a',1,'tfel::math::DefaultCoalescedAccessPolicy']]],
+  ['purple_36',['Purple',['../structtfel_1_1utilities_1_1_terminal_colors.html#ab3d63674248f0fa1180b9d1b8efeb0e7',1,'tfel::utilities::TerminalColors']]],
+  ['pv_37',['pv',['../structmtest_1_1_m_test.html#ac84eab81c06342f10985030e1cfc2dbe',1,'mtest::MTest']]]
 ];

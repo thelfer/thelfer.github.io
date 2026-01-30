@@ -15,7 +15,71 @@
             <meta name="date" content="2025-01-01" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
-                <link rel="stylesheet" href="css/normalize.css"/>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
         <script
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -152,6 +216,7 @@
 		    <li><a href="release-notes-4.0.4.html">Version 4.0.4</a></li>
 		    <li><a href="release-notes-4.0.5.html">Version 4.0.5</a></li>
 		    <li><a href="release-notes-4.0.6.html">Version 4.0.6</a></li>
+		    <li><a href="release-notes-4.0.7.html">Version 4.0.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.1.x</a>
@@ -325,53 +390,108 @@
 </div>
 <div id="TOC">
 <ul>
+<li><a href="#new-tfelmath-features"
+id="toc-new-tfelmath-features"><span class="toc-section-number">1</span>
+New <code>TFEL/Math</code> features</a>
+<ul>
+<li><a
+href="#views-of-tensorial-objects-with-coalescent-memory-access-for-data-separated-by-a-constant-stride"
+id="toc-views-of-tensorial-objects-with-coalescent-memory-access-for-data-separated-by-a-constant-stride"><span
+class="toc-section-number">1.1</span> Views of tensorial objects with
+coalescent memory access for data separated by a constant
+stride</a></li>
+</ul></li>
 <li><a href="#new-features-in-tfel-check"
 id="toc-new-features-in-tfel-check"><span
-class="toc-section-number">1</span> New features in
+class="toc-section-number">2</span> New features in
 <code>tfel-check</code></a>
 <ul>
 <li><a href="#parallelization" id="toc-parallelization"><span
-class="toc-section-number">1.1</span> Parallelization</a></li>
+class="toc-section-number">2.1</span> Parallelization</a></li>
 <li><a href="#new-features-in-tfelsystem"
 id="toc-new-features-in-tfelsystem"><span
-class="toc-section-number">1.2</span> New features in
+class="toc-section-number">2.2</span> New features in
 <code>TFEL/System</code></a></li>
 </ul></li>
+<li><a href="#new-tfelmaterial-features"
+id="toc-new-tfelmaterial-features"><span
+class="toc-section-number">3</span> New <code>TFEL/Material</code>
+features</a>
+<ul>
+<li><a href="#homogenization" id="toc-homogenization"><span
+class="toc-section-number">3.1</span> Homogenization</a></li>
+</ul></li>
 <li><a href="#acknowledgements" id="toc-acknowledgements"><span
-class="toc-section-number">2</span> Acknowledgements</a></li>
+class="toc-section-number">4</span> Acknowledgements</a></li>
 <li><a href="#issues-fixed" id="toc-issues-fixed"><span
-class="toc-section-number">3</span> Issues fixed</a></li>
+class="toc-section-number">5</span> Issues fixed</a>
+<ul>
+<li><a
+href="#issue-890-mfronthomogenization-add-ponte-castaneda-1992-non-linear-scheme"
+id="toc-issue-890-mfronthomogenization-add-ponte-castaneda-1992-non-linear-scheme"><span
+class="toc-section-number">5.1</span> Issue 890: mfront Add Ponte
+Castaneda 1992 non linear scheme</a></li>
+<li><a href="#issue-905-tfelmath-pointer-heavy-coalescedview"
+id="toc-issue-905-tfelmath-pointer-heavy-coalescedview"><span
+class="toc-section-number">5.2</span> Issue 905: [TFEL/Math]
+Pointer-heavy CoalescedView</a></li>
+<li><a
+href="#issue-853-tfel-fcheck-have-the-possibility-to-launch-multiple-call-to-tfel-check-simultaenously-in-a-ci-context"
+id="toc-issue-853-tfel-fcheck-have-the-possibility-to-launch-multiple-call-to-tfel-check-simultaenously-in-a-ci-context"><span
+class="toc-section-number">5.3</span> Issue 853: [tfel-fcheck] Have the
+possibility to launch multiple call to <code>tfel-check</code>
+simultaenously in a CI context</a></li>
+</ul></li>
 </ul>
 </div>
 <p>The page describes the new functionalities of Version 5.2 of the
 <code>TFEL</code> project.</p>
-<h1 data-number="1" id="new-features-in-tfel-check"><span
-class="header-section-number">1</span> New features in
+<h1 data-number="1" id="new-tfelmath-features"><span
+class="header-section-number">1</span> New <code>TFEL/Math</code>
+features</h1>
+<h2 data-number="1.1"
+id="views-of-tensorial-objects-with-coalescent-memory-access-for-data-separated-by-a-constant-stride"><span
+class="header-section-number">1.1</span> Views of tensorial objects with
+coalescent memory access for data separated by a constant stride</h2>
+<p>In previous versions, the <code>View</code> class allows interpreting
+a contiguous memory area as a tensorial object. The
+<code>CoalescedView</code> class allows to create a tensorial object
+where each component is referred to by its own pointer.</p>
+<p>The <code>StridedCoalescedView</code> assumes that each component is
+separated by a constant stride in memory, so that it only have to store
+one pointer and the value of the stride.</p>
+<p>Such views are efficient on GPUs where coalescent memory access are
+preferable.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> values<span class="op">[</span><span class="dv">8</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">40</span><span class="op">};</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> s1 <span class="op">=</span> map_strided<span class="op">&lt;</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;&gt;(</span>values<span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span></code></pre></div>
+<h1 data-number="2" id="new-features-in-tfel-check"><span
+class="header-section-number">2</span> New features in
 <code>tfel-check</code></h1>
-<h2 data-number="1.1" id="parallelization"><span
-class="header-section-number">1.1</span> Parallelization</h2>
+<h2 data-number="2.1" id="parallelization"><span
+class="header-section-number">2.1</span> Parallelization</h2>
 <p>The commands described in different <code>.check</code> files can now
 be run in distinct processes.</p>
 <p>Note that the command described in a <code>.check</code> are still
 run sequentially.</p>
 <p>By default, as in previous versions, only one process is used.</p>
-<h3 data-number="1.1.1"
+<h3 data-number="2.1.1"
 id="specifying-the-number-of-jobs-run-simultaneously"><span
-class="header-section-number">1.1.1</span> Specifying the number of jobs
+class="header-section-number">2.1.1</span> Specifying the number of jobs
 run simultaneously</h3>
 <p>The command line argument <code>--jobs</code> (<code>-j</code>) allow
 specifying the number of jobs run simultaneously.</p>
 <p>If no option is given to <code>--jobs</code>, the number of available
 cores is used, if the system provide this information.</p>
-<h4 data-number="1.1.1.1" id="limit-on-the-number-of-jobs"><span
-class="header-section-number">1.1.1.1</span> Limit on the number of
+<h4 data-number="2.1.1.1" id="limit-on-the-number-of-jobs"><span
+class="header-section-number">2.1.1.1</span> Limit on the number of
 jobs</h4>
 <p>By default, this number must be lower than the number of cores
 available. This limit can be discarded by
 passing<code>--discard-jobs-limit=true</code> to
 <code>tfel-check</code>.</p>
-<h3 data-number="1.1.2" id="caution"><span
-class="header-section-number">1.1.2</span> Caution</h3>
+<h3 data-number="2.1.2" id="caution"><span
+class="header-section-number">2.1.2</span> Caution</h3>
 <p>The user must take care that the commands described in
 <code>.check</code> files can be run in parallel.</p>
 <ul>
@@ -387,11 +507,11 @@ undefined behaviour.</p>
 <p>Another example would be to use <code>@CleanDirectories</code> and
 <code>@CleanFiles</code> commands inappropriately and erase data used by
 commands of other <code>.check</code> files.</p>
-<h2 data-number="1.2" id="new-features-in-tfelsystem"><span
-class="header-section-number">1.2</span> New features in
+<h2 data-number="2.2" id="new-features-in-tfelsystem"><span
+class="header-section-number">2.2</span> New features in
 <code>TFEL/System</code></h2>
-<h3 data-number="1.2.1" id="improvements-in-processmanager"><span
-class="header-section-number">1.2.1</span> Improvements in
+<h3 data-number="2.2.1" id="improvements-in-processmanager"><span
+class="header-section-number">2.2.1</span> Improvements in
 <code>ProcessManager</code></h3>
 <ul>
 <li>New overloads of the <code>createProcess</code> and
@@ -400,15 +520,24 @@ command shall be executed.</li>
 <li><code>ProcessManager</code> shall now work properly in a
 multithreaded context.</li>
 </ul>
-<h3 data-number="1.2.2" id="improvements-in-signalmanager"><span
-class="header-section-number">1.2.2</span> Improvements in
+<h3 data-number="2.2.2" id="improvements-in-signalmanager"><span
+class="header-section-number">2.2.2</span> Improvements in
 <code>SignalManager</code></h3>
 <ul>
 <li><code>SignalManager</code> shall now work properly in a
 multithreaded context.</li>
 </ul>
-<h1 data-number="2" id="acknowledgements"><span
-class="header-section-number">2</span> Acknowledgements</h1>
+<h1 data-number="3" id="new-tfelmaterial-features"><span
+class="header-section-number">3</span> New <code>TFEL/Material</code>
+features</h1>
+<h2 data-number="3.1" id="homogenization"><span
+class="header-section-number">3.1</span> Homogenization</h2>
+<p>The second moments of strains considering a Hashin-Shtrikman scheme
+are available. A new <a href="PonteCastaneda1992.html">tutorial</a>
+shows how to use it in the implementation of Ponte-Castaneda variational
+bound (1992), within the framework of non-linear elasticity.</p>
+<h1 data-number="4" id="acknowledgements"><span
+class="header-section-number">4</span> Acknowledgements</h1>
 <p>The authors are grateful to the many contributors to the
 <code>TFEL/MFront</code> project. This research was conducted in the
 framework of the PLEIADES project, which was supported financially by
@@ -416,8 +545,31 @@ the CEA (Commissariat à l’Énergie Atomique et aux Énergies
 Alternatives), EDF (Électricité de France) and Framatome. Homogenization
 developments were conducted within the framework of the AnoHonA ANR
 project (n° AAPG2023).</p>
-<h1 data-number="3" id="issues-fixed"><span
-class="header-section-number">3</span> Issues fixed</h1>
+<h1 data-number="5" id="issues-fixed"><span
+class="header-section-number">5</span> Issues fixed</h1>
+<h2 data-number="5.1"
+id="issue-890-mfronthomogenization-add-ponte-castaneda-1992-non-linear-scheme"><span
+class="header-section-number">5.1</span> Issue 890: <a
+href="#homogenization">mfront</a> Add Ponte Castaneda 1992 non linear
+scheme</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/890"
+class="uri">https://github.com/thelfer/tfel/issues/890</a></p>
+<h2 data-number="5.2"
+id="issue-905-tfelmath-pointer-heavy-coalescedview"><span
+class="header-section-number">5.2</span> Issue 905: [TFEL/Math]
+Pointer-heavy CoalescedView</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/905"
+class="uri">https://github.com/thelfer/tfel/issues/905</a></p>
+<h2 data-number="5.3"
+id="issue-853-tfel-fcheck-have-the-possibility-to-launch-multiple-call-to-tfel-check-simultaenously-in-a-ci-context"><span
+class="header-section-number">5.3</span> Issue 853: [tfel-fcheck] Have
+the possibility to launch multiple call to <code>tfel-check</code>
+simultaenously in a CI context</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/853"
+class="uri">https://github.com/thelfer/tfel/issues/853</a></p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -215,6 +215,7 @@
 		    <li><a href="release-notes-4.0.4.html">Version 4.0.4</a></li>
 		    <li><a href="release-notes-4.0.5.html">Version 4.0.5</a></li>
 		    <li><a href="release-notes-4.0.6.html">Version 4.0.6</a></li>
+		    <li><a href="release-notes-4.0.7.html">Version 4.0.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.1.x</a>
@@ -421,6 +422,9 @@ id="toc-homogenization-schemes-for-biphasic-media">Homogenization
 schemes for biphasic media</a></li>
 <li><a href="#homogenization-bounds"
 id="toc-homogenization-bounds">Homogenization bounds</a></li>
+<li><a href="#second-moments-of-the-strains"
+id="toc-second-moments-of-the-strains">Second moments of the
+strains</a></li>
 <li><a href="#homogenization-of-general-microstructures"
 id="toc-homogenization-of-general-microstructures">Homogenization of
 general microstructures</a></li>
@@ -1151,6 +1155,35 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#
 <code>Stensor4</code>) objects, whereas Hashin-Shtrikman bounds work on
 bulk and shear moduli. The number of phases is arbitrary, and the
 dimension is 2 or 3.</p>
+<h2 id="second-moments-of-the-strains">Second moments of the
+strains</h2>
+<p>Some functions allow to compute the second moments of the strains if
+considering a Hashin-Shtrikman type microstructure. More precisely, we
+consider isotropic spherical inclusions embedded in an isotropic matrix,
+and we compute the following moments:</p>
+<p><span
+class="math inline">\(\langle\varepsilon_{eq}^2\rangle_r\qquad\text{and}\qquad\langle\varepsilon_{m}^2\rangle_r\)</span></p>
+<p>on each phase <span class="math inline">\(r\)</span>, <span
+class="math inline">\(\varepsilon_{eq}\)</span> being the equivalent
+strain and <span class="math inline">\(\varepsilon_{m}\)</span> being
+the third of the trace of the strain. We hence write</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> kg0 <span class="op">=</span> KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>K0<span class="op">,</span>G0<span class="op">);</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> kgr <span class="op">=</span> KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>K1<span class="op">,</span>G1<span class="op">);</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> em2r <span class="op">=</span> computeMeanSquaredHydrostaticStrain<span class="op">(</span>kg0<span class="op">,</span>fr<span class="op">,</span>kgr<span class="op">,</span>em2<span class="op">,</span>eeq2<span class="op">);</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> em20<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span>em2<span class="op">);</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> em2i<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>em2<span class="op">);</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> eeq2r <span class="op">=</span> computeMeanSquaredEquivalentStrain<span class="op">(</span>kg0<span class="op">,</span>fr<span class="op">,</span>kgr<span class="op">,</span>em2<span class="op">,</span>eeq2<span class="op">);</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> eeq20<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span>eeq2<span class="op">);</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> eeq2i<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>eeq2<span class="op">);</span></span></code></pre></div>
+<p>Here the functions appearing at lines 4 and 7 need 5 arguments:
+isotropic modulus of the matrix <code>kg0</code>, volume fraction of
+spheres, isotropic modulus of the inclusions <code>kgr</code>, but also
+the second moments of the total strain: <code>em2</code> for the
+hydrostatic part and <code>eeq2</code> for the deviatoric part. The
+functions return <code>std::pair</code>, each element of the
+<code>pair</code> corresponds to a phase (matrix or spheres).</p>
 <h2 id="homogenization-of-general-microstructures">Homogenization of
 general microstructures</h2>
 <p>A <code>ParticulateMicrostructure</code> object can be created for
@@ -1181,13 +1214,13 @@ the distributions of inclusions). This class is also described
 below.</p>
 <p>We can instantiate a <code>ParticulateMicrostructure</code> as
 follows, passing the matrix elasticity as an argument:</p>
-<div class="sourceCode" id="cb29"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IM0<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span><span class="fl">1e7</span><span class="op">,</span><span class="fl">1e7</span><span class="op">);</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> micro_1<span class="op">=</span>ParticulateMicrostructure<span class="op">(</span>IM0<span class="op">);</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C0 <span class="op">=</span> stress<span class="op">(</span><span class="fl">1e9</span><span class="op">)*</span>Stensor4<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> micro_2<span class="op">=</span>ParticulateMicrostructure<span class="op">(</span>C0<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IM0<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span><span class="fl">1e7</span><span class="op">,</span><span class="fl">1e7</span><span class="op">);</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> micro_1<span class="op">=</span>ParticulateMicrostructure<span class="op">(</span>IM0<span class="op">);</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C0 <span class="op">=</span> stress<span class="op">(</span><span class="fl">1e9</span><span class="op">)*</span>Stensor4<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> micro_2<span class="op">=</span>ParticulateMicrostructure<span class="op">(</span>C0<span class="op">);</span></span></code></pre></div>
 <p><code>ParticulateMicrostructure</code> has also some methods (see
 ‘MicrostructureDescription.hxx’ for details). The following ones allow
 to get some attributes of the class:</p>
@@ -1204,9 +1237,9 @@ of <code>matrixPhase</code>)</li>
 considered isotropic or not. In fact, depending on how was instantiated
 the <code>ParticulateMicrostructure</code>, the matrix is considered
 isotropic or not. For example, by doing</p>
-<div class="sourceCode" id="cb30"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> val_1<span class="op">=</span>micro_1<span class="op">.</span>is_isotropic_matrix<span class="op">();</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> val_2<span class="op">=</span>micro_2<span class="op">.</span>is_isotropic_matrix<span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> val_1<span class="op">=</span>micro_1<span class="op">.</span>is_isotropic_matrix<span class="op">();</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> val_2<span class="op">=</span>micro_2<span class="op">.</span>is_isotropic_matrix<span class="op">();</span></span></code></pre></div>
 <p><code>val_1</code> will be <code>True</code> because
 <code>micro_1</code> was instantiated above with a
 <code>KGModuli</code>, whereas <code>val_2</code> will be
@@ -1236,16 +1269,16 @@ attributes:</p>
 <code>bool</code> stating if the phase is considered isotropic or not.
 Again, the value of this <code>bool</code> depends on the way the
 <code>Phase</code> was constructed. By doing</p>
-<div class="sourceCode" id="cb31"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C0<span class="op">=</span>tfel<span class="op">::</span>math<span class="op">::</span>st2tost2<span class="op">&lt;</span>stress<span class="op">&gt;::</span>Id<span class="op">();</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>Phase<span class="op">&lt;</span>stress<span class="op">&gt;</span> ph<span class="op">(</span>f<span class="op">,</span>C0<span class="op">);</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> ph<span class="op">.</span>is_isotropic<span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C0<span class="op">=</span>tfel<span class="op">::</span>math<span class="op">::</span>st2tost2<span class="op">&lt;</span>stress<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>Phase<span class="op">&lt;</span>stress<span class="op">&gt;</span> ph<span class="op">(</span>f<span class="op">,</span>C0<span class="op">);</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> ph<span class="op">.</span>is_isotropic<span class="op">();</span></span></code></pre></div>
 <p><code>b</code> will have the value <code>false</code>, whereas by
 doing</p>
-<div class="sourceCode" id="cb32"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>k<span class="op">,</span>g<span class="op">);</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>Phase<span class="op">&lt;</span>stress<span class="op">&gt;</span> ph<span class="op">(</span>f<span class="op">,</span>KG<span class="op">);</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> ph<span class="op">.</span>is_isotropic<span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>k<span class="op">,</span>g<span class="op">);</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>Phase<span class="op">&lt;</span>stress<span class="op">&gt;</span> ph<span class="op">(</span>f<span class="op">,</span>KG<span class="op">);</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> ph<span class="op">.</span>is_isotropic<span class="op">();</span></span></code></pre></div>
 <p><code>b</code> will have the value <code>true</code>. Hence, when a
 <code>ParticulateMicrostructure</code> is instantiated, it automatically
 instantiates a <code>Phase</code> object corresponding to the attribute
@@ -1269,10 +1302,10 @@ two semi-lengths identical)</li>
 semi-lengths equal to unity)</li>
 </ul>
 <p>Let us try:</p>
-<div class="sourceCode" id="cb33"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>Ellipsoid<span class="op">&lt;</span>length<span class="op">&gt;</span> ellipsoid1<span class="op">(</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>Spheroid<span class="op">&lt;</span>length<span class="op">&gt;</span> spheroid1<span class="op">(</span>a<span class="op">,</span>b<span class="op">);</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>Sphere<span class="op">&lt;</span>length<span class="op">&gt;</span> sphere1<span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>Ellipsoid<span class="op">&lt;</span>length<span class="op">&gt;</span> ellipsoid1<span class="op">(</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>Spheroid<span class="op">&lt;</span>length<span class="op">&gt;</span> spheroid1<span class="op">(</span>a<span class="op">,</span>b<span class="op">);</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>Sphere<span class="op">&lt;</span>length<span class="op">&gt;</span> sphere1<span class="op">();</span></span></code></pre></div>
 <h4 id="the-inclusiondistribution-class">The
 <code>InclusionDistribution class</code></h4>
 <p>The <code>InclusionDistribution class</code> is an abstract class
@@ -1291,20 +1324,20 @@ distribution of ellipsoids)</li>
 ellipsoids)</li>
 </ul>
 <p>Here are some examples of instantiation:</p>
-<div class="sourceCode" id="cb34"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KGi<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>Ki<span class="op">,</span>Gi<span class="op">);</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>SphereDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_sph<span class="op">(</span>sphere1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">);</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>IsotropicDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_ell<span class="op">(</span>ellipsoid1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">);</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>tfel<span class="op">::</span>math<span class="op">::</span>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> real<span class="op">&gt;</span> n_a <span class="op">=</span> <span class="op">{</span><span class="fl">1.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">};</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>tfel<span class="op">::</span>math<span class="op">::</span>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> real<span class="op">&gt;</span> n_b <span class="op">=</span> <span class="op">{</span><span class="fl">0.</span><span class="op">,</span> <span class="fl">1.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">};</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>OrientedDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_O<span class="op">(</span>ellipsoid1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">,</span>n_a<span class="op">,</span>n_b<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KGi<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>Ki<span class="op">,</span>Gi<span class="op">);</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>SphereDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_sph<span class="op">(</span>sphere1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">);</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>IsotropicDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_ell<span class="op">(</span>ellipsoid1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">);</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>tfel<span class="op">::</span>math<span class="op">::</span>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> real<span class="op">&gt;</span> n_a <span class="op">=</span> <span class="op">{</span><span class="fl">1.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">};</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>tfel<span class="op">::</span>math<span class="op">::</span>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> real<span class="op">&gt;</span> n_b <span class="op">=</span> <span class="op">{</span><span class="fl">0.</span><span class="op">,</span> <span class="fl">1.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">};</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>OrientedDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_O<span class="op">(</span>ellipsoid1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">,</span>n_a<span class="op">,</span>n_b<span class="op">);</span></span></code></pre></div>
 <p>The <code>TransverseDistribution</code> is a special case which
 requires to precise which axis of the ellipsoid (or spheroid) will
 remain fixed when the two other axes rotate:</p>
-<div class="sourceCode" id="cb35"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">short</span> <span class="dt">int</span> index <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>TransverseIsotropicDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_TI<span class="op">(</span>ellipsoid1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">,</span>n_a<span class="op">,</span>index<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">short</span> <span class="dt">int</span> index <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>TransverseIsotropicDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_TI<span class="op">(</span>ellipsoid1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">,</span>n_a<span class="op">,</span>index<span class="op">);</span></span></code></pre></div>
 <p>The index can be 0,1 or 2. For a spheroid, giving <code>2</code> for
 the <code>index</code> is the same as giving <code>1</code>, because
 these 2 axes have the same length.</p>
@@ -1318,19 +1351,19 @@ anisotropic inclusions. However, the basis in which the
 <code>SphereDistribution</code>, it is the global basis.</p>
 <p>We can now construct our <code>ParticulateMicrostructure</code> by
 adding some <code>InclusionDistribution</code> objects:</p>
-<div class="sourceCode" id="cb36"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>addInclusionPhase<span class="op">(</span>distrib_sph<span class="op">);</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>get_number_of_phases<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>get_matrix_fraction<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>addInclusionPhase<span class="op">(</span>distrib_ell<span class="op">);</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>get_number_of_phases<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>get_matrix_fraction<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
-<p>or remove them:</p>
 <div class="sourceCode" id="cb37"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>removeInclusionPhase<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>addInclusionPhase<span class="op">(</span>distrib_sph<span class="op">);</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>get_number_of_phases<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>get_matrix_fraction<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>get_matrix_fraction<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>addInclusionPhase<span class="op">(</span>distrib_ell<span class="op">);</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>get_number_of_phases<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>get_matrix_fraction<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<p>or remove them:</p>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>removeInclusionPhase<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>get_number_of_phases<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>get_matrix_fraction<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
 <p>At this stage, we have added the distribution of spheres
 <code>distrib_sph</code>, and added the isotropic distribution of
 ellipsoids <code>distrib_ell</code>. Afterthat, we have removed the
@@ -1338,8 +1371,8 @@ first inclusion distribution (number <code>0</code>), which is the
 distribution of spheres. Hence, only one
 <code>InclusionDistribution</code> object remains in the microstructure.
 We can get this distribution by doing:</p>
-<div class="sourceCode" id="cb38"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> ell_dist<span class="op">=</span>micro_1<span class="op">.</span>get_inclusionPhase<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> ell_dist<span class="op">=</span>micro_1<span class="op">.</span>get_inclusionPhase<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
 <p>Each <code>InclusionDistribution</code> object has three attributes:
 <code>inclusion</code> (which is of type <code>Inclusion</code>, see
 above), <code>fraction</code> and <code>stiffness</code> (because they
@@ -1348,14 +1381,14 @@ The first just states if the distribution was instantiated with an
 <code>IsotropicModuli</code> or with a <code>Stensor4</code> object.
 Here, it was instantiated with a <code>KGModuli</code>, so that it is
 considered isotropic. Hence,</p>
-<div class="sourceCode" id="cb39"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> ell_dist<span class="op">.</span>is_isotropic<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> ell_dist<span class="op">.</span>is_isotropic<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
 <p>prints <code>1</code>.</p>
 <p>The second method of the distribution allows to compute the mean
 strain localisation (or concentration) tensor in the inclusions when
 they are embedded in a matrix:</p>
-<div class="sourceCode" id="cb40"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>Ai<span class="op">=</span>ell_dist<span class="op">.</span>computeMeanLocalisator<span class="op">(</span>IM0<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>Ai<span class="op">=</span>ell_dist<span class="op">.</span>computeMeanLocalisator<span class="op">(</span>IM0<span class="op">);</span></span></code></pre></div>
 <p>Note that in the latter case, passing <code>C0</code>, a
 <code>Stensor4</code> object as an argument of the method will return an
 error, because it will be considered that the matrix is not isotropic,
@@ -1363,18 +1396,18 @@ so that computing a average localisator of a distribution of ellipsoids
 in an anisotropic matrix is impossible (too complicated). However, it
 can be done for other kinds of distributions, like sphere distributions
 or distributions of oriented inclusions:</p>
-<div class="sourceCode" id="cb41"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>A1<span class="op">=</span>distrib_sph<span class="op">.</span>computeMeanLocalisator<span class="op">(</span>C0<span class="op">,</span><span class="dv">10</span><span class="op">);</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>A2<span class="op">=</span>distrib_O<span class="op">.</span>computeMeanLocalisator<span class="op">(</span>C0<span class="op">,</span><span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>A1<span class="op">=</span>distrib_sph<span class="op">.</span>computeMeanLocalisator<span class="op">(</span>C0<span class="op">,</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>A2<span class="op">=</span>distrib_O<span class="op">.</span>computeMeanLocalisator<span class="op">(</span>C0<span class="op">,</span><span class="dv">10</span><span class="op">);</span></span></code></pre></div>
 <p>Here, the integer <code>10</code> is the number of subdivisions in
 the integration process in the computation of the Hill tensor relative
 to the inclusions. It is <code>12</code> by default.</p>
 <p>A last method of the <code>ParticulateMicrostructure</code> object
 allows to replace the matrix phase:</p>
-<div class="sourceCode" id="cb42"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>micro_1.replaceMatrixPhase(C0)<span class="op">;</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>std::cout<span class="op">&lt;&lt;</span> micro_1.get_matrix_elasticity()<span class="op">&lt;&lt;</span> std::endl<span class="op">;</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>std::cout<span class="op">&lt;&lt;</span> micro_1.is_isotropic_matrix()<span class="op">&lt;&lt;</span> std::endl<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>micro_1.replaceMatrixPhase(C0)<span class="op">;</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>std::cout<span class="op">&lt;&lt;</span> micro_1.get_matrix_elasticity()<span class="op">&lt;&lt;</span> std::endl<span class="op">;</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>std::cout<span class="op">&lt;&lt;</span> micro_1.is_isotropic_matrix()<span class="op">&lt;&lt;</span> std::endl<span class="op">;</span></span></code></pre></div>
 <p>Here we see that the matrix is no more isotropic because it was
 replaced via a <code>Stensor4</code> object <code>C0</code>.</p>
 <p>Note that the 4 <code>InclusionDistribution</code> classes are
@@ -1398,11 +1431,11 @@ attributes:</p>
 <p>These functions take a <code>ParticulateMicrostructure</code> as an
 argument and returns a <code>HomogenizationScheme</code> object.</p>
 <p>Let us try:</p>
-<div class="sourceCode" id="cb43"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmDS<span class="op">=</span>computeDilute<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">);</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmMT<span class="op">=</span>computeMoriTanaka<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">);</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmSC<span class="op">=</span>computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">,</span><span class="dv">10</span><span class="op">,</span><span class="kw">true</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmDS<span class="op">=</span>computeDilute<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">);</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmMT<span class="op">=</span>computeMoriTanaka<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">);</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmSC<span class="op">=</span>computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">,</span><span class="dv">10</span><span class="op">,</span><span class="kw">true</span><span class="op">);</span></span></code></pre></div>
 <p>We note that <code>computeSelfConsistent</code> not only takes the
 microstructure as an argument, but also takes one integer
 (<code>10</code>) as a parameter, which is the maximum number of
@@ -1417,12 +1450,12 @@ integration (resulting in a slower computation) will be performed to
 compute the Hill tensors. Moreover, an integer parameter can be added
 after the boolean, that indicates the number of subdivisions in the
 numerical integration. This value is <code>12</code> by default:</p>
-<div class="sourceCode" id="cb44"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>micro_2.addInclusionPhase(distrib_O)<span class="op">;</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>hmSC_iso<span class="op">=</span>computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="er">u</span>,stress<span class="op">&gt;</span>(micro_2,<span class="dv">10</span>,<span class="va">True</span>)<span class="op">;</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>hmSC_aniso<span class="op">=</span>computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="er">u</span>,stress<span class="op">&gt;</span>(micro_2,<span class="dv">10</span>,<span class="va">False</span>,<span class="dv">10</span>)<span class="op">;</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>std::cout<span class="op">&lt;&lt;</span> <span class="st">&quot;SC iso: &quot;</span><span class="op">&lt;&lt;</span> hmSC_iso.homogenized_stiffness<span class="op">&lt;&lt;</span> std::endl<span class="op">;</span></span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>std::cout<span class="op">&lt;&lt;</span> <span class="st">&quot;SC aniso: &quot;</span><span class="op">&lt;&lt;</span> hmSC_aniso.homogenized_stiffness<span class="op">&lt;&lt;</span> std::endl<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>micro_2.addInclusionPhase(distrib_O)<span class="op">;</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>hmSC_iso<span class="op">=</span>computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="er">u</span>,stress<span class="op">&gt;</span>(micro_2,<span class="dv">10</span>,<span class="va">True</span>)<span class="op">;</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>hmSC_aniso<span class="op">=</span>computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="er">u</span>,stress<span class="op">&gt;</span>(micro_2,<span class="dv">10</span>,<span class="va">False</span>,<span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>std::cout<span class="op">&lt;&lt;</span> <span class="st">&quot;SC iso: &quot;</span><span class="op">&lt;&lt;</span> hmSC_iso.homogenized_stiffness<span class="op">&lt;&lt;</span> std::endl<span class="op">;</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>std::cout<span class="op">&lt;&lt;</span> <span class="st">&quot;SC aniso: &quot;</span><span class="op">&lt;&lt;</span> hmSC_aniso.homogenized_stiffness<span class="op">&lt;&lt;</span> std::endl<span class="op">;</span></span></code></pre></div>
 <p>(the “std::cout” does not work when using quantities). For the oter
 schemes, the isotropic character of the matrix when computing the strain
 localisators will depend on what returns
@@ -1433,30 +1466,30 @@ isotropic, it will fail depending on the distributions that are present
 in the microstructure. Moreover, if anisotropic, another parameter can
 be passed to specify the number of subdivisions in the numerical
 integration (this value is <code>12</code> by default):</p>
-<div class="sourceCode" id="cb45"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>micro_1.replaceMatrixPhase(C0)<span class="op">;</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>micro_1.removeInclusionPhase(<span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>micro_1.addInclusionPhase(distrib_O)<span class="op">;</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>auto hmDS_aniso<span class="op">=</span>computeDilute<span class="op">&lt;</span><span class="dv">3</span><span class="er">u</span>,stress<span class="op">&gt;</span>(micro_1,<span class="dv">10</span>)<span class="op">;</span></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>auto hmMT_aniso<span class="op">=</span>computeMoriTanaka<span class="op">&lt;</span><span class="dv">3</span><span class="er">u</span>,stress<span class="op">&gt;</span>(micro_1,<span class="dv">10</span>)<span class="op">;</span></span></code></pre></div>
-<p>We can recover the strain localisation tensors as follows:</p>
 <div class="sourceCode" id="cb46"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>A_i_DS<span class="op">=</span>hmDS<span class="op">.</span>mean_strain_localisation_tensors<span class="op">;</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span><span class="st">&quot;A_0_DS: &quot;</span><span class="op">&lt;&lt;</span> A_i_DS<span class="op">[</span><span class="dv">0</span><span class="op">]&lt;&lt;</span><span class="st">&quot;A_1_DS: &quot;</span><span class="op">&lt;&lt;</span> A_i_DS<span class="op">[</span><span class="dv">1</span><span class="op">]&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
-<p>We can also add a polarization on each phase:</p>
+class="sourceCode py"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>micro_1.replaceMatrixPhase(C0)<span class="op">;</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>micro_1.removeInclusionPhase(<span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>micro_1.addInclusionPhase(distrib_O)<span class="op">;</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>auto hmDS_aniso<span class="op">=</span>computeDilute<span class="op">&lt;</span><span class="dv">3</span><span class="er">u</span>,stress<span class="op">&gt;</span>(micro_1,<span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>auto hmMT_aniso<span class="op">=</span>computeMoriTanaka<span class="op">&lt;</span><span class="dv">3</span><span class="er">u</span>,stress<span class="op">&gt;</span>(micro_1,<span class="dv">10</span>)<span class="op">;</span></span></code></pre></div>
+<p>We can recover the strain localisation tensors as follows:</p>
 <div class="sourceCode" id="cb47"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>replaceMatrixPhase<span class="op">(</span>IM0<span class="op">);</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0 <span class="op">=</span> Stensor<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;::</span>zero<span class="op">();</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Stensor<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;</span> P1 <span class="op">=</span> <span class="op">{</span>stress<span class="op">(</span><span class="fl">6.e8</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">6.e8</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">6.e8</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">0.</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">0.</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">0.</span><span class="op">)};</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> pola<span class="op">={</span>P0<span class="op">,</span>P1<span class="op">};</span></span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmDS_pola<span class="op">=</span>computeDilute<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">,</span><span class="dv">0</span><span class="op">,</span>pola<span class="op">);</span></span></code></pre></div>
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>A_i_DS<span class="op">=</span>hmDS<span class="op">.</span>mean_strain_localisation_tensors<span class="op">;</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span><span class="st">&quot;A_0_DS: &quot;</span><span class="op">&lt;&lt;</span> A_i_DS<span class="op">[</span><span class="dv">0</span><span class="op">]&lt;&lt;</span><span class="st">&quot;A_1_DS: &quot;</span><span class="op">&lt;&lt;</span> A_i_DS<span class="op">[</span><span class="dv">1</span><span class="op">]&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<p>We can also add a polarization on each phase:</p>
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>replaceMatrixPhase<span class="op">(</span>IM0<span class="op">);</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0 <span class="op">=</span> Stensor<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;::</span>zero<span class="op">();</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Stensor<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;</span> P1 <span class="op">=</span> <span class="op">{</span>stress<span class="op">(</span><span class="fl">6.e8</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">6.e8</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">6.e8</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">0.</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">0.</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">0.</span><span class="op">)};</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> pola<span class="op">={</span>P0<span class="op">,</span>P1<span class="op">};</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmDS_pola<span class="op">=</span>computeDilute<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">,</span><span class="dv">0</span><span class="op">,</span>pola<span class="op">);</span></span></code></pre></div>
 <p>Note that here we must also precise the parameter
 <code>max_iter_anisotropic_integration</code> before the optional
 argument <code>pola</code>. Here this integer is 0 because it will not
 be used, given that the matrix phase is isotropic (see first line). And
 we can recover the effective polarization:</p>
-<div class="sourceCode" id="cb48"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> P_eff_DS<span class="op">=</span>hmDS_pola<span class="op">.</span>effective_polarisation<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> P_eff_DS<span class="op">=</span>hmDS_pola<span class="op">.</span>effective_polarisation<span class="op">;</span></span></code></pre></div>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-barlat_linear_2005" class="csl-entry" role="listitem">

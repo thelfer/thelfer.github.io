@@ -5,10 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: The &lt;tt&gt;MGIS&lt;/tt&gt; project</title>
+<title>mfem-mgis: An introduction to the MFEM/MGIS project</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -20,6 +24,7 @@ MathJax.Hub.Config({
 </script>
 <script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -28,8 +33,9 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">mfem-mgis<span id="projectnumber">&#160;0.2</span>
    </div>
+   <div id="projectbrief">The aim of the MFEM/MGIS project is to provide a C++ library to build advanced mechanical simulation based on MFront behaviours with MFEM.</div>
   </td>
  </tr>
  </tbody>
@@ -54,6 +60,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('index.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -76,72 +98,24 @@ $(function() {
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">The <code>MGIS</code> project </div></div>
+  <div class="headertitle"><div class="title">An introduction to the MFEM/MGIS project </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>28/01/2020</dd></dl>
-<p>The official website of the <code>MGIS</code> project is the following: <a href="https://thelfer.github.io/mgis/web/index.html">https://thelfer.github.io/mgis/web/index.html</a>.</p>
-<p>This project aims at proving tools (functions, classes, bindings, etc...) to handle behaviours written using <code>MFront</code> generic interface. For information about <code>MFront</code>, see <a href="http://tfel.sourceforge.net">http://tfel.sourceforge.net</a>.</p>
-<p>Those tools are meant to be used by (<code>FEM</code>, <code>FFT</code>, etc.) solver developers. This tools are <em>not</em> linked to the <code>TFEL</code> libraries. Permissive licences have been chosen to allow integration in open-source and proprietary codes.</p>
-<h1><a class="anchor" id="autotoc_md0"></a>
-The &lt;tt&gt;MFrontGenericInterface&lt;/tt&gt; &lt;tt&gt;C++&lt;/tt&gt; library</h1>
-<p>The project is build around the <code>MFrontGenericInterface</code> library. This library provides two main functions:</p>
-<ul>
-<li>the <code><a class="el" href="_behaviour_8hxx.html#a5b4759f7cc048bee25842b465c4ce1c1" title="load the description of a behaviour from a library">mgis::behaviour::load</a></code> functions loads <code>MFront</code> behaviours from external shared libraries and retrieve all relevant meta data function. Those relevant information are stored in the <code><a class="el" href="structmgis_1_1behaviour_1_1_behaviour.html" title="structure describing a behaviour">mgis::behaviour::Behaviour</a></code> class.</li>
-<li>the <code><a class="el" href="_integrate_8hxx.html#ad8d585a3470d15c1df99344629bb5fb6" title="integrate the behaviour. The returned value has the following meaning:">mgis::behaviour::integrate</a></code> integrates the behaviour over one time step. The data associated with an integration point are handled by the <code><a class="el" href="structmgis_1_1behaviour_1_1_behaviour_data.html" title="structure in charge of containing the data required for a behaviour integration.">mgis::behaviour::BehaviourData</a></code> class which contains the state of the integration point at the beginning and at the end of the time step.</li>
-</ul>
-<p>The library also supports handling a group of integration points though the <code><a class="el" href="structmgis_1_1behaviour_1_1_material_state_manager.html" title="structure in charge of handling the state of a material in an optimized way. Here,...">mgis::behaviour::MaterialStateManager</a></code> class.</p>
-<p>An introduction to the <code>C++</code> library may be found <a href="bindings-cxx.html">here</a></p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Bindings</h1>
-<h2><a class="anchor" id="autotoc_md2"></a>
-Existing bindings</h2>
-<p>The following bindings are available:</p>
-<ul>
-<li><code>c</code> binding</li>
-<li><code>python</code> binding</li>
-<li><code>fortran</code> binding</li>
-<li><code>julia</code> binding</li>
-<li><code>fenics</code> bindings (experimental). Those bindings are strongly inspired by the <code>fenics-solid-mechanics</code> project. Those bindings are currently quite limited as mostly serve as a proof of concept. Note that <code>MGIS</code> can also be used in <code>FEniCS</code> through the <code>python</code> interface. This is discussed <a href="FEniCSBindings.html">here</a>.</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md3"></a>
-Future bindings (contributors are welcomed)</h2>
-<p>The following bindings are under consideration:</p>
-<ul>
-<li><code>octave</code> binding</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md4"></a>
-Versions, branches</h1>
-<h2><a class="anchor" id="autotoc_md5"></a>
-Branches</h2>
-<ul>
-<li>the <code>master</code> branch follows the evolution of the <code>master</code> branch of the <code>TFEL</code> project</li>
-<li>the <code>rliv-1.1</code> follows the evolution of the 3.3.x series of the <code>TFEL</code> project.</li>
-<li>the <code>rliv-1.0</code> follows the evolution of the 3.2.x series of the <code>TFEL</code> project. Note that this branch is <b>not</b> compatible with <code>TFEL-3.2.0</code>.</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md6"></a>
-Release notes</h2>
-<ul>
-<li><a href="release-notes-1.1.html">Version 1.1</a></li>
-</ul>
-<h1><a class="anchor" id="autotoc_md7"></a>
-License</h1>
-<p><code>MGIS</code> is published under the <code>LGPL</code>v3 licence.</p>
-<h1><a class="anchor" id="autotoc_md8"></a>
-Acknowledgement</h1>
-<p>This project uses code extracted from the following projects:</p>
-<ul>
-<li><a href="https://github.com/bitwizeshift/string_view-standalone">https://github.com/bitwizeshift/string_view-standalone</a> by Matthew Rodusek</li>
-<li><a href="https://github.com/mpark/variant">https://github.com/mpark/variant</a>: by Michael Park</li>
-<li><a href="https://github.com/progschj/ThreadPool">https://github.com/progschj/ThreadPool</a> by Jakob Progsch and Václav Zeman</li>
-<li><a href="https://github.com/martinmoene/span-lite">https://github.com/martinmoene/span-lite</a> by Martin Moene </li>
-</ul>
+<dl class="section date"><dt>Date</dt><dd>20/02/2025</dd></dl>
+<p>The goal and features of <code>mfem-mgis</code> are described in this JOSS paper: <a href="https://doi.org/10.21105/joss.07719"><img src="https://joss.theoj.org/papers/10.21105/joss.07719/status.svg" alt="DOI" style="pointer-events: none;" class="inline"/></a>.</p>
+<p>The MFEM-MGIS project documentation is available: <a href="https://thelfer.github.io/mfem-mgis/">here</a>.</p>
+<p>A tutorial based on a mechanical noteched beam is given <a href="https://thelfer.github.io/mfem-mgis/tutorial.html">here</a>.</p>
+<p>Installation guidelines are avaiblables <a href="https://thelfer.github.io/mfem-mgis/installation_guide/installation_guide.html">here</a>.</p>
+<p>Some examples of MFEM-MGIS use (with mesh inputs) are stored in <a href="https://github.com/latug0/mfem-mgis-examples"><code>another repository</code></a>. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Fri Jan 30 2026 11:04:31 for My Project by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Fri Jan 30 2026 11:57:12 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

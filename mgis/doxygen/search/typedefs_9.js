@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['scalarcomponentfunctionview_0',['ScalarComponentFunctionView',['../structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#a2476f45ea388c3c88ed34d15523e5fc9',1,'mgis::function::CoalescedMemoryAccessFunctionViewBase']]],
-  ['size_5ftype_1',['size_type',['../namespacemgis.html#a184723b5d743b58169be89d3b04265fc',1,'mgis']]],
-  ['space_2',['space',['../structmgis_1_1function_1_1_binary_operation_evaluator_base.html#af34ff0536f8cb964657bae93b4bb88a1',1,'mgis::function::BinaryOperationEvaluatorBase::Space'],['../structmgis_1_1function_1_1_evaluator_modifier_base.html#a0987732aafb31a08ac5c16b88b44381f',1,'mgis::function::EvaluatorModifierBase::Space']]],
-  ['storagemode_3',['StorageMode',['../structmgis_1_1behaviour_1_1_material_state_manager.html#a9635178f50914f0e16e4b31fb57a2c3d',1,'mgis::behaviour::MaterialStateManager']]]
+  ['j2ocoefficients_0',['J2OCoefficients',['../_orthotropic_plasticity_8hxx.html#a62fad0f0d0c554697afef27b740dbb0a',1,'tfel::material']]],
+  ['j3ocoefficients_1',['J3OCoefficients',['../_orthotropic_plasticity_8hxx.html#a54fd6c0605754328b4b7805d031f2227',1,'tfel::material']]]
 ];

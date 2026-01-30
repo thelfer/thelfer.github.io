@@ -1,5 +1,6 @@
 var NAVTREEINDEX83 =
 {
+"structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_values_3_012u_01_4.html":[5,0,9,1,1,101],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_values_3_013u_01_4.html":[5,0,9,1,1,102],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_values_3_013u_01_4.html":[7,0,14,6,2,102],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_values_derivatives.html":[5,0,9,1,1,103],
@@ -248,6 +249,5 @@ var NAVTREEINDEX83 =
 "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0113u_01_4.html":[7,0,14,6,3,49],
 "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0114u_01_4.html":[7,0,14,6,3,50],
 "structtfel_1_1math_1_1parser_1_1_external_c_function_3_0115u_01_4.html":[7,0,14,6,3,51],
-"structtfel_1_1math_1_1parser_1_1_external_c_function_3_011u_01_4.html":[7,0,14,6,3,52],
-"structtfel_1_1math_1_1parser_1_1_external_c_function_3_012u_01_4.html":[7,0,14,6,3,53]
+"structtfel_1_1math_1_1parser_1_1_external_c_function_3_011u_01_4.html":[7,0,14,6,3,52]
 };

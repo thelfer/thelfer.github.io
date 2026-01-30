@@ -1,5 +1,6 @@
 var NAVTREEINDEX26 =
 {
+"structmfront_1_1_aster_symbols_generator.html#ae9cb801db56ba720157624bf68181a55":[5,0,7,16,1],
 "structmfront_1_1_aster_symbols_generator.html#af1b3edee3b1df386d84b81d4f8251542":[7,0,10,18,6],
 "structmfront_1_1_aster_symbols_generator.html#af1b3edee3b1df386d84b81d4f8251542":[5,0,7,16,6],
 "structmfront_1_1_behaviour_brick_base.html":[7,0,10,19],
@@ -248,6 +249,5 @@ var NAVTREEINDEX26 =
 "structmfront_1_1_behaviour_d_s_l_common.html#a0163454671df8530679bd7d19d5fe04c":[7,0,10,27,67],
 "structmfront_1_1_behaviour_d_s_l_common.html#a035f094c69ebc4eae2e23dc14f5103ef":[5,0,7,25,54],
 "structmfront_1_1_behaviour_d_s_l_common.html#a035f094c69ebc4eae2e23dc14f5103ef":[7,0,10,27,54],
-"structmfront_1_1_behaviour_d_s_l_common.html#a03971aff4439d5b62836341c1f379d27":[5,0,7,25,26],
-"structmfront_1_1_behaviour_d_s_l_common.html#a03971aff4439d5b62836341c1f379d27":[7,0,10,27,26]
+"structmfront_1_1_behaviour_d_s_l_common.html#a03971aff4439d5b62836341c1f379d27":[5,0,7,25,26]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX46 =
 {
+"structmfront_1_1_second_broyden_solver.html#a2cc63b5636156637bb08c9423a934e65":[7,0,10,175,2],
 "structmfront_1_1_second_broyden_solver.html#a3d5f88cdfa45ca55dd39cd534572e355":[5,0,7,173,9],
 "structmfront_1_1_second_broyden_solver.html#a3d5f88cdfa45ca55dd39cd534572e355":[7,0,10,175,9],
 "structmfront_1_1_second_broyden_solver.html#a71755cb62c4392e8e428faedf1ba686f":[5,0,7,173,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX46 =
 "structmfront_1_1_symbols_generator.html#a80b36eae8e113dc7a1227789813d413a":[7,0,10,183,38],
 "structmfront_1_1_symbols_generator.html#a9ed265d1edd488bacc62536b4bd5e35b":[7,0,10,183,39],
 "structmfront_1_1_symbols_generator.html#a9ed265d1edd488bacc62536b4bd5e35b":[5,0,7,181,39],
-"structmfront_1_1_symbols_generator.html#aa1ca8f131876fd5bfcd11097bd348133":[5,0,7,181,3],
-"structmfront_1_1_symbols_generator.html#aa1ca8f131876fd5bfcd11097bd348133":[7,0,10,183,3]
+"structmfront_1_1_symbols_generator.html#aa1ca8f131876fd5bfcd11097bd348133":[5,0,7,181,3]
 };

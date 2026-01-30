@@ -1,5 +1,6 @@
 var NAVTREEINDEX48 =
 {
+"structmfront_1_1_variable_bounds_description.html#a9fc191d8789aca724c5a4efbbb10db4d":[5,0,7,188,2],
 "structmfront_1_1_variable_bounds_description.html#ab5306df30e3c9e8dcedb25a4b9ba96d8":[5,0,7,188,8],
 "structmfront_1_1_variable_bounds_description.html#ab5306df30e3c9e8dcedb25a4b9ba96d8":[7,0,10,190,8],
 "structmfront_1_1_variable_bounds_description.html#af52c5bce2524212882302e90343a69ae":[5,0,7,188,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX48 =
 "structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a3c72feed3b30cf3bf50d8ec6315ef012":[7,0,10,0,5,13],
 "structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a3f4e9ed659f1c6bead74522c3e9810e5":[7,0,10,0,5,12],
 "structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a53b43a21272a4c69efd35e7fdcd61c10":[7,0,10,0,5,1],
-"structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a5c8f8e43a6f12cbbff030ff967a43762":[7,0,10,0,5,5],
-"structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a720758e5620408ecedd77beb92b3a4cb":[7,0,10,0,5,10]
+"structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a5c8f8e43a6f12cbbff030ff967a43762":[7,0,10,0,5,5]
 };

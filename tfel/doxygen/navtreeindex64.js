@@ -1,5 +1,6 @@
 var NAVTREEINDEX64 =
 {
+"structtfel_1_1check_1_1_comparison.html#a7fb0e66d2f4c0193ae8dab73b2c52b78":[7,0,14,0,3,2],
 "structtfel_1_1check_1_1_comparison.html#a8c73d10a29ac3664f96dfc9ce20ea981":[7,0,14,0,3,8],
 "structtfel_1_1check_1_1_comparison.html#aa7d11a3f03a459b5ace531114b0b9a20":[7,0,14,0,3,0],
 "structtfel_1_1check_1_1_comparison.html#ab7f530bf0f9c4629c115eb5a21e9038b":[7,0,14,0,3,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX64 =
 "structtfel_1_1glossary_1_1_glossary_entry.html#a8b61ffb06a3499e0b82d169f17709cf5":[7,0,14,4,1,2],
 "structtfel_1_1glossary_1_1_glossary_entry.html#a92e6695a2558332999a3675b0ef729ce":[7,0,14,4,1,18],
 "structtfel_1_1glossary_1_1_glossary_entry.html#a9eddf7f7c8384c20f0cf57c93ec15b42":[7,0,14,4,1,3],
-"structtfel_1_1glossary_1_1_glossary_entry.html#ac48cff3dd29717a6cafcec730537a3ec":[7,0,14,4,1,4],
-"structtfel_1_1glossary_1_1_glossary_entry.html#ad03375bdbc634af1049b937af7eb9ac1":[7,0,14,4,1,15]
+"structtfel_1_1glossary_1_1_glossary_entry.html#ac48cff3dd29717a6cafcec730537a3ec":[7,0,14,4,1,4]
 };

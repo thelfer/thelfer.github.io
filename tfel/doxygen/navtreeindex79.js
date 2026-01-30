@@ -1,5 +1,6 @@
 var NAVTREEINDEX79 =
 {
+"structtfel_1_1math_1_1_stack_allocated_tiny_newton_raphson_solver_workspace.html":[7,0,14,6,519],
 "structtfel_1_1math_1_1_stack_allocated_tiny_newton_raphson_solver_workspace.html#a60121fb01cda0f458d00ef87814b90f0":[7,0,14,6,519,0],
 "structtfel_1_1math_1_1_stack_allocated_tiny_newton_raphson_solver_workspace.html#a60121fb01cda0f458d00ef87814b90f0":[5,0,9,1,516,0],
 "structtfel_1_1math_1_1_stack_allocated_tiny_non_linear_solver_workspace.html":[5,0,9,1,517],
@@ -248,6 +249,5 @@ var NAVTREEINDEX79 =
 "structtfel_1_1math_1_1_tensor_product_expr2_d.html":[7,0,14,6,568],
 "structtfel_1_1math_1_1_tensor_product_expr3_d.html":[7,0,14,6,569],
 "structtfel_1_1math_1_1_tensor_product_expr3_d.html":[5,0,9,1,566],
-"structtfel_1_1math_1_1_tensor_product_expr_base.html":[7,0,14,6,570],
-"structtfel_1_1math_1_1_tensor_product_expr_base.html":[5,0,9,1,567]
+"structtfel_1_1math_1_1_tensor_product_expr_base.html":[7,0,14,6,570]
 };

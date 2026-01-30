@@ -1,5 +1,6 @@
 var NAVTREEINDEX78 =
 {
+"structtfel_1_1math_1_1_q_r_invalid_matrix_size.html":[5,0,9,1,402],
 "structtfel_1_1math_1_1_q_r_invalid_matrix_size.html#a063bccf2fde389e62e77a77f3a521cf8":[7,0,14,6,405,1],
 "structtfel_1_1math_1_1_q_r_invalid_matrix_size.html#a063bccf2fde389e62e77a77f3a521cf8":[5,0,9,1,402,1],
 "structtfel_1_1math_1_1_q_r_invalid_matrix_size.html#a7fd97a4d49cfb2791c496e8c7d94861b":[7,0,14,6,405,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX78 =
 "structtfel_1_1math_1_1_stack_allocated_tiny_levenberg_marquardt_solver_workspace.html":[5,0,9,1,515],
 "structtfel_1_1math_1_1_stack_allocated_tiny_levenberg_marquardt_solver_workspace.html#a87295389aa417eef09137b27889da8de":[5,0,9,1,515,0],
 "structtfel_1_1math_1_1_stack_allocated_tiny_levenberg_marquardt_solver_workspace.html#a87295389aa417eef09137b27889da8de":[7,0,14,6,518,0],
-"structtfel_1_1math_1_1_stack_allocated_tiny_newton_raphson_solver_workspace.html":[5,0,9,1,516],
-"structtfel_1_1math_1_1_stack_allocated_tiny_newton_raphson_solver_workspace.html":[7,0,14,6,519]
+"structtfel_1_1math_1_1_stack_allocated_tiny_newton_raphson_solver_workspace.html":[5,0,9,1,516]
 };

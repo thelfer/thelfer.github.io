@@ -1,5 +1,6 @@
 var NAVTREEINDEX54 =
 {
+"structmtest_1_1_behaviour_wrapper_base.html#aa454bf946343736190e7c91bf4c6a187":[7,0,11,21,16],
 "structmtest_1_1_behaviour_wrapper_base.html#aa454bf946343736190e7c91bf4c6a187":[5,0,8,21,16],
 "structmtest_1_1_behaviour_wrapper_base.html#aa782956bdf2d0c42f5e19b1376951486":[7,0,11,21,5],
 "structmtest_1_1_behaviour_wrapper_base.html#aa782956bdf2d0c42f5e19b1376951486":[5,0,8,21,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX54 =
 "structmtest_1_1_castem_standard_behaviour.html#a04f1aa0f791ce45b7cce60e0e453caa9":[5,0,8,36,3],
 "structmtest_1_1_castem_standard_behaviour.html#a04f1aa0f791ce45b7cce60e0e453caa9":[7,0,11,36,3],
 "structmtest_1_1_castem_standard_behaviour.html#a3003076473b42f31e433c79cf5aa88e0":[7,0,11,36,10],
-"structmtest_1_1_castem_standard_behaviour.html#a3003076473b42f31e433c79cf5aa88e0":[5,0,8,36,10],
-"structmtest_1_1_castem_standard_behaviour.html#a316153cd8405e5de7527df95e8a1376b":[7,0,11,36,2]
+"structmtest_1_1_castem_standard_behaviour.html#a3003076473b42f31e433c79cf5aa88e0":[5,0,8,36,10]
 };

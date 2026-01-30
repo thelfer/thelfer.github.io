@@ -1,5 +1,6 @@
 var NAVTREEINDEX45 =
 {
+"structmfront_1_1_pleiades_material_property_interface.html":[5,0,7,158],
 "structmfront_1_1_pleiades_material_property_interface.html#a180a6cbcb1e5d8d7ea324302904098fd":[7,0,10,160,0],
 "structmfront_1_1_pleiades_material_property_interface.html#a180a6cbcb1e5d8d7ea324302904098fd":[5,0,7,158,0],
 "structmfront_1_1_pleiades_material_property_interface.html#aaa6218b8b59e44cca707f1d6064fc1d7":[5,0,7,158,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX45 =
 "structmfront_1_1_second_broyden_solver.html#a23e59ba85926fcaba59d797471d68c82":[7,0,10,175,3],
 "structmfront_1_1_second_broyden_solver.html#a28e8f692181b3964daaf10e6f186d3a9":[5,0,7,173,10],
 "structmfront_1_1_second_broyden_solver.html#a28e8f692181b3964daaf10e6f186d3a9":[7,0,10,175,10],
-"structmfront_1_1_second_broyden_solver.html#a2cc63b5636156637bb08c9423a934e65":[5,0,7,173,2],
-"structmfront_1_1_second_broyden_solver.html#a2cc63b5636156637bb08c9423a934e65":[7,0,10,175,2]
+"structmfront_1_1_second_broyden_solver.html#a2cc63b5636156637bb08c9423a934e65":[5,0,7,173,2]
 };

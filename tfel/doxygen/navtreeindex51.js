@@ -1,5 +1,6 @@
 var NAVTREEINDEX51 =
 {
+"structmfront_1_1bbrick_1_1_strain_rate_sensitive_isotropic_hardening_rule.html#a6c1c3b08f54c10c83994adfb7dd599c0":[7,0,10,0,50,8],
 "structmfront_1_1bbrick_1_1_strain_rate_sensitive_isotropic_hardening_rule.html#a7b42fb0927e4e2f80956089023c15e62":[7,0,10,0,50,2],
 "structmfront_1_1bbrick_1_1_strain_rate_sensitive_isotropic_hardening_rule.html#ab6ff0b5afa75f1664c9496d979d02745":[7,0,10,0,50,7],
 "structmfront_1_1bbrick_1_1_strain_rate_sensitive_isotropic_hardening_rule.html#ac9ca104627a0d924de1037b32156f735":[7,0,10,0,50,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX51 =
 "structmtest_1_1_acceleration_algorithm_factory.html#a436924dc48c29c5497052045a698ab1c":[5,0,8,5,2],
 "structmtest_1_1_acceleration_algorithm_factory.html#a436924dc48c29c5497052045a698ab1c":[7,0,11,5,2],
 "structmtest_1_1_acceleration_algorithm_factory.html#aa403f8a25150f7ddb5efb6bfbe68a5a8":[5,0,8,5,0],
-"structmtest_1_1_acceleration_algorithm_factory.html#aa403f8a25150f7ddb5efb6bfbe68a5a8":[7,0,11,5,0],
-"structmtest_1_1_alternate2_delta_acceleration_algorithm.html":[7,0,11,6]
+"structmtest_1_1_acceleration_algorithm_factory.html#aa403f8a25150f7ddb5efb6bfbe68a5a8":[7,0,11,5,0]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX47 =
 {
+"structmfront_1_1_symbols_generator.html#aa1ca8f131876fd5bfcd11097bd348133":[7,0,10,183,3],
 "structmfront_1_1_symbols_generator.html#aa98dcabb536fb9a9ee1177ad30e63573":[5,0,7,181,13],
 "structmfront_1_1_symbols_generator.html#aa98dcabb536fb9a9ee1177ad30e63573":[7,0,10,183,13],
 "structmfront_1_1_symbols_generator.html#aaeea7afb6ea3cff7612b3a4d350713f7":[5,0,7,181,17],
@@ -248,6 +249,5 @@ var NAVTREEINDEX47 =
 "structmfront_1_1_variable_bounds_description.html#a79f3f74ee830c443fdb02504e86a85af":[5,0,7,188,5],
 "structmfront_1_1_variable_bounds_description.html#a80939ff1fe9873734e47409b77ba08e3":[7,0,10,190,7],
 "structmfront_1_1_variable_bounds_description.html#a80939ff1fe9873734e47409b77ba08e3":[5,0,7,188,7],
-"structmfront_1_1_variable_bounds_description.html#a9fc191d8789aca724c5a4efbbb10db4d":[7,0,10,190,2],
-"structmfront_1_1_variable_bounds_description.html#a9fc191d8789aca724c5a4efbbb10db4d":[5,0,7,188,2]
+"structmfront_1_1_variable_bounds_description.html#a9fc191d8789aca724c5a4efbbb10db4d":[7,0,10,190,2]
 };

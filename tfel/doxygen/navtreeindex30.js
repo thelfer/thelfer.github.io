@@ -1,5 +1,6 @@
 var NAVTREEINDEX30 =
 {
+"structmfront_1_1_behaviour_data_1_1_isotropic_stress_free_expansion.html#a1dd12435ad8bc514f60f2d84b37e4f11":[7,0,10,23,1,0],
 "structmfront_1_1_behaviour_data_1_1_null_expansion.html":[5,0,7,21,2],
 "structmfront_1_1_behaviour_data_1_1_null_expansion.html":[7,0,10,23,2],
 "structmfront_1_1_behaviour_data_1_1_orthotropic_stress_free_expansion.html":[5,0,7,21,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX30 =
 "structmfront_1_1_behaviour_description.html#a65ce2eb436d1d9c4f1cbb2960572e3c4":[5,0,7,22,47],
 "structmfront_1_1_behaviour_description.html#a67dba35475fe7a5692c6752b49d702c0":[7,0,10,24,145],
 "structmfront_1_1_behaviour_description.html#a67dba35475fe7a5692c6752b49d702c0":[5,0,7,22,145],
-"structmfront_1_1_behaviour_description.html#a68563ce91f35c4d90824f1752fb1826a":[7,0,10,24,248],
-"structmfront_1_1_behaviour_description.html#a68563ce91f35c4d90824f1752fb1826a":[5,0,7,22,248]
+"structmfront_1_1_behaviour_description.html#a68563ce91f35c4d90824f1752fb1826a":[7,0,10,24,248]
 };

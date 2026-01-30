@@ -1,5 +1,6 @@
 var NAVTREEINDEX77 =
 {
+"structtfel_1_1math_1_1_kriging_error_invalid_length.html":[7,0,14,6,332],
 "structtfel_1_1math_1_1_kriging_error_no_data_specified.html":[5,0,9,1,330],
 "structtfel_1_1math_1_1_kriging_error_no_data_specified.html":[7,0,14,6,333],
 "structtfel_1_1math_1_1_kriging_model_adaptator.html":[7,0,14,6,334],
@@ -248,6 +249,5 @@ var NAVTREEINDEX77 =
 "structtfel_1_1math_1_1_q_r_exception.html":[5,0,9,1,401],
 "structtfel_1_1math_1_1_q_r_exception.html#a49758beac355287731b682a29e17d064":[5,0,9,1,401,0],
 "structtfel_1_1math_1_1_q_r_exception.html#a49758beac355287731b682a29e17d064":[7,0,14,6,404,0],
-"structtfel_1_1math_1_1_q_r_invalid_matrix_size.html":[7,0,14,6,405],
-"structtfel_1_1math_1_1_q_r_invalid_matrix_size.html":[5,0,9,1,402]
+"structtfel_1_1math_1_1_q_r_invalid_matrix_size.html":[7,0,14,6,405]
 };

@@ -80,6 +80,7 @@ var NAVTREEINDEX13 =
 "index.html#autotoc_md28":[0,0],
 "index.html#autotoc_md29":[0,1],
 "index.html#autotoc_md30":[0,2],
+"index.html#autotoc_md31":[0,3],
 "inner__product_8hxx.html":[8,0,0,3,2,7],
 "iota_8hxx.html":[8,0,0,3,2,8],
 "loop_8hxx.html":[8,0,0,3,2,9],
@@ -243,11 +244,10 @@ var NAVTREEINDEX13 =
 "namespacemembers_enum.html":[5,1,4],
 "namespacemembers_eval.html":[5,1,5],
 "namespacemembers_f.html":[5,1,0,5],
-"namespacemembers_func.html":[5,1,1,0],
 "namespacemembers_func.html":[5,1,1],
+"namespacemembers_func.html":[5,1,1,0],
 "namespacemembers_func_b.html":[5,1,1,1],
 "namespacemembers_func_c.html":[5,1,1,2],
 "namespacemembers_func_d.html":[5,1,1,3],
-"namespacemembers_func_e.html":[5,1,1,4],
-"namespacemembers_func_f.html":[5,1,1,5]
+"namespacemembers_func_e.html":[5,1,1,4]
 };

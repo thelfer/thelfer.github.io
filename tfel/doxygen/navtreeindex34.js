@@ -1,5 +1,6 @@
 var NAVTREEINDEX34 =
 {
+"structmfront_1_1_castem_interface.html#a844e1750b55638ed349843dbb2cd9f6f":[5,0,7,40,14],
 "structmfront_1_1_castem_interface.html#a885f364fe6966d6e6122c9d08773bee6":[7,0,10,42,5],
 "structmfront_1_1_castem_interface.html#a885f364fe6966d6e6122c9d08773bee6":[5,0,7,40,5],
 "structmfront_1_1_castem_interface.html#a9f4ed55c44ac8255ddbe1a035f86b81b":[7,0,10,42,17],
@@ -248,6 +249,5 @@ var NAVTREEINDEX34 =
 "structmfront_1_1_cyrano_symbols_generator.html#a8aea8ada4b739bc5c2bdf31a8387f888":[5,0,7,54,2],
 "structmfront_1_1_cyrano_symbols_generator.html#aa0a877d54508a2ffae7d177ac0b40132":[5,0,7,54,6],
 "structmfront_1_1_cyrano_symbols_generator.html#aa0a877d54508a2ffae7d177ac0b40132":[7,0,10,56,6],
-"structmfront_1_1_cyrano_symbols_generator.html#abbc1ca90d06e01772ad92d1c03bf4d56":[7,0,10,56,0],
-"structmfront_1_1_cyrano_symbols_generator.html#abbc1ca90d06e01772ad92d1c03bf4d56":[5,0,7,54,0]
+"structmfront_1_1_cyrano_symbols_generator.html#abbc1ca90d06e01772ad92d1c03bf4d56":[7,0,10,56,0]
 };

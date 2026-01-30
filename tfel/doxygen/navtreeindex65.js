@@ -1,5 +1,6 @@
 var NAVTREEINDEX65 =
 {
+"structtfel_1_1glossary_1_1_glossary_entry.html#ad03375bdbc634af1049b937af7eb9ac1":[7,0,14,4,1,15],
 "structtfel_1_1glossary_1_1_glossary_entry.html#ad39eeabd46bca3fd38de080e09979e72":[7,0,14,4,1,8],
 "structtfel_1_1glossary_1_1_glossary_entry.html#ae6f0fbfc7fa70225f5d02595ff1a1d95":[7,0,14,4,1,16],
 "structtfel_1_1glossary_1_1_glossary_entry.html#ae70e593a8550deb7854e25b62fd8b3c5":[7,0,14,4,1,19],
@@ -248,6 +249,5 @@ var NAVTREEINDEX65 =
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a58aaa067f8358a79adadfeaa34f23d54":[5,0,9,0,55,21],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a58aaa067f8358a79adadfeaa34f23d54":[7,0,14,5,55,21],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a6433dcda8a465f0b0921991e2fea0266":[5,0,9,0,55,4],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a6433dcda8a465f0b0921991e2fea0266":[7,0,14,5,55,4],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a6cd9ca9ad5ddf756b115e89ad8f05a6d":[7,0,14,5,55,6]
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a6433dcda8a465f0b0921991e2fea0266":[7,0,14,5,55,4]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX35 =
 {
+"structmfront_1_1_cyrano_symbols_generator.html#abbc1ca90d06e01772ad92d1c03bf4d56":[5,0,7,54,0],
 "structmfront_1_1_cyrano_symbols_generator.html#ad2205955b7bb3e16b4438ac41ecaf63c":[5,0,7,54,1],
 "structmfront_1_1_cyrano_symbols_generator.html#ad2205955b7bb3e16b4438ac41ecaf63c":[7,0,10,56,1],
 "structmfront_1_1_cyrano_symbols_generator.html#ad5e6edf7f469e14485ee27bbcbcdd647":[5,0,7,54,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX35 =
 "structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html#ab090e3c5b73346b9917ab1d8c50780fa":[7,0,10,70,0,2],
 "structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html#ab0e16c8beb7588767439111cd8129f70":[5,0,7,68,0,10],
 "structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html#ab0e16c8beb7588767439111cd8129f70":[7,0,10,70,0,10],
-"structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html#ab61cb2ae791865f3314ce5fb890f95ab":[7,0,10,70,0,7],
-"structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html#ab61cb2ae791865f3314ce5fb890f95ab":[5,0,7,68,0,7]
+"structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html#ab61cb2ae791865f3314ce5fb890f95ab":[7,0,10,70,0,7]
 };

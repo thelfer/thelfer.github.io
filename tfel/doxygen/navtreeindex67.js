@@ -1,5 +1,6 @@
 var NAVTREEINDEX67 =
 {
+"structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#a72bcc21d9ae21e7a0ea7940dbc4f2029":[7,0,14,5,65,0],
 "structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#a72bcc21d9ae21e7a0ea7940dbc4f2029":[5,0,9,0,65,0],
 "structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#ab220a4cc28edf121866cce38c7a73253":[7,0,14,5,65,1],
 "structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#ab220a4cc28edf121866cce38c7a73253":[5,0,9,0,65,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX67 =
 "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html":[5,0,9,0,97,0],
 "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html":[7,0,14,5,97,0],
 "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html#a04e998098ad8e2fbbd778fbfc531f0c7":[7,0,14,5,97,0,7],
-"structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html#a04e998098ad8e2fbbd778fbfc531f0c7":[5,0,9,0,97,0,7],
-"structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html#a0ab480bbe2b435f5438d44c8bdc7ec1f":[5,0,9,0,97,0,3]
+"structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html#a04e998098ad8e2fbbd778fbfc531f0c7":[5,0,9,0,97,0,7]
 };

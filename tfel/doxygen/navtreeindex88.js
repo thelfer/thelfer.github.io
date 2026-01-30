@@ -1,5 +1,6 @@
 var NAVTREEINDEX88 =
 {
+"structtfel_1_1utilities_1_1_argument.html#ae917373da319c862c87890ac9abd989f":[7,0,14,12,1,6],
 "structtfel_1_1utilities_1_1_argument.html#af52be2c096385d4164de88b4db06c605":[7,0,14,12,1,4],
 "structtfel_1_1utilities_1_1_argument_parser.html":[7,0,14,12,2],
 "structtfel_1_1utilities_1_1_argument_parser.html#a01f5a678848dd5a25e5ab9aebd8162c3":[7,0,14,12,2,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX88 =
 "structtfel_1_1utilities_1_1basic__fcstring.html#a3e463452412f714134680d42a6628802":[7,0,14,12,4,2],
 "structtfel_1_1utilities_1_1basic__fcstring.html#a489b3c600faf489d7801c194d18a0db2":[7,0,14,12,4,15],
 "structtfel_1_1utilities_1_1basic__fcstring.html#a615e20fb8fd2695ae35d42785f13b991":[7,0,14,12,4,4],
-"structtfel_1_1utilities_1_1basic__fcstring.html#a61662c5231d30b40be7f3183c0b754fd":[7,0,14,12,4,29],
-"structtfel_1_1utilities_1_1basic__fcstring.html#a6296ded379bc8a9df933b57fb3078f51":[7,0,14,12,4,3]
+"structtfel_1_1utilities_1_1basic__fcstring.html#a61662c5231d30b40be7f3183c0b754fd":[7,0,14,12,4,29]
 };

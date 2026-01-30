@@ -1,5 +1,6 @@
 var NAVTREEINDEX37 =
 {
+"structmfront_1_1_file_description.html#a5c06fb85fcd89414b71a5767c81a453f":[5,0,7,74,8],
 "structmfront_1_1_file_description.html#a874386c2dc17be5674ff1ad64e653395":[5,0,7,74,4],
 "structmfront_1_1_file_description.html#a874386c2dc17be5674ff1ad64e653395":[7,0,10,76,4],
 "structmfront_1_1_file_description.html#ab1f08618da6cf83d3c80f144fe48812d":[7,0,10,76,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX37 =
 "structmfront_1_1_generic_behaviour_symbols_generator.html#a55e710eac4381e25e25b193ba5190d8e":[7,0,10,87,9],
 "structmfront_1_1_generic_behaviour_symbols_generator.html#a8031aced00b46e9823b606e3915004cb":[7,0,10,87,3],
 "structmfront_1_1_generic_behaviour_symbols_generator.html#a8031aced00b46e9823b606e3915004cb":[5,0,7,85,3],
-"structmfront_1_1_generic_behaviour_symbols_generator.html#a805b01626e2efe64cd646313e045b3b8":[7,0,10,87,6],
-"structmfront_1_1_generic_behaviour_symbols_generator.html#a805b01626e2efe64cd646313e045b3b8":[5,0,7,85,6]
+"structmfront_1_1_generic_behaviour_symbols_generator.html#a805b01626e2efe64cd646313e045b3b8":[7,0,10,87,6]
 };

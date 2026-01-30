@@ -170,7 +170,8 @@ var hierarchy =
         [ "mfem_mgis::PeriodicNonLinearEvolutionProblem", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html", null ]
       ] ],
       [ "mfem_mgis::NonLinearEvolutionProblemImplementationBase", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html", [
-        [ "mfem_mgis::NonLinearEvolutionProblemImplementation< false >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html", null ]
+        [ "mfem_mgis::NonLinearEvolutionProblemImplementation< false >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html", null ],
+        [ "mfem_mgis::NonLinearEvolutionProblemImplementation< true >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html", null ]
       ] ]
     ] ],
     [ "mfmtg::AbstractTestCase", "structmfmtg_1_1_abstract_test_case.html", [
@@ -900,7 +901,8 @@ var hierarchy =
     ] ],
     [ "mfem_mgis::ComputeResultantForceOnBoundary< parallel >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary.html", null ],
     [ "mfem_mgis::ComputeResultantForceOnBoundaryCommon", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_common.html", [
-      [ "mfem_mgis::ComputeResultantForceOnBoundary< false >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01false_01_4.html", null ]
+      [ "mfem_mgis::ComputeResultantForceOnBoundary< false >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01false_01_4.html", null ],
+      [ "mfem_mgis::ComputeResultantForceOnBoundary< true >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01true_01_4.html", null ]
     ] ],
     [ "tfel::math::ComputeUnaryOperationResult< TagA, TagOp, A, Op >", "structtfel_1_1math_1_1_compute_unary_operation_result.html", null ],
     [ "tfel::math::ComputeUnaryOperationResult< ScalarTag, UnaryOperatorTag, Quantity< UnitType, ValueType, OwnershipPolicy >, OpNeg >", "structtfel_1_1math_1_1_compute_unary_operation_result_3_01_scalar_tag_00_01_unary_operator_tag_0fa876882e5124a3c55170380c0c41e1d.html", null ],
@@ -2523,6 +2525,7 @@ var hierarchy =
     [ "tfel::utilities::TextData::Line", "structtfel_1_1utilities_1_1_text_data_1_1_line.html", null ],
     [ "mfem_mgis::LinearSolverFactory< parallel >", "structmfem__mgis_1_1_linear_solver_factory.html", null ],
     [ "mfem_mgis::LinearSolverFactory< false >", "structmfem__mgis_1_1_linear_solver_factory_3_01false_01_4.html", null ],
+    [ "mfem_mgis::LinearSolverFactory< true >", "structmfem__mgis_1_1_linear_solver_factory_3_01true_01_4.html", null ],
     [ "mfem_mgis::LinearSolverHandler", "structmfem__mgis_1_1_linear_solver_handler.html", null ],
     [ "mgis::behaviour::LoadFromDatabaseOptions", "structmgis_1_1behaviour_1_1_load_from_database_options.html", null ],
     [ "mfront::LocalDataStructure", "structmfront_1_1_local_data_structure.html", null ],
@@ -2800,7 +2803,8 @@ var hierarchy =
     [ "tfel::system::NonBlockingStreamWriter", "structtfel_1_1system_1_1_non_blocking_stream_writer.html", null ],
     [ "mfem_mgis::NonLinearEvolutionProblemImplementation< parallel >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation.html", null ],
     [ "NonlinearForm", null, [
-      [ "mfem_mgis::NonLinearEvolutionProblemImplementation< false >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html", null ]
+      [ "mfem_mgis::NonLinearEvolutionProblemImplementation< false >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html", null ],
+      [ "mfem_mgis::NonLinearEvolutionProblemImplementation< true >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html", null ]
     ] ],
     [ "NonlinearFormIntegrator", null, [
       [ "mfem_mgis::MultiMaterialNonLinearIntegrator", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html", null ]
@@ -2961,8 +2965,12 @@ var hierarchy =
     [ "mfem_mgis::PostProcessing< false >", "structmfem__mgis_1_1_post_processing_3_01false_01_4.html", [
       [ "mfem_mgis::ComputeResultantForceOnBoundary< false >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01false_01_4.html", null ]
     ] ],
+    [ "mfem_mgis::PostProcessing< true >", "structmfem__mgis_1_1_post_processing_3_01true_01_4.html", [
+      [ "mfem_mgis::ComputeResultantForceOnBoundary< true >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01true_01_4.html", null ]
+    ] ],
     [ "mfem_mgis::PostProcessingFactory< parallel >", "structmfem__mgis_1_1_post_processing_factory.html", null ],
     [ "mfem_mgis::PostProcessingFactory< false >", "structmfem__mgis_1_1_post_processing_factory_3_01false_01_4.html", null ],
+    [ "mfem_mgis::PostProcessingFactory< true >", "structmfem__mgis_1_1_post_processing_factory_3_01true_01_4.html", null ],
     [ "tfel::math::Power< N, D >", "structtfel_1_1math_1_1_power.html", null ],
     [ "tfel::math::internals::PowerGenerator< N, D >", "structtfel_1_1math_1_1internals_1_1_power_generator.html", null ],
     [ "tfel::math::internals::PowerImplSelector< N, D >", "classtfel_1_1math_1_1internals_1_1_power_impl_selector.html", null ],

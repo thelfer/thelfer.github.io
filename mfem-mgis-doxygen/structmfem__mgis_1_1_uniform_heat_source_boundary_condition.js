@@ -5,6 +5,7 @@ var structmfem__mgis_1_1_uniform_heat_source_boundary_condition =
     [ "UniformHeatSourceBoundaryCondition", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#a62b46ced91891f8cbfd75b798f6cbc50", null ],
     [ "~UniformHeatSourceBoundaryCondition", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#aa18d41b6a445f3a3209ebfa3001cfb1b", null ],
     [ "addNonlinearFormIntegrator", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#a5e26fc05eb89275a8138a943d1c27a6a", null ],
+    [ "addNonlinearFormIntegrator", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#a39f015e0a0da72ded81ec46f8da27a09", null ],
     [ "setup", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#a9e3b583b7ac46b7fdffb5198a5fb8e17", null ],
     [ "finiteElementDiscretization", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#a3c2643ed278a234586069259d4cf52ad", null ],
     [ "mids", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#a165bc2a93822b7482ff711c2acc987ad", null ],

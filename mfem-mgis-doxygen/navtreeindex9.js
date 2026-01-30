@@ -1,5 +1,7 @@
 var NAVTREEINDEX9 =
 {
+"_utilities_8ixx.html#a84435c990e8476f0e0b38ca6d30a6163":[5,0,1,0,0,0,1,0,1,21,16],
+"_utilities_8ixx.html#afc0561809990db38311e880bdbce767f":[5,0,1,0,0,0,1,0,1,21,13],
 "_vect3_8hxx.html":[5,0,1,0,0,0,1,0,5,15],
 "_vector_concept_8hxx.html":[5,0,1,0,0,0,1,0,6,5,22,4],
 "_vector_concept_8hxx.html#a3604ff765972dbf2e54d2dba1b4b29a8":[5,0,1,0,0,0,1,0,6,5,22,4,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "conceptmgis_1_1function_1_1internals_1_1is__pointer__to__real.html":[3,0,0,0,0],
 "conceptmgis_1_1function_1_1internals_1_1mutable__return__value.html":[3,0,0,0,1],
 "conceptmgis_1_1function_1_1internals_1_1same__decay__type.html":[3,0,0,0,2],
-"concepts.html":[3],
-"concepttfel_1_1math_1_1_array_concept.html":[3,1,0,0],
-"concepttfel_1_1math_1_1_expression_concept.html":[3,1,0,4]
+"concepts.html":[3]
 };

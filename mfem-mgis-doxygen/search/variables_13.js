@@ -56,7 +56,7 @@ var searchData=
   ['sr_53',['sr',['../structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#a2b6c27907ffbb77d00bd2d472318c1f5',1,'mfront::bbrick::DDIF2StressPotential']]],
   ['src_54',['src',['../structtfel_1_1utilities_1_1_test_documentation.html#a69f641be332f9b0274e8a5e84b81d622',1,'tfel::utilities::TestDocumentation']]],
   ['sse_55',['SSE',['../structabaqus_1_1_abaqus_data.html#a67ef7319e57b5bb97bb034af1b534e1d',1,'abaqus::AbaqusData']]],
-  ['standalone_56',['standalone',['../structmfront_1_1_documentation_generator_base.html#a9c7adb20cd985919d3aaae87a5a9472a',1,'mfront::DocumentationGeneratorBase::standalone'],['../structtfel_1_1utilities_1_1_generator_options.html#a385b74da5ccf9022ae5e7635ada13102',1,'tfel::utilities::GeneratorOptions::standAlone']]],
+  ['standalone_56',['standalone',['../structtfel_1_1utilities_1_1_generator_options.html#a385b74da5ccf9022ae5e7635ada13102',1,'tfel::utilities::GeneratorOptions::standAlone'],['../structmfront_1_1_documentation_generator_base.html#a9c7adb20cd985919d3aaae87a5a9472a',1,'mfront::DocumentationGeneratorBase::standalone']]],
   ['start_57',['start',['../structmfront_1_1_behaviour_profiler_1_1_timer.html#ac68134acb2ffe53566f882797e81bbbe',1,'mfront::BehaviourProfiler::Timer']]],
   ['stat_58',['stat',['../structmtest_1_1_steffensen_acceleration_algorithm.html#aedf638c20e60599a28775cb03fa269c6',1,'mtest::SteffensenAccelerationAlgorithm']]],
   ['statev_59',['statev',['../structansys_1_1_ansys_data.html#a1cc073420fec37d128dcc082f779d897',1,'ansys::AnsysData::STATEV'],['../structdianafea_1_1_diana_f_e_a_data.html#a02fefacdd68cf1d2373f37ca5609c89a',1,'dianafea::DianaFEAData::STATEV']]],

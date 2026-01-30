@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['project_0',['The &lt;tt&gt;MGIS&lt;/tt&gt; project',['../index.html',1,'']]]
+  ['project_0',['The MGIS project',['../index.html',1,'']]]
 ];

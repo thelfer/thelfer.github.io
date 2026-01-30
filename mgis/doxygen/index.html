@@ -5,10 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: The &lt;tt&gt;MGIS&lt;/tt&gt; project</title>
+<title>MGIS: The MGIS project</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -20,6 +24,7 @@ MathJax.Hub.Config({
 </script>
 <script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -28,7 +33,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">MGIS
    </div>
   </td>
  </tr>
@@ -54,6 +59,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('index.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -76,7 +97,7 @@ $(function() {
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">The <code>MGIS</code> project </div></div>
+  <div class="headertitle"><div class="title">The MGIS project </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
@@ -85,7 +106,7 @@ $(function() {
 <p>This project aims at proving tools (functions, classes, bindings, etc...) to handle behaviours written using <code>MFront</code> generic interface. For information about <code>MFront</code>, see <a href="http://tfel.sourceforge.net">http://tfel.sourceforge.net</a>.</p>
 <p>Those tools are meant to be used by (<code>FEM</code>, <code>FFT</code>, etc.) solver developers. This tools are <em>not</em> linked to the <code>TFEL</code> libraries. Permissive licences have been chosen to allow integration in open-source and proprietary codes.</p>
 <h1><a class="anchor" id="autotoc_md0"></a>
-The &lt;tt&gt;MFrontGenericInterface&lt;/tt&gt; &lt;tt&gt;C++&lt;/tt&gt; library</h1>
+The MFrontGenericInterface C++ library</h1>
 <p>The project is build around the <code>MFrontGenericInterface</code> library. This library provides two main functions:</p>
 <ul>
 <li>the <code><a class="el" href="_behaviour_8hxx.html#a5b4759f7cc048bee25842b465c4ce1c1" title="load the description of a behaviour from a library">mgis::behaviour::load</a></code> functions loads <code>MFront</code> behaviours from external shared libraries and retrieve all relevant meta data function. Those relevant information are stored in the <code><a class="el" href="structmgis_1_1behaviour_1_1_behaviour.html" title="structure describing a behaviour">mgis::behaviour::Behaviour</a></code> class.</li>
@@ -113,22 +134,45 @@ Future bindings (contributors are welcomed)</h2>
 </ul>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Versions, branches</h1>
-<h2><a class="anchor" id="autotoc_md5"></a>
-Branches</h2>
 <ul>
-<li>the <code>master</code> branch follows the evolution of the <code>master</code> branch of the <code>TFEL</code> project</li>
-<li>the <code>rliv-1.1</code> follows the evolution of the 3.3.x series of the <code>TFEL</code> project.</li>
-<li>the <code>rliv-1.0</code> follows the evolution of the 3.2.x series of the <code>TFEL</code> project. Note that this branch is <b>not</b> compatible with <code>TFEL-3.2.0</code>.</li>
+<li>Version <code>3.1.0</code> is meant to be build against <code>TFEL</code> 5.1</li>
+<li>Version <code>3.0.1</code> is meant to be build against <code>TFEL</code> 5.0.1</li>
+<li>Version <code>3.0</code> is meant to be build against <code>TFEL</code> 5.0</li>
+<li>Version <code>2.2.1</code> is meant to be build against <code>TFEL</code> 4.2.3</li>
+<li>Version <code>2.2</code> is meant to be build against <code>TFEL</code> 4.2</li>
+<li>Version <code>2.1</code> is meant to be build against <code>TFEL</code> 4.1</li>
+<li>Version <code>2.0</code> is meant to be build against <code>TFEL</code> 4.0</li>
+<li>Version <code>1.2.2</code> is meant to be build against <code>TFEL</code> 3.4.3</li>
+<li>Version <code>1.2.1</code> is meant to be build against <code>TFEL</code> 3.4.1</li>
+<li>Version <code>1.2</code> is meant to be build against <code>TFEL</code> 3.4.0</li>
+<li>Version <code>1.1</code> is meant to be build against <code>TFEL</code> 3.3.0</li>
+<li>Version <code>1.0</code> is meant to be build against <code>TFEL</code> 3.2.0</li>
+<li>Version <code>1.0.1</code> is meant to be build against <code>TFEL</code> 3.2.1</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<p>The following branches are available:</p>
+<ul>
+<li>The <code>master</code> branch follows the evolution of the <code>master</code> branch of the <code>TFEL</code> project</li>
+<li>The <code>rliv-3.1</code> follows the evolution of the 5.1.x series of the <code>TFEL</code> project.</li>
+<li>The <code>rliv-3.0</code> follows the evolution of the 5.0.x series of the <code>TFEL</code> project.</li>
+<li>The <code>rliv-2.2</code> follows the evolution of the 4.2.x series of the <code>TFEL</code> project.</li>
+<li>The <code>rliv-2.1</code> follows the evolution of the 4.1.x series of the <code>TFEL</code> project.</li>
+<li>The <code>rliv-2.0</code> follows the evolution of the 4.0.x series of the <code>TFEL</code> project.</li>
+<li>The <code>rliv-1.2</code> follows the evolution of the 3.4.x series of the <code>TFEL</code> project.</li>
+<li>The <code>rliv-1.1</code> follows the evolution of the 3.3.x series of the <code>TFEL</code> project.</li>
+<li>The <code>rliv-1.0</code> follows the evolution of the 3.2.x series of the <code>TFEL</code> project. Note that this branch is <b>not</b> compatible with <code>TFEL-3.2.0</code>.<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Release notes</h2>
 <ul>
 <li><a href="release-notes-1.1.html">Version 1.1</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md6"></a>
 License</h1>
 <p><code>MGIS</code> is published under the <code>LGPL</code>v3 licence.</p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Acknowledgement</h1>
 <p>This project uses code extracted from the following projects:</p>
 <ul>
@@ -139,9 +183,12 @@ Acknowledgement</h1>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Fri Jan 30 2026 12:48:34 for My Project by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Fri Jan 30 2026 12:49:22 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

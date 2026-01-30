@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['c_20tt_20library_0',['The &lt;tt&gt;MFrontGenericInterface&lt;/tt&gt; &lt;tt&gt;C++&lt;/tt&gt; library',['../index.html#autotoc_md0',1,'']]],
+  ['c_20library_0',['The MFrontGenericInterface C++ library',['../index.html#autotoc_md0',1,'']]],
   ['c_5ferror_5fnumber_1',['c_error_number',['../structmgis__mp___output_status.html#aa4fe137fac8715a6e6cb4407209b600e',1,'mgis_mp_OutputStatus']]],
   ['cauchy_2',['CAUCHY',['../structmgis_1_1behaviour_1_1_finite_strain_behaviour_options.html#adeb58d01a6ec86581d95d2d5448bd31ba1f21b763fe2fd2f368ad8745407d0f0b',1,'mgis::behaviour::FiniteStrainBehaviourOptions']]],
   ['cell_5findex_3',['cell_index',['../_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f',1,'mgis::function']]],

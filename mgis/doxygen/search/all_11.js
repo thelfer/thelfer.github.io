@@ -10,7 +10,7 @@ var searchData=
   ['registererrormessagewithoutsourcelocation_7',['registerErrorMessageWithoutSourceLocation',['../structmgis_1_1_error_backtrace.html#a91f7895e794122ce8772f4c47c14659d',1,'mgis::ErrorBacktrace']]],
   ['registerexceptioninerrorbacktrace_8',['registerExceptionInErrorBacktrace',['../namespacemgis.html#a1c0bda1190de226c14173bf8a58a475b',1,'mgis']]],
   ['registerexceptioninerrorbacktracewithoutsourcelocation_9',['registerExceptionInErrorBacktraceWithoutSourceLocation',['../namespacemgis.html#a6ce862e7df7d68aea5b33d112bc6c476',1,'mgis']]],
-  ['release_20notes_10',['Release notes',['../index.html#autotoc_md6',1,'']]],
+  ['release_20notes_10',['Release notes',['../index.html#autotoc_md5',1,'']]],
   ['releasearrayofspeedofsounds_11',['releaseArrayOfSpeedOfSounds',['../structmgis_1_1behaviour_1_1_material_data_manager.html#a015e496b2b56d7cd44a2eb0e50fe30b3',1,'mgis::behaviour::MaterialDataManager']]],
   ['releasearrayoftangentoperatorblocks_12',['releaseArrayOfTangentOperatorBlocks',['../structmgis_1_1behaviour_1_1_material_data_manager.html#a752220e1e7032f067a89a20278ec214f',1,'mgis::behaviour::MaterialDataManager']]],
   ['releasebehaviourintegrationworkspaces_13',['releaseBehaviourIntegrationWorkspaces',['../structmgis_1_1behaviour_1_1_material_data_manager.html#a4e15dbb4f0875cc69083044ebfb6cec3',1,'mgis::behaviour::MaterialDataManager']]],

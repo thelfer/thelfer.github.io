@@ -42,7 +42,7 @@ var searchData=
   ['bindings_39',['bindings',['../index.html#autotoc_md1',1,'Bindings'],['../index.html#autotoc_md2',1,'Existing bindings']]],
   ['bindings_20contributors_20are_20welcomed_40',['Future bindings (contributors are welcomed)',['../index.html#autotoc_md3',1,'']]],
   ['bounds_5fstatus_41',['bounds_status',['../structmgis__mp___output_status.html#aa4ffd111dc82e0cd71bd3ff40c45aa49',1,'mgis_mp_OutputStatus']]],
-  ['branches_42',['branches',['../index.html#autotoc_md5',1,'Branches'],['../index.html#autotoc_md4',1,'Versions, branches']]],
+  ['branches_42',['Versions, branches',['../index.html#autotoc_md4',1,'']]],
   ['build_5fid_43',['build_id',['../structmgis_1_1behaviour_1_1_behaviour_description.html#a7bf65ad8fd13f5d70392aafeefc3ec5b',1,'mgis::behaviour::BehaviourDescription']]],
   ['buildrotationmatrix_44',['buildrotationmatrix',['../_rotation_matrix_8hxx.html#aacafb6d236778c7b806e28788703dbbb',1,'mgis::behaviour::buildRotationMatrix(const std::span&lt; const mgis::real, 3u &gt; &amp;, const std::span&lt; const mgis::real, 3u &gt; &amp;)'],['../_rotation_matrix_8hxx.html#a257653a24e52b85e1b7447403df0a2e6',1,'mgis::behaviour::buildRotationMatrix(const std::span&lt; const mgis::real, 2u &gt; &amp;)']]]
 ];

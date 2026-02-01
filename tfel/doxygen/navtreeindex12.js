@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"classtfel_1_1utilities_1_1internals_1_1_gen_type_specialized_methods.html#ae72132aa28bd5acf584ec0eaa4fcf6ca":[7,0,14,12,0,10,0],
 "classtfel_1_1utilities_1_1internals_1_1_gen_type_specialized_methods.html#af3d6a051422b638e864c6dfdc296b8f1":[7,0,14,12,0,10,1],
 "classtfel_1_1utilities_1_1internals_1_1_gen_type_specialized_methods_3_01_child_00_01tfel_1_1meta_1_1_t_l_e_01_4.html":[7,0,14,12,0,11],
 "concepts.html":[6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX12 =
 "functions_vars_t.html":[7,3,2,20],
 "functions_vars_u.html":[7,3,2,21],
 "functions_vars_v.html":[7,3,2,22],
-"functions_vars_w.html":[7,3,2,23],
-"functions_vars_x.html":[7,3,2,24]
+"functions_vars_w.html":[7,3,2,23]
 };

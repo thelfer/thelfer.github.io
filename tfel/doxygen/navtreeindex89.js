@@ -1,5 +1,7 @@
 var NAVTREEINDEX89 =
 {
+"structtfel_1_1utilities_1_1basic__fcstring.html#a615e20fb8fd2695ae35d42785f13b991":[7,0,14,12,4,4],
+"structtfel_1_1utilities_1_1basic__fcstring.html#a61662c5231d30b40be7f3183c0b754fd":[7,0,14,12,4,29],
 "structtfel_1_1utilities_1_1basic__fcstring.html#a6296ded379bc8a9df933b57fb3078f51":[7,0,14,12,4,3],
 "structtfel_1_1utilities_1_1basic__fcstring.html#a90bf3680d148da19780331743d933d7c":[7,0,14,12,4,23],
 "structtfel_1_1utilities_1_1basic__fcstring.html#a9f90148c2ad7005c3fa16df3fb4c006d":[7,0,14,12,4,12],

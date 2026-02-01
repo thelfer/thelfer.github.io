@@ -1,5 +1,6 @@
 var NAVTREEINDEX10 =
 {
+"_tiny_runge_kutta_solver_base_8hxx.html":[8,0,0,3,5,15,4],
 "_token_8hxx.html":[8,0,0,3,11,19],
 "_token_8hxx.html#a701bcd8e55573694ba9bfaabd36e6309":[8,0,0,3,11,19,1],
 "_triple_node_8hxx.html":[8,0,0,2,15],
@@ -248,6 +249,5 @@ var NAVTREEINDEX10 =
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_s_t2to_s_t2_tag_00_01_scalar_tag_00_07be38026e325093a472ea73b4daa4b1a.html":[7,0,14,6,84],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_s_t2to_s_t2_tag_00_01_scalar_tag_00_0f97ec9c7530fa4062c07213c05aad90e.html":[5,0,9,1,80],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_s_t2to_s_t2_tag_00_01_scalar_tag_00_0f97ec9c7530fa4062c07213c05aad90e.html":[7,0,14,6,83],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_s_t2to_t2_tag_00_01_scalar_tag_00_01s3e2b1fe7668766ff60d37cc49d1e28d4.html":[5,0,9,1,83],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_s_t2to_t2_tag_00_01_scalar_tag_00_01s3e2b1fe7668766ff60d37cc49d1e28d4.html":[7,0,14,6,86]
+"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_s_t2to_t2_tag_00_01_scalar_tag_00_01s3e2b1fe7668766ff60d37cc49d1e28d4.html":[5,0,9,1,83]
 };

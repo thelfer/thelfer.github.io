@@ -785,15 +785,16 @@ var namespacetfel_1_1math =
     [ "computeStensorPositivePartAndDerivative", "namespacetfel_1_1math.html#af1d72687192d293da2147996464a5f3a", null ],
     [ "computeStensorPositivePartAndDerivative", "namespacetfel_1_1math.html#a9c46a998e96206ce5384a7f31b1d882f", null ],
     [ "computeVelocityGradientDerivative", "namespacetfel_1_1math.html#a55b71bd674246d46732f2da8f6e09b67", null ],
-    [ "convertCauchyStressDerivativeToFirstPiolaKirchoffStressDerivative", "namespacetfel_1_1math.html#a0734fe4fd2100c80fdd04519482c2913", null ],
-    [ "convertCauchyStressDerivativeToFirstPiolaKirchoffStressDerivative", "namespacetfel_1_1math.html#ad1cd1dd7fcf51e622dc00ea441cda801", null ],
+    [ "convertCauchyStressDerivativeToFirstPiolaKirchoffStressDerivative", "namespacetfel_1_1math.html#ab42cae3bb11eb1273e6eb451082aa3eb", null ],
+    [ "convertCauchyStressDerivativeToFirstPiolaKirchoffStressDerivative", "namespacetfel_1_1math.html#abd2df5298967b4e2caf22e7d58a1a9b3", null ],
+    [ "convertCauchyStressDerivativeToFirstPiolaKirchoffStressDerivative", "namespacetfel_1_1math.html#a28d63f0a0f1c0f12f3e058e4c0630371", null ],
     [ "convertCauchyStressToFirstPiolaKirchhoffStress", "namespacetfel_1_1math.html#adf456be339650796f57f13df9f4e559a", null ],
     [ "convertCauchyStressToSecondPiolaKirchhoffStress", "namespacetfel_1_1math.html#a09add825a79552ae343d9e3818d9e920", null ],
     [ "convertCorotationnalCauchyStressToSecondPiolaKirchhoffStress", "namespacetfel_1_1math.html#a0852ac4da76c7341fe5c0702db70a01d", null ],
     [ "convertCorotationnalCauchyStressToSecondPiolaKirchhoffStress", "namespacetfel_1_1math.html#acc4ca821b9b7c3348aa391dff77b1be8", null ],
     [ "convertFirstPiolaKirchhoffStressToCauchyStress", "namespacetfel_1_1math.html#a0e9ca3b85b6facfcbfd9235ebd8caa47", null ],
-    [ "convertSecondPiolaKirchhoffStressDerivativeToFirstPiolaKirchoffStressDerivative", "namespacetfel_1_1math.html#ae86a1dbe0cd7288cef74f46e38b3f965", null ],
-    [ "convertSecondPiolaKirchhoffStressDerivativeToFirstPiolaKirchoffStressDerivative", "namespacetfel_1_1math.html#a2dc551c937a4bc0af73371068e709776", null ],
+    [ "convertSecondPiolaKirchhoffStressDerivativeToFirstPiolaKirchoffStressDerivative", "namespacetfel_1_1math.html#ad5dd33a3e4062b538b151e9770acd2dc", null ],
+    [ "convertSecondPiolaKirchhoffStressDerivativeToFirstPiolaKirchoffStressDerivative", "namespacetfel_1_1math.html#af1ba96c48336ebe088f3cf682238dda1", null ],
     [ "convertSecondPiolaKirchhoffStressToCauchyStress", "namespacetfel_1_1math.html#abd0df32d3ea2d6f6d6df7ac8a434bd82", null ],
     [ "convertSecondPiolaKirchhoffStressToCorotationnalCauchyStress", "namespacetfel_1_1math.html#aa6304165534708729443c6186eb47615", null ],
     [ "convertSecondPiolaKirchhoffStressToCorotationnalCauchyStress", "namespacetfel_1_1math.html#a5943258c1642815c562d79ca9fe91644", null ],
@@ -935,5 +936,6 @@ var namespacetfel_1_1math =
     [ "unsyme", "namespacetfel_1_1math.html#a945fad6d857e8151f4d000c668ed5f93", null ],
     [ "VoigtIndex", "namespacetfel_1_1math.html#ab7bbd7923cdb906e1045d4b7422a76c7", null ],
     [ "gauss_kronrod_integrate", "namespacetfel_1_1math.html#a01491806c80b084cf41d69ef38bf3f00", null ],
-    [ "indexing_policy_size", "namespacetfel_1_1math.html#a6e37bef81b04bcc53e11d0ce8f3c32ae", null ]
+    [ "indexing_policy_size", "namespacetfel_1_1math.html#a6e37bef81b04bcc53e11d0ce8f3c32ae", null ],
+    [ "space_dimension", "namespacetfel_1_1math.html#a7b000194c618b8f38c3184f7845918eb", null ]
 ];

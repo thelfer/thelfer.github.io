@@ -12,6 +12,5 @@ var _math_object_traits_8hxx =
     [ "getSpaceDimension", "_math_object_traits_8hxx.html#a78e6e124b6c3ec6286d482b8856be7ec", null ],
     [ "isAssignableTo", "_math_object_traits_8hxx.html#aa9dd945af79cb6d4c0fdb9df4e254ede", null ],
     [ "isInvalid", "_math_object_traits_8hxx.html#a6c9156ac8d742a281779507ea5533f3e", null ],
-    [ "isScalar", "_math_object_traits_8hxx.html#a0196d3aa4f78bb5e2b9c9b460742c349", null ],
-    [ "space_dimension", "_math_object_traits_8hxx.html#a7b000194c618b8f38c3184f7845918eb", null ]
+    [ "isScalar", "_math_object_traits_8hxx.html#a0196d3aa4f78bb5e2b9c9b460742c349", null ]
 ];

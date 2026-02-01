@@ -1,6 +1,5 @@
 var NAVTREEINDEX20 =
 {
-"structaster_1_1_aster_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html":[5,0,2,0,3],
 "structaster_1_1_aster_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html":[7,0,2,0,3],
 "structaster_1_1_aster_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html#a35cd21da4bde1d8ff5d2aa5c3cb11f7f":[5,0,2,0,3,0],
 "structaster_1_1_aster_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html#a35cd21da4bde1d8ff5d2aa5c3cb11f7f":[7,0,2,0,3,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX20 =
 "structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_c3f39fd9dd4ebcbf1d9d8f132724a581.html":[5,0,3,16],
 "structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_c3f39fd9dd4ebcbf1d9d8f132724a581.html":[7,0,3,16],
 "structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_c3f39fd9dd4ebcbf1d9d8f132724a581.html#a9e21dfb6fd673fe1920503da2d6b6bec":[5,0,3,16,0],
-"structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_c3f39fd9dd4ebcbf1d9d8f132724a581.html#a9e21dfb6fd673fe1920503da2d6b6bec":[7,0,3,16,0]
+"structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_c3f39fd9dd4ebcbf1d9d8f132724a581.html#a9e21dfb6fd673fe1920503da2d6b6bec":[7,0,3,16,0],
+"structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_c3f39fd9dd4ebcbf1d9d8f132724a581.html#ad47fcd7d5ca02db0082a43402ba38971":[5,0,3,16,1]
 };

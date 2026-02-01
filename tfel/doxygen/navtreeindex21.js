@@ -1,6 +1,5 @@
 var NAVTREEINDEX21 =
 {
-"structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_c3f39fd9dd4ebcbf1d9d8f132724a581.html#ad47fcd7d5ca02db0082a43402ba38971":[5,0,3,16,1],
 "structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_c3f39fd9dd4ebcbf1d9d8f132724a581.html#ad47fcd7d5ca02db0082a43402ba38971":[7,0,3,16,1],
 "structcalculix_1_1_calculi_x_traits.html":[5,0,3,17],
 "structcalculix_1_1_calculi_x_traits.html":[7,0,3,17],
@@ -249,5 +248,6 @@ var NAVTREEINDEX21 =
 "structcastem_1_1_castem_tangent_operator_type.html":[7,0,4,84],
 "structcastem_1_1_castem_tangent_operator_type.html":[5,0,4,84],
 "structcastem_1_1_castem_tangent_operator_type_3_01castem_1_1_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_01_n_01_4.html":[7,0,4,85],
-"structcastem_1_1_castem_tangent_operator_type_3_01castem_1_1_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_01_n_01_4.html":[5,0,4,85]
+"structcastem_1_1_castem_tangent_operator_type_3_01castem_1_1_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_01_n_01_4.html":[5,0,4,85],
+"structcastem_1_1_castem_tangent_operator_type_3_01castem_1_1_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_01_n_01_4.html#acaacda514c02497d1dc045f2c25976e9":[7,0,4,85,1]
 };

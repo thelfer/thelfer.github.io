@@ -1,6 +1,5 @@
 var NAVTREEINDEX49 =
 {
-"structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a3f4e9ed659f1c6bead74522c3e9810e5":[7,0,10,0,5,12],
 "structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a53b43a21272a4c69efd35e7fdcd61c10":[7,0,10,0,5,1],
 "structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a5c8f8e43a6f12cbbff030ff967a43762":[7,0,10,0,5,5],
 "structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a720758e5620408ecedd77beb92b3a4cb":[7,0,10,0,5,10],
@@ -249,5 +248,6 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a3ef336e5b694f645e93ee4b80a0f26c9":[7,0,10,0,24,3],
 "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a8000b3c8561c14faf20eed5010dfb6c7":[7,0,10,0,24,0],
 "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a9ee1316fc50349efe3096571a19caef5":[7,0,10,0,24,4],
-"structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a9f35468d88f2c55ea2062649ade55562":[7,0,10,0,24,6]
+"structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a9f35468d88f2c55ea2062649ade55562":[7,0,10,0,24,6],
+"structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#aa23f06da5003c274ad748d713e1f7a09":[7,0,10,0,24,10]
 };

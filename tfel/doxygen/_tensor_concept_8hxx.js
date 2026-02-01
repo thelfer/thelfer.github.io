@@ -7,6 +7,8 @@ var _tensor_concept_8hxx =
     [ "tfel::math::TensorConceptBase< T >", "structtfel_1_1math_1_1_tensor_concept_base.html", "structtfel_1_1math_1_1_tensor_concept_base" ],
     [ "tfel::math::ConceptRebind< TensorTag, Type >", "structtfel_1_1math_1_1_concept_rebind_3_01_tensor_tag_00_01_type_01_4.html", null ],
     [ "tfel::math::TensorConcept", "concepttfel_1_1math_1_1_tensor_concept.html", null ],
+    [ "tfel::math::NoUnitTensorConcept", "concepttfel_1_1math_1_1_no_unit_tensor_concept.html", null ],
+    [ "tfel::math::StressTensorConcept", "concepttfel_1_1math_1_1_stress_tensor_concept.html", null ],
     [ "abs", "_tensor_concept_8hxx.html#a0bbb5f73b2f9d61fb33755429b9d7fbd", null ],
     [ "computeDeterminantDerivative", "_tensor_concept_8hxx.html#a44d01971bad4d5a5bea13bd83a24e485", null ],
     [ "computeGreenLagrangeTensor", "_tensor_concept_8hxx.html#a683b2ca34a741b8f044ee8f579df02aa", null ],

@@ -14,6 +14,8 @@ var _material_state_manager_8hxx =
     [ "setExternalStateVariable", "_material_state_manager_8hxx.html#ae6300f310636d6a067ad66c5c9cbb582", null ],
     [ "setMassDensity", "_material_state_manager_8hxx.html#a4d2fe53d00a50f1975716c388efdd280", null ],
     [ "setMassDensity", "_material_state_manager_8hxx.html#aa1775e77ac7281650a282e26b5d7df8c", null ],
+    [ "setMaterialProperty", "_material_state_manager_8hxx.html#aa3f84685b449b41dd043c5c68f115e5f", null ],
+    [ "setMaterialProperty", "_material_state_manager_8hxx.html#a6e9c6a448dcf74c321a08a0e3ca82ba8", null ],
     [ "setMaterialProperty", "_material_state_manager_8hxx.html#a6238659657cd5d1ddf51aba31e0b315d", null ],
     [ "setMaterialProperty", "_material_state_manager_8hxx.html#a168d567e985ed812c94130aca2729f6b", null ],
     [ "updateValues", "_material_state_manager_8hxx.html#af0fd6ff382dbc9d5f70345f9d50671b8", null ]

@@ -102,7 +102,8 @@ $(document).ready(function(){initNavTree('_math_object_traits_8hxx.html',''); in
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">MathObjectTraits.hxx File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -160,10 +161,6 @@ template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a85ef5968a8428ffeb26a389fecb3e901"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr std::enable_if_t&lt; <a class="el" href="structtfel_1_1typetraits_1_1_is_fundamental_numeric_type.html">tfel::typetraits::IsFundamentalNumericType</a>&lt; T &gt;::cond, const T &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::base_type_cast</b> (const T &amp;v) noexcept</td></tr>
 <tr class="memdesc:a85ef5968a8428ffeb26a389fecb3e901"><td class="mdescLeft">&#160;</td><td class="mdescRight">cast the value to the base type <br /></td></tr>
 <tr class="separator:a85ef5968a8428ffeb26a389fecb3e901"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78e6e124b6c3ec6286d482b8856be7ec" id="r_a78e6e124b6c3ec6286d482b8856be7ec"><td class="memTemplParams" colspan="2">template&lt;typename MathObjectType &gt; </td></tr>
-<tr class="memitem:a78e6e124b6c3ec6286d482b8856be7ec"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr unsigned short&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_math_object_traits_8hxx.html#a78e6e124b6c3ec6286d482b8856be7ec">tfel::math::getSpaceDimension</a> ()</td></tr>
-<tr class="memdesc:a78e6e124b6c3ec6286d482b8856be7ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">an helper function to retrieve the space dimension associated with a math object.  <br /></td></tr>
-<tr class="separator:a78e6e124b6c3ec6286d482b8856be7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9dd945af79cb6d4c0fdb9df4e254ede" id="r_aa9dd945af79cb6d4c0fdb9df4e254ede"><td class="memTemplParams" colspan="2">template&lt;typename A , typename B &gt; </td></tr>
 <tr class="memitem:aa9dd945af79cb6d4c0fdb9df4e254ede"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_math_object_traits_8hxx.html#aa9dd945af79cb6d4c0fdb9df4e254ede">tfel::math::isAssignableTo</a> ()</td></tr>
 <tr class="memdesc:aa9dd945af79cb6d4c0fdb9df4e254ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">an helper function around <code>isAssignableTo</code>  <br /></td></tr>
@@ -176,19 +173,70 @@ template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a0196d3aa4f78bb5e2b9c9b460742c349"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_math_object_traits_8hxx.html#a0196d3aa4f78bb5e2b9c9b460742c349">tfel::math::isScalar</a> ()</td></tr>
 <tr class="memdesc:a0196d3aa4f78bb5e2b9c9b460742c349"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple wrapper around <code><a class="el" href="structtfel_1_1typetraits_1_1_is_scalar.html" title="Traits class which says if its argument stands for a scalar.">tfel::typetraits::IsScalar</a></code>  <br /></td></tr>
 <tr class="separator:a0196d3aa4f78bb5e2b9c9b460742c349"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78e6e124b6c3ec6286d482b8856be7ec" id="r_a78e6e124b6c3ec6286d482b8856be7ec"><td class="memTemplParams" colspan="2">template&lt;MathObjectConcept MathObjectType&gt; </td></tr>
+<tr class="memitem:a78e6e124b6c3ec6286d482b8856be7ec"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr unsigned short&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_math_object_traits_8hxx.html#a78e6e124b6c3ec6286d482b8856be7ec">tfel::math::getSpaceDimension</a> ()</td></tr>
+<tr class="memdesc:a78e6e124b6c3ec6286d482b8856be7ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">an helper function to retrieve the space dimension associated with a math object.  <br /></td></tr>
+<tr class="separator:a78e6e124b6c3ec6286d482b8856be7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab65eacd2f18018292bf97d8332b25efa" id="r_ab65eacd2f18018292bf97d8332b25efa"><td class="memTemplParams" colspan="2">template&lt;MathObjectConcept MathObjectType1, MathObjectConcept... MathObjectTypes&gt; </td></tr>
+<tr class="memitem:ab65eacd2f18018292bf97d8332b25efa"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_math_object_traits_8hxx.html#ab65eacd2f18018292bf97d8332b25efa">tfel::math::checkThatAllSpaceDimensionsAreEqual</a> () noexcept</td></tr>
+<tr class="memdesc:ab65eacd2f18018292bf97d8332b25efa"><td class="mdescLeft">&#160;</td><td class="mdescRight">an helper function checking if all the given math objects have the space dimension.  <br /></td></tr>
+<tr class="separator:ab65eacd2f18018292bf97d8332b25efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a7b000194c618b8f38c3184f7845918eb" id="r_a7b000194c618b8f38c3184f7845918eb"><td class="memTemplParams" colspan="2">template&lt;MathObjectConcept MathObjectType&gt; </td></tr>
+<tr class="memitem:a7b000194c618b8f38c3184f7845918eb"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_math_object_traits_8hxx.html#a7b000194c618b8f38c3184f7845918eb">tfel::math::space_dimension</a></td></tr>
+<tr class="memdesc:a7b000194c618b8f38c3184f7845918eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">inline variable to retrieve the space dimension associated with a math object.  <br /></td></tr>
+<tr class="separator:a7b000194c618b8f38c3184f7845918eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>28/12/2020 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2006-2025 CEA/DEN, EDF R&amp;D. All rights reserved. This project is publicly released under either the GNU GPL Licence with linking exception or the CECILL-A licence. A copy of thoses licences are delivered with the sources of TFEL. CEA or EDF may also distribute this project under specific licensing conditions. </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ab65eacd2f18018292bf97d8332b25efa" name="ab65eacd2f18018292bf97d8332b25efa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab65eacd2f18018292bf97d8332b25efa">&#9670;&#160;</a></span>checkThatAllSpaceDimensionsAreEqual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MathObjectConcept MathObjectType1, MathObjectConcept... MathObjectTypes&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr bool tfel::math::checkThatAllSpaceDimensionsAreEqual </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>an helper function checking if all the given math objects have the space dimension. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MathObjectType1</td><td>math object </td></tr>
+    <tr><td class="paramname">MathObjectTypes</td><td>math objects </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a78e6e124b6c3ec6286d482b8856be7ec" name="a78e6e124b6c3ec6286d482b8856be7ec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a78e6e124b6c3ec6286d482b8856be7ec">&#9670;&#160;</a></span>getSpaceDimension()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename MathObjectType &gt; </div>
+template&lt;MathObjectConcept MathObjectType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -214,6 +262,7 @@ template&lt;typename MathObjectType &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>prefer using the inline variable space_dimension </dd></dl>
 
 </div>
 </div>
@@ -323,13 +372,48 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a7b000194c618b8f38c3184f7845918eb" name="a7b000194c618b8f38c3184f7845918eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b000194c618b8f38c3184f7845918eb">&#9670;&#160;</a></span>space_dimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MathObjectConcept MathObjectType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto tfel::math::space_dimension</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">      MathObjectTraits&lt;std::decay_t&lt;MathObjectType&gt;&gt;::dime</div>
+</div><!-- fragment -->
+<p>inline variable to retrieve the space dimension associated with a math object. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MathObjectType</td><td>math object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_19f2334cefedab4bca7d00c996a0e590.html">spack</a></li><li class="navelem"><a class="el" href="dir_4819441dfd5ac14987c44814feffea1f.html">opt</a></li><li class="navelem"><a class="el" href="dir_e09d68ea3582e9b52bc2ab165a9fdd0a.html">spack</a></li><li class="navelem"><a class="el" href="dir_ffdec7cc29a5f6597048472df1d5e993.html">linux-zen2</a></li><li class="navelem"><a class="el" href="dir_6588c5e0d40325e8eb1481d010e339b7.html">tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w</a></li><li class="navelem"><a class="el" href="dir_c50b429bc1df79ed8293fb669771f5fc.html">include</a></li><li class="navelem"><a class="el" href="dir_65ae2d2fe2c789130f43272dbb198603.html">TFEL</a></li><li class="navelem"><a class="el" href="dir_8a0125d98895ba30149478cb9f245d63.html">Math</a></li><li class="navelem"><a class="el" href="dir_46f370263d9b34ebcd555956224a6415.html">General</a></li><li class="navelem"><a class="el" href="_math_object_traits_8hxx.html">MathObjectTraits.hxx</a></li>
-    <li class="footer">Generated on Sat Jan 31 2026 22:16:15 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Feb 2 2026 08:53:40 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

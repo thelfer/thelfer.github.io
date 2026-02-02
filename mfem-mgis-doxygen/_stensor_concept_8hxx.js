@@ -4,6 +4,8 @@ var _stensor_concept_8hxx =
     [ "tfel::math::StensorConceptBase< T >", "structtfel_1_1math_1_1_stensor_concept_base.html", "structtfel_1_1math_1_1_stensor_concept_base" ],
     [ "tfel::math::ConceptRebind< StensorTag, Type >", "structtfel_1_1math_1_1_concept_rebind_3_01_stensor_tag_00_01_type_01_4.html", "structtfel_1_1math_1_1_concept_rebind_3_01_stensor_tag_00_01_type_01_4" ],
     [ "tfel::math::StensorConcept", "concepttfel_1_1math_1_1_stensor_concept.html", null ],
+    [ "tfel::math::NoUnitStensorConcept", "concepttfel_1_1math_1_1_no_unit_stensor_concept.html", null ],
+    [ "tfel::math::StressStensorConcept", "concepttfel_1_1math_1_1_stress_stensor_concept.html", null ],
     [ "StensorNumType", "_stensor_concept_8hxx.html#a443756155e02a258140e6913163a3ad9", null ],
     [ "StensorTraits", "_stensor_concept_8hxx.html#abe47edfd3e3b7510d5aa6a40f91cd5ee", null ],
     [ "abs", "_stensor_concept_8hxx.html#a59a0f0eb649a0a4fc521d2c28445ab57", null ],

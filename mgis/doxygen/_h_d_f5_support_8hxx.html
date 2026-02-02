@@ -109,6 +109,7 @@ $(document).ready(function(){initNavTree('_h_d_f5_support_8hxx.html',''); initRe
 <code>#include &lt;H5Cpp.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_config_8hxx.html">MGIS/Config.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_context_8hxx.html">MGIS/Context.hxx</a>&quot;</code><br />
+<code>#include &quot;MGIS/Utilities/HDF5Forward.hxx&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -158,8 +159,6 @@ template&lt;&gt; </td></tr>
 <tr class="separator:a264c151fd8becf949ba5b9a9631e98f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec98c26af81e22e546f823e186f03969" id="r_aec98c26af81e22e546f823e186f03969"><td class="memItemLeft" align="right" valign="top">MGIS_EXPORT std::optional&lt; std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_d_f5_support_8hxx.html#aec98c26af81e22e546f823e186f03969">mgis::utilities::hdf5::getDataSetNames</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const H5::Group &amp;) noexcept</td></tr>
 <tr class="separator:aec98c26af81e22e546f823e186f03969"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcdd108608cd83205d275475e347b2dc" id="r_abcdd108608cd83205d275475e347b2dc"><td class="memItemLeft" align="right" valign="top">MGIS_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_d_f5_support_8hxx.html#abcdd108608cd83205d275475e347b2dc">mgis::utilities::hdf5::getDataSetNames</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, std::vector&lt; std::string &gt; &amp;, const H5::Group &amp;) noexcept</td></tr>
-<tr class="separator:abcdd108608cd83205d275475e347b2dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4c2e6203cec12c406361e990b811adc" id="r_ad4c2e6203cec12c406361e990b811adc"><td class="memItemLeft" align="right" valign="top">MGIS_EXPORT std::optional&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_d_f5_support_8hxx.html#ad4c2e6203cec12c406361e990b811adc">mgis::utilities::hdf5::contains</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const H5::Group &amp;, const std::string &amp;) noexcept</td></tr>
 <tr class="separator:ad4c2e6203cec12c406361e990b811adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27189696a9564767be39b9adaed0efc5" id="r_a27189696a9564767be39b9adaed0efc5"><td class="memItemLeft" align="right" valign="top">MGIS_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_d_f5_support_8hxx.html#a27189696a9564767be39b9adaed0efc5">mgis::utilities::hdf5::unlinkIfExists</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const H5::Group &amp;, const std::string &amp;) noexcept</td></tr>
@@ -340,7 +339,7 @@ template&lt;&gt; </td></tr>
 </div>
 </div>
 <a id="aec98c26af81e22e546f823e186f03969" name="aec98c26af81e22e546f823e186f03969"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec98c26af81e22e546f823e186f03969">&#9670;&#160;</a></span>getDataSetNames() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec98c26af81e22e546f823e186f03969">&#9670;&#160;</a></span>getDataSetNames()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -376,57 +375,6 @@ template&lt;&gt; </td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>group </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="abcdd108608cd83205d275475e347b2dc" name="abcdd108608cd83205d275475e347b2dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcdd108608cd83205d275475e347b2dc">&#9670;&#160;</a></span>getDataSetNames() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">MGIS_EXPORT bool mgis::utilities::hdf5::getDataSetNames </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const H5::Group &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>all the dataset names in a give group </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">n</td><td>names </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>group </td></tr>
   </table>
   </dd>
@@ -1167,7 +1115,7 @@ template&lt;&gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_d8042eab18d29d3f5ca31dc03dfcca6b.html">Utilities</a></li><li class="navelem"><a class="el" href="_h_d_f5_support_8hxx.html">HDF5Support.hxx</a></li>
-    <li class="footer">Generated on Mon Feb 2 2026 14:18:41 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Feb 2 2026 15:55:18 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

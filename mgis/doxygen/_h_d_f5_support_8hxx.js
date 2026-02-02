@@ -4,7 +4,6 @@ var _h_d_f5_support_8hxx =
     [ "createGroup", "_h_d_f5_support_8hxx.html#a571a59b492a7ef38c4a7a87856ca2086", null ],
     [ "exists", "_h_d_f5_support_8hxx.html#a083de84323486b1aa56a6d5d802266dc", null ],
     [ "getDataSetNames", "_h_d_f5_support_8hxx.html#aec98c26af81e22e546f823e186f03969", null ],
-    [ "getDataSetNames", "_h_d_f5_support_8hxx.html#abcdd108608cd83205d275475e347b2dc", null ],
     [ "getSubGroupNames", "_h_d_f5_support_8hxx.html#acd366ec9e826303de942b9e698975fce", null ],
     [ "getSubGroupNames", "_h_d_f5_support_8hxx.html#a264c151fd8becf949ba5b9a9631e98f4", null ],
     [ "openDataSet", "_h_d_f5_support_8hxx.html#abafefe54f8a2ba5e4e8995e52b100f48", null ],

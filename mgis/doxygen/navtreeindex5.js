@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ae237f22011814135d3ae37fa7b4fbae4":[3,0,1,3,4,3],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#aee9e92c08999bd207a33ad4912256789":[3,0,1,3,4,4],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#af34ff0536f8cb964657bae93b4bb88a1":[3,0,1,3,4,0],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#af39cba4b8968a7817ba0d303166bf6d5":[3,0,1,3,4,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "structmgis_1_1function_1_1internals_1_1_cell_index_type_selector.html":[3,0,1,3,1,5],
 "structmgis_1_1function_1_1internals_1_1_cell_index_type_selector_3_01true_00_01_space_01_4.html":[3,0,1,3,1,6],
 "structmgis_1_1function_1_1internals_1_1_cell_index_type_selector_3_01true_00_01_space_01_4.html#ac3575354117c74ea916f6a2132f93b11":[3,0,1,3,1,6,0],
-"structmgis_1_1function_1_1internals_1_1_cell_workspace_selector.html":[3,0,1,3,1,7],
-"structmgis_1_1function_1_1internals_1_1_cell_workspace_selector_3_01true_00_01_space_01_4.html":[3,0,1,3,1,8]
+"structmgis_1_1function_1_1internals_1_1_cell_workspace_selector.html":[3,0,1,3,1,7]
 };

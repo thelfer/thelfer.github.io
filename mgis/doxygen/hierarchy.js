@@ -67,6 +67,8 @@ var hierarchy =
     [ "mgis::function::internals::CompileTimeSize< tfel::math::tmatrix< N, M, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1tmatrix_3_01_n_00_01_m_00_01real_01_4_01_4.html", null ],
     [ "mgis::function::internals::CompileTimeSize< tfel::math::tvector< N, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1tvector_3_01_n_00_01real_01_4_01_4.html", null ],
     [ "mgis::ContextInitializer", "structmgis_1_1_context_initializer.html", null ],
+    [ "mgis::function::internals::ConvertFiniteStrainStiffnessEvaluator< N, ResultFlag, SourceFlag, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html", null ],
+    [ "mgis::function::internals::ConvertFiniteStrainStiffnessModifierGenerator< N, ResultFlag, SourceFlag, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_modifier_generator.html", null ],
     [ "mgis::Cste", "structmgis_1_1_cste.html", null ],
     [ "mgis::function::BasicLinearQuadratureSpace< N >::DummyCellWorkspace", "structmgis_1_1function_1_1_basic_linear_quadrature_space_1_1_dummy_cell_workspace.html", null ],
     [ "mgis::function::internals::ElementIndexTypeSelector< true, Space >", "structmgis_1_1function_1_1internals_1_1_element_index_type_selector_3_01true_00_01_space_01_4.html", null ],
@@ -110,6 +112,9 @@ var hierarchy =
       [ "mgis::function::FunctionDataLayout< FunctionDataLayoutDescription{} >", "structmgis_1_1function_1_1_function_data_layout.html", null ],
       [ "mgis::function::FunctionDataLayout< layout >", "structmgis_1_1function_1_1_function_data_layout.html", [
         [ "mgis::function::FunctionView< Space, layout, is_mutable >", "structmgis_1_1function_1_1_function_view.html", [
+          [ "mgis::function::Function< Space, tfel::math::getUnderlyingArrayMinimalSize< TensorType::indexing_policy >()>", "structmgis_1_1function_1_1_function.html", [
+            [ "mgis::function::TensorialFunction< Space, TensorType >", "structmgis_1_1function_1_1_tensorial_function.html", null ]
+          ] ],
           [ "mgis::function::Function< Space, N >", "structmgis_1_1function_1_1_function.html", null ]
         ] ]
       ] ]
@@ -137,7 +142,10 @@ var hierarchy =
     [ "mgis::function::internals::FunctionResultTypeTraits< real & >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01real_01_6_01_4.html", null ],
     [ "mgis::function::internals::FunctionResultTypeTraits< std::array< real, N > & >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01std_1_1array_3_01real_00_01_n_01_4_01_6_01_4.html", null ],
     [ "mgis::function::internals::FunctionResultTypeTraits< std::span< real, N > >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01std_1_1span_3_01real_00_01_n_01_4_01_4.html", null ],
+    [ "mgis::function::internals::FunctionResultTypeTraits< TensorType & >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_tensor_type_01_6_01_4.html", null ],
+    [ "mgis::function::internals::FunctionResultTypeTraits< tfel::math::View< TensorType > >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01tfel_1_1math_1_1_view_3_01_tensor_type_01_4_01_4.html", null ],
     [ "mgis::function::FunctionStorage< Space, N >", "structmgis_1_1function_1_1_function_storage.html", [
+      [ "mgis::function::Function< Space, tfel::math::getUnderlyingArrayMinimalSize< TensorType::indexing_policy >()>", "structmgis_1_1function_1_1_function.html", null ],
       [ "mgis::function::Function< Space, N >", "structmgis_1_1function_1_1_function.html", null ]
     ] ],
     [ "mgis::function::FunctionStorage< Space, dynamic_extent >", "structmgis_1_1function_1_1_function_storage.html", null ],
@@ -213,6 +221,9 @@ var hierarchy =
       [ "mgis::function::FixedSizeView< FunctionType, N >", "structmgis_1_1function_1_1_fixed_size_view.html", null ]
     ] ],
     [ "mgis::PreconditionsChecker< Function< Space, dynamic_extent > >", "structmgis_1_1_preconditions_checker.html", null ],
+    [ "mgis::PreconditionsChecker< Function< Space, N > >", "structmgis_1_1_preconditions_checker.html", [
+      [ "mgis::function::Function< Space, tfel::math::getUnderlyingArrayMinimalSize< TensorType::indexing_policy >()>", "structmgis_1_1function_1_1_function.html", null ]
+    ] ],
     [ "mgis::PreconditionsChecker< FunctionView< Space, FunctionDataLayoutDescription{}, true > >", "structmgis_1_1_preconditions_checker.html", null ],
     [ "mgis::PreconditionsChecker< MaterialFunctionManager< SpaceType > >", "structmgis_1_1_preconditions_checker.html", [
       [ "mgis::behaviour::MaterialFunctionManager< SpaceType >", "structmgis_1_1behaviour_1_1_material_function_manager.html", null ]
@@ -228,11 +239,19 @@ var hierarchy =
         [ "mgis::function::StridedCoalescedMemoryAccessTensorView< Space, TensorType, is_mutable >", "structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html", null ]
       ] ]
     ] ],
+    [ "mgis::PreconditionsChecker< TensorialFunction< Space, TensorType > >", "structmgis_1_1_preconditions_checker.html", [
+      [ "mgis::function::TensorialFunction< Space, TensorType >", "structmgis_1_1function_1_1_tensorial_function.html", null ]
+    ] ],
     [ "mgis::PreconditionsChecker< TensorView< FunctionType, TensorType > >", "structmgis_1_1_preconditions_checker.html", [
+      [ "mgis::function::TensorView< Function< Space, tfel::math::getUnderlyingArrayMinimalSize< TensorType::indexing_policy >()>, TensorType >", "structmgis_1_1function_1_1_tensor_view.html", [
+        [ "mgis::function::TensorialFunction< Space, TensorType >", "structmgis_1_1function_1_1_tensorial_function.html", null ]
+      ] ],
       [ "mgis::function::TensorView< FunctionType, TensorType >", "structmgis_1_1function_1_1_tensor_view.html", null ]
     ] ],
     [ "mgis::julia::Ptr< T >", "structmgis_1_1julia_1_1_ptr.html", null ],
     [ "mgis::function::internals::QuadraturePointIndexTypeSelector< true, Space >", "structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector_3_01true_00_01_space_01_4.html", null ],
+    [ "mgis::function::internals::RotateBackwardsModifier", "structmgis_1_1function_1_1internals_1_1_rotate_backwards_modifier.html", null ],
+    [ "mgis::function::internals::RotateModifier", "structmgis_1_1function_1_1internals_1_1_rotate_modifier.html", null ],
     [ "mgis::behaviour::RotationMatrix3D", "structmgis_1_1behaviour_1_1_rotation_matrix3_d.html", null ],
     [ "mgis::function::internals::SharedElementSpaceAddElementWorkspace< bool, ElementSpaceConcept >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html", null ],
     [ "mgis::function::internals::SharedElementSpaceAddElementWorkspace< hasElementWorkspace< SpaceType >, SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html", [
@@ -266,6 +285,7 @@ var hierarchy =
     [ "mgis::function::StridedCoalescedMemoryAccessCompositeTensorsViewConstValue< real >", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view_const_value_3_01real_01_4.html", null ],
     [ "mgis::function::StridedCoalescedMemoryAccessCompositeTensorsViewMutableValue< ValueType >", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view_mutable_value.html", null ],
     [ "mgis::function::StridedCoalescedMemoryAccessCompositeTensorsViewMutableValue< real >", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view_mutable_value_3_01real_01_4.html", null ],
+    [ "mgis::function::internals::tensor_modifier< TensorType >", "structmgis_1_1function_1_1internals_1_1tensor__modifier.html", null ],
     [ "mgis::ThreadedTaskResultBase", "structmgis_1_1_threaded_task_result_base.html", [
       [ "mgis::ThreadedTaskResult< T >", "structmgis_1_1_threaded_task_result.html", null ],
       [ "mgis::ThreadedTaskResult< void >", "structmgis_1_1_threaded_task_result_3_01void_01_4.html", null ]

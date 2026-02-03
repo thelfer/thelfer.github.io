@@ -67,11 +67,11 @@ var NAVTREEINDEX =
 [
 "_abstract_error_handler_8hxx.html",
 "_integrate_8hxx.html#a164706c107521ffae13d85c43c076ab9",
-"_variable_8hxx.html#a84318621a50dd62ea128f6e4feafa622",
-"structmgis_1_1_libraries_manager.html#a1deee07bcb75a35d69c0c9a14f0d4137",
-"structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911af508d206d19505e0376793d592de730d",
-"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ae237f22011814135d3ae37fa7b4fbae4",
-"structmgis_1_1function_1_1internals_1_1_cell_workspace_selector_3_01true_00_01_space_01_4.html"
+"_tensors_8hxx.html",
+"structmgis_1_1_error_backtrace.html#a012d15532827a6c816b8e947185d6096",
+"structmgis_1_1behaviour_1_1_behaviour.html#a270f6e4b5e686442396569a9ff1403bd",
+"structmgis_1_1behaviour_1_1debug_1_1_behaviour_integration_failure_analyser.html#a1ed17e9bdb5d941c8c05555f779de18c",
+"structmgis_1_1function_1_1_tensor_view.html#ad5b8ab774bd42eb116eac05db0a817e7"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

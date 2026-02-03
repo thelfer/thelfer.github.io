@@ -23,8 +23,6 @@ var dir_9c6f9dfbe000c54e72b60c70482b6bf0 =
     [ "Eshelby.hxx", "_eshelby_8hxx.html", null ],
     [ "EshelbyBasedHomogenization.hxx", "_eshelby_based_homogenization_8hxx.html", null ],
     [ "EshelbyTolerances.hxx", "_eshelby_tolerances_8hxx.html", "_eshelby_tolerances_8hxx" ],
-    [ "ExtendedPolyCrystalsSlidingSystems.hxx", "_extended_poly_crystals_sliding_systems_8hxx.html", "_extended_poly_crystals_sliding_systems_8hxx" ],
-    [ "ExtendedPolyCrystalsSlidingSystems.ixx", "_extended_poly_crystals_sliding_systems_8ixx.html", null ],
     [ "FiniteStrainBehaviourTangentOperator.hxx", "_finite_strain_behaviour_tangent_operator_8hxx.html", "_finite_strain_behaviour_tangent_operator_8hxx" ],
     [ "FiniteStrainBehaviourTangentOperator.ixx", "_finite_strain_behaviour_tangent_operator_8ixx.html", "_finite_strain_behaviour_tangent_operator_8ixx" ],
     [ "FiniteStrainBehaviourTangentOperatorBase.hxx", "_finite_strain_behaviour_tangent_operator_base_8hxx.html", "_finite_strain_behaviour_tangent_operator_base_8hxx" ],

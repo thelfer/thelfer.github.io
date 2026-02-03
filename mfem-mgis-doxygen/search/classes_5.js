@@ -63,7 +63,7 @@ var searchData=
   ['fslevenbergmarquardtvariable_60',['FSLevenbergMarquardtVariable',['../structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable.html',1,'tfel::math']]],
   ['fslevenbergmarquardtvariable_3c_201u_2c_20t_20_3e_61',['FSLevenbergMarquardtVariable&lt; 1u, T &gt;',['../structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable_3_011u_00_01_t_01_4.html',1,'tfel::math']]],
   ['fslevenbergmarquardtvariable_3c_20m_2c_20double_20_3e_62',['FSLevenbergMarquardtVariable&lt; M, double &gt;',['../structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable.html',1,'tfel::math']]],
-  ['function_63',['function',['../structmfront_1_1_model_description_1_1_function.html',1,'mfront::ModelDescription::Function'],['../structmgis_1_1function_1_1_function.html',1,'mgis::function::Function&lt; Space, N &gt;'],['../structtfel_1_1math_1_1parser_1_1_function.html',1,'tfel::math::parser::Function']]],
+  ['function_63',['function',['../structmfront_1_1_model_description_1_1_function.html',1,'mfront::ModelDescription::Function'],['../structtfel_1_1math_1_1parser_1_1_function.html',1,'tfel::math::parser::Function'],['../structmgis_1_1function_1_1_function.html',1,'mgis::function::Function&lt; Space, N &gt;']]],
   ['functionbase_64',['FunctionBase',['../structtfel_1_1math_1_1parser_1_1_function_base.html',1,'tfel::math::parser']]],
   ['functiondatalayout_65',['FunctionDataLayout',['../structmgis_1_1function_1_1_function_data_layout.html',1,'mgis::function']]],
   ['functiondatalayout_3c_20functiondatalayoutdescription_7b_7d_20_3e_66',['FunctionDataLayout&lt; FunctionDataLayoutDescription{} &gt;',['../structmgis_1_1function_1_1_function_data_layout.html',1,'mgis::function']]],
@@ -91,7 +91,9 @@ var searchData=
   ['functionresulttypetraits_3c_20real_20_26_20_3e_88',['FunctionResultTypeTraits&lt; real &amp; &gt;',['../structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01real_01_6_01_4.html',1,'mgis::function::internals']]],
   ['functionresulttypetraits_3c_20std_3a_3aarray_3c_20real_2c_20n_20_3e_20_26_20_3e_89',['FunctionResultTypeTraits&lt; std::array&lt; real, N &gt; &amp; &gt;',['../structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01std_1_1array_3_01real_00_01_n_01_4_01_6_01_4.html',1,'mgis::function::internals']]],
   ['functionresulttypetraits_3c_20std_3a_3aspan_3c_20real_2c_20n_20_3e_20_3e_90',['FunctionResultTypeTraits&lt; std::span&lt; real, N &gt; &gt;',['../structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01std_1_1span_3_01real_00_01_n_01_4_01_4.html',1,'mgis::function::internals']]],
-  ['functionstorage_91',['FunctionStorage',['../structmgis_1_1function_1_1_function_storage.html',1,'mgis::function']]],
-  ['functionstorage_3c_20space_2c_20dynamic_5fextent_20_3e_92',['FunctionStorage&lt; Space, dynamic_extent &gt;',['../structmgis_1_1function_1_1_function_storage.html',1,'mgis::function']]],
-  ['functionview_93',['FunctionView',['../structmgis_1_1function_1_1_function_view.html',1,'mgis::function']]]
+  ['functionresulttypetraits_3c_20tensortype_20_26_20_3e_91',['FunctionResultTypeTraits&lt; TensorType &amp; &gt;',['../structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_tensor_type_01_6_01_4.html',1,'mgis::function::internals']]],
+  ['functionresulttypetraits_3c_20tfel_3a_3amath_3a_3aview_3c_20tensortype_20_3e_20_3e_92',['FunctionResultTypeTraits&lt; tfel::math::View&lt; TensorType &gt; &gt;',['../structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01tfel_1_1math_1_1_view_3_01_tensor_type_01_4_01_4.html',1,'mgis::function::internals']]],
+  ['functionstorage_93',['FunctionStorage',['../structmgis_1_1function_1_1_function_storage.html',1,'mgis::function']]],
+  ['functionstorage_3c_20space_2c_20dynamic_5fextent_20_3e_94',['FunctionStorage&lt; Space, dynamic_extent &gt;',['../structmgis_1_1function_1_1_function_storage.html',1,'mgis::function']]],
+  ['functionview_95',['FunctionView',['../structmgis_1_1function_1_1_function_view.html',1,'mgis::function']]]
 ];

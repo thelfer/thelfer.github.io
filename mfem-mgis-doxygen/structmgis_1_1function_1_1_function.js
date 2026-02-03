@@ -9,7 +9,6 @@ var structmgis_1_1function_1_1_function =
     [ "Function", "structmgis_1_1function_1_1_function.html#a152fbcbe7cf793c74ddd645439255e94", null ],
     [ "Function", "structmgis_1_1function_1_1_function.html#a2c2d2df672cc51b9d54b9dd5f6867bca", null ],
     [ "~Function", "structmgis_1_1function_1_1_function.html#ac2b2c537512b25b8aaee3133080cadf8", null ],
-    [ "data", "structmgis_1_1function_1_1_function.html#a51b9da0b70df117106c57ae681e273db", null ],
     [ "fill", "structmgis_1_1function_1_1_function.html#a0dee360324d0c78a38f527010f140c1e", null ],
     [ "fill", "structmgis_1_1function_1_1_function.html#a82eab0ad0ad668eaeb25ee7749280944", null ],
     [ "view", "structmgis_1_1function_1_1_function.html#a58a41d6e14699d7dea4d794aaec21a32", null ],

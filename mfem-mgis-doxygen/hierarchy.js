@@ -1413,6 +1413,8 @@ var hierarchy =
       [ "mtest::ConstraintBase", "structmtest_1_1_constraint_base.html", null ]
     ] ],
     [ "mgis::ContextInitializer", "structmgis_1_1_context_initializer.html", null ],
+    [ "mgis::function::internals::ConvertFiniteStrainStiffnessEvaluator< N, ResultFlag, SourceFlag, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html", null ],
+    [ "mgis::function::internals::ConvertFiniteStrainStiffnessModifierGenerator< N, ResultFlag, SourceFlag, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_modifier_generator.html", null ],
     [ "tfel::math::ConvertKirchhoffStressJaumanRateModuliToKirchhoffStressDerivative< N, T >", "structtfel_1_1math_1_1_convert_kirchhoff_stress_jauman_rate_moduli_to_kirchhoff_stress_derivative.html", null ],
     [ "tfel::math::ConvertKirchhoffStressJaumanRateModuliToKirchhoffStressDerivative< 1u, T >", "structtfel_1_1math_1_1_convert_kirchhoff_stress_jauman_rate_moduli_to_kirchhoff_stress_derivative_3_011u_00_01_t_01_4.html", null ],
     [ "tfel::math::ConvertKirchhoffStressJaumanRateModuliToKirchhoffStressDerivative< 2u, T >", "structtfel_1_1math_1_1_convert_kirchhoff_stress_jauman_rate_moduli_to_kirchhoff_stress_derivative_3_012u_00_01_t_01_4.html", null ],
@@ -1608,8 +1610,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
+    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -2133,6 +2135,8 @@ var hierarchy =
     [ "mgis::function::internals::FunctionResultTypeTraits< real & >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01real_01_6_01_4.html", null ],
     [ "mgis::function::internals::FunctionResultTypeTraits< std::array< real, N > & >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01std_1_1array_3_01real_00_01_n_01_4_01_6_01_4.html", null ],
     [ "mgis::function::internals::FunctionResultTypeTraits< std::span< real, N > >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01std_1_1span_3_01real_00_01_n_01_4_01_4.html", null ],
+    [ "mgis::function::internals::FunctionResultTypeTraits< TensorType & >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_tensor_type_01_6_01_4.html", null ],
+    [ "mgis::function::internals::FunctionResultTypeTraits< tfel::math::View< TensorType > >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01tfel_1_1math_1_1_view_3_01_tensor_type_01_4_01_4.html", null ],
     [ "mgis::function::FunctionStorage< Space, N >", "structmgis_1_1function_1_1_function_storage.html", [
       [ "mgis::function::Function< Space, N >", "structmgis_1_1function_1_1_function.html", null ]
     ] ],
@@ -3157,8 +3161,10 @@ var hierarchy =
     [ "tfel::math::ResultType< vector< T >, vector< T2 >, OpMult >", "classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_mult_01_4.html", null ],
     [ "tfel::math::ResultType< vector< T >, vector< T2 >, OpPlus >", "classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_plus_01_4.html", null ],
     [ "tfel::math::RightCauchyGreenTensorDerivativeExpr< N >", "structtfel_1_1math_1_1_right_cauchy_green_tensor_derivative_expr.html", null ],
+    [ "mgis::function::internals::RotateBackwardsModifier", "structmgis_1_1function_1_1internals_1_1_rotate_backwards_modifier.html", null ],
     [ "mfem_mgis::RotatedGradientsMatrixPartialQuadratureFunctionEvalutor< GradientsSize >", "structmfem__mgis_1_1_rotated_gradients_matrix_partial_quadrature_function_evalutor.html", null ],
     [ "mfem_mgis::RotatedThermodynamicForcesMatrixPartialQuadratureFunctionEvalutor< ThermodynamicForcesSize >", "structmfem__mgis_1_1_rotated_thermodynamic_forces_matrix_partial_quadrature_function_evalutor.html", null ],
+    [ "mgis::function::internals::RotateModifier", "structmgis_1_1function_1_1internals_1_1_rotate_modifier.html", null ],
     [ "mfem_mgis::IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator_1_1_rotation_matrix.html", null ],
     [ "mfem_mgis::IsotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_isotropic_plane_strain_standard_small_strain_mechanics_behaviour_integrator_1_1_rotation_matrix.html", null ],
     [ "mfem_mgis::IsotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_isotropic_plane_strain_stationary_non_linear_heat_transfer_behaviour_integrator_1_1_rotation_matrix.html", null ],
@@ -3728,6 +3734,7 @@ var hierarchy =
     [ "mfront::TargetsDescription", "structmfront_1_1_targets_description.html", null ],
     [ "tfel::config::internals::TemperatureGradientType< N, T, use_qt >", "structtfel_1_1config_1_1internals_1_1_temperature_gradient_type.html", null ],
     [ "tfel::config::internals::TemperatureGradientType< N, T, false >", "structtfel_1_1config_1_1internals_1_1_temperature_gradient_type_3_01_n_00_01_t_00_01false_01_4.html", null ],
+    [ "mgis::function::internals::tensor_modifier< TensorType >", "structmgis_1_1function_1_1internals_1_1tensor__modifier.html", null ],
     [ "tfel::math::TensorConceptBase< T >", "structtfel_1_1math_1_1_tensor_concept_base.html", [
       [ "tfel::math::tensor< 1u, real >", "structtfel_1_1math_1_1tensor.html", null ],
       [ "tfel::math::tensor< 2u, real >", "structtfel_1_1math_1_1tensor.html", null ]

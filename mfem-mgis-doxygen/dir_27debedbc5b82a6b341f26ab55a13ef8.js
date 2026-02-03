@@ -1,6 +1,6 @@
 var dir_27debedbc5b82a6b341f26ab55a13ef8 =
 [
-    [ "Tensors", "dir_0eb37dc0628ed49d44d0caa576349e60.html", "dir_0eb37dc0628ed49d44d0caa576349e60" ],
+    [ "TFEL", "dir_e47bdd71cf286ee87558ef5ad261d61a.html", "dir_e47bdd71cf286ee87558ef5ad261d61a" ],
     [ "Algorithms.hxx", "spack_2opt_2spack_2linux-zen2_2mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_function_2_algorithms_8hxx.html", "spack_2opt_2spack_2linux-zen2_2mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_function_2_algorithms_8hxx" ],
     [ "BasicLinearQuadratureSpace.hxx", "_basic_linear_quadrature_space_8hxx.html", "_basic_linear_quadrature_space_8hxx" ],
     [ "BasicLinearQuadratureSpace.ixx", "_basic_linear_quadrature_space_8ixx.html", null ],
@@ -29,14 +29,10 @@ var dir_27debedbc5b82a6b341f26ab55a13ef8 =
     [ "Function.ixx", "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_function_2_function_8ixx.html", "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_function_2_function_8ixx" ],
     [ "FunctionConcept.hxx", "_function_concept_8hxx.html", "_function_concept_8hxx" ],
     [ "FunctionConcept.ixx", "_function_concept_8ixx.html", "_function_concept_8ixx" ],
-    [ "Mechanics.hxx", "_mechanics_8hxx.html", null ],
-    [ "Mechanics.ixx", "_mechanics_8ixx.html", null ],
     [ "SharedSpace.hxx", "_shared_space_8hxx.html", "_shared_space_8hxx" ],
     [ "SpaceConcept.hxx", "_space_concept_8hxx.html", "_space_concept_8hxx" ],
     [ "StridedCoalescedMemoryAccessFunctionViewBase.hxx", "_strided_coalesced_memory_access_function_view_base_8hxx.html", "_strided_coalesced_memory_access_function_view_base_8hxx" ],
     [ "StridedCoalescedMemoryAccessFunctionViewBase.ixx", "_strided_coalesced_memory_access_function_view_base_8ixx.html", null ],
-    [ "Tensors.hxx", "_tensors_8hxx.html", null ],
-    [ "Tensors.ixx", "_tensors_8ixx.html", "_tensors_8ixx" ],
     [ "UnaryOperation.hxx", "_unary_operation_8hxx.html", "_unary_operation_8hxx" ],
     [ "UnaryOperation.ixx", "_unary_operation_8ixx.html", "_unary_operation_8ixx" ]
 ];

@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"_orthotropic_stress_linear_transformation_8ixx.html#af16b56f6760884dfaa6a67815cc9b991":[5,0,1,0,0,0,1,0,6,4,77,17],
+"_orthotropic_stress_linear_transformation_8ixx.html#af4e08cf5a2f7af7391791d7841f51636":[5,0,1,0,0,0,1,0,6,4,77,16],
+"_overridable_implementation_8hxx.html":[5,0,1,0,0,0,1,0,3,38],
+"_overridable_implementation_8hxx.html#a624c31aa01c8e21adfff00126f481366":[5,0,1,0,0,0,1,0,3,38,3],
 "_overridable_implementation_8hxx.html#a77c0ee268c99fdd3c0a7ebf9835bf415":[5,0,1,0,0,0,1,0,3,38,6],
 "_overridable_implementation_8hxx.html#acdd13959929e294d2c99d294d1f33ac4":[5,0,1,0,0,0,1,0,3,38,5],
 "_overridable_implementation_8hxx.html#ad73626a1584d069b10ab02f768b62237":[5,0,1,0,0,0,1,0,3,38,4],
@@ -245,9 +249,5 @@ var NAVTREEINDEX6 =
 "_s_t_l_container_binary_read_8hxx.html":[5,0,1,0,0,0,1,0,6,7,21],
 "_s_t_l_container_binary_write_8hxx.html":[5,0,1,0,0,0,1,0,6,7,22],
 "_scalar_damage_hooke_stress_potential_8hxx.html":[5,0,1,0,0,0,1,0,3,3,45],
-"_scalar_damage_hooke_stress_potential_base_8hxx.html":[5,0,1,0,0,0,1,0,3,3,46],
-"_scalar_newton_raphson_8hxx.html":[5,0,1,0,0,0,1,0,6,5,56],
-"_scalar_newton_raphson_8hxx.html#a20914f79c160ff2569da26bfd9c2db67":[5,0,1,0,0,0,1,0,6,5,56,2],
-"_scalar_newton_raphson_8hxx.html#a2a834fe573c6ae0d3c43a28ff748b1e0":[5,0,1,0,0,0,1,0,6,5,56,1],
-"_scalar_newton_raphson_8ixx.html":[5,0,1,0,0,0,1,0,6,5,10,4]
+"_scalar_damage_hooke_stress_potential_base_8hxx.html":[5,0,1,0,0,0,1,0,3,3,46]
 };

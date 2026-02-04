@@ -1,5 +1,7 @@
 var NAVTREEINDEX9 =
 {
+"_study_8hxx.html":[8,0,5,0,0,95],
+"_study_current_state_8hxx.html":[8,0,5,0,0,96],
 "_study_current_state_8ixx.html":[8,0,5,0,0,97],
 "_study_parameter_8hxx.html":[8,0,5,0,0,98],
 "_supported_types_8hxx.html":[8,0,2,0,0,198],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "_tiny_non_linear_solver_base_8ixx.html":[8,0,0,3,5,10,10],
 "_tiny_permutation_8hxx.html":[8,0,0,3,5,7,6],
 "_tiny_permutation_8ixx.html":[8,0,0,3,5,7,7],
-"_tiny_powell_dog_leg_algorithm_base_8hxx.html":[8,0,0,3,5,10,11],
-"_tiny_powell_dog_leg_algorithm_base_8hxx.html#a2af6a76863040300a210e557ebd47fd9":[8,0,0,3,5,10,11,0],
-"_tiny_powell_dog_leg_broyden_solver_8hxx.html":[8,0,0,3,5,70]
+"_tiny_powell_dog_leg_algorithm_base_8hxx.html":[8,0,0,3,5,10,11]
 };

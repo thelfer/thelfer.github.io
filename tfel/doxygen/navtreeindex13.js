@@ -1,7 +1,5 @@
 var NAVTREEINDEX13 =
 {
-"functions_type_v.html":[7,3,3,20],
-"functions_type_w.html":[7,3,3,21],
 "functions_u.html":[7,3,0,21],
 "functions_v.html":[7,3,0,22],
 "functions_vars.html":[7,3,2,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX13 =
 "namespacecyrano.html#a6b94726e44ba7b3d36c9152a2c6d93b2":[5,0,5,25],
 "namespacecyrano.html#a860f4aa64c291a6c55b42976e0c9da09":[5,0,5,23],
 "namespacedianafea.html":[5,0,6],
-"namespacedianafea.html#a0d518e309fde0b99897c0dcf4fdca457":[5,0,6,60]
+"namespacedianafea.html#a0d518e309fde0b99897c0dcf4fdca457":[5,0,6,60],
+"namespacedianafea.html#a18535fdc1a70595599bbdfb057a857c4":[5,0,6,63],
+"namespacedianafea.html#a1c34154bbdd8039e3491d77616fdab59":[5,0,6,72]
 };

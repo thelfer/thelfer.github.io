@@ -1,8 +1,5 @@
 var NAVTREEINDEX50 =
 {
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#aa128e20c4392c3b9320caba75b4c087e":[7,0,10,0,22,22],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#aa27134362564bab6024128b84a9d8aa9":[7,0,10,0,22,1],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#aa957b093d1979ed5308d1c69008632e8":[7,0,10,0,22,14],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#aaf42f9756cf48d01af0424feba3ec2d6":[7,0,10,0,22,33],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#abe2eb20a295fe2f064c8f1233ed08b99":[7,0,10,0,22,9],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#ace40c01e3e816e9e3e2835459a2e27f6":[7,0,10,0,22,23],
@@ -249,5 +246,8 @@ var NAVTREEINDEX50 =
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#aaae9b09089938b2d619f2a48c5b95048":[7,0,10,0,46,6],
 "structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html":[7,0,10,0,47],
 "structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a099a37abe5e11963d85e5df8e2c34b2b":[7,0,10,0,47,10],
-"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a1a47f87e8d4b96f7b0f9a1ed2a6a509a":[7,0,10,0,47,0]
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a1a47f87e8d4b96f7b0f9a1ed2a6a509a":[7,0,10,0,47,0],
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a29df9007df576ea2ae8afac9530e4140":[7,0,10,0,47,2],
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a3efc13dfa37365dfdddc98c39a6b7fa4":[7,0,10,0,47,7],
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a4e590bdc0ca47b7d8418033025f3c241":[7,0,10,0,47,8]
 };

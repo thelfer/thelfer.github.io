@@ -1,5 +1,10 @@
 var NAVTREEINDEX86 =
 {
+"structtfel_1_1system_1_1_external_behaviour_description.html#a3e298bdf738fa6090976276964e12a8f":[7,0,14,8,27,21],
+"structtfel_1_1system_1_1_external_behaviour_description.html#a41469832a3e5da405cd0750c75bc94a4":[7,0,14,8,27,26],
+"structtfel_1_1system_1_1_external_behaviour_description.html#a4410546d20789c3e86870005bcf97cb0":[7,0,14,8,27,10],
+"structtfel_1_1system_1_1_external_behaviour_description.html#a4fa9727628d3c55160a501f1a135ea05":[7,0,14,8,27,43],
+"structtfel_1_1system_1_1_external_behaviour_description.html#a58f519ce95ff72907f033960d9b8d930":[7,0,14,8,27,12],
 "structtfel_1_1system_1_1_external_behaviour_description.html#a5a6c59a2c859904229f6bf0ba65c3ec5":[7,0,14,8,27,33],
 "structtfel_1_1system_1_1_external_behaviour_description.html#a62a0a19043bb1d73eb74507dcc055f56":[7,0,14,8,27,22],
 "structtfel_1_1system_1_1_external_behaviour_description.html#a6c640d2246cf0408fa0c81c9b1601bf4":[7,0,14,8,27,2],
@@ -244,10 +249,5 @@ var NAVTREEINDEX86 =
 "structtfel_1_1system_1_1_library_information.html#ae8bf4dc58dede47b5c82e2bb273a4049":[7,0,14,8,32,6],
 "structtfel_1_1system_1_1_member_signal_handler.html":[7,0,14,8,33],
 "structtfel_1_1system_1_1_non_blocking_stream_reader.html":[7,0,14,8,34],
-"structtfel_1_1system_1_1_non_blocking_stream_writer.html":[7,0,14,8,35],
-"structtfel_1_1system_1_1_pointer_binary_reader.html":[7,0,14,8,36],
-"structtfel_1_1system_1_1_pointer_binary_writer.html":[7,0,14,8,37],
-"structtfel_1_1system_1_1_posix_error.html":[7,0,14,8,38],
-"structtfel_1_1system_1_1_process_manager.html":[7,0,14,8,39],
-"structtfel_1_1system_1_1_process_manager.html#a0c451e9b654adbcef5d31574a185a640":[7,0,14,8,39,1]
+"structtfel_1_1system_1_1_non_blocking_stream_writer.html":[7,0,14,8,35]
 };

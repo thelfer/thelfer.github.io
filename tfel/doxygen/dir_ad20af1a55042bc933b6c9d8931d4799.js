@@ -1,6 +1,8 @@
 var dir_ad20af1a55042bc933b6c9d8931d4799 =
 [
     [ "MatrixViewFromTensor.hxx", "_matrix_view_from_tensor_8hxx.html", "_matrix_view_from_tensor_8hxx" ],
+    [ "PiolaTransformation.hxx", "_piola_transformation_8hxx.html", "_piola_transformation_8hxx" ],
+    [ "PiolaTransformation.ixx", "_piola_transformation_8ixx.html", "_piola_transformation_8ixx" ],
     [ "tensor.ixx", "tensor_8ixx.html", "tensor_8ixx" ],
     [ "TensorConcept.hxx", "_tensor_concept_8hxx.html", "_tensor_concept_8hxx" ],
     [ "TensorConcept.ixx", "_tensor_concept_8ixx.html", "_tensor_concept_8ixx" ],

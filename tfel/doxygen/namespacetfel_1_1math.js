@@ -784,6 +784,8 @@ var namespacetfel_1_1math =
     [ "computeLinearInterpolation", "namespacetfel_1_1math.html#a69bca031867ff6567faaa6009ebb6d17", null ],
     [ "computeLinearInterpolationAndDerivative", "namespacetfel_1_1math.html#a5d12e566c669ea3d38ed9f0c5a90d869", null ],
     [ "computeNumericalDerivative", "namespacetfel_1_1math.html#a9ce5052f3be1ed8aafc46864ee173477", null ],
+    [ "computePiolaTransformOfIdentityMatrixInReferenceConfiguration", "namespacetfel_1_1math.html#a9f62b0c188bda4716bf99a367ad087a8", null ],
+    [ "computePiolaTransformOfIdentityMatrixInReferenceConfiguration", "namespacetfel_1_1math.html#af449b8d61f13640143e2f149866cefcd", null ],
     [ "computePushForwardDerivative", "namespacetfel_1_1math.html#ab62750a94ae53e7368c33d9226c607f3", null ],
     [ "computePushForwardDerivative", "namespacetfel_1_1math.html#a1e24e4e64d5cbe2a7210bac5542aec0a", null ],
     [ "computePushForwardDerivative", "namespacetfel_1_1math.html#a085f381aceaa2ad227f02d83b369a871", null ],

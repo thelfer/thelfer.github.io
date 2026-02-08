@@ -26,8 +26,6 @@ var dir_9c6f9dfbe000c54e72b60c70482b6bf0 =
     [ "FiniteStrainBehaviourTangentOperator.hxx", "_finite_strain_behaviour_tangent_operator_8hxx.html", "_finite_strain_behaviour_tangent_operator_8hxx" ],
     [ "FiniteStrainBehaviourTangentOperator.ixx", "_finite_strain_behaviour_tangent_operator_8ixx.html", "_finite_strain_behaviour_tangent_operator_8ixx" ],
     [ "FiniteStrainBehaviourTangentOperatorBase.hxx", "_finite_strain_behaviour_tangent_operator_base_8hxx.html", "_finite_strain_behaviour_tangent_operator_base_8hxx" ],
-    [ "FiniteStrainHeatTransfer.hxx", "_finite_strain_heat_transfer_8hxx.html", "_finite_strain_heat_transfer_8hxx" ],
-    [ "FiniteStrainHeatTransfer.ixx", "_finite_strain_heat_transfer_8ixx.html", "_finite_strain_heat_transfer_8ixx" ],
     [ "GursonTvergaardNeedleman.hxx", "_gurson_tvergaard_needleman_8hxx.html", "_gurson_tvergaard_needleman_8hxx" ],
     [ "GursonTvergaardNeedleman1982StressCriterion.hxx", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx" ],
     [ "GursonTvergaardNeedleman1982StressCriterion.ixx", "_gurson_tvergaard_needleman1982_stress_criterion_8ixx.html", "_gurson_tvergaard_needleman1982_stress_criterion_8ixx" ],

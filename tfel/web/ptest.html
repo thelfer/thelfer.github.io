@@ -1,0 +1,716 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Simulation of pipes in MTest</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2026-08-02" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel/">Github repository</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/releases">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.9</a></li>
+		    <li><a href="release-notes-3.0.10.html">Version 3.0.10</a></li>
+		    <li><a href="release-notes-3.0.11.html">Version 3.0.11</a></li>
+		    <li><a href="release-notes-3.0.12.html">Version 3.0.12</a></li>
+		    <li><a href="release-notes-3.0.13.html">Version 3.0.13</a></li>
+		    <li><a href="release-notes-3.0.14.html">Version 3.0.14</a></li>
+		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
+		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
+		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		    <li><a href="release-notes-3.1.8.html">Version 3.1.8</a></li>
+		    <li><a href="release-notes-3.1.9.html">Version 3.1.9</a></li>
+		    <li><a href="release-notes-3.1.10.html">Version 3.1.10</a></li>
+		    <li><a href="release-notes-3.1.11.html">Version 3.1.11</a></li>
+		    <li><a href="release-notes-3.1.12.html">Version 3.1.12</a></li>
+		    <li><a href="release-notes-3.1.13.html">Version 3.1.13</a></li>
+		    <li><a href="release-notes-3.1.14.html">Version 3.1.14</a></li>
+		    <li><a href="release-notes-3.1.15.html">Version 3.1.15</a></li>
+		    <li><a href="release-notes-3.1.16.html">Version 3.1.16</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.5</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.6</a></li>
+		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
+		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
+		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
+		    <li><a href="release-notes-3.2.12.html">Version 3.2.12</a></li>
+		    <li><a href="release-notes-3.2.13.html">Version 3.2.13</a></li>
+		    <li><a href="release-notes-3.2.14.html">Version 3.2.14</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
+		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
+		    <li><a href="release-notes-3.3.7.html">Version 3.3.7</a></li>
+		    <li><a href="release-notes-3.3.7.html">Version 3.3.8</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
+		    <li><a href="release-notes-3.4.3.html">Version 3.4.3</a></li>
+		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
+		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
+		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
+		    <li><a href="release-notes-3.4.8.html">Version 3.4.8</a></li>
+		    <li><a href="release-notes-3.4.9.html">Version 3.4.9</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		    <li><a href="release-notes-4.0.1.html">Version 4.0.1</a></li>
+		    <li><a href="release-notes-4.0.2.html">Version 4.0.2</a></li>
+		    <li><a href="release-notes-4.0.3.html">Version 4.0.3</a></li>
+		    <li><a href="release-notes-4.0.4.html">Version 4.0.4</a></li>
+		    <li><a href="release-notes-4.0.5.html">Version 4.0.5</a></li>
+		    <li><a href="release-notes-4.0.6.html">Version 4.0.6</a></li>
+		    <li><a href="release-notes-4.0.7.html">Version 4.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.1.html">Version 4.1.0</a></li>
+		    <li><a href="release-notes-4.1.1.html">Version 4.1.1</a></li>
+		    <li><a href="release-notes-4.1.2.html">Version 4.1.2</a></li>
+		    <li><a href="release-notes-4.1.3.html">Version 4.1.3</a></li>
+		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
+		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
+		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.2.html">Version 4.2.0</a></li>
+		    <li><a href="release-notes-4.2.1.html">Version 4.2.1</a></li>
+		    <li><a href="release-notes-4.2.2.html">Version 4.2.2</a></li>
+		    <li><a href="release-notes-4.2.3.html">Version 4.2.3</a></li>
+		    <li><a href="release-notes-4.2.4.html">Version 4.2.4</a></li>
+		    <li><a href="release-notes-4.2.5.html">Version 4.2.5</a></li>
+		    <li><a href="release-notes-4.2.6.html">Version 4.2.6</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		    <li><a href="release-notes-5.0.2.html">Version 5.0.2</a></li>
+		    <li><a href="release-notes-5.0.3.html">Version 5.0.3</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
+		    <li><a href="release-notes-5.1.1.html">Version 5.1.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="https://thelfer.github.io/tfel/doxygen/index.html">Doxygen documentation</a></li>
+	    <li><a>MFront</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The Implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-material-property-interface.html">Generic interface for material properties</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic interface for behaviours</a></li>
+		  </ul>
+		</li>
+                 <li><a>MFront keywords</a>
+    	              <ul>
+    	        <li><a href="Default-keywords.html">Default</a></li>
+    	        <li><a href="DefaultCZM-keywords.html">DefaultCZM</a></li>
+    	        <li><a href="DefaultFiniteStrain-keywords.html">DefaultFiniteStrain</a></li>
+    	        <li><a href="DefaultGenericBehaviour-keywords.html">DefaultGenericBehaviour</a></li>
+    	        <li><a href="DefaultModel-keywords.html">DefaultModel</a></li>
+    	        <li><a href="Implicit-keywords.html">Implicit</a></li>
+    	        <li><a href="ImplicitCZM-keywords.html">ImplicitCZM</a></li>
+    	        <li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li>
+    	        <li><a href="ImplicitGenericBehaviour-keywords.html">ImplicitGenericBehaviour</a></li>
+    	        <li><a href="ImplicitModel-keywords.html">ImplicitModel</a></li>
+    	        <li><a href="ImplicitII-keywords.html">ImplicitII</a></li>
+    	        <li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li>
+    	        <li><a href="IsotropicMisesPlasticFlow-keywords.html">IsotropicMisesPlasticFlow</a></li>
+    	        <li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li>
+    	        <li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li>
+    	        <li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li>
+    	        <li><a href="MaterialProperty-keywords.html">MaterialProperty</a></li>
+    	        <li><a href="Model-keywords.html">Model</a></li>
+    	        <li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li>
+    	        <li><a href="RungeKutta-keywords.html">RungeKutta</a></li>
+    	        <li><a href="RungeKuttaFiniteStrain-keywords.html">RungeKuttaFiniteStrain</a></li>
+    	        <li><a href="RungeKuttaGenericBehaviour-keywords.html">RungeKuttaGenericBehaviour</a></li>
+    	        <li><a href="RungeKuttaModel-keywords.html">RungeKuttaModel</a></li>
+    	      </ul>
+                </li>
+	      </ul>
+	    </li>
+	    <li><a href="mtest.html">MTest</a>
+               <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
+	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
+              <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	      </ul>
+            </li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="libraries_usage.html">Usage of the TFEL libraries in C++</a></li>
+		<li><a href="tfel-math.html">TFEL/Math</a></li>
+                 <ul>
+		  <li><a href="tfel-math-numerical-integration.html">Numerical integeration</a></li>
+		  <li><a href="tfel-math-data-interpolation.html">Data interpolation</a></li>
+	        </ul>
+		<li><a href="tfel-material.html">TFEL/Material</a></li>
+                 <li><a href="glossary.html">Glossary</a></li>
+                 <li><a href="physical-constants.html">Physical constants</a></li>
+		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">Simulation of pipes in MTest</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">08/02/2026</h3>
+</div>
+<h1 id="usage">Usage</h1>
+<p><code>MTest</code> can also be used to model a pipe subjected to
+various loadings. This extension to pipes is often referred to as
+<code>PTest</code>.</p>
+<p>By default, <code>MTest</code> considers a unique material point.
+Switching to pipe modeling can be done by either using a file with the
+extension <code>.ptest</code> or by using the command-line option
+<code>--scheme=ptest</code>.</p>
+<h2 id="getting-help-on-the-command-line">Getting help on the command
+line</h2>
+<p>The following line allows displaying the list of supported
+keywords:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mtest</span> <span class="at">--scheme</span><span class="op">=</span>ptest <span class="at">--help-keywords-list</span></span></code></pre></div>
+<p>The help associated with a given keyword can be displayed using the
+following <code>--help-keyword</code> command line argument, as in the
+following example:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mtest</span> <span class="at">--scheme</span><span class="op">=</span>ptest <span class="at">--help-keyword</span><span class="op">=</span>@RadialLoading</span></code></pre></div>
+<h2 id="a-simple-tutorial">A simple tutorial</h2>
+<h1 id="overview-and-modeling-hypotheses">Overview and modeling
+hypotheses</h1>
+<h1 id="behaviours">Behaviours</h1>
+<!--
+## Issue 20: [mtest] Declaration of a behaviour wrapper in python module
+
+As described in Section @sec:tfel_4.1:pymtest:behaviour_constructor,
+named parameters are now supported in the constructor of the `Behaviour`
+class. The (optional) `wrapper` argument can now be used to specify a
+behaviour wrapper.
+
+Currently, two behaviours wrappers are available:
+
+- `LogarithmicStrain1D`: which turns a small strain behaviour in
+  axisymmetrical generalised plane strain into a finite strain behaviour
+  in the logarithmic strain framework following the ETO-PK1 kinematic
+  assumption used by the `MTest` for the simulation of pipe in finite
+  strain.
+- `SmallStrainTridimensionalBehaviourWrapper` which allows to use a
+  small strain tridimensional behaviour under the following modelling
+  hypotheses: axisymmetrical generalised plane strain, plane strain,
+  axisymmetry.
+
+For more details, see : <https://github.com/thelfer/tfel/issues/20>.
+
+## Issue 18: [mtest] Usage of a `3D` behaviour in `ptest`
+
+Thanks the `SmallStrainTridimensionalBehaviourWrapper` class detailled
+in Section
+@sec:tfel_4.1:mtest:small_strain_tridimensional_behaviour_wrapper,
+tridimensional behaviours can be used under the following modelling
+hypotheses: generalised plane strain, plane strain, axisymmetrical
+generalised plane strain
+
+-->
+<h1 id="geometry-and-finite-element-discretization">Geometry and finite
+element discretization</h1>
+<h2 id="geometry">Geometry</h2>
+<p>The geometry of the pipe is specified using the self-explanatory
+keywords <code>@InnerRadius</code> and <code>@OuterRadius</code>.</p>
+<h2 id="finite-element-discretization">Finite element
+discretization</h2>
+<p>The finite element discretization is specified using the
+self-explanatory keywords <code>@ElementType</code> and
+<code>@NumberOfElements</code>. The following element types are
+supported: <code>Linear</code> and <code>Quadratic</code>. By default,
+quadratic elements are used.</p>
+<h2 id="type-of-analysis">Type of analysis</h2>
+<p>By default, simulations are done in a finite strain framework. The
+<code>@PerformSmallStrainAnalysis</code>, which is followed by a
+boolean, allows switching to a resolution under the infinitesimal strain
+hypothesis.</p>
+<h1 id="radial-loadings">Radial loadings</h1>
+<p>The <code>RadialLoading</code> keyword let the user choose the kind
+of loading to be applied to the pipe in radial direction.</p>
+<p>This keyword is followed by a string. The following loading are
+supported:</p>
+<ul>
+<li><code>ImposedPressure</code>: the inner pressure is specified by the
+user. This is default.</li>
+<li><code>TightPipe</code>: the total amount of substance of the gas is
+constant.</li>
+<li><code>ImposedOuterRadius</code>: the evolution of the outer radius
+is specified by the user.</li>
+<li><code>ImposedInnerRadius</code>: the evolution of the inner radius
+is specified by the user.</li>
+</ul>
+<p>Note that the modeling of a mandrel may affect the axial loading once
+the pipe and the mandrel are in contact. Modeling of a mandrel is
+detailed below in a dedicated section.</p>
+<h2 id="imposed-inner-pressure-loading">Imposed inner pressure
+loading</h2>
+<h2 id="imposed-outer-pressure-loading">Imposed outer pressure
+loading</h2>
+<h2 id="imposed-inner-radius-loading">Imposed inner radius loading</h2>
+<p><code>PTest</code> now supports imposing the evolution of the inner
+radius of the pipe. In this case, <code>PTest</code> adds the inner
+pressure as an unknown and reports it in the output file.</p>
+<h3 id="example-of-usage">Example of usage</h3>
+<p>The following code shows how to impose the evolution of the inner
+radius of the pipe:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RadialLoading <span class="ch">&#39;I</span><span class="er">mposedInnerRadius</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InnerRadiusEvolution<span class="op">{</span><span class="dv">0</span> <span class="op">:</span> <span class="fl">4.2e-3</span><span class="op">,</span> <span class="dv">1</span> <span class="op">:</span> <span class="fl">4.3e-3</span><span class="op">};</span></span></code></pre></div>
+<h2 id="tight-pipe">Tight pipe</h2>
+<p><code>MTest</code> is able to model a tight pipe, which assumes that
+the amount of substance of the gas inside the pipe is constant. The
+evolution of the inner pressure is linked to the temperature and radius
+evolution through the gas equation of state. By default, the equation of
+state of a perfect gas is used.</p>
+<h3 id="specifying-the-gas-equation-of-state">Specifying the gas
+equation of state</h3>
+<p>The equation of state of the gas can be specified using the
+<code>@GasEquationOfState</code> keyword.</p>
+<p>This keywords expects a function <span
+class="math inline">\(f\paren{P,V,T}\)</span> such that the equation of
+state is:</p>
+<p><span id="eq:GasEquationOfState"><span class="math display">\[
+f\paren{P,V,T, n}=0
+\qquad{(1)}\]</span></span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(P\)</span> is the inner pressure in the
+pipe.</li>
+<li><span class="math inline">\(V\)</span> is the volume of gas in a
+pipe of unit height. For small strain analyses, <span
+class="math inline">\(V\)</span> is equal to the initial volume of the
+pipe. For finite strain analysis, <span class="math inline">\(V\)</span>
+is computed by: <span class="math display">\[
+V = \pi \, \ets{R}^{2} \, \paren{1 + \ets{\varepsilon_{zz}}}
+\]</span> where <span class="math inline">\(\ets{R}\)</span> and <span
+class="math inline">\(\ets{\varepsilon_{zz}}\)</span> are respectively
+the current estimation of the radius and the current estimation of the
+linear axial strain at the end of the time.</li>
+<li><span class="math inline">\(T\)</span> is the current value of
+temperature at the inner surface of the pipe (the temperature is assumed
+homogeneous inside the pipe).</li>
+<li><span class="math inline">\(n\)</span> is the amount of substance of
+the gas. This quantity is assumed constant during the experiment. Its
+value is deduced from Equation (1) by using:
+<ul>
+<li>The filling pressure (see the <code>@FillingPressure</code>
+keyword).</li>
+<li>The filling temperature (see the <code>@FillingTemperature</code>
+keyword).</li>
+<li>The initial inner radius of the pipe<a href="#fn1"
+class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>.</li>
+</ul></li>
+</ul>
+<h4 id="a-first-example">A first example</h4>
+<p>In this example, the equation of state of a perfect gas is
+specified:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FillingPressure      <span class="fl">1.e5</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FillingTemperature <span class="fl">293.15</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;R&#39;</span> <span class="fl">8.314</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>GasEquationOfState <span class="ch">&#39;P</span><span class="er">*V-n*R*T</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
+<h4 id="a-second-example">A second example</h4>
+<p>In this example, the equation of state of a perfect gas is specified,
+but one can consider a case where the gas only occupies a fraction <span
+class="math inline">\(\alpha\,V\)</span> of the volume inside the
+pipe:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FillingPressure      <span class="fl">1.e5</span><span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FillingTemperature <span class="fl">293.15</span><span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;R&#39;</span> <span class="fl">8.314</span><span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;a&#39;</span> <span class="ch">&#39;0</span><span class="er">.8</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>GasEquationOfState <span class="ch">&#39;P</span><span class="er">*a*V-n*R*T</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
+<h1 id="axial-loadings">Axial loadings</h1>
+<p>The <code>AxialLoading</code> keyword let the user choose the kind of
+loading to be applied to the pipe in the axial direction.</p>
+<p>This keyword is followed by a string. The following loadings are
+supported:</p>
+<ul>
+<li><code>None</code>: no loading is applied to the pipe.</li>
+<li><code>EndCapEffect</code>: loading applied to the pipe model the
+inner and outer pressure effects on a closed pipe. This is the
+default.</li>
+<li><code>ImposedAxialForce</code>: the axial force acting of the pipe
+is specified by the user.</li>
+<li><code>ImposedAxialGrowth</code>: the axial growth of the pipe is
+specified by the user.</li>
+</ul>
+<p>Note that the modeling of a mandrel may affect the axial loading once
+the pipe and the mandrel are in contact. Modeling of a mandrel is
+detailed below in a dedicated section.</p>
+<h2 id="end-cap-effect">End-cap effect</h2>
+<h2 id="imposed-axial-growth">Imposed axial growth</h2>
+<p>See the <code>@AxialGrowthEvolution</code> for details.</p>
+<h2 id="imposed-axial-force">Imposed axial force</h2>
+<p>See the <code>@AxialForceEvolution</code> for details.</p>
+<h1 id="modeling-a-non-deformable-mandrel-inside-the-pipe">Modeling a
+non-deformable mandrel inside the pipe</h1>
+<p>The effect of a mandrel located inside the pipe can be modelled by
+defining the evolution of its radius <span
+class="math inline">\(R_{m}\)</span> using the
+<code>@MandrelRadiusEvolution</code> keyword. The inner radius <span
+class="math inline">\(R_{i}\)</span> will then satisfy the following
+unilateral boundary condition:</p>
+<p><span class="math display">\[
+R_{i} - R_{m} \geq 0
+\]</span></p>
+<p>This boundary condition is imposed by using a Lagrange multiplier.
+Its value is given by the contact pressure in the output file. The total
+pressure applied to the inner surface of the pipe is given by the sum of
+the imposed pressure (if any) and the contact pressure. Only the imposed
+inner pressure is used to compute the end cap effect.</p>
+<p>This boundary condition is not compatible with:</p>
+<ul>
+<li>boundary conditions imposing the evolution of the inner radius of
+the pipe or the outer radius of the pipe.</li>
+<li>the modelling of a tight pipe.</li>
+</ul>
+<h2 id="axial-binding">Axial binding</h2>
+<p>If the evolution of the axial growth of the mandrel is defined using
+the <code>@MandrelAxialGrowthEvolution</code> keyword, an axial binding
+between the mandrel and the pipe is assumed, i.e. the difference between
+the axial growth of the pipe <span
+class="math inline">\(\varepsilon^{p}_{zz}\)</span> and the axial growth
+of the mandrel <span class="math inline">\(\varepsilon^{p}_{zz}\)</span>
+is assumed to be constant to its value when the contact between the
+mandrel and the pipe is detected:</p>
+<p><span class="math display">\[
+\varepsilon^{p}_{zz}-\varepsilon^{m}_{zz}=\textrm{Cste}
+\]</span></p>
+<p>This axial boundary condition is not compatible with the boundary
+condition imposing the evolution of the axial growth of the pipe.</p>
+<h1 id="support-for-failure-criteria-for-pipes">Support for failure
+criteria for pipes</h1>
+<p>Failure criteria can be added to pipe modelling using the
+<code>@FailureCriterion</code> keyword. Note that no failure criterion
+is currently shipped with <code>MTest</code>.</p>
+<p>A failure criterion is called at the end of each time step to detect
+failure of the pipe.</p>
+<p>Each failure criterion adds a column to the output file giving the
+status of the criterion:</p>
+<ul>
+<li><code>0</code> means that the criterion is not met, i.e. no failure
+is detected and the pipe is sound.</li>
+<li><code>1</code> means that the criterion is met, i.e. failure is
+detected and the pipe is broken.</li>
+</ul>
+<p>In case of failure, three policies can be selected using the
+<code>@FailurePolicy</code> keyword:</p>
+<ul>
+<li><code>ReportOnly</code>: failure does not affect computation. The
+evaluation of the failure criteria only affects the output file.</li>
+<li><code>StopComputation</code>: failure leads to reject the current
+time step. If substepping is enabled, the time step is divided by two.
+With this policy, one can thus only approach the failure time, but never
+go beyond.</li>
+<li><code>FreezeState</code> (or
+<code>FreezeStateUntilEndOfComputation</code>): if a failure is
+detected, the state of the structure is frozen and does not evolve. No
+equilibrium is performed, the behaviour is no more called and
+<code>PipeTest</code> will output the same results again and again until
+the end of computation. This option may be useful when optimizing
+material parameters.</li>
+</ul>
+<h2 id="example-of-usage-1">Example of usage</h2>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FailurePolicy <span class="ch">&#39;F</span><span class="er">reezeState</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FailureCriterion <span class="ch">&#39;E</span><span class="er">longationAtBreak</span><span class="ch">&#39;</span> <span class="op">{</span>maximum_value <span class="op">:</span> <span class="fl">1e-4</span><span class="op">};</span></span></code></pre></div>
+<h1 id="support-for-oxidation-models-for-pipes">Support for oxidation
+models for pipes</h1>
+<p>The <code>@OxidationModel</code> keyword introduces a model which
+computes an oxidation length at either the inner boundary or the outer
+boundary of the pipe. This keyword must be followed by a data map with
+the following entries:</p>
+<ul>
+<li><code>model</code>: the name of model.</li>
+<li><code>library</code>: the name of the library in which the model is
+available.</li>
+<li><code>boundary</code>: the name of boundary on which the model is
+defined. This variable must be equal to <code>inner_boundary</code> or
+<code>outer_boundary</code>.</li>
+</ul>
+<p>An oxidation model must define an internal state variable named
+<code>OxidationLength</code>. The values of the material properties and
+external state variables passed to an oxidation model are computed on
+the boundary on which the model is defined.</p>
+<p>The definition of at least one oxidation model automatically defines
+an evolution named <code>OxidationStatus</code> which states if an
+integration point is inside an oxidation layer.</p>
+<h2 id="example-of-usage-2">Example of usage</h2>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">@OxidationModel</span>{</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  model : <span class="st">&#39;umatm5deziroxoxidationmodel_srma2020b&#39;</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  library : <span class="st">&#39;src/libUmatM5.so&#39;</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  boundary : <span class="st">&#39;outer_boundary&#39;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<h1 id="post-processings">Post-processings</h1>
+<h2
+id="the-computeintegralvalue-and-computemeanvalue-post-processings">The
+<code>computeIntegralValue</code> and <code>computeMeanValue</code>
+post-processings</h2>
+<p>The <code>computeIntegralValue</code> and
+<code>computeMeanValue</code> post-processings allows calculating the
+integral and the average of a scalar value in the thickness of the pipe.
+Those functions allows to calculating those quantities in the current or
+initial configurations</p>
+<h3 id="example-of-usage-3">Example of usage</h3>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalOutputs <span class="op">{</span><span class="ch">&#39;m</span><span class="er">ean_value_initial_configuration</span><span class="ch">&#39;</span><span class="op">:</span><span class="ch">&#39;S</span><span class="er">RR</span><span class="ch">&#39;</span><span class="op">,</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                    <span class="ch">&#39;m</span><span class="er">ean_value_current_configuration</span><span class="ch">&#39;</span><span class="op">:</span><span class="ch">&#39;S</span><span class="er">RR</span><span class="ch">&#39;</span><span class="op">};</span> <span class="co">// compute mean values of SRR</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalOutputs <span class="op">{</span><span class="ch">&#39;i</span><span class="er">ntegral_value_initial_configuration</span><span class="ch">&#39;</span><span class="op">:</span><span class="ch">&#39;S</span><span class="er">RR</span><span class="ch">&#39;</span><span class="op">,</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                    <span class="ch">&#39;i</span><span class="er">ntegral_value_current_configuration</span><span class="ch">&#39;</span><span class="op">:</span><span class="ch">&#39;S</span><span class="er">RR</span><span class="ch">&#39;</span><span class="op">};</span> <span class="co">// compute integral values of SRR</span></span></code></pre></div>
+<aside id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Using the initial inner radius of the pipe generally
+endows an approximation as the initial radius is usually known before
+the gas is introduced in the pipe.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

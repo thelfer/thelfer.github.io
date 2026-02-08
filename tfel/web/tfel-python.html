@@ -324,6 +324,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -940,14 +941,17 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb29-1"><a href=
 <div class="sourceCode" id="cb30"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>hmDS<span class="op">=</span>hm.computeDiluteScheme(micro_1)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>hmMT<span class="op">=</span>hm.computeMoriTanakaScheme(micro_1)</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>hmSC<span class="op">=</span>hm.computeSelfConsistentScheme(micro_1,<span class="dv">10</span>,<span class="va">True</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>hmSC<span class="op">=</span>hm.computeSelfConsistentScheme(micro_1,<span class="fl">1e-6</span>,<span class="va">True</span>)</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;DS: &quot;</span>,hmDS.homogenized_stiffness)</span>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;MT: &quot;</span>,hmMT.homogenized_stiffness)</span>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;SC: &quot;</span>,hmSC.homogenized_stiffness)</span></code></pre></div>
 <p>We note that <code>computeSelfConsistentScheme</code> not only takes
-the microstructure as an argument, but also takes one integer
-(<code>10</code>) as a parameter, which is the maximum number of
-iteration in the self-consistent iterative algorithm. Moreover, the
+the microstructure as an argument, but also takes one real
+(<code>1e-6</code>) as a parameter, which pilots the precision of the
+result. Indeed, at each iteration of the self-consistent iterative
+algorithm, the function computes the relative difference between the new
+and the old homogenized stiffness. This relative difference must be
+smaller than the tolerance given as a parameter. Moreover, the
 <code>bool</code> parameter (<code>True</code>) precises if the
 computation considers an isotropic matrix when computing the Hill
 tensors relative to the inclusions, at each iteration of the algorithm.

@@ -3,17 +3,16 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>MTest: unit mechanical behaviour testing</title>
-        <meta name="author" content="Helfer Thomas" />
-        <meta name="author" content="Jean-Michel Proix" />
-            <meta name="date" content="2014-08-19" />
+    <title>MTest: unit testing of behaviours</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2026-08-02" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
@@ -325,6 +324,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -382,23 +382,23 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">MTest: unit mechanical behaviour testing</h1>
-<h2 class="author">Helfer Thomas</h2>
-<h2 class="author">Jean-Michel Proix</h2>
-<h3 class="date">August 19, 2014</h3>
+<h1 class="title">MTest: unit testing of behaviours</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">08/02/2026</h3>
 </div>
 <h1 id="overview">Overview</h1>
 <p><code>MFront</code> comes with a handy and easy-to-use tool called
 <code>MTest</code>. This tool handles two types of computations:</p>
 <ul>
-<li>The description of a single material point.</li>
-<li>The description of a pipe, subject to various kinds of
-loadings.</li>
+<li>the description of a single material point,</li>
+<li>the description of a pipe, subjected to various kinds of loadings.
+This feature is detailed in <a href="%60ptest.md%60">a dedicated
+page</a>.</li>
 </ul>
 <p>From various benchmarks, this tool has been found much faster (from
 ten to several hundred times depending on the test case) than using a
 full-fledged finite element solver such as <code>Cast3M</code> or
-<code>Code_Aster</code>.</p>
+<code>code_aster</code>.</p>
 <p>The <code>mtest</code> python module, described <a
 href="mtest-python.html">here</a>, allows much finer control of the
 computations.</p>
@@ -432,15 +432,18 @@ option</h3>
 keyword. If this keyword is specific to the simulation of a pipe, use
 <code>--scheme=ptest</code> option <em>before</em> the
 <code>--help-keyword</code> option.</p>
-<h1 id="material-point">Material point</h1>
+<h1 id="simulation-of-a-material-point">Simulation of a material
+point</h1>
 <p><code>MTest</code> can test the local behaviour of a material, by
 imposing independent constraints on each component of the driving
 variables (or deformation gradient or the stress). It is equivalent to
 the <code>SIMU_POINT_MAT</code> operator available within the
 <code>Code-Aster</code> finite element solver <span class="citation"
-data-cites="edf_macro-commande_2013">[1]</span> or to the
-<code>SiDoLo</code> software <span class="citation"
-data-cites="pilvin_sidolo_2003">[2]</span>.</p>
+data-cites="edf_macro-commande_2013">[<a
+href="#ref-edf_macro-commande_2013" role="doc-biblioref">1</a>]</span>
+or to the <code>SiDoLo</code> software <span class="citation"
+data-cites="pilvin_sidolo_2003">[<a href="#ref-pilvin_sidolo_2003"
+role="doc-biblioref">2</a>]</span>.</p>
 <p><code>MTest</code> can be used to model various experiments, as far
 as a stage implying strain localisation is not reached: tensile,
 compressive or shear tests driven by stresses or deformations, pipe
@@ -461,13 +464,16 @@ hypotheses;</li>
 behaviours. For example, user can compare the computed tangent
 consistent operator to a numerical approximation;</li>
 <li>a C++ library and a Python interface <span class="citation"
-data-cites="von_rossum_python_2007">[3]</span>. <code>MTest</code> can
-be embedded in general purpose scientific environment to fit behaviour
-parameters against experimental data. In particular, <code>MTest</code>
-can be used in ADAO <span class="citation"
-data-cites="salome_adao_2014">[4]</span>, a module for Data Assimilation
-and Optimization of the Salome platform <span class="citation"
-data-cites="salome_open_2014">[5]</span>;</li>
+data-cites="von_rossum_python_2007">[<a
+href="#ref-von_rossum_python_2007" role="doc-biblioref">3</a>]</span>.
+<code>MTest</code> can be embedded in general purpose scientific
+environment to fit behaviour parameters against experimental data. In
+particular, <code>MTest</code> can be used in ADAO <span
+class="citation" data-cites="salome_adao_2014">[<a
+href="#ref-salome_adao_2014" role="doc-biblioref">4</a>]</span>, a
+module for Data Assimilation and Optimization of the Salome platform
+<span class="citation" data-cites="salome_open_2014">[<a
+href="#ref-salome_open_2014" role="doc-biblioref">5</a>]</span>;</li>
 <li>comparison of the results (strains, stresses, internal state
 variables) to reference or analytical results. <code>MTest</code>
 automatically generates XML file using the <a
@@ -492,173 +498,6 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 <span id="MTestPlasticity-6"><a href="#MTestPlasticity-6"></a><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;T</span><span class="er">emperature</span><span class="ch">&#39;</span> <span class="op">{</span><span class="dv">0</span><span class="op">:</span><span class="fl">293.15</span><span class="op">,</span><span class="fl">3600.</span><span class="op">:</span><span class="dv">800</span><span class="op">};</span></span>
 <span id="MTestPlasticity-7"><a href="#MTestPlasticity-7"></a><span class="er">@</span>ImposedStrain<span class="op">&lt;</span>function<span class="op">&gt;</span> <span class="ch">&#39;E</span><span class="er">XX</span><span class="ch">&#39;</span> <span class="ch">&#39;1</span><span class="er">.e-3*t</span><span class="ch">&#39;</span><span class="op">;</span></span>
 <span id="MTestPlasticity-8"><a href="#MTestPlasticity-8"></a><span class="er">@</span>Times <span class="op">{</span><span class="fl">0.</span><span class="op">,</span><span class="dv">1</span> in <span class="dv">20</span><span class="op">};</span></span></code></pre></div>
-<h1 id="simulation-of-a-pipe">Simulation of a pipe</h1>
-<p><code>MTest</code> can also be used to model a pipe subjected to
-various loadings.</p>
-<h2 id="radial-loadings">Radial loadings</h2>
-<h3 id="tight-pipe">Tight pipe</h3>
-<h4 id="specifying-the-gas-equation-of-state">Specifying the gas
-equation of state</h4>
-<p>The equation of state of the gas can be specified using the
-<code>@GasEquationOfState</code> keyword.</p>
-<p>This keywords expects a function <span
-class="math inline">\(f{\left(P,V,T\right)}\)</span> such that the
-equation of state is:</p>
-<p><span id="eq:GasEquationOfState"><span class="math display">\[
-f{\left(P,V,T, n\right)}=0
-\qquad{(1)}\]</span></span></p>
-<p>where:</p>
-<ul>
-<li><span class="math inline">\(P\)</span> is the inner pressure in the
-pipe.</li>
-<li><span class="math inline">\(V\)</span> is the volume of gas in a
-pipe of unit height. For small strain analyses, <span
-class="math inline">\(V\)</span> is equal to the initial volume of the
-pipe. For finite strain analysis, <span class="math inline">\(V\)</span>
-is computed by: <span class="math display">\[
-V = \pi \, {\left.R\right|_{t+\Delta\,t}}^{2} \, {\left(1 +
-{\left.\varepsilon_{zz}\right|_{t+\Delta\,t}}\right)}
-\]</span> where <span
-class="math inline">\({\left.R\right|_{t+\Delta\,t}}\)</span> and <span
-class="math inline">\({\left.\varepsilon_{zz}\right|_{t+\Delta\,t}}\)</span>
-are respectively the current estimation of the radius and the current
-estimation of the linear axial strain at the end of the time.</li>
-<li><span class="math inline">\(T\)</span> is the current value of
-temperature at the inner surface of the pipe (the temperature is assumed
-homogeneous inside the pipe).</li>
-<li><span class="math inline">\(n\)</span> is the amount of substance of
-the gas. This quantity is assumed constant during the experiment. Its
-value is deduced from Equation (1) by using:
-<ul>
-<li>The filling pressure (see the <code>@FillingPressure</code>
-keyword).</li>
-<li>The filling temperature (see the <code>@FillingTemperature</code>
-keyword).</li>
-<li>The initial inner radius of the pipe<a href="#fn1"
-class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a>.</li>
-</ul></li>
-</ul>
-<h5 id="a-first-example">A first example</h5>
-<p>In this example, the equation of state of a perfect gas is
-specified:</p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FillingPressure      <span class="fl">1.e5</span><span class="op">;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FillingTemperature <span class="fl">293.15</span><span class="op">;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;R&#39;</span> <span class="fl">8.314</span><span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>GasEquationOfState <span class="ch">&#39;P</span><span class="er">*V-n*R*T</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
-<h5 id="a-second-example">A second example</h5>
-<p>In this example, the equation of state of a perfect gas is specified,
-but one imagine that the gas can only occupy a fraction <span
-class="math inline">\(\alpha\,V\)</span> of the volume inside the
-pipe:</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FillingPressure      <span class="fl">1.e5</span><span class="op">;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FillingTemperature <span class="fl">293.15</span><span class="op">;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;R&#39;</span> <span class="fl">8.314</span><span class="op">;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;a&#39;</span> <span class="ch">&#39;0</span><span class="er">.8</span><span class="ch">&#39;</span><span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>GasEquationOfState <span class="ch">&#39;P</span><span class="er">*a*V-n*R*T</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
-<h2 id="axial-loadings">Axial loadings</h2>
-<h2 id="modelling-a-non-deformable-mandrel-inside">Modelling a
-non-deformable mandrel inside</h2>
-<p>The effect of a mandrel located inside the pipe can be modelled by
-defining the evolution of its radius <span
-class="math inline">\(R_{m}\)</span> using the
-<code>@MandrelRadiusEvolution</code> keyword. The inner radius <span
-class="math inline">\(R_{i}\)</span> will then satisfy the following
-unilateral boundary condition:</p>
-<p><span class="math display">\[
-R_{i} - R_{m} \geq 0
-\]</span></p>
-<p>This boundary condition is imposed by using a Lagrange multiplier.
-Its value is given by the contact pressure in the output file. The total
-pressure applied to the inner surface of the pipe is given by the sum of
-the imposed pressure (if any) and the contact pressure. Only the imposed
-inner pressure is used to compute the end cap effect.</p>
-<p>This boundary condition is not compatible with:</p>
-<ul>
-<li>boundary conditions imposing the evolution of the inner radius of
-the pipe or the outer radius of the pipe.</li>
-<li>the modelling of a tight pipe.</li>
-</ul>
-<h3 id="axial-binding">Axial binding</h3>
-<p>If the evolution of the axial growth of the mandrel is defined using
-the <code>@MandrelAxialGrowthEvolution</code> keyword, an axial binding
-between the mandrel and the pipe is assumed, i.e. the difference between
-the axial growth of the pipe <span
-class="math inline">\(\varepsilon^{p}_{zz}\)</span> and the axial growth
-of the mandrel <span class="math inline">\(\varepsilon^{p}_{zz}\)</span>
-is assumed to be constant to its value when the contact between the
-mandrel and the pipe is detected:</p>
-<p><span class="math display">\[
-\varepsilon^{p}_{zz}-\varepsilon^{m}_{zz}=\textrm{Cste}
-\]</span></p>
-<p>This axial boundary condition is not compatible with the boundary
-condition imposing the evolution of the axial growth of the pipe.</p>
-<h2 id="support-for-failure-criteria-for-pipes">Support for failure
-criteria for pipes</h2>
-<p>Failure criteria can be added to pipe modelling using the
-<code>@FailureCriterion</code> keyword. Note that no failure criterion
-is currently shipped with <code>MTest</code>.</p>
-<p>A failure criterion is called at the end of each time step to detect
-failure of the pipe.</p>
-<p>Each failure criterion adds a column to the output file giving the
-status of the criterion:</p>
-<ul>
-<li><code>0</code> means that the criterion is not met, i.e. no failure
-is detected and the pipe is sound.</li>
-<li><code>1</code> means that the criterion is met, i.e. failure is
-detected and the pipe is broken.</li>
-</ul>
-<p>In case of failure, three policies can be selected using the
-<code>@FailurePolicy</code> keyword:</p>
-<ul>
-<li><code>ReportOnly</code>: failure does not affect computation. The
-evaluation of the failure criteria only affects the output file.</li>
-<li><code>StopComputation</code>: failure leads to reject the current
-time step. If substepping is enabled, the time step is divided by two.
-With this policy, one can thus only approach the failure time, but never
-go beyond.</li>
-<li><code>FreezeState</code> (or
-<code>FreezeStateUntilEndOfComputation</code>): if a failure is
-detected, the state of the structure is frozen and does not evolve. No
-equilibrium is performed, the behaviour is no more called and
-<code>PipeTest</code> will output the same results again and again until
-the end of computation. This option may be useful when optimizing
-material parameters.</li>
-</ul>
-<h3 id="example-of-usage">Example of usage</h3>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FailurePolicy <span class="ch">&#39;F</span><span class="er">reezeState</span><span class="ch">&#39;</span><span class="op">;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>FailureCriterion <span class="ch">&#39;E</span><span class="er">longationAtBreak</span><span class="ch">&#39;</span> <span class="op">{</span>maximum_value <span class="op">:</span> <span class="fl">1e-4</span><span class="op">};</span></span></code></pre></div>
-<h2 id="support-for-oxidation-models-for-pipes">Support for oxidation
-models for pipes</h2>
-<p>The <code>@OxidationModel</code> keyword introduces a model which
-computes an oxidation length at either the inner boundary or the outer
-boundary of the pipe. This keyword must be followed by a data map with
-the following entries:</p>
-<ul>
-<li><code>model</code>: the name of model.</li>
-<li><code>library</code>: the name of the library in which the model is
-available.</li>
-<li><code>boundary</code>: the name of boundary on which the model is
-defined. This variable must be equal to <code>inner_boundary</code> or
-<code>outer_boundary</code>.</li>
-</ul>
-<p>An oxidation model must define an internal state variable named
-<code>OxidationLength</code>. The values of the material properties and
-external state variables passed to an oxidation model are computed on
-the boundary on which the model is defined.</p>
-<p>The definition of at least one oxidation model automatically defines
-an evolution named <code>OxidationStatus</code> which states if an
-integration point is inside an oxidation layer.</p>
-<h3 id="example-of-usage-1">Example of usage</h3>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">@OxidationModel</span>{</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  model : <span class="st">&#39;umatm5deziroxoxidationmodel_srma2020b&#39;</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  library : <span class="st">&#39;src/libUmatM5.so&#39;</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  boundary : <span class="st">&#39;outer_boundary&#39;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references csl-bib-body" role="list">
@@ -699,16 +538,6 @@ class="csl-right-inline"><span class="smallcaps">Salome</span>. The
 href="http://www.salome-platform.org/">http://www.salome-platform.org/</a></div>
 </div>
 </div>
-<aside id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p>Using the initial inner radius of the pipe generally
-endows an approximation as the initial radius is usually known before
-the gas is introduced in the pipe.<a href="#fnref1"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</aside>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

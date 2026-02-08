@@ -214,18 +214,34 @@
 </div>
 <div id="TOC">
 <ul>
+<li><a href="#documentation" id="toc-documentation">Documentation</a>
+<ul>
+<li><a href="#new-cmake-options" id="toc-new-cmake-options">New
+<code>cmake</code> options</a>
+<ul>
+<li><a href="#hdf5-support" id="toc-hdf5-support">HDF5 support</a></li>
+</ul></li>
+<li><a href="#doxygen-documentation"
+id="toc-doxygen-documentation"><code>Doxygen</code>
+documentation</a></li>
+</ul></li>
 <li><a href="#new-features" id="toc-new-features">New features</a>
 <ul>
 <li><a
 href="#scripts-to-define-environment-variables-for-mgis-to-work-properly"
 id="toc-scripts-to-define-environment-variables-for-mgis-to-work-properly">Scripts
-to define environment variables for <code>mGIS</code> to work
+to define environment variables for <code>MGIS</code> to work
 properly</a></li>
 </ul></li>
 <li><a href="#new-features-of-the-mgisbehaviour-library"
 id="toc-new-features-of-the-mgisbehaviour-library">New features of the
 <code>MGIS/Behaviour</code> library</a>
 <ul>
+<li><a
+href="#saverestore-operations-in-materialstatemanager-and-materialdatamanager"
+id="toc-saverestore-operations-in-materialstatemanager-and-materialdatamanager">Save/restore
+operations in <code>MaterialStateManager</code> and
+<code>MaterialDataManager</code></a></li>
 <li><a
 href="#control-on-variables-updatedreverted-in-materialstatemanager"
 id="toc-control-on-variables-updatedreverted-in-materialstatemanager">Control
@@ -252,6 +268,15 @@ id="toc-stridedcoalescedmemoryaccesscompositetensorsview"><code>StridedCoalesced
 <li><a href="#issues-fixed" id="toc-issues-fixed">Issues fixed</a>
 <ul>
 <li><a
+href="#issue-210-documentation-deployment-of-the-doxygen-documentation"
+id="toc-issue-210-documentation-deployment-of-the-doxygen-documentation">Issue
+210: documentation Deployment of the doxygen documentation</a></li>
+<li><a
+href="#issue-209-add-basic-support-for-saverestore-operations-in-materialdatamanager"
+id="toc-issue-209-add-basic-support-for-saverestore-operations-in-materialdatamanager">Issue
+209: Add basic support for <code>save</code>/<code>restore</code>
+operations in <code>MaterialDataManager</code></a></li>
+<li><a
 href="#issue-201-add-the-ability-to-update-only-the-state-variables-of-a-materialstatemanager"
 id="toc-issue-201-add-the-ability-to-update-only-the-state-variables-of-a-materialstatemanager">Issue
 201: Add the ability to update only the state variables of a
@@ -272,10 +297,30 @@ id="toc-acknowledgements">Acknowledgements</a></li>
 </div>
 <p>This version is meant to be used with <code>TFEL</code> Version
 5.2.</p>
+<h1 id="documentation">Documentation</h1>
+<h2 id="new-cmake-options">New <code>cmake</code> options</h2>
+<h3 id="hdf5-support">HDF5 support</h3>
+<p>The following options control the support of the <code>HDF5</code>
+library:</p>
+<ul>
+<li><code>enable-hdf5-support</code>: enable HDF5 support for
+save/restore operations. Note that if this support is not explicitely
+requested, <code>MGIS</code> still tries by default to support
+<code>HDF5</code> but configuration will not fail if the
+<code>HDF5</code> library is not found. See
+<code>enable-hdf5-automatic-support</code> for details.</li>
+<li><code>enable-hdf5-automatic-support</code>: if set,
+<code>MGIS</code> tries by default to support <code>HDF5</code> even if
+enable-hdf5-support` is not set.</li>
+</ul>
+<h2 id="doxygen-documentation"><code>Doxygen</code> documentation</h2>
+<p>The doxygen documentation is now online: <a
+href="https://thelfer.github.io/mgis/doxygen/index.html"
+class="uri">https://thelfer.github.io/mgis/doxygen/index.html</a>.</p>
 <h1 id="new-features">New features</h1>
 <h2
 id="scripts-to-define-environment-variables-for-mgis-to-work-properly">Scripts
-to define environment variables for <code>mGIS</code> to work
+to define environment variables for <code>MGIS</code> to work
 properly</h2>
 <p>Depending on the system and compilation options, some of following
 variables shall be set for <code>MGIS</code> to work properly:
@@ -316,6 +361,25 @@ process as the installation directory).</p>
 </blockquote>
 <h1 id="new-features-of-the-mgisbehaviour-library">New features of the
 <code>MGIS/Behaviour</code> library</h1>
+<h2
+id="saverestore-operations-in-materialstatemanager-and-materialdatamanager">Save/restore
+operations in <code>MaterialStateManager</code> and
+<code>MaterialDataManager</code></h2>
+<p>If <code>HDF5</code> support is enabled, two functions
+<code>save</code> and <code>restore</code> are available:</p>
+<ul>
+<li>The <code>save</code> function allows saving the values stored in a
+<code>MaterialStateManager</code> or in a
+<code>MaterialDataManager</code> to an <code>HDF5</code> file.</li>
+<li>The <code>restore</code> function allows retrieving the values
+stored in a <code>MaterialStateManager</code> or in a
+<code>MaterialDataManager</code> from an <code>HDF5</code> file.</li>
+</ul>
+<p>Those functions have options allowing to precisely select what is
+saved or restored.</p>
+<p>By default, one expects to restore the maximum amount of information.
+The <code>getGreedyMaterialStateManagerRestoreOptions</code> function
+creates option that can restore everything that has been saved.</p>
 <h2
 id="control-on-variables-updatedreverted-in-materialstatemanager">Control
 on variables updated/reverted in <code>MaterialStateManager</code></h2>
@@ -378,6 +442,20 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#c
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e2 <span class="op">=</span> f<span class="op">.</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">,</span> tfel<span class="op">::</span>math<span class="op">::</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="op">,</span> real<span class="op">&gt;&gt;(</span><span class="dv">1</span><span class="op">);</span></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">// e2 = {10, 20, 30, 40}</span></span></code></pre></div>
 <h1 id="issues-fixed">Issues fixed</h1>
+<h2
+id="issue-210-documentation-deployment-of-the-doxygen-documentation">Issue
+210: <a href="#documentation">documentation</a> Deployment of the
+doxygen documentation</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/210"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/210</a></p>
+<h2
+id="issue-209-add-basic-support-for-saverestore-operations-in-materialdatamanager">Issue
+209: Add basic support for <code>save</code>/<code>restore</code>
+operations in <code>MaterialDataManager</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/209"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/209</a></p>
 <h2
 id="issue-201-add-the-ability-to-update-only-the-state-variables-of-a-materialstatemanager">Issue
 201: Add the ability to update only the state variables of a

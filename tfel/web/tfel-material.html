@@ -323,6 +323,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -1433,11 +1434,14 @@ argument and returns a <code>HomogenizationScheme</code> object.</p>
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmDS<span class="op">=</span>computeDilute<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">);</span></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmMT<span class="op">=</span>computeMoriTanaka<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">);</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmSC<span class="op">=</span>computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">,</span><span class="dv">10</span><span class="op">,</span><span class="kw">true</span><span class="op">);</span></span></code></pre></div>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmSC<span class="op">=</span>computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">,</span><span class="fl">1e-6</span><span class="op">,</span><span class="kw">true</span><span class="op">);</span></span></code></pre></div>
 <p>We note that <code>computeSelfConsistent</code> not only takes the
-microstructure as an argument, but also takes one integer
-(<code>10</code>) as a parameter, which is the maximum number of
-iteration in the self-consistent iterative algorithm. Moreover, the
+microstructure as an argument, but also takes one real
+(<code>1e-6</code>) as a parameter, which pilots the precision of the
+result. Indeed, at each iteration of the self-consistent iterative
+algorithm, the function computes the relative difference between the new
+and the old homogenized stiffness. This relative difference must be
+smaller than the tolerance given as a parameter. Moreover, the
 <code>bool</code> parameter (<code>true</code>) precises if the
 computation considers an isotropic matrix when computing the Hill
 tensors relative to the inclusions, at each iteration of the algorithm.

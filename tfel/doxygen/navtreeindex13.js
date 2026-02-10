@@ -1,5 +1,6 @@
 var NAVTREEINDEX13 =
 {
+"functions_v.html":[7,3,0,22],
 "functions_vars.html":[7,3,2,0],
 "functions_vars.html":[7,3,2],
 "functions_vars_a.html":[7,3,2,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX13 =
 "namespacedianafea.html#a0d518e309fde0b99897c0dcf4fdca457":[5,0,6,60],
 "namespacedianafea.html#a18535fdc1a70595599bbdfb057a857c4":[5,0,6,63],
 "namespacedianafea.html#a1c34154bbdd8039e3491d77616fdab59":[5,0,6,72],
-"namespacedianafea.html#a32dd09505776a1f0cfa03620bf36847c":[5,0,6,68],
-"namespacedianafea.html#a427871280fd8d12a2e85d54fe1d780f1":[5,0,6,62]
+"namespacedianafea.html#a32dd09505776a1f0cfa03620bf36847c":[5,0,6,68]
 };

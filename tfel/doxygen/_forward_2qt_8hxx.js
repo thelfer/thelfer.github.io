@@ -35,6 +35,7 @@ var _forward_2qt_8hxx =
     [ "qt", "_forward_2qt_8hxx.html#af3f6a2b6fd43605cbd137447c18f655c", null ],
     [ "qt_ref", "_forward_2qt_8hxx.html#aede2949e5f97d6f3b90912d5644eb645", null ],
     [ "quantity", "_forward_2qt_8hxx.html#ae52e34b6e4b09c86550e97e37098d013", null ],
+    [ "quantity_or_base_type", "_forward_2qt_8hxx.html#a9816babdfeb52d5223f9e5dabd977fd1", null ],
     [ "Speed", "_forward_2qt_8hxx.html#a12c895bcfd3d9c0a70f6e915f9f60d43", null ],
     [ "Stress", "_forward_2qt_8hxx.html#af0d644c6150204dd5e09966398ccba28", null ],
     [ "StressRate", "_forward_2qt_8hxx.html#ad33ab965026243f903ae1ebbf5147fdc", null ],

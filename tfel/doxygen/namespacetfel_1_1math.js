@@ -707,6 +707,7 @@ var namespacetfel_1_1math =
     [ "qt", "namespacetfel_1_1math.html#af3f6a2b6fd43605cbd137447c18f655c", null ],
     [ "qt_ref", "namespacetfel_1_1math.html#aede2949e5f97d6f3b90912d5644eb645", null ],
     [ "quantity", "namespacetfel_1_1math.html#ae52e34b6e4b09c86550e97e37098d013", null ],
+    [ "quantity_or_base_type", "namespacetfel_1_1math.html#a9816babdfeb52d5223f9e5dabd977fd1", null ],
     [ "result_type", "namespacetfel_1_1math.html#a148d63c9fac3faf5a99af96ffdb36664", null ],
     [ "rotation_matrix", "namespacetfel_1_1math.html#a373af1865a931dd29d7ff54ed4ea7b86", null ],
     [ "scalar_view", "namespacetfel_1_1math.html#af9511c570c811a9fbb1f8aa702d6f14d", null ],

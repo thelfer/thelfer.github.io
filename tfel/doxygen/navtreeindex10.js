@@ -1,5 +1,6 @@
 var NAVTREEINDEX10 =
 {
+"_tiny_powell_dog_leg_newton_raphson_solver_8hxx.html":[8,0,0,3,5,71],
 "_tiny_powell_dog_leg_newton_raphson_solver_8ixx.html":[8,0,0,3,5,10,13],
 "_tiny_runge_kutta_solver_base_8hxx.html":[8,0,0,3,5,15,4],
 "_token_8hxx.html":[8,0,0,3,11,19],
@@ -248,6 +249,5 @@ var NAVTREEINDEX10 =
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_matrix_tag_00_01_scalar_tag_00_01tmatf3f12531f4ed3673e765e2df2218dcdf.html":[7,0,14,6,70],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_s_t2to_s_t2_tag_00_01_scalar_tag_00_07be38026e325093a472ea73b4daa4b1a.html":[7,0,14,6,84],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_s_t2to_s_t2_tag_00_01_scalar_tag_00_07be38026e325093a472ea73b4daa4b1a.html":[5,0,9,1,81],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_s_t2to_s_t2_tag_00_01_scalar_tag_00_0f97ec9c7530fa4062c07213c05aad90e.html":[7,0,14,6,83],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_s_t2to_s_t2_tag_00_01_scalar_tag_00_0f97ec9c7530fa4062c07213c05aad90e.html":[5,0,9,1,80]
+"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_s_t2to_s_t2_tag_00_01_scalar_tag_00_0f97ec9c7530fa4062c07213c05aad90e.html":[7,0,14,6,83]
 };

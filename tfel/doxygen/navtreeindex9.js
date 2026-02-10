@@ -1,5 +1,6 @@
 var NAVTREEINDEX9 =
 {
+"_study_parameter_8hxx.html":[8,0,5,0,0,98],
 "_supported_types_8hxx.html":[8,0,2,0,0,198],
 "_supported_types_8hxx.html#a02780b9599daa678096f6fceff95fd10":[8,0,2,0,0,198,11],
 "_supported_types_8hxx.html#a1c74ff8763acbb0c7b479d46fe3bf72d":[8,0,2,0,0,198,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX9 =
 "_tiny_powell_dog_leg_algorithm_base_8hxx.html":[8,0,0,3,5,10,11],
 "_tiny_powell_dog_leg_algorithm_base_8hxx.html#a2af6a76863040300a210e557ebd47fd9":[8,0,0,3,5,10,11,0],
 "_tiny_powell_dog_leg_broyden_solver_8hxx.html":[8,0,0,3,5,70],
-"_tiny_powell_dog_leg_broyden_solver_8ixx.html":[8,0,0,3,5,10,12],
-"_tiny_powell_dog_leg_newton_raphson_solver_8hxx.html":[8,0,0,3,5,71]
+"_tiny_powell_dog_leg_broyden_solver_8ixx.html":[8,0,0,3,5,10,12]
 };

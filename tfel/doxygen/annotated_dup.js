@@ -1141,7 +1141,6 @@ var annotated_dup =
         [ "DDIF2Base", "structtfel_1_1material_1_1_d_d_i_f2_base.html", null ],
         [ "DivergenceException", "structtfel_1_1material_1_1_divergence_exception.html", null ],
         [ "EshelbyTolerances", "structtfel_1_1material_1_1_eshelby_tolerances.html", null ],
-        [ "ExtendedPolyCrystalsSlidingSystems", "structtfel_1_1material_1_1_extended_poly_crystals_sliding_systems.html", "structtfel_1_1material_1_1_extended_poly_crystals_sliding_systems" ],
         [ "FiniteStrainBehaviourTangentOperator", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator" ],
         [ "FiniteStrainBehaviourTangentOperatorBase", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base" ],
         [ "FiniteStrainBehaviourTangentOperatorConverter", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_converter.html", null ],

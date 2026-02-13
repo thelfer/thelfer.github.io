@@ -1,5 +1,6 @@
 var NAVTREEINDEX46 =
 {
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#ad38f40b43f85639694cfb179548c3bba":[4,0,16,4,56,21],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#ad5d506d5346a93915b2aa36a475fb379":[4,0,16,4,56,23],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#af30832cdc9e6e30512194da7ba0646cc":[4,0,16,4,56,10],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#af33e75e0a7b36bc9f4474da1f6e9e23f":[4,0,16,4,56,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX46 =
 "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_isotropic_localisation_tensor_3_013u_00_01_stress_type_01_4.html":[4,0,16,4,0,0,14],
 "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_microstructure.html":[4,0,16,4,0,0,15],
 "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_oriented_distribution.html":[4,0,16,4,0,0,16],
-"structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_particulate_microstructure.html":[4,0,16,4,0,0,17],
-"structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase.html":[4,0,16,4,0,0,18]
+"structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_particulate_microstructure.html":[4,0,16,4,0,0,17]
 };

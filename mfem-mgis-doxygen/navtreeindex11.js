@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"functions_vars_w.html":[4,3,2,23],
 "functions_vars_x.html":[4,3,2,24],
 "functions_vars_y.html":[4,3,2,25],
 "functions_vars_z.html":[4,3,2,26],
@@ -248,6 +249,5 @@ var NAVTREEINDEX11 =
 "namespacemfem__mgis.html#a1c1b5c07e467f99b0187e5568cb5da32":[2,0,0,220],
 "namespacemfem__mgis.html#a1d3713131606f548d7e250d0dc4ca533":[2,0,0,162],
 "namespacemfem__mgis.html#a20252dec61450dc6691f97b150dead7a":[2,0,0,142],
-"namespacemfem__mgis.html#a25ba04adaf648f69a2d19bc66a598a82":[2,0,0,102],
-"namespacemfem__mgis.html#a2a0e6d2f19a85fc193a829b44db29028":[2,0,0,170]
+"namespacemfem__mgis.html#a25ba04adaf648f69a2d19bc66a598a82":[2,0,0,102]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"_inverse_langevin_function_8ixx.html#aec4492ca8d56602058d34a5acebfcfd1":[5,0,1,0,0,0,1,0,6,4,38,4],
 "_is_assignable_to_8hxx.html":[5,0,1,0,0,0,1,0,6,9,3],
 "_is_assignable_to_8hxx.html#a31d861703e3c4983d85462780d0f9f1e":[5,0,1,0,0,0,1,0,6,9,3,2],
 "_is_assignable_to_8hxx.html#a81f074d4a966411ed4f5d70502a7ea07":[5,0,1,0,0,0,1,0,6,9,3,1],
@@ -245,9 +246,8 @@ var NAVTREEINDEX4 =
 "_m_front_2_behaviour_brick_2_harmonic_sum_of_norton_hoff_viscoplastic_flows_8hxx.html":[5,0,1,0,0,0,1,0,3,3,16],
 "_m_front_2_behaviour_brick_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html":[5,0,1,0,0,0,1,0,3,3,30],
 "_m_front_2_behaviour_brick_2_rousselier_tanguy_besson2002_stress_criterion_8hxx.html":[5,0,1,0,0,0,1,0,3,3,44],
-"_m_front_2_generic_behaviour_2_types_8hxx.html":[5,0,1,0,0,0,1,0,3,8,3],
-"_m_front_2_generic_behaviour_2_types_8hxx.html#a9d6c0e6eda07bc80ee81db083da23ae6":[5,0,1,0,0,0,1,0,3,8,3,0],
-"_m_front_2_generic_material_property_2_types_8hxx.html":[5,0,1,0,0,0,1,0,3,9,0],
-"_m_front_2_generic_material_property_2_types_8hxx.html#a1cf9c6fefb2d8644082992cabf29818e":[5,0,1,0,0,0,1,0,3,9,0,0],
-"_m_front_base_8hxx.html":[5,0,1,0,0,0,1,0,3,32]
+"_m_front_2_generic_behaviour_2types_8hxx.html":[5,0,1,0,0,0,1,0,3,8,3],
+"_m_front_2_generic_behaviour_2types_8hxx.html#a9d6c0e6eda07bc80ee81db083da23ae6":[5,0,1,0,0,0,1,0,3,8,3,0],
+"_m_front_2_generic_material_property_2types_8hxx.html":[5,0,1,0,0,0,1,0,3,9,0],
+"_m_front_2_generic_material_property_2types_8hxx.html#a1cf9c6fefb2d8644082992cabf29818e":[5,0,1,0,0,0,1,0,3,9,0,0]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX31 =
 {
+"structmfront_1_1_material_property_description.html#a3e8b6af5dbfc82ccb6a015ade6b42f95":[4,0,11,73,15],
 "structmfront_1_1_material_property_description.html#a450e5ba7036ea069f4d6f26fa4c05939":[4,0,11,73,43],
 "structmfront_1_1_material_property_description.html#a540b33dfb1e8d52fb993c345e4d7e5f1":[4,0,11,73,11],
 "structmfront_1_1_material_property_description.html#a6be1ea96557adc770cea82f303c96fba":[4,0,11,73,34],
@@ -248,6 +249,5 @@ var NAVTREEINDEX31 =
 "structmfront_1_1_query_handler_base.html#a680500f342c1a3329b9cd2356be66feb":[4,0,11,100,0],
 "structmfront_1_1_query_handler_base.html#a69f20468c9ac469772bd19bb94587a2f":[4,0,11,100,3],
 "structmfront_1_1_query_handler_base.html#a72d24e6be736b248272eb9e1b7db98f2":[4,0,11,100,24],
-"structmfront_1_1_query_handler_base.html#a91080601220e811d29cf45c44e6a6862":[4,0,11,100,6],
-"structmfront_1_1_query_handler_base.html#a91bda4a54f4628afe99c0cb4c9176b52":[4,0,11,100,8]
+"structmfront_1_1_query_handler_base.html#a91080601220e811d29cf45c44e6a6862":[4,0,11,100,6]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX10 =
 {
+"conceptmgis_1_1function_1_1_s_t2to_s_t21_d_evaluator_concept.html":[3,0,0,26],
 "conceptmgis_1_1function_1_1_s_t2to_s_t22_d_evaluator_concept.html":[3,0,0,27],
 "conceptmgis_1_1function_1_1_s_t2to_s_t23_d_evaluator_concept.html":[3,0,0,28],
 "conceptmgis_1_1function_1_1_s_t2to_s_t2_evaluator_concept.html":[3,0,0,29],
@@ -248,6 +249,5 @@ var NAVTREEINDEX10 =
 "functions_vars_s.html":[4,3,2,19],
 "functions_vars_t.html":[4,3,2,20],
 "functions_vars_u.html":[4,3,2,21],
-"functions_vars_v.html":[4,3,2,22],
-"functions_vars_w.html":[4,3,2,23]
+"functions_vars_v.html":[4,3,2,22]
 };

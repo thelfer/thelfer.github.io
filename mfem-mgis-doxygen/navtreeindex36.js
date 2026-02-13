@@ -1,5 +1,6 @@
 var NAVTREEINDEX36 =
 {
+"structmfront_1_1gb_1_1_dissipated_energy_computer.html":[4,0,11,1,0],
 "structmfront_1_1gb_1_1_do_nothing_energy_computer.html":[4,0,11,1,1],
 "structmfront_1_1gb_1_1_elastic_material_properties_number.html":[4,0,11,1,2],
 "structmfront_1_1gb_1_1_elastic_material_properties_number_3_01_h_00_01false_01_4.html":[4,0,11,1,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX36 =
 "structmgis_1_1behaviour_1_1_behaviour_integration_options.html#a86868da4124e4cddaa1f120d0e4e1a89":[4,0,12,1,5,0],
 "structmgis_1_1behaviour_1_1_behaviour_integration_result.html":[4,0,12,1,6],
 "structmgis_1_1behaviour_1_1_behaviour_integration_result.html#a037c5b8290006a97ce1fb85b24dc14a4":[4,0,12,1,6,7],
-"structmgis_1_1behaviour_1_1_behaviour_integration_result.html#a038489619e7bfb3c637dbe881222bcd3":[4,0,12,1,6,2],
-"structmgis_1_1behaviour_1_1_behaviour_integration_result.html#a134fb52391db9d20b79c90706eb4b681":[4,0,12,1,6,1]
+"structmgis_1_1behaviour_1_1_behaviour_integration_result.html#a038489619e7bfb3c637dbe881222bcd3":[4,0,12,1,6,2]
 };

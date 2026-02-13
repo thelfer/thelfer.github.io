@@ -1,5 +1,6 @@
 var NAVTREEINDEX45 =
 {
+"structtfel_1_1config_1_1internals_1_1_inv_jacobian_type_3_011u_00_01_t_00_01false_01_4.html":[4,0,16,0,0,3],
 "structtfel_1_1config_1_1internals_1_1_inv_jacobian_type_3_011u_00_01_t_00_01use__qt_01_4.html":[4,0,16,0,0,4],
 "structtfel_1_1config_1_1internals_1_1_inv_jacobian_type_3_01_n_00_01_t_00_01false_01_4.html":[4,0,16,0,0,5],
 "structtfel_1_1config_1_1internals_1_1_jacobian_type.html":[4,0,16,0,0,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX45 =
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#abb9b901b085480a90a6e88634c376f3d":[4,0,16,4,56,26],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#abffbf72ae1c75e62856cba28cc378fb0":[4,0,16,4,56,13],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#ac7f49f6d16a8796b746ef7f96576b2b9":[4,0,16,4,56,0],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#aca3860fd6a0e41107d2e2297d12e2e7f":[4,0,16,4,56,15],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#ad38f40b43f85639694cfb179548c3bba":[4,0,16,4,56,21]
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#aca3860fd6a0e41107d2e2297d12e2e7f":[4,0,16,4,56,15]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX32 =
 {
+"structmfront_1_1_query_handler_base.html#a91bda4a54f4628afe99c0cb4c9176b52":[4,0,11,100,8],
 "structmfront_1_1_query_handler_base.html#a9ce1953a30d6501cfc34fd54426cad21":[4,0,11,100,22],
 "structmfront_1_1_query_handler_base.html#ab0cbd70c77e95cca4ed62ecd4be9720b":[4,0,11,100,15],
 "structmfront_1_1_query_handler_base.html#ab6cb384f4c5bd7c2edacc0b51bd20a55":[4,0,11,100,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX32 =
 "structmfront_1_1_variable_description.html#a82a613160e74749f60bf11e8c234d221":[4,0,11,115,20],
 "structmfront_1_1_variable_description.html#a8d3db8bcb67ff6536c9ca3ad2f8565ab":[4,0,11,115,4],
 "structmfront_1_1_variable_description.html#a94ee2a62ea84222e25432662f3531acc":[4,0,11,115,21],
-"structmfront_1_1_variable_description.html#a9c531077dcaf7f663a9d32ab8f3bbafd":[4,0,11,115,23],
-"structmfront_1_1_variable_description.html#a9f9101092c823b37cea3b7be2ed87cfd":[4,0,11,115,8]
+"structmfront_1_1_variable_description.html#a9c531077dcaf7f663a9d32ab8f3bbafd":[4,0,11,115,23]
 };

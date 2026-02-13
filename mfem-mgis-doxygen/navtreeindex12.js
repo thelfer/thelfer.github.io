@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"namespacemfem__mgis.html#a2a0e6d2f19a85fc193a829b44db29028":[2,0,0,170],
 "namespacemfem__mgis.html#a2cb0484e04c54d60d695b365771233ec":[2,0,0,155],
 "namespacemfem__mgis.html#a2ff7adfdf020de05197c6479a2dc243b":[2,0,0,217],
 "namespacemfem__mgis.html#a307755094e99a6627b78f34ef949c715":[2,0,0,118],
@@ -248,6 +249,5 @@ var NAVTREEINDEX12 =
 "stensor_8hxx.html#aa6304165534708729443c6186eb47615":[5,0,1,0,0,0,1,0,6,5,59,15],
 "stensor_8hxx.html#ab68542b3d1ff6e4e55ef946c87e768cf":[5,0,1,0,0,0,1,0,6,5,59,17],
 "stensor_8hxx.html#abdfee6c644dab03052bebfdc47294939":[5,0,1,0,0,0,1,0,6,5,59,20],
-"stensor_8hxx.html#ac3f3382e34785290ef5f0eaa7428f207":[5,0,1,0,0,0,1,0,6,5,59,21],
-"stensor_8hxx.html#ae95f7988ff9c2d4ef122b0a7a0d62c1b":[5,0,1,0,0,0,1,0,6,5,59,8]
+"stensor_8hxx.html#ac3f3382e34785290ef5f0eaa7428f207":[5,0,1,0,0,0,1,0,6,5,59,21]
 };

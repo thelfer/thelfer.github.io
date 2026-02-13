@@ -1,5 +1,6 @@
 var NAVTREEINDEX38 =
 {
+"structmgis_1_1function_1_1_fixed_size_modifier.html#addd88b982024a0c5a114ef8edaaf3088":[4,0,12,2,17,7],
 "structmgis_1_1function_1_1_fixed_size_modifier.html#aece0b00199123584da7a5880b7cbcb85":[4,0,12,2,17,6],
 "structmgis_1_1function_1_1_fixed_size_view.html":[4,0,12,2,18],
 "structmgis_1_1function_1_1_fixed_size_view.html#a16d7afe1bdbd260d8b38c59fc286a83c":[4,0,12,2,18,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX38 =
 "structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector_3_01true_00_01_space_01_4.html":[4,0,12,2,1,76],
 "structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector_3_01true_00_01_space_01_4.html#ae374d090da5b1e6e02a2d15737206210":[4,0,12,2,1,76,0],
 "structmgis_1_1function_1_1internals_1_1_rotate_backwards_modifier.html":[4,0,12,2,1,77],
-"structmgis_1_1function_1_1internals_1_1_rotate_modifier.html":[4,0,12,2,1,78],
-"structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html":[4,0,12,2,1,79]
+"structmgis_1_1function_1_1internals_1_1_rotate_modifier.html":[4,0,12,2,1,78]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX39 =
 {
+"structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html":[4,0,12,2,1,79],
 "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace_3_01true_00_01_space_type_01_4.html":[4,0,12,2,1,80],
 "structmgis_1_1function_1_1internals_1_1_shared_element_space_traits.html":[4,0,12,2,1,81],
 "structmgis_1_1function_1_1internals_1_1_shared_element_space_traits_3_01_space_type_01_4.html":[4,0,12,2,1,82],
@@ -248,6 +249,5 @@ var NAVTREEINDEX39 =
 "structmtest_1_1_behaviour.html#a3173416a636584ef5dd337eca9d94d42":[4,0,13,15,39],
 "structmtest_1_1_behaviour.html#a319875a48364dbf6a88d36766c4c18c5":[4,0,13,15,38],
 "structmtest_1_1_behaviour.html#a38363fa8537c3401206892bbfe9da838":[4,0,13,15,7],
-"structmtest_1_1_behaviour.html#a3d95ef42300c5cd3f5f19c00fe580126":[4,0,13,15,25],
-"structmtest_1_1_behaviour.html#a467116f996ba33cd741c936df5ee6f21":[4,0,13,15,48]
+"structmtest_1_1_behaviour.html#a3d95ef42300c5cd3f5f19c00fe580126":[4,0,13,15,25]
 };

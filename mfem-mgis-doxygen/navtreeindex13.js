@@ -1,5 +1,6 @@
 var NAVTREEINDEX13 =
 {
+"stensor_8hxx.html#ae95f7988ff9c2d4ef122b0a7a0d62c1b":[5,0,1,0,0,0,1,0,6,5,59,8],
 "stensor_8hxx.html#aef247e98628ab9ce09e134cc4414e78d":[5,0,1,0,0,0,1,0,6,5,59,25],
 "stensor_8ixx.html":[5,0,1,0,0,0,1,0,6,5,18,3],
 "stensor_8ixx.html#a00e88c5dd0f3ecceb418c4d8e3d7491f":[5,0,1,0,0,0,1,0,6,5,18,3,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX13 =
 "structansys_1_1_import_symmetric_tensor_3_013u_01_4.html":[4,0,1,64],
 "structansys_1_1_import_thermodynamic_forces.html":[4,0,1,65],
 "structansys_1_1_import_thermodynamic_forces_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html":[4,0,1,66],
-"structansys_1_1_stress_free_expansion_handler_type.html":[4,0,1,67],
-"structansys_1_1_stress_free_expansion_handler_type.html#a159f2299a4c7457588b1bf9d7f585e5a":[4,0,1,67,0]
+"structansys_1_1_stress_free_expansion_handler_type.html":[4,0,1,67]
 };

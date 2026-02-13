@@ -1,5 +1,6 @@
 var NAVTREEINDEX53 =
 {
+"structtfel_1_1math_1_1_tiny_levenberg_marquardt_solver.html":[4,0,16,5,584],
 "structtfel_1_1math_1_1_tiny_levenberg_marquardt_solver.html#a0dd0e9fc086c9deaad012f153ff11c06":[4,0,16,5,584,2],
 "structtfel_1_1math_1_1_tiny_levenberg_marquardt_solver.html#a15d685268968e81973e40b6d9bd61c32":[4,0,16,5,584,0],
 "structtfel_1_1math_1_1_tiny_levenberg_marquardt_solver.html#a2b25ffc3fe14d53e608854b23f80df07":[4,0,16,5,584,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX53 =
 "structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_8df22c3011e033d5eb88f7d909969e18.html#ae944e9bf86309f7e0c332f20a03b797e":[4,0,16,5,2,16,1],
 "structtfel_1_1math_1_1internals_1_1_expression_test.html":[4,0,16,5,2,26],
 "structtfel_1_1math_1_1internals_1_1_expression_test_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html":[4,0,16,5,2,27],
-"structtfel_1_1math_1_1internals_1_1_f_s_e_s_analytical_symmetric_eigensolver2x2.html":[4,0,16,5,2,28],
-"structtfel_1_1math_1_1internals_1_1_f_s_e_s_analytical_symmetric_eigensolver3x3.html":[4,0,16,5,2,29]
+"structtfel_1_1math_1_1internals_1_1_f_s_e_s_analytical_symmetric_eigensolver2x2.html":[4,0,16,5,2,28]
 };

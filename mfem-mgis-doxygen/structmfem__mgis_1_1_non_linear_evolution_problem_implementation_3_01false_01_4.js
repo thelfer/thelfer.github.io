@@ -8,6 +8,7 @@ var structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_0
     [ "addPostProcessing", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#a2407e3cfbb7f9c749dc0ab9a8aecb49b", null ],
     [ "addPostProcessing", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#a9038e6e9a896d134bd46acb5ca61670d", null ],
     [ "addPostProcessing", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#ac3206db6a300509e96bf88087a6cad25", null ],
+    [ "computePrediction", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#aa26bea7f0375843d95bd69ac7c3d9464", null ],
     [ "executePostProcessings", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#a0144ed148e2ca3683e6b261ae4ad67e8", null ],
     [ "getFiniteElementSpace", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#a08392463fa707ba2121a3f44f26f10df", null ],
     [ "getFiniteElementSpace", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#a2b6f0dbd346033461871d1a8142bbf95", null ],

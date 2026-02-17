@@ -108,6 +108,71 @@ var hierarchy =
         [ "mfront::RungeKuttaCodeGeneratorBase", "structmfront_1_1_runge_kutta_code_generator_base.html", null ]
       ] ]
     ] ],
+    [ "mfem_mgis::AbstractBehaviourIntegrator", "structmfem__mgis_1_1_abstract_behaviour_integrator.html", [
+      [ "mfem_mgis::BehaviourIntegratorBase", "structmfem__mgis_1_1_behaviour_integrator_base.html", [
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::IsotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_strain_standard_small_strain_mechanics_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::IsotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_strain_stationary_non_linear_heat_transfer_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::IsotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::IsotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::IsotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::IsotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::IsotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_tridimensional_standard_small_strain_mechanics_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::IsotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::OrthotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::OrthotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_strain_standard_small_strain_mechanics_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::OrthotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_strain_stationary_non_linear_heat_transfer_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::OrthotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::OrthotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::OrthotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::OrthotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::OrthotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_tridimensional_standard_small_strain_mechanics_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::OrthotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< TransientHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
+          [ "mfem_mgis::TransientHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_transient_heat_transfer_behaviour_integrator.html", null ]
+        ] ],
+        [ "mfem_mgis::BidimensionalMicromorphicDamageBehaviourIntegrator", "structmfem__mgis_1_1_bidimensional_micromorphic_damage_behaviour_integrator.html", null ],
+        [ "mfem_mgis::OrthotropicBidimensionalMicromorphicDamageBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_bidimensional_micromorphic_damage_behaviour_integrator.html", null ],
+        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< Child >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", null ],
+        [ "mfem_mgis::TridimensionalMicromorphicDamageBehaviourIntegrator", "structmfem__mgis_1_1_tridimensional_micromorphic_damage_behaviour_integrator.html", null ]
+      ] ]
+    ] ],
     [ "mfront::AbstractBehaviourInterface", "structmfront_1_1_abstract_behaviour_interface.html", null ],
     [ "mfem_mgis::AbstractBoundaryCondition", "structmfem__mgis_1_1_abstract_boundary_condition.html", [
       [ "mfem_mgis::UniformHeatSourceBoundaryCondition", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html", null ],
@@ -400,71 +465,6 @@ var hierarchy =
     [ "mgis::behaviour::BehaviourIntegrationOptions", "structmgis_1_1behaviour_1_1_behaviour_integration_options.html", null ],
     [ "mgis::behaviour::BehaviourIntegrationResult", "structmgis_1_1behaviour_1_1_behaviour_integration_result.html", null ],
     [ "mgis::behaviour::BehaviourIntegrationWorkSpace", "structmgis_1_1behaviour_1_1_behaviour_integration_work_space.html", null ],
-    [ "mfem_mgis::BehaviourIntegrator", "structmfem__mgis_1_1_behaviour_integrator.html", [
-      [ "mfem_mgis::BehaviourIntegratorBase", "structmfem__mgis_1_1_behaviour_integrator_base.html", [
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::IsotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_strain_standard_small_strain_mechanics_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::IsotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_strain_stationary_non_linear_heat_transfer_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::IsotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::IsotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::IsotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::IsotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::IsotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_tridimensional_standard_small_strain_mechanics_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::IsotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::OrthotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::OrthotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_strain_standard_small_strain_mechanics_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::OrthotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_strain_stationary_non_linear_heat_transfer_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::OrthotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::OrthotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::OrthotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::OrthotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::OrthotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_tridimensional_standard_small_strain_mechanics_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< OrthotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::OrthotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< TransientHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::TransientHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_transient_heat_transfer_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::BidimensionalMicromorphicDamageBehaviourIntegrator", "structmfem__mgis_1_1_bidimensional_micromorphic_damage_behaviour_integrator.html", null ],
-        [ "mfem_mgis::OrthotropicBidimensionalMicromorphicDamageBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_bidimensional_micromorphic_damage_behaviour_integrator.html", null ],
-        [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< Child >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", null ],
-        [ "mfem_mgis::TridimensionalMicromorphicDamageBehaviourIntegrator", "structmfem__mgis_1_1_tridimensional_micromorphic_damage_behaviour_integrator.html", null ]
-      ] ]
-    ] ],
     [ "mfem_mgis::BehaviourIntegratorFactory", "structmfem__mgis_1_1_behaviour_integrator_factory.html", null ],
     [ "mfem_mgis::BehaviourIntegratorTraits< BehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits.html", null ],
     [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_strain_standard_finite_str058555a310f31d3525091c27fe446de1.html", null ],
@@ -2527,6 +2527,7 @@ var hierarchy =
     [ "mfront::MFrontDatabase::AnalyseDirectoryResults::LibraryAnalysisFailureReport", "structmfront_1_1_m_front_database_1_1_analyse_directory_results_1_1_library_analysis_failure_report.html", null ],
     [ "tfel::system::LibraryInformation", "structtfel_1_1system_1_1_library_information.html", null ],
     [ "tfel::utilities::TextData::Line", "structtfel_1_1utilities_1_1_text_data_1_1_line.html", null ],
+    [ "mfem_mgis::LinearizedOperators", "structmfem__mgis_1_1_linearized_operators.html", null ],
     [ "mfem_mgis::LinearSolverFactory< parallel >", "structmfem__mgis_1_1_linear_solver_factory.html", null ],
     [ "mfem_mgis::LinearSolverFactory< false >", "structmfem__mgis_1_1_linear_solver_factory_3_01false_01_4.html", null ],
     [ "mfem_mgis::LinearSolverFactory< true >", "structmfem__mgis_1_1_linear_solver_factory_3_01true_01_4.html", null ],
@@ -3035,6 +3036,7 @@ var hierarchy =
     ] ],
     [ "castem::CastemBehaviourHandler< type, H, Behaviour >::PredictionOperatorIsNotAvalaible", "structcastem_1_1_castem_behaviour_handler_1_1_prediction_operator_is_not_avalaible.html", null ],
     [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::PredictionOperatorIsNotAvalaible", "structcyrano_1_1_cyrano_behaviour_handler_1_1_prediction_operator_is_not_avalaible.html", null ],
+    [ "mfem_mgis::PredictionPolicy", "structmfem__mgis_1_1_prediction_policy.html", null ],
     [ "tfel::system::ProcessManager", "structtfel_1_1system_1_1_process_manager.html", null ],
     [ "mfem_mgis::Profiler::timers::ProfilerTimeSection", "classmfem__mgis_1_1_profiler_1_1timers_1_1_profiler_time_section.html", null ],
     [ "tfel::typetraits::Promote< A, B >", "structtfel_1_1typetraits_1_1_promote.html", null ],

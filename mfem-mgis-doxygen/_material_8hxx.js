@@ -1,8 +1,8 @@
 var _material_8hxx =
 [
     [ "mfem_mgis::Material", "structmfem__mgis_1_1_material.html", "structmfem__mgis_1_1_material" ],
-    [ "computeDissipatedEnergy", "_material_8hxx.html#a9573dd5a43ef3626a2aa125a4ca93c42", null ],
-    [ "computeStoredEnergy", "_material_8hxx.html#af5817e17c3511b6c2d343ca078ef1d87", null ],
+    [ "computeDissipatedEnergy", "_material_8hxx.html#a408d037c84177f70983651fcef416561", null ],
+    [ "computeStoredEnergy", "_material_8hxx.html#a23dbb74a32d34d0c73c1f92b82a82c08", null ],
     [ "getDissipatedEnergy", "_material_8hxx.html#a1d3713131606f548d7e250d0dc4ca533", null ],
     [ "getDissipatedEnergy", "_material_8hxx.html#aa51d75d3151419a4f60798d1056709ba", null ],
     [ "getGradient", "_material_8hxx.html#ab2a59b7b16f7e14dc119296bb7dde858", null ],

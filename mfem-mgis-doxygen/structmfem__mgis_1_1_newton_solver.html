@@ -140,6 +140,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a03bcd13df17ea5dcd0d9a5aef159dd6a" id="r_a03bcd13df17ea5dcd0d9a5aef159dd6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="spack_2opt_2spack_2linux-zen2_2tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w_2include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_newton_solver.html#a03bcd13df17ea5dcd0d9a5aef159dd6a">computeResidual</a> (mfem::Vector &amp;, const mfem::Vector &amp;) const</td></tr>
 <tr class="memdesc:a03bcd13df17ea5dcd0d9a5aef159dd6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the residual  <br /></td></tr>
 <tr class="separator:a03bcd13df17ea5dcd0d9a5aef159dd6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb5ed675cff85daf2b9e32435c8ffa7d" id="r_acb5ed675cff85daf2b9e32435c8ffa7d"><td class="memItemLeft" align="right" valign="top"><a id="acb5ed675cff85daf2b9e32435c8ffa7d" name="acb5ed675cff85daf2b9e32435c8ffa7d"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setReferenceResidualNorm</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>) noexcept</td></tr>
+<tr class="memdesc:acb5ed675cff85daf2b9e32435c8ffa7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the reference value for the norm of the residual. <br /></td></tr>
+<tr class="separator:acb5ed675cff85daf2b9e32435c8ffa7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3880cca04f709a084119679ea8e4492" id="r_ac3880cca04f709a084119679ea8e4492"><td class="memItemLeft" align="right" valign="top"><a id="ac3880cca04f709a084119679ea8e4492" name="ac3880cca04f709a084119679ea8e4492"></a>
+virtual <a class="el" href="spack_2opt_2spack_2linux-zen2_2tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w_2include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><b>unsetReferenceResidualNorm</b> () noexcept</td></tr>
+<tr class="memdesc:ac3880cca04f709a084119679ea8e4492"><td class="mdescLeft">&#160;</td><td class="mdescRight">unset the reference residual norm <br /></td></tr>
+<tr class="separator:ac3880cca04f709a084119679ea8e4492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3bfc4a779bfa1dc9f72493111deebc0" id="r_aa3bfc4a779bfa1dc9f72493111deebc0"><td class="memItemLeft" align="right" valign="top">mfem::Operator &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_newton_solver.html#aa3bfc4a779bfa1dc9f72493111deebc0">getJacobian</a> (const mfem::Vector &amp;) const</td></tr>
 <tr class="separator:aa3bfc4a779bfa1dc9f72493111deebc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f92680403eaa1c2db501018a07c51ae" id="r_a1f92680403eaa1c2db501018a07c51ae"><td class="memItemLeft" align="right" valign="top"><a id="a1f92680403eaa1c2db501018a07c51ae" name="a1f92680403eaa1c2db501018a07c51ae"></a>
@@ -172,10 +180,9 @@ Protected Attributes</h2></td></tr>
 std::vector&lt; std::function&lt; bool(const mfem::Vector &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nue_actions</b></td></tr>
 <tr class="memdesc:ac03d2a022efbb8f123f436278842d272"><td class="mdescLeft">&#160;</td><td class="mdescRight">actions performed when a new estimate of the unknowns are available <br /></td></tr>
 <tr class="separator:ac03d2a022efbb8f123f436278842d272"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0155e04c763f67f5199078f30862f34" id="r_ad0155e04c763f67f5199078f30862f34"><td class="memItemLeft" align="right" valign="top"><a id="ad0155e04c763f67f5199078f30862f34" name="ad0155e04c763f67f5199078f30862f34"></a>
-<a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>initial_norm</b></td></tr>
-<tr class="memdesc:ad0155e04c763f67f5199078f30862f34"><td class="mdescLeft">&#160;</td><td class="mdescRight">norm of the first estimation of the residual <br /></td></tr>
-<tr class="separator:ad0155e04c763f67f5199078f30862f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b8c2b02717f0e58d431ac2df65a49ea" id="r_a2b8c2b02717f0e58d431ac2df65a49ea"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_newton_solver.html#a2b8c2b02717f0e58d431ac2df65a49ea">reference_residual_norm</a></td></tr>
+<tr class="memdesc:a2b8c2b02717f0e58d431ac2df65a49ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">data containing the reference value for the norm of the residual.  <br /></td></tr>
+<tr class="separator:a2b8c2b02717f0e58d431ac2df65a49ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>custom implementation of the Newton Solver </p>
@@ -382,6 +389,32 @@ std::vector&lt; std::function&lt; bool(const mfem::Vector &amp;)&gt; &gt;&#160;<
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2b8c2b02717f0e58d431ac2df65a49ea" name="a2b8c2b02717f0e58d431ac2df65a49ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b8c2b02717f0e58d431ac2df65a49ea">&#9670;&#160;</a></span>reference_residual_norm</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt;<a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>&gt; mfem_mgis::NewtonSolver::reference_residual_norm</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>data containing the reference value for the norm of the residual. </p>
+<dl class="section note"><dt>Note</dt><dd>This value can be set before calling <code>Mult</code> when a prediction of the solution is made. If this value is not set, it is set to the value of the residual at the first iteration. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="_newton_solver_8hxx.html">NewtonSolver.hxx</a></li>
 </ul>
@@ -391,7 +424,7 @@ std::vector&lt; std::function&lt; bool(const mfem::Vector &amp;)&gt; &gt;&#160;<
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_newton_solver.html">NewtonSolver</a></li>
-    <li class="footer">Generated on Wed Feb 18 2026 09:11:37 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Feb 18 2026 11:23:45 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -10,6 +10,8 @@ var structmfem__mgis_1_1_newton_solver =
     [ "getJacobian", "structmfem__mgis_1_1_newton_solver.html#aa3bfc4a779bfa1dc9f72493111deebc0", null ],
     [ "processNewUnknownsEstimate", "structmfem__mgis_1_1_newton_solver.html#a8c30e4c3312969da17a7fdc3c7b958d3", null ],
     [ "setLinearSolver", "structmfem__mgis_1_1_newton_solver.html#a52bf1b2a0bb16f059173da91df47e7f8", null ],
-    [ "initial_norm", "structmfem__mgis_1_1_newton_solver.html#ad0155e04c763f67f5199078f30862f34", null ],
-    [ "nue_actions", "structmfem__mgis_1_1_newton_solver.html#ac03d2a022efbb8f123f436278842d272", null ]
+    [ "setReferenceResidualNorm", "structmfem__mgis_1_1_newton_solver.html#acb5ed675cff85daf2b9e32435c8ffa7d", null ],
+    [ "unsetReferenceResidualNorm", "structmfem__mgis_1_1_newton_solver.html#ac3880cca04f709a084119679ea8e4492", null ],
+    [ "nue_actions", "structmfem__mgis_1_1_newton_solver.html#ac03d2a022efbb8f123f436278842d272", null ],
+    [ "reference_residual_norm", "structmfem__mgis_1_1_newton_solver.html#a2b8c2b02717f0e58d431ac2df65a49ea", null ]
 ];

@@ -1,5 +1,7 @@
 var _abstract_non_linear_evolution_problem_8hxx =
 [
+    [ "mfem_mgis::PredictionPolicy", "structmfem__mgis_1_1_prediction_policy.html", null ],
+    [ "mfem_mgis::LinearizedOperators", "structmfem__mgis_1_1_linearized_operators.html", "structmfem__mgis_1_1_linearized_operators" ],
     [ "mfem_mgis::AbstractNonLinearEvolutionProblem", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem" ],
     [ "getBoundariesIdentifiers", "_abstract_non_linear_evolution_problem_8hxx.html#aea428c17fcd8090eddd4b6ad8d52dc3f", null ],
     [ "getBoundaryIdentifier", "_abstract_non_linear_evolution_problem_8hxx.html#ac8c08502ca7098d3c3ef3fc9d515defb", null ],

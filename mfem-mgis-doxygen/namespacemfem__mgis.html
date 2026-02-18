@@ -21,6 +21,14 @@ MathJax.Hub.Config({
   extensions: ["tex2jax.js"],
   jax: ["input/TeX","output/HTML-CSS"],
 });
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            bts: ["{\\left.#1\\right|_{\\mathrm{bts}}}", 1],
+            ets: ["{\\left.#1\\right|_{\\mathrm{ets}}}", 1]
+        }
+    }
+});
 </script>
 <script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -361,7 +369,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">partial specialisation in parallel  <a href="structmfem__mgis_1_1_post_processing_factory_3_01true_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_prediction_policy.html">PredictionPolicy</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">prediction policy  <a href="structmfem__mgis_1_1_prediction_policy.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prediction policy for estimating the increment of the unknowns over a time step.  <a href="structmfem__mgis_1_1_prediction_policy.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_rotated_gradients_matrix_partial_quadrature_function_evalutor.html">RotatedGradientsMatrixPartialQuadratureFunctionEvalutor</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">an evaluator returning the gradients rotated in the material frame  <a href="structmfem__mgis_1_1_rotated_gradients_matrix_partial_quadrature_function_evalutor.html#details">More...</a><br /></td></tr>
@@ -502,10 +510,26 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>MaterialAxis3D</b> =
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a639f12cd43aca880d50f6aaa96f46812" id="r_a639f12cd43aca880d50f6aaa96f46812"><td class="memItemLeft" align="right" valign="top"><a id="a639f12cd43aca880d50f6aaa96f46812" name="a639f12cd43aca880d50f6aaa96f46812"></a>enum struct &#160;</td><td class="memItemRight" valign="bottom"><b>PredictionStrategy</b> { <b>DEFAULT_PREDICTION</b>
-, <b>ELASTIC_PREDICTION</b>
+<tr class="memitem:a639f12cd43aca880d50f6aaa96f46812" id="r_a639f12cd43aca880d50f6aaa96f46812"><td class="memItemLeft" align="right" valign="top">enum struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812">PredictionStrategy</a> { <a class="el" href="namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812abf2ef412eafa362fe5d03da69381ea94">DEFAULT_PREDICTION</a>
+, <a class="el" href="namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812a66fe44a6e0479252a71548176e9af3e9">BEGINNING_OF_TIME_STEP_PREDICTION</a>
+, <a class="el" href="namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812ad4124ca7c6746018083289561edd68c3">CONSTANT_GRADIENTS_INTEGRATION_PREDICTION</a>
  }</td></tr>
+<tr class="memdesc:a639f12cd43aca880d50f6aaa96f46812"><td class="mdescLeft">&#160;</td><td class="mdescRight">strategy used to make a prediction of the solution at the end of the time step  <a href="namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812">More...</a><br /></td></tr>
 <tr class="separator:a639f12cd43aca880d50f6aaa96f46812"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48e078ec8d415cbe6176da998e2d23b0" id="r_a48e078ec8d415cbe6176da998e2d23b0"><td class="memItemLeft" align="right" valign="top">enum struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0">PredictionOperator</a> { <a class="el" href="namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0a61a085f4807a9157f9381a9b543efda2">ELASTIC</a>
+, <a class="el" href="namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0a1833e5428b1f5abd43390ad836403a61">SECANT</a>
+, <a class="el" href="namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0a4da56c3c2d4ee59a3461da5b2ad1a25d">TANGENT</a>
+, <a class="el" href="namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0ac166cd09f71765a2b3f390fc9a800954">LAST_ITERATE_OPERATOR</a>
+ }</td></tr>
+<tr class="memdesc:a48e078ec8d415cbe6176da998e2d23b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of prediction operators available  <a href="namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0">More...</a><br /></td></tr>
+<tr class="separator:a48e078ec8d415cbe6176da998e2d23b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73a830d83c7c7d1101ab885739b12ea5" id="r_a73a830d83c7c7d1101ab885739b12ea5"><td class="memItemLeft" align="right" valign="top">enum struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5">IntegrationOperator</a> { <a class="el" href="namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5a61a085f4807a9157f9381a9b543efda2">ELASTIC</a>
+, <a class="el" href="namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5a1833e5428b1f5abd43390ad836403a61">SECANT</a>
+, <a class="el" href="namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5a4da56c3c2d4ee59a3461da5b2ad1a25d">TANGENT</a>
+, <a class="el" href="namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5a3a4eb675850671a5ad63fc129d91022a">CONSISTENT_TANGENT</a>
+ }</td></tr>
+<tr class="memdesc:a73a830d83c7c7d1101ab885739b12ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of operators available after the behaviour integration  <a href="namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5">More...</a><br /></td></tr>
+<tr class="separator:a73a830d83c7c7d1101ab885739b12ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80dd307c07c02bc42b80d745903a8e3a" id="r_a80dd307c07c02bc42b80d745903a8e3a"><td class="memItemLeft" align="right" valign="top"><a id="a80dd307c07c02bc42b80d745903a8e3a" name="a80dd307c07c02bc42b80d745903a8e3a"></a>enum struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3a">IntegrationType</a> { <br />
 &#160;&#160;<b>PREDICTION_TANGENT_OPERATOR</b> = -3
 , <b>PREDICTION_SECANT_OPERATOR</b> = -2
@@ -1222,6 +1246,148 @@ template&lt;bool parallel&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a73a830d83c7c7d1101ab885739b12ea5" name="a73a830d83c7c7d1101ab885739b12ea5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73a830d83c7c7d1101ab885739b12ea5">&#9670;&#160;</a></span>IntegrationOperator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum struct <a class="el" href="namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5">mfem_mgis::IntegrationOperator</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>list of operators available after the behaviour integration </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a73a830d83c7c7d1101ab885739b12ea5a61a085f4807a9157f9381a9b543efda2" name="a73a830d83c7c7d1101ab885739b12ea5a61a085f4807a9157f9381a9b543efda2"></a>ELASTIC&#160;</td><td class="fielddoc"><p>The elastic operator. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a73a830d83c7c7d1101ab885739b12ea5a1833e5428b1f5abd43390ad836403a61" name="a73a830d83c7c7d1101ab885739b12ea5a1833e5428b1f5abd43390ad836403a61"></a>SECANT&#160;</td><td class="fielddoc"><p>The secant operator is typically defined by the elastic operator affected by damage. </p>
+<dl class="section note"><dt>Note</dt><dd>Most behaviours do not compute the secant operator or simply return the elastic operator. </dd></dl>
+</td></tr>
+<tr><td class="fieldname"><a id="a73a830d83c7c7d1101ab885739b12ea5a4da56c3c2d4ee59a3461da5b2ad1a25d" name="a73a830d83c7c7d1101ab885739b12ea5a4da56c3c2d4ee59a3461da5b2ad1a25d"></a>TANGENT&#160;</td><td class="fielddoc"><p>The tangent operator, defined by the time-continuous derivative of the thermodynamic force with respect to the gradients. </p>
+<dl class="section note"><dt>Note</dt><dd>Most behaviours do not compute the tangent operator. </dd></dl>
+</td></tr>
+<tr><td class="fieldname"><a id="a73a830d83c7c7d1101ab885739b12ea5a3a4eb675850671a5ad63fc129d91022a" name="a73a830d83c7c7d1101ab885739b12ea5a3a4eb675850671a5ad63fc129d91022a"></a>CONSISTENT_TANGENT&#160;</td><td class="fielddoc"><p>The consistent tangent operator, defined by the derivative of the thermodynamic force with respect to the gradients at the end of the time step. See <b>[simo_consistent_1985]</b> for details. </p>
+<dl class="section note"><dt>Note</dt><dd>the consistent tangent operator takes into account the details related to the algorithm used to integration the constitutive equations. </dd></dl>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a48e078ec8d415cbe6176da998e2d23b0" name="a48e078ec8d415cbe6176da998e2d23b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48e078ec8d415cbe6176da998e2d23b0">&#9670;&#160;</a></span>PredictionOperator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum struct <a class="el" href="namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0">mfem_mgis::PredictionOperator</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>list of prediction operators available </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a48e078ec8d415cbe6176da998e2d23b0a61a085f4807a9157f9381a9b543efda2" name="a48e078ec8d415cbe6176da998e2d23b0a61a085f4807a9157f9381a9b543efda2"></a>ELASTIC&#160;</td><td class="fielddoc"><p>The elastic operator. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a48e078ec8d415cbe6176da998e2d23b0a1833e5428b1f5abd43390ad836403a61" name="a48e078ec8d415cbe6176da998e2d23b0a1833e5428b1f5abd43390ad836403a61"></a>SECANT&#160;</td><td class="fielddoc"><p>The secant operator is typically defined by the elastic operator affected by damage. </p>
+<dl class="section note"><dt>Note</dt><dd>Most behaviours do not compute the secant operator or simply return the elastic operator. </dd></dl>
+</td></tr>
+<tr><td class="fieldname"><a id="a48e078ec8d415cbe6176da998e2d23b0a4da56c3c2d4ee59a3461da5b2ad1a25d" name="a48e078ec8d415cbe6176da998e2d23b0a4da56c3c2d4ee59a3461da5b2ad1a25d"></a>TANGENT&#160;</td><td class="fielddoc"><p>The tangent operator, defined by the time-continuous derivative of the thermodynamic force with respect to the gradients. </p>
+<dl class="section note"><dt>Note</dt><dd>Most behaviours do not compute the tangent operator. </dd></dl>
+</td></tr>
+<tr><td class="fieldname"><a id="a48e078ec8d415cbe6176da998e2d23b0ac166cd09f71765a2b3f390fc9a800954" name="a48e078ec8d415cbe6176da998e2d23b0ac166cd09f71765a2b3f390fc9a800954"></a>LAST_ITERATE_OPERATOR&#160;</td><td class="fielddoc"><p>The <code>LAST_ITERATE_OPERATOR</code> relies on the operator computed at the last iteration of the previous time step.</p>
+<dl class="section note"><dt>Note</dt><dd>At the first time step, the elastic operator is used. </dd></dl>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a639f12cd43aca880d50f6aaa96f46812" name="a639f12cd43aca880d50f6aaa96f46812"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a639f12cd43aca880d50f6aaa96f46812">&#9670;&#160;</a></span>PredictionStrategy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum struct <a class="el" href="namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812">mfem_mgis::PredictionStrategy</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>strategy used to make a prediction of the solution at the end of the time step </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a639f12cd43aca880d50f6aaa96f46812abf2ef412eafa362fe5d03da69381ea94" name="a639f12cd43aca880d50f6aaa96f46812abf2ef412eafa362fe5d03da69381ea94"></a>DEFAULT_PREDICTION&#160;</td><td class="fielddoc"><p>By default, a nonlinear evolution problem uses the solution at the beginning of the time step, modified by applying Dirichlet boundary conditions, as the initial guess of the solution at the end of the time step. </p>
+<dl class="section warning"><dt>Warning</dt><dd>In mechanics, this may lead to very high increments of the deformation gradients or the strain in the neighboring elements of boundaries where evolving unknowns are imposed. </dd></dl>
+</td></tr>
+<tr><td class="fieldname"><a id="a639f12cd43aca880d50f6aaa96f46812a66fe44a6e0479252a71548176e9af3e9" name="a639f12cd43aca880d50f6aaa96f46812a66fe44a6e0479252a71548176e9af3e9"></a>BEGINNING_OF_TIME_STEP_PREDICTION&#160;</td><td class="fielddoc"><p>The <code>PREDICTION</code> strategy determines the increment of the unknown \(\Delta\,{u}\) by solving the following linear system:</p>
+<p class="formulaDsp">
+\[
+  \mathbb{K}\,\cdot\,\Delta\,\mathbb{u} =
+  \ets{\mathbb{F}_{e}}-\bts{\mathbb{F}_{i}}
+\]
+</p>
+<p>where:</p>
+<ul>
+<li>\(\mathbb{K}\) denotes the prediction operator (See <code><a class="el" href="structmfem__mgis_1_1_prediction_policy.html#adf31dd21819229946c556c2425acc9cc" title="selected prediction operator">PredictionPolicy::prediction_operator</a></code>)</li>
+<li>\(\bts{\mathbb{F}_{e}}\) denotes the external forces at the beginning of the time step.</li>
+<li>\(\bts{\mathbb{F}_{i}}\) denotes the inner forces at the beginning of the time step.</li>
+<li>\(\Delta\,\mathbb{u}\) is submitted to the the increment of the imposed Dirichlet boundary conditions.</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>Although the wording explicitly refers to mechanics, this equation applies to all physics. </dd></dl>
+</td></tr>
+<tr><td class="fieldname"><a id="a639f12cd43aca880d50f6aaa96f46812ad4124ca7c6746018083289561edd68c3" name="a639f12cd43aca880d50f6aaa96f46812ad4124ca7c6746018083289561edd68c3"></a>CONSTANT_GRADIENTS_INTEGRATION_PREDICTION&#160;</td><td class="fielddoc"><p>The <code>CONSTANT_GRADIENTS_INTEGRATION</code> strategy determines the increment of the unknown \(\Delta\,{u}\) by solving the following linear system:</p>
+<p class="formulaDsp">
+\[
+  \tilde{\mathbb{K}}\,\cdot\,\Delta\,\mathbb{u} =
+  \ets{\mathbb{F}_{e}}-\ets{\tilde{\mathbb{F}}_{i}}
+\]
+</p>
+<p>where:</p>
+<ul>
+<li>\(\tilde{\mathbb{K}}\) denotes the elastic operator.</li>
+<li>\(\bts{\mathbb{F}_{e}}\) denotes the external forces at the beginning of the time step.</li>
+<li>\(\ets{\tilde{\mathbb{F}}_{i}}\) denotes an approximation inner forces at the end of the time step computed by assuming that the gradients are constant over the time (and thus egal to their values at the beginning of the time step).</li>
+<li>\(\Delta\,\mathbb{u}\) is submitted to the the increment of the imposed Dirichlet boundary conditions.</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>the behaviour integration allows taking into account:<ul>
+<li>the evolution of stress-free strain (thermal expansion, swelling, etc..),</li>
+<li>the viscoplastic relaxation of the stress (</li>
+</ul>
+</dd>
+<dd>
+Although the wording explicitly refers to mechanics, this equation applies to all physics. </dd></dl>
+</td></tr>
+</table>
 
 </div>
 </div>
@@ -4422,7 +4588,7 @@ template&lt;bool parallel&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li>
-    <li class="footer">Generated on Wed Feb 18 2026 21:21:53 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Feb 18 2026 21:23:22 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

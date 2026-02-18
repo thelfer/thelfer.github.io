@@ -1,7 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"conceptmgis_1_1function_1_1_quadrature_function_concept.html":[3,0,0,8],
-"conceptmgis_1_1function_1_1_quadrature_space_concept.html":[3,0,0,12],
 "conceptmgis_1_1function_1_1_s_t2to_s_t21_d_evaluator_concept.html":[3,0,0,26],
 "conceptmgis_1_1function_1_1_s_t2to_s_t22_d_evaluator_concept.html":[3,0,0,27],
 "conceptmgis_1_1function_1_1_s_t2to_s_t23_d_evaluator_concept.html":[3,0,0,28],
@@ -161,8 +159,8 @@ var NAVTREEINDEX10 =
 "functions_enum.html":[4,3,4],
 "functions_eval.html":[4,3,5],
 "functions_f.html":[4,3,0,6],
-"functions_func.html":[4,3,1,0],
 "functions_func.html":[4,3,1],
+"functions_func.html":[4,3,1,0],
 "functions_func_b.html":[4,3,1,1],
 "functions_func_c.html":[4,3,1,2],
 "functions_func_d.html":[4,3,1,3],
@@ -249,5 +247,7 @@ var NAVTREEINDEX10 =
 "functions_vars_q.html":[4,3,2,17],
 "functions_vars_r.html":[4,3,2,18],
 "functions_vars_s.html":[4,3,2,19],
-"functions_vars_t.html":[4,3,2,20]
+"functions_vars_t.html":[4,3,2,20],
+"functions_vars_u.html":[4,3,2,21],
+"functions_vars_v.html":[4,3,2,22]
 };

@@ -1,9 +1,5 @@
 var NAVTREEINDEX14 =
 {
-"structansys_1_1_import_symmetric_tensor_3_013u_01_4.html":[4,0,1,64],
-"structansys_1_1_import_thermodynamic_forces.html":[4,0,1,65],
-"structansys_1_1_import_thermodynamic_forces_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html":[4,0,1,66],
-"structansys_1_1_stress_free_expansion_handler_type.html":[4,0,1,67],
 "structansys_1_1_stress_free_expansion_handler_type.html#a159f2299a4c7457588b1bf9d7f585e5a":[4,0,1,67,0],
 "structaster_1_1_aster_behaviour_handler.html":[4,0,2,0],
 "structaster_1_1_aster_behaviour_handler_1_1_do_nothing_initializer.html":[4,0,2,0,0],
@@ -249,5 +245,9 @@ var NAVTREEINDEX14 =
 "structcastem_1_1_castem_out_of_bounds_policy.html":[4,0,4,75],
 "structcastem_1_1_castem_out_of_bounds_policy.html#a0c3cbbc8b61156081934f2570e7e0c70":[4,0,4,75,0],
 "structcastem_1_1_castem_rotation_matrix2_d.html":[4,0,4,76],
-"structcastem_1_1_castem_rotation_matrix3_d.html":[4,0,4,77]
+"structcastem_1_1_castem_rotation_matrix3_d.html":[4,0,4,77],
+"structcastem_1_1_castem_tangent_operator.html":[4,0,4,78],
+"structcastem_1_1_castem_tangent_operator_flag.html":[4,0,4,79],
+"structcastem_1_1_castem_tangent_operator_flag_3_01castem_1_1_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_01_4.html":[4,0,4,80],
+"structcastem_1_1_castem_tangent_operator_flag_3_01castem_1_1_m_o_d_e_l_01_4.html":[4,0,4,81]
 };

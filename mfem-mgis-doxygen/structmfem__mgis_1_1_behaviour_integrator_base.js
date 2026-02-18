@@ -8,8 +8,6 @@ var structmfem__mgis_1_1_behaviour_integrator_base =
     [ "getPartialQuadratureSpace", "structmfem__mgis_1_1_behaviour_integrator_base.html#a34882ba977d941a54e99d7fc83d6b9be", null ],
     [ "hasMaterial", "structmfem__mgis_1_1_behaviour_integrator_base.html#a092ef26a9cd2f04472c718b969ffdea5", null ],
     [ "performsLocalBehaviourIntegration", "structmfem__mgis_1_1_behaviour_integrator_base.html#adcd79286ce14a926f0814cc67f964a86", null ],
-    [ "requiresCurrentSolutionForJacobianAssembly", "structmfem__mgis_1_1_behaviour_integrator_base.html#a08bbaa4d44284bb5fa04b788329cee43", null ],
-    [ "requiresCurrentSolutionForResidualAssembly", "structmfem__mgis_1_1_behaviour_integrator_base.html#a8116b2f0dfeb32d2c2842f3f09ac0807", null ],
     [ "revert", "structmfem__mgis_1_1_behaviour_integrator_base.html#aa6a8082deb6b14fa56ebcff59ecd8328", null ],
     [ "setMacroscopicGradients", "structmfem__mgis_1_1_behaviour_integrator_base.html#ad32ee3c5a4d0ac0794481d7757330056", null ],
     [ "setTimeIncrement", "structmfem__mgis_1_1_behaviour_integrator_base.html#a7df325d915f43cc6c52c1f69f061d801", null ],

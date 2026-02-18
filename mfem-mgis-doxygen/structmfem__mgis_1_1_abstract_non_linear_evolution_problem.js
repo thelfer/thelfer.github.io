@@ -2,6 +2,7 @@ var structmfem__mgis_1_1_abstract_non_linear_evolution_problem =
 [
     [ "~AbstractNonLinearEvolutionProblem", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#aab29f34f08d699fae59b91d06f2c319d", null ],
     [ "addBehaviourIntegrator", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a1d0b72ac96f56f92ec8e16899c83845a", null ],
+    [ "addBoundaryCondition", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#ae26107631a92e315aadf9215e69f9b85", null ],
     [ "addBoundaryCondition", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#ac4940d0cb28884b010a185b2de9fab5e", null ],
     [ "addBoundaryCondition", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#af0e4804d29b1577d9e5d47fe2ed53833", null ],
     [ "addPostProcessing", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a6f9b3188642eeedc38ab6a13ca390099", null ],
@@ -11,8 +12,9 @@ var structmfem__mgis_1_1_abstract_non_linear_evolution_problem =
     [ "getBehaviourIntegrator", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a4d5ce040b9b614e878cfe5b090a34801", null ],
     [ "getBehaviourIntegrator", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a4953621a1939d9a116b1a0283581e9f6", null ],
     [ "getBoundariesIdentifiers", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#ab70516985cecb6ec2cc8282a546a2132", null ],
+    [ "getBoundaryConditions", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a85200d7b611f4d496791b27e10e0423d", null ],
     [ "getBoundaryIdentifier", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#aace4d95d70777a20a3d588235777b70f", null ],
-    [ "getDirichletBoundaryConditions", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a58d27d2f66a0892636c444b6619dddf5", null ],
+    [ "getDirichletBoundaryConditions", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a16f69af625f4f61fce995abefe075474", null ],
     [ "getEssentialDegreesOfFreedom", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#aa9edf89f6d0e48c03bde1080d882e040", null ],
     [ "getFiniteElementDiscretization", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a7556f514d80b12aeb22348bc189c6fb8", null ],
     [ "getFiniteElementDiscretization", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#ae76973f898fea258568bbe9fe3cdaa7e", null ],

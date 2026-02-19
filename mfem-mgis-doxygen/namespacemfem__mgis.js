@@ -90,7 +90,7 @@ var namespacemfem__mgis =
     [ "PostProcessingFactory", "structmfem__mgis_1_1_post_processing_factory.html", null ],
     [ "PostProcessingFactory< false >", "structmfem__mgis_1_1_post_processing_factory_3_01false_01_4.html", "structmfem__mgis_1_1_post_processing_factory_3_01false_01_4" ],
     [ "PostProcessingFactory< true >", "structmfem__mgis_1_1_post_processing_factory_3_01true_01_4.html", "structmfem__mgis_1_1_post_processing_factory_3_01true_01_4" ],
-    [ "PredictionPolicy", "structmfem__mgis_1_1_prediction_policy.html", "structmfem__mgis_1_1_prediction_policy" ],
+    [ "PredictionPolicy", "structmfem__mgis_1_1_prediction_policy.html", null ],
     [ "RotatedGradientsMatrixPartialQuadratureFunctionEvalutor", "structmfem__mgis_1_1_rotated_gradients_matrix_partial_quadrature_function_evalutor.html", "structmfem__mgis_1_1_rotated_gradients_matrix_partial_quadrature_function_evalutor" ],
     [ "RotatedThermodynamicForcesMatrixPartialQuadratureFunctionEvalutor", "structmfem__mgis_1_1_rotated_thermodynamic_forces_matrix_partial_quadrature_function_evalutor.html", "structmfem__mgis_1_1_rotated_thermodynamic_forces_matrix_partial_quadrature_function_evalutor" ],
     [ "RotationMatrixPartialQuadratureFunctionEvalutor", "structmfem__mgis_1_1_rotation_matrix_partial_quadrature_function_evalutor.html", "structmfem__mgis_1_1_rotation_matrix_partial_quadrature_function_evalutor" ],
@@ -126,12 +126,6 @@ var namespacemfem__mgis =
     [ "RotationMatrix3D", "namespacemfem__mgis.html#a47d576edea59b2a0bc41cb4a77fde894", null ],
     [ "size_type", "namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368", null ],
     [ "SubMesh", "namespacemfem__mgis.html#ad9e05df2ee2047fcf81f7571cce0bb27", null ],
-    [ "IntegrationOperator", "namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5", [
-      [ "ELASTIC", "namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5a61a085f4807a9157f9381a9b543efda2", null ],
-      [ "SECANT", "namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5a1833e5428b1f5abd43390ad836403a61", null ],
-      [ "TANGENT", "namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5a4da56c3c2d4ee59a3461da5b2ad1a25d", null ],
-      [ "CONSISTENT_TANGENT", "namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5a3a4eb675850671a5ad63fc129d91022a", null ]
-    ] ],
     [ "IntegrationType", "namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3a", [
       [ "PREDICTION_TANGENT_OPERATOR", "namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3aae6a241e98ce17e23c78d8e97ab7ce74f", null ],
       [ "PREDICTION_SECANT_OPERATOR", "namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3aab0e47a5e4498ebbdbb4c55ec6cbdebc5", null ],
@@ -141,17 +135,6 @@ var namespacemfem__mgis =
       [ "INTEGRATION_SECANT_OPERATOR", "namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3aa0385d78bb2ef857492c93969356f49c0", null ],
       [ "INTEGRATION_TANGENT_OPERATOR", "namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3aafaf3f0f6d27b49135d29cd24994740b5", null ],
       [ "INTEGRATION_CONSISTENT_TANGENT_OPERATOR", "namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3aa03178afe0667171e154069bf54a103db", null ]
-    ] ],
-    [ "PredictionOperator", "namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0", [
-      [ "ELASTIC", "namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0a61a085f4807a9157f9381a9b543efda2", null ],
-      [ "SECANT", "namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0a1833e5428b1f5abd43390ad836403a61", null ],
-      [ "TANGENT", "namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0a4da56c3c2d4ee59a3461da5b2ad1a25d", null ],
-      [ "LAST_ITERATE_OPERATOR", "namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0ac166cd09f71765a2b3f390fc9a800954", null ]
-    ] ],
-    [ "PredictionStrategy", "namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812", [
-      [ "DEFAULT_PREDICTION", "namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812abf2ef412eafa362fe5d03da69381ea94", null ],
-      [ "BEGINNING_OF_TIME_STEP_PREDICTION", "namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812a66fe44a6e0479252a71548176e9af3e9", null ],
-      [ "CONSTANT_GRADIENTS_INTEGRATION_PREDICTION", "namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812ad4124ca7c6746018083289561edd68c3", null ]
     ] ],
     [ "TimeStepStage", "namespacemfem__mgis.html#a4226ace48c4b7ef4277a49115302803d", [
       [ "BEGINNING_OF_TIME_STEP", "namespacemfem__mgis.html#a4226ace48c4b7ef4277a49115302803da5dc6f1a903d8969ce4ebaad07ac981d7", null ],

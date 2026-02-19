@@ -8,6 +8,7 @@ var structmfem__mgis_1_1_partial_quadrature_space =
     [ "getNumberOfElements", "structmfem__mgis_1_1_partial_quadrature_space.html#a518b4fde3773513419947fea699af560", null ],
     [ "getNumberOfIntegrationPoints", "structmfem__mgis_1_1_partial_quadrature_space.html#a6227a0d62119f0c4f47e01ec44622dee", null ],
     [ "getNumberOfQuadraturePoints", "structmfem__mgis_1_1_partial_quadrature_space.html#a533e5a0913452e23672a537b35567034", null ],
+    [ "getNumberOfQuadraturePoints", "structmfem__mgis_1_1_partial_quadrature_space.html#a737403f728b94e054aa2d247bdc3e018", null ],
     [ "getOffset", "structmfem__mgis_1_1_partial_quadrature_space.html#ad6f45d56ad5899f9ccea4e268b9bfb2c", null ],
     [ "getOffsets", "structmfem__mgis_1_1_partial_quadrature_space.html#a13372ee2f28d1835d15518d8f75e9b86", null ]
 ];

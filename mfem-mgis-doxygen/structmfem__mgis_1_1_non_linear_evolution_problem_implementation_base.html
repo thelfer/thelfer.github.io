@@ -21,14 +21,6 @@ MathJax.Hub.Config({
   extensions: ["tex2jax.js"],
   jax: ["input/TeX","output/HTML-CSS"],
 });
-MathJax.Hub.Config({
-    TeX: {
-        Macros: {
-            bts: ["{\\left.#1\\right|_{\\mathrm{bts}}}", 1],
-            ets: ["{\\left.#1\\right|_{\\mathrm{ets}}}", 1]
-        }
-    }
-});
 </script>
 <script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -208,24 +200,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af59d11a6e9095dda526a0c386fb28fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55133f4f0819b1d9270a5d1c815484c1" id="r_a55133f4f0819b1d9270a5d1c815484c1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a55133f4f0819b1d9270a5d1c815484c1">getEssentialDegreesOfFreedom</a> () const override</td></tr>
 <tr class="separator:a55133f4f0819b1d9270a5d1c815484c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad79b15cc862ecf92a20cbd80b5e9f925" id="r_ad79b15cc862ecf92a20cbd80b5e9f925"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#ad79b15cc862ecf92a20cbd80b5e9f925">areStiffnessOperatorsFromLastIterationAvailable</a> () const noexcept override</td></tr>
-<tr class="separator:ad79b15cc862ecf92a20cbd80b5e9f925"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bed65f9d0087487661484d2dd3f5224" id="r_a4bed65f9d0087487661484d2dd3f5224"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structmfem__mgis_1_1_linearized_operators.html">LinearizedOperators</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a4bed65f9d0087487661484d2dd3f5224">getLinearizedOperators</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const mfem::Vector &amp;) noexcept override</td></tr>
 <tr class="memdesc:a4bed65f9d0087487661484d2dd3f5224"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the linearised operators  <br /></td></tr>
 <tr class="separator:a4bed65f9d0087487661484d2dd3f5224"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84926d3896e168eb876a0d5446f87306" id="r_a84926d3896e168eb876a0d5446f87306"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmfem__mgis_1_1_dirichlet_boundary_condition.html">DirichletBoundaryCondition</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a84926d3896e168eb876a0d5446f87306">getDirichletBoundaryConditions</a> () const noexcept override</td></tr>
-<tr class="memdesc:a84926d3896e168eb876a0d5446f87306"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the Dirichlet boundary conditions  <br /></td></tr>
-<tr class="separator:a84926d3896e168eb876a0d5446f87306"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a9cec7959578e4ea9ce51102c4a090c" id="r_a8a9cec7959578e4ea9ce51102c4a090c"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmfem__mgis_1_1_abstract_boundary_condition.html">AbstractBoundaryCondition</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a8a9cec7959578e4ea9ce51102c4a090c">getBoundaryConditions</a> () const noexcept override</td></tr>
-<tr class="memdesc:a8a9cec7959578e4ea9ce51102c4a090c"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the standard boundary conditions  <br /></td></tr>
-<tr class="separator:a8a9cec7959578e4ea9ce51102c4a090c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adabeb51339880572ec77450f0f4ada2c" id="r_adabeb51339880572ec77450f0f4ada2c"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmfem__mgis_1_1_dirichlet_boundary_condition.html">DirichletBoundaryCondition</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#adabeb51339880572ec77450f0f4ada2c">getDirichletBoundaryConditions</a> () noexcept override</td></tr>
+<tr class="memdesc:adabeb51339880572ec77450f0f4ada2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the boundary conditions  <br /></td></tr>
+<tr class="separator:adabeb51339880572ec77450f0f4ada2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27d763dc8f3ac7020c68b0225e115d10" id="r_a27d763dc8f3ac7020c68b0225e115d10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="spack_2opt_2spack_2linux-zen2_2tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w_2include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a27d763dc8f3ac7020c68b0225e115d10">setup</a> (const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>, const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>) override</td></tr>
 <tr class="memdesc:a27d763dc8f3ac7020c68b0225e115d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">method called before each resolution  <br /></td></tr>
 <tr class="separator:a27d763dc8f3ac7020c68b0225e115d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7886fbf740a19cf0cf5ba7f6cdd74847" id="r_a7886fbf740a19cf0cf5ba7f6cdd74847"><td class="memItemLeft" align="right" valign="top"><a class="el" href="spack_2opt_2spack_2linux-zen2_2tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w_2include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a7886fbf740a19cf0cf5ba7f6cdd74847">setPredictionPolicy</a> (const <a class="el" href="structmfem__mgis_1_1_prediction_policy.html">PredictionPolicy</a> &amp;) noexcept override</td></tr>
 <tr class="separator:a7886fbf740a19cf0cf5ba7f6cdd74847"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab886cda4771edad3d3ed4f80d126e91f" id="r_ab886cda4771edad3d3ed4f80d126e91f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmfem__mgis_1_1_prediction_policy.html">PredictionPolicy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#ab886cda4771edad3d3ed4f80d126e91f">getPredictionPolicy</a> () const noexcept override</td></tr>
-<tr class="separator:ab886cda4771edad3d3ed4f80d126e91f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa762dc5216bafa1b7e56b219f5d5e770" id="r_aa762dc5216bafa1b7e56b219f5d5e770"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmfem__mgis_1_1_non_linear_resolution_output.html">NonLinearResolutionOutput</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#aa762dc5216bafa1b7e56b219f5d5e770">solve</a> (const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>, const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>) override</td></tr>
 <tr class="memdesc:aa762dc5216bafa1b7e56b219f5d5e770"><td class="mdescLeft">&#160;</td><td class="mdescRight">solve the non linear problem over the given time step  <br /></td></tr>
 <tr class="separator:aa762dc5216bafa1b7e56b219f5d5e770"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -252,9 +237,6 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~NonLinearEvolutio
 <tr class="memitem:ac4940d0cb28884b010a185b2de9fab5e inherit pub_methods_structmfem__mgis_1_1_abstract_non_linear_evolution_problem" id="r_ac4940d0cb28884b010a185b2de9fab5e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="spack_2opt_2spack_2linux-zen2_2tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w_2include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#ac4940d0cb28884b010a185b2de9fab5e">addBoundaryCondition</a> (std::unique_ptr&lt; <a class="el" href="structmfem__mgis_1_1_abstract_boundary_condition.html">AbstractBoundaryCondition</a> &gt;)=0</td></tr>
 <tr class="memdesc:ac4940d0cb28884b010a185b2de9fab5e inherit pub_methods_structmfem__mgis_1_1_abstract_non_linear_evolution_problem"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a boundary condition  <br /></td></tr>
 <tr class="separator:ac4940d0cb28884b010a185b2de9fab5e inherit pub_methods_structmfem__mgis_1_1_abstract_non_linear_evolution_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae26107631a92e315aadf9215e69f9b85 inherit pub_methods_structmfem__mgis_1_1_abstract_non_linear_evolution_problem" id="r_ae26107631a92e315aadf9215e69f9b85"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#ae26107631a92e315aadf9215e69f9b85">addBoundaryCondition</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, std::unique_ptr&lt; <a class="el" href="structmfem__mgis_1_1_abstract_boundary_condition.html">AbstractBoundaryCondition</a> &gt;) noexcept=0</td></tr>
-<tr class="memdesc:ae26107631a92e315aadf9215e69f9b85 inherit pub_methods_structmfem__mgis_1_1_abstract_non_linear_evolution_problem"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a boundary condition  <br /></td></tr>
-<tr class="separator:ae26107631a92e315aadf9215e69f9b85 inherit pub_methods_structmfem__mgis_1_1_abstract_non_linear_evolution_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0e4804d29b1577d9e5d47fe2ed53833 inherit pub_methods_structmfem__mgis_1_1_abstract_non_linear_evolution_problem" id="r_af0e4804d29b1577d9e5d47fe2ed53833"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="spack_2opt_2spack_2linux-zen2_2tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w_2include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#af0e4804d29b1577d9e5d47fe2ed53833">addBoundaryCondition</a> (std::unique_ptr&lt; <a class="el" href="structmfem__mgis_1_1_dirichlet_boundary_condition.html">DirichletBoundaryCondition</a> &gt;)=0</td></tr>
 <tr class="memdesc:af0e4804d29b1577d9e5d47fe2ed53833 inherit pub_methods_structmfem__mgis_1_1_abstract_non_linear_evolution_problem"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a Dirichlet boundary condition  <br /></td></tr>
 <tr class="separator:af0e4804d29b1577d9e5d47fe2ed53833 inherit pub_methods_structmfem__mgis_1_1_abstract_non_linear_evolution_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -322,9 +304,6 @@ std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmfem__mgis_1_1_dir
 <tr class="memitem:a5bd20574b5c1b64497609097713368af" id="r_a5bd20574b5c1b64497609097713368af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a5bd20574b5c1b64497609097713368af">initialization_phase</a> = true</td></tr>
 <tr class="memdesc:a5bd20574b5c1b64497609097713368af"><td class="mdescLeft">&#160;</td><td class="mdescRight">a boolean value to specifiy if the initialization phase is still open.  <br /></td></tr>
 <tr class="separator:a5bd20574b5c1b64497609097713368af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a906072851560dcf792e71f77b7bdac" id="r_a9a906072851560dcf792e71f77b7bdac"><td class="memItemLeft" align="right" valign="top"><a id="a9a906072851560dcf792e71f77b7bdac" name="a9a906072851560dcf792e71f77b7bdac"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasStiffnessOperatorsBeenComputed</b> = false</td></tr>
-<tr class="separator:a9a906072851560dcf792e71f77b7bdac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb8c587f081a004ce7bff360fec384d4" id="r_acb8c587f081a004ce7bff360fec384d4"><td class="memItemLeft" align="right" valign="top"><a id="acb8c587f081a004ce7bff360fec384d4" name="acb8c587f081a004ce7bff360fec384d4"></a>
 mfem::Vector&#160;</td><td class="memItemRight" valign="bottom"><b>u0</b></td></tr>
 <tr class="memdesc:acb8c587f081a004ce7bff360fec384d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">unknowns at the beginning of the time step <br /></td></tr>
@@ -468,34 +447,6 @@ const <a class="el" href="_hypothesis_8hxx.html#a037f3a96e426eed0b44aca2d14d8fb4
 </dl>
 
 <p>Implements <a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a1d0b72ac96f56f92ec8e16899c83845a">mfem_mgis::AbstractNonLinearEvolutionProblem</a>.</p>
-
-</div>
-</div>
-<a id="ad79b15cc862ecf92a20cbd80b5e9f925" name="ad79b15cc862ecf92a20cbd80b5e9f925"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad79b15cc862ecf92a20cbd80b5e9f925">&#9670;&#160;</a></span>areStiffnessOperatorsFromLastIterationAvailable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool mfem_mgis::NonLinearEvolutionProblemImplementationBase::areStiffnessOperatorsFromLastIterationAvailable </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>if the stiffness operators from the last iteration are available </dd></dl>
-
-<p>Implements <a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#ad2d33aa8bdfc48e04301ffcf6a9b6ce9">mfem_mgis::AbstractNonLinearEvolutionProblem</a>.</p>
 
 </div>
 </div>
@@ -688,35 +639,6 @@ const <a class="el" href="_hypothesis_8hxx.html#a037f3a96e426eed0b44aca2d14d8fb4
 
 </div>
 </div>
-<a id="a8a9cec7959578e4ea9ce51102c4a090c" name="a8a9cec7959578e4ea9ce51102c4a090c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a9cec7959578e4ea9ce51102c4a090c">&#9670;&#160;</a></span>getBoundaryConditions()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmfem__mgis_1_1_abstract_boundary_condition.html">AbstractBoundaryCondition</a> &gt; &gt; &amp; mfem_mgis::NonLinearEvolutionProblemImplementationBase::getBoundaryConditions </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>return the standard boundary conditions </p>
-
-<p>Implements <a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a85200d7b611f4d496791b27e10e0423d">mfem_mgis::AbstractNonLinearEvolutionProblem</a>.</p>
-
-</div>
-</div>
 <a id="a55a51fbacd0468eb8b626f88de8a67ff" name="a55a51fbacd0468eb8b626f88de8a67ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55a51fbacd0468eb8b626f88de8a67ff">&#9670;&#160;</a></span>getBoundaryIdentifier()</h2>
 
@@ -747,8 +669,8 @@ const <a class="el" href="_hypothesis_8hxx.html#a037f3a96e426eed0b44aca2d14d8fb4
 
 </div>
 </div>
-<a id="a84926d3896e168eb876a0d5446f87306" name="a84926d3896e168eb876a0d5446f87306"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84926d3896e168eb876a0d5446f87306">&#9670;&#160;</a></span>getDirichletBoundaryConditions()</h2>
+<a id="adabeb51339880572ec77450f0f4ada2c" name="adabeb51339880572ec77450f0f4ada2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adabeb51339880572ec77450f0f4ada2c">&#9670;&#160;</a></span>getDirichletBoundaryConditions()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -760,7 +682,7 @@ const <a class="el" href="_hypothesis_8hxx.html#a037f3a96e426eed0b44aca2d14d8fb4
           <td class="memname">const std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmfem__mgis_1_1_dirichlet_boundary_condition.html">DirichletBoundaryCondition</a> &gt; &gt; &amp; mfem_mgis::NonLinearEvolutionProblemImplementationBase::getDirichletBoundaryConditions </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -770,9 +692,9 @@ const <a class="el" href="_hypothesis_8hxx.html#a037f3a96e426eed0b44aca2d14d8fb4
 </table>
 </div><div class="memdoc">
 
-<p>return the Dirichlet boundary conditions </p>
+<p>return the boundary conditions </p>
 
-<p>Implements <a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a16f69af625f4f61fce995abefe075474">mfem_mgis::AbstractNonLinearEvolutionProblem</a>.</p>
+<p>Implements <a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a58d27d2f66a0892636c444b6619dddf5">mfem_mgis::AbstractNonLinearEvolutionProblem</a>.</p>
 
 </div>
 </div>
@@ -1089,34 +1011,6 @@ const <a class="el" href="_hypothesis_8hxx.html#a037f3a96e426eed0b44aca2d14d8fb4
 </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the list of valid parameters </dd></dl>
-
-</div>
-</div>
-<a id="ab886cda4771edad3d3ed4f80d126e91f" name="ab886cda4771edad3d3ed4f80d126e91f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab886cda4771edad3d3ed4f80d126e91f">&#9670;&#160;</a></span>getPredictionPolicy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structmfem__mgis_1_1_prediction_policy.html">PredictionPolicy</a> mfem_mgis::NonLinearEvolutionProblemImplementationBase::getPredictionPolicy </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the prediction policy </dd></dl>
-
-<p>Implements <a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a1ce706fe02408d74f4c76b9719d9af5e">mfem_mgis::AbstractNonLinearEvolutionProblem</a>.</p>
 
 </div>
 </div>
@@ -1838,7 +1732,7 @@ const <a class="el" href="_hypothesis_8hxx.html#a037f3a96e426eed0b44aca2d14d8fb4
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html">NonLinearEvolutionProblemImplementationBase</a></li>
-    <li class="footer">Generated on Wed Feb 18 2026 21:23:22 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Feb 19 2026 08:34:06 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

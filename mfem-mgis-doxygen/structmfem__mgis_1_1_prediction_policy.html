@@ -21,14 +21,6 @@ MathJax.Hub.Config({
   extensions: ["tex2jax.js"],
   jax: ["input/TeX","output/HTML-CSS"],
 });
-MathJax.Hub.Config({
-    TeX: {
-        Macros: {
-            bts: ["{\\left.#1\\right|_{\\mathrm{bts}}}", 1],
-            ets: ["{\\left.#1\\right|_{\\mathrm{ets}}}", 1]
-        }
-    }
-});
 </script>
 <script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -113,7 +105,7 @@ $(document).ready(function(){initNavTree('structmfem__mgis_1_1_prediction_policy
 </div><!--header-->
 <div class="contents">
 
-<p>Prediction policy for estimating the increment of the unknowns over a time step.  
+<p>prediction policy  
  <a href="structmfem__mgis_1_1_prediction_policy.html#details">More...</a></p>
 
 <p><code>#include &lt;/home/runner/work/mfem-mgis/mfem-mgis/include/MFEMMGIS/AbstractNonLinearEvolutionProblem.hxx&gt;</code></p>
@@ -121,76 +113,12 @@ $(document).ready(function(){initNavTree('structmfem__mgis_1_1_prediction_policy
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a2dbcad0fb36fa03a21827a7b7407c1ec" id="r_a2dbcad0fb36fa03a21827a7b7407c1ec"><td class="memItemLeft" align="right" valign="top"><a id="a2dbcad0fb36fa03a21827a7b7407c1ec" name="a2dbcad0fb36fa03a21827a7b7407c1ec"></a>
-<a class="el" href="namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812">PredictionStrategy</a>&#160;</td><td class="memItemRight" valign="bottom"><b>strategy</b> = <a class="el" href="namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812abf2ef412eafa362fe5d03da69381ea94">PredictionStrategy::DEFAULT_PREDICTION</a></td></tr>
+PredictionStrategy&#160;</td><td class="memItemRight" valign="bottom"><b>strategy</b> = PredictionStrategy::DEFAULT_PREDICTION</td></tr>
 <tr class="separator:a2dbcad0fb36fa03a21827a7b7407c1ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf31dd21819229946c556c2425acc9cc" id="r_adf31dd21819229946c556c2425acc9cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0">PredictionOperator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_prediction_policy.html#adf31dd21819229946c556c2425acc9cc">prediction_operator</a> = <a class="el" href="namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0a61a085f4807a9157f9381a9b543efda2">PredictionOperator::ELASTIC</a></td></tr>
-<tr class="memdesc:adf31dd21819229946c556c2425acc9cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">selected prediction operator  <br /></td></tr>
-<tr class="separator:adf31dd21819229946c556c2425acc9cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbb90aea4eb8b950021e54834586d0e7" id="r_afbb90aea4eb8b950021e54834586d0e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5">IntegrationOperator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_prediction_policy.html#afbb90aea4eb8b950021e54834586d0e7">integration_operator</a></td></tr>
-<tr class="memdesc:afbb90aea4eb8b950021e54834586d0e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">selected operator  <br /></td></tr>
-<tr class="separator:afbb90aea4eb8b950021e54834586d0e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecb6b7968d6da8e871b0c126cd9788d9" id="r_aecb6b7968d6da8e871b0c126cd9788d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_prediction_policy.html#aecb6b7968d6da8e871b0c126cd9788d9">null_time_increment</a> = false</td></tr>
-<tr class="memdesc:aecb6b7968d6da8e871b0c126cd9788d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean stating if the behaviour shall be integrated using a null time increment.  <br /></td></tr>
-<tr class="separator:aecb6b7968d6da8e871b0c126cd9788d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Prediction policy for estimating the increment of the unknowns over a time step. </p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="afbb90aea4eb8b950021e54834586d0e7" name="afbb90aea4eb8b950021e54834586d0e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbb90aea4eb8b950021e54834586d0e7">&#9670;&#160;</a></span>integration_operator</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5">IntegrationOperator</a> mfem_mgis::PredictionPolicy::integration_operator</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">        <a class="code hl_enumvalue" href="namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5a3a4eb675850671a5ad63fc129d91022a">IntegrationOperator::CONSISTENT_TANGENT</a></div>
-<div class="ttc" id="anamespacemfem__mgis_html_a73a830d83c7c7d1101ab885739b12ea5a3a4eb675850671a5ad63fc129d91022a"><div class="ttname"><a href="namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5a3a4eb675850671a5ad63fc129d91022a">mfem_mgis::IntegrationOperator::CONSISTENT_TANGENT</a></div><div class="ttdeci">@ CONSISTENT_TANGENT</div><div class="ttdoc">The consistent tangent operator, defined by the derivative of the thermodynamic force with respect to...</div></div>
-</div><!-- fragment -->
-<p>selected operator </p>
-<dl class="section note"><dt>Note</dt><dd>this member is only used if <code>strategy</code> is set to <code>PredictionStrategy::CONSTANT_GRADIENTS_INTEGRATION</code> </dd></dl>
-
-</div>
-</div>
-<a id="aecb6b7968d6da8e871b0c126cd9788d9" name="aecb6b7968d6da8e871b0c126cd9788d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecb6b7968d6da8e871b0c126cd9788d9">&#9670;&#160;</a></span>null_time_increment</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool mfem_mgis::PredictionPolicy::null_time_increment = false</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>boolean stating if the behaviour shall be integrated using a null time increment. </p>
-<dl class="section note"><dt>Note</dt><dd>a null time increment allows neglecting viscoplastic relaxation. </dd></dl>
-
-</div>
-</div>
-<a id="adf31dd21819229946c556c2425acc9cc" name="adf31dd21819229946c556c2425acc9cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf31dd21819229946c556c2425acc9cc">&#9670;&#160;</a></span>prediction_operator</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0">PredictionOperator</a> mfem_mgis::PredictionPolicy::prediction_operator = <a class="el" href="namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0a61a085f4807a9157f9381a9b543efda2">PredictionOperator::ELASTIC</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>selected prediction operator </p>
-<dl class="section note"><dt>Note</dt><dd>this member is only used if <code>strategy</code> is set to <code><a class="el" href="namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812a66fe44a6e0479252a71548176e9af3e9">PredictionStrategy::BEGINNING_OF_TIME_STEP_PREDICTION</a></code> </dd></dl>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<div class="textblock"><p>prediction policy </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="_abstract_non_linear_evolution_problem_8hxx.html">AbstractNonLinearEvolutionProblem.hxx</a></li>
 </ul>
 </div><!-- contents -->
@@ -199,7 +127,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_prediction_policy.html">PredictionPolicy</a></li>
-    <li class="footer">Generated on Wed Feb 18 2026 21:23:23 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Feb 19 2026 08:34:06 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

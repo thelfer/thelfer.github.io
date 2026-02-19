@@ -1,12 +1,5 @@
 var NAVTREEINDEX48 =
 {
-"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_s_t2_tag_00_01_unary_operator_tag_00_01_298af5140761385399debe5c847fd037.html":[4,0,16,5,115,0],
-"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_s_t2_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[4,0,16,5,115],
-"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_t2_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[4,0,16,5,116],
-"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_t2_tag_00_01_unary_operator_tag_00_01_a_ec5bda053166ff2c168b666b0caa549b.html":[4,0,16,5,116,0],
-"structtfel_1_1math_1_1_compute_unary_result___3_01_tensor_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[4,0,16,5,117],
-"structtfel_1_1math_1_1_compute_unary_result___3_01_tensor_tag_00_01_unary_operator_tag_00_01_a_03e8041f47bb57ab6694a0fd44bc8591a.html":[4,0,16,5,117,0],
-"structtfel_1_1math_1_1_concept_rebind.html":[4,0,16,5,119],
 "structtfel_1_1math_1_1_concept_rebind_3_01_array_tag_00_01_array_type_01_4.html":[4,0,16,5,120],
 "structtfel_1_1math_1_1_concept_rebind_3_01_fixed_size_array_derivative_tag_3_01_array1_tag_00_01a5b53c89873b0ffc392c878572da2b68.html":[4,0,16,5,121],
 "structtfel_1_1math_1_1_concept_rebind_3_01_fixed_size_array_derivative_tag_3_01_array1_tag_00_01a5b53c89873b0ffc392c878572da2b68.html#aec41e4f1e25dd69b04f472bbabc06c78":[4,0,16,5,121,0],
@@ -249,5 +242,12 @@ var NAVTREEINDEX48 =
 "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#a7d31cf157ba5881cb8f96c9eebb2103b":[4,0,16,5,199,3],
 "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#a94982b7cf1ad3a11bda69fe6eeef6154":[4,0,16,5,199,5],
 "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#ab6bd9ec5b7dca82e3b8c610e457d483f":[4,0,16,5,199,7],
-"structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#ac08b17785ac3abb84af46fb3af965f07":[4,0,16,5,199,1]
+"structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#ac08b17785ac3abb84af46fb3af965f07":[4,0,16,5,199,1],
+"structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#adcbac7d37405b91a85cd7872df4134a5":[4,0,16,5,199,4],
+"structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html#afab86af85a5476af536b7cda9bf7cc0c":[4,0,16,5,199,6],
+"structtfel_1_1math_1_1_expr_3_01_result_type_00_01_diadic_product_operation_3_01_t1_00_01_t2_01_4_01_4.html":[4,0,16,5,200],
+"structtfel_1_1math_1_1_expr_3_01_result_type_00_01_diadic_product_operation_3_01_t1_00_01_t2_01_4_01_4.html#a07cf2e9132ef8ae06907388d2f331661":[4,0,16,5,200,2],
+"structtfel_1_1math_1_1_expr_3_01_result_type_00_01_diadic_product_operation_3_01_t1_00_01_t2_01_4_01_4.html#a41ccc36a0c7ba6a65537d7ba672582f4":[4,0,16,5,200,0],
+"structtfel_1_1math_1_1_expr_3_01_result_type_00_01_diadic_product_operation_3_01_t1_00_01_t2_01_4_01_4.html#a41f0f1ed9a2352ce76ea7a902dd298e6":[4,0,16,5,200,8],
+"structtfel_1_1math_1_1_expr_3_01_result_type_00_01_diadic_product_operation_3_01_t1_00_01_t2_01_4_01_4.html#a629a527c471426cd1251f25566017005":[4,0,16,5,200,7]
 };

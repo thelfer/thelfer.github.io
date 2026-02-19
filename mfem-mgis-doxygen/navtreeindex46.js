@@ -1,12 +1,5 @@
 var NAVTREEINDEX46 =
 {
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha7352aa149c28e5ce1462aada62a76946.html#ad7330b21f1f02e28123c0ab892807d6d":[4,0,16,4,36,0],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha960ba21ea0b5bdf46c486ec42565abec.html":[4,0,16,4,33],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha960ba21ea0b5bdf46c486ec42565abec.html#a2fc0e8acea3eb8a43da81cdee7bd1809":[4,0,16,4,33,0],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha9d494347caf585e8b3532a9c80585c1d.html":[4,0,16,4,42],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha9d494347caf585e8b3532a9c80585c1d.html#a8a57083a57b55a1b5ddfdd5ebe4e43c2":[4,0,16,4,42,0],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_behaa5525a607491fb606af8c8c17e825b29.html":[4,0,16,4,40],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_behaa5525a607491fb606af8c8c17e825b29.html#ab1f47fea0ea2e79c3ad09ceeabcc502f":[4,0,16,4,40,0],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_behaaa3df3dc91bf14662a3810f7df12fcd2.html":[4,0,16,4,43],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_behaaa3df3dc91bf14662a3810f7df12fcd2.html#af896ff105df590be41da05f55d51a59b":[4,0,16,4,43,0],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_behade6b72b22579ffd489a7f30b482afd01.html":[4,0,16,4,35],
@@ -249,5 +242,12 @@ var NAVTREEINDEX46 =
 "structtfel_1_1material_1_1_rousselier_tanguy_besson2002_stress_criterion_parameters.html#ae6e761afe92a806204e2f26319a2471f":[4,0,16,4,96,1],
 "structtfel_1_1material_1_1_rousselier_tanguy_besson2002_stress_criterion_parameters.html#af8a0c91c9107aadf805929a629d05daf":[4,0,16,4,96,2],
 "structtfel_1_1material_1_1_slip_systems_description.html":[4,0,16,4,97],
-"structtfel_1_1material_1_1_slip_systems_description.html#a07e579a492dcecb58b3e5164af830a21":[4,0,16,4,97,32]
+"structtfel_1_1material_1_1_slip_systems_description.html#a07e579a492dcecb58b3e5164af830a21":[4,0,16,4,97,32],
+"structtfel_1_1material_1_1_slip_systems_description.html#a0af2e3582db3602a1990870d6d0d0fc9":[4,0,16,4,97,11],
+"structtfel_1_1material_1_1_slip_systems_description.html#a0b79848025c10b40b8500e5ce92b882b":[4,0,16,4,97,25],
+"structtfel_1_1material_1_1_slip_systems_description.html#a25b8aaa0ac03ceb17f327542e20ff448":[4,0,16,4,97,27],
+"structtfel_1_1material_1_1_slip_systems_description.html#a265eaeccb9db2b584207e12eff779ec9":[4,0,16,4,97,23],
+"structtfel_1_1material_1_1_slip_systems_description.html#a27de0b9964fa5c9d94e86ba1690e93f5":[4,0,16,4,97,12],
+"structtfel_1_1material_1_1_slip_systems_description.html#a2d1e32b14b1e30d6f8facbb0b93a5301":[4,0,16,4,97,18],
+"structtfel_1_1material_1_1_slip_systems_description.html#a2d59b00b973a2c05aa42342817610e8d":[4,0,16,4,97,22]
 };

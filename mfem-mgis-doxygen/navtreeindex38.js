@@ -1,12 +1,5 @@
 var NAVTREEINDEX38 =
 {
-"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a178e61c13a282c40f78c87d38ddb6d56":[4,0,12,2,4,9],
-"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a5baf02aadf116aa15083ae8c1523211b":[4,0,12,2,4,11],
-"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a7291e60ec6cd2684f8c343b0df968e1f":[4,0,12,2,4,2],
-"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a75f4608ef8189fdfdf5977698b001342":[4,0,12,2,4,5],
-"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ab972b4eb1634aaf8505d83409ce729eb":[4,0,12,2,4,10],
-"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ac947662bea17c2b1e8edd93af8097d49":[4,0,12,2,4,6],
-"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ae237f22011814135d3ae37fa7b4fbae4":[4,0,12,2,4,3],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#aee9e92c08999bd207a33ad4912256789":[4,0,12,2,4,4],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#af34ff0536f8cb964657bae93b4bb88a1":[4,0,12,2,4,0],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#af39cba4b8968a7817ba0d303166bf6d5":[4,0,12,2,4,1],
@@ -249,5 +242,12 @@ var NAVTREEINDEX38 =
 "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01real_01_4.html":[4,0,12,2,1,10],
 "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1array_3_01const_01real_00_01_n_01_4_01_4.html":[4,0,12,2,1,11],
 "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1array_3_01real_00_01_n_01_4_01_4.html":[4,0,12,2,1,12],
-"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html":[4,0,12,2,1,14]
+"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html":[4,0,12,2,1,14],
+"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1span_3_01const_01real_01_4_01_4.html":[4,0,12,2,1,13],
+"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1span_3_01real_00_01_n_01_4_01_4.html":[4,0,12,2,1,16],
+"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1span_3_01real_01_4_01_4.html":[4,0,12,2,1,15],
+"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1_view_3_01_t_01_4_01_4.html":[4,0,12,2,1,26],
+"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1fsarray_3_01_n_00_01real_01_4_01_4.html":[4,0,12,2,1,17],
+"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1st2tost2_3_01_n_00_01real_01_4_01_4.html":[4,0,12,2,1,18],
+"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1st2tot2_3_01_n_00_01real_01_4_01_4.html":[4,0,12,2,1,19]
 };

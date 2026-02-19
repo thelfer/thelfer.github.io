@@ -1,12 +1,5 @@
 var NAVTREEINDEX54 =
 {
-"structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a238ec14adc9423ffb1a46535a2e96b74":[4,0,16,5,0,0,12],
-"structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a37c7a1ee2bd5a48146259e5f0ebabbf3":[4,0,16,5,0,0,8],
-"structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a59394fb4f6b797baf81226f01291343c":[4,0,16,5,0,0,15],
-"structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a7116f4bc0de3cf75efc09ff3823f3df4":[4,0,16,5,0,0,16],
-"structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a75902cbe69571b48e7961f6f6025a09d":[4,0,16,5,0,0,10],
-"structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a7da773706789820b49e168ba510de982":[4,0,16,5,0,0,11],
-"structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a864607d8974dd1aa7088e9ea4fef1762":[4,0,16,5,0,0,1],
 "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#ab0871dbf5ea4e2528757074601b3d87f":[4,0,16,5,0,0,13],
 "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#ab66acb27d39c6a8a2c86c6e97aa78ba3":[4,0,16,5,0,0,3],
 "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#aec9af203cce176cb1b4e6caada6228bc":[4,0,16,5,0,0,14],
@@ -249,5 +242,12 @@ var NAVTREEINDEX54 =
 "structtfel_1_1math_1_1internals_1_1tag.html":[4,0,16,5,2,137],
 "structtfel_1_1math_1_1matrix.html":[4,0,16,5,377],
 "structtfel_1_1math_1_1matrix.html#a100ee43d8f70a79af2905b1e643f59ab":[4,0,16,5,377,2],
-"structtfel_1_1math_1_1matrix.html#a359bbde5b69380ff614c4484db231750":[4,0,16,5,377,5]
+"structtfel_1_1math_1_1matrix.html#a359bbde5b69380ff614c4484db231750":[4,0,16,5,377,5],
+"structtfel_1_1math_1_1matrix.html#a7967543545559fc2fec6919269b791b9":[4,0,16,5,377,4],
+"structtfel_1_1math_1_1matrix.html#ab2c7b8958ddc2db901c1e1e6a2f28006":[4,0,16,5,377,0],
+"structtfel_1_1math_1_1matrix.html#ae618275ab2fafc75c1f75f7306bba932":[4,0,16,5,377,3],
+"structtfel_1_1math_1_1matrix.html#aff69c2009cf79b624ffa15cfea4d1162":[4,0,16,5,377,1],
+"structtfel_1_1math_1_1parser_1_1_binary_function.html":[4,0,16,5,3,0],
+"structtfel_1_1math_1_1parser_1_1_binary_operation.html":[4,0,16,5,3,1],
+"structtfel_1_1math_1_1parser_1_1_binary_operation.html#a198c2031cea8d7e371aebc9b872e39ec":[4,0,16,5,3,1,1]
 };

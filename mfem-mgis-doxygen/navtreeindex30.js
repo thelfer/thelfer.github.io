@@ -1,12 +1,5 @@
 var NAVTREEINDEX30 =
 {
-"structmfront_1_1_implicit_finite_strain_d_s_l.html#a0275b403535b6c49b55092ec76028bcb":[4,0,11,61,2],
-"structmfront_1_1_implicit_finite_strain_d_s_l.html#a5d7ffc3e75812246db2a02fe12b462df":[4,0,11,61,0],
-"structmfront_1_1_implicit_finite_strain_d_s_l.html#a885f67fb01e980ee003e7673ba3d6754":[4,0,11,61,1],
-"structmfront_1_1_implicit_finite_strain_d_s_l.html#a8d62fa6336127245bd5db7eef8a76603":[4,0,11,61,3],
-"structmfront_1_1_implicit_generic_behaviour_d_s_l.html":[4,0,11,62],
-"structmfront_1_1_implicit_generic_behaviour_d_s_l.html#a3c3ec671798cac10b014164d9ddea1a2":[4,0,11,62,3],
-"structmfront_1_1_implicit_generic_behaviour_d_s_l.html#a582271d3377e4434da74b383c61c1511":[4,0,11,62,1],
 "structmfront_1_1_implicit_generic_behaviour_d_s_l.html#a76ad606227ef73cb545dfaf894e601a3":[4,0,11,62,0],
 "structmfront_1_1_implicit_generic_behaviour_d_s_l.html#a7d567ac50072f21b8290ab94d51772c4":[4,0,11,62,2],
 "structmfront_1_1_implicit_model_d_s_l.html":[4,0,11,63],
@@ -249,5 +242,12 @@ var NAVTREEINDEX30 =
 "structmfront_1_1_material_knowledge_description.html#ac79f9600e4f6f8733b5e4c906e734bde":[4,0,11,72,17],
 "structmfront_1_1_material_knowledge_description.html#acfbe84e5471b263f4661dab76c5b6afa":[4,0,11,72,12],
 "structmfront_1_1_material_knowledge_description.html#adbfc71935797fec031165dd31ad0cfde":[4,0,11,72,2],
-"structmfront_1_1_material_knowledge_description.html#ae6b81b0341b7ab3daa0c643a0be2fde7":[4,0,11,72,16]
+"structmfront_1_1_material_knowledge_description.html#ae6b81b0341b7ab3daa0c643a0be2fde7":[4,0,11,72,16],
+"structmfront_1_1_material_knowledge_description.html#aebed8f524e7424a16bfca3c22a261985":[4,0,11,72,19],
+"structmfront_1_1_material_property_d_s_l.html":[4,0,11,74],
+"structmfront_1_1_material_property_d_s_l.html#a0643bf6547e23a9f9677ab271db06fd5":[4,0,11,74,34],
+"structmfront_1_1_material_property_d_s_l.html#a065208e4073e53e668df723f9df92e65":[4,0,11,74,3],
+"structmfront_1_1_material_property_d_s_l.html#a06533e991b42b5f2e2200e6701d53ad4":[4,0,11,74,38],
+"structmfront_1_1_material_property_d_s_l.html#a18a439d25d185cfe6a6ac20640c177db":[4,0,11,74,13],
+"structmfront_1_1_material_property_d_s_l.html#a18cced317a4b24971aa9a81bcd74cadb":[4,0,11,74,33]
 };

@@ -1,12 +1,5 @@
 var NAVTREEINDEX34 =
 {
-"structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a4b37c2e25d4c62173b83a06ef78da17f":[4,0,11,0,12,1],
-"structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a9c7b741ad76fbccd895adfb3e9faa811":[4,0,11,0,12,0],
-"structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#ab9587e39228a581ffbf14e75caa073fb":[4,0,11,0,12,9],
-"structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#acc90ca058bdd0872848dac28030d5b76":[4,0,11,0,12,2],
-"structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#af71fcfe2745bf3dc4583bc780d9a1613":[4,0,11,0,12,6],
-"structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#af89243934b0a6f5d6915fc89b313edcf":[4,0,11,0,12,11],
-"structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#afa57ab714706005d5dba1b40c3703329":[4,0,11,0,12,7],
 "structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html":[4,0,11,0,13],
 "structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#a0beb0db9836c17c13f4b2da9b293dd5a":[4,0,11,0,13,0],
 "structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#a12b3094352253720062b63fba473451d":[4,0,11,0,13,7],
@@ -249,5 +242,12 @@ var NAVTREEINDEX34 =
 "structmfront_1_1bbrick_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion.html":[4,0,11,0,31],
 "structmfront_1_1bbrick_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion.html#a2d390da151a82d882b2f7a29d97d42a0":[4,0,11,0,31,1],
 "structmfront_1_1bbrick_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion.html#a75c7a871ee4bc62ba6bc180efd0cfc16":[4,0,11,0,31,3],
-"structmfront_1_1bbrick_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion.html#ab34fb290cd98043ac5649caa63999a2d":[4,0,11,0,31,0]
+"structmfront_1_1bbrick_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion.html#ab34fb290cd98043ac5649caa63999a2d":[4,0,11,0,31,0],
+"structmfront_1_1bbrick_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion.html#ac6eaf48d4ae1959e276334529dde69a2":[4,0,11,0,31,2],
+"structmfront_1_1bbrick_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion.html#ae44529def2f98a78087f55d9c6db1aa3":[4,0,11,0,31,4],
+"structmfront_1_1bbrick_1_1_mises_stress_criterion.html":[4,0,11,0,32],
+"structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a19b387e47634e5c413b832e63ff809fc":[4,0,11,0,32,2],
+"structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a21ed029f1ba5d139dd6b3146deef4ef0":[4,0,11,0,32,7],
+"structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a23eccab2487b67857b7496c7dac7f7fa":[4,0,11,0,32,1],
+"structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a3b69ce3b0c70f96545735b123f5d0174":[4,0,11,0,32,5]
 };

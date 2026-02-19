@@ -1,12 +1,5 @@
 var NAVTREEINDEX39 =
 {
-"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1span_3_01const_01real_01_4_01_4.html":[4,0,12,2,1,13],
-"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1span_3_01real_00_01_n_01_4_01_4.html":[4,0,12,2,1,16],
-"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1span_3_01real_01_4_01_4.html":[4,0,12,2,1,15],
-"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1_view_3_01_t_01_4_01_4.html":[4,0,12,2,1,26],
-"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1fsarray_3_01_n_00_01real_01_4_01_4.html":[4,0,12,2,1,17],
-"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1st2tost2_3_01_n_00_01real_01_4_01_4.html":[4,0,12,2,1,18],
-"structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1st2tot2_3_01_n_00_01real_01_4_01_4.html":[4,0,12,2,1,19],
 "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1stensor_3_01_n_00_01real_01_4_01_4.html":[4,0,12,2,1,20],
 "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1t2tost2_3_01_n_00_01real_01_4_01_4.html":[4,0,12,2,1,21],
 "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1t2tot2_3_01_n_00_01real_01_4_01_4.html":[4,0,12,2,1,22],
@@ -249,5 +242,12 @@ var NAVTREEINDEX39 =
 "structmtest_1_1_aster_finite_strain_behaviour.html#aa35aeea1e531a1a373bf53ed6745e83a":[4,0,13,11,5],
 "structmtest_1_1_aster_finite_strain_behaviour.html#abfb54a9520854b10e73e4f8193227a78":[4,0,13,11,3],
 "structmtest_1_1_aster_finite_strain_behaviour.html#ae4f3cab7b44d47d9940145e71c3302bc":[4,0,13,11,2],
-"structmtest_1_1_aster_finite_strain_behaviour.html#af5ac14866e6a1ed2b718ccf6fbb41562":[4,0,13,11,0]
+"structmtest_1_1_aster_finite_strain_behaviour.html#af5ac14866e6a1ed2b718ccf6fbb41562":[4,0,13,11,0],
+"structmtest_1_1_aster_logarithmic_strain_behaviour_wrapper.html":[4,0,13,12],
+"structmtest_1_1_aster_logarithmic_strain_behaviour_wrapper.html#a15053cfd8858908fc93e64ac3f3656f5":[4,0,13,12,5],
+"structmtest_1_1_aster_logarithmic_strain_behaviour_wrapper.html#a1e35bee2a1f9caa9f9c5bcc92f08c4b4":[4,0,13,12,1],
+"structmtest_1_1_aster_logarithmic_strain_behaviour_wrapper.html#a214ce9fd4e16b7630974df060c09b8b7":[4,0,13,12,23],
+"structmtest_1_1_aster_logarithmic_strain_behaviour_wrapper.html#a2cb72d52af4211a90bcb87b2d64b79da":[4,0,13,12,21],
+"structmtest_1_1_aster_logarithmic_strain_behaviour_wrapper.html#a2d4784c6e282f8a863dae91b62e2598b":[4,0,13,12,16],
+"structmtest_1_1_aster_logarithmic_strain_behaviour_wrapper.html#a30fa6f30523940ec73e3a8ab665c91f1":[4,0,13,12,8]
 };

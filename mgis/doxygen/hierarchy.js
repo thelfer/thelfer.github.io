@@ -158,6 +158,7 @@ var hierarchy =
     [ "mgis::InvalidResult", "structmgis_1_1_invalid_result.html", null ],
     [ "mgis::internal::InvalidValueTraits< Type >", "structmgis_1_1internal_1_1_invalid_value_traits.html", null ],
     [ "mgis::internal::InvalidValueTraits< bool >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01bool_01_4.html", null ],
+    [ "mgis::internal::InvalidValueTraits< mgis::OptionalReference< ValueType > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01mgis_1_1_optional_reference_3_01_value_type_01_4_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< std::optional< bool > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01bool_01_4_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< std::optional< const T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01const_01_t_01_4_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< std::optional< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html", null ],
@@ -201,6 +202,7 @@ var hierarchy =
     [ "mgis::function::internals::NumberOfComponents< FunctionOrEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_number_of_components.html", null ],
     [ "mgis::function::internals::NumberOfComponents< EvaluatorType >", "structmgis_1_1function_1_1internals_1_1_number_of_components_3_01_evaluator_type_01_4.html", null ],
     [ "mgis::function::internals::NumberOfComponents< FunctionType >", "structmgis_1_1function_1_1internals_1_1_number_of_components_3_01_function_type_01_4.html", null ],
+    [ "mgis::OptionalReference< ValueType >", "structmgis_1_1_optional_reference.html", null ],
     [ "mgis::PreconditionsCheck< bool >", "structmgis_1_1_preconditions_check.html", null ],
     [ "mgis::PreconditionsChecker< Child >", "structmgis_1_1_preconditions_checker.html", [
       [ "mgis::function::Function< Space, N >", "structmgis_1_1function_1_1_function.html", null ],

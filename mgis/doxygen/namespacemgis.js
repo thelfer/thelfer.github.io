@@ -8,6 +8,7 @@ var namespacemgis =
     [ "ErrorBacktrace", "structmgis_1_1_error_backtrace.html", "structmgis_1_1_error_backtrace" ],
     [ "InvalidResult", "structmgis_1_1_invalid_result.html", "structmgis_1_1_invalid_result" ],
     [ "LibrariesManager", "structmgis_1_1_libraries_manager.html", "structmgis_1_1_libraries_manager" ],
+    [ "OptionalReference", "structmgis_1_1_optional_reference.html", null ],
     [ "PreconditionsCheck", "structmgis_1_1_preconditions_check.html", null ],
     [ "PreconditionsChecker", "structmgis_1_1_preconditions_checker.html", null ],
     [ "ThreadedTaskResult", "structmgis_1_1_threaded_task_result.html", "structmgis_1_1_threaded_task_result" ],

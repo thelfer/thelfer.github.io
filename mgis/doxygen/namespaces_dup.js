@@ -1,4 +1,5 @@
 var namespaces_dup =
 [
-    [ "mgis", "namespacemgis.html", "namespacemgis" ]
+    [ "mgis", "namespacemgis.html", "namespacemgis" ],
+    [ "std", "namespacestd.html", null ]
 ];

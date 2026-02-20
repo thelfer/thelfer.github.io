@@ -221,6 +221,7 @@ var annotated_dup =
       [ "internal", null, [
         [ "InvalidValueTraits", "structmgis_1_1internal_1_1_invalid_value_traits.html", null ],
         [ "InvalidValueTraits< bool >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01bool_01_4.html", null ],
+        [ "InvalidValueTraits< mgis::OptionalReference< ValueType > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01mgis_1_1_optional_reference_3_01_value_type_01_4_01_4.html", null ],
         [ "InvalidValueTraits< std::optional< bool > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01bool_01_4_01_4.html", null ],
         [ "InvalidValueTraits< std::optional< const T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01const_01_t_01_4_01_4.html", null ],
         [ "InvalidValueTraits< std::optional< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html", null ],
@@ -246,6 +247,7 @@ var annotated_dup =
       [ "ErrorBacktrace", "structmgis_1_1_error_backtrace.html", "structmgis_1_1_error_backtrace" ],
       [ "InvalidResult", "structmgis_1_1_invalid_result.html", "structmgis_1_1_invalid_result" ],
       [ "LibrariesManager", "structmgis_1_1_libraries_manager.html", "structmgis_1_1_libraries_manager" ],
+      [ "OptionalReference", "structmgis_1_1_optional_reference.html", null ],
       [ "PreconditionsCheck", "structmgis_1_1_preconditions_check.html", null ],
       [ "PreconditionsChecker", "structmgis_1_1_preconditions_checker.html", null ],
       [ "ThreadedTaskResult", "structmgis_1_1_threaded_task_result.html", "structmgis_1_1_threaded_task_result" ],

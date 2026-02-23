@@ -12,7 +12,6 @@ var dir_3a137169c64f9653d81364b844f1dd68 =
     [ "BidimensionalMicromorphicDamageBehaviourIntegrator.hxx", "_bidimensional_micromorphic_damage_behaviour_integrator_8hxx.html", "_bidimensional_micromorphic_damage_behaviour_integrator_8hxx" ],
     [ "BoundaryUtilities.hxx", "_boundary_utilities_8hxx.html", "_boundary_utilities_8hxx" ],
     [ "BoundaryUtilities.ixx", "_boundary_utilities_8ixx.html", "_boundary_utilities_8ixx" ],
-    [ "Buffer.hxx", "include_2_m_f_e_m_m_g_i_s_2_buffer_8hxx.html", null ],
     [ "ComputeResultantForceOnBoundary.hxx", "_compute_resultant_force_on_boundary_8hxx.html", "_compute_resultant_force_on_boundary_8hxx" ],
     [ "Config.hxx", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx" ],
     [ "DirichletBoundaryCondition.hxx", "_dirichlet_boundary_condition_8hxx.html", "_dirichlet_boundary_condition_8hxx" ],

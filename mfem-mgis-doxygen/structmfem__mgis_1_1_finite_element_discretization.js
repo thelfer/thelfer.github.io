@@ -24,5 +24,7 @@ var structmfem__mgis_1_1_finite_element_discretization =
     [ "getMeshPointer", "structmfem__mgis_1_1_finite_element_discretization.html#a6e4ce449eddf8f941c1238843818d43a", null ],
     [ "getMeshPointer", "structmfem__mgis_1_1_finite_element_discretization.html#a12bd2cbe6e3819e27197050e447699f3", null ],
     [ "setBoundariesNames", "structmfem__mgis_1_1_finite_element_discretization.html#af23cf8a2e40b0b1facd92602228f68ba", null ],
-    [ "setMaterialsNames", "structmfem__mgis_1_1_finite_element_discretization.html#aa1c551037f78df28a6b4536bfb3a8d51", null ]
+    [ "setBoundariesNames", "structmfem__mgis_1_1_finite_element_discretization.html#a550fe1ea1a0555b08ddfeb3c37d9648e", null ],
+    [ "setMaterialsNames", "structmfem__mgis_1_1_finite_element_discretization.html#aa1c551037f78df28a6b4536bfb3a8d51", null ],
+    [ "setMaterialsNames", "structmfem__mgis_1_1_finite_element_discretization.html#a6d0eaaa8384bc0db01f995e738316559", null ]
 ];

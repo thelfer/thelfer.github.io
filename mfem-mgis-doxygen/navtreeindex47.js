@@ -1,15 +1,5 @@
 var NAVTREEINDEX47 =
 {
-"structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_a_i_n_01_4.html":[4,0,16,4,80],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html":[4,0,16,4,81],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size_3_01_modelling_hypothesis_1_1_t_r_i_d_i_m_e_n_s_i_o_n_a_l_01_4.html":[4,0,16,4,82],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size.html":[4,0,16,4,83],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_a_x1200f83fc853729008d13fa973877830.html":[4,0,16,4,85],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_a_x_i_s_y_m_m_e_t_r_i_c_a_l_01_4.html":[4,0,16,4,84],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_a_xfdb1a4223046cfc158a96a06fcceb0c8.html":[4,0,16,4,86],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_g_ed2535001cd815bc1ce2f99cc25de47b0.html":[4,0,16,4,87],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_a_i_n_01_4.html":[4,0,16,4,88],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html":[4,0,16,4,89],
 "structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_t_r_i_d_i_m_e_n_s_i_o_n_a_l_01_4.html":[4,0,16,4,90],
 "structtfel_1_1material_1_1_mohr_coulomb_parameters.html":[4,0,16,4,91],
 "structtfel_1_1material_1_1_mohr_coulomb_parameters.html#a00e54fcf8e050c232508e3d8ea012db0":[4,0,16,4,91,1],
@@ -249,5 +239,15 @@ var NAVTREEINDEX47 =
 "structtfel_1_1math_1_1_bissection_algorithm_data.html#ad7983fcb42b50323cc660683620329c0":[4,0,16,5,14,2],
 "structtfel_1_1math_1_1_check_unit_compatibility.html":[4,0,16,5,15],
 "structtfel_1_1math_1_1_coalesced_view_base.html":[4,0,16,5,16],
-"structtfel_1_1math_1_1_coalesced_view_base.html#a26f898b5d07638be4bcfcf0b47e60f7e":[4,0,16,5,16,5]
+"structtfel_1_1math_1_1_coalesced_view_base.html#a26f898b5d07638be4bcfcf0b47e60f7e":[4,0,16,5,16,5],
+"structtfel_1_1math_1_1_coalesced_view_base.html#a4fa9d4c5e96747e9e7da5b8dbfeead1a":[4,0,16,5,16,3],
+"structtfel_1_1math_1_1_coalesced_view_base.html#a58d0532a606b129e641461870604ec57":[4,0,16,5,16,7],
+"structtfel_1_1math_1_1_coalesced_view_base.html#a627eada76decfe5753612046709db290":[4,0,16,5,16,4],
+"structtfel_1_1math_1_1_coalesced_view_base.html#a6ec8c5fbe6db09cf4978ba90285cdb0d":[4,0,16,5,16,2],
+"structtfel_1_1math_1_1_coalesced_view_base.html#a7563fafd9cc274c7955bf1a212c5f917":[4,0,16,5,16,8],
+"structtfel_1_1math_1_1_coalesced_view_base.html#a84921ae22623eabb8e7867ebad574535":[4,0,16,5,16,6],
+"structtfel_1_1math_1_1_coalesced_view_base.html#a9b14592053d3811f70b837f47056d6ac":[4,0,16,5,16,0],
+"structtfel_1_1math_1_1_coalesced_view_base.html#ad696c2a2dffb568095c2dae5f7f227d8":[4,0,16,5,16,9],
+"structtfel_1_1math_1_1_coalesced_view_base.html#aebe257abd58cf0d4bf01d6ecc285e730":[4,0,16,5,16,1],
+"structtfel_1_1math_1_1_compute_binary_operation_handler.html":[4,0,16,5,17]
 };

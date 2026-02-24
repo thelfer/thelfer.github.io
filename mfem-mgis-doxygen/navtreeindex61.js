@@ -1,15 +1,5 @@
 var NAVTREEINDEX61 =
 {
-"tvector_8ixx.html#a6f2b48d374c3a40427e12cbf0cf142fb":[5,0,1,0,0,0,1,0,6,5,22,0,2],
-"tvector_8ixx.html#a86a6c7993dd592c621855e42ac7302f1":[5,0,1,0,0,0,1,0,6,5,22,0,11],
-"tvector_8ixx.html#a8c6b4a22f3a5b1445356be90333b33f0":[5,0,1,0,0,0,1,0,6,5,22,0,5],
-"tvector_8ixx.html#aa3d6c2b341e47ff77f8e755f32e04002":[5,0,1,0,0,0,1,0,6,5,22,0,8],
-"tvector_8ixx.html#ab4817d67586485015954ed112cdbe061":[5,0,1,0,0,0,1,0,6,5,22,0,9],
-"tvector_8ixx.html#ab6acab4804d26d7656c7470cd5c2515a":[5,0,1,0,0,0,1,0,6,5,22,0,3],
-"tvector_8ixx.html#ac217149688d39a823f1a3ae87752cbf6":[5,0,1,0,0,0,1,0,6,5,22,0,1],
-"tvector_i_o_8hxx.html":[5,0,1,0,0,0,1,0,6,5,22,1],
-"tvector_result_type_8hxx.html":[5,0,1,0,0,0,1,0,6,5,22,2],
-"types_8ixx.html":[5,0,1,0,0,0,1,0,6,5,74],
 "types_8ixx.html#a8d7e56abbf07c901ded6a6cf432ef1d0":[5,0,1,0,0,0,1,0,6,5,74,3],
 "vector_8hxx.html":[5,0,1,0,0,0,1,0,6,5,75],
 "vector_8hxx.html#aefdf42c97874d235642829914abc09db":[5,0,1,0,0,0,1,0,6,5,75,2],

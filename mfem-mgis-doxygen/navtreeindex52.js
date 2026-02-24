@@ -1,15 +1,5 @@
 var NAVTREEINDEX52 =
 {
-"structtfel_1_1math_1_1_l_u_null_pivot.html#af553726b4f1a8c4dbb4298ff5ce11e6d":[4,0,16,5,350,0],
-"structtfel_1_1math_1_1_l_u_solve.html":[4,0,16,5,351],
-"structtfel_1_1math_1_1_l_u_unmatched_size.html":[4,0,16,5,352],
-"structtfel_1_1math_1_1_l_u_unmatched_size.html#a2354ff01ed921c6fa2de0aca52f5f139":[4,0,16,5,352,0],
-"structtfel_1_1math_1_1_l_u_unmatched_size.html#a7542b3c831c8c23930ce4a72a322094f":[4,0,16,5,352,1],
-"structtfel_1_1math_1_1_left_cauchy_green_tensor_derivative_expr.html":[4,0,16,5,338],
-"structtfel_1_1math_1_1_levenberg_marquardt.html":[4,0,16,5,339],
-"structtfel_1_1math_1_1_levenberg_marquardt_function_wrapper.html":[4,0,16,5,340],
-"structtfel_1_1math_1_1_loop_over_first_indices.html":[4,0,16,5,341],
-"structtfel_1_1math_1_1_loop_over_inner_indices.html":[4,0,16,5,342],
 "structtfel_1_1math_1_1_loop_over_second_indices.html":[4,0,16,5,343],
 "structtfel_1_1math_1_1_loop_un_roller.html":[4,0,16,5,344],
 "structtfel_1_1math_1_1_make_quantity_reference_type.html":[4,0,16,5,353],
@@ -249,5 +239,15 @@ var NAVTREEINDEX52 =
 "structtfel_1_1math_1_1_standard_array_policy_aliases.html#ac4fcd5a02664f349e9922fc5a8503032":[4,0,16,5,523,3],
 "structtfel_1_1math_1_1_standard_array_policy_aliases.html#ae1851cf5be3b0885daf5ef06fd81b75c":[4,0,16,5,523,1],
 "structtfel_1_1math_1_1_stensor_concept_base.html":[4,0,16,5,526],
-"structtfel_1_1math_1_1_stensor_concept_base.html#a260a74c3318afdea56a7dceab1484226":[4,0,16,5,526,0]
+"structtfel_1_1math_1_1_stensor_concept_base.html#a260a74c3318afdea56a7dceab1484226":[4,0,16,5,526,0],
+"structtfel_1_1math_1_1_stensor_dime_to_size.html":[4,0,16,5,527],
+"structtfel_1_1math_1_1_stensor_product_expr1_d.html":[4,0,16,5,528],
+"structtfel_1_1math_1_1_stensor_product_expr2_d.html":[4,0,16,5,529],
+"structtfel_1_1math_1_1_stensor_product_expr3_d.html":[4,0,16,5,530],
+"structtfel_1_1math_1_1_stensor_product_left_derivative_expr.html":[4,0,16,5,532],
+"structtfel_1_1math_1_1_stensor_product_right_derivative_expr.html":[4,0,16,5,533],
+"structtfel_1_1math_1_1_stensor_s_t2to_s_t2_product_expr.html":[4,0,16,5,536],
+"structtfel_1_1math_1_1_stensor_size_to_dime.html":[4,0,16,5,534],
+"structtfel_1_1math_1_1_stensor_square_derivative_expr.html":[4,0,16,5,535],
+"structtfel_1_1math_1_1_stensor_symmetric_product_derivative.html":[4,0,16,5,537]
 };

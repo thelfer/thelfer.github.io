@@ -1,15 +1,5 @@
 var NAVTREEINDEX53 =
 {
-"structtfel_1_1math_1_1_stensor_dime_to_size.html":[4,0,16,5,527],
-"structtfel_1_1math_1_1_stensor_product_expr1_d.html":[4,0,16,5,528],
-"structtfel_1_1math_1_1_stensor_product_expr2_d.html":[4,0,16,5,529],
-"structtfel_1_1math_1_1_stensor_product_expr3_d.html":[4,0,16,5,530],
-"structtfel_1_1math_1_1_stensor_product_left_derivative_expr.html":[4,0,16,5,532],
-"structtfel_1_1math_1_1_stensor_product_right_derivative_expr.html":[4,0,16,5,533],
-"structtfel_1_1math_1_1_stensor_s_t2to_s_t2_product_expr.html":[4,0,16,5,536],
-"structtfel_1_1math_1_1_stensor_size_to_dime.html":[4,0,16,5,534],
-"structtfel_1_1math_1_1_stensor_square_derivative_expr.html":[4,0,16,5,535],
-"structtfel_1_1math_1_1_stensor_symmetric_product_derivative.html":[4,0,16,5,537],
 "structtfel_1_1math_1_1_stensor_symmetric_product_derivative_3_011u_00_01_t_01_4.html":[4,0,16,5,538],
 "structtfel_1_1math_1_1_stensor_symmetric_product_derivative_3_012u_00_01_t_01_4.html":[4,0,16,5,539],
 "structtfel_1_1math_1_1_stensor_symmetric_product_derivative_3_013u_00_01_t_01_4.html":[4,0,16,5,540],
@@ -249,5 +239,15 @@ var NAVTREEINDEX53 =
 "structtfel_1_1math_1_1_unit.html":[4,0,16,5,631],
 "structtfel_1_1math_1_1_unit_3_01std_1_1integral__constant_3_01int_00_01_n1_01_4_00_01std_1_1inte22245c37637fc2ae3e1f4d95f396757e.html":[4,0,16,5,632],
 "structtfel_1_1math_1_1_vector_concept_base.html":[4,0,16,5,634],
-"structtfel_1_1math_1_1_vector_dot_product_handle.html":[4,0,16,5,635]
+"structtfel_1_1math_1_1_vector_dot_product_handle.html":[4,0,16,5,635],
+"structtfel_1_1math_1_1_vector_dot_product_handle_3_01tvector_3_01_n_00_01_t_01_4_00_01tvector_3_01_n_00_01_t2_01_4_01_4.html":[4,0,16,5,636],
+"structtfel_1_1math_1_1_vector_tag.html":[4,0,16,5,638],
+"structtfel_1_1math_1_1_vector_vector_dot_product.html":[4,0,16,5,639],
+"structtfel_1_1math_1_1_view.html":[4,0,16,5,640],
+"structtfel_1_1math_1_1_view.html#a05cbe7c3d87df9134180566f42092dd6":[4,0,16,5,640,0],
+"structtfel_1_1math_1_1_view.html#a0f9ed54de3ed1eb5aa91ee765bdaa40c":[4,0,16,5,640,2],
+"structtfel_1_1math_1_1_view.html#a1de1a6e8c2b7aab03d9644a1ba590979":[4,0,16,5,640,12],
+"structtfel_1_1math_1_1_view.html#a2b84d58cc939ed9ec2c4ff9074d65fd9":[4,0,16,5,640,10],
+"structtfel_1_1math_1_1_view.html#a32cf30b2d11cabc307299b6e72420c22":[4,0,16,5,640,9],
+"structtfel_1_1math_1_1_view.html#a365ef8fc9dff051dd7bdad17b572e973":[4,0,16,5,640,8]
 };

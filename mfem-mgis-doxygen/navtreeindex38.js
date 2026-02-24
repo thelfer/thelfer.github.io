@@ -1,15 +1,5 @@
 var NAVTREEINDEX38 =
 {
-"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#a067631751c9b4ba40b313443edf942db":[4,0,12,1,18,0],
-"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#a1b32fe197254b58eacb63e95eb388ccb":[4,0,12,1,18,2],
-"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#a7c1ba0d9d8b967dbea14dc75124a48e1":[4,0,12,1,18,4],
-"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#acc4382f58190c41271f8d37fd0a72e3f":[4,0,12,1,18,1],
-"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#ad1f6e87fb85e613adea47377ece117db":[4,0,12,1,18,3],
-"structmgis_1_1behaviour_1_1_state.html":[4,0,12,1,19],
-"structmgis_1_1behaviour_1_1_state.html#a090f39129257645f22c705087c9214c1":[4,0,12,1,19,3],
-"structmgis_1_1behaviour_1_1_state.html#a13f057147880b66713c24c949d3760b2":[4,0,12,1,19,1],
-"structmgis_1_1behaviour_1_1_state.html#a15ae3c3227a5fa2cc0327e39781e2e46":[4,0,12,1,19,7],
-"structmgis_1_1behaviour_1_1_state.html#a2dbe665ecc9af3de5f7a24dae70788f8":[4,0,12,1,19,9],
 "structmgis_1_1behaviour_1_1_state.html#a4d3a2b7ce1c43f9e6acdad370ca3a671":[4,0,12,1,19,4],
 "structmgis_1_1behaviour_1_1_state.html#a4d49ba83f8529e9273b853d832b93814":[4,0,12,1,19,0],
 "structmgis_1_1behaviour_1_1_state.html#a5090b084dd150de5e037226ea11bb413":[4,0,12,1,19,10],
@@ -249,5 +239,15 @@ var NAVTREEINDEX38 =
 "structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html":[4,0,12,2,43],
 "structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html#a06738c4210ef66f5fd0dd2c3ad202787":[4,0,12,2,43,0],
 "structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html#a1bffaef812d433b88c4b745c0620acfe":[4,0,12,2,43,1],
-"structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html#a2da2d9dbc4ac0665f785cff56509dfb6":[4,0,12,2,43,2]
+"structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html#a2da2d9dbc4ac0665f785cff56509dfb6":[4,0,12,2,43,2],
+"structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html#a6655b24eb22dfcb4fa980fa61873c3a5":[4,0,12,2,43,3],
+"structmgis_1_1function_1_1_tensor_modifier.html":[4,0,12,2,44],
+"structmgis_1_1function_1_1_tensor_modifier.html#a1525bc233c43e8895bd8f9d73648a36b":[4,0,12,2,44,0],
+"structmgis_1_1function_1_1_tensor_modifier.html#acd241eec7b44cb36eab94758c2ce3b3f":[4,0,12,2,44,1],
+"structmgis_1_1function_1_1_tensor_view.html":[4,0,12,2,45],
+"structmgis_1_1function_1_1_tensor_view.html#a0f3c2b747bc8bbe3402c9bc01220deeb":[4,0,12,2,45,10],
+"structmgis_1_1function_1_1_tensor_view.html#a16e8353f458241f40b69904ccc8033fe":[4,0,12,2,45,6],
+"structmgis_1_1function_1_1_tensor_view.html#a1c28e4df0d7b53e1341829669010d25e":[4,0,12,2,45,5],
+"structmgis_1_1function_1_1_tensor_view.html#a63e92dd831cb9efddd95e24163ea530b":[4,0,12,2,45,7],
+"structmgis_1_1function_1_1_tensor_view.html#a9192bbccc0d778cda3e41158efbb882b":[4,0,12,2,45,2]
 };

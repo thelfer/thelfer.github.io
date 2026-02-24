@@ -1,15 +1,5 @@
 var NAVTREEINDEX37 =
 {
-"structmgis_1_1_libraries_manager.html#af733bfb377ff7e9df739e70ecf135f2e":[4,0,12,12,14],
-"structmgis_1_1_libraries_manager.html#af9c1e6d1d2d89acdf9568577152c829d":[4,0,12,12,62],
-"structmgis_1_1_libraries_manager.html#afc824e5ddc2e29f56307d7a25726808e":[4,0,12,12,50],
-"structmgis_1_1_libraries_manager.html#afd06b7ae7a8429381f3732631ee6b6f0":[4,0,12,12,70],
-"structmgis_1_1_libraries_manager.html#afe0128add6472f8048443c8d9f293227":[4,0,12,12,37],
-"structmgis_1_1_optional_reference.html":[4,0,12,13],
-"structmgis_1_1_preconditions_check.html":[4,0,12,14],
-"structmgis_1_1_preconditions_checker.html":[4,0,12,15],
-"structmgis_1_1_thread_pool.html":[4,0,12,19],
-"structmgis_1_1_thread_pool.html#a7aefcd6a1dc6775e51644cf452e5046c":[4,0,12,19,3],
 "structmgis_1_1_thread_pool.html#a95da9279a7a81c9e52fed2dbce41d9d3":[4,0,12,19,2],
 "structmgis_1_1_thread_pool.html#aae3094414217aa4f28d4738e1ca69409":[4,0,12,19,0],
 "structmgis_1_1_thread_pool.html#af8671e5a9a75e449f9644c3cf7a9947f":[4,0,12,19,4],
@@ -249,5 +239,15 @@ var NAVTREEINDEX37 =
 "structmgis_1_1behaviour_1_1_rotation_matrix2_d.html":[4,0,12,1,17],
 "structmgis_1_1behaviour_1_1_rotation_matrix2_d.html#a87dc21db11017d9f71d779171161ebdb":[4,0,12,1,17,0],
 "structmgis_1_1behaviour_1_1_rotation_matrix2_d.html#ab12e0700dc131f8bff92ecaa536c78d7":[4,0,12,1,17,1],
-"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html":[4,0,12,1,18]
+"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html":[4,0,12,1,18],
+"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#a067631751c9b4ba40b313443edf942db":[4,0,12,1,18,0],
+"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#a1b32fe197254b58eacb63e95eb388ccb":[4,0,12,1,18,2],
+"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#a7c1ba0d9d8b967dbea14dc75124a48e1":[4,0,12,1,18,4],
+"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#acc4382f58190c41271f8d37fd0a72e3f":[4,0,12,1,18,1],
+"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#ad1f6e87fb85e613adea47377ece117db":[4,0,12,1,18,3],
+"structmgis_1_1behaviour_1_1_state.html":[4,0,12,1,19],
+"structmgis_1_1behaviour_1_1_state.html#a090f39129257645f22c705087c9214c1":[4,0,12,1,19,3],
+"structmgis_1_1behaviour_1_1_state.html#a13f057147880b66713c24c949d3760b2":[4,0,12,1,19,1],
+"structmgis_1_1behaviour_1_1_state.html#a15ae3c3227a5fa2cc0327e39781e2e46":[4,0,12,1,19,7],
+"structmgis_1_1behaviour_1_1_state.html#a2dbe665ecc9af3de5f7a24dae70788f8":[4,0,12,1,19,9]
 };

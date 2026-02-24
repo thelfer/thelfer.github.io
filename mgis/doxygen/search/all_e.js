@@ -16,5 +16,6 @@ var searchData=
   ['output_13',['output',['../structmgis_1_1material__property_1_1_material_property.html#a74796554de5529140ae9ccce37a6f8d2',1,'mgis::material_property::MaterialProperty']]],
   ['outputs_14',['outputs',['../structmgis_1_1behaviour_1_1_behaviour_post_processing.html#ac2457ce2405a439673ce48799cebf416',1,'mgis::behaviour::BehaviourPostProcessing']]],
   ['outputstatus_15',['OutputStatus',['../_output_status_8hxx.html#acef9a20f303230fbbb6fb8fa8e326c58',1,'mgis::material_property']]],
-  ['outputstatus_2ehxx_16',['OutputStatus.hxx',['../_output_status_8hxx.html',1,'']]]
+  ['outputstatus_2ehxx_16',['OutputStatus.hxx',['../_output_status_8hxx.html',1,'']]],
+  ['outputstreamcolors_17',['OutputStreamColors',['../namespacemgis.html#a8ca19ff3c596083e841958b8ef720622',1,'mgis']]]
 ];

@@ -98,6 +98,7 @@ var hierarchy =
       [ "mgis::function::internals::EvaluatorResultQuery< EvaluatorType >", "structmgis_1_1function_1_1internals_1_1_evaluator_result_query.html", null ]
     ] ],
     [ "mgis::function::internals::EvaluatorResultQueryImplementation< true, EvaluatorType >", "structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation_3_01true_00_01_evaluator_type_01_4.html", null ],
+    [ "mgis::Context::FailureHandler< policy >", "structmgis_1_1_context_1_1_failure_handler.html", null ],
     [ "std::false_type", null, [
       [ "mgis::function::LightweightViewTraits< FunctionType >", "structmgis_1_1function_1_1_lightweight_view_traits.html", null ],
       [ "mgis::function::internals::IsTensor< T >", "structmgis_1_1function_1_1internals_1_1_is_tensor.html", null ]

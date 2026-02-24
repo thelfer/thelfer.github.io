@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rotationoperation_0',['RotationOperation',['../_tensor_operations_8hxx.html#ad488896baee85607559ae86da6aba5c7',1,'mgis::function']]]
+  ['outputstreamcolors_0',['OutputStreamColors',['../namespacemgis.html#a8ca19ff3c596083e841958b8ef720622',1,'mgis']]]
 ];

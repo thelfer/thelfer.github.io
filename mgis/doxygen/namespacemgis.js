@@ -18,6 +18,17 @@ var namespacemgis =
     [ "ExceptionHandler", "namespacemgis.html#ac0d898c82fab21a0e65fd75290e66903", null ],
     [ "real", "namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4", null ],
     [ "size_type", "namespacemgis.html#a184723b5d743b58169be89d3b04265fc", null ],
+    [ "OutputStreamColors", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622", [
+      [ "BLACK", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a08d0012388564e95c3b4a7407cf04965", null ],
+      [ "RED", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622aa2d9547b5d3dd9f05984475f7c926da0", null ],
+      [ "GREEN", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a9de0e5dd94e861317e74964bed179fa0", null ],
+      [ "YELLOW", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a8a568e5f41b7e4da88fe5c4a00aad34e", null ],
+      [ "BLUE", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a1b3e1ee9bff86431dea6b181365ba65f", null ],
+      [ "PURPLE", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622aec9c138095a352a9b7ef9ca5363b14d9", null ],
+      [ "LIGHTBLUE", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a9dbc5be5b2bfa5ed216dbba186b67331", null ],
+      [ "WHITE", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622ab5bf627e448384cf3a4c35121ca6008d", null ],
+      [ "RESET", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622ab5859d8721cfdc0312b2838b9c985bc1", null ]
+    ] ],
     [ "StorageMode", "namespacemgis.html#acfa329cdb845baaac0f34444bd18d0c5", [
       [ "LOCAL_STORAGE", "namespacemgis.html#acfa329cdb845baaac0f34444bd18d0c5a154520879e33cb50070a33ab1b12d3d1", null ],
       [ "EXTERNAL_STORAGE", "namespacemgis.html#acfa329cdb845baaac0f34444bd18d0c5a4870a590d4d8bb83f3bfdc68a251929c", null ]
@@ -34,7 +45,10 @@ var namespacemgis =
     [ "areInvalid", "namespacemgis.html#af4bf11d96d885951a9521d94a8dbfebc", null ],
     [ "areValid", "namespacemgis.html#a06c83fbb0905ade623a12868ca239b70", null ],
     [ "convertToVerbosityLevel", "namespacemgis.html#a8e2fb96630ab18c971d652b297ebcda3", null ],
+    [ "debug", "namespacemgis.html#a3d97a09c6c64460afbf937bbeae023c5", null ],
+    [ "disableDefaultLogStream", "namespacemgis.html#a5090d179a5a2a2ebff48bb16b18db959", null ],
     [ "getDatabase", "namespacemgis.html#a2dcfab4018be381a91704727143a3436", null ],
+    [ "getDefaultLogStream", "namespacemgis.html#a45e2adc7ff0a023a90a1dabb59ceb269", null ],
     [ "getDefaultVerbosityLevel", "namespacemgis.html#afec1ded7072d373932357f7e5e3d4cca", null ],
     [ "getExceptionHandler", "namespacemgis.html#a567cf4676428c9708a8c8c624417ad29", null ],
     [ "isInvalid", "namespacemgis.html#a1a8dddcd5f308fe41d179fec4e9e1820", null ],
@@ -51,8 +65,15 @@ var namespacemgis =
     [ "raise_if", "namespacemgis.html#af8ca2b7bef8f4e0e024364f74a65a1a2", null ],
     [ "registerExceptionInErrorBacktrace", "namespacemgis.html#a1c0bda1190de226c14173bf8a58a475b", null ],
     [ "registerExceptionInErrorBacktraceWithoutSourceLocation", "namespacemgis.html#a6ce862e7df7d68aea5b33d112bc6c476", null ],
+    [ "resetDefaultLogStream", "namespacemgis.html#ae9c2b4f2fc495c1e278dd9dd9d915e58", null ],
+    [ "resetStreamColor", "namespacemgis.html#ac3354d09d554b53d4606c696d0fd5579", null ],
+    [ "setDefaultLogStream", "namespacemgis.html#a408b9199459fbde44b73b6dbedd0d204", null ],
+    [ "setDefaultLogStream", "namespacemgis.html#a9de5ebfdace7985b5e404fb8ae846510", null ],
+    [ "setDefaultLogStream", "namespacemgis.html#a6a8b20f25b7cfa95c3a8c1860e51d633", null ],
     [ "setDefaultVerbosityLevel", "namespacemgis.html#a9b89271204ba3bc42a98b87313d87571", null ],
     [ "setDefaultVerbosityLevel", "namespacemgis.html#ac5ea64e24e66fa4eaf44902f5cce3264", null ],
     [ "setExceptionHandler", "namespacemgis.html#ad6dbfd095532fee6200701d5b9596d1b", null ],
+    [ "setStreamColor", "namespacemgis.html#a11b4d05956af939c9241a2822b62750c", null ],
+    [ "warning", "namespacemgis.html#ae1ceec782317554dec7a342b432a1fbb", null ],
     [ "dynamic_extent", "namespacemgis.html#ae69dc42a95f45bf4ffb676c0e9b64722", null ]
 ];

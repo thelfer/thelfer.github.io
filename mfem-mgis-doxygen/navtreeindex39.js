@@ -1,5 +1,6 @@
 var NAVTREEINDEX39 =
 {
+"structmgis_1_1function_1_1_tensor_view.html#a9192bbccc0d778cda3e41158efbb882b":[4,0,12,2,45,2],
 "structmgis_1_1function_1_1_tensor_view.html#a93e2575ffb274cc385bf690ed8b1c476":[4,0,12,2,45,8],
 "structmgis_1_1function_1_1_tensor_view.html#a9c87102c47a64b165c6a8f4c7341c209":[4,0,12,2,45,1],
 "structmgis_1_1function_1_1_tensor_view.html#ab346cec077085f355cfbac9bc11787f0":[4,0,12,2,45,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX39 =
 "structmtest_1_1_acceleration_algorithm.html#a7355c1a38ccd4d1e699f5e0896cf0bb2":[4,0,13,4,6],
 "structmtest_1_1_acceleration_algorithm.html#a745092aff47ef599e414cd310b0d7a45":[4,0,13,4,1],
 "structmtest_1_1_acceleration_algorithm.html#a9951cdce2df7e5c4efa8db5a039c3463":[4,0,13,4,0],
-"structmtest_1_1_acceleration_algorithm.html#aefefcb7e2e80030d60683505a1661bfe":[4,0,13,4,2],
-"structmtest_1_1_acceleration_algorithm_factory.html":[4,0,13,5]
+"structmtest_1_1_acceleration_algorithm.html#aefefcb7e2e80030d60683505a1661bfe":[4,0,13,4,2]
 };

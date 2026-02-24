@@ -1,9 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"_inverse_langevin_function_8hxx.html#ab2ff10b0dd40db2c11c2109788d1bbc4":[5,0,1,0,0,0,1,0,6,4,37,3],
-"_inverse_langevin_function_8hxx.html#ac92a48e87100f343ebb78ba53a5ad48f":[5,0,1,0,0,0,1,0,6,4,37,0],
-"_inverse_langevin_function_8hxx.html#ac92a48e87100f343ebb78ba53a5ad48fa702557877c4f4ecb75b13e2a6e9af459":[5,0,1,0,0,0,1,0,6,4,37,0,3],
-"_inverse_langevin_function_8hxx.html#ac92a48e87100f343ebb78ba53a5ad48fa794aca4204ab3c66766081bc918c18ec":[5,0,1,0,0,0,1,0,6,4,37,0,2],
 "_inverse_langevin_function_8hxx.html#ac92a48e87100f343ebb78ba53a5ad48fa8fd66d0a1330afcafeede1f4e10a9bdf":[5,0,1,0,0,0,1,0,6,4,37,0,1],
 "_inverse_langevin_function_8hxx.html#ac92a48e87100f343ebb78ba53a5ad48fa928aa103c1d15cde5421be7d346c6113":[5,0,1,0,0,0,1,0,6,4,37,0,0],
 "_inverse_langevin_function_8hxx.html#acdf2bedd3045ebb68630537d8310bbda":[5,0,1,0,0,0,1,0,6,4,37,4],
@@ -249,5 +245,9 @@ var NAVTREEINDEX4 =
 "_log_stream_8hxx.html#ae1ceec782317554dec7a342b432a1fbb":[5,0,1,0,0,0,0,0,0,16,10],
 "_log_stream_8hxx.html#ae9c2b4f2fc495c1e278dd9dd9d915e58":[5,0,1,0,0,0,0,0,0,16,4],
 "_log_stream_8ixx.html":[5,0,1,0,0,0,0,0,0,17],
-"_logarithmic_strain_compute_axial_strain_increment_elastic_prediction_8hxx.html":[5,0,1,0,0,0,1,0,6,4,54]
+"_logarithmic_strain_compute_axial_strain_increment_elastic_prediction_8hxx.html":[5,0,1,0,0,0,1,0,6,4,54],
+"_logarithmic_strain_compute_axial_strain_increment_elastic_prediction_8hxx.html#a9bf7044ec57253bf1ec4c7dbadd5ec36":[5,0,1,0,0,0,1,0,6,4,54,0],
+"_logarithmic_strain_compute_axial_strain_increment_elastic_prediction_8ixx.html":[5,0,1,0,0,0,1,0,6,4,55],
+"_logarithmic_strain_compute_axial_strain_increment_elastic_prediction_8ixx.html#a6c6f6b0b066d018d0ab97c0b001c6db9":[5,0,1,0,0,0,1,0,6,4,55,0],
+"_logarithmic_strain_handler_8ixx.html":[5,0,1,0,0,0,1,0,6,4,56]
 };

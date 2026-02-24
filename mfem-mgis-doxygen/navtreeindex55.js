@@ -1,5 +1,6 @@
 var NAVTREEINDEX55 =
 {
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_c_u_p_pcf9b8ef75a4b61c029c79c20057d14e5.html":[4,0,16,5,2,118],
 "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_c_u_p_pfb3e271f9f0c1efc9bd1cd27e14d327e.html":[4,0,16,5,2,119],
 "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_c_u_p_pfb3e271f9f0c1efc9bd1cd27e14d327e.html#a9581fc8e5e33e84cca147f2f48dd5a45":[4,0,16,5,2,119,0],
 "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_h_y_b_r8d41861b0ea58dfe2634a796594ba478.html":[4,0,16,5,2,121],
@@ -248,6 +249,5 @@ var NAVTREEINDEX55 =
 "structtfel_1_1math_1_1parser_1_1_op_lesser_or_equal.html":[4,0,16,5,3,89],
 "structtfel_1_1math_1_1parser_1_1_op_minus.html":[4,0,16,5,3,90],
 "structtfel_1_1math_1_1parser_1_1_op_mult.html":[4,0,16,5,3,91],
-"structtfel_1_1math_1_1parser_1_1_op_or.html":[4,0,16,5,3,92],
-"structtfel_1_1math_1_1parser_1_1_op_plus.html":[4,0,16,5,3,93]
+"structtfel_1_1math_1_1parser_1_1_op_or.html":[4,0,16,5,3,92]
 };

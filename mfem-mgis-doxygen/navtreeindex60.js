@@ -1,5 +1,6 @@
 var NAVTREEINDEX60 =
 {
+"structtfel_1_1utilities_1_1_text_data.html#a232f26495e05503e49ce600fb4465d34":[4,0,16,11,22,4],
 "structtfel_1_1utilities_1_1_text_data.html#a35697f0ef82cdd95a3e6cc597ad9f6eb":[4,0,16,11,22,10],
 "structtfel_1_1utilities_1_1_text_data.html#a4473edb2f0cc69951442330e489be989":[4,0,16,11,22,9],
 "structtfel_1_1utilities_1_1_text_data.html#a5525460b13b78f1bcf1c9249e54d842e":[4,0,16,11,22,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX60 =
 "tvector_8ixx.html#ab6acab4804d26d7656c7470cd5c2515a":[5,0,1,0,0,0,1,0,6,5,22,0,3],
 "tvector_8ixx.html#ac217149688d39a823f1a3ae87752cbf6":[5,0,1,0,0,0,1,0,6,5,22,0,1],
 "tvector_i_o_8hxx.html":[5,0,1,0,0,0,1,0,6,5,22,1],
-"tvector_result_type_8hxx.html":[5,0,1,0,0,0,1,0,6,5,22,2],
-"types_8ixx.html":[5,0,1,0,0,0,1,0,6,5,74]
+"tvector_result_type_8hxx.html":[5,0,1,0,0,0,1,0,6,5,22,2]
 };

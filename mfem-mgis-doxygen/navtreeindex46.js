@@ -1,5 +1,6 @@
 var NAVTREEINDEX46 =
 {
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html":[4,0,16,4,26],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a5646715714dd7f9eeda9035bb3499a1b":[4,0,16,4,26,0],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a5a16e9a554d8043afc02ff7738499f06":[4,0,16,4,26,6],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a634496d90c07163b025eb38391230985":[4,0,16,4,26,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX46 =
 "structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_a_x_i_s_y_m_m_e_t_r_i_c_a_l_01_4.html":[4,0,16,4,84],
 "structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_a_xfdb1a4223046cfc158a96a06fcceb0c8.html":[4,0,16,4,86],
 "structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_g_ed2535001cd815bc1ce2f99cc25de47b0.html":[4,0,16,4,87],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_a_i_n_01_4.html":[4,0,16,4,88],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html":[4,0,16,4,89]
+"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_a_i_n_01_4.html":[4,0,16,4,88]
 };

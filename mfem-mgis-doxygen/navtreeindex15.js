@@ -1,10 +1,5 @@
 var NAVTREEINDEX15 =
 {
-"structcastem_1_1_castem_interface_dispatch_3_01_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_04c8a69e554f48a1ff05c6b60dd88e32.html":[4,0,4,42],
-"structcastem_1_1_castem_interface_dispatch_3_01_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_63097b19623a932477af2a0340b84866.html":[4,0,4,43],
-"structcastem_1_1_castem_interface_exceptions.html":[4,0,4,44],
-"structcastem_1_1_castem_invalid_dimension.html":[4,0,4,45],
-"structcastem_1_1_castem_invalid_n_t_e_n_s_value.html":[4,0,4,46],
 "structcastem_1_1_castem_isotropic_behaviour_handler.html":[4,0,4,47],
 "structcastem_1_1_castem_isotropic_behaviour_handler_3_01_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_01_h_00_01_behaviour_01_4.html":[4,0,4,48],
 "structcastem_1_1_castem_isotropic_behaviour_handler_base.html":[4,0,4,49],
@@ -249,5 +244,10 @@ var NAVTREEINDEX15 =
 "structlsdyna_1_1_l_s_d_y_n_a_compute_stiffness_tensor_3_01lsdyna_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_nbeb0c56d6876f4b4e7547883624ebef2.html":[4,0,8,8],
 "structlsdyna_1_1_l_s_d_y_n_a_compute_stiffness_tensor_3_01lsdyna_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_nee6e01ca1c9bbf6d0e42e31a04eaca3c.html":[4,0,8,10],
 "structlsdyna_1_1_l_s_d_y_n_a_compute_stiffness_tensor_3_01lsdyna_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_nf24f8d149f3f7fb7a794488d24594f34.html":[4,0,8,16],
-"structlsdyna_1_1_l_s_d_y_n_a_compute_stiffness_tensor_3_01lsdyna_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_nf7bba22c311de04965b6d2c645d324a9.html":[4,0,8,7]
+"structlsdyna_1_1_l_s_d_y_n_a_compute_stiffness_tensor_3_01lsdyna_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_nf7bba22c311de04965b6d2c645d324a9.html":[4,0,8,7],
+"structlsdyna_1_1_l_s_d_y_n_a_compute_stiffness_tensor_3_01lsdyna_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_nfde5ecc6b4465a67f761bee52a21e2b8.html":[4,0,8,12],
+"structlsdyna_1_1_l_s_d_y_n_a_compute_thermal_expansion_coefficient_tensor.html":[4,0,8,17],
+"structlsdyna_1_1_l_s_d_y_n_a_compute_thermal_expansion_coefficient_tensor_3_01lsdyna_1_1_s_t_a_n07db27a4ab02172d5ffcfce0b6bf0731.html":[4,0,8,23],
+"structlsdyna_1_1_l_s_d_y_n_a_compute_thermal_expansion_coefficient_tensor_3_01lsdyna_1_1_s_t_a_n0a0d55bb74bfeb6477115cf2a9c2b447.html":[4,0,8,28],
+"structlsdyna_1_1_l_s_d_y_n_a_compute_thermal_expansion_coefficient_tensor_3_01lsdyna_1_1_s_t_a_n3f6ed71e9286353c7fd51ad606bf468b.html":[4,0,8,18]
 };

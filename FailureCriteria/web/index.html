@@ -12,8 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>The FailureCriteria project</title>
         <meta name="author" content="Jérémy Hure, Thomas Helfer" />
-            <meta name="date" content="2026-08-11" />
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
                 <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
@@ -36,6 +35,7 @@
                 <li><a href="analysis_python.html">Analysis of simulation's results exported in VTK with python and MGIS</a></li>
                 </ul>
             </li>
+	    <li><a href="tests.html">Tests</a></li>
            <li><a href="contributing.html">Contributing</a></li>
            </ul>
         </li>
@@ -56,23 +56,95 @@
 <div id="header">
 <h1 class="title">The FailureCriteria project</h1>
 <h2 class="author">Jérémy Hure, Thomas Helfer</h2>
-<h3 class="date">08/11/2026</h3>
+<h3 class="date">24/02/2026</h3>
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#available-criteria" id="toc-available-criteria"><span
-class="toc-section-number">1</span> Available criteria</a>
+<li><a href="#probabilistic-brittle-fracture"
+id="toc-probabilistic-brittle-fracture"><span
+class="toc-section-number">1</span> Probabilistic brittle fracture</a>
 <ul>
-<li><a href="#probabilistic-brittle-failure"
-id="toc-probabilistic-brittle-failure"><span
-class="toc-section-number">1.1</span> Probabilistic brittle
-failure</a></li>
-<li><a href="#ductile-failure" id="toc-ductile-failure"><span
-class="toc-section-number">1.2</span> Ductile failure</a></li>
-<li><a href="#strain-based-ductile-failure-indicator"
-id="toc-strain-based-ductile-failure-indicator"><span
-class="toc-section-number">1.3</span> Strain based ductile failure
-indicator</a></li>
+<li><a href="#beremin1983-beremin_local_1983"
+id="toc-beremin1983-beremin_local_1983"><span
+class="toc-section-number">1.1</span> Beremin1983 <span class="citation"
+data-cites="beremin_local_1983">[1]</span></a></li>
+<li><a href="#bakkerkoers1991-bakker_koers_1991"
+id="toc-bakkerkoers1991-bakker_koers_1991"><span
+class="toc-section-number">1.2</span> BakkerKoers1991 <span
+class="citation" data-cites="bakker_koers_1991">[2]</span></a></li>
+<li><a href="#kroonfaleskog2002-kroon_faleskog_2002"
+id="toc-kroonfaleskog2002-kroon_faleskog_2002"><span
+class="toc-section-number">1.3</span> KroonFaleskog2002 <span
+class="citation" data-cites="kroon_faleskog_2002">[3]</span></a></li>
+<li><a href="#bordetkarstensenknowleswiesner2005-bordet_2005"
+id="toc-bordetkarstensenknowleswiesner2005-bordet_2005"><span
+class="toc-section-number">1.4</span> BordetKarstensenKnowlesWiesner2005
+<span class="citation" data-cites="bordet_2005">[4]</span></a></li>
+<li><a href="#hohehardenackeluckowsiegele2010powerlaw-hohe_2010"
+id="toc-hohehardenackeluckowsiegele2010powerlaw-hohe_2010"><span
+class="toc-section-number">1.5</span>
+HoheHardenackeLuckowSiegele2010PowerLaw <span class="citation"
+data-cites="hohe_2010">[5]</span></a></li>
+<li><a href="#hohehardenackeluckowsiegele2010exponentiallaw-hohe_2010"
+id="toc-hohehardenackeluckowsiegele2010exponentiallaw-hohe_2010"><span
+class="toc-section-number">1.6</span>
+HoheHardenackeLuckowSiegele2010ExponentialLaw <span class="citation"
+data-cites="hohe_2010">[5]</span></a></li>
+<li><a href="#ruggieridodds2015-ruggieri_dodds_2015"
+id="toc-ruggieridodds2015-ruggieri_dodds_2015"><span
+class="toc-section-number">1.7</span> RuggieriDodds2015 <span
+class="citation" data-cites="ruggieri_dodds_2015">[6]</span></a></li>
+<li><a href="#forgetmarinivincent2016-forget_application_2016"
+id="toc-forgetmarinivincent2016-forget_application_2016"><span
+class="toc-section-number">1.8</span> ForgetMariniVincent2016 <span
+class="citation"
+data-cites="forget_application_2016">[7]</span></a></li>
+<li><a href="#ductile-fracture" id="toc-ductile-fracture"><span
+class="toc-section-number">1.9</span> Ductile fracture</a></li>
+</ul></li>
+<li><a href="#strain-based-ductile-fracture-indicator"
+id="toc-strain-based-ductile-fracture-indicator"><span
+class="toc-section-number">2</span> Strain based ductile fracture
+indicator</a>
+<ul>
+<li><a href="#freudenthal1950-freudenthal_alfredm_inelastic_1950"
+id="toc-freudenthal1950-freudenthal_alfredm_inelastic_1950"><span
+class="toc-section-number">2.1</span> Freudenthal1950 <span
+class="citation"
+data-cites="freudenthal_alfredm_inelastic_1950">[9]</span></a></li>
+<li><a href="#cockcroftlatham1968-cockcroft_latham_1968"
+id="toc-cockcroftlatham1968-cockcroft_latham_1968"><span
+class="toc-section-number">2.2</span> CockcroftLatham1968 <span
+class="citation" data-cites="cockcroft_latham_1968">[10]</span></a></li>
+<li><a href="#ricetracey1969-rice_tracey_1969"
+id="toc-ricetracey1969-rice_tracey_1969"><span
+class="toc-section-number">2.3</span> RiceTracey1969 <span
+class="citation" data-cites="rice_tracey_1969">[11]</span></a></li>
+<li><a href="#ricetracey1969highstresstriaxiality-rice_tracey_1969"
+id="toc-ricetracey1969highstresstriaxiality-rice_tracey_1969"><span
+class="toc-section-number">2.4</span>
+RiceTracey1969HighStressTriaxiality <span class="citation"
+data-cites="rice_tracey_1969">[11]</span></a></li>
+<li><a href="#generalizedricetracey"
+id="toc-generalizedricetracey"><span
+class="toc-section-number">2.5</span> GeneralizedRiceTracey</a></li>
+<li><a href="#hancockmckenzie1976-hancock_mckenzie_1976"
+id="toc-hancockmckenzie1976-hancock_mckenzie_1976"><span
+class="toc-section-number">2.6</span> HancockMcKenzie1976 <span
+class="citation" data-cites="hancock_mckenzie_1976">[12]</span></a></li>
+<li><a href="#generalizedhancockmckenzie"
+id="toc-generalizedhancockmckenzie"><span
+class="toc-section-number">2.7</span>
+GeneralizedHancockMcKenzie</a></li>
+<li><a href="#johnsoncook1985-johnson_cook_1985"
+id="toc-johnsoncook1985-johnson_cook_1985"><span
+class="toc-section-number">2.8</span> JohnsonCook1985 <span
+class="citation" data-cites="johnson_cook_1985">[8]</span></a></li>
+<li><a href="#huang1991-huang_1991" id="toc-huang1991-huang_1991"><span
+class="toc-section-number">2.9</span> Huang1991 <span class="citation"
+data-cites="huang_1991">[13]</span></a></li>
+<li><a href="#generalizedhuang" id="toc-generalizedhuang"><span
+class="toc-section-number">2.10</span> GeneralizedHuang</a></li>
 </ul></li>
 <li><a href="#references" id="toc-references">References</a></li>
 </ul>
@@ -83,89 +155,273 @@ failure. Those implementations can be used in uncoupled analyses, in the
 post-processing of the computations, or coupled analyses where the
 criteria are for example used along with an element deletion
 strategy.</p>
-<h1 data-number="1" id="available-criteria"><span
-class="header-section-number">1</span> Available criteria</h1>
-<h2 data-number="1.1" id="probabilistic-brittle-failure"><span
-class="header-section-number">1.1</span> Probabilistic brittle
-failure</h2>
-<p>Various models have been proposed to predict the failure probability
-of metal alloys at the local scale <span
-class="math inline">\(p_f\)</span>. The global failure probability <span
-class="math inline">\(P_f\)</span> is then obtained considering the
-weakest link assumption:</p>
+<blockquote>
+<p>The project is very young, please do no hesitate to report mistakes
+and bugs</p>
+</blockquote>
+<p>The criteria depends on the Cauchy stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span> and
+strain tensor <span
+class="math inline">\(\underline{\boldsymbol{\varepsilon}}\)</span>, as
+well as on equivalent stress <span
+class="math inline">\(\sigma_{eq}\)</span> and associated cumulated
+plastic strain <span
+class="math inline">\(\varepsilon_{eq}\)</span>.</p>
+<h1 data-number="1" id="probabilistic-brittle-fracture"><span
+class="header-section-number">1</span> Probabilistic brittle
+fracture</h1>
+<p>Various models have been proposed to predict the brittle fracture
+probability of metal alloys <span class="math inline">\(p_f^i\)</span>
+associated to an elementary volume <span
+class="math inline">\(V_i\)</span>. The global fracture probability
+<span class="math inline">\(P_f\)</span> is then obtained considering
+the weakest link assumption <span class="citation"
+data-cites="beremin_local_1983">[<a href="#ref-beremin_local_1983"
+role="doc-biblioref">1</a>]</span>:</p>
 <p><span
-id="eq:mfront:failurecriteria:brittle_failure:global_fracture_probability"><span
-class="math display">\[ P_f = 1 - \Pi_{i}(1 - p_f^i) \approx 1 - \exp{
-\left(  - \int_V p_f {{\displaystyle \frac{\displaystyle
-dV}{\displaystyle V_0}}} \right)} \qquad{(1)}\]</span></span></p>
+id="eq:mfront:fracturecriteria:brittle_fracture:global_fracture_probability"><span
+class="math display">\[\displaystyle{ 1 - P_f = \Pi_{i}(1 - p_f^i)^{V_i
+/ V_0}} \qquad{(1)}\]</span></span></p>
 <p>where <span class="math inline">\(V_0\)</span> is a normalization
-volume.</p>
+volume, stating that the global survival probability is the product of
+all local survival probability.</p>
 <blockquote>
-<p><strong>Note n°1</strong></p>
-<p><code>MFront</code> only computes the local failure probability <span
-class="math inline">\(p_f\)</span> defined at each Gauss point. The user
-should then compute the global failure probability <span
+<p><strong>Note n°1</strong> <code>MFront</code> only computes the local
+fracture probability <span class="math inline">\(p_f^i\)</span>. The
+user should then compute the global fracture probability <span
 class="math inline">\(P_f\)</span> according to the Equation (1) which
-requires the volume associated with each Gauss point.</p>
+requires the volume associated with <span
+class="math inline">\(p_f^i\)</span>.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note n°2</strong></p>
-<p>From a physical point of view, the local failure probability should
-be a monotonic function, which is enforced in the numerical
-implementations by considering <span
-class="math inline">\(\max{(p_f^{new},p_f^{old})}\)</span></p>
+<p><strong>Note n°2</strong> Assuming <span class="math inline">\(p_f^i
+\ll 1\)</span>, Equation (1) is usually rewriten in the literature as:
+<span class="math display">\[\displaystyle{ \log{\left(1 - P_f\right)} =
+\sum_i - p_f^i} {{\displaystyle \frac{\displaystyle V_i}{\displaystyle
+V_0}}} \]</span></p>
 </blockquote>
-<p>The models available in <code>MFront</code> for the local failure
-probability <span class="math inline">\(p_f\)</span> are:</p>
-<h3 data-number="1.1.1" id="beremin-beremin_local_1983"><span
-class="header-section-number">1.1.1</span> Beremin <span
+<blockquote>
+<p><strong>Note n°3</strong> Models are either <em>direct</em>,
+providing <span class="math inline">\(p_f^i\)</span>, or
+<em>incremental</em>, providing <span
+class="math inline">\(\dot{p}_f^i\)</span>. In the former case, the
+local fracture probability is computed at the end of the time step, and
+monotonicity is enforced by considering <span
+class="math inline">\(\max{(p_f^{i,new},p_f^{i,old})}\)</span>. In the
+latter case, the local fracture probability is integrated using the
+midpoint rule.</p>
+</blockquote>
+<p>Various models proposed in the literature for the local fracture
+probability <span class="math inline">\(p_f^i\)</span> are available in
+<code>MFront</code>:</p>
+<h2 data-number="1.1" id="beremin1983-beremin_local_1983"><span
+class="header-section-number">1.1</span> Beremin1983 <span
 class="citation" data-cites="beremin_local_1983">[<a
-href="#ref-beremin_local_1983" role="doc-biblioref">1</a>]</span></h3>
-<p><span class="math display">\[p_f =
-\max{\left[   \left({{\displaystyle \frac{\displaystyle
-\sigma_I}{\displaystyle \sigma_u}}}\right)^m   ,0   \right] }
-\]</span></p>
-<p>where <span class="math inline">\(\sigma_I\)</span> is the largest
-principal stress.</p>
+href="#ref-beremin_local_1983" role="doc-biblioref">1</a>]</span></h2>
 <ul>
-<li><strong>Input</strong>: Cauchy Stress tensor <span
-class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span></li>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span>, strain
+tensor <span
+class="math inline">\(\underline{\boldsymbol{\varepsilon}}\)</span></li>
 <li><strong>Parameters</strong>: reference stress <span
 class="math inline">\(\sigma_u\)</span>, exponent <span
 class="math inline">\(m\)</span></li>
 </ul>
-<h3 data-number="1.1.2"
-id="ruggieri-and-dodds-ruggieri_local_2018"><span
-class="header-section-number">1.1.2</span> Ruggieri and Dodds <span
-class="citation" data-cites="ruggieri_local_2018">[<a
-href="#ref-ruggieri_local_2018" role="doc-biblioref">2</a>]</span></h3>
-<p><span class="math display">\[p_f = \left[ 1 - \exp{\left( -
-{{\displaystyle \frac{\displaystyle \varepsilon_{eq}}{\displaystyle
-\varepsilon_{eq}^{ref}}}}  \right)
-}    \right]  \max{\left[   \left({{\displaystyle \frac{\displaystyle
-\sigma_I}{\displaystyle \sigma_u}}}\right)^m   ,0   \right]
-}   \]</span></p>
+<p>The Beremin group considered that microcracks appear at the onset of
+plasticity and a power law distribution for microcracks size along with
+the Griffith criterion to estimate the local fracture probability. In
+addition, an effect of strain is incorporated on fracture stress. The
+final expression is:</p>
+<p><span class="math display">\[p_f^i =  \left[ {{\displaystyle
+\frac{\displaystyle \sigma_I}{\displaystyle \sigma_u}}}
+\exp{\left(-{{\displaystyle \frac{\displaystyle
+\varepsilon_I}{\displaystyle 2}}}    \right)}\right]^m  \quad
+\mathrm{for} \quad \{\varepsilon_{eq} &gt; 0, \sigma_I &gt;
+0\}  \]</span></p>
 <p>where <span class="math inline">\(\sigma_I\)</span> is the largest
-principal stress, and <span
-class="math inline">\(\varepsilon_{eq}\)</span> the equivalent plastic
-strain.</p>
+principal stress and <span class="math inline">\(\varepsilon_I\)</span>
+the associated strain.</p>
+<h2 data-number="1.2" id="bakkerkoers1991-bakker_koers_1991"><span
+class="header-section-number">1.2</span> BakkerKoers1991 <span
+class="citation" data-cites="bakker_koers_1991">[<a
+href="#ref-bakker_koers_1991" role="doc-biblioref">2</a>]</span></h2>
 <ul>
-<li><strong>Input</strong>: Cauchy Stress tensor <span
-class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span>,
-equivalent plastic strain <span
-class="math inline">\(\varepsilon_{eq}\)</span></li>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span>, strain
+tensor <span
+class="math inline">\(\underline{\boldsymbol{\varepsilon}}\)</span></li>
 <li><strong>Parameters</strong>: reference stress <span
 class="math inline">\(\sigma_u\)</span>, exponent <span
-class="math inline">\(m\)</span>, reference equivalent plastic strain
-<span class="math inline">\(\varepsilon_{eq}^{ref}\)</span></li>
+class="math inline">\(m\)</span>, threshold stress <span
+class="math inline">\(\sigma_{th}\)</span></li>
 </ul>
-<h3 data-number="1.1.3"
-id="forget-marini-and-vincent-forget_application_2016"><span
-class="header-section-number">1.1.3</span> Forget, Marini and Vincent
-<span class="citation" data-cites="forget_application_2016">[<a
+<p>Bakker &amp; Koers proposed to modify Beremin1983 model to account
+for a threshold stress:</p>
+<p><span class="math display">\[p_f^i =   \left[{{\displaystyle
+\frac{\displaystyle \sigma_I - \sigma_{th}}{\displaystyle \sigma_u}}}
+\exp{\left(-{{\displaystyle \frac{\displaystyle
+\varepsilon_I}{\displaystyle 2}}}    \right)}\right]^m  \quad
+\mathrm{for} \quad \{\varepsilon_{eq} &gt; 0, \sigma_I &gt;
+\sigma_{th}\}  \]</span></p>
+<h2 data-number="1.3" id="kroonfaleskog2002-kroon_faleskog_2002"><span
+class="header-section-number">1.3</span> KroonFaleskog2002 <span
+class="citation" data-cites="kroon_faleskog_2002">[<a
+href="#ref-kroon_faleskog_2002" role="doc-biblioref">3</a>]</span></h2>
+<ul>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span></li>
+<li><strong>Parameters</strong>: reference stress <span
+class="math inline">\(\sigma_u\)</span>, threshold stress <span
+class="math inline">\(\sigma_{th}\)</span>, nucleation parameter <span
+class="math inline">\(\alpha_p\)</span></li>
+</ul>
+<p>Kroon &amp; Faleskog considered an exponential distribution for
+microcracks size along with a threshold stress, as well as a refined
+modelling of microcracks nucleation leading to a linear dependence of
+fracture probability to plastic strain:</p>
+<p><span class="math display">\[p_f^i = \alpha_p\,
+\varepsilon_{eq}\,\left[ \exp{\left(-\left( {{\displaystyle
+\frac{\displaystyle \sigma_u}{\displaystyle \sigma_I}}} \right)^2
+\right) }  - \exp{\left(-\left( {{\displaystyle \frac{\displaystyle
+\sigma_u}{\displaystyle \sigma_{th}}}} \right)^2  \right)}
+\right]  \quad \mathrm{for} \quad \sigma_I &gt;
+\sigma_{th}  \]</span></p>
+<p>Note that Kroon &amp; Faleskog also proposed to compute a non-local
+value for <span class="math inline">\(\sigma_I\)</span>.</p>
+<h2 data-number="1.4"
+id="bordetkarstensenknowleswiesner2005-bordet_2005"><span
+class="header-section-number">1.4</span>
+BordetKarstensenKnowlesWiesner2005 <span class="citation"
+data-cites="bordet_2005">[<a href="#ref-bordet_2005"
+role="doc-biblioref">4</a>]</span></h2>
+<ul>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span></li>
+<li><strong>Parameters</strong>: reference stress <span
+class="math inline">\(\sigma_u\)</span>, exponent <span
+class="math inline">\(m\)</span>, threshold stress <span
+class="math inline">\(\sigma_{th}\)</span>, nucleation parameters <span
+class="math inline">\(\alpha_p\)</span>, <span
+class="math inline">\(\beta_p\)</span></li>
+</ul>
+<p>Bordet <em>et al.</em> refined Beremin analysis for the nucleation of
+microcracks while keeping the same approach for microcracks propagation.
+An incremental formulation is obtained for the local fracture
+probability:</p>
+<p><span class="math display">\[dp_f^i = \alpha_p \left[ \left(
+{{\displaystyle \frac{\displaystyle \sigma_I}{\displaystyle \sigma_u}}}
+\right)^m  - \left({{\displaystyle \frac{\displaystyle
+\sigma_{th}}{\displaystyle \sigma_u}}}
+\right)^m  ,0   \right]   \exp{\left( -\beta_p
+\varepsilon_{eq}   \right)} d\varepsilon_{eq}  \quad \mathrm{for} \quad
+\sigma_I &gt; \sigma_{th} \]</span></p>
+<p>where <span class="math inline">\(\alpha_p = \sigma_Y /
+\sigma_Y^{ref}\)</span> is the ratio of yield stress at the temperature
+of interest to a reference yield stress, and <span
+class="math inline">\(\beta_p=\alpha_p \varepsilon_{eq}^0\)</span> where
+<span class="math inline">\(\varepsilon_{eq}^0\)</span> is a reference
+plastic strain.</p>
+<h2 data-number="1.5"
+id="hohehardenackeluckowsiegele2010powerlaw-hohe_2010"><span
+class="header-section-number">1.5</span>
+HoheHardenackeLuckowSiegele2010PowerLaw <span class="citation"
+data-cites="hohe_2010">[<a href="#ref-hohe_2010"
+role="doc-biblioref">5</a>]</span></h2>
+<ul>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span></li>
+<li><strong>Parameters</strong>: reference stress <span
+class="math inline">\(\sigma_u\)</span>, exponent <span
+class="math inline">\(m\)</span>, threshold stress <span
+class="math inline">\(\sigma_{th}\)</span>, nucleation parameters <span
+class="math inline">\(\alpha_p\)</span>, <span
+class="math inline">\(\beta_p\)</span></li>
+</ul>
+<p>Hohe <em>et al.</em> also refined Beremin and Kroon &amp; Flaeskog
+analysis for the nucleation of microcracks that depends on stress
+triaxiality. An incremental formulation is obtained for the local
+fracture probability:</p>
+<p><span class="math display">\[dp_f^i = \beta_p   {{\displaystyle
+\frac{\displaystyle \exp{\left(- \alpha_p\eta   \right)}}{\displaystyle
+\sqrt{1+\alpha_p^2 \varepsilon_{eq}^2}}}} \max{\left(d\varepsilon_{eq} -
+\alpha_p\varepsilon_{eq} d\eta ,0      \right)}  \left[ \left(
+{{\displaystyle \frac{\displaystyle \sigma_I}{\displaystyle \sigma_u}}}
+\right)^m  - \left({{\displaystyle \frac{\displaystyle
+\sigma_{th}}{\displaystyle \sigma_u}}} \right)^m   \right]  \quad
+\mathrm{for} \quad \{\varepsilon_{eq} &gt; 0, \sigma_I &gt;
+\sigma_{th}\}    \]</span></p>
+<p>where <span class="math inline">\(\eta\)</span> is the stress
+triaxiality.</p>
+<h2 data-number="1.6"
+id="hohehardenackeluckowsiegele2010exponentiallaw-hohe_2010"><span
+class="header-section-number">1.6</span>
+HoheHardenackeLuckowSiegele2010ExponentialLaw <span class="citation"
+data-cites="hohe_2010">[<a href="#ref-hohe_2010"
+role="doc-biblioref">5</a>]</span></h2>
+<ul>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span></li>
+<li><strong>Parameters</strong>: reference stress <span
+class="math inline">\(\sigma_u\)</span>, exponent <span
+class="math inline">\(m\)</span>, threshold stress <span
+class="math inline">\(\sigma_{th}\)</span>, nucleation parameters <span
+class="math inline">\(\alpha_p\)</span>, <span
+class="math inline">\(\beta_p\)</span></li>
+</ul>
+<p><span class="math display">\[dp_f^i = \beta_p   {{\displaystyle
+\frac{\displaystyle \exp{\left(- \alpha_p\eta   \right)}}{\displaystyle
+\sqrt{1+\alpha_p^2 \varepsilon_{eq}^2}}}} \max{\left(d\varepsilon_{eq} -
+\alpha_p\varepsilon_{eq} d\eta ,0      \right)} \left[
+\exp{\left(-\left( {{\displaystyle \frac{\displaystyle
+\sigma_u}{\displaystyle \sigma_I}}} \right)^2 \right) }  -
+\exp{\left(-\left( {{\displaystyle \frac{\displaystyle
+\sigma_u}{\displaystyle \sigma_{th}}}}
+\right)^2  \right)}   \right]   \quad \mathrm{for} \quad
+\{\varepsilon_{eq} &gt; 0, \sigma_I &gt; \sigma_{th}\}    \]</span></p>
+<h2 data-number="1.7" id="ruggieridodds2015-ruggieri_dodds_2015"><span
+class="header-section-number">1.7</span> RuggieriDodds2015 <span
+class="citation" data-cites="ruggieri_dodds_2015">[<a
+href="#ref-ruggieri_dodds_2015" role="doc-biblioref">6</a>]</span></h2>
+<ul>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span></li>
+<li><strong>Parameters</strong>: reference stress <span
+class="math inline">\(\sigma_u\)</span>, exponent <span
+class="math inline">\(m\)</span>, threshold stress <span
+class="math inline">\(\sigma_{th}\)</span>, nucleation parameter <span
+class="math inline">\(\alpha_p\)</span></li>
+</ul>
+<p>Ruggieri &amp; Doods also proposed modifications of the Beremin model
+to account for microcrack nucleation:</p>
+<p><span class="math display">\[p_f^i = \left[ 1 - \exp{\left( -
+\alpha_p \varepsilon_{eq}  \right) }    \right]    \left({{\displaystyle
+\frac{\displaystyle \sigma_I}{\displaystyle
+\sigma_u}}}\right)^m    \quad \mathrm{for} \quad \sigma_I &gt;
+0   \]</span></p>
+<h2 data-number="1.8"
+id="forgetmarinivincent2016-forget_application_2016"><span
+class="header-section-number">1.8</span> ForgetMariniVincent2016 <span
+class="citation" data-cites="forget_application_2016">[<a
 href="#ref-forget_application_2016"
-role="doc-biblioref">3</a>]</span></h3>
-<p><span class="math display">\[p_f   =   n_c V_0
+role="doc-biblioref">7</a>]</span></h2>
+<ul>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span></li>
+<li><strong>Parameters</strong>: carbide size distribution parameters
+(<span class="math inline">\(\alpha_r\)</span>, <span
+class="math inline">\(\beta_r\)</span>, <span
+class="math inline">\(\gamma_r\)</span>), carbide Young modulus <span
+class="math inline">\(E\)</span>, carbide Poisson ratio <span
+class="math inline">\(\nu\)</span>, carbide fracture energy <span
+class="math inline">\(\gamma_f\)</span>, stress heterogeneity parameters
+(<span class="math inline">\(m_H\)</span>, <span
+class="math inline">\(k_H\)</span>)</li>
+</ul>
+<p>Forget, Marini &amp; Vincent refined Beremin analysis for microcracks
+propagation by including a realistic carbide size distribution as well
+as by accounting for heterogeneous stress distribution at the
+microstrutural scale:</p>
+<p><span class="math display">\[p_f^i   =
 \int_0^{+\infty}  {{\displaystyle \frac{\displaystyle 2
 \alpha_r}{\displaystyle \beta_r}}}  \left( {{\displaystyle
 \frac{\displaystyle 2 r - \gamma_r}{\displaystyle
@@ -175,138 +431,232 @@ role="doc-biblioref">3</a>]</span></h3>
 -  \left[  \sqrt{{{\displaystyle \frac{\displaystyle E \pi
 \gamma_f}{\displaystyle 2 (1-\nu^2) r}}}}  {{\displaystyle
 \frac{\displaystyle 1}{\displaystyle k_H  \max{\left(\sigma_I, 0 \right)
-}}}}   \right]^{m_H}    \right) }     dr   \]</span></p>
-<p>where <span class="math inline">\(\sigma_I\)</span> is the largest
-principal stress, and <span class="math inline">\(r\)</span> the carbide
-size.</p>
-<ul>
-<li><strong>Input</strong>: Cauchy Stress tensor <span
-class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span></li>
-<li><strong>Parameters</strong>: carbide size distribution (<span
-class="math inline">\(\alpha_r\)</span>, <span
-class="math inline">\(\beta_r\)</span>, <span
-class="math inline">\(\gamma_r\)</span>), carbide Young modulus <span
-class="math inline">\(E\)</span>, carbide fracture energy <span
-class="math inline">\(\gamma_f\)</span>, carbide volume density <span
-class="math inline">\(n_c\)</span>, heterogeneity (<span
-class="math inline">\(m_H\)</span>, <span
-class="math inline">\(k_H\)</span>)</li>
-</ul>
-<h2 data-number="1.2" id="ductile-failure"><span
-class="header-section-number">1.2</span> Ductile failure</h2>
-<h2 data-number="1.3" id="strain-based-ductile-failure-indicator"><span
-class="header-section-number">1.3</span> Strain based ductile failure
-indicator</h2>
+}}}}   \right]^{m_H}    \right) }     dr    \quad \mathrm{for} \quad
+\varepsilon_{eq} &gt; 0   \]</span></p>
+<h2 data-number="1.9" id="ductile-fracture"><span
+class="header-section-number">1.9</span> Ductile fracture</h2>
+<h1 data-number="2" id="strain-based-ductile-fracture-indicator"><span
+class="header-section-number">2</span> Strain based ductile fracture
+indicator</h1>
 <p>Various models have been proposed to predict the equivalent plastic
-strain <span class="math inline">\(\varepsilon_{eq}\)</span> at the
-onset of ductile failure <span
-class="math inline">\(\varepsilon_{eq}^c\)</span>. A general framework
-relies on the definition of a damage indicator <span
-class="math inline">\(D\)</span> such as <span
-class="math inline">\(D=1\)</span> corresponds to failure:</p>
+strain at the onset of ductile fracture <span
+class="math inline">\(\varepsilon_{eq}^c\)</span>. As proposed by
+Johnson and Cook <span class="citation"
+data-cites="johnson_cook_1985">[<a href="#ref-johnson_cook_1985"
+role="doc-biblioref">8</a>]</span>, a general framework relies on the
+definition of a damage indicator <span
+class="math inline">\(D\)</span>:</p>
 <p><span
-id="eq:mfront:failurecriteria:ductile_failure:damage_indicator"><span
+id="eq:mfront:fracturecriteria:ductile_fracture:damage_indicator"><span
 class="math display">\[ D = \int {{\displaystyle \frac{\displaystyle d
 \varepsilon_{eq} }{\displaystyle \varepsilon_{eq}^c}}}
 \qquad{(2)}\]</span></span></p>
+<p>such as <span class="math inline">\(D=1\)</span> corresponds to
+fracture. This formulation allows to extend models for critical
+quivalent plastic strain, mostly derived for proportional loading
+conditions, to non-proportional loading conditions.</p>
 <blockquote>
-<p><strong>Note</strong> In practice, Equation (2) is integrated using
-the midpoint rule.</p>
+<p><strong>Note n°1</strong> In practice, Equation (2) is integrated
+using the midpoint rule.</p>
 </blockquote>
-<p>The models available in <code>MFront</code> are:</p>
-<h3 data-number="1.3.1"
-id="freudenthal-freudenthal_alfredm_inelastic_1950"><span
-class="header-section-number">1.3.1</span> Freudenthal <span
+<blockquote>
+<p><strong>Note n°2</strong> <span
+class="math inline">\(\varepsilon_{eq}^c\)</span> should be strictly
+positive. Otherwise (such as bad choices of material parameters), the
+increment of damage is set to zero.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note n°3</strong> Von Mises equivalent plastic strain <span
+class="math inline">\(\varepsilon_{eq}\)</span> and stress <span
+class="math inline">\(\sigma_{eq}\)</span> are considred in the
+following. A potential extension could be to consider other equivalent
+stresses (and associated equivalent strain) such as Hill, Hosford, …</p>
+</blockquote>
+<p>Various models proposed in the literature for the critical quivalent
+plastic strain <span class="math inline">\(\varepsilon_{eq}^c\)</span>
+are available in <code>MFront</code>:</p>
+<h2 data-number="2.1"
+id="freudenthal1950-freudenthal_alfredm_inelastic_1950"><span
+class="header-section-number">2.1</span> Freudenthal1950 <span
 class="citation" data-cites="freudenthal_alfredm_inelastic_1950">[<a
 href="#ref-freudenthal_alfredm_inelastic_1950"
-role="doc-biblioref">4</a>]</span></h3>
-<p><span class="math display">\[ \varepsilon_{eq}^c = {{\displaystyle
-\frac{\displaystyle D_1}{\displaystyle \sigma_{eq}^{vM}}}} \]</span></p>
-<p>where <span class="math inline">\(\sigma_{eq}^{vM}\)</span> is the
-von Mises equivalent stress tensor.</p>
+role="doc-biblioref">9</a>]</span></h2>
 <ul>
-<li><strong>Input</strong>: Cauchy Stress tensor <span
-class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span></li>
-<li><strong>Parameters</strong>: <span
+<li><strong>Inputs</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span>,
+Equivalent plastic strain <span
+class="math inline">\(\varepsilon_{eq}\)</span></li>
+<li><strong>Parameter</strong>: <span
 class="math inline">\(D_1\)</span></li>
 </ul>
-<h3 data-number="1.3.2"
-id="cockcroft-and-latham-cockcroft_ductility_1968"><span
-class="header-section-number">1.3.2</span> Cockcroft and Latham <span
-class="citation" data-cites="cockcroft_ductility_1968">[<a
-href="#ref-cockcroft_ductility_1968"
-role="doc-biblioref">5</a>]</span></h3>
+<p>Freudenthal stated that “for conditions of vanishing volumetric
+strain the fracture condition and the work-hardening function have the
+same form” <em>,i.e.,</em> that fracture criterion is related to
+dissipated energy. The rate of the latter can be written as <span
+class="math inline">\(\sigma_{eq} \dot{\varepsilon}_{eq}\)</span>, hence
+the associated fracture criterion corresponds to consider:</p>
+<p><span class="math display">\[ \varepsilon_{eq}^c = {{\displaystyle
+\frac{\displaystyle D_1}{\displaystyle \sigma_{eq}}}} \]</span></p>
+<p>in Equation (2).</p>
+<h2 data-number="2.2"
+id="cockcroftlatham1968-cockcroft_latham_1968"><span
+class="header-section-number">2.2</span> CockcroftLatham1968 <span
+class="citation" data-cites="cockcroft_latham_1968">[<a
+href="#ref-cockcroft_latham_1968"
+role="doc-biblioref">10</a>]</span></h2>
+<ul>
+<li><strong>Inputs</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span>,
+Equivalent plastic strain <span
+class="math inline">\(\varepsilon_{eq}\)</span></li>
+<li><strong>Parameter</strong>: <span
+class="math inline">\(D_1\)</span></li>
+</ul>
+<p>Cockroft and Latham argued that a ductile fracture criterion based on
+the total plastic work, like Freudenthal’s, can not capture the effect
+of stress triaxiality, like the one observed during a tensile test at
+necking. They proposed to consider that the fracture criterion is
+related to <span class="math inline">\(\sigma_I^+
+\dot{\varepsilon}_{eq}\)</span>, where <span
+class="math inline">\(\sigma_I^+\)</span> is the positive part of the
+maximal principal stress, corresponding to consider:</p>
 <p><span class="math display">\[ \varepsilon_{eq}^c = {{\displaystyle
 \frac{\displaystyle D_1}{\displaystyle \max{(\sigma_{I},0)}}}}
 \]</span></p>
-<p>where <span class="math inline">\(\sigma_I\)</span> is the largest
-principal stress.</p>
+<p>in Equation (2).</p>
+<h2 data-number="2.3" id="ricetracey1969-rice_tracey_1969"><span
+class="header-section-number">2.3</span> RiceTracey1969 <span
+class="citation" data-cites="rice_tracey_1969">[<a
+href="#ref-rice_tracey_1969" role="doc-biblioref">11</a>]</span></h2>
 <ul>
-<li><strong>Input</strong>: Cauchy Stress tensor <span
-class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span></li>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span>,
+Equivalent plastic strain <span
+class="math inline">\(\varepsilon_{eq}\)</span>, strain rate tensor
+<span
+class="math inline">\(\dot{\underline{\boldsymbol{\varepsilon}}}\)</span></li>
 <li><strong>Parameters</strong>: <span
 class="math inline">\(D_1\)</span></li>
 </ul>
-<h3 data-number="1.3.3" id="rice-and-tracey-rice_ductile_1969"><span
-class="header-section-number">1.3.3</span> Rice and Tracey <span
-class="citation" data-cites="rice_ductile_1969">[<a
-href="#ref-rice_ductile_1969" role="doc-biblioref">6</a>]</span></h3>
-<p><span class="math display">\[ \varepsilon_{eq}^c = D_1 \exp{\left(
-D_2  {{\displaystyle \frac{\displaystyle \sigma_{eq}^{vM}}{\displaystyle
-\sigma_{H}}}}      \right)  }  \]</span></p>
-<p>where <span class="math inline">\(\sigma_{eq}^{vM}\)</span> is the
-von Mises equivalent stress tensor, and <span
-class="math inline">\(\sigma_H\)</span> the hydrostatic stress.</p>
+<p>Rice and Tracey derived approximate expressions for the growth of a
+spherical void of radius <span class="math inline">\(R\)</span> in an
+infinite matrix material following von Mises plasticity. More precisely,
+the expressions given are of the form:</p>
+<p><span class="math display">\[{{\displaystyle \frac{\displaystyle
+\dot{R}}{\displaystyle R}}} =
+\mathcal{F}(\underline{\boldsymbol{\sigma}})
+\dot{\varepsilon}_{eq}\]</span></p>
+<p>For proportional loadings, integration leads to <span
+class="math inline">\(\ln{(R/R_0)} =
+\mathcal{F}(\underline{\boldsymbol{\sigma}}) \varepsilon_{eq}\)</span>,
+which provide a fracture strain assuming that fracture occurs for a
+critical void enlargement.</p>
+<p>Combining results for positive and negative mean stresses, Rice and
+Tracey results lead to:</p>
+<p><span class="math display">\[ \varepsilon_{eq}^c = {{\displaystyle
+\frac{\displaystyle D_1}{\displaystyle 0.558 \sinh{\left(
+{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}
+{{\displaystyle \frac{\displaystyle \sigma_{H}}{\displaystyle
+\sigma_{eq}}}}  \right) } + 0.008 \nu \cosh{\left( {{\displaystyle
+\frac{\displaystyle 3}{\displaystyle 2}}} {{\displaystyle
+\frac{\displaystyle \sigma_{H}}{\displaystyle \sigma_{eq}}}}  \right)
+}}}}  \quad \mathrm{with} \quad \nu = -3{{\displaystyle
+\frac{\displaystyle \dot{\varepsilon}_{II}}{\displaystyle
+\dot{\varepsilon}_{I} - \dot{\varepsilon}_{III}}}} \]</span></p>
+<p>where <span class="math inline">\(\sigma_H\)</span> the hydrostatic
+stress, <span class="math inline">\(\varepsilon_{I} \geq
+\varepsilon_{II} \geq \varepsilon_{III}\)</span> the principal
+components of the strain rate tensor.</p>
+<h2 data-number="2.4"
+id="ricetracey1969highstresstriaxiality-rice_tracey_1969"><span
+class="header-section-number">2.4</span>
+RiceTracey1969HighStressTriaxiality <span class="citation"
+data-cites="rice_tracey_1969">[<a href="#ref-rice_tracey_1969"
+role="doc-biblioref">11</a>]</span></h2>
 <ul>
-<li><strong>Input</strong>: Cauchy Stress tensor <span
-class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span></li>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span>,
+Equivalent plastic strain <span
+class="math inline">\(\varepsilon_{eq}\)</span></li>
+<li><strong>Parameters</strong>: <span
+class="math inline">\(D_1\)</span></li>
+</ul>
+<p>For large positive mean stress, Rice and Tracey model reduces
+to:<br />
+<span class="math display">\[ \varepsilon_{eq}^c = {{\displaystyle
+\frac{\displaystyle D_1}{\displaystyle 0.279}}}
+\exp{\left(-{{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}}
+{{\displaystyle \frac{\displaystyle \sigma_{H}}{\displaystyle
+\sigma_{eq}}}}      \right)  }  \]</span></p>
+<h2 data-number="2.5" id="generalizedricetracey"><span
+class="header-section-number">2.5</span> GeneralizedRiceTracey</h2>
+<ul>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span>,
+Equivalent plastic strain <span
+class="math inline">\(\varepsilon_{eq}\)</span></li>
 <li><strong>Parameters</strong>: <span
 class="math inline">\(D_1\)</span>, <span
 class="math inline">\(D_2\)</span></li>
 </ul>
-<h3 data-number="1.3.4"
-id="hancock-and-mckenzie-hancock_mechanisms_1976"><span
-class="header-section-number">1.3.4</span> Hancock and McKenzie <span
-class="citation" data-cites="hancock_mechanisms_1976">[<a
-href="#ref-hancock_mechanisms_1976"
-role="doc-biblioref">7</a>]</span></h3>
-<p><span class="math display">\[ \varepsilon_{eq}^c = D_1 + D_2
-\exp{\left( D_3  {{\displaystyle \frac{\displaystyle
-\sigma_{eq}^{vM}}{\displaystyle
-\sigma_{H}}}}      \right)  }  \]</span></p>
-<p>where <span class="math inline">\(\sigma_{eq}^{vM}\)</span> is the
-von Mises equivalent stress tensor, and <span
-class="math inline">\(\sigma_H\)</span> the hydrostatic stress.</p>
+<p>A generalized version of the RiceTracey1969 high stress triaxiality
+model consists in considering the <span
+class="math inline">\(3/2\)</span> prefactor as a material
+parameter:</p>
+<p><span class="math display">\[ \varepsilon_{eq}^c = {{\displaystyle
+\frac{\displaystyle D_1}{\displaystyle 0.279}}} \exp{\left(-D_2
+{{\displaystyle \frac{\displaystyle \sigma_{H}}{\displaystyle
+\sigma_{eq}}}}      \right)  }  \]</span></p>
+<h2 data-number="2.6"
+id="hancockmckenzie1976-hancock_mckenzie_1976"><span
+class="header-section-number">2.6</span> HancockMcKenzie1976 <span
+class="citation" data-cites="hancock_mckenzie_1976">[<a
+href="#ref-hancock_mckenzie_1976"
+role="doc-biblioref">12</a>]</span></h2>
 <ul>
-<li><strong>Input</strong>: Cauchy Stress tensor <span
-class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span></li>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span>,
+Equivalent plastic strain <span
+class="math inline">\(\varepsilon_{eq}\)</span></li>
+<li><strong>Parameters</strong>: <span
+class="math inline">\(D_1\)</span>, <span
+class="math inline">\(D_2\)</span></li>
+</ul>
+<p>Hancock and McKenzie extended the Rice and Tracey high stress
+triaxiality criterion by considering that voids nucleate after a given
+equivalent plastic strain, leading to:</p>
+<p><span class="math display">\[ \varepsilon_{eq}^c = D_1 + D_2
+\exp{\left( -{{\displaystyle \frac{\displaystyle 3}{\displaystyle
+2}}}  {{\displaystyle \frac{\displaystyle \sigma_{H}}{\displaystyle
+\sigma_{eq}}}}      \right)  }  \]</span></p>
+<h2 data-number="2.7" id="generalizedhancockmckenzie"><span
+class="header-section-number">2.7</span> GeneralizedHancockMcKenzie</h2>
+<ul>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span>,
+Equivalent plastic strain <span
+class="math inline">\(\varepsilon_{eq}\)</span></li>
 <li><strong>Parameters</strong>: <span
 class="math inline">\(D_1\)</span>, <span
 class="math inline">\(D_2\)</span>, <span
 class="math inline">\(D_3\)</span></li>
 </ul>
-<h3 data-number="1.3.5"
-id="johnson-and-cook-johnson_fracture_1985"><span
-class="header-section-number">1.3.5</span> Johnson and Cook <span
-class="citation" data-cites="johnson_fracture_1985">[<a
-href="#ref-johnson_fracture_1985"
-role="doc-biblioref">8</a>]</span></h3>
-<p><span class="math display">\[ \varepsilon_{eq}^c = \left[ D_1 + D_2
-\exp{\left( D_3  {{\displaystyle \frac{\displaystyle
-\sigma_{eq}^{vM}}{\displaystyle
-\sigma_{H}}}}      \right)  }  \right]   \left[ 1 +  D_4 \log{\left(
-{{\displaystyle \frac{\displaystyle
-\dot{\varepsilon}_{eq}}{\displaystyle
-\dot{\varepsilon}_{eq}^{ref}}}}    \right)  }\right]  \left[ 1 +  D_5
-{{\displaystyle \frac{\displaystyle T - T_{ref}}{\displaystyle T_{fus} -
-T_{ref}}}} \right]  \]</span></p>
-<p>where <span class="math inline">\(\sigma_{eq}^{vM}\)</span> is the
-von Mises equivalent stress tensor, <span
-class="math inline">\(\sigma_H\)</span> the hydrostatic stress.</p>
+<p>A generalized version of the HancockMcKenzie1976 consists in
+considering the <span class="math inline">\(3/2\)</span> prefactor as a
+material parameter:</p>
+<p><span class="math display">\[ \varepsilon_{eq}^c = D_1 + D_2
+\exp{\left( -D_3  {{\displaystyle \frac{\displaystyle
+\sigma_{H}}{\displaystyle \sigma_{eq}}}}      \right)  }  \]</span></p>
+<h2 data-number="2.8" id="johnsoncook1985-johnson_cook_1985"><span
+class="header-section-number">2.8</span> JohnsonCook1985 <span
+class="citation" data-cites="johnson_cook_1985">[<a
+href="#ref-johnson_cook_1985" role="doc-biblioref">8</a>]</span></h2>
 <ul>
-<li><strong>Input</strong>: Cauchy Stress tensor <span
+<li><strong>Input</strong>: stress tensor <span
 class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span>,
-Temperature <span class="math inline">\(T\)</span></li>
+Equivalent plastic strain <span
+class="math inline">\(\varepsilon_{eq}\)</span>, Temperature <span
+class="math inline">\(T\)</span></li>
 <li><strong>Parameters</strong>: <span
 class="math inline">\(D_1\)</span>, <span
 class="math inline">\(D_2\)</span>, <span
@@ -317,32 +667,59 @@ rate <span class="math inline">\(\dot{\varepsilon}_{eq}^{ref}\)</span>,
 reference temperature <span class="math inline">\(T_{ref}\)</span>,
 fusion temperature <span class="math inline">\(T_{fus}\)</span></li>
 </ul>
-<h3 data-number="1.3.6" id="huang-huang_accurate_1991"><span
-class="header-section-number">1.3.6</span> Huang <span class="citation"
-data-cites="huang_accurate_1991">[<a href="#ref-huang_accurate_1991"
-role="doc-biblioref">9</a>]</span></h3>
-<p><span class="math display">\[ \varepsilon_{eq}^c = D_1  \left[
-\min{\left( {{\displaystyle \frac{\displaystyle
-\sigma_{eq}^{vM}}{\displaystyle \sigma_{H}}}}   , 1
-\right)   }  \right]^{1/4}      \exp{\left( D_2  {{\displaystyle
-\frac{\displaystyle \sigma_{eq}^{vM}}{\displaystyle
-\sigma_{H}}}}      \right)  }  \]</span></p>
-<p>where <span class="math inline">\(\sigma_{eq}^{vM}\)</span> is the
-von Mises equivalent stress tensor, and <span
-class="math inline">\(\sigma_H\)</span> the hydrostatic stress.</p>
+<p>Johnson &amp; Cook extended phenomenologically the Hancock &amp;
+McKenzie criterion by adding strain rate and temperature effects:</p>
+<p><span class="math display">\[ \varepsilon_{eq}^c = \left[ D_1 + D_2
+\exp{\left( - D_3  {{\displaystyle \frac{\displaystyle
+\sigma_{H}}{\displaystyle
+\sigma_{eq}}}}      \right)  }  \right]   \left[ 1 +  D_4 \log{\left(
+{{\displaystyle \frac{\displaystyle
+\dot{\varepsilon}_{eq}}{\displaystyle
+\dot{\varepsilon}_{eq}^{ref}}}}    \right)  }\right]  \left[ 1 +  D_5
+{{\displaystyle \frac{\displaystyle T - T_{ref}}{\displaystyle T_{fus} -
+T_{ref}}}} \right]  \]</span></p>
+<h2 data-number="2.9" id="huang1991-huang_1991"><span
+class="header-section-number">2.9</span> Huang1991 <span
+class="citation" data-cites="huang_1991">[<a href="#ref-huang_1991"
+role="doc-biblioref">13</a>]</span></h2>
 <ul>
-<li><strong>Input</strong>: Cauchy Stress tensor <span
-class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span></li>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span>,
+Equivalent plastic strain <span
+class="math inline">\(\varepsilon_{eq}\)</span></li>
+<li><strong>Parameters</strong>: <span
+class="math inline">\(D_1\)</span></li>
+</ul>
+<p>Huang refined the Rice &amp; Tracey analysis to provide an expression
+of void growth rate valid for small and large stress triaxialities,
+leading to:</p>
+<p><span class="math display">\[ \varepsilon_{eq}^c = {{\displaystyle
+\frac{\displaystyle D_1}{\displaystyle 0.43}}} \left[
+\min{\left({{\displaystyle \frac{\displaystyle \sigma_{H}}{\displaystyle
+\sigma_{eq}}}} ,1 \right)}   \right]^{-1/4} \exp{\left(-{{\displaystyle
+\frac{\displaystyle 3}{\displaystyle 2}}} {{\displaystyle
+\frac{\displaystyle \sigma_{H}}{\displaystyle
+\sigma_{eq}}}}      \right)  }  \]</span></p>
+<h2 data-number="2.10" id="generalizedhuang"><span
+class="header-section-number">2.10</span> GeneralizedHuang</h2>
+<ul>
+<li><strong>Input</strong>: stress tensor <span
+class="math inline">\(\underline{\boldsymbol{\sigma}}\)</span>,
+Equivalent plastic strain <span
+class="math inline">\(\varepsilon_{eq}\)</span></li>
 <li><strong>Parameters</strong>: <span
 class="math inline">\(D_1\)</span>, <span
 class="math inline">\(D_2\)</span></li>
 </ul>
-<h3 data-number="1.3.7"
-id="bai-and-wierzbicki-bai_application_2010"><span
-class="header-section-number">1.3.7</span> Bai and Wierzbicki <span
-class="citation" data-cites="bai_application_2010">[<a
-href="#ref-bai_application_2010"
-role="doc-biblioref">10</a>]</span></h3>
+<p>A generalized version of the Huang1991 consists in considering the
+<span class="math inline">\(3/2\)</span> prefactor as a material
+parameter:</p>
+<p><span class="math display">\[ \varepsilon_{eq}^c = {{\displaystyle
+\frac{\displaystyle D_1}{\displaystyle 0.43}}} \left[
+\max{\left({{\displaystyle \frac{\displaystyle \sigma_{H}}{\displaystyle
+\sigma_{eq}}}} ,1 \right)}   \right]^{-1/4} \exp{\left(-D_2
+{{\displaystyle \frac{\displaystyle \sigma_{H}}{\displaystyle
+\sigma_{eq}}}}      \right)  }  \]</span></p>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-beremin_local_1983" class="csl-entry" role="listitem">
@@ -359,19 +736,66 @@ DOI <a href="https://doi.org/10.1007/BF02663302">10.1007/BF02663302</a>.
 Available from: <a
 href="https://doi.org/10.1007/BF02663302">https://doi.org/10.1007/BF02663302</a></div>
 </div>
-<div id="ref-ruggieri_local_2018" class="csl-entry" role="listitem">
+<div id="ref-bakker_koers_1991" class="csl-entry" role="listitem">
 <div class="csl-left-margin">2. </div><div
-class="csl-right-inline"><span class="smallcaps">Ruggieri</span>,
-Claudio and <span class="smallcaps">Dodds</span>, Robert H. A local
-approach to cleavage fracture modeling: An overview of progress and
-challenges for engineering applications. <em>Engineering Fracture
-Mechanics</em>. 1 January 2018. Vol. 187, p. 381–403. DOI <a
-href="https://doi.org/10.1016/j.engfracmech.2017.12.021">10.1016/j.engfracmech.2017.12.021</a>.
+class="csl-right-inline"><span class="smallcaps">Bakker</span>, A. and
+<span class="smallcaps">Koers</span>, R. W. J. Prediction of cleavage
+fracture events in the brittle–ductile transition region of a ferritic
+steel. In : <em>Blauel, schwalbe (eds.), defect assessment in
+components—fundamentals and applications, ESIS/EG9, mechanical
+engineering publications, london (1991), pp. 613-632</em>. 1991. </div>
+</div>
+<div id="ref-kroon_faleskog_2002" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline"><span class="smallcaps">Kroon</span>, M. and
+<span class="smallcaps">Faleskog</span>, J. A probabilistic model for
+cleavage fracture with a length scale-influence of material parameters
+and constraint. <em>International Journal of Fracture</em>. 2002.
+P. 99–118. </div>
+</div>
+<div id="ref-bordet_2005" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline"><span class="smallcaps">Bordet</span>, S. R.,
+<span class="smallcaps">Karstensen</span>, A. D., <span
+class="smallcaps">Knowles</span>, D. M. and <span
+class="smallcaps">Wiesner</span>, C. S. A new statistical local
+criterion for cleavage fracture in steel. Part II: Application to an
+offshore structural steel. <em>Engineering Fracture Mechanics</em>.
+2005. Vol. 72, no. 3, p. 453–474. DOI <a
+href="https://doi.org/10.1016/j.engfracmech.2004.02.010">https://doi.org/10.1016/j.engfracmech.2004.02.010</a>.
 Available from: <a
-href="https://www.sciencedirect.com/science/article/pii/S0013794417311700">https://www.sciencedirect.com/science/article/pii/S0013794417311700</a></div>
+href="https://www.sciencedirect.com/science/article/pii/S0013794404000888">https://www.sciencedirect.com/science/article/pii/S0013794404000888</a></div>
+</div>
+<div id="ref-hohe_2010" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline"><span class="smallcaps">Hohe</span>, Jörg,
+<span class="smallcaps">Hardenacke</span>, Volker, <span
+class="smallcaps">Luckow</span>, Sabrina and <span
+class="smallcaps">Siegele</span>, Dieter. An enhanced probabilistic
+model for cleavage fracture assessment accounting for local constraint
+effects. <em>Engineering Fracture Mechanics</em>. 2010. Vol. 77, no. 18,
+p. 3573–3591. DOI <a
+href="https://doi.org/10.1016/j.engfracmech.2010.08.001">https://doi.org/10.1016/j.engfracmech.2010.08.001</a>.
+Available from: <a
+href="https://www.sciencedirect.com/science/article/pii/S0013794410003589">https://www.sciencedirect.com/science/article/pii/S0013794410003589</a></div><div
+class="csl-right-inline">Computational Mechanics in Fracture and Damage:
+A Special Issue in Honor of Prof. Gross</div>
+</div>
+<div id="ref-ruggieri_dodds_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline"><span class="smallcaps">Ruggieri</span>,
+Claudio, <span class="smallcaps">Savioli</span>, Rafael G. and <span
+class="smallcaps">Dodds</span>, Robert H. An engineering methodology for
+constraint corrections of elastic–plastic fracture toughness – part II:
+Effects of specimen geometry and plastic strain on cleavage fracture
+predictions. <em>Engineering Fracture Mechanics</em>. 2015. Vol. 146,
+p. 185–209. DOI <a
+href="https://doi.org/10.1016/j.engfracmech.2015.06.087">https://doi.org/10.1016/j.engfracmech.2015.06.087</a>.
+Available from: <a
+href="https://www.sciencedirect.com/science/article/pii/S0013794415003975">https://www.sciencedirect.com/science/article/pii/S0013794415003975</a></div>
 </div>
 <div id="ref-forget_application_2016" class="csl-entry" role="listitem">
-<div class="csl-left-margin">3. </div><div
+<div class="csl-left-margin">7. </div><div
 class="csl-right-inline"><span class="smallcaps">Forget</span>, Pierre,
 <span class="smallcaps">Marini</span>, Bernard and <span
 class="smallcaps">Vincent</span>, Ludovic. Application of local approach
@@ -382,45 +806,7 @@ href="https://doi.org/10.1016/j.prostr.2016.06.210">10.1016/j.prostr.2016.06.210
 Available from: <a
 href="https://www.sciencedirect.com/science/article/pii/S2452321616302219">https://www.sciencedirect.com/science/article/pii/S2452321616302219</a></div>
 </div>
-<div id="ref-freudenthal_alfredm_inelastic_1950" class="csl-entry"
-role="listitem">
-<div class="csl-left-margin">4. </div><div
-class="csl-right-inline"><span class="smallcaps">Freudenthal
-Alfred.m</span>. The inelastic behavior of engineering materials and
-structures. John Willey; Sons, London, 1950. Available from: <a
-href="http://archive.org/details/dli.ernet.16778">http://archive.org/details/dli.ernet.16778</a></div>
-</div>
-<div id="ref-cockcroft_ductility_1968" class="csl-entry"
-role="listitem">
-<div class="csl-left-margin">5. </div><div
-class="csl-right-inline"><span class="smallcaps">Cockcroft</span>, M. G.
-and <span class="smallcaps">Latham</span>, D. J. Ductility and the
-workability of metals. <em>Journal Institute of Metals</em>. 1968.
-Vol. 96, p. 33–39. Available from: <a
-href="https://www.scirp.org/reference/referencespapers?referenceid=129772">https://www.scirp.org/reference/referencespapers?referenceid=129772</a></div>
-</div>
-<div id="ref-rice_ductile_1969" class="csl-entry" role="listitem">
-<div class="csl-left-margin">6. </div><div
-class="csl-right-inline"><span class="smallcaps">Rice</span>, J. R. and
-<span class="smallcaps">Tracey</span>, D. M. On the ductile enlargement
-of voids in triaxial stress fields∗. <em>Journal of the Mechanics and
-Physics of Solids</em>. June 1969. Vol. 17, no. 3, p. 201–217. DOI <a
-href="https://doi.org/10.1016/0022-5096(69)90033-7">10.1016/0022-5096(69)90033-7</a>.
-Available from: <a
-href="https://linkinghub.elsevier.com/retrieve/pii/0022509669900337">https://linkinghub.elsevier.com/retrieve/pii/0022509669900337</a></div>
-</div>
-<div id="ref-hancock_mechanisms_1976" class="csl-entry" role="listitem">
-<div class="csl-left-margin">7. </div><div
-class="csl-right-inline"><span class="smallcaps">Hancock</span>, J. W.
-and <span class="smallcaps">Mackenzie</span>, A. C. On the mechanisms of
-ductile failure in high-strength steels subjected to multi-axial
-stress-states. <em>Journal of the Mechanics and Physics of Solids</em>.
-1 June 1976. Vol. 24, no. 2, p. 147–160. DOI <a
-href="https://doi.org/10.1016/0022-5096(76)90024-7">10.1016/0022-5096(76)90024-7</a>.
-Available from: <a
-href="https://www.sciencedirect.com/science/article/pii/0022509676900247">https://www.sciencedirect.com/science/article/pii/0022509676900247</a></div>
-</div>
-<div id="ref-johnson_fracture_1985" class="csl-entry" role="listitem">
+<div id="ref-johnson_cook_1985" class="csl-entry" role="listitem">
 <div class="csl-left-margin">8. </div><div
 class="csl-right-inline"><span class="smallcaps">Johnson</span>, Gordon
 R. and <span class="smallcaps">Cook</span>, William H. Fracture
@@ -431,8 +817,45 @@ href="https://doi.org/10.1016/0013-7944(85)90052-9">10.1016/0013-7944(85)90052-9
 Available from: <a
 href="https://www.sciencedirect.com/science/article/pii/0013794485900529">https://www.sciencedirect.com/science/article/pii/0013794485900529</a></div>
 </div>
-<div id="ref-huang_accurate_1991" class="csl-entry" role="listitem">
+<div id="ref-freudenthal_alfredm_inelastic_1950" class="csl-entry"
+role="listitem">
 <div class="csl-left-margin">9. </div><div
+class="csl-right-inline"><span class="smallcaps">Freudenthal
+Alfred.m</span>. The inelastic behavior of engineering materials and
+structures. John Willey; Sons, London, 1950. Available from: <a
+href="http://archive.org/details/dli.ernet.16778">http://archive.org/details/dli.ernet.16778</a></div>
+</div>
+<div id="ref-cockcroft_latham_1968" class="csl-entry" role="listitem">
+<div class="csl-left-margin">10. </div><div
+class="csl-right-inline"><span class="smallcaps">Cockcroft</span>, M. G.
+and <span class="smallcaps">Latham</span>, D. J. Ductility and the
+workability of metals. <em>Journal Institute of Metals</em>. 1968.
+Vol. 96, p. 33–39. Available from: <a
+href="https://www.scirp.org/reference/referencespapers?referenceid=129772">https://www.scirp.org/reference/referencespapers?referenceid=129772</a></div>
+</div>
+<div id="ref-rice_tracey_1969" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div
+class="csl-right-inline"><span class="smallcaps">Rice</span>, J. R. and
+<span class="smallcaps">Tracey</span>, D. M. On the ductile enlargement
+of voids in triaxial stress fields∗. <em>Journal of the Mechanics and
+Physics of Solids</em>. June 1969. Vol. 17, no. 3, p. 201–217. DOI <a
+href="https://doi.org/10.1016/0022-5096(69)90033-7">10.1016/0022-5096(69)90033-7</a>.
+Available from: <a
+href="https://linkinghub.elsevier.com/retrieve/pii/0022509669900337">https://linkinghub.elsevier.com/retrieve/pii/0022509669900337</a></div>
+</div>
+<div id="ref-hancock_mckenzie_1976" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline"><span class="smallcaps">Hancock</span>, J. W.
+and <span class="smallcaps">Mackenzie</span>, A. C. On the mechanisms of
+ductile failure in high-strength steels subjected to multi-axial
+stress-states. <em>Journal of the Mechanics and Physics of Solids</em>.
+1 June 1976. Vol. 24, no. 2, p. 147–160. DOI <a
+href="https://doi.org/10.1016/0022-5096(76)90024-7">10.1016/0022-5096(76)90024-7</a>.
+Available from: <a
+href="https://www.sciencedirect.com/science/article/pii/0022509676900247">https://www.sciencedirect.com/science/article/pii/0022509676900247</a></div>
+</div>
+<div id="ref-huang_1991" class="csl-entry" role="listitem">
+<div class="csl-left-margin">13. </div><div
 class="csl-right-inline"><span class="smallcaps">Huang</span>, Y.
 Accurate dilatation rates for spherical voids in triaxial stress fields.
 <em>Journal of Applied Mechanics</em>. December 1991. Vol. 58, no. 4,
@@ -442,17 +865,6 @@ Available from: <a
 href="https://hal.science/hal-03609800">https://hal.science/hal-03609800</a></div><div
 class="csl-right-inline">Publisher: American Society of Mechanical
 Engineers</div>
-</div>
-<div id="ref-bai_application_2010" class="csl-entry" role="listitem">
-<div class="csl-left-margin">10. </div><div
-class="csl-right-inline"><span class="smallcaps">Bai</span>, Yuanli and
-<span class="smallcaps">Wierzbicki</span>, Tomasz. Application of
-extended mohr–coulomb criterion to ductile fracture. <em>International
-Journal of Fracture</em>. 1 January 2010. Vol. 161, no. 1, p. 1–20.
-DOI <a
-href="https://doi.org/10.1007/s10704-009-9422-8">10.1007/s10704-009-9422-8</a>.
-Available from: <a
-href="https://doi.org/10.1007/s10704-009-9422-8">https://doi.org/10.1007/s10704-009-9422-8</a></div>
 </div>
 </div>
     <script>

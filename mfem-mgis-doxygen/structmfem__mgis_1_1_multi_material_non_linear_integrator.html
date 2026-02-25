@@ -21,6 +21,14 @@ MathJax.Hub.Config({
   extensions: ["tex2jax.js"],
   jax: ["input/TeX","output/HTML-CSS"],
 });
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            bts: ["{\\left.#1\\right|_{\\mathrm{bts}}}", 1],
+            ets: ["{\\left.#1\\right|_{\\mathrm{ets}}}", 1]
+        }
+    }
+});
 </script>
 <script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -139,6 +147,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4f9a333e4a8e20b994c5133b6b4552e9" id="r_a4f9a333e4a8e20b994c5133b6b4552e9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a4f9a333e4a8e20b994c5133b6b4552e9">integrate</a> (const mfem::FiniteElement &amp;, mfem::ElementTransformation &amp;, const mfem::Vector &amp;, const <a class="el" href="namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3a">IntegrationType</a>)</td></tr>
 <tr class="memdesc:a4f9a333e4a8e20b994c5133b6b4552e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrate the behaviour for the current estimate of the unknowns at the end of the time step.  <br /></td></tr>
 <tr class="separator:a4f9a333e4a8e20b994c5133b6b4552e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56358e10925c749d6cb05448b6198e68" id="r_a56358e10925c749d6cb05448b6198e68"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a56358e10925c749d6cb05448b6198e68">getTimeIncrement</a> () const noexcept</td></tr>
+<tr class="separator:a56358e10925c749d6cb05448b6198e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4414b2702b386f40c6934df4459051ca" id="r_a4414b2702b386f40c6934df4459051ca"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="spack_2opt_2spack_2linux-zen2_2tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w_2include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a4414b2702b386f40c6934df4459051ca">setTimeIncrement</a> (const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>)</td></tr>
 <tr class="memdesc:a4414b2702b386f40c6934df4459051ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the value of the time increment  <br /></td></tr>
 <tr class="separator:a4414b2702b386f40c6934df4459051ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -481,6 +491,32 @@ std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmfem__mgis_1_1_abs
 
 </div>
 </div>
+<a id="a56358e10925c749d6cb05448b6198e68" name="a56358e10925c749d6cb05448b6198e68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56358e10925c749d6cb05448b6198e68">&#9670;&#160;</a></span>getTimeIncrement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a> mfem_mgis::MultiMaterialNonLinearIntegrator::getTimeIncrement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the current time increment </dd></dl>
+
+</div>
+</div>
 <a id="a4f9a333e4a8e20b994c5133b6b4552e9" name="a4f9a333e4a8e20b994c5133b6b4552e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f9a333e4a8e20b994c5133b6b4552e9">&#9670;&#160;</a></span>integrate()</h2>
 
@@ -718,7 +754,7 @@ std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmfem__mgis_1_1_abs
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html">MultiMaterialNonLinearIntegrator</a></li>
-    <li class="footer">Generated on Tue Feb 24 2026 22:11:44 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Feb 25 2026 12:06:24 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

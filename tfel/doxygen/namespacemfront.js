@@ -154,7 +154,6 @@ var namespacemfront =
     [ "NonLinearSystemSolverBase", "structmfront_1_1_non_linear_system_solver_base.html", "structmfront_1_1_non_linear_system_solver_base" ],
     [ "NonLinearSystemSolverFactory", "structmfront_1_1_non_linear_system_solver_factory.html", "structmfront_1_1_non_linear_system_solver_factory" ],
     [ "OctaveMaterialPropertyInterface", "structmfront_1_1_octave_material_property_interface.html", "structmfront_1_1_octave_material_property_interface" ],
-    [ "OpenRadiossInterface", "structmfront_1_1_open_radioss_interface.html", "structmfront_1_1_open_radioss_interface" ],
     [ "OverridableImplementation", "structmfront_1_1_overridable_implementation.html", "structmfront_1_1_overridable_implementation" ],
     [ "OverridableStringInformation", "structmfront_1_1_overridable_string_information.html", "structmfront_1_1_overridable_string_information" ],
     [ "OverridableStringInformationTags", "structmfront_1_1_overridable_string_information_tags.html", null ],

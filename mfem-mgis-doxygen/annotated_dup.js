@@ -595,7 +595,7 @@ var annotated_dup =
       [ "PostProcessingFactory", "structmfem__mgis_1_1_post_processing_factory.html", null ],
       [ "PostProcessingFactory< false >", "structmfem__mgis_1_1_post_processing_factory_3_01false_01_4.html", "structmfem__mgis_1_1_post_processing_factory_3_01false_01_4" ],
       [ "PostProcessingFactory< true >", "structmfem__mgis_1_1_post_processing_factory_3_01true_01_4.html", "structmfem__mgis_1_1_post_processing_factory_3_01true_01_4" ],
-      [ "PredictionPolicy", "structmfem__mgis_1_1_prediction_policy.html", "structmfem__mgis_1_1_prediction_policy" ],
+      [ "PredictionPolicy", "structmfem__mgis_1_1_prediction_policy.html", null ],
       [ "RotatedGradientsMatrixPartialQuadratureFunctionEvalutor", "structmfem__mgis_1_1_rotated_gradients_matrix_partial_quadrature_function_evalutor.html", "structmfem__mgis_1_1_rotated_gradients_matrix_partial_quadrature_function_evalutor" ],
       [ "RotatedThermodynamicForcesMatrixPartialQuadratureFunctionEvalutor", "structmfem__mgis_1_1_rotated_thermodynamic_forces_matrix_partial_quadrature_function_evalutor.html", "structmfem__mgis_1_1_rotated_thermodynamic_forces_matrix_partial_quadrature_function_evalutor" ],
       [ "RotationMatrixPartialQuadratureFunctionEvalutor", "structmfem__mgis_1_1_rotation_matrix_partial_quadrature_function_evalutor.html", "structmfem__mgis_1_1_rotation_matrix_partial_quadrature_function_evalutor" ],

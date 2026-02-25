@@ -1,5 +1,11 @@
 var NAVTREEINDEX52 =
 {
+"structtfel_1_1math_1_1_math_exception.html":[4,0,16,5,356],
+"structtfel_1_1math_1_1_math_object_traits.html":[4,0,16,5,357],
+"structtfel_1_1math_1_1_math_object_traits_3_01_coalesced_view_base_3_01_mapped_type_00_01_indexib78fa0da091a39be697a9af0d8910c48.html":[4,0,16,5,358],
+"structtfel_1_1math_1_1_math_object_traits_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html":[4,0,16,5,359],
+"structtfel_1_1math_1_1_math_object_traits_3_01_fixed_size_array_derivative_3_01_array1_00_01_array2_01_4_01_4.html":[4,0,16,5,360],
+"structtfel_1_1math_1_1_math_object_traits_3_01_view_3_01_mapped_type_00_01_array_policy_01_4_01_4.html":[4,0,16,5,373],
 "structtfel_1_1math_1_1_math_object_traits_3_01fsarray_3_01_n_00_01_t_01_4_01_4.html":[4,0,16,5,361],
 "structtfel_1_1math_1_1_math_object_traits_3_01matrix_3_01_t_01_4_01_4.html":[4,0,16,5,362],
 "structtfel_1_1math_1_1_math_object_traits_3_01runtime__array_3_01_value_type_01_4_01_4.html":[4,0,16,5,363],
@@ -243,11 +249,5 @@ var NAVTREEINDEX52 =
 "structtfel_1_1math_1_1_stensor_t2to_s_t2_product_expr.html":[4,0,16,5,541],
 "structtfel_1_1math_1_1_stensor_tag.html":[4,0,16,5,542],
 "structtfel_1_1math_1_1_strided_coalesced_access_policy.html":[4,0,16,5,543],
-"structtfel_1_1math_1_1_strided_coalesced_access_policy.html#a176cbf57bdbd0d47b5cbfaef82b99b86":[4,0,16,5,543,1],
-"structtfel_1_1math_1_1_strided_coalesced_access_policy.html#a1f30ed2e9a8a0e44a6c96a1ffeb87fc7":[4,0,16,5,543,0],
-"structtfel_1_1math_1_1_strided_coalesced_access_policy.html#a2f9b6093946a0500fca8e4c037e3d68a":[4,0,16,5,543,3],
-"structtfel_1_1math_1_1_strided_coalesced_access_policy.html#acd8d9ab5e5d63c7c36b81f3b81ca7ddb":[4,0,16,5,543,2],
-"structtfel_1_1math_1_1_strided_coalesced_access_policy.html#ad68e1a92b6800ed1bdac068e5d5d4b66":[4,0,16,5,543,4],
-"structtfel_1_1math_1_1_strided_coalesced_views_array.html":[4,0,16,5,544],
-"structtfel_1_1math_1_1_strided_coalesced_views_array.html#a2796c35a9688540fe6d51cea5a4bc783":[4,0,16,5,544,3]
+"structtfel_1_1math_1_1_strided_coalesced_access_policy.html#a176cbf57bdbd0d47b5cbfaef82b99b86":[4,0,16,5,543,1]
 };

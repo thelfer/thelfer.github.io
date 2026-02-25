@@ -1,5 +1,9 @@
 var NAVTREEINDEX9 =
 {
+"_unary_operation_8hxx.html#af90d2f9f713e03e6a3c1bf1109a12b3d":[5,0,1,0,0,0,0,0,0,1,33,14],
+"_unary_operation_8ixx.html":[5,0,1,0,0,0,0,0,0,1,34],
+"_unary_operation_8ixx.html#a999e2f961fd72ca05ed5bde0c51e0f02":[5,0,1,0,0,0,0,0,0,1,34,1],
+"_unary_operation_8ixx.html#af90d2f9f713e03e6a3c1bf1109a12b3d":[5,0,1,0,0,0,0,0,0,1,34,0],
 "_unary_result_type_8hxx.html":[5,0,1,0,0,0,1,0,6,5,5,27],
 "_unary_result_type_8hxx.html#a8ab826a6a11801d081c6ec38075abda4":[5,0,1,0,0,0,1,0,6,5,5,27,2],
 "_uniaxial_tensile_test_8hxx.html":[5,0,1,0,0,0,1,0,2,13],
@@ -18,9 +22,9 @@ var NAVTREEINDEX9 =
 "_unicode_support_8hxx.html#af54e50760f1dc6d64b2f2cb0de46677dae1537cd3f6faf4fb63dce3d1d3f72749":[5,0,1,0,0,0,1,0,6,10,0,1,2],
 "_unicode_support_8hxx.html#af54e50760f1dc6d64b2f2cb0de46677daeb247aba5ae1d7c5d3196859320c7f19":[5,0,1,0,0,0,1,0,6,10,0,1,5],
 "_unicode_support_8hxx.html#af54e50760f1dc6d64b2f2cb0de46677dafa91c434a291ce9187547b4073897b77":[5,0,1,0,0,0,1,0,6,10,0,1,10],
-"_uniform_dirichlet_boundary_condition_8hxx.html":[5,0,0,0,64],
-"_uniform_heat_source_boundary_condition_8hxx.html":[5,0,0,0,65],
-"_uniform_imposed_pressure_boundary_condition_8hxx.html":[5,0,0,0,66],
+"_uniform_dirichlet_boundary_condition_8hxx.html":[5,0,0,0,65],
+"_uniform_heat_source_boundary_condition_8hxx.html":[5,0,0,0,66],
+"_uniform_imposed_pressure_boundary_condition_8hxx.html":[5,0,0,0,67],
 "_unit_8hxx.html":[5,0,1,0,0,0,1,0,6,5,14,5],
 "_unit_8ixx.html":[5,0,1,0,0,0,1,0,6,5,14,6],
 "_unit_testing_utilities_8hxx.html":[5,0,2,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX9 =
 "classtfel_1_1math_1_1_unary_result_type_3_01t2tot2_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[4,0,16,5,626],
 "classtfel_1_1math_1_1_unary_result_type_3_01tensor_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[4,0,16,5,627],
 "classtfel_1_1math_1_1_unary_result_type_3_01tmatrix_3_01_n_00_01_m_00_01_t_01_4_00_01_op_neg_01_4.html":[4,0,16,5,628],
-"classtfel_1_1math_1_1_vector_matrix_handle.html":[4,0,16,5,637],
-"classtfel_1_1math_1_1internals_1_1_power_impl_selector.html":[4,0,16,5,2,46],
-"classtfel_1_1math_1_1internals_1_1_power_impl_selector_3_01_n_00_011u_01_4.html":[4,0,16,5,2,47],
-"classtfel_1_1math_1_1internals_1_1_power_impl_selector_3_01_n_00_012u_01_4.html":[4,0,16,5,2,48],
-"classtfel_1_1math_1_1internals_1_1_power_pos.html":[4,0,16,5,2,50]
+"classtfel_1_1math_1_1_vector_matrix_handle.html":[4,0,16,5,637]
 };

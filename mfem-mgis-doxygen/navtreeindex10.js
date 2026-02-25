@@ -1,5 +1,9 @@
 var NAVTREEINDEX10 =
 {
+"classtfel_1_1math_1_1internals_1_1_power_impl_selector.html":[4,0,16,5,2,46],
+"classtfel_1_1math_1_1internals_1_1_power_impl_selector_3_01_n_00_011u_01_4.html":[4,0,16,5,2,47],
+"classtfel_1_1math_1_1internals_1_1_power_impl_selector_3_01_n_00_012u_01_4.html":[4,0,16,5,2,48],
+"classtfel_1_1math_1_1internals_1_1_power_pos.html":[4,0,16,5,2,50],
 "classtfel_1_1math_1_1internals_1_1_power_sqrt_pos.html":[4,0,16,5,2,60],
 "classtfel_1_1meta_1_1_has_random_access_const_iterator.html":[4,0,16,6,8],
 "classtfel_1_1meta_1_1_has_random_access_iterator.html":[4,0,16,6,9],
@@ -185,8 +189,8 @@ var NAVTREEINDEX10 =
 "functions_enum.html":[4,3,4],
 "functions_eval.html":[4,3,5],
 "functions_f.html":[4,3,0,6],
-"functions_func.html":[4,3,1],
 "functions_func.html":[4,3,1,0],
+"functions_func.html":[4,3,1],
 "functions_func_b.html":[4,3,1,1],
 "functions_func_c.html":[4,3,1,2],
 "functions_func_d.html":[4,3,1,3],
@@ -227,8 +231,8 @@ var NAVTREEINDEX10 =
 "functions_rela.html":[4,3,6],
 "functions_s.html":[4,3,0,19],
 "functions_t.html":[4,3,0,20],
-"functions_type.html":[4,3,3],
 "functions_type.html":[4,3,3,0],
+"functions_type.html":[4,3,3],
 "functions_type_b.html":[4,3,3,1],
 "functions_type_c.html":[4,3,3,2],
 "functions_type_d.html":[4,3,3,3],
@@ -245,9 +249,5 @@ var NAVTREEINDEX10 =
 "functions_type_p.html":[4,3,3,14],
 "functions_type_q.html":[4,3,3,15],
 "functions_type_r.html":[4,3,3,16],
-"functions_type_s.html":[4,3,3,17],
-"functions_type_t.html":[4,3,3,18],
-"functions_type_u.html":[4,3,3,19],
-"functions_type_v.html":[4,3,3,20],
-"functions_type_w.html":[4,3,3,21]
+"functions_type_s.html":[4,3,3,17]
 };

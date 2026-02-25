@@ -210,6 +210,8 @@ var namespacemfem__mgis =
     [ "is", "namespacemfem__mgis.html#a8962d7ba93de9d2324fe8addf02882cd", null ],
     [ "is< double >", "namespacemfem__mgis.html#a6f568a6009e8823879e0526dc8437e24", null ],
     [ "is< double >", "namespacemfem__mgis.html#a323a49a2220909dbd03f6e15eff8ded9", null ],
+    [ "isTrueOnAllProcesses", "namespacemfem__mgis.html#ab4875e94e7e5e8ae7f6ad885b87b992f", null ],
+    [ "isValidOnAllProcesses", "namespacemfem__mgis.html#ac90a7b0cc005c17ef63b928e02e68fad", null ],
     [ "load", "namespacemfem__mgis.html#ad5d5eb05eec2589b7bf904f8fa078aa6", null ],
     [ "makeGridFunction", "namespacemfem__mgis.html#a0806a580b5afa6a6fb91ab8e5a581bec", null ],
     [ "makeGridFunction", "namespacemfem__mgis.html#a7e7a7e2915b68e55a16a14abcef91aa4", null ],

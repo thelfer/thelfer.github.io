@@ -1,5 +1,11 @@
 var NAVTREEINDEX36 =
 {
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a1343e0fe4aa42fb9895b70b5e63e988c":[4,0,11,0,54,6],
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a1343e0fe4aa42fb9895b70b5e63e988ca1302a32b4e965213fe96752573154b82":[4,0,11,0,54,6,1],
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a1343e0fe4aa42fb9895b70b5e63e988caf60e65603aa11c433acd5e07b7c67115":[4,0,11,0,54,6,0],
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a28ff26e84c191bc5a258a3df098a8a99":[4,0,11,0,54,18],
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a3fea4cc84c046912931190bd1f33eaae":[4,0,11,0,54,15],
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a57b03a72b030e060b371e0c8129faa7a":[4,0,11,0,54,2],
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a66cd0281719fb74ca418211c5cbd1b26":[4,0,11,0,54,5],
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a6cd59442ab031816862048844ec0b909":[4,0,11,0,54,13],
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a6fef49c62bdcd064095d2c301b695ae1":[4,0,11,0,54,3],
@@ -243,11 +249,5 @@ var NAVTREEINDEX36 =
 "structmgis_1_1_thread_pool.html#afbfad1e9fb35a50226973da18895f47d":[4,0,12,19,1],
 "structmgis_1_1_threaded_task_result.html":[4,0,12,16],
 "structmgis_1_1_threaded_task_result.html#a1428b66339fd43587a7374173623e681":[4,0,12,16,10],
-"structmgis_1_1_threaded_task_result.html#a1dceb69de715049cb7f0ffee5ee1ac60":[4,0,12,16,9],
-"structmgis_1_1_threaded_task_result.html#a1de6a25f3f1fb90a92bc30db4c25eec0":[4,0,12,16,7],
-"structmgis_1_1_threaded_task_result.html#a2552244902475146de9b2cec697f2240":[4,0,12,16,14],
-"structmgis_1_1_threaded_task_result.html#a3d03ccb10393b06eacb0fbcf48f587c2":[4,0,12,16,0],
-"structmgis_1_1_threaded_task_result.html#a5d273e66e4a0151acc551c1bc2a95c07":[4,0,12,16,4],
-"structmgis_1_1_threaded_task_result.html#a660052f3487e70b7479c5e3c7fbc8174":[4,0,12,16,3],
-"structmgis_1_1_threaded_task_result.html#a67bd6fd10f6dd5778b8feda6019a6022":[4,0,12,16,15]
+"structmgis_1_1_threaded_task_result.html#a1dceb69de715049cb7f0ffee5ee1ac60":[4,0,12,16,9]
 };

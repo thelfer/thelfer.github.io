@@ -1,5 +1,11 @@
 var NAVTREEINDEX53 =
 {
+"structtfel_1_1math_1_1_strided_coalesced_access_policy.html#a1f30ed2e9a8a0e44a6c96a1ffeb87fc7":[4,0,16,5,543,0],
+"structtfel_1_1math_1_1_strided_coalesced_access_policy.html#a2f9b6093946a0500fca8e4c037e3d68a":[4,0,16,5,543,3],
+"structtfel_1_1math_1_1_strided_coalesced_access_policy.html#acd8d9ab5e5d63c7c36b81f3b81ca7ddb":[4,0,16,5,543,2],
+"structtfel_1_1math_1_1_strided_coalesced_access_policy.html#ad68e1a92b6800ed1bdac068e5d5d4b66":[4,0,16,5,543,4],
+"structtfel_1_1math_1_1_strided_coalesced_views_array.html":[4,0,16,5,544],
+"structtfel_1_1math_1_1_strided_coalesced_views_array.html#a2796c35a9688540fe6d51cea5a4bc783":[4,0,16,5,544,3],
 "structtfel_1_1math_1_1_strided_coalesced_views_array.html#a34ed7ff9039c00d72cd026561caa168a":[4,0,16,5,544,1],
 "structtfel_1_1math_1_1_strided_coalesced_views_array.html#a39f9270dc9a963afeb7283184f37dbd3":[4,0,16,5,544,2],
 "structtfel_1_1math_1_1_strided_coalesced_views_array.html#a43ca3cda125befa86419df7998795070":[4,0,16,5,544,10],
@@ -243,11 +249,5 @@ var NAVTREEINDEX53 =
 "structtfel_1_1math_1_1_view.html#a8ca7190d03c02e24f32ddd7366d05700":[4,0,16,5,640,7],
 "structtfel_1_1math_1_1_view.html#aad8ee2810f23a83209f67fd1a77483f7":[4,0,16,5,640,1],
 "structtfel_1_1math_1_1_view.html#ab0052aa00be9b167ae800ad207318e6c":[4,0,16,5,640,4],
-"structtfel_1_1math_1_1_view.html#acb753f885c8d5b4378f779cdbc7f16a3":[4,0,16,5,640,6],
-"structtfel_1_1math_1_1_view_array_policy.html":[4,0,16,5,641],
-"structtfel_1_1math_1_1_view_array_policy.html#a5d6070ba12890345c0302ca7e405d175":[4,0,16,5,641,1],
-"structtfel_1_1math_1_1_view_array_policy.html#a6805bee38b2f9216fdf739c1b9838d88":[4,0,16,5,641,5],
-"structtfel_1_1math_1_1_view_array_policy.html#ac4d596a8a76cc57ed5a73fb86be127bb":[4,0,16,5,641,2],
-"structtfel_1_1math_1_1_view_array_policy.html#acfdcc8767a1e70df63012197611e02c5":[4,0,16,5,641,4],
-"structtfel_1_1math_1_1_view_array_policy.html#ae385fa9f7a673d7f50d4ab6c3bb9aedf":[4,0,16,5,641,0]
+"structtfel_1_1math_1_1_view.html#acb753f885c8d5b4378f779cdbc7f16a3":[4,0,16,5,640,6]
 };

@@ -1,5 +1,11 @@
 var NAVTREEINDEX35 =
 {
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html":[4,0,11,0,28],
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#a1b51393f73286441c34e11bced38f08c":[4,0,11,0,28,3],
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#a2e33522e704b994c82ed2319a2f785aa":[4,0,11,0,28,8],
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#a54738f9b6d327e38d22c8b8dd38d0833":[4,0,11,0,28,7],
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#a8aa608c74cb54264446cb2acad22e897":[4,0,11,0,28,0],
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ac2a39753c6e63c16807b0ada00b3e01f":[4,0,11,0,28,2],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#acdda244515315882bf50dbeb8a12634f":[4,0,11,0,28,10],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#acdf216bb1c14e2f669ee6acfc6c5d673":[4,0,11,0,28,5],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae2617a5e2b0b5dd98156a16d5fd74a13":[4,0,11,0,28,9],
@@ -243,11 +249,5 @@ var NAVTREEINDEX35 =
 "structmfront_1_1bbrick_1_1_stress_based_porosity_nucleation_model_base.html#ac0159664a57bff21c2e666e245910749":[4,0,11,0,53,6],
 "structmfront_1_1bbrick_1_1_stress_based_porosity_nucleation_model_base.html#ad8f9d9412318007d4754a011247467b3":[4,0,11,0,53,4],
 "structmfront_1_1bbrick_1_1_stress_criterion.html":[4,0,11,0,54],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a0694dbacbb19ef3c9aea5d0dd338f525":[4,0,11,0,54,12],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a1343e0fe4aa42fb9895b70b5e63e988c":[4,0,11,0,54,6],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a1343e0fe4aa42fb9895b70b5e63e988ca1302a32b4e965213fe96752573154b82":[4,0,11,0,54,6,1],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a1343e0fe4aa42fb9895b70b5e63e988caf60e65603aa11c433acd5e07b7c67115":[4,0,11,0,54,6,0],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a28ff26e84c191bc5a258a3df098a8a99":[4,0,11,0,54,18],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a3fea4cc84c046912931190bd1f33eaae":[4,0,11,0,54,15],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a57b03a72b030e060b371e0c8129faa7a":[4,0,11,0,54,2]
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a0694dbacbb19ef3c9aea5d0dd338f525":[4,0,11,0,54,12]
 };

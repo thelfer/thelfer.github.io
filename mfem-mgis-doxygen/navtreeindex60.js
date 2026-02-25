@@ -1,5 +1,11 @@
 var NAVTREEINDEX60 =
 {
+"structtfel_1_1utilities_1_1_text_data.html#a9d54f66263ffdd4ec2612f83fd62f872":[4,0,16,11,22,6],
+"structtfel_1_1utilities_1_1_text_data.html#abc0f4d3e27952bd245589a8069d58cfb":[4,0,16,11,22,3],
+"structtfel_1_1utilities_1_1_text_data_1_1_line.html":[4,0,16,11,22,0],
+"structtfel_1_1utilities_1_1_text_data_1_1_line.html#a6069ed0852ef6125c6b9b8a455f5ff6c":[4,0,16,11,22,0,0],
+"structtfel_1_1utilities_1_1_token.html":[4,0,16,11,23],
+"structtfel_1_1utilities_1_1_token.html#a0846d56a16414bf29a7e65ae805e2216":[4,0,16,11,23,7],
 "structtfel_1_1utilities_1_1_token.html#a139125af21ec74643f000b279f48467b":[4,0,16,11,23,9],
 "structtfel_1_1utilities_1_1_token.html#a15ab64a503af9590bbeecb1e772a2691":[4,0,16,11,23,0],
 "structtfel_1_1utilities_1_1_token.html#a16ea5a695ba2462a5eb1941dfac7da65":[4,0,16,11,23,8],
@@ -243,6 +249,5 @@ var NAVTREEINDEX60 =
 "vector_8ixx.html":[5,0,1,0,0,0,1,0,6,5,22,3],
 "vector_result_type_8hxx.html":[5,0,1,0,0,0,1,0,6,5,22,7],
 "wfstream_8hxx.html":[5,0,1,0,0,0,1,0,6,7,31],
-"wstream_view_8hxx.html":[5,0,1,0,0,0,1,0,6,7,32],
-"wstream_view_8ixx.html":[5,0,1,0,0,0,1,0,6,7,33]
+"wstream_view_8hxx.html":[5,0,1,0,0,0,1,0,6,7,32]
 };

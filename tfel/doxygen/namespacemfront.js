@@ -347,6 +347,8 @@ var namespacemfront =
     [ "operator<<", "namespacemfront.html#ac978189af6e0f182c8cc7653d8a3e0f9", null ],
     [ "parsePathSpecifierArguments", "namespacemfront.html#af8a242832ed26bed1d3c3a572b79a273", null ],
     [ "performPedanticChecks", "namespacemfront.html#aebe1ef77ce2dc6979ea7aae13f993c9c", null ],
+    [ "printLinePragma", "namespacemfront.html#a2881b222fcc9a44ff6f12125c039d869", null ],
+    [ "printLinePragma", "namespacemfront.html#a1435f9cb8e319be21fd819448334c8cd", null ],
     [ "read", "namespacemfront.html#a20e1e998786548791706c7e410bbd5f8", null ],
     [ "read", "namespacemfront.html#a8a01ab1f7a5376fe356b65ea8b3fb655", null ],
     [ "read", "namespacemfront.html#a42669badf4c7388d3632014efcaedc38", null ],

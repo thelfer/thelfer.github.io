@@ -1,5 +1,7 @@
 var NAVTREEINDEX8 =
 {
+"_ramberg_osgood_8hxx.html":[8,0,0,3,4,88],
+"_ramberg_osgood_8hxx.html#aaa182d34bd245f4768e7794da7cf06af":[8,0,0,3,4,88,0],
 "_random_rotation_matrix_8hxx.html":[8,0,0,3,5,5,23],
 "_real_part_type_8hxx.html":[8,0,0,3,9,12],
 "_real_part_type_8hxx.html#a56539a6309aa618368fe2f278fb31a0a":[8,0,0,3,9,12,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX8 =
 "_structure_current_state_8hxx.html":[8,0,5,0,0,94],
 "_structure_current_state_8hxx.html#ac38101c7be0c32fdc864d3a5c346d835":[8,0,5,0,0,94,2],
 "_structure_current_state_8hxx.html#afcc60f25420bea7a4c96a3bfe4321f4b":[8,0,5,0,0,94,1],
-"_study_8hxx.html":[8,0,5,0,0,95],
-"_study_current_state_8hxx.html":[8,0,5,0,0,96],
-"_study_current_state_8ixx.html":[8,0,5,0,0,97]
+"_study_8hxx.html":[8,0,5,0,0,95]
 };

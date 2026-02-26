@@ -99,6 +99,7 @@ $(document).ready(function(){initNavTree('structmgis_1_1_context_1_1_failure_han
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="structmgis_1_1_context_1_1_failure_handler-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">mgis::Context::FailureHandler&lt; policy &gt; Struct Template Reference</div></div>
 </div><!--header-->
@@ -106,17 +107,27 @@ $(document).ready(function(){initNavTree('structmgis_1_1_context_1_1_failure_han
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1a017736e553dce99c79bf7e191007ae" id="r_a1a017736e553dce99c79bf7e191007ae"><td class="memItemLeft" align="right" valign="top"><a id="a1a017736e553dce99c79bf7e191007ae" name="a1a017736e553dce99c79bf7e191007ae"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FailureHandler</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;c)</td></tr>
-<tr class="separator:a1a017736e553dce99c79bf7e191007ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a243be20fbcce66498bf1c03fcb9582" id="r_a9a243be20fbcce66498bf1c03fcb9582"><td class="memTemplParams" colspan="2"><a id="a9a243be20fbcce66498bf1c03fcb9582" name="a9a243be20fbcce66498bf1c03fcb9582"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a9a243be20fbcce66498bf1c03fcb9582"><td class="memTemplItemLeft" align="right" valign="top">constexpr T &amp;&amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator()</b> (std::optional&lt; T &gt; &amp;&amp;v) const</td></tr>
-<tr class="separator:a9a243be20fbcce66498bf1c03fcb9582"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0297f249dadee5c269b4b0bc592099de" id="r_a0297f249dadee5c269b4b0bc592099de"><td class="memTemplParams" colspan="2"><a id="a0297f249dadee5c269b4b0bc592099de" name="a0297f249dadee5c269b4b0bc592099de"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a0297f249dadee5c269b4b0bc592099de"><td class="memTemplItemLeft" align="right" valign="top">constexpr T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator()</b> (<a class="el" href="structmgis_1_1_optional_reference.html">OptionalReference</a>&lt; T &gt; &amp;&amp;v) const</td></tr>
-<tr class="separator:a0297f249dadee5c269b4b0bc592099de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f1a538b5d2d727e327bf8442ea7b65a" id="r_a0f1a538b5d2d727e327bf8442ea7b65a"><td class="memItemLeft" align="right" valign="top"><a id="a0f1a538b5d2d727e327bf8442ea7b65a" name="a0f1a538b5d2d727e327bf8442ea7b65a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>FailureHandler</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;c) noexcept</td></tr>
+<tr class="separator:a0f1a538b5d2d727e327bf8442ea7b65a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfeede467e86de82f260be308db6151d" id="r_abfeede467e86de82f260be308db6151d"><td class="memTemplParams" colspan="2"><a id="abfeede467e86de82f260be308db6151d" name="abfeede467e86de82f260be308db6151d"></a>
+template&lt;typename T &gt; <br />
+requires ((<a class="el" href="structmgis_1_1internal_1_1_optional_traits.html">internal::OptionalTraits</a>&lt;T&gt;::isSpecialized) &amp;&amp; (std::is_rvalue_reference_v&lt;decltype(v)&gt;))</td></tr>
+<tr class="memitem:abfeede467e86de82f260be308db6151d"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator()</b> (T &amp;&amp;v) const</td></tr>
+<tr class="separator:abfeede467e86de82f260be308db6151d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03fc633db91cb30375a0e092cf1cb77f" id="r_a03fc633db91cb30375a0e092cf1cb77f"><td class="memTemplParams" colspan="2"><a id="a03fc633db91cb30375a0e092cf1cb77f" name="a03fc633db91cb30375a0e092cf1cb77f"></a>
+template&lt;typename T &gt; <br />
+requires ((!<a class="el" href="structmgis_1_1internal_1_1_optional_traits.html">internal::OptionalTraits</a>&lt;T&gt;::isSpecialized) &amp;&amp; (std::is_rvalue_reference_v&lt;decltype(v)&gt;))</td></tr>
+<tr class="memitem:a03fc633db91cb30375a0e092cf1cb77f"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator()</b> (T &amp;&amp;v) const</td></tr>
+<tr class="separator:a03fc633db91cb30375a0e092cf1cb77f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a64ab86b713e651fe91ebe431f4427be1" id="r_a64ab86b713e651fe91ebe431f4427be1"><td class="memTemplParams" colspan="2"><a id="a64ab86b713e651fe91ebe431f4427be1" name="a64ab86b713e651fe91ebe431f4427be1"></a>
+template&lt;typename T &gt; <br />
+requires ( std::is_rvalue_reference_v&lt;decltype(v)&gt;)</td></tr>
+<tr class="memitem:a64ab86b713e651fe91ebe431f4427be1"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator|</b> (T &amp;&amp;v, const <a class="el" href="structmgis_1_1_context_1_1_failure_handler.html">FailureHandler</a> &amp;h)</td></tr>
+<tr class="separator:a64ab86b713e651fe91ebe431f4427be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="_context_8hxx.html">Context.hxx</a></li>
@@ -127,7 +138,7 @@ template&lt;typename T &gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li><li class="navelem"><a class="el" href="structmgis_1_1_context.html">Context</a></li><li class="navelem"><a class="el" href="structmgis_1_1_context_1_1_failure_handler.html">FailureHandler</a></li>
-    <li class="footer">Generated on Tue Feb 24 2026 13:53:41 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Feb 26 2026 08:42:26 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

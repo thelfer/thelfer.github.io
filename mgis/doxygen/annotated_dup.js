@@ -226,7 +226,11 @@ var annotated_dup =
         [ "InvalidValueTraits< std::optional< const T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01const_01_t_01_4_01_4.html", null ],
         [ "InvalidValueTraits< std::optional< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html", null ],
         [ "InvalidValueTraits< std::shared_ptr< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1shared__ptr_3_01_t_01_4_01_4.html", null ],
-        [ "InvalidValueTraits< std::unique_ptr< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1unique__ptr_3_01_t_01_4_01_4.html", null ]
+        [ "InvalidValueTraits< std::unique_ptr< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1unique__ptr_3_01_t_01_4_01_4.html", null ],
+        [ "OptionalTraits", "structmgis_1_1internal_1_1_optional_traits.html", null ],
+        [ "OptionalTraits< bool >", "structmgis_1_1internal_1_1_optional_traits_3_01bool_01_4.html", null ],
+        [ "OptionalTraits< OptionalReference< T > >", "structmgis_1_1internal_1_1_optional_traits_3_01_optional_reference_3_01_t_01_4_01_4.html", null ],
+        [ "OptionalTraits< std::optional< T > >", "structmgis_1_1internal_1_1_optional_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html", null ]
       ] ],
       [ "julia", null, [
         [ "detail", null, [

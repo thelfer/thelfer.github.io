@@ -1,5 +1,13 @@
 var NAVTREEINDEX7 =
 {
+"structmgis_1_1internal_1_1_optional_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html":[3,0,1,4,11],
+"structmgis_1_1julia_1_1_ptr.html":[3,0,1,5,2],
+"structmgis_1_1julia_1_1detail_1_1_long_n_tuple.html":[3,0,1,5,0,0],
+"structmgis_1_1julia_1_1detail_1_1_long_n_tuple_3_010_00_01_types_t_8_8_8_01_4.html":[3,0,1,5,0,1],
+"structmgis_1_1material__property_1_1_material_property.html":[3,0,1,6,0],
+"structmgis_1_1material__property_1_1_material_property.html#a0fd177acc5a13dc3e49b352e514146f5":[3,0,1,6,0,5],
+"structmgis_1_1material__property_1_1_material_property.html#a1946dab79e14f57f6f3c8c8dcc023dce":[3,0,1,6,0,4],
+"structmgis_1_1material__property_1_1_material_property.html#a24eec68e927936770b5247674282c070":[3,0,1,6,0,12],
 "structmgis_1_1material__property_1_1_material_property.html#a2c7bcf59ff2d3740cac4d160e86e572e":[3,0,1,6,0,13],
 "structmgis_1_1material__property_1_1_material_property.html#a41c02c8c235ef2aa9ef8c4247a680940":[3,0,1,6,0,11],
 "structmgis_1_1material__property_1_1_material_property.html#a74796554de5529140ae9ccce37a6f8d2":[3,0,1,6,0,10],

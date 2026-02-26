@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"structmgis_1_1function_1_1_function_view.html#a3caac10a3fcc891cf1ea230deb5cb905":[3,0,1,3,27,13],
+"structmgis_1_1function_1_1_function_view.html#a41226b2f5a44676e15f3fde3eaf4eefa":[3,0,1,3,27,8],
+"structmgis_1_1function_1_1_function_view.html#a48d1bf875c23e8c6debe385e3fa05e30":[3,0,1,3,27,30],
+"structmgis_1_1function_1_1_function_view.html#a534b93bc9545db5e3b2745f05d08c5a0":[3,0,1,3,27,29],
 "structmgis_1_1function_1_1_function_view.html#a53ded62b9c34be5af1cf20524da4583c":[3,0,1,3,27,16],
 "structmgis_1_1function_1_1_function_view.html#a64d37b0bb7c1794d84469f0fc0c513eb":[3,0,1,3,27,7],
 "structmgis_1_1function_1_1_function_view.html#a6639cfe60d59d4a6f68580c397d12774":[3,0,1,3,27,21],
@@ -243,11 +247,7 @@ var NAVTREEINDEX6 =
 "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01const_01_t_01_4_01_4.html":[3,0,1,4,4],
 "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1shared__ptr_3_01_t_01_4_01_4.html":[3,0,1,4,6],
 "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1unique__ptr_3_01_t_01_4_01_4.html":[3,0,1,4,7],
-"structmgis_1_1julia_1_1_ptr.html":[3,0,1,5,2],
-"structmgis_1_1julia_1_1detail_1_1_long_n_tuple.html":[3,0,1,5,0,0],
-"structmgis_1_1julia_1_1detail_1_1_long_n_tuple_3_010_00_01_types_t_8_8_8_01_4.html":[3,0,1,5,0,1],
-"structmgis_1_1material__property_1_1_material_property.html":[3,0,1,6,0],
-"structmgis_1_1material__property_1_1_material_property.html#a0fd177acc5a13dc3e49b352e514146f5":[3,0,1,6,0,5],
-"structmgis_1_1material__property_1_1_material_property.html#a1946dab79e14f57f6f3c8c8dcc023dce":[3,0,1,6,0,4],
-"structmgis_1_1material__property_1_1_material_property.html#a24eec68e927936770b5247674282c070":[3,0,1,6,0,12]
+"structmgis_1_1internal_1_1_optional_traits.html":[3,0,1,4,8],
+"structmgis_1_1internal_1_1_optional_traits_3_01_optional_reference_3_01_t_01_4_01_4.html":[3,0,1,4,10],
+"structmgis_1_1internal_1_1_optional_traits_3_01bool_01_4.html":[3,0,1,4,9]
 };

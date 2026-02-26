@@ -1,6 +1,9 @@
 var _invalid_result_8hxx =
 [
     [ "mgis::internal::InvalidValueTraits< Type >", "structmgis_1_1internal_1_1_invalid_value_traits.html", null ],
+    [ "mgis::internal::OptionalTraits< Type >", "structmgis_1_1internal_1_1_optional_traits.html", null ],
+    [ "mgis::internal::OptionalTraits< bool >", "structmgis_1_1internal_1_1_optional_traits_3_01bool_01_4.html", null ],
+    [ "mgis::internal::OptionalTraits< std::optional< T > >", "structmgis_1_1internal_1_1_optional_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html", null ],
     [ "mgis::InvalidResult", "structmgis_1_1_invalid_result.html", "structmgis_1_1_invalid_result" ],
     [ "areInvalid", "_invalid_result_8hxx.html#af4bf11d96d885951a9521d94a8dbfebc", null ],
     [ "areValid", "_invalid_result_8hxx.html#a06c83fbb0905ade623a12868ca239b70", null ],

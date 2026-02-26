@@ -9,6 +9,7 @@ var structmfem__mgis_1_1_finite_element_discretization =
     [ "describesAParallelComputation", "structmfem__mgis_1_1_finite_element_discretization.html#a17376235ea5e51914f8fc645a3525be1", null ],
     [ "getBoundariesIdentifiers", "structmfem__mgis_1_1_finite_element_discretization.html#a53f56d84b3f0910165a336103bc67266", null ],
     [ "getBoundariesIdentifiers", "structmfem__mgis_1_1_finite_element_discretization.html#a81f177eec660ee8fbdf92a8fc45f9119", null ],
+    [ "getBoundariesNames", "structmfem__mgis_1_1_finite_element_discretization.html#a466b3ae7dba8bef7d6fc29878e7ab487", null ],
     [ "getBoundaryIdentifier", "structmfem__mgis_1_1_finite_element_discretization.html#a62e80771f443a33d89ddc35b9993d0d2", null ],
     [ "getBoundaryIdentifier", "structmfem__mgis_1_1_finite_element_discretization.html#a53864a018da3d78a6a5dde6393d1531b", null ],
     [ "getBoundaryName", "structmfem__mgis_1_1_finite_element_discretization.html#ab4059c05a68bfcb18334e0a5c2c33f73", null ],
@@ -21,10 +22,13 @@ var structmfem__mgis_1_1_finite_element_discretization =
     [ "getMaterialName", "structmfem__mgis_1_1_finite_element_discretization.html#a89377a142c72e1bdf05dadcc5a132410", null ],
     [ "getMaterialsIdentifiers", "structmfem__mgis_1_1_finite_element_discretization.html#af8221a22c2cace62e6994dec66afffd4", null ],
     [ "getMaterialsIdentifiers", "structmfem__mgis_1_1_finite_element_discretization.html#aacf936c0ad6ba7479a40d03d3512813f", null ],
+    [ "getMaterialsNames", "structmfem__mgis_1_1_finite_element_discretization.html#a72c6f31680a7fd485e0df68632b0396b", null ],
     [ "getMesh", "structmfem__mgis_1_1_finite_element_discretization.html#a6f02c52ceb0214eafafbb5ed158e407d", null ],
     [ "getMesh", "structmfem__mgis_1_1_finite_element_discretization.html#a339ea02fe631e168b2d4939be4383414", null ],
     [ "getMeshPointer", "structmfem__mgis_1_1_finite_element_discretization.html#a6e4ce449eddf8f941c1238843818d43a", null ],
     [ "getMeshPointer", "structmfem__mgis_1_1_finite_element_discretization.html#a12bd2cbe6e3819e27197050e447699f3", null ],
     [ "setBoundariesNames", "structmfem__mgis_1_1_finite_element_discretization.html#af23cf8a2e40b0b1facd92602228f68ba", null ],
-    [ "setMaterialsNames", "structmfem__mgis_1_1_finite_element_discretization.html#aa1c551037f78df28a6b4536bfb3a8d51", null ]
+    [ "setBoundariesNames", "structmfem__mgis_1_1_finite_element_discretization.html#a550fe1ea1a0555b08ddfeb3c37d9648e", null ],
+    [ "setMaterialsNames", "structmfem__mgis_1_1_finite_element_discretization.html#aa1c551037f78df28a6b4536bfb3a8d51", null ],
+    [ "setMaterialsNames", "structmfem__mgis_1_1_finite_element_discretization.html#a6d0eaaa8384bc0db01f995e738316559", null ]
 ];

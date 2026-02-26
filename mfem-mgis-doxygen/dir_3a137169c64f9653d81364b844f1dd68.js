@@ -20,6 +20,8 @@ var dir_3a137169c64f9653d81364b844f1dd68 =
     [ "FiniteElementDiscretization.hxx", "_finite_element_discretization_8hxx.html", "_finite_element_discretization_8hxx" ],
     [ "FiniteElementDiscretization.ixx", "_finite_element_discretization_8ixx.html", null ],
     [ "ImposedDirichletBoundaryConditionAtClosestNode.hxx", "_imposed_dirichlet_boundary_condition_at_closest_node_8hxx.html", "_imposed_dirichlet_boundary_condition_at_closest_node_8hxx" ],
+    [ "Info.hxx", "_info_8hxx.html", "_info_8hxx" ],
+    [ "Info.ixx", "_info_8ixx.html", "_info_8ixx" ],
     [ "IntegrationType.hxx", "_integration_type_8hxx.html", "_integration_type_8hxx" ],
     [ "L2Projection.hxx", "_l2_projection_8hxx.html", "_l2_projection_8hxx" ],
     [ "LinearSolverFactory.hxx", "_linear_solver_factory_8hxx.html", "_linear_solver_factory_8hxx" ],

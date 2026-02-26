@@ -7,7 +7,6 @@ var structmfem__mgis_1_1_abstract_behaviour_integrator =
     [ "getMaterial", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#a332c12da99e6cb3d0067faccc66909c3", null ],
     [ "getMaterial", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#af316725ec5b4c3f8ef799a942c142eba", null ],
     [ "getPartialQuadratureSpace", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#a0bc0a4c67a3732aaf329697de9c8d006", null ],
-    [ "getTimeIncrement", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#a8bc9e86c966a258e8ed490b5756ed6fc", null ],
     [ "hasMaterial", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#a671f18ecc10156612281b25e72bbab9b", null ],
     [ "integrate", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#ad89e66a6b54edcf8a9de579794b5f609", null ],
     [ "requiresCurrentSolutionForJacobianAssembly", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#a7613f78a41344f1925a70139c62a5dcf", null ],

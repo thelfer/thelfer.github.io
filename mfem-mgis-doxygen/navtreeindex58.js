@@ -1,5 +1,11 @@
 var NAVTREEINDEX58 =
 {
+"structtfel_1_1system_1_1_library_information.html#ae8bf4dc58dede47b5c82e2bb273a4049":[4,0,16,7,32,6],
+"structtfel_1_1system_1_1_member_signal_handler.html":[4,0,16,7,33],
+"structtfel_1_1system_1_1_non_blocking_stream_reader.html":[4,0,16,7,34],
+"structtfel_1_1system_1_1_non_blocking_stream_writer.html":[4,0,16,7,35],
+"structtfel_1_1system_1_1_pointer_binary_reader.html":[4,0,16,7,36],
+"structtfel_1_1system_1_1_pointer_binary_writer.html":[4,0,16,7,37],
 "structtfel_1_1system_1_1_posix_error.html":[4,0,16,7,38],
 "structtfel_1_1system_1_1_process_manager.html":[4,0,16,7,39],
 "structtfel_1_1system_1_1_process_manager.html#a0c451e9b654adbcef5d31574a185a640":[4,0,16,7,39,1],
@@ -243,11 +249,5 @@ var NAVTREEINDEX58 =
 "structtfel_1_1typetraits_1_1_real_part_type_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_v9b5beb0e49f0989314db31a07b38bc9b.html#aef885f673444bdde6ab7a4cc46c98c8a":[4,0,16,9,69,0],
 "structtfel_1_1typetraits_1_1internals_1_1_choose_type.html":[4,0,16,9,0,0],
 "structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01false_00_01false_01_4.html":[4,0,16,9,0,1],
-"structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01false_00_01false_01_4.html#a708adb25d2ac0d488e0fc59ae561a041":[4,0,16,9,0,1,0],
-"structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01false_00_01true_01_4.html":[4,0,16,9,0,2],
-"structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01false_00_01true_01_4.html#a21623c5f7720a86bafe733e4d533b56a":[4,0,16,9,0,2,0],
-"structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01true_00_01false_01_4.html":[4,0,16,9,0,3],
-"structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01true_00_01false_01_4.html#a39530e337d6126e8a151f69f79df7ffc":[4,0,16,9,0,3,0],
-"structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01true_00_01true_01_4.html":[4,0,16,9,0,4],
-"structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01true_00_01true_01_4.html#a2fca5edc19159f73e9753cfd8bfb9607":[4,0,16,9,0,4,0]
+"structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01false_00_01false_01_4.html#a708adb25d2ac0d488e0fc59ae561a041":[4,0,16,9,0,1,0]
 };

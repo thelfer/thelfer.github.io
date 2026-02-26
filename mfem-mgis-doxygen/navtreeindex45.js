@@ -1,5 +1,11 @@
 var NAVTREEINDEX45 =
 {
+"structnumodis_1_1_b_c_c.html":[4,0,14,1],
+"structnumodis_1_1_b_c_c.html#a56a097426064580f114f7fdbe440552e":[4,0,14,1,3],
+"structnumodis_1_1_b_c_c.html#a7a23dc35ea854429999c06a18b486ecc":[4,0,14,1,0],
+"structnumodis_1_1_b_c_c.html#ad32134a3f63984dd128b3ee022e38a43":[4,0,14,1,2],
+"structnumodis_1_1_b_c_c.html#afc2663ad51a08c9f2f91e67643e8385c":[4,0,14,1,1],
+"structnumodis_1_1_crystallo.html":[4,0,14,2],
 "structnumodis_1_1_crystallo.html#a2a6f64b9ce5af2d2191675ef0a53256d":[4,0,14,2,6],
 "structnumodis_1_1_crystallo.html#a2ed32a999789f50192701bbe2cca5452":[4,0,14,2,3],
 "structnumodis_1_1_crystallo.html#a51c761a2dc5fc79060724115c88e6137":[4,0,14,2,5],
@@ -243,11 +249,5 @@ var NAVTREEINDEX45 =
 "structtfel_1_1material_1_1_divergence_exception.html":[4,0,16,4,24],
 "structtfel_1_1material_1_1_eshelby_tolerances.html":[4,0,16,4,25],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html":[4,0,16,4,26],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a5646715714dd7f9eeda9035bb3499a1b":[4,0,16,4,26,0],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a5a16e9a554d8043afc02ff7738499f06":[4,0,16,4,26,6],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a634496d90c07163b025eb38391230985":[4,0,16,4,26,2],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a8ea9899bae16deb09e57e74fd542e161":[4,0,16,4,26,1],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#aa3aafd915de9a7e0e778a0e3d91fcc48":[4,0,16,4,26,3],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[4,0,16,4,26,5],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[4,0,16,4,26,4]
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a5646715714dd7f9eeda9035bb3499a1b":[4,0,16,4,26,0]
 };

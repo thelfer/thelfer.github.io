@@ -1,5 +1,11 @@
 var NAVTREEINDEX48 =
 {
+"structtfel_1_1math_1_1_compute_binary_operation_handler.html#a8d629f520e3ff2e7ca08864f613eb186":[4,0,16,5,17,1],
+"structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_matrix_tag_00_01_a404695a19cedd02b6c49b3c8e726f504.html":[4,0,16,5,22,0],
+"structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_matrix_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html":[4,0,16,5,22],
+"structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_vector_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html":[4,0,16,5,23],
+"structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_vector_tag_00_01_aacd611d194eace726070c251dc266569.html":[4,0,16,5,23,0],
+"structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_math_object_tag_00066dae1694a3ab9f1aed320e0b58701e.html":[4,0,16,5,24,0],
 "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_math_object_tag_00b703abb03566e06b31c98c29770e7d11.html":[4,0,16,5,24],
 "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_scalar_tag_00_01_a_00_01_b_00_01_op_div_01_4.html":[4,0,16,5,25],
 "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_scalar_tag_00_01_a_00_01_b_00_01_op_div_01_4.html#adeda5a945ac4fe08440afe9529e19bfb":[4,0,16,5,25,1],
@@ -243,11 +249,5 @@ var NAVTREEINDEX48 =
 "structtfel_1_1math_1_1_empty_run_time_properties.html":[4,0,16,5,196],
 "structtfel_1_1math_1_1_evaluator.html":[4,0,16,5,197],
 "structtfel_1_1math_1_1_evaluator.html#a32c79e59c9d440e02a1a2d7491bc884c":[4,0,16,5,197,32],
-"structtfel_1_1math_1_1_evaluator.html#a3dfec67902be6ee3ff7febbad3e0661c":[4,0,16,5,197,27],
-"structtfel_1_1math_1_1_evaluator.html#a7a321ca83b4b85365b2e2ee66733022c":[4,0,16,5,197,29],
-"structtfel_1_1math_1_1_evaluator.html#a7c56bf306e5da6ddab74ac964f5f3763":[4,0,16,5,197,20],
-"structtfel_1_1math_1_1_evaluator.html#a7d4a803c4a96d969c487acfd1fef2eae":[4,0,16,5,197,24],
-"structtfel_1_1math_1_1_evaluator.html#a7dc252a8156eadb39409cabfc3f2b440":[4,0,16,5,197,22],
-"structtfel_1_1math_1_1_evaluator.html#a8d9fa94c682c4d18be56461e7371d548":[4,0,16,5,197,21],
-"structtfel_1_1math_1_1_evaluator.html#a919c692903b717127355697497d64967":[4,0,16,5,197,25]
+"structtfel_1_1math_1_1_evaluator.html#a3dfec67902be6ee3ff7febbad3e0661c":[4,0,16,5,197,27]
 };

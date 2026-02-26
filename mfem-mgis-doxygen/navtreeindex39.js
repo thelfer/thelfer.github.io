@@ -1,5 +1,7 @@
 var NAVTREEINDEX39 =
 {
+"structmgis_1_1function_1_1_tensor_view.html#abfc2d14e959d9d4b2580f2b823c495c1":[4,0,12,2,45,0],
+"structmgis_1_1function_1_1_tensor_view.html#ac86f60ff90e50d40ddaf34679306677f":[4,0,12,2,45,11],
 "structmgis_1_1function_1_1_tensor_view.html#ad5b8ab774bd42eb116eac05db0a817e7":[4,0,12,2,45,12],
 "structmgis_1_1function_1_1_unary_operation.html":[4,0,12,2,46],
 "structmgis_1_1function_1_1_unary_operation.html#a173b5f4fc0c651be30a0f1142f359391":[4,0,12,2,46,0],
@@ -155,6 +157,10 @@ var NAVTREEINDEX39 =
 "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01const_01_t_01_4_01_4.html":[4,0,12,3,5],
 "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1shared__ptr_3_01_t_01_4_01_4.html":[4,0,12,3,7],
 "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1unique__ptr_3_01_t_01_4_01_4.html":[4,0,12,3,8],
+"structmgis_1_1internal_1_1_optional_traits.html":[4,0,12,3,9],
+"structmgis_1_1internal_1_1_optional_traits_3_01_optional_reference_3_01_t_01_4_01_4.html":[4,0,12,3,11],
+"structmgis_1_1internal_1_1_optional_traits_3_01bool_01_4.html":[4,0,12,3,10],
+"structmgis_1_1internal_1_1_optional_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html":[4,0,12,3,12],
 "structmgis_1_1material__property_1_1_material_property.html":[4,0,12,4,0],
 "structmgis_1_1material__property_1_1_material_property.html#a0fd177acc5a13dc3e49b352e514146f5":[4,0,12,4,0,5],
 "structmgis_1_1material__property_1_1_material_property.html#a1946dab79e14f57f6f3c8c8dcc023dce":[4,0,12,4,0,4],
@@ -243,11 +249,5 @@ var NAVTREEINDEX39 =
 "structmtest_1_1_acceleration_algorithm.html#a9951cdce2df7e5c4efa8db5a039c3463":[4,0,13,4,0],
 "structmtest_1_1_acceleration_algorithm.html#aefefcb7e2e80030d60683505a1661bfe":[4,0,13,4,2],
 "structmtest_1_1_acceleration_algorithm_factory.html":[4,0,13,5],
-"structmtest_1_1_acceleration_algorithm_factory.html#a3beb3e8dcb87575e0d64abd85d8b6306":[4,0,13,5,1],
-"structmtest_1_1_acceleration_algorithm_factory.html#a436924dc48c29c5497052045a698ab1c":[4,0,13,5,2],
-"structmtest_1_1_acceleration_algorithm_factory.html#aa403f8a25150f7ddb5efb6bfbe68a5a8":[4,0,13,5,0],
-"structmtest_1_1_ansys_finite_strain_behaviour.html":[4,0,13,6],
-"structmtest_1_1_ansys_finite_strain_behaviour.html#a3c934dd4eb9da112b6ba65cc2caac34c":[4,0,13,6,0],
-"structmtest_1_1_ansys_finite_strain_behaviour.html#a59a3d9fe3d69a0766c27d0b861b20f37":[4,0,13,6,2],
-"structmtest_1_1_ansys_finite_strain_behaviour.html#a69206ec0fffdd10c6a5aa8f65dbbf337":[4,0,13,6,1]
+"structmtest_1_1_acceleration_algorithm_factory.html#a3beb3e8dcb87575e0d64abd85d8b6306":[4,0,13,5,1]
 };

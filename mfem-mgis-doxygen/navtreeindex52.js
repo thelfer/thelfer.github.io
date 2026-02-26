@@ -1,5 +1,11 @@
 var NAVTREEINDEX52 =
 {
+"structtfel_1_1math_1_1_loop_un_roller.html":[4,0,16,5,344],
+"structtfel_1_1math_1_1_make_quantity_reference_type.html":[4,0,16,5,353],
+"structtfel_1_1math_1_1_make_quantity_reference_type.html#a28cad2e6f7772360b3be6cfd8049e39e":[4,0,16,5,353,0],
+"structtfel_1_1math_1_1_make_quantity_reference_type_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html":[4,0,16,5,354],
+"structtfel_1_1math_1_1_make_quantity_reference_type_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html#a47235670482a85230dd7e42c7714ac8f":[4,0,16,5,354,0],
+"structtfel_1_1math_1_1_math_divergence_exception.html":[4,0,16,5,355],
 "structtfel_1_1math_1_1_math_exception.html":[4,0,16,5,356],
 "structtfel_1_1math_1_1_math_object_traits.html":[4,0,16,5,357],
 "structtfel_1_1math_1_1_math_object_traits_3_01_coalesced_view_base_3_01_mapped_type_00_01_indexib78fa0da091a39be697a9af0d8910c48.html":[4,0,16,5,358],
@@ -243,11 +249,5 @@ var NAVTREEINDEX52 =
 "structtfel_1_1math_1_1_stensor_size_to_dime.html":[4,0,16,5,534],
 "structtfel_1_1math_1_1_stensor_square_derivative_expr.html":[4,0,16,5,535],
 "structtfel_1_1math_1_1_stensor_symmetric_product_derivative.html":[4,0,16,5,537],
-"structtfel_1_1math_1_1_stensor_symmetric_product_derivative_3_011u_00_01_t_01_4.html":[4,0,16,5,538],
-"structtfel_1_1math_1_1_stensor_symmetric_product_derivative_3_012u_00_01_t_01_4.html":[4,0,16,5,539],
-"structtfel_1_1math_1_1_stensor_symmetric_product_derivative_3_013u_00_01_t_01_4.html":[4,0,16,5,540],
-"structtfel_1_1math_1_1_stensor_t2to_s_t2_product_expr.html":[4,0,16,5,541],
-"structtfel_1_1math_1_1_stensor_tag.html":[4,0,16,5,542],
-"structtfel_1_1math_1_1_strided_coalesced_access_policy.html":[4,0,16,5,543],
-"structtfel_1_1math_1_1_strided_coalesced_access_policy.html#a176cbf57bdbd0d47b5cbfaef82b99b86":[4,0,16,5,543,1]
+"structtfel_1_1math_1_1_stensor_symmetric_product_derivative_3_011u_00_01_t_01_4.html":[4,0,16,5,538]
 };

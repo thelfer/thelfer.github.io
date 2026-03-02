@@ -1,5 +1,11 @@
 var NAVTREEINDEX35 =
 {
+"structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#adc0142d1a800dfb05108ff0b67e3e335":[5,0,11,0,16,2],
+"structmfront_1_1bbrick_1_1_hooke_stress_potential.html":[5,0,11,0,17],
+"structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a201d17794d0f39b4960915e3288095a1":[5,0,11,0,17,5],
+"structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a248f1d5f9fbf4a65a5066c87714712d8":[5,0,11,0,17,2],
+"structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a30798594997254ddc97b5d365b473d2d":[5,0,11,0,17,7],
+"structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a78ba1a4265733839212c0a031fa1697a":[5,0,11,0,17,8],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a836f5ef6b240a656282166d46c8184cb":[5,0,11,0,17,4],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a8419c540f2e2176b4ee3ee133dc612e8":[5,0,11,0,17,6],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential.html#ab36845a16f00d05164c7703fca824738":[5,0,11,0,17,1],
@@ -243,11 +249,5 @@ var NAVTREEINDEX35 =
 "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179a410859721ce92ceb159a7a11ccf4330b":[5,0,11,0,35,0,4],
 "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179a5b7fd81e39a5479232a3e13f90bd7cd6":[5,0,11,0,35,0,7],
 "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179a9f711a677a57e51dd5cfdf263fe4763c":[5,0,11,0,35,0,8],
-"structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179ac01c92f94a0802d2680dee7e6c789246":[5,0,11,0,35,0,2],
-"structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179ac8602604ee5463717c5827b48cb490d3":[5,0,11,0,35,0,5],
-"structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179ac8fc3e5af8bdb8055fb18db92f51a952":[5,0,11,0,35,0,1],
-"structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179aef36a2f6f73c4a23b8a0586f2379b8bd":[5,0,11,0,35,0,6],
-"structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179afae5783f5e6c305db68964730afe7b39":[5,0,11,0,35,0,3],
-"structmfront_1_1bbrick_1_1_option_description.html#a4ada91c9074f873f2137adde627eaed5":[5,0,11,0,35,7],
-"structmfront_1_1bbrick_1_1_option_description.html#a4d4215696e247304a965b7244319e4b7":[5,0,11,0,35,14]
+"structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179ac01c92f94a0802d2680dee7e6c789246":[5,0,11,0,35,0,2]
 };

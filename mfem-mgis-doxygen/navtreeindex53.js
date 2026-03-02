@@ -1,5 +1,12 @@
 var NAVTREEINDEX53 =
 {
+"structtfel_1_1math_1_1_op_and.html":[5,0,16,5,398],
+"structtfel_1_1math_1_1_op_or.html":[5,0,16,5,399],
+"structtfel_1_1math_1_1_permutation.html":[5,0,16,5,400],
+"structtfel_1_1math_1_1_permutation.html#a2036a85c91fbdcaf1927a8ff2bc7327f":[5,0,16,5,400,3],
+"structtfel_1_1math_1_1_permutation.html#a52a68e8ac1d66e2c273b8ccf9b66501e":[5,0,16,5,400,0],
+"structtfel_1_1math_1_1_permutation.html#a6a61b0b4641eec04bcf3331424cb60cf":[5,0,16,5,400,4],
+"structtfel_1_1math_1_1_permutation.html#ac2748f6639644117d8b1cfc2fe1e1176":[5,0,16,5,400,2],
 "structtfel_1_1math_1_1_permutation.html#ac50e9870f407519090a831ca04eba0a4":[5,0,16,5,400,1],
 "structtfel_1_1math_1_1_power.html":[5,0,16,5,401],
 "structtfel_1_1math_1_1_q_r_decomp.html":[5,0,16,5,402],
@@ -242,12 +249,5 @@ var NAVTREEINDEX53 =
 "structtfel_1_1math_1_1_t_matrix_t_vector_expr_1_1_row_const_iterator.html#ac2237847f98943fc625f9f7c4725c413":[5,0,16,5,599,0,1],
 "structtfel_1_1math_1_1_t_matrix_t_vector_expr_1_1_row_const_iterator.html#afe48cce14b2fbb27881c9b4f5a8fdd5f":[5,0,16,5,599,0,0],
 "structtfel_1_1math_1_1_t_matrix_t_vector_expr_1_1_vector_const_iterator.html":[5,0,16,5,599,1],
-"structtfel_1_1math_1_1_t_vector_t_matrix_expr.html":[5,0,16,5,601],
-"structtfel_1_1math_1_1_t_vector_t_matrix_expr_1_1_column_const_iterator.html":[5,0,16,5,601,0],
-"structtfel_1_1math_1_1_t_vector_t_matrix_expr_1_1_vector_const_iterator.html":[5,0,16,5,601,1],
-"structtfel_1_1math_1_1_tensor_concept_base.html":[5,0,16,5,561],
-"structtfel_1_1math_1_1_tensor_concept_base.html#a112380883fabab4fd9d5c49e6e6e9a3b":[5,0,16,5,561,1],
-"structtfel_1_1math_1_1_tensor_concept_base.html#a33570b97a6bd799886bb3077c5afd808":[5,0,16,5,561,0],
-"structtfel_1_1math_1_1_tensor_dime_to_size.html":[5,0,16,5,562],
-"structtfel_1_1math_1_1_tensor_invalid_index_exception.html":[5,0,16,5,564]
+"structtfel_1_1math_1_1_t_vector_t_matrix_expr.html":[5,0,16,5,601]
 };

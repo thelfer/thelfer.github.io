@@ -1,5 +1,12 @@
 var NAVTREEINDEX52 =
 {
+"structtfel_1_1math_1_1_factorized_kriging.html":[5,0,16,5,279],
+"structtfel_1_1math_1_1_factorized_kriging1_d1_d.html":[5,0,16,5,280],
+"structtfel_1_1math_1_1_factorized_kriging1_d2_d.html":[5,0,16,5,281],
+"structtfel_1_1math_1_1_factorized_kriging1_d3_d.html":[5,0,16,5,282],
+"structtfel_1_1math_1_1_fixed_size_array_derivative.html":[5,0,16,5,284],
+"structtfel_1_1math_1_1_fixed_size_array_derivative.html#a8443904e63ffc93cb34b3d9be2c76b96":[5,0,16,5,284,0],
+"structtfel_1_1math_1_1_fixed_size_array_derivative_concept.html":[5,0,16,5,285],
 "structtfel_1_1math_1_1_fixed_size_array_derivative_concept.html#a835f8d92878f82f2b6b55dcadc26224c":[5,0,16,5,285,0],
 "structtfel_1_1math_1_1_fixed_size_array_derivative_policy.html":[5,0,16,5,286],
 "structtfel_1_1math_1_1_fixed_size_array_derivative_tag.html":[5,0,16,5,287],
@@ -242,12 +249,5 @@ var NAVTREEINDEX52 =
 "structtfel_1_1math_1_1_mutable_runtime_array_base.html#a752e602b74cad3b5e6a20ed8a7c34cd0":[5,0,16,5,396,1],
 "structtfel_1_1math_1_1_mutable_runtime_array_base.html#ac6ecfc1c1735ef9ddfc5830561dffc80":[5,0,16,5,396,0],
 "structtfel_1_1math_1_1_mutable_runtime_array_base.html#af4ab7011807f73dab110c413e42131ec":[5,0,16,5,396,2],
-"structtfel_1_1math_1_1_object_scalar_operation.html":[5,0,16,5,397],
-"structtfel_1_1math_1_1_op_and.html":[5,0,16,5,398],
-"structtfel_1_1math_1_1_op_or.html":[5,0,16,5,399],
-"structtfel_1_1math_1_1_permutation.html":[5,0,16,5,400],
-"structtfel_1_1math_1_1_permutation.html#a2036a85c91fbdcaf1927a8ff2bc7327f":[5,0,16,5,400,3],
-"structtfel_1_1math_1_1_permutation.html#a52a68e8ac1d66e2c273b8ccf9b66501e":[5,0,16,5,400,0],
-"structtfel_1_1math_1_1_permutation.html#a6a61b0b4641eec04bcf3331424cb60cf":[5,0,16,5,400,4],
-"structtfel_1_1math_1_1_permutation.html#ac2748f6639644117d8b1cfc2fe1e1176":[5,0,16,5,400,2]
+"structtfel_1_1math_1_1_object_scalar_operation.html":[5,0,16,5,397]
 };

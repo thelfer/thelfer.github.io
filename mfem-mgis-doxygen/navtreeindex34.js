@@ -1,5 +1,11 @@
 var NAVTREEINDEX34 =
 {
+"structmfront_1_1_variable_bounds_description.html#ab5306df30e3c9e8dcedb25a4b9ba96d8":[5,0,11,114,8],
+"structmfront_1_1_variable_bounds_description.html#af52c5bce2524212882302e90343a69ae":[5,0,11,114,4],
+"structmfront_1_1_variable_description.html":[5,0,11,115],
+"structmfront_1_1_variable_description.html#a09e9c451029f5b568a9bac9cc43b144a":[5,0,11,115,12],
+"structmfront_1_1_variable_description.html#a0baac460bc11e19a2306389e1812f7f3":[5,0,11,115,6],
+"structmfront_1_1_variable_description.html#a13408064b3774ecb20fe07b8568863d9":[5,0,11,115,7],
 "structmfront_1_1_variable_description.html#a1420058cdaaf791a0bf0b0c455234962":[5,0,11,115,28],
 "structmfront_1_1_variable_description.html#a1c258d78e5cc412ebe65442ff92a79e7":[5,0,11,115,29],
 "structmfront_1_1_variable_description.html#a1ea23ea50258296505c0ca3005d9581b":[5,0,11,115,5],
@@ -243,11 +249,5 @@ var NAVTREEINDEX34 =
 "structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#a948124dc75bae6a63accd7d4dd5b813f":[5,0,11,0,16,1],
 "structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#abae696ae42858318419a980151e89440":[5,0,11,0,16,4],
 "structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#abedb0a440107f232678658e80428e0aa":[5,0,11,0,16,8],
-"structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#ac51422c7d1cb427df31be67ec3186a5c":[5,0,11,0,16,9],
-"structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#adc0142d1a800dfb05108ff0b67e3e335":[5,0,11,0,16,2],
-"structmfront_1_1bbrick_1_1_hooke_stress_potential.html":[5,0,11,0,17],
-"structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a201d17794d0f39b4960915e3288095a1":[5,0,11,0,17,5],
-"structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a248f1d5f9fbf4a65a5066c87714712d8":[5,0,11,0,17,2],
-"structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a30798594997254ddc97b5d365b473d2d":[5,0,11,0,17,7],
-"structmfront_1_1bbrick_1_1_hooke_stress_potential.html#a78ba1a4265733839212c0a031fa1697a":[5,0,11,0,17,8]
+"structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#ac51422c7d1cb427df31be67ec3186a5c":[5,0,11,0,16,9]
 };

@@ -1,5 +1,11 @@
 var NAVTREEINDEX39 =
 {
+"structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#ad82c4bb09f9ddc299f24ecae6c9bd253":[5,0,12,2,12,2],
+"structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#adda1866d78d1bb7d83f4ec280b824d91":[5,0,12,2,12,17],
+"structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#ae300120f8f9a5fdbe386f205d6b6ee42":[5,0,12,2,12,8],
+"structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#ae8cf85ffc4a2dd0f27021dbe9c19c9e6":[5,0,12,2,12,5],
+"structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#af0d086d098491cf1e249f5843c9e9f43":[5,0,12,2,12,16],
+"structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#afe4641dd3b4c5e12d5836ea35691d6e9":[5,0,12,2,12,19],
 "structmgis_1_1function_1_1_coalesced_memory_access_tensor_view.html":[5,0,12,2,13],
 "structmgis_1_1function_1_1_coalesced_memory_access_tensor_view.html#a33ce8ca5d8b4dc80724d32a6eaec1068":[5,0,12,2,13,0],
 "structmgis_1_1function_1_1_coalesced_memory_access_tensor_view.html#a4b61960ade3f38cb4a8cc84102c5769d":[5,0,12,2,13,2],
@@ -243,11 +249,5 @@ var NAVTREEINDEX39 =
 "structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation2_3_01true_00_01_evaluator_type_01_4.html":[5,0,12,2,1,38],
 "structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation3.html":[5,0,12,2,1,39],
 "structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation3_3_01true_00_01_evaluator_type_01_4.html":[5,0,12,2,1,40],
-"structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation4.html":[5,0,12,2,1,41],
-"structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation4_3_01true_00_01_evaluator_type_01_4.html":[5,0,12,2,1,42],
-"structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation_3_01true_00_01_evaluator_type_01_4.html":[5,0,12,2,1,43],
-"structmgis_1_1function_1_1internals_1_1_function_result_query.html":[5,0,12,2,1,45],
-"structmgis_1_1function_1_1internals_1_1_function_result_query_implementation.html":[5,0,12,2,1,46],
-"structmgis_1_1function_1_1internals_1_1_function_result_query_implementation1.html":[5,0,12,2,1,47],
-"structmgis_1_1function_1_1internals_1_1_function_result_query_implementation1_3_01true_00_01_function_type_01_4.html":[5,0,12,2,1,48]
+"structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation4.html":[5,0,12,2,1,41]
 };

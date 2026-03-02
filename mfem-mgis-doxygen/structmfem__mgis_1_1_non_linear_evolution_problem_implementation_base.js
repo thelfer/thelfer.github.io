@@ -49,6 +49,7 @@ var structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base =
     [ "setTimeIncrement", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a67498bcbec7f4a5f4ab338ac58c00238", null ],
     [ "setup", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a27d763dc8f3ac7020c68b0225e115d10", null ],
     [ "solve", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#aa762dc5216bafa1b7e56b219f5d5e770", null ],
+    [ "solve", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a2b37ca1610bc8af52dae94e74d9163fb", null ],
     [ "update", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a5bf63eb47cdc92efe3a44801f9440ca7", null ],
     [ "updateLinearSolver", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a5420f06a4a3001e2fe14264f9fe6dcc0", null ],
     [ "updateLinearSolver", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a1c6c909f71584f35d54c0103d0e14465", null ],

@@ -454,7 +454,7 @@ requires std::is_base_of_v&lt;BaseType, Type&gt; &amp;&amp; std::is_constructibl
 <div class="line">  if (!MGIS_TEMPORARY_VARIABLE(v).has_value()) {   \</div>
 <div class="line">    <span class="keywordflow">return</span> InvalidResult{};                        \</div>
 <div class="line">  }                                                \</div>
-<div class="line">  Type &amp;v = *(MGIS_TEMPORARY_VARIABLE(v));</div>
+<div class="line">  Type&amp; v = *(MGIS_TEMPORARY_VARIABLE(v))</div>
 </div><!-- fragment -->
 <p>an helper macro to build a variable the constructor of which may throw </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -508,7 +508,8 @@ requires std::is_base_of_v&lt;BaseType, Type&gt; &amp;&amp; std::is_constructibl
 <b>Value:</b><div class="fragment"><div class="line">  std::shared_ptr&lt;Type&gt; v = <a class="code hl_define" href="_construct_8hxx.html#a31febc3fcc33e9f13e06fc61edfd02ef">MGIS_MAKE_SHARED</a>(Type, e, __VA_ARGS__); \</div>
 <div class="line">  if (v.get() == <span class="keyword">nullptr</span>) {                                         \</div>
 <div class="line">    <span class="keywordflow">return</span> InvalidResult{};                                         \</div>
-<div class="line">  }</div>
+<div class="line">  }                                                                 \</div>
+<div class="line">  static_cast&lt;void&gt;(0)</div>
 <div class="ttc" id="a_construct_8hxx_html_a31febc3fcc33e9f13e06fc61edfd02ef"><div class="ttname"><a href="_construct_8hxx.html#a31febc3fcc33e9f13e06fc61edfd02ef">MGIS_MAKE_SHARED</a></div><div class="ttdeci">#define MGIS_MAKE_SHARED(Type, e,...)</div><div class="ttdoc">a simple wrapper around the make_shared function which handles the declaration of the source location...</div><div class="ttdef"><b>Definition</b> Construct.hxx:92</div></div>
 </div><!-- fragment -->
 <p>an helper macro to build an shared pointer for type the constructor of which may throw </p>
@@ -570,7 +571,8 @@ requires std::is_base_of_v&lt;BaseType, Type&gt; &amp;&amp; std::is_constructibl
 <div class="line">      MGIS_MAKE_SHARED_AS(BaseType, Type, e, __VA_ARGS__); \</div>
 <div class="line">  if (v.get() == <span class="keyword">nullptr</span>) {                                \</div>
 <div class="line">    <span class="keywordflow">return</span> InvalidResult{};                                \</div>
-<div class="line">  }</div>
+<div class="line">  }                                                        \</div>
+<div class="line">  static_cast&lt;void&gt;(0)</div>
 </div><!-- fragment -->
 <p>an helper macro to build an shared pointer for type the constructor of which may throw </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -625,7 +627,8 @@ requires std::is_base_of_v&lt;BaseType, Type&gt; &amp;&amp; std::is_constructibl
 <b>Value:</b><div class="fragment"><div class="line">  std::unique_ptr&lt;Type&gt; v = <a class="code hl_define" href="_construct_8hxx.html#a71c62cc8553329aa32219ae5e06e4a52">MGIS_MAKE_UNIQUE</a>(Type, e, __VA_ARGS__); \</div>
 <div class="line">  if (v.get() == <span class="keyword">nullptr</span>) {                                         \</div>
 <div class="line">    <span class="keywordflow">return</span> InvalidResult{};                                         \</div>
-<div class="line">  }</div>
+<div class="line">  }                                                                 \</div>
+<div class="line">  static_cast&lt;void&gt;(0)</div>
 <div class="ttc" id="a_construct_8hxx_html_a71c62cc8553329aa32219ae5e06e4a52"><div class="ttname"><a href="_construct_8hxx.html#a71c62cc8553329aa32219ae5e06e4a52">MGIS_MAKE_UNIQUE</a></div><div class="ttdeci">#define MGIS_MAKE_UNIQUE(Type, e,...)</div><div class="ttdoc">a simple wrapper around the make_unique function which handles the declaration of the source location...</div><div class="ttdef"><b>Definition</b> Construct.hxx:43</div></div>
 </div><!-- fragment -->
 <p>an helper macro to build an unique pointer for type the constructor of which may throw </p>
@@ -687,7 +690,8 @@ requires std::is_base_of_v&lt;BaseType, Type&gt; &amp;&amp; std::is_constructibl
 <div class="line">      MGIS_MAKE_UNIQUE_AS(BaseType, Type, e, __VA_ARGS__); \</div>
 <div class="line">  if (v.get() == <span class="keyword">nullptr</span>) {                                \</div>
 <div class="line">    <span class="keywordflow">return</span> InvalidResult{};                                \</div>
-<div class="line">  }</div>
+<div class="line">  }                                                        \</div>
+<div class="line">  static_cast&lt;void&gt;(0)</div>
 </div><!-- fragment -->
 <p>an helper macro to build an unique pointer for type the constructor of which may throw </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -708,7 +712,7 @@ requires std::is_base_of_v&lt;BaseType, Type&gt; &amp;&amp; std::is_constructibl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_d8042eab18d29d3f5ca31dc03dfcca6b.html">Utilities</a></li><li class="navelem"><a class="el" href="_construct_8hxx.html">Construct.hxx</a></li>
-    <li class="footer">Generated on Wed Mar 4 2026 20:01:55 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Mar 4 2026 20:46:52 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

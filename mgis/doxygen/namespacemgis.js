@@ -73,14 +73,14 @@ var namespacemgis =
     [ "registerExceptionInErrorBacktrace", "namespacemgis.html#a1c0bda1190de226c14173bf8a58a475b", null ],
     [ "registerExceptionInErrorBacktraceWithoutSourceLocation", "namespacemgis.html#a6ce862e7df7d68aea5b33d112bc6c476", null ],
     [ "resetDefaultLogStream", "namespacemgis.html#ae9c2b4f2fc495c1e278dd9dd9d915e58", null ],
-    [ "resetStreamColor", "namespacemgis.html#ac3354d09d554b53d4606c696d0fd5579", null ],
+    [ "resetStreamColor", "namespacemgis.html#a036c7f019b577e08c7d44850393bbe1a", null ],
     [ "setDefaultLogStream", "namespacemgis.html#a408b9199459fbde44b73b6dbedd0d204", null ],
     [ "setDefaultLogStream", "namespacemgis.html#a9de5ebfdace7985b5e404fb8ae846510", null ],
     [ "setDefaultLogStream", "namespacemgis.html#a6a8b20f25b7cfa95c3a8c1860e51d633", null ],
     [ "setDefaultVerbosityLevel", "namespacemgis.html#a9b89271204ba3bc42a98b87313d87571", null ],
     [ "setDefaultVerbosityLevel", "namespacemgis.html#ac5ea64e24e66fa4eaf44902f5cce3264", null ],
     [ "setExceptionHandler", "namespacemgis.html#ad6dbfd095532fee6200701d5b9596d1b", null ],
-    [ "setStreamColor", "namespacemgis.html#a11b4d05956af939c9241a2822b62750c", null ],
+    [ "setStreamColor", "namespacemgis.html#adef4b3c198b45a0b4bec1e1b0b525bf4", null ],
     [ "warning", "namespacemgis.html#ae1ceec782317554dec7a342b432a1fbb", null ],
     [ "dynamic_extent", "namespacemgis.html#ae69dc42a95f45bf4ffb676c0e9b64722", null ]
 ];

@@ -22,7 +22,7 @@ var searchData=
   ['requiresthermalexpansioncoefficienttensor_19',['requiresThermalExpansionCoefficientTensor',['../structmgis_1_1_libraries_manager.html#ac43a74bf9773a82961ca50f8b1be1011',1,'mgis::LibrariesManager']]],
   ['resetdefaultlogstream_20',['resetDefaultLogStream',['../namespacemgis.html#ae9c2b4f2fc495c1e278dd9dd9d915e58',1,'mgis']]],
   ['resetlogstream_21',['resetLogStream',['../structmgis_1_1_context.html#a6232144156fb286697dd064bd7011b2e',1,'mgis::Context']]],
-  ['resetstreamcolor_22',['resetStreamColor',['../namespacemgis.html#ac3354d09d554b53d4606c696d0fd5579',1,'mgis']]],
+  ['resetstreamcolor_22',['resetStreamColor',['../namespacemgis.html#a036c7f019b577e08c7d44850393bbe1a',1,'mgis']]],
   ['results_23',['results',['../structmgis_1_1behaviour_1_1_multi_threaded_behaviour_integration_result.html#af397bd024080d27c5a5cdb6dfe8b9766',1,'mgis::behaviour::MultiThreadedBehaviourIntegrationResult']]],
   ['rethrow_24',['rethrow',['../structmgis_1_1_threaded_task_result_3_01void_01_4.html#a58ecca0e8075777ce411f0115dd047d3',1,'mgis::ThreadedTaskResult&lt; void &gt;::rethrow()'],['../structmgis_1_1_threaded_task_result.html#a67bd6fd10f6dd5778b8feda6019a6022',1,'mgis::ThreadedTaskResult::rethrow()']]],
   ['revert_25',['revert',['../_material_data_manager_8hxx.html#a621253a4a731cf24cc7ddaf68c82d44e',1,'mgis::behaviour::revert(MaterialDataManager &amp;)'],['../_behaviour_data_8hxx.html#a162447a3e29b1cf2f72ca1fc38822088',1,'mgis::behaviour::revert(BehaviourData &amp;)']]],

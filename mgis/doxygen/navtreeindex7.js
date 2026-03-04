@@ -1,5 +1,15 @@
 var NAVTREEINDEX7 =
 {
+"structmgis_1_1internal_1_1_invalid_value_traits_3_01bool_01_4.html":[3,0,1,4,1],
+"structmgis_1_1internal_1_1_invalid_value_traits_3_01mgis_1_1_optional_reference_3_01_value_type_01_4_01_4.html":[3,0,1,4,2],
+"structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html":[3,0,1,4,5],
+"structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01bool_01_4_01_4.html":[3,0,1,4,3],
+"structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01const_01_t_01_4_01_4.html":[3,0,1,4,4],
+"structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1shared__ptr_3_01_t_01_4_01_4.html":[3,0,1,4,6],
+"structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1unique__ptr_3_01_t_01_4_01_4.html":[3,0,1,4,7],
+"structmgis_1_1internal_1_1_optional_traits.html":[3,0,1,4,8],
+"structmgis_1_1internal_1_1_optional_traits_3_01_optional_reference_3_01_t_01_4_01_4.html":[3,0,1,4,10],
+"structmgis_1_1internal_1_1_optional_traits_3_01bool_01_4.html":[3,0,1,4,9],
 "structmgis_1_1internal_1_1_optional_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html":[3,0,1,4,11],
 "structmgis_1_1julia_1_1_ptr.html":[3,0,1,5,2],
 "structmgis_1_1julia_1_1detail_1_1_long_n_tuple.html":[3,0,1,5,0,0],

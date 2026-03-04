@@ -16,6 +16,7 @@ var namespacemgis =
     [ "ThreadedTaskResultBase", "structmgis_1_1_threaded_task_result_base.html", null ],
     [ "ThreadPool", "structmgis_1_1_thread_pool.html", "structmgis_1_1_thread_pool" ],
     [ "ExceptionHandler", "namespacemgis.html#ac0d898c82fab21a0e65fd75290e66903", null ],
+    [ "invoke_result_t", "namespacemgis.html#acb639271daea2a4852ad11f6f8c5fcd9", null ],
     [ "real", "namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4", null ],
     [ "size_type", "namespacemgis.html#a184723b5d743b58169be89d3b04265fc", null ],
     [ "OutputStreamColors", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622", [
@@ -51,6 +52,7 @@ var namespacemgis =
     [ "getDefaultLogStream", "namespacemgis.html#a45e2adc7ff0a023a90a1dabb59ceb269", null ],
     [ "getDefaultVerbosityLevel", "namespacemgis.html#afec1ded7072d373932357f7e5e3d4cca", null ],
     [ "getExceptionHandler", "namespacemgis.html#a567cf4676428c9708a8c8c624417ad29", null ],
+    [ "invoke", "namespacemgis.html#a99021463cfb32d4a9994f9ab4be02463", null ],
     [ "isInvalid", "namespacemgis.html#a1a8dddcd5f308fe41d179fec4e9e1820", null ],
     [ "isInvalid", "namespacemgis.html#a643d6088fced32614d8aa29284f5be3b", null ],
     [ "isInvalid", "namespacemgis.html#aa84d9dd121c1dc60c3e29bad8a0a5542", null ],

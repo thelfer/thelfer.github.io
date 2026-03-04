@@ -169,6 +169,11 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>real</b> = <a class=
 using&#160;</td><td class="memItemRight" valign="bottom"><b>ExceptionHandler</b> = void(*)(void)</td></tr>
 <tr class="memdesc:ac0d898c82fab21a0e65fd75290e66903"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
 <tr class="separator:ac0d898c82fab21a0e65fd75290e66903"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb639271daea2a4852ad11f6f8c5fcd9" id="r_acb639271daea2a4852ad11f6f8c5fcd9"><td class="memTemplParams" colspan="2"><a id="acb639271daea2a4852ad11f6f8c5fcd9" name="acb639271daea2a4852ad11f6f8c5fcd9"></a>
+template&lt;typename F , typename... ArgumentsTypes&gt; </td></tr>
+<tr class="memitem:acb639271daea2a4852ad11f6f8c5fcd9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>invoke_result_t</b> = std::conditional_t&lt; std::is_void_v&lt; std::invoke_result_t&lt; F, ArgumentsTypes... &gt; &gt;, bool, std::optional&lt; std::invoke_result_t&lt; F, ArgumentsTypes... &gt; &gt; &gt;</td></tr>
+<tr class="memdesc:acb639271daea2a4852ad11f6f8c5fcd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
+<tr class="separator:acb639271daea2a4852ad11f6f8c5fcd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -327,6 +332,22 @@ template&lt;typename Exception , typename... Args&gt; </td></tr>
 template&lt;typename Exception , typename... Args&gt; </td></tr>
 <tr class="memitem:a14da5a17e7c253e08f8b2dcfe58e2e00"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>raise_if</b> (const bool c, Args &amp;&amp;... a)</td></tr>
 <tr class="separator:a14da5a17e7c253e08f8b2dcfe58e2e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99021463cfb32d4a9994f9ab4be02463" id="r_a99021463cfb32d4a9994f9ab4be02463"><td class="memTemplParams" colspan="2">template&lt;typename F , typename... ArgumentsTypes&gt; </td></tr>
+<tr class="memitem:a99021463cfb32d4a9994f9ab4be02463"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacemgis.html#acb639271daea2a4852ad11f6f8c5fcd9">invoke_result_t</a>&lt; F, ArgumentsTypes... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemgis.html#a99021463cfb32d4a9994f9ab4be02463">invoke</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, F &amp;&amp;, ArgumentsTypes &amp;&amp;...) noexcept</td></tr>
+<tr class="memdesc:a99021463cfb32d4a9994f9ab4be02463"><td class="mdescLeft">&#160;</td><td class="mdescRight">invoke the given callable object param[inout] ctx: execution context  <br /></td></tr>
+<tr class="separator:a99021463cfb32d4a9994f9ab4be02463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac49cf11a1078b84bc5cdad41b6ec877e" id="r_ac49cf11a1078b84bc5cdad41b6ec877e"><td class="memTemplParams" colspan="2"><a id="ac49cf11a1078b84bc5cdad41b6ec877e" name="ac49cf11a1078b84bc5cdad41b6ec877e"></a>
+template&lt;typename F , typename... ArgumentsTypes&gt; </td></tr>
+<tr class="memitem:ac49cf11a1078b84bc5cdad41b6ec877e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacemgis.html#acb639271daea2a4852ad11f6f8c5fcd9">invoke_result_t</a>&lt; F, ArgumentsTypes... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>invokeCheckErrno</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, F &amp;&amp;, ArgumentsTypes &amp;&amp;...) noexcept</td></tr>
+<tr class="separator:ac49cf11a1078b84bc5cdad41b6ec877e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ff68f589ba1ed73053b632e8af797aa" id="r_a7ff68f589ba1ed73053b632e8af797aa"><td class="memTemplParams" colspan="2"><a id="a7ff68f589ba1ed73053b632e8af797aa" name="a7ff68f589ba1ed73053b632e8af797aa"></a>
+template&lt;typename F , typename... ArgumentsTypes&gt; </td></tr>
+<tr class="memitem:a7ff68f589ba1ed73053b632e8af797aa"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacemgis.html#acb639271daea2a4852ad11f6f8c5fcd9">invoke_result_t</a>&lt; F, ArgumentsTypes... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>invokeCheckErrno</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;ctx, F &amp;&amp;f, ArgumentsTypes &amp;&amp;...args) noexcept</td></tr>
+<tr class="separator:a7ff68f589ba1ed73053b632e8af797aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d95c3d83086dd533c744d52c1b53b0b" id="r_a5d95c3d83086dd533c744d52c1b53b0b"><td class="memTemplParams" colspan="2"><a id="a5d95c3d83086dd533c744d52c1b53b0b" name="a5d95c3d83086dd533c744d52c1b53b0b"></a>
+template&lt;typename F , typename... ArgumentsTypes&gt; </td></tr>
+<tr class="memitem:a5d95c3d83086dd533c744d52c1b53b0b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacemgis.html#acb639271daea2a4852ad11f6f8c5fcd9">invoke_result_t</a>&lt; F, ArgumentsTypes... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>invoke</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;ctx, F &amp;&amp;f, ArgumentsTypes &amp;&amp;...args) noexcept</td></tr>
+<tr class="separator:a5d95c3d83086dd533c744d52c1b53b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89631e3868043413ee9ea86edfb7debd" id="r_a89631e3868043413ee9ea86edfb7debd"><td class="memTemplParams" colspan="2"><a id="a89631e3868043413ee9ea86edfb7debd" name="a89631e3868043413ee9ea86edfb7debd"></a>
 template&lt;typename ValueType &gt; </td></tr>
 <tr class="memitem:a89631e3868043413ee9ea86edfb7debd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>swap</b> (<a class="el" href="structmgis_1_1_optional_reference.html">OptionalReference</a>&lt; ValueType &gt; &amp;p1, <a class="el" href="structmgis_1_1_optional_reference.html">OptionalReference</a>&lt; ValueType &gt; &amp;p2) noexcept</td></tr>
@@ -727,6 +748,61 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the current default value of the verbosity level </dd></dl>
+
+</div>
+</div>
+<a id="a99021463cfb32d4a9994f9ab4be02463" name="a99021463cfb32d4a9994f9ab4be02463"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99021463cfb32d4a9994f9ab4be02463">&#9670;&#160;</a></span>invoke()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename F , typename... ArgumentsTypes&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacemgis.html#acb639271daea2a4852ad11f6f8c5fcd9">invoke_result_t</a>&lt; F, ArgumentsTypes... &gt; mgis::invoke </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">F &amp;&amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ArgumentsTypes &amp;&amp;&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>invoke the given callable object param[inout] ctx: execution context </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>callable object </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>If the function invoked has optional arguments (with default values), all the optional arguments must be provided, else the code will not compile with an obscure error message </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>a version check the errno value while the other don't (names are self descriptive) </dd></dl>
 
 </div>
 </div>
@@ -1674,7 +1750,7 @@ template&lt;typename Type , typename... Args&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li>
-    <li class="footer">Generated on Wed Mar 4 2026 13:30:36 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Mar 4 2026 13:59:13 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

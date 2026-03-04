@@ -1,5 +1,15 @@
 var NAVTREEINDEX6 =
 {
+"structmgis_1_1function_1_1_function_view.html#a0d159b16240260b754fed473e20caf41":[3,0,1,3,27,14],
+"structmgis_1_1function_1_1_function_view.html#a128bc71f556b2ed03873daa8bbdb9939":[3,0,1,3,27,17],
+"structmgis_1_1function_1_1_function_view.html#a13de5672933a2121621d41795b5c0721":[3,0,1,3,27,32],
+"structmgis_1_1function_1_1_function_view.html#a189df40a9829d0f032844f70ebf4402b":[3,0,1,3,27,20],
+"structmgis_1_1function_1_1_function_view.html#a1e108c9aad9076436acb9afcf49b88d2":[3,0,1,3,27,19],
+"structmgis_1_1function_1_1_function_view.html#a2400c4f38650a5267ea33c36bc2fc4d9":[3,0,1,3,27,2],
+"structmgis_1_1function_1_1_function_view.html#a24a1874bf5a6d6f2e4e3e9f65dde960f":[3,0,1,3,27,28],
+"structmgis_1_1function_1_1_function_view.html#a27bdb13d4872c5a50f9d2dcff7700433":[3,0,1,3,27,18],
+"structmgis_1_1function_1_1_function_view.html#a28587482d593604fd47cf4177ff7f25f":[3,0,1,3,27,10],
+"structmgis_1_1function_1_1_function_view.html#a2df9585205b1e9edcbc4696d48c46e9a":[3,0,1,3,27,27],
 "structmgis_1_1function_1_1_function_view.html#a3caac10a3fcc891cf1ea230deb5cb905":[3,0,1,3,27,13],
 "structmgis_1_1function_1_1_function_view.html#a41226b2f5a44676e15f3fde3eaf4eefa":[3,0,1,3,27,8],
 "structmgis_1_1function_1_1_function_view.html#a48d1bf875c23e8c6debe385e3fa05e30":[3,0,1,3,27,30],
@@ -239,15 +249,5 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1internals_1_1unary__operation__modifier.html#ac7d46ab7302f9d8b8a2d99596da3aafe":[3,0,1,3,1,92,0],
 "structmgis_1_1function_1_1internals_1_1unary__operation__modifier2__impl.html":[3,0,1,3,1,93],
 "structmgis_1_1function_1_1internals_1_1unary__operation__modifier2__impl.html#abf624ce3b092e75b97f700f05e3f0b9d":[3,0,1,3,1,93,0],
-"structmgis_1_1internal_1_1_invalid_value_traits.html":[3,0,1,4,0],
-"structmgis_1_1internal_1_1_invalid_value_traits_3_01bool_01_4.html":[3,0,1,4,1],
-"structmgis_1_1internal_1_1_invalid_value_traits_3_01mgis_1_1_optional_reference_3_01_value_type_01_4_01_4.html":[3,0,1,4,2],
-"structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html":[3,0,1,4,5],
-"structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01bool_01_4_01_4.html":[3,0,1,4,3],
-"structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01const_01_t_01_4_01_4.html":[3,0,1,4,4],
-"structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1shared__ptr_3_01_t_01_4_01_4.html":[3,0,1,4,6],
-"structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1unique__ptr_3_01_t_01_4_01_4.html":[3,0,1,4,7],
-"structmgis_1_1internal_1_1_optional_traits.html":[3,0,1,4,8],
-"structmgis_1_1internal_1_1_optional_traits_3_01_optional_reference_3_01_t_01_4_01_4.html":[3,0,1,4,10],
-"structmgis_1_1internal_1_1_optional_traits_3_01bool_01_4.html":[3,0,1,4,9]
+"structmgis_1_1internal_1_1_invalid_value_traits.html":[3,0,1,4,0]
 };

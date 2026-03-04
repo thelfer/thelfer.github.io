@@ -57,7 +57,8 @@ var NAVTREE =
         [ "Functions", "globals_func.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ]
+        [ "Enumerator", "globals_eval.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -67,12 +68,12 @@ var NAVTREEINDEX =
 [
 "_abstract_error_handler_8hxx.html",
 "_integrate_8hxx.html#a1090c5b8255f9facfdae4ded45d9662f",
-"_tensor_concept_8hxx.html",
-"namespaces.html",
-"structmgis_1_1_thread_pool.html#a7aefcd6a1dc6775e51644cf452e5046c",
-"structmgis_1_1behaviour_1_1_material_state_manager.html#a90e292645723b5ce338ba71a86f30b7e",
-"structmgis_1_1function_1_1_function_view.html#a3caac10a3fcc891cf1ea230deb5cb905",
-"structmgis_1_1internal_1_1_optional_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html"
+"_storage_mode_8hxx.html#acfa329cdb845baaac0f34444bd18d0c5a4870a590d4d8bb83f3bfdc68a251929c",
+"namespacemgis.html#ae27c067cd94c99251df4640e86ecd3a9aa1f38c635b7b93bff9b0377313a7bb20",
+"structmgis_1_1_libraries_manager.html#afe0128add6472f8048443c8d9f293227",
+"structmgis_1_1behaviour_1_1_material_state_manager.html#a0115341a3371acf269b0e5c4145eace2",
+"structmgis_1_1function_1_1_function_view.html#a0d159b16240260b754fed473e20caf41",
+"structmgis_1_1internal_1_1_invalid_value_traits_3_01bool_01_4.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

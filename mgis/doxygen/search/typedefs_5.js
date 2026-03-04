@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['libhandler_0',['libhandler',['../structmgis_1_1_libraries_manager.html#a3d4d0867f71421641bb4d263ba6c8143',1,'mgis::LibrariesManager']]]
+  ['invoke_5fresult_5ft_0',['invoke_result_t',['../namespacemgis.html#acb639271daea2a4852ad11f6f8c5fcd9',1,'mgis']]]
 ];

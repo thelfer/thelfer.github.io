@@ -332,6 +332,56 @@ template&lt;typename Exception , typename... Args&gt; </td></tr>
 template&lt;typename Exception , typename... Args&gt; </td></tr>
 <tr class="memitem:a14da5a17e7c253e08f8b2dcfe58e2e00"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>raise_if</b> (const bool c, Args &amp;&amp;... a)</td></tr>
 <tr class="separator:a14da5a17e7c253e08f8b2dcfe58e2e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10e155da7fe2a6c62f1cf67e1e929593" id="r_a10e155da7fe2a6c62f1cf67e1e929593"><td class="memTemplParams" colspan="2">template&lt;typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</td></tr>
+<tr class="memitem:a10e155da7fe2a6c62f1cf67e1e929593"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemgis.html#a10e155da7fe2a6c62f1cf67e1e929593">construct</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, ArgumentsTypes &amp;&amp;...) noexcept</td></tr>
+<tr class="memdesc:a10e155da7fe2a6c62f1cf67e1e929593"><td class="mdescLeft">&#160;</td><td class="mdescRight">try to build an object of the given type.  <br /></td></tr>
+<tr class="separator:a10e155da7fe2a6c62f1cf67e1e929593"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3dfb693fec982f6f9d7bca07782574a" id="r_ac3dfb693fec982f6f9d7bca07782574a"><td class="memTemplParams" colspan="2">template&lt;typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</td></tr>
+<tr class="memitem:ac3dfb693fec982f6f9d7bca07782574a"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemgis.html#ac3dfb693fec982f6f9d7bca07782574a">make_unique</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, ArgumentsTypes &amp;&amp;...) noexcept</td></tr>
+<tr class="memdesc:ac3dfb693fec982f6f9d7bca07782574a"><td class="mdescLeft">&#160;</td><td class="mdescRight">try to build a unique pointer holding the given type.  <br /></td></tr>
+<tr class="separator:ac3dfb693fec982f6f9d7bca07782574a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95d120f694f0b9e6ea0826366c34c630" id="r_a95d120f694f0b9e6ea0826366c34c630"><td class="memTemplParams" colspan="2">template&lt;typename BaseType , typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_base_of_v&lt;BaseType, Type&gt; &amp;&amp; std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</td></tr>
+<tr class="memitem:a95d120f694f0b9e6ea0826366c34c630"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; BaseType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemgis.html#a95d120f694f0b9e6ea0826366c34c630">make_unique_as</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, ArgumentsTypes &amp;&amp;...) noexcept</td></tr>
+<tr class="memdesc:a95d120f694f0b9e6ea0826366c34c630"><td class="mdescLeft">&#160;</td><td class="mdescRight">try to build a unique pointer of a base type holding the given type.  <br /></td></tr>
+<tr class="separator:a95d120f694f0b9e6ea0826366c34c630"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39a3ee38157b7af42c2f3bb656c63e53" id="r_a39a3ee38157b7af42c2f3bb656c63e53"><td class="memTemplParams" colspan="2">template&lt;typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</td></tr>
+<tr class="memitem:a39a3ee38157b7af42c2f3bb656c63e53"><td class="memTemplItemLeft" align="right" valign="top">std::shared_ptr&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemgis.html#a39a3ee38157b7af42c2f3bb656c63e53">make_shared</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, ArgumentsTypes &amp;&amp;...) noexcept</td></tr>
+<tr class="memdesc:a39a3ee38157b7af42c2f3bb656c63e53"><td class="mdescLeft">&#160;</td><td class="mdescRight">try to build a shared pointer holding the given type.  <br /></td></tr>
+<tr class="separator:a39a3ee38157b7af42c2f3bb656c63e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a55cfcc3ed09a79e5e7616d65e5aeed" id="r_a9a55cfcc3ed09a79e5e7616d65e5aeed"><td class="memTemplParams" colspan="2">template&lt;typename BaseType , typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_base_of_v&lt;BaseType, Type&gt; &amp;&amp; std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</td></tr>
+<tr class="memitem:a9a55cfcc3ed09a79e5e7616d65e5aeed"><td class="memTemplItemLeft" align="right" valign="top">std::shared_ptr&lt; BaseType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemgis.html#a9a55cfcc3ed09a79e5e7616d65e5aeed">make_shared_as</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, ArgumentsTypes &amp;&amp;...) noexcept</td></tr>
+<tr class="memdesc:a9a55cfcc3ed09a79e5e7616d65e5aeed"><td class="mdescLeft">&#160;</td><td class="mdescRight">try to build a shared pointer of a base type holding the given type.  <br /></td></tr>
+<tr class="separator:a9a55cfcc3ed09a79e5e7616d65e5aeed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acec2b140e0826aab336f8dadac6a7278" id="r_acec2b140e0826aab336f8dadac6a7278"><td class="memTemplParams" colspan="2"><a id="acec2b140e0826aab336f8dadac6a7278" name="acec2b140e0826aab336f8dadac6a7278"></a>
+template&lt;typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</td></tr>
+<tr class="memitem:acec2b140e0826aab336f8dadac6a7278"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;ctx, ArgumentsTypes &amp;&amp;...args) noexcept</td></tr>
+<tr class="separator:acec2b140e0826aab336f8dadac6a7278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa670a233445599c2ade390bf68488d9d" id="r_aa670a233445599c2ade390bf68488d9d"><td class="memTemplParams" colspan="2"><a id="aa670a233445599c2ade390bf68488d9d" name="aa670a233445599c2ade390bf68488d9d"></a>
+template&lt;typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</td></tr>
+<tr class="memitem:aa670a233445599c2ade390bf68488d9d"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>make_unique</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;ctx, ArgumentsTypes &amp;&amp;...args) noexcept</td></tr>
+<tr class="separator:aa670a233445599c2ade390bf68488d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa49fd3416bff9beda072771527f8433a" id="r_aa49fd3416bff9beda072771527f8433a"><td class="memTemplParams" colspan="2"><a id="aa49fd3416bff9beda072771527f8433a" name="aa49fd3416bff9beda072771527f8433a"></a>
+template&lt;typename BaseType , typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_base_of_v&lt;BaseType, Type&gt; &amp;&amp; std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</td></tr>
+<tr class="memitem:aa49fd3416bff9beda072771527f8433a"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; BaseType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>make_unique_as</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;ctx, ArgumentsTypes &amp;&amp;...args) noexcept</td></tr>
+<tr class="separator:aa49fd3416bff9beda072771527f8433a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a554817d861e70427cb88fbeaf13b8fe2" id="r_a554817d861e70427cb88fbeaf13b8fe2"><td class="memTemplParams" colspan="2"><a id="a554817d861e70427cb88fbeaf13b8fe2" name="a554817d861e70427cb88fbeaf13b8fe2"></a>
+template&lt;typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</td></tr>
+<tr class="memitem:a554817d861e70427cb88fbeaf13b8fe2"><td class="memTemplItemLeft" align="right" valign="top">std::shared_ptr&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>make_shared</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;ctx, ArgumentsTypes &amp;&amp;...args) noexcept</td></tr>
+<tr class="separator:a554817d861e70427cb88fbeaf13b8fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01e4d63718cd8a18ae53145fb9b5855a" id="r_a01e4d63718cd8a18ae53145fb9b5855a"><td class="memTemplParams" colspan="2"><a id="a01e4d63718cd8a18ae53145fb9b5855a" name="a01e4d63718cd8a18ae53145fb9b5855a"></a>
+template&lt;typename BaseType , typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_base_of_v&lt;BaseType, Type&gt; &amp;&amp; std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</td></tr>
+<tr class="memitem:a01e4d63718cd8a18ae53145fb9b5855a"><td class="memTemplItemLeft" align="right" valign="top">std::shared_ptr&lt; BaseType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>make_shared_as</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;ctx, ArgumentsTypes &amp;&amp;...args) noexcept</td></tr>
+<tr class="separator:a01e4d63718cd8a18ae53145fb9b5855a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99021463cfb32d4a9994f9ab4be02463" id="r_a99021463cfb32d4a9994f9ab4be02463"><td class="memTemplParams" colspan="2">template&lt;typename F , typename... ArgumentsTypes&gt; </td></tr>
 <tr class="memitem:a99021463cfb32d4a9994f9ab4be02463"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacemgis.html#acb639271daea2a4852ad11f6f8c5fcd9">invoke_result_t</a>&lt; F, ArgumentsTypes... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemgis.html#a99021463cfb32d4a9994f9ab4be02463">invoke</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, F &amp;&amp;, ArgumentsTypes &amp;&amp;...) noexcept</td></tr>
 <tr class="memdesc:a99021463cfb32d4a9994f9ab4be02463"><td class="mdescLeft">&#160;</td><td class="mdescRight">invoke the given callable object param[inout] ctx: execution context  <br /></td></tr>
@@ -542,6 +592,62 @@ constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>preconditio
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">o</td><td>objects tested </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a10e155da7fe2a6c62f1cf67e1e929593" name="a10e155da7fe2a6c62f1cf67e1e929593"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10e155da7fe2a6c62f1cf67e1e929593">&#9670;&#160;</a></span>construct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; Type &gt; mgis::construct </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ArgumentsTypes &amp;&amp;&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>try to build an object of the given type. </p>
+<p>The constructor of the object may throw. In this case, the exception thrown is catched and the information hold by the exception is added to the list of registered error messages.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Type</td><td>type to build. </td></tr>
+    <tr><td class="paramname">ArgumentsTypes</td><td>types of the arguments passed to the constructor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>arguments passed to the constructor </td></tr>
   </table>
   </dd>
 </dl>
@@ -1006,6 +1112,233 @@ template&lt;typename T &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">o</td><td>object tested </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a39a3ee38157b7af42c2f3bb656c63e53" name="a39a3ee38157b7af42c2f3bb656c63e53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39a3ee38157b7af42c2f3bb656c63e53">&#9670;&#160;</a></span>make_shared()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; Type &gt; mgis::make_shared </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ArgumentsTypes &amp;&amp;&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>try to build a shared pointer holding the given type. </p>
+<p>The constructor of the object may throw. In this case, the exception thrown is catched and the information hold by the exception is added to the list of registered error messages.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Type</td><td>type to build. </td></tr>
+    <tr><td class="paramname">ArgumentsTypes</td><td>types of the arguments passed to the constructor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>arguments passed to the constructor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9a55cfcc3ed09a79e5e7616d65e5aeed" name="a9a55cfcc3ed09a79e5e7616d65e5aeed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a55cfcc3ed09a79e5e7616d65e5aeed">&#9670;&#160;</a></span>make_shared_as()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BaseType , typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_base_of_v&lt;BaseType, Type&gt; &amp;&amp; std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; BaseType &gt; mgis::make_shared_as </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ArgumentsTypes &amp;&amp;&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>try to build a shared pointer of a base type holding the given type. </p>
+<p>The constructor of the object may throw. In this case, the exception thrown is catched and the information hold by the exception is added to the list of registered error messages.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">BaseType</td><td>base type used to store the build object. </td></tr>
+    <tr><td class="paramname">Type</td><td>type to build. </td></tr>
+    <tr><td class="paramname">ArgumentsTypes</td><td>types of the arguments passed to the constructor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>arguments passed to the constructor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac3dfb693fec982f6f9d7bca07782574a" name="ac3dfb693fec982f6f9d7bca07782574a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3dfb693fec982f6f9d7bca07782574a">&#9670;&#160;</a></span>make_unique()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; Type &gt; mgis::make_unique </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ArgumentsTypes &amp;&amp;&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>try to build a unique pointer holding the given type. </p>
+<p>The constructor of the object may throw. In this case, the exception thrown is catched and the information hold by the exception is added to the list of registered error messages.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">BaseType</td><td>base type used to store the build object. </td></tr>
+    <tr><td class="paramname">Type</td><td>type to build. </td></tr>
+    <tr><td class="paramname">ArgumentsTypes</td><td>types of the arguments passed to the constructor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>arguments passed to the constructor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a95d120f694f0b9e6ea0826366c34c630" name="a95d120f694f0b9e6ea0826366c34c630"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95d120f694f0b9e6ea0826366c34c630">&#9670;&#160;</a></span>make_unique_as()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BaseType , typename Type , typename... ArgumentsTypes&gt; <br />
+requires std::is_base_of_v&lt;BaseType, Type&gt; &amp;&amp; std::is_constructible_v&lt;std::remove_const_t&lt;Type&gt;, ArgumentsTypes...&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; BaseType &gt; mgis::make_unique_as </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ArgumentsTypes &amp;&amp;&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>try to build a unique pointer of a base type holding the given type. </p>
+<p>The constructor of the object may throw. In this case, the exception thrown is catched and the information hold by the exception is added to the list of registered error messages.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">BaseType</td><td>base type used to store the build object. </td></tr>
+    <tr><td class="paramname">Type</td><td>type to build. </td></tr>
+    <tr><td class="paramname">ArgumentsTypes</td><td>types of the arguments passed to the constructor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>arguments passed to the constructor </td></tr>
   </table>
   </dd>
 </dl>
@@ -1750,7 +2083,7 @@ template&lt;typename Type , typename... Args&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li>
-    <li class="footer">Generated on Wed Mar 4 2026 13:59:13 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Mar 4 2026 19:57:33 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

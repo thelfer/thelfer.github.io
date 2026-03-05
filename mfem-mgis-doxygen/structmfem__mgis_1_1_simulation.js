@@ -29,7 +29,7 @@ var structmfem__mgis_1_1_simulation =
     [ "unsetMaximumNumberOfTimeSteps", "structmfem__mgis_1_1_simulation.html#ae0c5e303243d9958663719f3643e6aa4", null ],
     [ "unsetNumberOfTimeStepsBetweenPostProcessings", "structmfem__mgis_1_1_simulation.html#af58d6b67741c4ae28f8e2ee18e30647b", null ],
     [ "unsetTimeBetweenPostProcessings", "structmfem__mgis_1_1_simulation.html#a36755064e2a8d1bd696caebd1061bd25", null ],
-    [ "allow_substepping", "structmfem__mgis_1_1_simulation.html#aeec920201b7f50177826a505872dbf73", null ],
+    [ "allowSubStepping", "structmfem__mgis_1_1_simulation.html#a8c70a29e72957c832328677a3ac6f740", null ],
     [ "balanceTimeIncrements", "structmfem__mgis_1_1_simulation.html#ab8e76ff0f07c9a66fe30f76722e0eea7", null ],
     [ "convergenceFailureHandler", "structmfem__mgis_1_1_simulation.html#a449ccfddf5330ec00db47a71f776742a", null ],
     [ "independentTemporalSequences", "structmfem__mgis_1_1_simulation.html#a1f2eef6b6f9ca25cba42c2892ac478fd", null ],

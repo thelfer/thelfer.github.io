@@ -51,5 +51,7 @@ var searchData=
   ['externaldata_48',['ExternalData',['../structmgis_1_1function_1_1_function_view.html#a08a8e4655f43045e03fb10242953f259',1,'mgis::function::FunctionView']]],
   ['externalfunctionmanager_49',['ExternalFunctionManager',['../structmtest_1_1_scheme_parser_base.html#ab231a2aece8b414b3e2c2f7dfdc7e1c4',1,'mtest::SchemeParserBase']]],
   ['externalfunctionmanagerptr_50',['ExternalFunctionManagerPtr',['../_external_function_manager_8hxx.html#a32dbc28a7924aaf4ceb9e2600afd7150',1,'tfel::math::parser']]],
-  ['externalmaterialpropertydata_51',['ExternalMaterialPropertyData',['../_external_material_property_description_8hxx.html#aa98e5a966e85f93e198c79497796c5a4',1,'tfel::system']]]
+  ['externalmaterialpropertydata_51',['ExternalMaterialPropertyData',['../_external_material_property_description_8hxx.html#aa98e5a966e85f93e198c79497796c5a4',1,'tfel::system']]],
+  ['externaltimestepvalidator_52',['ExternalTimeStepValidator',['../structmfem__mgis_1_1_simulation.html#a8de44096606bef8375eebcfd7d244d94',1,'mfem_mgis::Simulation']]],
+  ['externalvalidator_53',['ExternalValidator',['../structmfem__mgis_1_1_abstract_time_step_validator.html#a2c0c47d853f2f625734740c67935f79d',1,'mfem_mgis::AbstractTimeStepValidator']]]
 ];

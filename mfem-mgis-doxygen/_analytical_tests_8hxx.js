@@ -1,5 +1,6 @@
 var _analytical_tests_8hxx =
 [
-    [ "compareToAnalyticalSolution", "_analytical_tests_8hxx.html#af77832b16f1034313c3e6d5fa0903aeb", null ],
-    [ "computeL2ErrorAgainstAnalyticalSolution", "_analytical_tests_8hxx.html#a8b0612837eb9bf8d9f96e8d6b5f41464", null ]
+    [ "compareToAnalyticalSolution", "_analytical_tests_8hxx.html#ac760ee7a18208f4b645849859b346f56", null ],
+    [ "compareToAnalyticalSolution", "_analytical_tests_8hxx.html#a8919cffc9dcbf565941cb1826ec6a19f", null ],
+    [ "computeL2ErrorAgainstAnalyticalSolution", "_analytical_tests_8hxx.html#af9b3c5e18b715733aa6487e8d1c501b5", null ]
 ];

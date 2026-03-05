@@ -178,6 +178,17 @@ var hierarchy =
       [ "mfem_mgis::UniformHeatSourceBoundaryCondition", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html", null ],
       [ "mfem_mgis::UniformImposedPressureBoundaryCondition", "structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html", null ]
     ] ],
+    [ "mfem_mgis::AbstractConvergenceFailureHandler", "structmfem__mgis_1_1_abstract_convergence_failure_handler.html", [
+      [ "mfem_mgis::ConvergenceFailureHandlerBase", "structmfem__mgis_1_1_convergence_failure_handler_base.html", [
+        [ "mfem_mgis::DefaultConvergenceFailureHandler", "structmfem__mgis_1_1_default_convergence_failure_handler.html", null ]
+      ] ]
+    ] ],
+    [ "mfem_mgis::AbstractDirichletBoundaryCondition", "structmfem__mgis_1_1_abstract_dirichlet_boundary_condition.html", [
+      [ "mfem_mgis::DirichletBoundaryConditionBase", "structmfem__mgis_1_1_dirichlet_boundary_condition_base.html", [
+        [ "mfem_mgis::UniformDirichletBoundaryCondition", "structmfem__mgis_1_1_uniform_dirichlet_boundary_condition.html", null ]
+      ] ],
+      [ "mfem_mgis::ImposedDirichletBoundaryConditionAtClosestNode", "structmfem__mgis_1_1_imposed_dirichlet_boundary_condition_at_closest_node.html", null ]
+    ] ],
     [ "mfront::AbstractDSL", "structmfront_1_1_abstract_d_s_l.html", [
       [ "mfront::AbstractBehaviourDSL", "structmfront_1_1_abstract_behaviour_d_s_l.html", [
         [ "mfront::BehaviourDSLCommon", "structmfront_1_1_behaviour_d_s_l_common.html", [
@@ -239,6 +250,7 @@ var hierarchy =
         [ "mfem_mgis::NonLinearEvolutionProblemImplementation< true >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html", null ]
       ] ]
     ] ],
+    [ "mfem_mgis::AbstractSimulationMonitor", "structmfem__mgis_1_1_abstract_simulation_monitor.html", null ],
     [ "mfmtg::AbstractTestCase", "structmfmtg_1_1_abstract_test_case.html", [
       [ "mfmtg::TestCaseBase", "structmfmtg_1_1_test_case_base.html", [
         [ "mfmtg::ClosedPipeTest", "structmfmtg_1_1_closed_pipe_test.html", null ],
@@ -246,6 +258,16 @@ var hierarchy =
       ] ]
     ] ],
     [ "mfmtg::AbstractTestCaseFactory", "structmfmtg_1_1_abstract_test_case_factory.html", null ],
+    [ "mfem_mgis::AbstractTimeIncrementComputer", "structmfem__mgis_1_1_abstract_time_increment_computer.html", [
+      [ "mfem_mgis::TimeIncrementComputerBase", "structmfem__mgis_1_1_time_increment_computer_base.html", [
+        [ "mfem_mgis::DefaultTimeIncrementComputer", "structmfem__mgis_1_1_default_time_increment_computer.html", null ]
+      ] ]
+    ] ],
+    [ "mfem_mgis::AbstractTimeStepValidator", "structmfem__mgis_1_1_abstract_time_step_validator.html", [
+      [ "mfem_mgis::TimeStepValidatorBase", "structmfem__mgis_1_1_time_step_validator_base.html", [
+        [ "mfem_mgis::DefaultTimeStepValidator", "structmfem__mgis_1_1_default_time_step_validator.html", null ]
+      ] ]
+    ] ],
     [ "tfel::typetraits::AbsType< T >", "structtfel_1_1typetraits_1_1_abs_type.html", null ],
     [ "tfel::typetraits::AbsType< tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_abs_type_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value_tf421ad894c0e59cc432cbd78397469b4.html", null ],
     [ "mtest::AccelerationAlgorithm", "structmtest_1_1_acceleration_algorithm.html", [
@@ -1583,12 +1605,6 @@ var hierarchy =
     [ "tfel::math::DifferenceRandomAccessIteratorBase", "structtfel_1_1math_1_1_difference_random_access_iterator_base.html", [
       [ "tfel::math::DifferenceRandomAccessIterator< iterator_base >", "structtfel_1_1math_1_1_difference_random_access_iterator.html", null ]
     ] ],
-    [ "mfem_mgis::DirichletBoundaryCondition", "structmfem__mgis_1_1_dirichlet_boundary_condition.html", [
-      [ "mfem_mgis::DirichletBoundaryConditionBase", "structmfem__mgis_1_1_dirichlet_boundary_condition_base.html", [
-        [ "mfem_mgis::UniformDirichletBoundaryCondition", "structmfem__mgis_1_1_uniform_dirichlet_boundary_condition.html", null ]
-      ] ],
-      [ "mfem_mgis::ImposedDirichletBoundaryConditionAtClosestNode", "structmfem__mgis_1_1_imposed_dirichlet_boundary_condition_at_closest_node.html", null ]
-    ] ],
     [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >::Integrator::DissipatedEnergyComputer", "structabaqus_1_1_abaqus_behaviour_handler_1_1_integrator_1_1_dissipated_energy_computer.html", null ],
     [ "abaqus::AbaqusExplicitInterface< H, T, Behaviour >::DissipatedEnergyComputer", "structabaqus_1_1_abaqus_explicit_interface_1_1_dissipated_energy_computer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DissipatedEnergyComputer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_dissipated_energy_computer.html", null ],
@@ -1610,8 +1626,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
+    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -1848,6 +1864,7 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "mfem_mgis::ExitStatus", "structmfem__mgis_1_1_exit_status.html", null ],
     [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesBase::ExportedFunctionsDescription", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_base_1_1_exported_functions_description.html", null ],
     [ "ansys::ExportSymmetricTensor< N >", "structansys_1_1_export_symmetric_tensor.html", null ],
     [ "dianafea::ExportSymmetricTensor< N >", "structdianafea_1_1_export_symmetric_tensor.html", null ],
@@ -2354,6 +2371,7 @@ var hierarchy =
     ] ],
     [ "mgis::internal::InvalidValueTraits< Type >", "structmgis_1_1internal_1_1_invalid_value_traits.html", null ],
     [ "mgis::internal::InvalidValueTraits< bool >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01bool_01_4.html", null ],
+    [ "mgis::internal::InvalidValueTraits< mfem_mgis::ExitStatus >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01mfem__mgis_1_1_exit_status_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< mfem_mgis::LinearSolverHandler >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01mfem__mgis_1_1_linear_solver_handler_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< mfem_mgis::NonLinearResolutionOutput >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01mfem__mgis_1_1_non_linear_resolution_output_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< mgis::OptionalReference< ValueType > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01mgis_1_1_optional_reference_3_01_value_type_01_4_01_4.html", null ],
@@ -2614,7 +2632,9 @@ var hierarchy =
     [ "tfel::math::internals::MakeViewReference< T >", "structtfel_1_1math_1_1internals_1_1_make_view_reference.html", null ],
     [ "tfel::math::internals::MakeViewReference< Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1math_1_1internals_1_1_make_view_reference_3_01_quantity_3_01_unit_type_00_01_value608ffc369e636736ceaafcbeb12f1dfd.html", null ],
     [ "std::map", null, [
-      [ "mfem_mgis::Parameters", "structmfem__mgis_1_1_parameters.html", null ],
+      [ "mfem_mgis::Parameters", "structmfem__mgis_1_1_parameters.html", [
+        [ "mfem_mgis::SimulationOutput", "structmfem__mgis_1_1_simulation_output.html", null ]
+      ] ],
       [ "tfel::math::parser::ExternalFunctionManager", "structtfel_1_1math_1_1parser_1_1_external_function_manager.html", null ]
     ] ],
     [ "mgis::behaviour::MaterialAxisStorage", "structmgis_1_1behaviour_1_1_material_axis_storage.html", [
@@ -2852,6 +2872,7 @@ var hierarchy =
     [ "tfel::math::parser::OpPlus", "structtfel_1_1math_1_1parser_1_1_op_plus.html", null ],
     [ "tfel::math::parser::OpPower", "structtfel_1_1math_1_1parser_1_1_op_power.html", null ],
     [ "mgis::OptionalReference< ValueType >", "structmgis_1_1_optional_reference.html", null ],
+    [ "mgis::OptionalReference< mfem_mgis::AbstractNonLinearEvolutionProblem >", "structmgis_1_1_optional_reference.html", null ],
     [ "mgis::internal::OptionalTraits< Type >", "structmgis_1_1internal_1_1_optional_traits.html", null ],
     [ "mgis::internal::OptionalTraits< bool >", "structmgis_1_1internal_1_1_optional_traits_3_01bool_01_4.html", null ],
     [ "mgis::internal::OptionalTraits< OptionalReference< T > >", "structmgis_1_1internal_1_1_optional_traits_3_01_optional_reference_3_01_t_01_4_01_4.html", null ],
@@ -3085,6 +3106,7 @@ var hierarchy =
     [ "tfel::typetraits::RealPartType< const tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_real_part_type_3_01const_01tfel_1_1math_1_1_quantity_3_01_unit_type06bfe17f8b9907e94370130dabd28a13.html", null ],
     [ "tfel::typetraits::RealPartType< tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_real_part_type_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_v9b5beb0e49f0989314db31a07b38bc9b.html", null ],
     [ "mfront::BehaviourData::Relocation", "structmfront_1_1_behaviour_data_1_1_relocation.html", null ],
+    [ "mfem_mgis::AbstractTimeStepValidator::Result", "structmfem__mgis_1_1_abstract_time_step_validator_1_1_result.html", null ],
     [ "tfel::math::ResultOfEvaluation< ObjectType >", "structtfel_1_1math_1_1_result_of_evaluation.html", null ],
     [ "tfel::math::ResultOfEvaluation< CoalescedViewBase< MappedType, IndexingPolicyType, CoalescedAccessPolicy > >", "structtfel_1_1math_1_1_result_of_evaluation_3_01_coalesced_view_base_3_01_mapped_type_00_01_indecc1bb3974e915d5a3c0795a3cf2fa599.html", null ],
     [ "tfel::math::ResultOfEvaluation< Expr< ResultType, Operation > >", "structtfel_1_1math_1_1_result_of_evaluation_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html", null ],
@@ -3262,6 +3284,8 @@ var hierarchy =
       [ "tfel::system::MemberSignalHandler< Class >", "structtfel_1_1system_1_1_member_signal_handler.html", null ]
     ] ],
     [ "tfel::system::SignalManager", "structtfel_1_1system_1_1_signal_manager.html", null ],
+    [ "mfem_mgis::Simulation", "structmfem__mgis_1_1_simulation.html", null ],
+    [ "mfem_mgis::Simulation::SimulationRunState", "structmfem__mgis_1_1_simulation_1_1_simulation_run_state.html", null ],
     [ "mfront::SingleVariableInterpolatedData", "structmfront_1_1_single_variable_interpolated_data.html", [
       [ "mfront::bbrick::DataIsotropicHardeningRule", "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html", null ]
     ] ],
@@ -4145,6 +4169,7 @@ var hierarchy =
     [ "numodis::Vect3", "structnumodis_1_1_vect3.html", null ],
     [ "std::vector", null, [
       [ "mfem_mgis::PartialQuadratureFunctionsSet", "structmfem__mgis_1_1_partial_quadrature_functions_set.html", null ],
+      [ "mfem_mgis::Simulation::TimesDescription", "structmfem__mgis_1_1_simulation_1_1_times_description.html", null ],
       [ "mfront::StaticVariableDescriptionContainer", "structmfront_1_1_static_variable_description_container.html", null ],
       [ "mfront::VariableDescriptionContainer", "structmfront_1_1_variable_description_container.html", null ]
     ] ],

@@ -1,9 +1,0 @@
-var structmfem__mgis_1_1_first_iteration_convergence_criterion =
-[
-    [ "FirstIterationConvergenceCriterion", "structmfem__mgis_1_1_first_iteration_convergence_criterion.html#a53aa71d13531f78d24fbd3103a8c204d", null ],
-    [ "~FirstIterationConvergenceCriterion", "structmfem__mgis_1_1_first_iteration_convergence_criterion.html#a156fda22d0fc8a3d985115447ce4e667", null ],
-    [ "check", "structmfem__mgis_1_1_first_iteration_convergence_criterion.html#acbe10f94f40caae4bec985a5a4f60505", null ],
-    [ "performInitializationTaksAtTheBeginningOfTheTimeStep", "structmfem__mgis_1_1_first_iteration_convergence_criterion.html#af4ca8d49d08e37505ab61ea6227f3ff2", null ],
-    [ "revert", "structmfem__mgis_1_1_first_iteration_convergence_criterion.html#a8a7fbe7dfbf244044e9818f5dd9d54b9", null ],
-    [ "update", "structmfem__mgis_1_1_first_iteration_convergence_criterion.html#ae7235fe7bf67c8e10dd6ecd07cd10232", null ]
-];

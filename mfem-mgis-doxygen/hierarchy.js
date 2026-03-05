@@ -183,22 +183,6 @@ var hierarchy =
         [ "mfem_mgis::DefaultConvergenceFailureHandler", "structmfem__mgis_1_1_default_convergence_failure_handler.html", null ]
       ] ]
     ] ],
-    [ "mfem_mgis::AbstractCouplingItem", "structmfem__mgis_1_1_abstract_coupling_item.html", [
-      [ "mfem_mgis::AbstractCouplingScheme", "structmfem__mgis_1_1_abstract_coupling_scheme.html", [
-        [ "mfem_mgis::CouplingSchemeBase", "structmfem__mgis_1_1_coupling_scheme_base.html", [
-          [ "mfem_mgis::IterativeCouplingScheme", "structmfem__mgis_1_1_iterative_coupling_scheme.html", null ],
-          [ "mfem_mgis::LoopCouplingScheme", "structmfem__mgis_1_1_loop_coupling_scheme.html", null ]
-        ] ]
-      ] ],
-      [ "mfem_mgis::AbstractModel", "structmfem__mgis_1_1_abstract_model.html", [
-        [ "mfem_mgis::ModelBase", "structmfem__mgis_1_1_model_base.html", null ]
-      ] ]
-    ] ],
-    [ "mfem_mgis::AbstractCouplingSchemeConvergenceCriterion", "structmfem__mgis_1_1_abstract_coupling_scheme_convergence_criterion.html", [
-      [ "mfem_mgis::CouplingSchemeConvergenceCriterionBase", "structmfem__mgis_1_1_coupling_scheme_convergence_criterion_base.html", [
-        [ "mfem_mgis::FirstIterationConvergenceCriterion", "structmfem__mgis_1_1_first_iteration_convergence_criterion.html", null ]
-      ] ]
-    ] ],
     [ "mfem_mgis::AbstractDirichletBoundaryCondition", "structmfem__mgis_1_1_abstract_dirichlet_boundary_condition.html", [
       [ "mfem_mgis::DirichletBoundaryConditionBase", "structmfem__mgis_1_1_dirichlet_boundary_condition_base.html", [
         [ "mfem_mgis::UniformDirichletBoundaryCondition", "structmfem__mgis_1_1_uniform_dirichlet_boundary_condition.html", null ]
@@ -1451,7 +1435,6 @@ var hierarchy =
       [ "mtest::ConstraintBase", "structmtest_1_1_constraint_base.html", null ]
     ] ],
     [ "mgis::ContextInitializer", "structmgis_1_1_context_initializer.html", null ],
-    [ "mfem_mgis::CouplingSchemeBase::ContextState", "structmfem__mgis_1_1_coupling_scheme_base_1_1_context_state.html", null ],
     [ "mgis::function::internals::ConvertFiniteStrainStiffnessEvaluator< N, ResultFlag, SourceFlag, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html", null ],
     [ "mgis::function::internals::ConvertFiniteStrainStiffnessModifierGenerator< N, ResultFlag, SourceFlag, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_modifier_generator.html", null ],
     [ "tfel::math::ConvertKirchhoffStressJaumanRateModuliToKirchhoffStressDerivative< N, T >", "structtfel_1_1math_1_1_convert_kirchhoff_stress_jauman_rate_moduli_to_kirchhoff_stress_derivative.html", null ],
@@ -1643,8 +1626,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
+    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -2650,7 +2633,6 @@ var hierarchy =
     [ "tfel::math::internals::MakeViewReference< Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1math_1_1internals_1_1_make_view_reference_3_01_quantity_3_01_unit_type_00_01_value608ffc369e636736ceaafcbeb12f1dfd.html", null ],
     [ "std::map", null, [
       [ "mfem_mgis::Parameters", "structmfem__mgis_1_1_parameters.html", [
-        [ "mfem_mgis::ComputeNextStateOutput", "structmfem__mgis_1_1_compute_next_state_output.html", null ],
         [ "mfem_mgis::SimulationOutput", "structmfem__mgis_1_1_simulation_output.html", null ]
       ] ],
       [ "tfel::math::parser::ExternalFunctionManager", "structtfel_1_1math_1_1parser_1_1_external_function_manager.html", null ]
@@ -2975,7 +2957,6 @@ var hierarchy =
     [ "tfel::PhysicalConstants< NumericType, use_quantities >", "structtfel_1_1_physical_constants.html", null ],
     [ "tfel::PhysicalConstants< NumericType, false >", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html", null ],
     [ "tfel::PhysicalConstants< NumericType, true >", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html", null ],
-    [ "mfem_mgis::PhysicalSystem", "structmfem__mgis_1_1_physical_system.html", null ],
     [ "mtest::PipeFailureCriteriaFactory", "structmtest_1_1_pipe_failure_criteria_factory.html", null ],
     [ "mtest::PipeFailureCriterion", "structmtest_1_1_pipe_failure_criterion.html", null ],
     [ "mtest::PipeMesh", "structmtest_1_1_pipe_mesh.html", null ],
@@ -3112,9 +3093,6 @@ var hierarchy =
     [ "tfel::typetraits::internals::PromoteNumericsGreater_< long int, int >", "structtfel_1_1typetraits_1_1internals_1_1_promote_numerics_greater___3_01long_01int_00_01int_01_4.html", null ],
     [ "tfel::typetraits::internals::PromoteNumericsGreater_< long unsigned int, unsigned int >", "structtfel_1_1typetraits_1_1internals_1_1_promote_numerics_greater___3_01long_01unsigned_01int_00_01unsigned_01int_01_4.html", null ],
     [ "tfel::typetraits::internals::PromoteNumericsGreater_< unsigned int, long unsigned int >", "structtfel_1_1typetraits_1_1internals_1_1_promote_numerics_greater___3_01unsigned_01int_00_01long_01unsigned_01int_01_4.html", null ],
-    [ "mfem_mgis::Provider", "structmfem__mgis_1_1_provider.html", [
-      [ "mfem_mgis::AbstractModel", "structmfem__mgis_1_1_abstract_model.html", null ]
-    ] ],
     [ "tfel::math::DifferenceRandomAccessIterator< iterator_base >::proxy", "structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html", null ],
     [ "tfel::math::StridedRandomAccessIterator< iterator_base >::proxy", "structtfel_1_1math_1_1_strided_random_access_iterator_1_1proxy.html", null ],
     [ "tfel::math::QRDecomp", "structtfel_1_1math_1_1_q_r_decomp.html", null ],

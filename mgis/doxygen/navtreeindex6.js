@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"structmgis_1_1function_1_1_function.html#ac2b2c537512b25b8aaee3133080cadf8":[3,0,1,3,19,8],
+"structmgis_1_1function_1_1_function.html#adbc056f6f4f071f282d2dc41579ed73b":[3,0,1,3,19,2],
 "structmgis_1_1function_1_1_function.html#ae6bbb59585c70c51a5ff54b8d305bc11":[3,0,1,3,19,12],
 "structmgis_1_1function_1_1_function_data_layout.html":[3,0,1,3,20],
 "structmgis_1_1function_1_1_function_data_layout.html#a1cf0162ca080e993aa429d31feeb9bd2":[3,0,1,3,20,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1internals_1_1_shared_element_space_traits.html":[3,0,1,3,1,81],
 "structmgis_1_1function_1_1internals_1_1_shared_element_space_traits_3_01_space_type_01_4.html":[3,0,1,3,1,82],
 "structmgis_1_1function_1_1internals_1_1_shared_linear_element_space_traits.html":[3,0,1,3,1,83],
-"structmgis_1_1function_1_1internals_1_1_shared_linear_element_space_traits_3_01_space_type_01_4.html":[3,0,1,3,1,84],
-"structmgis_1_1function_1_1internals_1_1_shared_linear_quadrature_space_traits.html":[3,0,1,3,1,85],
-"structmgis_1_1function_1_1internals_1_1_shared_linear_quadrature_space_traits_3_01_space_type_01_4.html":[3,0,1,3,1,86]
+"structmgis_1_1function_1_1internals_1_1_shared_linear_element_space_traits_3_01_space_type_01_4.html":[3,0,1,3,1,84]
 };

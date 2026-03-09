@@ -24,7 +24,7 @@ var searchData=
   ['allowstiffnesstensordefinition_21',['allowstiffnesstensordefinition',['../structmfront_1_1_behaviour_brick_description.html#a6389232afc8e88ebaef76f3b048f44cc',1,'mfront::BehaviourBrickDescription::allowStiffnessTensorDefinition'],['../structmfront_1_1_behaviour_d_s_l_description.html#a341e8376f5baf3bdc5dcdec272a679ae',1,'mfront::BehaviourDSLDescription::allowStiffnessTensorDefinition']]],
   ['allowstraybackslash_22',['allowStrayBackSlash',['../structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a90766089a86f33c0256010578fd2f681',1,'tfel::utilities::CxxTokenizerOptions']]],
   ['allowstrayhashcharacter_23',['allowStrayHashCharacter',['../structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a7949795dfda86221ede28ecd7bee253a',1,'tfel::utilities::CxxTokenizerOptions']]],
-  ['allowsubstepping_24',['allowSubStepping',['../structmfem__mgis_1_1_simulation.html#a8c70a29e72957c832328677a3ac6f740',1,'mfem_mgis::Simulation']]],
+  ['allowsubstepping_24',['allowSubstepping',['../structmfem__mgis_1_1_simulation.html#a2e6b28e350d0315f1a3e2342ab7d3c78',1,'mfem_mgis::Simulation']]],
   ['allowuserdefinedauxiliarystatevariables_25',['allowUserDefinedAuxiliaryStateVariables',['../structmfront_1_1_behaviour_d_s_l_description.html#a9ab66eb39dbe901d183e52a912057d3b',1,'mfront::BehaviourDSLDescription']]],
   ['allowuserdefinedexternalstatevariables_26',['allowUserDefinedExternalStateVariables',['../structmfront_1_1_behaviour_d_s_l_description.html#a9fa8c05cdc2e7053cab346597c7372a0',1,'mfront::BehaviourDSLDescription']]],
   ['allowuserdefinedintegrationvariables_27',['allowUserDefinedIntegrationVariables',['../structmfront_1_1_behaviour_d_s_l_description.html#ad4da9afcde42cbdec80d76ac57e5534d',1,'mfront::BehaviourDSLDescription']]],

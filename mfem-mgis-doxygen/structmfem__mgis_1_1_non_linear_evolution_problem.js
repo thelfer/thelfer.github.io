@@ -2,6 +2,9 @@ var structmfem__mgis_1_1_non_linear_evolution_problem =
 [
     [ "Hypothesis", "structmfem__mgis_1_1_non_linear_evolution_problem.html#ac78aad290b94b53ffd41a08b359d3616", null ],
     [ "NonLinearEvolutionProblem", "structmfem__mgis_1_1_non_linear_evolution_problem.html#ab36b65dde0749c17b351a9ee2114dcf7", null ],
+    [ "NonLinearEvolutionProblem", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a82284bfd847f3543d3d71e489293e7cc", null ],
+    [ "NonLinearEvolutionProblem", "structmfem__mgis_1_1_non_linear_evolution_problem.html#ac251ba52747268451b9c5c25ee45c4d5", null ],
+    [ "NonLinearEvolutionProblem", "structmfem__mgis_1_1_non_linear_evolution_problem.html#ae7ff66f05fac0e8b0548f377cf299bd5", null ],
     [ "NonLinearEvolutionProblem", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a35784edb7f602484faaf7b32f2314f36", null ],
     [ "~NonLinearEvolutionProblem", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a46db3bcf8cb558db4fa09cc587dd568a", null ],
     [ "addBehaviourIntegrator", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a0a822a4d3cc0ca9a5802c87eae8c12c3", null ],
@@ -41,6 +44,7 @@ var structmfem__mgis_1_1_non_linear_evolution_problem =
     [ "getMaterialIdentifier", "structmfem__mgis_1_1_non_linear_evolution_problem.html#af3c5c2525e2088b7ba341c83debd35df", null ],
     [ "getMaterialsIdentifiers", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a0dc0ad269af983361d2e0c59ec52276b", null ],
     [ "getMaterialsIdentifiers", "structmfem__mgis_1_1_non_linear_evolution_problem.html#adc9b7a9adc91475f085d1c6591fd1dc4", null ],
+    [ "getNumberOfBehaviourIntegrators", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a4f0a620be60b7bc68979aefb8e7f9cb3", null ],
     [ "getPredictionPolicy", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a14e83407f0e4c665f6d415984e3d1887", null ],
     [ "getUnknowns", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a0fb5a2523672c458453b23f28d84ae3f", null ],
     [ "getUnknowns", "structmfem__mgis_1_1_non_linear_evolution_problem.html#ae46164046496ecab5b401437f48c57c9", null ],

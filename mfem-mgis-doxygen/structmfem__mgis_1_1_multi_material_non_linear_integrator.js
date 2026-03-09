@@ -14,6 +14,7 @@ var structmfem__mgis_1_1_multi_material_non_linear_integrator =
     [ "getMaterial", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a9b788ddfab9b1a49095de60ea2e39d08", null ],
     [ "getMaterial", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#adc124d508d870dd1d8341ecf7d8653f6", null ],
     [ "getMaterial", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a28e6b3fc5b9a004a9627e38ecdb83782", null ],
+    [ "getNumberOfBehaviourIntegrators", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#ac54930f0e887d2a4b9273c9f36a1d508", null ],
     [ "getTimeIncrement", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a56358e10925c749d6cb05448b6198e68", null ],
     [ "integrate", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a4f9a333e4a8e20b994c5133b6b4552e9", null ],
     [ "revert", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a9294e61cb9eabd439a18b6471d3ba4dc", null ],

@@ -8,6 +8,7 @@ var structmgis_1_1_context =
     [ "disableLogStream", "structmgis_1_1_context.html#a0abd9c15e9cc7681021676c865b21429", null ],
     [ "getFailureHandler", "structmgis_1_1_context.html#ab68e10aad399870b9e959ffdd508a028", null ],
     [ "getFatalFailureHandler", "structmgis_1_1_context.html#a26af12540b4c2ca64fa1c4387362018a", null ],
+    [ "getLogStreamPointer", "structmgis_1_1_context.html#a34ebaea2d19f072315bdfb1ce2c29a45", null ],
     [ "getThrowingFailureHandler", "structmgis_1_1_context.html#a5a674a4bd79b990cfe8e3d7d6921ca5b", null ],
     [ "getVerbosityLevel", "structmgis_1_1_context.html#afdf848910ea68a849b4fde5b1eea8bd5", null ],
     [ "log", "structmgis_1_1_context.html#a94fb00e8b6c3bb73dbdd0fa9bf01e31d", null ],

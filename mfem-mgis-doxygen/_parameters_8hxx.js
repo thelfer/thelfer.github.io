@@ -8,5 +8,6 @@ var _parameters_8hxx =
     [ "extract", "_parameters_8hxx.html#a65bcd8338ce88ae02eecf474cbfe643c", null ],
     [ "extract", "_parameters_8hxx.html#a37eff81acf1daab33c6b97168b564e57", null ],
     [ "extractFactoryArgument", "_parameters_8hxx.html#acf90d5aacb72b649fdff68d9060e28e9", null ],
-    [ "extractFactoryArgument", "_parameters_8hxx.html#a865417012a32d75b70ab09b457ad56d6", null ]
+    [ "extractFactoryArgument", "_parameters_8hxx.html#a865417012a32d75b70ab09b457ad56d6", null ],
+    [ "remove", "_parameters_8hxx.html#ac2f7206d268a5399c62aa01b1a0d3b4f", null ]
 ];

@@ -24,6 +24,6 @@ var searchData=
   ['numberofevaluations_21',['numberOfEvaluations',['../structmfront_1_1_behaviour_data.html#a8da094366a05f146ad17a6042157a401',1,'mfront::BehaviourData']]],
   ['numberoftimesteps_22',['numberOfTimeSteps',['../structmfem__mgis_1_1_simulation_1_1_simulation_run_state.html#aa7a51580f5260cd2b83d5f6894a70860',1,'mfem_mgis::Simulation::SimulationRunState']]],
   ['numberoftimestepsbetweenpostprocessings_23',['numberOfTimeStepsBetweenPostProcessings',['../structmfem__mgis_1_1_simulation.html#a9928f73720ffe6e3887b5e76714d4652',1,'mfem_mgis::Simulation']]],
-  ['numberofuniformrefinements_24',['NumberOfUniformRefinements',['../structmfem__mgis_1_1_finite_element_discretization.html#a73370d4327f1918981d0e5fe1fda7cbd',1,'mfem_mgis::FiniteElementDiscretization']]],
+  ['numberofuniformrefinements_24',['NumberOfUniformRefinements',['../structmfem__mgis_1_1_mesh_discretization.html#ac9a22a4ccafe51120b9bcfb35e9b1191',1,'mfem_mgis::MeshDiscretization']]],
   ['numericallycomputedjacobianblocks_25',['numericallyComputedJacobianBlocks',['../structmfront_1_1_behaviour_data.html#a2c7fc9bef078ec36266c052c1850f434',1,'mfront::BehaviourData']]]
 ];

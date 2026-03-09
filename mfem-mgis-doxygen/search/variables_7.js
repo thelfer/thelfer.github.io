@@ -4,7 +4,7 @@ var searchData=
   ['g1_1',['g1',['../structmfem__mgis_1_1unit__tests_1_1_uniaxial_test_results.html#ae1d967e35770b4e285407bbc5cd4c9e4',1,'mfem_mgis::unit_tests::UniaxialTestResults']]],
   ['gauss_5fkronrod_5fintegrate_2',['gauss_kronrod_integrate',['../_gauss_kronrod_quadrature_8hxx.html#a01491806c80b084cf41d69ef38bf3f00',1,'tfel::math']]],
   ['gc_3',['gc',['../structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#ac2199f2b752cd85415bc2172e2baff57',1,'mfront::bbrick::DDIF2StressPotential']]],
-  ['generalverbositylevel_4',['GeneralVerbosityLevel',['../structmfem__mgis_1_1_finite_element_discretization.html#a7a9edbe31607bc6150d79447a816c552',1,'mfem_mgis::FiniteElementDiscretization']]],
+  ['generalverbositylevel_4',['GeneralVerbosityLevel',['../structmfem__mgis_1_1_mesh_discretization.html#a379c21ab4db0c28aab7501463090996d',1,'mfem_mgis::MeshDiscretization']]],
   ['get_5frotation_5ffct_5fptr_5',['get_rotation_fct_ptr',['../structmfem__mgis_1_1_material.html#a47b4269c24c3dd7b512d87c72a10f8f6',1,'mfem_mgis::Material']]],
   ['gnames_6',['gnames',['../structtfel_1_1system_1_1_external_behaviour_description.html#a22a32e318be7cef6ef15a7618984027d',1,'tfel::system::ExternalBehaviourDescription']]],
   ['gpo_7',['gpo',['../structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#af498ad5f118272833a796dc789dfb916',1,'mfront::bbrick::HookeStressPotentialBase']]],

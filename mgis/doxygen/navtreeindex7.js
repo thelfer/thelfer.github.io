@@ -1,5 +1,11 @@
 var NAVTREEINDEX7 =
 {
+"structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html":[3,0,1,3,1,79],
+"structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace_3_01true_00_01_space_type_01_4.html":[3,0,1,3,1,80],
+"structmgis_1_1function_1_1internals_1_1_shared_element_space_traits.html":[3,0,1,3,1,81],
+"structmgis_1_1function_1_1internals_1_1_shared_element_space_traits_3_01_space_type_01_4.html":[3,0,1,3,1,82],
+"structmgis_1_1function_1_1internals_1_1_shared_linear_element_space_traits.html":[3,0,1,3,1,83],
+"structmgis_1_1function_1_1internals_1_1_shared_linear_element_space_traits_3_01_space_type_01_4.html":[3,0,1,3,1,84],
 "structmgis_1_1function_1_1internals_1_1_shared_linear_quadrature_space_traits.html":[3,0,1,3,1,85],
 "structmgis_1_1function_1_1internals_1_1_shared_linear_quadrature_space_traits_3_01_space_type_01_4.html":[3,0,1,3,1,86],
 "structmgis_1_1function_1_1internals_1_1_shared_quadrature_space_add_cell_workspace.html":[3,0,1,3,1,87],

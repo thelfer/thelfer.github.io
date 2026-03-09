@@ -1,5 +1,11 @@
 var NAVTREEINDEX6 =
 {
+"structmgis_1_1function_1_1_function.html#a2c2d2df672cc51b9d54b9dd5f6867bca":[3,0,1,3,19,7],
+"structmgis_1_1function_1_1_function.html#a4cbeed84c74726602d4a8830497a4a00":[3,0,1,3,19,4],
+"structmgis_1_1function_1_1_function.html#a58a41d6e14699d7dea4d794aaec21a32":[3,0,1,3,19,11],
+"structmgis_1_1function_1_1_function.html#a82eab0ad0ad668eaeb25ee7749280944":[3,0,1,3,19,10],
+"structmgis_1_1function_1_1_function.html#aa17d1b92b6f3ca0860b06334b96be73a":[3,0,1,3,19,0],
+"structmgis_1_1function_1_1_function.html#abdc8a16286d587c3e25875c289d9ab6b":[3,0,1,3,19,5],
 "structmgis_1_1function_1_1_function.html#ac2b2c537512b25b8aaee3133080cadf8":[3,0,1,3,19,8],
 "structmgis_1_1function_1_1_function.html#adbc056f6f4f071f282d2dc41579ed73b":[3,0,1,3,19,2],
 "structmgis_1_1function_1_1_function.html#ae6bbb59585c70c51a5ff54b8d305bc11":[3,0,1,3,19,12],
@@ -243,11 +249,5 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector_3_01true_00_01_space_01_4.html":[3,0,1,3,1,76],
 "structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector_3_01true_00_01_space_01_4.html#ae374d090da5b1e6e02a2d15737206210":[3,0,1,3,1,76,0],
 "structmgis_1_1function_1_1internals_1_1_rotate_backwards_modifier.html":[3,0,1,3,1,77],
-"structmgis_1_1function_1_1internals_1_1_rotate_modifier.html":[3,0,1,3,1,78],
-"structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html":[3,0,1,3,1,79],
-"structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace_3_01true_00_01_space_type_01_4.html":[3,0,1,3,1,80],
-"structmgis_1_1function_1_1internals_1_1_shared_element_space_traits.html":[3,0,1,3,1,81],
-"structmgis_1_1function_1_1internals_1_1_shared_element_space_traits_3_01_space_type_01_4.html":[3,0,1,3,1,82],
-"structmgis_1_1function_1_1internals_1_1_shared_linear_element_space_traits.html":[3,0,1,3,1,83],
-"structmgis_1_1function_1_1internals_1_1_shared_linear_element_space_traits_3_01_space_type_01_4.html":[3,0,1,3,1,84]
+"structmgis_1_1function_1_1internals_1_1_rotate_modifier.html":[3,0,1,3,1,78]
 };

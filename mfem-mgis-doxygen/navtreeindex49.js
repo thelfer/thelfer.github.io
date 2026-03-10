@@ -1,5 +1,9 @@
 var NAVTREEINDEX49 =
 {
+"structnumodis_1_1_b_c_c.html#ad32134a3f63984dd128b3ee022e38a43":[5,0,14,1,2],
+"structnumodis_1_1_b_c_c.html#afc2663ad51a08c9f2f91e67643e8385c":[5,0,14,1,1],
+"structnumodis_1_1_crystallo.html":[5,0,14,2],
+"structnumodis_1_1_crystallo.html#a2a6f64b9ce5af2d2191675ef0a53256d":[5,0,14,2,6],
 "structnumodis_1_1_crystallo.html#a2ed32a999789f50192701bbe2cca5452":[5,0,14,2,3],
 "structnumodis_1_1_crystallo.html#a51c761a2dc5fc79060724115c88e6137":[5,0,14,2,5],
 "structnumodis_1_1_crystallo.html#a54e6eabbcb55674a1f1d8388e3e792da":[5,0,14,2,9],
@@ -245,9 +249,5 @@ var NAVTREEINDEX49 =
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a5646715714dd7f9eeda9035bb3499a1b":[5,0,16,4,26,0],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a5a16e9a554d8043afc02ff7738499f06":[5,0,16,4,26,6],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a634496d90c07163b025eb38391230985":[5,0,16,4,26,2],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a8ea9899bae16deb09e57e74fd542e161":[5,0,16,4,26,1],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#aa3aafd915de9a7e0e778a0e3d91fcc48":[5,0,16,4,26,3],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[5,0,16,4,26,5],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[5,0,16,4,26,4],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html":[5,0,16,4,27]
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a8ea9899bae16deb09e57e74fd542e161":[5,0,16,4,26,1]
 };

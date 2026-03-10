@@ -1,5 +1,9 @@
 var NAVTREEINDEX15 =
 {
+"structaster_1_1_aster_orthotropic_small_strain_behaviour_handler2_d_3_01tfel_1_1material_1_1_modd30435d70f35a568b92b2835ddd79f9c.html":[5,0,2,54],
+"structaster_1_1_aster_orthotropic_small_strain_behaviour_handler3_d.html":[5,0,2,55],
+"structaster_1_1_aster_reduce_tangent_operator.html":[5,0,2,56],
+"structaster_1_1_aster_reduce_tangent_operator_3_011u_01_4.html":[5,0,2,57],
 "structaster_1_1_aster_reduce_tangent_operator_3_012u_01_4.html":[5,0,2,58],
 "structaster_1_1_aster_rotation_matrix2_d.html":[5,0,2,59],
 "structaster_1_1_aster_rotation_matrix3_d.html":[5,0,2,60],
@@ -245,9 +249,5 @@ var NAVTREEINDEX15 =
 "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html":[5,0,6,0,1],
 "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html#a618cb8d05f32557659dafb39c660bd3b":[5,0,6,0,1,0],
 "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_integrator.html":[5,0,6,0,3],
-"structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_integrator.html#ab66e5d26b78cd97bc426045a6209b025":[5,0,6,0,3,1],
-"structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_integrator.html#ae334ccbd0c079f47040f0f2f1c3b351a":[5,0,6,0,3,0],
-"structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_stiffness_operator_initializer.html":[5,0,6,0,4],
-"structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html":[5,0,6,0,5],
-"structdianafea_1_1_diana_f_e_a_compute_stiffness_tensor.html":[5,0,6,1]
+"structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_integrator.html#ab66e5d26b78cd97bc426045a6209b025":[5,0,6,0,3,1]
 };

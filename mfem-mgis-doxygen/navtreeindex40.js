@@ -1,5 +1,9 @@
 var NAVTREEINDEX40 =
 {
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a66cd0281719fb74ca418211c5cbd1b26":[5,0,11,0,54,5],
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a6cd59442ab031816862048844ec0b909":[5,0,11,0,54,13],
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a6fef49c62bdcd064095d2c301b695ae1":[5,0,11,0,54,3],
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a8399028daa2cc1ec329587a8bb742161":[5,0,11,0,54,1],
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a86a61027176d24d9708f40b888425db6":[5,0,11,0,54,4],
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a896c13e38a2cab5fd41066dc30ceac08":[5,0,11,0,54,0],
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a8a23956846e12c290e4d8a4c8c88dc43":[5,0,11,0,54,7],
@@ -245,9 +249,5 @@ var NAVTREEINDEX40 =
 "structmgis_1_1_threaded_task_result.html#a1dceb69de715049cb7f0ffee5ee1ac60":[5,0,12,16,9],
 "structmgis_1_1_threaded_task_result.html#a1de6a25f3f1fb90a92bc30db4c25eec0":[5,0,12,16,7],
 "structmgis_1_1_threaded_task_result.html#a2552244902475146de9b2cec697f2240":[5,0,12,16,14],
-"structmgis_1_1_threaded_task_result.html#a3d03ccb10393b06eacb0fbcf48f587c2":[5,0,12,16,0],
-"structmgis_1_1_threaded_task_result.html#a5d273e66e4a0151acc551c1bc2a95c07":[5,0,12,16,4],
-"structmgis_1_1_threaded_task_result.html#a660052f3487e70b7479c5e3c7fbc8174":[5,0,12,16,3],
-"structmgis_1_1_threaded_task_result.html#a67bd6fd10f6dd5778b8feda6019a6022":[5,0,12,16,15],
-"structmgis_1_1_threaded_task_result.html#a764b86418aa34abeb8afe83b548eda53":[5,0,12,16,12]
+"structmgis_1_1_threaded_task_result.html#a3d03ccb10393b06eacb0fbcf48f587c2":[5,0,12,16,0]
 };

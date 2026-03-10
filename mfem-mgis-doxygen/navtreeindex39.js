@@ -1,5 +1,9 @@
 var NAVTREEINDEX39 =
 {
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#acdda244515315882bf50dbeb8a12634f":[5,0,11,0,28,10],
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#acdf216bb1c14e2f669ee6acfc6c5d673":[5,0,11,0,28,5],
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae2617a5e2b0b5dd98156a16d5fd74a13":[5,0,11,0,28,9],
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae8fee4824a0ae31f3760dec220d6cd2a":[5,0,11,0,28,6],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae9a9dd4e811008e37e75cac86775c0ab":[5,0,11,0,28,1],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#aedeaeeb694d00ddaa725b1e322c51cc7":[5,0,11,0,28,4],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_factory.html":[5,0,11,0,29],
@@ -245,9 +249,5 @@ var NAVTREEINDEX39 =
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a1343e0fe4aa42fb9895b70b5e63e988caf60e65603aa11c433acd5e07b7c67115":[5,0,11,0,54,6,0],
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a28ff26e84c191bc5a258a3df098a8a99":[5,0,11,0,54,18],
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a3fea4cc84c046912931190bd1f33eaae":[5,0,11,0,54,15],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a57b03a72b030e060b371e0c8129faa7a":[5,0,11,0,54,2],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a66cd0281719fb74ca418211c5cbd1b26":[5,0,11,0,54,5],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a6cd59442ab031816862048844ec0b909":[5,0,11,0,54,13],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a6fef49c62bdcd064095d2c301b695ae1":[5,0,11,0,54,3],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a8399028daa2cc1ec329587a8bb742161":[5,0,11,0,54,1]
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a57b03a72b030e060b371e0c8129faa7a":[5,0,11,0,54,2]
 };

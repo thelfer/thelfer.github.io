@@ -1,5 +1,9 @@
 var NAVTREEINDEX56 =
 {
+"structtfel_1_1math_1_1_make_quantity_reference_type_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html":[5,0,16,5,354],
+"structtfel_1_1math_1_1_make_quantity_reference_type_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html#a47235670482a85230dd7e42c7714ac8f":[5,0,16,5,354,0],
+"structtfel_1_1math_1_1_math_divergence_exception.html":[5,0,16,5,355],
+"structtfel_1_1math_1_1_math_exception.html":[5,0,16,5,356],
 "structtfel_1_1math_1_1_math_object_traits.html":[5,0,16,5,357],
 "structtfel_1_1math_1_1_math_object_traits_3_01_coalesced_view_base_3_01_mapped_type_00_01_indexib78fa0da091a39be697a9af0d8910c48.html":[5,0,16,5,358],
 "structtfel_1_1math_1_1_math_object_traits_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html":[5,0,16,5,359],
@@ -245,9 +249,5 @@ var NAVTREEINDEX56 =
 "structtfel_1_1math_1_1_stensor_symmetric_product_derivative_3_011u_00_01_t_01_4.html":[5,0,16,5,538],
 "structtfel_1_1math_1_1_stensor_symmetric_product_derivative_3_012u_00_01_t_01_4.html":[5,0,16,5,539],
 "structtfel_1_1math_1_1_stensor_symmetric_product_derivative_3_013u_00_01_t_01_4.html":[5,0,16,5,540],
-"structtfel_1_1math_1_1_stensor_t2to_s_t2_product_expr.html":[5,0,16,5,541],
-"structtfel_1_1math_1_1_stensor_tag.html":[5,0,16,5,542],
-"structtfel_1_1math_1_1_strided_coalesced_access_policy.html":[5,0,16,5,543],
-"structtfel_1_1math_1_1_strided_coalesced_access_policy.html#a176cbf57bdbd0d47b5cbfaef82b99b86":[5,0,16,5,543,1],
-"structtfel_1_1math_1_1_strided_coalesced_access_policy.html#a1f30ed2e9a8a0e44a6c96a1ffeb87fc7":[5,0,16,5,543,0]
+"structtfel_1_1math_1_1_stensor_t2to_s_t2_product_expr.html":[5,0,16,5,541]
 };

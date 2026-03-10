@@ -10,6 +10,8 @@ var _material_state_manager_8hxx =
     [ "isMassDensityUniform", "_material_state_manager_8hxx.html#a3b45310cfaab85481e0f5b69d03655ce", null ],
     [ "isMaterialPropertyDefined", "_material_state_manager_8hxx.html#aa0612b224a04c03504aa588783303ee7", null ],
     [ "isMaterialPropertyUniform", "_material_state_manager_8hxx.html#accb2a1dcad62a2c623f8c4ac9402999f", null ],
+    [ "setExternalStateVariable", "_material_state_manager_8hxx.html#a3b2a2b061a1c9194a29566a4b2306700", null ],
+    [ "setExternalStateVariable", "_material_state_manager_8hxx.html#a54fdef15bb9972506276cbd4ae5e75fb", null ],
     [ "setExternalStateVariable", "_material_state_manager_8hxx.html#ae653ae4046645e199e5e8f09aead84ae", null ],
     [ "setExternalStateVariable", "_material_state_manager_8hxx.html#ae6300f310636d6a067ad66c5c9cbb582", null ],
     [ "setMassDensity", "_material_state_manager_8hxx.html#a4d2fe53d00a50f1975716c388efdd280", null ],
@@ -18,5 +20,7 @@ var _material_state_manager_8hxx =
     [ "setMaterialProperty", "_material_state_manager_8hxx.html#a6e9c6a448dcf74c321a08a0e3ca82ba8", null ],
     [ "setMaterialProperty", "_material_state_manager_8hxx.html#a6238659657cd5d1ddf51aba31e0b315d", null ],
     [ "setMaterialProperty", "_material_state_manager_8hxx.html#a168d567e985ed812c94130aca2729f6b", null ],
+    [ "unsetExternalStateVariable", "_material_state_manager_8hxx.html#a858a9318e286856c96cba02898d73f78", null ],
+    [ "unsetMaterialProperty", "_material_state_manager_8hxx.html#a835e669d50552f0cab7481695851e606", null ],
     [ "updateValues", "_material_state_manager_8hxx.html#af0fd6ff382dbc9d5f70345f9d50671b8", null ]
 ];

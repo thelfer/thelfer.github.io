@@ -1,5 +1,9 @@
 var NAVTREEINDEX7 =
 {
+"structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector_3_01true_00_01_space_01_4.html":[3,0,1,3,1,76],
+"structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector_3_01true_00_01_space_01_4.html#ae374d090da5b1e6e02a2d15737206210":[3,0,1,3,1,76,0],
+"structmgis_1_1function_1_1internals_1_1_rotate_backwards_modifier.html":[3,0,1,3,1,77],
+"structmgis_1_1function_1_1internals_1_1_rotate_modifier.html":[3,0,1,3,1,78],
 "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html":[3,0,1,3,1,79],
 "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace_3_01true_00_01_space_type_01_4.html":[3,0,1,3,1,80],
 "structmgis_1_1function_1_1internals_1_1_shared_element_space_traits.html":[3,0,1,3,1,81],

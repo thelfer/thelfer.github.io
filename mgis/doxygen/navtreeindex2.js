@@ -1,5 +1,9 @@
 var NAVTREEINDEX2 =
 {
+"_state_8hxx.html#abd8ac5af57c206cf59e6ab71b98d82d8":[4,0,1,0,0,19,31],
+"_state_8hxx.html#ac2441c099682114d7c7134d8cc6012a3":[4,0,1,0,0,19,44],
+"_state_8hxx.html#ac7a07d49eeb46705717189290639f434":[4,0,1,0,0,19,9],
+"_state_8hxx.html#aca3f77ac033cd5b452550775a2400522":[4,0,1,0,0,19,19],
 "_state_8hxx.html#ad0c2271fcc9b248b3aa729ba587c4a01":[4,0,1,0,0,19,36],
 "_state_8hxx.html#ad147aac513709e051211da688621e454":[4,0,1,0,0,19,13],
 "_state_8hxx.html#ada24f04cb34f1735ed2ba950ff5a2132":[4,0,1,0,0,19,5],
@@ -245,9 +249,5 @@ var NAVTREEINDEX2 =
 "namespacemgis.html#a6ce862e7df7d68aea5b33d112bc6c476":[1,0,0,50],
 "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622":[1,0,0,19],
 "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a08d0012388564e95c3b4a7407cf04965":[1,0,0,19,0],
-"namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a1b3e1ee9bff86431dea6b181365ba65f":[1,0,0,19,4],
-"namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a8a568e5f41b7e4da88fe5c4a00aad34e":[1,0,0,19,3],
-"namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a9dbc5be5b2bfa5ed216dbba186b67331":[1,0,0,19,6],
-"namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a9de0e5dd94e861317e74964bed179fa0":[1,0,0,19,2],
-"namespacemgis.html#a8ca19ff3c596083e841958b8ef720622aa2d9547b5d3dd9f05984475f7c926da0":[1,0,0,19,1]
+"namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a1b3e1ee9bff86431dea6b181365ba65f":[1,0,0,19,4]
 };

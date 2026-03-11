@@ -72,13 +72,14 @@ var NAVTREEINDEX2 =
 "_uniform_evaluator_8hxx.html":[4,0,1,0,1,35],
 "_uniform_evaluator_8ixx.html":[4,0,1,0,1,36],
 "_variable_8hxx.html":[4,0,1,0,0,23],
-"_variable_8hxx.html#a19e1c0c2155695e23aabb4dfa678113d":[4,0,1,0,0,23,9],
-"_variable_8hxx.html#a2304224aa5046893bc9fb9a5b91e15ba":[4,0,1,0,0,23,6],
+"_variable_8hxx.html#a19e1c0c2155695e23aabb4dfa678113d":[4,0,1,0,0,23,10],
+"_variable_8hxx.html#a2304224aa5046893bc9fb9a5b91e15ba":[4,0,1,0,0,23,7],
 "_variable_8hxx.html#a25ebf89eb539ceadb58f94544e082730":[4,0,1,0,0,23,1],
 "_variable_8hxx.html#a5b8113e277e141b345c149b24827cd82":[4,0,1,0,0,23,2],
-"_variable_8hxx.html#a622d38c97afa8acdcfdf724aef4f125a":[4,0,1,0,0,23,10],
-"_variable_8hxx.html#a6eec42a30320072204c360529bac895e":[4,0,1,0,0,23,7],
-"_variable_8hxx.html#a84318621a50dd62ea128f6e4feafa622":[4,0,1,0,0,23,8],
+"_variable_8hxx.html#a622d38c97afa8acdcfdf724aef4f125a":[4,0,1,0,0,23,11],
+"_variable_8hxx.html#a6eec42a30320072204c360529bac895e":[4,0,1,0,0,23,8],
+"_variable_8hxx.html#a812a1e130ae2991da31df6de45a4385b":[4,0,1,0,0,23,6],
+"_variable_8hxx.html#a84318621a50dd62ea128f6e4feafa622":[4,0,1,0,0,23,9],
 "_variable_8hxx.html#aace2c52f3dfb2836a3ae449a95bbdd5d":[4,0,1,0,0,23,4],
 "_variable_8hxx.html#ab6dd6a0df53ac9d1b9a2be7fbbfc6172":[4,0,1,0,0,23,3],
 "_variable_8hxx.html#ab9d8f7aed0111b9fda1f3e942d1e9f8e":[4,0,1,0,0,23,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "namespacemgis.html#a6a8b20f25b7cfa95c3a8c1860e51d633":[1,0,0,55],
 "namespacemgis.html#a6ce862e7df7d68aea5b33d112bc6c476":[1,0,0,50],
 "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622":[1,0,0,19],
-"namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a08d0012388564e95c3b4a7407cf04965":[1,0,0,19,0],
-"namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a1b3e1ee9bff86431dea6b181365ba65f":[1,0,0,19,4]
+"namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a08d0012388564e95c3b4a7407cf04965":[1,0,0,19,0]
 };

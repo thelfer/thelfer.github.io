@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"structmgis_1_1function_1_1_function.html":[3,0,1,3,19],
 "structmgis_1_1function_1_1_function.html#a0dee360324d0c78a38f527010f140c1e":[3,0,1,3,19,9],
 "structmgis_1_1function_1_1_function.html#a152fbcbe7cf793c74ddd645439255e94":[3,0,1,3,19,6],
 "structmgis_1_1function_1_1_function.html#a182794f41b5f1ab7f1bbea5dea1d4123":[3,0,1,3,19,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tvector_3_01_n_00_01real_01_4_01_4.html":[3,0,1,3,1,71],
 "structmgis_1_1function_1_1internals_1_1_number_of_components.html":[3,0,1,3,1,72],
 "structmgis_1_1function_1_1internals_1_1_number_of_components_3_01_evaluator_type_01_4.html":[3,0,1,3,1,73],
-"structmgis_1_1function_1_1internals_1_1_number_of_components_3_01_function_type_01_4.html":[3,0,1,3,1,74],
-"structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector.html":[3,0,1,3,1,75]
+"structmgis_1_1function_1_1internals_1_1_number_of_components_3_01_function_type_01_4.html":[3,0,1,3,1,74]
 };

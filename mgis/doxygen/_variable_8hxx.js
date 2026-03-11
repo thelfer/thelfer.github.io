@@ -6,6 +6,7 @@ var _variable_8hxx =
     [ "getVariable", "_variable_8hxx.html#ab6dd6a0df53ac9d1b9a2be7fbbfc6172", null ],
     [ "getVariable", "_variable_8hxx.html#aace2c52f3dfb2836a3ae449a95bbdd5d", null ],
     [ "getVariableOffset", "_variable_8hxx.html#ab9d8f7aed0111b9fda1f3e942d1e9f8e", null ],
+    [ "getVariableOffset", "_variable_8hxx.html#a812a1e130ae2991da31df6de45a4385b", null ],
     [ "getVariableSize", "_variable_8hxx.html#a2304224aa5046893bc9fb9a5b91e15ba", null ],
     [ "getVariableSize", "_variable_8hxx.html#a6eec42a30320072204c360529bac895e", null ],
     [ "getVariableType", "_variable_8hxx.html#a84318621a50dd62ea128f6e4feafa622", null ],

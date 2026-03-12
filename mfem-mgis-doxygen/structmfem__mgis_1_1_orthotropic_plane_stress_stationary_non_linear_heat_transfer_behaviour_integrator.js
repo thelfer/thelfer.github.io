@@ -8,7 +8,7 @@ var structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_tra
     [ "getIntegrationRule", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a6ef7af1834e6f62409e52cea921bf130", null ],
     [ "getRotationMatrix", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a2b5285b2070ccb6e8095743e98369d0c", null ],
     [ "integrate", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a9fc2683d5f9aebd9aa4d59e4962ddc37", null ],
-    [ "setup", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a32e9a90a1ac593341a1cbc8176be10c0", null ],
+    [ "setup", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a665e008ce686550c48bfe07b791b4f09", null ],
     [ "updateExternalStateVariablesFromUnknownsValues", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a06133a878f126869b34d1d12bbd57705", null ],
     [ "updateGradients", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#af6e92edc15182ebe8009e3b60136d176", null ],
     [ "updateInnerForces", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#aa1782ec9fb802a0a3fe4575de6a4004d", null ],

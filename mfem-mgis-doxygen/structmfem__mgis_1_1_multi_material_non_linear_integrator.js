@@ -20,7 +20,7 @@ var structmfem__mgis_1_1_multi_material_non_linear_integrator =
     [ "revert", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a9294e61cb9eabd439a18b6471d3ba4dc", null ],
     [ "setMacroscopicGradients", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a5d991bb20507496a2616056a9c106d72", null ],
     [ "setTimeIncrement", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a4414b2702b386f40c6934df4459051ca", null ],
-    [ "setup", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a33409e09046ca67e322f77684ed92c33", null ],
+    [ "setup", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#af7478e5594f4077873e5c36c36a0d7b1", null ],
     [ "update", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a11e35d4be102555406d0bf12a7fa93a5", null ],
     [ "behaviour_integrators", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a46ea8d2654692d09a1dc717774511a64", null ],
     [ "fe_discretization", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a9945a8806f3dfb8ae10a5879415c2d3c", null ],

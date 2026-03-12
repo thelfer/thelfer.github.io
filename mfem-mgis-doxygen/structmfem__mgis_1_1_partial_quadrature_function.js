@@ -1,7 +1,7 @@
 var structmfem__mgis_1_1_partial_quadrature_function =
 [
     [ "PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html#ad8604d38e7d846ba3a1e8eb68b77667b", null ],
-    [ "PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html#acffbc392a43937b9a690bd1342050d7c", null ],
+    [ "PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html#a439acb0cc7235eafa11f1cbfc5bdbbb2", null ],
     [ "PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html#a067b1d601843ddaca0f3895f1bd7700b", null ],
     [ "PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html#a779a991689b4c04ddf80e60eed1eb124", null ],
     [ "PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html#ad7b104f1a1b50b1b21b0c1f984459643", null ],

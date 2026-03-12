@@ -6,6 +6,7 @@ var mgis_master_oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_
     [ "getVariable", "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_2_variable_8hxx.html#ab6dd6a0df53ac9d1b9a2be7fbbfc6172", null ],
     [ "getVariable", "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_2_variable_8hxx.html#aace2c52f3dfb2836a3ae449a95bbdd5d", null ],
     [ "getVariableOffset", "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_2_variable_8hxx.html#ab9d8f7aed0111b9fda1f3e942d1e9f8e", null ],
+    [ "getVariableOffset", "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_2_variable_8hxx.html#a812a1e130ae2991da31df6de45a4385b", null ],
     [ "getVariableSize", "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_2_variable_8hxx.html#a2304224aa5046893bc9fb9a5b91e15ba", null ],
     [ "getVariableSize", "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_2_variable_8hxx.html#a6eec42a30320072204c360529bac895e", null ],
     [ "getVariableType", "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_2_variable_8hxx.html#a84318621a50dd62ea128f6e4feafa622", null ],

@@ -56,7 +56,8 @@ var structmfem__mgis_1_1_abstract_non_linear_evolution_problem =
     [ "setSolverParameters", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#aae2a5a04ec255611d365dd991e73a839", null ],
     [ "setSolverParameters", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a115afe14e07e349473d6f2f8f30eda5a", null ],
     [ "setup", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a1ac46400eac8bb52441f6ed57749e2f8", null ],
+    [ "setup", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a58c0a30ce95345322d4f803359de4ac0", null ],
     [ "solve", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a0f89a75c4c5be274cc4f986f35606584", null ],
-    [ "solve", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#afcd6f90321550d5bcda14784115668ed", null ],
+    [ "solve", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a53f88d5ce5cb47313e031bbdb4821438", null ],
     [ "update", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#acd90d3aa06457e00babc959631c57523", null ]
 ];

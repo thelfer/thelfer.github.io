@@ -8,7 +8,7 @@ var structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_t
     [ "getIntegrationRule", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a548793ff29e7765f98dedb784ebeed77", null ],
     [ "getRotationMatrix", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a740f8fdad78a35985077e8278dcfc1b5", null ],
     [ "integrate", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a3ea70743046ac87f5c12517c77289f93", null ],
-    [ "setup", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a0e22d456bd395562d81da1970dd8f107", null ],
+    [ "setup", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a00557814c8e15bd2fb1e0a3501562a80", null ],
     [ "updateExternalStateVariablesFromUnknownsValues", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a7adbec55e3d9c602a1aa5d6e2e441c95", null ],
     [ "updateGradients", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a97d428ab12dd42d18383724913aeb166", null ],
     [ "updateInnerForces", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a751ef1e9389fc14aafbb71afdb0bceef", null ],

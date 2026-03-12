@@ -8,6 +8,8 @@ var _material_8hxx =
     [ "getGradient", "_material_8hxx.html#ab2a59b7b16f7e14dc119296bb7dde858", null ],
     [ "getGradient", "_material_8hxx.html#a9318bbeb4d3fca9b0137e645d728b31b", null ],
     [ "getInternalStateVariable", "_material_8hxx.html#afc351bbcea5b942aab44ddd1ef14fdb8", null ],
+    [ "getInternalStateVariable", "_material_8hxx.html#a353cdfbe89951aa1ad16ca98d7d3e990", null ],
+    [ "getInternalStateVariable", "_material_8hxx.html#a750a102b7db886f0839f0cfd218b0903", null ],
     [ "getInternalStateVariable", "_material_8hxx.html#a2a0e6d2f19a85fc193a829b44db29028", null ],
     [ "getStoredEnergy", "_material_8hxx.html#a6b12fa518629bc018d0055987793f951", null ],
     [ "getStoredEnergy", "_material_8hxx.html#ae23a7fa7b97f518534e9eec41ec59579", null ],

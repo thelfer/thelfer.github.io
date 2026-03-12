@@ -268,6 +268,7 @@ var hierarchy =
         [ "mfem_mgis::NonLinearEvolutionProblemImplementation< true >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html", null ]
       ] ]
     ] ],
+    [ "mfem_mgis::AbstractPartialQuadratureFunctionEvaluator", "structmfem__mgis_1_1_abstract_partial_quadrature_function_evaluator.html", null ],
     [ "mfem_mgis::AbstractSimulationMonitor", "structmfem__mgis_1_1_abstract_simulation_monitor.html", null ],
     [ "mfmtg::AbstractTestCase", "structmfmtg_1_1_abstract_test_case.html", [
       [ "mfmtg::TestCaseBase", "structmfmtg_1_1_test_case_base.html", [
@@ -2083,7 +2084,6 @@ var hierarchy =
       [ "tfel::meta::HasConstIterator< T, typename >", "structtfel_1_1meta_1_1_has_const_iterator.html", null ],
       [ "tfel::meta::HasIterator< T, typename >", "structtfel_1_1meta_1_1_has_iterator.html", null ]
     ] ],
-    [ "mgis::behaviour::MaterialStateManager::FieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html", null ],
     [ "mfront::FileDescription", "structmfront_1_1_file_description.html", null ],
     [ "tfel::fsalgo::fill< N >", "structtfel_1_1fsalgo_1_1fill.html", null ],
     [ "mgis::behaviour::FiniteStrainBehaviourOptions", "structmgis_1_1behaviour_1_1_finite_strain_behaviour_options.html", null ],
@@ -2844,6 +2844,7 @@ var hierarchy =
     [ "tfel::math::MultiIndicesUnaryOperatorFunctor< UnaryOperator, FirstArgument >", "structtfel_1_1math_1_1_multi_indices_unary_operator_functor.html", null ],
     [ "tfel::math::MultiplyFixedSizeArrayDerivatives", "structtfel_1_1math_1_1_multiply_fixed_size_array_derivatives.html", null ],
     [ "mgis::behaviour::MultiThreadedBehaviourIntegrationResult", "structmgis_1_1behaviour_1_1_multi_threaded_behaviour_integration_result.html", null ],
+    [ "mgis::behaviour::MaterialStateManager::MutableFieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html", null ],
     [ "NM", null, [
       [ "tfel::math::KrigingDefaultModel< 1u, T, NM >", "structtfel_1_1math_1_1_kriging_default_model_3_011u_00_01_t_00_01_n_m_01_4.html", null ],
       [ "tfel::math::KrigingDefaultModel< 2u, T, NM >", "structtfel_1_1math_1_1_kriging_default_model_3_012u_00_01_t_00_01_n_m_01_4.html", null ],
@@ -2961,11 +2962,13 @@ var hierarchy =
     ] ],
     [ "mfem_mgis::PartialQuadratureFunctionDataLayout", "structmfem__mgis_1_1_partial_quadrature_function_data_layout.html", [
       [ "mfem_mgis::ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html", [
+        [ "mfem_mgis::PartialQuadratureFunctionEvaluatorResult", "structmfem__mgis_1_1_partial_quadrature_function_evaluator_result.html", null ],
         [ "mfem_mgis::PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html", [
           [ "mfem_mgis::PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html", null ]
         ] ]
       ] ]
     ] ],
+    [ "mfem_mgis::PartialQuadratureFunctionEvaluationOptions", "structmfem__mgis_1_1_partial_quadrature_function_evaluation_options.html", null ],
     [ "mfem_mgis::PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html", null ],
     [ "mfront::PathSpecifier", "structmfront_1_1_path_specifier.html", null ],
     [ "tfel::material::homogenization::elasticity::Phase< N, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase.html", [
@@ -4193,6 +4196,9 @@ var hierarchy =
     [ "mfront::DocumentationGeneratorBase::VariableInformationBase", "structmfront_1_1_documentation_generator_base_1_1_variable_information_base.html", null ],
     [ "mfront::DSLBase::VariableModifier", "structmfront_1_1_d_s_l_base_1_1_variable_modifier.html", [
       [ "mfront::BehaviourDSLCommon::StandardVariableModifier", "structmfront_1_1_behaviour_d_s_l_common_1_1_standard_variable_modifier.html", null ]
+    ] ],
+    [ "std::variant", null, [
+      [ "mgis::behaviour::MaterialStateManager::FieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html", null ]
     ] ],
     [ "numodis::Vect3", "structnumodis_1_1_vect3.html", null ],
     [ "std::vector", null, [

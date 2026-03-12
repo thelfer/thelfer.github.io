@@ -134,6 +134,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a610ad0e908203021643e8fa69200f633" id="r_a610ad0e908203021643e8fa69200f633"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_finite_element_discretization.html#a610ad0e908203021643e8fa69200f633">FiniteElementDiscretization</a> (const <a class="el" href="structmfem__mgis_1_1_parameters.html">Parameters</a> &amp;)</td></tr>
 <tr class="memdesc:a610ad0e908203021643e8fa69200f633"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <br /></td></tr>
 <tr class="separator:a610ad0e908203021643e8fa69200f633"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09864e2dcc540b519b6d19fe49da4e37" id="r_a09864e2dcc540b519b6d19fe49da4e37"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_finite_element_discretization.html#a09864e2dcc540b519b6d19fe49da4e37">FiniteElementDiscretization</a> (const <a class="el" href="structmfem__mgis_1_1_mesh_discretization.html">MeshDiscretization</a> &amp;, const <a class="el" href="structmfem__mgis_1_1_parameters.html">Parameters</a> &amp;)</td></tr>
+<tr class="memdesc:a09864e2dcc540b519b6d19fe49da4e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <br /></td></tr>
+<tr class="separator:a09864e2dcc540b519b6d19fe49da4e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9da124c1669401d64b1532f5683a568a" id="r_a9da124c1669401d64b1532f5683a568a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_finite_element_discretization.html#a9da124c1669401d64b1532f5683a568a">FiniteElementDiscretization</a> (std::shared_ptr&lt; <a class="el" href="namespacemfem__mgis.html#a990c3900c22231a90960bc742791edc5">Mesh</a>&lt; true &gt; &gt;, const <a class="el" href="structmfem__mgis_1_1_parameters.html">Parameters</a> &amp;)</td></tr>
 <tr class="memdesc:a9da124c1669401d64b1532f5683a568a"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <br /></td></tr>
 <tr class="separator:a9da124c1669401d64b1532f5683a568a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -381,7 +384,7 @@ std::map&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d2026
 </ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a610ad0e908203021643e8fa69200f633" name="a610ad0e908203021643e8fa69200f633"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a610ad0e908203021643e8fa69200f633">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[1/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a610ad0e908203021643e8fa69200f633">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[1/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -416,8 +419,54 @@ std::map&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d2026
 
 </div>
 </div>
+<a id="a09864e2dcc540b519b6d19fe49da4e37" name="a09864e2dcc540b519b6d19fe49da4e37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09864e2dcc540b519b6d19fe49da4e37">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[2/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">mfem_mgis::FiniteElementDiscretization::FiniteElementDiscretization </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmfem__mgis_1_1_mesh_discretization.html">MeshDiscretization</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmfem__mgis_1_1_parameters.html">Parameters</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>constructor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>mesh </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>parameters</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The following parameters are expected:</p>
+<ul>
+<li><code>FiniteElementFamily</code> (string): name of the finite element family to be used. Supported families are:<ul>
+<li><code>H1</code>: The default value if <code>H1</code>.</li>
+</ul>
+</li>
+<li><code>FiniteElementOrder</code> (int): order of the polynomial approximation.</li>
+<li><code>UnknownsSize</code> (int): number of components of the unknows </li>
+</ul>
+
+</div>
+</div>
 <a id="a9da124c1669401d64b1532f5683a568a" name="a9da124c1669401d64b1532f5683a568a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9da124c1669401d64b1532f5683a568a">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[2/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9da124c1669401d64b1532f5683a568a">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[3/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -463,7 +512,7 @@ std::map&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d2026
 </div>
 </div>
 <a id="af8e472b44931ced9b34103605e168581" name="af8e472b44931ced9b34103605e168581"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8e472b44931ced9b34103605e168581">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[3/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af8e472b44931ced9b34103605e168581">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[4/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -509,7 +558,7 @@ std::map&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d2026
 </div>
 </div>
 <a id="a936b499b4e3ce1a33439fe9fe18236e4" name="a936b499b4e3ce1a33439fe9fe18236e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a936b499b4e3ce1a33439fe9fe18236e4">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[4/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a936b499b4e3ce1a33439fe9fe18236e4">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[5/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -554,7 +603,7 @@ std::map&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d2026
 </div>
 </div>
 <a id="adaaec96e3e5e2f1b2c8ecad55c08d0a9" name="adaaec96e3e5e2f1b2c8ecad55c08d0a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adaaec96e3e5e2f1b2c8ecad55c08d0a9">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[5/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adaaec96e3e5e2f1b2c8ecad55c08d0a9">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[6/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -598,7 +647,7 @@ std::map&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d2026
 </div>
 </div>
 <a id="af6f1e64d92b51073b62312ce3ca1dc64" name="af6f1e64d92b51073b62312ce3ca1dc64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6f1e64d92b51073b62312ce3ca1dc64">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[6/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af6f1e64d92b51073b62312ce3ca1dc64">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[7/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -643,7 +692,7 @@ std::map&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d2026
 </div>
 </div>
 <a id="adb5d960c2dc65b06f2345d78bff56c6b" name="adb5d960c2dc65b06f2345d78bff56c6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb5d960c2dc65b06f2345d78bff56c6b">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[7/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adb5d960c2dc65b06f2345d78bff56c6b">&#9670;&#160;</a></span>FiniteElementDiscretization() <span class="overload">[8/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1363,7 +1412,7 @@ template&lt;bool parallel&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_finite_element_discretization.html">FiniteElementDiscretization</a></li>
-    <li class="footer">Generated on Tue Mar 10 2026 07:20:11 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Mar 12 2026 13:33:44 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

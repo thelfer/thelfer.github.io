@@ -1,6 +1,7 @@
 var structmgis_1_1behaviour_1_1_material_state_manager =
 [
-    [ "FieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder" ],
+    [ "FieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html", null ],
+    [ "MutableFieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder" ],
     [ "StorageMode", "structmgis_1_1behaviour_1_1_material_state_manager.html#a9635178f50914f0e16e4b31fb57a2c3d", null ],
     [ "UpdatePolicy", "structmgis_1_1behaviour_1_1_material_state_manager.html#ab737b9e4ca20f29a0e43de464d70c139", [
       [ "UPDATE", "structmgis_1_1behaviour_1_1_material_state_manager.html#ab737b9e4ca20f29a0e43de464d70c139a5f6bcd386cdd183feaaffd718a9605f2", null ],
@@ -16,7 +17,7 @@ var structmgis_1_1behaviour_1_1_material_state_manager =
     [ "gradients_stride", "structmgis_1_1behaviour_1_1_material_state_manager.html#a96c81cc4c46cfd6144ce44a9e772f506", null ],
     [ "internal_state_variables", "structmgis_1_1behaviour_1_1_material_state_manager.html#a0115341a3371acf269b0e5c4145eace2", null ],
     [ "internal_state_variables_stride", "structmgis_1_1behaviour_1_1_material_state_manager.html#af406a79c88d76a104dfa7bbed2d09a6f", null ],
-    [ "mass_density", "structmgis_1_1behaviour_1_1_material_state_manager.html#a90e292645723b5ce338ba71a86f30b7e", null ],
+    [ "mass_density", "structmgis_1_1behaviour_1_1_material_state_manager.html#acb690a259359fce91c7975a738492d84", null ],
     [ "material_properties", "structmgis_1_1behaviour_1_1_material_state_manager.html#a01f37d51c2ccda83909cb413f86e019d", null ],
     [ "n", "structmgis_1_1behaviour_1_1_material_state_manager.html#a101b8d90dd0e04ceba3a2df0c7aa6d7f", null ],
     [ "stored_energies", "structmgis_1_1behaviour_1_1_material_state_manager.html#af07a8b8eb735f69d96a6d1f9c978f1a4", null ],

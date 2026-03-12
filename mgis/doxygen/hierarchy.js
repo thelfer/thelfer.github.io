@@ -103,7 +103,6 @@ var hierarchy =
       [ "mgis::function::LightweightViewTraits< FunctionType >", "structmgis_1_1function_1_1_lightweight_view_traits.html", null ],
       [ "mgis::function::internals::IsTensor< T >", "structmgis_1_1function_1_1internals_1_1_is_tensor.html", null ]
     ] ],
-    [ "mgis::behaviour::MaterialStateManager::FieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html", null ],
     [ "mgis::behaviour::FiniteStrainBehaviourOptions", "structmgis_1_1behaviour_1_1_finite_strain_behaviour_options.html", null ],
     [ "mgis::function::internals::fixed_size_modifier< N >", "structmgis_1_1function_1_1internals_1_1fixed__size__modifier.html", null ],
     [ "mgis::function::FunctionDataLayoutDescription", "structmgis_1_1function_1_1_function_data_layout_description.html", null ],
@@ -197,6 +196,7 @@ var hierarchy =
     [ "mgis::function::customization_points::MinimumComponent< TensorType >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01_tensor_type_01_4.html", null ],
     [ "mgis::function::customization_points::MinimumComponent< tfel::math::View< const TensorType > >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01tfel_1_1math_1_1_view_b80741af4806089a2b3b63f445aea5ed.html", null ],
     [ "mgis::behaviour::MultiThreadedBehaviourIntegrationResult", "structmgis_1_1behaviour_1_1_multi_threaded_behaviour_integration_result.html", null ],
+    [ "mgis::behaviour::MaterialStateManager::MutableFieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html", null ],
     [ "dolfin::NonlinearProblem", null, [
       [ "mgis::fenics::NonLinearMechanicalProblem", "structmgis_1_1fenics_1_1_non_linear_mechanical_problem.html", null ]
     ] ],
@@ -337,6 +337,9 @@ var hierarchy =
     [ "mgis::function::UniformEvaluator< Space, N >", "structmgis_1_1function_1_1_uniform_evaluator.html", null ],
     [ "mgis::attributes::UnsafeAttribute", "structmgis_1_1attributes_1_1_unsafe_attribute.html", null ],
     [ "mgis::behaviour::Variable", "structmgis_1_1behaviour_1_1_variable.html", null ],
+    [ "std::variant", null, [
+      [ "mgis::behaviour::MaterialStateManager::FieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html", null ]
+    ] ],
     [ "mgis::function::internals::ViewResultType< bool, FunctionType >", "structmgis_1_1function_1_1internals_1_1_view_result_type.html", null ],
     [ "mgis::function::internals::ViewResultType< false, FunctionType >", "structmgis_1_1function_1_1internals_1_1_view_result_type_3_01false_00_01_function_type_01_4.html", null ]
 ];

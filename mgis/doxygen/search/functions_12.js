@@ -7,7 +7,7 @@ var searchData=
   ['unsetexternalstatevariable_4',['unsetExternalStateVariable',['../_material_state_manager_8hxx.html#a8127dc9b6558788244357c3e2edd75da',1,'mgis::behaviour']]],
   ['unsetmaterialproperty_5',['unsetMaterialProperty',['../_material_state_manager_8hxx.html#ac0725821d59b500eedf727e7cf70a9fd',1,'mgis::behaviour']]],
   ['update_6',['update',['../_behaviour_data_8hxx.html#a59207100f58e767d035bbad958335121',1,'mgis::behaviour::update(BehaviourData &amp;)'],['../_material_data_manager_8hxx.html#a4b68d5873899996568a5193753557ca8',1,'mgis::behaviour::update(MaterialDataManager &amp;)']]],
-  ['updatevalues_7',['updateValues',['../_material_state_manager_8hxx.html#af0fd6ff382dbc9d5f70345f9d50671b8',1,'mgis::behaviour']]],
+  ['updatevalues_7',['updatevalues',['../_material_state_manager_8hxx.html#af0fd6ff382dbc9d5f70345f9d50671b8',1,'mgis::behaviour::updateValues(MaterialStateManager &amp;, const MaterialStateManager &amp;)'],['../_material_state_manager_8hxx.html#a37b220bf03d87acf40e2f5e9ab9f3928',1,'mgis::behaviour::updateValues(Context &amp;, MaterialStateManager &amp;, const MaterialStateManager &amp;) noexcept']]],
   ['useexternalarrayofspeedofsounds_8',['useExternalArrayOfSpeedOfSounds',['../structmgis_1_1behaviour_1_1_material_data_manager.html#aca10a36e316fd89c50d05a074cbac8b6',1,'mgis::behaviour::MaterialDataManager']]],
   ['useexternalarrayoftangentoperatorblocks_9',['useExternalArrayOfTangentOperatorBlocks',['../structmgis_1_1behaviour_1_1_material_data_manager.html#a80e8f860cfc034a53780d4925fd7fbee',1,'mgis::behaviour::MaterialDataManager']]]
 ];

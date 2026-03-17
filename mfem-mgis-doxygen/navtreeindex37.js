@@ -1,5 +1,7 @@
 var NAVTREEINDEX37 =
 {
+"structmfront_1_1_path_specifier.html#a2299856874b5f220adc9430ca3b88b7b":[5,0,11,99,1],
+"structmfront_1_1_path_specifier.html#a3048e860ec8b4b3cab8ea3106ad5bbdb":[5,0,11,99,9],
 "structmfront_1_1_path_specifier.html#a3c28ea34dd345a7c8763b4c381501eda":[5,0,11,99,0],
 "structmfront_1_1_path_specifier.html#a415daf3fbee0b2e7e5f833d940f4189a":[5,0,11,99,8],
 "structmfront_1_1_path_specifier.html#a5b941ee26f5d4a8bc2698c47f73959ae":[5,0,11,99,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX37 =
 "structmfront_1_1_variable_bounds_description.html#a717ded1ded8da8f800a1d58feafab7feaedfc1edb291f73c956d3697181bad555":[5,0,11,114,0,2],
 "structmfront_1_1_variable_bounds_description.html#a71de1dc2d9170267b8d81044d0f8d696":[5,0,11,114,6],
 "structmfront_1_1_variable_bounds_description.html#a79b544f66172979b81dbc53603fff66f":[5,0,11,114,1],
-"structmfront_1_1_variable_bounds_description.html#a79f3f74ee830c443fdb02504e86a85af":[5,0,11,114,5],
-"structmfront_1_1_variable_bounds_description.html#a80939ff1fe9873734e47409b77ba08e3":[5,0,11,114,7],
-"structmfront_1_1_variable_bounds_description.html#a9fc191d8789aca724c5a4efbbb10db4d":[5,0,11,114,2]
+"structmfront_1_1_variable_bounds_description.html#a79f3f74ee830c443fdb02504e86a85af":[5,0,11,114,5]
 };

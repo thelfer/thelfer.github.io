@@ -744,8 +744,10 @@ MFEM_MGIS_EXPORT <a class="el" href="spack_2opt_2spack_2linux-zen2_2tfel-master-
 MFEM_MGIS_EXPORT <a class="el" href="spack_2opt_2spack_2linux-zen2_2tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w_2include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><b>finalize</b> ()</td></tr>
 <tr class="memdesc:a7fd884c34e542f7251c673674524761b"><td class="mdescLeft">&#160;</td><td class="mdescRight">function that must be called to end <code>mfem-mgis</code> This call is optional if the code exits normally. <br /></td></tr>
 <tr class="separator:a7fd884c34e542f7251c673674524761b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a647c4c383f4291e25a290784b04681a7" id="r_a647c4c383f4291e25a290784b04681a7"><td class="memItemLeft" align="right" valign="top">MFEM_MGIS_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#a647c4c383f4291e25a290784b04681a7">getMPIrank</a> ()</td></tr>
-<tr class="separator:a647c4c383f4291e25a290784b04681a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36c05fabaa197a4de966f81041e29f01" id="r_a36c05fabaa197a4de966f81041e29f01"><td class="memItemLeft" align="right" valign="top">MFEM_MGIS_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#a36c05fabaa197a4de966f81041e29f01">getMPIrank</a> ()</td></tr>
+<tr class="separator:a36c05fabaa197a4de966f81041e29f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c87fb6d85e50681a8334a79c68e6807" id="r_a4c87fb6d85e50681a8334a79c68e6807"><td class="memItemLeft" align="right" valign="top">MFEM_MGIS_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#a4c87fb6d85e50681a8334a79c68e6807">getMPIsize</a> ()</td></tr>
+<tr class="separator:a4c87fb6d85e50681a8334a79c68e6807"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0312dcc6663ab942d1277cbd4ffb90e6" id="r_a0312dcc6663ab942d1277cbd4ffb90e6"><td class="memTemplParams" colspan="2">template&lt;typename Exception  = std::runtime_error&gt; </td></tr>
 <tr class="memitem:a0312dcc6663ab942d1277cbd4ffb90e6"><td class="memTemplItemLeft" align="right" valign="top">MFEM_MGIS_VISIBILITY_LOCAL <a class="el" href="spack_2opt_2spack_2linux-zen2_2tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w_2include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#a0312dcc6663ab942d1277cbd4ffb90e6">raise</a> ()</td></tr>
 <tr class="memdesc:a0312dcc6663ab942d1277cbd4ffb90e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">a small wrapper used to build the exception outside the <code>throw</code> statement. As most exception's classes constructors may throw, this avoids undefined behaviour as reported by the <code>cert-err60-cpp</code> warning of <code>clang-tidy</code> (thrown exception type is not nothrow copy constructible).  <br /></td></tr>
@@ -4875,29 +4877,39 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="a647c4c383f4291e25a290784b04681a7" name="a647c4c383f4291e25a290784b04681a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a647c4c383f4291e25a290784b04681a7">&#9670;&#160;</a></span>getMPIrank()</h2>
+<a id="a36c05fabaa197a4de966f81041e29f01" name="a36c05fabaa197a4de966f81041e29f01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36c05fabaa197a4de966f81041e29f01">&#9670;&#160;</a></span>getMPIrank()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int mfem_mgis::getMPIrank </td>
+          <td class="memname">MFEM_MGIS_EXPORT int mfem_mgis::getMPIrank </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the MPI rank. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the MPI rank for the default communicator </dd></dl>
+
+</div>
+</div>
+<a id="a4c87fb6d85e50681a8334a79c68e6807" name="a4c87fb6d85e50681a8334a79c68e6807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c87fb6d85e50681a8334a79c68e6807">&#9670;&#160;</a></span>getMPIsize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MFEM_MGIS_EXPORT int mfem_mgis::getMPIsize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the total number of MPI processor for the default communicator. </dd></dl>
 
 </div>
 </div>
@@ -7173,7 +7185,7 @@ template&lt;bool parallel&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li>
-    <li class="footer">Generated on Tue Mar 17 2026 07:22:01 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Mar 17 2026 09:16:51 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

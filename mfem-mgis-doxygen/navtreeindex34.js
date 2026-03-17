@@ -1,5 +1,7 @@
 var NAVTREEINDEX34 =
 {
+"structmfront_1_1_file_description.html#ab1f08618da6cf83d3c80f144fe48812d":[5,0,11,44,1],
+"structmfront_1_1_file_description.html#ac96de5662a41cb10748e290f5bd37135":[5,0,11,44,9],
 "structmfront_1_1_file_description.html#ad3b7c9435805bd109ae513efccc9d80c":[5,0,11,44,0],
 "structmfront_1_1_generator_options.html":[5,0,11,45],
 "structmfront_1_1_generator_options.html#a03a7d74f7b389fe2847809bbdd216fa0":[5,0,11,45,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX34 =
 "structmfront_1_1_law_function.html#aea3a98b68ec0f3d836e8a8736b500a04":[5,0,11,69,2],
 "structmfront_1_1_law_function.html#aed9d7fde53be86110fdd503932382768":[5,0,11,69,3],
 "structmfront_1_1_law_function.html#af58060fb489a59d828383ac6345e8ca0":[5,0,11,69,0],
-"structmfront_1_1_library_description.html":[5,0,11,70],
-"structmfront_1_1_library_description.html#a04d5489883402187075df9f5ddf1dc0b":[5,0,11,70,0],
-"structmfront_1_1_library_description.html#a04d5489883402187075df9f5ddf1dc0ba0f45a7e1f3975071d48a80baa9ad7ce8":[5,0,11,70,0,1]
+"structmfront_1_1_library_description.html":[5,0,11,70]
 };

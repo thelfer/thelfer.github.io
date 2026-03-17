@@ -3,7 +3,7 @@ var structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition =
     [ "UniformImposedPressureBoundaryCondition", "structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html#a69c7249ffee8fe9336e0fd85d16972e8", null ],
     [ "UniformImposedPressureBoundaryCondition", "structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html#a742c0fdd6c86bdaa9f6da6b03f6e812d", null ],
     [ "UniformImposedPressureBoundaryCondition", "structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html#a27cf95b97434e8410a89d6b8a041eae5", null ],
-    [ "~UniformImposedPressureBoundaryCondition", "structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html#a863388c72f768cc8e5a252493c94f651", null ],
+    [ "~UniformImposedPressureBoundaryCondition", "structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html#a87e1edb314d0815509e61cd04933731c", null ],
     [ "addLinearFormIntegrators", "structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html#ab2349f72ae33ed51d8dadc4de1436577", null ],
     [ "addLinearFormIntegrators", "structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html#aa216dcb743a1b7bbc7f4a43b504dcb85", null ],
     [ "addNonlinearFormIntegrator", "structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html#a40e1c32f5167e70cd0f2b5bbd30939ba", null ],

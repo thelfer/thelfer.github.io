@@ -1,6 +1,8 @@
 var structmfem__mgis_1_1_immutable_partial_quadrature_function_view =
 [
     [ "ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#ad469ebed59b1b4da96d54a9d3200ea2b", null ],
+    [ "ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a2ca4439049923fcb06de61aa43422f4b", null ],
+    [ "ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#ad13f18429924a612ab8dc0fcb08c4e5c", null ],
     [ "~ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a5df2e4f8b459f2b594e75e5211554fd1", null ],
     [ "ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a8a6f22ca25778f7053f57660e8045561", null ],
     [ "ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a11a0a9029a20a151ed71f77a59ad21af", null ],
@@ -17,6 +19,8 @@ var structmfem__mgis_1_1_immutable_partial_quadrature_function_view =
     [ "getValues", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#ac416d5fe3e5b058653264c46a7984064", null ],
     [ "operator()", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a4a4f0fa6bb1a87ff4b33ec4bc096336e", null ],
     [ "operator()", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#adc279a84b7b7df6408e73d2912b3d778", null ],
+    [ "operator=", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#acc53258d5f6abe8f37fff9cf41bc249a", null ],
+    [ "operator=", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#ad2ad17ed343968e47ef8c8e6c714e216", null ],
     [ "immutable_values", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a68ab308fcd73139da210dc7bcc6bcc6b", null ],
     [ "qspace", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#af877bf6f95e0328d6a641673d46d91da", null ]
 ];

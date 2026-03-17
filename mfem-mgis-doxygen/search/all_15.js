@@ -13,7 +13,7 @@ var searchData=
   ['qrinvalidmatrixsize_10',['QRInvalidMatrixSize',['../structtfel_1_1math_1_1_q_r_invalid_matrix_size.html',1,'tfel::math']]],
   ['qrnullpivot_11',['QRNullPivot',['../structtfel_1_1math_1_1_q_r_null_pivot.html',1,'tfel::math']]],
   ['qrunmatchedsize_12',['QRUnmatchedSize',['../structtfel_1_1math_1_1_q_r_unmatched_size.html',1,'tfel::math']]],
-  ['qspace_13',['qspace',['../structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#af877bf6f95e0328d6a641673d46d91da',1,'mfem_mgis::ImmutablePartialQuadratureFunctionView']]],
+  ['qspace_13',['qspace',['../structmfem__mgis_1_1_partial_quadrature_function_evaluator_base.html#add15f3fc6f5646a2805dfe45e54facd9',1,'mfem_mgis::PartialQuadratureFunctionEvaluatorBase::qspace'],['../structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#af877bf6f95e0328d6a641673d46d91da',1,'mfem_mgis::ImmutablePartialQuadratureFunctionView::qspace']]],
   ['qt_14',['qt',['../_forward_2qt_8hxx.html#af3f6a2b6fd43605cbd137447c18f655c',1,'tfel::math']]],
   ['qt_2ehxx_15',['qt.hxx',['../qt_8hxx.html',1,'']]],
   ['qt_5fref_16',['qt_ref',['../_forward_2qt_8hxx.html#aede2949e5f97d6f3b90912d5644eb645',1,'tfel::math']]],

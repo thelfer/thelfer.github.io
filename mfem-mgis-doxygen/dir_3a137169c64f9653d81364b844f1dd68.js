@@ -78,6 +78,8 @@ var dir_3a137169c64f9653d81364b844f1dd68 =
     [ "PartialQuadratureFunction.ixx", "_partial_quadrature_function_8ixx.html", null ],
     [ "PartialQuadratureFunctionEvaluator.hxx", "_partial_quadrature_function_evaluator_8hxx.html", "_partial_quadrature_function_evaluator_8hxx" ],
     [ "PartialQuadratureFunctionEvaluator.ixx", "_partial_quadrature_function_evaluator_8ixx.html", "_partial_quadrature_function_evaluator_8ixx" ],
+    [ "PartialQuadratureFunctionEvaluatorBase.hxx", "_partial_quadrature_function_evaluator_base_8hxx.html", "_partial_quadrature_function_evaluator_base_8hxx" ],
+    [ "PartialQuadratureFunctionEvaluators.hxx", "_partial_quadrature_function_evaluators_8hxx.html", "_partial_quadrature_function_evaluators_8hxx" ],
     [ "PartialQuadratureFunctionsSet.hxx", "_partial_quadrature_functions_set_8hxx.html", "_partial_quadrature_functions_set_8hxx" ],
     [ "PartialQuadratureSpace.hxx", "_partial_quadrature_space_8hxx.html", "_partial_quadrature_space_8hxx" ],
     [ "PartialQuadratureSpace.ixx", "_partial_quadrature_space_8ixx.html", null ],

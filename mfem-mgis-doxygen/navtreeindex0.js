@@ -45,10 +45,12 @@ var NAVTREEINDEX0 =
 "_abstract_non_linear_evolution_problem_8hxx.html#a73a830d83c7c7d1101ab885739b12ea5a3a4eb675850671a5ad63fc129d91022a":[6,0,0,0,8,3,3],
 "_abstract_non_linear_evolution_problem_8hxx.html#a73a830d83c7c7d1101ab885739b12ea5a4da56c3c2d4ee59a3461da5b2ad1a25d":[6,0,0,0,8,3,2],
 "_abstract_non_linear_evolution_problem_8hxx.html#a73a830d83c7c7d1101ab885739b12ea5a61a085f4807a9157f9381a9b543efda2":[6,0,0,0,8,3,0],
+"_abstract_non_linear_evolution_problem_8hxx.html#a77cb535fe4af2651dce233d8e5ac3802":[6,0,0,0,8,11],
+"_abstract_non_linear_evolution_problem_8hxx.html#a96c929df3dd3dc4e612444dc9976a1f7":[6,0,0,0,8,10],
 "_abstract_non_linear_evolution_problem_8hxx.html#ac205078afc8ecd3a594a6d13c5f318cc":[6,0,0,0,8,9],
 "_abstract_non_linear_evolution_problem_8hxx.html#afefb93558fb042b026817160726b1c58":[6,0,0,0,8,8],
 "_abstract_partial_quadrature_function_evaluator_8hxx.html":[6,0,0,0,9],
-"_abstract_partial_quadrature_function_evaluator_8hxx.html#a4624016046cf1f7e572ffc7aabd5f1d8":[6,0,0,0,9,3],
+"_abstract_partial_quadrature_function_evaluator_8hxx.html#a01279a55bce89f0ba2ebd9a09f72efe9":[6,0,0,0,9,3],
 "_abstract_simulation_monitor_8hxx.html":[6,0,0,0,10],
 "_abstract_test_case_8hxx.html":[6,0,1,0,0,0,1,0,2,0],
 "_abstract_test_case_factory_8hxx.html":[6,0,1,0,0,0,1,0,2,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "_brick_utilities_8hxx.html#a7babaa192c35a5a96910b521b7fb7817":[6,0,1,0,0,0,1,0,3,3,2,4],
 "_brick_utilities_8hxx.html#a7e2735c0111a9c2471027411d3c319ca":[6,0,1,0,0,0,1,0,3,3,2,8],
 "_brick_utilities_8hxx.html#a81ca8c1d49ac48b375348c0aa54368d6":[6,0,1,0,0,0,1,0,3,3,2,34],
-"_brick_utilities_8hxx.html#a93f0d4d7379701a69fbfeac214282878":[6,0,1,0,0,0,1,0,3,3,2,25],
-"_brick_utilities_8hxx.html#a98b5ca6890495b51dbcc75ee4b91f931":[6,0,1,0,0,0,1,0,3,3,2,33],
-"_brick_utilities_8hxx.html#a994897a8c5154f5c842ddb9e02d39a5a":[6,0,1,0,0,0,1,0,3,3,2,1]
+"_brick_utilities_8hxx.html#a93f0d4d7379701a69fbfeac214282878":[6,0,1,0,0,0,1,0,3,3,2,25]
 };

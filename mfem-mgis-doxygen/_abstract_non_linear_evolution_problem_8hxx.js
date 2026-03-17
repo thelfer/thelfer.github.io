@@ -23,5 +23,7 @@ var _abstract_non_linear_evolution_problem_8hxx =
     [ "getBoundariesIdentifiers", "_abstract_non_linear_evolution_problem_8hxx.html#a48e2e627cb6b2cb9c79a30fe81670ef3", null ],
     [ "getBoundaryIdentifier", "_abstract_non_linear_evolution_problem_8hxx.html#a28d464fbd864f005e88a532281d97e5a", null ],
     [ "getMaterialIdentifier", "_abstract_non_linear_evolution_problem_8hxx.html#afefb93558fb042b026817160726b1c58", null ],
-    [ "getMaterialsIdentifiers", "_abstract_non_linear_evolution_problem_8hxx.html#ac205078afc8ecd3a594a6d13c5f318cc", null ]
+    [ "getMaterialsIdentifiers", "_abstract_non_linear_evolution_problem_8hxx.html#ac205078afc8ecd3a594a6d13c5f318cc", null ],
+    [ "getMPICommunicator", "_abstract_non_linear_evolution_problem_8hxx.html#a96c929df3dd3dc4e612444dc9976a1f7", null ],
+    [ "isMainProcess", "_abstract_non_linear_evolution_problem_8hxx.html#a77cb535fe4af2651dce233d8e5ac3802", null ]
 ];

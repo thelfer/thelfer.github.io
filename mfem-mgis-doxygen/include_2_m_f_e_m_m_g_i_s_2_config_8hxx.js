@@ -11,7 +11,6 @@ var include_2_m_f_e_m_m_g_i_s_2_config_8hxx =
     [ "finalize", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html#a7fd884c34e542f7251c673674524761b", null ],
     [ "getErrorStream", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html#ad655cf71509ef87d3af4cd521bbe181e", null ],
     [ "getMPIrank", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html#a647c4c383f4291e25a290784b04681a7", null ],
-    [ "getMPIsize", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html#adbdf078110307ca583cb65817429a9cd", null ],
     [ "getOutputStream", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html#a11adbe6d24e85e9ecb4056c1ee711c55", null ],
     [ "initialize", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html#a44fffbf6a880ab562ac0bbae75e59380", null ],
     [ "raise", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html#a0312dcc6663ab942d1277cbd4ffb90e6", null ],

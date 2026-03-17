@@ -11,7 +11,7 @@ var structmfem__mgis_1_1_exit_status =
     [ "setStatus", "structmfem__mgis_1_1_exit_status.html#a5f5ab26674e95bfa4acbc70d0bd9c299", null ],
     [ "shallContinue", "structmfem__mgis_1_1_exit_status.html#a45f8024f917d4b78a48f4aeeef56a917", null ],
     [ "shallStop", "structmfem__mgis_1_1_exit_status.html#ac643027cd0b176986d7808eb84b82151", null ],
-    [ "synchronize", "structmfem__mgis_1_1_exit_status.html#abb0b770300eb6b6d04883fd60bf0fb4c", null ],
+    [ "synchronize", "structmfem__mgis_1_1_exit_status.html#ac1a7123b7b61ca719ea6e7bbee7ac228", null ],
     [ "update", "structmfem__mgis_1_1_exit_status.html#a754db11a8503c7a6bfdfc72c55c77125", null ],
     [ "update", "structmfem__mgis_1_1_exit_status.html#a807936ccf69e762275cc443161ab583c", null ]
 ];

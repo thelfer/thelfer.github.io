@@ -2,7 +2,7 @@ var structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base =
 [
     [ "Hypothesis", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a3340e66635c2af62480ac09453bf6ebc", null ],
     [ "NonLinearEvolutionProblemImplementationBase", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#aa6dd2982155f5083dab7c1f5de9b5a29", null ],
-    [ "~NonLinearEvolutionProblemImplementationBase", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a1cf7a8c3281afa2009a94dfb2ea057fd", null ],
+    [ "~NonLinearEvolutionProblemImplementationBase", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a4d4304f9a1490d2e5a79c1e41b6175ea", null ],
     [ "addBehaviourIntegrator", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a1d056753c7c15fcf938365138238945d", null ],
     [ "areStiffnessOperatorsFromLastIterationAvailable", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#ad79b15cc862ecf92a20cbd80b5e9f925", null ],
     [ "computePrediction", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a288b79c8438fd60bd71851bfc4b0c235", null ],

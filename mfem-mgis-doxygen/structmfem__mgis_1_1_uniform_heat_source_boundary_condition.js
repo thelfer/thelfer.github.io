@@ -3,7 +3,7 @@ var structmfem__mgis_1_1_uniform_heat_source_boundary_condition =
     [ "UniformHeatSourceBoundaryCondition", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#a0f4a1047616d157d45af8005f6a94e2b", null ],
     [ "UniformHeatSourceBoundaryCondition", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#aba7c1804d29422ec68f47e6dfb58cc89", null ],
     [ "UniformHeatSourceBoundaryCondition", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#a62b46ced91891f8cbfd75b798f6cbc50", null ],
-    [ "~UniformHeatSourceBoundaryCondition", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#aa18d41b6a445f3a3209ebfa3001cfb1b", null ],
+    [ "~UniformHeatSourceBoundaryCondition", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#a0efba96bf912053b27407b6fe281f424", null ],
     [ "addLinearFormIntegrators", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#a3518be159b7990539ccc06b77d07de11", null ],
     [ "addLinearFormIntegrators", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#a830778ef6774e0f5e70bc55819985fc7", null ],
     [ "addNonlinearFormIntegrator", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html#ac88d3918ee15c306a1218d5af880e902", null ],

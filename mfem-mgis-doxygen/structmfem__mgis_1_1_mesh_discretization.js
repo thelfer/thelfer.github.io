@@ -3,6 +3,8 @@ var structmfem__mgis_1_1_mesh_discretization =
     [ "MeshDiscretization", "structmfem__mgis_1_1_mesh_discretization.html#a09481dddc65bb35c48bdcd9224884749", null ],
     [ "MeshDiscretization", "structmfem__mgis_1_1_mesh_discretization.html#a6947cee6aaeb2d2565766c7b89335245", null ],
     [ "MeshDiscretization", "structmfem__mgis_1_1_mesh_discretization.html#aa9f85f7b11c58f8ee30171cccca6c41b", null ],
+    [ "MeshDiscretization", "structmfem__mgis_1_1_mesh_discretization.html#acd708ed570fb39566e1f34dbcf14e7c9", null ],
+    [ "MeshDiscretization", "structmfem__mgis_1_1_mesh_discretization.html#a54ede15d77b836d7426165fc486f6948", null ],
     [ "~MeshDiscretization", "structmfem__mgis_1_1_mesh_discretization.html#a940c54482b50961fe7b8865570ac3e58", null ],
     [ "describesAParallelComputation", "structmfem__mgis_1_1_mesh_discretization.html#ad2c094087d1288637418c078d40302e1", null ],
     [ "getBoundariesIdentifiers", "structmfem__mgis_1_1_mesh_discretization.html#aae8fdf26157c7ce16267e82cdad8dc06", null ],

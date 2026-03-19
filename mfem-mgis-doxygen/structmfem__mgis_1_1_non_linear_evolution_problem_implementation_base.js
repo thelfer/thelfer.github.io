@@ -4,6 +4,8 @@ var structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base =
     [ "NonLinearEvolutionProblemImplementationBase", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#aa6dd2982155f5083dab7c1f5de9b5a29", null ],
     [ "~NonLinearEvolutionProblemImplementationBase", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a4d4304f9a1490d2e5a79c1e41b6175ea", null ],
     [ "addBehaviourIntegrator", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a1d056753c7c15fcf938365138238945d", null ],
+    [ "addBehaviourIntegrator", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a91adc10092aba30732d82f56760737d9", null ],
+    [ "addBehaviourIntegrator", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#af823d431c44e8c0cd1f0fb249408c070", null ],
     [ "areStiffnessOperatorsFromLastIterationAvailable", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#ad79b15cc862ecf92a20cbd80b5e9f925", null ],
     [ "computePrediction", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a288b79c8438fd60bd71851bfc4b0c235", null ],
     [ "getAssignedMaterialsIdentifiers", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a24a878a28f95dd4b045ebcfd9d7affc1", null ],

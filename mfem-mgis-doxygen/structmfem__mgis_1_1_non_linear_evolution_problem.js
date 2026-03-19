@@ -8,6 +8,8 @@ var structmfem__mgis_1_1_non_linear_evolution_problem =
     [ "NonLinearEvolutionProblem", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a35784edb7f602484faaf7b32f2314f36", null ],
     [ "~NonLinearEvolutionProblem", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a46db3bcf8cb558db4fa09cc587dd568a", null ],
     [ "addBehaviourIntegrator", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a0a822a4d3cc0ca9a5802c87eae8c12c3", null ],
+    [ "addBehaviourIntegrator", "structmfem__mgis_1_1_non_linear_evolution_problem.html#ad2779430634c1e51b7cb874936fe58f9", null ],
+    [ "addBehaviourIntegrator", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a72d120dcb71c3595f93f4b7d7085e4a4", null ],
     [ "addBoundaryCondition", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a283be82f9b3da0cf4bca18416653a5b5", null ],
     [ "addBoundaryCondition", "structmfem__mgis_1_1_non_linear_evolution_problem.html#a3a4371d8e34b123d47c7cc5ef990b2a9", null ],
     [ "addBoundaryCondition", "structmfem__mgis_1_1_non_linear_evolution_problem.html#adcf830afb068212a6853af24bf6d5a17", null ],

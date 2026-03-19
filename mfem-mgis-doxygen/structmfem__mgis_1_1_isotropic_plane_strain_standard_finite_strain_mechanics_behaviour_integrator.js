@@ -12,6 +12,7 @@ var structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics
     [ "updateInnerForces", "structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator.html#a7e93d812efeedfe630f202a0c1b27f45", null ],
     [ "updateJacobian", "structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator.html#a9dbf8f0091866078e8d7da551c749f4f", null ],
     [ "updateResidual", "structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator.html#a369c79554d10a25c62c9b78b097ae30a", null ],
+    [ "updateStiffnessMatrix", "structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator.html#a3a94e855a29a5ee6187f1e753f54b83d", null ],
     [ "updateStiffnessMatrix", "structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator.html#aefa82da493ff8c576bd7e46421a87924", null ],
     [ "StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator.html#a90c3408deaefe74a8c301bfd8bebd77c", null ]
 ];

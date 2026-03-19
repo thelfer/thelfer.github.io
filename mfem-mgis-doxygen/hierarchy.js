@@ -1654,8 +1654,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
+    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -2093,6 +2093,13 @@ var hierarchy =
       [ "tfel::meta::HasConstIterator< T, typename >", "structtfel_1_1meta_1_1_has_const_iterator.html", null ],
       [ "tfel::meta::HasIterator< T, typename >", "structtfel_1_1meta_1_1_has_iterator.html", null ]
     ] ],
+    [ "Faltus2026RegularizedIsotropicBehaviourIntegratorBase", null, [
+      [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegrator< H >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator.html", null ]
+    ] ],
+    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< H >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch.html", null ],
+    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::PLANESTRAIN >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hyaa26bf8bf73500ccbab0c0881c6776f0.html", null ],
+    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::PLANESTRESS >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy84eb42220287bea87d37518f2e58db7e.html", null ],
+    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::TRIDIMENSIONAL >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy585a1f6e00216ee05121fca4c0a3aaad.html", null ],
     [ "mfront::FileDescription", "structmfront_1_1_file_description.html", null ],
     [ "tfel::fsalgo::fill< N >", "structtfel_1_1fsalgo_1_1fill.html", null ],
     [ "mgis::behaviour::FiniteStrainBehaviourOptions", "structmgis_1_1behaviour_1_1_finite_strain_behaviour_options.html", null ],

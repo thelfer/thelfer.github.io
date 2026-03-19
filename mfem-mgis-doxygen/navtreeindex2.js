@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"_cyrano_material_property_8hxx.html":[6,0,1,0,0,0,1,0,4,6],
 "_d_d_i_f2_base_8hxx.html":[6,0,1,0,0,0,1,0,6,4,16],
 "_d_d_i_f2_base_8hxx.html#a1147b85151e32f56d8104f761036f43f":[6,0,1,0,0,0,1,0,6,4,16,2],
 "_d_d_i_f2_base_8hxx.html#a30703d1299a32ba3a0696df2b2c7b775":[6,0,1,0,0,0,1,0,6,4,16,1],
@@ -211,10 +212,12 @@ var NAVTREEINDEX2 =
 "_factorized_kriging1_d3_d_8hxx.html":[6,0,1,0,0,0,1,0,6,5,34],
 "_factorized_kriging_8hxx.html":[6,0,1,0,0,0,1,0,6,5,31],
 "_factorized_kriging_8ixx.html":[6,0,1,0,0,0,1,0,6,5,6,0],
-"_finite_element_discretization_8hxx.html":[6,0,0,0,34],
-"_finite_element_discretization_8hxx.html#a84deaa40711e39c5637f32aef3669e6a":[6,0,0,0,34,1],
-"_finite_element_discretization_8hxx.html#abf58c74af7b026afae6fe9601cdb77bd":[6,0,0,0,34,2],
-"_finite_element_discretization_8ixx.html":[6,0,0,0,35],
+"_faltus2026_regularized_behaviour_integrators_8hxx.html":[6,0,0,0,34],
+"_faltus2026_regularized_behaviour_integrators_8ixx.html":[6,0,0,0,35],
+"_finite_element_discretization_8hxx.html":[6,0,0,0,36],
+"_finite_element_discretization_8hxx.html#a84deaa40711e39c5637f32aef3669e6a":[6,0,0,0,36,1],
+"_finite_element_discretization_8hxx.html#abf58c74af7b026afae6fe9601cdb77bd":[6,0,0,0,36,2],
+"_finite_element_discretization_8ixx.html":[6,0,0,0,37],
 "_finite_strain_behaviour_options_8hxx.html":[6,0,1,0,0,0,0,0,0,0,7],
 "_finite_strain_behaviour_tangent_operator_8hxx.html":[6,0,1,0,0,0,1,0,6,4,23],
 "_finite_strain_behaviour_tangent_operator_8hxx.html#a11472adaa06c35e63eac4c052f0ba7e7":[6,0,1,0,0,0,1,0,6,4,23,15],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "_finite_strain_behaviour_tangent_operator_8ixx.html#a808500f592c1c32480fb75e2c9966e7b":[6,0,1,0,0,0,1,0,6,4,24,15],
 "_finite_strain_behaviour_tangent_operator_8ixx.html#a82f3d9fd39214ff485d85d74c344e592":[6,0,1,0,0,0,1,0,6,4,24,27],
 "_finite_strain_behaviour_tangent_operator_8ixx.html#a87a63d513aac394d66ca1e96b814e560":[6,0,1,0,0,0,1,0,6,4,24,5],
-"_finite_strain_behaviour_tangent_operator_8ixx.html#a8aa24441bbde39e971c622c3c65744e2":[6,0,1,0,0,0,1,0,6,4,24,43],
-"_finite_strain_behaviour_tangent_operator_8ixx.html#a8ca20a50e726c797bc51e87c9fc69939":[6,0,1,0,0,0,1,0,6,4,24,12],
-"_finite_strain_behaviour_tangent_operator_8ixx.html#a96984d27e7d54d1626ae905b28b83f92":[6,0,1,0,0,0,1,0,6,4,24,33],
-"_finite_strain_behaviour_tangent_operator_8ixx.html#a96e72e93b932310aa719104293617553":[6,0,1,0,0,0,1,0,6,4,24,13]
+"_finite_strain_behaviour_tangent_operator_8ixx.html#a8aa24441bbde39e971c622c3c65744e2":[6,0,1,0,0,0,1,0,6,4,24,43]
 };

@@ -1,6 +1,8 @@
 var include_2_m_f_e_m_m_g_i_s_2_config_8hxx =
 [
     [ "MainFunctionArguments", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html#af57871a527a6e0d72a95122dd686f19f", null ],
+    [ "MayAbort", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html#a78280268a5d0c3d6eeed8e438a1642a5", null ],
+    [ "MayThrow", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html#a3ee4701c2ee61ec2155fae9858fd649a", null ],
     [ "real", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html#aee59940f912d12c96b219f5a92ddaf3c", null ],
     [ "size_type", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html#ad00be4118572b247d20260b90137c368", null ],
     [ "Throwing", "include_2_m_f_e_m_m_g_i_s_2_config_8hxx.html#afa2c4e2732b394702b75d9c0fad0bf41", null ],

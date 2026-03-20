@@ -1,5 +1,6 @@
 var NAVTREEINDEX21 =
 {
+"structmfem__mgis_1_1_isotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a9aa0a12454558b7a773770408819843c":[5,0,9,67,13],
 "structmfem__mgis_1_1_isotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a9aa0a12454558b7a773770408819843c":[3,0,0,65,13],
 "structmfem__mgis_1_1_isotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#aa9fd65d0d1201d896bb7fe5600397223":[3,0,0,65,10],
 "structmfem__mgis_1_1_isotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#aa9fd65d0d1201d896bb7fe5600397223":[5,0,9,67,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX21 =
 "structmfem__mgis_1_1_mesh_discretization.html#a666bb2b956d4790ae536ff440c41e352":[3,0,0,79,21],
 "structmfem__mgis_1_1_mesh_discretization.html#a666bb2b956d4790ae536ff440c41e352":[5,0,9,81,21],
 "structmfem__mgis_1_1_mesh_discretization.html#a6947cee6aaeb2d2565766c7b89335245":[5,0,9,81,1],
-"structmfem__mgis_1_1_mesh_discretization.html#a6947cee6aaeb2d2565766c7b89335245":[3,0,0,79,1],
-"structmfem__mgis_1_1_mesh_discretization.html#a7bbda446336b6edc6da3295b01f32a50":[3,0,0,79,18]
+"structmfem__mgis_1_1_mesh_discretization.html#a6947cee6aaeb2d2565766c7b89335245":[3,0,0,79,1]
 };

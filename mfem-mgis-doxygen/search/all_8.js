@@ -268,7 +268,7 @@ var searchData=
   ['dopedanticchecks_265',['dopedanticchecks',['../structmfront_1_1_behaviour_d_s_l_common.html#a45524587f968905dc5b38fc7e02086a8',1,'mfront::BehaviourDSLCommon::doPedanticChecks()'],['../structmfront_1_1_material_property_d_s_l.html#a4c2b4309007c8b4bba0bb48251c9799f',1,'mfront::MaterialPropertyDSL::doPedanticChecks()']]],
   ['dotasseparator_266',['dotAsSeparator',['../structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a5ca8ea131761161d44fbd97a20afa4f1',1,'tfel::utilities::CxxTokenizerOptions']]],
   ['dothermalintegration_267',['doThermalIntegration',['../classtfel_1_1material_1_1_isotropic_linear_fourier_law.html#a4d9d67bb38b9510d1a24d8d455b90c0e',1,'tfel::material::IsotropicLinearFourierLaw']]],
-  ['dotproduct_268',['dotproduct',['../structtfel_1_1math_1_1_dot_product.html',1,'tfel::math::DotProduct&lt; N, M &gt;'],['../structtfel_1_1math_1_1dot_product.html',1,'tfel::math::dotProduct&lt; N &gt;']]],
+  ['dotproduct_268',['dotproduct',['../structtfel_1_1math_1_1dot_product.html',1,'tfel::math::dotProduct&lt; N &gt;'],['../structtfel_1_1math_1_1_dot_product.html',1,'tfel::math::DotProduct&lt; N, M &gt;']]],
   ['dotproduct_2ehxx_269',['DotProduct.hxx',['../_dot_product_8hxx.html',1,'']]],
   ['dotproduct_3c_200u_20_3e_270',['dotProduct&lt; 0u &gt;',['../structtfel_1_1math_1_1dot_product_3_010u_01_4.html',1,'tfel::math']]],
   ['dotproduct_3c_200u_2c_20m_20_3e_271',['DotProduct&lt; 0u, M &gt;',['../structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html',1,'tfel::math']]],

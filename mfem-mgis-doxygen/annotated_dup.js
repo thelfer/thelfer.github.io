@@ -870,6 +870,7 @@ var annotated_dup =
     ] ],
     [ "mgis", null, [
       [ "attributes", null, [
+        [ "AbortingAttribute", "structmgis_1_1attributes_1_1_aborting_attribute.html", null ],
         [ "ThrowingAttribute", "structmgis_1_1attributes_1_1_throwing_attribute.html", null ],
         [ "UnsafeAttribute", "structmgis_1_1attributes_1_1_unsafe_attribute.html", null ]
       ] ],

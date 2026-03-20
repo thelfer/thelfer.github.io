@@ -1,5 +1,6 @@
 var NAVTREEINDEX23 =
 {
+"structmfem__mgis_1_1_non_linear_evolution_problem.html#a8fb4a48de724be02c571d9d88d1fd138":[3,0,0,83,66],
 "structmfem__mgis_1_1_non_linear_evolution_problem.html#a8fb4a48de724be02c571d9d88d1fd138":[5,0,9,85,66],
 "structmfem__mgis_1_1_non_linear_evolution_problem.html#a95615441a9f8655e8b99333b9424d1c1":[3,0,0,83,51],
 "structmfem__mgis_1_1_non_linear_evolution_problem.html#a95615441a9f8655e8b99333b9424d1c1":[5,0,9,85,51],
@@ -248,6 +249,5 @@ var NAVTREEINDEX23 =
 "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a700f264b763c9a18e3be346e3e3cf8f4":[3,0,0,87,13],
 "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a700f264b763c9a18e3be346e3e3cf8f4":[5,0,9,89,13],
 "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a7886fbf740a19cf0cf5ba7f6cdd74847":[5,0,9,89,47],
-"structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a7886fbf740a19cf0cf5ba7f6cdd74847":[3,0,0,87,47],
-"structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a7c4a8e25647ec864d5e09f6077f5f2f4":[3,0,0,87,36]
+"structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a7886fbf740a19cf0cf5ba7f6cdd74847":[3,0,0,87,47]
 };

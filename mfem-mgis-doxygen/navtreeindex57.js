@@ -1,5 +1,7 @@
 var NAVTREEINDEX57 =
 {
+"structtfel_1_1math_1_1_math_object_traits_from_array_policy.html":[5,0,16,5,375],
+"structtfel_1_1math_1_1_math_run_time_exception.html":[5,0,16,5,376],
 "structtfel_1_1math_1_1_matrix_concept_base.html":[5,0,16,5,378],
 "structtfel_1_1math_1_1_matrix_tag.html":[5,0,16,5,381],
 "structtfel_1_1math_1_1_matrix_view_from_tensor_expr.html":[5,0,16,5,385],
@@ -247,7 +249,5 @@ var NAVTREEINDEX57 =
 "structtfel_1_1math_1_1_strided_random_access_iterator.html":[5,0,16,5,546],
 "structtfel_1_1math_1_1_strided_random_access_iterator.html#a0da47c2ae48cb78ed8dd5f5231837060":[5,0,16,5,546,2],
 "structtfel_1_1math_1_1_strided_random_access_iterator.html#a0e67abfc29792313ab8c835fcbc50fb5":[5,0,16,5,546,13],
-"structtfel_1_1math_1_1_strided_random_access_iterator.html#a1072793724872501876bfa1c3bac665c":[5,0,16,5,546,5],
-"structtfel_1_1math_1_1_strided_random_access_iterator.html#a2589867c813d3839132e30cbcca6e91f":[5,0,16,5,546,9],
-"structtfel_1_1math_1_1_strided_random_access_iterator.html#a31b83c66433b2fd1f32f7b2674a34c6c":[5,0,16,5,546,12]
+"structtfel_1_1math_1_1_strided_random_access_iterator.html#a1072793724872501876bfa1c3bac665c":[5,0,16,5,546,5]
 };

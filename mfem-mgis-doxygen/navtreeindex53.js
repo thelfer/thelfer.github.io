@@ -1,5 +1,7 @@
 var NAVTREEINDEX53 =
 {
+"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01true_01_4.html":[5,0,16,5,103],
+"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01true_01_4.html#a58a777224cf57f78cb92fba6121bc122":[5,0,16,5,103,0],
 "structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01true_01_4.html":[5,0,16,5,104],
 "structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01true_01_4.html#a1e5176a348838260211695232b552066":[5,0,16,5,104,0],
 "structtfel_1_1math_1_1_compute_unary_operation_result.html":[5,0,16,5,105],
@@ -247,7 +249,5 @@ var NAVTREEINDEX53 =
 "structtfel_1_1math_1_1_evaluator_1_1_t_logical_expr.html":[5,0,16,5,197,10],
 "structtfel_1_1math_1_1_evaluator_1_1_t_logical_operation.html":[5,0,16,5,197,11],
 "structtfel_1_1math_1_1_evaluator_1_1_t_neg_logical_expr.html":[5,0,16,5,197,13],
-"structtfel_1_1math_1_1_evaluator_1_1_t_negation.html":[5,0,16,5,197,12],
-"structtfel_1_1math_1_1_evaluator_1_1_t_number.html":[5,0,16,5,197,14],
-"structtfel_1_1math_1_1_evaluator_1_1_t_operator.html":[5,0,16,5,197,15]
+"structtfel_1_1math_1_1_evaluator_1_1_t_negation.html":[5,0,16,5,197,12]
 };

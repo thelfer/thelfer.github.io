@@ -1,5 +1,7 @@
 var NAVTREEINDEX65 =
 {
+"structtfel_1_1utilities_1_1_token.html#ab88e44c5987c066c0525bba142cc0464":[5,0,16,11,23,5],
+"structtfel_1_1utilities_1_1_token.html#ad387e40d81729b5528d15f481166aed6":[5,0,16,11,23,6],
 "structtfel_1_1utilities_1_1_token.html#aeb436b4f77987dc960eda18e2188811b":[5,0,16,11,23,4],
 "structtfel_1_1utilities_1_1_token.html#af791b1a51ca1ee5466b79ecc5bc92187":[5,0,16,11,23,2],
 "structtfel_1_1utilities_1_1basic__fcstring.html":[5,0,16,11,4],

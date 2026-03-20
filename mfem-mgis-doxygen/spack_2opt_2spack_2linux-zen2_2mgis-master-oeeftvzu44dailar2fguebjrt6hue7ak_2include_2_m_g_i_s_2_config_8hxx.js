@@ -2,6 +2,7 @@ var spack_2opt_2spack_2linux_zen2_2mgis_master_oeeftvzu44dailar2fguebjrt6hue7ak_
 [
     [ "mgis::attributes::UnsafeAttribute", "structmgis_1_1attributes_1_1_unsafe_attribute.html", null ],
     [ "mgis::attributes::ThrowingAttribute< bool >", "structmgis_1_1attributes_1_1_throwing_attribute.html", null ],
+    [ "mgis::attributes::AbortingAttribute< bool >", "structmgis_1_1attributes_1_1_aborting_attribute.html", null ],
     [ "real", "spack_2opt_2spack_2linux-zen2_2mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_config_8hxx.html#a0e88ae1504a452a9c3e573a06beff1e4", null ],
     [ "size_type", "spack_2opt_2spack_2linux-zen2_2mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_config_8hxx.html#a184723b5d743b58169be89d3b04265fc", null ],
     [ "ContractViolationPolicy", "spack_2opt_2spack_2linux-zen2_2mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_config_8hxx.html#ac2c78c02077d41d0d9ee2fd6ff349aee", [

@@ -1,5 +1,6 @@
 var NAVTREEINDEX37 =
 {
+"structmfront_1_1_non_linear_system_solver.html":[5,0,11,94],
 "structmfront_1_1_non_linear_system_solver.html#a1488db58dcfb83bf88e9a048e217bf7c":[5,0,11,94,2],
 "structmfront_1_1_non_linear_system_solver.html#a1d0fc7dd91c4c3b4bce6552df9943aee":[5,0,11,94,10],
 "structmfront_1_1_non_linear_system_solver.html#a31845c9b171f61afa7d96263edd9efbf":[5,0,11,94,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX37 =
 "structmfront_1_1_u_m_a_t_interface_base.html#ab211b3223498ce8b267bf0a27b7136f5":[5,0,11,112,2],
 "structmfront_1_1_u_m_a_t_interface_base.html#ab4fb7dde07fcb952de372314a868b974":[5,0,11,112,22],
 "structmfront_1_1_u_m_a_t_interface_base.html#ac66eaf6a01e214383b21f45b77993d60":[5,0,11,112,14],
-"structmfront_1_1_u_m_a_t_interface_base.html#ad0d18be700dee52c67718a40b3f4a5cb":[5,0,11,112,10],
-"structmfront_1_1_u_m_a_t_interface_base.html#ae04ec9688e9a092a8c452aefcc2e23a2":[5,0,11,112,25]
+"structmfront_1_1_u_m_a_t_interface_base.html#ad0d18be700dee52c67718a40b3f4a5cb":[5,0,11,112,10]
 };

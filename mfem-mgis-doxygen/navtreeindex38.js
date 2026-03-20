@@ -1,5 +1,6 @@
 var NAVTREEINDEX38 =
 {
+"structmfront_1_1_u_m_a_t_interface_base.html#ae04ec9688e9a092a8c452aefcc2e23a2":[5,0,11,112,25],
 "structmfront_1_1_u_m_a_t_interface_base.html#ae935ebc7be61f2743f18efc4dc111184":[5,0,11,112,23],
 "structmfront_1_1_u_m_a_t_interface_base.html#aec5022b2ac17dcc1abed78e9c32d9ad5":[5,0,11,112,8],
 "structmfront_1_1_u_m_a_t_interface_base.html#aee44c7cf8ba1a56b9c07fc43fc48f4be":[5,0,11,112,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX38 =
 "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#acc90ca058bdd0872848dac28030d5b76":[5,0,11,0,12,2],
 "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#af71fcfe2745bf3dc4583bc780d9a1613":[5,0,11,0,12,6],
 "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#af89243934b0a6f5d6915fc89b313edcf":[5,0,11,0,12,11],
-"structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#afa57ab714706005d5dba1b40c3703329":[5,0,11,0,12,7],
-"structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html":[5,0,11,0,13]
+"structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#afa57ab714706005d5dba1b40c3703329":[5,0,11,0,12,7]
 };

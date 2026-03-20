@@ -1,5 +1,6 @@
 var NAVTREEINDEX20 =
 {
+"structmfem__mgis_1_1_first_iteration_convergence_criterion.html#acd3a4b47ad989daed0e6ee873c672a3f":[5,0,9,59,3],
 "structmfem__mgis_1_1_first_iteration_convergence_criterion.html#acd3a4b47ad989daed0e6ee873c672a3f":[3,0,0,57,3],
 "structmfem__mgis_1_1_first_iteration_convergence_criterion.html#ae43b1eae3ede7130bf7856a106254ce1":[5,0,9,59,1],
 "structmfem__mgis_1_1_first_iteration_convergence_criterion.html#ae43b1eae3ede7130bf7856a106254ce1":[3,0,0,57,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX20 =
 "structmfem__mgis_1_1_isotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a5346661d0424d627da834654573f78d7":[5,0,9,67,16],
 "structmfem__mgis_1_1_isotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a5346661d0424d627da834654573f78d7":[3,0,0,65,16],
 "structmfem__mgis_1_1_isotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a946de8c74fab2c14893f31cb14d4b428":[3,0,0,65,1],
-"structmfem__mgis_1_1_isotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a946de8c74fab2c14893f31cb14d4b428":[5,0,9,67,1],
-"structmfem__mgis_1_1_isotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a9aa0a12454558b7a773770408819843c":[5,0,9,67,13]
+"structmfem__mgis_1_1_isotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a946de8c74fab2c14893f31cb14d4b428":[5,0,9,67,1]
 };

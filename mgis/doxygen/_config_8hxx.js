@@ -2,6 +2,7 @@ var _config_8hxx =
 [
     [ "mgis::attributes::UnsafeAttribute", "structmgis_1_1attributes_1_1_unsafe_attribute.html", null ],
     [ "mgis::attributes::ThrowingAttribute< bool >", "structmgis_1_1attributes_1_1_throwing_attribute.html", null ],
+    [ "mgis::attributes::AbortingAttribute< bool >", "structmgis_1_1attributes_1_1_aborting_attribute.html", null ],
     [ "real", "_config_8hxx.html#a0e88ae1504a452a9c3e573a06beff1e4", null ],
     [ "size_type", "_config_8hxx.html#a184723b5d743b58169be89d3b04265fc", null ],
     [ "ContractViolationPolicy", "_config_8hxx.html#ac2c78c02077d41d0d9ee2fd6ff349aee", [

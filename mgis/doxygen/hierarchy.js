@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "mgis::attributes::AbortingAttribute< bool >", "structmgis_1_1attributes_1_1_aborting_attribute.html", null ],
     [ "mgis::function::customization_points::AbsoluteValue< T >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value.html", null ],
     [ "mgis::function::customization_points::AbsoluteValue< real >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01real_01_4.html", null ],
     [ "mgis::function::customization_points::AbsoluteValue< std::array< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01std_1_1array_3_01const_01real_00_01_n_01_4_01_4.html", null ],

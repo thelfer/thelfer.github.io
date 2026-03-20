@@ -69,11 +69,11 @@ var NAVTREEINDEX =
 "_abstract_error_handler_8hxx.html",
 "_hypothesis_8hxx.html#a037f3a96e426eed0b44aca2d14d8fb4fa0e63f5609077761393198d2ca8cf80a9",
 "_state_8hxx.html#ab0a906cbc10ae3acc06be97118fb5638",
-"namespacemgis.html#a6a8b20f25b7cfa95c3a8c1860e51d633",
-"structmgis_1_1_libraries_manager.html#ac43a74bf9773a82961ca50f8b1be1011",
-"structmgis_1_1behaviour_1_1_material_axis_storage.html#a26c33c3a2a93a564c56424c93c276529",
-"structmgis_1_1function_1_1_fixed_size_view.html#aaaa5bb3af2daf1db9f10416f1149bbb0",
-"structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tmatrix_3_01_n_00_01_m_00_01real_01_4_01_4.html"
+"namespacemgis.html#a643d6088fced32614d8aa29284f5be3b",
+"structmgis_1_1_libraries_manager.html#ac0e94feb9dd209b5302506d64fbf8245",
+"structmgis_1_1behaviour_1_1_load_from_database_options.html",
+"structmgis_1_1function_1_1_fixed_size_view.html#a9efd7ce718974ba51f39c5ea59ea82bb",
+"structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1t2tot2_3_01_n_00_01real_01_4_01_4.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

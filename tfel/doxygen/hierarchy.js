@@ -110,7 +110,9 @@ var hierarchy =
     ] ],
     [ "mfront::AbstractBehaviourInterface", "structmfront_1_1_abstract_behaviour_interface.html", [
       [ "mfront::BehaviourInterfaceBase", "structmfront_1_1_behaviour_interface_base.html", [
-        [ "mfront::GenericBehaviourInterface", "structmfront_1_1_generic_behaviour_interface.html", null ],
+        [ "mfront::GenericBehaviourInterface", "structmfront_1_1_generic_behaviour_interface.html", [
+          [ "mfront::CudaGenericBehaviourInterface", "structmfront_1_1_cuda_generic_behaviour_interface.html", null ]
+        ] ],
         [ "mfront::UMATInterfaceBase", "structmfront_1_1_u_m_a_t_interface_base.html", [
           [ "mfront::AbaqusInterfaceBase", "structmfront_1_1_abaqus_interface_base.html", [
             [ "mfront::AbaqusExplicitInterface", "structmfront_1_1_abaqus_explicit_interface.html", null ],

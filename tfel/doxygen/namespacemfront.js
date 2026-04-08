@@ -52,7 +52,6 @@ var namespacemfront =
     [ "ComsolInterface", "structmfront_1_1_comsol_interface.html", "structmfront_1_1_comsol_interface" ],
     [ "CppMaterialPropertyInterface", "structmfront_1_1_cpp_material_property_interface.html", "structmfront_1_1_cpp_material_property_interface" ],
     [ "CppTestMaterialPropertyInterface", "structmfront_1_1_cpp_test_material_property_interface.html", "structmfront_1_1_cpp_test_material_property_interface" ],
-    [ "CudaGenericBehaviourInterface", "structmfront_1_1_cuda_generic_behaviour_interface.html", "structmfront_1_1_cuda_generic_behaviour_interface" ],
     [ "CyranoInterface", "structmfront_1_1_cyrano_interface.html", "structmfront_1_1_cyrano_interface" ],
     [ "CyranoMaterialPropertyInterface", "structmfront_1_1_cyrano_material_property_interface.html", "structmfront_1_1_cyrano_material_property_interface" ],
     [ "CyranoSymbolsGenerator", "structmfront_1_1_cyrano_symbols_generator.html", "structmfront_1_1_cyrano_symbols_generator" ],

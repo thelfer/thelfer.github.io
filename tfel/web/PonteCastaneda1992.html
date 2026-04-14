@@ -396,14 +396,19 @@ id="toc-the-non-linear-homogenization-problem">The non-linear
 homogenization problem</a></li>
 <li><a href="#the-variational-bound" id="toc-the-variational-bound">The
 variational bound</a></li>
-<li><a href="#summary" id="toc-summary">Summary</a></li>
 <li><a href="#macroscopic-stress-and-tangent-operator"
 id="toc-macroscopic-stress-and-tangent-operator">Macroscopic stress and
 tangent operator</a></li>
+<li><a href="#summary-and-possible-implementations"
+id="toc-summary-and-possible-implementations">Summary and possible
+implementations</a></li>
 </ul></li>
 <li><a href="#implementation-in-mfront"
 id="toc-implementation-in-mfront">Implementation in MFront</a>
 <ul>
+<li><a href="#example-used-for-the-implementation"
+id="toc-example-used-for-the-implementation">Example used for the
+implementation</a></li>
 <li><a href="#details-of-implementation"
 id="toc-details-of-implementation">Details of implementation</a></li>
 </ul></li>
@@ -485,12 +490,13 @@ supplementary restriction to the behaviour.
 \left\{{\displaystyle \frac{\displaystyle 9}{\displaystyle 2}} k_r\,
 \varepsilon_m^2+{\displaystyle \frac{\displaystyle 3}{\displaystyle 2}}
 \mu_0^r(\underline{x})\,
-\varepsilon_{\mathrm{eq}}^2-f_r^*(\mu_0^r(\underline{x}))\right\}
+\varepsilon_{\mathrm{eq}}^2-f_r^*(\dfrac32\mu_0^r(\underline{x}))\right\}
   \end{aligned}\]</span>
 where the dual function <span class="math inline">\(f_r^*\)</span> is
 defined as
 <span class="math display">\[\begin{aligned}
-    f_r^*(\mu_0)=\underset{e}{\min} \left\{\mu_0 e-f_r(e)\right\}
+    f_r^*(\lambda_0)=\underset{e}{\min} \left\{\lambda_0
+e-f_r(e)\right\}
   \end{aligned}\]</span>
 Considering uniform per phase shear moduli <span
 class="math inline">\(\mu_0^r\)</span> (also called the ‘secant
@@ -503,7 +509,7 @@ K(\overline{\underline{\varepsilon}})}{\textrm{min}} \langle
 w(\underline{\varepsilon})\rangle \leq
 \overline{w}(\overline{\underline{\varepsilon}})=\underset{\mu_0^r}{\min}
 \left\{W_0^{\mathrm{eff}}(\overline{\underline{\varepsilon}})-\sum_r
-c_r\, f_r^*(\mu_0^r)\right\}
+c_r\, f_r^*(\dfrac32\mu_0^r)\right\}
   \end{aligned}\]</span>
 <p>where <span class="math inline">\(c_r\)</span> is the volume fraction
 of phase <span class="math inline">\(r\)</span> and <span
@@ -517,14 +523,12 @@ class="math inline">\(\mu_0^r\)</span> are:
 <span class="math display">\[\begin{aligned}
     {\displaystyle \frac{\displaystyle \partial
 W_0^{\mathrm{eff}}}{\displaystyle \partial \mu_0^r}} =
-c_r\,{\displaystyle \frac{\displaystyle \partial f_r^*}{\displaystyle
-\partial \mu_0^r}}
+\dfrac{3c_r}{2}\,\left(f_r^*\right)&#39;(\dfrac32 \mu_0^r)
   \end{aligned}\]</span>
 which can be shown to be equivalent to
 <span class="math display">\[\begin{aligned}
     \mu_0^r= {\displaystyle \frac{\displaystyle 2}{\displaystyle 3}}
-{\displaystyle \frac{\displaystyle \partial f_r}{\displaystyle \partial
-e}}\left(\langle \varepsilon_{\mathrm{eq}}^2\rangle_r\right)
+f_r&#39;\left(\langle \varepsilon_{\mathrm{eq}}^2\rangle_r\right)
   \end{aligned}\]</span>
 where <span class="math inline">\(\varepsilon_{\mathrm{eq}}\)</span> is
 relative to <span class="math inline">\(\underline{\varepsilon}\)</span>
@@ -548,7 +552,44 @@ it follows that
 \frac{\displaystyle \partial W_0^{\mathrm{eff}}}{\displaystyle \partial
 \mu_0^r}}
   \end{aligned}\]</span>
-<h2 id="summary">Summary</h2>
+<h2 id="macroscopic-stress-and-tangent-operator">Macroscopic stress and
+tangent operator</h2>
+The macroscopic stress <span
+class="math inline">\(\overline{\underline{\sigma}}\)</span> is also
+shown to be (see <span class="citation"
+data-cites="ponte_castaneda_nonlinear_1998">[<a
+href="#ref-ponte_castaneda_nonlinear_1998"
+role="doc-biblioref">2</a>]</span>, eq. (4.41)):
+<span class="math display">\[\begin{aligned}
+    \overline{\underline{\sigma}}={\displaystyle \frac{\displaystyle
+\partial \overline{w}}{\displaystyle \partial
+\overline{\underline{\varepsilon}}}}={\displaystyle \frac{\displaystyle
+\partial W_0^{\mathrm{eff}}}{\displaystyle \partial
+\overline{\underline{\varepsilon}}}}=\underline{\mathbf{C}}_0^{\mathrm{eff}}:\overline{\underline{\varepsilon}}
+  \end{aligned}\]</span>
+<p>where <span
+class="math inline">\(\underline{\mathbf{C}}_0^{\mathrm{eff}}\)</span>
+is the effective elasticity of the linear comparison composite. In our
+case, we use Hashin-Shtrikman bounds.</p>
+The tangent operator is given by
+<span class="math display">\[\begin{aligned}
+    \dfrac{\mathrm{d}\overline{\underline{\sigma}}}{\mathrm{d}\overline{\underline{\varepsilon}}}=\underline{\mathbf{C}}_0^{\mathrm{eff}}+\dfrac{\mathrm{d}\underline{\mathbf{C}}_0^{\mathrm{eff}}}{\mathrm{d}\overline{\underline{\varepsilon}}}
+  \end{aligned}\]</span>
+<p>Here, the derivative of <span
+class="math inline">\(\underline{\mathbf{C}}_0^{\mathrm{eff}}\)</span>
+w.r.t. <span
+class="math inline">\(\overline{\underline{\varepsilon}}\)</span> can be
+computed by derivating the Hashin-Shtrikman moduli w.r.t. the secant
+moduli <span class="math inline">\(\mu_0^r\)</span> and the derivatives
+of these moduli w.r.t. <span
+class="math inline">\(\overline{\underline{\varepsilon}}\)</span>.
+However, it is tedious and in the implementation, we see that the
+convergence of the Newton Raphson algorithm is good if we only retain
+the first term <span
+class="math inline">\(\underline{\mathbf{C}}_0^{\mathrm{eff}}\)</span>
+in the tangent operator.</p>
+<h2 id="summary-and-possible-implementations">Summary and possible
+implementations</h2>
 <p>The resolution hence consists in <span class="math display">\[
 \text{Find}\,e^r=\langle
 \varepsilon_{\mathrm{eq}}^2\rangle_r\,\text{such that}\quad\langle
@@ -564,43 +605,54 @@ class="math display">\[
 3}}{\displaystyle \frac{\displaystyle \partial f_r}{\displaystyle
 \partial e}}\left(\langle \varepsilon_{\mathrm{eq}}^2\rangle_r\right).
 \]</span></p>
-<h2 id="macroscopic-stress-and-tangent-operator">Macroscopic stress and
-tangent operator</h2>
-The macroscopic stress <span
-class="math inline">\(\overline{\underline{\sigma}}\)</span> is also
-shown to be (see <span class="citation"
-data-cites="ponte_castaneda_nonlinear_1998">[<a
-href="#ref-ponte_castaneda_nonlinear_1998"
-role="doc-biblioref">2</a>]</span>, eq. (4.41)):
-<span class="math display">\[\begin{aligned}
-    \underline{\sigma}={\displaystyle \frac{\displaystyle \partial
-\overline{w}}{\displaystyle \partial
-\overline{\underline{\varepsilon}}}}={\displaystyle \frac{\displaystyle
-\partial W_0^{\mathrm{eff}}}{\displaystyle \partial
-\overline{\underline{\varepsilon}}}}=\underline{\mathbf{C}}_0^{\mathrm{eff}}:\overline{\underline{\varepsilon}}
-  \end{aligned}\]</span>
-<p>where <span
-class="math inline">\(\underline{\mathbf{C}}_0^{\mathrm{eff}}\)</span>
-is the effective elasticity of the linear comparison composite. In our
-case, we use Hashin-Shtrikman bounds.</p>
-The tangent operator is given by
-<span class="math display">\[\begin{aligned}
-    \dfrac{\mathrm{d}\underline{\sigma}}{\mathrm{d}\overline{\underline{\varepsilon}}}=\underline{\mathbf{C}}_0^{\mathrm{eff}}+\dfrac{\mathrm{d}\underline{\mathbf{C}}_0^{\mathrm{eff}}}{\mathrm{d}\overline{\underline{\varepsilon}}}
-  \end{aligned}\]</span>
-<p>Here, the derivative of <span
-class="math inline">\(\underline{\mathbf{C}}_0^{\mathrm{eff}}\)</span>
-w.r.t. <span
-class="math inline">\(\overline{\underline{\varepsilon}}\)</span> can be
-computed by derivating the Hashin-Shtrikman moduli w.r.t. the secant
-moduli <span class="math inline">\(\mu_0^r\)</span> and the derivatives
-of these moduli w.r.t. <span
-class="math inline">\(\overline{\underline{\varepsilon}}\)</span>.
-However, it is tedious and in the implementation, we see that the
-convergence of the Newton Raphson algorithm is good if we only retain
-the first term <span
-class="math inline">\(\underline{\mathbf{C}}_0^{\mathrm{eff}}\)</span>
-in the tangent operator.</p>
+<h3 id="possible-implementations">Possible implementations</h3>
+<p>The iterative resolution of the non-linear equation can be summarized
+as <span class="math display">\[
+\underset{\substack{\\ \\ \\ \Downarrow\\ \\ \\\text{analytic / finite
+difference}\\ \\ \\\text{\texttt{@BehaviourVariable} / directly
+provided}}}{\mu_0^r= {\displaystyle \frac{\displaystyle 2}{\displaystyle
+3}}{\displaystyle \frac{\displaystyle \partial f_r}{\displaystyle
+\partial e}}\left(\langle
+\varepsilon_{\mathrm{eq}}^2\rangle_r\right)}\quad\rightarrow\quad
+\underset{\substack{\\ \\ \\ \Downarrow\\ \\ \\\text{mean-field scheme /
+morphological tensors}\\ \\
+\\\texttt{tfel::material::homogenization}}}{W_0^{\mathrm{eff}}\left(\mu_0^r\right)=
+\dfrac12\overline{\underline{\varepsilon}}:\underline{\mathbf{C}}_0^{\mathrm{eff}}:\overline{\underline{\varepsilon}}}\quad\rightarrow\quad\underset{\substack{\\
+\\ \\ \Downarrow\\ \\ \\\text{analytic / finite difference}\\ \\
+\\\texttt{tfel::material::homogenization}}}{\langle
+\varepsilon_{\mathrm{eq}}^2\rangle_r= {\displaystyle \frac{\displaystyle
+2}{\displaystyle 3c_r}}{\displaystyle \frac{\displaystyle \partial
+W_0^{\mathrm{eff}}}{\displaystyle \partial \mu_0^r}}}
+\]</span></p>
+<p>And the macroscopic stress must also be computed: <span
+class="math display">\[
+\overline{\underline{\sigma}}=\underline{\mathbf{C}}_0^{\mathrm{eff}}:\overline{\underline{\varepsilon}}
+\]</span></p>
+<p>The first step of the resolution consists in computing the secant
+modulus <span class="math inline">\(\mu_0^r\)</span> and it can be done
+analytically (as below) or via finite difference or automatic
+differentiation. Moreover, for both strategies, we could use a
+<code>BehaviourVariable</code>, defining the function <span
+class="math inline">\(f_r\)</span> in an external file (in our example,
+the function is to simple to do that).</p>
+<p>The second step consists in computing the effective energy <span
+class="math inline">\(W_0^{\mathrm{eff}}\)</span>. This will be done via
+<code>tfel::material::homogenization</code>. This <code>namespace</code>
+provides classical mean-field schemes (we use a Hashin-Shtrikman bound
+in our example below). This could also be done with interaction tensors,
+providing externally. In another <a
+href="./MassonAffineFormulation.html">tutorial</a> we show that we can
+take into account more specifically the morphology of a polycrystal by
+providing interaction tensors.</p>
+<p>The third step consists in the computation of the second-moments.
+This is also done via <code>tfel::material::homogenization</code>. Here
+again, there are two strategies: analytical computation when possible,
+and finite difference or automatic differentiation when the analytical
+derivation is too tedious or even impossible. In our example below, the
+computation is analytic.</p>
 <h1 id="implementation-in-mfront">Implementation in MFront</h1>
+<h2 id="example-used-for-the-implementation">Example used for the
+implementation</h2>
 In the application of the implementation, we take the example of the
 following behaviour:
 <span class="math display">\[\begin{aligned}
@@ -639,8 +691,9 @@ W_0^{\mathrm{eff}}}{\displaystyle \partial \mu_0^r}}
 bound. This will be given by the
 <code>tfel::material::homogenization</code> functionalities.</p>
 <h2 id="details-of-implementation">Details of implementation</h2>
-<p>All the files are available <a
-href="./downloads/PonteCastaneda1992.zip">here</a></p>
+<p>The file <code>PonteCastaneda1992.mfront</code> is available in the
+<code>MFrontGallery</code> project, <a
+href="https://github.com/thelfer/MFrontGallery/tree/master/generic-behaviours/homogenization/">here</a>.</p>
 <p>For the jacobian, we adopt the <code>Numerical Jacobian</code>, which
 means that the beginning of the <code>mfront</code> file reads:</p>
 <div class="sourceCode" id="Begin"><pre
@@ -648,7 +701,7 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 <span id="Begin-2"><a href="#Begin-2"></a><span class="er">@</span>Behaviour PC_VB_92<span class="op">;</span></span>
 <span id="Begin-3"><a href="#Begin-3"></a><span class="er">@</span>Author Martin Antoine<span class="op">;</span></span>
 <span id="Begin-4"><a href="#Begin-4"></a><span class="er">@</span>Date <span class="dv">12</span> <span class="op">/</span> <span class="dv">12</span> <span class="op">/</span> <span class="dv">25</span><span class="op">;</span></span>
-<span id="Begin-5"><a href="#Begin-5"></a><span class="er">@</span>Description<span class="op">{</span><span class="st">&quot;Ponte Castaneda second-order estimates for homogenization of non-linear elasticity (one potential), based on second-moments computation&quot;</span><span class="op">};</span></span>
+<span id="Begin-5"><a href="#Begin-5"></a><span class="er">@</span>Description<span class="op">{</span><span class="st">&quot;Ponte Castaneda variational bounds for homogenization of non-linear elasticity (one potential), based on second-moments computation&quot;</span><span class="op">};</span></span>
 <span id="Begin-6"><a href="#Begin-6"></a><span class="er">@</span>UseQt <span class="kw">true</span><span class="op">;</span></span>
 <span id="Begin-7"><a href="#Begin-7"></a><span class="er">@</span>Algorithm NewtonRaphson_NumericalJacobian<span class="op">;</span></span>
 <span id="Begin-8"><a href="#Begin-8"></a><span class="er">@</span>PerturbationValueForNumericalJacobianComputation <span class="fl">1e-10</span><span class="op">;</span></span>
@@ -682,16 +735,17 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 href="tfel-material.html#second-moments-of-the-strains">documentation</a>):</p>
 <div class="sourceCode" id="Integrator"><pre
 class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="co">//second moments/////////////////////////////////</span></span>
-<span id="Integrator-2"><a href="#Integrator-2"></a><span class="at">const</span> <span class="kw">auto</span> em2 <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span>trace<span class="op">(</span>eto<span class="op">+</span>deto<span class="op">)/</span><span class="fl">3.</span><span class="op">;</span></span>
+<span id="Integrator-2"><a href="#Integrator-2"></a><span class="at">const</span> <span class="kw">auto</span> em <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span>trace<span class="op">(</span>eto<span class="op">+</span>deto<span class="op">)/</span><span class="fl">3.</span><span class="op">;</span></span>
 <span id="Integrator-3"><a href="#Integrator-3"></a><span class="at">const</span> <span class="kw">auto</span> ed <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span>deviator<span class="op">(</span>eto<span class="op">+</span>deto<span class="op">);</span></span>
-<span id="Integrator-4"><a href="#Integrator-4"></a><span class="at">const</span> <span class="kw">auto</span> eeq2 <span class="op">=</span> <span class="fl">2.</span><span class="op">/</span><span class="fl">3.</span><span class="op">*(</span>ed<span class="op">|</span>ed<span class="op">);</span></span>
-<span id="Integrator-5"><a href="#Integrator-5"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">;</span></span>
-<span id="Integrator-6"><a href="#Integrator-6"></a><span class="at">const</span> <span class="kw">auto</span> kg0 <span class="op">=</span> KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>k_m<span class="op">,</span>mu0<span class="op">);</span></span>
-<span id="Integrator-7"><a href="#Integrator-7"></a><span class="at">const</span> <span class="kw">auto</span> kgr <span class="op">=</span> KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>kar<span class="op">,</span>mur<span class="op">);</span></span>
-<span id="Integrator-8"><a href="#Integrator-8"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
-<span id="Integrator-9"><a href="#Integrator-9"></a><span class="at">const</span> <span class="kw">auto</span> <span class="va">eeq2_</span> <span class="op">=</span> computeMeanSquaredEquivalentStrain<span class="op">(</span>kg0<span class="op">,</span>fr<span class="op">,</span>kgr<span class="op">,</span>em2<span class="op">,</span>eeq2<span class="op">);</span></span>
-<span id="Integrator-10"><a href="#Integrator-10"></a><span class="at">const</span> <span class="kw">auto</span> eeq20<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span><span class="va">eeq2_</span><span class="op">);</span></span>
-<span id="Integrator-11"><a href="#Integrator-11"></a><span class="at">const</span> <span class="kw">auto</span> eeq2r<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span><span class="va">eeq2_</span><span class="op">);</span></span></code></pre></div>
+<span id="Integrator-4"><a href="#Integrator-4"></a><span class="at">const</span> <span class="kw">auto</span> em2 <span class="op">=</span> em<span class="op">*</span>em<span class="op">;</span></span>
+<span id="Integrator-5"><a href="#Integrator-5"></a><span class="at">const</span> <span class="kw">auto</span> eeq2 <span class="op">=</span> <span class="fl">2.</span><span class="op">/</span><span class="fl">3.</span><span class="op">*(</span>ed<span class="op">|</span>ed<span class="op">);</span></span>
+<span id="Integrator-6"><a href="#Integrator-6"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">;</span></span>
+<span id="Integrator-7"><a href="#Integrator-7"></a><span class="at">const</span> <span class="kw">auto</span> kg0 <span class="op">=</span> KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>k_m<span class="op">,</span>mu0<span class="op">);</span></span>
+<span id="Integrator-8"><a href="#Integrator-8"></a><span class="at">const</span> <span class="kw">auto</span> kgr <span class="op">=</span> KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>kar<span class="op">,</span>mur<span class="op">);</span></span>
+<span id="Integrator-9"><a href="#Integrator-9"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
+<span id="Integrator-10"><a href="#Integrator-10"></a><span class="at">const</span> <span class="kw">auto</span> <span class="va">eeq2_</span> <span class="op">=</span> computeMeanSquaredEquivalentStrain<span class="op">(</span>kg0<span class="op">,</span>fr<span class="op">,</span>kgr<span class="op">,</span>em2<span class="op">,</span>eeq2<span class="op">);</span></span>
+<span id="Integrator-11"><a href="#Integrator-11"></a><span class="at">const</span> <span class="kw">auto</span> eeq20<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span><span class="va">eeq2_</span><span class="op">);</span></span>
+<span id="Integrator-12"><a href="#Integrator-12"></a><span class="at">const</span> <span class="kw">auto</span> eeq2r<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span><span class="va">eeq2_</span><span class="op">);</span></span></code></pre></div>
 <p>Now we can write the residues:</p>
 <div class="sourceCode" id="Integrator"><pre
 class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="co">//residues/////////////////////////////////////</span></span>

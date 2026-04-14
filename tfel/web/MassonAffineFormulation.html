@@ -425,6 +425,7 @@ implementation</a></li>
 id="toc-details-of-implementation">Details of implementation</a></li>
 <li><a href="#results" id="toc-results">Results</a></li>
 </ul></li>
+<li><a href="#references" id="toc-references">References</a></li>
 </ul>
 </div>
 <p>We present here an implementation of the affine formulation <span
@@ -435,59 +436,58 @@ treated in <span class="citation"
 data-cites="bornert_second-order_2001">[<a
 href="#ref-bornert_second-order_2001" role="doc-biblioref">2</a>]</span>
 but with Ponte-Castaneda second-order estimates.</p>
-<p>Here, the idea is to show that many implementations of that procedure
-are possible in <code>MFront</code>. We show here a first implementation
-based on the self-consistent scheme, provided by the
-<code>namespace</code> <code>tfel::material::homogenization</code>. A
-second approach which uses morphological tensors computed by FFT, on a
-given geometry of polycrystal, is also detailed. This allows to improve
-the estimates, but it necessitates an offline computation.</p>
+<p>Here, the idea is to show that an implementation of that procedure
+based on morphological tensors computed by FFT, on a given geometry of
+polycrystal.</p>
 <p>This tutorial first presents the homogenization problem, recalls the
-methodology of the affine formulation, presents different kinds of
-possible implementations, and show the details of the
-<code>mfront</code> file.</p>
+methodology of the affine formulation, presents different the possible
+implementations, and show the details of the <code>mfront</code>
+file.</p>
 <h1 id="the-viscoplastic-polycrystal">The viscoplastic polycrystal</h1>
 <h2 id="behaviour">Behaviour</h2>
-We consider a polycrystalline material, which means that each phase
+<p>We consider a polycrystalline material, which means that each phase
 <span class="math inline">\(r\)</span> is associated to a crystal with
 corresponding slip systems <span
 class="math inline">\(\underline{\mu}_k^r\)</span> (<span
 class="math inline">\(1\leq k\leq K\)</span>). The strain rate in each
-crystal <span class="math inline">\(r\)</span> is given by
-<span class="math display">\[\begin{aligned}
+crystal <span class="math inline">\(r\)</span> is given by <span
+class="math display">\[
+  \begin{aligned}
     \dot{\underline{\varepsilon}}=\sum_k \dot{\gamma}_k^r\,
 \underline{\mu}_k^r\qquad\text{with}\quad \underline{\mu}_k^r =
 \dfrac12\left(\underline{n}_k^r\otimes\underline{m}_k^r +
 \underline{m}_k^r\otimes\underline{n}_k^r\right)
-  \end{aligned}\]</span>
-where <span class="math inline">\(\dot{\gamma}_k^r\)</span> is the shear
-strain rate on the <span class="math inline">\(k^{th}\)</span> slip
-system of crystal <span class="math inline">\(r\)</span>, and is given
-as a function of the shear stress <span
+  \end{aligned}
+\]</span> where <span class="math inline">\(\dot{\gamma}_k^r\)</span> is
+the shear strain rate on the <span class="math inline">\(k^{th}\)</span>
+slip system of crystal <span class="math inline">\(r\)</span>, and is
+given as a function of the shear stress <span
 class="math inline">\(\tau_k^r=\underline{\sigma}:\underline{\mu}_k^r\)</span>
 by means of a potential <span class="math inline">\(\psi_k^r\)</span>:
-<span class="math display">\[\begin{aligned}
+<span class="math display">\[
+  \begin{aligned}
   \dot{\gamma}_k^r= {\displaystyle \frac{\displaystyle \partial
 \psi_k^r}{\displaystyle \partial \tau}}\left(\tau_k^r\right)
-  \end{aligned}\]</span>
-The expressions above show that on phase (or crystal) <span
-class="math inline">\(r\)</span>:
-<span class="math display">\[\begin{aligned}
+  \end{aligned}
+\]</span> The expressions above show that on phase (or crystal) <span
+class="math inline">\(r\)</span>: <span class="math display">\[
+  \begin{aligned}
   \dot{\underline{\varepsilon}}={\displaystyle \frac{\displaystyle
 \partial \psi_r}{\displaystyle \partial
 \underline{\sigma}}}\left(\underline{\sigma}\right)\qquad\text{with}\quad\psi_r
 \left(\underline{\sigma}\right)=\sum_k \psi_k^r\left(\tau_k^r\right)
-  \end{aligned}\]</span>
+  \end{aligned}
+\]</span><br />
 Now, the behaviour of the polycrystal is governed by a potential <span
-class="math inline">\(\psi\)</span>:
-<span class="math display">\[\begin{aligned}
+class="math inline">\(\psi\)</span>: <span class="math display">\[
+  \begin{aligned}
     \dot{\underline{\varepsilon}}={\displaystyle \frac{\displaystyle
 \partial \psi_r}{\displaystyle \partial
 \underline{\sigma}}}\left(\underline{\sigma}\right)\qquad\psi(\underline{\sigma})=
 \sum_{r=1}^{N}\chi_r\,\psi_r (\underline{\sigma})
-  \end{aligned}\]</span>
-<p>where <span class="math inline">\(N\)</span> is the number of phases
-(or crystals) and <span class="math inline">\(\chi_r\)</span> is
+  \end{aligned}
+\]</span> where <span class="math inline">\(N\)</span> is the number of
+phases (or crystals) and <span class="math inline">\(\chi_r\)</span> is
 characteristic function of phase <span
 class="math inline">\(r\)</span>.</p>
 <p>In all the sequel, we just note <span
@@ -496,129 +496,168 @@ class="math inline">\(\dot{\underline{\varepsilon}}\)</span>.</p>
 <h2 id="the-non-linear-homogenization-problem">The non-linear
 homogenization problem</h2>
 <p>We impose a strain rate <span
-class="math inline">\(\overline{\underline{\varepsilon}}\)</span> to the
-polycrystal and look for the solution <span
+class="math inline">\(\underline{E}\)</span> to the polycrystal and look
+for the solution <span
 class="math inline">\(\underline{\varepsilon},\underline{\sigma}\)</span>
-such that:</p>
-<span class="math display">\[\begin{aligned}
+such that: <span class="math display">\[
+\begin{aligned}
 &amp;\mathrm{div}\,\underline{\sigma}=\underline{0}\\
-&amp;\underline{\varepsilon}\in\mathcal
-K(\overline{\underline{\varepsilon}})\\
+&amp;\underline{\varepsilon}\in\mathcal K(\underline{E})\\
 &amp;\underline{\varepsilon}= {\displaystyle \frac{\displaystyle
 \partial \psi}{\displaystyle \partial
 \underline{\sigma}}}\left(\underline{\sigma}\right)
-\end{aligned}\]</span>
+\end{aligned}
+\]</span></p>
 <p>where we introduced the space of kinematically admissible fields
-<span class="math inline">\(\mathcal
-K(\overline{\underline{\varepsilon}})\)</span>, depending on the
-boundary conditions used (in the implementation, we work with periodic
-boundary conditions).</p>
+<span class="math inline">\(\mathcal K(\underline{E})\)</span>,
+depending on the boundary conditions used (in the implementation, we
+work with periodic boundary conditions).</p>
 <h1 id="the-affine-formulation">The affine formulation</h1>
 <h2 id="the-affine-linearization">The affine linearization</h2>
-The idea is to linearize the behaviour around a reference stress <span
-class="math inline">\(\underline{\sigma}^r\)</span>:
-<span class="math display">\[\begin{aligned}
+<p>The idea is to linearize the behaviour around a reference stress
+<span class="math inline">\(\underline{\sigma}^r\)</span>: <span
+class="math display">\[
     \underline{\varepsilon}_r(\underline{\sigma})\approx\underline{\mathbf{M}}_r\left(\underline{\sigma}^r\right):\underline{\sigma}+\underline{e}^r
-  \end{aligned}\]</span>
-where
-<span class="math display">\[\begin{aligned}
+\]</span> where <span class="math display">\[
    \underline{\mathbf{M}}_r\left(\underline{\sigma}^r\right)={\displaystyle
 \frac{\displaystyle \partial \underline{\varepsilon}_r}{\displaystyle
 \partial
 \underline{\sigma}}}\left(\underline{\sigma}^r\right)={\displaystyle
 \frac{\displaystyle \partial^2 \psi_r}{\displaystyle \partial
-\underline{\sigma}^2}}\left(\underline{\sigma}^r\right)\qquad\underline{e}^r
-=
-\underline{\varepsilon}_r(\underline{\sigma}^r)-\underline{\mathbf{M}}_r\left(\underline{\sigma}^r\right):\underline{\sigma}^r
-  \end{aligned}\]</span>
-This affine behaviour can be viewed as a so-called “thermoelastic
-comparison composite”, and this composite can be homogenized. This leads
-to a linear problem, so that the average on phase <span
-class="math inline">\(r\)</span> of the solution <span
-class="math inline">\(\underline{\sigma}\)</span> is given by
-<span class="math display">\[\begin{aligned}
-  \langle\underline{\sigma}\rangle_r =
-\underline{\mathbf{A}}_r\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right):\overline{\underline{\varepsilon}}
-+ \sum_s
+\underline{\sigma}^2}}\left(\underline{\sigma}^r\right)\qquad\text{and}\quad\underline{e}^r
+= {\displaystyle \frac{\displaystyle \partial \psi_r}{\displaystyle
+\partial
+\underline{\sigma}}}(\underline{\sigma}^r)-\underline{\mathbf{M}}_r\left(\underline{\sigma}^r\right):\underline{\sigma}^r
+\]</span> For a given set of reference stresses, this affine behaviour
+can be viewed as a so-called “thermoelastic comparison composite”, and
+this composite can be homogenized. This leads to a linear problem of the
+form <span class="math display">\[
+\begin{aligned}
+&amp;\mathrm{div}\,
+\left(\underline{\mathbf{L}}_r:\left(\underline{\varepsilon}-\underline{e}^r\right)\right)=\underline{0}\\
+&amp;\underline{\varepsilon}\in\mathcal K\left(\underline{E}\right)\\
+&amp;\underline{\mathbf{L}}_r=\left[{\displaystyle \frac{\displaystyle
+\partial^2 \psi_r}{\displaystyle \partial
+\underline{\sigma}^2}}\left(\underline{\sigma}^r\right)\right]^{-1}\qquad\text{and}\qquad\underline{e}^r={\displaystyle
+\frac{\displaystyle \partial \psi_r}{\displaystyle \partial
+\underline{\sigma}}}\left(\underline{\sigma}^r\right)-\underline{\mathbf{L}}_r^{-1}:\underline{\sigma}^r
+\end{aligned}
+\]</span></p>
+<p>Resolving this problem gives the average on phase <span
+class="math inline">\(r\)</span> of the strain solution <span
+class="math inline">\(\underline{\varepsilon}\)</span> as <span
+class="math display">\[
+  \begin{aligned}
+  \langle\underline{\varepsilon}\rangle_r =
+\underline{\mathbf{A}}_r\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right):\underline{E}+
+\sum_s
 \underline{\mathbf{B}}_{rs}\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right):\underline{e}^s\left(\underline{\sigma}^s\right)
-  \end{aligned}\]</span>
-<p>where <span
+  \end{aligned}
+\]</span> where <span
 class="math inline">\(\underline{\mathbf{A}}_r\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right)\)</span>
 and <span
 class="math inline">\(\underline{\mathbf{B}}_{rs}\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right)\)</span>
-can be obtained by a homogenization procedure (mean-field scheme,
-FFT…).</p>
-The last question is the choice of the reference stresses <span
+can be obtained by a homogenization procedure (mean-field scheme, FFT…).
+The stresses are obtained by substracting the strain <span
+class="math inline">\(\underline{e}^r\)</span> and multiplying by the
+moduli <span
+class="math inline">\(\underline{\mathbf{L}}_r=\left(\underline{\mathbf{M}}_r\right)^{-1}\)</span>,
+if it exists: <span class="math display">\[
+  \begin{aligned}
+  \langle\underline{\sigma}\rangle_r =
+\underline{\mathbf{L}}_r\left(\underline{\sigma}^r\right):\underline{\mathbf{A}}_r\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right):\underline{E}+
+\sum_s
+\underline{\mathbf{L}}_r\left(\underline{\sigma}^r\right):\underline{\mathbf{B}}_{rs}\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right):\underline{e}^s\left(\underline{\sigma}^s\right)
+-
+\underline{\mathbf{L}}_r\left(\underline{\sigma}^r\right):\underline{e}^r\left(\underline{\sigma}^r\right)
+  \end{aligned}
+\]</span></p>
+<p>The last question is the choice of the reference stresses <span
 class="math inline">\(\underline{\sigma}^r\)</span> (<span
 class="math inline">\(1\leq r\leq N\)</span>). A discussion in <span
 class="citation" data-cites="masson_affine_2000">[<a
 href="#ref-masson_affine_2000" role="doc-biblioref">1</a>]</span> leads
 to the simple assumption that these reference stresses are the averages
-of the stress in the thermoelastic composite:
-<span class="math display">\[\begin{aligned}
+per phase of the stress in the thermoelastic composite: <span
+class="math display">\[
+\begin{aligned}
 \underline{\sigma}^r = \langle\underline{\sigma}\rangle_r
-\end{aligned}\]</span>
-<p>where <span class="math inline">\(\underline{\sigma}\)</span> here
-stands for the stress solution of the thermoelastic homogenization
+\end{aligned}
+\]</span> where <span class="math inline">\(\underline{\sigma}\)</span>
+here stands for the stress solution of the thermoelastic homogenization
 problem.</p>
 <h2 id="macroscopic-stress-and-tangent-operator">Macroscopic stress and
 tangent operator</h2>
-The macroscopic stress hence can be obtained by the classical relation:
-<span class="math display">\[\begin{aligned}
-\overline{\underline{\sigma}}=\sum_rc_r\,\langle\underline{\sigma}\rangle_r=\underline{\mathbf{C}}^{\mathrm{eff}}:\overline{\underline{\varepsilon}}+\underline{\tau}^{\mathrm{eff}}
-  \end{aligned}\]</span>
-where
-<span class="math display">\[\begin{aligned}
-  \underline{\mathbf{C}}^{\mathrm{eff}}=\sum_rc_r\,\underline{\mathbf{A}}_r\qquad\text{and}\qquad\underline{\tau}^{\mathrm{eff}}=\sum_{r,s}c_r\,\underline{\mathbf{B}}_{rs}:\underline{e}^s
-  \end{aligned}\]</span>
-The tangent operator is obtained by derivation:
-<span class="math display">\[\begin{aligned}
-    \dfrac{\mathrm{d}\overline{\underline{\sigma}}}{\mathrm{d}\overline{\underline{\varepsilon}}}=\sum_r
+<p>The macroscopic stress hence can be obtained by the classical
+relation: <span class="math display">\[
+  \begin{aligned}
+\underline{\Sigma}=\sum_rc_r\,\underline{\sigma}^r=\sum_rc_r\,\langle\underline{\sigma}\rangle_r=\underline{\mathbf{C}}^{\mathrm{eff}}:\underline{E}+\underline{\tau}^{\mathrm{eff}}
+  \end{aligned}
+  \]</span> where <span class="math display">\[
+\begin{aligned}
+  \underline{\mathbf{C}}^{\mathrm{eff}}=\sum_rc_r\,\underline{\mathbf{L}}_r:\underline{\mathbf{A}}_r\qquad\text{and}\qquad\underline{\tau}^{\mathrm{eff}}=\sum_{r,s}c_r\,\underline{\mathbf{L}}_r:\underline{\mathbf{B}}_{rs}:\underline{e}^s-\sum_{r}c_r\,\underline{\mathbf{L}}_r:\underline{e}^r
+  \end{aligned}
+\]</span></p>
+<p>The tangent operator is obtained by derivation: <span
+class="math display">\[
+  \begin{aligned}
+    \dfrac{\mathrm{d}\underline{\Sigma}}{\mathrm{d}\underline{E}}=\sum_r
 c_r\,{\displaystyle \frac{\displaystyle \partial
-\underline{\sigma}^r}{\displaystyle \partial
-\overline{\underline{\varepsilon}}}}
-  \end{aligned}\]</span>
+\underline{\sigma}^r}{\displaystyle \partial \underline{E}}}
+  \end{aligned}
+\]</span></p>
 <p>In the expressions of the tangent operator, we can compute the term
 <span class="math inline">\({\displaystyle \frac{\displaystyle \partial
-\underline{\sigma}^r}{\displaystyle \partial
-\overline{\underline{\varepsilon}}}}\)</span> by means of the jacobian
-matrix, also done and explained in the documentation of the <a
+\underline{\sigma}^r}{\displaystyle \partial \underline{E}}}\)</span> by
+means of the jacobian matrix, also done and explained in the
+documentation of the <a
 href="https://thelfer.github.io/tfel/web/implicit-dsl.html#computation-of-the-consistent-tangent-operator">Implicit
 DSL</a>. We explain it below.</p>
 <h1 id="summary-and-possible-implementations">Summary and possible
 implementations</h1>
 <h2 id="summary">Summary</h2>
-The resolution consists in <span class="math display">\[
+<p>The resolution consists in <span class="math display">\[
 \text{Find}\quad\underline{\sigma}^r\quad\text{such
-that}\quad\underline{\sigma}^r=\langle\underline{\sigma}\rangle_r
+that}\quad\underline{\sigma}^r = \langle\underline{\sigma}\rangle_r
 \]</span> where <span class="math inline">\(\underline{\sigma}\)</span>
 is the stress field solution of a homogenization problem of the form:
-<span class="math display">\[\begin{aligned}
-&amp;\mathrm{div}\,\underline{\sigma}=\underline{0}\\
-&amp;\left(\underline{e}^r+\underline{\mathbf{M}}_r:\underline{\sigma}\right)\in\mathcal
-K\left(\overline{\underline{\varepsilon}}\right)\\
-&amp;\underline{\mathbf{M}}_r={\displaystyle \frac{\displaystyle
+<span class="math display">\[
+\begin{aligned}
+&amp;\mathrm{div}\,
+\left(\underline{\mathbf{L}}_r:\left(\underline{\varepsilon}-\underline{e}^r\right)\right)=\underline{0}\\
+&amp;\underline{\varepsilon}\in\mathcal K\left(\underline{E}\right)\\
+&amp;\underline{\mathbf{L}}_r=\left[{\displaystyle \frac{\displaystyle
 \partial^2 \psi_r}{\displaystyle \partial
-\underline{\sigma}^2}}\left(\underline{\sigma}^r\right)\qquad\text{and}\qquad\underline{e}^r={\displaystyle
+\underline{\sigma}^2}}\left(\underline{\sigma}^r\right)\right]^{-1}\qquad\text{and}\qquad\underline{e}^r={\displaystyle
 \frac{\displaystyle \partial \psi_r}{\displaystyle \partial
-\underline{\sigma}}}\left(\underline{\sigma}^r\right)-\underline{\mathbf{M}}_r:\underline{\sigma}^r
-\end{aligned}\]</span>
+\underline{\sigma}}}\left(\underline{\sigma}^r\right)-\underline{\mathbf{L}}_r^{-1}:\underline{\sigma}^r
+\end{aligned}
+\]</span></p>
 <h2 id="possible-implementations">Possible implementations</h2>
 <p>The iterative resolution of the non-linear system can be summarized
 as</p>
 <p><span class="math display">\[
-\underset{\substack{\\ \\ \\ \Downarrow\\ \\ \\\text{analytic / finite
-difference}\\ \\ \\\text{\texttt{@BehaviourVariable} / directly
-provided}}}{\underline{\mathbf{M}}_r= {\dfrac{\partial^2
+\begin{aligned}
+&amp;\underset{\substack{\\ \\ \\ \Downarrow\\ \\ \\\text{analytic /
+finite difference}\\ \\ \\\text{\texttt{@BehaviourVariable} / directly
+provided}}}{\underline{\mathbf{L}}_r= \left[{\dfrac{\partial^2
 \psi_r}{\partial
-\underline{\sigma}^2}}\left(\underline{\sigma}^r\right),\quad\underline{e}^r={\displaystyle
+\underline{\sigma}^2}}\left(\underline{\sigma}^r\right)\right]^{-1},\quad\underline{e}^r={\displaystyle
 \frac{\displaystyle \partial \psi_r}{\displaystyle \partial
-\underline{\sigma}}}\left(\underline{\sigma}^r\right)-\underline{\mathbf{M}}_r:\underline{\sigma}^r}\qquad\rightarrow\qquad
+\underline{\sigma}}}\left(\underline{\sigma}^r\right)-\underline{\mathbf{L}}_r^{-1}:\underline{\sigma}^r}\qquad\rightarrow\qquad
 \underset{\substack{\\ \\ \\ \Downarrow\\ \\ \\\text{mean-field scheme /
 morphological tensors}\\ \\
-\\\texttt{tfel::material::homogenization}}}{\underline{\sigma}^r =
-\underline{\mathbf{A}}_r:\overline{\underline{\varepsilon}} + \sum_s
-\underline{\mathbf{B}}_{rs}:\underline{e}^s}
+\\\texttt{tfel::material::homogenization}}}{\langle\underline{\sigma}\rangle_r
+= \underline{\mathbf{L}}_r:\underline{\mathbf{A}}_r:\underline{E}+
+\sum_s
+\underline{\mathbf{L}}_r:\underline{\mathbf{B}}_{rs}:\underline{e}^s -
+\underline{\mathbf{L}}_r:\underline{e}^r}\\
+&amp;\\
+&amp;\qquad\qquad\qquad\qquad\qquad\qquad\qquad\underset{\substack{\\ \\
+\\ \Downarrow\\ \\ \\\text{Analytical Jacobian / Numerical Jacobian}\\
+\\ \\\texttt{NewtonRaphson
+NumericalJacobian}}}{f_{\underline{\sigma}^r}=\underline{\sigma}^r-\langle\underline{\sigma}\rangle_r}
+\end{aligned}
 \]</span></p>
 <p>The first step of the resolution consists in computing the moduli
 <span class="math inline">\(\underline{\mathbf{M}}_r\)</span> and free
@@ -634,187 +673,124 @@ class="math inline">\(\underline{\mathbf{B}}_{rs}\)</span>. This can be
 achieved by means of mean-field schemes (the <code>namespace</code>
 <code>tfel::material::homogenization</code> provides the good tensors).
 This can also be done via morphological tensors, computed on a given
-geometry of polycrystal. We will present below the two
-possibilities.</p>
-<p>We note that the equation relative to the second step is the
-non-linear equation to solve and will hence correspond to our residue.
-The macroscopic stress and the tangent operator must also be computed
-with the formulas shown above.</p>
+geometry of polycrystal. We will present this second possibility
+below.</p>
+<p>We note that the equation relative to the third step will give our
+residue.</p>
 <h2 id="computation-of-tensors-ar-and-brs">Computation of tensors Ar and
 Brs</h2>
-<h3 id="computation-via-morphological-tensors">Computation via
-morphological tensors</h3>
-In fact, the thermoelastic problem can be rewritten as a
+<h3 id="the-lippmann-schwinger-equation-discretized">The
+Lippmann-Schwinger equation discretized</h3>
+<p>In fact, the thermoelastic problem can be rewritten as a
 Lippmann-Schwinger equation (see <span class="citation"
 data-cites="willis_bounds_1977 castaneda_effect_1995">[<a
 href="#ref-willis_bounds_1977" role="doc-biblioref">3</a>, <a
-href="#ref-castaneda_effect_1995" role="doc-biblioref">4</a>]</span> for
-the primal version). Let us write <span
+href="#ref-castaneda_effect_1995" role="doc-biblioref">4</a>]</span>).
+Let us write <span
 class="math inline">\(\underline{\tau}=\underline{\sigma}-\underline{\mathbf{L}}_0:\underline{\varepsilon}\)</span>
 with <span
-class="math inline">\(\underline{\varepsilon}=\underline{e}+\underline{\mathbf{M}}:\underline{\sigma}\in\mathcal
-K\left(\overline{\underline{\varepsilon}}\right)\)</span>, we have,
-because, <span
-class="math inline">\(\mathrm{div}\,\underline{\sigma}=0\)</span>,
-<span class="math display">\[\begin{aligned}
-\underline{\varepsilon}=\overline{\underline{\varepsilon}}-\underline{\mathbf{\Gamma}}_0\left(\underline{\tau}\right)
-\end{aligned}\]</span>
-where <span class="math inline">\(\underline{\mathbf{\Gamma}}_0\)</span>
-is the Green operator associated to the elasticity <span
-class="math inline">\(\underline{\mathbf{L}}_0\)</span> (this elasticity
-must be chosen by the user). It gives
-<span class="math display">\[\begin{aligned}
-\underline{\sigma}=\underline{\mathbf{L}}_0:\overline{\underline{\varepsilon}}-\underline{\mathbf{L}}_0:\underline{\mathbf{\Gamma}}_0\left(\underline{\tau}\right)+\underline{\tau}
-\end{aligned}\]</span>
-and hence (due to the expressions of <span
-class="math inline">\(\underline{\tau}\)</span> and <span
-class="math inline">\(\underline{\varepsilon}\)</span>)
-<span class="math display">\[\begin{aligned}
-\underline{\sigma}=\underline{\mathbf{L}}_0:\overline{\underline{\varepsilon}}-\underline{\mathbf{L}}_0:\underline{\mathbf{\Gamma}}_0\left(\underline{\sigma}-\underline{\mathbf{L}}_0:\left(\underline{e}^r+\underline{\mathbf{M}}_r:\underline{\sigma}\right)\right)+\underline{\sigma}-\underline{\mathbf{L}}_0:\left(\underline{e}^r+\underline{\mathbf{M}}_r:\underline{\sigma}\right)
-\end{aligned}\]</span>
-<span class="math display">\[\begin{aligned}
-\underline{\sigma}+\underline{\mathbf{\Delta}}_0\left(\underline{\mathbf{\delta}}\underline{\mathbf{M}}_r:\underline{\sigma}\right)=\underline{\mathbf{L}}_0:\overline{\underline{\varepsilon}}-\underline{\mathbf{\Delta}}_0\left(\underline{e}^r\right)
-\end{aligned}\]</span>
+class="math inline">\(\underline{\sigma}=\underline{\mathbf{L}}:\left(\underline{\varepsilon}-\underline{e}\right)\)</span>.
+We have <span
+class="math inline">\(\underline{\tau}=\underline{\mathbf{\delta}}\underline{\mathbf{L}}:\underline{\varepsilon}-\underline{\mathbf{L}}:\underline{e}\)</span>
 with <span
-class="math inline">\(\underline{\mathbf{\delta}}\underline{\mathbf{M}}_r=\underline{\mathbf{M}}_r-\underline{\mathbf{M}}_0\)</span>,
-<span
-class="math inline">\(\underline{\mathbf{M}}_0=\underline{\mathbf{L}}_0^{-1}\)</span>,
-and <span
-class="math inline">\(\underline{\mathbf{\Delta}}_0=\underline{\mathbf{L}}_0-\underline{\mathbf{L}}_0:\underline{\mathbf{\Gamma}}_0\underline{\mathbf{L}}_0\)</span>.
-We will not resolve this equation exactly, but we will consider the
-average of the fields:
-<span class="math display">\[\begin{aligned}
-\langle\underline{\sigma}\rangle_r +
-\sum_s\underline{\mathbf{\Delta}}_{rs}:\underline{\mathbf{\delta}}\underline{\mathbf{M}}_s:\langle\underline{\sigma}\rangle_s=
-\underline{\mathbf{L}}_0:\overline{\underline{\varepsilon}}
--\sum_s\underline{\mathbf{\Delta}}_{rs}:\underline{e}^s
-\end{aligned}\]</span>
-where
-<span class="math display">\[\begin{aligned}
-\underline{\mathbf{\Delta}}_{rs} =
-\sum_j\langle\,\underline{\mathbf{\Delta}}_0(\chi_s\,\underline{s}_j)\otimes\underline{s}_j\,\rangle_r
-\end{aligned}\]</span>
-<p>is what we call a morphological tensor or an interaction tensor, and
-can be computed by FFT or FEM before the <code>mfront</code>
-integration. This tensor makes intervene the Green operator <span
+class="math inline">\(\underline{\mathbf{\delta}}\underline{\mathbf{L}}=\underline{\mathbf{L}}-\underline{\mathbf{L}}_0\)</span>.
+We have, because, <span
+class="math inline">\(\mathrm{div}\,\underline{\sigma}=0\)</span>, <span
+class="math display">\[
+\begin{aligned}
+\underline{\varepsilon}=\underline{E}-\underline{\mathbf{\Gamma}}_0\left(\underline{\tau}\right)
+\end{aligned}
+\]</span> where <span
+class="math inline">\(\underline{\mathbf{\Gamma}}_0\)</span> is the
+Green operator associated to the elasticity <span
+class="math inline">\(\underline{\mathbf{L}}_0\)</span> (this elasticity
+must be chosen by the user). It gives (due to the expression of <span
+class="math inline">\(\underline{\tau}\)</span>) <span
+class="math display">\[
+\begin{aligned}
+\underline{\varepsilon}=\underline{E}-\underline{\mathbf{\Gamma}}_0\left(\underline{\mathbf{\delta}}\underline{\mathbf{L}}:\underline{\varepsilon}-\underline{\mathbf{L}}:\underline{e}\right)
+\end{aligned}
+\]</span> We will not resolve this equation exactly, but we will
+consider the average of the fields: <span class="math display">\[
+\begin{aligned}
+\langle\underline{\varepsilon}\rangle_r +
+\sum_s\underline{\mathbf{\Gamma}}_{rs}:\underline{\mathbf{\delta}}\underline{\mathbf{L}}_s:\langle\underline{\varepsilon}\rangle_s=
+\underline{E}+\sum_s\underline{\mathbf{\Gamma}}_{rs}:\underline{\mathbf{L}}_s:\underline{e}^s
+\end{aligned}
+\]</span> where <span class="math display">\[
+\begin{aligned}
+\underline{\mathbf{\Gamma}}_{rs} =
+\sum_j\langle\,\underline{\mathbf{\Gamma}}_0(\chi_s\,\underline{s}_j)\otimes\underline{s}_j\,\rangle_r
+\end{aligned}
+\]</span> is what we call a morphological tensor or an interaction
+tensor, and can be computed by FFT or FEM before the <code>mfront</code>
+integration. This tensor depends on the Green operator <span
 class="math inline">\(\underline{\mathbf{\Gamma}}_0\)</span>, relative
 to the elasticity <span
 class="math inline">\(\underline{\mathbf{L}}_0\)</span>, and a basis of
 symmetric second-order tensors <span
 class="math inline">\((\underline{s}_1,...,\underline{s}_d)\)</span>
-(<span class="math inline">\(d=6\)</span> in 3D). Hence, the <span
-class="math inline">\(\langle\underline{\sigma}\rangle_r\)</span> ’s are
-solution of a linear system. Depending on the number of phases <span
-class="math inline">\(N\)</span>, the computation of the <span
-class="math inline">\(\underline{\mathbf{\Delta}}_{rs}\)</span> is more
+(<span class="math inline">\(d=6\)</span> in 3D). Depending on the
+number of phases <span class="math inline">\(N\)</span>, the computation
+of the <span
+class="math inline">\(\underline{\mathbf{\Gamma}}_{rs}\)</span> is more
 or less costly, but it is achieved at the beginning, once and for
 all.</p>
-<p>We note that the reference medium can be adjusted with a scalar
-coefficient. Indeed, if the user wants to choose a reference medium
-<span class="math inline">\(r_0=10\)</span> times stiffer, it is
-possible by dividing <span
-class="math inline">\(\underline{\mathbf{M}}_0\)</span> by <span
-class="math inline">\(r_0\)</span>. It will be also necessary to change
-<span class="math inline">\(\underline{\mathbf{\Delta}}_{rs}\)</span>
-and to multiply it by <span class="math inline">\(r_0\)</span>.</p>
-<h3 id="computation-via-a-self-consistent-scheme">Computation via a
-self-consistent scheme</h3>
-<p>The <code>tfel::material::homogenization</code> will carry out the
-homogenization with the self consistent scheme. The library provides the
-homogenized stiffness <span
-class="math inline">\(\underline{\mathbf{L}}_{\mathrm{SC}}\)</span>
-needed for the computation of the macroscopic stress, but also the
-effective polarization <span
-class="math inline">\(\underline{\mathbf{\tau}}_{\mathrm{SC}}\)</span>
-which permit to compute the macroscopic stress:</p>
-<span class="math display">\[\begin{aligned}
-\overline{\underline{\sigma}} =
-\underline{\mathbf{L}}_{\mathrm{SC}}:\overline{\underline{\varepsilon}}+\underline{\tau}_{\mathrm{SC}}
-\end{aligned}\]</span>
-However, we also need the tensors <span
-class="math inline">\(\underline{\mathbf{A}}_r\)</span> and <span
-class="math inline">\(\underline{\mathbf{B}}_{rs}\)</span> for computing
-the average of the stress field <span
-class="math inline">\(\langle\underline{\sigma}\rangle_r\)</span>
-(i.e. the residue). To that extent, we go back to the equation
-<span class="math display">\[\begin{aligned}
-\underline{\varepsilon}=\overline{\underline{\varepsilon}}-\underline{\mathbf{\Gamma}}_0\left(\underline{\tau}\right)
-\end{aligned}\]</span>
-and consider averages of the fields:
-<span class="math display">\[\begin{aligned}
-\langle\underline{\varepsilon}\rangle_r-\overline{\underline{\varepsilon}}=-\sum_s\underline{\mathbf{\Gamma}}_{rs}:\langle\underline{\tau}\rangle_s
-\end{aligned}\]</span>
-with <span
-class="math inline">\(\underline{\mathbf{\Gamma}}_{rs}=\sum_j\langle\,\underline{\mathbf{\Gamma}}_0(\chi_s\,\underline{s}_j)\otimes\underline{s}_j\,\rangle_r\)</span>.
-A classical approximation (see Eq. (3.17) of <span class="citation"
-data-cites="castaneda_effect_1995">[<a href="#ref-castaneda_effect_1995"
-role="doc-biblioref">4</a>]</span>) is to consider that <span
-class="math inline">\(\underline{\mathbf{\Gamma}}_{rs}=\delta_{rs}\underline{\mathbf{P}}_r-c_s\,\underline{\mathbf{P}}_0\)</span>,
-with <span
-class="math inline">\(\underline{\mathbf{P}}_r=\underline{\mathbf{\Gamma}}_{rr}\)</span>
-the Hill tensor associated to <span
-class="math inline">\(\underline{\mathbf{L}}_0\)</span> and the
-inclusion shape of phase <span class="math inline">\(r\)</span>, and
-<span class="math inline">\(\underline{\mathbf{P}}_0\)</span> the Hill
-tensor associated to <span
-class="math inline">\(\underline{\mathbf{L}}_0\)</span> and a spherical
-inclusion. This is when considering an isotropic distribution of
-inclusions (otherwise <span
-class="math inline">\(\underline{\mathbf{P}}_0\)</span> must be
-modified). For our polycrystal, we can also consider that <span
-class="math inline">\(\underline{\mathbf{P}}_r=\underline{\mathbf{P}}_0\)</span>
-(i.e. the grains have a spherical shape) so that
-<span class="math display">\[\begin{aligned}
-\langle\underline{\varepsilon}\rangle_r-\overline{\underline{\varepsilon}}=-\underline{\mathbf{P}}_0:\left(\langle\underline{\tau}\rangle_r-\langle\underline{\tau}\rangle\right)
-\end{aligned}\]</span>
-and due to the expression of <span
-class="math inline">\(\underline{\tau}\)</span>:
-<span class="math display">\[\begin{aligned}
-\left[\underline{\mathbf{P}}_0^{-1}-\underline{\mathbf{L}}_0\right]:\left(\langle\underline{\varepsilon}\rangle_r-\overline{\underline{\varepsilon}}\right)=-\left[\langle\underline{\sigma}\rangle_r-\overline{\underline{\sigma}}\right]
-\end{aligned}\]</span>
-We know that the reference medium, in the self-consistent approach, is
-identified with the homogenized medium. Hence, we note <span
-class="math inline">\(\underline{\mathbf{P}}_0=\underline{\mathbf{P}}_{\mathrm{SC}}\)</span>,
+<p>After inversion of the linear system below, whose unknowns are the
 <span
-class="math inline">\(\underline{\mathbf{L}}_0=\underline{\mathbf{L}}_{\mathrm{SC}}\)</span>,
-and <span
-class="math inline">\(\underline{\mathbf{M}}_{\mathrm{SC}}^*=\left[\underline{\mathbf{P}}_{\mathrm{SC}}^{-1}-\underline{\mathbf{L}}_{\mathrm{SC}}\right]^{-1}\)</span>,
-so that, with <span
-class="math inline">\(\langle\underline{\varepsilon}\rangle_r=\underline{\mathbf{M}}_r:\underline{\sigma}^r+\underline{e}^r\)</span>,
-and <span
-class="math inline">\(\langle\underline{\sigma}\rangle_r=\underline{\sigma}^r\)</span>
-<span class="math display">\[\begin{aligned}
-\left(\underline{\mathbf{M}}_r:\underline{\sigma}^r+\underline{e}^r-\overline{\underline{\varepsilon}}\right)=-\underline{\mathbf{M}}_{\mathrm{SC}}^*:\left[\underline{\sigma}^r-\overline{\underline{\sigma}}\right]
-\end{aligned}\]</span>
-which gives
-<span class="math display">\[\begin{aligned}
-\underline{\sigma}^r=\left(\underline{\mathbf{M}}_r+\underline{\mathbf{M}}_{\mathrm{SC}}^*\right)^{-1}:\left[\overline{\underline{\varepsilon}}-\underline{e}^r+\underline{\mathbf{M}}_{\mathrm{SC}}^*:\overline{\underline{\sigma}}\right]
-\end{aligned}\]</span>
-which gives directly the expressions of <span
+class="math inline">\(\langle\underline{\varepsilon}\rangle_s\)</span>,
+we obtain <span class="math display">\[
+\begin{aligned}
+\langle\underline{\varepsilon}\rangle_r=
+\sum_t\underline{\mathbf{T}}_{rt}:\left[\underline{E}+\sum_s\underline{\mathbf{\Gamma}}_{ts}:\underline{\mathbf{L}}_s:\underline{e}^s\right]
+\end{aligned}
+\]</span> where <span
+class="math inline">\(\underline{\mathbf{T}}_{rt}\)</span> is the linear
+operator issued from the linear resolution. and we directly obtain the
+expressions of <span
 class="math inline">\(\underline{\mathbf{A}}_r\)</span> and <span
-class="math inline">\(\sum_s\underline{\mathbf{B}}_{rs}:\underline{e}^s\)</span>
-(we use <span
-class="math inline">\(\overline{\underline{\sigma}}=\underline{\mathbf{L}}_{\mathrm{SC}}:\overline{\underline{\varepsilon}}+\underline{\tau}_{\mathrm{SC}}\)</span>):
-<span class="math display">\[\begin{aligned}
-\underline{\mathbf{A}}_r&amp;=\left(\underline{\mathbf{M}}_r+\underline{\mathbf{M}}_{\mathrm{SC}}^*\right)^{-1}:\left(\underline{\mathbf{I}}
-+
-\underline{\mathbf{M}}_{\mathrm{SC}}^*:\underline{\mathbf{L}}_{\mathrm{SC}}\right)\\
-\sum_s\underline{\mathbf{B}}_{rs}:\underline{e}^s&amp;=\left(\underline{\mathbf{M}}_r+\underline{\mathbf{M}}_{\mathrm{SC}}^*\right)^{-1}:\left(\underline{\mathbf{M}}_{\mathrm{SC}}^*:\underline{\tau}_{\mathrm{SC}}-\underline{e}^r\right)
-\end{aligned}\]</span>
-<p>(and this is sufficient to compute the residue). However, we note
-that the library <code>tfel::material::homogenization</code> provides
-the tensor <span
-class="math inline">\(\underline{\mathbf{A}}_{\mathrm{SC}}\)</span> via
-the variable <code>mean_strain_localisation_tensors</code>, which
-relates <span
-class="math inline">\(\langle\underline{\varepsilon}\rangle_r\)</span>
-and <span
-class="math inline">\(\overline{\underline{\varepsilon}}\)</span>. This
-tensor is also equal to <span
-class="math inline">\(\underline{\mathbf{A}}_{\mathrm{SC}}=\underline{\mathbf{M}}_r:\underline{\mathbf{A}}_r\)</span>,
-due to the expression of <span
-class="math inline">\(\langle\underline{\sigma}\rangle_r\)</span>. This
-will be more simple for the implementation.</p>
+class="math inline">\(\underline{\mathbf{B}}_{rs}\)</span>: <span
+class="math display">\[
+\begin{aligned}
+&amp;\underline{\mathbf{A}}_r= \sum_t\underline{\mathbf{T}}_{rt}\\
+&amp;\underline{\mathbf{B}}_{rs}=
+\sum_t\underline{\mathbf{T}}_{rt}:\underline{\mathbf{\Gamma}}_{ts}:\underline{\mathbf{L}}_s
+\end{aligned}
+\]</span></p>
+<h3 id="choice-of-reference-medium">Choice of reference medium</h3>
+<p>We note that the reference medium can be chosen in this approach. A
+natural approach is to take a <span
+class="math inline">\(\underline{\mathbf{L}}_0\)</span> isotropic near
+<span
+class="math inline">\(\underline{\mathbf{L}}^{\mathrm{hom}}\)</span>. To
+that extent we will make use of the fact that for an elasticity <span
+class="math inline">\(\underline{\mathbf{C}}_1=r_0\underline{\mathbf{C}}_0\)</span>
+the strain Green operator <span
+class="math inline">\(\underline{\mathbf{\Gamma}}_1\)</span> relative to
+<span class="math inline">\(\underline{\mathbf{C}}_1\)</span> is given
+by <span class="math display">\[
+\underline{\mathbf{\Gamma}}_1=\dfrac{1}{r_0}\underline{\mathbf{\Gamma}}_0
+\]</span> Hence, we will compute the morphological tensors <span
+class="math inline">\(\underline{\mathbf{\Gamma}}_{rs}\)</span> for a
+given elasticity <span
+class="math inline">\(\underline{\mathbf{C}}_0\)</span>, and we can
+change the reference medium by multiplication of <span
+class="math inline">\(\underline{\mathbf{C}}_0\)</span> by <span
+class="math inline">\(r_0\)</span> and division of <span
+class="math inline">\(\underline{\mathbf{\Gamma}}_0\)</span> by <span
+class="math inline">\(r_0\)</span>.</p>
+<p>Moreover, in our case, it makes sense to take a reference medium
+<span
+class="math inline">\(\underline{\mathbf{C}}_0=2\mu_0\underline{\mathbf{K}}\)</span>.
+Afterwards, we will update the elasticity by taking <span
+class="math inline">\(\underline{\mathbf{C}}_1=2\mu_{\mathrm{hom}}\underline{\mathbf{K}}\)</span>,
+where <span class="math inline">\(\mu_{\mathrm{hom}}\)</span> is equal
+to the shear modulus given by the projection of <span
+class="math inline">\(\underline{\mathbf{C}}_{\mathrm{hom}}\)</span> on
+<span class="math inline">\(\underline{\mathbf{K}}\)</span>, where <span
+class="math inline">\(\underline{\mathbf{C}}_{\mathrm{hom}}\)</span> is
+the homogenized tensors obtained at previous step of the Newton-Raphson
+algorithm.</p>
 <h1 id="implementation-in-mfront">Implementation in MFront</h1>
 <p>All the files are available in the <code>MFrontGallery</code>
 project, <a
@@ -834,96 +810,88 @@ microstructure</p>
 alt="Geometry of the polycrystal" />
 <figcaption aria-hidden="true">Geometry of the polycrystal</figcaption>
 </figure>
-<p>The morphological tensors can be computed by following the
-instruction of the <code>README.md</code> in this <a
-href="./downloads/Morphological_tensors.zip">folder</a>.</p>
-<p>The orientations of the slip systems will be given by angles, stored
-in the file <code>polycrystal.csv</code>. This file also contains, at
-the end of each line, the volume fraction associated to a crystal. They
-are in our case the same as the one computed on the generated
-microstructure.</p>
-The potential <span class="math inline">\(\psi_k^r\)</span> will be of
-the form
-<span class="math display">\[\begin{aligned}
+<p>The morphological tensors were computed using a <code>python</code>
+script with <code>numpy.fft</code>. The orientations of the slip systems
+will be given by angles, stored in the file
+<code>polycrystal.csv</code>. This file also contains, at the end of
+each line, the volume fraction associated to a crystal. They are in our
+case the same as the one computed on the generated microstructure.</p>
+<p>The potential <span class="math inline">\(\psi_k^r\)</span> will be
+of the form <span class="math display">\[
+\begin{aligned}
   \psi_k^r \left(\tau\right)=
-\dfrac{\dot{\gamma}_0\tau_0^{k,r}}{n+1}\left(\dfrac{|\tau|}{\tau_0^{k,r}}\right)^{n+1}
-  \end{aligned}\]</span>
-<p>where the strain rate <span
+\dfrac{\dot{\gamma}_0\tau_0^k}{n+1}\left(\dfrac{|\tau|}{\tau_0^k}\right)^{n+1}
+  \end{aligned}
+\]</span> where the strain rate <span
 class="math inline">\(\dot{\gamma}_0\)</span> and the creep exponent
 <span class="math inline">\(n\geq 1\)</span> will be chosen identical
 for all <span class="math inline">\(k,r\)</span>, and the resolved shear
-stress <span class="math inline">\(\tau_0^{k,r}\)</span> depends on
-<span class="math inline">\(k,r\)</span>.</p>
-The derivatives of the potential are
-<span class="math display">\[\begin{aligned}
-  &amp;{\displaystyle \frac{\displaystyle \partial \psi_r}{\displaystyle
-\partial \underline{\sigma}}}=\sum_k {\displaystyle \frac{\displaystyle
-\partial \psi_k^r}{\displaystyle \partial
-\tau}}\left(\tau_k^r\right)\,\underline{\mu}_k^r=\sum_k\mathrm{sgn}(\tau)\,\dot{\gamma}_0\left(\dfrac{|\tau|}{\tau_0^{k,r}}\right)^{n}\underline{\mu}_k^r\\
-  &amp;{\displaystyle \frac{\displaystyle \partial^2
-\psi_r}{\displaystyle \partial \underline{\sigma}^2}}=\sum_k
-{\displaystyle \frac{\displaystyle \partial^2 \psi_k^r}{\displaystyle
-\partial
+stress <span class="math inline">\(\tau_0^k\)</span> depends on <span
+class="math inline">\(k\)</span>.</p>
+<p>The derivatives of the potential are <span class="math display">\[
+\begin{aligned}
+  &amp;\underline{\varepsilon}_r(\underline{\sigma})={\displaystyle
+\frac{\displaystyle \partial \psi_r}{\displaystyle \partial
+\underline{\sigma}}}=\sum_k {\displaystyle \frac{\displaystyle \partial
+\psi_k^r}{\displaystyle \partial
+\tau}}\left(\tau_k^r\right)\,\underline{\mu}_k^r=\sum_k\mathrm{sgn}(\tau)\,\dot{\gamma}_0\left(\dfrac{|\tau_k^r|}{\tau_0^{k}}\right)^{n}\underline{\mu}_k^r\qquad\text{with}\quad
+\tau_k^r = \underline{\sigma}:\underline{\mu}_k^r\\
+  &amp;\underline{\mathbf{M}}_r(\underline{\sigma})={\displaystyle
+\frac{\displaystyle \partial^2 \psi_r}{\displaystyle \partial
+\underline{\sigma}^2}}=\sum_k {\displaystyle \frac{\displaystyle
+\partial^2 \psi_k^r}{\displaystyle \partial
 \tau^2}}\left(\tau_k^r\right)\,\underline{\mathbf{N}}_k^r=\sum_k
-\dfrac{n\,\dot{\gamma}_0}{\tau_0^{k,r}}\left(\dfrac{|\tau|}{\tau_0^{k,r}}\right)^{n-1}\underline{\mathbf{N}}_k^r,\qquad\text{with}\quad\underline{\mathbf{N}}_k^r=\underline{\mu}_k^r\otimes\underline{\mu}_k^r
-  \end{aligned}\]</span>
-and then defining <span
+\dfrac{n\,\dot{\gamma}_0}{\tau_0^{k}}\left(\dfrac{|\tau_k^r|}{\tau_0^{k}}\right)^{n-1}\underline{\mathbf{N}}_k^r,\qquad\text{with}\quad\underline{\mathbf{N}}_k^r=\underline{\mu}_k^r\otimes\underline{\mu}_k^r
+  \end{aligned}
+\]</span> and then defining <span
 class="math inline">\(\overline{\tau}_k^r=\underline{\sigma}^r:\underline{\mu}_k^r\)</span>
 where <span class="math inline">\(\underline{\sigma}^r\)</span> is the
-reference stress, we have
-<span class="math display">\[\begin{aligned}
-  &amp;\underline{\mathbf{M}}_r=\sum_k
-\dfrac{n\,\dot{\gamma}_0}{\tau_0^{k,r}}\left(\dfrac{|\overline{\tau}_k^r|}{\tau_0^{k,r}}\right)^{n-1}\underline{\mathbf{N}}_k^r\\
-  &amp;\underline{e}^r=\sum_k\left(\mathrm{sgn}(\overline{\tau}_k^r)-n\right)\,\dot{\gamma}_0\left(\dfrac{|\overline{\tau}_k^r|}{\tau_0^{k,r}}\right)^{n}\underline{\mu}_k^r
-  \end{aligned}\]</span>
+reference stress, we have <span class="math display">\[
+\begin{aligned}
+  &amp;\underline{\mathbf{M}}_r(\underline{\sigma}^r)=\sum_k
+\dfrac{n\,\dot{\gamma}_0}{\tau_0^{k}}\left(\dfrac{|\overline{\tau}_k^r|}{\tau_0^{k}}\right)^{n-1}\underline{\mathbf{N}}_k^r\\
+  &amp;\underline{e}^r(\underline{\sigma}^r)=\sum_k\left(\mathrm{sgn}(\overline{\tau}_k^r)-n\right)\,\dot{\gamma}_0\left(\dfrac{|\overline{\tau}_k^r|}{\tau_0^{k}}\right)^{n}\underline{\mu}_k^r
+  \end{aligned}
+\]</span> We see here that the modulus <span
+class="math inline">\(\underline{\mathbf{M}}_r\)</span> is not
+invertible. Hence, in the following, we add a small tensor to <span
+class="math inline">\(\underline{\mathbf{M}}_r\)</span> in order to make
+it invertible (see also appendix B.1 of <span class="citation"
+data-cites="bornert_second-order_2001">[<a
+href="#ref-bornert_second-order_2001"
+role="doc-biblioref">2</a>]</span>): <span class="math display">\[
+\underline{\mathbf{L}}_r=\left[\underline{\mathbf{M}}_r+\kappa\underline{\mathbf{I}}\right]^{-1}
+\]</span></p>
 <h2 id="details-of-implementation">Details of implementation</h2>
-<p>We will mainly present the approach based on self-consistent scheme,
-we invite the reader to see the <code>.mfront</code> file in the
-<code>MFrontGalleryProject</code> for the approach based on
-morphological tensors.</p>
 <h3 id="headers">Headers</h3>
-<p>For the jacobian, we adopt the <code>Numerical Jacobian</code>, so
-that the beginning of the <code>mfront</code> file reads:</p>
+<p>The beginning of the <code>mfront</code> file reads:</p>
 <div class="sourceCode" id="Begin"><pre
 class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Begin-1"><a href="#Begin-1"></a><span class="er">@</span>DSL ImplicitII<span class="op">;</span></span>
-<span id="Begin-2"><a href="#Begin-2"></a><span class="er">@</span>Behaviour Affine_formulation<span class="op">;</span></span>
+<span id="Begin-2"><a href="#Begin-2"></a><span class="er">@</span>Behaviour Affine_tensors<span class="op">;</span></span>
 <span id="Begin-3"><a href="#Begin-3"></a><span class="er">@</span>Author Martin Antoine<span class="op">;</span></span>
-<span id="Begin-4"><a href="#Begin-4"></a><span class="er">@</span>Date <span class="dv">24</span> <span class="op">/</span> <span class="bn">01</span> <span class="op">/</span> <span class="dv">26</span><span class="op">;</span></span>
-<span id="Begin-5"><a href="#Begin-5"></a><span class="er">@</span>Description<span class="op">{</span><span class="st">&quot;Affine formulation for homogenization of a viscoplastic polycrystal, Masson et al. 2001.&quot;</span><span class="op">};</span></span>
+<span id="Begin-4"><a href="#Begin-4"></a><span class="er">@</span>Date <span class="bn">06</span> <span class="op">/</span> <span class="bn">03</span> <span class="op">/</span> <span class="dv">26</span><span class="op">;</span></span>
+<span id="Begin-5"><a href="#Begin-5"></a><span class="er">@</span>Description<span class="op">{</span><span class="st">&quot;Affine formulation for homogenization of a viscoplastic polycrystal, Masson et al. 2001., with morphological tensors&quot;</span><span class="op">};</span></span>
 <span id="Begin-6"><a href="#Begin-6"></a><span class="er">@</span>UseQt <span class="kw">false</span><span class="op">;</span></span>
-<span id="Begin-7"><a href="#Begin-7"></a><span class="er">@</span>Algorithm NewtonRaphson_NumericalJacobian<span class="op">;</span></span>
-<span id="Begin-8"><a href="#Begin-8"></a><span class="er">@</span>PerturbationValueForNumericalJacobianComputation <span class="fl">1e-10</span><span class="op">;</span></span>
-<span id="Begin-9"><a href="#Begin-9"></a><span class="er">@</span>Epsilon <span class="fl">1e-14</span><span class="op">;</span></span></code></pre></div>
-<p>Moreover, we need to include header files, those for the
-homogenization of the thermoelastic composite:</p>
+<span id="Begin-7"><a href="#Begin-7"></a><span class="er">@</span>Algorithm NewtonRaphson<span class="op">;</span></span>
+<span id="Begin-8"><a href="#Begin-8"></a><span class="er">@</span>Epsilon <span class="fl">1e-14</span><span class="op">;</span></span></code></pre></div>
+<p>Moreover, we need to include a header file for handling the rotations
+of the grains with their slip systems:</p>
 <ul>
-<li>IsotropicEshelbyTensor.hxx</li>
-<li>MicrostructureDescription.hxx</li>
-<li>MicrostructureLinearHomogenization.hxx</li>
+<li>PolyCrystalsSlidingSystems.hxx</li>
 </ul>
-<p>and the header for handling the rotations of the grains with their
-slip systems:</p>
-<ul>
-<li>ExtendedPolyCrystalsSlidingSystems.hxx</li>
-</ul>
-<div class="sourceCode" id="Begin"><pre
-class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Begin-1"><a href="#Begin-1"></a><span class="er">@</span>TFELLibraries <span class="op">{</span><span class="st">&quot;Material&quot;</span><span class="op">};</span></span>
-<span id="Begin-2"><a href="#Begin-2"></a><span class="er">@</span>Includes<span class="op">{</span></span>
-<span id="Begin-3"><a href="#Begin-3"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/IsotropicModuli.hxx&quot;</span></span>
-<span id="Begin-4"><a href="#Begin-4"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/IsotropicEshelbyTensor.hxx&quot;</span></span>
-<span id="Begin-5"><a href="#Begin-5"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/MicrostructureDescription.hxx&quot;</span></span>
-<span id="Begin-6"><a href="#Begin-6"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/MicrostructureLinearHomogenization.hxx&quot;</span></span>
-<span id="Begin-7"><a href="#Begin-7"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/ExtendedPolyCrystalsSlidingSystems.hxx&quot;</span><span class="er">}</span></span></code></pre></div>
-<p>For the approach based on morphological tensors, we do not need all
-these headers, but we need to include a file which contains the
-morphological tensors. This file is present in a repository
+<p>and a file which contains the morphological tensors. This file is
+present in a repository, let’s say
 <code>extra-headers/TFEL/Material/</code> located at the same place as
 the <code>.mfront</code> file.</p>
 <div class="sourceCode" id="Begin"><pre
 class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Begin-1"><a href="#Begin-1"></a><span class="er">@</span>TFELLibraries <span class="op">{</span><span class="st">&quot;Material&quot;</span><span class="op">};</span></span>
 <span id="Begin-2"><a href="#Begin-2"></a><span class="er">@</span>Includes<span class="op">{</span></span>
-<span id="Begin-3"><a href="#Begin-3"></a><span class="pp">#include </span><span class="im">&quot;../extra-headers/TFEL/Material/tensors.hxx&quot;</span></span>
-<span id="Begin-4"><a href="#Begin-4"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/ExtendedPolyCrystalsSlidingSystems.hxx&quot;</span><span class="er">}</span></span></code></pre></div>
+<span id="Begin-3"><a href="#Begin-3"></a><span class="pp">#include </span><span class="im">&quot;tensors.hxx&quot;</span></span>
+<span id="Begin-4"><a href="#Begin-4"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/IsotropicModuli.hxx&quot;</span></span>
+<span id="Begin-5"><a href="#Begin-5"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/PolyCrystalsSlidingSystems.hxx&quot;</span><span class="er">}</span></span></code></pre></div>
+<p>The compilation hence will be done like that:</p>
+<div class="sourceCode" id="Begin"><pre
+class="sourceCode numberSource sh numberLines"><code class="sourceCode bash"><span id="Begin-1"><a href="#Begin-1"></a><span class="ex">mfront</span> <span class="at">-I</span> ../extra-headers/TFEL/Material <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic Affine_tensors.mfront</span></code></pre></div>
 <p>Of cours the tensors are computed before via FFT as explained above
 (see the folder mentioned above for the computation).</p>
 <h3 id="sliding-systems">Sliding systems</h3>
@@ -942,12 +910,12 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 <p>but the rotations of the grains will be performed later, in the
 <code>Integrator</code> code block:</p>
 <div class="sourceCode" id="Integrator"><pre
-class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="kw">using</span> PolyCrystalsSlidingSystems <span class="op">=</span></span>
-<span id="Integrator-2"><a href="#Integrator-2"></a>    ExtendedPolyCrystalsSlidingSystems<span class="op">&lt;</span>Np<span class="op">,</span> Affine_formulationSlipSystems<span class="op">&lt;</span>real<span class="op">&gt;,</span> real<span class="op">&gt;;</span></span>
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="kw">using</span> ExtendedPolyCrystalsSlidingSystems <span class="op">=</span></span>
+<span id="Integrator-2"><a href="#Integrator-2"></a>    ExtendedPolyCrystalsSlidingSystems<span class="op">&lt;</span>Np<span class="op">,</span> Affine_tensorsSlipSystems<span class="op">&lt;</span>real<span class="op">&gt;,</span> real<span class="op">&gt;;</span></span>
 <span id="Integrator-3"><a href="#Integrator-3"></a><span class="at">const</span> <span class="kw">auto</span><span class="op">&amp;</span> gs <span class="op">=</span></span>
-<span id="Integrator-4"><a href="#Integrator-4"></a>    PolyCrystalsSlidingSystems<span class="op">::</span>getPolyCrystalsSlidingSystems<span class="op">(</span><span class="st">&quot;polycrystal.csv&quot;</span><span class="op">);</span></span></code></pre></div>
-<h3 id="poperties-and-variables">Poperties and variables</h3>
-<p>The state variables are the reference stresses <span
+<span id="Integrator-4"><a href="#Integrator-4"></a>    ExtendedPolyCrystalsSlidingSystems<span class="op">::</span>getPolyCrystalsSlidingSystems<span class="op">(</span><span class="st">&quot;polycrystal.csv&quot;</span><span class="op">);</span></span></code></pre></div>
+<h3 id="properties-and-variables">Properties and variables</h3>
+<p>The state variables are the stresses <span
 class="math inline">\(\underline{\sigma}^r\)</span> on each phase.</p>
 <div class="sourceCode" id="Begin"><pre
 class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Begin-1"><a href="#Begin-1"></a><span class="er">@</span>StateVariable Stensor sigma<span class="op">[</span>Np<span class="op">];</span></span>
@@ -959,13 +927,13 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 <p>Note that among several local variables, one of them, for
 morphological tensors, is</p>
 <div class="sourceCode" id="Begin"><pre
-class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Begin-1"><a href="#Begin-1"></a><span class="er">@</span>LocalVariable <span class="bu">std::</span>array<span class="op">&lt;</span><span class="bu">std::</span>array<span class="op">&lt;</span>tfel<span class="op">::</span>math<span class="op">::</span>st2tost2<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;,</span>Np<span class="op">&gt;,</span>Np<span class="op">&gt;</span> DELTA<span class="op">;</span></span></code></pre></div>
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Begin-1"><a href="#Begin-1"></a><span class="er">@</span>LocalVariable <span class="bu">std::</span>array<span class="op">&lt;</span><span class="bu">std::</span>array<span class="op">&lt;</span>tfel<span class="op">::</span>math<span class="op">::</span>st2tost2<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;,</span>Np<span class="op">&gt;,</span>Np<span class="op">&gt;</span> GAMMA<span class="op">;</span></span></code></pre></div>
 <p>This matrix will store the morphological tensors. Indeed, in the
 <code>InitLocalVariables</code> code block, we can load these
 coefficients, which are in fact situated in the header
-<code>../extra-headers/TFEL/Material/tensors.hxx</code></p>
+<code>tensors.hxx</code></p>
 <div class="sourceCode" id="Begin"><pre
-class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Begin-1"><a href="#Begin-1"></a>DELTA<span class="op">=</span>Delta<span class="op">&lt;</span>real<span class="op">&gt;::</span>get_tensor<span class="op">();</span></span></code></pre></div>
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Begin-1"><a href="#Begin-1"></a>GAMMA<span class="op">=</span>Gamma<span class="op">&lt;</span>real<span class="op">&gt;::</span>get_tensor<span class="op">();</span></span></code></pre></div>
 <h3 id="affine-modulus-and-free-strain">Affine modulus and
 free-strain</h3>
 <p>There is no difficulty in computing the tangent modulus and
@@ -975,168 +943,147 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 <span id="Integrator-2"><a href="#Integrator-2"></a>Stensor4 LSC<span class="op">;</span></span>
 <span id="Integrator-3"><a href="#Integrator-3"></a>Stensor e<span class="op">[</span>Np<span class="op">];</span></span>
 <span id="Integrator-4"><a href="#Integrator-4"></a>Stensor dpsi_dsigma<span class="op">[</span>Np<span class="op">];</span></span>
-<span id="Integrator-5"><a href="#Integrator-5"></a></span>
-<span id="Integrator-6"><a href="#Integrator-6"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> r<span class="op">=</span><span class="dv">0</span><span class="op">;</span>r<span class="op">&lt;</span>Np<span class="op">;</span>r<span class="op">++){</span></span>
-<span id="Integrator-7"><a href="#Integrator-7"></a>  M<span class="op">[</span>r<span class="op">]=</span>Stensor4<span class="op">::</span>zero<span class="op">();</span></span>
-<span id="Integrator-8"><a href="#Integrator-8"></a>  dpsi_dsigma<span class="op">[</span>r<span class="op">]=</span>Stensor<span class="op">::</span>zero<span class="op">();</span></span>
-<span id="Integrator-9"><a href="#Integrator-9"></a>  frac<span class="op">[</span>r<span class="op">]=</span>gs<span class="op">.</span>volume_fractions<span class="op">[</span>r<span class="op">];</span></span>
-<span id="Integrator-10"><a href="#Integrator-10"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> k<span class="op">=</span><span class="dv">0</span><span class="op">;</span>k<span class="op">&lt;</span>Nss<span class="op">;</span>k<span class="op">++){</span></span>
-<span id="Integrator-11"><a href="#Integrator-11"></a>     <span class="at">const</span> <span class="kw">auto</span> Nkr <span class="op">=</span> gs<span class="op">.</span>mus<span class="op">[</span>r<span class="op">][</span>k<span class="op">]^</span>gs<span class="op">.</span>mus<span class="op">[</span>r<span class="op">][</span>k<span class="op">];</span></span>
-<span id="Integrator-12"><a href="#Integrator-12"></a>     <span class="at">const</span> <span class="kw">auto</span> taukr <span class="op">=</span> gs<span class="op">.</span>mus<span class="op">[</span>r<span class="op">][</span>k<span class="op">]</span> <span class="op">|</span> <span class="op">(</span>sigma<span class="op">[</span>r<span class="op">]+</span>dsigma<span class="op">[</span>r<span class="op">]);</span></span>
-<span id="Integrator-13"><a href="#Integrator-13"></a>     <span class="at">const</span> <span class="kw">auto</span> puisn_1 <span class="op">=</span> pow<span class="op">(</span>abs<span class="op">(</span>taukr<span class="op">)/</span>tau0<span class="op">[</span>r<span class="op">],</span> nexp<span class="op">-</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="Integrator-14"><a href="#Integrator-14"></a>     <span class="at">const</span> <span class="kw">auto</span> fac<span class="op">=</span> nexp<span class="op">*</span>gamma0<span class="op">/</span>tau0<span class="op">[</span>r<span class="op">]*</span>puisn_1<span class="op">;</span></span>
-<span id="Integrator-15"><a href="#Integrator-15"></a>     M<span class="op">[</span>r<span class="op">]+=</span>fac<span class="op">*</span>Nkr<span class="op">;</span></span>
-<span id="Integrator-16"><a href="#Integrator-16"></a>     <span class="at">const</span> <span class="kw">auto</span> puisn <span class="op">=</span> puisn_1<span class="op">*</span>abs<span class="op">(</span>taukr<span class="op">)/</span>tau0<span class="op">[</span>r<span class="op">];</span></span>
-<span id="Integrator-17"><a href="#Integrator-17"></a>     <span class="at">const</span> <span class="kw">auto</span> sgn<span class="op">=</span> taukr<span class="op">&lt;</span> <span class="dv">0</span> <span class="op">?</span> <span class="op">-</span>real<span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">:</span> real<span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="Integrator-18"><a href="#Integrator-18"></a>     dpsi_dsigma<span class="op">[</span>r<span class="op">]+=</span>sgn<span class="op">*</span>gamma0<span class="op">*</span>puisn<span class="op">*</span>gs<span class="op">.</span>mus<span class="op">[</span>r<span class="op">][</span>k<span class="op">];</span> </span>
-<span id="Integrator-19"><a href="#Integrator-19"></a>  <span class="op">}</span> </span>
-<span id="Integrator-20"><a href="#Integrator-20"></a>  e<span class="op">[</span>r<span class="op">]=</span>dpsi_dsigma<span class="op">[</span>r<span class="op">]-</span>M<span class="op">[</span>r<span class="op">]*(</span>sigma<span class="op">[</span>r<span class="op">]+</span>dsigma<span class="op">[</span>r<span class="op">]);</span></span>
-<span id="Integrator-21"><a href="#Integrator-21"></a>  M<span class="op">[</span>r<span class="op">]=</span>M<span class="op">[</span>r<span class="op">]+</span>kap<span class="op">*</span>I<span class="op">;</span></span>
-<span id="Integrator-22"><a href="#Integrator-22"></a>  L<span class="op">[</span>r<span class="op">]=</span>invert<span class="op">(</span>M<span class="op">[</span>r<span class="op">]);</span></span>
-<span id="Integrator-23"><a href="#Integrator-23"></a><span class="op">}</span></span></code></pre></div>
+<span id="Integrator-5"><a href="#Integrator-5"></a><span class="kw">auto</span> tau0k <span class="op">=</span> tau1<span class="op">;</span></span>
+<span id="Integrator-6"><a href="#Integrator-6"></a></span>
+<span id="Integrator-7"><a href="#Integrator-7"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> r<span class="op">=</span><span class="dv">0</span><span class="op">;</span>r<span class="op">&lt;</span>Np<span class="op">;</span>r<span class="op">++){</span></span>
+<span id="Integrator-8"><a href="#Integrator-8"></a>  M<span class="op">[</span>r<span class="op">]=</span>Stensor4<span class="op">::</span>zero<span class="op">();</span></span>
+<span id="Integrator-9"><a href="#Integrator-9"></a>  dpsi_dsigma<span class="op">[</span>r<span class="op">]=</span>Stensor<span class="op">::</span>zero<span class="op">();</span></span>
+<span id="Integrator-10"><a href="#Integrator-10"></a>  frac<span class="op">[</span>r<span class="op">]=</span>gs<span class="op">.</span>volume_fractions<span class="op">[</span>r<span class="op">];</span></span>
+<span id="Integrator-11"><a href="#Integrator-11"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> k<span class="op">=</span><span class="dv">0</span><span class="op">;</span>k<span class="op">&lt;</span>Nss<span class="op">;</span>k<span class="op">++){</span></span>
+<span id="Integrator-12"><a href="#Integrator-12"></a>     <span class="cf">if</span> <span class="op">(</span>k<span class="op">&gt;</span><span class="dt">int</span><span class="op">(</span>Nss<span class="op">/</span><span class="dv">12</span><span class="op">)){</span>tau0k<span class="op">=</span>tau1<span class="op">;}</span></span>
+<span id="Integrator-13"><a href="#Integrator-13"></a>     <span class="cf">else</span><span class="op">{</span>tau0k<span class="op">=</span>tau2<span class="op">;}</span></span>
+<span id="Integrator-14"><a href="#Integrator-14"></a>     <span class="at">const</span> <span class="kw">auto</span> Nkr <span class="op">=</span> gs<span class="op">.</span>mus<span class="op">[</span>r<span class="op">][</span>k<span class="op">]^</span>gs<span class="op">.</span>mus<span class="op">[</span>r<span class="op">][</span>k<span class="op">];</span></span>
+<span id="Integrator-15"><a href="#Integrator-15"></a>     <span class="at">const</span> <span class="kw">auto</span> taukr <span class="op">=</span> gs<span class="op">.</span>mus<span class="op">[</span>r<span class="op">][</span>k<span class="op">]</span> <span class="op">|</span> <span class="op">(</span>sigma<span class="op">[</span>r<span class="op">]+</span>dsigma<span class="op">[</span>r<span class="op">]);</span></span>
+<span id="Integrator-16"><a href="#Integrator-16"></a>     <span class="at">const</span> <span class="kw">auto</span> puisn_1 <span class="op">=</span> pow<span class="op">(</span>max<span class="op">(</span>abs<span class="op">(</span>taukr<span class="op">),</span><span class="fl">1e-5</span><span class="op">)/</span>tau0k<span class="op">,</span> nexp<span class="op">-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="Integrator-17"><a href="#Integrator-17"></a>     <span class="at">const</span> <span class="kw">auto</span> fac<span class="op">=</span> nexp<span class="op">*</span>gamma0<span class="op">/</span>tau0k<span class="op">*</span>puisn_1<span class="op">;</span></span>
+<span id="Integrator-18"><a href="#Integrator-18"></a>     M<span class="op">[</span>r<span class="op">]+=</span>fac<span class="op">*</span>Nkr<span class="op">;</span></span>
+<span id="Integrator-19"><a href="#Integrator-19"></a>     <span class="at">const</span> <span class="kw">auto</span> puisn <span class="op">=</span> puisn_1<span class="op">*</span>abs<span class="op">(</span>taukr<span class="op">)/</span>tau0k<span class="op">;</span></span>
+<span id="Integrator-20"><a href="#Integrator-20"></a>     <span class="at">const</span> <span class="kw">auto</span> sgn<span class="op">=</span> taukr<span class="op">&lt;</span> <span class="dv">0</span> <span class="op">?</span> <span class="op">-</span>real<span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">:</span> real<span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="Integrator-21"><a href="#Integrator-21"></a>     dpsi_dsigma<span class="op">[</span>r<span class="op">]+=</span>sgn<span class="op">*</span>gamma0<span class="op">*</span>puisn<span class="op">*</span>gs<span class="op">.</span>mus<span class="op">[</span>r<span class="op">][</span>k<span class="op">];</span> </span>
+<span id="Integrator-22"><a href="#Integrator-22"></a>  <span class="op">}</span> </span>
+<span id="Integrator-23"><a href="#Integrator-23"></a>  e<span class="op">[</span>r<span class="op">]=</span>dpsi_dsigma<span class="op">[</span>r<span class="op">]-</span>M<span class="op">[</span>r<span class="op">]*(</span>sigma<span class="op">[</span>r<span class="op">]+</span>dsigma<span class="op">[</span>r<span class="op">]);</span></span>
+<span id="Integrator-24"><a href="#Integrator-24"></a>  M<span class="op">[</span>r<span class="op">]=</span>M<span class="op">[</span>r<span class="op">]+</span>kap<span class="op">*</span>I<span class="op">;</span></span>
+<span id="Integrator-25"><a href="#Integrator-25"></a>  L<span class="op">[</span>r<span class="op">]=</span>invert<span class="op">(</span>M<span class="op">[</span>r<span class="op">]);</span></span>
+<span id="Integrator-26"><a href="#Integrator-26"></a><span class="op">}</span></span></code></pre></div>
+<p>Here, on line 12, we set <span
+class="math inline">\(\tau_0^k=\tau_1\)</span> for all gliding systems,
+except for <span class="math inline">\(k=0\)</span> and <span
+class="math inline">\(k=1\)</span>, for which we set <span
+class="math inline">\(\tau_0^k=\tau_2\)</span>.</p>
 <p>Note that here, a tensor <code>kap*I</code> is added to the
-compliance <code>M[r]</code> line 21. <code>kap</code> is a parameter
-that the user can change. It is necessary because the tensors <span
-class="math inline">\(\underline{\mathbf{M}}_r\)</span> are not
-invertible (see also <span class="citation"
-data-cites="bornert_second-order_2001">[<a
-href="#ref-bornert_second-order_2001"
-role="doc-biblioref">2</a>]</span>, appendix B.1). In our case, we set
-it as a <code>MaterialProperty</code> that can evolve with time (see
-<code>mtest</code> file below). We can hence consider <span
+compliance <code>M[r]</code> line 21. In our case, we set
+<code>kap</code> as a <code>MaterialProperty</code> that can evolve with
+time (see <code>mtest</code> file below). We can hence consider <span
 class="math inline">\(\underline{\mathbf{L}}_r\)</span>, the inverse of
 <span
 class="math inline">\(\underline{\mathbf{M}}_r+\kappa\underline{\mathbf{I}}\)</span>.</p>
-<h3 id="self-consistent-scheme">Self-consistent scheme</h3>
-<p>The homogenization of the thermoelastic composite will be carried out
-with <code>tfel::material::homogenization::elasticity</code>. We first
-construct our <code>ParticulateMicrostructure</code>. We instantiate it
-by doing:</p>
+<h3 id="computation-of-ar-and-brs">Computation of Ar and Brs</h3>
+<p>The computation of tensors Ar and Brs is as follows</p>
 <div class="sourceCode" id="Integrator"><pre
-class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
-<span id="Integrator-2"><a href="#Integrator-2"></a><span class="at">const</span> <span class="kw">auto</span> IM0<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>k0<span class="op">,</span>mu0<span class="op">);</span></span>
-<span id="Integrator-3"><a href="#Integrator-3"></a><span class="kw">auto</span> micro<span class="op">=</span>ParticulateMicrostructure<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>IM0<span class="op">);</span></span></code></pre></div>
-<p>Note that here the matrix phase is defined by the elasticity
-<code>(k0,mu0)</code> but this elasticity will play no role in the
-sequel. Indeed, we will add the grains as
-<code>SphereDistribution</code> objects, and because the sum of the
-volume fractions is equal to one, the matrix will automatically have a
-fraction equal to zero.</p>
-<p>The grains are added like that:</p>
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a>tmatrix<span class="op">&lt;</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span>real<span class="op">&gt;</span> MAT<span class="op">;</span></span>
+<span id="Integrator-2"><a href="#Integrator-2"></a>tmatrix<span class="op">&lt;</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span>real<span class="op">&gt;</span> G<span class="op">;</span></span>
+<span id="Integrator-3"><a href="#Integrator-3"></a>tmatrix<span class="op">&lt;</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span><span class="dv">6</span><span class="op">,</span>real<span class="op">&gt;</span> E<span class="op">;</span></span>
+<span id="Integrator-4"><a href="#Integrator-4"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> r<span class="op">=</span><span class="dv">0</span><span class="op">;</span>r<span class="op">&lt;</span>Np<span class="op">;</span>r<span class="op">++){</span></span>
+<span id="Integrator-5"><a href="#Integrator-5"></a>  map_derivative<span class="op">&lt;</span>Stensor<span class="op">,</span>Stensor<span class="op">&gt;(</span>E<span class="op">,</span><span class="dv">6</span><span class="op">*</span>r<span class="op">,</span><span class="dv">0</span><span class="op">)=</span>I<span class="op">;</span></span>
+<span id="Integrator-6"><a href="#Integrator-6"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> s<span class="op">=</span><span class="dv">0</span><span class="op">;</span>s<span class="op">&lt;</span>Np<span class="op">;</span>s<span class="op">++){</span></span>
+<span id="Integrator-7"><a href="#Integrator-7"></a>   <span class="at">const</span> <span class="kw">auto</span> dL <span class="op">=</span> L<span class="op">[</span>s<span class="op">]-</span>r0<span class="op">*</span>L0<span class="op">;</span></span>
+<span id="Integrator-8"><a href="#Integrator-8"></a>    map_derivative<span class="op">&lt;</span>Stensor<span class="op">,</span>Stensor<span class="op">&gt;(</span>MAT<span class="op">,</span><span class="dv">6</span><span class="op">*</span>r<span class="op">,</span><span class="dv">6</span><span class="op">*</span>s<span class="op">)</span> <span class="op">=</span><span class="dv">1</span><span class="op">/</span>r0<span class="op">*</span>GAMMA<span class="op">[</span>r<span class="op">][</span>s<span class="op">]*</span>dL<span class="op">;</span></span>
+<span id="Integrator-9"><a href="#Integrator-9"></a>    map_derivative<span class="op">&lt;</span>Stensor<span class="op">,</span>Stensor<span class="op">&gt;(</span>G<span class="op">,</span><span class="dv">6</span><span class="op">*</span>r<span class="op">,</span><span class="dv">6</span><span class="op">*</span>s<span class="op">)</span> <span class="op">=</span><span class="dv">1</span><span class="op">/</span>r0<span class="op">*</span>GAMMA<span class="op">[</span>r<span class="op">][</span>s<span class="op">]*</span>L<span class="op">[</span>s<span class="op">];</span></span>
+<span id="Integrator-10"><a href="#Integrator-10"></a>  <span class="op">}</span></span>
+<span id="Integrator-11"><a href="#Integrator-11"></a>  map_derivative<span class="op">&lt;</span>Stensor<span class="op">,</span>Stensor<span class="op">&gt;(</span>MAT<span class="op">,</span><span class="dv">6</span><span class="op">*</span>r<span class="op">,</span><span class="dv">6</span><span class="op">*</span>r<span class="op">)</span> <span class="op">+=</span>I<span class="op">;</span></span>
+<span id="Integrator-12"><a href="#Integrator-12"></a><span class="op">}</span></span>
+<span id="Integrator-13"><a href="#Integrator-13"></a></span>
+<span id="Integrator-14"><a href="#Integrator-14"></a>TinyMatrixInvert<span class="op">&lt;</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span>real<span class="op">&gt;::</span>exe<span class="op">(</span>MAT<span class="op">);</span></span>
+<span id="Integrator-15"><a href="#Integrator-15"></a>A <span class="op">=</span> MAT<span class="op">*</span>E<span class="op">;</span></span>
+<span id="Integrator-16"><a href="#Integrator-16"></a>tmatrix<span class="op">&lt;</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span>real<span class="op">&gt;</span> B <span class="op">=</span> MAT<span class="op">*</span>G<span class="op">;</span></span></code></pre></div>
+<p>Here we see that we multiply the morphological tensors by
+<code>1/r0</code> in order to adapt the reference medium. The
+<code>r0</code> will be updated after, depending on the
+<code>Chom</code> obtained. The <code>dL</code> also is impacted and
+written as <code>L[r]-r0*L0</code>.</p>
+<h3 id="residues-jacobian-and-macroscopic-stress">Residues, jacobian and
+macroscopic stress</h3>
+<p>Here is the computation of the residue, the jacobian and of
+macroscopic stress:</p>
 <div class="sourceCode" id="Integrator"><pre
-class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="at">const</span> <span class="kw">auto</span> sphere<span class="op">=</span>Sphere<span class="op">&lt;</span>length<span class="op">&gt;();</span></span>
-<span id="Integrator-2"><a href="#Integrator-2"></a><span class="bu">std::</span>vector<span class="op">&lt;</span>Stensor<span class="op">&gt;</span> polarisations<span class="op">;</span></span>
-<span id="Integrator-3"><a href="#Integrator-3"></a><span class="at">const</span> <span class="kw">auto</span> zero <span class="op">=</span> Stensor<span class="op">::</span>zero<span class="op">();</span></span>
-<span id="Integrator-4"><a href="#Integrator-4"></a>polarisations<span class="op">.</span>resize<span class="op">(</span>Np<span class="op">+</span><span class="dv">1</span><span class="op">,</span> zero<span class="op">);</span></span>
-<span id="Integrator-5"><a href="#Integrator-5"></a></span>
-<span id="Integrator-6"><a href="#Integrator-6"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> r<span class="op">=</span><span class="dv">0</span> <span class="op">;</span> r<span class="op">&lt;</span>Np<span class="op">;</span> r<span class="op">++){</span></span>
-<span id="Integrator-7"><a href="#Integrator-7"></a>  <span class="kw">auto</span> distribution <span class="op">=</span> SphereDistribution<span class="op">&lt;</span>stress<span class="op">&gt;(</span>sphere<span class="op">,</span>frac<span class="op">[</span>r<span class="op">],</span>L<span class="op">[</span>r<span class="op">]);</span></span>
-<span id="Integrator-8"><a href="#Integrator-8"></a>  micro<span class="op">.</span>addInclusionPhase<span class="op">(</span>distribution<span class="op">);</span></span>
-<span id="Integrator-9"><a href="#Integrator-9"></a>  polarisations<span class="op">[</span>r<span class="op">+</span><span class="dv">1</span><span class="op">]=-</span>L<span class="op">[</span>r<span class="op">]*</span>e<span class="op">[</span>r<span class="op">];</span></span>
-<span id="Integrator-10"><a href="#Integrator-10"></a><span class="op">}</span></span></code></pre></div>
-<p>The shape of each grain is spherical, and we provide the stiffness
-tensors <code>L[r]</code> to the constructor
-<code>SphereDistribution</code>. We also put a polarisation on each
-grain: it is <span
-class="math inline">\(-\underline{\mathbf{L}}_r:\underline{e}^r\)</span>.</p>
-<p>Note that the <code>ParticulateMicrostructure</code> in fact contains
-<code>Np</code> phase: a matrix, and <code>Np</code> grains. Be careful
-with the indices: <code>polarisation[0]</code> is associated to the
-matrix.</p>
-<p>The self-consistent scheme is performed afterwards:</p>
-<div class="sourceCode" id="Integrator"><pre
-class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="at">const</span> <span class="kw">auto</span> hmSC<span class="op">=</span>computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro<span class="op">,</span><span class="fl">1e-6</span><span class="op">,</span><span class="kw">true</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span>polarisations<span class="op">);</span></span>
-<span id="Integrator-2"><a href="#Integrator-2"></a>LSC <span class="op">=</span> hmSC<span class="op">.</span>homogenized_stiffness<span class="op">;</span></span>
-<span id="Integrator-3"><a href="#Integrator-3"></a><span class="at">const</span> <span class="kw">auto</span> tauSC <span class="op">=</span> hmSC<span class="op">.</span>effective_polarisation<span class="op">;</span></span>
-<span id="Integrator-4"><a href="#Integrator-4"></a><span class="at">const</span> <span class="kw">auto</span> A_SC<span class="op">=</span>hmSC<span class="op">.</span>mean_strain_localisation_tensors<span class="op">;</span></span></code></pre></div>
-<p>On line 1, we say we want a tolerance of <code>1e-6</code> (this is
-related to the stopping criterion of the iterative self-consistent
-algorithm, see the <a
-href="./tfel-material.html#homogenization-of-general-microstructures">doc</a>).
-We also consider an isotropic homogenized stiffness with
-<code>true</code>. This is related to the computation of the Hill tensor
-associated to the spherical inclusions. if using an anisotropic
-reference medium for computing this tensor, the integration of the
-behaviour would be too slow. Hence, we make the choice of an
-isotropization. Moreover, the <code>0</code> is just related to the
-number of anisotropic integration, but because of <code>true</code>,
-this has no effect.</p>
-<p>We will need the following tensors:</p>
-<div class="sourceCode" id="Integrator"><pre
-class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="kw">auto</span> KGSC <span class="op">=</span> computeKGModuli<span class="op">(</span>LSC<span class="op">);</span></span>
-<span id="Integrator-2"><a href="#Integrator-2"></a><span class="at">const</span> <span class="kw">auto</span> PSC <span class="op">=</span> computeSphereHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>KGSC<span class="op">);</span></span>
-<span id="Integrator-3"><a href="#Integrator-3"></a><span class="at">const</span> <span class="kw">auto</span> MSC_star <span class="op">=</span> invert<span class="op">(</span>invert<span class="op">(</span>PSC<span class="op">)-</span> LSC<span class="op">);</span></span></code></pre></div>
-<p>Note here that we also isotropize the homogenized stiffness with the
-function <code>computeKGModuli</code>, on line 1. This is more
-consistent with the fact that we used <code>true</code> in the
-<code>computeSelfConsistent</code> function.</p>
-<h3 id="residues-and-jacobian">Residues and jacobian</h3>
-<p>For the residues, we work on the strains (because <code>MFront</code>
-is more suited to strain type residues. Hence, we will define the
-residues as</p>
-<span class="math display">\[\begin{aligned}
-f_{\sigma^r}=\underline{\mathbf{M}}_r:\left(\underline{\sigma}^r-\underline{\mathbf{A}}_r:\overline{\underline{\varepsilon}}-\sum_s\underline{\mathbf{B}}_{rs}:\underline{e}^s\right)
-\end{aligned}\]</span>
-<div class="sourceCode" id="Integrator"><pre
-class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> r<span class="op">=</span><span class="dv">0</span><span class="op">;</span>r<span class="op">&lt;</span>Np<span class="op">;</span>r<span class="op">++){</span></span>
-<span id="Integrator-2"><a href="#Integrator-2"></a>  <span class="at">const</span> Stensor4 Ar<span class="op">=</span>A_SC<span class="op">[</span>r<span class="op">+</span><span class="dv">1</span><span class="op">];</span></span>
-<span id="Integrator-3"><a href="#Integrator-3"></a>  map_derivative<span class="op">&lt;</span>Stensor<span class="op">,</span>Stensor<span class="op">&gt;(</span>A<span class="op">,</span><span class="dv">6</span><span class="op">*</span>r<span class="op">,</span><span class="dv">0</span><span class="op">)=</span>Ar<span class="op">;</span></span>
-<span id="Integrator-4"><a href="#Integrator-4"></a>  <span class="kw">auto</span> KGAr <span class="op">=</span> computeKGModuli<span class="op">(</span>Ar<span class="op">);</span></span>
-<span id="Integrator-5"><a href="#Integrator-5"></a>  fsigma<span class="op">[</span>r<span class="op">]</span> <span class="op">=</span> M<span class="op">[</span>r<span class="op">]*(</span>sigma<span class="op">[</span>r<span class="op">]+</span>dsigma<span class="op">[</span>r<span class="op">])-</span>Ar<span class="op">*(</span>eto<span class="op">+</span>deto<span class="op">);</span></span>
-<span id="Integrator-6"><a href="#Integrator-6"></a>  fsigma<span class="op">[</span>r<span class="op">]-=</span> M<span class="op">[</span>r<span class="op">]*(</span>invert<span class="op">(</span>M<span class="op">[</span>r<span class="op">]+</span>MSC_star<span class="op">))*(</span>MSC_star<span class="op">*</span>tauSC <span class="op">-</span> e<span class="op">[</span>r<span class="op">]);</span></span>
-<span id="Integrator-7"><a href="#Integrator-7"></a><span class="op">}</span></span></code></pre></div>
-<p>There is no jacobian because we use the
-<code>NumericalJacobian</code>. Here, an analytical jacobian would have
-been tedious, although not impossible.</p>
-<p>The computation of the macroscopic stress is simple:</p>
-<div class="sourceCode" id="Integrator"><pre
-class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a>sig<span class="op">=</span>LSC<span class="op">*(</span>eto<span class="op">+</span>deto<span class="op">)+</span>tauSC<span class="op">;</span></span></code></pre></div>
+class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="Integrator-1"><a href="#Integrator-1"></a>Chom<span class="op">=</span>Stensor4<span class="op">::</span>zero<span class="op">();</span></span>
+<span id="Integrator-2"><a href="#Integrator-2"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> r<span class="op">=</span><span class="dv">0</span><span class="op">;</span>r<span class="op">&lt;</span>Np<span class="op">;</span>r<span class="op">++){</span></span>
+<span id="Integrator-3"><a href="#Integrator-3"></a>  Ar<span class="op">[</span>r<span class="op">]=</span>map_derivative<span class="op">&lt;</span>Stensor<span class="op">,</span>Stensor<span class="op">&gt;(</span>A<span class="op">,</span><span class="dv">6</span><span class="op">*</span>r<span class="op">,</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="Integrator-4"><a href="#Integrator-4"></a>  Chom<span class="op">+=</span>frac<span class="op">[</span>r<span class="op">]*</span>L<span class="op">[</span>r<span class="op">]*</span>Ar<span class="op">[</span>r<span class="op">];</span></span>
+<span id="Integrator-5"><a href="#Integrator-5"></a><span class="op">}</span></span>
+<span id="Integrator-6"><a href="#Integrator-6"></a></span>
+<span id="Integrator-7"><a href="#Integrator-7"></a><span class="kw">auto</span> KGhom<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>computeKGModuli<span class="op">(</span>Chom<span class="op">);</span></span>
+<span id="Integrator-8"><a href="#Integrator-8"></a>muhom<span class="op">=</span>KGhom<span class="op">.</span>mu<span class="op">;</span></span>
+<span id="Integrator-9"><a href="#Integrator-9"></a>r0<span class="op">=</span>muhom<span class="op">/</span>mu0<span class="op">;</span></span>
+<span id="Integrator-10"><a href="#Integrator-10"></a></span>
+<span id="Integrator-11"><a href="#Integrator-11"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> r<span class="op">=</span><span class="dv">0</span><span class="op">;</span>r<span class="op">&lt;</span>Np<span class="op">;</span>r<span class="op">++){</span></span>
+<span id="Integrator-12"><a href="#Integrator-12"></a>  tau_eff<span class="op">-=</span>frac<span class="op">[</span>r<span class="op">]*</span>L<span class="op">[</span>r<span class="op">]*</span>e<span class="op">[</span>r<span class="op">];</span></span>
+<span id="Integrator-13"><a href="#Integrator-13"></a>  fsigma<span class="op">[</span>r<span class="op">]</span> <span class="op">=</span> sigma<span class="op">[</span>r<span class="op">]+</span>dsigma<span class="op">[</span>r<span class="op">]-</span>L<span class="op">[</span>r<span class="op">]*</span>Ar<span class="op">[</span>r<span class="op">]*(</span>eto<span class="op">+</span>deto<span class="op">)+</span>L<span class="op">[</span>r<span class="op">]*</span>e<span class="op">[</span>r<span class="op">];</span></span>
+<span id="Integrator-14"><a href="#Integrator-14"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> s<span class="op">=</span><span class="dv">0</span><span class="op">;</span>s<span class="op">&lt;</span>Np<span class="op">;</span>s<span class="op">++){</span></span>
+<span id="Integrator-15"><a href="#Integrator-15"></a>    <span class="kw">auto</span> Brs <span class="op">=</span> map_derivative<span class="op">&lt;</span>Stensor<span class="op">,</span>Stensor<span class="op">&gt;(</span>B<span class="op">,</span><span class="dv">6</span><span class="op">*</span>r<span class="op">,</span><span class="dv">6</span><span class="op">*</span>s<span class="op">);</span></span>
+<span id="Integrator-16"><a href="#Integrator-16"></a>    tau_eff<span class="op">+=</span>frac<span class="op">[</span>r<span class="op">]*</span>L<span class="op">[</span>r<span class="op">]*</span>Brs<span class="op">*</span>e<span class="op">[</span>s<span class="op">];</span></span>
+<span id="Integrator-17"><a href="#Integrator-17"></a>    fsigma<span class="op">[</span>r<span class="op">]-=</span>L<span class="op">[</span>r<span class="op">]*</span>Brs<span class="op">*</span>e<span class="op">[</span>s<span class="op">];</span></span>
+<span id="Integrator-18"><a href="#Integrator-18"></a>  <span class="op">}</span></span>
+<span id="Integrator-19"><a href="#Integrator-19"></a>  dfsigma_ddsigma<span class="op">(</span>r<span class="op">,</span>r<span class="op">)=</span>I<span class="op">;</span></span>
+<span id="Integrator-20"><a href="#Integrator-20"></a><span class="op">}</span></span>
+<span id="Integrator-21"><a href="#Integrator-21"></a></span>
+<span id="Integrator-22"><a href="#Integrator-22"></a>sig<span class="op">=</span>Chom<span class="op">*(</span>eto<span class="op">+</span>deto<span class="op">)+</span>tau_eff<span class="op">;</span></span></code></pre></div>
+<p>The jacobian here is approximative and given by
+<code>dfsigma_ddsigma(r,r)=I</code>. We also see that we update the
+factor <code>r0</code> with the shear modulus <code>muhom</code>,
+obtained by projection of <code>Chom</code> on the tensor
+<code>K</code>.</p>
 <h3 id="tangent-operator">Tangent operator</h3>
-The computation of the tangent operator necessitates the computation of
-<span class="math inline">\({\displaystyle \frac{\displaystyle \partial
-\underline{\sigma}^r}{\displaystyle \partial
-\overline{\underline{\varepsilon}}}}\)</span>. To do that, we use a
-technique widely used in <code>MFront</code>. The idea is to write the
-non-linear system to solve as:
-<span class="math display">\[\begin{aligned}
-\underline{\mathbf{M}}_r:\left[\underline{\sigma}^r -
-\underline{\mathbf{A}}_r\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right):\overline{\underline{\varepsilon}}
-- \sum_s
-\underline{\mathbf{B}}_{rs}\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right):\underline{e}^s\left(\underline{\sigma}^s\right)\right]=
-f_{\sigma^r}(\overline{\underline{\varepsilon}},\underline{\sigma}^1,...,\underline{\sigma}^N)=0
-\end{aligned}\]</span>
-and by derivation of <span class="math inline">\(f_{\sigma^r}\)</span>
-w.r.t. <span
-class="math inline">\(\overline{\underline{\varepsilon}}\)</span>:
-<span class="math display">\[\begin{aligned}
--\underline{\mathbf{M}}_r:\underline{\mathbf{A}}_r\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right)+\sum_s\underline{\mathbf{J}}_{rs}:{\displaystyle
+<p>The computation of the tangent operator necessitates the computation
+of <span class="math inline">\({\displaystyle \frac{\displaystyle
+\partial \underline{\sigma}^r}{\displaystyle \partial
+\underline{E}}}\)</span>. To do that, we use a technique widely used in
+<code>MFront</code>. The idea is to write the non-linear system to solve
+as: <span class="math display">\[
+\begin{aligned}
+\underline{\varepsilon}_r\left(\underline{\sigma}^r\right) -
+\underline{\mathbf{L}}_r\left(\underline{\sigma}^r\right):\underline{\mathbf{A}}_r\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right):\underline{E}-
+\sum_s
+\underline{\mathbf{B}}_{rs}\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right):\underline{e}^s\left(\underline{\sigma}^s\right)+\underline{\mathbf{L}}_r\left(\underline{\sigma}^r\right):\underline{e}^r\left(\underline{\sigma}^r\right)=
+f_{\sigma^r}(\underline{E},\underline{\sigma}^1,...,\underline{\sigma}^N)=0
+\end{aligned}
+\]</span> and by derivation of <span
+class="math inline">\(f_{\sigma^r}\)</span> w.r.t. <span
+class="math inline">\(\underline{E}\)</span>: <span
+class="math display">\[
+\begin{aligned}
+-\underline{\mathbf{L}}_r\left(\underline{\sigma}^r\right):\underline{\mathbf{A}}_r\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right)+\sum_s\underline{\mathbf{J}}_{rs}:{\displaystyle
 \frac{\displaystyle \partial \underline{\sigma}^s}{\displaystyle
-\partial \overline{\underline{\varepsilon}}}}=0
-\end{aligned}\]</span>
-where <span
+\partial \underline{E}}}=0
+\end{aligned}
+\]</span> where <span
 class="math inline">\(\underline{\mathbf{J}}_{rs}={\displaystyle
 \frac{\displaystyle \partial f_{\sigma^r}}{\displaystyle \partial
 \underline{\sigma}^s}}\)</span> stands for the sub-block <span
-class="math inline">\((r,s)\)</span> of the Jacobian. Hence
-<span class="math display">\[\begin{aligned}
+class="math inline">\((r,s)\)</span> of the Jacobian. Hence <span
+class="math display">\[
+\begin{aligned}
 {\displaystyle \frac{\displaystyle \partial
 \underline{\sigma}^r}{\displaystyle \partial
-\overline{\underline{\varepsilon}}}}=\sum_s\mathbf
-{iJ}_{rs}:\underline{\mathbf{M}}_s:\underline{\mathbf{A}}_s\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right)
-\end{aligned}\]</span>
-<p>where <span class="math inline">\(\mathbf {iJ}\)</span> is the
+\underline{E}}}=\sum_s\mathbf
+{iJ}_{rs}:\underline{\mathbf{L}}_s\left(\underline{\sigma}^s\right):\underline{\mathbf{A}}_s\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right)
+\end{aligned}
+\]</span> where <span class="math inline">\(\mathbf {iJ}\)</span> is the
 inverse of the Jacobian. The implementation is</p>
 <div class="sourceCode" id="tangent"><pre
 class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="tangent-1"><a href="#tangent-1"></a><span class="er">@</span>TangentOperator<span class="op">{</span></span>
-<span id="tangent-2"><a href="#tangent-2"></a>  tmatrix<span class="op">&lt;</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span>real<span class="op">&gt;</span> iJ <span class="op">=</span> jacobian<span class="op">;</span></span>
-<span id="tangent-3"><a href="#tangent-3"></a>  TinyMatrixInvert<span class="op">&lt;</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span>real<span class="op">&gt;::</span>exe<span class="op">(</span>iJ<span class="op">);</span></span>
-<span id="tangent-4"><a href="#tangent-4"></a>  dsigma_deto<span class="op">=</span>iJ<span class="op">*</span>A<span class="op">;</span></span>
-<span id="tangent-5"><a href="#tangent-5"></a>  Dt<span class="op">=</span>Stensor4<span class="op">::</span>zero<span class="op">();</span></span>
-<span id="tangent-6"><a href="#tangent-6"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> r<span class="op">=</span><span class="dv">0</span><span class="op">;</span>r<span class="op">&lt;</span>Np<span class="op">;</span>r<span class="op">++){</span></span>
-<span id="tangent-7"><a href="#tangent-7"></a>    <span class="at">const</span> <span class="kw">auto</span> dsigmar_deto <span class="op">=</span> map_derivative<span class="op">&lt;</span>Stensor<span class="op">,</span>Stensor<span class="op">&gt;(</span>dsigma_deto<span class="op">,</span><span class="dv">6</span><span class="op">*</span>r<span class="op">,</span><span class="dv">0</span><span class="op">);</span></span>
-<span id="tangent-8"><a href="#tangent-8"></a>    Dt<span class="op">+=</span>frac<span class="op">[</span>r<span class="op">]*</span>dsigmar_deto<span class="op">;</span></span>
-<span id="tangent-9"><a href="#tangent-9"></a>  <span class="op">}</span></span>
-<span id="tangent-10"><a href="#tangent-10"></a><span class="op">}</span></span></code></pre></div>
+<span id="tangent-2"><a href="#tangent-2"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> r<span class="op">=</span><span class="dv">0</span><span class="op">;</span>r<span class="op">&lt;</span>Np<span class="op">;</span>r<span class="op">++){</span></span>
+<span id="tangent-3"><a href="#tangent-3"></a>    map_derivative<span class="op">&lt;</span>Stensor<span class="op">,</span>Stensor<span class="op">&gt;(</span>A<span class="op">,</span><span class="dv">6</span><span class="op">*</span>r<span class="op">,</span><span class="dv">0</span><span class="op">)=</span>L<span class="op">[</span>r<span class="op">]*</span>Ar<span class="op">[</span>r<span class="op">];</span></span>
+<span id="tangent-4"><a href="#tangent-4"></a>  <span class="op">}</span></span>
+<span id="tangent-5"><a href="#tangent-5"></a>  tmatrix<span class="op">&lt;</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span>real<span class="op">&gt;</span> iJ <span class="op">=</span> jacobian<span class="op">;</span></span>
+<span id="tangent-6"><a href="#tangent-6"></a>  TinyMatrixInvert<span class="op">&lt;</span><span class="dv">6</span><span class="op">*</span>Np<span class="op">,</span>real<span class="op">&gt;::</span>exe<span class="op">(</span>iJ<span class="op">);</span></span>
+<span id="tangent-7"><a href="#tangent-7"></a>  dsigma_deto<span class="op">=</span>iJ<span class="op">*</span>A<span class="op">;</span></span>
+<span id="tangent-8"><a href="#tangent-8"></a>  Dt<span class="op">=</span>Stensor4<span class="op">::</span>zero<span class="op">();</span></span>
+<span id="tangent-9"><a href="#tangent-9"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> r<span class="op">=</span><span class="dv">0</span><span class="op">;</span>r<span class="op">&lt;</span>Np<span class="op">;</span>r<span class="op">++){</span></span>
+<span id="tangent-10"><a href="#tangent-10"></a>    <span class="at">const</span> <span class="kw">auto</span> dsigmar_deto <span class="op">=</span> map_derivative<span class="op">&lt;</span>Stensor<span class="op">,</span>Stensor<span class="op">&gt;(</span>dsigma_deto<span class="op">,</span><span class="dv">6</span><span class="op">*</span>r<span class="op">,</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="tangent-11"><a href="#tangent-11"></a>    Dt<span class="op">+=</span>frac<span class="op">[</span>r<span class="op">]*</span>dsigmar_deto<span class="op">;</span></span>
+<span id="tangent-12"><a href="#tangent-12"></a>  <span class="op">}</span></span>
+<span id="tangent-13"><a href="#tangent-13"></a><span class="op">}</span></span></code></pre></div>
 <p>Note the use on line 7 of the function
 <code>tfel::math::map_derivative</code> which allows to extract (but
 also to fill) a block from a <code>tmatrix</code>.</p>
@@ -1144,11 +1091,13 @@ also to fill) a block from a <code>tmatrix</code>.</p>
 <p>For the tests, we use <code>mtest</code>. However, note that the
 strain we impose is in fact a strain rate. The idea for us is to keep
 this strain rate constant and to make vary the parameter <span
-class="math inline">\(n\)</span> with time. Besides, we choose two
-different values for <span class="math inline">\(\tau_0^r\)</span>. 5
-crystals are such that <span class="math inline">\(\tau_0=10
-MPa\)</span>, and 5 others such that <span
-class="math inline">\(\tau_0=50 MPa\)</span>.</p>
+class="math inline">\(n\)</span> with time. We hence set it as a
+function which varies exponentially with time (this is just a
+choice).</p>
+<p>Besides, we choose <span class="math inline">\(\tau_1=5 MPa\)</span>,
+and for <span class="math inline">\(\tau_2\)</span> we try <span
+class="math inline">\(\tau_2=5MPa\)</span> and <span
+class="math inline">\(\tau_2=1MPa\)</span>.</p>
 <p>The <code>.mtest</code> file is the following:</p>
 <div class="sourceCode" id="Affine_formulation"><pre
 class="sourceCode numberSource mtest numberLines"><code class="sourceCode"><span id="Affine_formulation-1"><a href="#Affine_formulation-1"></a>@ModellingHypothesis &#39;Tridimensional&#39;;</span>
@@ -1156,10 +1105,10 @@ class="sourceCode numberSource mtest numberLines"><code class="sourceCode"><span
 <span id="Affine_formulation-3"><a href="#Affine_formulation-3"></a>@ExternalStateVariable &#39;Temperature&#39; {0 : 1000,1:1000};</span>
 <span id="Affine_formulation-4"><a href="#Affine_formulation-4"></a></span>
 <span id="Affine_formulation-5"><a href="#Affine_formulation-5"></a>@MaterialProperty&lt;function&gt; &#39;nexp&#39; &quot;1+0.9*(exp(2.4*t)-1)&quot;;</span>
-<span id="Affine_formulation-6"><a href="#Affine_formulation-6"></a>@MaterialProperty&lt;constant&gt; &#39;tau1&#39; 10.;</span>
-<span id="Affine_formulation-7"><a href="#Affine_formulation-7"></a>@MaterialProperty&lt;constant&gt; &#39;tau2&#39; 50.;</span>
+<span id="Affine_formulation-6"><a href="#Affine_formulation-6"></a>@MaterialProperty&lt;constant&gt; &#39;tau1&#39; 5.;</span>
+<span id="Affine_formulation-7"><a href="#Affine_formulation-7"></a>@MaterialProperty&lt;constant&gt; &#39;tau2&#39; 1.;</span>
 <span id="Affine_formulation-8"><a href="#Affine_formulation-8"></a></span>
-<span id="Affine_formulation-9"><a href="#Affine_formulation-9"></a>@MaterialProperty&lt;function&gt; &#39;kap&#39; &quot;0.001&quot;;</span>
+<span id="Affine_formulation-9"><a href="#Affine_formulation-9"></a>@MaterialProperty&lt;function&gt; &#39;kap&#39; &quot;0.05&quot;;</span>
 <span id="Affine_formulation-10"><a href="#Affine_formulation-10"></a></span>
 <span id="Affine_formulation-11"><a href="#Affine_formulation-11"></a>@ImposedStrain &#39;EXX&#39; {0 : 1, 1 : 1};</span>
 <span id="Affine_formulation-12"><a href="#Affine_formulation-12"></a>@ImposedStrain &#39;EYY&#39; {0 : -1, 1 : -1};</span>
@@ -1170,32 +1119,24 @@ class="sourceCode numberSource mtest numberLines"><code class="sourceCode"><span
 <span id="Affine_formulation-17"><a href="#Affine_formulation-17"></a>@Times {0.,1 in 50};</span>
 <span id="Affine_formulation-18"><a href="#Affine_formulation-18"></a></span>
 <span id="Affine_formulation-19"><a href="#Affine_formulation-19"></a>@OutputFilePrecision 14;</span></code></pre></div>
-<p>For the morphological tensor approach, we talked above about the
-coefficient <span class="math inline">\(r_0\)</span> that allows to
-adjust the reference medium. This coefficient can hence be set as a
-material property, and we will add this line in the <code>mtest</code>
-file:</p>
-<div class="sourceCode" id="Affine_formulation"><pre
-class="sourceCode numberSource mtest numberLines"><code class="sourceCode"><span id="Affine_formulation-1"><a href="#Affine_formulation-1"></a>@MaterialProperty&lt;function&gt; &#39;r0&#39; &quot;1+t&quot;;</span></code></pre></div>
-<p>Here, we choose to make vary the reference medium because when
-<code>t</code> increases, <code>n</code> increases, and hence the
-homogenized stiffness increases. This seems hence more consistent to
-consider a reference medium whose stiffness increases also. The optimal
-value of <code>r0</code> is not immediate, but some numerical tests can
-be carried out.</p>
+<p>Note that <code>kap</code> on line 9 is related to the small
+compliance we add to <span
+class="math inline">\(\underline{\mathbf{M}}_r\)</span> in order to make
+it invertible.</p>
 <figure>
 <img src="./img/Affine_formulation.png"
-alt="Effective resolved shear stress as a function of the parameter n" />
-<figcaption aria-hidden="true">Effective resolved shear stress as a
-function of the parameter <span
-class="math inline">\(n\)</span></figcaption>
+alt="Axial macroscopic stress as a function of the parameter n" />
+<figcaption aria-hidden="true">Axial macroscopic stress as a function of
+the parameter <span class="math inline">\(n\)</span></figcaption>
 </figure>
-<p>In this figure we plotted the results when all the <span
-class="math inline">\(\tau_0^r\)</span> are equal to <span
-class="math inline">\(10 Mpa\)</span> (to show the heterogeneity) (“FFT
-0”), the implementation of the affine approach with self-consistent
-scheme (AFF_SC), and with morphological tensors (AFF_MT). FFT results
-are also plotted (FFT).</p>
+<p>In this figure we plotted the results when <span
+class="math inline">\(\tau_2\)</span> is equal to <span
+class="math inline">\(5 MPa\)</span> and when it is equal to <span
+class="math inline">\(1MPa\)</span>. We plot the implementation of the
+affine approach with morphological tensors (AFF). FFT results are also
+plotted (FFT). We see that the morphological approach gives results in
+good agreement with FFT computation.</p>
+<h1 id="references">References</h1>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-masson_affine_2000" class="csl-entry" role="listitem">

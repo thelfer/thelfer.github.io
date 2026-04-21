@@ -1,5 +1,8 @@
 var NAVTREEINDEX52 =
 {
+"structtfel_1_1material_1_1_out_of_bounds_exception.html":[5,0,16,4,93],
+"structtfel_1_1material_1_1_poly_crystals_sliding_systems.html":[5,0,16,4,94],
+"structtfel_1_1material_1_1_poly_crystals_sliding_systems.html#a01c8228c55efd9134f4ab376230ff3ab":[5,0,16,4,94,0],
 "structtfel_1_1material_1_1_poly_crystals_sliding_systems.html#a4b2e10b12a58193abdbf14ac1f9c4402":[5,0,16,4,94,1],
 "structtfel_1_1material_1_1_poly_crystals_sliding_systems.html#aea843dcc48887974e3e95521bd24ed01":[5,0,16,4,94,2],
 "structtfel_1_1material_1_1_power_law_strain_based_nucleation_model_parameters.html":[5,0,16,4,95],
@@ -246,8 +249,5 @@ var NAVTREEINDEX52 =
 "structtfel_1_1math_1_1_compute_binary_operation_result.html#a0bc243f3f3d546f0afa997d3b517d3ce":[5,0,16,5,60,0],
 "structtfel_1_1math_1_1_compute_object_tag.html":[5,0,16,5,100],
 "structtfel_1_1math_1_1_compute_object_tag.html#ac6ad4c24ac64d62f96aa52a7778fb86d":[5,0,16,5,100,0],
-"structtfel_1_1math_1_1_compute_object_tag__.html":[5,0,16,5,101],
-"structtfel_1_1math_1_1_compute_object_tag__.html#afec5e7ade6e5ccdb971da4dc16c76292":[5,0,16,5,101,0],
-"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01false_00_01true_01_4.html":[5,0,16,5,102],
-"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01false_00_01true_01_4.html#a80e07624b6a4529e18c5197d0eb86021":[5,0,16,5,102,0]
+"structtfel_1_1math_1_1_compute_object_tag__.html":[5,0,16,5,101]
 };

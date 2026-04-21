@@ -1,5 +1,8 @@
 var NAVTREEINDEX43 =
 {
+"structmgis_1_1function_1_1_basic_linear_quadrature_space.html#ad393ffc79e8d57a087163dead8737564":[5,0,12,2,2,3],
+"structmgis_1_1function_1_1_basic_linear_quadrature_space.html#ada6b01095aa07b69cdf61b3c8e8a6aaf":[5,0,12,2,2,1],
+"structmgis_1_1function_1_1_basic_linear_quadrature_space.html#ae3bbf58621c6a2873389e6841d8eabae":[5,0,12,2,2,4],
 "structmgis_1_1function_1_1_basic_linear_quadrature_space.html#aeb585584f6d6fab5193ea3a406705256":[5,0,12,2,2,2],
 "structmgis_1_1function_1_1_basic_linear_quadrature_space.html#aeec0116a17df3d1fdece7a03b2f3c7e5":[5,0,12,2,2,6],
 "structmgis_1_1function_1_1_basic_linear_quadrature_space.html#af1b19321ebee549a8bd470fac94f3816":[5,0,12,2,2,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX43 =
 "structmgis_1_1function_1_1internals_1_1_binary_operation_modifier_base.html":[5,0,12,2,1,2],
 "structmgis_1_1function_1_1internals_1_1_binary_operator_currying.html":[5,0,12,2,1,3],
 "structmgis_1_1function_1_1internals_1_1_binary_operator_currying.html#a7a6a00e0a75b2f6218cb3b4f0063bda5":[5,0,12,2,1,3,0],
-"structmgis_1_1function_1_1internals_1_1_binary_operator_currying2.html":[5,0,12,2,1,4],
-"structmgis_1_1function_1_1internals_1_1_binary_operator_currying2.html#a80558c68971e39d586fc5571d702902d":[5,0,12,2,1,4,0],
-"structmgis_1_1function_1_1internals_1_1_cell_index_type_selector.html":[5,0,12,2,1,5],
-"structmgis_1_1function_1_1internals_1_1_cell_index_type_selector_3_01true_00_01_space_01_4.html":[5,0,12,2,1,6]
+"structmgis_1_1function_1_1internals_1_1_binary_operator_currying2.html":[5,0,12,2,1,4]
 };

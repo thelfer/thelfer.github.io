@@ -1,5 +1,8 @@
 var NAVTREEINDEX9 =
 {
+"_tensor_concept_8ixx.html#a82f5219c13df7623211bfbea9a5bf60a":[6,0,1,0,0,0,1,0,6,5,21,3,7],
+"_tensor_concept_8ixx.html#a904e3a9af7b311092943c42ef6932fbd":[6,0,1,0,0,0,1,0,6,5,21,3,13],
+"_tensor_concept_8ixx.html#abd0df32d3ea2d6f6d6df7ac8a434bd82":[6,0,1,0,0,0,1,0,6,5,21,3,9],
 "_tensor_concept_8ixx.html#af825063d1746dad1423d6367b11017b1":[6,0,1,0,0,0,1,0,6,5,21,3,15],
 "_tensor_concept_i_o_8hxx.html":[6,0,1,0,0,0,1,0,6,5,21,4],
 "_tensor_concept_operations_8hxx.html":[6,0,1,0,0,0,1,0,6,5,21,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX9 =
 "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_tensor_tag_00_01_tensor_tag_00_01_a_e3271876e32c9c40fb30e66bde7b2504.html":[5,0,16,5,54],
 "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_tensor_tag_00_01_tensor_tag_00_01_a_fb7968297c609df9f6bd008aa6515055.html":[5,0,16,5,55],
 "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_vector_tag_00_01_vector_tag_00_01_a_680d87fa71ba0ad72fe9ca09bcfe9a10.html":[5,0,16,5,59],
-"classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_vector_tag_00_01_vector_tag_00_01_a_ee9b8306cdbc37a8db07c06faecc88e0.html":[5,0,16,5,58],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_array_tag_00_01_scalar_tag_00_01fsarre9a384e4ba304873b87dd94c04169cae.html":[5,0,16,5,61],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_array_tag_00_01_scalar_tag_00_01fsarrfe938f9d0bdc04951f1ca1a9e2dd96f3.html":[5,0,16,5,62],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_array_tag_00_01_scalar_tag_00_01runti27dae2867f49d231d24f261d2d7e6a6f.html":[5,0,16,5,64]
+"classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_vector_tag_00_01_vector_tag_00_01_a_ee9b8306cdbc37a8db07c06faecc88e0.html":[5,0,16,5,58]
 };

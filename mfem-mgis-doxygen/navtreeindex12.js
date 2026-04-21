@@ -1,5 +1,8 @@
 var NAVTREEINDEX12 =
 {
+"mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_2_behaviour_description_8hxx.html#ae56c6355faaf5fa65c5b4af922049b6d":[6,0,1,0,0,0,0,0,0,0,4,12],
+"mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_2_integrate_8hxx.html":[6,0,1,0,0,0,0,0,0,0,10],
+"mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_2_integrate_8hxx.html#a0a51ca5f86d7b5c3971abe53db20cefb":[6,0,1,0,0,0,0,0,0,0,10,6],
 "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_2_integrate_8hxx.html#a0f17a834919509e09b94f6a5b46fc131":[6,0,1,0,0,0,0,0,0,0,10,15],
 "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_2_integrate_8hxx.html#a1090c5b8255f9facfdae4ded45d9662f":[6,0,1,0,0,0,0,0,0,0,10,32],
 "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_behaviour_2_integrate_8hxx.html#a164706c107521ffae13d85c43c076ab9":[6,0,1,0,0,0,0,0,0,0,10,7],
@@ -246,8 +249,5 @@ var NAVTREEINDEX12 =
 "namespacemfem__mgis.html#a7d3b39f39ea601925c8ef182814a0425":[3,0,0,290],
 "namespacemfem__mgis.html#a7e7a7e2915b68e55a16a14abcef91aa4":[3,0,0,285],
 "namespacemfem__mgis.html#a7eed448a1864666bdafd93b78ce2818a":[3,0,0,196],
-"namespacemfem__mgis.html#a7fd884c34e542f7251c673674524761b":[3,0,0,207],
-"namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3a":[3,0,0,169],
-"namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3aa03178afe0667171e154069bf54a103db":[3,0,0,169,7],
-"namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3aa0385d78bb2ef857492c93969356f49c0":[3,0,0,169,5]
+"namespacemfem__mgis.html#a7fd884c34e542f7251c673674524761b":[3,0,0,207]
 };

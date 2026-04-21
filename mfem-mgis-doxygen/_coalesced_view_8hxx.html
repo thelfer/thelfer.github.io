@@ -178,30 +178,40 @@ template&lt;MappableMutableMathObjectUsingCoalescedViewConcept MappedType, typen
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a58763c31d8c9b7a6940b1fa18480fda0" id="r_a58763c31d8c9b7a6940b1fa18480fda0"><td class="memTemplParams" colspan="2">template&lt;MappableMutableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType  = typename MappedType::indexing_policy&gt; <br />
-requires ((!std::is_const_v&lt;MappedType&gt;)&amp;&amp;( std::remove_cv_t&lt;MappedType&gt;::hasFixedSizes))</td></tr>
-<tr class="memitem:a58763c31d8c9b7a6940b1fa18480fda0"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_coalesced_view_base.html">CoalescedView</a>&lt; MappedType, IndexingPolicyType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_coalesced_view_8hxx.html#a58763c31d8c9b7a6940b1fa18480fda0">tfel::math::map</a> (const std::span&lt; ViewDataPointerType&lt; MappedType &gt;, <a class="el" href="_indexing_policies_8hxx.html#a6e37bef81b04bcc53e11d0ce8f3c32ae">indexing_policy_size</a>&lt; IndexingPolicyType &gt; &gt; ptrs)</td></tr>
-<tr class="memdesc:a58763c31d8c9b7a6940b1fa18480fda0"><td class="mdescLeft">&#160;</td><td class="mdescRight">return a view from a memory area  <br /></td></tr>
-<tr class="separator:a58763c31d8c9b7a6940b1fa18480fda0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a959799253abda3872702448a3fe0a965" id="r_a959799253abda3872702448a3fe0a965"><td class="memTemplParams" colspan="2"><a id="a959799253abda3872702448a3fe0a965" name="a959799253abda3872702448a3fe0a965"></a>
-template&lt;MappableImmutableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType  = typename std::remove_cv_t&lt;MappedType&gt;::indexing_policy&gt; <br />
+<tr class="memitem:a4bcfc65dd451815ba78291c1923b5889" id="r_a4bcfc65dd451815ba78291c1923b5889"><td class="memTemplParams" colspan="2">template&lt;MappableMutableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType  = typename MappedType::indexing_policy&gt; <br />
+requires ((!std::is_const_v&lt;MappedType&gt;) &amp;&amp; (std::remove_cv_t&lt;MappedType&gt;::hasFixedSizes))</td></tr>
+<tr class="memitem:a4bcfc65dd451815ba78291c1923b5889"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_coalesced_view_base.html">CoalescedView</a>&lt; MappedType, IndexingPolicyType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_coalesced_view_8hxx.html#a4bcfc65dd451815ba78291c1923b5889">tfel::math::map</a> (std::span&lt; const ViewDataPointerType&lt; MappedType &gt;, <a class="el" href="_indexing_policies_8hxx.html#a6e37bef81b04bcc53e11d0ce8f3c32ae">indexing_policy_size</a>&lt; IndexingPolicyType &gt; &gt; ptrs)</td></tr>
+<tr class="memdesc:a4bcfc65dd451815ba78291c1923b5889"><td class="mdescLeft">&#160;</td><td class="mdescRight">return a coalesced view from a list of pointers  <br /></td></tr>
+<tr class="separator:a4bcfc65dd451815ba78291c1923b5889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97524c5e793a4ebb454e243c1848c45f" id="r_a97524c5e793a4ebb454e243c1848c45f"><td class="memTemplParams" colspan="2">template&lt;MappableImmutableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType  = typename std::remove_cv_t&lt;MappedType&gt;::indexing_policy&gt; <br />
 requires ((std::remove_cv_t&lt;MappedType&gt;::indexing_policy::hasFixedSizes))</td></tr>
-<tr class="memitem:a959799253abda3872702448a3fe0a965"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_coalesced_view_base.html">CoalescedView</a>&lt; MappedType, IndexingPolicyType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::map</b> (const std::span&lt; ViewConstDataPointerType&lt; std::remove_cv_t&lt; MappedType &gt; &gt;, <a class="el" href="_indexing_policies_8hxx.html#a6e37bef81b04bcc53e11d0ce8f3c32ae">indexing_policy_size</a>&lt; IndexingPolicyType &gt; &gt; ptrs)</td></tr>
-<tr class="separator:a959799253abda3872702448a3fe0a965"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97524c5e793a4ebb454e243c1848c45f"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_coalesced_view_base.html">CoalescedView</a>&lt; MappedType, IndexingPolicyType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_coalesced_view_8hxx.html#a97524c5e793a4ebb454e243c1848c45f">tfel::math::map</a> (std::span&lt; const ViewConstDataPointerType&lt; std::remove_cv_t&lt; MappedType &gt; &gt;, <a class="el" href="_indexing_policies_8hxx.html#a6e37bef81b04bcc53e11d0ce8f3c32ae">indexing_policy_size</a>&lt; IndexingPolicyType &gt; &gt; ptrs)</td></tr>
+<tr class="memdesc:a97524c5e793a4ebb454e243c1848c45f"><td class="mdescLeft">&#160;</td><td class="mdescRight">return an immutable coalesced view from a list of pointers  <br /></td></tr>
+<tr class="separator:a97524c5e793a4ebb454e243c1848c45f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed85b99cf080587025d0b9f7a2ca4672" id="r_aed85b99cf080587025d0b9f7a2ca4672"><td class="memTemplParams" colspan="2">template&lt;MappableMutableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType  = typename MappedType::indexing_policy&gt; <br />
+requires ((!std::is_const_v&lt;MappedType&gt;) &amp;&amp; (std::remove_cv_t&lt;MappedType&gt;::hasFixedSizes))</td></tr>
+<tr class="memitem:aed85b99cf080587025d0b9f7a2ca4672"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_coalesced_view_base.html">CoalescedView</a>&lt; MappedType, IndexingPolicyType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_coalesced_view_8hxx.html#aed85b99cf080587025d0b9f7a2ca4672">tfel::math::map</a> (std::array&lt; ViewDataPointerType&lt; MappedType &gt;, <a class="el" href="_indexing_policies_8hxx.html#a6e37bef81b04bcc53e11d0ce8f3c32ae">indexing_policy_size</a>&lt; IndexingPolicyType &gt; &gt; &amp;ptrs)</td></tr>
+<tr class="memdesc:aed85b99cf080587025d0b9f7a2ca4672"><td class="mdescLeft">&#160;</td><td class="mdescRight">return a coalesced view from a list of pointers  <br /></td></tr>
+<tr class="separator:aed85b99cf080587025d0b9f7a2ca4672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb3e144676bf6dad9f8b6e9bb26ed2f8" id="r_acb3e144676bf6dad9f8b6e9bb26ed2f8"><td class="memTemplParams" colspan="2">template&lt;MappableImmutableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType  = typename std::remove_cv_t&lt;MappedType&gt;::indexing_policy&gt; <br />
+requires ((std::remove_cv_t&lt;MappedType&gt;::indexing_policy::hasFixedSizes))</td></tr>
+<tr class="memitem:acb3e144676bf6dad9f8b6e9bb26ed2f8"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_coalesced_view_base.html">CoalescedView</a>&lt; MappedType, IndexingPolicyType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_coalesced_view_8hxx.html#acb3e144676bf6dad9f8b6e9bb26ed2f8">tfel::math::map</a> (const std::array&lt; ViewConstDataPointerType&lt; std::remove_cv_t&lt; MappedType &gt; &gt;, <a class="el" href="_indexing_policies_8hxx.html#a6e37bef81b04bcc53e11d0ce8f3c32ae">indexing_policy_size</a>&lt; IndexingPolicyType &gt; &gt; &amp;ptrs)</td></tr>
+<tr class="memdesc:acb3e144676bf6dad9f8b6e9bb26ed2f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">return an immutable coalesced view from a list of pointers  <br /></td></tr>
+<tr class="separator:acb3e144676bf6dad9f8b6e9bb26ed2f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>24/12/2025 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2006-2025 CEA/DEN, EDF R&amp;D. All rights reserved. This project is publicly released under either the GNU GPL Licence with linking exception or the CECILL-A licence. A copy of thoses licences are delivered with the sources of TFEL. CEA or EDF may also distribute this project under specific licensing conditions. </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a58763c31d8c9b7a6940b1fa18480fda0" name="a58763c31d8c9b7a6940b1fa18480fda0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58763c31d8c9b7a6940b1fa18480fda0">&#9670;&#160;</a></span>map()</h2>
+<a id="acb3e144676bf6dad9f8b6e9bb26ed2f8" name="acb3e144676bf6dad9f8b6e9bb26ed2f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb3e144676bf6dad9f8b6e9bb26ed2f8">&#9670;&#160;</a></span>map() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;MappableMutableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType  = typename MappedType::indexing_policy&gt; <br />
-requires ((!std::is_const_v&lt;MappedType&gt;)&amp;&amp;( std::remove_cv_t&lt;MappedType&gt;::hasFixedSizes))</div>
+template&lt;MappableImmutableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType  = typename std::remove_cv_t&lt;MappedType&gt;::indexing_policy&gt; <br />
+requires ((std::remove_cv_t&lt;MappedType&gt;::indexing_policy::hasFixedSizes))</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -209,7 +219,7 @@ requires ((!std::is_const_v&lt;MappedType&gt;)&amp;&amp;( std::remove_cv_t&lt;Ma
         <tr>
           <td class="memname">TFEL_HOST_DEVICE constexpr CoalescedView&lt; MappedType, IndexingPolicyType &gt; tfel::math::map </td>
           <td>(</td>
-          <td class="paramtype">const std::span&lt; ViewDataPointerType&lt; MappedType &gt;, <a class="el" href="_indexing_policies_8hxx.html#a6e37bef81b04bcc53e11d0ce8f3c32ae">indexing_policy_size</a>&lt; IndexingPolicyType &gt; &gt;&#160;</td>
+          <td class="paramtype">const std::array&lt; ViewConstDataPointerType&lt; std::remove_cv_t&lt; MappedType &gt; &gt;, <a class="el" href="_indexing_policies_8hxx.html#a6e37bef81b04bcc53e11d0ce8f3c32ae">indexing_policy_size</a>&lt; IndexingPolicyType &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>ptrs</em></td><td>)</td>
           <td></td>
         </tr>
@@ -221,7 +231,7 @@ requires ((!std::is_const_v&lt;MappedType&gt;)&amp;&amp;( std::remove_cv_t&lt;Ma
 </table>
 </div><div class="memdoc">
 
-<p>return a view from a memory area </p>
+<p>return an immutable coalesced view from a list of pointers </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">MappedType</td><td>object mapped </td></tr>
@@ -230,7 +240,136 @@ requires ((!std::is_const_v&lt;MappedType&gt;)&amp;&amp;( std::remove_cv_t&lt;Ma
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointer to the mapped memory area </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointers </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aed85b99cf080587025d0b9f7a2ca4672" name="aed85b99cf080587025d0b9f7a2ca4672"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed85b99cf080587025d0b9f7a2ca4672">&#9670;&#160;</a></span>map() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MappableMutableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType  = typename MappedType::indexing_policy&gt; <br />
+requires ((!std::is_const_v&lt;MappedType&gt;) &amp;&amp; (std::remove_cv_t&lt;MappedType&gt;::hasFixedSizes))</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr CoalescedView&lt; MappedType, IndexingPolicyType &gt; tfel::math::map </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; ViewDataPointerType&lt; MappedType &gt;, <a class="el" href="_indexing_policies_8hxx.html#a6e37bef81b04bcc53e11d0ce8f3c32ae">indexing_policy_size</a>&lt; IndexingPolicyType &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ptrs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return a coalesced view from a list of pointers </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MappedType</td><td>object mapped </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointers </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a97524c5e793a4ebb454e243c1848c45f" name="a97524c5e793a4ebb454e243c1848c45f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97524c5e793a4ebb454e243c1848c45f">&#9670;&#160;</a></span>map() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MappableImmutableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType  = typename std::remove_cv_t&lt;MappedType&gt;::indexing_policy&gt; <br />
+requires ((std::remove_cv_t&lt;MappedType&gt;::indexing_policy::hasFixedSizes))</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr CoalescedView&lt; MappedType, IndexingPolicyType &gt; tfel::math::map </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const ViewConstDataPointerType&lt; std::remove_cv_t&lt; MappedType &gt; &gt;, <a class="el" href="_indexing_policies_8hxx.html#a6e37bef81b04bcc53e11d0ce8f3c32ae">indexing_policy_size</a>&lt; IndexingPolicyType &gt; &gt;&#160;</td>
+          <td class="paramname"><em>ptrs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return an immutable coalesced view from a list of pointers </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MappedType</td><td>object mapped </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointers </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4bcfc65dd451815ba78291c1923b5889" name="a4bcfc65dd451815ba78291c1923b5889"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bcfc65dd451815ba78291c1923b5889">&#9670;&#160;</a></span>map() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MappableMutableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType  = typename MappedType::indexing_policy&gt; <br />
+requires ((!std::is_const_v&lt;MappedType&gt;) &amp;&amp; (std::remove_cv_t&lt;MappedType&gt;::hasFixedSizes))</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr CoalescedView&lt; MappedType, IndexingPolicyType &gt; tfel::math::map </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const ViewDataPointerType&lt; MappedType &gt;, <a class="el" href="_indexing_policies_8hxx.html#a6e37bef81b04bcc53e11d0ce8f3c32ae">indexing_policy_size</a>&lt; IndexingPolicyType &gt; &gt;&#160;</td>
+          <td class="paramname"><em>ptrs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return a coalesced view from a list of pointers </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MappedType</td><td>object mapped </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointers </td></tr>
   </table>
   </dd>
 </dl>
@@ -243,7 +382,7 @@ requires ((!std::is_const_v&lt;MappedType&gt;)&amp;&amp;( std::remove_cv_t&lt;Ma
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_19f2334cefedab4bca7d00c996a0e590.html">spack</a></li><li class="navelem"><a class="el" href="dir_4819441dfd5ac14987c44814feffea1f.html">opt</a></li><li class="navelem"><a class="el" href="dir_e09d68ea3582e9b52bc2ab165a9fdd0a.html">spack</a></li><li class="navelem"><a class="el" href="dir_ffdec7cc29a5f6597048472df1d5e993.html">linux-zen2</a></li><li class="navelem"><a class="el" href="dir_6588c5e0d40325e8eb1481d010e339b7.html">tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w</a></li><li class="navelem"><a class="el" href="dir_c50b429bc1df79ed8293fb669771f5fc.html">include</a></li><li class="navelem"><a class="el" href="dir_65ae2d2fe2c789130f43272dbb198603.html">TFEL</a></li><li class="navelem"><a class="el" href="dir_8a0125d98895ba30149478cb9f245d63.html">Math</a></li><li class="navelem"><a class="el" href="dir_3374c926d38777c95ec8f8adcd1c2dd2.html">Array</a></li><li class="navelem"><a class="el" href="_coalesced_view_8hxx.html">CoalescedView.hxx</a></li>
-    <li class="footer">Generated on Thu Apr 9 2026 08:09:54 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Apr 21 2026 07:04:47 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

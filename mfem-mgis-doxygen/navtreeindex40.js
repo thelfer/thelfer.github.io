@@ -1,5 +1,8 @@
 var NAVTREEINDEX40 =
 {
+"structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a21ed029f1ba5d139dd6b3146deef4ef0":[5,0,11,0,32,7],
+"structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a23eccab2487b67857b7496c7dac7f7fa":[5,0,11,0,32,1],
+"structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a3b69ce3b0c70f96545735b123f5d0174":[5,0,11,0,32,5],
 "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a3e8dd4c45ccb164450b755d5d0145e20":[5,0,11,0,32,0],
 "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a46a1847021fdc0415b5ca18ed877adc9":[5,0,11,0,32,3],
 "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a51e025f3da8959230d5114a6c455a340":[5,0,11,0,32,9],
@@ -246,8 +249,5 @@ var NAVTREEINDEX40 =
 "structmfront_1_1bbrick_1_1_stress_criterion_base.html#a973353a830b75e0071b33224e354ded5":[5,0,11,0,55,4],
 "structmfront_1_1bbrick_1_1_stress_criterion_base.html#aeb0d554561feb3b401ec1bf10f18f539":[5,0,11,0,55,2],
 "structmfront_1_1bbrick_1_1_stress_criterion_factory.html":[5,0,11,0,56],
-"structmfront_1_1bbrick_1_1_stress_criterion_factory.html#a1255074ce8507f61567e074d52dbd226":[5,0,11,0,56,2],
-"structmfront_1_1bbrick_1_1_stress_criterion_factory.html#a3a0ad46672a6d7404bda058b215feb93":[5,0,11,0,56,1],
-"structmfront_1_1bbrick_1_1_stress_criterion_factory.html#a72f87860cf2ce2191038ba9f8de43abb":[5,0,11,0,56,0],
-"structmfront_1_1bbrick_1_1_stress_criterion_factory.html#aa6142872cdc5288364b8e08f05d27522":[5,0,11,0,56,3]
+"structmfront_1_1bbrick_1_1_stress_criterion_factory.html#a1255074ce8507f61567e074d52dbd226":[5,0,11,0,56,2]
 };

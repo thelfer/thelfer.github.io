@@ -1,5 +1,8 @@
 var NAVTREEINDEX54 =
 {
+"structtfel_1_1math_1_1_evaluator_1_1_t_logical_operation.html":[5,0,16,5,197,11],
+"structtfel_1_1math_1_1_evaluator_1_1_t_neg_logical_expr.html":[5,0,16,5,197,13],
+"structtfel_1_1math_1_1_evaluator_1_1_t_negation.html":[5,0,16,5,197,12],
 "structtfel_1_1math_1_1_evaluator_1_1_t_number.html":[5,0,16,5,197,14],
 "structtfel_1_1math_1_1_evaluator_1_1_t_operator.html":[5,0,16,5,197,15],
 "structtfel_1_1math_1_1_evaluator_1_1_t_variable.html":[5,0,16,5,197,16],
@@ -246,8 +249,5 @@ var NAVTREEINDEX54 =
 "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_012u_01_4_01_4.html#a50637e53941c12d81c415fe16d9a6b39":[5,0,16,5,232,1],
 "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_012u_01_4_01_4.html#a631018f9907673e5a1fecf46af4f2a97":[5,0,16,5,232,5],
 "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_012u_01_4_01_4.html#a6760881b40ed72f0ee6271278b3be9bd":[5,0,16,5,232,4],
-"structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_012u_01_4_01_4.html#a8198ff49fed07d095e4d3b95b0eafde9":[5,0,16,5,232,0],
-"structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_012u_01_4_01_4.html#a9940722f147155b6cb6fb4eaa260d3ff":[5,0,16,5,232,2],
-"structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_012u_01_4_01_4.html#af16b68ca39264bf46f5df2c64b6b4273":[5,0,16,5,232,3],
-"structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_013u_01_4_01_4.html":[5,0,16,5,233]
+"structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_stensor_s_t2to_s_t2_product_expr_3_012u_01_4_01_4.html#a8198ff49fed07d095e4d3b95b0eafde9":[5,0,16,5,232,0]
 };

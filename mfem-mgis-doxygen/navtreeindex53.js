@@ -1,5 +1,8 @@
 var NAVTREEINDEX53 =
 {
+"structtfel_1_1math_1_1_compute_object_tag__.html#afec5e7ade6e5ccdb971da4dc16c76292":[5,0,16,5,101,0],
+"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01false_00_01true_01_4.html":[5,0,16,5,102],
+"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01false_00_01true_01_4.html#a80e07624b6a4529e18c5197d0eb86021":[5,0,16,5,102,0],
 "structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01true_01_4.html":[5,0,16,5,103],
 "structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01true_01_4.html#a58a777224cf57f78cb92fba6121bc122":[5,0,16,5,103,0],
 "structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01true_01_4.html":[5,0,16,5,104],
@@ -116,8 +119,8 @@ var NAVTREEINDEX53 =
 "structtfel_1_1math_1_1_cubic_spline_uninitialised.html":[5,0,16,5,153],
 "structtfel_1_1math_1_1_cubic_spline_unordered_abscissa_vector.html":[5,0,16,5,154],
 "structtfel_1_1math_1_1_default_coalesced_access_policy.html":[5,0,16,5,155],
-"structtfel_1_1math_1_1_default_coalesced_access_policy.html#a3b38d0f53c6da8ade2c5e3d7795addf6":[5,0,16,5,155,1],
 "structtfel_1_1math_1_1_default_coalesced_access_policy.html#a3b93e67a2f2bb488cf08367c6cbca146":[5,0,16,5,155,0],
+"structtfel_1_1math_1_1_default_coalesced_access_policy.html#a4df97f14f6bd8245c813d6b5e1cc83ea":[5,0,16,5,155,1],
 "structtfel_1_1math_1_1_default_coalesced_access_policy.html#a95d5334d14e894a5b8c65db0a378cf9a":[5,0,16,5,155,4],
 "structtfel_1_1math_1_1_default_coalesced_access_policy.html#ac433373bf15e82cd6af4c8dbb2430f94":[5,0,16,5,155,2],
 "structtfel_1_1math_1_1_default_coalesced_access_policy.html#afea74aaabec15a6719fee38d8de34116":[5,0,16,5,155,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX53 =
 "structtfel_1_1math_1_1_evaluator_1_1_t_function.html":[5,0,16,5,197,7],
 "structtfel_1_1math_1_1_evaluator_1_1_t_group.html":[5,0,16,5,197,8],
 "structtfel_1_1math_1_1_evaluator_1_1_t_logical_binary_operation.html":[5,0,16,5,197,9],
-"structtfel_1_1math_1_1_evaluator_1_1_t_logical_expr.html":[5,0,16,5,197,10],
-"structtfel_1_1math_1_1_evaluator_1_1_t_logical_operation.html":[5,0,16,5,197,11],
-"structtfel_1_1math_1_1_evaluator_1_1_t_neg_logical_expr.html":[5,0,16,5,197,13],
-"structtfel_1_1math_1_1_evaluator_1_1_t_negation.html":[5,0,16,5,197,12]
+"structtfel_1_1math_1_1_evaluator_1_1_t_logical_expr.html":[5,0,16,5,197,10]
 };

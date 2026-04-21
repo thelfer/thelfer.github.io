@@ -1,5 +1,8 @@
 var NAVTREEINDEX57 =
 {
+"structtfel_1_1math_1_1_math_object_traits_base.html#a7ee0f87f08d720acf980aa57c38911eb":[5,0,16,5,374,0],
+"structtfel_1_1math_1_1_math_object_traits_base.html#addfbf0a5304c0d9c2f81c6733dd4e082":[5,0,16,5,374,1],
+"structtfel_1_1math_1_1_math_object_traits_base.html#af7b5127b40e3862416b9098b837c5b0b":[5,0,16,5,374,3],
 "structtfel_1_1math_1_1_math_object_traits_from_array_policy.html":[5,0,16,5,375],
 "structtfel_1_1math_1_1_math_run_time_exception.html":[5,0,16,5,376],
 "structtfel_1_1math_1_1_matrix_concept_base.html":[5,0,16,5,378],
@@ -246,8 +249,5 @@ var NAVTREEINDEX57 =
 "structtfel_1_1math_1_1_strided_coalesced_views_array.html#aa53fc72cbdd603c5df33824fb7dc2d9b":[5,0,16,5,544,6],
 "structtfel_1_1math_1_1_strided_coalesced_views_array.html#af601298902c35395c73f7c1071984971":[5,0,16,5,544,11],
 "structtfel_1_1math_1_1_strided_coalesced_views_fixed_size_vector_indexing_policy.html":[5,0,16,5,545],
-"structtfel_1_1math_1_1_strided_random_access_iterator.html":[5,0,16,5,546],
-"structtfel_1_1math_1_1_strided_random_access_iterator.html#a0da47c2ae48cb78ed8dd5f5231837060":[5,0,16,5,546,2],
-"structtfel_1_1math_1_1_strided_random_access_iterator.html#a0e67abfc29792313ab8c835fcbc50fb5":[5,0,16,5,546,13],
-"structtfel_1_1math_1_1_strided_random_access_iterator.html#a1072793724872501876bfa1c3bac665c":[5,0,16,5,546,5]
+"structtfel_1_1math_1_1_strided_random_access_iterator.html":[5,0,16,5,546]
 };

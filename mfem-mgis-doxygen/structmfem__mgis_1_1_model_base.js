@@ -1,6 +1,7 @@
 var structmfem__mgis_1_1_model_base =
 [
     [ "ModelBase", "structmfem__mgis_1_1_model_base.html#aa3d179ba781f4a5069f3654ec3511165", null ],
+    [ "ModelBase", "structmfem__mgis_1_1_model_base.html#a7671688da9b12c41122dfa81dc654275", null ],
     [ "~ModelBase", "structmfem__mgis_1_1_model_base.html#a372c0e786912e463c870dcbbb72e3c7e", null ],
     [ "addPostProcessing", "structmfem__mgis_1_1_model_base.html#a1ee5a12c48c1837b2540e6fdf821f086", null ],
     [ "addPostProcessing", "structmfem__mgis_1_1_model_base.html#a1542e40d4c16df98a5e711e4e3ab5ba2", null ],
@@ -18,6 +19,8 @@ var structmfem__mgis_1_1_model_base =
     [ "performInitializationTaksAtTheBeginningOfTheTimeStep", "structmfem__mgis_1_1_model_base.html#a08430dec50b52ff1109aed05621d2943", null ],
     [ "revert", "structmfem__mgis_1_1_model_base.html#a58368ba09cf668206f24ba4f58d32223", null ],
     [ "setLogStream", "structmfem__mgis_1_1_model_base.html#a2c983b3b6b98c44dc966303cc82f5dcd", null ],
+    [ "setName", "structmfem__mgis_1_1_model_base.html#a583b529f4938e295bc792f4596fcd604", null ],
     [ "setVerbosityLevel", "structmfem__mgis_1_1_model_base.html#af15023ec2992a1b469bdba761349d03e", null ],
-    [ "update", "structmfem__mgis_1_1_model_base.html#acd18366c5c52c5ee1a87366882442a3a", null ]
+    [ "update", "structmfem__mgis_1_1_model_base.html#acd18366c5c52c5ee1a87366882442a3a", null ],
+    [ "name", "structmfem__mgis_1_1_model_base.html#ac6632afdc66fcfa4a32e29b350e4d24a", null ]
 ];

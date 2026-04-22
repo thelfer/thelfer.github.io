@@ -2,6 +2,7 @@ var structmfem__mgis_1_1_coupling_scheme_base =
 [
     [ "ContextState", "structmfem__mgis_1_1_coupling_scheme_base_1_1_context_state.html", "structmfem__mgis_1_1_coupling_scheme_base_1_1_context_state" ],
     [ "CouplingSchemeBase", "structmfem__mgis_1_1_coupling_scheme_base.html#afba1bd58661556d4183a93ae3fe0f2bf", null ],
+    [ "CouplingSchemeBase", "structmfem__mgis_1_1_coupling_scheme_base.html#aed17008f8848c9c8a5263e0dc01ed28b", null ],
     [ "~CouplingSchemeBase", "structmfem__mgis_1_1_coupling_scheme_base.html#a9e3adaa63fb809e4d27fcde60fbc94ac", null ],
     [ "addCouplingItem", "structmfem__mgis_1_1_coupling_scheme_base.html#ac104a7753b4a0a02ee3396e5f5b6edcb", null ],
     [ "addModel", "structmfem__mgis_1_1_coupling_scheme_base.html#ac0db3e9b720b5458b9718aabbf2c0866", null ],
@@ -18,10 +19,12 @@ var structmfem__mgis_1_1_coupling_scheme_base =
     [ "performInitializationTaksAtTheBeginningOfTheTimeStep", "structmfem__mgis_1_1_coupling_scheme_base.html#ac2c3d240f8caf20f46f84e2d0c72e2ea", null ],
     [ "revert", "structmfem__mgis_1_1_coupling_scheme_base.html#a70640056b0e99a222c7b7f22505ce88d", null ],
     [ "setLogStream", "structmfem__mgis_1_1_coupling_scheme_base.html#a3aef3eb299e5395f1264a2933f70da2b", null ],
+    [ "setName", "structmfem__mgis_1_1_coupling_scheme_base.html#a8fb821f29bbd998a99c47951ca801020", null ],
     [ "setVerbosityLevel", "structmfem__mgis_1_1_coupling_scheme_base.html#a230a96ce8bf1bd6e6e9bd7edfd873e3f", null ],
     [ "update", "structmfem__mgis_1_1_coupling_scheme_base.html#a834bad40a0f90961fda145bfe5898769", null ],
     [ "items", "structmfem__mgis_1_1_coupling_scheme_base.html#ab540797f2c6444a773fe9e86c88381e9", null ],
     [ "log_stream", "structmfem__mgis_1_1_coupling_scheme_base.html#ad9be59fe7715117e3034bbd8c05459f1", null ],
     [ "mesh", "structmfem__mgis_1_1_coupling_scheme_base.html#a8618d7682670517e9367539ca94d3435", null ],
+    [ "name", "structmfem__mgis_1_1_coupling_scheme_base.html#ae9fb83c22bd1ad98185f83e6ff769232", null ],
     [ "verbosity_level", "structmfem__mgis_1_1_coupling_scheme_base.html#a7cf2dee41b475fd0bae2560ba34a1b36", null ]
 ];

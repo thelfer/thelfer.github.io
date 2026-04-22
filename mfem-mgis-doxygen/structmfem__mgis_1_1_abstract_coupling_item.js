@@ -14,6 +14,7 @@ var structmfem__mgis_1_1_abstract_coupling_item =
     [ "performInitializationTaksAtTheBeginningOfTheTimeStep", "structmfem__mgis_1_1_abstract_coupling_item.html#a67de9a8ea744a9e287958fa4329810ab", null ],
     [ "revert", "structmfem__mgis_1_1_abstract_coupling_item.html#a79b0d1a678e0e98f94b83a44e82a1212", null ],
     [ "setLogStream", "structmfem__mgis_1_1_abstract_coupling_item.html#a8b097561703080b5ff1b911529cf52d3", null ],
+    [ "setName", "structmfem__mgis_1_1_abstract_coupling_item.html#a6dd90b2960a3e03b8d13f5481c50e876", null ],
     [ "setVerbosityLevel", "structmfem__mgis_1_1_abstract_coupling_item.html#a978083bf6c2adc074f52a37dee819c8c", null ],
     [ "update", "structmfem__mgis_1_1_abstract_coupling_item.html#a95baf747312cd00d2923bebe35270b7a", null ]
 ];

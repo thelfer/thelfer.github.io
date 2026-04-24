@@ -1,6 +1,5 @@
 var structtfel_1_1utilities_1_1_cxx_tokenizer =
 [
-    [ "IsValidIdentifierOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_1_1_is_valid_identifier_options.html", "structtfel_1_1utilities_1_1_cxx_tokenizer_1_1_is_valid_identifier_options" ],
     [ "const_iterator", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a7ca60bfe4f249af5a37344bd54854c00", null ],
     [ "size_type", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a4205c19510f23eb6f5595b508b6fcc68", null ],
     [ "TokensContainer", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a157cd97bc77ad93d8e1861e7f12129e9", null ],
@@ -38,7 +37,6 @@ var structtfel_1_1utilities_1_1_cxx_tokenizer =
     [ "treatCharAsString", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a0ba937df603efecb52ff20b7d75dec37", null ],
     [ "treatDotAsSeparator", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#aabb7cdc725ba8669dde9e36b469e4d4b", null ],
     [ "treatMinusAsSeparator", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a8803f1744e65fca35d352d2247717246", null ],
-    [ "treatPlusAsSeparator", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a8d15c42e1519707b9a48d9865da34da5", null ],
     [ "comments", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#ad22f5b89671572ea252ec016d44347ca", null ],
     [ "cStyleCommentOpened", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a86ce336dafb417798c26d304fa7923f4", null ],
     [ "currentRawStringDelimiter", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#ae049413c6193cdad39b1f521fa3f275d", null ],

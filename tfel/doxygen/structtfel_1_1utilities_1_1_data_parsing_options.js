@@ -6,5 +6,7 @@ var structtfel_1_1utilities_1_1_data_parsing_options =
     [ "~DataParsingOptions", "structtfel_1_1utilities_1_1_data_parsing_options.html#adbdd0b37b2693ad1b4c501593a4a4f5b", null ],
     [ "operator=", "structtfel_1_1utilities_1_1_data_parsing_options.html#a4864c24eaa2212507cdf83d59a321204", null ],
     [ "operator=", "structtfel_1_1utilities_1_1_data_parsing_options.html#a268ff55ef28a4996cce992dd64800016", null ],
-    [ "allowMultipleKeysInMap", "structtfel_1_1utilities_1_1_data_parsing_options.html#a1dcc71cc106fe1c68f392623a49c2e43", null ]
+    [ "allowMultipleKeysInMap", "structtfel_1_1utilities_1_1_data_parsing_options.html#a1dcc71cc106fe1c68f392623a49c2e43", null ],
+    [ "allowRawStrings", "structtfel_1_1utilities_1_1_data_parsing_options.html#afa38abe8d14a38e6de772fb8ce2bac33", null ],
+    [ "rawStringParsingOptions", "structtfel_1_1utilities_1_1_data_parsing_options.html#a9f80e3b237f14d4a286e48ca8230ddb1", null ]
 ];

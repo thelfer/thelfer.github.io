@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>The generic-parallel interface for material properties</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel/">Github repository</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/releases">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.9</a></li>
+		    <li><a href="release-notes-3.0.10.html">Version 3.0.10</a></li>
+		    <li><a href="release-notes-3.0.11.html">Version 3.0.11</a></li>
+		    <li><a href="release-notes-3.0.12.html">Version 3.0.12</a></li>
+		    <li><a href="release-notes-3.0.13.html">Version 3.0.13</a></li>
+		    <li><a href="release-notes-3.0.14.html">Version 3.0.14</a></li>
+		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
+		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
+		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		    <li><a href="release-notes-3.1.8.html">Version 3.1.8</a></li>
+		    <li><a href="release-notes-3.1.9.html">Version 3.1.9</a></li>
+		    <li><a href="release-notes-3.1.10.html">Version 3.1.10</a></li>
+		    <li><a href="release-notes-3.1.11.html">Version 3.1.11</a></li>
+		    <li><a href="release-notes-3.1.12.html">Version 3.1.12</a></li>
+		    <li><a href="release-notes-3.1.13.html">Version 3.1.13</a></li>
+		    <li><a href="release-notes-3.1.14.html">Version 3.1.14</a></li>
+		    <li><a href="release-notes-3.1.15.html">Version 3.1.15</a></li>
+		    <li><a href="release-notes-3.1.16.html">Version 3.1.16</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.5</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.6</a></li>
+		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
+		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
+		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
+		    <li><a href="release-notes-3.2.12.html">Version 3.2.12</a></li>
+		    <li><a href="release-notes-3.2.13.html">Version 3.2.13</a></li>
+		    <li><a href="release-notes-3.2.14.html">Version 3.2.14</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
+		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
+		    <li><a href="release-notes-3.3.7.html">Version 3.3.7</a></li>
+		    <li><a href="release-notes-3.3.7.html">Version 3.3.8</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
+		    <li><a href="release-notes-3.4.3.html">Version 3.4.3</a></li>
+		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
+		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
+		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
+		    <li><a href="release-notes-3.4.8.html">Version 3.4.8</a></li>
+		    <li><a href="release-notes-3.4.9.html">Version 3.4.9</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		    <li><a href="release-notes-4.0.1.html">Version 4.0.1</a></li>
+		    <li><a href="release-notes-4.0.2.html">Version 4.0.2</a></li>
+		    <li><a href="release-notes-4.0.3.html">Version 4.0.3</a></li>
+		    <li><a href="release-notes-4.0.4.html">Version 4.0.4</a></li>
+		    <li><a href="release-notes-4.0.5.html">Version 4.0.5</a></li>
+		    <li><a href="release-notes-4.0.6.html">Version 4.0.6</a></li>
+		    <li><a href="release-notes-4.0.7.html">Version 4.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.1.html">Version 4.1.0</a></li>
+		    <li><a href="release-notes-4.1.1.html">Version 4.1.1</a></li>
+		    <li><a href="release-notes-4.1.2.html">Version 4.1.2</a></li>
+		    <li><a href="release-notes-4.1.3.html">Version 4.1.3</a></li>
+		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
+		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
+		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.2.html">Version 4.2.0</a></li>
+		    <li><a href="release-notes-4.2.1.html">Version 4.2.1</a></li>
+		    <li><a href="release-notes-4.2.2.html">Version 4.2.2</a></li>
+		    <li><a href="release-notes-4.2.3.html">Version 4.2.3</a></li>
+		    <li><a href="release-notes-4.2.4.html">Version 4.2.4</a></li>
+		    <li><a href="release-notes-4.2.5.html">Version 4.2.5</a></li>
+		    <li><a href="release-notes-4.2.6.html">Version 4.2.6</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		    <li><a href="release-notes-5.0.2.html">Version 5.0.2</a></li>
+		    <li><a href="release-notes-5.0.3.html">Version 5.0.3</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
+		    <li><a href="release-notes-5.1.1.html">Version 5.1.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="https://thelfer.github.io/tfel/doxygen/index.html">Doxygen documentation</a></li>
+	    <li><a>MFront</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The Implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-material-property-interface.html">Generic interface for material properties</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic interface for behaviours</a></li>
+		  </ul>
+		</li>
+                 <li><a>MFront keywords</a>
+    	              <ul>
+    	        <li><a href="Default-keywords.html">Default</a></li>
+    	        <li><a href="DefaultCZM-keywords.html">DefaultCZM</a></li>
+    	        <li><a href="DefaultFiniteStrain-keywords.html">DefaultFiniteStrain</a></li>
+    	        <li><a href="DefaultGenericBehaviour-keywords.html">DefaultGenericBehaviour</a></li>
+    	        <li><a href="DefaultModel-keywords.html">DefaultModel</a></li>
+    	        <li><a href="Implicit-keywords.html">Implicit</a></li>
+    	        <li><a href="ImplicitCZM-keywords.html">ImplicitCZM</a></li>
+    	        <li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li>
+    	        <li><a href="ImplicitGenericBehaviour-keywords.html">ImplicitGenericBehaviour</a></li>
+    	        <li><a href="ImplicitModel-keywords.html">ImplicitModel</a></li>
+    	        <li><a href="ImplicitII-keywords.html">ImplicitII</a></li>
+    	        <li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li>
+    	        <li><a href="IsotropicMisesPlasticFlow-keywords.html">IsotropicMisesPlasticFlow</a></li>
+    	        <li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li>
+    	        <li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li>
+    	        <li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li>
+    	        <li><a href="MaterialProperty-keywords.html">MaterialProperty</a></li>
+    	        <li><a href="Model-keywords.html">Model</a></li>
+    	        <li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li>
+    	        <li><a href="RungeKutta-keywords.html">RungeKutta</a></li>
+    	        <li><a href="RungeKuttaFiniteStrain-keywords.html">RungeKuttaFiniteStrain</a></li>
+    	        <li><a href="RungeKuttaGenericBehaviour-keywords.html">RungeKuttaGenericBehaviour</a></li>
+    	        <li><a href="RungeKuttaModel-keywords.html">RungeKuttaModel</a></li>
+    	      </ul>
+                </li>
+	      </ul>
+	    </li>
+	    <li><a href="mtest.html">MTest</a>
+               <ul>
+	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
+              <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	      </ul>
+            </li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="libraries_usage.html">Usage of the TFEL libraries in C++</a></li>
+		<li><a href="tfel-math.html">TFEL/Math</a></li>
+                 <ul>
+		  <li><a href="tfel-math-numerical-integration.html">Numerical integeration</a></li>
+		  <li><a href="tfel-math-data-interpolation.html">Data interpolation</a></li>
+	        </ul>
+		<li><a href="tfel-material.html">TFEL/Material</a></li>
+                 <li><a href="glossary.html">Glossary</a></li>
+                 <li><a href="physical-constants.html">Physical constants</a></li>
+		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">The <code>generic-parallel</code> interface for
+material properties</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">28/04/2026</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#prototypes-of-the-generated-functions"
+id="toc-prototypes-of-the-generated-functions">Prototypes of the
+generated functions</a>
+<ul>
+<li><a href="#first-prototype-supporting-data-with-strides"
+id="toc-first-prototype-supporting-data-with-strides">First prototype
+supporting data with strides</a></li>
+<li><a href="#second-prototype" id="toc-second-prototype">Second
+prototype</a></li>
+</ul></li>
+<li><a href="#backends" id="toc-backends">Backends</a>
+<ul>
+<li><a href="#cuda-backend" id="toc-cuda-backend"><code>CUDA</code>
+backend</a>
+<ul>
+<li><a href="#example-of-usage" id="toc-example-of-usage">Example of
+usage</a></li>
+<li><a href="#options" id="toc-options">Options</a></li>
+<li><a href="#internal-details" id="toc-internal-details">Internal
+details</a></li>
+</ul></li>
+<li><a href="#parallel-stl-backend-stdpar"
+id="toc-parallel-stl-backend-stdpar">Parallel STL backend
+(<code>stdpar</code>)</a>
+<ul>
+<li><a href="#example-of-usage-1" id="toc-example-of-usage-1">Example of
+usage</a></li>
+<li><a href="#options-1" id="toc-options-1">Options</a></li>
+<li><a href="#notes" id="toc-notes">Notes</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<p>This page describes the <code>generic-parallel</code> interface.</p>
+<h1 id="prototypes-of-the-generated-functions">Prototypes of the
+generated functions</h1>
+<p>The <code>generic</code> interface for material properties generates
+two functions.</p>
+<h2 id="first-prototype-supporting-data-with-strides">First prototype
+supporting data with strides</h2>
+<p>The first generated function matches the following prototype:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="op">(*)(</span>mfront_gmp_OutputStatus<span class="op">*</span> <span class="at">const</span><span class="op">,</span>       <span class="co">// output status</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>         mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>               <span class="co">// output values</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// output stride</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>         <span class="co">// values of the arguments</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_size_types<span class="op">*</span> <span class="at">const</span><span class="op">,</span>   <span class="co">// strides of the arguments</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of arguments</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of points</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_OutOfBoundsPolicy<span class="op">);</span>  <span class="co">// out of bounds policy</span></span></code></pre></div>
+<p>The <code>mfront_gmp_OutputStatus</code> structure and the
+<code>mfront_gmp_OutOfBoundsPolicy</code> enumeration type are described
+in the the page describing the <a
+href="generic-parallel-material-property-interface.html"><code>generic</code>
+interface for material properties</a>. The <code>mfront_gmp_real</code>
+type is by default an alias to double precision floating point
+numbers.</p>
+<p>If the number of points is null, no computation is made.</p>
+<p>A null stride means that the associated argument is uniform. The
+stride of the output can be null only if all the strides of all the
+arguments are null, otherwise an error is reported.</p>
+<p>Most backends will treat the case where all strides are equal to one
+as a special case an will use an optimized implementations.</p>
+<h2 id="second-prototype">Second prototype</h2>
+<p>The second generated function matches the following prototype:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="op">(*)(</span>mfront_gmp_OutputStatus<span class="op">*</span> <span class="at">const</span><span class="op">,</span>       <span class="co">// output status</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>         mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>               <span class="co">// output values</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>         <span class="co">// values of the arguments</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of arguments</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of points</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_OutOfBoundsPolicy<span class="op">);</span>  <span class="co">// out of bounds policy</span></span></code></pre></div>
+<p>This function assumes that the values of the arguments and the values
+of the output are stored contiguously in memory. In other words, this
+prototype is equivalent to the the first prototype when all strides are
+equal to one.</p>
+<h1 id="backends">Backends</h1>
+<h2 id="cuda-backend"><code>CUDA</code> backend</h2>
+<h3 id="example-of-usage">Example of usage</h3>
+<p>The following code shows how to call the computation of the shear
+modulus of uranium dioxide, implemented in a function named
+<code>UO2_ShearModulus</code>, which depends on the temperature and on
+the porosity. In this example, the porosity is assumed to be uniform and
+has a stride equal to zero. For the sake of simplicity, memory
+allocation on the host and on the device are handled by <a
+href="https://developer.nvidia.com/thrust">Thrust library</a>.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>thrust<span class="op">::</span>host_vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;</span> G<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>thrust<span class="op">::</span>host_vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;</span> T <span class="op">=</span> <span class="op">{</span><span class="dv">300</span><span class="op">,</span> <span class="dv">500</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">800</span><span class="op">};</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>thrust<span class="op">::</span>host_vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;</span> f <span class="op">=</span> <span class="op">{</span><span class="fl">0.1</span><span class="op">};</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>thrust<span class="op">::</span>device_vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;</span> d_T<span class="op">(</span>T<span class="op">);</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>thrust<span class="op">::</span>device_vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;</span> d_f<span class="op">(</span>f<span class="op">);</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>thrust<span class="op">::</span>device_vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;</span> d_G<span class="op">(</span>T<span class="op">.</span>size<span class="op">());</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> output <span class="op">=</span> mfront_gmp_OutputStatus<span class="op">{};</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> policy <span class="op">=</span> mfront_gmp_OutOfBoundsPolicy<span class="op">{};</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> args <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">double</span> <span class="op">*,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span>thrust<span class="op">::</span>raw_pointer_cast<span class="op">(</span>d_T<span class="op">.</span>data<span class="op">()),</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                                     thrust<span class="op">::</span>raw_pointer_cast<span class="op">(</span>d_f<span class="op">.</span>data<span class="op">())};</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> args_stride <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">mfront_gmp_size_type</span><span class="op">,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">};</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>UO2_ShearModulus<span class="op">(&amp;</span>output<span class="op">,</span> thrust<span class="op">::</span>raw_pointer_cast<span class="op">(</span>d_G<span class="op">.</span>data<span class="op">()),</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                 args<span class="op">.</span>data<span class="op">(),</span> args_stride<span class="op">.</span>data<span class="op">(),</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> policy<span class="op">);</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> d_G<span class="op">;</span></span></code></pre></div>
+<p>The following remarks can be made:</p>
+<ul>
+<li>the user is responsible for consistently passing pointers to memory
+allocated on the device to the <code>UO2_ShearModulus</code> function,
+including uniform values. Managed memory can also be used.</li>
+<li>The <a href="https://developer.nvidia.com/thrust">Thrust library</a>
+is not used by the <code>CUDA</code> backend. It is only used in the
+example for simplicity.</li>
+<li>The functions generated by the <code>CUDA</code> backend and the
+presented example can be compiled with both <code>nvcc</code> and
+<code>clang++</code>.</li>
+</ul>
+<h3 id="options">Options</h3>
+<p>The only option available is
+<code>number_of_threads_per_block</code>, the number of threads per
+blocks. By default, the value used is <span
+class="math inline">\(64\)</span>. This number is generally chosen a
+multiple of the number of threads per warps, which is typically <span
+class="math inline">\(32\)</span> or <span
+class="math inline">\(64\)</span>. Typical values are thus <span
+class="math inline">\(64\)</span>, <span
+class="math inline">\(128\)</span> and <span
+class="math inline">\(256\)</span>.</p>
+<h3 id="internal-details">Internal details</h3>
+<p>When required, the strides are stored in constant memory on the
+device.</p>
+<p>If the material property exposes parameters, those are stored in a
+global variable on the host (the CPU). For efficiency, parameters are
+copied in constant memory on the device when evaluating the material
+property. This mechanism allows to keep the flexibility provided by
+parameters: this flexibility is required to perform sensitivity
+analyses, uncertainty propagation studies or perform a new
+identification. Note that parameters handling can still be disabled by
+setting the <code>parameters_as_static_variables</code> DSL option to
+<code>true</code>.</p>
+<p>The errors are handled by allocating a managed array of integers
+associated with all possible kind of errors. This array is only accessed
+if an error occurs, minimizing the cost of error handling. On output,
+the user knows if an error occurred, but not where this errors occurred.
+For material properties, errors are currently associated with violation
+of bounds and physical bounds. Those tests are disabled by setting the
+<code>disable_runtime_checks</code> to <code>true</code>. Note that this
+option also disable other checks performed on the hose (notably
+regarding the number of arguments passed).</p>
+<p>For instance, the <code>UO2_ShearModulus</code> function may report
+that one temperature passed on input was negative at one evaluation
+point.</p>
+<h2 id="parallel-stl-backend-stdpar">Parallel STL backend
+(<code>stdpar</code>)</h2>
+<h3 id="example-of-usage-1">Example of usage</h3>
+<p>The following code shows how to call the computation of the shear
+modulus of uranium dioxide, implemented in a function named
+<code>UO2_ShearModulus</code>, which depends on the temperature and on
+the porosity. In this example, the porosity is assumed to be uniform and
+has a stride equal to zero.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> G <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;(</span><span class="dv">4</span><span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> T <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;{</span><span class="dv">300</span><span class="op">,</span> <span class="dv">500</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">800</span><span class="op">};</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> f <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;{</span><span class="fl">0.1</span><span class="op">};</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> output <span class="op">=</span> mfront_gmp_OutputStatus<span class="op">{};</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> policy <span class="op">=</span> mfront_gmp_OutOfBoundsPolicy<span class="op">{};</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="at">const</span> <span class="dt">double</span> <span class="op">*,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span>T<span class="op">.</span>data<span class="op">(),</span> f<span class="op">.</span>data<span class="op">()};</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args_strides <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">mfront_gmp_size_type</span><span class="op">,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">};</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>UO2_ShearModulus<span class="op">(&amp;</span>output<span class="op">,</span> G<span class="op">.</span>data<span class="op">(),</span> <span class="dv">1</span><span class="op">,</span> args<span class="op">.</span>data<span class="op">(),</span> args_strides<span class="op">.</span>data<span class="op">(),</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                 policy<span class="op">);</span></span></code></pre></div>
+<h3 id="options-1">Options</h3>
+<p>The only option available is <code>execution_policy</code>, which can
+have one of the following values:</p>
+<ul>
+<li><code>sequenced_policy</code> (or <code>seq</code>)</li>
+<li><code>unsequenced_policy</code> (or <code>unseq</code>)</li>
+<li><code>parallel_policy</code> (or <code>par</code>)</li>
+<li><code>parallel_unsequenced_policy</code> (or
+<code>par_unseq</code>)</li>
+</ul>
+<p>The exact meaning of those policies are implementations defined and
+may depend on compiler flags used. See <a
+href="https://en.cppreference.com/cpp/algorithm/execution_policy_tag_t">this
+page</a> for details.</p>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><code>sequenced_policy</code> denotes a standard sequential
+loop.</li>
+<li><code>unsequenced_policy</code> seems generally associated to
+vectorization.</li>
+<li><code>parallel_policy</code> and
+<code>parallel_unsequenced_policy</code> generally rely on a
+multithreading approach. This note applies to the current
+implementations provided by the <code>Visual Studio</code>,
+<code>gcc</code>, <code>clang++</code> or <code>icpx</code> compilers
+and the standard libraries they rely on.</li>
+<li>The compiler flag <code>-stdpar=gpu</code> provided by the
+<code>nvhpc</code> compiler has two effects:
+<ul>
+<li>all memory allocations made by standard containers (including
+<code>std::vector</code>) are managed: eventual memory transfers between
+the host (the CPU) and the device (the GPU) are done transparently.</li>
+<li>the parallel algorithms are executed on the device (the GPU).</li>
+</ul></li>
+<li><code>libstdc++</code> implements the parallel STL algorithms on the
+top of the Threading Building Blocks library and requires an explicit
+link to this library.</li>
+</ul>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

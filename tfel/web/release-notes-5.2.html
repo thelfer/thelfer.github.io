@@ -388,74 +388,92 @@
 </div>
 <div id="TOC">
 <ul>
+<li><a href="#known-incompatibilities"
+id="toc-known-incompatibilities"><span
+class="toc-section-number">1</span> Known incompatibilities</a></li>
 <li><a href="#new-tfelmath-features"
-id="toc-new-tfelmath-features"><span class="toc-section-number">1</span>
+id="toc-new-tfelmath-features"><span class="toc-section-number">2</span>
 New <code>TFEL/Math</code> features</a>
 <ul>
 <li><a
 href="#views-of-tensorial-objects-with-coalescent-memory-access-for-data-separated-by-a-constant-stride"
 id="toc-views-of-tensorial-objects-with-coalescent-memory-access-for-data-separated-by-a-constant-stride"><span
-class="toc-section-number">1.1</span> Views of tensorial objects with
+class="toc-section-number">2.1</span> Views of tensorial objects with
 coalescent memory access for data separated by a constant
 stride</a></li>
 </ul></li>
 <li><a href="#new-features-in-tfel-check"
 id="toc-new-features-in-tfel-check"><span
-class="toc-section-number">2</span> New features in
+class="toc-section-number">3</span> New features in
 <code>tfel-check</code></a>
 <ul>
 <li><a href="#parallelization" id="toc-parallelization"><span
-class="toc-section-number">2.1</span> Parallelization</a></li>
+class="toc-section-number">3.1</span> Parallelization</a></li>
 <li><a href="#new-features-in-tfelsystem"
 id="toc-new-features-in-tfelsystem"><span
-class="toc-section-number">2.2</span> New features in
+class="toc-section-number">3.2</span> New features in
 <code>TFEL/System</code></a></li>
 </ul></li>
 <li><a href="#new-tfelmaterial-features"
 id="toc-new-tfelmaterial-features"><span
-class="toc-section-number">3</span> New <code>TFEL/Material</code>
+class="toc-section-number">4</span> New <code>TFEL/Material</code>
 features</a>
 <ul>
 <li><a href="#homogenization" id="toc-homogenization"><span
-class="toc-section-number">3.1</span> Homogenization</a></li>
+class="toc-section-number">4.1</span> Homogenization</a></li>
+</ul></li>
+<li><a href="#new-mfront-features" id="toc-new-mfront-features"><span
+class="toc-section-number">5</span> New <code>MFront</code> features</a>
+<ul>
+<li><a href="#configuration-file" id="toc-configuration-file"><span
+class="toc-section-number">5.1</span> Configuration file</a></li>
+<li><a href="#passing-options-to-interfaces-on-the-command-line"
+id="toc-passing-options-to-interfaces-on-the-command-line"><span
+class="toc-section-number">5.2</span> Passing options to interfaces on
+the command line</a></li>
+<li><a
+href="#generic-material-property-interface-for-material-properties"
+id="toc-generic-material-property-interface-for-material-properties"><span
+class="toc-section-number">5.3</span> Generic material property
+interface for material properties</a></li>
 </ul></li>
 <li><a href="#acknowledgements" id="toc-acknowledgements"><span
-class="toc-section-number">4</span> Acknowledgements</a></li>
+class="toc-section-number">6</span> Acknowledgements</a></li>
 <li><a href="#issues-fixed" id="toc-issues-fixed"><span
-class="toc-section-number">5</span> Issues fixed</a>
+class="toc-section-number">7</span> Issues fixed</a>
 <ul>
 <li><a
 href="#issue-926-tfel-math-add-tfel_host_device-to-leftcauchygreentensorderivativeexpr-and-rightcauchygreentensorderivativeexpr-classes"
 id="toc-issue-926-tfel-math-add-tfel_host_device-to-leftcauchygreentensorderivativeexpr-and-rightcauchygreentensorderivativeexpr-classes"><span
-class="toc-section-number">5.1</span> Issue 926: [tfel-math] Add
+class="toc-section-number">7.1</span> Issue 926: [tfel-math] Add
 <code>TFEL_HOST_DEVICE</code> to
 <code>LeftCauchyGreenTensorDerivativeExpr</code> and
 <code>RightCauchyGreenTensorDerivativeExpr</code> classes</a></li>
 <li><a
 href="#issue-925-tfel-math-introduce-the-stressstensorconcept-and-nounitstensorconcept-concepts-and-siblings-for-orther-tensorial-objects"
 id="toc-issue-925-tfel-math-introduce-the-stressstensorconcept-and-nounitstensorconcept-concepts-and-siblings-for-orther-tensorial-objects"><span
-class="toc-section-number">5.2</span> Issue 925: [tfel-math] Introduce
+class="toc-section-number">7.2</span> Issue 925: [tfel-math] Introduce
 the <code>StressStensorConcept</code> and
 <code>NoUnitStensorConcept</code> concepts and siblings for orther
 tensorial objects</a></li>
 <li><a
 href="#issue-922-tfel-math-two-functions-have-no-gpu-device-support"
 id="toc-issue-922-tfel-math-two-functions-have-no-gpu-device-support"><span
-class="toc-section-number">5.3</span> Issue 922: [tfel-math] two
+class="toc-section-number">7.3</span> Issue 922: [tfel-math] two
 functions have no GPU device support</a></li>
 <li><a
 href="#issue-890-mfronthomogenization-add-ponte-castaneda-1992-non-linear-scheme"
 id="toc-issue-890-mfronthomogenization-add-ponte-castaneda-1992-non-linear-scheme"><span
-class="toc-section-number">5.4</span> Issue 890: mfront Add Ponte
+class="toc-section-number">7.4</span> Issue 890: mfront Add Ponte
 Castaneda 1992 non linear scheme</a></li>
 <li><a href="#issue-905-tfelmath-pointer-heavy-coalescedview"
 id="toc-issue-905-tfelmath-pointer-heavy-coalescedview"><span
-class="toc-section-number">5.5</span> Issue 905: [TFEL/Math]
+class="toc-section-number">7.5</span> Issue 905: [TFEL/Math]
 Pointer-heavy CoalescedView</a></li>
 <li><a
 href="#issue-853-tfel-fcheck-have-the-possibility-to-launch-multiple-call-to-tfel-check-simultaenously-in-a-ci-context"
 id="toc-issue-853-tfel-fcheck-have-the-possibility-to-launch-multiple-call-to-tfel-check-simultaenously-in-a-ci-context"><span
-class="toc-section-number">5.6</span> Issue 853: [tfel-fcheck] Have the
+class="toc-section-number">7.6</span> Issue 853: [tfel-fcheck] Have the
 possibility to launch multiple call to <code>tfel-check</code>
 simultaenously in a CI context</a></li>
 </ul></li>
@@ -463,12 +481,18 @@ simultaenously in a CI context</a></li>
 </div>
 <p>The page describes the new functionalities of Version 5.2 of the
 <code>TFEL</code> project.</p>
-<h1 data-number="1" id="new-tfelmath-features"><span
-class="header-section-number">1</span> New <code>TFEL/Math</code>
+<h1 data-number="1" id="known-incompatibilities"><span
+class="header-section-number">1</span> Known incompatibilities</h1>
+<ul>
+<li><code>MFront</code>’ Interfaces have to implement a method named
+<code>setOptions</code>.</li>
+</ul>
+<h1 data-number="2" id="new-tfelmath-features"><span
+class="header-section-number">2</span> New <code>TFEL/Math</code>
 features</h1>
-<h2 data-number="1.1"
+<h2 data-number="2.1"
 id="views-of-tensorial-objects-with-coalescent-memory-access-for-data-separated-by-a-constant-stride"><span
-class="header-section-number">1.1</span> Views of tensorial objects with
+class="header-section-number">2.1</span> Views of tensorial objects with
 coalescent memory access for data separated by a constant stride</h2>
 <p>In previous versions, the <code>View</code> class allows interpreting
 a contiguous memory area as a tensorial object. The
@@ -482,33 +506,33 @@ preferable.</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> values<span class="op">[</span><span class="dv">8</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">40</span><span class="op">};</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> s1 <span class="op">=</span> map_strided<span class="op">&lt;</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;&gt;(</span>values<span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span></code></pre></div>
-<h1 data-number="2" id="new-features-in-tfel-check"><span
-class="header-section-number">2</span> New features in
+<h1 data-number="3" id="new-features-in-tfel-check"><span
+class="header-section-number">3</span> New features in
 <code>tfel-check</code></h1>
-<h2 data-number="2.1" id="parallelization"><span
-class="header-section-number">2.1</span> Parallelization</h2>
+<h2 data-number="3.1" id="parallelization"><span
+class="header-section-number">3.1</span> Parallelization</h2>
 <p>The commands described in different <code>.check</code> files can now
 be run in distinct processes.</p>
 <p>Note that the command described in a <code>.check</code> are still
 run sequentially.</p>
 <p>By default, as in previous versions, only one process is used.</p>
-<h3 data-number="2.1.1"
+<h3 data-number="3.1.1"
 id="specifying-the-number-of-jobs-run-simultaneously"><span
-class="header-section-number">2.1.1</span> Specifying the number of jobs
+class="header-section-number">3.1.1</span> Specifying the number of jobs
 run simultaneously</h3>
 <p>The command line argument <code>--jobs</code> (<code>-j</code>) allow
 specifying the number of jobs run simultaneously.</p>
 <p>If no option is given to <code>--jobs</code>, the number of available
 cores is used, if the system provide this information.</p>
-<h4 data-number="2.1.1.1" id="limit-on-the-number-of-jobs"><span
-class="header-section-number">2.1.1.1</span> Limit on the number of
+<h4 data-number="3.1.1.1" id="limit-on-the-number-of-jobs"><span
+class="header-section-number">3.1.1.1</span> Limit on the number of
 jobs</h4>
 <p>By default, this number must be lower than the number of cores
 available. This limit can be discarded by
 passing<code>--discard-jobs-limit=true</code> to
 <code>tfel-check</code>.</p>
-<h3 data-number="2.1.2" id="caution"><span
-class="header-section-number">2.1.2</span> Caution</h3>
+<h3 data-number="3.1.2" id="caution"><span
+class="header-section-number">3.1.2</span> Caution</h3>
 <p>The user must take care that the commands described in
 <code>.check</code> files can be run in parallel.</p>
 <ul>
@@ -524,11 +548,11 @@ undefined behaviour.</p>
 <p>Another example would be to use <code>@CleanDirectories</code> and
 <code>@CleanFiles</code> commands inappropriately and erase data used by
 commands of other <code>.check</code> files.</p>
-<h2 data-number="2.2" id="new-features-in-tfelsystem"><span
-class="header-section-number">2.2</span> New features in
+<h2 data-number="3.2" id="new-features-in-tfelsystem"><span
+class="header-section-number">3.2</span> New features in
 <code>TFEL/System</code></h2>
-<h3 data-number="2.2.1" id="improvements-in-processmanager"><span
-class="header-section-number">2.2.1</span> Improvements in
+<h3 data-number="3.2.1" id="improvements-in-processmanager"><span
+class="header-section-number">3.2.1</span> Improvements in
 <code>ProcessManager</code></h3>
 <ul>
 <li>New overloads of the <code>createProcess</code> and
@@ -537,24 +561,98 @@ command shall be executed.</li>
 <li><code>ProcessManager</code> shall now work properly in a
 multithreaded context.</li>
 </ul>
-<h3 data-number="2.2.2" id="improvements-in-signalmanager"><span
-class="header-section-number">2.2.2</span> Improvements in
+<h3 data-number="3.2.2" id="improvements-in-signalmanager"><span
+class="header-section-number">3.2.2</span> Improvements in
 <code>SignalManager</code></h3>
 <ul>
 <li><code>SignalManager</code> shall now work properly in a
 multithreaded context.</li>
 </ul>
-<h1 data-number="3" id="new-tfelmaterial-features"><span
-class="header-section-number">3</span> New <code>TFEL/Material</code>
+<h1 data-number="4" id="new-tfelmaterial-features"><span
+class="header-section-number">4</span> New <code>TFEL/Material</code>
 features</h1>
-<h2 data-number="3.1" id="homogenization"><span
-class="header-section-number">3.1</span> Homogenization</h2>
+<h2 data-number="4.1" id="homogenization"><span
+class="header-section-number">4.1</span> Homogenization</h2>
 <p>The second moments of strains considering a Hashin-Shtrikman scheme
 are available. A new <a href="PonteCastaneda1992.html">tutorial</a>
 shows how to use it in the implementation of Ponte-Castaneda variational
 bound (1992), within the framework of non-linear elasticity.</p>
-<h1 data-number="4" id="acknowledgements"><span
-class="header-section-number">4</span> Acknowledgements</h1>
+<h1 data-number="5" id="new-mfront-features"><span
+class="header-section-number">5</span> New <code>MFront</code>
+features</h1>
+<h2 data-number="5.1" id="configuration-file"><span
+class="header-section-number">5.1</span> Configuration file</h2>
+<p><code>MFront</code> now allows to define options in a configuration
+file define through the <code>--configuration-file</code> command line
+argument as follows:</p>
+<p>~~<del>{bash} $ mfront –configuration-file=config.json
+–interface=generic-parallel UO2_ShearModulus.mfront</del>~~</p>
+<p>Configuration file follows an extented <code>JSON</code>-like syntax.
+It contains the following sections:</p>
+<ul>
+<li><code>dsl_options</code></li>
+<li><code>material_property_dsl_options</code></li>
+<li><code>behaviour_dsl_options</code></li>
+<li><code>model_dsl_options</code></li>
+<li><code>interfaces_options</code></li>
+<li><code>compilation_options</code></li>
+</ul>
+<p>None of those sections is required. All those sections must introduce
+a dictionary.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The options given in sections <code>dsl_options</code>,
+<code>material_property_dsl_options</code>,
+<code>behaviour_dsl_options</code> and <code>model_dsl_options</code>
+may also be retrieved in dedicated configurations files, respectively
+specified by the <code>--dsl-options-file</code>,
+<code>--material-property-dsl-options-file</code>,
+<code>--behaviour-dsl-options-file</code>, and
+<code>--model-dsl-options-file</code> command line arguments introduced
+in Version 4.1.</p>
+</blockquote>
+<h3 data-number="5.1.1" id="example-of-configuration-file"><span
+class="header-section-number">5.1.1</span> Example of configuration
+file</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">interfaces_options:</span> <span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">generic-parallel</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">backend</span><span class="fu">:</span> <span class="st">&quot;stlpar&quot;</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="er">execution_policy</span><span class="fu">:</span> <span class="st">&quot;par_unseq&quot;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h3 data-number="5.1.2" id="the-interfaces_options-section"><span
+class="header-section-number">5.1.2</span> The
+<code>interfaces_options</code> section</h3>
+<h3 data-number="5.1.3" id="the-compilation_options-section"><span
+class="header-section-number">5.1.3</span> The
+<code>compilation_options</code> section</h3>
+<h2 data-number="5.2"
+id="passing-options-to-interfaces-on-the-command-line"><span
+class="header-section-number">5.2</span> Passing options to interfaces
+on the command line</h2>
+<h3 data-number="5.2.1" id="first-syntax"><span
+class="header-section-number">5.2.1</span> First syntax</h3>
+<p>~~<del>{bash} $ mfront –obuild
+–interface=‘generic-parallel{backend:“stlpar”,
+execution_policy:“par_unseq”}’ UO2_ShearModulus.mfront</del>~~</p>
+<h3 data-number="5.2.2" id="second-syntax"><span
+class="header-section-number">5.2.2</span> Second syntax</h3>
+<p>~~<del>{bash} $ mfront –obuild
+–interface=‘{generic-parallel:{backend:“stlpar”,
+execution_policy:“par_unseq”}}’ UO2_ShearModulus.mfront</del>~~</p>
+<h2 data-number="5.3"
+id="generic-material-property-interface-for-material-properties"><span
+class="header-section-number">5.3</span> Generic material property
+interface for material properties</h2>
+<h3 data-number="5.3.1" id="available-backends"><span
+class="header-section-number">5.3.1</span> Available backends</h3>
+<h4 data-number="5.3.1.1" id="stlpar"><span
+class="header-section-number">5.3.1.1</span> <code>STLPar</code></h4>
+<h4 data-number="5.3.1.2" id="cuda"><span
+class="header-section-number">5.3.1.2</span> <code>CUDA</code></h4>
+<h1 data-number="6" id="acknowledgements"><span
+class="header-section-number">6</span> Acknowledgements</h1>
 <p>The authors are grateful to the many contributors to the
 <code>TFEL/MFront</code> project. This research was conducted in the
 framework of the PLEIADES project, which was supported financially by
@@ -562,52 +660,52 @@ the CEA (Commissariat à l’Énergie Atomique et aux Énergies
 Alternatives), EDF (Électricité de France) and Framatome. Homogenization
 developments were conducted within the framework of the AnoHonA ANR
 project (n° AAPG2023).</p>
-<h1 data-number="5" id="issues-fixed"><span
-class="header-section-number">5</span> Issues fixed</h1>
-<h2 data-number="5.1"
+<h1 data-number="7" id="issues-fixed"><span
+class="header-section-number">7</span> Issues fixed</h1>
+<h2 data-number="7.1"
 id="issue-926-tfel-math-add-tfel_host_device-to-leftcauchygreentensorderivativeexpr-and-rightcauchygreentensorderivativeexpr-classes"><span
-class="header-section-number">5.1</span> Issue 926: [tfel-math] Add
+class="header-section-number">7.1</span> Issue 926: [tfel-math] Add
 <code>TFEL_HOST_DEVICE</code> to
 <code>LeftCauchyGreenTensorDerivativeExpr</code> and
 <code>RightCauchyGreenTensorDerivativeExpr</code> classes</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/926"
 class="uri">https://github.com/thelfer/tfel/issues/926</a></p>
-<h2 data-number="5.2"
+<h2 data-number="7.2"
 id="issue-925-tfel-math-introduce-the-stressstensorconcept-and-nounitstensorconcept-concepts-and-siblings-for-orther-tensorial-objects"><span
-class="header-section-number">5.2</span> Issue 925: [tfel-math]
+class="header-section-number">7.2</span> Issue 925: [tfel-math]
 Introduce the <code>StressStensorConcept</code> and
 <code>NoUnitStensorConcept</code> concepts and siblings for orther
 tensorial objects</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/925"
 class="uri">https://github.com/thelfer/tfel/issues/925</a></p>
-<h2 data-number="5.3"
+<h2 data-number="7.3"
 id="issue-922-tfel-math-two-functions-have-no-gpu-device-support"><span
-class="header-section-number">5.3</span> Issue 922: [tfel-math] two
+class="header-section-number">7.3</span> Issue 922: [tfel-math] two
 functions have no GPU device support</h2>
 <p>￼</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/922"
 class="uri">https://github.com/thelfer/tfel/issues/922</a></p>
-<h2 data-number="5.4"
+<h2 data-number="7.4"
 id="issue-890-mfronthomogenization-add-ponte-castaneda-1992-non-linear-scheme"><span
-class="header-section-number">5.4</span> Issue 890: <a
+class="header-section-number">7.4</span> Issue 890: <a
 href="#homogenization">mfront</a> Add Ponte Castaneda 1992 non linear
 scheme</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/890"
 class="uri">https://github.com/thelfer/tfel/issues/890</a></p>
-<h2 data-number="5.5"
+<h2 data-number="7.5"
 id="issue-905-tfelmath-pointer-heavy-coalescedview"><span
-class="header-section-number">5.5</span> Issue 905: [TFEL/Math]
+class="header-section-number">7.5</span> Issue 905: [TFEL/Math]
 Pointer-heavy CoalescedView</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/905"
 class="uri">https://github.com/thelfer/tfel/issues/905</a></p>
-<h2 data-number="5.6"
+<h2 data-number="7.6"
 id="issue-853-tfel-fcheck-have-the-possibility-to-launch-multiple-call-to-tfel-check-simultaenously-in-a-ci-context"><span
-class="header-section-number">5.6</span> Issue 853: [tfel-fcheck] Have
+class="header-section-number">7.6</span> Issue 853: [tfel-fcheck] Have
 the possibility to launch multiple call to <code>tfel-check</code>
 simultaenously in a CI context</h2>
 <p>For more details, see <a

@@ -84,6 +84,12 @@ var hierarchy =
     [ "tfel::math::absCompare< T >", "structtfel_1_1math_1_1abs_compare.html", null ],
     [ "AbsoluteComparison", "class_absolute_comparison.html", null ],
     [ "tfel::math::AbsSum< T >", "structtfel_1_1math_1_1_abs_sum.html", null ],
+    [ "mfront::generic_parallel::material_property::AbstractBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html", [
+      [ "mfront::generic_parallel::material_property::BackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base.html", [
+        [ "mfront::generic_parallel::material_property::CUDABackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html", null ],
+        [ "mfront::generic_parallel::material_property::ParallelSTLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend.html", null ]
+      ] ]
+    ] ],
     [ "mfront::AbstractBehaviourBrick", "structmfront_1_1_abstract_behaviour_brick.html", [
       [ "mfront::BehaviourBrickBase", "structmfront_1_1_behaviour_brick_base.html", [
         [ "mfront::DDIF2Brick", "structmfront_1_1_d_d_i_f2_brick.html", null ],
@@ -193,7 +199,9 @@ var hierarchy =
         [ "mfront::FortranMaterialPropertyInterface", "structmfront_1_1_fortran_material_property_interface.html", null ],
         [ "mfront::MFrontMaterialPropertyInterface", "structmfront_1_1_m_front_material_property_interface.html", null ]
       ] ],
-      [ "mfront::CastemMaterialPropertyInterface", "structmfront_1_1_castem_material_property_interface.html", null ],
+      [ "mfront::CastemMaterialPropertyInterface", "structmfront_1_1_castem_material_property_interface.html", [
+        [ "mfront::Castem21MaterialPropertyInterface", "structmfront_1_1_castem21_material_property_interface.html", null ]
+      ] ],
       [ "mfront::CppMaterialPropertyInterface", "structmfront_1_1_cpp_material_property_interface.html", null ],
       [ "mfront::CppTestMaterialPropertyInterface", "structmfront_1_1_cpp_test_material_property_interface.html", null ],
       [ "mfront::ExcelMaterialPropertyInterface", "structmfront_1_1_excel_material_property_interface.html", null ],
@@ -201,6 +209,7 @@ var hierarchy =
         [ "mfront::CyranoMaterialPropertyInterface", "structmfront_1_1_cyrano_material_property_interface.html", null ],
         [ "mfront::GenericMaterialPropertyInterface", "structmfront_1_1_generic_material_property_interface.html", null ]
       ] ],
+      [ "mfront::GenericParallelMaterialPropertyInterface", "structmfront_1_1_generic_parallel_material_property_interface.html", null ],
       [ "mfront::GnuplotMaterialPropertyInterface", "structmfront_1_1_gnuplot_material_property_interface.html", null ],
       [ "mfront::JavaMaterialPropertyInterface", "structmfront_1_1_java_material_property_interface.html", null ],
       [ "mfront::OctaveMaterialPropertyInterface", "structmfront_1_1_octave_material_property_interface.html", null ],
@@ -208,7 +217,9 @@ var hierarchy =
       [ "mfront::PythonMaterialPropertyInterface", "structmfront_1_1_python_material_property_interface.html", null ]
     ] ],
     [ "mfront::AbstractModelInterface", "structmfront_1_1_abstract_model_interface.html", [
-      [ "mfront::CastemModelInterface", "structmfront_1_1_castem_model_interface.html", null ],
+      [ "mfront::CastemModelInterface", "structmfront_1_1_castem_model_interface.html", [
+        [ "mfront::Castem21ModelInterface", "structmfront_1_1_castem21_model_interface.html", null ]
+      ] ],
       [ "mfront::GenericModelInterface", "structmfront_1_1_generic_model_interface.html", null ],
       [ "mfront::MFrontModelInterface", "structmfront_1_1_m_front_model_interface.html", null ],
       [ "mfront::MFrontModelInterface", "structmfront_1_1_m_front_model_interface.html", null ],
@@ -419,6 +430,7 @@ var hierarchy =
       [ "aster::AsterOrthotropicBehaviourHandler< type, H, Behaviour >", "structaster_1_1_aster_orthotropic_behaviour_handler.html", null ]
     ] ],
     [ "mfront::BehaviourData::AxialGrowth", "structmfront_1_1_behaviour_data_1_1_axial_growth.html", null ],
+    [ "mfront::generic_parallel::material_property::BackendFactory", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html", null ],
     [ "tfel::material::BarlatStressAndDerivativesWithRespectToEigenvalues< StressStensor >", "structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html", null ],
     [ "tfel::typetraits::BaseType< T >", "structtfel_1_1typetraits_1_1_base_type.html", null ],
     [ "tfel::typetraits::BaseType< cadna::numeric_type< T > >", "structtfel_1_1typetraits_1_1_base_type_3_01cadna_1_1numeric__type_3_01_t_01_4_01_4.html", null ],
@@ -2021,7 +2033,9 @@ var hierarchy =
     [ "fses::GetVectorNumericType< std::array< real, N > >", "structfses_1_1_get_vector_numeric_type_3_01std_1_1array_3_01real_00_01_n_01_4_01_4.html", null ],
     [ "fses::GetVectorNumericType< VectorNumericType * >", "structfses_1_1_get_vector_numeric_type_3_01_vector_numeric_type_01_5_01_4.html", null ],
     [ "fses::GetVectorNumericType< VectorNumericType[N]>", "structfses_1_1_get_vector_numeric_type_3_01_vector_numeric_type_0f_n_0e_4.html", null ],
-    [ "mfront::GlobalDomainSpecificLanguageOptionsManager", "structmfront_1_1_global_domain_specific_language_options_manager.html", null ],
+    [ "mfront::GlobalDomainSpecificLanguageOptionsManager", "structmfront_1_1_global_domain_specific_language_options_manager.html", [
+      [ "mfront::ConfigurationManager", "structmfront_1_1_configuration_manager.html", null ]
+    ] ],
     [ "tfel::glossary::Glossary", "structtfel_1_1glossary_1_1_glossary.html", null ],
     [ "tfel::glossary::GlossaryEntry", "structtfel_1_1glossary_1_1_glossary_entry.html", null ],
     [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structabaqus_1_1_abaqus_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
@@ -2301,6 +2315,7 @@ var hierarchy =
     [ "tfel::math::IsTVectorScalarOperationValid< T, T2, Op >", "structtfel_1_1math_1_1_is_t_vector_scalar_operation_valid.html", null ],
     [ "tfel::typetraits::IsUnaryOperator< T >", "structtfel_1_1typetraits_1_1_is_unary_operator.html", null ],
     [ "tfel::typetraits::IsUnaryOperator< tfel::math::OpNeg >", "structtfel_1_1typetraits_1_1_is_unary_operator_3_01tfel_1_1math_1_1_op_neg_01_4.html", null ],
+    [ "tfel::utilities::CxxTokenizer::IsValidIdentifierOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_1_1_is_valid_identifier_options.html", null ],
     [ "tfel::math::IterateOverMultipleIndices< TypeSize, CurrentIndex, Arity, UnrollLoop >", "structtfel_1_1math_1_1_iterate_over_multiple_indices.html", null ],
     [ "tfel::config::internals::JacobianType< N, T, use_qt >", "structtfel_1_1config_1_1internals_1_1_jacobian_type.html", null ],
     [ "tfel::config::internals::JacobianType< 1u, T, false >", "structtfel_1_1config_1_1internals_1_1_jacobian_type_3_011u_00_01_t_00_01false_01_4.html", null ],
@@ -3779,6 +3794,7 @@ var hierarchy =
     ] ],
     [ "mfront::SupportedTypes::TypeParsingOptions", "structmfront_1_1_supported_types_1_1_type_parsing_options.html", null ],
     [ "mfront::GenericMaterialPropertyInterfaceBase::TypesDescription", "structmfront_1_1_generic_material_property_interface_base_1_1_types_description.html", null ],
+    [ "mfront::GenericParallelMaterialPropertyInterface::TypesDescription", "structmfront_1_1_generic_parallel_material_property_interface_1_1_types_description.html", null ],
     [ "mfront::SupportedTypes::TypeSize", "structmfront_1_1_supported_types_1_1_type_size.html", null ],
     [ "abaqus::UMATExportThermodynamicForces< H >", "structabaqus_1_1_u_m_a_t_export_thermodynamic_forces.html", null ],
     [ "lsdyna::UMATExportThermodynamicForces< H >", "structlsdyna_1_1_u_m_a_t_export_thermodynamic_forces.html", null ],
@@ -3922,5 +3938,7 @@ var hierarchy =
     ] ],
     [ "mfront::SingleVariableInterpolatedData::WriteCollocationPointsArguments", "structmfront_1_1_single_variable_interpolated_data_1_1_write_collocation_points_arguments.html", null ],
     [ "mfront::SingleVariableInterpolatedData::WriteLinearInterpolationValuesArguments", "structmfront_1_1_single_variable_interpolated_data_1_1_write_linear_interpolation_values_arguments.html", null ],
+    [ "mfront::WriteMaterialPropertyParametersHandlerArguments", "structmfront_1_1_write_material_property_parameters_handler_arguments.html", null ],
+    [ "mfront::WriteMaterialPropertyParametersSetterFunctionArguments", "structmfront_1_1_write_material_property_parameters_setter_function_arguments.html", null ],
     [ "zmat::ZMATInterface", "structzmat_1_1_z_m_a_t_interface.html", null ]
 ];

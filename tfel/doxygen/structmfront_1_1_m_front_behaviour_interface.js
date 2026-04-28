@@ -8,6 +8,7 @@ var structmfront_1_1_m_front_behaviour_interface =
     [ "getModellingHypothesesToBeTreated", "structmfront_1_1_m_front_behaviour_interface.html#aa9d69bc2d07d77f693b0a2aa43ea0592", null ],
     [ "getTargetsDescription", "structmfront_1_1_m_front_behaviour_interface.html#a2c12df3cb3db49709f0dfdc74315f82b", null ],
     [ "isBehaviourConstructorRequired", "structmfront_1_1_m_front_behaviour_interface.html#aba9b64b867cd89d146b42563b228f218", null ],
+    [ "setOptions", "structmfront_1_1_m_front_behaviour_interface.html#ad475b38a6c2d846716a539fca879ed46", null ],
     [ "treatKeyword", "structmfront_1_1_m_front_behaviour_interface.html#ac443713f76812cf992359c98f1b080cf", null ],
     [ "writeBehaviourConstructorBody", "structmfront_1_1_m_front_behaviour_interface.html#a8ce36b7da24a04117f86b4988a8cf38a", null ],
     [ "writeBehaviourConstructorHeader", "structmfront_1_1_m_front_behaviour_interface.html#a965e7df3a2f0b824d8220248c6ddcb84", null ],

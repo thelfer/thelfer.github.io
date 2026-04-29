@@ -257,7 +257,7 @@
 		</li>
 		<li><a>Versions 5.2.x</a>
 		  <ul>
-		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -431,10 +431,9 @@ class="toc-section-number">5.1</span> Configuration file</a></li>
 id="toc-passing-options-to-interfaces-on-the-command-line"><span
 class="toc-section-number">5.2</span> Passing options to interfaces on
 the command line</a></li>
-<li><a
-href="#generic-material-property-interface-for-material-properties"
-id="toc-generic-material-property-interface-for-material-properties"><span
-class="toc-section-number">5.3</span> Generic material property
+<li><a href="#the-generic-parallel-interface-for-material-properties"
+id="toc-the-generic-parallel-interface-for-material-properties"><span
+class="toc-section-number">5.3</span> The <code>generic-parallel</code>
 interface for material properties</a></li>
 </ul></li>
 <li><a href="#acknowledgements" id="toc-acknowledgements"><span
@@ -617,16 +616,34 @@ file</h3>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">interfaces_options:</span> <span class="fu">{</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">generic-parallel</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">backend</span><span class="fu">:</span> <span class="st">&quot;stlpar&quot;</span><span class="fu">,</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="er">execution_policy</span><span class="fu">:</span> <span class="st">&quot;par_unseq&quot;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">backend</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">&quot;stlpar&quot;</span><span class="fu">,</span> <span class="er">execution_policy</span><span class="fu">:</span> <span class="st">&quot;par_unseq&quot;</span><span class="fu">}</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 <h3 data-number="5.1.2" id="the-interfaces_options-section"><span
 class="header-section-number">5.1.2</span> The
 <code>interfaces_options</code> section</h3>
 <h3 data-number="5.1.3" id="the-compilation_options-section"><span
 class="header-section-number">5.1.3</span> The
 <code>compilation_options</code> section</h3>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">compilation_options</span> <span class="er">:</span> <span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">cxx</span> <span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">compiler</span><span class="fu">:</span> <span class="st">&quot;nvc++&quot;</span><span class="fu">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="er">compilation_flags</span><span class="fu">:</span> <span class="st">&quot;-O2 -stdpar=gpu -std=c++20 -march=native -gpu=sm_89&quot;</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h4 data-number="5.1.3.1" id="the-compiler-option"><span
+class="header-section-number">5.1.3.1</span> The <code>compiler</code>
+option</h4>
+<h4 data-number="5.1.3.2" id="the-compilation_flags-option"><span
+class="header-section-number">5.1.3.2</span> The
+<code>compilation_flags</code> option</h4>
+<h3 data-number="5.1.4" id="the-linking_options-section"><span
+class="header-section-number">5.1.4</span> The
+<code>linking_options</code> section</h3>
+<h4 data-number="5.1.4.1" id="the-linker_flags-option"><span
+class="header-section-number">5.1.4.1</span> The
+<code>linker_flags</code> option</h4>
 <h2 data-number="5.2"
 id="passing-options-to-interfaces-on-the-command-line"><span
 class="header-section-number">5.2</span> Passing options to interfaces
@@ -634,17 +651,19 @@ on the command line</h2>
 <h3 data-number="5.2.1" id="first-syntax"><span
 class="header-section-number">5.2.1</span> First syntax</h3>
 <p>~~<del>{bash} $ mfront –obuild
-–interface=‘generic-parallel{backend:“stlpar”,
-execution_policy:“par_unseq”}’ UO2_ShearModulus.mfront</del>~~</p>
+–interface=‘generic-parallel{backend:{“stlpar”:
+{execution_policy:“par_unseq”}}}’ UO2_ShearModulus.mfront</del>~~</p>
 <h3 data-number="5.2.2" id="second-syntax"><span
 class="header-section-number">5.2.2</span> Second syntax</h3>
 <p>~~<del>{bash} $ mfront –obuild
-–interface=‘{generic-parallel:{backend:“stlpar”,
-execution_policy:“par_unseq”}}’ UO2_ShearModulus.mfront</del>~~</p>
+–interface=‘{generic-parallel:{backend:“stlpar”{execution_policy:“par_unseq”}}}’
+UO2_ShearModulus.mfront</del>~~</p>
 <h2 data-number="5.3"
-id="generic-material-property-interface-for-material-properties"><span
-class="header-section-number">5.3</span> Generic material property
-interface for material properties</h2>
+id="the-generic-parallel-interface-for-material-properties"><span
+class="header-section-number">5.3</span> The
+<code>generic-parallel</code> interface for material properties</h2>
+<p>See <a href="generic-parallel-material-property-interface.html">this
+page for details</a>.</p>
 <h3 data-number="5.3.1" id="available-backends"><span
 class="header-section-number">5.3.1</span> Available backends</h3>
 <h4 data-number="5.3.1.1" id="stlpar"><span

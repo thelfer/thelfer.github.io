@@ -256,7 +256,7 @@
 		</li>
 		<li><a>Versions 5.2.x</a>
 		  <ul>
-		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -421,10 +421,13 @@ usage</a></li>
 </ul>
 </div>
 <p>This page describes the <code>generic-parallel</code> interface.</p>
+<p>The <code>generic-parallel</code> interface has been designed to be
+compatible with current parallel programming models (see the
+<code>Backends</code> section).</p>
 <h1 id="prototypes-of-the-generated-functions">Prototypes of the
 generated functions</h1>
-<p>The <code>generic</code> interface for material properties generates
-two functions. Those functions can be used:</p>
+<p>The <code>generic-parallel</code> interface for material properties
+generates two functions. Those functions can be used:</p>
 <ul>
 <li>directly by including the generated headers and linking with the
 generated library.</li>
@@ -432,6 +435,16 @@ generated library.</li>
 <code>dlopen</code>/<code>dlsym</code> on <code>Unix</code> systems or
 <code>LoadLibrary</code>/<code>GetProcAddress</code> on
 <code>Windows</code>.</li>
+</ul>
+<p>In addition, the <code>generic-parallel</code> interface also
+exports:</p>
+<ul>
+<li>symbols describing the material property (names of the inputs, list
+of parameters, default values, etc.),</li>
+<li>a function allowing to modify at runtime the value of the parameters
+of the material property, if modification of parameters is allowed (see
+the DSL options <code>parameters_as_static_variables</code>
+options).</li>
 </ul>
 <h2 id="first-prototype-supporting-data-with-strides">First prototype
 supporting data with strides</h2>
@@ -472,6 +485,7 @@ of the output are stored contiguously in memory. In other words, this
 prototype is equivalent to the the first prototype when all strides are
 equal to one.</p>
 <h1 id="backends">Backends</h1>
+<p>Backends are associated with parallel programming models.</p>
 <h2 id="cuda-backend"><code>CUDA</code> backend</h2>
 <h3 id="example-of-usage">Example of usage</h3>
 <p>Let <code>UO2_ShearModulus.mfront</code> be an implementation of a
@@ -506,10 +520,10 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#c
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>thrust<span class="op">::</span>device_vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;</span> d_G<span class="op">(</span>T<span class="op">.</span>size<span class="op">());</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> output <span class="op">=</span> mfront_gmp_OutputStatus<span class="op">{};</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> policy <span class="op">=</span> mfront_gmp_OutOfBoundsPolicy<span class="op">{};</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> args <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">double</span> <span class="op">*,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span>thrust<span class="op">::</span>raw_pointer_cast<span class="op">(</span>d_T<span class="op">.</span>data<span class="op">()),</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> policy <span class="op">=</span> GENERIC_MATERIALPROPERTY_NONE_POLICY<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">double</span> <span class="op">*,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span>thrust<span class="op">::</span>raw_pointer_cast<span class="op">(</span>d_T<span class="op">.</span>data<span class="op">()),</span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                                     thrust<span class="op">::</span>raw_pointer_cast<span class="op">(</span>d_f<span class="op">.</span>data<span class="op">())};</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> args_stride <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">mfront_gmp_size_type</span><span class="op">,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">};</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args_stride <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">mfront_gmp_size_type</span><span class="op">,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">};</span></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>UO2_ShearModulus<span class="op">(&amp;</span>output<span class="op">,</span> thrust<span class="op">::</span>raw_pointer_cast<span class="op">(</span>d_G<span class="op">.</span>data<span class="op">()),</span> <span class="dv">1</span><span class="op">,</span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                 args<span class="op">.</span>data<span class="op">(),</span> args_stride<span class="op">.</span>data<span class="op">(),</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> policy<span class="op">);</span></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> d_G<span class="op">;</span></span></code></pre></div>
@@ -611,7 +625,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#c
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> T <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;{</span><span class="dv">300</span><span class="op">,</span> <span class="dv">500</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">800</span><span class="op">};</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> f <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;{</span><span class="fl">0.1</span><span class="op">};</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> output <span class="op">=</span> mfront_gmp_OutputStatus<span class="op">{};</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> policy <span class="op">=</span> mfront_gmp_OutOfBoundsPolicy<span class="op">{};</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> policy <span class="op">=</span> GENERIC_MATERIALPROPERTY_NONE_POLICY<span class="op">;</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="at">const</span> <span class="dt">double</span> <span class="op">*,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span>T<span class="op">.</span>data<span class="op">(),</span> f<span class="op">.</span>data<span class="op">()};</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args_strides <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">mfront_gmp_size_type</span><span class="op">,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">};</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>UO2_ShearModulus<span class="op">(&amp;</span>output<span class="op">,</span> G<span class="op">.</span>data<span class="op">(),</span> <span class="dv">1</span><span class="op">,</span> args<span class="op">.</span>data<span class="op">(),</span> args_strides<span class="op">.</span>data<span class="op">(),</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span></span>

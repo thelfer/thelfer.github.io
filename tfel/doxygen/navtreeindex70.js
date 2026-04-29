@@ -1,6 +1,5 @@
 var NAVTREEINDEX70 =
 {
-"structtfel_1_1material_1_1internals_1_1_orthotropic_stress_linear_transformation_i_i_3_01_h_00_08e524fff56c1f5a05389f85da8c70334.html":[7,0,14,5,1,52],
 "structtfel_1_1material_1_1internals_1_1_orthotropic_stress_linear_transformation_i_i_3_01_h_00_08e524fff56c1f5a05389f85da8c70334.html":[5,0,9,0,0,52],
 "structtfel_1_1material_1_1internals_1_1_orthotropic_stress_linear_transformation_i_i_3_01_h_00_0b3c73eb965783ba93fa7c99a235f8336.html":[5,0,9,0,0,51],
 "structtfel_1_1material_1_1internals_1_1_orthotropic_stress_linear_transformation_i_i_3_01_h_00_0b3c73eb965783ba93fa7c99a235f8336.html":[7,0,14,5,1,51],
@@ -249,5 +248,6 @@ var NAVTREEINDEX70 =
 "structtfel_1_1math_1_1_concept_rebind_3_01_stensor_tag_00_01_type_01_4.html#af706572fbe160b16a3fec0653714e5f2":[7,0,14,6,125,0],
 "structtfel_1_1math_1_1_concept_rebind_3_01_stensor_tag_00_01_type_01_4.html#af706572fbe160b16a3fec0653714e5f2":[5,0,9,1,122,0],
 "structtfel_1_1math_1_1_concept_rebind_3_01_t2to_s_t2_tag_00_01_type_01_4.html":[7,0,14,6,126],
-"structtfel_1_1math_1_1_concept_rebind_3_01_t2to_s_t2_tag_00_01_type_01_4.html":[5,0,9,1,123]
+"structtfel_1_1math_1_1_concept_rebind_3_01_t2to_s_t2_tag_00_01_type_01_4.html":[5,0,9,1,123],
+"structtfel_1_1math_1_1_concept_rebind_3_01_t2to_t2_tag_00_01_type_01_4.html":[5,0,9,1,124]
 };

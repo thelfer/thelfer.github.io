@@ -1,6 +1,5 @@
 var NAVTREEINDEX59 =
 {
-"structmtest_1_1_m_test.html#a701315bbf115aebb84f348e0b43b7934":[5,0,8,69,9],
 "structmtest_1_1_m_test.html#a776c850ac970451b926cc8fe52488bfe":[7,0,11,69,38],
 "structmtest_1_1_m_test.html#a776c850ac970451b926cc8fe52488bfe":[5,0,8,69,38],
 "structmtest_1_1_m_test.html#a80dcbc1d9f4dd383682053aaaefe4263":[5,0,8,69,46],
@@ -249,5 +248,6 @@ var NAVTREEINDEX59 =
 "structmtest_1_1_oxidation_status_evolution.html#a9f384133154b8e2b7a3a74f7df9a4f45":[7,0,11,72,7],
 "structmtest_1_1_oxidation_status_evolution.html#aa4f71eed634ee0b230b9b011f009ce2f":[5,0,8,72,1],
 "structmtest_1_1_oxidation_status_evolution.html#aa4f71eed634ee0b230b9b011f009ce2f":[7,0,11,72,1],
-"structmtest_1_1_oxidation_status_evolution.html#aab5d698ff7637e82b0ffab6efc64bab3":[7,0,11,72,3]
+"structmtest_1_1_oxidation_status_evolution.html#aab5d698ff7637e82b0ffab6efc64bab3":[7,0,11,72,3],
+"structmtest_1_1_oxidation_status_evolution.html#aab5d698ff7637e82b0ffab6efc64bab3":[5,0,8,72,3]
 };

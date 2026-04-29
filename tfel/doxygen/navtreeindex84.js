@@ -1,6 +1,5 @@
 var NAVTREEINDEX84 =
 {
-"structtfel_1_1math_1_1internals_1_1_result_type2_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_minus_01_4.html":[5,0,9,1,1,72],
 "structtfel_1_1math_1_1internals_1_1_result_type2_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_minus_01_4.html":[7,0,14,6,2,72],
 "structtfel_1_1math_1_1internals_1_1_result_type2_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_mult_01_4.html":[5,0,9,1,1,73],
 "structtfel_1_1math_1_1internals_1_1_result_type2_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_mult_01_4.html":[7,0,14,6,2,73],
@@ -249,5 +248,6 @@ var NAVTREEINDEX84 =
 "structtfel_1_1math_1_1parser_1_1_evaluator_function1_p_n_v.html#af724ce4716c797b6a6792fb367e15e44":[7,0,14,6,3,9,2],
 "structtfel_1_1math_1_1parser_1_1_evaluator_function1_u_p_n_v.html":[7,0,14,6,3,10],
 "structtfel_1_1math_1_1parser_1_1_evaluator_function1_u_p_n_v.html#a0b5569581b34c704d1f13b17b6b31c2c":[7,0,14,6,3,10,2],
-"structtfel_1_1math_1_1parser_1_1_evaluator_function1_u_p_n_v.html#a0c21ae9fde5c39a3c612b3695ec68fd6":[7,0,14,6,3,10,3]
+"structtfel_1_1math_1_1parser_1_1_evaluator_function1_u_p_n_v.html#a0c21ae9fde5c39a3c612b3695ec68fd6":[7,0,14,6,3,10,3],
+"structtfel_1_1math_1_1parser_1_1_evaluator_function1_u_p_n_v.html#a47c83223787b507cd0f01dbd0f6eb224":[7,0,14,6,3,10,1]
 };

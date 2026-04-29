@@ -1,6 +1,5 @@
 var NAVTREEINDEX65 =
 {
-"structnumodis_1_1_i_plane.html#a954886a8bf2b6ca4fb563c0007b2cec8":[7,0,12,11,3],
 "structnumodis_1_1_i_plane.html#ab3f37c4a5f0a2b752108ef3ba9c3bdb9":[7,0,12,11,0],
 "structnumodis_1_1_i_plane.html#acbde8a378f89ed731a867179f976efe6":[7,0,12,11,4],
 "structnumodis_1_1_i_plane.html#ad8cef38e63baa01bda90accf7dc9db91":[7,0,12,11,5],
@@ -249,5 +248,6 @@ var NAVTREEINDEX65 =
 "structtfel_1_1config_1_1internals_1_1_temperature_gradient_type_3_01_n_00_01_t_00_01false_01_4.html":[7,0,14,1,0,19],
 "structtfel_1_1config_1_1internals_1_1_thermal_conductivity_matrix_type.html":[7,0,14,1,0,20],
 "structtfel_1_1config_1_1internals_1_1_thermal_conductivity_matrix_type_3_011u_00_01_t_00_01false_01_4.html":[7,0,14,1,0,21],
-"structtfel_1_1config_1_1internals_1_1_thermal_conductivity_matrix_type_3_011u_00_01_t_00_01use__qt_01_4.html":[7,0,14,1,0,22]
+"structtfel_1_1config_1_1internals_1_1_thermal_conductivity_matrix_type_3_011u_00_01_t_00_01use__qt_01_4.html":[7,0,14,1,0,22],
+"structtfel_1_1config_1_1internals_1_1_thermal_conductivity_matrix_type_3_01_n_00_01_t_00_01false_01_4.html":[7,0,14,1,0,23]
 };

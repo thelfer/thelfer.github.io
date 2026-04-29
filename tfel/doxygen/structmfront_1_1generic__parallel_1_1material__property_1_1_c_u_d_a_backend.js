@@ -6,7 +6,6 @@ var structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend 
     [ "getHeaderFileExtension", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html#a1ca756d7e467eec388ca3befdb8a15ec", null ],
     [ "getName", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html#afbbe2c63f4a4f271d7482aaed044fb83", null ],
     [ "getSourceFileExtension", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html#a018e73d60cd79b18d1f153e459f679b8", null ],
-    [ "writeCDeclarations", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html#a7c5ce7936c095e050094c5888c4724fc", null ],
     [ "writeCImplementations", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html#a81400935c3b640dc49a01847bcb12d90", null ],
     [ "writeCImplementations2", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html#a1ad7465774fd432d2dbb28f48f88077d", null ],
     [ "writeCxxDeclarations", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html#ac60c9327310a9c27cef25ab34f3093c6", null ],

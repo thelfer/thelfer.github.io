@@ -15,7 +15,6 @@ var structtfel_1_1utilities_1_1_cxx_tokenizer_options =
     [ "graveAccentAsSeparator", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a5d1c7fe22ab9df1ab9a7f77d2e915615", null ],
     [ "joinCxxTwoCharactersSeparators", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a1b2982263a67021ec3f21eac2d26fcd0", null ],
     [ "minusAsSeparator", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#accb801a99bd5f777c72ef491b5a649ae", null ],
-    [ "plusAsSeparator", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#ac2f5f0ba9495444c5948e8b72ad80349", null ],
     [ "shallMergeStrings", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a511b12bd5833977b9ba7163122fa005d", null ],
     [ "treatCComments", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a9ff377291ea680fae9d879e65a2c6e91", null ],
     [ "treatCxxComments", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#afcf6ba07cf5d60d68107c893ecbbed89", null ],

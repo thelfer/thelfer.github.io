@@ -597,15 +597,6 @@ var annotated_dup =
         [ "ThermoElasticMaterialPropertiesNumber< H, true, es, false, bs >", "structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01true_00_01es_00_01false_00_01bs_01_4.html", null ],
         [ "ThermoElasticMaterialPropertiesNumber< H, true, es, true, bs >", "structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01true_00_01es_00_01true_00_01bs_01_4.html", null ]
       ] ],
-      [ "generic_parallel", null, [
-        [ "material_property", null, [
-          [ "AbstractBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend" ],
-          [ "BackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base" ],
-          [ "BackendFactory", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory" ],
-          [ "CUDABackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend" ],
-          [ "ParallelSTLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend" ]
-        ] ]
-      ] ],
       [ "AbaqusExplicitInterface", "structmfront_1_1_abaqus_explicit_interface.html", "structmfront_1_1_abaqus_explicit_interface" ],
       [ "AbaqusExplicitSymbolsGenerator", "structmfront_1_1_abaqus_explicit_symbols_generator.html", "structmfront_1_1_abaqus_explicit_symbols_generator" ],
       [ "AbaqusInterface", "structmfront_1_1_abaqus_interface.html", "structmfront_1_1_abaqus_interface" ],
@@ -646,8 +637,6 @@ var annotated_dup =
       [ "CalculiXInterface", "structmfront_1_1_calculi_x_interface.html", "structmfront_1_1_calculi_x_interface" ],
       [ "CalculiXSymbolsGenerator", "structmfront_1_1_calculi_x_symbols_generator.html", "structmfront_1_1_calculi_x_symbols_generator" ],
       [ "Castem21Interface", "structmfront_1_1_castem21_interface.html", "structmfront_1_1_castem21_interface" ],
-      [ "Castem21MaterialPropertyInterface", "structmfront_1_1_castem21_material_property_interface.html", "structmfront_1_1_castem21_material_property_interface" ],
-      [ "Castem21ModelInterface", "structmfront_1_1_castem21_model_interface.html", "structmfront_1_1_castem21_model_interface" ],
       [ "CastemInterface", "structmfront_1_1_castem_interface.html", "structmfront_1_1_castem_interface" ],
       [ "CastemMaterialPropertyInterface", "structmfront_1_1_castem_material_property_interface.html", "structmfront_1_1_castem_material_property_interface" ],
       [ "CastemModelInterface", "structmfront_1_1_castem_model_interface.html", "structmfront_1_1_castem_model_interface" ],
@@ -658,7 +647,6 @@ var annotated_dup =
       [ "CodeBlock", "structmfront_1_1_code_block.html", "structmfront_1_1_code_block" ],
       [ "CompiledTargetDescriptionBase", "structmfront_1_1_compiled_target_description_base.html", "structmfront_1_1_compiled_target_description_base" ],
       [ "ComsolInterface", "structmfront_1_1_comsol_interface.html", "structmfront_1_1_comsol_interface" ],
-      [ "ConfigurationManager", "structmfront_1_1_configuration_manager.html", "structmfront_1_1_configuration_manager" ],
       [ "CppMaterialPropertyInterface", "structmfront_1_1_cpp_material_property_interface.html", "structmfront_1_1_cpp_material_property_interface" ],
       [ "CppTestMaterialPropertyInterface", "structmfront_1_1_cpp_test_material_property_interface.html", "structmfront_1_1_cpp_test_material_property_interface" ],
       [ "CyranoInterface", "structmfront_1_1_cyrano_interface.html", "structmfront_1_1_cyrano_interface" ],
@@ -698,7 +686,6 @@ var annotated_dup =
       [ "GenericMaterialPropertyInterface", "structmfront_1_1_generic_material_property_interface.html", "structmfront_1_1_generic_material_property_interface" ],
       [ "GenericMaterialPropertyInterfaceBase", "structmfront_1_1_generic_material_property_interface_base.html", "structmfront_1_1_generic_material_property_interface_base" ],
       [ "GenericModelInterface", "structmfront_1_1_generic_model_interface.html", "structmfront_1_1_generic_model_interface" ],
-      [ "GenericParallelMaterialPropertyInterface", "structmfront_1_1_generic_parallel_material_property_interface.html", "structmfront_1_1_generic_parallel_material_property_interface" ],
       [ "GlobalDomainSpecificLanguageOptionsManager", "structmfront_1_1_global_domain_specific_language_options_manager.html", "structmfront_1_1_global_domain_specific_language_options_manager" ],
       [ "GnuplotMaterialPropertyInterface", "structmfront_1_1_gnuplot_material_property_interface.html", "structmfront_1_1_gnuplot_material_property_interface" ],
       [ "Gradient", "structmfront_1_1_gradient.html", "structmfront_1_1_gradient" ],
@@ -764,6 +751,7 @@ var annotated_dup =
       [ "NonLinearSystemSolverBase", "structmfront_1_1_non_linear_system_solver_base.html", "structmfront_1_1_non_linear_system_solver_base" ],
       [ "NonLinearSystemSolverFactory", "structmfront_1_1_non_linear_system_solver_factory.html", "structmfront_1_1_non_linear_system_solver_factory" ],
       [ "OctaveMaterialPropertyInterface", "structmfront_1_1_octave_material_property_interface.html", "structmfront_1_1_octave_material_property_interface" ],
+      [ "OpenRadiossInterface", "structmfront_1_1_open_radioss_interface.html", "structmfront_1_1_open_radioss_interface" ],
       [ "OverridableImplementation", "structmfront_1_1_overridable_implementation.html", "structmfront_1_1_overridable_implementation" ],
       [ "OverridableStringInformation", "structmfront_1_1_overridable_string_information.html", "structmfront_1_1_overridable_string_information" ],
       [ "OverridableStringInformationTags", "structmfront_1_1_overridable_string_information_tags.html", null ],
@@ -802,8 +790,6 @@ var annotated_dup =
       [ "VariableDescription", "structmfront_1_1_variable_description.html", "structmfront_1_1_variable_description" ],
       [ "VariableDescriptionBase", "structmfront_1_1_variable_description_base.html", "structmfront_1_1_variable_description_base" ],
       [ "VariableDescriptionContainer", "structmfront_1_1_variable_description_container.html", "structmfront_1_1_variable_description_container" ],
-      [ "WriteMaterialPropertyParametersHandlerArguments", "structmfront_1_1_write_material_property_parameters_handler_arguments.html", "structmfront_1_1_write_material_property_parameters_handler_arguments" ],
-      [ "WriteMaterialPropertyParametersSetterFunctionArguments", "structmfront_1_1_write_material_property_parameters_setter_function_arguments.html", "structmfront_1_1_write_material_property_parameters_setter_function_arguments" ],
       [ "ZMATInterface", "structmfront_1_1_z_m_a_t_interface.html", "structmfront_1_1_z_m_a_t_interface" ]
     ] ],
     [ "mtest", "namespacemtest.html", [

@@ -12,7 +12,6 @@ var structmfront_1_1_m_front_base =
     [ "treatBehaviourDSLOption", "structmfront_1_1_m_front_base.html#ae6e660d8643d29dba29f35574ef90587", null ],
     [ "treatBehaviourDSLOptionsFile", "structmfront_1_1_m_front_base.html#a1d638330e260f4cfc466969bef2d0cc8", null ],
     [ "treatBehaviourIdentifier", "structmfront_1_1_m_front_base.html#acfbf3a19b10af013377ac88684a4f5c7", null ],
-    [ "treatConfigurationFile", "structmfront_1_1_m_front_base.html#af5a944924ae12d421fcbe12b460a083a", null ],
     [ "treatDebug", "structmfront_1_1_m_front_base.html#a466826fecfd95d52f16be2c7f4953b7a", null ],
     [ "treatDSLOption", "structmfront_1_1_m_front_base.html#aa96b3f0b485a9ea5410184e9e7a1ec99", null ],
     [ "treatDSLOptionsFile", "structmfront_1_1_m_front_base.html#ad55fc81846317f3e53194637a3c3235b", null ],

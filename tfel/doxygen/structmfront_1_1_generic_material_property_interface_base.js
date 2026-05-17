@@ -8,6 +8,7 @@ var structmfront_1_1_generic_material_property_interface_base =
     [ "getLibraryDescription", "structmfront_1_1_generic_material_property_interface_base.html#a4df6e907659db0f817fef0743bf06542", null ],
     [ "getSourceFileName", "structmfront_1_1_generic_material_property_interface_base.html#a915c6794dbea4ac47160258aa5e69f61", null ],
     [ "getTargetsDescription", "structmfront_1_1_generic_material_property_interface_base.html#afec59972e8c28b824781b7e46fd4f8c7", null ],
+    [ "setOptions", "structmfront_1_1_generic_material_property_interface_base.html#a118d05657541dc6aeb256b84e40ede2e", null ],
     [ "treatKeyword", "structmfront_1_1_generic_material_property_interface_base.html#a7dd3e40d9a7dc6f7a7f83b4e3fb80bd6", null ],
     [ "writeHeaderFile", "structmfront_1_1_generic_material_property_interface_base.html#afda04c452a61e869459b0199eba07424", null ],
     [ "writeOutputFiles", "structmfront_1_1_generic_material_property_interface_base.html#add4eba9f912547bfa29527e3164f0818", null ],

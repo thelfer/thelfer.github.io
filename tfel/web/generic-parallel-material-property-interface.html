@@ -418,6 +418,10 @@ usage</a></li>
 <li><a href="#notes" id="toc-notes">Notes</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#tests" id="toc-tests">Tests</a>
+<ul>
+<li><a href="#notes-1" id="toc-notes-1">Notes</a></li>
+</ul></li>
 </ul>
 </div>
 <p>This page describes the <code>generic-parallel</code> interface.</p>
@@ -709,6 +713,34 @@ the host (the CPU) and the device (the GPU) are done transparently.</li>
 top of the Threading Building Blocks library and requires an explicit
 link to this library.</li>
 </ul>
+<h1 id="tests">Tests</h1>
+<p>Unlike other material property interfaces, the tests for the
+<code>generic-parallel</code> interface is performed in the installation
+directory. This allows to tests various configurations that may use
+various <code>C++</code> compilers, a feature unsupported by the
+<code>cmake</code> build system.</p>
+<p>The list of configurations tested must be specified by defining a
+list named <code>generic-parallel-mp-tests-configurations</code> when
+invoking <code>cmake</code> as follows:</p>
+<pre><code>cmake -Dgeneric-parallel-mp-tests-configurations=&quot;cuda-nvcc;cuda-clang&quot;</code></pre>
+<p>The following tests configurations are currently supported:</p>
+<ul>
+<li><code>cuda-nvcc</code>: compilation of <code>CUDA</code> files using
+the <code>nvcc</code> compiler.</li>
+<li><code>cuda-clang</code>: compilation of <code>CUDA</code> files
+using the <code>clang++</code> compiler.</li>
+<li><code>hip-hipcc</code>: compilation of <code>HIP</code> files using
+the <code>hipcc</code> compiler.</li>
+<li><code>hip-clang</code>: compilation of <code>HIP</code> files using
+the <code>clang++</code> compiler.</li>
+</ul>
+<h3 id="notes-1">Notes</h3>
+<p>For configurations based on HIP, the variable
+<code>HIP_PLATFORM</code> must be passed to <code>cmake</code> or
+defined the environment. The value of this variable must be either
+<code>nvidia</code> or <code>amd</code>. If <code>HIP_PLATFORM</code> is
+<code>nvidia</code>, the <code>CUDA</code> platform must be
+available.</p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -196,7 +196,7 @@ var searchData=
   ['addinterfaceoptions_193',['addInterfaceOptions',['../structmfront_1_1_configuration_manager.html#a2818c9b17b57d100e0dfaf2073842772',1,'mfront::ConfigurationManager']]],
   ['addinternalstatevariable_194',['addInternalStateVariable',['../structmfront_1_1_m_test_file_generator_base.html#ae14adead5a5dcd83217eae9d9c7faa56',1,'mfront::MTestFileGeneratorBase']]],
   ['additional_5flibraries_5fsources_195',['additional_libraries_sources',['../structmfront_1_1_d_s_l_base.html#a87d55a6abbc639cb903db62c3332b3e6',1,'mfront::DSLBase']]],
-  ['additionalconvergencechecks_196',['additionalconvergencechecks',['../structmfront_1_1_behaviour_profiler.html#a2c5a16a30e0442bc6478c4f2ac9336c3',1,'mfront::BehaviourProfiler::ADDITIONALCONVERGENCECHECKS'],['../structmfront_1_1_behaviour_data.html#a5abb9a17f5a8c52a48ba071b5081a66a',1,'mfront::BehaviourData::AdditionalConvergenceChecks']]],
+  ['additionalconvergencechecks_196',['additionalconvergencechecks',['../structmfront_1_1_behaviour_data.html#a5abb9a17f5a8c52a48ba071b5081a66a',1,'mfront::BehaviourData::AdditionalConvergenceChecks'],['../structmfront_1_1_behaviour_profiler.html#a2c5a16a30e0442bc6478c4f2ac9336c3',1,'mfront::BehaviourProfiler::ADDITIONALCONVERGENCECHECKS']]],
   ['addlinkeroption_197',['addLinkerOption',['../structmfront_1_1_configuration_manager.html#aba48eff143a0204ad77e45d2e8ac5b3b',1,'mfront::ConfigurationManager']]],
   ['addlinkeroptions_198',['addLinkerOptions',['../structmfront_1_1_configuration_manager.html#afaa2bcb26bcb06a77038f778e1523449',1,'mfront::ConfigurationManager']]],
   ['addlocaldatastructure_199',['addLocalDataStructure',['../structmfront_1_1_behaviour_description.html#a2c75039a0dcfc4d1442e6f0529537452',1,'mfront::BehaviourDescription']]],

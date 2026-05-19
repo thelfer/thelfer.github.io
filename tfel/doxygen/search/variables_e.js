@@ -17,7 +17,6 @@ var searchData=
   ['nstatv_14',['nstatv',['../structansys_1_1_ansys_data.html#aa194ec01646b82cf2104a4d35a204bb0',1,'ansys::AnsysData::NSTATV'],['../structdianafea_1_1_diana_f_e_a_data.html#ae28646e17848fbbeeab0941b5e2edbb1',1,'dianafea::DianaFEAData::NSTATV']]],
   ['ntens_15',['ntens',['../structansys_1_1_ansys_data.html#a92c6fa6495082f177f87d6a4b95b9a09',1,'ansys::AnsysData::NTENS'],['../structdianafea_1_1_diana_f_e_a_data.html#a47d04989659ee1110409127f829a2e56',1,'dianafea::DianaFEAData::NTENS']]],
   ['number_5fof_5felements_16',['number_of_elements',['../structmfmtg_1_1_closed_pipe_test.html#ada369acc949fb89990e59172985453a2',1,'mfmtg::ClosedPipeTest::number_of_elements'],['../structmtest_1_1_pipe_mesh.html#a8bb362d72a356701e2d74a2bdcf47d38',1,'mtest::PipeMesh::number_of_elements']]],
-  ['number_5fof_5fthreads_5fper_5fblock_17',['number_of_threads_per_block',['../structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html#a2f68b936779f159431fc2cead9cd63a6',1,'mfront::generic_parallel::material_property::CUDABackendBase']]],
-  ['numberofevaluations_18',['numberOfEvaluations',['../structmfront_1_1_behaviour_data.html#a8da094366a05f146ad17a6042157a401',1,'mfront::BehaviourData']]],
-  ['numericallycomputedjacobianblocks_19',['numericallyComputedJacobianBlocks',['../structmfront_1_1_behaviour_data.html#a2c7fc9bef078ec36266c052c1850f434',1,'mfront::BehaviourData']]]
+  ['numberofevaluations_17',['numberOfEvaluations',['../structmfront_1_1_behaviour_data.html#a8da094366a05f146ad17a6042157a401',1,'mfront::BehaviourData']]],
+  ['numericallycomputedjacobianblocks_18',['numericallyComputedJacobianBlocks',['../structmfront_1_1_behaviour_data.html#a2c7fc9bef078ec36266c052c1850f434',1,'mfront::BehaviourData']]]
 ];

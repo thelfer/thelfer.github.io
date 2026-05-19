@@ -1,5 +1,7 @@
 var NAVTREEINDEX9 =
 {
+"_string_algorithms_8hxx.html#a460118e76f6bc5a909fa9cfb1e3ae354":[8,0,0,3,11,16,5],
+"_string_algorithms_8hxx.html#a6f4ceade16bdd3345a4da898dbc4766f":[8,0,0,3,11,16,8],
 "_string_algorithms_8hxx.html#a6fb330d1aeec62748350f84993066f69":[8,0,0,3,11,16,10],
 "_string_algorithms_8hxx.html#a8fcc95ab9133342d432b21014557c0b2":[8,0,0,3,11,16,4],
 "_string_algorithms_8hxx.html#a90671a3d7f3546be0d771d58174fb015":[8,0,0,3,11,16,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "_times_8hxx.html#a35d90188c756428023e9c11d73324e99":[8,0,1,0,0,13,2],
 "_tiny_broyden2_solver_8hxx.html":[8,0,0,3,5,64],
 "_tiny_broyden2_solver_8ixx.html":[8,0,0,3,5,10,5],
-"_tiny_broyden_solver_8hxx.html":[8,0,0,3,5,65],
-"_tiny_broyden_solver_8ixx.html":[8,0,0,3,5,10,6],
-"_tiny_levenberg_marquardt_solver_8hxx.html":[8,0,0,3,5,66]
+"_tiny_broyden_solver_8hxx.html":[8,0,0,3,5,65]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"_q_r_decomp_8hxx.html":[8,0,0,3,5,13,0],
 "_q_r_decomp_8ixx.html":[8,0,0,3,5,13,1],
 "_q_r_exception_8hxx.html":[8,0,0,3,5,13,2],
 "_query_handler_base_8hxx.html":[8,0,4,0,0,3],
@@ -97,6 +98,7 @@ var NAVTREEINDEX8 =
 "_s_t2to_t2_t2to_s_t2_product_expr_8hxx.html":[8,0,0,3,5,17,8],
 "_s_t_l_container_binary_read_8hxx.html":[8,0,0,3,7,21],
 "_s_t_l_container_binary_write_8hxx.html":[8,0,0,3,7,22],
+"_s_y_c_l_backend_8hxx.html":[8,0,2,0,0,10,0,8],
 "_scalar_damage_hooke_stress_potential_8hxx.html":[8,0,2,0,0,3,48],
 "_scalar_damage_hooke_stress_potential_base_8hxx.html":[8,0,2,0,0,3,49],
 "_scalar_newton_raphson_8hxx.html":[8,0,0,3,5,57],
@@ -247,7 +249,5 @@ var NAVTREEINDEX8 =
 "_strided_random_access_iterator_8hxx.html":[8,0,0,3,5,5,26],
 "_string_algorithms_8hxx.html":[8,0,0,3,11,16],
 "_string_algorithms_8hxx.html#a1bda2826760e6b2302e8a8b4a858bdd0":[8,0,0,3,11,16,7],
-"_string_algorithms_8hxx.html#a22b23e4dcda3d941270d1737ab2167ec":[8,0,0,3,11,16,1],
-"_string_algorithms_8hxx.html#a460118e76f6bc5a909fa9cfb1e3ae354":[8,0,0,3,11,16,5],
-"_string_algorithms_8hxx.html#a6f4ceade16bdd3345a4da898dbc4766f":[8,0,0,3,11,16,8]
+"_string_algorithms_8hxx.html#a22b23e4dcda3d941270d1737ab2167ec":[8,0,0,3,11,16,1]
 };

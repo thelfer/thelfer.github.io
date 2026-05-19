@@ -604,8 +604,10 @@ var annotated_dup =
           [ "BackendFactory", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory" ],
           [ "CUDABackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend" ],
           [ "CUDABackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base" ],
+          [ "CxxProgrammingModelBackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base" ],
           [ "HIPBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend" ],
-          [ "ParallelSTLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend" ]
+          [ "ParallelSTLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend" ],
+          [ "SYCLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend" ]
         ] ]
       ] ],
       [ "AbaqusExplicitInterface", "structmfront_1_1_abaqus_explicit_interface.html", "structmfront_1_1_abaqus_explicit_interface" ],

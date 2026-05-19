@@ -5,6 +5,8 @@ var dir_d2809d52e9b48a5aa5f9b5130a78cf24 =
     [ "BackendFactory.hxx", "_backend_factory_8hxx.html", "_backend_factory_8hxx" ],
     [ "CUDABackend.hxx", "_c_u_d_a_backend_8hxx.html", "_c_u_d_a_backend_8hxx" ],
     [ "CUDABackendBase.hxx", "_c_u_d_a_backend_base_8hxx.html", "_c_u_d_a_backend_base_8hxx" ],
+    [ "CxxProgrammingModelBackendBase.hxx", "_cxx_programming_model_backend_base_8hxx.html", "_cxx_programming_model_backend_base_8hxx" ],
     [ "HIPBackend.hxx", "_h_i_p_backend_8hxx.html", "_h_i_p_backend_8hxx" ],
-    [ "ParallelSTLBackend.hxx", "_parallel_s_t_l_backend_8hxx.html", "_parallel_s_t_l_backend_8hxx" ]
+    [ "ParallelSTLBackend.hxx", "_parallel_s_t_l_backend_8hxx.html", "_parallel_s_t_l_backend_8hxx" ],
+    [ "SYCLBackend.hxx", "_s_y_c_l_backend_8hxx.html", "_s_y_c_l_backend_8hxx" ]
 ];

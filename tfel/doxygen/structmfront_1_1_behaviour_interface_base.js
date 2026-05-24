@@ -13,6 +13,7 @@ var structmfront_1_1_behaviour_interface_base =
     [ "isBehaviourConstructorRequired", "structmfront_1_1_behaviour_interface_base.html#a2c7104250d29d5b41e1b9077f5aa795a", null ],
     [ "readBooleanValue", "structmfront_1_1_behaviour_interface_base.html#ae9a979031e66a91b1f39a0bb70258955", null ],
     [ "setGenerateMTestFileOnFailureAttribute", "structmfront_1_1_behaviour_interface_base.html#a1cdf9e65c1a15eacf7c7a295f49b0060", null ],
+    [ "setOptions", "structmfront_1_1_behaviour_interface_base.html#a92bb6676c3932ace2194d42f171ae856", null ],
     [ "shallGenerateMTestFileOnFailure", "structmfront_1_1_behaviour_interface_base.html#a931ec203d1032dbeeea18944284d61e2", null ],
     [ "writeBehaviourInitializeFunctions", "structmfront_1_1_behaviour_interface_base.html#abeffda2d8b1b5bd1f404c265ef194691", null ],
     [ "writeBehaviourPostProcessings", "structmfront_1_1_behaviour_interface_base.html#ae1a3abe1105172f98dd260da956f90de", null ],

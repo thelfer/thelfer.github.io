@@ -21,6 +21,5 @@ var dir_0c43d04f50646605c141da0648168751 =
     [ "StensorSymmetricProductDerivative.hxx", "_stensor_symmetric_product_derivative_8hxx.html", "_stensor_symmetric_product_derivative_8hxx" ],
     [ "SymmetricStensorProductDerivative.hxx", "_symmetric_stensor_product_derivative_8hxx.html", null ],
     [ "SymmetricStensorProductDerivative.ixx", "_symmetric_stensor_product_derivative_8ixx.html", null ],
-    [ "UmatNormaliseTangentOperator.ixx", "_umat_normalise_tangent_operator_8ixx.html", null ],
-    [ "WalpoleBasis.hxx", "_walpole_basis_8hxx.html", "_walpole_basis_8hxx" ]
+    [ "UmatNormaliseTangentOperator.ixx", "_umat_normalise_tangent_operator_8ixx.html", null ]
 ];

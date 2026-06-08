@@ -5,7 +5,6 @@ var structmfront_1_1_castem_model_interface =
     [ "declareReservedNames", "structmfront_1_1_castem_model_interface.html#ab5450380e0a91e4021ce566d4913b223", null ],
     [ "getLibraryName", "structmfront_1_1_castem_model_interface.html#ab0600a953f9145f46ac75fa51237c5ff", null ],
     [ "getTargetsDescription", "structmfront_1_1_castem_model_interface.html#a3ca387309c43af5b0e399e59b5021a53", null ],
-    [ "setOptions", "structmfront_1_1_castem_model_interface.html#a30c50d87f05c9b89ac90fe292edd2d76", null ],
     [ "treatKeyword", "structmfront_1_1_castem_model_interface.html#aab389de6927afedcf99e3112eca60117", null ],
     [ "writeHeaderFile", "structmfront_1_1_castem_model_interface.html#a1ee4d2632595bc9eaf01efa66a7a6915", null ],
     [ "writeOutputFiles", "structmfront_1_1_castem_model_interface.html#a98740949a397334e6aead4baea1b1879", null ],

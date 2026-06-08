@@ -1,0 +1,5 @@
+var structtfel_1_1math_1_1internals_1_1_strided_derivative_view_from_tiny_matrix_implementation_3_01ae314e591adfdb8cb608ed9da4e3c8e1 =
+[
+    [ "derivative_base_type", "structtfel_1_1math_1_1internals_1_1_strided_derivative_view_from_tiny_matrix_implementation_3_01ae314e591adfdb8cb608ed9da4e3c8e1.html#a47553782e687617aef8f44d3569afe4d", null ],
+    [ "size_type", "structtfel_1_1math_1_1internals_1_1_strided_derivative_view_from_tiny_matrix_implementation_3_01ae314e591adfdb8cb608ed9da4e3c8e1.html#a7d3a988c759d2146819d5832f9c64ff0", null ]
+];

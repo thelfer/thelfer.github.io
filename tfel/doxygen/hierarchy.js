@@ -490,10 +490,8 @@ var hierarchy =
     [ "tfel::math::st2tost2_internals::BuildFromRotationMatrix< 3u, T >", "structtfel_1_1math_1_1st2tost2__internals_1_1_build_from_rotation_matrix_3_013u_00_01_t_01_4.html", null ],
     [ "mfront::BuildMaterialPropertiesListOptions", "structmfront_1_1_build_material_properties_list_options.html", null ],
     [ "tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrix< M, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix.html", null ],
-    [ "tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrixImplementation< is_function_type_scalar, is_variable_type_scalar, M, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html", null ],
-    [ "tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrixImplementation< false, true, M, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatio774e70e1edf66cf5f3cede3c204f5d1e.html", null ],
-    [ "tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrixImplementation< true, false, M, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatio0b6ace5ea2c9c1bac949648eec2d5e2e.html", null ],
-    [ "tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrixImplementation< true, true, M, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatiodf75163d224a37258ec1c25d28ecf0f7.html", null ],
+    [ "tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrixImplementation< are_both_scalars, M, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html", null ],
+    [ "tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrixImplementation< true, M, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatioef3bc416f53f57c1abb08339e3051441.html", null ],
     [ "calculix::CalculiXComputeStiffnessTensor< CalculiXSymmetryType >", "structcalculix_1_1_calculi_x_compute_stiffness_tensor.html", null ],
     [ "calculix::CalculiXComputeStiffnessTensor< ISOTROPIC >", "structcalculix_1_1_calculi_x_compute_stiffness_tensor_3_01_i_s_o_t_r_o_p_i_c_01_4.html", null ],
     [ "calculix::CalculiXComputeStiffnessTensor< ORTHOTROPIC >", "structcalculix_1_1_calculi_x_compute_stiffness_tensor_3_01_o_r_t_h_o_t_r_o_p_i_c_01_4.html", null ],
@@ -3344,10 +3342,6 @@ var hierarchy =
     [ "tfel::math::internals::StridedCoalescedViewsArrayBase< true, MappedType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base_3_01true_00_01_mapped_typa6ea68aee97b0071904a85abcaaa5f10.html", null ],
     [ "tfel::math::internals::StridedCoalescedViewsArrayDefaultViewIndexingPolicy< is_scalar, MappedType >", "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_default_view_indexing_policy.html", null ],
     [ "tfel::math::internals::StridedCoalescedViewsArrayDefaultViewIndexingPolicy< true, MappedType >", "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_default_view_indexing_policy_3_01true_00_01_mapped_type_01_4.html", null ],
-    [ "tfel::math::internals::StridedDerivativeViewFromTinyMatrixImplementation< is_function_type_scalar, is_variable_type_scalar, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_strided_derivative_view_from_tiny_matrix_implementation.html", null ],
-    [ "tfel::math::internals::StridedDerivativeViewFromTinyMatrixImplementation< false, true, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_strided_derivative_view_from_tiny_matrix_implementation_3_01b6d61139e56195bedc2e48dffeec2571.html", null ],
-    [ "tfel::math::internals::StridedDerivativeViewFromTinyMatrixImplementation< true, false, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_strided_derivative_view_from_tiny_matrix_implementation_3_01ae314e591adfdb8cb608ed9da4e3c8e1.html", null ],
-    [ "tfel::math::internals::StridedDerivativeViewFromTinyMatrixImplementation< true, true, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_strided_derivative_view_from_tiny_matrix_implementation_3_01b04d13e2f0a9dbb34938963299f5831c.html", null ],
     [ "tfel::math::StridedRandomAccessIteratorBase", "structtfel_1_1math_1_1_strided_random_access_iterator_base.html", [
       [ "tfel::math::StridedRandomAccessIterator< iterator_base >", "structtfel_1_1math_1_1_strided_random_access_iterator.html", null ]
     ] ],

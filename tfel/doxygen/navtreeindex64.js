@@ -1,5 +1,6 @@
 var NAVTREEINDEX64 =
 {
+"structnumodis_1_1math_1_1_abs.html#a3758af95593f5f2418325de47fd98e12":[7,0,12,0,0,2],
 "structnumodis_1_1math_1_1_abs.html#a488c5056fac45077e40f81cfaa576c3f":[7,0,12,0,0,1],
 "structstd_1_1complex.html":[7,0,13,0],
 "structstd_1_1numeric__limits_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value_type_00_01_ownership_policy_01_4_01_4.html":[7,0,13,1],
@@ -16,14 +17,14 @@ var NAVTREEINDEX64 =
 "structtfel_01_1_1math_1_1_op_mult.html":[7,0,15,0,4],
 "structtfel_01_1_1math_1_1_op_neg.html":[7,0,15,0,5],
 "structtfel_01_1_1math_1_1_op_plus.html":[7,0,15,0,6],
-"structtfel_1_1_physical_constants.html":[5,0,9,2],
 "structtfel_1_1_physical_constants.html":[7,0,14,13],
-"structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[5,0,9,3],
+"structtfel_1_1_physical_constants.html":[5,0,9,2],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[7,0,14,14],
-"structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[5,0,9,4],
+"structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[5,0,9,3],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[7,0,14,15],
-"structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#aefcf0e8fe8660279958df843f42bdf25":[7,0,14,15,0],
+"structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[5,0,9,4],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#aefcf0e8fe8660279958df843f42bdf25":[5,0,9,4,0],
+"structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#aefcf0e8fe8660279958df843f42bdf25":[7,0,14,15,0],
 "structtfel_1_1check_1_1_absolute_comparison.html":[7,0,14,0,0],
 "structtfel_1_1check_1_1_absolute_comparison.html#a690c87cbd7e2a915872fb9b92c4cb6a9":[7,0,14,0,0,0],
 "structtfel_1_1check_1_1_area_comparison.html":[7,0,14,0,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX64 =
 "structtfel_1_1fsalgo_1_1copy_3_018u_01_4.html":[7,0,14,3,12],
 "structtfel_1_1fsalgo_1_1copy_3_019u_01_4.html":[7,0,14,3,13],
 "structtfel_1_1fsalgo_1_1equal.html":[7,0,14,3,14],
-"structtfel_1_1fsalgo_1_1fill.html":[7,0,14,3,15],
-"structtfel_1_1fsalgo_1_1for__each.html":[7,0,14,3,16]
+"structtfel_1_1fsalgo_1_1fill.html":[7,0,14,3,15]
 };

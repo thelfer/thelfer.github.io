@@ -232,6 +232,7 @@ var NAVTREEINDEX17 =
 "namespacetfel_1_1math_1_1ieee754.html#add4cffb31c0fb5e82030fe9a3efc4063":[5,0,9,1,0,1],
 "namespacetfel_1_1math_1_1ieee754.html#aed1781de8fc7c7fa653dadae15ec2330":[5,0,9,1,0,10],
 "namespacetfel_1_1math_1_1internals.html":[5,0,9,1,1],
+"namespacetfel_1_1math_1_1internals.html#a5edebcbf413d500cc54368a54e5834d2":[5,0,9,1,1,149],
 "namespacezmat.html":[5,0,10],
 "pages.html":[],
 "power_8hxx.html":[8,0,0,3,5,49],
@@ -248,6 +249,5 @@ var NAVTREEINDEX17 =
 "qt_limits_8hxx.html":[8,0,0,3,5,14,1],
 "qt_operations_8hxx.html":[8,0,0,3,5,14,2],
 "qt_operations_8ixx.html":[8,0,0,3,5,14,3],
-"qt_specific_8hxx.html":[8,0,0,3,5,14,4],
-"qt_specific_8hxx.html#a61ee2f17f48643d42ca41a401176ed8b":[8,0,0,3,5,14,4,12]
+"qt_specific_8hxx.html":[8,0,0,3,5,14,4]
 };

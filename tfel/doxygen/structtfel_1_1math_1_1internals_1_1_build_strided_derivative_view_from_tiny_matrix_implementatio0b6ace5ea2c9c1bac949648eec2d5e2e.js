@@ -1,7 +1,0 @@
-var structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatio0b6ace5ea2c9c1bac949648eec2d5e2e =
-[
-    [ "DerivativeViewIndexingPolicy", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatio0b6ace5ea2c9c1bac949648eec2d5e2e.html#ab3b8f760c2a6064555d34313913b19cf", null ],
-    [ "FunctionIndexingPolicy", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatio0b6ace5ea2c9c1bac949648eec2d5e2e.html#a0f90a65573bd9329653607eb4ad6edcf", null ],
-    [ "type", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatio0b6ace5ea2c9c1bac949648eec2d5e2e.html#a66dd5bd3ec279c94524868730debdeb4", null ],
-    [ "VariableIndexingPolicy", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatio0b6ace5ea2c9c1bac949648eec2d5e2e.html#a3019aafd6ddd514970719ad7f3a0caf6", null ]
-];

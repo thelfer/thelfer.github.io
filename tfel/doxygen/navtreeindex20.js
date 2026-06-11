@@ -1,11 +1,5 @@
 var NAVTREEINDEX20 =
 {
-"structansys_1_1_ansys_un_supported_case_handler.html":[5,0,1,50],
-"structansys_1_1_export_symmetric_tensor.html":[7,0,1,51],
-"structansys_1_1_export_symmetric_tensor.html":[5,0,1,51],
-"structansys_1_1_export_symmetric_tensor_3_011u_01_4.html":[7,0,1,52],
-"structansys_1_1_export_symmetric_tensor_3_011u_01_4.html":[5,0,1,52],
-"structansys_1_1_export_symmetric_tensor_3_012u_01_4.html":[7,0,1,53],
 "structansys_1_1_export_symmetric_tensor_3_012u_01_4.html":[5,0,1,53],
 "structansys_1_1_export_symmetric_tensor_3_013u_01_4.html":[7,0,1,54],
 "structansys_1_1_export_symmetric_tensor_3_013u_01_4.html":[5,0,1,54],
@@ -249,5 +243,11 @@ var NAVTREEINDEX20 =
 "structcalculix_1_1_calculi_x_exception.html#a2b6943c27bb554f47fc043d5a38036e3":[7,0,3,8,2],
 "structcalculix_1_1_calculi_x_exception.html#a3cea861f96e4860bd37a598abad58ff7":[5,0,3,8,1],
 "structcalculix_1_1_calculi_x_exception.html#a3cea861f96e4860bd37a598abad58ff7":[7,0,3,8,1],
-"structcalculix_1_1_calculi_x_exception.html#ac57904c1c583e99389678be7f57ecfe6":[5,0,3,8,0]
+"structcalculix_1_1_calculi_x_exception.html#ac57904c1c583e99389678be7f57ecfe6":[5,0,3,8,0],
+"structcalculix_1_1_calculi_x_exception.html#ac57904c1c583e99389678be7f57ecfe6":[7,0,3,8,0],
+"structcalculix_1_1_calculi_x_interface.html":[5,0,3,9],
+"structcalculix_1_1_calculi_x_interface.html":[7,0,3,9],
+"structcalculix_1_1_calculi_x_interface_exceptions.html":[5,0,3,10],
+"structcalculix_1_1_calculi_x_interface_exceptions.html":[7,0,3,10],
+"structcalculix_1_1_calculi_x_invalid_dimension.html":[5,0,3,11]
 };

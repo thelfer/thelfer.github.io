@@ -12,7 +12,7 @@ var _coalesced_view_8hxx =
     [ "tfel::math::MappableImmutableMathObjectUsingCoalescedViewConcept", "concepttfel_1_1math_1_1_mappable_immutable_math_object_using_coalesced_view_concept.html", null ],
     [ "tfel::math::MappableMathObjectUsingCoalescedViewConcept", "concepttfel_1_1math_1_1_mappable_math_object_using_coalesced_view_concept.html", null ],
     [ "map", "_coalesced_view_8hxx.html#acb3e144676bf6dad9f8b6e9bb26ed2f8", null ],
-    [ "map", "_coalesced_view_8hxx.html#aed85b99cf080587025d0b9f7a2ca4672", null ],
+    [ "map", "_coalesced_view_8hxx.html#a02e5879771a8d7b4fed01ae6545c83eb", null ],
     [ "map", "_coalesced_view_8hxx.html#a97524c5e793a4ebb454e243c1848c45f", null ],
-    [ "map", "_coalesced_view_8hxx.html#a4bcfc65dd451815ba78291c1923b5889", null ]
+    [ "map", "_coalesced_view_8hxx.html#a1df0b6f5996cf1e218bc6e70bfb554b0", null ]
 ];

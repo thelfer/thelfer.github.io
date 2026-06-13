@@ -20,6 +20,7 @@ var NAVTREEINDEX9 =
 "_study_current_state_8ixx.html":[8,0,5,0,0,97],
 "_study_parameter_8hxx.html":[8,0,5,0,0,98],
 "_substitutions_8hxx.html":[8,0,0,3,0,2],
+"_substitutions_8hxx.html#a93af1371fdaa6fb5aa2359c1cdaa1156":[8,0,0,3,0,2,0],
 "_supported_types_8hxx.html":[8,0,2,0,0,203],
 "_supported_types_8hxx.html#a02780b9599daa678096f6fceff95fd10":[8,0,2,0,0,203,11],
 "_supported_types_8hxx.html#a1c74ff8763acbb0c7b479d46fe3bf72d":[8,0,2,0,0,203,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX9 =
 "_threaded_task_result_8ixx.html":[8,0,0,3,7,28],
 "_times_8hxx.html":[8,0,1,0,0,13],
 "_times_8hxx.html#a35d90188c756428023e9c11d73324e99":[8,0,1,0,0,13,2],
-"_tiny_broyden2_solver_8hxx.html":[8,0,0,3,5,64],
-"_tiny_broyden2_solver_8ixx.html":[8,0,0,3,5,10,5]
+"_tiny_broyden2_solver_8hxx.html":[8,0,0,3,5,64]
 };

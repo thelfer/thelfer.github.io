@@ -1,5 +1,6 @@
 var NAVTREEINDEX13 =
 {
+"functions_type_b.html":[7,3,3,1],
 "functions_type_c.html":[7,3,3,2],
 "functions_type_d.html":[7,3,3,3],
 "functions_type_e.html":[7,3,3,4],
@@ -124,8 +125,8 @@ var NAVTREEINDEX13 =
 "include_2_t_f_e_l_2_math_2_types_8hxx.html":[8,0,0,3,5,74],
 "include_2_t_f_e_l_2_math_2_types_8hxx.html#a8d7e56abbf07c901ded6a6cf432ef1d0":[8,0,0,3,5,74,2],
 "include_2_t_f_e_l_2_tests_2_test_8hxx.html":[8,0,0,3,8,2],
-"index.html":[],
 "index.html":[0],
+"index.html":[],
 "index.html#autotoc_md28":[0,0],
 "index.html#autotoc_md29":[0,1],
 "index.html#autotoc_md30":[0,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX13 =
 "namespacecalculix.html#a2db2ac4eede91f7b380efba1e9cfe12d":[5,0,3,31],
 "namespacecalculix.html#a4d0e3fe8da6ec017f243f25de6daec71":[5,0,3,27],
 "namespacecalculix.html#a64cd3663dfb2e54740d31ca10d9cac80":[5,0,3,26],
-"namespacecalculix.html#aa59ba05f0244172f09bd78078e52314b":[5,0,3,32],
-"namespacecalculix.html#adc22a9c564725386eb0debef89d6df0b":[5,0,3,28]
+"namespacecalculix.html#aa59ba05f0244172f09bd78078e52314b":[5,0,3,32]
 };

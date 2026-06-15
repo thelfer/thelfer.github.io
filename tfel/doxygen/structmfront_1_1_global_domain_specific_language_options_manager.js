@@ -1,7 +1,5 @@
 var structmfront_1_1_global_domain_specific_language_options_manager =
 [
-    [ "GlobalDomainSpecificLanguageOptionsManager", "structmfront_1_1_global_domain_specific_language_options_manager.html#a868b704b359b425302c47c56570efea0", null ],
-    [ "~GlobalDomainSpecificLanguageOptionsManager", "structmfront_1_1_global_domain_specific_language_options_manager.html#ad669a0b28e6c9a54dff10127b331c951", null ],
     [ "addBehaviourDSLOption", "structmfront_1_1_global_domain_specific_language_options_manager.html#a77f75dffad322ab97ca64bed6d6f65a0", null ],
     [ "addBehaviourDSLOption", "structmfront_1_1_global_domain_specific_language_options_manager.html#afe396a80946466a50fa34b7b98f38807", null ],
     [ "addDSLOption", "structmfront_1_1_global_domain_specific_language_options_manager.html#ad1a415bebfc339fa2517c745126264b1", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX10 =
 {
+"_tiny_permutation_8hxx.html":[8,0,0,3,5,7,6],
 "_tiny_permutation_8ixx.html":[8,0,0,3,5,7,7],
 "_tiny_powell_dog_leg_algorithm_base_8hxx.html":[8,0,0,3,5,10,11],
 "_tiny_powell_dog_leg_algorithm_base_8hxx.html#a2af6a76863040300a210e557ebd47fd9":[8,0,0,3,5,10,11,0],
@@ -107,6 +108,7 @@ var NAVTREEINDEX10 =
 "_views_array_i_o_8hxx.html":[8,0,0,3,5,1,36],
 "_viscoplastic_flow_base_8hxx.html":[8,0,2,0,0,3,65],
 "_voce_isotropic_hardening_rule_8hxx.html":[8,0,2,0,0,3,66],
+"_walpole_basis_8hxx.html":[8,0,0,3,5,16,22],
 "_x_m_l_test_output_8hxx.html":[8,0,0,3,8,12],
 "_z_m_a_t_2_z_m_a_t_interface_8hxx.html":[8,0,2,0,0,11,1],
 "_z_m_a_t_interface_8hxx.html":[8,0,2,0,0,211],
@@ -247,7 +249,5 @@ var NAVTREEINDEX10 =
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html":[5,0,9,1,63],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html":[7,0,14,6,66],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html#a4c56fd9ae25348031a74f0ffa694dc1a":[7,0,14,6,66,0],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html#a4c56fd9ae25348031a74f0ffa694dc1a":[5,0,9,1,63,0],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_matrix_tag_00_01_scalar_tag_00_01tmatcb5739c87051c9db3928bba8ca3f3bcd.html":[7,0,14,6,69],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_matrix_tag_00_01_scalar_tag_00_01tmatcb5739c87051c9db3928bba8ca3f3bcd.html":[5,0,9,1,66]
+"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html#a4c56fd9ae25348031a74f0ffa694dc1a":[5,0,9,1,63,0]
 };

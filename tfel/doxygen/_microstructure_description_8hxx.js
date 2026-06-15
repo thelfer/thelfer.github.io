@@ -12,6 +12,7 @@ var _microstructure_description_8hxx =
     [ "tfel::material::homogenization::elasticity::IsotropicDistribution< StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_isotropic_distribution.html", null ],
     [ "tfel::material::homogenization::elasticity::TransverseIsotropicDistribution< StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_transverse_isotropic_distribution.html", null ],
     [ "tfel::material::homogenization::elasticity::OrientedDistribution< StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_oriented_distribution.html", null ],
+    [ "tfel::material::homogenization::elasticity::UserDefinedDistributionOfSpheroids< StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_user_defined_distribution_of_spheroids.html", null ],
     [ "tfel::material::homogenization::elasticity::Microstructure< N, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_microstructure.html", null ],
     [ "tfel::material::homogenization::elasticity::ParticulateMicrostructure< N, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_particulate_microstructure.html", null ]
 ];

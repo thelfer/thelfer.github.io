@@ -27,7 +27,7 @@ var namespacecalculix =
     [ "ImportThermodynamicForces", "structcalculix_1_1_import_thermodynamic_forces.html", null ],
     [ "CalculiXInt", "namespacecalculix.html#a0412cfbfb9b27ba3059834ce32084c63", null ],
     [ "CalculiXReal", "namespacecalculix.html#a64cd3663dfb2e54740d31ca10d9cac80", null ],
-    [ "StressFreeExpansionHandler", "namespacecalculix.html#a4d0e3fe8da6ec017f243f25de6daec71", null ],
+    [ "StressFreeExpansionHandler", "namespacecalculix.html#a704401cfb65bd4b717339f05046de1f7", null ],
     [ "CalculiXLogarithmicStrainStressFreeExpansionHandler", "namespacecalculix.html#adc22a9c564725386eb0debef89d6df0b", null ],
     [ "CalculiXStandardSmallStrainStressFreeExpansionHandler", "namespacecalculix.html#aee5c2b8b5419438a213d46b01eebeca3", null ],
     [ "computeIsotropicStiffnessTensor", "namespacecalculix.html#a22d23bb6603ec2819d33201ffe5eed8a", null ],

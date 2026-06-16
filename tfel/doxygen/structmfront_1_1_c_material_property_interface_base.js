@@ -9,7 +9,6 @@ var structmfront_1_1_c_material_property_interface_base =
     [ "getSupportedFloatingPointTypes", "structmfront_1_1_c_material_property_interface_base.html#aad469c3af5479bffe5f243dc46083148", null ],
     [ "getSymbolName", "structmfront_1_1_c_material_property_interface_base.html#a35c0c93c29958b9c8ceaa88b8bfb8ac6", null ],
     [ "returnInvalidValue", "structmfront_1_1_c_material_property_interface_base.html#a7030f0c69687d73b4cc79b070756ae40", null ],
-    [ "setOptions", "structmfront_1_1_c_material_property_interface_base.html#aee2c730c1f21231f69ced9d892d6a166", null ],
     [ "shallGenerateOverloadedFunctionForQuantities", "structmfront_1_1_c_material_property_interface_base.html#ac3b6372701ae9ce6cf0eea18d1900c06", null ],
     [ "writeArgumentsList", "structmfront_1_1_c_material_property_interface_base.html#a52ba333edfc7c2468320936a7fc95a39", null ],
     [ "writeBeginHeaderNamespace", "structmfront_1_1_c_material_property_interface_base.html#ac03b2fb6a30e1e134c059c1b22228037", null ],

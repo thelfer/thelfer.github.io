@@ -22,7 +22,7 @@ var namespacecyrano =
     [ "CyranoOutOfBoundsPolicy", "structcyrano_1_1_cyrano_out_of_bounds_policy.html", null ],
     [ "CyranoTraits", "structcyrano_1_1_cyrano_traits.html", null ],
     [ "CyranoUnSupportedCaseHandler", "structcyrano_1_1_cyrano_un_supported_case_handler.html", null ],
-    [ "StressFreeExpansionHandler", "namespacecyrano.html#ab3cf99030cbeb8ef25a4f924f5d0d16f", null ],
+    [ "StressFreeExpansionHandler", "namespacecyrano.html#a1ea2851fef336e3c31957154248334df", null ],
     [ "CyranoLogarithmicStrainStressFreeExpansionHandler", "namespacecyrano.html#a860f4aa64c291a6c55b42976e0c9da09", null ],
     [ "CyranoStandardSmallStrainStressFreeExpansionHandler", "namespacecyrano.html#a13d0fbe13280dcc7db5e66ed8f95d9e7", null ],
     [ "getModellingHypothesis", "namespacecyrano.html#a6b94726e44ba7b3d36c9152a2c6d93b2", null ],

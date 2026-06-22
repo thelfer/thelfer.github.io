@@ -191,7 +191,8 @@
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
 		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		    <li><a href="release-notes-3.3.7.html">Version 3.3.7</a></li>
-		    <li><a href="release-notes-3.3.7.html">Version 3.3.8</a></li>
+		    <li><a href="release-notes-3.3.8.html">Version 3.3.8</a></li>
+		    <li><a href="release-notes-3.3.9.html">Version 3.3.9</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -206,6 +207,7 @@
 		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		    <li><a href="release-notes-3.4.8.html">Version 3.4.8</a></li>
 		    <li><a href="release-notes-3.4.9.html">Version 3.4.9</a></li>
+		    <li><a href="release-notes-3.4.10.html">Version 3.4.10</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -399,64 +401,74 @@ id="toc-views-of-tensorial-objects-with-coalescent-memory-access-for-data-separa
 class="toc-section-number">1.1</span> Views of tensorial objects with
 coalescent memory access for data separated by a constant
 stride</a></li>
-</ul></li>
-<li><a href="#new-features-in-tfel-check"
-id="toc-new-features-in-tfel-check"><span
-class="toc-section-number">2</span> New features in
-<code>tfel-check</code></a>
-<ul>
-<li><a href="#parallelization" id="toc-parallelization"><span
-class="toc-section-number">2.1</span> Parallelization</a></li>
-<li><a href="#new-features-in-tfelsystem"
-id="toc-new-features-in-tfelsystem"><span
-class="toc-section-number">2.2</span> New features in
-<code>TFEL/System</code></a></li>
+<li><a href="#walpole-basis" id="toc-walpole-basis"><span
+class="toc-section-number">1.2</span> Walpole basis</a></li>
 </ul></li>
 <li><a href="#new-tfelmaterial-features"
 id="toc-new-tfelmaterial-features"><span
-class="toc-section-number">3</span> New <code>TFEL/Material</code>
+class="toc-section-number">2</span> New <code>TFEL/Material</code>
 features</a>
 <ul>
 <li><a href="#homogenization" id="toc-homogenization"><span
-class="toc-section-number">3.1</span> Homogenization</a></li>
+class="toc-section-number">2.1</span> Homogenization</a></li>
+</ul></li>
+<li><a href="#new-features-in-tfel-check"
+id="toc-new-features-in-tfel-check"><span
+class="toc-section-number">3</span> New features in
+<code>tfel-check</code></a>
+<ul>
+<li><a href="#parallelization" id="toc-parallelization"><span
+class="toc-section-number">3.1</span> Parallelization</a></li>
+<li><a href="#new-features-in-tfelsystem"
+id="toc-new-features-in-tfelsystem"><span
+class="toc-section-number">3.2</span> New features in
+<code>TFEL/System</code></a></li>
+</ul></li>
+<li><a href="#new-tfelmaterial-features-1"
+id="toc-new-tfelmaterial-features-1"><span
+class="toc-section-number">4</span> New <code>TFEL/Material</code>
+features</a>
+<ul>
+<li><a href="#homogenization-1" id="toc-homogenization-1"><span
+class="toc-section-number">4.1</span> Homogenization</a></li>
 </ul></li>
 <li><a href="#acknowledgements" id="toc-acknowledgements"><span
-class="toc-section-number">4</span> Acknowledgements</a></li>
+class="toc-section-number">5</span> Acknowledgements</a></li>
 <li><a href="#issues-fixed" id="toc-issues-fixed"><span
-class="toc-section-number">5</span> Issues fixed</a>
+class="toc-section-number">6</span> Issues fixed</a>
 <ul>
 <li><a
 href="#issue-926-tfel-math-add-tfel_host_device-to-leftcauchygreentensorderivativeexpr-and-rightcauchygreentensorderivativeexpr-classes"
 id="toc-issue-926-tfel-math-add-tfel_host_device-to-leftcauchygreentensorderivativeexpr-and-rightcauchygreentensorderivativeexpr-classes"><span
-class="toc-section-number">5.1</span> Issue 926: [tfel-math] Add
+class="toc-section-number">6.1</span> Issue 926: [tfel-math] Add
 <code>TFEL_HOST_DEVICE</code> to
 <code>LeftCauchyGreenTensorDerivativeExpr</code> and
 <code>RightCauchyGreenTensorDerivativeExpr</code> classes</a></li>
 <li><a
 href="#issue-925-tfel-math-introduce-the-stressstensorconcept-and-nounitstensorconcept-concepts-and-siblings-for-orther-tensorial-objects"
 id="toc-issue-925-tfel-math-introduce-the-stressstensorconcept-and-nounitstensorconcept-concepts-and-siblings-for-orther-tensorial-objects"><span
-class="toc-section-number">5.2</span> Issue 925: [tfel-math] Introduce
+class="toc-section-number">6.2</span> Issue 925: [tfel-math] Introduce
 the <code>StressStensorConcept</code> and
 <code>NoUnitStensorConcept</code> concepts and siblings for orther
 tensorial objects</a></li>
 <li><a
 href="#issue-922-tfel-math-two-functions-have-no-gpu-device-support"
 id="toc-issue-922-tfel-math-two-functions-have-no-gpu-device-support"><span
-class="toc-section-number">5.3</span> Issue 922: [tfel-math] two
+class="toc-section-number">6.3</span> Issue 922: [tfel-math] two
 functions have no GPU device support</a></li>
 <li><a
 href="#issue-890-mfronthomogenization-add-ponte-castaneda-1992-non-linear-scheme"
 id="toc-issue-890-mfronthomogenization-add-ponte-castaneda-1992-non-linear-scheme"><span
-class="toc-section-number">5.4</span> Issue 890: mfront Add Ponte
+class="toc-section-number">6.4</span> Issue 890: mfront Add Ponte
 Castaneda 1992 non linear scheme</a></li>
 <li><a href="#issue-905-tfelmath-pointer-heavy-coalescedview"
 id="toc-issue-905-tfelmath-pointer-heavy-coalescedview"><span
-class="toc-section-number">5.5</span> Issue 905: [TFEL/Math]
+class="toc-section-number">6.5</span> Issue 905: [TFEL/Math]
 Pointer-heavy CoalescedView</a></li>
 <li><a
 href="#issue-853-tfel-fcheck-have-the-possibility-to-launch-multiple-call-to-tfel-check-simultaenously-in-a-ci-context"
 id="toc-issue-853-tfel-fcheck-have-the-possibility-to-launch-multiple-call-to-tfel-check-simultaenously-in-a-ci-context"><span
-class="toc-section-number">5.6</span> Issue 853: [tfel-fcheck] Have the
+class="toc-section-number">6.6</span> Issue 853: [tfel-fcheck] Have the
 possibility to launch multiple call to <code>tfel-check</code>
 simultaenously in a CI context</a></li>
 </ul></li>
@@ -483,33 +495,56 @@ preferable.</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> values<span class="op">[</span><span class="dv">8</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">40</span><span class="op">};</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> s1 <span class="op">=</span> map_strided<span class="op">&lt;</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;&gt;(</span>values<span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span></code></pre></div>
-<h1 data-number="2" id="new-features-in-tfel-check"><span
-class="header-section-number">2</span> New features in
+<h2 data-number="1.2" id="walpole-basis"><span
+class="header-section-number">1.2</span> Walpole basis</h2>
+<p>The Walpole basis relative to transverse isotropic fourth-order
+tensors (<code>st2tost2</code>) is introduced with the
+<code>struct</code> <code>TransverseIsotropicWalpoleBasis</code>, member
+of <code>tfel::math</code>.</p>
+<h1 data-number="2" id="new-tfelmaterial-features"><span
+class="header-section-number">2</span> New <code>TFEL/Material</code>
+features</h1>
+<h2 data-number="2.1" id="homogenization"><span
+class="header-section-number">2.1</span> Homogenization</h2>
+<p>The following methods of the ParticulateMicrostructure objects are
+able to modify the microstructure:</p>
+<ul>
+<li><code>changeElasticityOfMatrixPhase</code></li>
+<li><code>changeElasticityOfInclusionPhase</code></li>
+<li><code>changeFractionOfInclusionPhase</code></li>
+</ul>
+<p>The <code>UserDefinedDistributionOfSpheroids</code> allows to define
+a distribution of spheroids defined by two orientation tensors. This
+distribution can be used in a <code>ParticulateMicrostructure</code> and
+the associated homogenization schemes can be used with these
+microstructures.</p>
+<h1 data-number="3" id="new-features-in-tfel-check"><span
+class="header-section-number">3</span> New features in
 <code>tfel-check</code></h1>
-<h2 data-number="2.1" id="parallelization"><span
-class="header-section-number">2.1</span> Parallelization</h2>
+<h2 data-number="3.1" id="parallelization"><span
+class="header-section-number">3.1</span> Parallelization</h2>
 <p>The commands described in different <code>.check</code> files can now
 be run in distinct processes.</p>
 <p>Note that the command described in a <code>.check</code> are still
 run sequentially.</p>
 <p>By default, as in previous versions, only one process is used.</p>
-<h3 data-number="2.1.1"
+<h3 data-number="3.1.1"
 id="specifying-the-number-of-jobs-run-simultaneously"><span
-class="header-section-number">2.1.1</span> Specifying the number of jobs
+class="header-section-number">3.1.1</span> Specifying the number of jobs
 run simultaneously</h3>
 <p>The command line argument <code>--jobs</code> (<code>-j</code>) allow
 specifying the number of jobs run simultaneously.</p>
 <p>If no option is given to <code>--jobs</code>, the number of available
 cores is used, if the system provide this information.</p>
-<h4 data-number="2.1.1.1" id="limit-on-the-number-of-jobs"><span
-class="header-section-number">2.1.1.1</span> Limit on the number of
+<h4 data-number="3.1.1.1" id="limit-on-the-number-of-jobs"><span
+class="header-section-number">3.1.1.1</span> Limit on the number of
 jobs</h4>
 <p>By default, this number must be lower than the number of cores
 available. This limit can be discarded by
 passing<code>--discard-jobs-limit=true</code> to
 <code>tfel-check</code>.</p>
-<h3 data-number="2.1.2" id="caution"><span
-class="header-section-number">2.1.2</span> Caution</h3>
+<h3 data-number="3.1.2" id="caution"><span
+class="header-section-number">3.1.2</span> Caution</h3>
 <p>The user must take care that the commands described in
 <code>.check</code> files can be run in parallel.</p>
 <ul>
@@ -525,11 +560,11 @@ undefined behaviour.</p>
 <p>Another example would be to use <code>@CleanDirectories</code> and
 <code>@CleanFiles</code> commands inappropriately and erase data used by
 commands of other <code>.check</code> files.</p>
-<h2 data-number="2.2" id="new-features-in-tfelsystem"><span
-class="header-section-number">2.2</span> New features in
+<h2 data-number="3.2" id="new-features-in-tfelsystem"><span
+class="header-section-number">3.2</span> New features in
 <code>TFEL/System</code></h2>
-<h3 data-number="2.2.1" id="improvements-in-processmanager"><span
-class="header-section-number">2.2.1</span> Improvements in
+<h3 data-number="3.2.1" id="improvements-in-processmanager"><span
+class="header-section-number">3.2.1</span> Improvements in
 <code>ProcessManager</code></h3>
 <ul>
 <li>New overloads of the <code>createProcess</code> and
@@ -538,24 +573,24 @@ command shall be executed.</li>
 <li><code>ProcessManager</code> shall now work properly in a
 multithreaded context.</li>
 </ul>
-<h3 data-number="2.2.2" id="improvements-in-signalmanager"><span
-class="header-section-number">2.2.2</span> Improvements in
+<h3 data-number="3.2.2" id="improvements-in-signalmanager"><span
+class="header-section-number">3.2.2</span> Improvements in
 <code>SignalManager</code></h3>
 <ul>
 <li><code>SignalManager</code> shall now work properly in a
 multithreaded context.</li>
 </ul>
-<h1 data-number="3" id="new-tfelmaterial-features"><span
-class="header-section-number">3</span> New <code>TFEL/Material</code>
+<h1 data-number="4" id="new-tfelmaterial-features-1"><span
+class="header-section-number">4</span> New <code>TFEL/Material</code>
 features</h1>
-<h2 data-number="3.1" id="homogenization"><span
-class="header-section-number">3.1</span> Homogenization</h2>
+<h2 data-number="4.1" id="homogenization-1"><span
+class="header-section-number">4.1</span> Homogenization</h2>
 <p>The second moments of strains considering a Hashin-Shtrikman scheme
 are available. A new <a href="PonteCastaneda1992.html">tutorial</a>
 shows how to use it in the implementation of Ponte-Castaneda variational
 bound (1992), within the framework of non-linear elasticity.</p>
-<h1 data-number="4" id="acknowledgements"><span
-class="header-section-number">4</span> Acknowledgements</h1>
+<h1 data-number="5" id="acknowledgements"><span
+class="header-section-number">5</span> Acknowledgements</h1>
 <p>The authors are grateful to the many contributors to the
 <code>TFEL/MFront</code> project. This research was conducted in the
 framework of the PLEIADES project, which was supported financially by
@@ -563,52 +598,52 @@ the CEA (Commissariat à l’Énergie Atomique et aux Énergies
 Alternatives), EDF (Électricité de France) and Framatome. Homogenization
 developments were conducted within the framework of the AnoHonA ANR
 project (n° AAPG2023).</p>
-<h1 data-number="5" id="issues-fixed"><span
-class="header-section-number">5</span> Issues fixed</h1>
-<h2 data-number="5.1"
+<h1 data-number="6" id="issues-fixed"><span
+class="header-section-number">6</span> Issues fixed</h1>
+<h2 data-number="6.1"
 id="issue-926-tfel-math-add-tfel_host_device-to-leftcauchygreentensorderivativeexpr-and-rightcauchygreentensorderivativeexpr-classes"><span
-class="header-section-number">5.1</span> Issue 926: [tfel-math] Add
+class="header-section-number">6.1</span> Issue 926: [tfel-math] Add
 <code>TFEL_HOST_DEVICE</code> to
 <code>LeftCauchyGreenTensorDerivativeExpr</code> and
 <code>RightCauchyGreenTensorDerivativeExpr</code> classes</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/926"
 class="uri">https://github.com/thelfer/tfel/issues/926</a></p>
-<h2 data-number="5.2"
+<h2 data-number="6.2"
 id="issue-925-tfel-math-introduce-the-stressstensorconcept-and-nounitstensorconcept-concepts-and-siblings-for-orther-tensorial-objects"><span
-class="header-section-number">5.2</span> Issue 925: [tfel-math]
+class="header-section-number">6.2</span> Issue 925: [tfel-math]
 Introduce the <code>StressStensorConcept</code> and
 <code>NoUnitStensorConcept</code> concepts and siblings for orther
 tensorial objects</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/925"
 class="uri">https://github.com/thelfer/tfel/issues/925</a></p>
-<h2 data-number="5.3"
+<h2 data-number="6.3"
 id="issue-922-tfel-math-two-functions-have-no-gpu-device-support"><span
-class="header-section-number">5.3</span> Issue 922: [tfel-math] two
+class="header-section-number">6.3</span> Issue 922: [tfel-math] two
 functions have no GPU device support</h2>
 <p>￼</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/922"
 class="uri">https://github.com/thelfer/tfel/issues/922</a></p>
-<h2 data-number="5.4"
+<h2 data-number="6.4"
 id="issue-890-mfronthomogenization-add-ponte-castaneda-1992-non-linear-scheme"><span
-class="header-section-number">5.4</span> Issue 890: <a
+class="header-section-number">6.4</span> Issue 890: <a
 href="#homogenization">mfront</a> Add Ponte Castaneda 1992 non linear
 scheme</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/890"
 class="uri">https://github.com/thelfer/tfel/issues/890</a></p>
-<h2 data-number="5.5"
+<h2 data-number="6.5"
 id="issue-905-tfelmath-pointer-heavy-coalescedview"><span
-class="header-section-number">5.5</span> Issue 905: [TFEL/Math]
+class="header-section-number">6.5</span> Issue 905: [TFEL/Math]
 Pointer-heavy CoalescedView</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/905"
 class="uri">https://github.com/thelfer/tfel/issues/905</a></p>
-<h2 data-number="5.6"
+<h2 data-number="6.6"
 id="issue-853-tfel-fcheck-have-the-possibility-to-launch-multiple-call-to-tfel-check-simultaenously-in-a-ci-context"><span
-class="header-section-number">5.6</span> Issue 853: [tfel-fcheck] Have
+class="header-section-number">6.6</span> Issue 853: [tfel-fcheck] Have
 the possibility to launch multiple call to <code>tfel-check</code>
 simultaenously in a CI context</h2>
 <p>For more details, see <a

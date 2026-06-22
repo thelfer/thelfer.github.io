@@ -157,6 +157,7 @@
 		    <li><a href="release-notes-3.1.14.html">Version 3.1.14</a></li>
 		    <li><a href="release-notes-3.1.15.html">Version 3.1.15</a></li>
 		    <li><a href="release-notes-3.1.16.html">Version 3.1.16</a></li>
+		    <li><a href="release-notes-3.1.17.html">Version 3.1.17</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.2.x</a>
@@ -277,7 +278,7 @@
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
-                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -417,6 +418,8 @@ usage</a></li>
 <li><a href="#options-1" id="toc-options-1">Options</a></li>
 <li><a href="#notes" id="toc-notes">Notes</a></li>
 </ul></li>
+<li><a href="#sycl-backend" id="toc-sycl-backend"><code>SYCL</code>
+backend</a></li>
 </ul></li>
 <li><a href="#tests" id="toc-tests">Tests</a>
 <ul>
@@ -457,11 +460,12 @@ supporting data with strides</h2>
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="op">(*)(</span>mfront_gmp_OutputStatus<span class="op">*</span> <span class="at">const</span><span class="op">,</span>       <span class="co">// output status</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>         mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>               <span class="co">// output values</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// output stride</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>         <span class="co">// values of the arguments</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_size_types<span class="op">*</span> <span class="at">const</span><span class="op">,</span>   <span class="co">// strides of the arguments</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of arguments</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of points</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_OutOfBoundsPolicy<span class="op">);</span>  <span class="co">// out of bounds policy</span></span></code></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>         <span class="op">...,</span>                                  <span class="co">// extra arguments specific to the backend considered</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>         <span class="co">// values of the arguments</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_size_types<span class="op">*</span> <span class="at">const</span><span class="op">,</span>   <span class="co">// strides of the arguments</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of arguments</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of points</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_OutOfBoundsPolicy<span class="op">);</span>  <span class="co">// out of bounds policy</span></span></code></pre></div>
 <p>The <code>mfront_gmp_OutputStatus</code> structure and the
 <code>mfront_gmp_OutOfBoundsPolicy</code> enumeration type are described
 in the page dedicated to the <a
@@ -480,10 +484,11 @@ as a special case and will use an optimized implementation.</p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="op">(*)(</span>mfront_gmp_OutputStatus<span class="op">*</span> <span class="at">const</span><span class="op">,</span>       <span class="co">// output status</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>         mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>               <span class="co">// output values</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>         <span class="co">// values of the arguments</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of arguments</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of points</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_OutOfBoundsPolicy<span class="op">);</span>  <span class="co">// out of bounds policy</span></span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         <span class="op">...,</span>                                  <span class="co">// extra arguments specific to the backend considered</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>         <span class="co">// values of the arguments</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of arguments</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of points</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_OutOfBoundsPolicy<span class="op">);</span>  <span class="co">// out of bounds policy</span></span></code></pre></div>
 <p>This function assumes that the values of the arguments and the values
 of the output are stored contiguously in memory. In other words, this
 prototype is equivalent to the the first prototype when all strides are
@@ -713,6 +718,7 @@ the host (the CPU) and the device (the GPU) are done transparently.</li>
 top of the Threading Building Blocks library and requires an explicit
 link to this library.</li>
 </ul>
+<h2 id="sycl-backend"><code>SYCL</code> backend</h2>
 <h1 id="tests">Tests</h1>
 <p>Unlike other material property interfaces, the tests for the
 <code>generic-parallel</code> interface is performed in the installation
@@ -739,7 +745,7 @@ the <code>hipcc</code> compiler.</li>
 <li><code>stlpar-parunseq-clang</code>:</li>
 <li><code>stlpar-parunseq-nvhpc-gpu</code>:</li>
 <li><code>stlpar-parunseq-icpx</code>:</li>
-<li><code>sycl-default-sycl</code>: compilation of <code>SYCL</code>
+<li><code>sycl-default-icpx</code>: compilation of <code>SYCL</code>
 files using the <code>icpx</code> compiler.</li>
 </ul>
 <h3 id="notes-1">Notes</h3>

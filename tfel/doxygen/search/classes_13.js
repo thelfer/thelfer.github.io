@@ -250,6 +250,6 @@ var searchData=
   ['types_247',['Types',['../structtfel_1_1config_1_1_types.html',1,'tfel::config']]],
   ['types_3c_20mathobjecttraits_3c_20type_20_3e_3a_3adime_2c_20base_5ftype_3c_20numeric_5ftype_3c_20type_20_3e_20_3e_2c_20isquantity_3c_20numeric_5ftype_3c_20type_20_3e_20_3e_28_29_3e_248',['Types&lt; MathObjectTraits&lt; Type &gt;::dime, base_type&lt; numeric_type&lt; Type &gt; &gt;, isQuantity&lt; numeric_type&lt; Type &gt; &gt;()&gt;',['../structtfel_1_1config_1_1_types.html',1,'tfel::config']]],
   ['types_3c_20n_2c_20t_2c_20false_20_3e_249',['Types&lt; N, T, false &gt;',['../structtfel_1_1config_1_1_types_3_01_n_00_01_t_00_01false_01_4.html',1,'tfel::config']]],
-  ['typesdescription_250',['TypesDescription',['../structmfront_1_1_generic_material_property_interface_base_1_1_types_description.html',1,'mfront::GenericMaterialPropertyInterfaceBase']]],
+  ['typesdescription_250',['typesdescription',['../structmfront_1_1_generic_material_property_interface_base_1_1_types_description.html',1,'mfront::GenericMaterialPropertyInterfaceBase::TypesDescription'],['../structmfront_1_1_generic_parallel_material_property_interface_1_1_types_description.html',1,'mfront::GenericParallelMaterialPropertyInterface::TypesDescription']]],
   ['typesize_251',['TypeSize',['../structmfront_1_1_supported_types_1_1_type_size.html',1,'mfront::SupportedTypes']]]
 ];

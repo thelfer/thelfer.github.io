@@ -1,5 +1,7 @@
 var NAVTREEINDEX14 =
 {
+"stensor_8ixx.html#a33134e4f16ef5d92d860023e9b229888":[6,0,1,0,0,0,1,0,6,5,18,3,2],
+"stensor_8ixx.html#a4978c2c4e0ea0cc29e643c13efc6f9f8":[6,0,1,0,0,0,1,0,6,5,18,3,1],
 "stensor_8ixx.html#a5943258c1642815c562d79ca9fe91644":[6,0,1,0,0,0,1,0,6,5,18,3,7],
 "stensor_8ixx.html#a7a5a5d52c467c682b81d8ee175a3be57":[6,0,1,0,0,0,1,0,6,5,18,3,8],
 "stensor_8ixx.html#a82cf2c8e7c4c1248681a6574d1542f7c":[6,0,1,0,0,0,1,0,6,5,18,3,4],
@@ -120,7 +122,7 @@ var NAVTREEINDEX14 =
 "structabaqus_1_1_extract_and_convert_tangent_operator.html":[5,0,0,52],
 "structabaqus_1_1_extract_and_convert_tangent_operator_3_01tfel_1_1material_1_1_modelling_hypothedf45655b1ca7360ac05719e53ec5b8d2.html":[5,0,0,53],
 "structabaqus_1_1_stress_free_expansion_handler_type.html":[5,0,0,54],
-"structabaqus_1_1_stress_free_expansion_handler_type.html#a9019069df972ddc17268f1c7dd290d20":[5,0,0,54,0],
+"structabaqus_1_1_stress_free_expansion_handler_type.html#a0a16ad6c1338e92eb4f4a802449d8f9c":[5,0,0,54,0],
 "structabaqus_1_1_u_m_a_t_export_thermodynamic_forces.html":[5,0,0,55],
 "structabaqus_1_1_u_m_a_t_export_thermodynamic_forces_3_01tfel_1_1material_1_1_modelling_hypothes3c36c20864e957073fdc7dc3fa283c51.html":[5,0,0,56],
 "structabaqus_1_1_u_m_a_t_import_gradients.html":[5,0,0,57],
@@ -237,7 +239,7 @@ var NAVTREEINDEX14 =
 "structansys_1_1_import_thermodynamic_forces.html":[5,0,1,65],
 "structansys_1_1_import_thermodynamic_forces_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html":[5,0,1,66],
 "structansys_1_1_stress_free_expansion_handler_type.html":[5,0,1,67],
-"structansys_1_1_stress_free_expansion_handler_type.html#a159f2299a4c7457588b1bf9d7f585e5a":[5,0,1,67,0],
+"structansys_1_1_stress_free_expansion_handler_type.html#a5cd0a95dfa10c014143ba9e2e51d2043":[5,0,1,67,0],
 "structaster_1_1_aster_behaviour_handler.html":[5,0,2,0],
 "structaster_1_1_aster_behaviour_handler_1_1_do_nothing_initializer.html":[5,0,2,0,0],
 "structaster_1_1_aster_behaviour_handler_1_1_error.html":[5,0,2,0,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX14 =
 "structaster_1_1_aster_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html#a2ab397c4315c85141c14b680ea4abbbd":[5,0,2,0,2,0],
 "structaster_1_1_aster_behaviour_handler_1_1_integrator.html":[5,0,2,0,4],
 "structaster_1_1_aster_behaviour_handler_1_1_stiffness_operator_initializer.html":[5,0,2,0,5],
-"structaster_1_1_aster_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html":[5,0,2,0,6],
-"structaster_1_1_aster_compute_stiffness_tensor.html":[5,0,2,1],
-"structaster_1_1_aster_compute_stiffness_tensor_3_01aster_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a899c2529cac8c2121147c7ad8fb63078.html":[5,0,2,2]
+"structaster_1_1_aster_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html":[5,0,2,0,6]
 };

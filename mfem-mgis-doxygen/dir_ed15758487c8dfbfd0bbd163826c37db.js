@@ -72,6 +72,7 @@ var dir_ed15758487c8dfbfd0bbd163826c37db =
     [ "ModellingHypothesis.hxx", "_modelling_hypothesis_8hxx.html", "_modelling_hypothesis_8hxx" ],
     [ "MohrCoulombYieldCriterion.hxx", "_mohr_coulomb_yield_criterion_8hxx.html", "_mohr_coulomb_yield_criterion_8hxx" ],
     [ "MohrCoulombYieldCriterion.ixx", "_mohr_coulomb_yield_criterion_8ixx.html", "_mohr_coulomb_yield_criterion_8ixx" ],
+    [ "OrientationAverages.hxx", "_orientation_averages_8hxx.html", "_orientation_averages_8hxx" ],
     [ "OrthotropicAxesConvention.hxx", "_orthotropic_axes_convention_8hxx.html", "_orthotropic_axes_convention_8hxx" ],
     [ "OrthotropicAxesConvention.ixx", "_orthotropic_axes_convention_8ixx.html", "_orthotropic_axes_convention_8ixx" ],
     [ "OrthotropicPlasticity.hxx", "_orthotropic_plasticity_8hxx.html", "_orthotropic_plasticity_8hxx" ],

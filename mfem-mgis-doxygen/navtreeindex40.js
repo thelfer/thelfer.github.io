@@ -1,5 +1,7 @@
 var NAVTREEINDEX40 =
 {
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#aedeaeeb694d00ddaa725b1e322c51cc7":[5,0,11,0,28,4],
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_factory.html":[5,0,11,0,29],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_factory.html#a1d473b0f1ac63742fc82b973c313425f":[5,0,11,0,29,0],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_factory.html#a5e972f61c9b2a1f75db5ff52c3421edb":[5,0,11,0,29,2],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_factory.html#ae196a004ac4db138607ff24ec3808bd1":[5,0,11,0,29,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX40 =
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a6cd59442ab031816862048844ec0b909":[5,0,11,0,54,13],
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a6fef49c62bdcd064095d2c301b695ae1":[5,0,11,0,54,3],
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a8399028daa2cc1ec329587a8bb742161":[5,0,11,0,54,1],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a86a61027176d24d9708f40b888425db6":[5,0,11,0,54,4],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a896c13e38a2cab5fd41066dc30ceac08":[5,0,11,0,54,0],
-"structmfront_1_1bbrick_1_1_stress_criterion.html#a8a23956846e12c290e4d8a4c8c88dc43":[5,0,11,0,54,7]
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a86a61027176d24d9708f40b888425db6":[5,0,11,0,54,4]
 };

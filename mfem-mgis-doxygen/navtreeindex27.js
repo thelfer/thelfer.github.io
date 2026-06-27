@@ -1,5 +1,7 @@
 var NAVTREEINDEX27 =
 {
+"structmfem__mgis_1_1_partial_quadrature_space.html#ad6f45d56ad5899f9ccea4e268b9bfb2c":[5,0,9,115,9],
+"structmfem__mgis_1_1_partial_quadrature_space.html#ad8e0e2aa6ce6ae03d5f802eef85a2cff":[5,0,9,115,5],
 "structmfem__mgis_1_1_partial_quadrature_space.html#ad8e0e2aa6ce6ae03d5f802eef85a2cff":[3,0,0,113,5],
 "structmfem__mgis_1_1_partial_quadrature_space.html#ae4765815f666f45fe975e688b0cf2884":[5,0,9,115,0],
 "structmfem__mgis_1_1_partial_quadrature_space.html#ae4765815f666f45fe975e688b0cf2884":[3,0,0,113,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX27 =
 "structmfem__mgis_1_1_simulation.html#aecc217e70ee07e9556cdaa2d049170a6":[3,0,0,127,9],
 "structmfem__mgis_1_1_simulation.html#af2d834615e73932b08c7cbdbf26eec5b":[5,0,9,129,37],
 "structmfem__mgis_1_1_simulation.html#af2d834615e73932b08c7cbdbf26eec5b":[3,0,0,127,37],
-"structmfem__mgis_1_1_simulation.html#af58d6b67741c4ae28f8e2ee18e30647b":[3,0,0,127,30],
-"structmfem__mgis_1_1_simulation.html#af58d6b67741c4ae28f8e2ee18e30647b":[5,0,9,129,30],
-"structmfem__mgis_1_1_simulation.html#af604980daef54129f5aada84e0ecf333":[5,0,9,129,8]
+"structmfem__mgis_1_1_simulation.html#af58d6b67741c4ae28f8e2ee18e30647b":[3,0,0,127,30]
 };

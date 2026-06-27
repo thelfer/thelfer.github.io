@@ -1,5 +1,8 @@
 var NAVTREEINDEX53 =
 {
+"structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_vector_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html":[5,0,16,5,23],
+"structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_vector_tag_00_01_aacd611d194eace726070c251dc266569.html":[5,0,16,5,23,0],
+"structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_math_object_tag_00066dae1694a3ab9f1aed320e0b58701e.html":[5,0,16,5,24,0],
 "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_math_object_tag_00b703abb03566e06b31c98c29770e7d11.html":[5,0,16,5,24],
 "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_scalar_tag_00_01_a_00_01_b_00_01_op_div_01_4.html":[5,0,16,5,25],
 "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_scalar_tag_00_01_a_00_01_b_00_01_op_div_01_4.html#adeda5a945ac4fe08440afe9529e19bfb":[5,0,16,5,25,1],
@@ -238,7 +241,7 @@ var NAVTREEINDEX53 =
 "structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html#ad08d82a8a1ad17b6a532d5efad6b89a0":[5,0,16,5,190,0,2],
 "structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html#afb808f690f8e37b1f1c2aafdb771920a":[5,0,16,5,190,0,1],
 "structtfel_1_1math_1_1_difference_random_access_iterator_base.html":[5,0,16,5,191],
-"structtfel_1_1math_1_1_dot_product.html":[5,0,16,5,193],
+"structtfel_1_1math_1_1_dot_product.html":[5,0,16,5,192],
 "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html":[5,0,16,5,195],
 "structtfel_1_1math_1_1_empty_run_time_properties.html":[5,0,16,5,196],
 "structtfel_1_1math_1_1_evaluator.html":[5,0,16,5,197],
@@ -246,8 +249,5 @@ var NAVTREEINDEX53 =
 "structtfel_1_1math_1_1_evaluator.html#a3dfec67902be6ee3ff7febbad3e0661c":[5,0,16,5,197,27],
 "structtfel_1_1math_1_1_evaluator.html#a7a321ca83b4b85365b2e2ee66733022c":[5,0,16,5,197,29],
 "structtfel_1_1math_1_1_evaluator.html#a7c56bf306e5da6ddab74ac964f5f3763":[5,0,16,5,197,20],
-"structtfel_1_1math_1_1_evaluator.html#a7d4a803c4a96d969c487acfd1fef2eae":[5,0,16,5,197,24],
-"structtfel_1_1math_1_1_evaluator.html#a7dc252a8156eadb39409cabfc3f2b440":[5,0,16,5,197,22],
-"structtfel_1_1math_1_1_evaluator.html#a8d9fa94c682c4d18be56461e7371d548":[5,0,16,5,197,21],
-"structtfel_1_1math_1_1_evaluator.html#a919c692903b717127355697497d64967":[5,0,16,5,197,25]
+"structtfel_1_1math_1_1_evaluator.html#a7d4a803c4a96d969c487acfd1fef2eae":[5,0,16,5,197,24]
 };

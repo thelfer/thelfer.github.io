@@ -1,5 +1,7 @@
 var NAVTREEINDEX49 =
 {
+"structmtest_1_1_secant_acceleration_algorithm.html#a97556e5becfaf59b2c083d78d4eacd11":[5,0,13,73,2],
+"structmtest_1_1_secant_acceleration_algorithm.html#aa9b24cc488ba3aa9cc18a520f9af5d5d":[5,0,13,73,0],
 "structmtest_1_1_secant_acceleration_algorithm.html#aaa1f2a5a2ec98708656f756251dbcf06":[5,0,13,73,5],
 "structmtest_1_1_secant_acceleration_algorithm.html#aba318b1cd6cee267bed620e0b4241c30":[5,0,13,73,9],
 "structmtest_1_1_secant_acceleration_algorithm.html#af4445d6f462e40b54a210291920eb8de":[5,0,13,73,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX49 =
 "structnumodis_1_1_b_c_c.html#a7a23dc35ea854429999c06a18b486ecc":[5,0,14,1,0],
 "structnumodis_1_1_b_c_c.html#ad32134a3f63984dd128b3ee022e38a43":[5,0,14,1,2],
 "structnumodis_1_1_b_c_c.html#afc2663ad51a08c9f2f91e67643e8385c":[5,0,14,1,1],
-"structnumodis_1_1_crystallo.html":[5,0,14,2],
-"structnumodis_1_1_crystallo.html#a2a6f64b9ce5af2d2191675ef0a53256d":[5,0,14,2,6],
-"structnumodis_1_1_crystallo.html#a2ed32a999789f50192701bbe2cca5452":[5,0,14,2,3]
+"structnumodis_1_1_crystallo.html":[5,0,14,2]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX39 =
 {
+"structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#ae8a4ede6d04a826c6c3a241e133a1877":[5,0,11,0,11,4],
+"structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#aebb5ad8ad3d4aa1d057ecc1891b1e8a1":[5,0,11,0,11,6],
 "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html":[5,0,11,0,10],
 "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html#a002e26bf3023d9a0d7240163307db5e6":[5,0,11,0,10,0],
 "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html#a345ffe6c05a51df57e86b2b2faff4f2e":[5,0,11,0,10,7],
@@ -247,7 +249,5 @@ var NAVTREEINDEX39 =
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#acdf216bb1c14e2f669ee6acfc6c5d673":[5,0,11,0,28,5],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae2617a5e2b0b5dd98156a16d5fd74a13":[5,0,11,0,28,9],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae8fee4824a0ae31f3760dec220d6cd2a":[5,0,11,0,28,6],
-"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae9a9dd4e811008e37e75cac86775c0ab":[5,0,11,0,28,1],
-"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#aedeaeeb694d00ddaa725b1e322c51cc7":[5,0,11,0,28,4],
-"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_factory.html":[5,0,11,0,29]
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae9a9dd4e811008e37e75cac86775c0ab":[5,0,11,0,28,1]
 };

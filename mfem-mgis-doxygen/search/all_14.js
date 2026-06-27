@@ -70,7 +70,7 @@ var searchData=
   ['permutation_2eixx_67',['Permutation.ixx',['../_permutation_8ixx.html',1,'']]],
   ['permutation_3c_20size_5ftype_20_3e_68',['Permutation&lt; size_type &gt;',['../structtfel_1_1math_1_1_permutation.html',1,'tfel::math']]],
   ['phase_69',['Phase',['../structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase.html',1,'tfel::material::homogenization::elasticity']]],
-  ['phi_70',['phi',['../structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html#ad9f05054e2c615292c6822fd12ef98c2',1,'tfel::material::BarlatStressAndDerivativesWithRespectToEigenvalues::Phi'],['../structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a94e93ec4268a291fb029a8868c6f61a3',1,'mfront::bbrick::MohrCoulombStressCriterion::phi']]],
+  ['phi_70',['phi',['../structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a94e93ec4268a291fb029a8868c6f61a3',1,'mfront::bbrick::MohrCoulombStressCriterion::phi'],['../structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html#ad9f05054e2c615292c6822fd12ef98c2',1,'tfel::material::BarlatStressAndDerivativesWithRespectToEigenvalues::Phi']]],
   ['physicalconstants_71',['PhysicalConstants',['../structtfel_1_1_physical_constants.html',1,'tfel']]],
   ['physicalconstants_2ehxx_72',['PhysicalConstants.hxx',['../_physical_constants_8hxx.html',1,'']]],
   ['physicalconstants_3c_20numerictype_2c_20false_20_3e_73',['PhysicalConstants&lt; NumericType, false &gt;',['../structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html',1,'tfel']]],

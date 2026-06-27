@@ -1,5 +1,7 @@
 var NAVTREEINDEX17 =
 {
+"structlsdyna_1_1_l_s_d_y_n_a_rotation2_d.html":[5,0,8,43],
+"structlsdyna_1_1_l_s_d_y_n_a_rotation3_d.html":[5,0,8,44],
 "structlsdyna_1_1_l_s_d_y_n_a_stensor_size.html":[5,0,8,45],
 "structlsdyna_1_1_l_s_d_y_n_a_stensor_size_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html":[5,0,8,46],
 "structlsdyna_1_1_l_s_d_y_n_a_tangent_operator.html":[5,0,8,47],
@@ -10,7 +12,7 @@ var NAVTREEINDEX17 =
 "structlsdyna_1_1_l_s_d_y_n_a_traits.html":[5,0,8,52],
 "structlsdyna_1_1_l_s_d_y_n_a_un_supported_case_handler.html":[5,0,8,53],
 "structlsdyna_1_1_stress_free_expansion_handler_type.html":[5,0,8,54],
-"structlsdyna_1_1_stress_free_expansion_handler_type.html#a93c1d61ac117c9368a1b557b0d4c0462":[5,0,8,54,0],
+"structlsdyna_1_1_stress_free_expansion_handler_type.html#a5dd589ca25bc1371cd5349f14a8745b6":[5,0,8,54,0],
 "structlsdyna_1_1_u_m_a_t_export_thermodynamic_forces.html":[5,0,8,55],
 "structlsdyna_1_1_u_m_a_t_export_thermodynamic_forces_3_01tfel_1_1material_1_1_modelling_hypothes6f32e092d7ac11f25b84bd8843e78318.html":[5,0,8,56],
 "structlsdyna_1_1_u_m_a_t_import_gradients.html":[5,0,8,57],
@@ -247,7 +249,5 @@ var NAVTREEINDEX17 =
 "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#aa9edf89f6d0e48c03bde1080d882e040":[5,0,9,10,24],
 "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#aab29f34f08d699fae59b91d06f2c319d":[3,0,0,8,0],
 "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#aab29f34f08d699fae59b91d06f2c319d":[5,0,9,10,0],
-"structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#aabd92ad38e5e898ff0ed3718050336a4":[3,0,0,8,27],
-"structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#aabd92ad38e5e898ff0ed3718050336a4":[5,0,9,10,27],
-"structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#aace4d95d70777a20a3d588235777b70f":[3,0,0,8,21]
+"structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#aabd92ad38e5e898ff0ed3718050336a4":[3,0,0,8,27]
 };

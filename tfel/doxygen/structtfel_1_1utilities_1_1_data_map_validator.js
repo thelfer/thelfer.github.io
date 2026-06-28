@@ -5,7 +5,6 @@ var structtfel_1_1utilities_1_1_data_map_validator =
     [ "DataMapValidator", "structtfel_1_1utilities_1_1_data_map_validator.html#aba15da33b2c9dc63d382a767a887e45c", null ],
     [ "DataMapValidator", "structtfel_1_1utilities_1_1_data_map_validator.html#a82b36c600578eb695e735bfc36c4f280", null ],
     [ "~DataMapValidator", "structtfel_1_1utilities_1_1_data_map_validator.html#af7b5bfaf0a69e7b41a190418d6ea2586", null ],
-    [ "addStrictlyPositiveIntegerCheck", "structtfel_1_1utilities_1_1_data_map_validator.html#a97ec89de6f3dfd9f4acb28d47967a3f2", null ],
     [ "operator=", "structtfel_1_1utilities_1_1_data_map_validator.html#aa6503cfc15b404e15c1cf5ad583b7fcc", null ],
     [ "operator=", "structtfel_1_1utilities_1_1_data_map_validator.html#acffffd3e2908dc8ad925de08ee88ce40", null ],
     [ "validate", "structtfel_1_1utilities_1_1_data_map_validator.html#afefedc157789d247f61ceae5992f2dec", null ]

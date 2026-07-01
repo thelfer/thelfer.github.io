@@ -12,7 +12,7 @@ var _stensor_concept_8hxx =
     [ "computeDeterminantDerivative", "_stensor_concept_8hxx.html#a55bab85d1b67e5352c5d5332561b94a4", null ],
     [ "computeDeviatorDeterminantDerivative", "_stensor_concept_8hxx.html#a025d9f67f4a9f3e9e93601967489236e", null ],
     [ "deviator", "_stensor_concept_8hxx.html#acaee5f634156ab68de31b27ec181d09e", null ],
-    [ "getStensorSize", "_stensor_concept_8hxx.html#a1dac85eb9e4a0729f98d4307357a577f", null ],
+    [ "getStensorSize", "_stensor_concept_8hxx.html#abfe30dbf021798da2b686fac6763c127", null ],
     [ "implementsStensorConcept", "_stensor_concept_8hxx.html#aa9c5158c760918c5deb630d1e8f33fec", null ],
     [ "sigmaeq", "_stensor_concept_8hxx.html#a206e778a81e828ec311ba77fb8cb3e25", null ],
     [ "trace", "_stensor_concept_8hxx.html#aa6fef83d25b2b1d6fbc562246c71ffdd", null ],

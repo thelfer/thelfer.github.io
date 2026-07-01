@@ -833,7 +833,7 @@ var namespacetfel_1_1math =
     [ "getComponent", "namespacetfel_1_1math.html#a91553a60bdbed6160bab40ecc21587e5", null ],
     [ "getSpaceDimension", "namespacetfel_1_1math.html#a78e6e124b6c3ec6286d482b8856be7ec", null ],
     [ "getStensorSize", "namespacetfel_1_1math.html#af44115f46a86f0aa19dce577b27dfd68", null ],
-    [ "getStensorSize", "namespacetfel_1_1math.html#a1dac85eb9e4a0729f98d4307357a577f", null ],
+    [ "getStensorSize", "namespacetfel_1_1math.html#abfe30dbf021798da2b686fac6763c127", null ],
     [ "getViewsArrayMinimalStride", "namespacetfel_1_1math.html#abc565bd93d818874a327dc9140022539", null ],
     [ "hasArrayPolicyFixedSizes", "namespacetfel_1_1math.html#aedea4c9f6add6b2dc767caf2314e2f91", null ],
     [ "hasArrayPolicyFixedSizes", "namespacetfel_1_1math.html#a0e847d1c24567cea3f45361f8daf4fba", null ],

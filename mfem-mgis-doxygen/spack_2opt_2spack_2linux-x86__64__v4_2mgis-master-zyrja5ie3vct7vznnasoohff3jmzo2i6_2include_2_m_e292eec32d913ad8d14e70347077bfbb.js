@@ -1,5 +1,0 @@
-var spack_2opt_2spack_2linux_x86__64__v4_2mgis_master_zyrja5ie3vct7vznnasoohff3jmzo2i6_2include_2_m_e292eec32d913ad8d14e70347077bfbb =
-[
-    [ "assign", "spack_2opt_2spack_2linux-x86__64__v4_2mgis-master-zyrja5ie3vct7vznnasoohff3jmzo2i6_2include_2_m_e292eec32d913ad8d14e70347077bfbb.html#a3f5b4ca6a30cc265c2cb491d61ad13ca", null ],
-    [ "scalar_reduce", "spack_2opt_2spack_2linux-x86__64__v4_2mgis-master-zyrja5ie3vct7vznnasoohff3jmzo2i6_2include_2_m_e292eec32d913ad8d14e70347077bfbb.html#a932a34e7734bd624edfe1d5496376e3e", null ]
-];

@@ -37,5 +37,6 @@ var searchData=
   ['contractviolationhandler_34',['ContractViolationHandler',['../structmgis_1_1_contract_violation_handler.html',1,'mgis']]],
   ['convertfinitestrainstiffnessevaluator_35',['ConvertFiniteStrainStiffnessEvaluator',['../structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html',1,'mgis::function::internals']]],
   ['convertfinitestrainstiffnessmodifiergenerator_36',['ConvertFiniteStrainStiffnessModifierGenerator',['../structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_modifier_generator.html',1,'mgis::function::internals']]],
-  ['cste_37',['Cste',['../structmgis_1_1_cste.html',1,'mgis']]]
+  ['cste_37',['Cste',['../structmgis_1_1_cste.html',1,'mgis']]],
+  ['cudaexecutionconfiguration_38',['CUDAExecutionConfiguration',['../structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html',1,'mgis::function']]]
 ];

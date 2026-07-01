@@ -14,6 +14,9 @@ var _unary_operation_8hxx =
     [ "mgis::function::customization_points::MinimumComponent< real >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01real_01_4.html", null ],
     [ "mgis::function::customization_points::MinimumComponent< std::span< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html", null ],
     [ "mgis::function::customization_points::MinimumComponent< std::array< real, N > >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01std_1_1array_3_01real_00_01_n_01_4_01_4.html", null ],
+    [ "mgis::function::internals::AbsoluteValueOperator", "structmgis_1_1function_1_1internals_1_1_absolute_value_operator.html", null ],
+    [ "mgis::function::internals::MaximumComponentOperator", "structmgis_1_1function_1_1internals_1_1_maximum_component_operator.html", null ],
+    [ "mgis::function::internals::MinimumComponentOperator", "structmgis_1_1function_1_1internals_1_1_minimum_component_operator.html", null ],
     [ "getNumberOfComponents", "_unary_operation_8hxx.html#af90d2f9f713e03e6a3c1bf1109a12b3d", null ],
     [ "getNumberOfComponents", "_unary_operation_8hxx.html#a999e2f961fd72ca05ed5bde0c51e0f02", null ]
 ];

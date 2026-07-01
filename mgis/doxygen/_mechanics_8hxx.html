@@ -98,6 +98,7 @@ $(document).ready(function(){initNavTree('_mechanics_8hxx.html',''); initResizab
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
@@ -111,6 +112,15 @@ $(document).ready(function(){initNavTree('_mechanics_8hxx.html',''); initResizab
 <code>#include &quot;<a class="el" href="_tensors_8hxx.html">MGIS/Function/TFEL/Tensors.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_mechanics_8ixx.html">MGIS/Function/TFEL/Mechanics.ixx</a>&quot;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_hydrostatic_stress_operator.html">mgis::function::internals::HydrostaticStressOperator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_von_mises_stress_operator.html">mgis::function::internals::VonMisesStressOperator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_first_piola_kirchhoff_stress_to_cauchy_stress_operator.html">mgis::function::internals::FirstPiolaKirchhoffStressToCauchyStressOperator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacemgis" id="r_namespacemgis"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemgis.html">mgis</a></td></tr>
@@ -176,11 +186,7 @@ template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stenso
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">      internals::binary_operation_modifier2(</div>
-<div class="line">          []&lt;tfel::math::TensorConcept TensorType&gt;(<span class="keyword">const</span> TensorType&amp; pk1,</div>
-<div class="line">                                                   <span class="keyword">const</span> TensorType&amp; F) {</div>
-<div class="line">            <span class="keywordflow">return</span> tfel::math::convertFirstPiolaKirchhoffStressToCauchyStress(</div>
-<div class="line">                pk1, F);</div>
-<div class="line">          })</div>
+<div class="line">          internals::FirstPiolaKirchhoffStressToCauchyStressOperator{})</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -205,9 +211,7 @@ template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stenso
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">      internals::unary_operation_modifier2(</div>
-<div class="line">          [](<span class="keyword">const</span> tfel::math::StensorConcept <span class="keyword">auto</span>&amp; s) {</div>
-<div class="line">            <span class="keywordflow">return</span> tfel::math::trace(s) / 3;</div>
-<div class="line">          })</div>
+<div class="line">          internals::HydrostaticStressOperator{})</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -230,10 +234,8 @@ template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stenso
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= internals::unary_operation_modifier2(</div>
-<div class="line">      [](<span class="keyword">const</span> tfel::math::StensorConcept <span class="keyword">auto</span>&amp; s) {</div>
-<div class="line">        <span class="keywordflow">return</span> tfel::math::sigmaeq(s);</div>
-<div class="line">      })</div>
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">      internals::unary_operation_modifier2(internals::VonMisesStressOperator{})</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -243,7 +245,7 @@ template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stenso
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_2e52b00940cd27d9780366949db1e89b.html">Function</a></li><li class="navelem"><a class="el" href="dir_e23cfa4dbebc272344c1d50ffb8bb175.html">TFEL</a></li><li class="navelem"><a class="el" href="_mechanics_8hxx.html">Mechanics.hxx</a></li>
-    <li class="footer">Generated on Mon Jun 29 2026 15:53:20 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Jul 1 2026 12:38:10 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

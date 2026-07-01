@@ -12,8 +12,9 @@ var searchData=
   ['nopts_9',['nopts',['../structmgis_1_1behaviour_1_1_behaviour_description.html#ad92d5b4a9007c5218250ea8087fe3b49',1,'mgis::behaviour::BehaviourDescription']]],
   ['notes_10',['Release notes',['../index.html#autotoc_md5',1,'']]],
   ['number_5fof_5fcomponents_11',['number_of_components',['../_compile_time_size_8hxx.html#a2ff9ad9e6b0f310ff8e51bfecb509945',1,'mgis::function']]],
-  ['numberofcomponents_12',['NumberOfComponents',['../structmgis_1_1function_1_1internals_1_1_number_of_components.html',1,'mgis::function::internals']]],
-  ['numberofcomponents_3c_20evaluatortype_20_3e_13',['NumberOfComponents&lt; EvaluatorType &gt;',['../structmgis_1_1function_1_1internals_1_1_number_of_components_3_01_evaluator_type_01_4.html',1,'mgis::function::internals']]],
-  ['numberofcomponents_3c_20functiontype_20_3e_14',['NumberOfComponents&lt; FunctionType &gt;',['../structmgis_1_1function_1_1internals_1_1_number_of_components_3_01_function_type_01_4.html',1,'mgis::function::internals']]],
-  ['numpysupport_2ehxx_15',['NumPySupport.hxx',['../_num_py_support_8hxx.html',1,'']]]
+  ['number_5fof_5fthreads_5fper_5fblock_12',['number_of_threads_per_block',['../structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html#a1b6115334926e92cfac53eeab9c62a4b',1,'mgis::function::CUDAExecutionConfiguration']]],
+  ['numberofcomponents_13',['NumberOfComponents',['../structmgis_1_1function_1_1internals_1_1_number_of_components.html',1,'mgis::function::internals']]],
+  ['numberofcomponents_3c_20evaluatortype_20_3e_14',['NumberOfComponents&lt; EvaluatorType &gt;',['../structmgis_1_1function_1_1internals_1_1_number_of_components_3_01_evaluator_type_01_4.html',1,'mgis::function::internals']]],
+  ['numberofcomponents_3c_20functiontype_20_3e_15',['NumberOfComponents&lt; FunctionType &gt;',['../structmgis_1_1function_1_1internals_1_1_number_of_components_3_01_function_type_01_4.html',1,'mgis::function::internals']]],
+  ['numpysupport_2ehxx_16',['NumPySupport.hxx',['../_num_py_support_8hxx.html',1,'']]]
 ];
